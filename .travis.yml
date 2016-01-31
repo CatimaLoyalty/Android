@@ -1,0 +1,25 @@
+language: android
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-23.0.2
+
+    # The SDK version used to compile your project
+    - android-23
+
+    # Additional components
+    - extra
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-x86-android-17
+
+script: gradle build lint test
+
+after_failure:
+- cat app/build/outputs/lint-results.xml

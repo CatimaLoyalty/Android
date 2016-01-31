@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Carte fedeltà</string>
+    <string name="action_add">Aggiungi</string>
+
+    <string name="noGiftCards">Non hai ancora alcuna tessera fedeltà al momento. Premi sul bottone "+" (più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue tessere fedeltà, così da averle sempre a disposizione.</string>
+
+    <string name="storeName">Negozio</string>
+    <string name="cardId">Codice</string>
+    <string name="barcodeType">Tipo codice a barre</string>
+
+    <string name="cancel">Annulla</string>
+    <string name="save">Salva</string>
+    <string name="capture">Salva tessera</string>
+    <string name="edit">Modifica</string>
+    <string name="delete">Elimina</string>
+
+    <string name="editCardTitle">Modifica carta</string>
+    <string name="addCardTitle">Aggiungi carta</string>
+    <string name="viewCardTitle">Mostra carta</string>
+    <string name="scanCardBarcode">Scansiona codice carta</string>
+
+    <string name="barcodeImageDescription">Immagine del codice a barre della carta</string>
+
+    <string name="noStoreError">Nessun negozio inserito</string>
+    <string name="noCardIdError">Nessun codice carta inserito</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+</resources>

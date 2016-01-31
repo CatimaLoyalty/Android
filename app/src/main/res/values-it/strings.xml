@@ -2,7 +2,7 @@
     <string name="app_name">Carte fedeltà</string>
     <string name="action_add">Aggiungi</string>
 
-    <string name="noGiftCards">Non hai ancora alcuna tessera fedeltà al momento. Premi sul bottone "+" (più) in alto per incominciare.\n\nL'app ti permette di portare con te le tue tessere fedeltà, così da averle sempre a disposizione.</string>
+    <string name="noGiftCards">Non hai ancora alcuna tessera fedeltà al momento. Premi sul bottone "+" (più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue tessere fedeltà, così da averle sempre a disposizione.</string>
 
     <string name="storeName">Negozio</string>
     <string name="cardId">Codice</string>

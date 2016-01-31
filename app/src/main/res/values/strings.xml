@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Loyalty Card Locker</string>
+    <string name="action_add">Add</string>
+
+    <string name="noGiftCards">You don\'t have any loyalty cards at the moment. Click the "+" (plus) button up top to get started.\n\nLoyalty Card Locker lets you carry your loyalty cards on your phone, so they are always within reach.</string>
+
+    <string name="storeName">Store</string>
+    <string name="cardId">Card ID</string>
+    <string name="barcodeType">Barcode Type</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="capture">Capture Card</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+    <string name="editCardTitle">Edit Loyalty Card</string>
+    <string name="addCardTitle">Add Loyalty Card</string>
+    <string name="viewCardTitle">View Loyalty Card</string>
+    <string name="scanCardBarcode">Scan Card\'s Barcode</string>
+
+    <string name="barcodeImageDescription">Image of card\'s barcode</string>
+
+    <string name="noStoreError">No Store entered</string>
+    <string name="noCardIdError">No Card ID entered</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+</resources>

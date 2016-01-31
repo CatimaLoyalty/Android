@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+              android:padding="5.0dip"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal"
+                  android:padding="5.0dip"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:baselineAligned="true">
+        <TextView android:textSize="20.0sp"
+                  android:id="@+id/store"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+                  android:padding="5.0dip"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:baselineAligned="true">
+        <TextView android:textSize="20.0sp"
+                  android:layout_gravity="start"
+                  android:id="@+id/cardId"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

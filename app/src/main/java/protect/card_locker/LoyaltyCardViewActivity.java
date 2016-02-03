@@ -170,7 +170,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 IntentIntegrator integrator = new IntentIntegrator(LoyaltyCardViewActivity.this);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
 
                 String prompt = getResources().getString(R.string.scanCardBarcode);
                 integrator.setPrompt(prompt);

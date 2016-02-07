@@ -2,8 +2,18 @@
 <manifest package="protect.card_locker"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-feature android:required="true" android:name="android.hardware.camera"/>
-    <uses-permission android:maxSdkVersion="18" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.CAMERA"/>
+    <uses-permission
+        android:maxSdkVersion="18"
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="false"

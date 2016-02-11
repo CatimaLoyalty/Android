@@ -4,7 +4,19 @@
 [![F-Droid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Get_it_on_F-Droid.svg/160px-Get_it_on_F-Droid.svg.png)](https://f-droid.org/repository/browse/?fdid=protect.card_locker "Loyalty Card Locker on F-Droid")
 
 
-Stores all of your store loyalty cards on your phone, removing the need to carry them around.  
+Stores all of your store loyalty cards on your phone, removing the need to carry them around.  Currently the following barcode types are supported:
+
+- AZTEC
+- CODABAR
+- CODE_39
+- CODE_128
+- DATA_MATRIX
+- EAN_8
+- EAN_13
+- ITF
+- PDF_417
+- QR_CODE
+- UPC_A
 
 If there is any interest in improving this project, kindly submit a pull request with
 proposed changes.

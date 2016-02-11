@@ -35,6 +35,7 @@
             android:name=".LoyaltyCardViewActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName="protect.card_locker.MainActivity"/>
     </application>
 

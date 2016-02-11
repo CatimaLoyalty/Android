@@ -23,10 +23,31 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
     private static final String TAG = "CardLocker";
+
+    // These are all the barcode types that the zxing library
+    // is able to generate a barcode for, and thus should be
+    // the only barcodes which we should attempt to scan.
+    Collection<String> supportedBarcodeTypes = Collections.unmodifiableList(Arrays.asList(
+            BarcodeFormat.AZTEC.name(),
+            BarcodeFormat.CODE_39.name(),
+            BarcodeFormat.CODE_128.name(),
+            BarcodeFormat.CODABAR.name(),
+            BarcodeFormat.DATA_MATRIX.name(),
+            BarcodeFormat.EAN_8.name(),
+            BarcodeFormat.EAN_13.name(),
+            BarcodeFormat.ITF.name(),
+            BarcodeFormat.PDF_417.name(),
+            BarcodeFormat.QR_CODE.name(),
+            BarcodeFormat.UPC_A.name()
+    ));
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -126,11 +147,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                     throw new IllegalArgumentException("Unrecognized barcode format: " + formatString);
                 }
 
+                int generateWidth = 100;
+                int generateHeight = 100;
+
                 String cardIdString = cardIdField.getText().toString();
 
                 Log.i(TAG, "Card: " + cardIdString);
 
-                result = writer.encode(cardIdString, format, 1500, 400, null);
+                result = writer.encode(cardIdString, format, generateWidth, generateHeight, null);
 
                 final int WHITE = 0xFFFFFFFF;
                 final int BLACK = 0xFF000000;
@@ -170,7 +194,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 IntentIntegrator integrator = new IntentIntegrator(LoyaltyCardViewActivity.this);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
+                integrator.setDesiredBarcodeFormats(supportedBarcodeTypes);
 
                 String prompt = getResources().getString(R.string.scanCardBarcode);
                 integrator.setPrompt(prompt);

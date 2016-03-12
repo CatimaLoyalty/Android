@@ -231,7 +231,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersCaptureBarcodeCreateGiftCard() throws IOException
+    public void startWithoutParametersCaptureBarcodeCreateLoyaltyCard() throws IOException
     {
         registerMediaStoreIntentHandler();
 
@@ -307,7 +307,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithGiftCardCheckDisplay() throws IOException
+    public void startWithLoyaltyCardEditModeCheckDisplay() throws IOException
     {
         ActivityController activityController = createActivityWithLoyaltyCard();
         Activity activity = (Activity)activityController.get();
@@ -344,7 +344,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithGiftCardWithReceiptUpdateReceiptCancel() throws IOException
+    public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException
     {
         ActivityController activityController = createActivityWithLoyaltyCard();
         Activity activity = (Activity)activityController.get();

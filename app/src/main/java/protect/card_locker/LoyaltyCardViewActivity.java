@@ -107,7 +107,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 barcodeTypeField.setText(loyaltyCard.barcodeType);
             }
 
-            storeField.setEnabled(false);
+            if(viewLoyaltyCard)
+            {
+                storeField.setEnabled(false);
+            }
 
             if(updateLoyaltyCard)
             {

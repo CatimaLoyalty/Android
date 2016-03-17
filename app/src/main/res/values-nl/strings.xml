@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Klantenkaartenkluis</string>
+    <string name="action_add">Voeg toe</string>
+
+    <string name="noGiftCards">Er zijn momenteel geen klantenkaarten toegevoegd. Klik de knop met "+" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
+
+    <string name="storeName">Winkel</string>
+    <string name="cardId">Kaart-ID</string>
+    <string name="barcodeType">Barcodetype</string>
+
+    <string name="cancel">Annuleer</string>
+    <string name="save">Sla op</string>
+    <string name="capture">Scan kaart</string>
+    <string name="edit">Bewerk</string>
+    <string name="delete">Verwijder</string>
+
+    <string name="editCardTitle">Bewerk klantenkaart</string>
+    <string name="addCardTitle">Voeg klantenkaart toe</string>
+    <string name="viewCardTitle">Bekijk klantenkaart</string>
+    <string name="scanCardBarcode">Scan barcode klantenkaart</string>
+
+    <string name="barcodeImageDescription">Afbeelding barcode klantenkaart</string>
+
+    <string name="noStoreError">Geen winkel toegevoegd</string>
+    <string name="noCardIdError">Geen kaart-ID toegevoegd</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+</resources>

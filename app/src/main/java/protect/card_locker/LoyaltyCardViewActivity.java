@@ -96,7 +96,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
 
-            storeField.setText(loyaltyCard.store);
+            if(storeField.getText().length() == 0)
+            {
+                storeField.setText(loyaltyCard.store);
+            }
 
             if(noteField.getText().length() == 0)
             {

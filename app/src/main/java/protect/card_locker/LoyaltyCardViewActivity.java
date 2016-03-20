@@ -191,11 +191,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 barcodeIdLayout.setVisibility(View.VISIBLE);
                 barcodeImageLayout.setVisibility(View.VISIBLE);
             }
-            catch (WriterException e)
-            {
-                Log.e(TAG, "Failed to generate barcode", e);
-            }
-            catch(IllegalArgumentException e)
+            catch (WriterException | IllegalArgumentException e)
             {
                 Log.e(TAG, "Failed to generate barcode", e);
             }

@@ -68,7 +68,8 @@ public class LoyaltyCardViewActivityTest
      * expected values
      */
     private void saveLoyaltyCardWithArguments(final Activity activity,
-                                              final String store, final String cardId,
+                                              final String store, final String note,
+                                              final String cardId,
                                               final String barcodeType,
                                               boolean creatingNewCard)
     {
@@ -83,12 +84,14 @@ public class LoyaltyCardViewActivityTest
         }
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeName);
+        final EditText noteField = (EditText) activity.findViewById(R.id.note);
         final EditText cardIdField = (EditText) activity.findViewById(R.id.cardId);
         final EditText barcodeTypeField = (EditText) activity.findViewById(R.id.barcodeType);
 
         final Button saveButton = (Button) activity.findViewById(R.id.saveButton);
 
         storeField.setText(store);
+        noteField.setText(note);
         cardIdField.setText(cardId);
         barcodeTypeField.setText(barcodeType);
 
@@ -100,6 +103,7 @@ public class LoyaltyCardViewActivityTest
 
         LoyaltyCard card = db.getLoyaltyCard(1);
         assertEquals(store, card.store);
+        assertEquals(note, card.note);
         assertEquals(cardId, card.cardId);
         assertEquals(barcodeType, card.barcodeType);
     }
@@ -154,13 +158,14 @@ public class LoyaltyCardViewActivityTest
         }
     }
 
-    private void checkAllFields(final Activity activity, boolean editMode, final String store, final String cardId,
-    final String barcodeType)
+    private void checkAllFields(final Activity activity, boolean editMode, final String store,
+                                final String note, final String cardId, final String barcodeType)
     {
         int cardIdVisibility = cardId.isEmpty() ? View.GONE : View.VISIBLE;
         int captureVisibility = editMode ? View.VISIBLE : View.GONE;
 
         checkFieldProperties(activity, R.id.storeName, View.VISIBLE, editMode, store);
+        checkFieldProperties(activity, R.id.note, View.VISIBLE, editMode, note);
         checkFieldProperties(activity, R.id.cardId, View.VISIBLE, false, cardId);
         checkFieldProperties(activity, R.id.barcodeType, View.VISIBLE, false, barcodeType);
         checkFieldProperties(activity, R.id.captureButton, captureVisibility, true, null);
@@ -183,7 +188,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
 
-        checkAllFields(activity, true, "", "", "");
+        checkAllFields(activity, true, "", "", "", "");
     }
 
     @Test
@@ -199,6 +204,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(0, db.getLoyaltyCardCount());
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeName);
+        final EditText noteField = (EditText) activity.findViewById(R.id.note);
         final EditText cardIdField = (EditText) activity.findViewById(R.id.cardId);
 
         final Button saveButton = (Button) activity.findViewById(R.id.saveButton);
@@ -207,6 +213,10 @@ public class LoyaltyCardViewActivityTest
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
+        saveButton.performClick();
+        assertEquals(0, db.getLoyaltyCardCount());
+
+        noteField.setText("note");
         saveButton.performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -244,15 +254,15 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
 
-        checkAllFields(activity, true, "", "", "");
+        checkAllFields(activity, true, "", "", "", "");
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, R.id.captureButton, true);
 
-        checkAllFields(activity, true, "", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, true, "", "", BARCODE_DATA, BARCODE_TYPE);
 
         // Save and check the gift card
-        saveLoyaltyCardWithArguments(activity, "store", BARCODE_DATA, BARCODE_TYPE, true);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, true);
     }
 
     @Test
@@ -265,12 +275,12 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
 
-        checkAllFields(activity, true, "", "", "");
+        checkAllFields(activity, true, "", "", "", "");
 
         // Complete barcode capture in failure
         captureBarcodeWithResult(activity, R.id.captureButton, false);
 
-        checkAllFields(activity, true, "", "", "");
+        checkAllFields(activity, true, "", "", "", "");
     }
 
     @Test
@@ -283,12 +293,12 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
 
-        checkAllFields(activity, true, "", "", "");
+        checkAllFields(activity, true, "", "", "", "");
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, R.id.captureButton, true);
 
-        checkAllFields(activity, true, "", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, true, "", "", BARCODE_DATA, BARCODE_TYPE);
 
         // Cancel the gift card creation
         final Button cancelButton = (Button) activity.findViewById(R.id.cancelButton);
@@ -324,13 +334,13 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", BARCODE_DATA, BARCODE_TYPE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, true, "store", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, true, "store", "note", BARCODE_DATA, BARCODE_TYPE);
     }
 
     @Test
@@ -340,13 +350,13 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", BARCODE_DATA, BARCODE_TYPE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, false, "store", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, false, "store", "note", BARCODE_DATA, BARCODE_TYPE);
     }
 
     @Test
@@ -356,18 +366,18 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, true, "store", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        checkAllFields(activity, true, "store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, R.id.captureButton, true);
 
-        checkAllFields(activity, true, "store", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, true, "store", "note", BARCODE_DATA, BARCODE_TYPE);
     }
 
     @Test
@@ -377,18 +387,18 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, true, "store", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        checkAllFields(activity, true, "store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, R.id.captureButton, true);
 
-        checkAllFields(activity, true, "store", BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, true, "store", "note", BARCODE_DATA, BARCODE_TYPE);
 
         // Cancel the gift card creation
         final Button cancelButton = (Button) activity.findViewById(R.id.cancelButton);

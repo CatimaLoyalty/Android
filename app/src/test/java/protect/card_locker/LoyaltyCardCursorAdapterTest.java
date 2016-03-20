@@ -7,12 +7,12 @@ import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
-import org.robolectric.util.ActivityController;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,32 +20,51 @@ import static org.junit.Assert.assertEquals;
 @Config(constants = BuildConfig.class, sdk = 17)
 public class LoyaltyCardCursorAdapterTest
 {
-    @Test
-    public void TestCursorAdapter()
+    private Activity activity;
+    private DBHelper db;
+
+    @Before
+    public void setUp()
     {
-        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
-        Activity activity = (Activity)activityController.get();
+        activity = Robolectric.setupActivity(MainActivity.class);
+        db = new DBHelper(activity);
+    }
 
-        DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "cardId", BarcodeFormat.UPC_A.toString());
-        LoyaltyCard card = db.getLoyaltyCard(1);
-
-        Cursor cursor = db.getLoyaltyCardCursor();
-        cursor.moveToFirst();
-
+    private View createView(Cursor cursor)
+    {
         LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor);
 
         View view = adapter.newView(activity.getApplicationContext(), cursor, null);
         adapter.bindView(view, activity.getApplicationContext(), cursor);
 
-        final TextView storeField = (TextView) view.findViewById(R.id.store);
+        return view;
+    }
 
-        assertEquals(card.store, storeField.getText().toString());
+    private void checkView(final View view, final String store, final String cardId)
+    {
+        final TextView storeField = (TextView) view.findViewById(R.id.store);
+        assertEquals(store, storeField.getText().toString());
 
         final TextView cardIdField = (TextView) view.findViewById(R.id.cardId);
+        assertEquals(cardId, cardIdField.getText().toString());
+    }
+
+
+    @Test
+    public void TestCursorAdapter()
+    {
+        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString());
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        Cursor cursor = db.getLoyaltyCardCursor();
+        cursor.moveToFirst();
+
+        View view = createView(cursor);
+
         final String cardIdLabel = activity.getResources().getString(R.string.cardId);
         final String cardIdFormat = activity.getResources().getString(R.string.cardIdFormat);
-        String cardIdText = String.format(cardIdFormat, cardIdLabel, "cardId");
-        assertEquals(cardIdText, cardIdField.getText().toString());
+        String cardIdText = String.format(cardIdFormat, cardIdLabel, card.cardId);
+
+        checkView(view, card.store, cardIdText);
     }
 }

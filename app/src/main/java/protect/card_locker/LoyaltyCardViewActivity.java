@@ -77,6 +77,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         Log.i(TAG, "To view card: " + loyaltyCardId);
 
         final EditText storeField = (EditText) findViewById(R.id.storeName);
+        final EditText noteField = (EditText) findViewById(R.id.note);
         final EditText cardIdField = (EditText) findViewById(R.id.cardId);
         final EditText barcodeTypeField = (EditText) findViewById(R.id.barcodeType);
         final ImageView barcodeImage = (ImageView) findViewById(R.id.barcode);
@@ -95,7 +96,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
 
-            storeField.setText(loyaltyCard.store);
+            if(storeField.getText().length() == 0)
+            {
+                storeField.setText(loyaltyCard.store);
+            }
+
+            if(noteField.getText().length() == 0)
+            {
+                noteField.setText(loyaltyCard.note);
+            }
 
             if(cardIdField.getText().length() == 0)
             {
@@ -110,6 +119,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             if(viewLoyaltyCard)
             {
                 storeField.setEnabled(false);
+                noteField.setEnabled(false);
             }
 
             if(updateLoyaltyCard)
@@ -181,11 +191,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 barcodeIdLayout.setVisibility(View.VISIBLE);
                 barcodeImageLayout.setVisibility(View.VISIBLE);
             }
-            catch (WriterException e)
-            {
-                Log.e(TAG, "Failed to generate barcode", e);
-            }
-            catch(IllegalArgumentException e)
+            catch (WriterException | IllegalArgumentException e)
             {
                 Log.e(TAG, "Failed to generate barcode", e);
             }
@@ -213,6 +219,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             public void onClick(final View v)
             {
                 String store = storeField.getText().toString();
+                String note = noteField.getText().toString();
                 String cardId = cardIdField.getText().toString();
                 String barcodeType = barcodeTypeField.getText().toString();
 
@@ -230,12 +237,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
                 if(updateLoyaltyCard)
                 {
-                    db.updateLoyaltyCard(loyaltyCardId, store, cardId, barcodeType);
+                    db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType);
                     Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
                 }
                 else
                 {
-                    db.insertLoyaltyCard(store, cardId, barcodeType);
+                    db.insertLoyaltyCard(store, note, cardId, barcodeType);
                 }
 
                 finish();

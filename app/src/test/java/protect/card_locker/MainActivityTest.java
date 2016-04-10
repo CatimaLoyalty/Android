@@ -83,7 +83,7 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("store", "cardId", BarcodeFormat.UPC_A.toString());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());

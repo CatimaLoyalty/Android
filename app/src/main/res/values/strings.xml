@@ -5,6 +5,7 @@
     <string name="noGiftCards">You don\'t have any loyalty cards at the moment. Click the "+" (plus) button up top to get started.\n\nLoyalty Card Locker lets you carry your loyalty cards on your phone, so they are always within reach.</string>
 
     <string name="storeName">Store</string>
+    <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode Type</string>
 
@@ -25,4 +26,5 @@
     <string name="noCardIdError">No Card ID entered</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
 </resources>

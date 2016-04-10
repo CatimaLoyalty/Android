@@ -10,13 +10,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "LoyaltyCards.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int ORIGINAL_DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     static class LoyaltyCardDbIds
     {
         public static final String TABLE = "cards";
         public static final String ID = "_id";
         public static final String STORE = "store";
+        public static final String NOTE = "note";
         public static final String CARD_ID = "cardid";
         public static final String BARCODE_TYPE = "barcodetype";
     }
@@ -33,6 +35,7 @@ public class DBHelper extends SQLiteOpenHelper
         db.execSQL("create table " + LoyaltyCardDbIds.TABLE + "(" +
                 LoyaltyCardDbIds.ID + " INTEGER primary key autoincrement," +
                 LoyaltyCardDbIds.STORE + " TEXT not null," +
+                LoyaltyCardDbIds.NOTE + " TEXT not null," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null)");
     }
@@ -40,16 +43,21 @@ public class DBHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-        // Do not support versioning yet
-        db.execSQL("DROP TABLE IF EXISTS " + LoyaltyCardDbIds.TABLE);
-        onCreate(db);
+        // Upgrade from version 1 to version 2
+        if(oldVersion < 2 && newVersion >= 2)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.NOTE + " TEXT not null default ''");
+        }
     }
 
-    public boolean insertLoyaltyCard(final String store, final String cardId, final String barcodeType)
+    public boolean insertLoyaltyCard(final String store, final String note, final String cardId,
+                                     final String barcodeType)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
+        contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
@@ -57,12 +65,13 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
 
-    public boolean updateLoyaltyCard(final int id, final String store, final String cardId,
-                                     final String barcodeType)
+    public boolean updateLoyaltyCard(final int id, final String store, final String note,
+                                     final String cardId, final String barcodeType)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
+        contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,

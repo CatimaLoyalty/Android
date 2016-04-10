@@ -25,4 +25,5 @@
     <string name="noCardIdError">Geen kaart-ID toegevoegd</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="note">Notitie</string>
 </resources>

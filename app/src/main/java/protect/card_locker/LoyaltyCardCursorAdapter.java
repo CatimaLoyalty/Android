@@ -36,7 +36,14 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
 
         // Populate fields with extracted properties
-        storeField.setText(loyaltyCard.store);
+        String storeAndNote = loyaltyCard.store;
+        if(loyaltyCard.note.isEmpty() == false)
+        {
+            String storeNameAndNoteFormat = view.getResources().getString(R.string.storeNameAndNoteFormat);
+            storeAndNote = String.format(storeNameAndNoteFormat, loyaltyCard.store, loyaltyCard.note);
+        }
+
+        storeField.setText(storeAndNote);
 
         String cardIdFormat = view.getResources().getString(R.string.cardIdFormat);
         String cardIdLabel = view.getResources().getString(R.string.cardId);

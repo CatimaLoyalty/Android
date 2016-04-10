@@ -26,4 +26,5 @@
     <string name="noCardIdError">No Card ID entered</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
 </resources>

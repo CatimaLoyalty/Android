@@ -51,7 +51,7 @@ public class LoyaltyCardCursorAdapterTest
 
 
     @Test
-    public void TestCursorAdapter()
+    public void TestCursorAdapterEmptyNote()
     {
         db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString());
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -66,5 +66,26 @@ public class LoyaltyCardCursorAdapterTest
         String cardIdText = String.format(cardIdFormat, cardIdLabel, card.cardId);
 
         checkView(view, card.store, cardIdText);
+    }
+
+    @Test
+    public void TestCursorAdapterWithNote()
+    {
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        Cursor cursor = db.getLoyaltyCardCursor();
+        cursor.moveToFirst();
+
+        View view = createView(cursor);
+
+        final String storeNameAndNoteFormat = activity.getResources().getString(R.string.storeNameAndNoteFormat);
+        String storeAndNoteText = String.format(storeNameAndNoteFormat, card.store, card.note);
+
+        final String cardIdLabel = activity.getResources().getString(R.string.cardId);
+        final String cardIdFormat = activity.getResources().getString(R.string.cardIdFormat);
+        String cardIdText = String.format(cardIdFormat, cardIdLabel, card.cardId);
+
+        checkView(view, storeAndNoteText, cardIdText);
     }
 }

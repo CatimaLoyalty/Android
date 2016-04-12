@@ -25,5 +25,5 @@
     <string name="noCardIdError">Nessun codice carta inserito</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="note">Nota</string>
+    <string name="note">Note</string>
 </resources>

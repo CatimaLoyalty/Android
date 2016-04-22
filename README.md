@@ -21,6 +21,21 @@ Stores all of your store loyalty cards on your phone, removing the need to carry
 If there is any interest in improving this project, kindly submit a pull request with
 proposed changes.
 
+# Building
+
+To build, use the gradle wrapper scripts provided in the top level directory of the project. The following will
+compile the application and run all unit tests:
+
+GNU/Linux, OSX, UNIX:
+```
+./gradlew build
+```
+
+Windows:
+```
+./gradlew.bat build
+```
+
 # Thanks
 
 App icon originals by [Freepik](https://www.flaticon.com) and distributed under the [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) license,

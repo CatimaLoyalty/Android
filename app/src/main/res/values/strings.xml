@@ -39,4 +39,5 @@
     <string name="exportFailed">Failed to export: %1$s</string>
     <string name="importing">Importing&#8230;</string>
     <string name="exporting">Exporting&#8230;</string>
+    <string name="noExternalStoragePermissionError">Unable to import or export cards without the external storage permission</string>
 </resources>

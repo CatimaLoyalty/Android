@@ -27,4 +27,16 @@
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
+
+    <string name="importExport">Import/Export</string>
+    <string name="importName">Import</string>
+    <string name="exportName">Export</string>
+    <string name="importExportHelp">Data is imported to/exported from LoyaltyCardLocker.csv on external storage</string>
+    <string name="importedFrom">Imported from: %1$s</string>
+    <string name="exportedTo">Exported to: %1$s</string>
+    <string name="fileMissing">File missing: %1$s</string>
+    <string name="importFailed">Failed to import: %1$s</string>
+    <string name="exportFailed">Failed to export: %1$s</string>
+    <string name="importing">Importing&#8230;</string>
+    <string name="exporting">Exporting&#8230;</string>
 </resources>

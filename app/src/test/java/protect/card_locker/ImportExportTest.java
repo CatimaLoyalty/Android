@@ -204,4 +204,39 @@ public class ImportExportTest
             assertEquals(0, db.getLoyaltyCardCount());
         }
     }
+
+    @Test
+    public void useImportExportTask()
+    {
+        final int NUM_CARDS = 10;
+
+        for(DataFormat format : DataFormat.values())
+        {
+            addLoyaltyCards(NUM_CARDS);
+
+            // Export to whatever the default location is
+            ImportExportTask task = new ImportExportTask(activity, false, format);
+            task.execute();
+
+            // Actually run the task to completion
+            Robolectric.flushBackgroundThreadScheduler();
+
+            clearDatabase();
+
+            // Import everything back from the default location
+
+            task = new ImportExportTask(activity, true, format);
+            task.execute();
+
+            // Actually run the task to completion
+            Robolectric.flushBackgroundThreadScheduler();
+
+            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+
+            checkLoyaltyCards();
+
+            // Clear the database for the next format under test
+            clearDatabase();
+        }
+    }
 }

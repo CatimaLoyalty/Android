@@ -39,6 +39,7 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
     compile 'com.google.zxing:core:3.2.1'
+    compile 'org.apache.commons:commons-csv:1.2'
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:3.0"
 }

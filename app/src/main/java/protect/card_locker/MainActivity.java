@@ -92,6 +92,13 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
+        if(id == R.id.action_import_export)
+        {
+            Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
+            startActivity(i);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

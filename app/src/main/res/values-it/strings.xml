@@ -1,4 +1,6 @@
-<resources>
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="app_name">Carte fedeltà</string>
     <string name="action_add">Aggiungi</string>
 
@@ -26,4 +28,17 @@
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="note">Note</string>
+
+    <string name="importExport">Importa/Esporta</string>
+    <string name="importName">Importa</string>
+    <string name="exportName">Esporta</string>
+    <string name="importExportHelp">I dati sono stati importati in o esportati dal file LoyaltyCardLocker.csv sulla memoria esterna</string>
+    <string name="importedFrom">Importato da: %1$s</string>
+    <string name="exportedTo">Esportato in: %1$s</string>
+    <string name="fileMissing">File mancante: %1$s</string>
+    <string name="importFailed">Impossibile importare: %1$s</string>
+    <string name="exportFailed">Impossibile esportare: %1$s</string>
+    <string name="importing">Importazione in corso&#8230;</string>
+    <string name="exporting">Esportazione in corso&#8230;</string>
+    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
 </resources>

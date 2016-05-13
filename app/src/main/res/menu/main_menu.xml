@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_add_white_24dp"
         android:title="@string/action_add"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_import_export"
+        android:icon="@drawable/ic_import_export_white_24dp"
+        android:title="@string/importExport"
+        app:showAsAction="ifRoom"/>
 </menu>

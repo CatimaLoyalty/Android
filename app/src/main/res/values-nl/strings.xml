@@ -1,4 +1,6 @@
-<resources>
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="app_name">Klantenkaartenkluis</string>
     <string name="action_add">Voeg toe</string>
 
@@ -26,4 +28,17 @@
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="note">Notitie</string>
+
+    <string name="importExport">Importeer/Exporteer</string>
+    <string name="importName">Importeer</string>
+    <string name="exportName">Exporteer</string>
+    <string name="importExportHelp">Data is geïmporteerd van of geëxporteerd naar LoyaltyCardLocker.csv op externe opslag</string>
+    <string name="importedFrom">Geïmporteerd van: %1$s</string>
+    <string name="exportedTo">Geëxporteerd naar: %1$s</string>
+    <string name="fileMissing">Bestand niet gevonden: %1$s</string>
+    <string name="importFailed">Importeren mislukte: %1$s</string>
+    <string name="exportFailed">Exporteren mislukte: %1$s</string>
+    <string name="importing">Importerende&#8230;</string>
+    <string name="exporting">Exporterende&#8230;</string>
+    <string name="noExternalStoragePermissionError">Niet mogelijk te importeren of exporteren zonder rechten op externe opslag</string>
 </resources>

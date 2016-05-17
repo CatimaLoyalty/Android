@@ -15,10 +15,6 @@ android:
     # Additional components
     - extra
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-x86-android-17
-
 script: ./gradlew build lint findbugs test
 
 after_failure:

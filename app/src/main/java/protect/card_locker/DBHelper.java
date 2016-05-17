@@ -64,6 +64,20 @@ public class DBHelper extends SQLiteOpenHelper
         return (newId != -1);
     }
 
+    public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,
+                                     final String store, final String note, final String cardId,
+                                     final String barcodeType)
+    {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.ID, id);
+        contentValues.put(LoyaltyCardDbIds.STORE, store);
+        contentValues.put(LoyaltyCardDbIds.NOTE, note);
+        contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
+        contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
+        final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
+        return (newId != -1);
+    }
+
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
                                      final String cardId, final String barcodeType)

@@ -19,7 +19,7 @@ android:
     # if you need to run emulator(s) during your tests
     - sys-img-x86-android-17
 
-script: gradle build lint findbugs test
+script: ./gradlew build lint findbugs test
 
 after_failure:
 - cat app/build/outputs/lint-results.xml

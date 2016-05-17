@@ -5,7 +5,8 @@
     <uses-permission
         android:name="android.permission.CAMERA"/>
     <uses-permission
-        android:maxSdkVersion="18"
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-feature
@@ -37,6 +38,12 @@
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName="protect.card_locker.MainActivity"/>
+        <activity
+            android:name=".ImportExportActivity"
+            android:label="@string/importExport"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_revision_url" translatable="false">https://github.com/brarcher/loyalty-card-locker/releases</string>
+    <string name="app_webpage_url" translatable="false">https://github.com/brarcher/loyalty-card-locker</string>
+</resources>

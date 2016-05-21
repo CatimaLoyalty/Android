@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -149,7 +150,27 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
             final String cardIdString = cardIdField.getText().toString();
 
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            if(barcodeImage.getHeight() == 0)
+            {
+                Log.d(TAG, "ImageView size is not known known at start, waiting for load");
+                // The size of the ImageView is not yet available as it has not
+                // yet been drawn. Wait for it to be drawn so the size is available.
+                barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                    new ViewTreeObserver.OnGlobalLayoutListener()
+                    {
+                        @Override
+                        public void onGlobalLayout()
+                        {
+                            Log.d(TAG, "ImageView size now known");
+                            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                        }
+                    });
+            }
+            else
+            {
+                Log.d(TAG, "ImageView size known known, creating barcode");
+                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            }
 
             barcodeIdLayout.setVisibility(View.VISIBLE);
             barcodeImageLayout.setVisibility(View.VISIBLE);

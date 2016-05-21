@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical"
-              android:padding="5.0dip"
+              android:padding="10.0dp"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="horizontal"
-                  android:padding="5.0dip"
+                  android:padding="5.0dp"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:baselineAligned="true">
@@ -18,7 +18,7 @@
     </LinearLayout>
 
     <LinearLayout android:orientation="horizontal"
-                  android:padding="5.0dip"
+                  android:padding="5.0dp"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:baselineAligned="true">

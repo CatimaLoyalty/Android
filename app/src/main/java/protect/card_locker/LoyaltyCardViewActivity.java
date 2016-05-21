@@ -2,7 +2,6 @@ package protect.card_locker;
 
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -17,9 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -149,52 +145,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(cardIdField.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
-            MultiFormatWriter writer = new MultiFormatWriter();
-            BitMatrix result;
-            try
-            {
-                String formatString = barcodeTypeField.getText().toString();
-                BarcodeFormat format = BarcodeFormat.valueOf(formatString);
-                if(format == null)
-                {
-                    throw new IllegalArgumentException("Unrecognized barcode format: " + formatString);
-                }
+            String formatString = barcodeTypeField.getText().toString();
+            final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
+            final String cardIdString = cardIdField.getText().toString();
 
-                int generateWidth = 100;
-                int generateHeight = 100;
+            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
 
-                String cardIdString = cardIdField.getText().toString();
-
-                Log.i(TAG, "Card: " + cardIdString);
-
-                result = writer.encode(cardIdString, format, generateWidth, generateHeight, null);
-
-                final int WHITE = 0xFFFFFFFF;
-                final int BLACK = 0xFF000000;
-
-                int width = result.getWidth();
-                int height = result.getHeight();
-                int[] pixels = new int[width * height];
-                for (int y = 0; y < height; y++)
-                {
-                    int offset = y * width;
-                    for (int x = 0; x < width; x++)
-                    {
-                        pixels[offset + x] = result.get(x, y) ? BLACK : WHITE;
-                    }
-                }
-                Bitmap bitmap = Bitmap.createBitmap(width, height,
-                        Bitmap.Config.ARGB_8888);
-                bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
-                barcodeImage.setImageBitmap(bitmap);
-
-                barcodeIdLayout.setVisibility(View.VISIBLE);
-                barcodeImageLayout.setVisibility(View.VISIBLE);
-            }
-            catch (WriterException | IllegalArgumentException e)
-            {
-                Log.e(TAG, "Failed to generate barcode", e);
-            }
+            barcodeIdLayout.setVisibility(View.VISIBLE);
+            barcodeImageLayout.setVisibility(View.VISIBLE);
         }
 
         View.OnClickListener captureCallback = new View.OnClickListener()

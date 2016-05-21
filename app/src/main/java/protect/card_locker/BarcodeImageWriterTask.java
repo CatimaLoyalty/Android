@@ -67,6 +67,23 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight,
                     Bitmap.Config.ARGB_8888);
             bitmap.setPixels(pixels, 0, bitMatrixWidth, 0, 0, bitMatrixWidth, bitMatrixHeight);
+
+            // Determine if the image needs to be scaled.
+            // This is necessary because the datamatrix barcode generator
+            // ignores the requested size and returns the smallest image necessary
+            // to represent the barcode. If we let the ImageView scale the image
+            // it will use bi-linear filtering, which results in a blurry barcode.
+            // To avoid this, if scaling is needed do so without filtering.
+
+            int heightScale = imageHeight / bitMatrixHeight;
+            int widthScale = imageWidth / bitMatrixHeight;
+            int scalingFactor = Math.min(heightScale, widthScale);
+
+            if(scalingFactor > 1)
+            {
+                bitmap = Bitmap.createScaledBitmap(bitmap, bitMatrixWidth * scalingFactor, bitMatrixHeight * scalingFactor, false);
+            }
+
             return bitmap;
         }
         catch (WriterException | IllegalArgumentException e)

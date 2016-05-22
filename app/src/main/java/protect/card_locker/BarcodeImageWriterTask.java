@@ -45,7 +45,17 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         BitMatrix bitMatrix;
         try
         {
-            bitMatrix = writer.encode(cardId, format, imageWidth, imageHeight, null);
+            try
+            {
+                bitMatrix = writer.encode(cardId, format, imageWidth, imageHeight, null);
+            }
+            catch(Exception e)
+            {
+                // Cast a wider net here and catch any exception, as there are some
+                // cases where an encoder may fail if the data is invalid for the
+                // barcode type. If this happens, we want to fail gracefully.
+                throw new WriterException(e);
+            }
 
             final int WHITE = 0xFFFFFFFF;
             final int BLACK = 0xFF000000;
@@ -86,9 +96,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             return bitmap;
         }
-        catch (WriterException | IllegalArgumentException e)
+        catch (WriterException e)
         {
-            Log.e(TAG, "Failed to generate barcode", e);
+            Log.e(TAG, "Failed to generate barcode of type " + format + ": " + cardId, e);
         }
 
         return null;

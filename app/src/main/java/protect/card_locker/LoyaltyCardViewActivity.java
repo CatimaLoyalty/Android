@@ -267,6 +267,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         switch(id)
         {
+            case android.R.id.home:
+                finish();
+                break;
+
             case R.id.action_delete:
                 Log.e(TAG, "Deleting card: " + loyaltyCardId);
 

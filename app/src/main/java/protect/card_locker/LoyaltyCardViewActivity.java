@@ -2,6 +2,7 @@ package protect.card_locker;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -161,6 +162,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                         @Override
                         public void onGlobalLayout()
                         {
+                            if (Build.VERSION.SDK_INT < 16)
+                            {
+                                barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                            }
+                            else
+                            {
+                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                            }
+
                             Log.d(TAG, "ImageView size now known");
                             new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
                         }

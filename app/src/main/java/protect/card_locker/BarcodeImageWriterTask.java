@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
@@ -106,6 +107,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
     protected void onPostExecute(Bitmap result)
     {
+        Log.i(TAG, "Finished generating barcode image of type " + format + ": " + cardId);
         ImageView imageView = imageViewReference.get();
         if(imageView == null)
         {
@@ -114,5 +116,16 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
 
         imageView.setImageBitmap(result);
+
+        if(result != null)
+        {
+            Log.i(TAG, "Displaying barcode");
+            imageView.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            Log.i(TAG, "Barcode generation failed, removing image from display");
+            imageView.setVisibility(View.GONE);
+        }
     }
 }

@@ -49,4 +49,7 @@
     <string name="app_revision_fmt">Informazione sulla revisione: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="ok">Ok</string>
+    <string name="enterCard">Inserisci carta</string>
+    <string name="selectBarcodeTitle">Seleziona codice a barre</string>
+    <string name="enterBarcodeInstructions">Digita il valore del codice a barre, quindi seleziona l\'immagine che rappresenta il codice a barre che vuoi usare.</string>
 </resources>

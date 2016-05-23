@@ -14,6 +14,7 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="capture">Capture Card</string>
+    <string name="enterCard">Enter Card</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="ok">OK</string>
@@ -51,4 +52,7 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> uses the following third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+
+    <string name="selectBarcodeTitle">Select Barcode</string>
+    <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
 </resources>

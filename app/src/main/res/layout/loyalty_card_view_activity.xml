@@ -136,6 +136,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/capture"
                             android:layout_weight="1.0"/>
+                    <Button android:id="@+id/enterButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enterCard"
+                            android:layout_weight="1.0"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal"
                           android:padding="10.0dip"

@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
@@ -45,7 +46,17 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         BitMatrix bitMatrix;
         try
         {
-            bitMatrix = writer.encode(cardId, format, imageWidth, imageHeight, null);
+            try
+            {
+                bitMatrix = writer.encode(cardId, format, imageWidth, imageHeight, null);
+            }
+            catch(Exception e)
+            {
+                // Cast a wider net here and catch any exception, as there are some
+                // cases where an encoder may fail if the data is invalid for the
+                // barcode type. If this happens, we want to fail gracefully.
+                throw new WriterException(e);
+            }
 
             final int WHITE = 0xFFFFFFFF;
             final int BLACK = 0xFF000000;
@@ -86,9 +97,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             return bitmap;
         }
-        catch (WriterException | IllegalArgumentException e)
+        catch (WriterException e)
         {
-            Log.e(TAG, "Failed to generate barcode", e);
+            Log.e(TAG, "Failed to generate barcode of type " + format + ": " + cardId, e);
         }
 
         return null;
@@ -96,6 +107,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
     protected void onPostExecute(Bitmap result)
     {
+        Log.i(TAG, "Finished generating barcode image of type " + format + ": " + cardId);
         ImageView imageView = imageViewReference.get();
         if(imageView == null)
         {
@@ -104,5 +116,16 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
 
         imageView.setImageBitmap(result);
+
+        if(result != null)
+        {
+            Log.i(TAG, "Displaying barcode");
+            imageView.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            Log.i(TAG, "Barcode generation failed, removing image from display");
+            imageView.setVisibility(View.GONE);
+        }
     }
 }

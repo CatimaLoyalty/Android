@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity
         final String[][] USED_LIBRARIES = new String[][]
         {
             new String[] {"Commons CSV", "https://commons.apache.org/proper/commons-csv/"},
+            new String[] {"Guava", "https://github.com/google/guava"},
             new String[] {"ZXing", "https://github.com/zxing/zxing"},
             new String[] {"ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded"},
         };

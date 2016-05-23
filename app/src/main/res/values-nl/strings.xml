@@ -49,4 +49,7 @@
     <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="ok">Oké</string>
+    <string name="enterCard">Voer kaart in</string>
+    <string name="selectBarcodeTitle">Selecteer barcode</string>
+    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
 </resources>

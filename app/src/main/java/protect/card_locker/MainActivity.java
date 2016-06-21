@@ -1,7 +1,9 @@
 package protect.card_locker;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ClipboardManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -10,13 +12,16 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -65,6 +70,8 @@ public class MainActivity extends AppCompatActivity
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);
 
+        registerForContextMenu(cardList);
+
         cardList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -81,6 +88,39 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if (v.getId()==R.id.list)
+        {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.card_longclick_menu, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item)
+    {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
+        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+
+        if(card != null && item.getItemId() == R.id.action_clipboard)
+        {
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+            clipboard.setPrimaryClip(clip);
+
+            Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return super.onContextItemSelected(item);
     }
 
     @Override

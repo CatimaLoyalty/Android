@@ -18,6 +18,7 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="ok">OK</string>
+    <string name="copy_to_clipboard">Copy ID to clipboard</string>
 
     <string name="editCardTitle">Edit Loyalty Card</string>
     <string name="addCardTitle">Add Loyalty Card</string>
@@ -55,4 +56,7 @@
 
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
+
+    <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
+
 </resources>

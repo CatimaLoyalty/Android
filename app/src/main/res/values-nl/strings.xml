@@ -52,4 +52,6 @@
     <string name="enterCard">Voer kaart in</string>
     <string name="selectBarcodeTitle">Selecteer barcode</string>
     <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
+    <string name="copy_to_clipboard">Kopieer het ID naar het klembord</string>
+    <string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
 </resources>

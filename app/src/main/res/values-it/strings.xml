@@ -52,4 +52,6 @@
     <string name="enterCard">Inserisci carta</string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
     <string name="enterBarcodeInstructions">Digita il valore del codice a barre, quindi seleziona l\'immagine che rappresenta il codice a barre che vuoi usare.</string>
+    <string name="copy_to_clipboard">Copia ID negli appunti</string>
+    <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
 </resources>

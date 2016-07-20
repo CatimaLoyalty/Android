@@ -17,6 +17,9 @@
     <string name="enterCard">Enter Card</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="confirm">Confirm</string>
+    <string name="deleteTitle">Remove Loyalty Card</string>
+    <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
 

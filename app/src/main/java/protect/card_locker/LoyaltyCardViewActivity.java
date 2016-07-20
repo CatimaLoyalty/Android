@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -55,6 +57,20 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         final boolean viewLoyaltyCard = b != null && b.getBoolean("view", false);
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
+
+        if(viewLoyaltyCard)
+        {
+            // The brightness value is on a scale from [0, ..., 1], where
+            // '1' is the brightest. We attempt to maximize the brightness
+            // to help barcode readers scan the barcode.
+            Window window = getWindow();
+            if(window != null)
+            {
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.screenBrightness = 1F;
+                window.setAttributes(attributes);
+            }
+        }
 
         final EditText storeField = (EditText) findViewById(R.id.storeName);
         final EditText noteField = (EditText) findViewById(R.id.note);

@@ -109,7 +109,7 @@ public class ImportExportTest
     @Test
     public void multipleCardsExportImport() throws IOException
     {
-        final int NUM_CARDS = 1000;
+        final int NUM_CARDS = 10;
 
         for(DataFormat format : DataFormat.values())
         {
@@ -144,7 +144,7 @@ public class ImportExportTest
     @Test
     public void importExistingCardsNotReplace() throws IOException
     {
-        final int NUM_CARDS = 1000;
+        final int NUM_CARDS = 10;
 
         for(DataFormat format : DataFormat.values())
         {
@@ -177,7 +177,7 @@ public class ImportExportTest
     @Test
     public void corruptedImportNothingSaved() throws IOException
     {
-        final int NUM_CARDS = 1000;
+        final int NUM_CARDS = 10;
 
         for(DataFormat format : DataFormat.values())
         {

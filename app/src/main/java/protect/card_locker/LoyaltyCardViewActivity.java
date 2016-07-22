@@ -2,11 +2,13 @@ package protect.card_locker;
 
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -291,11 +293,33 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 break;
 
             case R.id.action_delete:
-                Log.e(TAG, "Deleting card: " + loyaltyCardId);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.deleteTitle);
+                builder.setMessage(R.string.deleteConfirmation);
+                builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Log.e(TAG, "Deleting card: " + loyaltyCardId);
 
-                DBHelper db = new DBHelper(this);
-                db.deleteLoyaltyCard(loyaltyCardId);
-                finish();
+                        DBHelper db = new DBHelper(LoyaltyCardViewActivity.this);
+                        db.deleteLoyaltyCard(loyaltyCardId);
+                        finish();
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
                 return true;
             case R.id.action_edit:
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardViewActivity.class);

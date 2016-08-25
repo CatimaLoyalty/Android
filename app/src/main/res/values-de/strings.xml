@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Loyalty Card Locker</string>
+    <string name="about">Über</string>
+    <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="action_add">Neu</string>
+    <string name="addCardTitle">Neue Kundenkarte</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_license">Lizensiert unter der GPLv3.</string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="viewCardTitle">Kundenkarte anzeigen</string>
+    <string name="ok">Ok</string>
+    <string name="note">Notiz</string>
+    <string name="save">Speichern</string>
+    <string name="scanCardBarcode">Barcode scannen</string>
+    <string name="selectBarcodeTitle">Barcode auswählen</string>
+    <string name="storeName">Firma</string>
+    <string name="noStoreError">Keine Firma angegeben</string>
+    <string name="exportName">Exportieren</string>
+    <string name="exportedTo">Exportiert nach: %1$s</string>
+    <string name="fileMissing">Datei fehlt: %1$s</string>
+    <string name="importExport">Import/Export</string>
+    <string name="importFailed">Import fehlgeschlagen: %1$s</string>
+    <string name="importName">Import</string>
+    <string name="importedFrom">Importiert von: %1$s</string>
+    <string name="noCardIdError">Keine Kartennummer angegeben</string>
+    <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
+    <string name="noGiftCards">Du hast noch keine Kundenkarte angelegt. Über den "+" Button oben rechts, kannst du welche anlegen.\n\nDiese App ermöglicht es dir, deine Kundenkarten immer mit dir zu führen.</string>
+    <string name="cancel">Abrechen</string>
+    <string name="capture">Karte aufnehmen</string>
+    <string name="cardId">Kartennummer</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
+    <string name="delete">Löschen</string>
+    <string name="deleteConfirmation">Bitte bestätige, dass du die Karte löschen möchtest.</string>
+    <string name="deleteTitle">Lösche die Kundenkarte</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="editCardTitle">Kundenkarte bearbeiten</string>
+    <string name="enterCard">Karte einfügen</string>
+    <string name="exportFailed">Export fehlgeschlagen: %1$s</string>
+    <string name="barcodeType">Barcodeart</string>
+    <string name="barcodeImageDescription">Bild des Barcodes</string>
+    <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
+    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
+    <string name="enterBarcodeInstructions">Füge die Kundennummer ein, anschließend wähle die korrekte Barcodeart aus.</string>
+    <string name="app_revision_fmt">Versions Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="importExportHelp">Daten werden aus LoyalityCardLocker.csv aus dem externen Speicher im-/exportiert.</string>
+    <string name="importing">Importiere…</string>
+    <string name="exporting">Exportiere…</string>
+</resources>

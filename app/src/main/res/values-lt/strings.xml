@@ -1,0 +1,65 @@
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">Loyalty Card Locker</string>
+    <string name="action_add">Pridėti</string>
+
+    <string name="noGiftCards">Šiuo metu neturite nė vienos įvestos lojalumo kortelės. Paspauskite "+" (pliuso) pliuso mygtuką, kad pradėtumėte.\n\nLoyalty Card Locker leidžia Jums visada nešiotis lojalumo kortelių informaciją savo telefone ar planšetėje, taip jos visada pasiekiamos.</string>
+
+    <string name="storeName">Parduotuvė</string>
+    <string name="note">Užrašas</string>
+    <string name="cardId">Kortelės ID</string>
+    <string name="barcodeType">Brūkšninio kodo tipas</string>
+
+    <string name="cancel">Atšaukti</string>
+    <string name="save">Išsaugoti</string>
+    <string name="capture">Nufotografuoti kortelę</string>
+    <string name="enterCard">Įvesti kortelę</string>
+    <string name="edit">Redaguoti</string>
+    <string name="delete">Ištrinti</string>
+    <string name="confirm">Patvirtinti</string>
+    <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
+    <string name="deleteConfirmation">Prašome patvirtinti jog Jūs norite panaikinti šią lojalumo kortelę.</string>
+    <string name="ok">Gerai</string>
+    <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
+
+    <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
+    <string name="addCardTitle">Pridėti lojalumo kortelę</string>
+    <string name="viewCardTitle">Paeržiūrėti lojalumo kortelę</string>
+    <string name="scanCardBarcode">Nuskanuokite kortelės brūkšninį kodą</string>
+
+    <string name="barcodeImageDescription">Kortelės brūkšninio kodo paveikslėlis</string>
+
+    <string name="noStoreError">Parduotuvė neįvesta</string>
+    <string name="noCardIdError">Neįvestas kortelės ID</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
+
+    <string name="importExport">Importuoti/Exportuoti</string>
+    <string name="importName">Importuoti</string>
+    <string name="exportName">Exportuoti</string>
+    <string name="importExportHelp">Duomenys importuoti į/eksportruoti iš LoyaltyCardLocker.csv išorinėje atmintyje</string>
+    <string name="importedFrom">Importuota iš: %1$s</string>
+    <string name="exportedTo">Eksportuota į: %1$s</string>
+    <string name="fileMissing">Failas nerastas: %1$s</string>
+    <string name="importFailed">Nepavyko importuoti: %1$s</string>
+    <string name="exportFailed">Nepavyko eksportuoti: %1$s</string>
+    <string name="importing">Importuoja&#8230;</string>
+    <string name="exporting">Eksportuoja&#8230;</string>
+    <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
+
+    <string name="about">Apie</string>
+    <string name="app_copyright_fmt">Visos teisės saugomos 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_license">Licenzijuota pagal GPLv3.</string>
+    <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> naudoja šias trečiosios šalies bibliotekas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+
+    <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
+    <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
+
+    <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
+
+</resources>

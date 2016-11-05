@@ -12,7 +12,7 @@
 
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
-    <string name="capture">Scansione codice</string>
+    <string name="capture">Scansione carta</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
 

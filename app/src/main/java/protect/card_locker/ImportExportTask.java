@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 
 class ImportExportTask extends AsyncTask<Void, Void, Void>
 {
-    private static final String TAG = "BudgetWatch";
+    private static final String TAG = "LoyaltyCardLocker";
 
     private static final String TARGET_FILE = "LoyaltyCardLocker.csv";
 

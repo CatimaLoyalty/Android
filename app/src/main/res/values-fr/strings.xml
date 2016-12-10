@@ -34,7 +34,6 @@
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
 
     <string name="importExport">Importer/Exporter</string>
     <string name="importName">Importer</string>

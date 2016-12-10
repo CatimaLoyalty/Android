@@ -4,7 +4,7 @@
     <string name="app_name">Loyalty Card Locker</string>
     <string name="action_add">Ajouter</string>
 
-    <string name="noGiftCards">Pas de carte de fidélité enregistrée. Cliquez sur le bouton "+" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
+    <string name="noGiftCards">Pas de carte de fidélité enregistrée. Cliquez sur le bouton "+" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
 
     <string name="storeName">Nom</string>
     <string name="note">Note</string>
@@ -30,24 +30,24 @@
 
     <string name="barcodeImageDescription">Image du code-barre de la carte</string>
 
-    <string name="noStoreError">Aucun nom n'a été saisi</string>
-    <string name="noCardIdError">Aucun numéro n'a été saisi</string>
+    <string name="noStoreError">Aucun nom n\'a été saisi</string>
+    <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
+    <string name="storeNameAndNoteFormat" translatable="true">%1$s - %2$s</string>
 
     <string name="importExport">Importer/Exporter</string>
     <string name="importName">Importer</string>
     <string name="exportName">Exporter</string>
-    <string name="importExportHelp">Les informations des cartes sont importées depuis/exportées vers le fichier LoyaltyCardLocker.csv sur le storage externe</string>
+    <string name="importExportHelp">Les informations des cartes sont importées depuis/exportées vers le fichier LoyaltyCardLocker.csv sur le stockage externe</string>
     <string name="importedFrom">Importé depuis : %1$s</string>
     <string name="exportedTo">Exporté vers : %1$s</string>
     <string name="fileMissing">Fichier manquant : %1$s</string>
-    <string name="importFailed">Échec de l'mport : %1$s</string>
-    <string name="exportFailed">Échec de l'export : %1$s</string>
+    <string name="importFailed">Échec de l\'import : %1$s</string>
+    <string name="exportFailed">Échec de l\'export : %1$s</string>
     <string name="importing">Import &#8230;</string>
     <string name="exporting">Export &#8230;</string>
-    <string name="noExternalStoragePermissionError">Impossible d'importer ou exporter les données sans l'autorisation d'accès au storage externe</string>
+    <string name="noExternalStoragePermissionError">Impossible d\'importer ou exporter les données sans l\'autorisation d\'accès au stockage externe</string>
 
     <string name="about">À propos</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
@@ -58,7 +58,7 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Choisissez le code-barre</string>
-    <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barre et sélectionnez l'image qui le représente</string>
+    <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barre et sélectionnez l\'image qui le représente</string>
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 

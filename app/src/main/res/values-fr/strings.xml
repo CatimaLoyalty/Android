@@ -19,7 +19,7 @@
     <string name="delete">Supprimer</string>
     <string name="confirm">Confirmer</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
-    <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte.</string>
+    <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
 

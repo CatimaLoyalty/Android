@@ -9,7 +9,7 @@
     <string name="storeName">Nom</string>
     <string name="note">Note</string>
     <string name="cardId">Numéro</string>
-    <string name="barcodeType">Type de code barre</string>
+    <string name="barcodeType">Type de code-barres</string>
 
     <string name="cancel">Annuler</string>
     <string name="save">Enregistrer</string>
@@ -26,9 +26,9 @@
     <string name="editCardTitle">Modifier la carte de fidélité</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="viewCardTitle">Voir la carte de fidélité</string>
-    <string name="scanCardBarcode">Flasher le code-barre de la carte</string>
+    <string name="scanCardBarcode">Flasher le code-barres de la carte</string>
 
-    <string name="barcodeImageDescription">Image du code-barre de la carte</string>
+    <string name="barcodeImageDescription">Image du code-barres de la carte</string>
 
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
@@ -47,7 +47,7 @@
     <string name="exportFailed">Échec de l\'export : %1$s</string>
     <string name="importing">Import &#8230;</string>
     <string name="exporting">Export &#8230;</string>
-    <string name="noExternalStoragePermissionError">Impossible d\'importer ou exporter les données sans l\'autorisation d\'accès au stockage externe</string>
+    <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>
 
     <string name="about">À propos</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
@@ -58,7 +58,7 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Choisissez le code-barre</string>
-    <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barre et sélectionnez l\'image qui le représente</string>
+    <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barres et sélectionnez l\'image qui le représente</string>
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 

@@ -22,6 +22,7 @@
     <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
+    <string name="sendLabel">Send&#8230;</string>
 
     <string name="editCardTitle">Edit Loyalty Card</string>
     <string name="addCardTitle">Add Loyalty Card</string>

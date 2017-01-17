@@ -75,4 +75,5 @@
     <string name="importOptionFixedTitle">Importer depuis le même emplacement que pour l\'export</string>
     <string name="importOptionFixedExplanation">Importe les données depuis le même emplacement que celui défini pour l\'export.</string>
     <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
+    <string name="sendLabel">Envoyer&#8230;</string>
 </resources>

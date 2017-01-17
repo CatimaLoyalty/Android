@@ -250,7 +250,7 @@ public class ImportExportActivity extends AppCompatActivity
         builder.create().show();
     }
 
-    private void onExportComplete(boolean success, File path)
+    private void onExportComplete(boolean success, final File path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -276,6 +276,28 @@ public class ImportExportActivity extends AppCompatActivity
                 dialog.dismiss();
             }
         });
+
+        if(success)
+        {
+            final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
+
+            builder.setPositiveButton(sendLabel, new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    Uri outputUri = Uri.fromFile(path);
+                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_STREAM, outputUri);
+                    sendIntent.setType("text/plain");
+
+                    ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
+                            sendLabel));
+
+                    dialog.dismiss();
+                }
+            });
+        }
 
         builder.create().show();
     }

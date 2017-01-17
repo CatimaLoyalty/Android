@@ -71,4 +71,5 @@
     <string name="importOptionFixedTitle">Importa da un altro posto</string>
     <string name="importOptionFixedExplanation">Importa dallo stesso posto del file system dove si è esportato.</string>
     <string name="importOptionFixedButton">Usa luogo dell\'esportazione</string>
+    <string name="sendLabel">Invia&#8230;</string>
 </resources>

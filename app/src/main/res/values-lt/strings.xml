@@ -59,7 +59,7 @@
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
 
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
-
+    
     <!-- needs translated --><string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
     <!-- needs translated --><string name="importSuccessfulTitle">Import successful</string>
     <!-- needs translated --><string name="importFailedTitle">Import failed</string>
@@ -75,4 +75,5 @@
     <!-- needs translated --><string name="importOptionFixedTitle">Import from export location</string>
     <!-- needs translated --><string name="importOptionFixedExplanation">Import from the same location on the filesystem that is written to on export.</string>
     <!-- needs translated --><string name="importOptionFixedButton">Use export location</string>
+    <!-- needs translated --> <string name="sendLabel">Send&#8230;</string>
 </resources>

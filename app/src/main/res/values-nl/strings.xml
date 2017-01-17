@@ -72,4 +72,5 @@
     <string name="importOptionFixedTitle">Importeer van exporteerlocatie</string>
     <string name="importOptionFixedExplanation">Importeer van zelfde locatie op het filesysteem waar tijdens exporteren naar geschreven is.</string>
     <string name="importOptionFixedButton">gebruik exporteerlocaite</string>
+    <string name="sendLabel">Verzend&#8230;</string>
 </resources>

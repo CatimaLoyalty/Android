@@ -63,4 +63,6 @@
     <string name="importOptionFixedTitle">Importiere vom Export Ort</string>
     <string name="importOptionFixedExplanation">Importiere von derselben Stelle, wo die exportiere Datei liegen würde.</string>
     <string name="importOptionFixedButton">Verwende die exportierte Stelle</string>
+    <string name="sendLabel">Senden&#8230;</string>
+
 </resources>

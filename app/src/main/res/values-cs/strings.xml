@@ -74,4 +74,5 @@
     <string name="importOptionFixedTitle">Import z umístění exportu</string>
     <string name="importOptionFixedExplanation">Import ze stejné složky souborového systému do níž se zapisuje při exportu.</string>
     <string name="importOptionFixedButton">Použít složku exportu</string>
+    <string name="sendLabel">Odeslat&#8230;</string>
 </resources>

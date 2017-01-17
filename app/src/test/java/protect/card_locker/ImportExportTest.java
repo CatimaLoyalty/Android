@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -15,12 +16,14 @@ import org.robolectric.annotation.Config;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -205,31 +208,62 @@ public class ImportExportTest
         }
     }
 
+    class TestTaskCompleteListener implements ImportExportTask.TaskCompleteListener
+    {
+        Boolean success;
+        File file;
+
+        public void onTaskComplete(boolean success, File file)
+        {
+            this.success = success;
+            this.file = file;
+        }
+    }
+
     @Test
     public void useImportExportTask()
     {
         final int NUM_CARDS = 10;
 
+        final File sdcardDir = Environment.getExternalStorageDirectory();
+        final File exportFile = new File(sdcardDir, "LoyaltyCardLocker.csv");
+
         for(DataFormat format : DataFormat.values())
         {
             addLoyaltyCards(NUM_CARDS);
 
-            // Export to whatever the default location is
-            ImportExportTask task = new ImportExportTask(activity, false, format);
+            TestTaskCompleteListener listener = new TestTaskCompleteListener();
+
+            // Export to the file
+            ImportExportTask task = new ImportExportTask(activity, false, format, exportFile, listener);
             task.execute();
 
             // Actually run the task to completion
             Robolectric.flushBackgroundThreadScheduler();
+
+            // Check that the listener was executed
+            assertNotNull(listener.success);
+            assertEquals(true, listener.success);
+            assertNotNull(listener.file);
+            assertEquals(exportFile, listener.file);
 
             clearDatabase();
 
             // Import everything back from the default location
 
-            task = new ImportExportTask(activity, true, format);
+            listener = new TestTaskCompleteListener();
+
+            task = new ImportExportTask(activity, true, format, exportFile, listener);
             task.execute();
 
             // Actually run the task to completion
             Robolectric.flushBackgroundThreadScheduler();
+
+            // Check that the listener was executed
+            assertNotNull(listener.success);
+            assertEquals(true, listener.success);
+            assertNotNull(listener.file);
+            assertEquals(exportFile, listener.file);
 
             assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 

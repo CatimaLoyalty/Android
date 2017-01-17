@@ -16,49 +16,31 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
-class ImportExportTask extends AsyncTask<Void, Void, Void>
+class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 {
     private static final String TAG = "LoyaltyCardLocker";
-
-    private static final String TARGET_FILE = "LoyaltyCardLocker.csv";
 
     private Activity activity;
     private boolean doImport;
     private DataFormat format;
+    private File target;
+    private TaskCompleteListener listener;
 
     private ProgressDialog progress;
 
-    public ImportExportTask(Activity activity, boolean doImport, DataFormat format)
+    public ImportExportTask(Activity activity, boolean doImport, DataFormat format, File target,
+            TaskCompleteListener listener)
     {
         super();
         this.activity = activity;
         this.doImport = doImport;
         this.format = format;
+        this.target = target;
+        this.listener = listener;
     }
 
-    private void toastWithArg(int stringId, String argument)
+    private boolean performImport(File importFile, DBHelper db)
     {
-        final String template = activity.getResources().getString(stringId);
-        final String message = String.format(template, argument);
-
-        activity.runOnUiThread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                Toast.makeText(activity, message, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void performImport(File importFile, DBHelper db)
-    {
-        if(importFile.exists() == false)
-        {
-            toastWithArg(R.string.fileMissing, importFile.getAbsolutePath());
-            return;
-        }
-
         boolean result = false;
 
         try
@@ -73,11 +55,12 @@ class ImportExportTask extends AsyncTask<Void, Void, Void>
             Log.e(TAG, "Unable to import file", e);
         }
 
-        int messageId = result ? R.string.importedFrom : R.string.importFailed;
-        toastWithArg(messageId, importFile.getAbsolutePath());
+        Log.i(TAG, "Import of '" + importFile.getAbsolutePath() + "' result: " + result);
+
+        return result;
     }
 
-    private void performExport(File exportFile, DBHelper db)
+    private boolean performExport(File exportFile, DBHelper db)
     {
         boolean result = false;
 
@@ -93,8 +76,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Void>
             Log.e(TAG, "Unable to export file", e);
         }
 
-        int messageId = result ? R.string.exportedTo : R.string.exportFailed;
-        toastWithArg(messageId, exportFile.getAbsolutePath());
+        return result;
     }
 
     protected void onPreExecute()
@@ -114,26 +96,27 @@ class ImportExportTask extends AsyncTask<Void, Void, Void>
         progress.show();
     }
 
-    protected Void doInBackground(Void... nothing)
+    protected Boolean doInBackground(Void... nothing)
     {
-        final File sdcardDir = Environment.getExternalStorageDirectory();
-        final File importExportFile = new File(sdcardDir, TARGET_FILE);
         final DBHelper db = new DBHelper(activity);
+        boolean result;
 
         if(doImport)
         {
-            performImport(importExportFile, db);
+            result = performImport(target, db);
         }
         else
         {
-            performExport(importExportFile, db);
+            result = performExport(target, db);
         }
 
-        return null;
+        return result;
     }
 
-    protected void onPostExecute(Void result)
+    protected void onPostExecute(Boolean result)
     {
+        listener.onTaskComplete(result, target);
+
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
     }
@@ -142,5 +125,10 @@ class ImportExportTask extends AsyncTask<Void, Void, Void>
     {
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Cancelled");
+    }
+
+    interface TaskCompleteListener
+    {
+        void onTaskComplete(boolean success, File file);
     }
 }

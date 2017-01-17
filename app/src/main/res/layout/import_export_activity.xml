@@ -19,36 +19,149 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout android:orientation="vertical"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:text="@string/importExportHelp"/>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout android:orientation="horizontal"
+        <LinearLayout android:orientation="vertical"
                       android:layout_width="fill_parent"
-                      android:layout_height="fill_parent">
-            <Button
+                      android:layout_height="wrap_content"
+                      android:paddingTop="8dp"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:paddingBottom="8dp">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/importName"
-                android:layout_weight="1.0"
-                android:id="@+id/importButton"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/exportName"
-                android:layout_weight="1.0"
-                android:id="@+id/exportButton"/>
-        </LinearLayout>
+                android:textSize="@dimen/text_size_medium"
+                android:layout_gravity="center"
+                android:text="@string/importExportHelp"/>
 
-    </LinearLayout>
+            <View
+                android:id="@+id/dividerExport"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/exportOptionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_large"
+                android:text="@string/exportName"/>
+
+            <TextView
+                android:id="@+id/exportOptionExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/exportOptionExplanation"/>
+
+            <Button
+                android:id="@+id/exportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/exportName" />
+
+            <View
+                android:id="@+id/dividerImportFilesystem"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/importOptionFilesystemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_large"
+                android:text="@string/importOptionFilesystemTitle"/>
+
+            <TextView
+                android:id="@+id/importOptionFilesystemExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/importOptionFilesystemExplanation"/>
+
+            <Button
+                android:id="@+id/importOptionFilesystemButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/importOptionFilesystemButton" />
+
+
+            <View
+                android:id="@+id/dividerImportApplication"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/importOptionApplicationTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_large"
+                android:text="@string/importOptionApplicationTitle"/>
+
+            <TextView
+                android:id="@+id/importOptionApplicationExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/importOptionApplicationExplanation"/>
+
+            <Button
+                android:id="@+id/importOptionApplicationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="Use external application" />
+
+
+            <View
+                android:id="@+id/dividerImportFixed"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_margin="16dp"
+                android:background="?android:attr/listDivider"/>
+
+            <TextView
+                android:id="@+id/importOptionFixedTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_large"
+                android:text="@string/importOptionFixedTitle"/>
+
+            <TextView
+                android:id="@+id/importOptionFixedExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/importOptionFixedExplanation"/>
+
+            <Button
+                android:id="@+id/importOptionFixedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/importOptionFixedButton" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>

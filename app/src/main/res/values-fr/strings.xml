@@ -38,7 +38,6 @@
     <string name="importExport">Importer/Exporter</string>
     <string name="importName">Importer</string>
     <string name="exportName">Exporter</string>
-    <string name="importExportHelp">Les informations des cartes sont importées depuis/exportées vers le fichier LoyaltyCardLocker.csv sur le stockage externe</string>
     <string name="importedFrom">Importé depuis : %1$s</string>
     <string name="exportedTo">Exporté vers : %1$s</string>
     <string name="fileMissing">Fichier manquant : %1$s</string>
@@ -61,4 +60,20 @@
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 
+    <string name="importExportHelp">Exporter vos données vous permet de récupérer vos cartes sur un autre appareil.</string>
+    <string name="importSuccessfulTitle">Importé avec succès</string>
+    <string name="importFailedTitle">Échec de l\'import</string>
+    <string name="exportSuccessfulTitle">Exporté avec succès</string>
+    <string name="exportFailedTitle">Échec de l\'export</string>
+    <string name="exportOptionExplanation">Les données sont sauvegardées à la racine du stockage externe.</string>
+    <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
+    <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
+    <string name="importOptionFilesystemButton">Système de fichiers</string>
+    <string name="importOptionApplicationTitle">Importer depuis le système de fichiers</string>
+    <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
+    <string name="importOptionApplicationButton">Application externe</string>
+    <string name="importOptionFixedTitle">Importer depuis le même emplacement que pour l\'export</string>
+    <string name="importOptionFixedExplanation">Importe les données depuis le même emplacement que celui défini pour l\'export.</string>
+    <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
+    <string name="sendLabel">Envoyer&#8230;</string>
 </resources>

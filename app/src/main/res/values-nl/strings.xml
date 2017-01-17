@@ -32,7 +32,6 @@
     <string name="importExport">Importeer/Exporteer</string>
     <string name="importName">Importeer</string>
     <string name="exportName">Exporteer</string>
-    <string name="importExportHelp">Data is geïmporteerd van of geëxporteerd naar LoyaltyCardLocker.csv op externe opslag</string>
     <string name="importedFrom">Geïmporteerd van: %1$s</string>
     <string name="exportedTo">Geëxporteerd naar: %1$s</string>
     <string name="fileMissing">Bestand niet gevonden: %1$s</string>
@@ -57,4 +56,21 @@
     <string name="confirm">Bevestig</string>
     <string name="deleteConfirmation">Bevestig deze kaart te verwijderen.</string>
     <string name="deleteTitle">Verwijder kaart</string>
+
+    <string name="importExportHelp">Data die is geback-upt maakt het mogelijk om je klantenkaarten naar een ander apparaat te verplaatsen.</string>
+    <string name="importSuccessfulTitle">Importeren succesvol</string>
+    <string name="importFailedTitle">Importeren mislukte</string>
+    <string name="exportSuccessfulTitle">Exporteren succesvol</string>
+    <string name="exportFailedTitle">Exporteren mislukt</string>
+    <string name="exportOptionExplanation">Data is weggeschreven naar de hoogste map in externe opslag.</string>
+    <string name="importOptionFilesystemTitle">Importeer van filesysteem</string>
+    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het filesysteem.</string>
+    <string name="importOptionFilesystemButton">Van filesysteem</string>
+    <string name="importOptionApplicationTitle">Importeer van filesysteem</string>
+    <string name="importOptionApplicationExplanation">Gebruik een externe applicatie zoals Dropbox, Google Drive of je favoriete bestandsbeheer om een bestand te openen.</string>
+    <string name="importOptionApplicationButton">Gebruik externe applicatie</string>
+    <string name="importOptionFixedTitle">Importeer van exporteerlocatie</string>
+    <string name="importOptionFixedExplanation">Importeer van zelfde locatie op het filesysteem waar tijdens exporteren naar geschreven is.</string>
+    <string name="importOptionFixedButton">gebruik exporteerlocaite</string>
+    <string name="sendLabel">Verzend&#8230;</string>
 </resources>

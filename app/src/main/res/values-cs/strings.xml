@@ -38,7 +38,6 @@
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Data jsou importována do/z LoyaltyCardLocker.csv na externí úložišti.</string>
     <string name="importedFrom">Importováno z: %1$s</string>
     <string name="exportedTo">Exportováno do: %1$s</string>
     <string name="fileMissing">Doubor chybí: %1$s</string>
@@ -60,5 +59,20 @@
     <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>
 
     <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
-
+    <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
+    <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
+    <string name="importFailedTitle">Import selhal</string>
+    <string name="exportSuccessfulTitle">Export proběhl úspěšně</string>
+    <string name="exportFailedTitle">Export selhal</string>
+    <string name="exportOptionExplanation">Data jsou zapsána do kořenové složky externího uložiště.</string>
+    <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
+    <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
+    <string name="importOptionFilesystemButton">Ze souborového systému</string>
+    <string name="importOptionApplicationTitle">Import ze souborového systému</string>
+    <string name="importOptionApplicationExplanation">K otevření souboru použije externí aplikaci jako Dropbox, Google Drive, nebo vámi preferovaný prohlížeč souborů.</string>
+    <string name="importOptionApplicationButton">Použít externí aplikaci</string>
+    <string name="importOptionFixedTitle">Import z umístění exportu</string>
+    <string name="importOptionFixedExplanation">Import ze stejné složky souborového systému do níž se zapisuje při exportu.</string>
+    <string name="importOptionFixedButton">Použít složku exportu</string>
+    <string name="sendLabel">Odeslat&#8230;</string>
 </resources>

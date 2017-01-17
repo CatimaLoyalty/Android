@@ -32,7 +32,6 @@
     <string name="importExport">Importa/Esporta</string>
     <string name="importName">Importa</string>
     <string name="exportName">Esporta</string>
-    <string name="importExportHelp">I dati sono stati importati in o esportati dal file LoyaltyCardLocker.csv sulla memoria esterna</string>
     <string name="importedFrom">Importato da: %1$s</string>
     <string name="exportedTo">Esportato in: %1$s</string>
     <string name="fileMissing">File mancante: %1$s</string>
@@ -57,4 +56,20 @@
     <string name="confirm">Conferma</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
+    <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue tessere da un dispositivo ad un altro.</string>
+    <string name="importSuccessfulTitle">Importazione avvenuta con successo</string>
+    <string name="importFailedTitle">Importazione fallita</string>
+    <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
+    <string name="exportFailedTitle">Esportazione fallita</string>
+    <string name="exportOptionExplanation">I dati sono stati scritti nella cartella principale della memoria esterna.</string>
+    <string name="importOptionFilesystemTitle">Importa dal file system</string>
+    <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
+    <string name="importOptionFilesystemButton">Dal file system</string>
+    <string name="importOptionApplicationTitle">Importa dal file system</string>
+    <string name="importOptionApplicationExplanation">Usa un\'applicazione esterna come Dropbox, Google Drive o il tuo file manager preferito per aprire il file.</string>
+    <string name="importOptionApplicationButton">Usa un\'applicazione esterna</string>
+    <string name="importOptionFixedTitle">Importa da un altro posto</string>
+    <string name="importOptionFixedExplanation">Importa dallo stesso posto del file system dove si è esportato.</string>
+    <string name="importOptionFixedButton">Usa luogo dell\'esportazione</string>
+    <string name="sendLabel">Invia&#8230;</string>
 </resources>

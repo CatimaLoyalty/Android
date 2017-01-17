@@ -45,7 +45,24 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="enterBarcodeInstructions">Füge die Kundennummer ein, anschließend wähle die korrekte Barcodeart aus.</string>
     <string name="app_revision_fmt">Versions Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="importExportHelp">Daten werden aus LoyalityCardLocker.csv aus dem externen Speicher im-/exportiert.</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
+
+    <string name="importExportHelp">Gesicherte Daten ermöglichen das Verschieben der Kundenkarten auf ein anderes Gerät.</string>
+    <string name="importSuccessfulTitle">Import erfolgreich</string>
+    <string name="importFailedTitle">Import fehlgeschlagen</string>
+    <string name="exportSuccessfulTitle">Export erfolgreich</string>
+    <string name="exportFailedTitle">Export fehlgeschlagen</string>
+    <string name="exportOptionExplanation">Die Datei wird ins Wurzelverzeichnis des externen Speichers geschrieben.</string>
+    <string name="importOptionFilesystemTitle">Importiere vom Dateisystem</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine Datei im Speicher aus.</string>
+    <string name="importOptionFilesystemButton">Vom Dateisystem</string>
+    <string name="importOptionApplicationTitle">Importiere vom Dateisystem</string>
+    <string name="importOptionApplicationExplanation">Wähle eine Datei aus einer App wie Dropbox, Google Drive, oder deinem bevorzugten Dateisystem aus.</string>
+    <string name="importOptionApplicationButton">Nutze eine externe App</string>
+    <string name="importOptionFixedTitle">Importiere vom Export Ort</string>
+    <string name="importOptionFixedExplanation">Importiere von derselben Stelle, wo die exportiere Datei liegen würde.</string>
+    <string name="importOptionFixedButton">Verwende die exportierte Stelle</string>
+    <string name="sendLabel">Senden&#8230;</string>
+
 </resources>

@@ -38,7 +38,6 @@
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="importName">Importuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importExportHelp">Duomenys importuoti į/eksportruoti iš LoyaltyCardLocker.csv išorinėje atmintyje</string>
     <string name="importedFrom">Importuota iš: %1$s</string>
     <string name="exportedTo">Eksportuota į: %1$s</string>
     <string name="fileMissing">Failas nerastas: %1$s</string>
@@ -60,5 +59,21 @@
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
 
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
-
+    
+    <!-- needs translated --><string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
+    <!-- needs translated --><string name="importSuccessfulTitle">Import successful</string>
+    <!-- needs translated --><string name="importFailedTitle">Import failed</string>
+    <!-- needs translated --><string name="exportSuccessfulTitle">Export successful</string>
+    <!-- needs translated --><string name="exportFailedTitle">Export failed</string>
+    <!-- needs translated --><string name="exportOptionExplanation">Data is written to the top directory in external storage.</string>
+    <!-- needs translated --><string name="importOptionFilesystemTitle">Import from filesystem</string>
+    <!-- needs translated --><string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
+    <!-- needs translated --><string name="importOptionFilesystemButton">From filesystem</string>
+    <!-- needs translated --><string name="importOptionApplicationTitle">Import from filesystem</string>
+    <!-- needs translated --><string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
+    <!-- needs translated --><string name="importOptionApplicationButton">Use external application</string>
+    <!-- needs translated --><string name="importOptionFixedTitle">Import from export location</string>
+    <!-- needs translated --><string name="importOptionFixedExplanation">Import from the same location on the filesystem that is written to on export.</string>
+    <!-- needs translated --><string name="importOptionFixedButton">Use export location</string>
+    <!-- needs translated --> <string name="sendLabel">Send&#8230;</string>
 </resources>

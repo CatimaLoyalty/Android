@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Loyalty Card Locker</string>
+    <string name="app_name">Loyalty Card Keychain</string>
     <string name="about">Über</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="action_add">Neu</string>

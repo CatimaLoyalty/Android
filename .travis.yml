@@ -13,9 +13,6 @@ android:
     # The SDK version used to compile your project
     - android-23
 
-    # Additional components
-    - extra
-
 script: ./gradlew build lint findbugs test
 
 after_failure:

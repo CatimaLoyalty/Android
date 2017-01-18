@@ -36,7 +36,7 @@ public class ImportExportActivity extends AppCompatActivity
     private ImportExportTask importExporter;
 
     private final File sdcardDir = Environment.getExternalStorageDirectory();
-    private final File exportFile = new File(sdcardDir, "LoyaltyCardLocker.csv");
+    private final File exportFile = new File(sdcardDir, "LoyaltyCardKeychain.csv");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -69,7 +69,7 @@
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
-    <string name="importOptionApplicationTitle">Importer depuis le système de fichiers</string>
+    <string name="importOptionApplicationTitle">Application externe</string>
     <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
     <string name="importOptionApplicationButton">Application externe</string>
     <string name="importOptionFixedTitle">Importer depuis le même emplacement que pour l\'export</string>

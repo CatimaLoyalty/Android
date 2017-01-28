@@ -68,7 +68,7 @@
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
-    <string name="importOptionApplicationTitle">Import ze souborového systému</string>
+    <string name="importOptionApplicationTitle">Použít externí aplikaci</string>
     <string name="importOptionApplicationExplanation">K otevření souboru použije externí aplikaci jako Dropbox, Google Drive, nebo vámi preferovaný prohlížeč souborů.</string>
     <string name="importOptionApplicationButton">Použít externí aplikaci</string>
     <string name="importOptionFixedTitle">Import z umístění exportu</string>

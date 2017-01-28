@@ -65,7 +65,7 @@
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
     <string name="importOptionFilesystemButton">Dal file system</string>
-    <string name="importOptionApplicationTitle">Importa dal file system</string>
+    <string name="importOptionApplicationTitle">Usa un\'applicazione esterna</string>
     <string name="importOptionApplicationExplanation">Usa un\'applicazione esterna come Dropbox, Google Drive o il tuo file manager preferito per aprire il file.</string>
     <string name="importOptionApplicationButton">Usa un\'applicazione esterna</string>
     <string name="importOptionFixedTitle">Importa da un altro posto</string>

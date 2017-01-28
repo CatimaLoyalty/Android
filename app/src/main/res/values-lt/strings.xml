@@ -69,7 +69,7 @@
     <!-- needs translated --><string name="importOptionFilesystemTitle">Import from filesystem</string>
     <!-- needs translated --><string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <!-- needs translated --><string name="importOptionFilesystemButton">From filesystem</string>
-    <!-- needs translated --><string name="importOptionApplicationTitle">Import from filesystem</string>
+    <!-- needs translated --><string name="importOptionApplicationTitle">Use external application</string>
     <!-- needs translated --><string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
     <!-- needs translated --><string name="importOptionApplicationButton">Use external application</string>
     <!-- needs translated --><string name="importOptionFixedTitle">Import from export location</string>

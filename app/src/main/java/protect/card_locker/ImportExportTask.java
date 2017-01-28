@@ -76,6 +76,8 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
             Log.e(TAG, "Unable to export file", e);
         }
 
+        Log.i(TAG, "Export of '" + exportFile.getAbsolutePath() + "' result: " + result);
+
         return result;
     }
 
@@ -126,9 +128,9 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Cancelled");
     }
-
     interface TaskCompleteListener
     {
         void onTaskComplete(boolean success, File file);
     }
+
 }

@@ -66,7 +66,7 @@
     <string name="importOptionFilesystemTitle">Importeer van filesysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het filesysteem.</string>
     <string name="importOptionFilesystemButton">Van filesysteem</string>
-    <string name="importOptionApplicationTitle">Importeer van filesysteem</string>
+    <string name="importOptionApplicationTitle">Gebruik externe applicatie</string>
     <string name="importOptionApplicationExplanation">Gebruik een externe applicatie zoals Dropbox, Google Drive of je favoriete bestandsbeheer om een bestand te openen.</string>
     <string name="importOptionApplicationButton">Gebruik externe applicatie</string>
     <string name="importOptionFixedTitle">Importeer van exporteerlocatie</string>

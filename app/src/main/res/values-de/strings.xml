@@ -57,7 +57,7 @@
     <string name="importOptionFilesystemTitle">Importiere vom Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei im Speicher aus.</string>
     <string name="importOptionFilesystemButton">Vom Dateisystem</string>
-    <string name="importOptionApplicationTitle">Importiere vom Dateisystem</string>
+    <string name="importOptionApplicationTitle">Nutze eine externe App</string>
     <string name="importOptionApplicationExplanation">Wähle eine Datei aus einer App wie Dropbox, Google Drive, oder deinem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
     <string name="importOptionFixedTitle">Importiere vom Export Ort</string>

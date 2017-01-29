@@ -52,7 +52,7 @@ public class ImportExportActivity extends AppCompatActivity
         }
 
         // If the application does not have permissions to external
-        // storage, as for it now
+        // storage, ask for it now
 
         if (ContextCompat.checkSelfPermission(ImportExportActivity.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||

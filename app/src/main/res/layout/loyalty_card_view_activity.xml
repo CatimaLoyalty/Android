@@ -51,7 +51,8 @@
                           android:layout_height="wrap_content"
                           android:paddingTop="10dip"
                           android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"/>
+                          android:textSize="@dimen/text_size_medium"
+                          android:textIsSelectable="true"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal"
                           android:padding="10dip"
@@ -76,7 +77,8 @@
                           android:layout_height="wrap_content"
                           android:paddingTop="10dip"
                           android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"/>
+                          android:textSize="@dimen/text_size_medium"
+                          android:textIsSelectable="true"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal"
                           android:padding="10dip"
@@ -103,7 +105,8 @@
                           android:layout_height="wrap_content"
                           android:paddingTop="10dip"
                           android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"/>
+                          android:textSize="@dimen/text_size_medium"
+                          android:textIsSelectable="true"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal"
                           android:layout_width="fill_parent"

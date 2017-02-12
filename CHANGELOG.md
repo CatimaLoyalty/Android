@@ -1,3 +1,10 @@
+## v0.10 (2017-02-12)
+
+Improvements:
+- Changed the default import/export filename. (https://github.com/brarcher/loyalty-card-locker/pull/84)
+- Correct string on the import/export page. (https://github.com/brarcher/loyalty-card-locker/pull/87)
+- Improve layout of card view page. The text should be easier to read, and is selectable with a long click. (https://github.com/brarcher/loyalty-card-locker/pull/91)
+
 ## v0.9 (2017-01-17)
 
 The "Locker" part of the name was not intuitive. To help remedy this a new application icon was created by betsythefc which better represents the purpose of the application: to store loyalty cards which use barcodes. Along with this new icon the name of the application has been changed to "Loyalty Card Keychain".

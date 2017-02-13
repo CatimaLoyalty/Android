@@ -124,6 +124,14 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 // Noting to do
             }
         });
+
+        final Bundle b = getIntent().getExtras();
+        final String initialCardId = b != null ? b.getString("initialCardId") : null;
+
+        if(initialCardId != null)
+        {
+            cardId.setText(initialCardId);
+        }
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId)

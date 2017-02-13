@@ -144,7 +144,6 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         }
 
         image.setImageBitmap(null);
-        image.setVisibility(View.GONE);
         image.setOnClickListener(new View.OnClickListener()
         {
             @Override

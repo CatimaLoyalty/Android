@@ -1,8 +1,10 @@
 # Loyalty Card Keychain
 [![Build Status](https://travis-ci.org/brarcher/loyalty-card-locker.svg?branch=master)](https://travis-ci.org/brarcher/loyalty-card-locker)
 
-[![F-Droid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Get_it_on_F-Droid.svg/160px-Get_it_on_F-Droid.svg.png)](https://f-droid.org/repository/browse/?fdid=protect.card_locker "Loyalty Card Keychain on F-Droid")
-
+<a href="https://f-droid.org/repository/browse/?fdid=protect.card_locker" target="_blank">
+<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
+<a href="https://play.google.com/store/apps/details?id=protect.card_locker" target="_blank">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
 Stores all of your store loyalty cards on your phone, removing the need to carry them around.  Currently the following barcode types are supported:
 

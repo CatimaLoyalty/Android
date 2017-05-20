@@ -13,7 +13,7 @@ android:
     # The SDK version used to compile your project
     - android-23
 
-script: ./gradlew build lint findbugs test
+script: ./gradlew assembleRelease testReleaseUnitTest lintRelease findbugs
 
 after_failure:
 - cat app/build/reports/findbugs/findbugs.html

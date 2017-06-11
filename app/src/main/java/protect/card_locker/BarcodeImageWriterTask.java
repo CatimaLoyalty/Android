@@ -21,6 +21,7 @@ import java.lang.ref.WeakReference;
 class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 {
     private static final String TAG = "LoyaltyCardLocker";
+    private static final int MAX_WIDTH = 600;
 
     private final WeakReference<ImageView> imageViewReference;
     private final String cardId;
@@ -37,7 +38,10 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         cardId = cardIdString;
         format = barcodeFormat;
         imageHeight = imageView.getHeight();
-        imageWidth = imageView.getWidth();
+
+        // No matter how long the window is, there is only so much space
+        // needed for the barcode. Put a limit on it to reduce memory usage
+        imageWidth = Math.min(imageView.getWidth(), MAX_WIDTH);
     }
 
     public Bitmap doInBackground(Void... params)

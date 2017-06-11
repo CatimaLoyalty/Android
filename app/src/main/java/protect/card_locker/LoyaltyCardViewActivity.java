@@ -235,6 +235,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             }
         });
 
+        if(cardIdFieldEdit.getText().length() > 0)
+        {
+            enterButton.setText(R.string.editCard);
+        }
+        else
+        {
+            enterButton.setText(R.string.enterCard);
+        }
+
         saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

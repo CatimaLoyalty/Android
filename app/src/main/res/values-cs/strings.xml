@@ -15,6 +15,7 @@
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
     <string name="enterCard">Vložit vlastnoručně</string>
+    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>

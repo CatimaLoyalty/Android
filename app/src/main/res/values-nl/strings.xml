@@ -49,6 +49,7 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="ok">Oké</string>
     <string name="enterCard">Voer kaart in</string>
+    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
     <string name="selectBarcodeTitle">Selecteer barcode</string>
     <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
     <string name="copy_to_clipboard">Kopieer het ID naar het klembord</string>

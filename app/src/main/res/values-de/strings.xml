@@ -38,6 +38,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="enterCard">Karte einfügen</string>
+    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
     <string name="exportFailed">Export fehlgeschlagen: %1$s</string>
     <string name="barcodeType">Barcodeart</string>
     <string name="barcodeImageDescription">Bild des Barcodes</string>

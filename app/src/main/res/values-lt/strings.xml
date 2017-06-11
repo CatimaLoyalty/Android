@@ -15,6 +15,7 @@
     <string name="save">Išsaugoti</string>
     <string name="capture">Nufotografuoti kortelę</string>
     <string name="enterCard">Įvesti kortelę</string>
+    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
     <string name="edit">Redaguoti</string>
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>

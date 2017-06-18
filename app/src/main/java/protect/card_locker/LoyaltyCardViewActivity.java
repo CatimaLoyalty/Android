@@ -299,11 +299,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(viewLoyaltyCard)
         {
-            getMenuInflater().inflate(R.menu.card_edit_menu, menu);
+            getMenuInflater().inflate(R.menu.card_view_menu, menu);
         }
         else if(updateLoyaltyCard)
         {
-            getMenuInflater().inflate(R.menu.card_delete_menu, menu);
+            getMenuInflater().inflate(R.menu.card_update_menu, menu);
         }
 
         return true;

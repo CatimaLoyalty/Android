@@ -155,22 +155,6 @@
                             android:text="@string/enterCard"
                             android:layout_weight="1.0"/>
             </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10.0dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:baselineAligned="true">
-                <Button android:id="@+id/cancelButton"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/cancel"
-                        android:layout_weight="1.0" />
-                <Button android:id="@+id/saveButton"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/save"
-                        android:layout_weight="1.0" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

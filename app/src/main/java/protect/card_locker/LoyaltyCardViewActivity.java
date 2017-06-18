@@ -306,7 +306,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
         }
 
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

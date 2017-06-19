@@ -102,8 +102,8 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final EditText cardIdField = (EditText) activity.findViewById(R.id.cardIdEdit);
-        final EditText barcodeTypeField = (EditText) activity.findViewById(R.id.barcodeType);
+        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
+        final TextView barcodeTypeField = (TextView) activity.findViewById(R.id.barcodeType);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -175,7 +175,6 @@ public class LoyaltyCardViewActivityTest
     private void checkAllFields(final Activity activity, ViewMode mode,
                                 final String store, final String note, final String cardId, final String barcodeType)
     {
-        int cardIdVisibility = cardId.isEmpty() ? View.GONE : View.VISIBLE;
         int captureVisibility = (mode == ViewMode.UPDATE_CARD || mode == ViewMode.ADD_CARD) ? View.VISIBLE : View.GONE;
 
         int viewVisibility = (mode == ViewMode.VIEW_CARD) ? View.VISIBLE : View.GONE;
@@ -185,15 +184,12 @@ public class LoyaltyCardViewActivityTest
         checkFieldProperties(activity, R.id.storeNameView, viewVisibility, store);
         checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
         checkFieldProperties(activity, R.id.noteView, viewVisibility, note);
-        checkFieldProperties(activity, R.id.cardIdEdit, editVisibility, cardId);
-        checkFieldProperties(activity, R.id.cardIdView, viewVisibility, cardId);
-        checkFieldProperties(activity, R.id.barcodeType, View.VISIBLE, barcodeType);
+        checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
+        checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+        checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+        checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
         checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
         checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
-
-        checkFieldProperties(activity, R.id.barcodeIdLayout, cardIdVisibility, null);
-        checkFieldProperties(activity, R.id.barcodeLayout, cardIdVisibility, null);
-        checkFieldProperties(activity, R.id.barcodeTypeLayout, View.GONE, null);
     }
 
     @Test
@@ -224,7 +220,7 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final EditText cardIdField = (EditText) activity.findViewById(R.id.cardIdEdit);
+        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
 
         shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());

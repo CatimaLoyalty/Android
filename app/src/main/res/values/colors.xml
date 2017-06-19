@@ -4,4 +4,9 @@
     <color name="colorPrimary">#9E9E9E</color>
     <color name="colorPrimaryDark">#616161</color>
     <color name="colorAccent">#607D8B</color>
+
+    <color name="inputContrastBackground">#F8F8F8</color>
+    <color name="inputBackground">#FFFFFF</color>
+    <color name="inputBorder">#DDDDDD</color>
+    <color name="inputDividerBorder">#AAAAAA</color>
 </resources>

@@ -19,142 +19,230 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/scrollView">
+    <ScrollView android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/inputContrastBackground"
+                app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TableLayout android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:shrinkColumns="1"
+                         android:background="@color/inputContrastBackground">
 
-        <LinearLayout android:orientation="vertical"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content">
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <TextView android:textSize="@dimen/text_size_medium"
-                          android:textStyle="bold"
-                          android:layout_gravity="center_vertical"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:paddingStart="20.0dip"
-                          android:paddingEnd="20.0dip"
-                          android:labelFor="@+id/storeName"
-                          android:text="@string/storeName" />
-                <EditText android:id="@+id/storeNameEdit"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:inputType="text"
-                          android:textSize="@dimen/text_size_medium"/>
-                <TextView android:id="@+id/storeNameView"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:paddingTop="10dip"
-                          android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"
-                          android:textIsSelectable="true"/>
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <TextView android:textSize="@dimen/text_size_medium"
-                          android:textStyle="bold"
-                          android:layout_gravity="center_vertical"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:paddingStart="20.0dip"
-                          android:paddingEnd="20.0dip"
-                          android:labelFor="@+id/note"
-                          android:text="@string/note" />
-                <EditText android:id="@+id/noteEdit"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:inputType="text"
-                          android:textSize="@dimen/text_size_medium"/>
-                <TextView android:id="@+id/noteView"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:paddingTop="10dip"
-                          android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"
-                          android:textIsSelectable="true"/>
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/barcodeIdLayout">
-                <TextView android:textSize="@dimen/text_size_medium"
-                          android:textStyle="bold"
-                          android:layout_gravity="center_vertical"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:paddingStart="20.0dip"
-                          android:paddingEnd="20.0dip"
-                          android:labelFor="@+id/cardId"
-                          android:text="@string/cardId" />
-                <EditText android:id="@+id/cardIdEdit"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:enabled="false"
-                          android:inputType="text"
-                          android:textSize="@dimen/text_size_medium"/>
-                <TextView android:id="@+id/cardIdView"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:paddingTop="10dip"
-                          android:paddingBottom="10dip"
-                          android:textSize="@dimen/text_size_medium"
-                          android:textIsSelectable="true"/>
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/barcodeTypeLayout">
-                <TextView android:textSize="@dimen/text_size_medium"
-                          android:textStyle="bold"
-                          android:layout_gravity="center_vertical"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:labelFor="@+id/barcodeType"
-                          android:text="@string/barcodeType" />
-                <EditText android:id="@+id/barcodeType"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:enabled="false"
-                          android:inputType="text"/>
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10.0dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:visibility="gone"
-                          android:id="@+id/barcodeLayout">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
-                    android:layout_weight="1.0"/>
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10.0dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/barcodeCaptureLayout">
-                    <Button android:id="@+id/captureButton"
-                            android:layout_width="0dp"
+                <!-- Store Name -->
+                <View
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <RelativeLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
+
+                        <TextView
+                            android:id="@+id/storeNameField"
+                            android:text="@string/storeName"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/inputSize"
+                            android:padding="@dimen/inputPadding"
+                            android:layout_alignParentStart="true"/>
+
+                        <EditText
+                            android:id="@+id/storeNameEdit"
                             android:layout_height="wrap_content"
-                            android:text="@string/capture"
-                            android:layout_weight="1.0"/>
-                    <Button android:id="@+id/enterButton"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:layout_toEndOf="@id/storeNameField"/>
+
+                        <TextView
+                            android:id="@+id/storeNameView"
                             android:layout_height="wrap_content"
-                            android:text="@string/enterCard"
-                            android:layout_weight="1.0"/>
-            </LinearLayout>
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:textIsSelectable="true"
+                            android:layout_toEndOf="@id/storeNameField"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
+                <!-- Note -->
+                <View
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <RelativeLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
+
+                        <TextView
+                            android:id="@+id/noteField"
+                            android:text="@string/note"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/inputSize"
+                            android:padding="@dimen/inputPadding"
+                            android:layout_alignParentStart="true"/>
+
+                        <EditText
+                            android:id="@+id/noteEdit"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:layout_toEndOf="@id/noteField"/>
+
+                        <TextView
+                            android:id="@+id/noteView"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:textIsSelectable="true"
+                            android:layout_toEndOf="@id/noteField"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
+                <!-- Card ID -->
+                <View
+                    android:id="@+id/cardIdDivider"
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:id="@+id/cardIdTableRow"
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
+
+                        <TextView
+                            android:id="@+id/cardIdField"
+                            android:text="@string/cardId"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/inputSize"
+                            android:padding="@dimen/inputPadding"
+                            android:layout_alignParentStart="true"/>
+
+                        <TextView
+                            android:id="@+id/cardIdView"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:textIsSelectable="true"
+                            android:layout_toEndOf="@id/cardIdField"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
+                <View
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+
+                <TextView android:id="@+id/barcodeType"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:visibility="gone"/>
+
+                <LinearLayout android:orientation="horizontal"
+                              android:padding="10.0dip"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:visibility="gone"
+                              android:id="@+id/barcodeLayout">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/barcode_disp_height"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/barcode"
+                        android:contentDescription="@string/barcodeImageDescription"
+                        android:layout_weight="1.0"/>
+                </LinearLayout>
+
+                <LinearLayout android:orientation="vertical"
+                              android:layout_width="fill_parent"
+                              android:layout_height="wrap_content">
+
+                    <LinearLayout android:orientation="horizontal"
+                                  android:padding="10.0dip"
+                                  android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/barcodeCaptureLayout">
+                        <Button android:id="@+id/captureButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/capture"
+                                android:layout_weight="1.0"/>
+                        <Button android:id="@+id/enterButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/enterCard"
+                                android:layout_weight="1.0"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </TableLayout>
         </LinearLayout>
     </ScrollView>
 

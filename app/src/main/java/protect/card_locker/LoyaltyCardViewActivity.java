@@ -38,12 +38,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView storeFieldView;
     EditText noteFieldEdit;
     TextView noteFieldView;
-    EditText cardIdFieldEdit;
     TextView cardIdFieldView;
-    EditText barcodeTypeField;
+    View cardIdDivider;
+    View cardIdTableRow;
+    TextView barcodeTypeField;
     ImageView barcodeImage;
-    View barcodeIdLayout;
-    View barcodeTypeLayout;
     View barcodeImageLayout;
     View barcodeCaptureLayout;
 
@@ -103,12 +102,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeFieldView = (TextView) findViewById(R.id.storeNameView);
         noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
         noteFieldView = (TextView) findViewById(R.id.noteView);
-        cardIdFieldEdit = (EditText) findViewById(R.id.cardIdEdit);
         cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
-        barcodeTypeField = (EditText) findViewById(R.id.barcodeType);
+        cardIdDivider = findViewById(R.id.cardIdDivider);
+        cardIdTableRow = findViewById(R.id.cardIdTableRow);
+        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
         barcodeImage = (ImageView) findViewById(R.id.barcode);
-        barcodeIdLayout = findViewById(R.id.barcodeIdLayout);
-        barcodeTypeLayout = findViewById(R.id.barcodeTypeLayout);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
@@ -131,9 +129,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 noteFieldView.setText(loyaltyCard.note);
             }
 
-            if(cardIdFieldEdit.getText().length() == 0)
+            if(cardIdFieldView.getText().length() == 0)
             {
-                cardIdFieldEdit.setText(loyaltyCard.cardId);
                 cardIdFieldView.setText(loyaltyCard.cardId);
             }
 
@@ -148,7 +145,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
                 storeFieldView.setVisibility(View.GONE);
                 noteFieldView.setVisibility(View.GONE);
-                cardIdFieldView.setVisibility(View.GONE);
             }
             else
             {
@@ -158,7 +154,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
                 storeFieldEdit.setVisibility(View.GONE);
                 noteFieldEdit.setVisibility(View.GONE);
-                cardIdFieldEdit.setVisibility(View.GONE);
             }
         }
         else
@@ -167,21 +162,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
             storeFieldView.setVisibility(View.GONE);
             noteFieldView.setVisibility(View.GONE);
-            cardIdFieldView.setVisibility(View.GONE);
         }
 
-        if(cardIdFieldEdit.getText().length() == 0)
-        {
-            barcodeIdLayout.setVisibility(View.GONE);
-        }
-
-        barcodeTypeLayout.setVisibility(View.GONE);
-
-        if(cardIdFieldEdit.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
+        if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
             String formatString = barcodeTypeField.getText().toString();
             final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
-            final String cardIdString = cardIdFieldEdit.getText().toString();
+            final String cardIdString = cardIdFieldView.getText().toString();
 
             if(barcodeImage.getHeight() == 0)
             {
@@ -214,7 +201,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
             }
 
-            barcodeIdLayout.setVisibility(View.VISIBLE);
             barcodeImageLayout.setVisibility(View.VISIBLE);
         }
 
@@ -241,7 +227,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             {
                 Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
 
-                String cardId = cardIdFieldEdit.getText().toString();
+                String cardId = cardIdFieldView.getText().toString();
                 if(cardId.length() > 0)
                 {
                     final Bundle b = new Bundle();
@@ -253,12 +239,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             }
         });
 
-        if(cardIdFieldEdit.getText().length() > 0)
+        if(cardIdFieldView.getText().length() > 0)
         {
+            cardIdDivider.setVisibility(View.VISIBLE);
+            cardIdTableRow.setVisibility(View.VISIBLE);
             enterButton.setText(R.string.editCard);
         }
         else
         {
+            cardIdDivider.setVisibility(View.GONE);
+            cardIdTableRow.setVisibility(View.GONE);
             enterButton.setText(R.string.enterCard);
         }
     }
@@ -267,7 +257,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
-        String cardId = cardIdFieldEdit.getText().toString();
+        String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 
         if(store.isEmpty())
@@ -278,7 +268,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(cardId.isEmpty() || barcodeType.isEmpty())
         {
-            Snackbar.make(cardIdFieldEdit, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -404,14 +394,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
 
-            for(TextView view : new TextView[]{
-                    (EditText) findViewById(R.id.cardIdEdit),
-                    (TextView) findViewById(R.id.cardIdView)})
-            {
-                view.setText(contents);
-            }
+            TextView cardIdView = (TextView)findViewById(R.id.cardIdView);
+            cardIdView.setText(contents);
 
-            final EditText barcodeTypeField = (EditText) findViewById(R.id.barcodeType);
+            final TextView barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
             barcodeTypeField.setText(format);
             onResume();
         }

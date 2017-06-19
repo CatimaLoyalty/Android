@@ -102,10 +102,8 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final EditText cardIdField = (EditText) activity.findViewById(R.id.cardIdEdit);
-        final EditText barcodeTypeField = (EditText) activity.findViewById(R.id.barcodeType);
-
-        final Button saveButton = (Button) activity.findViewById(R.id.saveButton);
+        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
+        final TextView barcodeTypeField = (TextView) activity.findViewById(R.id.barcodeType);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -113,7 +111,7 @@ public class LoyaltyCardViewActivityTest
         barcodeTypeField.setText(barcodeType);
 
         assertEquals(false, activity.isFinishing());
-        saveButton.performClick();
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(true, activity.isFinishing());
 
         assertEquals(1, db.getLoyaltyCardCount());
@@ -177,7 +175,6 @@ public class LoyaltyCardViewActivityTest
     private void checkAllFields(final Activity activity, ViewMode mode,
                                 final String store, final String note, final String cardId, final String barcodeType)
     {
-        int cardIdVisibility = cardId.isEmpty() ? View.GONE : View.VISIBLE;
         int captureVisibility = (mode == ViewMode.UPDATE_CARD || mode == ViewMode.ADD_CARD) ? View.VISIBLE : View.GONE;
 
         int viewVisibility = (mode == ViewMode.VIEW_CARD) ? View.VISIBLE : View.GONE;
@@ -187,17 +184,12 @@ public class LoyaltyCardViewActivityTest
         checkFieldProperties(activity, R.id.storeNameView, viewVisibility, store);
         checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
         checkFieldProperties(activity, R.id.noteView, viewVisibility, note);
-        checkFieldProperties(activity, R.id.cardIdEdit, editVisibility, cardId);
-        checkFieldProperties(activity, R.id.cardIdView, viewVisibility, cardId);
-        checkFieldProperties(activity, R.id.barcodeType, View.VISIBLE, barcodeType);
+        checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
+        checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+        checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+        checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
         checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
-        checkFieldProperties(activity, R.id.saveButton, captureVisibility, null);
-        checkFieldProperties(activity, R.id.cancelButton, captureVisibility, null);
         checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
-
-        checkFieldProperties(activity, R.id.barcodeIdLayout, cardIdVisibility, null);
-        checkFieldProperties(activity, R.id.barcodeLayout, cardIdVisibility, null);
-        checkFieldProperties(activity, R.id.barcodeTypeLayout, View.GONE, null);
     }
 
     @Test
@@ -222,33 +214,32 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         Activity activity = (Activity)activityController.get();
+        ShadowActivity shadowActivity = shadowOf(activity);
         DBHelper db = new DBHelper(activity);
         assertEquals(0, db.getLoyaltyCardCount());
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final EditText cardIdField = (EditText) activity.findViewById(R.id.cardIdEdit);
+        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
 
-        final Button saveButton = (Button) activity.findViewById(R.id.saveButton);
-
-        saveButton.performClick();
+        shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        saveButton.performClick();
+        shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        saveButton.performClick();
+        shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         cardIdField.setText("cardId");
-        saveButton.performClick();
+        shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
     }
 
     @Test
-    public void startWithoutParametersCancel()
+    public void startWithoutParametersBack()
     {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
         activityController.start();
@@ -257,10 +248,8 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
 
-        final Button cancelButton = (Button) activity.findViewById(R.id.cancelButton);
-
         assertEquals(false, activity.isFinishing());
-        cancelButton.performClick();
+        shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
     }
 
@@ -323,9 +312,8 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
         // Cancel the gift card creation
-        final Button cancelButton = (Button) activity.findViewById(R.id.cancelButton);
         assertEquals(false, activity.isFinishing());
-        cancelButton.performClick();
+        shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
     }
 
@@ -422,10 +410,9 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
 
-        // Cancel the gift card creation
-        final Button cancelButton = (Button) activity.findViewById(R.id.cancelButton);
+        // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
-        cancelButton.performClick();
+        shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
     }
 }

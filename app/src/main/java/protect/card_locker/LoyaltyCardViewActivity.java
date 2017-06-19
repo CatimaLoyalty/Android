@@ -300,6 +300,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
         }
+        else
+        {
+            getMenuInflater().inflate(R.menu.card_add_menu, menu);
+        }
 
         return super.onCreateOptionsMenu(menu);
     }

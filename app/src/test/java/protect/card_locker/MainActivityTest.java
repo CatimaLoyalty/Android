@@ -2,8 +2,11 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
@@ -11,10 +14,12 @@ import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
@@ -24,10 +29,20 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 17)
+@RunWith(RobolectricTestRunner.class)
+@Config(constants = BuildConfig.class, sdk = 23)
 public class MainActivityTest
 {
+    private SharedPreferences prefs;
+
+    @Before
+    public void setUp()
+    {
+        // Assume that this is not the first launch
+        prefs = RuntimeEnvironment.application.getSharedPreferences("protect.card_locker", Context.MODE_PRIVATE);
+        prefs.edit().putBoolean("firstrun", false).commit();
+    }
+
     @Test
     public void initiallyNoLoyaltyCards() throws Exception
     {
@@ -50,10 +65,11 @@ public class MainActivityTest
         assertTrue(menu != null);
 
         // The settings and add button should be present
-        assertEquals(menu.size(), 3);
+        assertEquals(menu.size(), 4);
 
         assertEquals("Add", menu.findItem(R.id.action_add).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
+        assertEquals("Start Intro", menu.findItem(R.id.action_intro).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
     }
 
@@ -99,5 +115,27 @@ public class MainActivityTest
         assertEquals(1, list.getAdapter().getCount());
         Cursor cursor = (Cursor)list.getAdapter().getItem(0);
         assertNotNull(cursor);
+    }
+
+    @Test
+    public void testFirstRunStartsIntro()
+    {
+        prefs.edit().remove("firstrun").commit();
+
+        ActivityController controller = Robolectric.buildActivity(MainActivity.class).create();
+        Activity activity = (Activity)controller.get();
+
+        assertTrue(activity.isFinishing() == false);
+
+        Intent next = shadowOf(activity).getNextStartedActivity();
+
+        ComponentName componentName = next.getComponent();
+        String name = componentName.flattenToShortString();
+        assertEquals("protect.card_locker/.IntroActivity", name);
+
+        Bundle extras = next.getExtras();
+        assertNull(extras);
+
+        assertEquals(false, prefs.getBoolean("firstrun", true));
     }
 }

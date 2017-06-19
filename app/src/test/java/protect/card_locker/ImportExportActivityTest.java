@@ -11,7 +11,7 @@ import android.view.View;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 import org.robolectric.res.builder.RobolectricPackageManager;
@@ -20,16 +20,14 @@ import static org.robolectric.Shadows.shadowOf;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 17)
+@RunWith(RobolectricTestRunner.class)
+@Config(constants = BuildConfig.class, sdk = 23)
 public class ImportExportActivityTest
 {
     private void registerIntentHandler(String handler)
     {
         // Add something that will 'handle' the given intent type
-
-        RobolectricPackageManager packageManager = (RobolectricPackageManager) shadowOf(
-                RuntimeEnvironment.application).getPackageManager();
+        RobolectricPackageManager packageManager = shadowOf(RuntimeEnvironment.application.getPackageManager());
 
         ResolveInfo info = new ResolveInfo();
         info.isDefault = true;

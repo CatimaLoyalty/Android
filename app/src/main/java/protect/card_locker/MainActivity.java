@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ClipboardManager;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList();
+
+        SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
+        if (prefs.getBoolean("firstrun", true)) {
+            startIntro();
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
     }
 
     @Override
@@ -152,6 +159,12 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
+        if(id == R.id.action_intro)
+        {
+            startIntro();
+            return true;
+        }
+
         if(id == R.id.action_about)
         {
             displayAboutDialog();
@@ -168,7 +181,8 @@ public class MainActivity extends AppCompatActivity
             "Commons CSV", "https://commons.apache.org/proper/commons-csv/",
             "Guava", "https://github.com/google/guava",
             "ZXing", "https://github.com/zxing/zxing",
-            "ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded"
+            "ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded",
+            "AppIntro", "https://github.com/apl-devs/AppIntro"
         );
 
         StringBuilder libs = new StringBuilder().append("<ul>");
@@ -229,5 +243,11 @@ public class MainActivity extends AppCompatActivity
                 }
             })
             .show();
+    }
+
+    private void startIntro()
+    {
+        Intent intent = new Intent(this, IntroActivity.class);
+        startActivity(intent);
     }
 }

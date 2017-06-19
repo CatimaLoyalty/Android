@@ -40,10 +40,10 @@ dependencies {
     compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     compile 'com.google.zxing:core:3.3.0'
     compile 'org.apache.commons:commons-csv:1.2'
-    compile group: 'com.google.guava', name: 'guava', version: '18.0'
+    compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile 'com.github.apl-devs:appintro:v4.2.0'
     testCompile 'junit:junit:4.12'
-    testCompile "org.robolectric:robolectric:3.0"
+    testCompile "org.robolectric:robolectric:3.3.2"
 }
 
 task findbugs(type: FindBugs, dependsOn: assembleDebug) {

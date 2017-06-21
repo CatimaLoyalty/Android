@@ -78,18 +78,17 @@
     <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
     <string name="sendLabel">Envoyer&#8230;</string>
 
-    <!-- NEEDS TRANSLATED --><string name="startIntro">Start Intro</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Description">Add a new card by touching the plus from the card list.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Description">To add the barcode, either capture with the camera or type in manually.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Title">Show Card\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Description">To display a card, click on the store name from the main screen\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Title">Backup\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Title">Feedback\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
+    <string name="startIntro">Démarrer la présentation</string>
+    <string name="intro1Title">Bienvenue dans Loyalty Card Keychain\n</string>
+    <string name="intro1Description">Gérez vos cartes de fidélité à codes-barres sur votre téléphone !\n\n</string>
+    <string name="intro2Title">Ajouter une carte\n</string>
+    <string name="intro2Description">Touchez le signe \'+\' en haut de la liste des cartes pour en ajouter une.\n\n</string>
+    <string name="intro3Title">Ajouter une carte\n</string>
+    <string name="intro3Description">Pour enregistrer le code-barres, utilisez l\'appareil-photo ou entrez-le manuellement.\n\n</string>
+    <string name="intro4Title">Afficher une carte\n</string>
+    <string name="intro4Description">Pour afficher une carte, touchez le nom du magasin sur l\'écran principal\n\n</string>
+    <string name="intro5Title">Sauvegarde\n</string>
+    <string name="intro5Description">Les cartes peuvent être sauvegardées. Touchez \'Importer/Exporter\' sur l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
+    <string name="intro6Title">Votre avis\n</string>
+    <string name="intro6Description">Cette application est gratuite, sans publicité, et son code est ouvert. Découvrez-en plus en touchant \'à propos\' sur l\'écran principal.\n\nLaissez un commentaire sur votre magasin d\'applications (:</string>
 </resources>
-

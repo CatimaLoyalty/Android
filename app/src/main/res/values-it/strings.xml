@@ -78,7 +78,7 @@
     <string name="intro1Title">Benvenuto in Carte fedeltà\n</string>
     <string name="intro1Description">Gestisci le tue tessere direttamente dal telefono!\n\n</string>
     <string name="intro2Title">Aggiungi carte\n</string>
-    <string name="intro2Description">Aggiungi una nuova carta premendo il + dall'elenco delle carte.\n\n</string>
+    <string name="intro2Description">Aggiungi una nuova carta premendo il + dall\'elenco delle carte.\n\n</string>
     <string name="intro3Title">Aggiungi carte\n</string>
     <string name="intro3Description">Per aggiungere il codice a barre, catturalo con la fotocamera o inseriscilo manualmente.\n\n</string>
     <string name="intro4Title">Mostra carta\n</string>
@@ -86,5 +86,5 @@
     <string name="intro5Title">Backup\n</string>
     <string name="intro5Description">I dati delle tessere possono essere salvati. Per esportare o importare tessere premi Importa/Esporta nel menù nella schermata principale.\n\n</string>
     <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Questa app è gratuita, priva di pubblicità e open source. Guarda i dettagli premendo su Informazioni nella schermata principale.\n\nPer favore, lascia un feedback nell'app store! (:</string>
+    <string name="intro6Description">Questa app è gratuita, priva di pubblicità e open source. Guarda i dettagli premendo su Informazioni nella schermata principale.\n\nPer favore, lascia un feedback nell\'app store! (:</string>
 </resources>

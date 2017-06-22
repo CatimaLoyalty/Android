@@ -25,11 +25,13 @@ proposed changes.
 
 # Screenshots
 
-[<img src="https://cloud.githubusercontent.com/assets/5264535/18036233/32fae9a6-6d33-11e6-81e4-55ba60e83d9b.png" width=250>](https://cloud.githubusercontent.com/assets/5264535/18036233/32fae9a6-6d33-11e6-81e4-55ba60e83d9b.png)
-[<img src="https://cloud.githubusercontent.com/assets/5264535/18036246/7ee5c7f0-6d33-11e6-90cf-d2b3ca5a94c7.png" width=250>](https://cloud.githubusercontent.com/assets/5264535/18036246/7ee5c7f0-6d33-11e6-90cf-d2b3ca5a94c7.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416124-79b09162-56d9-11e7-967b-8923177dc228.png" width=250>](https://user-images.githubusercontent.com/5264535/27416124-79b09162-56d9-11e7-967b-8923177dc228.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416127-7baea332-56d9-11e7-8a10-5be90bb02225.png" width=250>](https://user-images.githubusercontent.com/5264535/27416127-7baea332-56d9-11e7-8a10-5be90bb02225.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416128-7d50f7b2-56d9-11e7-9833-1dd962f9cf66.png" width=250>](https://user-images.githubusercontent.com/5264535/27416128-7d50f7b2-56d9-11e7-9833-1dd962f9cf66.png)
 
-[<img src="https://cloud.githubusercontent.com/assets/5264535/18036258/bb19562e-6d33-11e6-856e-740e8785ad71.png" width=250>](https://cloud.githubusercontent.com/assets/5264535/18036258/bb19562e-6d33-11e6-856e-740e8785ad71.png)
-[<img src="https://cloud.githubusercontent.com/assets/5264535/18036269/0202baf8-6d34-11e6-9c17-449d5b348738.png" width=250>](https://cloud.githubusercontent.com/assets/5264535/18036269/0202baf8-6d34-11e6-9c17-449d5b348738.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416132-7ea6272c-56d9-11e7-9a52-d73424bf902c.png" width=250>](https://user-images.githubusercontent.com/5264535/27416132-7ea6272c-56d9-11e7-9a52-d73424bf902c.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416137-800aee90-56d9-11e7-9cc9-2a7dc63bb4fb.png" width=250>](https://user-images.githubusercontent.com/5264535/27416137-800aee90-56d9-11e7-9cc9-2a7dc63bb4fb.png)
+[<img src="https://user-images.githubusercontent.com/5264535/27416140-82d8211a-56d9-11e7-8031-c71d3077bdc6.png" width=250>](https://user-images.githubusercontent.com/5264535/27416140-82d8211a-56d9-11e7-8031-c71d3077bdc6.png)
 
 # Building
 

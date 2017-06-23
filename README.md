@@ -48,3 +48,7 @@ Windows:
 ./gradlew.bat build
 ```
 
+# Thanks
+
+This application uses the following image:
+- [Save](https://thenounproject.com/term/save/716011) by [Bernar Novalyi](https://thenounproject.com/bernar.novalyi)

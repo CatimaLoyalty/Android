@@ -5,7 +5,7 @@
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="action_add">Neu</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lizensiert unter der GPLv3.</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="viewCardTitle">Kundenkarte anzeigen</string>

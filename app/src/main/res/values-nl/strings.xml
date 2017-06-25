@@ -41,7 +41,7 @@
     <string name="exporting">Exporterende&#8230;</string>
     <string name="noExternalStoragePermissionError">Niet mogelijk te importeren of exporteren zonder rechten op externe opslag</string>
     <string name="about">Over</string>
-    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Gelicenseerd met GPLv3.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>

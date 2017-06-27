@@ -1,3 +1,12 @@
+## v0.11 (2017-06-26)
+
+Improvements:
+- When editing a card ID, pre-populate the existing ID to start. (https://github.com/brarcher/loyalty-card-locker/pull/94)
+- Limit the width of generated barcodes to reduce memory usage and out of memory errors. (https://github.com/brarcher/loyalty-card-locker/pull/103)
+- When editing a card, change the "Enter Card" button to say "Edit Card" if a card ID already exists. (https://github.com/brarcher/loyalty-card-locker/pull/104)
+- Change the color scheme to be softer and compatible with the app icon, and change the layout when viewing a card to be cleaner. (https://github.com/brarcher/loyalty-card-locker/pull/107)
+- Add an intro wizard which launches on the app's first launch. (https://github.com/brarcher/loyalty-card-locker/pull/108)
+
 ## v0.10 (2017-02-12)
 
 Improvements:

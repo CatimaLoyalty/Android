@@ -41,12 +41,13 @@
     <string name="exporting">Exporterende&#8230;</string>
     <string name="noExternalStoragePermissionError">Niet mogelijk te importeren of exporteren zonder rechten op externe opslag</string>
     <string name="about">Over</string>
-    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Gelicenseerd met GPLv3.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="ok">Oké</string>
     <string name="enterCard">Voer kaart in</string>
     <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>

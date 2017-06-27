@@ -49,12 +49,13 @@
     <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>
 
     <string name="about">À propos</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licence GPLv3.</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Notes sur les versions : <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Choisissez le code-barre</string>
     <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barres et sélectionnez l\'image qui le représente</string>

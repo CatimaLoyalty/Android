@@ -49,12 +49,13 @@
     <string name="noExternalStoragePermissionError">Nelze importovat nebo exportovat karty bez přístupu k externímu uložišti</string>
 
     <string name="about">O aplikaci</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licensed under the GPLv3.</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používá tyto knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
     <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>

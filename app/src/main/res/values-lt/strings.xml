@@ -49,12 +49,13 @@
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
 
     <string name="about">Apie</string>
-    <string name="app_copyright_fmt">Visos teisės saugomos 2016-<xliff:g>%s</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Visos teisės saugomos 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licenzijuota pagal GPLv3.</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> naudoja šias trečiosios šalies bibliotekas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>

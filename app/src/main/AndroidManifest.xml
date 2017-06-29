@@ -51,6 +51,7 @@
         <activity
             android:name=".IntroActivity"
             android:label=""
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

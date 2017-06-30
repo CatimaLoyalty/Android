@@ -8,15 +8,15 @@
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lizensiert unter der GPLv3.</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> verwendet folgenden Dritt-Ressourcen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="viewCardTitle">Kundenkarte anzeigen</string>
     <string name="ok">Ok</string>
     <string name="note">Notiz</string>
     <string name="save">Speichern</string>
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="selectBarcodeTitle">Barcode auswählen</string>
-    <string name="storeName">Firma</string>
-    <string name="noStoreError">Keine Firma angegeben</string>
+    <string name="storeName">Geschäft</string>
+    <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="exportName">Exportieren</string>
     <string name="exportedTo">Exportiert nach: %1$s</string>
     <string name="fileMissing">Datei fehlt: %1$s</string>
@@ -26,26 +26,26 @@
     <string name="importedFrom">Importiert von: %1$s</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
-    <string name="noGiftCards">Du hast noch keine Kundenkarte angelegt. Über den "+" Button oben rechts, kannst du welche anlegen.\n\nDiese App ermöglicht es dir, deine Kundenkarten immer mit dir zu führen.</string>
-    <string name="cancel">Abrechen</string>
-    <string name="capture">Karte aufnehmen</string>
+    <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den "+" Button oben rechts, können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="capture">Karte erfassen</string>
     <string name="cardId">Kartennummer</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="confirm">Bestätigen</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
     <string name="delete">Löschen</string>
-    <string name="deleteConfirmation">Bitte bestätige, dass du die Karte löschen möchtest.</string>
+    <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
     <string name="deleteTitle">Lösche die Kundenkarte</string>
     <string name="edit">Bearbeiten</string>
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="enterCard">Karte einfügen</string>
-    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
+    <string name="editCard">Karte bearbeiten</string>
     <string name="exportFailed">Export fehlgeschlagen: %1$s</string>
     <string name="barcodeType">Barcodeart</string>
     <string name="barcodeImageDescription">Bild des Barcodes</string>
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="enterBarcodeInstructions">Füge die Kundennummer ein, anschließend wähle die korrekte Barcodeart aus.</string>
+    <string name="enterBarcodeInstructions">Fügen Sie die Kundennummer ein, anschließend wählen Sie die korrekte Barcodeart aus.</string>
     <string name="app_revision_fmt">Versions Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
@@ -55,29 +55,29 @@
     <string name="importFailedTitle">Import fehlgeschlagen</string>
     <string name="exportSuccessfulTitle">Export erfolgreich</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportOptionExplanation">Die Datei wird ins Wurzelverzeichnis des externen Speichers geschrieben.</string>
+    <string name="exportOptionExplanation">Die Datei wird ins Rootverzeichnis des externen Speichers geschrieben.</string>
     <string name="importOptionFilesystemTitle">Importiere vom Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei im Speicher aus.</string>
     <string name="importOptionFilesystemButton">Vom Dateisystem</string>
     <string name="importOptionApplicationTitle">Nutze eine externe App</string>
-    <string name="importOptionApplicationExplanation">Wähle eine Datei aus einer App wie Dropbox, Google Drive, oder deinem bevorzugten Dateisystem aus.</string>
+    <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
-    <string name="importOptionFixedTitle">Importiere vom Export Ort</string>
-    <string name="importOptionFixedExplanation">Importiere von derselben Stelle, wo die exportiere Datei liegen würde.</string>
-    <string name="importOptionFixedButton">Verwende die exportierte Stelle</string>
+    <string name="importOptionFixedTitle">Importiere vom Export-Pfad</string>
+    <string name="importOptionFixedExplanation">Importiere vom Export-Pfad.</string>
+    <string name="importOptionFixedButton">Verwende den Export-Pfad.</string>
     <string name="sendLabel">Senden&#8230;</string>
 
-    <!-- NEEDS TRANSLATED --><string name="startIntro">Start Intro</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Description">Add a new card by touching the plus from the card list.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Description">To add the barcode, either capture with the camera or type in manually.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Title">Show Card\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Description">To display a card, click on the store name from the main screen\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Title">Backup\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Title">Feedback\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
+    <string name="startIntro">Starte Einführung</string>
+    <string name="intro1Title">Willkommen zu Loyalty Card Keychain\n</string>
+    <string name="intro1Description">Verwalten Sie Ihre Barcode-Kundenkarten auf Ihrem Smartphone!\n\n</string>
+    <string name="intro2Title">Karten hinzufügen\n</string>
+    <string name="intro2Description">Fügen Sie neue Karten hinzu indem Sie das "+" Symbol in der Liste berühren.\n\n</string>
+    <string name="intro3Title">Karten hinzufügen\n</string>
+    <string name="intro3Description">Um einen Barcode hinzuzufügen, verwenden Sie die Kamera oder geben Sie den Code manuell ein.\n\n</string>
+    <string name="intro4Title">Karte anzeigen\n</string>
+    <string name="intro4Description">Um eine Karte anzuzeigen, den entsprechenen Namen in der Hauptansicht anwählen.\n\n</string>
+    <string name="intro5Title">Backup\n</string>
+    <string name="intro5Description">Sie können selbstverständlich Backups anlegen. Um Karten zu exportieren oder importieren wählen Sie Import/Export im Menü auf dem Hauptbildschirm.\n\n</string>
+    <string name="intro6Title">Feedback\n</string>
+    <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
 </resources>

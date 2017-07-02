@@ -79,11 +79,11 @@
     <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
     <string name="sendLabel">Envoyer&#8230;</string>
 
-    <string name="startIntro">Démarrer la présentation</string>
-    <string name="intro1Title">Bienvenue dans Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Gérez vos cartes de fidélité à codes-barres sur votre téléphone !\n\n</string>
+    <string name="startIntro">Présentation</string>
+    <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>
+    <string name="intro1Description">Gérez vos cartes de fidélité\nsur votre téléphone !\n\n</string>
     <string name="intro2Title">Ajouter une carte\n</string>
-    <string name="intro2Description">Touchez le signe \'+\' en haut de la liste des cartes pour en ajouter une.\n\n</string>
+    <string name="intro2Description">Touchez le signe \'+\' en haut de l\'écran pour ajouter une carte.\n\n</string>
     <string name="intro3Title">Ajouter une carte\n</string>
     <string name="intro3Description">Pour enregistrer le code-barres, utilisez l\'appareil-photo ou entrez-le manuellement.\n\n</string>
     <string name="intro4Title">Afficher une carte\n</string>

@@ -29,7 +29,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private final int imageHeight;
     private final int imageWidth;
 
-    public BarcodeImageWriterTask(ImageView imageView, String cardIdString,
+    BarcodeImageWriterTask(ImageView imageView, String cardIdString,
                                   BarcodeFormat barcodeFormat)
     {
         // Use a WeakReference to ensure the ImageView can be garbage collected

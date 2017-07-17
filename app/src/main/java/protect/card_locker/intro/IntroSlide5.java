@@ -1,4 +1,4 @@
-package protect.card_locker;
+package protect.card_locker.intro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,20 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class IntroSlide extends Fragment
+import protect.card_locker.R;
+
+public class IntroSlide5 extends Fragment
 {
-    int _layout;
-
-    @Override
-    public void setArguments(Bundle bundle)
-    {
-        _layout = bundle.getInt("layout");
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View v = inflater.inflate(_layout, container, false);
+        View v = inflater.inflate(R.layout.intro5_layout, container, false);
         return v;
     }
 }

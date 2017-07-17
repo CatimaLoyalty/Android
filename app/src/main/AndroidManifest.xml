@@ -49,7 +49,7 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".IntroActivity"
+            android:name=".intro.IntroActivity"
             android:label=""
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>

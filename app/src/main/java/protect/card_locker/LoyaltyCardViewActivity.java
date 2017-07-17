@@ -2,8 +2,11 @@ package protect.card_locker;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -52,6 +55,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     int loyaltyCardId;
     boolean updateLoyaltyCard;
     boolean viewLoyaltyCard;
+
+    boolean rotationEnabled;
 
     DBHelper db;
 
@@ -305,6 +310,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             getMenuInflater().inflate(R.menu.card_add_menu, menu);
         }
 
+        rotationEnabled = true;
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -359,6 +366,22 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 intent.putExtras(bundle);
                 startActivity(intent);
                 finish();
+                return true;
+
+            case R.id.action_lock_unlock:
+                if(rotationEnabled)
+                {
+                    item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+                    item.setTitle(R.string.unlockScreen);
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+                }
+                else
+                {
+                    item.setIcon(R.drawable.ic_lock_open_white_24dp);
+                    item.setTitle(R.string.lockScreen);
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+                }
+                rotationEnabled = !rotationEnabled;
                 return true;
 
             case R.id.action_save:

@@ -58,7 +58,8 @@
     <string name="confirm">Bevestig</string>
     <string name="deleteConfirmation">Bevestig deze kaart te verwijderen.</string>
     <string name="deleteTitle">Verwijder kaart</string>
-
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
     <string name="importExportHelp">Data die is geback-upt maakt het mogelijk om je klantenkaarten naar een ander apparaat te verplaatsen.</string>
     <string name="importSuccessfulTitle">Importeren succesvol</string>
     <string name="importFailedTitle">Importeren mislukte</string>

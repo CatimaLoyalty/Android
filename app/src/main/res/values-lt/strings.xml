@@ -19,6 +19,8 @@
     <string name="edit">Redaguoti</string>
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
     <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
     <string name="deleteConfirmation">Prašome patvirtinti jog Jūs norite panaikinti šią lojalumo kortelę.</string>
     <string name="ok">Gerai</string>

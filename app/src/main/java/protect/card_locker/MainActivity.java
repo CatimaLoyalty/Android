@@ -29,6 +29,8 @@ import com.google.common.collect.ImmutableMap;
 import java.util.Calendar;
 import java.util.Map;
 
+import protect.card_locker.intro.IntroActivity;
+
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "LoyaltyCardLocker";

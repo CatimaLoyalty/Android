@@ -56,6 +56,8 @@
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
     <string name="confirm">Conferma</string>
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue tessere da un dispositivo ad un altro.</string>

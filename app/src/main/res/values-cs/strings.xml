@@ -19,6 +19,8 @@
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
     <string name="deleteTitle">Odstzranit věrnostní kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
     <string name="ok">Ano</string>

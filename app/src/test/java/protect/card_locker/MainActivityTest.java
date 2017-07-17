@@ -21,7 +21,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
-import org.robolectric.util.ActivityController;
+import org.robolectric.android.controller.ActivityController;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -131,7 +131,7 @@ public class MainActivityTest
 
         ComponentName componentName = next.getComponent();
         String name = componentName.flattenToShortString();
-        assertEquals("protect.card_locker/.IntroActivity", name);
+        assertEquals("protect.card_locker/.intro.IntroActivity", name);
 
         Bundle extras = next.getExtras();
         assertNull(extras);

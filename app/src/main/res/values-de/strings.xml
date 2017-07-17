@@ -33,6 +33,8 @@
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="confirm">Bestätigen</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
     <string name="delete">Löschen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
     <string name="deleteTitle">Lösche die Kundenkarte</string>

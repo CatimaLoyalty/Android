@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
@@ -413,5 +415,28 @@ public class LoyaltyCardViewActivityTest
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
+    }
+
+    @Test
+    public void checkMenu() throws IOException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        final Menu menu = shadowOf(activity).getOptionsMenu();
+        assertTrue(menu != null);
+
+        // The settings and add button should be present
+        assertEquals(menu.size(), 2);
+
+        assertEquals("Lock Screen", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
+        assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
     }
 }

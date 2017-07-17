@@ -19,6 +19,8 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
+    <string name="lockScreen">Lock Screen</string>
+    <string name="unlockScreen">Unlock Screen</string>
     <string name="deleteTitle">Remove Loyalty Card</string>
     <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
     <string name="ok">OK</string>

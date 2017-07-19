@@ -47,7 +47,7 @@
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informazione sulla revisione: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="ok">Ok</string>
     <string name="enterCard">Inserisci carta</string>
     <string name="editCard">Modifica carta</string>
@@ -56,8 +56,8 @@
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
     <string name="confirm">Conferma</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
+    <string name="lockScreen">Blocca rotazione</string>
+    <string name="unlockScreen">Sblocca rotazione</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue tessere da un dispositivo ad un altro.</string>

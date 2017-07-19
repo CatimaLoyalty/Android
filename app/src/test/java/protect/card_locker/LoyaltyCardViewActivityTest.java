@@ -436,7 +436,7 @@ public class LoyaltyCardViewActivityTest
         // The settings and add button should be present
         assertEquals(menu.size(), 2);
 
-        assertEquals("Lock Screen", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
+        assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
     }
 }

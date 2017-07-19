@@ -18,8 +18,8 @@
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Lock Screen</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unlock Screen</string>
+    <!-- NEEDS TRANSLATED --><string name="lockScreen">Block Rotation</string>
+    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unblock Rotation</string>
     <string name="confirm">Confirmer</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
     <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte</string>

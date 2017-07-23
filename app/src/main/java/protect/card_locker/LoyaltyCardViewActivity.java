@@ -79,6 +79,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
         viewLoyaltyCard = b != null && b.getBoolean("view", false);
 
+        Log.d(TAG, "View activity: id=" + loyaltyCardId
+                + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard)
+                + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
+
         db = new DBHelper(this);
     }
 

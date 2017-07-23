@@ -439,4 +439,24 @@ public class LoyaltyCardViewActivityTest
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
     }
+
+    @Test
+    public void startWithMissingLoyaltyCard() throws IOException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+        Activity activity = (Activity)activityController.get();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // The activity should find that the card is missing and shut down
+
+        assertTrue(activity.isFinishing());
+
+        // Make sure the activity can close down
+        activityController.pause();
+        activityController.stop();
+        activityController.destroy();
+    }
 }

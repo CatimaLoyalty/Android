@@ -25,6 +25,7 @@
 
     <string name="noStoreError">Geen winkel toegevoegd</string>
     <string name="noCardIdError">Geen kaart-ID toegevoegd</string>
+    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="note">Notitie</string>

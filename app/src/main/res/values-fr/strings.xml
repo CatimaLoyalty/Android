@@ -35,6 +35,7 @@
 
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
+    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
 

@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -125,6 +126,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         if(updateLoyaltyCard || viewLoyaltyCard)
         {
             final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+            if(loyaltyCard == null)
+            {
+                Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
+                Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
 
             if(storeFieldEdit.getText().length() == 0)
             {

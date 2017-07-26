@@ -1,3 +1,22 @@
+## v0.13 (2017-07-25)
+
+Changes:
+- Add screen rotation lock menu option when displaying a card. If locked, the screen will transition to its "natural" orientation and further screen rotation will be blocked. (https://github.com/brarcher/loyalty-card-locker/pull/128)
+- If a card is selected from the main screen but cannot be loaded, the application fails gracefully and posts a message. (https://github.com/brarcher/loyalty-card-locker/pull/132)
+- Fix case where layout IDs for intro wizard could not be found. (https://github.com/brarcher/loyalty-card-locker/pull/128)
+
+## v0.12 (2017-07-16)
+
+Changes:
+
+- A change in v0.11 reduced the memory usage of barcode drawing, but affected the barcode dimensions. This is now changed to maintain the barcode dimensions while reducing memory usage. (https://github.com/brarcher/loyalty-card-locker/pull/126)
+- Update German and French translations. (https://github.com/brarcher/loyalty-card-locker/pull/122, https://github.com/brarcher/loyalty-card-locker/pull/124, https://github.com/brarcher/loyalty-card-locker/pull/125)
+
+## v0.11.1 (2017-06-29)
+
+Changes:
+- Prevent a crash when rotation the screen in the first run intro wizard.
+
 ## v0.11 (2017-06-26)
 
 Improvements:

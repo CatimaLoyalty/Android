@@ -18,8 +18,7 @@
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Block Rotation</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unblock Rotation</string>
+
     <string name="confirm">Confirmer</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
     <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte</string>
@@ -35,7 +34,6 @@
 
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
-    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
 

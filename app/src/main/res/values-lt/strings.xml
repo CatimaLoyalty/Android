@@ -15,12 +15,11 @@
     <string name="save">Išsaugoti</string>
     <string name="capture">Nufotografuoti kortelę</string>
     <string name="enterCard">Įvesti kortelę</string>
-    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
+
     <string name="edit">Redaguoti</string>
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Block Rotation</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unblock Rotation</string>
+
     <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
     <string name="deleteConfirmation">Prašome patvirtinti jog Jūs norite panaikinti šią lojalumo kortelę.</string>
     <string name="ok">Gerai</string>
@@ -35,7 +34,7 @@
 
     <string name="noStoreError">Parduotuvė neįvesta</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
-    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
+
 
     <string name="cardIdFormat">%1$s: %2$s</string>
 
@@ -58,41 +57,10 @@
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> naudoja šias trečiosios šalies bibliotekas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
 
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
     
-    <!-- needs translated --><string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
-    <!-- needs translated --><string name="importSuccessfulTitle">Import successful</string>
-    <!-- needs translated --><string name="importFailedTitle">Import failed</string>
-    <!-- needs translated --><string name="exportSuccessfulTitle">Export successful</string>
-    <!-- needs translated --><string name="exportFailedTitle">Export failed</string>
-    <!-- needs translated --><string name="exportOptionExplanation">Data is written to the top directory in external storage.</string>
-    <!-- needs translated --><string name="importOptionFilesystemTitle">Import from filesystem</string>
-    <!-- needs translated --><string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
-    <!-- needs translated --><string name="importOptionFilesystemButton">From filesystem</string>
-    <!-- needs translated --><string name="importOptionApplicationTitle">Use external application</string>
-    <!-- needs translated --><string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
-    <!-- needs translated --><string name="importOptionApplicationButton">Use external application</string>
-    <!-- needs translated --><string name="importOptionFixedTitle">Import from export location</string>
-    <!-- needs translated --><string name="importOptionFixedExplanation">Import from the same location on the filesystem that is written to on export.</string>
-    <!-- needs translated --><string name="importOptionFixedButton">Use export location</string>
-    <!-- needs translated --> <string name="sendLabel">Send&#8230;</string>
-
-    <!-- NEEDS TRANSLATED --><string name="startIntro">Start Intro</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Description">Add a new card by touching the plus from the card list.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Description">To add the barcode, either capture with the camera or type in manually.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Title">Show Card\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Description">To display a card, click on the store name from the main screen\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Title">Backup\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Title">Feedback\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
 </resources>

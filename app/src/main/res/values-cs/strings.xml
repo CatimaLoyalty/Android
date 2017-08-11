@@ -15,12 +15,11 @@
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
     <string name="enterCard">Vložit vlastnoručně</string>
-    <!-- NEEDS TRANSLATED --><string name="editCard">Edit Card</string>
+
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Block Rotation</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unblock Rotation</string>
+
     <string name="deleteTitle">Odstzranit věrnostní kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
     <string name="ok">Ano</string>
@@ -35,7 +34,7 @@
 
     <string name="noStoreError">Nebyl zadán Obchod</string>
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
-    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
+
 
     <string name="cardIdFormat">%1$s: %2$s</string>
 
@@ -58,7 +57,6 @@
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používá tyto knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <!-- NEEDS TRANSLATED --><string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
     <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>
@@ -81,17 +79,4 @@
     <string name="importOptionFixedButton">Použít složku exportu</string>
     <string name="sendLabel">Odeslat&#8230;</string>
 
-    <!-- NEEDS TRANSLATED --><string name="startIntro">Start Intro</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro2Description">Add a new card by touching the plus from the card list.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Title">Adding Cards\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro3Description">To add the barcode, either capture with the camera or type in manually.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Title">Show Card\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro4Description">To display a card, click on the store name from the main screen\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Title">Backup\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Title">Feedback\n</string>
-    <!-- NEEDS TRANSLATED --><string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
 </resources>

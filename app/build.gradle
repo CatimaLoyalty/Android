@@ -27,6 +27,7 @@ android {
         disable "GoogleAppIndexingWarning"
         disable "ButtonStyle"
         disable "AlwaysShowAction"
+        disable "MissingTranslation"
     }
 
     // This is for Robolectric support for SDK 23

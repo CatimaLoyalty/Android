@@ -25,7 +25,7 @@
 
     <string name="noStoreError">Nessun negozio inserito</string>
     <string name="noCardIdError">Nessun codice carta inserito</string>
-    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
+
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="note">Note</string>

@@ -25,7 +25,7 @@
     <string name="importName">Import</string>
     <string name="importedFrom">Importiert von: %1$s</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
-    <!-- NEEDS TRANSLATED --><string name="noCardExistsError">Could not lookup loyalty card</string>
+
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
     <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den "+" Button oben rechts, können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
     <string name="cancel">Abbrechen</string>
@@ -34,11 +34,10 @@
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="confirm">Bestätigen</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
-    <!-- NEEDS TRANSLATED --><string name="lockScreen">Block Rotation</string>
-    <!-- NEEDS TRANSLATED --><string name="unlockScreen">Unblock Rotation</string>
+
     <string name="delete">Löschen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
-    <string name="deleteTitle">Lösche die Kundenkarte</string><!-- NEEDS TRANSLATED -->
+
     <string name="edit">Bearbeiten</string>
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="enterCard">Karte einfügen</string>

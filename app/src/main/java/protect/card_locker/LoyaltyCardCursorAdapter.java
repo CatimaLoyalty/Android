@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-class LoyaltyCardCursorAdapter extends CursorAdapter
+public class LoyaltyCardCursorAdapter extends CursorAdapter
 {
     public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
     {

@@ -53,6 +53,20 @@
             android:label=""
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <receiver android:name=".appwidget.CardAppWidgetProvider">
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/appwidget_provider" />
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".appwidget.CardAppWidgetConfigure">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

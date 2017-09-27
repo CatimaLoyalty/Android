@@ -354,6 +354,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
                         DBHelper db = new DBHelper(LoyaltyCardViewActivity.this);
                         db.deleteLoyaltyCard(loyaltyCardId);
+
+                        ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
+
                         finish();
                         dialog.dismiss();
                     }

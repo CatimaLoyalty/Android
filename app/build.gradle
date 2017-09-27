@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "protect.card_locker"
         minSdkVersion 17
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 14
         versionName "0.13"
     }

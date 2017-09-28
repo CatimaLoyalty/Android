@@ -65,6 +65,7 @@
 
                         <EditText
                             android:id="@+id/storeNameEdit"
+                            android:inputType="textCapWords"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
@@ -121,6 +122,7 @@
 
                         <EditText
                             android:id="@+id/noteEdit"
+                            android:inputType="textCapSentences"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"

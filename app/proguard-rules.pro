@@ -19,3 +19,6 @@
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 -keepattributes SourceFile,LineNumberTable
+
+# This keep the class and method names the same, for debugging stack traces
+-dontobfuscate

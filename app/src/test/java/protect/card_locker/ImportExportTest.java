@@ -17,6 +17,8 @@ import org.robolectric.annotation.Config;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -219,7 +221,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void useImportExportTask()
+    public void useImportExportTask() throws FileNotFoundException
     {
         final int NUM_CARDS = 10;
 
@@ -233,7 +235,7 @@ public class ImportExportTest
             TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
             // Export to the file
-            ImportExportTask task = new ImportExportTask(activity, false, format, exportFile, listener);
+            ImportExportTask task = new ImportExportTask(activity, format, exportFile, listener);
             task.execute();
 
             // Actually run the task to completion
@@ -249,7 +251,9 @@ public class ImportExportTest
 
             listener = new TestTaskCompleteListener();
 
-            task = new ImportExportTask(activity, true, format, exportFile, listener);
+            FileInputStream fileStream = new FileInputStream(exportFile);
+
+            task = new ImportExportTask(activity, format, fileStream, listener);
             task.execute();
 
             // Actually run the task to completion

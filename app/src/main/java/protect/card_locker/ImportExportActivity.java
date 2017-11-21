@@ -24,6 +24,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 public class ImportExportActivity extends AppCompatActivity
@@ -132,24 +136,34 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                startImport(exportFile);
+                String fileUri = exportFile.toURI().toString();
+                try
+                {
+                    FileInputStream stream = new FileInputStream(exportFile);
+                    startImport(stream, fileUri);
+                }
+                catch(FileNotFoundException e)
+                {
+                    Log.e(TAG, "Could not import file " + exportFile.getAbsolutePath(), e);
+                    onImportComplete(false, fileUri);
+                }
             }
         });
     }
 
-    private void startImport(File target)
+    private void startImport(final InputStream target, final String targetUri)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
             public void onTaskComplete(boolean success)
             {
-                onImportComplete(success, exportFile);
+                onImportComplete(success, targetUri);
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                true, DataFormat.CSV, target, listener);
+                DataFormat.CSV, target, listener);
         importExporter.execute();
     }
 
@@ -165,7 +179,7 @@ public class ImportExportActivity extends AppCompatActivity
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                false, DataFormat.CSV, exportFile, listener);
+                DataFormat.CSV, exportFile, listener);
         importExporter.execute();
     }
 
@@ -220,7 +234,7 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void onImportComplete(boolean success, File path)
+    private void onImportComplete(boolean success, String path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -236,7 +250,7 @@ public class ImportExportActivity extends AppCompatActivity
         int messageId = success ? R.string.importedFrom : R.string.importFailed;
 
         final String template = getResources().getString(messageId);
-        final String message = String.format(template, path.getAbsolutePath());
+        final String message = String.format(template, path);
         builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
@@ -346,27 +360,24 @@ public class ImportExportActivity extends AppCompatActivity
 
         if (resultCode == RESULT_OK && requestCode == CHOOSE_EXPORT_FILE)
         {
-            String path = null;
-
             Uri uri = data.getData();
-            if(uri != null && uri.toString().startsWith("/"))
-            {
-                uri = Uri.parse("file://" + uri.toString());
-            }
 
             if(uri != null)
             {
-                path = uri.getPath();
-            }
-
-            if(path != null)
-            {
-                Log.e(TAG, "Starting file import with: " + uri.toString());
-                startImport(new File(path));
+                try
+                {
+                    InputStream reader = getContentResolver().openInputStream(uri);
+                    Log.e(TAG, "Starting file import with: " + uri.toString());
+                    startImport(reader, uri.toString());
+                }
+                catch (FileNotFoundException e)
+                {
+                    Log.e(TAG, "Failed to import file: " + uri.toString(), e);
+                }
             }
             else
             {
-                Log.e(TAG, "Fail to make sense of URI returned from activity: " + (uri != null ? uri.toString() : "null"));
+                Log.e(TAG, "Activity returned a NULL URI");
             }
         }
         else

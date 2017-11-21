@@ -142,9 +142,9 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success, File file)
+            public void onTaskComplete(boolean success)
             {
-                onImportComplete(success, file);
+                onImportComplete(success, exportFile);
             }
         };
 
@@ -158,9 +158,9 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success, File file)
+            public void onTaskComplete(boolean success)
             {
-                onExportComplete(success, file);
+                onExportComplete(success, exportFile);
             }
         };
 

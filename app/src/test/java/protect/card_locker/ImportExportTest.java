@@ -211,12 +211,10 @@ public class ImportExportTest
     class TestTaskCompleteListener implements ImportExportTask.TaskCompleteListener
     {
         Boolean success;
-        File file;
 
-        public void onTaskComplete(boolean success, File file)
+        public void onTaskComplete(boolean success)
         {
             this.success = success;
-            this.file = file;
         }
     }
 
@@ -244,8 +242,6 @@ public class ImportExportTest
             // Check that the listener was executed
             assertNotNull(listener.success);
             assertEquals(true, listener.success);
-            assertNotNull(listener.file);
-            assertEquals(exportFile, listener.file);
 
             clearDatabase();
 
@@ -262,8 +258,6 @@ public class ImportExportTest
             // Check that the listener was executed
             assertNotNull(listener.success);
             assertEquals(true, listener.success);
-            assertNotNull(listener.file);
-            assertEquals(exportFile, listener.file);
 
             assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 

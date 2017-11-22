@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -136,22 +137,22 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String fileUri = exportFile.toURI().toString();
+                Uri uri = Uri.fromFile(exportFile);
                 try
                 {
                     FileInputStream stream = new FileInputStream(exportFile);
-                    startImport(stream, fileUri);
+                    startImport(stream, uri);
                 }
                 catch(FileNotFoundException e)
                 {
                     Log.e(TAG, "Could not import file " + exportFile.getAbsolutePath(), e);
-                    onImportComplete(false, fileUri);
+                    onImportComplete(false, uri);
                 }
             }
         });
     }
 
-    private void startImport(final InputStream target, final String targetUri)
+    private void startImport(final InputStream target, final Uri targetUri)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
@@ -300,10 +301,13 @@ public class ImportExportActivity extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
-                    Uri outputUri = Uri.fromFile(path);
+                    Uri outputUri = FileProvider.getUriForFile(ImportExportActivity.this, BuildConfig.APPLICATION_ID, path);
                     Intent sendIntent = new Intent(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_STREAM, outputUri);
                     sendIntent.setType("text/plain");
+
+                    // set flag to give temporary permission to external app to use the FileProvider
+                    sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                     ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
                             sendLabel));

@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
@@ -24,29 +25,46 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     private boolean doImport;
     private DataFormat format;
     private File target;
+    private InputStream inputStream;
     private TaskCompleteListener listener;
 
     private ProgressDialog progress;
 
-    public ImportExportTask(Activity activity, boolean doImport, DataFormat format, File target,
+    /**
+     * Constructor which will setup a task for exporting to the given file
+     */
+    ImportExportTask(Activity activity, DataFormat format, File target,
             TaskCompleteListener listener)
     {
         super();
         this.activity = activity;
-        this.doImport = doImport;
+        this.doImport = false;
         this.format = format;
         this.target = target;
         this.listener = listener;
     }
 
-    private boolean performImport(File importFile, DBHelper db)
+    /**
+     * Constructor which will setup a task for importing from the given InputStream.
+     */
+    ImportExportTask(Activity activity, DataFormat format, InputStream input,
+                            TaskCompleteListener listener)
+    {
+        super();
+        this.activity = activity;
+        this.doImport = true;
+        this.format = format;
+        this.inputStream = input;
+        this.listener = listener;
+    }
+
+    private boolean performImport(InputStream stream, DBHelper db)
     {
         boolean result = false;
 
         try
         {
-            FileInputStream fileReader = new FileInputStream(importFile);
-            InputStreamReader reader = new InputStreamReader(fileReader, Charset.forName("UTF-8"));
+            InputStreamReader reader = new InputStreamReader(stream, Charset.forName("UTF-8"));
             result = MultiFormatImporter.importData(db, reader, format);
             reader.close();
         }
@@ -55,7 +73,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
             Log.e(TAG, "Unable to import file", e);
         }
 
-        Log.i(TAG, "Import of '" + importFile.getAbsolutePath() + "' result: " + result);
+        Log.i(TAG, "Import result: " + result);
 
         return result;
     }
@@ -105,7 +123,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 
         if(doImport)
         {
-            result = performImport(target, db);
+            result = performImport(inputStream, db);
         }
         else
         {
@@ -117,7 +135,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 
     protected void onPostExecute(Boolean result)
     {
-        listener.onTaskComplete(result, target);
+        listener.onTaskComplete(result);
 
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
@@ -130,7 +148,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     }
     interface TaskCompleteListener
     {
-        void onTaskComplete(boolean success, File file);
+        void onTaskComplete(boolean success);
     }
 
 }

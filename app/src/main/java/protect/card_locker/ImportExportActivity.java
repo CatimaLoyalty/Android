@@ -358,31 +358,28 @@ public class ImportExportActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == CHOOSE_EXPORT_FILE)
-        {
-            Uri uri = data.getData();
-
-            if(uri != null)
-            {
-                try
-                {
-                    InputStream reader = getContentResolver().openInputStream(uri);
-                    Log.e(TAG, "Starting file import with: " + uri.toString());
-                    startImport(reader, uri.toString());
-                }
-                catch (FileNotFoundException e)
-                {
-                    Log.e(TAG, "Failed to import file: " + uri.toString(), e);
-                }
-            }
-            else
-            {
-                Log.e(TAG, "Activity returned a NULL URI");
-            }
-        }
-        else
+        if (resultCode != RESULT_OK || requestCode != CHOOSE_EXPORT_FILE)
         {
             Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
+            return;
+        }
+
+        Uri uri = data.getData();
+        if(uri == null)
+        {
+            Log.e(TAG, "Activity returned a NULL URI");
+            return;
+        }
+
+        try
+        {
+            InputStream reader = getContentResolver().openInputStream(uri);
+            Log.e(TAG, "Starting file import with: " + uri.toString());
+            startImport(reader, uri.toString());
+        }
+        catch (FileNotFoundException e)
+        {
+            Log.e(TAG, "Failed to import file: " + uri.toString(), e);
         }
     }
 }

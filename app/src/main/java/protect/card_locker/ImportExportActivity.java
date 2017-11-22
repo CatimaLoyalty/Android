@@ -7,10 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.OpenableColumns;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
@@ -235,7 +237,34 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void onImportComplete(boolean success, String path)
+    private String fileNameFromUri(Uri uri)
+    {
+        if("file".equals(uri.getScheme()))
+        {
+            return uri.getPath();
+        }
+
+        Cursor returnCursor =
+                getContentResolver().query(uri, null, null, null, null);
+        if(returnCursor == null)
+        {
+            return null;
+        }
+
+        int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+        if(returnCursor.moveToFirst() == false)
+        {
+            returnCursor.close();
+            return null;
+        }
+
+        String name = returnCursor.getString(nameIndex);
+        returnCursor.close();
+
+        return name;
+    }
+
+    private void onImportComplete(boolean success, Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -251,7 +280,15 @@ public class ImportExportActivity extends AppCompatActivity
         int messageId = success ? R.string.importedFrom : R.string.importFailed;
 
         final String template = getResources().getString(messageId);
-        final String message = String.format(template, path);
+
+        // Get the filename of the file being imported
+        String filename = fileNameFromUri(path);
+        if(filename == null)
+        {
+            filename = "(unknown)";
+        }
+
+        final String message = String.format(template, filename);
         builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
@@ -379,7 +416,7 @@ public class ImportExportActivity extends AppCompatActivity
         {
             InputStream reader = getContentResolver().openInputStream(uri);
             Log.e(TAG, "Starting file import with: " + uri.toString());
-            startImport(reader, uri.toString());
+            startImport(reader, uri);
         }
         catch (FileNotFoundException e)
         {

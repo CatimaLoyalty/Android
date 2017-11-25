@@ -51,7 +51,7 @@ public class DBHelper extends SQLiteOpenHelper
         }
     }
 
-    public boolean insertLoyaltyCard(final String store, final String note, final String cardId,
+    public long insertLoyaltyCard(final String store, final String note, final String cardId,
                                      final String barcodeType)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -61,7 +61,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
-        return (newId != -1);
+        return newId;
     }
 
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,

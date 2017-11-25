@@ -65,6 +65,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     DBHelper db;
 
+    private void extractIntentFields(Intent intent)
+    {
+        final Bundle b = intent.getExtras();
+        loyaltyCardId = b != null ? b.getInt("id") : 0;
+        updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        viewLoyaltyCard = b != null && b.getBoolean("view", false);
+
+        Log.d(TAG, "View activity: id=" + loyaltyCardId
+                + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard)
+                + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -79,14 +91,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        final Bundle b = getIntent().getExtras();
-        loyaltyCardId = b != null ? b.getInt("id") : 0;
-        updateLoyaltyCard = b != null && b.getBoolean("update", false);
-        viewLoyaltyCard = b != null && b.getBoolean("view", false);
-
-        Log.d(TAG, "View activity: id=" + loyaltyCardId
-                + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard)
-                + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
+        extractIntentFields(getIntent());
 
         db = new DBHelper(this);
 
@@ -107,6 +112,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         captureButton = (Button) findViewById(R.id.captureButton);
         enterButton = (Button) findViewById(R.id.enterButton);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent)
+    {
+        Log.i(TAG, "Received new intent");
+        extractIntentFields(intent);
+
+        // Reset these fields, so they are re-populated in onResume().
+        storeFieldEdit.setText("");
+        noteFieldEdit.setText("");
+        cardIdFieldView.setText("");
+        barcodeTypeField.setText("");
     }
 
     @Override

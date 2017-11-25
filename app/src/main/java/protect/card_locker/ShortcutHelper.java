@@ -103,10 +103,16 @@ class ShortcutHelper
             {
                 ShortcutInfo prevShortcut = list.get(index);
 
+                Intent shortcutIntent = prevShortcut.getIntent();
+
+                // Prevent instances of the view activity from piling up; if one exists let this
+                // one replace it.
+                shortcutIntent.setFlags(shortcutIntent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
                 ShortcutInfo updatedShortcut = new ShortcutInfo.Builder(context, prevShortcut.getId())
                         .setShortLabel(prevShortcut.getShortLabel())
                         .setLongLabel(prevShortcut.getLongLabel())
-                        .setIntent(prevShortcut.getIntent())
+                        .setIntent(shortcutIntent)
                         .setIcon(Icon.createWithResource(context, R.drawable.circle))
                         .setRank(index)
                         .build();

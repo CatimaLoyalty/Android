@@ -322,6 +322,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         Intent shortcutIntent = new Intent(this, LoyaltyCardViewActivity.class);
         shortcutIntent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         Bundle bundle = new Bundle();
         bundle.putInt("id", id);
         bundle.putBoolean("view", true);

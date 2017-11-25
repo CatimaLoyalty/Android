@@ -89,6 +89,24 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
 
         db = new DBHelper(this);
+
+        storeFieldEdit = (EditText) findViewById(R.id.storeNameEdit);
+        storeFieldView = (TextView) findViewById(R.id.storeNameView);
+        noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
+        noteFieldView = (TextView) findViewById(R.id.noteView);
+        shortcutCheckbox = (CheckBox) findViewById(R.id.shortcutCheckbox);
+        shortcutBorder = findViewById(R.id.shortcutBorder);
+        shortcutTablerow = findViewById(R.id.shortcutTablerow);
+        cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
+        cardIdDivider = findViewById(R.id.cardIdDivider);
+        cardIdTableRow = findViewById(R.id.cardIdTableRow);
+        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
+        barcodeImage = (ImageView) findViewById(R.id.barcode);
+        barcodeImageLayout = findViewById(R.id.barcodeLayout);
+        barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
+
+        captureButton = (Button) findViewById(R.id.captureButton);
+        enterButton = (Button) findViewById(R.id.enterButton);
     }
 
     @Override
@@ -111,24 +129,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 window.setAttributes(attributes);
             }
         }
-
-        storeFieldEdit = (EditText) findViewById(R.id.storeNameEdit);
-        storeFieldView = (TextView) findViewById(R.id.storeNameView);
-        noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
-        noteFieldView = (TextView) findViewById(R.id.noteView);
-        shortcutCheckbox = (CheckBox) findViewById(R.id.shortcutCheckbox);
-        shortcutBorder = findViewById(R.id.shortcutBorder);
-        shortcutTablerow = findViewById(R.id.shortcutTablerow);
-        cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
-        cardIdDivider = findViewById(R.id.cardIdDivider);
-        cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
-        barcodeImage = (ImageView) findViewById(R.id.barcode);
-        barcodeImageLayout = findViewById(R.id.barcodeLayout);
-        barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
-
-        captureButton = (Button) findViewById(R.id.captureButton);
-        enterButton = (Button) findViewById(R.id.enterButton);
 
         if(updateLoyaltyCard || viewLoyaltyCard)
         {

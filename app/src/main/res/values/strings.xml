@@ -33,7 +33,6 @@
     <string name="addCardTitle">Add Loyalty Card</string>
     <string name="viewCardTitle">View Loyalty Card</string>
     <string name="scanCardBarcode">Scan Card\'s Barcode</string>
-    <string name="selectCardTitle">Select Card</string>
 
     <string name="barcodeImageDescription">Image of card\'s barcode</string>
 

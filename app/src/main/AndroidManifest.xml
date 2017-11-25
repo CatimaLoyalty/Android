@@ -8,6 +8,8 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -36,7 +38,8 @@
             android:name=".LoyaltyCardViewActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden"
+            android:exported="true"/>
         <activity
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"

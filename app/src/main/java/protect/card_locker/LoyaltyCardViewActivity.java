@@ -22,6 +22,7 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +43,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView storeFieldView;
     EditText noteFieldEdit;
     TextView noteFieldView;
+    CheckBox shortcutCheckbox;
+    View shortcutBorder;
+    View shortcutTablerow;
     TextView cardIdFieldView;
     View cardIdDivider;
     View cardIdTableRow;
@@ -112,6 +116,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeFieldView = (TextView) findViewById(R.id.storeNameView);
         noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
         noteFieldView = (TextView) findViewById(R.id.noteView);
+        shortcutCheckbox = (CheckBox) findViewById(R.id.shortcutCheckbox);
+        shortcutBorder = findViewById(R.id.shortcutBorder);
+        shortcutTablerow = findViewById(R.id.shortcutTablerow);
         cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
@@ -180,6 +187,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             storeFieldView.setVisibility(View.GONE);
             noteFieldView.setVisibility(View.GONE);
         }
+
+        shortcutBorder.setVisibility(viewLoyaltyCard ? View.GONE : View.VISIBLE);
+        shortcutTablerow.setVisibility(viewLoyaltyCard ? View.GONE : View.VISIBLE);
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -274,6 +284,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
+        boolean shouldAddShortcut = shortcutCheckbox.isChecked();
         String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 
@@ -296,10 +307,37 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         else
         {
-            db.insertLoyaltyCard(store, note, cardId, barcodeType);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType);
+        }
+
+        if(shouldAddShortcut)
+        {
+            addShortcut(loyaltyCardId, store);
         }
 
         finish();
+    }
+
+    private void addShortcut(int id, String name)
+    {
+        Intent shortcutIntent = new Intent(this, LoyaltyCardViewActivity.class);
+        shortcutIntent.setAction(Intent.ACTION_MAIN);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", id);
+        bundle.putBoolean("view", true);
+        shortcutIntent.putExtras(bundle);
+
+        Intent intent = new Intent();
+        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource
+                .fromContext(this, R.mipmap.ic_launcher));
+        intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+        // Do not duplicate the shortcut if it is already there
+        intent.putExtra("duplicate", false);
+        getApplicationContext().sendBroadcast(intent);
+
+        Toast.makeText(this, R.string.addedShortcut, Toast.LENGTH_LONG).show();
     }
 
     @Override

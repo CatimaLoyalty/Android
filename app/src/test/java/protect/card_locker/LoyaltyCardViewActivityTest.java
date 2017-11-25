@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ import org.robolectric.android.controller.ActivityController;
 
 import java.io.IOException;
 
+import static junit.framework.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -87,6 +89,7 @@ public class LoyaltyCardViewActivityTest
      */
     private void saveLoyaltyCardWithArguments(final Activity activity,
                                               final String store, final String note,
+                                              final boolean addShortcut,
                                               final String cardId,
                                               final String barcodeType,
                                               boolean creatingNewCard)
@@ -103,17 +106,24 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
+        final CheckBox shortcutCheckbox = (CheckBox) activity.findViewById(R.id.shortcutCheckbox);
         final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
         final TextView barcodeTypeField = (TextView) activity.findViewById(R.id.barcodeType);
 
         storeField.setText(store);
         noteField.setText(note);
+        shortcutCheckbox.setChecked(addShortcut);
         cardIdField.setText(cardId);
         barcodeTypeField.setText(barcodeType);
+
+        ShortcutAddedReceiver shortcutAddedReceiver = new ShortcutAddedReceiver();
+        shortcutAddedReceiver.registerReceiver(activity);
 
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(true, activity.isFinishing());
+
+        shortcutAddedReceiver.unregisterReceiver(activity);
 
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -122,6 +132,28 @@ public class LoyaltyCardViewActivityTest
         assertEquals(note, card.note);
         assertEquals(cardId, card.cardId);
         assertEquals(barcodeType, card.barcodeType);
+
+        Intent shortcutRequest = shortcutAddedReceiver.lastRequest();
+
+        if(addShortcut)
+        {
+            assertNotNull(shortcutRequest);
+
+            String name = shortcutRequest.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
+            assertEquals(card.store, name);
+
+            Intent startIntent = shortcutRequest.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
+            assertNotNull(startIntent);
+            Bundle startBundle = startIntent.getExtras();
+            assertNotNull(startBundle);
+
+            assertEquals(card.id, startBundle.getInt("id", -1));
+            assertEquals(true, startBundle.getBoolean("view", false));
+        }
+        else
+        {
+            assertNull(shortcutRequest);
+        }
     }
 
     /**
@@ -184,6 +216,8 @@ public class LoyaltyCardViewActivityTest
         checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
         checkFieldProperties(activity, R.id.storeNameView, viewVisibility, store);
         checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
+        checkFieldProperties(activity, R.id.shortcutBorder, editVisibility, null);
+        checkFieldProperties(activity, R.id.shortcutTablerow, editVisibility, null);
         checkFieldProperties(activity, R.id.noteView, viewVisibility, note);
         checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
         checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
@@ -274,7 +308,30 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
         // Save and check the gift card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, true);
+        saveLoyaltyCardWithArguments(activity, "store", "note", false, BARCODE_DATA, BARCODE_TYPE, true);
+    }
+
+    @Test
+    public void startWithoutParametersCaptureBarcodeCreateLoyaltyCardSaveShortcut() throws IOException
+    {
+        registerMediaStoreIntentHandler();
+
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        Activity activity = (Activity)activityController.get();
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
+
+        // Complete barcode capture successfully
+        captureBarcodeWithResult(activity, R.id.captureButton, true);
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
+
+        // Save and check the gift card
+        saveLoyaltyCardWithArguments(activity, "store", "note", true, BARCODE_DATA, BARCODE_TYPE, true);
     }
 
     @Test

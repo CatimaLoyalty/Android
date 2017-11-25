@@ -1,3 +1,12 @@
+## v0.15 (2017-11-25)
+
+Changes:
+- Add support for adding shortcuts to home screen when adding or editing a card. (https://github.com/brarcher/loyalty-card-locker/pull/155)
+- Remove widget, as it was a poor substitute for shortcuts. (https://github.com/brarcher/loyalty-card-locker/pull/155)
+- Fix exporting backups on Android 7+. (https://github.com/brarcher/loyalty-card-locker/pull/153)
+- Report more accurate mime type when exporting backup data. (https://github.com/brarcher/loyalty-card-locker/pull/156)
+- Fix bug where a card could not be edited. (https://github.com/brarcher/loyalty-card-locker/pull/155)
+
 ## v0.14 (2017-10-26)
 
 Changes:

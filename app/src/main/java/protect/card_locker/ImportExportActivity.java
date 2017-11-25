@@ -30,7 +30,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 
 public class ImportExportActivity extends AppCompatActivity
@@ -341,7 +340,7 @@ public class ImportExportActivity extends AppCompatActivity
                     Uri outputUri = FileProvider.getUriForFile(ImportExportActivity.this, BuildConfig.APPLICATION_ID, path);
                     Intent sendIntent = new Intent(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_STREAM, outputUri);
-                    sendIntent.setType("text/plain");
+                    sendIntent.setType("text/csv");
 
                     // set flag to give temporary permission to external app to use the FileProvider
                     sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

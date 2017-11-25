@@ -7,10 +7,7 @@ import android.content.ClipboardManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +27,6 @@ import android.widget.Toast;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 
 import protect.card_locker.intro.IntroActivity;

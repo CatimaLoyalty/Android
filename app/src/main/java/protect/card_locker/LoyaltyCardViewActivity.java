@@ -343,10 +343,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        final Bundle b = getIntent().getExtras();
-        final boolean updateLoyaltyCard = b != null && b.getBoolean("update", false);
-        final boolean viewLoyaltyCard = b != null && b.getBoolean("view", false);
-
         if(viewLoyaltyCard)
         {
             getMenuInflater().inflate(R.menu.card_view_menu, menu);
@@ -369,9 +365,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
-        final Bundle b = getIntent().getExtras();
-        final int loyaltyCardId = b != null ? b.getInt("id") : 0;
 
         switch(id)
         {

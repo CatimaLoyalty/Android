@@ -65,7 +65,8 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            boolean result = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE);
+            boolean result = (id != -1);
             assertTrue(result);
         }
 

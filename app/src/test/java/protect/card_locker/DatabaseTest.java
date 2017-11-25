@@ -36,7 +36,8 @@ public class DatabaseTest
     public void addRemoveOneGiftCard()
     {
         assertEquals(0, db.getLoyaltyCardCount());
-        boolean result = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -56,7 +57,8 @@ public class DatabaseTest
     @Test
     public void updateGiftCard()
     {
-        boolean result = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -86,7 +88,8 @@ public class DatabaseTest
     @Test
     public void emptyGiftCardValues()
     {
-        boolean result = db.insertLoyaltyCard("", "", "", "");
+        long id = db.insertLoyaltyCard("", "", "", "");
+        boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -107,8 +110,9 @@ public class DatabaseTest
         // that they are sorted
         for(int index = CARDS_TO_ADD-1; index >= 0; index--)
         {
-            boolean result = db.insertLoyaltyCard("store" + index, "note" + index, "cardId" + index,
+            long id = db.insertLoyaltyCard("store" + index, "note" + index, "cardId" + index,
                     BarcodeFormat.UPC_A.toString());
+            boolean result = (id != -1);
             assertTrue(result);
         }
 

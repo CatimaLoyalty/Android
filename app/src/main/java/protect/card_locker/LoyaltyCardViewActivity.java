@@ -22,6 +22,7 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +43,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView storeFieldView;
     EditText noteFieldEdit;
     TextView noteFieldView;
+    CheckBox shortcutCheckbox;
+    View shortcutBorder;
+    View shortcutTablerow;
     TextView cardIdFieldView;
     View cardIdDivider;
     View cardIdTableRow;
@@ -61,6 +65,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     DBHelper db;
 
+    private void extractIntentFields(Intent intent)
+    {
+        final Bundle b = intent.getExtras();
+        loyaltyCardId = b != null ? b.getInt("id") : 0;
+        updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        viewLoyaltyCard = b != null && b.getBoolean("view", false);
+
+        Log.d(TAG, "View activity: id=" + loyaltyCardId
+                + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard)
+                + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -75,16 +91,40 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        final Bundle b = getIntent().getExtras();
-        loyaltyCardId = b != null ? b.getInt("id") : 0;
-        updateLoyaltyCard = b != null && b.getBoolean("update", false);
-        viewLoyaltyCard = b != null && b.getBoolean("view", false);
-
-        Log.d(TAG, "View activity: id=" + loyaltyCardId
-                + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard)
-                + ", viewLoyaltyCard=" + Boolean.toString(viewLoyaltyCard));
+        extractIntentFields(getIntent());
 
         db = new DBHelper(this);
+
+        storeFieldEdit = (EditText) findViewById(R.id.storeNameEdit);
+        storeFieldView = (TextView) findViewById(R.id.storeNameView);
+        noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
+        noteFieldView = (TextView) findViewById(R.id.noteView);
+        shortcutCheckbox = (CheckBox) findViewById(R.id.shortcutCheckbox);
+        shortcutBorder = findViewById(R.id.shortcutBorder);
+        shortcutTablerow = findViewById(R.id.shortcutTablerow);
+        cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
+        cardIdDivider = findViewById(R.id.cardIdDivider);
+        cardIdTableRow = findViewById(R.id.cardIdTableRow);
+        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
+        barcodeImage = (ImageView) findViewById(R.id.barcode);
+        barcodeImageLayout = findViewById(R.id.barcodeLayout);
+        barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
+
+        captureButton = (Button) findViewById(R.id.captureButton);
+        enterButton = (Button) findViewById(R.id.enterButton);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent)
+    {
+        Log.i(TAG, "Received new intent");
+        extractIntentFields(intent);
+
+        // Reset these fields, so they are re-populated in onResume().
+        storeFieldEdit.setText("");
+        noteFieldEdit.setText("");
+        cardIdFieldView.setText("");
+        barcodeTypeField.setText("");
     }
 
     @Override
@@ -107,21 +147,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 window.setAttributes(attributes);
             }
         }
-
-        storeFieldEdit = (EditText) findViewById(R.id.storeNameEdit);
-        storeFieldView = (TextView) findViewById(R.id.storeNameView);
-        noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
-        noteFieldView = (TextView) findViewById(R.id.noteView);
-        cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
-        cardIdDivider = findViewById(R.id.cardIdDivider);
-        cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
-        barcodeImage = (ImageView) findViewById(R.id.barcode);
-        barcodeImageLayout = findViewById(R.id.barcodeLayout);
-        barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
-
-        captureButton = (Button) findViewById(R.id.captureButton);
-        enterButton = (Button) findViewById(R.id.enterButton);
 
         if(updateLoyaltyCard || viewLoyaltyCard)
         {
@@ -180,6 +205,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             storeFieldView.setVisibility(View.GONE);
             noteFieldView.setVisibility(View.GONE);
         }
+
+        shortcutBorder.setVisibility(viewLoyaltyCard ? View.GONE : View.VISIBLE);
+        shortcutTablerow.setVisibility(viewLoyaltyCard ? View.GONE : View.VISIBLE);
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -274,6 +302,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
+        boolean shouldAddShortcut = shortcutCheckbox.isChecked();
         String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 
@@ -296,19 +325,45 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         else
         {
-            db.insertLoyaltyCard(store, note, cardId, barcodeType);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType);
+        }
+
+        if(shouldAddShortcut)
+        {
+            addShortcut(loyaltyCardId, store);
         }
 
         finish();
     }
 
+    private void addShortcut(int id, String name)
+    {
+        Intent shortcutIntent = new Intent(this, LoyaltyCardViewActivity.class);
+        shortcutIntent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", id);
+        bundle.putBoolean("view", true);
+        shortcutIntent.putExtras(bundle);
+
+        Intent intent = new Intent();
+        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource
+                .fromContext(this, R.mipmap.ic_launcher));
+        intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+        // Do not duplicate the shortcut if it is already there
+        intent.putExtra("duplicate", false);
+        getApplicationContext().sendBroadcast(intent);
+
+        Toast.makeText(this, R.string.addedShortcut, Toast.LENGTH_LONG).show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        final Bundle b = getIntent().getExtras();
-        final boolean updateLoyaltyCard = b != null && b.getBoolean("update", false);
-        final boolean viewLoyaltyCard = b != null && b.getBoolean("view", false);
-
         if(viewLoyaltyCard)
         {
             getMenuInflater().inflate(R.menu.card_view_menu, menu);
@@ -331,9 +386,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
-        final Bundle b = getIntent().getExtras();
-        final int loyaltyCardId = b != null ? b.getInt("id") : 0;
 
         switch(id)
         {

@@ -56,6 +56,16 @@
             android:label=""
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".CardShortcutConfigure"
+            android:label="@string/cardShortcut"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:grantUriPermissions="true"

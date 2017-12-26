@@ -47,7 +47,7 @@ dependencies {
     testCompile "org.robolectric:robolectric:3.3.2"
 }
 
-task findbugs(type: FindBugs, dependsOn: assembleDebug) {
+task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {
 
     description 'Run findbugs'
     group 'verification'

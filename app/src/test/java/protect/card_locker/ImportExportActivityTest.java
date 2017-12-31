@@ -40,10 +40,6 @@ public class ImportExportActivityTest
         info.activityInfo.exported = true;
 
         Intent intent = new Intent(handler);
-        if(handler.equals(Intent.ACTION_PICK))
-        {
-            intent.setData(Uri.parse("file://"));
-        }
 
         if(handler.equals(Intent.ACTION_GET_CONTENT))
         {

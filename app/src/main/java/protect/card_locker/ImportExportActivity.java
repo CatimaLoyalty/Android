@@ -85,7 +85,6 @@ public class ImportExportActivity extends AppCompatActivity
 
         // Check that there is an activity that can bring up a file chooser
         final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-        intentPickAction.setData(Uri.parse("file://"));
 
         Button importFilesystem = (Button) findViewById(R.id.importOptionFilesystemButton);
         importFilesystem.setOnClickListener(new View.OnClickListener()

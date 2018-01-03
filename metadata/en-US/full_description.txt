@@ -1,0 +1,7 @@
+Are you tired of searching for your plastic reward card while checking out at the store? Are you looking for a free solution which will not take your information?
+
+Loyalty Card Keychain is a application which will store your barcode-based loyalty cards on your phone. The application is open source and tries to do one thing well: manage your cards!
+
+New cards can be added in a snap. Either use your camera to capture the barcode, or type in the number. When the barcode is loaded at the store and displayed it can be scanned with a modern barcode scanner. (Some stores use older barcode scanners, such as flatbed scanners, instead of image scanners. These cannot read the smartphone's display. Instead, request the clerk to type in the number manually).
+
+The application requires very few permissions, and never attempts to access the Internet. There is an option to backup your cards to local storage. From there you can send the backup somewhere safe.

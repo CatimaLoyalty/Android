@@ -1,0 +1,1 @@
+Manages barcode-based store/loyalty cards on your phone

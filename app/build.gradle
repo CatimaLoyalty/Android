@@ -7,12 +7,12 @@ findbugs {
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "protect.card_locker"
         minSdkVersion 17
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 17
         versionName "0.16"
     }
@@ -43,8 +43,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support:design:27.0.2'
     compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     compile 'com.google.zxing:core:3.3.0'
     compile 'org.apache.commons:commons-csv:1.2'

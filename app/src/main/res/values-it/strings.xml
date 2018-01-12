@@ -7,65 +7,55 @@
     <string name="noGiftCards">Non hai ancora alcuna tessera fedeltà al momento. Premi sul bottone "+" (più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue tessere fedeltà, così da averle sempre a disposizione.</string>
 
     <string name="storeName">Negozio</string>
+    <string name="note">Note</string>
     <string name="cardId">Codice</string>
     <string name="barcodeType">Tipo codice a barre</string>
 
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="capture">Scansione carta</string>
-    <string name="edit">Modifica</string>
-    <string name="delete">Elimina</string>
-
-    <string name="editCardTitle">Modifica carta</string>
-    <string name="addCardTitle">Aggiungi carta</string>
-    <string name="viewCardTitle">Mostra carta</string>
-    <string name="scanCardBarcode">Scansiona codice carta</string>
-
-    <string name="barcodeImageDescription">Immagine del codice a barre della carta</string>
-
-    <string name="noStoreError">Nessun negozio inserito</string>
-    <string name="noCardIdError">Nessun codice carta inserito</string>
-
-
-    <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="note">Note</string>
-
-    <string name="importExport">Importa/Esporta</string>
-    <string name="importName">Importa</string>
-    <string name="exportName">Esporta</string>
-    <string name="importedFrom">Importato da: %1$s</string>
-    <string name="exportedTo">Esportato in: %1$s</string>
-    <string name="fileMissing">File mancante: %1$s</string>
-    <string name="importFailed">Impossibile importare: %1$s</string>
-    <string name="exportFailed">Impossibile esportare: %1$s</string>
-    <string name="importing">Importazione in corso&#8230;</string>
-    <string name="exporting">Esportazione in corso&#8230;</string>
-    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
-    <string name="about">Informazioni</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Pubblicato sotto licenza GPLv3.</string>
-    <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informazione sulla revisione: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="ok">Ok</string>
     <string name="enterCard">Inserisci carta</string>
     <string name="editCard">Modifica carta</string>
-    <string name="selectBarcodeTitle">Seleziona codice a barre</string>
-    <string name="enterBarcodeInstructions">Digita il valore del codice a barre, quindi seleziona l\'immagine che rappresenta il codice a barre che vuoi usare.</string>
-    <string name="copy_to_clipboard">Copia ID negli appunti</string>
-    <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
+    <string name="edit">Modifica</string>
+    <string name="delete">Elimina</string>
     <string name="confirm">Conferma</string>
     <string name="lockScreen">Blocca rotazione</string>
     <string name="unlockScreen">Sblocca rotazione</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
+    <string name="ok">Ok</string>
+    <string name="copy_to_clipboard">Copia ID negli appunti</string>
+    <string name="sendLabel">Invia&#8230;</string>
+    <string name="addedShortcut">Aggiunto al launcher</string>
+
+    <string name="editCardTitle">Modifica carta</string>
+    <string name="addCardTitle">Aggiungi carta</string>
+    <string name="viewCardTitle">Mostra carta</string>
+    <string name="scanCardBarcode">Scansiona codice carta</string>
+    <string name="cardShortcut">Scorciatoia per la carta</string>
+    <string name="noCardsMessage">Non ci sono carte. Aggiungine prima una</string>
+
+    <string name="barcodeImageDescription">Immagine del codice a barre della carta</string>
+
+    <string name="noStoreError">Nessun negozio inserito</string>
+    <string name="noCardIdError">Nessun codice carta inserito</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="importExport">Importa/Esporta</string>
+    <string name="importName">Importa</string>
+    <string name="exportName">Esporta</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue tessere da un dispositivo ad un altro.</string>
+    <string name="importedFrom">Importato da: %1$s</string>
+    <string name="exportedTo">Esportato in: %1$s</string>
+    <string name="fileMissing">File mancante: %1$s</string>
     <string name="importSuccessfulTitle">Importazione avvenuta con successo</string>
     <string name="importFailedTitle">Importazione fallita</string>
+    <string name="importFailed">Impossibile importare: %1$s</string>
     <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
+    <string name="exportFailed">Impossibile esportare: %1$s</string>
+    <string name="importing">Importazione in corso&#8230;</string>
+    <string name="exporting">Esportazione in corso&#8230;</string>
+    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
     <string name="exportOptionExplanation">I dati sono stati scritti nella cartella principale della memoria esterna.</string>
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
@@ -76,7 +66,20 @@
     <string name="importOptionFixedTitle">Importa da un altro posto</string>
     <string name="importOptionFixedExplanation">Importa dallo stesso posto del file system dove si è esportato.</string>
     <string name="importOptionFixedButton">Usa luogo dell\'esportazione</string>
-    <string name="sendLabel">Invia&#8230;</string>
+
+    <string name="about">Informazioni</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Pubblicato sotto licenza GPLv3.</string>
+    <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informazione sulla revisione: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
+
+    <string name="selectBarcodeTitle">Seleziona codice a barre</string>
+    <string name="enterBarcodeInstructions">Digita il valore del codice a barre, quindi seleziona l\'immagine che rappresenta il codice a barre che vuoi usare.</string>
+
+    <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
 
     <string name="startIntro">Incomincia introduzione</string>
     <string name="intro1Title">Benvenuto in Carte fedeltà\n</string>

@@ -15,29 +15,22 @@
     <string name="save">Išsaugoti</string>
     <string name="capture">Nufotografuoti kortelę</string>
     <string name="enterCard">Įvesti kortelę</string>
-
     <string name="edit">Redaguoti</string>
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
-
     <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
     <string name="deleteConfirmation">Prašome patvirtinti jog Jūs norite panaikinti šią lojalumo kortelę.</string>
     <string name="ok">Gerai</string>
     <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
-
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="viewCardTitle">Paeržiūrėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Nuskanuokite kortelės brūkšninį kodą</string>
-
     <string name="barcodeImageDescription">Kortelės brūkšninio kodo paveikslėlis</string>
 
     <string name="noStoreError">Parduotuvė neįvesta</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
-
-
     <string name="cardIdFormat">%1$s: %2$s</string>
-
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="importName">Importuoti</string>
     <string name="exportName">Exportuoti</string>
@@ -49,7 +42,6 @@
     <string name="importing">Importuoja&#8230;</string>
     <string name="exporting">Eksportuoja&#8230;</string>
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
-
     <string name="about">Apie</string>
     <string name="app_copyright_fmt">Visos teisės saugomos 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licenzijuota pagal GPLv3.</string>
@@ -57,10 +49,9 @@
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> naudoja šias trečiosios šalies bibliotekas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
 
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
-    
+
 </resources>

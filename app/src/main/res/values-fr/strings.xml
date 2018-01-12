@@ -18,36 +18,56 @@
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
-
     <string name="confirm">Confirmer</string>
+    <string name="lockScreen">Désactiver la rotation</string>
+    <string name="unlockScreen">Activer la rotation</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
     <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
+    <string name="sendLabel">Envoyer&#8230;</string>
+    <string name="addedShortcut">Ajouter à l\'écran d\'accueil</string>
 
     <string name="editCardTitle">Modifier la carte de fidélité</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="viewCardTitle">Voir la carte de fidélité</string>
     <string name="scanCardBarcode">Flasher le code-barres de la carte</string>
+    <string name="cardShortcut">Raccourci de carte</string>
+    <string name="noCardsMessage">Il n\'y a aucune carte. Ajoutez en une d\'abord.</string>
 
     <string name="barcodeImageDescription">Image du code-barres de la carte</string>
 
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
+    <string name="noCardExistsError">N\'a pas pu retrouver la carte de fidélité</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-
     <string name="importExport">Importer/Exporter</string>
     <string name="importName">Importer</string>
     <string name="exportName">Exporter</string>
+    <string name="importExportHelp">Exporter vos données vous permet de récupérer vos cartes sur un autre appareil.</string>
     <string name="importedFrom">Importé depuis : %1$s</string>
     <string name="exportedTo">Exporté vers : %1$s</string>
     <string name="fileMissing">Fichier manquant : %1$s</string>
+    <string name="importSuccessfulTitle">Importé avec succès</string>
+    <string name="importFailedTitle">Échec de l\'import</string>
     <string name="importFailed">Échec de l\'import : %1$s</string>
+    <string name="exportSuccessfulTitle">Exporté avec succès</string>
+    <string name="exportFailedTitle">Échec de l\'export</string>
     <string name="exportFailed">Échec de l\'export : %1$s</string>
     <string name="importing">Import &#8230;</string>
     <string name="exporting">Export &#8230;</string>
     <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>
+    <string name="exportOptionExplanation">Les données sont sauvegardées à la racine du stockage externe.</string>
+    <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
+    <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
+    <string name="importOptionFilesystemButton">Système de fichiers</string>
+    <string name="importOptionApplicationTitle">Application externe</string>
+    <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
+    <string name="importOptionApplicationButton">Application externe</string>
+    <string name="importOptionFixedTitle">Importer depuis le même emplacement que pour l\'export</string>
+    <string name="importOptionFixedExplanation">Importe les données depuis le même emplacement que celui défini pour l\'export.</string>
+    <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
 
     <string name="about">À propos</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
@@ -62,23 +82,6 @@
     <string name="enterBarcodeInstructions">Saisissez les chiffres du code-barres et sélectionnez l\'image qui le représente</string>
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
-
-    <string name="importExportHelp">Exporter vos données vous permet de récupérer vos cartes sur un autre appareil.</string>
-    <string name="importSuccessfulTitle">Importé avec succès</string>
-    <string name="importFailedTitle">Échec de l\'import</string>
-    <string name="exportSuccessfulTitle">Exporté avec succès</string>
-    <string name="exportFailedTitle">Échec de l\'export</string>
-    <string name="exportOptionExplanation">Les données sont sauvegardées à la racine du stockage externe.</string>
-    <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
-    <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
-    <string name="importOptionFilesystemButton">Système de fichiers</string>
-    <string name="importOptionApplicationTitle">Application externe</string>
-    <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
-    <string name="importOptionApplicationButton">Application externe</string>
-    <string name="importOptionFixedTitle">Importer depuis le même emplacement que pour l\'export</string>
-    <string name="importOptionFixedExplanation">Importe les données depuis le même emplacement que celui défini pour l\'export.</string>
-    <string name="importOptionFixedButton">Utiliser l\'emplacement de l\'export</string>
-    <string name="sendLabel">Envoyer&#8230;</string>
 
     <string name="startIntro">Présentation</string>
     <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>

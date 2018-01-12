@@ -1,3 +1,9 @@
+## v0.17 (2018-01-11)
+
+Changes:
+- Fix issue on Android SDK 24+ where using the file chooser import option would cause a crash. (https://github.com/brarcher/loyalty-card-locker/pull/170)
+- New icon and color scheme. (https://github.com/brarcher/loyalty-card-locker/pull/171)
+
 ## v0.16 (2017-11-29)
 
 Changes:

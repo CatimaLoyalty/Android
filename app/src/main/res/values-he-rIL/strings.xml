@@ -1,0 +1,14 @@
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="action_add">הוספה</string>
+
+    <string name="cardId">מזהה כרטיס</string>
+    <string name="barcodeType">סוג ברקוד</string>
+
+    <string name="cancel">ביטול</string>
+    <string name="save">שמור</string>
+    <string name="capture">צלם כרטיס</string>
+    <string name="enterCard">הכנס כרטיס</string>
+    <string name="editCard">עריכת כרטיס</string>
+</resources>

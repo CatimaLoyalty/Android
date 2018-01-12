@@ -15,58 +15,39 @@
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
     <string name="enterCard">Vložit vlastnoručně</string>
-
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
-
     <string name="deleteTitle">Odstzranit věrnostní kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
     <string name="ok">Ano</string>
     <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
-
+    <string name="sendLabel">Odeslat&#8230;</string>
     <string name="editCardTitle">Editovat věrnostní kartu</string>
     <string name="addCardTitle">Přidat věrnostní kartu</string>
     <string name="viewCardTitle">Zobrazit věrnostní kartu</string>
     <string name="scanCardBarcode">Oskenujte kód karty</string>
-
     <string name="barcodeImageDescription">Obrázek kódu karty</string>
 
     <string name="noStoreError">Nebyl zadán Obchod</string>
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
-
-
     <string name="cardIdFormat">%1$s: %2$s</string>
-
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
     <string name="exportName">Export</string>
+    <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
     <string name="importedFrom">Importováno z: %1$s</string>
     <string name="exportedTo">Exportováno do: %1$s</string>
     <string name="fileMissing">Doubor chybí: %1$s</string>
+    <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
+    <string name="importFailedTitle">Import selhal</string>
     <string name="importFailed">Import selhal: %1$s</string>
+    <string name="exportSuccessfulTitle">Export proběhl úspěšně</string>
+    <string name="exportFailedTitle">Export selhal</string>
     <string name="exportFailed">Export selhal: %1$s</string>
     <string name="importing">Importuji&#8230;</string>
     <string name="exporting">Exportuji&#8230;</string>
     <string name="noExternalStoragePermissionError">Nelze importovat nebo exportovat karty bez přístupu k externímu uložišti</string>
-
-    <string name="about">O aplikaci</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Licensed under the GPLv3.</string>
-    <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používá tyto knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-
-    <string name="selectBarcodeTitle">Vyberte čárový kód</string>
-    <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>
-
-    <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
-    <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
-    <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
-    <string name="importFailedTitle">Import selhal</string>
-    <string name="exportSuccessfulTitle">Export proběhl úspěšně</string>
-    <string name="exportFailedTitle">Export selhal</string>
     <string name="exportOptionExplanation">Data jsou zapsána do kořenové složky externího uložiště.</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
@@ -77,6 +58,17 @@
     <string name="importOptionFixedTitle">Import z umístění exportu</string>
     <string name="importOptionFixedExplanation">Import ze stejné složky souborového systému do níž se zapisuje při exportu.</string>
     <string name="importOptionFixedButton">Použít složku exportu</string>
-    <string name="sendLabel">Odeslat&#8230;</string>
+
+    <string name="about">O aplikaci</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Licensed under the GPLv3.</string>
+    <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používá tyto knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Vyberte čárový kód</string>
+    <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>
+
+    <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
 
 </resources>

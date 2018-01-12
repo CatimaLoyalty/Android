@@ -7,63 +7,57 @@
     <string name="noGiftCards">Er zijn momenteel geen klantenkaarten toegevoegd. Klik de knop met "+" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
 
     <string name="storeName">Winkel</string>
+    <string name="note">Notitie</string>
     <string name="cardId">Kaart-ID</string>
     <string name="barcodeType">Barcodetype</string>
 
     <string name="cancel">Annuleer</string>
     <string name="save">Sla op</string>
     <string name="capture">Scan kaart</string>
+    <string name="enterCard">Voer kaart in</string>
+    <string name="editCard">Bewerk kaart</string>
     <string name="edit">Bewerk</string>
     <string name="delete">Verwijder</string>
+    <string name="confirm">Bevestig</string>
+    <string name="lockScreen">Blokkeer rotatie</string>
+    <string name="unlockScreen">Deblokkeer rotatie</string>
+    <string name="deleteTitle">Verwijder kaart</string>
+    <string name="deleteConfirmation">Bevestig deze kaart te verwijderen.</string>
+    <string name="ok">Oké</string>
+    <string name="copy_to_clipboard">Kopieer het ID naar het klembord</string>
+    <string name="sendLabel">Verzend&#8230;</string>
+    <string name="addedShortcut">Toegevoegd aan hoofdscherm</string>
 
     <string name="editCardTitle">Bewerk klantenkaart</string>
     <string name="addCardTitle">Voeg klantenkaart toe</string>
     <string name="viewCardTitle">Bekijk klantenkaart</string>
     <string name="scanCardBarcode">Scan barcode klantenkaart</string>
+    <string name="cardShortcut">Kaartsnelkoppeling</string>
+    <string name="noCardsMessage">Er zijn geen kaarten, voeg er eerst een toe</string>
 
     <string name="barcodeImageDescription">Afbeelding barcode klantenkaart</string>
 
     <string name="noStoreError">Geen winkel toegevoegd</string>
     <string name="noCardIdError">Geen kaart-ID toegevoegd</string>
+    <string name="noCardExistsError">Kon klantenkaart niet vinden</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="note">Notitie</string>
-
     <string name="importExport">Importeer/Exporteer</string>
     <string name="importName">Importeer</string>
     <string name="exportName">Exporteer</string>
+    <string name="importExportHelp">Data die is geback-upt maakt het mogelijk om je klantenkaarten naar een ander apparaat te verplaatsen.</string>
     <string name="importedFrom">Geïmporteerd van: %1$s</string>
     <string name="exportedTo">Geëxporteerd naar: %1$s</string>
     <string name="fileMissing">Bestand niet gevonden: %1$s</string>
+    <string name="importSuccessfulTitle">Importeren succesvol</string>
+    <string name="importFailedTitle">Importeren mislukte</string>
     <string name="importFailed">Importeren mislukte: %1$s</string>
+    <string name="exportSuccessfulTitle">Exporteren succesvol</string>
+    <string name="exportFailedTitle">Exporteren mislukt</string>
     <string name="exportFailed">Exporteren mislukte: %1$s</string>
     <string name="importing">Importerende&#8230;</string>
     <string name="exporting">Exporterende&#8230;</string>
     <string name="noExternalStoragePermissionError">Niet mogelijk te importeren of exporteren zonder rechten op externe opslag</string>
-    <string name="about">Over</string>
-    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Gelicenseerd met GPLv3.</string>
-    <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-
-    <string name="ok">Oké</string>
-    <string name="enterCard">Voer kaart in</string>
-
-    <string name="selectBarcodeTitle">Selecteer barcode</string>
-    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
-    <string name="copy_to_clipboard">Kopieer het ID naar het klembord</string>
-    <string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
-    <string name="confirm">Bevestig</string>
-    <string name="deleteConfirmation">Bevestig deze kaart te verwijderen.</string>
-    <string name="deleteTitle">Verwijder kaart</string>
-
-    <string name="importExportHelp">Data die is geback-upt maakt het mogelijk om je klantenkaarten naar een ander apparaat te verplaatsen.</string>
-    <string name="importSuccessfulTitle">Importeren succesvol</string>
-    <string name="importFailedTitle">Importeren mislukte</string>
-    <string name="exportSuccessfulTitle">Exporteren succesvol</string>
-    <string name="exportFailedTitle">Exporteren mislukt</string>
     <string name="exportOptionExplanation">Data is weggeschreven naar de hoogste map in externe opslag.</string>
     <string name="importOptionFilesystemTitle">Importeer van filesysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het filesysteem.</string>
@@ -74,6 +68,32 @@
     <string name="importOptionFixedTitle">Importeer van exporteerlocatie</string>
     <string name="importOptionFixedExplanation">Importeer van zelfde locatie op het filesysteem waar tijdens exporteren naar geschreven is.</string>
     <string name="importOptionFixedButton">gebruik exporteerlocaite</string>
-    <string name="sendLabel">Verzend&#8230;</string>
 
-</resources>
+    <string name="about">Over</string>
+    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Gelicenseerd met GPLv3.</string>
+    <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derden: <xliff:g id="app_resources_list\">%s</xliff:g></string>
+
+<string name="selectBarcodeTitle">Selecteer barcode</string>
+<string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
+
+<string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
+
+<string name="startIntro">Start inleiding</string>
+<string name="intro1Title">Welkom bij Loyalty Card Keychain\n</string>
+<string name="intro1Description">Beheer je barcodegebaseerde klantenkaarten op je telefoon!\n\n</string>
+<string name="intro2Title">Kaarten toevoegen\n</string>
+<string name="intro2Description">Voeg een nieuwe kaart toe door in de lijst met kaarten de plus aan te raken.\n\n</string>
+<string name="intro3Title">Kaarten toevoegen\n</string>
+<string name="intro3Description">Om een barcode toe te voegen, scan deze met je camera of voer ze handmatig in.\n\n</string>
+<string name="intro4Title">Toon kaart\n</string>
+<string name="intro4Description">Om een kaart te tonen, klik in het hoofdscherm op de naam van de winkel\n\n</string>
+<string name="intro5Title">Backup\n</string>
+<string name="intro5Description">De kaarten kunnen worden geback-upt. Om te kaarten te exporteren of importeren, raak in het menu in het hoofdscherm Importeer/Exporteer aan.\n\n</string>
+<string name="intro6Title">Terugkoppeling\n</string>
+<string name="intro6Description">Deze app is gratis, vrije van advertenties en opensource. Zie details door Over aan te raken in het menu op het hoofdscher,.\n\nBeschrijft je ervaring in de app store! (:</string>
+    </resources>

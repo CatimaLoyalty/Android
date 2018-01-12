@@ -25,13 +25,13 @@ proposed changes.
 
 # Screenshots
 
-[<img src="https://user-images.githubusercontent.com/5264535/27416124-79b09162-56d9-11e7-967b-8923177dc228.png" width=250>](https://user-images.githubusercontent.com/5264535/27416124-79b09162-56d9-11e7-967b-8923177dc228.png)
-[<img src="https://user-images.githubusercontent.com/5264535/27416127-7baea332-56d9-11e7-8a10-5be90bb02225.png" width=250>](https://user-images.githubusercontent.com/5264535/27416127-7baea332-56d9-11e7-8a10-5be90bb02225.png)
-[<img src="https://user-images.githubusercontent.com/5264535/27416128-7d50f7b2-56d9-11e7-9833-1dd962f9cf66.png" width=250>](https://user-images.githubusercontent.com/5264535/27416128-7d50f7b2-56d9-11e7-9833-1dd962f9cf66.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-03.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-03.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-02.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-02.png)
 
-[<img src="https://user-images.githubusercontent.com/5264535/27416132-7ea6272c-56d9-11e7-9a52-d73424bf902c.png" width=250>](https://user-images.githubusercontent.com/5264535/27416132-7ea6272c-56d9-11e7-9a52-d73424bf902c.png)
-[<img src="https://user-images.githubusercontent.com/5264535/27416137-800aee90-56d9-11e7-9cc9-2a7dc63bb4fb.png" width=250>](https://user-images.githubusercontent.com/5264535/27416137-800aee90-56d9-11e7-9cc9-2a7dc63bb4fb.png)
-[<img src="https://user-images.githubusercontent.com/5264535/27416140-82d8211a-56d9-11e7-8031-c71d3077bdc6.png" width=250>](https://user-images.githubusercontent.com/5264535/27416140-82d8211a-56d9-11e7-8031-c71d3077bdc6.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-04.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-04.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-05.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-05.png)
+[<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-06.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-06.png)
 
 # Building
 

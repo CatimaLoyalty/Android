@@ -198,7 +198,11 @@ public class ImportExportTest
 
             clearDatabase();
 
-            String corruptEntry = "ThisStringIsLikelyNotPartOfAnyFormat";
+            // commons-csv would throw a RuntimeException if an entry was quotes but had
+            // content after. For example:
+            //   abc,def,""abc,abc
+            //             ^ after the quote there should only be a , \n or EOF
+            String corruptEntry = "ThisStringIsLikelyNotPartOfAnyFormat,\"\"a";
 
             ByteArrayInputStream inData = new ByteArrayInputStream((outData.toString() + corruptEntry).getBytes());
             InputStreamReader inStream = new InputStreamReader(inData);

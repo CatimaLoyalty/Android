@@ -40,7 +40,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
             parser.close();
             database.setTransactionSuccessful();
         }
-        catch(IllegalArgumentException e)
+        catch(IllegalArgumentException|IllegalStateException e)
         {
             throw new FormatException("Issue parsing CSV data", e);
         }

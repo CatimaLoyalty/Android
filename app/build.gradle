@@ -47,7 +47,7 @@ dependencies {
     compile 'com.android.support:design:27.0.2'
     compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     compile 'com.google.zxing:core:3.3.0'
-    compile 'org.apache.commons:commons-csv:1.2'
+    compile 'org.apache.commons:commons-csv:1.5'
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile 'com.github.apl-devs:appintro:v4.2.0'
     testCompile 'junit:junit:4.12'

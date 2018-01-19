@@ -235,33 +235,6 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private String fileNameFromUri(Uri uri)
-    {
-        if("file".equals(uri.getScheme()))
-        {
-            return uri.getPath();
-        }
-
-        Cursor returnCursor =
-                getContentResolver().query(uri, null, null, null, null);
-        if(returnCursor == null)
-        {
-            return null;
-        }
-
-        int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-        if(returnCursor.moveToFirst() == false)
-        {
-            returnCursor.close();
-            return null;
-        }
-
-        String name = returnCursor.getString(nameIndex);
-        returnCursor.close();
-
-        return name;
-    }
-
     private void onImportComplete(boolean success, Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -275,19 +248,6 @@ public class ImportExportActivity extends AppCompatActivity
             builder.setTitle(R.string.importFailedTitle);
         }
 
-        int messageId = success ? R.string.importedFrom : R.string.importFailed;
-
-        final String template = getResources().getString(messageId);
-
-        // Get the filename of the file being imported
-        String filename = fileNameFromUri(path);
-        if(filename == null)
-        {
-            filename = "(unknown)";
-        }
-
-        final String message = String.format(template, filename);
-        builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
             @Override

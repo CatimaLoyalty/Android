@@ -248,6 +248,14 @@ public class ImportExportActivity extends AppCompatActivity
             builder.setTitle(R.string.importFailedTitle);
         }
 
+        int messageId = success ? R.string.importedFrom : R.string.importFailed;
+        final String template = getResources().getString(messageId);
+
+        // Get the filename of the file being imported
+        String filename = path.toString();
+
+        final String message = String.format(template, filename);
+        builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
             @Override
@@ -372,13 +380,24 @@ public class ImportExportActivity extends AppCompatActivity
 
         try
         {
-            InputStream reader = getContentResolver().openInputStream(uri);
+            InputStream reader;
+
+            if(uri.getScheme() != null)
+            {
+                reader = getContentResolver().openInputStream(uri);
+            }
+            else
+            {
+                reader = new FileInputStream(new File(uri.toString()));
+            }
+
             Log.e(TAG, "Starting file import with: " + uri.toString());
             startImport(reader, uri);
         }
-        catch (FileNotFoundException e)
+        catch(FileNotFoundException e)
         {
             Log.e(TAG, "Failed to import file: " + uri.toString(), e);
+            onImportComplete(false, uri);
         }
     }
 }

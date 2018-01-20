@@ -380,13 +380,24 @@ public class ImportExportActivity extends AppCompatActivity
 
         try
         {
-            InputStream reader = getContentResolver().openInputStream(uri);
+            InputStream reader;
+
+            if(uri.getScheme() != null)
+            {
+                reader = getContentResolver().openInputStream(uri);
+            }
+            else
+            {
+                reader = new FileInputStream(new File(uri.toString()));
+            }
+
             Log.e(TAG, "Starting file import with: " + uri.toString());
             startImport(reader, uri);
         }
-        catch (FileNotFoundException e)
+        catch(FileNotFoundException e)
         {
             Log.e(TAG, "Failed to import file: " + uri.toString(), e);
+            onImportComplete(false, uri);
         }
     }
 }

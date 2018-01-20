@@ -248,6 +248,14 @@ public class ImportExportActivity extends AppCompatActivity
             builder.setTitle(R.string.importFailedTitle);
         }
 
+        int messageId = success ? R.string.importedFrom : R.string.importFailed;
+        final String template = getResources().getString(messageId);
+
+        // Get the filename of the file being imported
+        String filename = path.toString();
+
+        final String message = String.format(template, filename);
+        builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
             @Override

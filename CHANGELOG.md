@@ -1,3 +1,10 @@
+## v0.18 (2018-01-19)
+
+Changes:
+- Fix crash when importing certain types of corrupted CSV files. (https://github.com/brarcher/loyalty-card-locker/pull/177)
+- Fix importing backups directly from the file system. (https://github.com/brarcher/loyalty-card-locker/pull/180)
+- Fix importing backups from certain types of content providers. (https://github.com/brarcher/loyalty-card-locker/pull/179)
+
 ## v0.17 (2018-01-11)
 
 Changes:

@@ -1,3 +1,8 @@
+## v0.18.1 (2018-01-24)
+
+Changes:
+- Workaround crash during install on some Android versions (likely Android 5 and below). (https://github.com/brarcher/loyalty-card-locker/pull/184)
+
 ## v0.18 (2018-01-19)
 
 Changes:

@@ -8,6 +8,14 @@
     android:baselineAligned="false"
     android:padding="@dimen/activity_margin">
 
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/cardThumbnailSize"
+        android:layout_height="@dimen/cardThumbnailSize"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/thumbnailDescription"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dip"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 class LoyaltyCardCursorAdapter extends CursorAdapter
@@ -29,6 +30,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
     public void bindView(View view, Context context, Cursor cursor)
     {
         // Find fields to populate in inflated template
+        ImageView thumbnail = view.findViewById(R.id.thumbnail);
         TextView storeField = (TextView) view.findViewById(R.id.store);
         TextView cardIdField = (TextView) view.findViewById(R.id.cardId);
 
@@ -49,5 +51,9 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         String cardIdLabel = view.getResources().getString(R.string.cardId);
         String cardIdText = String.format(cardIdFormat, cardIdLabel, loyaltyCard.cardId);
         cardIdField.setText(cardIdText);
+
+        LetterBitmap letterBitmap = new LetterBitmap(context);
+        int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
+        thumbnail.setImageBitmap(letterBitmap.getLetterTile(loyaltyCard.store, loyaltyCard.store, pixelSize, pixelSize));
     }
 }

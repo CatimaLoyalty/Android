@@ -85,6 +85,8 @@
 
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 
+    <string name="thumbnailDescription">Thumbnail for card</string>
+
     <string name="startIntro">Start Intro</string>
     <string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
     <string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>

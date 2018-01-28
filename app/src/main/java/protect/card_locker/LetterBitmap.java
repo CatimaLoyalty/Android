@@ -98,8 +98,8 @@ class LetterBitmap
         mFirstChar[0] = firstChar.toUpperCase().charAt(0);
         mPaint.setTextSize(mTileLetterFontSize);
         mPaint.getTextBounds(mFirstChar, 0, 1, mBounds);
-        c.drawText(mFirstChar, 0, 1, width / 2, height / 2
-                + (mBounds.bottom - mBounds.top) / 2, mPaint);
+        c.drawText(mFirstChar, 0, 1, width / 2.0f, height / 2.0f
+                + (mBounds.bottom - mBounds.top) / 2.0f, mPaint);
         return bitmap;
     }
 

@@ -18,8 +18,6 @@ import android.text.TextPaint;
  * Used to create a {@link Bitmap} that contains a letter used in the English
  * alphabet or digit, if there is no letter or digit available, a default image
  * is shown instead.
- *
- * Only English language supported.
  */
 class LetterBitmap
 {
@@ -91,32 +89,18 @@ class LetterBitmap
     public Bitmap getLetterTile(String displayName, String key, int width, int height)
     {
         final Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        char firstChar = displayName.charAt(0);
+        String firstChar = displayName.substring(0, 1);
 
         final Canvas c = mCanvas;
         c.setBitmap(bitmap);
         c.drawColor(pickColor(key));
 
-        if (!isEnglishLetterOrDigit(firstChar))
-        {
-            firstChar = 'A';
-        }
-        mFirstChar[0] = Character.toUpperCase(firstChar);
+        mFirstChar[0] = firstChar.toUpperCase().charAt(0);
         mPaint.setTextSize(mTileLetterFontSize);
         mPaint.getTextBounds(mFirstChar, 0, 1, mBounds);
         c.drawText(mFirstChar, 0, 1, width / 2, height / 2
                 + (mBounds.bottom - mBounds.top) / 2, mPaint);
         return bitmap;
-    }
-
-    /**
-     * @param c The char to check
-     * @return True if <code>c</code> is in the English alphabet or is a digit,
-     * false otherwise
-     */
-    private static boolean isEnglishLetterOrDigit(char c)
-    {
-        return 'A' <= c && c <= 'Z' || 'a' <= c && c <= 'z' || '0' <= c && c <= '9';
     }
 
     /**

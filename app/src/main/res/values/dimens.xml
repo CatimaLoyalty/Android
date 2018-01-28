@@ -16,4 +16,8 @@
     <dimen name="inputPadding">20dip</dimen>
     <dimen name="inputSize">18sp</dimen>
 
+    <dimen name="cardThumbnailSize">46dp</dimen>
+
+    <dimen name="activity_margin_small">8dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
 </resources>

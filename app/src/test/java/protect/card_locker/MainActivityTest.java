@@ -74,7 +74,7 @@ public class MainActivityTest
     }
 
     @Test
-    public void clickAddLaunchesLoyaltyCardViewActivity()
+    public void clickAddLaunchesLoyaltyCardEditActivity()
     {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
@@ -82,7 +82,7 @@ public class MainActivityTest
 
         Intent intent = shadowOf(activity).peekNextStartedActivityForResult().intent;
 
-        assertEquals(new ComponentName(activity, LoyaltyCardViewActivity.class), intent.getComponent());
+        assertEquals(new ComponentName(activity, LoyaltyCardEditActivity.class), intent.getComponent());
         assertNull(intent.getExtras());
     }
 

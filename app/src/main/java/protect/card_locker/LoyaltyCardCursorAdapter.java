@@ -52,8 +52,9 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         String cardIdText = String.format(cardIdFormat, cardIdLabel, loyaltyCard.cardId);
         cardIdField.setText(cardIdText);
 
-        LetterBitmap letterBitmap = new LetterBitmap(context);
+        int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
-        thumbnail.setImageBitmap(letterBitmap.getLetterTile(loyaltyCard.store, loyaltyCard.store, pixelSize, pixelSize));
+        LetterBitmap letterBitmap = new LetterBitmap(context, loyaltyCard.store, loyaltyCard.store, tileLetterFontSize, pixelSize, pixelSize);
+        thumbnail.setImageBitmap(letterBitmap.getLetterTile());
     }
 }

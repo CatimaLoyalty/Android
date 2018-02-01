@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -178,27 +177,34 @@ public class LoyaltyCardViewActivityTest
     private void checkAllFields(final Activity activity, ViewMode mode,
                                 final String store, final String note, final String cardId, final String barcodeType)
     {
-        int captureVisibility = (mode == ViewMode.UPDATE_CARD || mode == ViewMode.ADD_CARD) ? View.VISIBLE : View.GONE;
+        if(mode == ViewMode.VIEW_CARD)
+        {
+            checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
+        }
+        else
+        {
+            int captureVisibility = (mode == ViewMode.UPDATE_CARD || mode == ViewMode.ADD_CARD) ? View.VISIBLE : View.GONE;
 
-        int viewVisibility = (mode == ViewMode.VIEW_CARD) ? View.VISIBLE : View.GONE;
-        int editVisibility = (mode != ViewMode.VIEW_CARD) ? View.VISIBLE : View.GONE;
+            int viewVisibility = View.GONE;
+            int editVisibility = View.VISIBLE;
 
-        checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
-        checkFieldProperties(activity, R.id.storeNameView, viewVisibility, store);
-        checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
-        checkFieldProperties(activity, R.id.noteView, viewVisibility, note);
-        checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
-        checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-        checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-        checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
-        checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
-        checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
+            checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
+            checkFieldProperties(activity, R.id.storeNameView, viewVisibility, store);
+            checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
+            checkFieldProperties(activity, R.id.noteView, viewVisibility, note);
+            checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
+            checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+            checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
+            checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
+            checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
+            checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
+        }
     }
 
     @Test
     public void startWithoutParametersCheckFieldsAvailable()
     {
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -211,7 +217,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void startWithoutParametersCannotCreateLoyaltyCard()
     {
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -244,7 +250,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void startWithoutParametersBack()
     {
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -261,7 +267,7 @@ public class LoyaltyCardViewActivityTest
     {
         registerMediaStoreIntentHandler();
 
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -282,7 +288,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void startWithoutParametersCaptureBarcodeFailure() throws IOException
     {
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -300,7 +306,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void startWithoutParametersCaptureBarcodeCancel() throws IOException
     {
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardViewActivity.class).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -326,18 +332,22 @@ public class LoyaltyCardViewActivityTest
         final Bundle bundle = new Bundle();
         bundle.putInt("id", 1);
 
+        Class clazz;
+
         if(editMode)
         {
             bundle.putBoolean("update", true);
+            clazz = LoyaltyCardEditActivity.class;
         }
         else
         {
             bundle.putBoolean("view", true);
+            clazz = LoyaltyCardViewActivity.class;
         }
 
         intent.putExtras(bundle);
 
-        return Robolectric.buildActivity(LoyaltyCardViewActivity.class).withIntent(intent).create();
+        return Robolectric.buildActivity(clazz).withIntent(intent).create();
     }
 
     @Test
@@ -460,5 +470,23 @@ public class LoyaltyCardViewActivityTest
         activityController.pause();
         activityController.stop();
         activityController.destroy();
+    }
+
+    @Test
+    public void startWithoutParametersViewBack()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        assertEquals(false, activity.isFinishing());
+        shadowOf(activity).clickMenuItem(android.R.id.home);
+        assertEquals(true, activity.isFinishing());
     }
 }

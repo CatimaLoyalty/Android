@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity
                 i.setAction("");
                 final Bundle b = new Bundle();
                 b.putInt("id", loyaltyCard.id);
-                b.putBoolean("view", true);
                 i.putExtras(b);
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_add)
         {
-            Intent i = new Intent(getApplicationContext(), LoyaltyCardViewActivity.class);
+            Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             startActivity(i);
             return true;
         }

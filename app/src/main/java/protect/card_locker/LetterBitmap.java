@@ -26,81 +26,74 @@ class LetterBitmap
      * The number of available tile colors
      */
     private static final int NUM_OF_TILE_COLORS = 8;
-
     /**
-     * The {@link TextPaint} used to draw the letter onto the tile
+     * The letter bitmap
      */
-    private final TextPaint mPaint = new TextPaint();
+    private final Bitmap mBitmap;
     /**
-     * The bounds that enclose the letter
+     * The background color of the letter bitmap
      */
-    private final Rect mBounds = new Rect();
-    /**
-     * The {@link Canvas} to draw on
-     */
-    private final Canvas mCanvas = new Canvas();
-    /**
-     * The first char of the name being displayed
-     */
-    private final char[] mFirstChar = new char[1];
-
-    /**
-     * The background colors of the tile
-     */
-    private final TypedArray mColors;
-    /**
-     * The font size used to display the letter
-     */
-    private final int mTileLetterFontSize;
-    /**
-     * The default image to display
-     */
-    private final Bitmap mDefaultBitmap;
+    private final Integer mColor;
 
     /**
      * Constructor for <code>LetterTileProvider</code>
      *
      * @param context The {@link Context} to use
+     * @param displayName The name used to create the letter for the tile
+     * @param key         The key used to generate the background color for the tile
+     * @param tileLetterFontSize The font size used to display the letter
+     * @param width       The desired width of the tile
+     * @param height      The desired height of the tile
      */
-    public LetterBitmap(Context context)
+    public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize, int width, int height)
     {
         final Resources res = context.getResources();
 
-        mPaint.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
-        mPaint.setColor(Color.WHITE);
-        mPaint.setTextAlign(Paint.Align.CENTER);
-        mPaint.setAntiAlias(true);
+        TextPaint paint = new TextPaint();
+        paint.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
+        paint.setColor(Color.WHITE);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setAntiAlias(true);
 
-        mColors = res.obtainTypedArray(R.array.letter_tile_colors);
-        mTileLetterFontSize = res.getDimensionPixelSize(R.dimen.tile_letter_font_size);
+        TypedArray colors = res.obtainTypedArray(R.array.letter_tile_colors);
+        mColor = pickColor(key, colors);
+        colors.recycle();
 
-        mDefaultBitmap = BitmapFactory.decodeResource(res, android.R.drawable.sym_def_app_icon);
+        mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        String firstChar = displayName.substring(0, 1);
+
+        final Canvas c = new Canvas();
+        c.setBitmap(mBitmap);
+        c.drawColor(mColor);
+
+        char [] firstCharArray = new char[1];
+        firstCharArray[0] = firstChar.toUpperCase().charAt(0);
+        paint.setTextSize(tileLetterFontSize);
+
+        // The bounds that enclose the letter
+        Rect bounds = new Rect();
+
+        paint.getTextBounds(firstCharArray, 0, 1, bounds);
+        c.drawText(firstCharArray, 0, 1, width / 2.0f, height / 2.0f
+                + (bounds.bottom - bounds.top) / 2.0f, paint);
     }
 
     /**
-     * @param displayName The name used to create the letter for the tile
-     * @param key         The key used to generate the background color for the tile
-     * @param width       The desired width of the tile
-     * @param height      The desired height of the tile
      * @return A {@link Bitmap} that contains a letter used in the English
      * alphabet or digit, if there is no letter or digit available, a
      * default image is shown instead
      */
-    public Bitmap getLetterTile(String displayName, String key, int width, int height)
+    public Bitmap getLetterTile()
     {
-        final Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        String firstChar = displayName.substring(0, 1);
+        return mBitmap;
+    }
 
-        final Canvas c = mCanvas;
-        c.setBitmap(bitmap);
-        c.drawColor(pickColor(key));
-
-        mFirstChar[0] = firstChar.toUpperCase().charAt(0);
-        mPaint.setTextSize(mTileLetterFontSize);
-        mPaint.getTextBounds(mFirstChar, 0, 1, mBounds);
-        c.drawText(mFirstChar, 0, 1, width / 2.0f, height / 2.0f
-                + (mBounds.bottom - mBounds.top) / 2.0f, mPaint);
-        return bitmap;
+    /**
+     * @return background color used for letter title.
+     */
+    public int getBackgroundColor()
+    {
+        return mColor;
     }
 
     /**
@@ -108,18 +101,11 @@ class LetterBitmap
      * @return A new or previously chosen color for <code>key</code> used as the
      * tile background color
      */
-    private int pickColor(String key)
+    private int pickColor(String key, TypedArray colors)
     {
         // String.hashCode() is not supposed to change across java versions, so
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
-        try
-        {
-            return mColors.getColor(color, Color.BLACK);
-        }
-        finally
-        {
-            mColors.recycle();
-        }
+        return colors.getColor(color, Color.BLACK);
     }
 }

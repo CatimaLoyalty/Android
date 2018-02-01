@@ -17,10 +17,12 @@
     <dimen name="inputSize">18sp</dimen>
 
     <dimen name="cardThumbnailSize">46dp</dimen>
+    <dimen name="cardThumbnailSizeLarge">200dp</dimen>
 
     <dimen name="activity_margin_small">8dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
 
     <!-- The default letter tile text size -->
-    <dimen name="tile_letter_font_size">33sp</dimen>
+    <dimen name="tileLetterFontSize">33sp</dimen>
+    <dimen name="cardViewLetterFontSize">100sp</dimen>
 </resources>

@@ -102,10 +102,10 @@ public class LoyaltyCardViewActivityTest
             assertEquals(1, db.getLoyaltyCardCount());
         }
 
-        final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
-        final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
-        final TextView barcodeTypeField = (TextView) activity.findViewById(R.id.barcodeType);
+        final EditText storeField = activity.findViewById(R.id.storeNameEdit);
+        final EditText noteField = activity.findViewById(R.id.noteEdit);
+        final TextView cardIdField = activity.findViewById(R.id.cardIdView);
+        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeType);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -132,7 +132,7 @@ public class LoyaltyCardViewActivityTest
     private void captureBarcodeWithResult(final Activity activity, final int buttonId, final boolean success) throws IOException
     {
         // Start image capture
-        final Button captureButton = (Button) activity.findViewById(buttonId);
+        final Button captureButton = activity.findViewById(buttonId);
         captureButton.performClick();
 
         ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
@@ -227,9 +227,9 @@ public class LoyaltyCardViewActivityTest
         DBHelper db = new DBHelper(activity);
         assertEquals(0, db.getLoyaltyCardCount());
 
-        final EditText storeField = (EditText) activity.findViewById(R.id.storeNameEdit);
-        final EditText noteField = (EditText) activity.findViewById(R.id.noteEdit);
-        final TextView cardIdField = (TextView) activity.findViewById(R.id.cardIdView);
+        final EditText storeField = activity.findViewById(R.id.storeNameEdit);
+        final EditText noteField = activity.findViewById(R.id.noteEdit);
+        final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
         shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());

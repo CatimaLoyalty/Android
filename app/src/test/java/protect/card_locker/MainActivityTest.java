@@ -49,10 +49,10 @@ public class MainActivityTest
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         assertTrue(activity != null);
 
-        TextView helpText = (TextView)activity.findViewById(R.id.helpText);
+        TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
 
-        ListView list = (ListView)activity.findViewById(R.id.list);
+        ListView list = activity.findViewById(R.id.list);
         assertEquals(View.GONE, list.getVisibility());
     }
 
@@ -95,8 +95,8 @@ public class MainActivityTest
         activityController.start();
         activityController.resume();
 
-        TextView helpText = (TextView)mainActivity.findViewById(R.id.helpText);
-        ListView list = (ListView)mainActivity.findViewById(R.id.list);
+        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        ListView list = mainActivity.findViewById(R.id.list);
 
         assertEquals(0, list.getCount());
 

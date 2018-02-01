@@ -79,20 +79,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         db = new DBHelper(this);
 
-        storeFieldEdit = (EditText) findViewById(R.id.storeNameEdit);
-        storeFieldView = (TextView) findViewById(R.id.storeNameView);
-        noteFieldEdit = (EditText) findViewById(R.id.noteEdit);
-        noteFieldView = (TextView) findViewById(R.id.noteView);
-        cardIdFieldView = (TextView) findViewById(R.id.cardIdView);
+        storeFieldEdit = findViewById(R.id.storeNameEdit);
+        storeFieldView = findViewById(R.id.storeNameView);
+        noteFieldEdit = findViewById(R.id.noteEdit);
+        noteFieldView = findViewById(R.id.noteView);
+        cardIdFieldView = findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
-        barcodeImage = (ImageView) findViewById(R.id.barcode);
+        barcodeTypeField = findViewById(R.id.barcodeType);
+        barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
-        captureButton = (Button) findViewById(R.id.captureButton);
-        enterButton = (Button) findViewById(R.id.enterButton);
+        captureButton = findViewById(R.id.captureButton);
+        enterButton = findViewById(R.id.enterButton);
     }
 
     @Override
@@ -390,10 +390,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
 
-            TextView cardIdView = (TextView)findViewById(R.id.cardIdView);
+            TextView cardIdView = findViewById(R.id.cardIdView);
             cardIdView.setText(contents);
 
-            final TextView barcodeTypeField = (TextView) findViewById(R.id.barcodeType);
+            final TextView barcodeTypeField = findViewById(R.id.barcodeType);
             barcodeTypeField.setText(format);
             onResume();
         }

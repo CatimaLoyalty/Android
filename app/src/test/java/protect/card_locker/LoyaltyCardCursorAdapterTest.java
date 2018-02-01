@@ -42,7 +42,7 @@ public class LoyaltyCardCursorAdapterTest
 
     private void checkView(final View view, final String store, final String note)
     {
-        final TextView storeField = (TextView) view.findViewById(R.id.store);
+        final TextView storeField = view.findViewById(R.id.store);
         assertEquals(store, storeField.getText().toString());
 
         final TextView noteField = view.findViewById(R.id.note);

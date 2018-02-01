@@ -67,7 +67,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.barcode_selector_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
@@ -89,7 +89,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 .put(BarcodeFormat.UPC_A.name(), R.id.upcaBarcode)
                 .build();
 
-        EditText cardId = (EditText) findViewById(R.id.cardId);
+        EditText cardId = findViewById(R.id.cardId);
         cardId.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -113,7 +113,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 // Update barcodes
                 for(String key : barcodeViewMap.keySet())
                 {
-                    ImageView image = (ImageView)findViewById(barcodeViewMap.get(key));
+                    ImageView image = findViewById(barcodeViewMap.get(key));
                     createBarcodeOption(image, key, s.toString());
                 }
             }

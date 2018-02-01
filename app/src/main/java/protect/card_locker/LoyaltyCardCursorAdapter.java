@@ -32,25 +32,23 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         // Find fields to populate in inflated template
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
         TextView storeField = (TextView) view.findViewById(R.id.store);
-        TextView cardIdField = (TextView) view.findViewById(R.id.cardId);
+        TextView noteField = (TextView) view.findViewById(R.id.note);
 
         // Extract properties from cursor
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
 
         // Populate fields with extracted properties
-        String storeAndNote = loyaltyCard.store;
+        storeField.setText(loyaltyCard.store);
+
         if(loyaltyCard.note.isEmpty() == false)
         {
-            String storeNameAndNoteFormat = view.getResources().getString(R.string.storeNameAndNoteFormat);
-            storeAndNote = String.format(storeNameAndNoteFormat, loyaltyCard.store, loyaltyCard.note);
+            noteField.setVisibility(View.VISIBLE);
+            noteField.setText(loyaltyCard.note);
         }
-
-        storeField.setText(storeAndNote);
-
-        String cardIdFormat = view.getResources().getString(R.string.cardIdFormat);
-        String cardIdLabel = view.getResources().getString(R.string.cardId);
-        String cardIdText = String.format(cardIdFormat, cardIdLabel, loyaltyCard.cardId);
-        cardIdField.setText(cardIdText);
+        else
+        {
+            noteField.setVisibility(View.GONE);
+        }
 
         int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);

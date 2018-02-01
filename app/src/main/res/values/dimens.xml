@@ -11,6 +11,8 @@
     <dimen name="text_size_medium">18sp</dimen>
     <dimen name="text_size_large">22sp</dimen>
 
+    <dimen name="storeNameTextSize">28sp</dimen>
+
     <dimen name="inputBorderThickness">2dip</dimen>
     <dimen name="inputBorderDividerThickness">4dip</dimen>
     <dimen name="inputPadding">20dip</dimen>

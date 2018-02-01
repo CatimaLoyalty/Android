@@ -1,3 +1,9 @@
+## v0.19 (2018-02-01)
+
+Changes:
+- Improved layout for card list. (https://github.com/brarcher/loyalty-card-locker/pull/188)
+- Improved layout when viewing a card. (https://github.com/brarcher/loyalty-card-locker/pull/190)
+
 ## v0.18.1 (2018-01-24)
 
 Changes:

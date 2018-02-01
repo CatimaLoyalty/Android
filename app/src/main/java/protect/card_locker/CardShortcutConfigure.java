@@ -29,7 +29,7 @@ public class CardShortcutConfigure extends AppCompatActivity
         setResult(RESULT_CANCELED);
 
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
 
         final DBHelper db = new DBHelper(this);
@@ -41,7 +41,7 @@ public class CardShortcutConfigure extends AppCompatActivity
             finish();
         }
 
-        final ListView cardList = (ListView) findViewById(R.id.list);
+        final ListView cardList = findViewById(R.id.list);
         cardList.setVisibility(View.VISIBLE);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();

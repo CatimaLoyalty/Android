@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList();
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity
 
     private void updateLoyaltyCardList()
     {
-        final ListView cardList = (ListView) findViewById(R.id.list);
-        final TextView helpText = (TextView) findViewById(R.id.helpText);
+        final ListView cardList = findViewById(R.id.list);
+        final TextView helpText = findViewById(R.id.helpText);
         final DBHelper db = new DBHelper(this);
 
         if(db.getLoyaltyCardCount() > 0)
@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity
                 i.setAction("");
                 final Bundle b = new Bundle();
                 b.putInt("id", loyaltyCard.id);
-                b.putBoolean("view", true);
                 i.putExtras(b);
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onContextItemSelected(MenuItem item)
     {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = findViewById(R.id.list);
 
         Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
         LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_add)
         {
-            Intent i = new Intent(getApplicationContext(), LoyaltyCardViewActivity.class);
+            Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             startActivity(i);
             return true;
         }

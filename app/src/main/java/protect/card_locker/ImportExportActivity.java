@@ -49,7 +49,7 @@ public class ImportExportActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.import_export_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
@@ -72,7 +72,7 @@ public class ImportExportActivity extends AppCompatActivity
         }
 
 
-        Button exportButton = (Button)findViewById(R.id.exportButton);
+        Button exportButton = findViewById(R.id.exportButton);
         exportButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -86,7 +86,7 @@ public class ImportExportActivity extends AppCompatActivity
         // Check that there is an activity that can bring up a file chooser
         final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
 
-        Button importFilesystem = (Button) findViewById(R.id.importOptionFilesystemButton);
+        Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
         importFilesystem.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -110,7 +110,7 @@ public class ImportExportActivity extends AppCompatActivity
         intentGetContentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentGetContentAction.setType("*/*");
 
-        Button importApplication = (Button) findViewById(R.id.importOptionApplicationButton);
+        Button importApplication = findViewById(R.id.importOptionApplicationButton);
         importApplication.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -131,7 +131,7 @@ public class ImportExportActivity extends AppCompatActivity
 
         // This option, to import from the fixed location, should always be present
 
-        Button importButton = (Button)findViewById(R.id.importOptionFixedButton);
+        Button importButton = findViewById(R.id.importOptionFixedButton);
         importButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -40,13 +40,21 @@ public class LoyaltyCardCursorAdapterTest
         return view;
     }
 
-    private void checkView(final View view, final String store, final String cardId)
+    private void checkView(final View view, final String store, final String note)
     {
-        final TextView storeField = (TextView) view.findViewById(R.id.store);
+        final TextView storeField = view.findViewById(R.id.store);
         assertEquals(store, storeField.getText().toString());
 
-        final TextView cardIdField = (TextView) view.findViewById(R.id.cardId);
-        assertEquals(cardId, cardIdField.getText().toString());
+        final TextView noteField = view.findViewById(R.id.note);
+        if(note.isEmpty() == false)
+        {
+            assertEquals(View.VISIBLE, noteField.getVisibility());
+            assertEquals(note, noteField.getText().toString());
+        }
+        else
+        {
+            assertEquals(View.GONE, noteField.getVisibility());
+        }
     }
 
 
@@ -61,11 +69,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        final String cardIdLabel = activity.getResources().getString(R.string.cardId);
-        final String cardIdFormat = activity.getResources().getString(R.string.cardIdFormat);
-        String cardIdText = String.format(cardIdFormat, cardIdLabel, card.cardId);
-
-        checkView(view, card.store, cardIdText);
+        checkView(view, card.store, card.note);
     }
 
     @Test
@@ -79,13 +83,6 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        final String storeNameAndNoteFormat = activity.getResources().getString(R.string.storeNameAndNoteFormat);
-        String storeAndNoteText = String.format(storeNameAndNoteFormat, card.store, card.note);
-
-        final String cardIdLabel = activity.getResources().getString(R.string.cardId);
-        final String cardIdFormat = activity.getResources().getString(R.string.cardIdFormat);
-        String cardIdText = String.format(cardIdFormat, cardIdLabel, card.cardId);
-
-        checkView(view, storeAndNoteText, cardIdText);
+        checkView(view, card.store, card.note);
     }
 }

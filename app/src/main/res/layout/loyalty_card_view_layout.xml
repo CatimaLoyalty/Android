@@ -111,10 +111,16 @@
             app:expandedTitleMarginEnd="64dp"
             app:contentScrim="?colorPrimary"
             app:expandedTitleGravity="top">
-            <ImageView
-                android:id="@+id/storeLogo"
+            <TextView
+                android:id="@+id/storeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
                 android:layout_marginTop="?actionBarSize"
                 app:layout_collapseMode="parallax"
                 android:fitsSystemWindows="true"/>

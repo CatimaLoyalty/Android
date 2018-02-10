@@ -15,35 +15,47 @@
         android:layout_height="fill_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <android.support.constraint.Guideline
+                android:id="@+id/centerGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"/>
+
             <ImageView
                 android:id="@+id/barcode"
-                android:layout_width="fill_parent"
-                android:layout_height="0.0px"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="20.0dip"
                 android:layout_marginBottom="10.0dip"
-                android:layout_weight="0.1"
-                android:layout_gravity="center_horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/centerGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/barcodeImageDescription"/>
 
             <TextView
                 android:id="@+id/cardIdView"
                 android:textSize="42.0sp"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
+                app:layout_constraintTop_toBottomOf="@id/centerGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 android:maxLines="1"
                 android:layout_weight="0.1"
                 android:textAlignment="center"
                 android:ellipsize="end"
                 android:text="1234567890"/>
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <View
             android:id="@+id/drop_shadow_actionbar"

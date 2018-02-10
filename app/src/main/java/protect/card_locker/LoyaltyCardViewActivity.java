@@ -33,8 +33,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "CardLocker";
 
     TextView cardIdFieldView;
+    TextView noteView;
+    View noteViewDivider;
+    TextView storeName;
     ImageView barcodeImage;
-    ImageView storeLogo;
     View collapsingToolbarLayout;
     int loyaltyCardId;
     boolean rotationEnabled;
@@ -67,8 +69,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         db = new DBHelper(this);
 
         cardIdFieldView = findViewById(R.id.cardIdView);
+        noteView = findViewById(R.id.noteView);
+        noteViewDivider = findViewById(R.id.noteViewDivider);
+        storeName = findViewById(R.id.storeName);
         barcodeImage = findViewById(R.id.barcode);
-        storeLogo = findViewById(R.id.storeLogo);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
     }
 
@@ -112,10 +116,21 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         cardIdFieldView.setText(loyaltyCard.cardId);
 
+        if(loyaltyCard.note.length() > 0)
+        {
+            noteView.setText(loyaltyCard.note);
+        }
+        else
+        {
+            noteView.setVisibility(View.GONE);
+            noteViewDivider.setVisibility(View.GONE);
+        }
+
+        storeName.setText(loyaltyCard.store);
+
         int cardViewLetterFontSize = getResources().getDimensionPixelSize(R.dimen.cardViewLetterFontSize);
         int pixelSize = getResources().getDimensionPixelSize(R.dimen.cardThumbnailSizeLarge);
         LetterBitmap letterBitmap = new LetterBitmap(this, loyaltyCard.store, loyaltyCard.store, cardViewLetterFontSize, pixelSize, pixelSize);
-        storeLogo.setImageBitmap(letterBitmap.getLetterTile());
         collapsingToolbarLayout.setBackgroundColor(letterBitmap.getBackgroundColor());
 
         if(barcodeImage.getHeight() == 0)

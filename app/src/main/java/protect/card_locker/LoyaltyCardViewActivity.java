@@ -33,6 +33,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "CardLocker";
 
     TextView cardIdFieldView;
+    TextView noteView;
+    View noteViewDivider;
     ImageView barcodeImage;
     ImageView storeLogo;
     View collapsingToolbarLayout;
@@ -67,6 +69,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         db = new DBHelper(this);
 
         cardIdFieldView = findViewById(R.id.cardIdView);
+        noteView = findViewById(R.id.noteView);
+        noteViewDivider = findViewById(R.id.noteViewDivider);
         barcodeImage = findViewById(R.id.barcode);
         storeLogo = findViewById(R.id.storeLogo);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -111,6 +115,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         final String cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
+
+        if(loyaltyCard.note.length() > 0)
+        {
+            noteView.setText(loyaltyCard.note);
+        }
+        else
+        {
+            noteView.setVisibility(View.GONE);
+            noteViewDivider.setVisibility(View.GONE);
+        }
 
         int cardViewLetterFontSize = getResources().getDimensionPixelSize(R.dimen.cardViewLetterFontSize);
         int pixelSize = getResources().getDimensionPixelSize(R.dimen.cardThumbnailSizeLarge);

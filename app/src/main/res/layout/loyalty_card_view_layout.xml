@@ -46,6 +46,7 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
                 app:layout_constraintTop_toBottomOf="@id/centerGuideline"
+                app:layout_constraintBottom_toTopOf="@+id/noteViewDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textAlignment="center"
@@ -53,6 +54,32 @@
                 app:autoSizeMinTextSize="@dimen/singleCardCardIdTextSizeMin"
                 app:autoSizeMaxTextSize="@dimen/singleCardCardIdTextSizeMax"
                 android:ellipsize="end"/>
+
+            <View
+                android:id="@id/noteViewDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/cardIdView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/noteView"
+                />
+
+            <TextView
+                android:id="@+id/noteView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10.0dip"
+                android:ellipsize="end"
+                android:layout_gravity="bottom"
+                app:layout_constraintTop_toBottomOf="@id/noteViewDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
+                app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"/>
 
         </android.support.constraint.ConstraintLayout>
 

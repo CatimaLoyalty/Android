@@ -41,7 +41,6 @@
 
             <TextView
                 android:id="@+id/cardIdView"
-                android:textSize="42.0sp"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="10.0dip"
@@ -49,11 +48,11 @@
                 app:layout_constraintTop_toBottomOf="@id/centerGuideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:maxLines="1"
-                android:layout_weight="0.1"
                 android:textAlignment="center"
-                android:ellipsize="end"
-                android:text="1234567890"/>
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="@dimen/singleCardCardIdTextSizeMin"
+                app:autoSizeMaxTextSize="@dimen/singleCardCardIdTextSizeMax"
+                android:ellipsize="end"/>
 
         </android.support.constraint.ConstraintLayout>
 

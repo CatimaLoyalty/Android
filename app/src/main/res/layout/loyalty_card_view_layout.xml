@@ -53,7 +53,8 @@
                 app:autoSizeTextType="uniform"
                 app:autoSizeMinTextSize="@dimen/singleCardCardIdTextSizeMin"
                 app:autoSizeMaxTextSize="@dimen/singleCardCardIdTextSizeMax"
-                android:ellipsize="end"/>
+                android:ellipsize="end"
+                android:textIsSelectable="true"/>
 
             <View
                 android:id="@id/noteViewDivider"
@@ -79,7 +80,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:autoSizeTextType="uniform"
                 app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-                app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"/>
+                app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
+                android:textIsSelectable="true"/>
 
         </android.support.constraint.ConstraintLayout>
 

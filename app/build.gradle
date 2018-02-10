@@ -27,6 +27,7 @@ android {
         disable "ButtonStyle"
         disable "AlwaysShowAction"
         disable "MissingTranslation"
+        disable "MissingPrefix"
     }
 
     // Starting with Android Studio 3 Robolectric is unable to find resources.

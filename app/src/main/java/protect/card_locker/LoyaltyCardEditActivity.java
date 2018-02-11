@@ -32,9 +32,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final int SELECT_BARCODE_REQUEST = 1;
 
     EditText storeFieldEdit;
-    TextView storeFieldView;
     EditText noteFieldEdit;
-    TextView noteFieldView;
     TextView cardIdFieldView;
     View cardIdDivider;
     View cardIdTableRow;
@@ -80,9 +78,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         db = new DBHelper(this);
 
         storeFieldEdit = findViewById(R.id.storeNameEdit);
-        storeFieldView = findViewById(R.id.storeNameView);
         noteFieldEdit = findViewById(R.id.noteEdit);
-        noteFieldView = findViewById(R.id.noteView);
         cardIdFieldView = findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
@@ -129,13 +125,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(storeFieldEdit.getText().length() == 0)
             {
                 storeFieldEdit.setText(loyaltyCard.store);
-                storeFieldView.setText(loyaltyCard.store);
             }
 
             if(noteFieldEdit.getText().length() == 0)
             {
                 noteFieldEdit.setText(loyaltyCard.note);
-                noteFieldView.setText(loyaltyCard.note);
             }
 
             if(cardIdFieldView.getText().length() == 0)
@@ -151,9 +145,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(updateLoyaltyCard)
             {
                 setTitle(R.string.editCardTitle);
-
-                storeFieldView.setVisibility(View.GONE);
-                noteFieldView.setVisibility(View.GONE);
             }
             else
             {
@@ -168,9 +159,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else
         {
             setTitle(R.string.addCardTitle);
-
-            storeFieldView.setVisibility(View.GONE);
-            noteFieldView.setVisibility(View.GONE);
         }
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)

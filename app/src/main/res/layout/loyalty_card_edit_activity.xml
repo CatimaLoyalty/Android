@@ -72,14 +72,6 @@
                             android:textSize="@dimen/inputSize"
                             android:layout_toEndOf="@id/storeNameField"/>
 
-                        <TextView
-                            android:id="@+id/storeNameView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/storeNameField"/>
                     </RelativeLayout>
 
                     <View
@@ -127,15 +119,6 @@
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/noteField"/>
-
-                        <TextView
-                            android:id="@+id/noteView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
                             android:layout_toEndOf="@id/noteField"/>
                     </RelativeLayout>
 

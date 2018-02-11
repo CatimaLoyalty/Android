@@ -142,19 +142,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 barcodeTypeField.setText(loyaltyCard.barcodeType);
             }
 
-            if(updateLoyaltyCard)
-            {
-                setTitle(R.string.editCardTitle);
-            }
-            else
-            {
-                barcodeCaptureLayout.setVisibility(View.GONE);
-                captureButton.setVisibility(View.GONE);
-                setTitle(R.string.viewCardTitle);
-
-                storeFieldEdit.setVisibility(View.GONE);
-                noteFieldEdit.setVisibility(View.GONE);
-            }
+            setTitle(R.string.editCardTitle);
         }
         else
         {

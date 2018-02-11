@@ -1,3 +1,8 @@
+## v0.20 (2018-02-10)
+
+Changes:
+- Changes to Card view to display the note, allow the card ID to take multiple lines, and show the store name. (https://github.com/brarcher/loyalty-card-locker/pull/197)
+
 ## v0.19 (2018-02-01)
 
 Changes:

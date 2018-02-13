@@ -66,11 +66,11 @@
                 app:layout_constraintTop_toBottomOf="@id/cardIdView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/noteView"
+                app:layout_constraintBottom_toBottomOf="@+id/noteView"
                 />
 
             <TextView
-                android:id="@+id/noteView"
+                android:id="@id/noteView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10.0dip"

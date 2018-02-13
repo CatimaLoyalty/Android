@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -61,7 +62,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterEmptyNote()
     {
-        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString());
+        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -75,7 +76,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterWithNote()
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();

@@ -181,14 +181,14 @@ public class MainActivity extends AppCompatActivity
 
     private void displayAboutDialog()
     {
-        final Map<String, String> USED_LIBRARIES = ImmutableMap.of
-        (
-            "Commons CSV", "https://commons.apache.org/proper/commons-csv/",
-            "Guava", "https://github.com/google/guava",
-            "ZXing", "https://github.com/zxing/zxing",
-            "ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded",
-            "AppIntro", "https://github.com/apl-devs/AppIntro"
-        );
+        final Map<String, String> USED_LIBRARIES = new ImmutableMap.Builder<String, String>()
+            .put("Commons CSV", "https://commons.apache.org/proper/commons-csv/")
+            .put("Guava", "https://github.com/google/guava")
+            .put("ZXing", "https://github.com/zxing/zxing")
+            .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
+            .put("AppIntro", "https://github.com/apl-devs/AppIntro")
+            .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
+            .build();
 
         final Map<String, String> USED_ASSETS = ImmutableMap.of
         (

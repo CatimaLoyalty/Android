@@ -23,6 +23,8 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.STORE,
                 DBHelper.LoyaltyCardDbIds.NOTE,
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -35,6 +37,8 @@ public class CsvDatabaseExporter implements DatabaseExporter
                     card.store,
                     card.note,
                     card.cardId,
+                    card.headerColor,
+                    card.headerTextColor,
                     card.barcodeType);
 
             if(Thread.currentThread().isInterrupted())

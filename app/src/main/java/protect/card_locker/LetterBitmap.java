@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -44,20 +43,35 @@ class LetterBitmap
      * @param tileLetterFontSize The font size used to display the letter
      * @param width       The desired width of the tile
      * @param height      The desired height of the tile
+     * @param backgroundColor  (optional) color to use for background.
+     * @param textColor  (optional) color to use for text.
      */
-    public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize, int width, int height)
+    public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize,
+                        int width, int height, Integer backgroundColor, Integer textColor)
     {
-        final Resources res = context.getResources();
-
         TextPaint paint = new TextPaint();
         paint.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
-        paint.setColor(Color.WHITE);
+
+        if(textColor != null)
+        {
+            paint.setColor(textColor);
+        }
+        else
+        {
+            paint.setColor(Color.WHITE);
+        }
+
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setAntiAlias(true);
 
-        TypedArray colors = res.obtainTypedArray(R.array.letter_tile_colors);
-        mColor = pickColor(key, colors);
-        colors.recycle();
+        if(backgroundColor == null)
+        {
+            mColor = getDefaultColor(context, key);
+        }
+        else
+        {
+            mColor = backgroundColor;
+        }
 
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         String firstChar = displayName.substring(0, 1);
@@ -101,11 +115,26 @@ class LetterBitmap
      * @return A new or previously chosen color for <code>key</code> used as the
      * tile background color
      */
-    private int pickColor(String key, TypedArray colors)
+    private static int pickColor(String key, TypedArray colors)
     {
         // String.hashCode() is not supposed to change across java versions, so
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
         return colors.getColor(color, Color.BLACK);
+    }
+
+    /**
+     * Determine the color which the letter tile will use if no default
+     * color is provided.
+     */
+    public static int getDefaultColor(Context context, String key)
+    {
+        final Resources res = context.getResources();
+
+        TypedArray colors = res.obtainTypedArray(R.array.letter_tile_colors);
+        int color = pickColor(key, colors);
+        colors.recycle();
+
+        return color;
     }
 }

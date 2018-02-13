@@ -7,6 +7,7 @@ import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.apache.tools.ant.filters.StringInputStream;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +23,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
@@ -65,7 +68,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -94,6 +97,8 @@ public class ImportExportTest
             assertEquals(expectedNote, card.note);
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(BARCODE_TYPE, card.barcodeType);
+            assertEquals(Integer.valueOf(index), card.headerColor);
+            assertEquals(Integer.valueOf(index*2), card.headerTextColor);
 
             index++;
         }
@@ -275,5 +280,34 @@ public class ImportExportTest
             // Clear the database for the next format under test
             clearDatabase();
         }
+    }
+
+    @Test
+    public void importWithoutColors() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                       DBHelper.LoyaltyCardDbIds.STORE + "," +
+                       DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                       DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                       DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "\n";
+        csvText += "1,store,note,12345,type";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertNull(card.headerColor);
+        assertNull(card.headerTextColor);
     }
 }

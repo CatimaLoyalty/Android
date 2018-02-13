@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -101,7 +102,7 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());

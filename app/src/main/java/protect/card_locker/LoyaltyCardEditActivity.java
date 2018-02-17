@@ -3,6 +3,8 @@ package protect.card_locker;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -24,6 +26,8 @@ import android.widget.Toast;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.jaredrummler.android.colorpicker.ColorPickerDialog;
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
@@ -32,9 +36,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final int SELECT_BARCODE_REQUEST = 1;
 
     EditText storeFieldEdit;
-    TextView storeFieldView;
     EditText noteFieldEdit;
-    TextView noteFieldView;
+    ImageView headingColorSample;
+    Button headingColorSelectButton;
+    ImageView headingStoreTextColorSample;
+    Button headingStoreTextColorSelectButton;
     TextView cardIdFieldView;
     View cardIdDivider;
     View cardIdTableRow;
@@ -48,6 +54,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    Integer headingColorValue = null;
+    Integer headingStoreTextColorValue = null;
 
     DBHelper db;
 
@@ -80,9 +88,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         db = new DBHelper(this);
 
         storeFieldEdit = findViewById(R.id.storeNameEdit);
-        storeFieldView = findViewById(R.id.storeNameView);
         noteFieldEdit = findViewById(R.id.noteEdit);
-        noteFieldView = findViewById(R.id.noteView);
+        headingColorSample = findViewById(R.id.headingColorSample);
+        headingColorSelectButton = findViewById(R.id.headingColorSelectButton);
+        headingStoreTextColorSample = findViewById(R.id.headingStoreTextColorSample);
+        headingStoreTextColorSelectButton = findViewById(R.id.headingStoreTextColorSelectButton);
         cardIdFieldView = findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
@@ -129,13 +139,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(storeFieldEdit.getText().length() == 0)
             {
                 storeFieldEdit.setText(loyaltyCard.store);
-                storeFieldView.setText(loyaltyCard.store);
             }
 
             if(noteFieldEdit.getText().length() == 0)
             {
                 noteFieldEdit.setText(loyaltyCard.note);
-                noteFieldView.setText(loyaltyCard.note);
             }
 
             if(cardIdFieldView.getText().length() == 0)
@@ -148,30 +156,52 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 barcodeTypeField.setText(loyaltyCard.barcodeType);
             }
 
-            if(updateLoyaltyCard)
+            if(headingColorValue == null)
             {
-                setTitle(R.string.editCardTitle);
-
-                storeFieldView.setVisibility(View.GONE);
-                noteFieldView.setVisibility(View.GONE);
+                headingColorValue = loyaltyCard.headerColor;
+                if(headingColorValue == null)
+                {
+                    headingColorValue = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
+                }
+                headingColorSample.setBackgroundColor(headingColorValue);
             }
-            else
+
+            if(headingStoreTextColorValue == null)
             {
-                barcodeCaptureLayout.setVisibility(View.GONE);
-                captureButton.setVisibility(View.GONE);
-                setTitle(R.string.viewCardTitle);
-
-                storeFieldEdit.setVisibility(View.GONE);
-                noteFieldEdit.setVisibility(View.GONE);
+                headingStoreTextColorValue = loyaltyCard.headerTextColor;
+                if(headingStoreTextColorValue == null)
+                {
+                    headingStoreTextColorValue = Color.WHITE;
+                }
+                headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
             }
+
+            setTitle(R.string.editCardTitle);
         }
         else
         {
             setTitle(R.string.addCardTitle);
-
-            storeFieldView.setVisibility(View.GONE);
-            noteFieldView.setVisibility(View.GONE);
         }
+
+        if(headingColorValue == null)
+        {
+            // Select a random color to start out with.
+            TypedArray colors = getResources().obtainTypedArray(R.array.letter_tile_colors);
+            final int color = (int)(Math.random() * colors.length());
+            headingColorValue = colors.getColor(color, Color.BLACK);
+            colors.recycle();
+
+            headingColorSample.setBackgroundColor(headingColorValue);
+        }
+
+        if(headingStoreTextColorValue == null)
+        {
+            headingStoreTextColorValue = Color.WHITE;
+            headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
+        }
+
+        headingColorSelectButton.setOnClickListener(new ColorSelectListener(headingColorValue, true));
+        headingStoreTextColorSelectButton.setOnClickListener(new ColorSelectListener(headingStoreTextColorValue, false));
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -262,6 +292,50 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+    class ColorSelectListener implements View.OnClickListener
+    {
+        final int defaultColor;
+        final boolean isBackgroundColor;
+
+        ColorSelectListener(int defaultColor, boolean isBackgroundColor)
+        {
+            this.defaultColor = defaultColor;
+            this.isBackgroundColor = isBackgroundColor;
+        }
+
+        @Override
+        public void onClick(View v)
+        {
+            ColorPickerDialog dialog = ColorPickerDialog.newBuilder().setColor(defaultColor).create();
+            dialog.setColorPickerDialogListener(new ColorPickerDialogListener()
+            {
+                @Override
+                public void onColorSelected(int dialogId, int color)
+                {
+                    Toast.makeText(LoyaltyCardEditActivity.this, "Color: " + Integer.toHexString(color), Toast.LENGTH_LONG).show();
+
+                    if(isBackgroundColor)
+                    {
+                        headingColorSample.setBackgroundColor(color);
+                        headingColorValue = color;
+                    }
+                    else
+                    {
+                        headingStoreTextColorSample.setBackgroundColor(color);
+                        headingStoreTextColorValue = color;
+                    }
+                }
+
+                @Override
+                public void onDialogDismissed(int dialogId)
+                {
+                    // Nothing to do, no change made
+                }
+            });
+            dialog.show(getFragmentManager(), "color-picker-dialog");
+        }
+    }
+
     private void doSave()
     {
         String store = storeFieldEdit.getText().toString();
@@ -283,12 +357,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {
-            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
         }
 
         finish();

@@ -72,14 +72,6 @@
                             android:textSize="@dimen/inputSize"
                             android:layout_toEndOf="@id/storeNameField"/>
 
-                        <TextView
-                            android:id="@+id/storeNameView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/storeNameField"/>
                     </RelativeLayout>
 
                     <View
@@ -128,16 +120,149 @@
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
                             android:layout_toEndOf="@id/noteField"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
+                <!-- Store Header Background Color -->
+                <View
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
 
                         <TextView
-                            android:id="@+id/noteView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
+                            android:id="@+id/headingField"
+                            android:text="@string/storeTextBackgroundColorTitle"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
                             android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/noteField"/>
-                    </RelativeLayout>
+                            android:padding="@dimen/inputPadding"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:id="@+id/headingColorSampleBorder"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/colorSamplePadding"
+                            app:layout_constraintStart_toEndOf="@id/headingField"
+                            app:layout_constraintEnd_toStartOf="@+id/headingColorSelectButton"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:background="@android:color/black">
+                            <ImageView
+                                android:id="@+id/headingColorSample"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="1dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@android:color/white"
+                                android:contentDescription="@string/storeNameBackgroundColorDescription"/>
+                        </android.support.constraint.ConstraintLayout>
+
+                       <Button
+                           android:id="@+id/headingColorSelectButton"
+                           android:text="@string/change"
+                           android:padding="@dimen/inputPadding"
+                           android:layout_width="wrap_content"
+                           android:layout_height="match_parent"
+                           android:layout_toEndOf="@id/headingColorSampleBorder"
+                           app:layout_constraintEnd_toEndOf="parent"/>
+                    </android.support.constraint.ConstraintLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
+                <!-- Store Text Color -->
+                <View
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
+
+                        <TextView
+                            android:id="@+id/storeTextField"
+                            android:text="@string/storeTextColorTitle"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/inputSize"
+                            android:padding="@dimen/inputPadding"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:id="@+id/headingStoreTextColorSampleBorder"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/colorSamplePadding"
+                            app:layout_constraintStart_toEndOf="@id/storeTextField"
+                            app:layout_constraintEnd_toStartOf="@+id/headingStoreTextColorSelectButton"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:background="@android:color/black">
+                            <ImageView
+                                android:id="@+id/headingStoreTextColorSample"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_margin="1dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@android:color/white"
+                                android:contentDescription="@string/storeNameColorDescription"/>
+                        </android.support.constraint.ConstraintLayout>
+
+                        <Button
+                            android:id="@+id/headingStoreTextColorSelectButton"
+                            android:text="@string/change"
+                            android:padding="@dimen/inputPadding"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/headingStoreTextColorSampleBorder"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+                    </android.support.constraint.ConstraintLayout>
 
                     <View
                         android:gravity="end"

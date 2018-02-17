@@ -1,15 +1,12 @@
 package protect.card_locker;
 
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,8 +16,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -128,10 +123,28 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         storeName.setText(loyaltyCard.store);
 
-        int cardViewLetterFontSize = getResources().getDimensionPixelSize(R.dimen.cardViewLetterFontSize);
-        int pixelSize = getResources().getDimensionPixelSize(R.dimen.cardThumbnailSizeLarge);
-        LetterBitmap letterBitmap = new LetterBitmap(this, loyaltyCard.store, loyaltyCard.store, cardViewLetterFontSize, pixelSize, pixelSize);
-        collapsingToolbarLayout.setBackgroundColor(letterBitmap.getBackgroundColor());
+        int textColor;
+        if(loyaltyCard.headerTextColor != null)
+        {
+            textColor = loyaltyCard.headerTextColor;
+        }
+        else
+        {
+            textColor = Color.WHITE;
+        }
+        storeName.setTextColor(textColor);
+
+        int backgroundHeaderColor;
+        if(loyaltyCard.headerColor != null)
+        {
+            backgroundHeaderColor = loyaltyCard.headerColor;
+        }
+        else
+        {
+            backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
+        }
+
+        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
         if(barcodeImage.getHeight() == 0)
         {

@@ -130,6 +130,16 @@ public class CsvDatabaseImporter implements DatabaseImporter
             throw new FormatException("No barcode type listed, but is required");
         }
 
-        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType);
+        Integer headerColor = null;
+        Integer headerTextColor = null;
+
+        if(record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR) &&
+           record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR))
+        {
+            headerColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record);
+            headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record);
+        }
+
+        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor);
     }
 }

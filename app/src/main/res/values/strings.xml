@@ -100,4 +100,10 @@
     <string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
     <string name="intro6Title">Feedback\n</string>
     <string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
+
+    <string name="change">Change</string>
+    <string name="storeTextColorTitle">Store Text Color</string>
+    <string name="storeTextBackgroundColorTitle">Heading Color</string>
+    <string name="storeNameBackgroundColorDescription">Color for store text background</string>
+    <string name="storeNameColorDescription">Color for store text</string>
 </resources>

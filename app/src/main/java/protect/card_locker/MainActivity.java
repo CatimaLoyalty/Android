@@ -30,6 +30,7 @@ import java.util.Calendar;
 import java.util.Map;
 
 import protect.card_locker.intro.IntroActivity;
+import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -164,6 +165,13 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
+        if(id == R.id.action_settings)
+        {
+            Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(i);
+            return true;
+        }
+
         if(id == R.id.action_intro)
         {
             startIntro();
@@ -188,6 +196,7 @@ public class MainActivity extends AppCompatActivity
             .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
             .put("AppIntro", "https://github.com/apl-devs/AppIntro")
             .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
+            .put("VNTNumberPickerPreference", "https://github.com/vanniktech/VNTNumberPickerPreference")
             .build();
 
         final Map<String, String> USED_ASSETS = ImmutableMap.of

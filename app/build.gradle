@@ -54,6 +54,7 @@ dependencies {
     compile 'com.jaredrummler:colorpicker:1.0.2'
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile 'com.github.apl-devs:appintro:v4.2.0'
+    compile "com.vanniktech:vntnumberpickerpreference:1.0.0"
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:3.3.2"
 }

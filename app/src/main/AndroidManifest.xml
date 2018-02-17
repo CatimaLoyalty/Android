@@ -52,6 +52,10 @@
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"/>
         <activity
+            android:name=".preferences.SettingsActivity"
+            android:label="@string/settings"
+            android:configChanges="orientation|screenSize"/>
+        <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
             android:configChanges="orientation|screenSize"

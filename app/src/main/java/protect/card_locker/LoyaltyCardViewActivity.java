@@ -6,10 +6,12 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
+
+import protect.card_locker.preferences.Settings;
 
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
@@ -36,6 +40,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     int loyaltyCardId;
     boolean rotationEnabled;
     DBHelper db;
+    Settings settings;
 
     private void extractIntentFields(Intent intent)
     {
@@ -48,6 +53,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        settings = new Settings(this);
 
         extractIntentFields(getIntent());
 
@@ -110,10 +117,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         final String cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
+                getResources().getInteger(R.integer.settings_card_id_min_font_size_sp)-1, settings.getCardIdFontSize(),
+                1, TypedValue.COMPLEX_UNIT_SP);
 
         if(loyaltyCard.note.length() > 0)
         {
             noteView.setText(loyaltyCard.note);
+            TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(noteView,
+                    getResources().getInteger(R.integer.settings_card_note_min_font_size_sp)-1,
+                    settings.getCardNoteFontSize(), 1, TypedValue.COMPLEX_UNIT_SP);
         }
         else
         {
@@ -122,6 +135,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         storeName.setText(loyaltyCard.store);
+        storeName.setTextSize(settings.getCardTitleFontSize());
 
         int textColor;
         if(loyaltyCard.headerTextColor != null)

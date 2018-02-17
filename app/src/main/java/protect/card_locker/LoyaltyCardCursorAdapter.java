@@ -9,11 +9,16 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import protect.card_locker.preferences.Settings;
+
 class LoyaltyCardCursorAdapter extends CursorAdapter
 {
+    Settings settings;
+
     public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
     {
         super(context, cursor, 0);
+        settings = new Settings(context);
     }
 
     // The newView method is used to inflate a new view and return it,
@@ -40,10 +45,13 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         // Populate fields with extracted properties
         storeField.setText(loyaltyCard.store);
 
+        storeField.setTextSize(settings.getCardTitleListFontSize());
+
         if(loyaltyCard.note.isEmpty() == false)
         {
             noteField.setVisibility(View.VISIBLE);
             noteField.setText(loyaltyCard.note);
+            noteField.setTextSize(settings.getCardNoteListFontSize());
         }
         else
         {

@@ -312,8 +312,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 @Override
                 public void onColorSelected(int dialogId, int color)
                 {
-                    Toast.makeText(LoyaltyCardEditActivity.this, "Color: " + Integer.toHexString(color), Toast.LENGTH_LONG).show();
-
                     if(isBackgroundColor)
                     {
                         headingColorSample.setBackgroundColor(color);

@@ -1,0 +1,45 @@
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">Брелок карт лояльности</string>
+    <string name="action_add">Добавить</string>
+
+    <string name="noGiftCards">На данный момент у Вас нет ни одной карты лояльности. Нажмите на кнопку «+» (плюс) вверху, чтобы добавить первую карту.\n\n «Брелок карт лояльности» позволит Вам хранить скидочные карты в Вашем телефоне, чтобы они всегда были под рукой.</string>
+
+    <string name="storeName">Организация</string>
+    <string name="note">Заметка</string>
+    <string name="cardId">ID карты</string>
+    <string name="barcodeType">Тип штрих-кода</string>
+
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="capture">Просканировать карту</string>
+    <string name="enterCard">Ввести вручную</string>
+    <string name="editCard">Редактировать карту</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="deleteTitle">Удалить карту лояльности</string>
+    <string name="deleteConfirmation">Вы действительно хотите удалить эту карту?</string>
+    <string name="ok">OK</string>
+    <string name="copy_to_clipboard">Скопировать идентификатор в буфер обмена</string>
+    <string name="sendLabel">Отправить&#8230;</string>
+    <string name="addedShortcut">Карта добавлена на главный экран.</string>
+
+    <string name="editCardTitle">Редактировать карточку лояльности</string>
+    <string name="addCardTitle">Добавить карточку лояльности</string>
+    <string name="thumbnailDescription">Логорип карты</string>
+
+    <string name="startIntro">Введение</string>
+    <string name="intro1Title">Добро пожаловать в программу «Брелок карт лояльности»\n</string>
+    <string name="intro2Title">Добавление карт\n</string>
+    <string name="intro2Description">Добавьте новую карту, коснувшись кнопки плюса на главной странице.\n\n</string>
+    <string name="intro3Title">Добавление карт\n</string>
+    <string name="intro4Title">Показать карточку\n</string>
+    <string name="intro4Description">Чтобы перейти к просмотру карты, нажмите на название организации на главной странице.\n\n</string>
+    <string name="intro5Title">Резервное копирование\n</string>
+    <string name="intro5Description">Вы можете сохранить карты во внешнее хранилище. Чтобы экспортировать или импортировать данные карты, нажмите «Импорт/Экспорт» в меню на главной странице.\n\n</string>
+    <string name="intro6Title">Обратная связь\n</string>
+    <string name="intro6Description">Это бесплатное приложение, не обремененное рекламой и с открытым исходным кодом. Подробнее см. в разделе «О программе» в меню на главной странице.\n\nПожалуйста, оставьте отзыв в магазине приложений! (:</string>
+
+</resources>

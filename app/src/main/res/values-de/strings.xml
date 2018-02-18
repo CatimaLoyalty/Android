@@ -13,24 +13,34 @@
 
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
-    <string name="capture">Karte erfassen</string>
-    <string name="enterCard">Karte einfügen</string>
+    <string name="capture">Karte scannen</string>
+    <string name="enterCard">Manuell eingeben</string>
     <string name="editCard">Karte bearbeiten</string>
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
     <string name="confirm">Bestätigen</string>
+    <string name="lockScreen">Rotation blockieren</string>
+    <string name="unlockScreen">Rotation zulassen</string>
+    <string name="deleteTitle">Karte entfernen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
     <string name="sendLabel">Senden&#8230;</string>
+    <string name="addedShortcut">Zum Home Screen hinzugefügt</string>
+
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
     <string name="viewCardTitle">Kundenkarte anzeigen</string>
     <string name="scanCardBarcode">Barcode scannen</string>
+    <string name="cardShortcut">Shortcut zu einer Karte</string>
+    <string name="noCardsMessage">Es ist noch keine Karte vorhanden, bitte zuerst eine hinzufügen</string>
+
     <string name="barcodeImageDescription">Bild des Barcodes</string>
 
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
+    <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
+
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
@@ -86,4 +96,5 @@
     <string name="intro5Description">Sie können selbstverständlich Backups anlegen. Um Karten zu exportieren oder importieren wählen Sie Import/Export im Menü auf dem Hauptbildschirm.\n\n</string>
     <string name="intro6Title">Feedback\n</string>
     <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
+
 </resources>

@@ -83,6 +83,8 @@
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 
+    <string name="thumbnailDescription">Vignette pour la carte</string>
+
     <string name="startIntro">Présentation</string>
     <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>
     <string name="intro1Description">Gérez vos cartes de fidélité\nsur votre téléphone !\n\n</string>
@@ -96,4 +98,5 @@
     <string name="intro5Description">Les cartes peuvent être sauvegardées. Touchez \'Importer/Exporter\' sur l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
     <string name="intro6Title">Votre avis\n</string>
     <string name="intro6Description">Cette application est gratuite, sans publicité, et son code est ouvert. Découvrez-en plus en touchant \'à propos\' sur l\'écran principal.\n\nLaissez un commentaire sur votre magasin d\'applications (:</string>
+
 </resources>

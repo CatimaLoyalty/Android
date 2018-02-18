@@ -76,7 +76,7 @@
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derden: <xliff:g id="app_resources_list\">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derden: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
 <string name="selectBarcodeTitle">Selecteer barcode</string>
 <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
@@ -96,4 +96,5 @@
 <string name="intro5Description">De kaarten kunnen worden geback-upt. Om te kaarten te exporteren of importeren, raak in het menu in het hoofdscherm Importeer/Exporteer aan.\n\n</string>
 <string name="intro6Title">Terugkoppeling\n</string>
 <string name="intro6Description">Deze app is gratis, vrije van advertenties en opensource. Zie details door Over aan te raken in het menu op het hoofdscher,.\n\nBeschrijft je ervaring in de app store! (:</string>
+
     </resources>

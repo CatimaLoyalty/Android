@@ -13,8 +13,8 @@ android {
         applicationId "protect.card_locker"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 22
-        versionName "0.20"
+        versionCode 23
+        versionName "0.21"
     }
     buildTypes {
         release {

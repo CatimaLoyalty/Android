@@ -1,3 +1,10 @@
+## v0.21 (2018-02-17)
+
+Changes
+- Add quiet space at the start/end of barcodes. (https://github.com/brarcher/loyalty-card-locker/pull/200)
+- Add options to configure the colors used for the store name font and background. (https://github.com/brarcher/loyalty-card-locker/pull/203)
+- Add options to adjust font sizes on the card listing page and single card page. (https://github.com/brarcher/loyalty-card-locker/pull/204)
+
 ## v0.20 (2018-02-10)
 
 Changes:

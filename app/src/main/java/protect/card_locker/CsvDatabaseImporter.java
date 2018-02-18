@@ -83,12 +83,18 @@ public class CsvDatabaseImporter implements DatabaseImporter
      * "key" as the key. If no such key exists, or the data is not a valid
      * int, a FormatException is thrown.
      */
-    private int extractInt(String key, CSVRecord record)
+    private Integer extractInt(String key, CSVRecord record, boolean nullIsOk)
             throws FormatException
     {
         if(record.isMapped(key) == false)
         {
             throw new FormatException("Field not used but expected: " + key);
+        }
+
+        String value = record.get(key);
+        if(value.isEmpty() && nullIsOk)
+        {
+            return null;
         }
 
         try
@@ -108,7 +114,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
     private void importLoyaltyCard(SQLiteDatabase database, DBHelper helper, CSVRecord record)
             throws IOException, FormatException
     {
-        int id = extractInt(DBHelper.LoyaltyCardDbIds.ID, record);
+        int id = extractInt(DBHelper.LoyaltyCardDbIds.ID, record, false);
 
         String store = extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
         if(store.isEmpty())
@@ -136,8 +142,8 @@ public class CsvDatabaseImporter implements DatabaseImporter
         if(record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR) &&
            record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR))
         {
-            headerColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record);
-            headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record);
+            headerColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record, true);
+            headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record, true);
         }
 
         helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor);

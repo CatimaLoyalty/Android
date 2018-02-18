@@ -310,4 +310,57 @@ public class ImportExportTest
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
+
+    @Test
+    public void importWithoutNullColors() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
+        csvText += "1,store,note,12345,type,,";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertNull(card.headerColor);
+        assertNull(card.headerTextColor);
+    }
+
+    @Test
+    public void importWithoutInvalidColors() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
+        csvText += "1,store,note,12345,type,not a number,invalid";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertEquals(false, result);
+        assertEquals(0, db.getLoyaltyCardCount());
+    }
 }

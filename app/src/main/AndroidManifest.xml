@@ -36,7 +36,6 @@
             android:name=".LoyaltyCardViewActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:label=""
-            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"
             android:exported="true"/>
         <activity

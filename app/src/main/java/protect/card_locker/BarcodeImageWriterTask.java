@@ -21,7 +21,11 @@ import java.lang.ref.WeakReference;
 class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 {
     private static final String TAG = "LoyaltyCardLocker";
-    private static final int MAX_WIDTH = 500;
+
+    // When drawn in a smaller window 1D barcodes for some reason end up
+    // squished, whereas 2D barcodes look fine.
+    private static final int MAX_WIDTH_1D = 1500;
+    private static final int MAX_WIDTH_2D = 500;
 
     private final WeakReference<ImageView> imageViewReference;
     private final String cardId;
@@ -38,6 +42,8 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         cardId = cardIdString;
         format = barcodeFormat;
 
+        final int MAX_WIDTH = getMaxWidth(format);
+
         if(imageView.getWidth() < MAX_WIDTH)
         {
             imageHeight = imageView.getHeight();
@@ -49,6 +55,36 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             imageWidth = MAX_WIDTH;
             double ratio = (double)MAX_WIDTH / (double)imageView.getWidth();
             imageHeight = (int)(imageView.getHeight() * ratio);
+        }
+    }
+
+    private int getMaxWidth(BarcodeFormat format)
+    {
+        switch(format)
+        {
+            // 2D barcodes
+            case AZTEC:
+            case DATA_MATRIX:
+            case MAXICODE:
+            case PDF_417:
+            case QR_CODE:
+                return MAX_WIDTH_2D;
+
+            // 1D barcodes:
+            case CODABAR:
+            case CODE_39:
+            case CODE_93:
+            case CODE_128:
+            case EAN_8:
+            case EAN_13:
+            case ITF:
+            case UPC_A:
+            case UPC_E:
+            case RSS_14:
+            case RSS_EXPANDED:
+            case UPC_EAN_EXTENSION:
+            default:
+                return MAX_WIDTH_1D;
         }
     }
 

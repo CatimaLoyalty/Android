@@ -253,6 +253,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                 String prompt = getResources().getString(R.string.scanCardBarcode);
                 integrator.setPrompt(prompt);
+                integrator.setBeepEnabled(false);
                 integrator.initiateScan();
             }
         };

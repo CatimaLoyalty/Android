@@ -1,3 +1,9 @@
+## v0.23 (2018-02-28)
+
+Changes:
+- Reduce space in header when viewing a card. (https://github.com/brarcher/loyalty-card-locker/pull/213)
+- Disable beep when scanning a barcode. (https://github.com/brarcher/loyalty-card-locker/pull/216)
+
 ## v0.22 (2018-02-19)
 
 Changes:

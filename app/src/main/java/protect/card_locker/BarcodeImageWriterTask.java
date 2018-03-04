@@ -149,6 +149,12 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         {
             Log.e(TAG, "Failed to generate barcode of type " + format + ": " + cardId, e);
         }
+        catch(OutOfMemoryError e)
+        {
+            Log.w(TAG, "Insufficient memory to render barcode, "
+                + imageWidth + "x" + imageHeight + ", " + format.name()
+                + ", length=" + cardId.length(), e);
+        }
 
         return null;
     }

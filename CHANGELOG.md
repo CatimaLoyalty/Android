@@ -1,3 +1,8 @@
+## v0.23.1 (2018-03-07)
+
+Changes:
+- Prevent crash when rendering a barcode exhausts the application's memory. (https://github.com/brarcher/loyalty-card-locker/pull/219)
+
 ## v0.23 (2018-02-28)
 
 Changes:

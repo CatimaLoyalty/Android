@@ -61,7 +61,8 @@
                             android:layout_width="wrap_content"
                             android:textSize="@dimen/inputSize"
                             android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"/>
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"/>
 
                         <EditText
                             android:id="@+id/storeNameEdit"
@@ -70,7 +71,9 @@
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/storeNameField"/>
+                            android:layout_toEndOf="@id/storeNameField"
+                            android:layout_toRightOf="@id/storeNameField"
+                            />
 
                     </RelativeLayout>
 
@@ -110,7 +113,9 @@
                             android:layout_width="wrap_content"
                             android:textSize="@dimen/inputSize"
                             android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"/>
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            />
 
                         <EditText
                             android:id="@+id/noteEdit"
@@ -119,7 +124,9 @@
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/noteField"/>
+                            android:layout_toEndOf="@id/noteField"
+                            android:layout_toRightOf="@id/noteField"
+                            />
                     </RelativeLayout>
 
                     <View
@@ -190,6 +197,7 @@
                            android:layout_width="wrap_content"
                            android:layout_height="match_parent"
                            android:layout_toEndOf="@id/headingColorSampleBorder"
+                           android:layout_toRightOf="@id/headingColorSampleBorder"
                            app:layout_constraintEnd_toEndOf="parent"/>
                     </android.support.constraint.ConstraintLayout>
 
@@ -261,6 +269,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_toEndOf="@id/headingStoreTextColorSampleBorder"
+                            android:layout_toRightOf="@id/headingStoreTextColorSampleBorder"
                             app:layout_constraintEnd_toEndOf="parent"/>
                     </android.support.constraint.ConstraintLayout>
 
@@ -303,7 +312,9 @@
                             android:layout_width="wrap_content"
                             android:textSize="@dimen/inputSize"
                             android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"/>
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            />
 
                         <TextView
                             android:id="@+id/cardIdView"
@@ -312,7 +323,9 @@
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
                             android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/cardIdField"/>
+                            android:layout_toEndOf="@id/cardIdField"
+                            android:layout_toRightOf="@id/cardIdField"
+                            />
                     </RelativeLayout>
 
                     <View

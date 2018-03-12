@@ -13,6 +13,7 @@
         android:layout_width="@dimen/cardThumbnailSize"
         android:layout_height="@dimen/cardThumbnailSize"
         android:layout_marginEnd="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"
         android:src="@mipmap/ic_launcher"
         android:contentDescription="@string/thumbnailDescription"/>
 

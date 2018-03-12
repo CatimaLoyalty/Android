@@ -37,9 +37,6 @@ android {
             includeAndroidResources = true
         }
     }
-
-    // This is for Robolectric support for SDK 23
-    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {

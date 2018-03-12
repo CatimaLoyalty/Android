@@ -1,3 +1,9 @@
+## v0.23.2 (2018-03-11)
+
+Changes:
+- Reduce min SDK from 17 to 15. (https://github.com/brarcher/loyalty-card-locker/pull/226)
+- Remove usage of legacy apache library, used only in unit tests but no longer needed. (https://github.com/brarcher/loyalty-card-locker/pull/225)
+
 ## v0.23.1 (2018-03-07)
 
 Changes:

@@ -1,0 +1,63 @@
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="action_add">Pridať</string>
+
+    <string name="note">Poznámka</string>
+    <string name="barcodeType">Typ čiarového kódu</string>
+
+    <string name="cancel">Zrušiť</string>
+    <string name="save">Uložiť</string>
+    <string name="edit">Upraviť</string>
+    <string name="delete">Vymazať</string>
+    <string name="confirm">Potvrdiť</string>
+    <string name="ok">OK</string>
+    <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
+    <string name="addedShortcut">Pridané na domovskú obrazovku</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="importExport">Import/Export</string>
+    <string name="importName">Import</string>
+    <string name="exportName">Export</string>
+    <string name="importedFrom">Importované z: %1$s</string>
+    <string name="exportedTo">Exportované do: %1$s</string>
+    <string name="fileMissing">Chýbajúci súbor: %1$s</string>
+    <string name="importSuccessfulTitle">Import bol úspešný</string>
+    <string name="importFailedTitle">Import zlyhal</string>
+    <string name="importFailed">Zlyhal import: %1$s</string>
+    <string name="exportSuccessfulTitle">Export bol úspešný</string>
+    <string name="exportFailedTitle">Export zlyhal</string>
+    <string name="exportFailed">Zlyhal export: %1$s</string>
+    <string name="importing">Importujem&#8230;</string>
+    <string name="exporting">Exportujem&#8230;</string>
+    <string name="exportOptionExplanation">Dáta sú zapísané do koreňového adresára na externom úložisku.</string>
+    <string name="importOptionFilesystemTitle">Import zo súborového systému.</string>
+    <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
+    <string name="importOptionFilesystemButton">Zo súborového systému</string>
+    <string name="importOptionApplicationTitle">Použite externú aplikáciu</string>
+    <string name="importOptionApplicationExplanation">Na otvorenie súboru použite externú aplikáciu, ako Dropbox, Disk Google, alebo Vášho obľúbeného správcu súborov.</string>
+    <string name="importOptionApplicationButton">Použiť externú aplikáciu</string>
+    <string name="importOptionFixedTitle">Importujte z exportovacieho umiestnenia.</string>
+    <string name="importOptionFixedExplanation">Importujte z rovnakého umiestnenia v súborovom systéme, na ktorý je zapisovaný export.</string>
+    <string name="importOptionFixedButton">Použite exportovacie umiestnenie</string>
+
+    <string name="about">O aplikácii</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Licencované GPLv3.</string>
+    <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používa nasledujúce knižnice tretej strany: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
+    <string name="enterBarcodeInstructions">Zadajte čiarový kód a vyberte obrázok reprezentujúci čiarový kód, ktorý chcete použiť</string>
+
+    <string name="startIntro">Spusti úvod</string>
+    <string name="intro1Title">Vitajte v aplikácii Loyalty Card Keychain\n</string>
+    <string name="intro3Description">Čiarový kód nasnímajte kamerou, alebo ho vypíšte ručne.\n\n</string>
+    <string name="intro5Title">Záloha\n</string>
+    <string name="intro6Title">Spätná väzba\n</string>
+    <string name="intro6Description">Táto aplikácia je slobodná, neobsahuje reklamu a má otvorený zdrojový kód. Ďalšie informácie nájdete v položke menu O aplikácii na hlavnej stránke.\n\n Prosíme, zanechajte spätnú väzbu v obchode s aplikáciami. (:</string>
+
+    <string name="storeTextBackgroundColorTitle">Farba hlavičky</string>
+    <string name="settings">Nastavenia</string>
+    <string name="settings_category_title_ui">Používateľské prostredie</string>
+</resources>

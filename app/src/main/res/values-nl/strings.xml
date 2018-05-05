@@ -78,23 +78,38 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derden: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
-<string name="selectBarcodeTitle">Selecteer barcode</string>
-<string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
+    <string name="selectBarcodeTitle">Selecteer barcode</string>
+    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
 
-<string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
+    <string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
 
-<string name="startIntro">Start inleiding</string>
-<string name="intro1Title">Welkom bij Loyalty Card Keychain\n</string>
-<string name="intro1Description">Beheer je barcodegebaseerde klantenkaarten op je telefoon!\n\n</string>
-<string name="intro2Title">Kaarten toevoegen\n</string>
-<string name="intro2Description">Voeg een nieuwe kaart toe door in de lijst met kaarten de plus aan te raken.\n\n</string>
-<string name="intro3Title">Kaarten toevoegen\n</string>
-<string name="intro3Description">Om een barcode toe te voegen, scan deze met je camera of voer ze handmatig in.\n\n</string>
-<string name="intro4Title">Toon kaart\n</string>
-<string name="intro4Description">Om een kaart te tonen, klik in het hoofdscherm op de naam van de winkel\n\n</string>
-<string name="intro5Title">Backup\n</string>
-<string name="intro5Description">De kaarten kunnen worden geback-upt. Om te kaarten te exporteren of importeren, raak in het menu in het hoofdscherm Importeer/Exporteer aan.\n\n</string>
-<string name="intro6Title">Terugkoppeling\n</string>
-<string name="intro6Description">Deze app is gratis, vrije van advertenties en opensource. Zie details door Over aan te raken in het menu op het hoofdscher,.\n\nBeschrijft je ervaring in de app store! (:</string>
+    <string name="thumbnailDescription">Thumbnail voor kaart</string>
 
-    </resources>
+    <string name="startIntro">Start inleiding</string>
+    <string name="intro1Title">Welkom bij Loyalty Card Keychain\n</string>
+    <string name="intro1Description">Beheer je barcodegebaseerde klantenkaarten op je telefoon!\n\n</string>
+    <string name="intro2Title">Kaarten toevoegen\n</string>
+    <string name="intro2Description">Voeg een nieuwe kaart toe door in de lijst met kaarten de plus aan te raken.\n\n</string>
+    <string name="intro3Title">Kaarten toevoegen\n</string>
+    <string name="intro3Description">Om een barcode toe te voegen, scan deze met je camera of voer ze handmatig in.\n\n</string>
+    <string name="intro4Title">Toon kaart\n</string>
+    <string name="intro4Description">Om een kaart te tonen, klik in het hoofdscherm op de naam van de winkel\n\n</string>
+    <string name="intro5Title">Backup\n</string>
+    <string name="intro5Description">De kaarten kunnen worden geback-upt. Om te kaarten te exporteren of importeren, raak in het menu in het hoofdscherm Importeer/Exporteer aan.\n\n</string>
+    <string name="intro6Title">Terugkoppeling\n</string>
+    <string name="intro6Description">Deze app is gratis, vrije van advertenties en opensource. Zie details door Over aan te raken in het menu op het hoofdscher,.\n\nBeschrijft je ervaring in de app store! (:</string>
+
+    <string name="change">Wijzig</string>
+    <string name="storeTextColorTitle">Tekstkleur winkel</string>
+    <string name="storeTextBackgroundColorTitle">Kopkleur</string>
+    <string name="storeNameBackgroundColorDescription">Achtergrondkleur voor winkeltekst</string>
+    <string name="storeNameColorDescription">Kleur voor winkeltekst</string>
+
+    <string name="settings">Instellingen</string>
+    <string name="settings_category_title_ui">Gebruikersinterface</string>
+    <string name="settings_card_title_list_font_size">Kaarttitel lijstlettertypegrootte</string>
+    <string name="settings_card_note_list_font_size">Kaartopmerking lijstlettertypegrootte</string>
+    <string name="settings_card_title_font_size">Kaarttitel lettertypegrootte</string>
+    <string name="settings_card_id_font_size">Kaart-ID lettertypegrootte</string>
+    <string name="settings_card_note_font_size">Kaartopmerking lettertypegrootte</string>
+</resources>

@@ -4,7 +4,7 @@
     <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Ajouter</string>
 
-    <string name="noGiftCards">Pas de carte de fidélité enregistrée. Cliquez sur le bouton "+" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
+    <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
 
     <string name="storeName">Nom</string>
     <string name="note">Note</string>
@@ -13,7 +13,7 @@
 
     <string name="cancel">Annuler</string>
     <string name="save">Enregistrer</string>
-    <string name="capture">Flasher</string>
+    <string name="capture">Mode capture</string>
     <string name="enterCard">Mode manuel</string>
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
@@ -83,20 +83,23 @@
 
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 
-    <string name="thumbnailDescription">Vignette pour la carte</string>
+    <string name="thumbnailDescription">Miniature pour la carte</string>
 
     <string name="startIntro">Présentation</string>
     <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>
     <string name="intro1Description">Gérez vos cartes de fidélité\nsur votre téléphone !\n\n</string>
     <string name="intro2Title">Ajouter une carte\n</string>
-    <string name="intro2Description">Touchez le signe \'+\' en haut de l\'écran pour ajouter une carte.\n\n</string>
+    <string name="intro2Description">Ajoutez une nouvelle carte en appuyant sur le bouton \"+\" depuis la liste des cartes.\n\n</string>
     <string name="intro3Title">Ajouter une carte\n</string>
     <string name="intro3Description">Pour enregistrer le code-barres, utilisez l\'appareil-photo ou entrez-le manuellement.\n\n</string>
     <string name="intro4Title">Afficher une carte\n</string>
-    <string name="intro4Description">Pour afficher une carte, touchez le nom du magasin sur l\'écran principal\n\n</string>
+    <string name="intro4Description">Pour afficher une carte, appuyez sur le nom du magasin depuis l\'écran principal\n\n</string>
     <string name="intro5Title">Sauvegarde\n</string>
-    <string name="intro5Description">Les cartes peuvent être sauvegardées. Touchez \'Importer/Exporter\' sur l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
-    <string name="intro6Title">Votre avis\n</string>
-    <string name="intro6Description">Cette application est gratuite, sans publicité, et son code est ouvert. Découvrez-en plus en touchant \'à propos\' sur l\'écran principal.\n\nLaissez un commentaire sur votre magasin d\'applications (:</string>
+    <string name="intro5Description">Les cartes peuvent être sauvegardées. Appuyez sur \"Importer/Exporter\" depuis l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
+    <string name="intro6Title">Commentaire\n</string>
+    <string name="intro6Description">Cette application est gratuite, sans pub, et son code est ouvert. Plus de détails en appuyant sur \"À propos\" depuis l\'écran principal.\n\nMerci de laisser un commentaire sur le Play Store (:</string>
 
+    <string name="change">Modifier</string>
+    <string name="settings">Paramètres</string>
+    <string name="settings_category_title_ui">Interface</string>
 </resources>

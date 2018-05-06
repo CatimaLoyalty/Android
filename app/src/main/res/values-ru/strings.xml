@@ -1,8 +1,8 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Брелок карт лояльности</string>
-    <string name="action_add">Добавить</string>
+    <string name="app_name">Карты лояльности</string>
+    <string name="action_add">Добавить карту</string>
 
     <string name="noGiftCards">На данный момент у Вас нет ни одной карты лояльности. Нажмите на кнопку «+» (плюс) вверху, чтобы добавить первую карту.\n\n «Брелок карт лояльности» позволит Вам хранить скидочные карты в Вашем телефоне, чтобы они всегда были под рукой.</string>
 
@@ -15,10 +15,12 @@
     <string name="save">Сохранить</string>
     <string name="capture">Просканировать карту</string>
     <string name="enterCard">Ввести вручную</string>
-    <string name="editCard">Редактировать карту</string>
-    <string name="edit">Редактировать</string>
-    <string name="delete">Удалить</string>
+    <string name="editCard">Редактор карты</string>
+    <string name="edit">Редактировать карту</string>
+    <string name="delete">Удалить карту</string>
     <string name="confirm">Подтвердить</string>
+    <string name="lockScreen">Зафиксировать поворот экрана</string>
+    <string name="unlockScreen">Автоповорот экрана</string>
     <string name="deleteTitle">Удалить карту лояльности</string>
     <string name="deleteConfirmation">Вы действительно хотите удалить эту карту?</string>
     <string name="ok">OK</string>
@@ -27,7 +29,12 @@
     <string name="addedShortcut">Карта добавлена на главный экран.</string>
 
     <string name="editCardTitle">Редактировать карточку лояльности</string>
-    <string name="addCardTitle">Добавить карточку лояльности</string>
+    <string name="addCardTitle">Добавить карту</string>
+    <string name="about">О программе</string>
+    <string name="app_license">Программа лицензирована согласно GPLv3.</string>
+    <string name="about_title_fmt">О программе <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="copy_to_clipboard_toast">Идентифицатор карты скопирован в буфер обмена.</string>
+
     <string name="thumbnailDescription">Логорип карты</string>
 
     <string name="startIntro">Введение</string>
@@ -42,4 +49,5 @@
     <string name="intro6Title">Обратная связь\n</string>
     <string name="intro6Description">Это бесплатное приложение, не обремененное рекламой и с открытым исходным кодом. Подробнее см. в разделе «О программе» в меню на главной странице.\n\nПожалуйста, оставьте отзыв в магазине приложений! (:</string>
 
+    <string name="settings">Настройки</string>
 </resources>

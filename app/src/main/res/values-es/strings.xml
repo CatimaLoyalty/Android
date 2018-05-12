@@ -1,63 +1,115 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="action_add">Pridať</string>
+    <string name="app_name">Cartera para Tarjetas de Fidelización.</string>
+    <string name="action_add">Añadir</string>
 
-    <string name="note">Poznámka</string>
-    <string name="barcodeType">Typ čiarového kódu</string>
+    <string name="noGiftCards">Actualmente no tienes ninguna tarjeta guardada. Presiona el botón "+" para comenzar.\n\nEsta cartera te permite llevar tus tarjetas de fidelización en tu teléfono para que estén siempre a tu alcance.</string>
 
-    <string name="cancel">Zrušiť</string>
-    <string name="save">Uložiť</string>
-    <string name="edit">Upraviť</string>
-    <string name="delete">Vymazať</string>
-    <string name="confirm">Potvrdiť</string>
+    <string name="storeName">Tienda</string>
+    <string name="note">Nota</string>
+    <string name="cardId">ID de la Tarjeta</string>
+    <string name="barcodeType">Tipo de Código de Barras</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="capture">Escanear Tarjeta</string>
+    <string name="enterCard">Introducir Tarjeta</string>
+    <string name="editCard">Editar Tarjeta</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="lockScreen">Bloquear Rotación de Pantalla</string>
+    <string name="unlockScreen">Rotación de Pantalla Automática</string>
+    <string name="deleteTitle">Eliminar Tarjeta de Fidelización</string>
+    <string name="deleteConfirmation">Por favor, confirma si quieres eliminar esta tarjeta.</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
-    <string name="addedShortcut">Pridané na domovskú obrazovku</string>
+    <string name="copy_to_clipboard">Copiar ID al portapapeles</string>
+    <string name="sendLabel">Enviar&#8230;</string>
+    <string name="addedShortcut">Añadido a la Pantalla de Inicio</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
-    <string name="exportName">Export</string>
-    <string name="importedFrom">Importované z: %1$s</string>
-    <string name="exportedTo">Exportované do: %1$s</string>
-    <string name="fileMissing">Chýbajúci súbor: %1$s</string>
-    <string name="importSuccessfulTitle">Import bol úspešný</string>
-    <string name="importFailedTitle">Import zlyhal</string>
-    <string name="importFailed">Zlyhal import: %1$s</string>
-    <string name="exportSuccessfulTitle">Export bol úspešný</string>
-    <string name="exportFailedTitle">Export zlyhal</string>
-    <string name="exportFailed">Zlyhal export: %1$s</string>
-    <string name="importing">Importujem&#8230;</string>
-    <string name="exporting">Exportujem&#8230;</string>
-    <string name="exportOptionExplanation">Dáta sú zapísané do koreňového adresára na externom úložisku.</string>
-    <string name="importOptionFilesystemTitle">Import zo súborového systému.</string>
-    <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
-    <string name="importOptionFilesystemButton">Zo súborového systému</string>
-    <string name="importOptionApplicationTitle">Použite externú aplikáciu</string>
-    <string name="importOptionApplicationExplanation">Na otvorenie súboru použite externú aplikáciu, ako Dropbox, Disk Google, alebo Vášho obľúbeného správcu súborov.</string>
-    <string name="importOptionApplicationButton">Použiť externú aplikáciu</string>
-    <string name="importOptionFixedTitle">Importujte z exportovacieho umiestnenia.</string>
-    <string name="importOptionFixedExplanation">Importujte z rovnakého umiestnenia v súborovom systéme, na ktorý je zapisovaný export.</string>
-    <string name="importOptionFixedButton">Použite exportovacie umiestnenie</string>
+    <string name="editCardTitle">Editar Tarjeta de Fidelización</string>
+    <string name="addCardTitle">Añadir Tarjeta de Fidelización</string>
+    <string name="viewCardTitle">Ver Tarjeta de Fidelización</string>
+    <string name="scanCardBarcode">Escanear el Código de Barras de la Tarjeta</string>
+    <string name="cardShortcut">Atajo de Tarjeta</string>
+    <string name="noCardsMessage">No hay ninguna tarjeta, añade una primero</string>
 
-    <string name="about">O aplikácii</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Licencované GPLv3.</string>
-    <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používa nasledujúce knižnice tretej strany: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
-    <string name="enterBarcodeInstructions">Zadajte čiarový kód a vyberte obrázok reprezentujúci čiarový kód, ktorý chcete použiť</string>
+    <string name="barcodeImageDescription">Imagen del código de barras de la tarjeta</string>
 
-    <string name="startIntro">Spusti úvod</string>
-    <string name="intro1Title">Vitajte v aplikácii Loyalty Card Keychain\n</string>
-    <string name="intro3Description">Čiarový kód nasnímajte kamerou, alebo ho vypíšte ručne.\n\n</string>
-    <string name="intro5Title">Záloha\n</string>
-    <string name="intro6Title">Spätná väzba\n</string>
-    <string name="intro6Description">Táto aplikácia je slobodná, neobsahuje reklamu a má otvorený zdrojový kód. Ďalšie informácie nájdete v položke menu O aplikácii na hlavnej stránke.\n\n Prosíme, zanechajte spätnú väzbu v obchode s aplikáciami. (:</string>
+    <string name="noStoreError">Establecimiento no especificado</string>
+    <string name="noCardIdError">ID de la Tarjeta no especificado</string>
+    <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
 
-    <string name="storeTextBackgroundColorTitle">Farba hlavičky</string>
-    <string name="settings">Nastavenia</string>
-    <string name="settings_category_title_ui">Používateľské prostredie</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="importExport">Importar/Exportar</string>
+    <string name="importName">Importar</string>
+    <string name="exportName">Exportar</string>
+    <string name="importExportHelp">La copia de seguridad te permite transferir tus tarjetas a otro dispositivo.</string>
+    <string name="importedFrom">Importar desde: %1$s</string>
+    <string name="exportedTo">Exportar a: %1$s</string>
+    <string name="fileMissing">Archivo perdido: %1$s</string>
+    <string name="importSuccessfulTitle">Datos importados correctamente</string>
+    <string name="importFailedTitle">Ha ocurrido un error al importar los datos</string>
+    <string name="importFailed">Error al importar: %1$s</string>
+    <string name="exportSuccessfulTitle">Datos exportados correctamente</string>
+    <string name="exportFailedTitle">Ha ocurrido un error al exportar los datos</string>
+    <string name="exportFailed">Error al exportar: %1$s</string>
+    <string name="importing">Importando&#8230;</string>
+    <string name="exporting">Exportando&#8230;</string>
+    <string name="noExternalStoragePermissionError">No se pueden importar o exportar tarjetas sin el permiso de almacenamiento</string>
+    <string name="exportOptionExplanation">Los datos son guardados en la carpeta base del almacenamiento externo.</string>
+    <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
+    <string name="importOptionFilesystemExplanation">Seleccionar un archivo del sistema de archivos</string>
+    <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
+    <string name="importOptionApplicationTitle">Usar una applicación externa</string>
+    <string name="importOptionApplicationExplanation">Use una aplicación externa como Dropbox, Google Drive o tu gestor de archivos favoritos para abrir un archivo.</string>
+    <string name="importOptionApplicationButton">Usar aplicación externa</string>
+    <string name="importOptionFixedTitle">Importar desde el lugar donde los datos son exportados</string>
+    <string name="importOptionFixedExplanation">Importar desde el mismo lugar en el sistema de archivos donde los datos son exportados.</string>
+    <string name="importOptionFixedButton">Utilizar el lugar donde los datos son exportados</string>
+
+    <string name="about">Acerca de</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Licencia GPLv3</string>
+    <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Información sobre la Revisión: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utiliza las siguientes librerías de terceros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> utiliza los siguientes recursos de terceros: <xliff:g id="app_resources_list">%s</xliff:g></string>
+
+    <string name="selectBarcodeTitle">Selecciona el Código de Barras</string>
+    <string name="enterBarcodeInstructions">Introduce el valor del código de barras y después presiona en una imagen para seleccionar el tipo de código de barras.</string>
+
+    <string name="copy_to_clipboard_toast">ID de la Tarjeta copiado al portapapeles</string>
+
+    <string name="thumbnailDescription">Miniatura para la tarjeta</string>
+
+    <string name="startIntro">Empezar Introducción</string>
+    <string name="intro1Title">Bienvenido a la Cartera para Tarjetas de Fidelización\n</string>
+    <string name="intro1Description">Gestiona las tarjetas de fidelización o tarjetas cliente con codigo de barras desde tu teléfono!\n\n</string>
+    <string name="intro2Title">Añadir Tarjetas\n</string>
+    <string name="intro2Description">Añade una nueva tarjeta presionando el signo + en la lista de tarjetas.\n\n</string>
+    <string name="intro3Title">Añadir Tarjetas\n</string>
+    <string name="intro3Description">Para añadir el código de barras, escanea la tarjeta con tu cámara o introduce el código manualmente.\n\n</string>
+    <string name="intro4Title">Mostrar Tarjeta\n</string>
+    <string name="intro4Description">Para mostrar una tarjeta, presiona en el nombre de la tienda desde la pantalla principal\n\n</string>
+    <string name="intro5Title">Copias de Seguridad\n</string>
+    <string name="intro5Description">Puedes hacer una copia de seguridad de tus tarjetas. Para exportar o importar los datos presiona Importar/Exportar en el menú de la pagina principal.\n\n</string>
+    <string name="intro6Title">Tu Opinión\n</string>
+    <string name="intro6Description">Esta aplicación es gratuita, libre de publicidad y de código libre. Para más detalles presiona en Acerca De en el menu principal.\n\nPor favor deja tu opinión en la tienda de applicaciones! (:</string>
+
+    <string name="change">Cambiar</string>
+    <string name="storeTextColorTitle">Color del Texto de la Tienda</string>
+    <string name="storeTextBackgroundColorTitle">Color Principal</string>
+    <string name="storeNameBackgroundColorDescription">Color de fondo para el texto de la tienda</string>
+    <string name="storeNameColorDescription">Color del texto de la tienda</string>
+
+    <string name="settings">Configuración</string>
+    <string name="settings_category_title_ui">Interfaz de Usuario</string>
+    <string name="settings_card_title_list_font_size">Tamaño de la letra para el título (lista)</string>
+    <string name="settings_card_note_list_font_size">Tamaño de la letra para notas (lista)</string>
+    <string name="settings_card_title_font_size">Tamaño de la letra para el título</string>
+    <string name="settings_card_id_font_size">Tamaño de la letra para el ID de la tarjeta</string>
+    <string name="settings_card_note_font_size">Tamaño de la letra para notas</string>
 </resources>

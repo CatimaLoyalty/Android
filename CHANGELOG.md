@@ -1,3 +1,18 @@
+## v0.23.4 (2018-05-12)
+
+Changes: 
+- Fix Spanish translations (https://github.com/brarcher/loyalty-card-locker/pull/244)
+- Update translations (https://github.com/brarcher/loyalty-card-locker/pull/244)
+
+## v0.23.3 (2018-05-05)
+
+Changes:
+- Added translations
+  * Polish (https://github.com/brarcher/loyalty-card-locker/pull/232)
+  * Spanish (https://github.com/brarcher/loyalty-card-locker/pull/232)
+  * Slovak (https://github.com/brarcher/loyalty-card-locker/pull/232)
+- Updated translations (https://github.com/brarcher/loyalty-card-locker/pull/239)
+
 ## v0.23.2 (2018-03-11)
 
 Changes:

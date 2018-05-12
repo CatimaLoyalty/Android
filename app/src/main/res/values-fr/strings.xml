@@ -4,7 +4,7 @@
     <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Ajouter</string>
 
-    <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
+    <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
 
     <string name="storeName">Nom</string>
     <string name="note">Note</string>

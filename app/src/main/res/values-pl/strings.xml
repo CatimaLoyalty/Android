@@ -6,91 +6,66 @@
 
     <string name="storeName">Sklep</string>
     <string name="note">Notatka</string>
-    <string name="cardId">ID Karty</string>
-    <string name="barcodeType">Typ Kodu Kreskowego</string>
+    <string name="cardId">Identyfikator karty</string>
+    <string name="barcodeType">Typ kodu kreskowego</string>
 
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
-    <string name="capture">Przechwyć Kartę</string>
-    <string name="enterCard">Wprowadź Kartę</string>
-    <string name="editCard">Edytuj Kartę</string>
+    <string name="capture">Zeskanuj kod</string>
+    <string name="enterCard">Wprowadź ręcznie</string>
+    <string name="editCard">Edytuj kartę</string>
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
     <string name="confirm">Potwierdź</string>
-    <string name="lockScreen">Zablokuj Obrót</string>
-    <string name="unlockScreen">Odblokuj Obrót</string>
-    <string name="deleteTitle">Usuń Kartę Lojalnościową</string>
+    <string name="lockScreen">Zablokuj autoobracanie ekranu</string>
+    <string name="unlockScreen">Odblokuj autoobracanie ekranu</string>
+    <string name="deleteTitle">Usuń kartę lojalnościową</string>
+    <string name="deleteConfirmation">Potwierdź, że chcesz usunąć tę kartę.</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Skopiuj ID do schowka</string>
-    <string name="sendLabel">Wyślij&#8230;</string>
-    <string name="addedShortcut">Dodano do Ekranu Głównego</string>
+    <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
+    <string name="addedShortcut">Dodano do ekranu głównego</string>
 
-    <string name="editCardTitle">Edytuj Kartę Lojalnościową</string>
-    <string name="addCardTitle">Dodaj Kartę Lojalnościową</string>
-    <string name="viewCardTitle">Zobacz Kartę Lojalnościową</string>
-    <string name="scanCardBarcode">Skanuj Kod Kreskowy Karty</string>
-    <string name="cardShortcut">Skrót karty</string>
-    <string name="noCardsMessage">Nie ma kart, dodaj jedną najpierw</string>
-
-    <string name="barcodeImageDescription">Image of card\'s barcode</string>
-
-    <string name="noStoreError">Nie wprowadzono sklepu</string>
-    <string name="noCardIdError">Nie wprowadzono ID Karty</string>
-    <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
-
+    <string name="editCardTitle">Edytuj kartę lojalnościową</string>
+    <string name="addCardTitle">Dodaj kartę lojalnościową</string>
+    <string name="viewCardTitle">Pokaż kartę lojalnościową</string>
+    <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
+    <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
-
-    <string name="importExport">Importuj/Eksportuj</string>
-    <string name="importName">Importuj</string>
-    <string name="exportName">Eksportuj</string>
-    <string name="importExportHelp">Zarchiwizowane dane pozwalają na przeniesienie twoich kart na inne urządzenie.</string>
+    <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importedFrom">Zaimportowano z: %1$s</string>
-    <string name="exportedTo">Eksportowano do: %1$s</string>
-    <string name="fileMissing">Plik brakuje: %1$s</string>
-    <string name="importSuccessfulTitle">Zimportowanio pomyślnie</string>
-    <string name="importFailedTitle">Import nieudany</string>
-    <string name="importFailed">Nie udało się zimportować: %1$s</string>
-    <string name="exportSuccessfulTitle">Zeksportowano pomyślnie</string>
-    <string name="exportFailedTitle">Eksport nieudany</string>
-    <string name="exportFailed">Nie udało się zeksportować: %1$s</string>
+    <string name="exportedTo">Wyeksportowano do: %1$s</string>
+    <string name="fileMissing">Brak pliku: %1$s</string>
+    <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
+    <string name="exportSuccessfulTitle">Wyeksportowano pomyślnie</string>
     <string name="importing">Importowanie&#8230;</string>
     <string name="exporting">Eksportowanie&#8230;</string>
-    <string name="importOptionApplicationTitle">Użuj zewnętrznej aplikacji</string>
-    <string name="importOptionApplicationExplanation">Użyj zewnętrznej aplikacji jak Dropbox, Google Drive, lub twój ulubiony menadżer plików, aby otworzyć plik.</string>
+    <string name="exportOptionExplanation">Dane zapisywane są w głównym katalogu pamięci zewnętrznej.</string>
+    <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
+    <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
+    <string name="importOptionFilesystemButton">Z systemu plików</string>
+    <string name="importOptionApplicationTitle">Użyj zewnętrznej aplikacji</string>
+    <string name="importOptionApplicationExplanation">Użyj zewnętrznej aplikacji jak Dropbox, Google Drive, bądź ulubiony menedżer plików, aby otworzyć plik.</string>
     <string name="importOptionApplicationButton">Użyj zewnętrznej aplikacji</string>
-
     <string name="about">O aplikacji</string>
-    <string name="app_copyright_fmt">Prawo autorskie 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Licencionowany na licencji GPLv3.</string>
+    <string name="app_copyright_fmt">© 2016 — <xliff:g>%d</xliff:g> Branden Archer.</string>
+    <string name="app_license">Licencjonowane na podstawie GNU General Public License, wersji 3.0.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revision Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> używa następujących bibliotek osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> używa następujących źródeł osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące biblioteki osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące zasoby osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
-    <string name="selectBarcodeTitle">Wybierz Kod Kreskowy</string>
+    <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
+    <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
 
-    <string name="copy_to_clipboard_toast">ID Karty została skopiowana do schowka</string>
+    <string name="thumbnailDescription">Miniaturka karty</string>
 
-    <string name="thumbnailDescription">Miniaturka Karty</string>
-
-    <string name="startIntro">Rozpocznij Intro</string>
-    <string name="intro1Title">Witamy w Loyalty Card Keychain\n</string>
-    <string name="intro2Title">Dodawanie Kart\n</string>
-    <string name="intro3Title">Dodawanie Kart\n</string>
-    <string name="intro4Title">Pokazywanie Kart\n</string>
-    <string name="intro5Title">Kopia Zapasowa\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Ta aplikacja jest darmowa, bez reklam, i otwarta źródłowo. Zobacz informacje przez dotknięcie O Aplikacji w menu na głównej stronie.\n\nProszę zostaw opinie w sklepie! (:</string>
-
+    <string name="startIntro">Pokaż ekran powitalny</string>
+    <string name="intro5Title">Kopia zapasowa\n</string>
+    <string name="intro6Title">Informacje zwrotne\n</string>
     <string name="change">Zmień</string>
-    <string name="storeTextBackgroundColorTitle">Kolor Nagłówka</string>
-
+    <string name="storeTextBackgroundColorTitle">Kolor nagłówka</string>
     <string name="settings">Ustawienia</string>
-    <string name="settings_category_title_ui">Interfejs Użytkownika</string>
-    <string name="settings_card_title_list_font_size">Card title list font size</string>
-    <string name="settings_card_note_list_font_size">Wielkość czcionki notatki karty</string>
-    <string name="settings_card_title_font_size">Wielkość czcionki tytułu karty</string>
-    <string name="settings_card_id_font_size">Wielkość czcionki ID karty</string>
-    <string name="settings_card_note_font_size">Wielkość czcionki notatki karty</string>
+    <string name="settings_category_title_ui">Interfejs użytkownika</string>
+    <string name="settings_card_title_font_size">Rozmiar czcionki tytułu karty</string>
+    <string name="settings_card_id_font_size">Rozmiar czcionki identyfikatora karty</string>
+    <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
 </resources>

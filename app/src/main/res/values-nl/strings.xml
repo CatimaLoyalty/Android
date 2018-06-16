@@ -1,115 +1,115 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Klantenkaartenkluis</string>
-    <string name="action_add">Voeg toe</string>
+    <string name="app_name">Klantenkaartkluis</string>
+    <string name="action_add">Toevoegen</string>
 
-    <string name="noGiftCards">Er zijn momenteel geen klantenkaarten toegevoegd. Klik de knop met "+" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
+    <string name="noGiftCards">Er zijn momenteel geen klantenkaarten toegevoegd. Klik op de knop \"+\" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
 
     <string name="storeName">Winkel</string>
     <string name="note">Notitie</string>
     <string name="cardId">Kaart-ID</string>
     <string name="barcodeType">Barcodetype</string>
 
-    <string name="cancel">Annuleer</string>
-    <string name="save">Sla op</string>
-    <string name="capture">Scan kaart</string>
-    <string name="enterCard">Voer kaart in</string>
-    <string name="editCard">Bewerk kaart</string>
-    <string name="edit">Bewerk</string>
-    <string name="delete">Verwijder</string>
-    <string name="confirm">Bevestig</string>
-    <string name="lockScreen">Blokkeer rotatie</string>
-    <string name="unlockScreen">Deblokkeer rotatie</string>
-    <string name="deleteTitle">Verwijder kaart</string>
-    <string name="deleteConfirmation">Bevestig deze kaart te verwijderen.</string>
+    <string name="cancel">Annuleren</string>
+    <string name="save">Opslaan</string>
+    <string name="capture">Scan een kaart</string>
+    <string name="enterCard">Voer een kaart in</string>
+    <string name="editCard">Kaart bewerken</string>
+    <string name="edit">Bewerken</string>
+    <string name="delete">Verwijderen</string>
+    <string name="confirm">Bevestigen</string>
+    <string name="lockScreen">Draaien blokkeren</string>
+    <string name="unlockScreen">Draaien deblokkeren</string>
+    <string name="deleteTitle">Kaart verwijderen</string>
+    <string name="deleteConfirmation">Bevestig dat je deze kaart wilt verwijderen.</string>
     <string name="ok">Oké</string>
-    <string name="copy_to_clipboard">Kopieer het ID naar het klembord</string>
-    <string name="sendLabel">Verzend&#8230;</string>
-    <string name="addedShortcut">Toegevoegd aan hoofdscherm</string>
+    <string name="copy_to_clipboard">ID kopiëren naar klembord</string>
+    <string name="sendLabel">Versturen&#8230;</string>
+    <string name="addedShortcut">Toegevoegd aan beginscherm</string>
 
-    <string name="editCardTitle">Bewerk klantenkaart</string>
-    <string name="addCardTitle">Voeg klantenkaart toe</string>
-    <string name="viewCardTitle">Bekijk klantenkaart</string>
-    <string name="scanCardBarcode">Scan barcode klantenkaart</string>
+    <string name="editCardTitle">Klantenkaart bewerken</string>
+    <string name="addCardTitle">Klantenkaart toevoegen</string>
+    <string name="viewCardTitle">Klantenkaart bekijken</string>
+    <string name="scanCardBarcode">Klantenkaart-barcode scannen</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
-    <string name="noCardsMessage">Er zijn geen kaarten, voeg er eerst een toe</string>
+    <string name="noCardsMessage">Er zijn geen kaarten; voeg er één toe.</string>
 
-    <string name="barcodeImageDescription">Afbeelding barcode klantenkaart</string>
+    <string name="barcodeImageDescription">Afbeelding van klantenkaart-barcode</string>
 
-    <string name="noStoreError">Geen winkel toegevoegd</string>
-    <string name="noCardIdError">Geen kaart-ID toegevoegd</string>
-    <string name="noCardExistsError">Kon klantenkaart niet vinden</string>
+    <string name="noStoreError">Geen winkel ingevoerd</string>
+    <string name="noCardIdError">Geen kaart-ID ingevoerd</string>
+    <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd.</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="importExport">Importeer/Exporteer</string>
-    <string name="importName">Importeer</string>
-    <string name="exportName">Exporteer</string>
-    <string name="importExportHelp">Data die is geback-upt maakt het mogelijk om je klantenkaarten naar een ander apparaat te verplaatsen.</string>
-    <string name="importedFrom">Geïmporteerd van: %1$s</string>
+    <string name="importExport">Importeren/Exporteren</string>
+    <string name="importName">Importeren</string>
+    <string name="exportName">Exporteren</string>
+    <string name="importExportHelp">Geback-upte gegevens maken het mogelijk om je kaarten over te zetten naar een ander apparaat.</string>
+    <string name="importedFrom">Geïmporteerd uit: %1$s</string>
     <string name="exportedTo">Geëxporteerd naar: %1$s</string>
-    <string name="fileMissing">Bestand niet gevonden: %1$s</string>
-    <string name="importSuccessfulTitle">Importeren succesvol</string>
-    <string name="importFailedTitle">Importeren mislukte</string>
-    <string name="importFailed">Importeren mislukte: %1$s</string>
-    <string name="exportSuccessfulTitle">Exporteren succesvol</string>
+    <string name="fileMissing">Bestand ontbreekt: %1$s</string>
+    <string name="importSuccessfulTitle">Importeren voltooid</string>
+    <string name="importFailedTitle">Importeren mislukt</string>
+    <string name="importFailed">Het importeren is mislukt: %1$s</string>
+    <string name="exportSuccessfulTitle">Exporteren voltooid</string>
     <string name="exportFailedTitle">Exporteren mislukt</string>
-    <string name="exportFailed">Exporteren mislukte: %1$s</string>
-    <string name="importing">Importerende&#8230;</string>
-    <string name="exporting">Exporterende&#8230;</string>
-    <string name="noExternalStoragePermissionError">Niet mogelijk te importeren of exporteren zonder rechten op externe opslag</string>
-    <string name="exportOptionExplanation">Data is weggeschreven naar de hoogste map in externe opslag.</string>
-    <string name="importOptionFilesystemTitle">Importeer van filesysteem</string>
-    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het filesysteem.</string>
-    <string name="importOptionFilesystemButton">Van filesysteem</string>
-    <string name="importOptionApplicationTitle">Gebruik externe applicatie</string>
-    <string name="importOptionApplicationExplanation">Gebruik een externe applicatie zoals Dropbox, Google Drive of je favoriete bestandsbeheer om een bestand te openen.</string>
-    <string name="importOptionApplicationButton">Gebruik externe applicatie</string>
-    <string name="importOptionFixedTitle">Importeer van exporteerlocatie</string>
-    <string name="importOptionFixedExplanation">Importeer van zelfde locatie op het filesysteem waar tijdens exporteren naar geschreven is.</string>
-    <string name="importOptionFixedButton">gebruik exporteerlocaite</string>
+    <string name="exportFailed">Het exporteren is mislukt: %1$s</string>
+    <string name="importing">Bezig met importeren&#8230;...</string>
+    <string name="exporting">Bezig met exporteren&#8230;...</string>
+    <string name="noExternalStoragePermissionError">Het importeren of exporteren van kaarten is niet mogelijk zonder de machtiging \'externe opslag\'.</string>
+    <string name="exportOptionExplanation">De gegevens zijn weggeschreven naar de hoogste map op de externe opslag.</string>
+    <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
+    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand uit het bestandssysteem.</string>
+    <string name="importOptionFilesystemButton">Uit bestandssysteem</string>
+    <string name="importOptionApplicationTitle">Externe app gebruiken</string>
+    <string name="importOptionApplicationExplanation">Open een bestand middels een externe app, zoals Dropbox, Google Drive of je favoriete bestandsbeheerder.</string>
+    <string name="importOptionApplicationButton">Externe app gebruiken</string>
+    <string name="importOptionFixedTitle">Importeren uit exportlocatie</string>
+    <string name="importOptionFixedExplanation">Importeer uit dezelfde locatie op het bestandssysteem waar tijdens het exporteren naar weggeschreven is.</string>
+    <string name="importOptionFixedButton">Exportlocatie gebruiken</string>
 
     <string name="about">Over</string>
-    <string name="app_copyright_fmt">Auteursrecht 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Gelicenseerd met GPLv3.</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Uitgebracht onder de GPLv3-licentie.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revisieïnformatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derden: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derden: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derde partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derde partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
-    <string name="selectBarcodeTitle">Selecteer barcode</string>
-    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding die de barcode die je wil gebruiken representeert</string>
+    <string name="selectBarcodeTitle">Barcode selecteren</string>
+    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken.</string>
 
-    <string name="copy_to_clipboard_toast">Het ID is naar het klembord gekopieerd</string>
+    <string name="copy_to_clipboard_toast">Kaart-ID is gekopieerd naar het klembord</string>
 
-    <string name="thumbnailDescription">Thumbnail voor kaart</string>
+    <string name="thumbnailDescription">Voorbeeldminiatuur voor kaart</string>
 
-    <string name="startIntro">Start inleiding</string>
-    <string name="intro1Title">Welkom bij Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Beheer je barcodegebaseerde klantenkaarten op je telefoon!\n\n</string>
+    <string name="startIntro">Rondleiding starten</string>
+    <string name="intro1Title">Welkom bij Klantenkaartkluis\n</string>
+    <string name="intro1Description">Beheer je op barcodes gebaseerde klantenkaarten op je telefoon!\n\n</string>
     <string name="intro2Title">Kaarten toevoegen\n</string>
-    <string name="intro2Description">Voeg een nieuwe kaart toe door in de lijst met kaarten de plus aan te raken.\n\n</string>
+    <string name="intro2Description">Voeg een nieuwe kaart toe door in de kaartenlijst op de plus-knop te drukken.\n\n</string>
     <string name="intro3Title">Kaarten toevoegen\n</string>
-    <string name="intro3Description">Om een barcode toe te voegen, scan deze met je camera of voer ze handmatig in.\n\n</string>
-    <string name="intro4Title">Toon kaart\n</string>
-    <string name="intro4Description">Om een kaart te tonen, klik in het hoofdscherm op de naam van de winkel\n\n</string>
-    <string name="intro5Title">Backup\n</string>
-    <string name="intro5Description">De kaarten kunnen worden geback-upt. Om te kaarten te exporteren of importeren, raak in het menu in het hoofdscherm Importeer/Exporteer aan.\n\n</string>
-    <string name="intro6Title">Terugkoppeling\n</string>
-    <string name="intro6Description">Deze app is gratis, vrije van advertenties en opensource. Zie details door Over aan te raken in het menu op het hoofdscher,.\n\nBeschrijft je ervaring in de app store! (:</string>
+    <string name="intro3Description">De barcode kan worden toegevoegd door deze handmatig in te voeren of te scannen met de camera.\n\n</string>
+    <string name="intro4Title">Kaart tonen\n</string>
+    <string name="intro4Description">Als je een kaart wilt tonen, druk dan op het beginscherm op de naam van de winkel.\n\n</string>
+    <string name="intro5Title">Back-uppen\n</string>
+    <string name="intro5Description">De kaarten kunnen worden geback-upt. Als je kaarten wilt exporteren of importeren, druk dan in het menu op het hoofdscherm op Importeren/Exporteren.\n\n</string>
+    <string name="intro6Title">Feedback\n</string>
+    <string name="intro6Description">Deze app is gratis, advertentievrij en open source. Bekijk de details hiervan door op Over te drukken in het menu op het hoofdscherm.\n\nGeef feedback in de app-winkel! (:</string>
 
-    <string name="change">Wijzig</string>
-    <string name="storeTextColorTitle">Tekstkleur winkel</string>
+    <string name="change">Wijzigen</string>
+    <string name="storeTextColorTitle">Tekstkleur van winkelnaam</string>
     <string name="storeTextBackgroundColorTitle">Kopkleur</string>
-    <string name="storeNameBackgroundColorDescription">Achtergrondkleur voor winkeltekst</string>
-    <string name="storeNameColorDescription">Kleur voor winkeltekst</string>
+    <string name="storeNameBackgroundColorDescription">Achtergrondkleur van winkeltekst</string>
+    <string name="storeNameColorDescription">Kleur van winkeltekst</string>
 
     <string name="settings">Instellingen</string>
-    <string name="settings_category_title_ui">Gebruikersinterface</string>
+    <string name="settings_category_title_ui">Uiterlijk en bediening</string>
     <string name="settings_card_title_list_font_size">Kaarttitel lijstlettertypegrootte</string>
-    <string name="settings_card_note_list_font_size">Kaartopmerking lijstlettertypegrootte</string>
-    <string name="settings_card_title_font_size">Kaarttitel lettertypegrootte</string>
+    <string name="settings_card_note_list_font_size">Kaartnotitie lijstlettertypegrootte</string>
+    <string name="settings_card_title_font_size">Kaarttitel-lettertypegrootte</string>
     <string name="settings_card_id_font_size">Kaart-ID lettertypegrootte</string>
-    <string name="settings_card_note_font_size">Kaartopmerking lettertypegrootte</string>
-</resources>
+    <string name="settings_card_note_font_size">Kaartnotitie lettertypegrootte</string>
+    </resources>

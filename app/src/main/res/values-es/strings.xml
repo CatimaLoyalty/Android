@@ -4,7 +4,7 @@
     <string name="app_name">Cartera para Tarjetas de Fidelización.</string>
     <string name="action_add">Añadir</string>
 
-    <string name="noGiftCards">Actualmente no tienes ninguna tarjeta guardada. Presiona el botón "+" para comenzar.\n\nEsta cartera te permite llevar tus tarjetas de fidelización en tu teléfono para que estén siempre a tu alcance.</string>
+    <string name="noGiftCards">Actualmente no tienes ninguna tarjeta guardada. Presiona el botón \"+\" para comenzar.\n\nEsta cartera te permite llevar tus tarjetas de fidelización en tu teléfono para que estén siempre a tu alcance.</string>
 
     <string name="storeName">Tienda</string>
     <string name="note">Nota</string>
@@ -112,4 +112,4 @@
     <string name="settings_card_title_font_size">Tamaño de la letra para el título</string>
     <string name="settings_card_id_font_size">Tamaño de la letra para el ID de la tarjeta</string>
     <string name="settings_card_note_font_size">Tamaño de la letra para notas</string>
-</resources>
+    </resources>

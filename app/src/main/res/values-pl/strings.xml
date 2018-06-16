@@ -23,6 +23,7 @@
     <string name="deleteConfirmation">Potwierdź, że chcesz usunąć tę kartę.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
+    <string name="sendLabel">Wyślij&#8230;</string>
     <string name="addedShortcut">Dodano do ekranu głównego</string>
 
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
@@ -31,12 +32,19 @@
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="importExport">Importuj/Eksportuj</string>
+    <string name="importName">Importuj</string>
+    <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importedFrom">Zaimportowano z: %1$s</string>
     <string name="exportedTo">Wyeksportowano do: %1$s</string>
     <string name="fileMissing">Brak pliku: %1$s</string>
     <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
+    <string name="importFailedTitle">Import nie powiódł się</string>
+    <string name="importFailed">Nie udało się zaimportować: %1$s</string>
     <string name="exportSuccessfulTitle">Wyeksportowano pomyślnie</string>
+    <string name="exportFailedTitle">Eksport nie powiódł się</string>
+    <string name="exportFailed">Nie udało się wyeksportować: %1$s</string>
     <string name="importing">Importowanie&#8230;</string>
     <string name="exporting">Eksportowanie&#8230;</string>
     <string name="exportOptionExplanation">Dane zapisywane są w głównym katalogu pamięci zewnętrznej.</string>
@@ -50,6 +58,7 @@
     <string name="app_copyright_fmt">© 2016 — <xliff:g>%d</xliff:g> Branden Archer.</string>
     <string name="app_license">Licencjonowane na podstawie GNU General Public License, wersji 3.0.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące biblioteki osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące zasoby osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
@@ -59,6 +68,7 @@
     <string name="thumbnailDescription">Miniaturka karty</string>
 
     <string name="startIntro">Pokaż ekran powitalny</string>
+    <string name="intro1Title">Witamy w Loyalty Card Keychain\n</string>
     <string name="intro5Title">Kopia zapasowa\n</string>
     <string name="intro6Title">Informacje zwrotne\n</string>
     <string name="change">Zmień</string>
@@ -68,4 +78,4 @@
     <string name="settings_card_title_font_size">Rozmiar czcionki tytułu karty</string>
     <string name="settings_card_id_font_size">Rozmiar czcionki identyfikatora karty</string>
     <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
-</resources>
+    </resources>

@@ -4,7 +4,7 @@
     <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Neu</string>
 
-    <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den "+" Button oben rechts, können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
+    <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den \"+\"-Button oben rechts können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
 
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
@@ -59,22 +59,22 @@
     <string name="exporting">Exportiere…</string>
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
     <string name="exportOptionExplanation">Die Datei wird ins Rootverzeichnis des externen Speichers geschrieben.</string>
-    <string name="importOptionFilesystemTitle">Importiere vom Dateisystem</string>
-    <string name="importOptionFilesystemExplanation">Wähle eine Datei im Speicher aus.</string>
-    <string name="importOptionFilesystemButton">Vom Dateisystem</string>
-    <string name="importOptionApplicationTitle">Nutze eine externe App</string>
+    <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
+    <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
+    <string name="importOptionFilesystemButton">Aus Dateisystem</string>
+    <string name="importOptionApplicationTitle">Externe App verwenden</string>
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
-    <string name="importOptionFixedTitle">Importiere vom Export-Pfad</string>
-    <string name="importOptionFixedExplanation">Importiere vom Export-Pfad.</string>
-    <string name="importOptionFixedButton">Verwende den Export-Pfad.</string>
+    <string name="importOptionFixedTitle">Importiere aus Export-Pfad</string>
+    <string name="importOptionFixedExplanation">Nutze den Export-Pfad, um Karten zu importieren (dies stellt zuvor gesicherte Daten wieder her).</string>
+    <string name="importOptionFixedButton">Export-Pfad verwenden</string>
 
     <string name="about">Über</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lizensiert unter der GPLv3.</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Versions Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informationen zu dieser Version: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> verwendet folgenden Dritt-Ressourcen: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
@@ -82,6 +82,8 @@
     <string name="enterBarcodeInstructions">Fügen Sie die Kundennummer ein, anschließend wählen Sie die korrekte Barcodeart aus.</string>
 
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
+
+    <string name="thumbnailDescription">Vorschaubild für die Karte</string>
 
     <string name="startIntro">Starte Einführung</string>
     <string name="intro1Title">Willkommen zu Loyalty Card Keychain\n</string>
@@ -97,4 +99,7 @@
     <string name="intro6Title">Feedback\n</string>
     <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
 
-</resources>
+    <string name="change">Anpassen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="settings_category_title_ui">Benutzeroberfläche</string>
+    </resources>

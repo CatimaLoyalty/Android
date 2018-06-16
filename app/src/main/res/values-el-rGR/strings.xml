@@ -112,4 +112,4 @@
     <string name="settings_card_title_font_size">Μέγεθος κειμένου τίτλου κάρτας</string>
     <string name="settings_card_id_font_size">Μέγεθος κειμένου κωδικού κάρτας</string>
     <string name="settings_card_note_font_size">Μέγεθος κειμένου σημείωσης κάρτας</string>
-</resources>
+    </resources>

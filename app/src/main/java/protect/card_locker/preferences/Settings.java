@@ -34,6 +34,11 @@ public class Settings
         return settings.getInt(getResString(keyId), getResInt(defaultId));
     }
 
+    private boolean getBoolean(@StringRes int keyId, boolean defaultValue)
+    {
+        return settings.getBoolean(getResString(keyId), defaultValue);
+    }
+
     public int getCardTitleListFontSize()
     {
         return getInt(R.string.settings_key_card_title_list_font_size, R.integer.settings_card_title_list_font_size_sp);
@@ -57,5 +62,10 @@ public class Settings
     public int getCardNoteFontSize()
     {
         return getInt(R.string.settings_key_card_note_font_size, R.integer.settings_card_note_font_size_sp);
+    }
+
+    public boolean useMaxBrightnessDisplayingBarcode()
+    {
+        return getBoolean(R.string.settings_key_display_barcode_max_brightness, true);
     }
 }

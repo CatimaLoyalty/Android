@@ -112,4 +112,5 @@
     <string name="settings_card_title_font_size">Kaarttitel-lettertypegrootte</string>
     <string name="settings_card_id_font_size">Kaart-ID lettertypegrootte</string>
     <string name="settings_card_note_font_size">Kaartnotitie lettertypegrootte</string>
+    <string name="settings_display_barcode_max_brightness">Barcodeweergave lichter maken</string>
     </resources>

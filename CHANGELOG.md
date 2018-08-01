@@ -1,3 +1,11 @@
+## v0.24 (2018-07-31)
+
+Changes:
+- Add a setting to control screen brightness when displaying a barcode (https://github.com/brarcher/loyalty-card-locker/pull/259)
+- Add Greek translations (https://github.com/brarcher/loyalty-card-locker/pull/252)
+- Add Slovenian translations (https://github.com/brarcher/loyalty-card-locker/pull/260)
+- Update translations (https://github.com/brarcher/loyalty-card-locker/pull/260, https://github.com/brarcher/loyalty-card-locker/pull/254)
+
 ## v0.23.4 (2018-05-12)
 
 Changes: 

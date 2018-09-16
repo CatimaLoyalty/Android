@@ -148,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = getReadableDatabase();
         Cursor res =  db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
-                " ORDER BY " + LoyaltyCardDbIds.STORE, null);
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", null);
         return res;
     }
 

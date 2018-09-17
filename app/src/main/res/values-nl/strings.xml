@@ -4,10 +4,10 @@
     <string name="app_name">Klantenkaartkluis</string>
     <string name="action_add">Toevoegen</string>
 
-    <string name="noGiftCards">Er zijn momenteel geen klantenkaarten toegevoegd. Klik op de knop \"+\" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
+    <string name="noGiftCards">Er zijn nog geen klantenkaarten aanwezig. Klik op de knop \"+\" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
 
     <string name="storeName">Winkel</string>
-    <string name="note">Notitie</string>
+    <string name="note">Opmerking</string>
     <string name="cardId">Kaart-ID</string>
     <string name="barcodeType">Barcodetype</string>
 
@@ -45,7 +45,7 @@
     <string name="importExport">Importeren/Exporteren</string>
     <string name="importName">Importeren</string>
     <string name="exportName">Exporteren</string>
-    <string name="importExportHelp">Geback-upte gegevens maken het mogelijk om je kaarten over te zetten naar een ander apparaat.</string>
+    <string name="importExportHelp">Door de gegevens te back-uppen kun je je kaarten overzetten naar een ander apparaat.</string>
     <string name="importedFrom">Geïmporteerd uit: %1$s</string>
     <string name="exportedTo">Geëxporteerd naar: %1$s</string>
     <string name="fileMissing">Bestand ontbreekt: %1$s</string>

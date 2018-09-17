@@ -100,6 +100,17 @@
     <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
 
     <string name="change">Anpassen</string>
+    <string name="storeTextColorTitle">Textfarbe</string>
+    <string name="storeTextBackgroundColorTitle">Hintergrundfarbe</string>
+    <string name="storeNameBackgroundColorDescription">Hintergrundfarbe für den Geschäftsnamen</string>
+    <string name="storeNameColorDescription">Farbe für den Geschäftsnamen</string>
+
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
+    <string name="settings_card_title_list_font_size">Schriftgröße des Titels in der Listenansicht</string>
+    <string name="settings_card_note_list_font_size">Schriftgröße der Notiz in der Listenansicht</string>
+    <string name="settings_card_title_font_size">Schriftgröße des Titels</string>
+    <string name="settings_card_id_font_size">Schriftgröße der Kartennummer</string>
+    <string name="settings_card_note_font_size">Schriftgröße der Notiz</string>
+    <string name="settings_display_barcode_max_brightness">Helligkeit bei Barcode Ansicht erhöhen</string>
     </resources>

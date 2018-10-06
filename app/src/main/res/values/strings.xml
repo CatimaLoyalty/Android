@@ -121,4 +121,6 @@
     <string name="settings_key_card_note_font_size" translatable="false">pref_card_note_font_size_sp</string>
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
+    <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
+    <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
 </resources>

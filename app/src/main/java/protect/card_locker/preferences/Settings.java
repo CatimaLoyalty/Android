@@ -68,4 +68,9 @@ public class Settings
     {
         return getBoolean(R.string.settings_key_display_barcode_max_brightness, true);
     }
+
+    public boolean getLockBarcodeScreenOrientation()
+    {
+        return getBoolean(R.string.settings_key_lock_barcode_orientation, false);
+    }
 }

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.TextViewCompat;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -565,5 +566,42 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
+    }
+
+    @Test
+    public void checkScreenOrientationLockSetting()
+    {
+        for(boolean locked : new boolean[] {false, true})
+        {
+            ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+            Activity activity = (Activity)activityController.get();
+            DBHelper db = new DBHelper(activity);
+            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
+            settings.edit()
+                    .putBoolean(activity.getResources().getString(R.string.settings_key_lock_barcode_orientation), locked)
+                    .apply();
+
+            activityController.start();
+            activityController.resume();
+            activityController.visible();
+
+            assertEquals(false, activity.isFinishing());
+
+            MenuItem item = shadowOf(activity).getOptionsMenu().findItem(R.id.action_lock_unlock);
+
+            if(locked)
+            {
+                assertEquals(item.isVisible(), false);
+            }
+            else
+            {
+                assertEquals(item.isVisible(), true);
+                String title = item.getTitle().toString();
+                assertEquals(title, activity.getString(R.string.lockScreen));
+            }
+        }
     }
 }

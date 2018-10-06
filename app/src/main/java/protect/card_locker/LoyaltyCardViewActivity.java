@@ -227,20 +227,32 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             case R.id.action_lock_unlock:
                 if(rotationEnabled)
                 {
-                    item.setIcon(R.drawable.ic_lock_outline_white_24dp);
-                    item.setTitle(R.string.unlockScreen);
-                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+                    setOrientatonLock(item, true);
                 }
                 else
                 {
-                    item.setIcon(R.drawable.ic_lock_open_white_24dp);
-                    item.setTitle(R.string.lockScreen);
-                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+                    setOrientatonLock(item, false);
                 }
                 rotationEnabled = !rotationEnabled;
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setOrientatonLock(MenuItem item, boolean lock)
+    {
+        if(lock)
+        {
+            item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+            item.setTitle(R.string.unlockScreen);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        }
+        else
+        {
+            item.setIcon(R.drawable.ic_lock_open_white_24dp);
+            item.setTitle(R.string.lockScreen);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        }
     }
 }

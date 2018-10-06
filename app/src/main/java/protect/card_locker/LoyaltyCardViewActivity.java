@@ -200,6 +200,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
 
+        if(settings.getLockBarcodeScreenOrientation())
+        {
+            MenuItem item = menu.findItem(R.id.action_lock_unlock);
+            setOrientatonLock(item, true);
+            item.setVisible(false);
+        }
 
         return super.onCreateOptionsMenu(menu);
     }

@@ -40,11 +40,16 @@
             android:defaultValue="@integer/settings_card_note_font_size_sp"
             app:vnt_maxValue="@integer/settings_card_note_max_font_size_sp"
             app:vnt_minValue="@integer/settings_card_note_min_font_size_sp" />
+
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"
             android:title="@string/settings_display_barcode_max_brightness"/>
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/settings_key_lock_barcode_orientation"
+            android:title="@string/settings_lock_barcode_orientation"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

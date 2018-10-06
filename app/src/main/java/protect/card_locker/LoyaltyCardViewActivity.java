@@ -76,6 +76,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeName = findViewById(R.id.storeName);
         barcodeImage = findViewById(R.id.barcode);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+
+        rotationEnabled = true;
     }
 
     @Override
@@ -198,7 +200,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
 
-        rotationEnabled = true;
 
         return super.onCreateOptionsMenu(menu);
     }

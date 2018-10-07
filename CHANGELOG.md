@@ -1,3 +1,9 @@
+## v0.25 (2018-10-07)
+
+Changes:
+- Sort card list case insensitive (https://github.com/brarcher/loyalty-card-locker/pull/266)
+- Add setting to lock orientation for all cards (https://github.com/brarcher/loyalty-card-locker/pull/269)
+
 ## v0.24 (2018-07-31)
 
 Changes:

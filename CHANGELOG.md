@@ -1,3 +1,8 @@
+## v0.25.1 (2018-10-14)
+
+Changes:
+- Fix creating new card by manually entering barcode (https://github.com/brarcher/loyalty-card-locker/issues/272)
+
 ## v0.25 (2018-10-07)
 
 Changes:

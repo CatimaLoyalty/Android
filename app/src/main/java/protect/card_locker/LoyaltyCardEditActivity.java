@@ -449,6 +449,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             format = result.getFormatName();
         }
 
+        if(requestCode == SELECT_BARCODE_REQUEST && resultCode == Activity.RESULT_OK)
+        {
+            Log.i(TAG, "Received barcode information from typing it");
+
+            contents = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
+            format = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);
+        }
+
         if(contents != null && contents.isEmpty() == false &&
                 format != null && format.isEmpty() == false)
         {

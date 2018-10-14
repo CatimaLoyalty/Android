@@ -61,7 +61,7 @@ task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {
     description 'Run findbugs'
     group 'verification'
 
-    classes = fileTree('build/intermediates/classes/debug/')
+    classes = fileTree('build/intermediates/javac/debug/compileDebugJavaWithJavac/classes')
     source = fileTree('src/main/java')
     classpath = files()
 

@@ -113,4 +113,5 @@
     <string name="settings_card_id_font_size">Rozmiar czcionki identyfikatora karty</string>
     <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
+    <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     </resources>

@@ -1,0 +1,126 @@
+<resources
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">Kundekortknippe</string>
+    <string name="action_add">Legg til</string>
+
+    <string name="noGiftCards">Du har ingen kundekort for øyeblikket. Klikk på \"+\" (pluss)-knappen øverst for å komme igang.\n\nDa har du dem alltid hendig.</string>
+
+    <string name="storeName">Butikk</string>
+    <string name="note">Merknad</string>
+    <string name="cardId">Kort-ID</string>
+    <string name="barcodeType">Strekkodetype</string>
+
+    <string name="cancel">Avbryt</string>
+    <string name="save">Lagre</string>
+    <string name="capture">Fang opp kort</string>
+    <string name="enterCard">Skriv inn kort</string>
+    <string name="editCard">Rediger kort</string>
+    <string name="edit">Rediger</string>
+    <string name="delete">Slett</string>
+    <string name="confirm">Bekreft</string>
+    <string name="lockScreen">Ingen rotering</string>
+    <string name="unlockScreen">Skru på rotering</string>
+    <string name="deleteTitle">Fjern kundekort</string>
+    <string name="deleteConfirmation">Bekreft at du ønsker å slette dette kortet.</string>
+    <string name="ok">OK</string>
+    <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
+    <string name="sendLabel">Send&#8230;</string>
+    <string name="addedShortcut">Lagt til på hjemmeskjerm</string>
+
+    <string name="editCardTitle">Rediger kundekort</string>
+    <string name="addCardTitle">Legg til kundekort</string>
+    <string name="viewCardTitle">Vis kundekort</string>
+    <string name="scanCardBarcode">Skann kortets strekkode</string>
+    <string name="cardShortcut">Kort-snarvei</string>
+    <string name="noCardsMessage">Legg til et kort først</string>
+
+    <string name="barcodeImageDescription">Bilde av kortets strekkode</string>
+
+    <string name="noStoreError">Ingen butikk angitt</string>
+    <string name="noCardIdError">Ingen kort-ID innskrevet</string>
+    <string name="noCardExistsError">Kunne ikke finne kundekort</string>
+
+    <string name="cardIdFormat">%1$s: %2$s</string>
+    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
+
+    <string name="importExport">Import/eksport</string>
+    <string name="importName">Importer</string>
+    <string name="exportName">Eksporter</string>
+    <string name="importExportHelp">Sikkerhetskopiering av data lar deg flytte kortene til en annen enhet.</string>
+    <string name="importedFrom">Importert fra: %1$s</string>
+    <string name="exportedTo">Exportert til: %1$s</string>
+    <string name="fileMissing">Fil mangler: %1$s</string>
+    <string name="importSuccessfulTitle">Importert</string>
+    <string name="importFailedTitle">Kunne ikke importere</string>
+    <string name="importFailed">Klarte ikke å importere: %1$s</string>
+    <string name="exportSuccessfulTitle">Eksportert</string>
+    <string name="exportFailedTitle">Kunne ikke eksportere</string>
+    <string name="exportFailed">Klarte ikke å eksportere: %1$s</string>
+    <string name="importing">Importerer&#8230;</string>
+    <string name="exporting">Exporterer&#8230;</string>
+    <string name="noExternalStoragePermissionError">Kunne ikke importere eller eksportere kort uten tilgang til ekstern lagring.</string>
+    <string name="exportOptionExplanation">Data skrives til rotmappen i eksternt lagringsområde.</string>
+    <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
+    <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
+    <string name="importOptionFilesystemButton">Fra filsystem</string>
+    <string name="importOptionApplicationTitle">Brukt eksternt program</string>
+    <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
+    <string name="importOptionApplicationButton">Bruk eksternt program</string>
+    <string name="importOptionFixedTitle">Importer fra eksporteringsområde</string>
+    <string name="importOptionFixedExplanation">Importer fra området i filsystemet eksporter skrives til.</string>
+    <string name="importOptionFixedButton">Bruk eksporteringsplassering</string>
+
+    <string name="about">About</string>
+    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_license">Lisensiert GPLv3+.</string>
+    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Slippinformasjon: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> brukfer følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
+
+    <string name="selectBarcodeTitle">Velg strekkode</string>
+    <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
+
+    <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
+
+    <string name="thumbnailDescription">Miniatyrbilde for kort</string>
+
+    <string name="startIntro">Start intro</string>
+    <string name="intro1Title">Velkommen til Kundekortknippe\n</string>
+    <string name="intro1Description">Håndter strekkodekodekundekort på din enhet.\n\n</string>
+    <string name="intro2Title">Tillegg av kort\n</string>
+    <string name="intro2Description">Legg til et nytt kort ved å trykke på pluss-tegnet i kortlisten.\n\n</string>
+    <string name="intro3Title">Tillegg av kort\n</string>
+    <string name="intro3Description">For å legge til en strekkode, ta bilde av den med kamera, eller skriv den inn manuelt.\n\n</string>
+    <string name="intro4Title">Vis kort\n</string>
+    <string name="intro4Description">For å vise et kort, klikk på butikknavnet fra hovedskjermen\n\n</string>
+    <string name="intro5Title">Sikkerhetskopi\n</string>
+    <string name="intro5Description">Kortene kan sikkerhetskopieres. For å eksportere eller importere kortdata, trykk på \"Importer/eksporter\" i menyen på hovedsiden.\n\n</string>
+    <string name="intro6Title">Tilbakemeldinger\n</string>
+    <string name="intro6Description">Dette programmet er reklamefri og gratis fri programvare. Se flere detaljer ved å trykke på \"Om\"-skjermen på hovedsiden.\n\nLevn en vurdering i programbutikken. (:</string>
+
+    <string name="change">Endre</string>
+    <string name="storeTextColorTitle">Butikktekstfarge</string>
+    <string name="storeTextBackgroundColorTitle">Overskriftsfarge</string>
+    <string name="storeNameBackgroundColorDescription">Farge for butikktekstbakgrunn</string>
+    <string name="storeNameColorDescription">Butikktekstfarge</string>
+
+    <string name="settings">Innstillinger</string>
+    <string name="settings_category_title_ui">Brukergrensesnitt</string>
+    <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse</string>
+    <string name="settings_key_card_title_list_font_size" translatable="false">pref_card_title_list_font_size_sp</string>
+    <string name="settings_card_note_list_font_size">Kortmerknadsskriftstørrelse</string>
+    <string name="settings_key_card_note_list_font_size" translatable="false">pref_card_note_list_font_size_sp</string>
+    <string name="settings_card_title_font_size">Korttittelskriftstørrelse</string>
+    <string name="settings_key_card_title_font_size" translatable="false">pref_card_title_font_size_sp</string>
+    <string name="settings_card_id_font_size">Kort-ID-skriftstørrelse</string>
+    <string name="settings_key_card_id_font_size" translatable="false">pref_card_id_font_size_sp</string>
+    <string name="settings_card_note_font_size">Kortmerknadsskriftstørrelse</string>
+    <string name="settings_key_card_note_font_size" translatable="false">pref_card_note_font_size_sp</string>
+    <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
+    <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
+    <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
+    <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
+</resources>

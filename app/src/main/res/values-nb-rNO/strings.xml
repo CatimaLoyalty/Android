@@ -74,7 +74,7 @@
     <string name="about">About</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lisensiert GPLv3+.</string>
-    <string name="about_title_fmt">Om</string>
+    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Slippinformasjon: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> brukfer følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>

@@ -1,24 +1,51 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="app_name">Vernostné karty</string>
     <string name="action_add">Pridať</string>
 
+    <string name="noGiftCards">Zatiaľ nemáte žiadne vernostné karty. Kliknite na tlačidlo \"+\" (plus) vyššie a začnite.\n\nAplikácia Vernostné karty umožňuje nosiť svoje vernostné karty v telefóne, kde sú vždy na dosah.</string>
+
+    <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
+    <string name="cardId">ID karty</string>
     <string name="barcodeType">Typ čiarového kódu</string>
 
     <string name="cancel">Zrušiť</string>
     <string name="save">Uložiť</string>
+    <string name="capture">Zosnímať kartu</string>
+    <string name="enterCard">Zadať kód</string>
+    <string name="editCard">Úprava karty</string>
     <string name="edit">Upraviť</string>
     <string name="delete">Vymazať</string>
     <string name="confirm">Potvrdiť</string>
-    <string name="ok">OK</string>
+    <string name="lockScreen">Zakázať rotáciu</string>
+    <string name="unlockScreen">Povoliť rotáciu</string>
+    <string name="deleteTitle">Odstrániť kartu</string>
+    <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
+    <string name="ok">Áno</string>
     <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
+    <string name="sendLabel">Odoslať&#8230;</string>
     <string name="addedShortcut">Pridané na domovskú obrazovku</string>
+
+    <string name="editCardTitle">Upraviť kartu</string>
+    <string name="addCardTitle">Pridať kartu</string>
+    <string name="viewCardTitle">Zobraziť kartu</string>
+    <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
+    <string name="cardShortcut">Skratka</string>
+    <string name="noCardsMessage">Nie sú uložené žiadne karty, vložte prvú</string>
+
+    <string name="barcodeImageDescription">Obrázok čiarového kódu karty</string>
+
+    <string name="noStoreError">Nebol zadaný obchod</string>
+    <string name="noCardIdError">Nebolo zadané ID karty</string>
+    <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
     <string name="exportName">Export</string>
+    <string name="importExportHelp">Zálohovanie dát Vám umožní presunúť Vaše uložené karty na iné zariadenie.</string>
     <string name="importedFrom">Importované z: %1$s</string>
     <string name="exportedTo">Exportované do: %1$s</string>
     <string name="fileMissing">Chýbajúci súbor: %1$s</string>
@@ -30,6 +57,7 @@
     <string name="exportFailed">Zlyhal export: %1$s</string>
     <string name="importing">Importujem&#8230;</string>
     <string name="exporting">Exportujem&#8230;</string>
+    <string name="noExternalStoragePermissionError">Nie je možné importovať a exportovať karty bez prístupu k externému úložisku</string>
     <string name="exportOptionExplanation">Dáta sú zapísané do koreňového adresára na externom úložisku.</string>
     <string name="importOptionFilesystemTitle">Import zo súborového systému.</string>
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
@@ -46,18 +74,44 @@
     <string name="app_license">Licencované GPLv3.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informácia pri revízii: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používa nasledujúce knižnice tretej strany: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> používa tieto knižnice tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
+
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="enterBarcodeInstructions">Zadajte čiarový kód a vyberte obrázok reprezentujúci čiarový kód, ktorý chcete použiť</string>
 
-    <string name="startIntro">Spusti úvod</string>
-    <string name="intro1Title">Vitajte v aplikácii Loyalty Card Keychain\n</string>
+    <string name="copy_to_clipboard_toast">ID karty skopírované do schránky</string>
+
+    <string name="thumbnailDescription">Náhľad karty</string>
+
+    <string name="startIntro">Zobraz úvod</string>
+    <string name="intro1Title">Vitajte v aplikácii Vernostné karty\n</string>
+    <string name="intro1Description">Používajte Vaše vernostné karty s čiarovými kódmi na Vašom mobilnom zariadení!\n\n</string>
+    <string name="intro2Title">Pridávanie kariet\n</string>
+    <string name="intro2Description">Pridajte novú kartu stlačením \"+\" v zozname kariet.\n\n</string>
+    <string name="intro3Title">Pridávanie kariet\n</string>
     <string name="intro3Description">Čiarový kód nasnímajte kamerou, alebo ho vypíšte ručne.\n\n</string>
+    <string name="intro4Title">Zobrazenie karty\n</string>
+    <string name="intro4Description">Pre zobrazenie vernostnej karty stlačte názov obchodu v zozname kariet.\n\n</string>
     <string name="intro5Title">Záloha\n</string>
+    <string name="intro5Description">Vaše uložené karty môžu byť zálohované. Pre export a import kariet stlačte \"Import/Export\" v menu aplikácie.\n\n</string>
     <string name="intro6Title">Spätná väzba\n</string>
     <string name="intro6Description">Táto aplikácia je slobodná, neobsahuje reklamu a má otvorený zdrojový kód. Ďalšie informácie nájdete v položke menu O aplikácii na hlavnej stránke.\n\n Prosíme, zanechajte spätnú väzbu v obchode s aplikáciami. (:</string>
 
+    <string name="change">Upraviť</string>
+    <string name="storeTextColorTitle">Farba textu</string>
     <string name="storeTextBackgroundColorTitle">Farba hlavičky</string>
+    <string name="storeNameBackgroundColorDescription">Farba hlavičky</string>
+    <string name="storeNameColorDescription">Farba textu</string>
+
     <string name="settings">Nastavenia</string>
     <string name="settings_category_title_ui">Používateľské prostredie</string>
+    <string name="settings_card_title_list_font_size">Veľkosť názvu karty v zozname</string>
+    <string name="settings_card_note_list_font_size">Veľkosť poznámky v zozname</string>
+    <string name="settings_card_title_font_size">Veľkosť názvu karty</string>
+    <string name="settings_card_id_font_size">Veľkosť ID karty pod čiarovým kódom</string>
+    <string name="settings_card_note_font_size">Veľkosť poznámky</string>
+    <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
+    <string name="settings_lock_barcode_orientation">Uzamkni orientáciu čiarového kódu</string>
     </resources>

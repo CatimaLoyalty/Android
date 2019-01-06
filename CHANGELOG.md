@@ -1,3 +1,8 @@
+## v0.25.2 (2019-01-05)
+  
+Changes
+- Update and add translations
+
 ## v0.25.1 (2018-10-14)
 
 Changes:

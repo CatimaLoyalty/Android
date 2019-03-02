@@ -4,26 +4,26 @@
     <string name="app_name">Карты лояльности</string>
     <string name="action_add">Добавить карту</string>
 
-    <string name="noGiftCards">На данный момент у Вас нет ни одной карты лояльности. Нажмите на кнопку «+» (плюс) вверху, чтобы добавить первую карту.\n\n «Брелок карт лояльности» позволит Вам хранить скидочные карты в Вашем телефоне, чтобы они всегда были под рукой.</string>
+    <string name="noGiftCards">Пока нет ни одной карты. Нажмите на кнопку «+» (плюс) сверху для добавления.\n\n«Карты лояльности» позволяют хранить карты скидок в телефоне, так что они всегда будут под рукой.</string>
 
-    <string name="storeName">Заголовок</string>
-    <string name="note">Заметка</string>
+    <string name="storeName">Магазин</string>
+    <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
 
-    <string name="cancel">Отмена</string>
+    <string name="cancel">Отменить</string>
     <string name="save">Сохранить</string>
-    <string name="capture">Просканировать карту</string>
+    <string name="capture">Сканировать карту</string>
     <string name="enterCard">Ввести номер</string>
-    <string name="editCard">Редактор карты</string>
-    <string name="edit">Редактировать карту</string>
+    <string name="editCard">Редактировать штрих-код</string>
+    <string name="edit">Редактировать</string>
     <string name="delete">Удалить карту</string>
     <string name="confirm">Подтвердить</string>
-    <string name="lockScreen">Зафиксировать поворот экрана</string>
+    <string name="lockScreen">Блокировать поворот экрана</string>
     <string name="unlockScreen">Автоповорот экрана</string>
-    <string name="deleteTitle">Удалить карту</string>
-    <string name="deleteConfirmation">Вы действительно хотите удалить эту карту?</string>
-    <string name="ok">OK</string>
+    <string name="deleteTitle">Удаление карты</string>
+    <string name="deleteConfirmation">Пожалуйста подтвердите удаление карты.</string>
+    <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="sendLabel">Отправить&#8230;</string>
     <string name="addedShortcut">Карта добавлена на главный экран.</string>
@@ -31,87 +31,87 @@
     <string name="editCardTitle">Редактировать карту</string>
     <string name="addCardTitle">Добавить карту</string>
     <string name="viewCardTitle">Посмотреть карту</string>
-    <string name="scanCardBarcode">Просканируйте штрих-код</string>
+    <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
-    <string name="noCardsMessage">Карт нет, добавьте карту</string>
+    <string name="noCardsMessage">Карт нет, добавьте одну для начала</string>
 
-    <string name="barcodeImageDescription">Картинка штрих-кода</string>
+    <string name="barcodeImageDescription">Изображение штрих-кода</string>
 
-    <string name="noStoreError">Введите заголовок</string>
-    <string name="noCardIdError">Введите номер карты</string>
+    <string name="noStoreError">Название магазина не указано</string>
+    <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
     <string name="importName">Импорт</string>
     <string name="exportName">Экспорт</string>
-    <string name="importExportHelp">Сохраннённые карты можно перенести на другое устройство.</string>
+    <string name="importExportHelp">Сохранение карт позволяет перенести их на другое устройство.</string>
     <string name="importedFrom">Импортировано из: %1$s</string>
     <string name="exportedTo">Экспортировано в: %1$s</string>
     <string name="fileMissing">Файл не найден: %1$s</string>
     <string name="importSuccessfulTitle">Успешный импорт</string>
-    <string name="importFailedTitle">Ошибка импорта</string>
-    <string name="importFailed">Ошибка импорта: %1$s</string>
+    <string name="importFailedTitle">Импорт не удался</string>
+    <string name="importFailed">Не удалось импортировать: %1$s</string>
     <string name="exportSuccessfulTitle">Успешный экспорт</string>
-    <string name="exportFailedTitle">Ошибка экспорта</string>
-    <string name="exportFailed">Ошибка экспорта: %1$s</string>
+    <string name="exportFailedTitle">Экспорт не удался</string>
+    <string name="exportFailed">Не удалось экспортировать: %1$s</string>
     <string name="importing">Импорт&#8230;</string>
     <string name="exporting">Экспорт&#8230;</string>
-    <string name="noExternalStoragePermissionError">Не возможно импортировать или экспортировать карты без разрешения доступа к накопителю</string>
-    <string name="exportOptionExplanation">Карты пишутсяв корневую директорию накопителя.</string>
+    <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>
+    <string name="exportOptionExplanation">Данные сохраняются в корневой каталог хранилища.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
-    <string name="importOptionFilesystemExplanation">Выберете файл из файловой системы</string>
-    <string name="importOptionFilesystemButton">Из файловой системы</string>
-    <string name="importOptionApplicationTitle">Использовать другое приложение</string>
-    <string name="importOptionApplicationExplanation">Использовать другое приложение как Dropbox, Google Drive, или ваш любимый файловый менеджер для открытия файла.</string>
+    <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
+    <string name="importOptionFilesystemButton">Выбрать файл</string>
+    <string name="importOptionApplicationTitle">Использование другого приложения</string>
+    <string name="importOptionApplicationExplanation">Использовать другое приложение такое как Dropbox, Google Drive, или ваш любимый файловый менеджер чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
-    <string name="importOptionFixedTitle">Импорт из места экспорта</string>
-    <string name="importOptionFixedExplanation">Импорт из места файловой системы, куда сохраняется экспорт.</string>
-    <string name="importOptionFixedButton">Использовать место экспорта</string>
+    <string name="importOptionFixedTitle">Импорт из файла экспорта</string>
+    <string name="importOptionFixedExplanation">Импорт из того же файла, куда сохраняется экспорт.</string>
+    <string name="importOptionFixedButton">Использовать файл экспорта</string>
 
     <string name="about">О программе</string>
     <string name="app_copyright_fmt">Все права защищены 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
-    <string name="app_license">Программа лицензирована согласно GPLv3.</string>
+    <string name="app_license">Лицензия GPLv3.</string>
     <string name="about_title_fmt">О программе <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер штрих-кода и выберете нужный штрих-код</string>
+    <string name="enterBarcodeInstructions">Введите значение и выберете вид штрих-кода</string>
 
-    <string name="copy_to_clipboard_toast">Идентифицатор карты скопирован в буфер обмена.</string>
+    <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
 
-    <string name="thumbnailDescription">Логорип карты</string>
+    <string name="thumbnailDescription">Логотип карты</string>
 
     <string name="startIntro">Введение</string>
-    <string name="intro1Title">Добро пожаловать в программу «Брелок карт лояльности»\n</string>
-    <string name="intro1Description">Сохраните все свои штрих-кодовые карты на своём телефоне!\n\n</string>
+    <string name="intro1Title">Добро пожаловать в Карты лояльности\n</string>
+    <string name="intro1Description">Храните все карты лояльности/магазинов со штрих-кодом в телефоне!\n\n</string>
     <string name="intro2Title">Добавление карт\n</string>
-    <string name="intro2Description">Добавьте новую карту, коснувшись кнопки плюса на главной странице.\n\n</string>
+    <string name="intro2Description">Добавьте новую карту, нажав на плюс на экране со списком карт.\n\n</string>
     <string name="intro3Title">Добавление карт\n</string>
-    <string name="intro3Description">Для добавления штрих-кода просканируйте карту или введите её номер.\n\n</string>
-    <string name="intro4Title">Показать карточку\n</string>
-    <string name="intro4Description">Чтобы перейти к просмотру карты, нажмите на название организации на главной странице.\n\n</string>
+    <string name="intro3Description">Для добавления штрих-кода отсканируйте карту камерой или введите номер вручную.\n\n</string>
+    <string name="intro4Title">Показ карты\n</string>
+    <string name="intro4Description">Для показа карты, нажмите на название магазина на главном экране.\n\n</string>
     <string name="intro5Title">Резервное копирование\n</string>
-    <string name="intro5Description">Вы можете сохранить карты во внешнее хранилище. Чтобы экспортировать или импортировать данные карты, нажмите «Импорт/Экспорт» в меню на главной странице.\n\n</string>
-    <string name="intro6Title">Обратная связь\n</string>
-    <string name="intro6Description">Это бесплатное приложение, не обремененное рекламой и с открытым исходным кодом. Подробнее см. в разделе «О программе» в меню на главной странице.\n\nПожалуйста, оставьте отзыв в магазине приложений! (:</string>
+    <string name="intro5Description">Можно сделать резервную копию карт. Для этого нажмите Импорт/Экспорт в меню на главном экране.\n\n</string>
+    <string name="intro6Title">Отзыв\n</string>
+    <string name="intro6Description">Это бесплатное приложение, без рекламы и с открытым исходным кодом. Подробнее в разделе «О программе» в меню на главном экране.\n\nПожалуйста, оставьте отзыв в маркете приложений! (:</string>
 
     <string name="change">Изменить</string>
     <string name="storeTextColorTitle">Цвет текста</string>
     <string name="storeTextBackgroundColorTitle">Цвет фона</string>
-    <string name="storeNameBackgroundColorDescription">Цвет фона заголовка</string>
-    <string name="storeNameColorDescription">Цвет текста заголовка</string>
+    <string name="storeNameBackgroundColorDescription">Цвет фона названия магазина</string>
+    <string name="storeNameColorDescription">Цвет текста названия магазина</string>
 
     <string name="settings">Настройки</string>
-    <string name="settings_category_title_ui">Интерфейс пользователя</string>
-    <string name="settings_card_title_list_font_size">Размер шрифта заголовка в списке</string>
-    <string name="settings_card_note_list_font_size">Размер шрифта заметки в списке</string>
-    <string name="settings_card_title_font_size">Размер шрифта заголовка</string>
+    <string name="settings_category_title_ui">Внешний вид</string>
+    <string name="settings_card_title_list_font_size">Размер шрифта названия карты для списка</string>
+    <string name="settings_card_note_list_font_size">Размер шрифта примечания для списка</string>
+    <string name="settings_card_title_font_size">Размер шрифта названия карты</string>
     <string name="settings_card_id_font_size">Размер шрифта номера карты</string>
-    <string name="settings_card_note_font_size">Размер шрифта заметки</string>
-    <string name="settings_display_barcode_max_brightness">Яркий штрих-код</string>
-    <string name="settings_lock_barcode_orientation">Зафиксировать поворот страницы штрих-кода</string>
+    <string name="settings_card_note_font_size">Размер шрифта примечания</string>
+    <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
+    <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
     </resources>

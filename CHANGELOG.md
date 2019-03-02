@@ -1,3 +1,8 @@
+## v0.25.3 (2019-03-02)
+
+Changes
+- Update Russian translations
+
 ## v0.25.2 (2019-01-05)
   
 Changes

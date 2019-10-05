@@ -1,3 +1,9 @@
+## v0.25.4 (2019-10-04)
+
+Changes
+- Enable app backups
+- Update French and Slovenian translations
+
 ## v0.25.3 (2019-03-02)
 
 Changes

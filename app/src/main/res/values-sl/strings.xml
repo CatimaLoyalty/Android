@@ -112,4 +112,6 @@
     <string name="settings_card_title_font_size">Velikost pisave imen kartic</string>
     <string name="settings_card_id_font_size">Velikost pisave številke kartice</string>
     <string name="settings_card_note_font_size">Velikost pisave zabeležke</string>
+    <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
+    <string name="settings_lock_barcode_orientation">Zakleni orientacijo črtne kode</string>
     </resources>

@@ -90,4 +90,9 @@ public class Settings
     {
         return getBoolean(R.string.settings_key_lock_barcode_orientation, false);
     }
+
+    public boolean getKeepScreenOn()
+    {
+        return getBoolean(R.string.settings_key_keep_screen_on, false);
+    }
 }

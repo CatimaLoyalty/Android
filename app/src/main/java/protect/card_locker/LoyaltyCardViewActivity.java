@@ -233,10 +233,22 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         // '1' is the brightest. We attempt to maximize the brightness
         // to help barcode readers scan the barcode.
         Window window = getWindow();
-        if(window != null && settings.useMaxBrightnessDisplayingBarcode())
+        if(window != null)
         {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = 1F;
+
+            if (settings.useMaxBrightnessDisplayingBarcode())
+            {
+                attributes.screenBrightness = 1F;
+            }
+
+            if (settings.getKeepScreenOn())
+            {
+                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
+                        WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+            }
+
             window.setAttributes(attributes);
         }
 

@@ -58,6 +58,12 @@
             android:key="@string/settings_key_lock_barcode_orientation"
             android:title="@string/settings_lock_barcode_orientation"
             app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/settings_key_keep_screen_on"
+            android:title="@string/settings_keep_screen_on"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>

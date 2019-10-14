@@ -19,11 +19,25 @@
         app:zxing_viewfinder_laser="@color/zxing_custom_viewfinder_laser"
         app:zxing_viewfinder_mask="@color/zxing_custom_viewfinder_mask"/>
 
-    <Button
-        android:id="@+id/add_manually"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addManually"
         android:layout_gravity="bottom|center_horizontal"
-        android:onClick="addManually"/>
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/add_from_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addFromImage"
+            android:text="@string/addFromImage" />
+
+        <Button
+            android:id="@+id/add_manually"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addManually"
+            android:text="@string/addManually" />
+    </LinearLayout>
 </merge>

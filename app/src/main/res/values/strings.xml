@@ -105,6 +105,7 @@
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
 
+
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
 
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
@@ -131,6 +132,7 @@
     <string name="leaveWithoutSaveTitle">Leave without saving</string>
     <string name="leaveWithoutSaveConfirmation">Are you sure you want to leave this screen? Changed made will not be saved.</string>
     <string name="addManually">Manually enter card ID</string>
+    <string name="addFromImage">Import from image</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
@@ -143,4 +145,6 @@
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
     <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
+    <string name="noBarcodeFound">No barcode was found</string>
+    <string name="errorReadingImage">Error reading image</string>
 </resources>

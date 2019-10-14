@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             return;
         }
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
         if(!barcodeValues.isEmpty()) {
             Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);

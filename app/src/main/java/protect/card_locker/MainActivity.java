@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateLoyaltyCardList();
+        final EditText filter = findViewById(R.id.menu_filter);
+
+        updateLoyaltyCardList(filter.getText().toString());
 
         SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
         if (prefs.getBoolean("firstrun", true)) {
@@ -55,21 +57,16 @@ public class MainActivity extends AppCompatActivity
             prefs.edit().putBoolean("firstrun", false).commit();
         }
 
-        final EditText filter = findViewById(R.id.menu_filter);
         final TextWatcher FilterWatcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                updateLoyaltyCardList();
-            }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                updateLoyaltyCardList();
-            }
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                updateLoyaltyCardList();
+                updateLoyaltyCardList(editable.toString());
             }
         };
         filter.addTextChangedListener(FilterWatcher);
@@ -80,10 +77,12 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
 
-        updateLoyaltyCardList();
+        final EditText filter = findViewById(R.id.menu_filter);
+
+        updateLoyaltyCardList(filter.getText().toString());
     }
 
-    private void updateLoyaltyCardList()
+    private void updateLoyaltyCardList(String filterText)
     {
         final EditText filter = findViewById(R.id.menu_filter);
         final ListView cardList = findViewById(R.id.list);
@@ -102,8 +101,6 @@ public class MainActivity extends AppCompatActivity
             cardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
         }
-
-        String filterText = filter.getText().toString();
 
         Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
 

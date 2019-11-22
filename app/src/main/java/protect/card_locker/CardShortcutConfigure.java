@@ -44,7 +44,7 @@ public class CardShortcutConfigure extends AppCompatActivity
         final ListView cardList = findViewById(R.id.list);
         cardList.setVisibility(View.VISIBLE);
 
-        Cursor cardCursor = db.getLoyaltyCardCursor();
+        Cursor cardCursor = db.getLoyaltyCardCursor("");
 
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);

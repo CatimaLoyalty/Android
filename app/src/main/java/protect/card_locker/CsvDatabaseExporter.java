@@ -27,7 +27,7 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
 
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cursor = db.getLoyaltyCardCursor("");
 
         while(cursor.moveToNext())
         {

@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -20,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +54,25 @@ public class MainActivity extends AppCompatActivity
             startIntro();
             prefs.edit().putBoolean("firstrun", false).commit();
         }
+
+        final EditText filter = findViewById(R.id.menu_filter);
+        final TextWatcher FilterWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                updateLoyaltyCardList();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                updateLoyaltyCardList();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                updateLoyaltyCardList();
+            }
+        };
+        filter.addTextChangedListener(FilterWatcher);
     }
 
     @Override
@@ -63,22 +85,27 @@ public class MainActivity extends AppCompatActivity
 
     private void updateLoyaltyCardList()
     {
+        final EditText filter = findViewById(R.id.menu_filter);
         final ListView cardList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
         final DBHelper db = new DBHelper(this);
 
         if(db.getLoyaltyCardCount() > 0)
         {
+            filter.setVisibility(View.VISIBLE);
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
         }
         else
         {
+            filter.setVisibility(View.GONE);
             cardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
         }
 
-        Cursor cardCursor = db.getLoyaltyCardCursor();
+        String filterText = filter.getText().toString();
+
+        Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
 
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);
@@ -143,6 +170,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 

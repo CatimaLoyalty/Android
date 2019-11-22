@@ -144,11 +144,17 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsDeleted == 1);
     }
 
-    public Cursor getLoyaltyCardCursor()
+    public Cursor getLoyaltyCardCursor(final String filter)
     {
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res =  db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
-                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", null);
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
         return res;
     }
 

@@ -6,6 +6,7 @@
 
     <string name="typeToSearch">Type to search</string>
     <string name="noGiftCards">You don\'t have any loyalty cards at the moment. Click the "+" (plus) button up top to get started.\n\nLoyalty Card Locker lets you carry your loyalty cards on your phone, so they are always within reach.</string>
+    <string name="noMatchingGiftCards">No loyalty cards match the search filter. Please try some different terms.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>

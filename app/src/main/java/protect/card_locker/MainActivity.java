@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity
         final EditText filter = findViewById(R.id.menu_filter);
         final ListView cardList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
+        final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         final DBHelper db = new DBHelper(this);
 
         if(db.getLoyaltyCardCount() > 0)
@@ -94,12 +95,21 @@ public class MainActivity extends AppCompatActivity
             filter.setVisibility(View.VISIBLE);
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
+            if(db.getFilteredLoyaltyCardCount(filterText) > 0)
+            {
+                noMatchingCardsText.setVisibility(View.GONE);
+            }
+            else
+            {
+                noMatchingCardsText.setVisibility(View.VISIBLE);
+            }
         }
         else
         {
             filter.setVisibility(View.GONE);
             cardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
+            noMatchingCardsText.setVisibility(View.GONE);
         }
 
         Cursor cardCursor = db.getLoyaltyCardCursor(filterText);

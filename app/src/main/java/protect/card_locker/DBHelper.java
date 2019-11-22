@@ -175,5 +175,29 @@ public class DBHelper extends SQLiteOpenHelper
 
         return numItems;
     }
+
+    public int getFilteredLoyaltyCardCount(String filter)
+    {
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? "
+                , selectionArgs, null);
+
+        int numItems = 0;
+
+        if(data.getCount() == 1)
+        {
+            data.moveToFirst();
+            numItems = data.getInt(0);
+        }
+
+        data.close();
+
+        return numItems;
+    }
 }
 

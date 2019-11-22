@@ -83,7 +83,7 @@ public class ImportExportTest
      */
     private void checkLoyaltyCards()
     {
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cursor = db.getLoyaltyCardCursor("");
         int index = 1;
 
         while(cursor.moveToNext())

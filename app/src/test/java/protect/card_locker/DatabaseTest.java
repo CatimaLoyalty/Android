@@ -122,7 +122,7 @@ public class DatabaseTest
 
         assertEquals(CARDS_TO_ADD, db.getLoyaltyCardCount());
 
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cursor = db.getLoyaltyCardCursor("");
         assertNotNull(cursor);
 
         assertEquals(CARDS_TO_ADD, cursor.getCount());

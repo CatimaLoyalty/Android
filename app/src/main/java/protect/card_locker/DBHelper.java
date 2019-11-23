@@ -144,6 +144,18 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsDeleted == 1);
     }
 
+    public Cursor getLoyaltyCardCursor()
+    {
+        // An empty string will match everything
+        return getLoyaltyCardCursor("");
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store or note.
+     *
+     * @param filter
+     * @return Cursor
+     */
     public Cursor getLoyaltyCardCursor(final String filter)
     {
         String actualFilter = String.format("%%%s%%", filter);
@@ -160,23 +172,17 @@ public class DBHelper extends SQLiteOpenHelper
 
     public int getLoyaltyCardCount()
     {
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbIds.TABLE, null);
-
-        int numItems = 0;
-
-        if(data.getCount() == 1)
-        {
-            data.moveToFirst();
-            numItems = data.getInt(0);
-        }
-
-        data.close();
-
-        return numItems;
+        // An empty string will match everything
+        return getLoyaltyCardCount("");
     }
 
-    public int getFilteredLoyaltyCardCount(String filter)
+    /**
+     * Returns the amount of loyalty cards with the filter text in either the store or note.
+     *
+     * @param filter
+     * @return Integer
+     */
+    public int getLoyaltyCardCount(String filter)
     {
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };

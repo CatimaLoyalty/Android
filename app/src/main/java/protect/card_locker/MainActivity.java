@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
             filter.setVisibility(View.VISIBLE);
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
-            if(db.getFilteredLoyaltyCardCount(filterText) > 0)
+            if(db.getLoyaltyCardCount(filterText) > 0)
             {
                 noMatchingCardsText.setVisibility(View.GONE);
             }

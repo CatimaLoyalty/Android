@@ -1,6 +1,8 @@
 package protect.card_locker;
 
+import android.app.SearchManager;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ClipboardManager;
@@ -11,6 +13,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,6 +41,7 @@ import protect.card_locker.preferences.SettingsActivity;
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "LoyaltyCardLocker";
+    private Menu _menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,44 +51,66 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final EditText filter = findViewById(R.id.menu_filter);
-
-        updateLoyaltyCardList(filter.getText().toString());
+        updateLoyaltyCardList("");
 
         SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
         if (prefs.getBoolean("firstrun", true)) {
             startIntro();
             prefs.edit().putBoolean("firstrun", false).commit();
         }
-
-        final TextWatcher FilterWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                updateLoyaltyCardList(editable.toString());
-            }
-        };
-        filter.addTextChangedListener(FilterWatcher);
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
-        final EditText filter = findViewById(R.id.menu_filter);
+        String filter = "";
 
-        updateLoyaltyCardList(filter.getText().toString());
+        if (_menu != null)
+        {
+            SearchView searchView = (SearchView) _menu.findItem(R.id.action_search).getActionView();
+
+            if (!searchView.isIconified()) {
+                filter = searchView.getQuery().toString();
+            }
+        }
+
+        updateLoyaltyCardList(filter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1)
+        {
+            // We're coming back from another view so clear the search
+            // We only do this now to prevent a flash of all entries right after picking one
+            if (_menu != null)
+            {
+                MenuItem searchItem = _menu.findItem(R.id.action_search);
+                searchItem.collapseActionView();
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (_menu == null)
+        {
+            super.onBackPressed();
+            return;
+        }
+
+        SearchView searchView = (SearchView) _menu.findItem(R.id.action_search).getActionView();
+
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void updateLoyaltyCardList(String filterText)
     {
-        final EditText filter = findViewById(R.id.menu_filter);
         final ListView cardList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
         final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
@@ -92,7 +118,6 @@ public class MainActivity extends AppCompatActivity
 
         if(db.getLoyaltyCardCount() > 0)
         {
-            filter.setVisibility(View.VISIBLE);
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
@@ -109,7 +134,6 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            filter.setVisibility(View.GONE);
             cardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
             noMatchingCardsText.setVisibility(View.GONE);
@@ -138,7 +162,7 @@ public class MainActivity extends AppCompatActivity
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
 
-                startActivity(i);
+                startActivityForResult(i, 1);
             }
         });
     }
@@ -179,7 +203,35 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        _menu = menu;
+
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setSubmitButtonEnabled(false);
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                invalidateOptionsMenu();
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                updateLoyaltyCardList(newText);
+                return true;
+            }
+        });
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -192,21 +244,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_add)
         {
             Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivity(i);
+            startActivityForResult(i, 1);
             return true;
         }
 
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivity(i);
+            startActivityForResult(i, 1);
             return true;
         }
 
         if(id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(i);
+            startActivityForResult(i, 1);
             return true;
         }
 
@@ -314,6 +366,6 @@ public class MainActivity extends AppCompatActivity
     private void startIntro()
     {
         Intent intent = new Intent(this, IntroActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 }

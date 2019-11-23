@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -51,9 +52,6 @@ public class MainActivityTest
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         assertTrue(activity != null);
 
-        EditText filter = activity.findViewById(R.id.menu_filter);
-        assertEquals(View.GONE, filter.getVisibility());
-
         TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
 
@@ -72,9 +70,10 @@ public class MainActivityTest
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The settings and add button should be present
-        assertEquals(menu.size(), 5);
+        // The settings, search and add button should be present
+        assertEquals(menu.size(), 6);
 
+        assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
         assertEquals("Add", menu.findItem(R.id.action_add).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("Start Intro", menu.findItem(R.id.action_intro).getTitle().toString());
@@ -104,7 +103,6 @@ public class MainActivityTest
         activityController.start();
         activityController.resume();
 
-        EditText filter = mainActivity.findViewById(R.id.menu_filter);
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         ListView list = mainActivity.findViewById(R.id.list);
@@ -114,7 +112,6 @@ public class MainActivityTest
         DBHelper db = new DBHelper(mainActivity);
         db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
 
-        assertEquals(View.GONE, filter.getVisibility());
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
@@ -122,7 +119,6 @@ public class MainActivityTest
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
@@ -141,7 +137,7 @@ public class MainActivityTest
         activityController.start();
         activityController.resume();
 
-        EditText filter = mainActivity.findViewById(R.id.menu_filter);
+        SearchView searchView = mainActivity.findViewById(R.id.action_search);
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         ListView list = mainActivity.findViewById(R.id.list);
@@ -153,79 +149,72 @@ public class MainActivityTest
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getCount());
 
-        filter.setText("store");
+        searchView.setQuery("store", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getCount());
 
-        filter.setText("first");
+        searchView.setQuery("first", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getCount());
 
-        filter.setText("initial");
+        searchView.setQuery("initial", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getCount());
 
-        filter.setText("second");
+        searchView.setQuery("second", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getCount());
 
-        filter.setText("company");
+        searchView.setQuery("company", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(0, list.getCount());
 
-        filter.setText("");
+        searchView.setQuery("", false);
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());

@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -50,8 +51,14 @@ public class MainActivityTest
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         assertTrue(activity != null);
 
+        EditText filter = activity.findViewById(R.id.menu_filter);
+        assertEquals(View.GONE, filter.getVisibility());
+
         TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
+
+        TextView noMatchingCardsText = activity.findViewById(R.id.noMatchingCardsText);
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
 
         ListView list = activity.findViewById(R.id.list);
         assertEquals(View.GONE, list.getVisibility());
@@ -97,7 +104,9 @@ public class MainActivityTest
         activityController.start();
         activityController.resume();
 
+        EditText filter = mainActivity.findViewById(R.id.menu_filter);
         TextView helpText = mainActivity.findViewById(R.id.helpText);
+        TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         ListView list = mainActivity.findViewById(R.id.list);
 
         assertEquals(0, list.getCount());
@@ -105,18 +114,123 @@ public class MainActivityTest
         DBHelper db = new DBHelper(mainActivity);
         db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
 
+        assertEquals(View.GONE, filter.getVisibility());
         assertEquals(View.VISIBLE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
         activityController.pause();
         activityController.resume();
 
+        assertEquals(View.VISIBLE, filter.getVisibility());
         assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(1, list.getAdapter().getCount());
         Cursor cursor = (Cursor)list.getAdapter().getItem(0);
         assertNotNull(cursor);
+    }
+
+    @Test
+    public void testFiltering()
+    {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity)activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        EditText filter = mainActivity.findViewById(R.id.menu_filter);
+        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
+        ListView list = mainActivity.findViewById(R.id.list);
+
+        DBHelper db = new DBHelper(mainActivity);
+        db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getCount());
+
+        filter.setText("store");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getCount());
+
+        filter.setText("first");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        filter.setText("initial");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        filter.setText("second");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        filter.setText("company");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(0, list.getCount());
+
+        filter.setText("");
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.VISIBLE, filter.getVisibility());
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getCount());
     }
 
     @Test

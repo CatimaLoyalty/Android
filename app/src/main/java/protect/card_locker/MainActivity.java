@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity
         if(db.getLoyaltyCardCount() > 0)
         {
             filter.setVisibility(View.VISIBLE);
+            // We want the cardList to be visible regardless of the filtered match count
+            // to ensure that the noMatchingCardsText doesn't end up being shown below
+            // the keyboard
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
             if(db.getLoyaltyCardCount(filterText) > 0)

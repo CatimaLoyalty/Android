@@ -9,6 +9,16 @@
     tools:context="protect.card_locker.MainActivity"
     android:focusable="true"
     android:focusableInTouchMode="true">
+    <!--
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+
+        This two attributes remove focus from the EditText
+        widgets and set focus to layout container widget.
+
+        This prevents the keyboard from popping up every time
+        someone opens the app.
+    -->
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

@@ -38,7 +38,10 @@ import protect.card_locker.preferences.SettingsActivity;
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "LoyaltyCardLocker";
-    private Menu _menu;
+    private static final int MAIN_REQUEST_CODE = 1;
+
+    private Menu menu;
+    protected String filter = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,11 +64,9 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        String filter = "";
-
-        if (_menu != null)
+        if (menu != null)
         {
-            SearchView searchView = (SearchView) _menu.findItem(R.id.action_search).getActionView();
+            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
             if (!searchView.isIconified()) {
                 filter = searchView.getQuery().toString();
@@ -77,13 +78,14 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1)
+        if (requestCode == MAIN_REQUEST_CODE)
         {
             // We're coming back from another view so clear the search
             // We only do this now to prevent a flash of all entries right after picking one
-            if (_menu != null)
+            filter = "";
+            if (menu != null)
             {
-                MenuItem searchItem = _menu.findItem(R.id.action_search);
+                MenuItem searchItem = menu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
         }
@@ -91,13 +93,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (_menu == null)
+        if (menu == null)
         {
             super.onBackPressed();
             return;
         }
 
-        SearchView searchView = (SearchView) _menu.findItem(R.id.action_search).getActionView();
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
         if (!searchView.isIconified()) {
             searchView.setIconified(true);
@@ -159,7 +161,7 @@ public class MainActivity extends AppCompatActivity
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
 
-                startActivityForResult(i, 1);
+                startActivityForResult(i, MAIN_REQUEST_CODE);
             }
         });
     }
@@ -200,35 +202,38 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        _menu = menu;
+        this.menu = menu;
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setSubmitButtonEnabled(false);
+        if (searchManager != null) {
+            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setSubmitButtonEnabled(false);
 
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                invalidateOptionsMenu();
-                return false;
-            }
-        });
+            searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+                @Override
+                public boolean onClose() {
+                    invalidateOptionsMenu();
+                    return false;
+                }
+            });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                updateLoyaltyCardList(newText);
-                return true;
-            }
-        });
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    filter = newText;
+                    updateLoyaltyCardList(newText);
+                    return true;
+                }
+            });
+        }
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -241,21 +246,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_add)
         {
             Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivityForResult(i, 1);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivityForResult(i, 1);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
         if(id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivityForResult(i, 1);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
@@ -363,6 +368,6 @@ public class MainActivity extends AppCompatActivity
     private void startIntro()
     {
         Intent intent = new Intent(this, IntroActivity.class);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, MAIN_REQUEST_CODE);
     }
 }

@@ -132,11 +132,10 @@ public class MainActivityTest
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
-        Activity mainActivity = (Activity)activityController.get();
+        MainActivity mainActivity = (MainActivity)activityController.get();
         activityController.start();
         activityController.resume();
 
-        SearchView searchView = mainActivity.findViewById(R.id.action_search);
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         ListView list = mainActivity.findViewById(R.id.list);
@@ -154,7 +153,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
-        searchView.setQuery("store", false);
+        mainActivity.filter = "store";
 
         activityController.pause();
         activityController.resume();
@@ -165,7 +164,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
-        searchView.setQuery("first", false);
+        mainActivity.filter = "first";
 
         activityController.pause();
         activityController.resume();
@@ -176,7 +175,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        searchView.setQuery("initial", false);
+        mainActivity.filter = "initial";
 
         activityController.pause();
         activityController.resume();
@@ -187,7 +186,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        searchView.setQuery("second", false);
+        mainActivity.filter = "second";
 
         activityController.pause();
         activityController.resume();
@@ -198,7 +197,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        searchView.setQuery("company", false);
+        mainActivity.filter = "company";
 
         activityController.pause();
         activityController.resume();
@@ -209,7 +208,7 @@ public class MainActivityTest
 
         assertEquals(0, list.getCount());
 
-        searchView.setQuery("", false);
+        mainActivity.filter = "";
 
         activityController.pause();
         activityController.resume();

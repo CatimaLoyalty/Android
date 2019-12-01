@@ -189,7 +189,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             LoyaltyCard importCard;
             try {
                 importCard = importUriHelper.parse(importLoyaltyCardUri);
-            } catch (InvalidObjectException _) {
+            } catch (InvalidObjectException ex) {
                 Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
                 finish();
                 return;

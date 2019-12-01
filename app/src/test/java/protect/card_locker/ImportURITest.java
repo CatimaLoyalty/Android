@@ -66,7 +66,7 @@ public class ImportURITest {
         try {
             importURIHelper.parse(Uri.parse("https://example.com/test"));
             assertTrue(false); // Shouldn't get here
-        } catch(InvalidObjectException _) {
+        } catch(InvalidObjectException ex) {
             // Desired behaviour
         }
     }

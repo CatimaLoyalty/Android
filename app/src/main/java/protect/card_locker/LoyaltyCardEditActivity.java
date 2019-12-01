@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -28,6 +29,8 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
+
+import java.io.InvalidObjectException;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
@@ -54,16 +57,19 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
 
     DBHelper db;
+    ImportURIHelper importUriHelper;
 
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        importLoyaltyCardUri = intent.getData();
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard));
@@ -86,6 +92,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         extractIntentFields(getIntent());
 
         db = new DBHelper(this);
+        importUriHelper = new ImportURIHelper(this);
 
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
@@ -163,7 +170,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 {
                     headingColorValue = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
                 }
-                headingColorSample.setBackgroundColor(headingColorValue);
             }
 
             if(headingStoreTextColorValue == null)
@@ -173,10 +179,28 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 {
                     headingStoreTextColorValue = Color.WHITE;
                 }
-                headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
             }
 
             setTitle(R.string.editCardTitle);
+        }
+        else if(importLoyaltyCardUri != null)
+        {
+            // Try to parse
+            LoyaltyCard importCard;
+            try {
+                importCard = importUriHelper.parse(importLoyaltyCardUri);
+            } catch (InvalidObjectException _) {
+                Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            storeFieldEdit.setText(importCard.store);
+            noteFieldEdit.setText(importCard.note);
+            cardIdFieldView.setText(importCard.cardId);
+            barcodeTypeField.setText(importCard.barcodeType);
+            headingColorValue = importCard.headerColor;
+            headingStoreTextColorValue = importCard.headerTextColor;
         }
         else
         {
@@ -190,16 +214,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             final int color = (int)(Math.random() * colors.length());
             headingColorValue = colors.getColor(color, Color.BLACK);
             colors.recycle();
-
-            headingColorSample.setBackgroundColor(headingColorValue);
         }
 
-        if(headingStoreTextColorValue == null)
-        {
+        if(headingStoreTextColorValue == null) {
             headingStoreTextColorValue = Color.WHITE;
-            headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
         }
 
+        headingColorSample.setBackgroundColor(headingColorValue);
+        headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
         headingColorSelectButton.setOnClickListener(new ColorSelectListener(headingColorValue, true));
         headingStoreTextColorSelectButton.setOnClickListener(new ColorSelectListener(headingStoreTextColorValue, false));
 

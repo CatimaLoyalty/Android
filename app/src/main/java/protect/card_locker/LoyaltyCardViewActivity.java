@@ -38,8 +38,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImageView barcodeImage;
     View collapsingToolbarLayout;
     int loyaltyCardId;
+    LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
     DBHelper db;
+    ImportURIHelper importURIHelper;
     Settings settings;
 
     private void extractIntentFields(Intent intent)
@@ -69,6 +71,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         db = new DBHelper(this);
+        importURIHelper = new ImportURIHelper(this);
 
         cardIdFieldView = findViewById(R.id.cardIdView);
         noteView = findViewById(R.id.noteView);
@@ -105,7 +108,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             window.setAttributes(attributes);
         }
 
-        final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+        loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
         if(loyaltyCard == null)
         {
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
@@ -220,6 +223,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             case android.R.id.home:
                 finish();
                 break;
+
+            case R.id.action_share:
+                importURIHelper.startShareIntent(importURIHelper.toUri(loyaltyCard));
+                return true;
 
             case R.id.action_edit:
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);

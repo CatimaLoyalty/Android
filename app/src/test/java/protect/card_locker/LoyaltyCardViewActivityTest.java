@@ -7,6 +7,8 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.TextViewCompat;
@@ -604,5 +606,26 @@ public class LoyaltyCardViewActivityTest
                 assertEquals(title, activity.getString(R.string.lockScreen));
             }
         }
+    }
+
+    @Test
+    public void importCard()
+    {
+        Uri importUri = Uri.parse("https://github.com/brarcher/loyalty-card-locker?store=Example%20Storenote=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+
+        Intent intent = new Intent();
+        intent.setData(importUri);
+
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).withIntent(intent).create();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        Activity activity = (Activity)activityController.get();
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
+        assertEquals(activity.findViewById(R.id.headingColorSample).getBackground(), new ColorDrawable(-416706));
+        assertEquals(activity.findViewById(R.id.headingStoreTextColorSample).getBackground(), new ColorDrawable(-1));
     }
 }

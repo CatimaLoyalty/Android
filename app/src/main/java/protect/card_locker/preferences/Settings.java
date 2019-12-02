@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.StringRes;
+import android.support.v7.app.AppCompatDelegate;
 
 import protect.card_locker.R;
 
@@ -29,6 +30,11 @@ public class Settings
         return context.getResources().getInteger(resId);
     }
 
+    private String getString(@StringRes int keyId, String defaultValue)
+    {
+        return settings.getString(getResString(keyId), defaultValue);
+    }
+
     private int getInt(@StringRes int keyId, @IntegerRes int defaultId)
     {
         return settings.getInt(getResString(keyId), getResInt(defaultId));
@@ -37,6 +43,22 @@ public class Settings
     private boolean getBoolean(@StringRes int keyId, boolean defaultValue)
     {
         return settings.getBoolean(getResString(keyId), defaultValue);
+    }
+
+    public int getTheme()
+    {
+        String value = getString(R.string.settings_key_theme, getResString(R.string.settings_key_system_theme));
+
+        if(value.equals(getResString(R.string.settings_key_light_theme)))
+        {
+            return AppCompatDelegate.MODE_NIGHT_NO;
+        }
+        else if(value.equals(getResString(R.string.settings_key_dark_theme)))
+        {
+            return AppCompatDelegate.MODE_NIGHT_YES;
+        }
+
+        return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
 
     public int getCardTitleListFontSize()

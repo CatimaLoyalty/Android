@@ -3,9 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-
 import java.io.InvalidObjectException;
-import java.security.InvalidParameterException;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
@@ -15,10 +13,10 @@ public class ImportURIHelper {
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
     private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
 
-    private Context context;
-    private String host;
-    private String path;
-    private String shareText;
+    private final Context context;
+    private final String host;
+    private final String path;
+    private final String shareText;
 
     public ImportURIHelper(Context context) {
         this.context = context;
@@ -31,7 +29,7 @@ public class ImportURIHelper {
         return uri.getHost().equals(host) && uri.getPath().equals(path);
     }
 
-    public LoyaltyCard parse(Uri uri) throws InvalidObjectException, InvalidParameterException {
+    public LoyaltyCard parse(Uri uri) throws InvalidObjectException {
         if(!isImportUri(uri)) {
             throw new InvalidObjectException("Not an import URI");
         }
@@ -45,12 +43,12 @@ public class ImportURIHelper {
             Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
         } catch (NullPointerException | NumberFormatException ex) {
-            ex.printStackTrace();
             throw new InvalidObjectException("Not a valid import URI");
         }
     }
 
-    public Uri toUri(LoyaltyCard loyaltyCard) {
+    // Protected for usage in tests
+    protected Uri toUri(LoyaltyCard loyaltyCard) {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https");
         uriBuilder.authority(host);
@@ -65,7 +63,7 @@ public class ImportURIHelper {
         return uriBuilder.build();
     }
 
-    public void startShareIntent(Uri uri) {
+    private void startShareIntent(Uri uri) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, shareText + "\n" + uri.toString());
@@ -73,5 +71,9 @@ public class ImportURIHelper {
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         context.startActivity(shareIntent);
+    }
+
+    public void startShareIntent(LoyaltyCard loyaltyCard) {
+        startShareIntent(toUri(loyaltyCard));
     }
 }

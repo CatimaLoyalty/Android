@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity
             else if(item.getItemId() == R.id.action_share)
             {
                 final ImportURIHelper importURIHelper = new ImportURIHelper(this);
-                importURIHelper.startShareIntent(importURIHelper.toUri(card));
+                importURIHelper.startShareIntent(card);
                 return true;
             }
         }

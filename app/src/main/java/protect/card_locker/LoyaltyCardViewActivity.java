@@ -225,7 +225,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 break;
 
             case R.id.action_share:
-                importURIHelper.startShareIntent(importURIHelper.toUri(loyaltyCard));
+                importURIHelper.startShareIntent(loyaltyCard);
                 return true;
 
             case R.id.action_edit:

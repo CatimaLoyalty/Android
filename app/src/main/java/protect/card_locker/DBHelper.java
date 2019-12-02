@@ -146,16 +146,52 @@ public class DBHelper extends SQLiteOpenHelper
 
     public Cursor getLoyaltyCardCursor()
     {
+        // An empty string will match everything
+        return getLoyaltyCardCursor("");
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store or note.
+     *
+     * @param filter
+     * @return Cursor
+     */
+    public Cursor getLoyaltyCardCursor(final String filter)
+    {
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res =  db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
-                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", null);
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
         return res;
     }
 
     public int getLoyaltyCardCount()
     {
+        // An empty string will match everything
+        return getLoyaltyCardCount("");
+    }
+
+    /**
+     * Returns the amount of loyalty cards with the filter text in either the store or note.
+     *
+     * @param filter
+     * @return Integer
+     */
+    public int getLoyaltyCardCount(String filter)
+    {
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
         SQLiteDatabase db = getReadableDatabase();
-        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbIds.TABLE, null);
+        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? "
+                , selectionArgs, null);
 
         int numItems = 0;
 

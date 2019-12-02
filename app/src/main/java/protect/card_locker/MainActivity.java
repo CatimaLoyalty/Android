@@ -1,6 +1,8 @@
 package protect.card_locker;
 
+import android.app.SearchManager;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ClipboardManager;
@@ -11,6 +13,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -35,6 +38,10 @@ import protect.card_locker.preferences.SettingsActivity;
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "LoyaltyCardLocker";
+    private static final int MAIN_REQUEST_CODE = 1;
+
+    private Menu menu;
+    protected String filter = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateLoyaltyCardList();
+        updateLoyaltyCardList("");
 
         SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
         if (prefs.getBoolean("firstrun", true)) {
@@ -54,31 +61,84 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
-        updateLoyaltyCardList();
+        if (menu != null)
+        {
+            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+
+            if (!searchView.isIconified()) {
+                filter = searchView.getQuery().toString();
+            }
+        }
+
+        updateLoyaltyCardList(filter);
     }
 
-    private void updateLoyaltyCardList()
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MAIN_REQUEST_CODE)
+        {
+            // We're coming back from another view so clear the search
+            // We only do this now to prevent a flash of all entries right after picking one
+            filter = "";
+            if (menu != null)
+            {
+                MenuItem searchItem = menu.findItem(R.id.action_search);
+                searchItem.collapseActionView();
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (menu == null)
+        {
+            super.onBackPressed();
+            return;
+        }
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void updateLoyaltyCardList(String filterText)
     {
         final ListView cardList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
+        final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         final DBHelper db = new DBHelper(this);
 
         if(db.getLoyaltyCardCount() > 0)
         {
+            // We want the cardList to be visible regardless of the filtered match count
+            // to ensure that the noMatchingCardsText doesn't end up being shown below
+            // the keyboard
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
+            if(db.getLoyaltyCardCount(filterText) > 0)
+            {
+                noMatchingCardsText.setVisibility(View.GONE);
+            }
+            else
+            {
+                noMatchingCardsText.setVisibility(View.VISIBLE);
+            }
         }
         else
         {
             cardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
+            noMatchingCardsText.setVisibility(View.GONE);
         }
 
-        Cursor cardCursor = db.getLoyaltyCardCursor();
+        Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
 
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);
@@ -101,7 +161,7 @@ public class MainActivity extends AppCompatActivity
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
 
-                startActivity(i);
+                startActivityForResult(i, MAIN_REQUEST_CODE);
             }
         });
     }
@@ -142,7 +202,39 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        this.menu = menu;
+
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        if (searchManager != null) {
+            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setSubmitButtonEnabled(false);
+
+            searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+                @Override
+                public boolean onClose() {
+                    invalidateOptionsMenu();
+                    return false;
+                }
+            });
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    filter = newText;
+                    updateLoyaltyCardList(newText);
+                    return true;
+                }
+            });
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -154,21 +246,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_add)
         {
             Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivity(i);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivity(i);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
         if(id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(i);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
@@ -276,6 +368,6 @@ public class MainActivity extends AppCompatActivity
     private void startIntro()
     {
         Intent intent = new Intent(this, IntroActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, MAIN_REQUEST_CODE);
     }
 }

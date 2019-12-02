@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:background="@color/inputBorder" />
                 <TableRow
-                    android:background="@color/inputBackground"
+                    android:background="?android:attr/colorBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <View
@@ -90,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:background="@color/inputBorder" />
                 <TableRow
-                    android:background="@color/inputBackground"
+                    android:background="?android:attr/colorBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <View
@@ -142,7 +142,7 @@
                     android:layout_width="match_parent"
                     android:background="@color/inputBorder" />
                 <TableRow
-                    android:background="@color/inputBackground"
+                    android:background="?android:attr/colorBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <View
@@ -214,7 +214,7 @@
                     android:layout_width="match_parent"
                     android:background="@color/inputBorder" />
                 <TableRow
-                    android:background="@color/inputBackground"
+                    android:background="?android:attr/colorBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <View
@@ -288,7 +288,7 @@
                     android:background="@color/inputBorder" />
                 <TableRow
                     android:id="@+id/cardIdTableRow"
-                    android:background="@color/inputBackground"
+                    android:background="?android:attr/colorBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <View

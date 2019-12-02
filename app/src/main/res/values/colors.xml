@@ -11,7 +11,6 @@
     <color name="colorSecondaryText">#000000</color>
 
     <color name="inputContrastBackground">#F8F8F8</color>
-    <color name="inputBackground">#FFFFFF</color>
     <color name="inputBorder">#DDDDDD</color>
     <color name="inputDividerBorder">#AAAAAA</color>
 </resources>

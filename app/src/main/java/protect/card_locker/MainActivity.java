@@ -9,6 +9,7 @@ import android.content.ClipboardManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -325,8 +326,19 @@ public class MainActivity extends AppCompatActivity
         }
 
         WebView wv = new WebView(this);
+
+        // Set CSS for dark mode if dark mode
+        String css = "";
+        Configuration config = getResources().getConfiguration();
+        int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if(currentNightMode == Configuration.UI_MODE_NIGHT_YES)
+        {
+            css = "<style>body {color:white; background-color:black;}</style>";
+        }
+
         String html =
             "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
+            css +
             "<img src=\"file:///android_res/mipmap/ic_launcher.png\" alt=\"" + appName + "\"/>" +
             "<h1>" +
             String.format(getString(R.string.about_title_fmt),

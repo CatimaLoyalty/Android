@@ -130,6 +130,6 @@
 
     <string name="intent_import_card_from_url">Import loyalty card</string>
     <string name="intent_import_card_from_url_share_text">I want to share a loyalty card with you</string>
-    <string name="intent_import_card_from_url_host" translatable="false">github.com</string>
-    <string name="intent_import_card_from_url_path_prefix" translatable="false">/brarcher/loyalty-card-locker</string>
+    <string name="intent_import_card_from_url_host" translatable="false">brarcher.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix" translatable="false">/loyalty-card-locker/share</string>
 </resources>

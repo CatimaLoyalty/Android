@@ -611,7 +611,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void importCard()
     {
-        Uri importUri = Uri.parse("https://github.com/brarcher/loyalty-card-locker?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+        Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
         intent.setData(importUri);

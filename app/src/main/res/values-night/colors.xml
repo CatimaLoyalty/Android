@@ -7,11 +7,11 @@
     <color name="colorSecondary">#ffc107</color>
     <color name="colorSecondaryLight">#fff350</color>
     <color name="colorSecondaryDark">#c79100</color>
-    <color name="colorPrimaryText">#ffffff</color>
-    <color name="colorSecondaryText">#000000</color>
+    <color name="colorPrimaryText">#000000</color>
+    <color name="colorSecondaryText">#ffffff</color>
 
-    <color name="inputContrastBackground">#F8F8F8</color>
-    <color name="inputBackground">#FFFFFF</color>
-    <color name="inputBorder">#DDDDDD</color>
-    <color name="inputDividerBorder">#AAAAAA</color>
+    <color name="inputContrastBackground">#070707</color>
+    <color name="inputBackground">#000000</color>
+    <color name="inputBorder">#222222</color>
+    <color name="inputDividerBorder">#666666</color>
 </resources>

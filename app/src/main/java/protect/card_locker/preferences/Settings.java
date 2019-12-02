@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.StringRes;
+import android.support.v7.app.AppCompatDelegate;
 
 import protect.card_locker.R;
 

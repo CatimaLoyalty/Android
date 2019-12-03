@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -186,14 +187,23 @@ public class MainActivity extends AppCompatActivity
         Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
         LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
-        if(card != null && item.getItemId() == R.id.action_clipboard)
+        if(card != null)
         {
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText(card.store, card.cardId);
-            clipboard.setPrimaryClip(clip);
+            if(item.getItemId() == R.id.action_clipboard)
+            {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+                clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
-            return true;
+                Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                return true;
+            }
+            else if(item.getItemId() == R.id.action_share)
+            {
+                final ImportURIHelper importURIHelper = new ImportURIHelper(this);
+                importURIHelper.startShareIntent(card);
+                return true;
+            }
         }
 
         return super.onContextItemSelected(item);

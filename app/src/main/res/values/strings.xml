@@ -27,6 +27,7 @@
     <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
+    <string name="share">Share</string>
     <string name="sendLabel">Send&#8230;</string>
     <string name="addedShortcut">Added to Home Screen</string>
 
@@ -42,6 +43,7 @@
     <string name="noStoreError">No Store entered</string>
     <string name="noCardIdError">No Card ID entered</string>
     <string name="noCardExistsError">Could not lookup loyalty card</string>
+    <string name="failedParsingImportUriError">Could not parse the import Uri</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
@@ -125,4 +127,9 @@
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
+
+    <string name="intent_import_card_from_url">Import loyalty card</string>
+    <string name="intent_import_card_from_url_share_text">I want to share a loyalty card with you</string>
+    <string name="intent_import_card_from_url_host" translatable="false">brarcher.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix" translatable="false">/loyalty-card-locker/share</string>
 </resources>

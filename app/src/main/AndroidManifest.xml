@@ -44,7 +44,17 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"
-            android:exported="true"/>
+            android:exported="true">
+            <intent-filter android:label="@string/intent_import_card_from_url">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "https://github.com/brarcher/loyalty-card-locker/” -->
+                <data android:scheme="https"
+                    android:host="@string/intent_import_card_from_url_host"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"

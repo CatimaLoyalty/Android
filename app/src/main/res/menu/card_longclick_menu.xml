@@ -6,4 +6,8 @@
         android:id="@+id/action_clipboard"
         android:title="@string/copy_to_clipboard"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_share"
+        android:title="@string/share"
+        app:showAsAction="always"/>
 </menu>

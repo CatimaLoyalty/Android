@@ -116,6 +116,9 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                     ImageView image = findViewById(barcodeViewMap.get(key));
                     createBarcodeOption(image, key, s.toString());
                 }
+
+                View noBarcodeButtonView = findViewById(R.id.noBarcode);
+                setButtonListener(noBarcodeButtonView, s.toString());
             }
 
             @Override
@@ -132,6 +135,21 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         {
             cardId.setText(initialCardId);
         }
+    }
+
+    private void setButtonListener(final View button, final String cardId)
+    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Selected no barcode");
+                Intent result = new Intent();
+                result.putExtra(BARCODE_FORMAT, "");
+                result.putExtra(BARCODE_CONTENTS, cardId);
+                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+                finish();
+            }
+        });
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId)

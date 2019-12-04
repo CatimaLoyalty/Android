@@ -196,10 +196,11 @@
                     android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
             </LinearLayout>
+            <Button
+                android:id="@+id/noBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/barcodeNoBarcode" />
         </LinearLayout>
     </ScrollView>
-
-
-
-
 </android.support.design.widget.CoordinatorLayout>

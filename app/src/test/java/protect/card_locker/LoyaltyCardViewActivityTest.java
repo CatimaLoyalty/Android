@@ -246,10 +246,6 @@ public class LoyaltyCardViewActivityTest
         noteField.setText("note");
         shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
-
-        cardIdField.setText("cardId");
-        shadowActivity.clickMenuItem(R.id.action_save);
-        assertEquals(0, db.getLoyaltyCardCount());
     }
 
     @Test

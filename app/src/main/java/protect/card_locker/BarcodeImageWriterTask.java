@@ -123,14 +123,14 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             for (int y = 0; y < bitMatrixHeight; y++)
             {
-                if(enclosingRectangle != null && (y < top || y > bottom))
+                if(enclosingRectangle != null && (y < top || y >= bottom))
                 {
                     continue;
                 }
                 int offset = y * bitMatrixWidth;
                 for (int x = 0; x < bitMatrixWidth; x++)
                 {
-                    if(enclosingRectangle != null && (x < left || x > right))
+                    if(enclosingRectangle != null && (x < left || x >= right))
                     {
                         continue;
                     }

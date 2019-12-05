@@ -53,23 +53,24 @@ public class SettingsActivity extends AppCompatActivity
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
 
-            findPreference(getResources().getString(R.string.settings_key_theme)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            findPreference(getResources().getString(R.string.settings_key_theme)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
+            {
                 @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
+                public boolean onPreferenceChange(Preference preference, Object o)
+                {
                     if(o.toString().equals(getResources().getString(R.string.settings_key_light_theme)))
                     {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        getActivity().recreate();
-                        return true;
                     }
                     else if(o.toString().equals(getResources().getString(R.string.settings_key_dark_theme)))
                     {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        getActivity().recreate();
-                        return true;
+                    }
+                    else
+                    {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     }
 
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     getActivity().recreate();
                     return true;
                 }

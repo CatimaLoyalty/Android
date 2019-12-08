@@ -114,10 +114,12 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             // Returns: left,top,width,height enclosing rectangle of all 1 bits, or null if it is all white
             int[] enclosingRectangle = bitMatrix.getEnclosingRectangle();
-            int left = enclosingRectangle != null ? enclosingRectangle[0] : 0;
-            int top = enclosingRectangle != null ? enclosingRectangle[1] : 0;
-            int right = enclosingRectangle != null ? (enclosingRectangle[0] + enclosingRectangle[2]) : bitMatrixWidth;
-            int bottom = enclosingRectangle != null ? (enclosingRectangle[1] + enclosingRectangle[3]) : bitMatrixHeight;
+
+            // We add 20 pixels on all sides to ensure small intentional padding around the barcodes isn't removed
+            int left = enclosingRectangle != null ? enclosingRectangle[0] - 20 : 0;
+            int top = enclosingRectangle != null ? enclosingRectangle[1] - 20 : 0;
+            int right = enclosingRectangle != null ? (enclosingRectangle[0] + enclosingRectangle[2] + 20) : bitMatrixWidth;
+            int bottom = enclosingRectangle != null ? (enclosingRectangle[1] + enclosingRectangle[3] + 20) : bitMatrixHeight;
 
             int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
 

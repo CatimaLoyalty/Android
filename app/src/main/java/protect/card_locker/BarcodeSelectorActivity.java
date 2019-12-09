@@ -119,6 +119,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
 
                 View noBarcodeButtonView = findViewById(R.id.noBarcode);
                 setButtonListener(noBarcodeButtonView, s.toString());
+                noBarcodeButtonView.setEnabled(s.length() > 0);
             }
 
             @Override

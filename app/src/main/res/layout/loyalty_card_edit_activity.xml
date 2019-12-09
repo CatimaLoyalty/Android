@@ -362,7 +362,8 @@
 
                 <LinearLayout android:orientation="vertical"
                               android:layout_width="fill_parent"
-                              android:layout_height="wrap_content">
+                              android:layout_height="wrap_content"
+                              android:background="@color/inputBackground">
 
                     <LinearLayout android:orientation="horizontal"
                                   android:padding="10.0dip"

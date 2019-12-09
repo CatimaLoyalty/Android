@@ -6,6 +6,13 @@
     <PreferenceCategory
         android:title="@string/settings_category_title_ui">
 
+        <ListPreference
+            android:key="@string/settings_key_theme"
+            android:title="@string/settings_theme"
+            android:defaultValue="@string/settings_key_system_theme"
+            android:entries="@array/theme_value_strings"
+            android:entryValues="@array/theme_values"/>
+
         <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
             android:key="@string/settings_key_card_title_list_font_size"
             android:title="@string/settings_card_title_list_font_size"

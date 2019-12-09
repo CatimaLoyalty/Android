@@ -44,15 +44,15 @@ public class PkpassImporter {
 
             JSONObject json = new JSONObject(readData);
 
-            String store = json.getString("description");
-            // TODO: Note
+            String store = json.getString("organizationName");
+            String note = json.getString("description");
             String cardId = json.getJSONObject("barcode").getString("message");
             String barcodeType = json.getJSONObject("barcode").getString("format").substring("PKBarcodeFormat".length());
             if(barcodeType.equals("QR"))
             {
                 barcodeType = "QR_CODE";
             }
-            return new LoyaltyCard(-1, store, "", cardId, barcodeType, null, null);
+            return new LoyaltyCard(-1, store, note, cardId, barcodeType, null, null);
         }
 
         return null;

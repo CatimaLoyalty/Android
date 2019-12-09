@@ -54,6 +54,18 @@
                     android:host="@string/intent_import_card_from_url_host"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />
             </intent-filter>
+            <intent-filter android:label="@string/intent_import_card_from_url">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <!-- Accept pkpass files -->
+                <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/zip"/>
+                <data android:mimeType="application/vnd.apple.pkpass"/>
+                <data android:mimeType="application/pkpass"/>
+                <data android:mimeType="application/vndapplepkpass"/>
+                <data android:mimeType="application/vnd-com.apple.pkpass"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".BarcodeSelectorActivity"

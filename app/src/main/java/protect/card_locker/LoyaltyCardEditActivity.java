@@ -30,6 +30,9 @@ import com.google.zxing.integration.android.IntentResult;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.io.InvalidObjectException;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
@@ -58,21 +61,55 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     int loyaltyCardId;
     boolean updateLoyaltyCard;
     Uri importLoyaltyCardUri = null;
+    String importLoyaltyCardType = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
+    PkpassImporter pkpassImporter;
 
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        importLoyaltyCardType = intent.getType();
         importLoyaltyCardUri = intent.getData();
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + Boolean.toString(updateLoyaltyCard));
+    }
+
+    private LoyaltyCard importCard(String type, Uri uri)
+    {
+        // Pkpass
+        if(type != null && pkpassImporter.isPkpass(type))
+        {
+            try
+            {
+                return pkpassImporter.fromURI(uri);
+            }
+            catch (IOException | JSONException ex)
+            {
+                return null;
+            }
+        }
+
+        // Import URI
+        if(importUriHelper.isImportUri(uri))
+        {
+            try
+            {
+                return importUriHelper.parse(importLoyaltyCardUri);
+            }
+            catch (InvalidObjectException ex)
+            {
+                return null;
+            }
+        }
+
+        return null;
     }
 
     @Override
@@ -93,6 +130,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         db = new DBHelper(this);
         importUriHelper = new ImportURIHelper(this);
+        pkpassImporter = new PkpassImporter(this);
 
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
@@ -186,10 +224,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else if(importLoyaltyCardUri != null)
         {
             // Try to parse
-            LoyaltyCard importCard;
-            try {
-                importCard = importUriHelper.parse(importLoyaltyCardUri);
-            } catch (InvalidObjectException ex) {
+            LoyaltyCard importCard = importCard(importLoyaltyCardType, importLoyaltyCardUri);
+
+            if(importCard == null)
+            {
                 Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
                 finish();
                 return;

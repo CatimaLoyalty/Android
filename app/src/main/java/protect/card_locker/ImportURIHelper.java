@@ -25,7 +25,7 @@ public class ImportURIHelper {
         shareText = context.getResources().getString(R.string.intent_import_card_from_url_share_text);
     }
 
-    private boolean isImportUri(Uri uri) {
+    public boolean isImportUri(Uri uri) {
         return uri.getHost().equals(host) && uri.getPath().equals(path);
     }
 

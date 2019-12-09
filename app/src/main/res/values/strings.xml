@@ -113,6 +113,14 @@
 
     <string name="settings">Settings</string>
     <string name="settings_category_title_ui">User interface</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_key_theme" translatable="false">pref_theme</string>
+    <string name="settings_system_theme">System theme</string>
+    <string name="settings_key_system_theme" translatable="false">system</string>
+    <string name="settings_light_theme">Light theme</string>
+    <string name="settings_key_light_theme" translatable="false">light</string>
+    <string name="settings_dark_theme">Dark theme</string>
+    <string name="settings_key_dark_theme" translatable="false">dark</string>
     <string name="settings_card_title_list_font_size">Card title list font size</string>
     <string name="settings_key_card_title_list_font_size" translatable="false">pref_card_title_list_font_size_sp</string>
     <string name="settings_card_note_list_font_size">Card note list font size</string>

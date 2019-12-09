@@ -73,7 +73,7 @@ public class PkpassImporter {
         }
 
         String cardId = barcode.getString("message");
-        String barcodeType = barcode.getString("format").substring("PKBarcodeFormat".length());
+        String barcodeType = barcode.getString("format").substring("PKBarcodeFormat".length()).toUpperCase();
         if (barcodeType.equals("QR")) {
             barcodeType = "QR_CODE";
         }

@@ -528,6 +528,23 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
+    public void startLoyaltyCardWithExplicitNoBarcodeSave() throws IOException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, "", Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // Save and check the gift card
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, "", false);
+    }
+
+    @Test
     public void startCheckFontSizes()
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);

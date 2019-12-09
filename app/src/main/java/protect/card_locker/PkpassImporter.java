@@ -77,6 +77,12 @@ public class PkpassImporter {
         if (barcodeType.equals("QR")) {
             barcodeType = "QR_CODE";
         }
+
+        if(!BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeType))
+        {
+            return null;
+        }
+
         return new LoyaltyCard(-1, store, note, cardId, barcodeType, null, null);
     }
 }

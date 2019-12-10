@@ -3,6 +3,9 @@ package protect.card_locker;
 import android.content.Context;
 import android.net.Uri;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.zxing.BarcodeFormat;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,12 +76,19 @@ public class PkpassImporter {
         }
 
         String cardId = barcode.getString("message");
-        String barcodeType = barcode.getString("format").substring("PKBarcodeFormat".length()).toUpperCase();
-        if (barcodeType.equals("QR")) {
-            barcodeType = "QR_CODE";
-        }
 
-        if(!BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeType))
+        // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/LowerLevel.html#//apple_ref/doc/uid/TP40012026-CH3-SW3
+        // Required. Barcode format. For the barcode dictionary, you can use only the following values: PKBarcodeFormatQR, PKBarcodeFormatPDF417, or PKBarcodeFormatAztec. For dictionaries in the barcodes array, you may also use PKBarcodeFormatCode128.
+        ImmutableMap<String, String> supportedBarcodeTypes = ImmutableMap.<String, String>builder()
+                .put("PKBarcodeFormatQR", BarcodeFormat.QR_CODE.name())
+                .put("PKBarcodeFormatPDF417", BarcodeFormat.PDF_417.name())
+                .put("PKBarcodeFormatAztec", BarcodeFormat.AZTEC.name())
+                .put("PKBarcodeFormatCode128", BarcodeFormat.CODE_128.name())
+                .build();
+
+        String barcodeType = supportedBarcodeTypes.get(barcode.getString("format"));
+
+        if(barcodeType == null)
         {
             return null;
         }

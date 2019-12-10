@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 
 import com.google.common.collect.ImmutableMap;
@@ -12,6 +13,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -93,6 +96,32 @@ public class PkpassImporter {
             return null;
         }
 
-        return new LoyaltyCard(-1, store, note, cardId, barcodeType, null, null);
+        // Prepare to parse colors
+        Pattern rgbPattern = Pattern.compile("^rgb\\(\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})\\s*\\)$");
+
+        // Optional. Background color of the pass, specified as an CSS-style RGB triple. For example, rgb(23, 187, 82).
+        Integer headerColor = null;
+        Matcher headerColorMatcher = rgbPattern.matcher(json.getString("backgroundColor"));
+        if(headerColorMatcher.find())
+        {
+            headerColor = Color.rgb(
+                    Integer.parseInt(headerColorMatcher.group(0)),
+                    Integer.parseInt(headerColorMatcher.group(1)),
+                    Integer.parseInt(headerColorMatcher.group(2)));
+        }
+
+
+        // Optional. Color of the label text, specified as a CSS-style RGB triple. For example, rgb(255, 255, 255).
+        Integer headerTextColor = null;
+        Matcher headerTextColorMatcher = rgbPattern.matcher(json.getString("labelColor"));
+        if(headerTextColorMatcher.find())
+        {
+            headerTextColor = Color.rgb(
+                Integer.parseInt(headerTextColorMatcher.group(0)),
+                Integer.parseInt(headerTextColorMatcher.group(1)),
+                Integer.parseInt(headerTextColorMatcher.group(2)));
+        }
+
+        return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
     }
 }

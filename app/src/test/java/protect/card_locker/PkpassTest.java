@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.graphics.Color;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -110,5 +111,7 @@ public class PkpassTest {
         assertEquals(card.cardId, "0000001");
         assertEquals(card.note, "Staff Pass for Employee Number 001");
         assertEquals(card.store, "Passbook Example Company");
+        assertEquals(card.headerColor, String.valueOf(Color.rgb(90, 90, 90)));
+        assertEquals(card.headerTextColor, String.valueOf(Color.rgb(255, 255, 255)));
     }
 }

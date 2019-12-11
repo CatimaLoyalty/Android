@@ -119,7 +119,11 @@ public class PkpassImporter {
         {
             // Maybe they violate the spec, let's parse it in a format Android understands
             // Necessary for at least Eurowings
-            headerColor = Color.parseColor(json.getString("backgroundColor"));
+            try
+            {
+                headerColor = Color.parseColor(json.getString("backgroundColor"));
+            }
+            catch (IllegalArgumentException ex) {}
         }
 
 
@@ -137,7 +141,11 @@ public class PkpassImporter {
         {
             // Maybe they violate the spec, let's parse it in a format Android understands
             // Necessary for at least Eurowings
-            headerTextColor = Color.parseColor(json.getString("labelColor"));
+            try
+            {
+                headerTextColor = Color.parseColor(json.getString("labelColor"));
+            }
+            catch (IllegalArgumentException ex) {}
         }
 
         return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);

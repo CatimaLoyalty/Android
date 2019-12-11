@@ -105,9 +105,9 @@ public class PkpassImporter {
         if(headerColorMatcher.find())
         {
             headerColor = Color.rgb(
-                    Integer.parseInt(headerColorMatcher.group(0)),
                     Integer.parseInt(headerColorMatcher.group(1)),
-                    Integer.parseInt(headerColorMatcher.group(2)));
+                    Integer.parseInt(headerColorMatcher.group(2)),
+                    Integer.parseInt(headerColorMatcher.group(3)));
         }
 
 
@@ -117,9 +117,9 @@ public class PkpassImporter {
         if(headerTextColorMatcher.find())
         {
             headerTextColor = Color.rgb(
-                Integer.parseInt(headerTextColorMatcher.group(0)),
                 Integer.parseInt(headerTextColorMatcher.group(1)),
-                Integer.parseInt(headerTextColorMatcher.group(2)));
+                Integer.parseInt(headerTextColorMatcher.group(2)),
+                Integer.parseInt(headerTextColorMatcher.group(3)));
         }
 
         return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);

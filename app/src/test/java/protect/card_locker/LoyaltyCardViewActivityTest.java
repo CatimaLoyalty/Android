@@ -282,7 +282,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, true);
     }
 
@@ -321,7 +321,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Cancel the gift card creation
+        // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
@@ -523,7 +523,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, false);
     }
 
@@ -540,7 +540,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, "", false);
     }
 

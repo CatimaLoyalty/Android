@@ -109,6 +109,12 @@ public class PkpassImporter {
                     Integer.parseInt(headerColorMatcher.group(2)),
                     Integer.parseInt(headerColorMatcher.group(3)));
         }
+        if(headerColor == null)
+        {
+            // Maybe they violate the spec, let's parse it in a format Android understands
+            // Necessary for at least Eurowings
+            headerColor = Color.parseColor(json.getString("backgroundColor"));
+        }
 
 
         // Optional. Color of the label text, specified as a CSS-style RGB triple. For example, rgb(255, 255, 255).
@@ -120,6 +126,12 @@ public class PkpassImporter {
                 Integer.parseInt(headerTextColorMatcher.group(1)),
                 Integer.parseInt(headerTextColorMatcher.group(2)),
                 Integer.parseInt(headerTextColorMatcher.group(3)));
+        }
+        if(headerTextColor == null)
+        {
+            // Maybe they violate the spec, let's parse it in a format Android understands
+            // Necessary for at least Eurowings
+            headerTextColor = Color.parseColor(json.getString("labelColor"));
         }
 
         return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);

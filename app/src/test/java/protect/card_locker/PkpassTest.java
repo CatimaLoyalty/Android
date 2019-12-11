@@ -3,6 +3,8 @@ package protect.card_locker;
 import android.app.Activity;
 import android.graphics.Color;
 
+import com.google.zxing.BarcodeFormat;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -107,11 +109,31 @@ public class PkpassTest {
         LoyaltyCard card = pkpassImporter.fromPassJSON(json);
 
         // Compare everything
-        assertEquals(card.barcodeType, "QR_CODE");
-        assertEquals(card.cardId, "0000001");
-        assertEquals(card.note, "Staff Pass for Employee Number 001");
-        assertEquals(card.store, "Passbook Example Company");
-        assertEquals(card.headerColor.toString(), String.valueOf(Color.rgb(90, 90, 90)));
-        assertEquals(card.headerTextColor.toString(), String.valueOf(Color.rgb(255, 255, 255)));
+        assertEquals(BarcodeFormat.QR_CODE.name(), card.barcodeType);
+        assertEquals("0000001", card.cardId);
+        assertEquals("Staff Pass for Employee Number 001", card.note);
+        assertEquals("Passbook Example Company", card.store);
+        assertEquals(String.valueOf(Color.rgb(90, 90, 90)), card.headerColor.toString());
+        assertEquals(String.valueOf(Color.rgb(255, 255, 255)), card.headerTextColor.toString());
+    }
+
+    @Test
+    public void parseEurowingsTicket() throws JSONException
+    {
+        // https://github.com/brarcher/loyalty-card-locker/issues/309#issuecomment-563465333
+        JSONObject json = new JSONObject("{\"description\":\"Eurowings Boarding Pass\",\"formatVersion\":1,\"organizationName\":\"EUROWINGS\",\"passTypeIdentifier\":\"pass.wings.boardingpass\",\"serialNumber\":\"quUBzi53bVIzpO2R15jEzRdG54Pb4qPbggEXZT7XKWx6AN%2bg8nfShLvh9teneKWV\",\"teamIdentifier\":\"M2DAP2XTGE\",\"authenticationToken\":\"d5828a30d7644eeffa9e900ac91ac6ec\",\"webServiceURL\":\"https://mobile.eurowings.com/booking/scripts/Passbook/PassbookPassGenerator.aspx?\",\"relevantDate\":\"2019-09-08T05:00+02:00\",\"backgroundColor\":\"#FFFFFF\",\"foregroundColor\":\"#333333\",\"labelColor\":\"#AA0061\",\"boardingPass\":{\"transitType\":\"PKTransitTypeAir\",\"headerFields\":[{\"key\":\"gate\",\"label\":\"gate_str\",\"value\":\"B61\"},{\"key\":\"seat\",\"label\":\"seat_str\",\"value\":\"16E\"}],\"primaryFields\":[{\"key\":\"origin\",\"label\":\"Cologne-Bonn\",\"value\":\"CGN\"},{\"key\":\"destination\",\"label\":\"Dubrovnik\",\"value\":\"DBV\"}],\"secondaryFields\":[{\"key\":\"name\",\"label\":\"name_str\",\"value\":\"John Doe\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"status\",\"label\":\"status_str\",\"value\":\"-\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"boardinggroup\",\"label\":\"boardinggroup_str\",\"value\":\"GROUP 1\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"tarif\",\"label\":\"fare_str\",\"value\":\"SMART\",\"textAlignment\":\"PKTextAlignmentLeft\"}],\"auxiliaryFields\":[{\"key\":\"flightNumber\",\"label\":\"flight_str\",\"value\":\"EW 954\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"departureDate\",\"label\":\"date_str\",\"value\":\"08/09/2019\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"boarding\",\"label\":\"boarding_str\",\"value\":\"05:00\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"closure\",\"label\":\"closure_str\",\"value\":\"05:15\",\"textAlignment\":\"PKTextAlignmentLeft\"}],\"backFields\":[{\"key\":\"info\",\"label\":\"\",\"value\":\"info_content_str\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"recordlocator\",\"label\":\"recordlocator_str\",\"value\":\"JBZPPP\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"sequence\",\"label\":\"sequence_str\",\"value\":\"73\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"notice\",\"label\":\"notice_str\",\"value\":\"notice_content_str\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"baggage\",\"label\":\"baggage_str\",\"value\":\"baggage_content_str\",\"textAlignment\":\"PKTextAlignmentLeft\"},{\"key\":\"contact\",\"label\":\"contact_str\",\"value\":\"contact_content_str\",\"textAlignment\":\"PKTextAlignmentLeft\"}]},\"barcode\":{\"format\":\"PKBarcodeFormatAztec\",\"message\":\"M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A016E0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N\",\"messageEncoding\":\"iso-8859-1\"}}");
+
+        // Parse Pkpass JSON
+        LoyaltyCard card = pkpassImporter.fromPassJSON(json);
+
+        // Compare everything
+        assertEquals(BarcodeFormat.AZTEC.name(), card.barcodeType);
+        assertEquals("M1DOE/JOHN         JBZPPP CGNDBVEW 0954 251A016E0073 148>5181W 9250BEW 00000000000002A0000000000000 0                          N", card.cardId);
+        assertEquals("Eurowings Boarding Pass", card.note);
+        assertEquals("EUROWINGS", card.store);
+
+        // Violates the spec, but we want to support it anyway...
+        assertEquals(String.valueOf(Color.parseColor("#FFFFFF")), card.headerColor.toString());
+        assertEquals(String.valueOf(Color.parseColor("#AA0061")), card.headerTextColor.toString());
     }
 }

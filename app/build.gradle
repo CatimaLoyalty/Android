@@ -29,6 +29,11 @@ android {
         disable "MissingTranslation"
         disable "MissingPrefix"
     }
+    sourceSets {
+        test {
+            resources.srcDirs += ['src/test/resources']
+        }
+    }
 
     // Starting with Android Studio 3 Robolectric is unable to find resources.
     // The following allows it to find the resources.

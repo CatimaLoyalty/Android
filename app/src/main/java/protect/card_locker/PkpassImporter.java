@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +31,12 @@ public class PkpassImporter {
     }
 
     public LoyaltyCard fromURI(Uri uri) throws IOException, JSONException {
-        ZipInputStream zipInputStream = new ZipInputStream(context.getContentResolver().openInputStream(uri));
+        return fromInputStream(context.getContentResolver().openInputStream(uri));
+    }
+
+    public LoyaltyCard fromInputStream(InputStream inputStream) throws IOException, JSONException
+    {
+        ZipInputStream zipInputStream = new ZipInputStream(inputStream);
 
         ZipEntry entry;
 

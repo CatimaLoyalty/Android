@@ -44,7 +44,7 @@
     <string name="noStoreError">No Store entered</string>
     <string name="noCardIdError">No Card ID entered</string>
     <string name="noCardExistsError">Could not lookup loyalty card</string>
-    <string name="failedParsingImportUriError">Could not parse the import Uri</string>
+    <string name="failedParsingImportUriError">Could not parse the import URI</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>

@@ -177,6 +177,12 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             }
         });
 
+        if (cardId.isEmpty())
+        {
+            image.setVisibility(View.GONE);
+            return;
+        }
+
         if(image.getHeight() == 0)
         {
             // The size of the ImageView is not yet available as it has not

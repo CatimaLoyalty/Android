@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     DBHelper db;
     ImportURIHelper importURIHelper;
     Settings settings;
+
+    boolean backgroundNeedsDarkIcons;
 
     private void extractIntentFields(Intent intent)
     {
@@ -165,6 +168,17 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
+        // If the background is very bright, we should use dark icons
+        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > 0.5);
+        if(backgroundNeedsDarkIcons)
+        {
+            ActionBar actionBar = getSupportActionBar();
+            if(actionBar != null)
+            {
+                actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black);
+            }
+        }
+
         if(barcodeImage.getHeight() == 0)
         {
             Log.d(TAG, "ImageView size is not known known at start, waiting for load");
@@ -203,11 +217,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
 
-        if(settings.getLockBarcodeScreenOrientation())
+        // Always calculate lockscreen icon, it may need a black color
+        boolean lockBarcodeScreenOrientation = settings.getLockBarcodeScreenOrientation();
+        MenuItem item = menu.findItem(R.id.action_lock_unlock);
+        setOrientatonLock(item, lockBarcodeScreenOrientation);
+        if(lockBarcodeScreenOrientation)
         {
-            MenuItem item = menu.findItem(R.id.action_lock_unlock);
-            setOrientatonLock(item, true);
             item.setVisible(false);
+        }
+
+        if(backgroundNeedsDarkIcons)
+        {
+            menu.findItem(R.id.action_share).setIcon(R.drawable.ic_share_black);
+            menu.findItem(R.id.action_edit).setIcon(R.drawable.ic_mode_edit_black_24dp);
         }
 
         return super.onCreateOptionsMenu(menu);
@@ -258,13 +280,27 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         if(lock)
         {
-            item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+            if(backgroundNeedsDarkIcons)
+            {
+                item.setIcon(R.drawable.ic_lock_outline_black_24dp);
+            }
+            else
+            {
+                item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+            }
             item.setTitle(R.string.unlockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         else
         {
-            item.setIcon(R.drawable.ic_lock_open_white_24dp);
+            if(backgroundNeedsDarkIcons)
+            {
+                item.setIcon(R.drawable.ic_lock_open_black_24dp);
+            }
+            else
+            {
+                item.setIcon(R.drawable.ic_lock_open_white_24dp);
+            }
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }

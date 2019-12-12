@@ -355,6 +355,8 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/barcode_disp_height"
                         android:layout_gravity="center_horizontal"
+                        android:padding="10.0dp"
+                        android:background="#ffffff"
                         android:id="@+id/barcode"
                         android:contentDescription="@string/barcodeImageDescription"
                         android:layout_weight="1.0"/>

@@ -3,6 +3,10 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.InvalidObjectException;
 
 public class ImportURIHelper {
@@ -12,6 +16,7 @@ public class ImportURIHelper {
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
     private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
+    private static final String EXTRAS = DBHelper.LoyaltyCardDbIds.EXTRAS;
 
     private final Context context;
     private final String host;
@@ -41,8 +46,14 @@ public class ImportURIHelper {
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             Integer headerColor = Integer.parseInt(uri.getQueryParameter(HEADER_COLOR));
             Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
-        } catch (NullPointerException | NumberFormatException ex) {
+            // Extras was added in a later version, so don't crash if it doesn't exist
+            JSONObject extras = new JSONObject();
+            if(uri.getQueryParameter(EXTRAS) != null)
+            {
+                extras = new JSONObject(uri.getQueryParameter(EXTRAS));
+            }
+            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
+        } catch (NullPointerException | NumberFormatException | JSONException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
     }
@@ -59,6 +70,7 @@ public class ImportURIHelper {
         uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
         uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
         uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
+        uriBuilder.appendQueryParameter(EXTRAS, loyaltyCard.extras.toString());
 
         return uriBuilder.build();
     }

@@ -31,6 +31,7 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InvalidObjectException;
@@ -64,6 +65,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     String importLoyaltyCardType = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
+    JSONObject extras = new JSONObject();
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -219,6 +221,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
             }
 
+            extras = loyaltyCard.extras;
+
             setTitle(R.string.editCardTitle);
         }
         else if(importLoyaltyCardUri != null)
@@ -239,6 +243,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             barcodeTypeField.setText(importCard.barcodeType);
             headingColorValue = importCard.headerColor;
             headingStoreTextColorValue = importCard.headerTextColor;
+            extras = importCard.extras;
         }
         else
         {
@@ -416,12 +421,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {
-            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, extras);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, extras);
         }
 
         finish();

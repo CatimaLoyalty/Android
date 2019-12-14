@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
 
+import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -362,7 +363,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -378,7 +379,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -394,7 +395,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -415,7 +416,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -441,7 +442,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -485,7 +486,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -503,7 +504,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -521,7 +522,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new JSONObject());
 
         activityController.start();
         activityController.visible();
@@ -538,7 +539,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
         final int STORE_FONT_SIZE = 50;
         final int CARD_FONT_SIZE = 40;
@@ -580,7 +581,7 @@ public class LoyaltyCardViewActivityTest
 
             Activity activity = (Activity)activityController.get();
             DBHelper db = new DBHelper(activity);
-            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
             settings.edit()

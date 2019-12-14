@@ -5,9 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.Normalizer;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -146,6 +149,17 @@ public class CsvDatabaseImporter implements DatabaseImporter
             headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record, true);
         }
 
-        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor);
+        JSONObject extras;
+
+        try
+        {
+            extras = new JSONObject(extractString(DBHelper.LoyaltyCardDbIds.EXTRAS, record, ""));
+        }
+        catch (JSONException ex)
+        {
+            throw new FormatException("Invalid JSON in extras field: " + ex);
+        }
+
+        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
     }
 }

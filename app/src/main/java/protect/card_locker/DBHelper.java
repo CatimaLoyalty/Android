@@ -7,11 +7,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import org.json.JSONObject;
+
 public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "LoyaltyCards.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 4;
 
     static class LoyaltyCardDbIds
     {
@@ -23,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String HEADER_TEXT_COLOR = "headertextcolor";
         public static final String CARD_ID = "cardid";
         public static final String BARCODE_TYPE = "barcodetype";
+        public static final String EXTRAS = "extras";
     }
 
     public DBHelper(Context context)
@@ -41,7 +44,8 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
-                LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null)");
+                LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null," +
+                LoyaltyCardDbIds.EXTRAS + " TEXT)");
     }
 
     @Override
@@ -62,11 +66,18 @@ public class DBHelper extends SQLiteOpenHelper
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER");
         }
+
+        // Upgrade from version 3 to version 4
+        if(oldVersion < 4 && newVersion >= 4)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.EXTRAS + " TEXT");
+        }
     }
 
     public long insertLoyaltyCard(final String store, final String note, final String cardId,
                                   final String barcodeType, final Integer headerColor,
-                                  final Integer headerTextColor)
+                                  final Integer headerTextColor, final JSONObject extras)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -76,6 +87,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return newId;
     }
@@ -83,7 +95,7 @@ public class DBHelper extends SQLiteOpenHelper
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,
                                      final String store, final String note, final String cardId,
                                      final String barcodeType, final Integer headerColor,
-                                     final Integer headerTextColor)
+                                     final Integer headerTextColor, final JSONObject extras)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -93,6 +105,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return (newId != -1);
     }
@@ -100,7 +113,8 @@ public class DBHelper extends SQLiteOpenHelper
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
                                      final String cardId, final String barcodeType,
-                                     final Integer headerColor, final Integer headerTextColor)
+                                     final Integer headerColor, final Integer headerTextColor,
+                                     final JSONObject extras)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -110,6 +124,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
         int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
                 LoyaltyCardDbIds.ID + "=?",
                 new String[]{Integer.toString(id)});

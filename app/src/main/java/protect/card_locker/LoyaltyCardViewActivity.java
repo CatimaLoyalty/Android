@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,6 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import protect.card_locker.preferences.Settings;
 
@@ -210,6 +220,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
+        if(loyaltyCard.extras.length() > 0)
+        {
+            MenuItem item = menu.findItem(R.id.action_view_extras);
+            item.setVisible(true);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -249,6 +265,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 }
                 rotationEnabled = !rotationEnabled;
                 return true;
+
+            case R.id.action_view_extras:
+                try
+                {
+                    displayExtrasDialog();
+                }
+                catch (JSONException ex)
+                {
+                    Toast.makeText(this, R.string.failedShowingExtras, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -268,5 +296,30 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }
+    }
+
+    private void displayExtrasDialog() throws JSONException
+    {
+        StringBuilder items = new StringBuilder();
+
+        Iterator<String> iter = loyaltyCard.extras.keys();
+        while(iter.hasNext())
+        {
+            String key = iter.next();
+            String value = loyaltyCard.extras.getString(key);
+            items.append(key + ": " + value + "\n");
+        }
+
+        new AlertDialog.Builder(this)
+            .setMessage(items.toString())
+            .setCancelable(true)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
+            {
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    dialog.dismiss();
+                }
+            })
+            .show();
     }
 }

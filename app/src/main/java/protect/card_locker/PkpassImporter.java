@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.zxing.BarcodeFormat;
 
@@ -13,6 +14,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +26,31 @@ public class PkpassImporter {
 
     public PkpassImporter(Context context) {
         this.context = context;
+    }
+
+    private JSONObject appendFieldDictionaryValues(JSONObject original, JSONObject pkpassJSON, String styleKey, String arrayName) throws JSONException
+    {
+        // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/FieldDictionary.html#//apple_ref/doc/uid/TP40012026-CH4-SW1
+        // TODO: Do something with label
+
+        JSONArray fields;
+        // These are all optional, so don't throw an exception if they don't exist
+        try
+        {
+            fields = pkpassJSON.getJSONObject(styleKey).getJSONArray(arrayName);
+        }
+        catch (JSONException ex)
+        {
+            return original;
+        }
+
+        for(int i = 0; i < fields.length(); i++)
+        {
+            JSONObject fieldObject = fields.getJSONObject(i);
+            original.put(fieldObject.getString("key"), fieldObject.getString("value"));
+        }
+
+        return original;
     }
 
     public boolean isPkpass(String type) {
@@ -148,6 +175,40 @@ public class PkpassImporter {
             catch (IllegalArgumentException ex) {}
         }
 
-        return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
+        // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/TopLevel.html#//apple_ref/doc/uid/TP40012026-CH2-SW6
+        // There needs to be exactly one style key
+
+        String styleKey = null;
+        ImmutableList<String> possibleStyleKeys = ImmutableList.<String>builder()
+                .add("boardingPass")
+                .add("coupon")
+                .add("eventTicket")
+                .add("generic")
+                .add("storeCard")
+                .build();
+        for(int i = 0; i < possibleStyleKeys.size(); i++)
+        {
+            String possibleStyleKey = possibleStyleKeys.get(i);
+            if(json.has(possibleStyleKey))
+            {
+                styleKey = possibleStyleKey;
+                break;
+            }
+        }
+
+        if(styleKey == null)
+        {
+            return null;
+        }
+
+        // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/LowerLevel.html#//apple_ref/doc/uid/TP40012026-CH3-SW14
+        JSONObject extras = new JSONObject();
+        appendFieldDictionaryValues(extras, json, styleKey, "headerFields");
+        appendFieldDictionaryValues(extras, json, styleKey, "primaryFields");
+        appendFieldDictionaryValues(extras, json, styleKey, "secondaryFields");
+        appendFieldDictionaryValues(extras, json, styleKey, "auxiliaryFields");
+        appendFieldDictionaryValues(extras, json, styleKey, "backFields");
+
+        return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
     }
 }

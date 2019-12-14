@@ -17,4 +17,10 @@
         android:icon="@drawable/ic_mode_edit_white_24dp"
         android:title="@string/edit"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_view_extras"
+        android:icon="@drawable/ic_info_outline_white"
+        android:title="More info"
+        app:showAsAction="always"
+        android:visible="false"/>
 </menu>

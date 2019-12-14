@@ -3,6 +3,11 @@ package protect.card_locker;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 public class LoyaltyCard
 {
     public final int id;
@@ -17,8 +22,12 @@ public class LoyaltyCard
     @Nullable
     public final Integer headerTextColor;
 
+    @Nullable
+    public final JSONObject extras;
+
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
-                       final String barcodeType, final Integer headerColor, final Integer headerTextColor)
+                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,
+                       final JSONObject extras)
     {
         this.id = id;
         this.store = store;
@@ -27,6 +36,7 @@ public class LoyaltyCard
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
         this.headerTextColor = headerTextColor;
+        this.extras = extras;
     }
 
     public static LoyaltyCard toLoyaltyCard(Cursor cursor)
@@ -53,6 +63,23 @@ public class LoyaltyCard
             headerTextColor = cursor.getInt(headerTextColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, cardId, barcodeType, headerColor, headerTextColor);
+        int extrasColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS);
+        JSONObject extras = new JSONObject();
+
+        if(cursor.isNull(extrasColumn) == false)
+        {
+            try
+            {
+                extras = new JSONObject(cursor.getString(extrasColumn));
+            }
+            catch (JSONException ex)
+            {
+                // That this is actually JSON is an implementation detail
+                // The important part is that the DB is in a bad state
+                throw new IllegalArgumentException(ex);
+            }
+        }
+
+        return new LoyaltyCard(id, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
     }
 }

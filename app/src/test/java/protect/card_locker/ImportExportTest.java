@@ -8,6 +8,7 @@ import android.os.Environment;
 import com.google.zxing.BarcodeFormat;
 
 import org.apache.tools.ant.filters.StringInputStream;
+import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,7 +69,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, new JSONObject());
             boolean result = (id != -1);
             assertTrue(result);
         }

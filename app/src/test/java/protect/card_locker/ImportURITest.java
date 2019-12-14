@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import com.google.zxing.BarcodeFormat;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,10 +33,10 @@ public class ImportURITest {
     }
 
     @Test
-    public void ensureNoDataLoss() throws InvalidObjectException
+    public void ensureNoDataLoss() throws InvalidObjectException, JSONException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject("{\"key\": \"value\"}"));
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -53,6 +54,7 @@ public class ImportURITest {
         assertEquals(card.headerTextColor, parsedCard.headerTextColor);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.store, parsedCard.store);
+        assertEquals(card.extras.toString(), parsedCard.extras.toString());
     }
 
     @Test

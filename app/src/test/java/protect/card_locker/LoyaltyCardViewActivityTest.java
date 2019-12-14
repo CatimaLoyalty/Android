@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -451,12 +452,13 @@ public class LoyaltyCardViewActivityTest
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, settings and add button should be present
-        assertEquals(menu.size(), 3);
+        // The rotation, share, edit and info button should be present
+        assertEquals(menu.size(), 4);
 
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
+        assertEquals("More Info", menu.findItem(R.id.action_view_extras).getTitle().toString());
     }
 
     @Test
@@ -607,6 +609,44 @@ public class LoyaltyCardViewActivityTest
                 assertEquals(title, activity.getString(R.string.lockScreen));
             }
         }
+    }
+
+    @Test
+    public void checkMoreInfoNoExtras()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(false, activity.isFinishing());
+
+        MenuItem item = shadowOf(activity).getOptionsMenu().findItem(R.id.action_view_extras);
+        assertEquals(false, item.isVisible());
+    }
+
+    @Test
+    public void checkMoreInfoExtras() throws JSONException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject("{\"key\": \"value\"}"));
+
+        activityController.start();
+        activityController.resume();
+        activityController.visible();
+
+        assertEquals(false, activity.isFinishing());
+
+        MenuItem item = shadowOf(activity).getOptionsMenu().findItem(R.id.action_view_extras);
+        assertEquals(true, item.isVisible());
     }
 
     @Test

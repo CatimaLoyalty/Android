@@ -19,6 +19,7 @@
     <string name="enterCard">Enter Card</string>
     <string name="editCard">Edit Card</string>
     <string name="edit">Edit</string>
+    <string name="moreInfo">More Info</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
     <string name="lockScreen">Block Rotation</string>

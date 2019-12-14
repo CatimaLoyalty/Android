@@ -220,7 +220,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
-        if(loyaltyCard.extras.length() > 0)
+        if(loyaltyCard != null && loyaltyCard.extras.length() > 0)
         {
             MenuItem item = menu.findItem(R.id.action_view_extras);
             item.setVisible(true);

@@ -8,6 +8,7 @@ import android.os.Environment;
 import com.google.zxing.BarcodeFormat;
 
 import org.apache.tools.ant.filters.StringInputStream;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,10 +45,13 @@ public class ImportExportTest
 
     private final String BARCODE_DATA = "428311627547";
     private final String BARCODE_TYPE = BarcodeFormat.UPC_A.name();
+    private JSONObject EXTRAS;
 
     @Before
-    public void setUp()
+    public void setUp() throws JSONException
     {
+        EXTRAS = new JSONObject("{\"key1\": \"value1\"}");
+
         activity = Robolectric.setupActivity(MainActivity.class);
         db = new DBHelper(activity);
         nowMs = System.currentTimeMillis();
@@ -69,7 +73,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, new JSONObject());
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, EXTRAS);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -100,6 +104,7 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
+            assertEquals(EXTRAS, card.extras);
 
             index++;
         }

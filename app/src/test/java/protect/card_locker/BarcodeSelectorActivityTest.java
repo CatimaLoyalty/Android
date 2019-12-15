@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -53,8 +54,7 @@ public class BarcodeSelectorActivityTest {
 
         cardId.setText("abcdefg");
 
-        activityController.pause();
-        activityController.resume();
+        shadowOf(Looper.getMainLooper()).idle();
 
         // Button should be visible and enabled
         assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
@@ -81,8 +81,7 @@ public class BarcodeSelectorActivityTest {
 
         cardId.setText("abcdefg");
 
-        activityController.pause();
-        activityController.resume();
+        shadowOf(Looper.getMainLooper()).idle();
 
         // Button should be visible and enabled
         assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
@@ -90,8 +89,7 @@ public class BarcodeSelectorActivityTest {
 
         cardId.setText("");
 
-        activityController.pause();
-        activityController.resume();
+        shadowOf(Looper.getMainLooper()).idle();
 
         // Button should be visible but disabled
         assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());

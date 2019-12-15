@@ -384,5 +384,14 @@ public class ImportExportTest
         boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("", card.barcodeType);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
     }
 }

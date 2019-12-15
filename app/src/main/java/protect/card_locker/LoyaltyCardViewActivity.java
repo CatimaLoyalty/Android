@@ -31,6 +31,7 @@ import protect.card_locker.preferences.Settings;
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
     private static final String TAG = "CardLocker";
+    private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;
     TextView noteView;
@@ -169,7 +170,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
         // If the background is very bright, we should use dark icons
-        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > 0.5);
+        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > LUMINANCE_MIDPOINT);
         if(backgroundNeedsDarkIcons)
         {
             ActionBar actionBar = getSupportActionBar();

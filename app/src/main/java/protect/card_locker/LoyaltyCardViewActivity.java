@@ -4,12 +4,16 @@ package protect.card_locker;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.ColorUtils;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
@@ -53,6 +57,22 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
+    }
+
+    private Drawable getIcon(int icon, boolean dark)
+    {
+        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
+        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        if(dark)
+        {
+            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
+        }
+        else
+        {
+            DrawableCompat.setTintList(wrappedIcon, null);
+        }
+
+        return wrappedIcon;
     }
 
     @Override
@@ -171,13 +191,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > LUMINANCE_MIDPOINT);
-        if(backgroundNeedsDarkIcons)
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
         {
-            ActionBar actionBar = getSupportActionBar();
-            if(actionBar != null)
-            {
-                actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black);
-            }
+            actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
         }
 
         if(barcodeImage.getHeight() == 0)
@@ -227,11 +244,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
-        if(backgroundNeedsDarkIcons)
-        {
-            menu.findItem(R.id.action_share).setIcon(R.drawable.ic_share_black);
-            menu.findItem(R.id.action_edit).setIcon(R.drawable.ic_mode_edit_black_24dp);
-        }
+        menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
+        menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -281,27 +295,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         if(lock)
         {
-            if(backgroundNeedsDarkIcons)
-            {
-                item.setIcon(R.drawable.ic_lock_outline_black_24dp);
-            }
-            else
-            {
-                item.setIcon(R.drawable.ic_lock_outline_white_24dp);
-            }
+
+            item.setIcon(getIcon(R.drawable.ic_lock_outline_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.unlockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         else
         {
-            if(backgroundNeedsDarkIcons)
-            {
-                item.setIcon(R.drawable.ic_lock_open_black_24dp);
-            }
-            else
-            {
-                item.setIcon(R.drawable.ic_lock_open_white_24dp);
-            }
+            item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }

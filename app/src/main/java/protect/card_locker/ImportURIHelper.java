@@ -47,10 +47,10 @@ public class ImportURIHelper {
             Integer headerColor = Integer.parseInt(uri.getQueryParameter(HEADER_COLOR));
             Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
             // Extras was added in a later version, so don't crash if it doesn't exist
-            JSONObject extras = new JSONObject();
+            ExtrasHelper extras = new ExtrasHelper();
             if(uri.getQueryParameter(EXTRAS) != null)
             {
-                extras = new JSONObject(uri.getQueryParameter(EXTRAS));
+                extras = new ExtrasHelper().fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
             }
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
         } catch (NullPointerException | NumberFormatException | JSONException ex) {

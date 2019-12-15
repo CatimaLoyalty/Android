@@ -65,7 +65,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     String importLoyaltyCardType = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
-    JSONObject extras = new JSONObject();
+    ExtrasHelper extras = new ExtrasHelper();
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -400,7 +400,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
-    private void doSave()
+    private void doSave() throws JSONException
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
@@ -492,7 +492,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 return true;
 
             case R.id.action_save:
-                doSave();
+                try {
+                    doSave();
+                }
+                catch (JSONException ex)
+                {
+                    Toast.makeText(this, R.string.failedSavingCard, Toast.LENGTH_LONG).show();
+                    return false;
+                }
                 return true;
         }
 

@@ -45,12 +45,13 @@ public class ImportExportTest
 
     private final String BARCODE_DATA = "428311627547";
     private final String BARCODE_TYPE = BarcodeFormat.UPC_A.name();
-    private JSONObject EXTRAS;
+    private ExtrasHelper EXTRAS;
 
     @Before
     public void setUp() throws JSONException
     {
-        EXTRAS = new JSONObject("{\"key1\": \"value1\"}");
+        EXTRAS = new ExtrasHelper();
+        EXTRAS.addLanguageValue("en", "key", "value");
 
         activity = Robolectric.setupActivity(MainActivity.class);
         db = new DBHelper(activity);
@@ -66,7 +67,7 @@ public class ImportExportTest
      * an index in the store name.
      * @param cardsToAdd
      */
-    private void addLoyaltyCards(int cardsToAdd)
+    private void addLoyaltyCards(int cardsToAdd) throws JSONException
     {
         // Add in reverse order to test sorting
         for(int index = cardsToAdd; index > 0; index--)
@@ -124,7 +125,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void multipleCardsExportImport() throws IOException
+    public void multipleCardsExportImport() throws IOException, JSONException
     {
         final int NUM_CARDS = 10;
 
@@ -159,7 +160,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importExistingCardsNotReplace() throws IOException
+    public void importExistingCardsNotReplace() throws IOException, JSONException
     {
         final int NUM_CARDS = 10;
 
@@ -192,7 +193,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void corruptedImportNothingSaved() throws IOException
+    public void corruptedImportNothingSaved() throws IOException, JSONException
     {
         final int NUM_CARDS = 10;
 
@@ -237,7 +238,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void useImportExportTask() throws FileNotFoundException
+    public void useImportExportTask() throws FileNotFoundException, JSONException
     {
         final int NUM_CARDS = 10;
 

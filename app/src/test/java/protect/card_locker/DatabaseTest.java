@@ -30,19 +30,20 @@ public class DatabaseTest
 
     private static final Integer DEFAULT_HEADER_COLOR = Color.BLACK;
     private static final Integer DEFAULT_HEADER_TEXT_COLOR = Color.WHITE;
-    private static JSONObject DEFAULT_EXTRAS;
+    private static ExtrasHelper DEFAULT_EXTRAS;
 
     @Before
     public void setUp() throws JSONException
     {
-        DEFAULT_EXTRAS = new JSONObject("{\"testkey\": \"testvalue\"}");
+        DEFAULT_EXTRAS = new ExtrasHelper();
+        DEFAULT_EXTRAS.addLanguageValue("en", "key", "value");
 
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         db = new DBHelper(activity);
     }
 
     @Test
-    public void addRemoveOneGiftCard()
+    public void addRemoveOneGiftCard() throws JSONException
     {
         assertEquals(0, db.getLoyaltyCardCount());
         long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
@@ -64,7 +65,7 @@ public class DatabaseTest
     }
 
     @Test
-    public void updateGiftCard()
+    public void updateGiftCard() throws JSONException
     {
         long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
         boolean result = (id != -1);
@@ -85,7 +86,7 @@ public class DatabaseTest
     }
 
     @Test
-    public void updateMissingGiftCard()
+    public void updateMissingGiftCard() throws JSONException
     {
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -96,9 +97,9 @@ public class DatabaseTest
     }
 
     @Test
-    public void emptyGiftCardValues()
+    public void emptyGiftCardValues() throws JSONException
     {
-        long id = db.insertLoyaltyCard("", "", "", "", null, null, new JSONObject());
+        long id = db.insertLoyaltyCard("", "", "", "", null, null, new ExtrasHelper());
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -122,7 +123,7 @@ public class DatabaseTest
         for(int index = CARDS_TO_ADD-1; index >= 0; index--)
         {
             long id = db.insertLoyaltyCard("store" + index, "note" + index, "cardId" + index,
-                    BarcodeFormat.UPC_A.toString(), index, index*2, new JSONObject("{\"testkey" + index + "\":\"testvalue" + index + "\"}"));
+                    BarcodeFormat.UPC_A.toString(), index, index*2, DEFAULT_EXTRAS);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -145,7 +146,7 @@ public class DatabaseTest
             assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
             assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
             assertEquals(index*2, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR)));
-            assertEquals("{\"testkey" + index + "\":\"testvalue" + index + "\"}", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS)));
+            assertEquals("{\"en\": {\"key\": \"value\"}}", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS)));
 
             cursor.moveToNext();
         }

@@ -14,8 +14,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -24,14 +24,52 @@ import java.util.zip.ZipInputStream;
 public class PkpassImporter {
     private Context context;
 
-    public PkpassImporter(Context context) {
+    private HashMap<String, HashMap<String, String>> translations = new HashMap<>();
+
+    public PkpassImporter(Context context)
+    {
         this.context = context;
     }
 
-    private JSONObject appendFieldDictionaryValues(JSONObject original, JSONObject pkpassJSON, String styleKey, String arrayName) throws JSONException
+    private String readZipInputStream(ZipInputStream zipInputStream) throws IOException
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int c = zipInputStream.read(); c != -1; c = zipInputStream.read())
+        {
+            sb.append((char) c);
+        }
+
+        return sb.toString();
+    }
+
+    // FIXME: Probably very fragile
+    private void parseTranslations(String language, String iOSTranslationFileContent)
+    {
+        if(!translations.containsKey(language))
+        {
+            translations.put(language, new HashMap<String, String>());
+        }
+
+        HashMap<String, String> values = translations.get(language);
+
+        for (String entry : iOSTranslationFileContent.trim().split(";"))
+        {
+            String[] parts = entry.split(" = ", 2);
+
+            // Remove all spaces around the key and value
+            String key = parts[0].trim();
+            String value = parts[1].trim();
+
+            // iOS .string files quote everything in double quotes, we don't need to keep those
+            values.put(key.substring(1, key.length()-1), value.substring(1, value.length()-1));
+        }
+
+        translations.put(language, values);
+    }
+
+    private ExtrasHelper appendData(ExtrasHelper extrasHelper, JSONObject pkpassJSON, String styleKey, String arrayName) throws JSONException
     {
         // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/FieldDictionary.html#//apple_ref/doc/uid/TP40012026-CH4-SW1
-        // TODO: Do something with label
 
         JSONArray fields;
         // These are all optional, so don't throw an exception if they don't exist
@@ -41,16 +79,52 @@ public class PkpassImporter {
         }
         catch (JSONException ex)
         {
-            return original;
+            return extrasHelper;
         }
 
         for(int i = 0; i < fields.length(); i++)
         {
             JSONObject fieldObject = fields.getJSONObject(i);
-            original.put(fieldObject.getString("key"), fieldObject.getString("value"));
+            String key = fieldObject.getString("key");
+            String label = fieldObject.getString("label");
+            String value = fieldObject.getString("value");
+
+            // Label is optional
+            if(label == null)
+            {
+                label = key;
+            }
+
+            // Add the completely untranslated stuff as fallback
+            extrasHelper.addLanguageValue("", key, label + ": " + value);
+
+            // Try to find translations
+            for(String language : translations.keySet())
+            {
+                String translatedLabel = label;
+                if(translations.get(language).containsKey(label))
+                {
+                    translatedLabel = translations.get(language).get(label);
+                }
+
+                String translatedValue = value;
+                if(translations.get(language).containsKey(value))
+                {
+                    translatedValue = translations.get(language).get(value);
+                }
+
+                String formattedValue = translatedValue;
+
+                if(!translatedLabel.isEmpty())
+                {
+                    formattedValue = translatedLabel + ": " + translatedValue;
+                }
+
+                extrasHelper.addLanguageValue(language, key, formattedValue);
+            }
         }
 
-        return original;
+        return extrasHelper;
     }
 
     public boolean isPkpass(String type) {
@@ -63,30 +137,37 @@ public class PkpassImporter {
 
     public LoyaltyCard fromInputStream(InputStream inputStream) throws IOException, JSONException
     {
+        String passJSONString = null;
+
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
 
         ZipEntry entry;
 
+        // We first want to parse the translations
         while ((entry = zipInputStream.getNextEntry()) != null) {
-            if (!entry.getName().equals("pass.json")) {
-                continue;
+            if (entry.getName().endsWith("pass.strings"))
+            {
+                // Example: en.lproj/pass.strings
+                String language = entry.getName().substring(0, entry.getName().indexOf("."));
+
+                parseTranslations(language, readZipInputStream(zipInputStream));
             }
-
-            StringBuilder sb = new StringBuilder();
-            for (int c = zipInputStream.read(); c != -1; c = zipInputStream.read()) {
-                sb.append((char) c);
+            else if (entry.getName().equals("pass.json"))
+            {
+                passJSONString = readZipInputStream(zipInputStream);
             }
-
-            String readData = sb.toString();
-
-            return fromPassJSON(new JSONObject(readData));
         }
 
-        return null;
+        if(passJSONString == null)
+        {
+            return null;
+        }
+
+        return fromPassJSON(new JSONObject(passJSONString));
     }
 
-    public LoyaltyCard fromPassJSON(JSONObject json) throws JSONException {
-
+    public LoyaltyCard fromPassJSON(JSONObject json) throws JSONException
+    {
         String store = json.getString("organizationName");
         String note = json.getString("description");
 
@@ -202,12 +283,12 @@ public class PkpassImporter {
         }
 
         // https://developer.apple.com/library/archive/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/LowerLevel.html#//apple_ref/doc/uid/TP40012026-CH3-SW14
-        JSONObject extras = new JSONObject();
-        appendFieldDictionaryValues(extras, json, styleKey, "headerFields");
-        appendFieldDictionaryValues(extras, json, styleKey, "primaryFields");
-        appendFieldDictionaryValues(extras, json, styleKey, "secondaryFields");
-        appendFieldDictionaryValues(extras, json, styleKey, "auxiliaryFields");
-        appendFieldDictionaryValues(extras, json, styleKey, "backFields");
+        ExtrasHelper extras = new ExtrasHelper();
+        extras = appendData(extras, json, styleKey, "headerFields");
+        extras = appendData(extras, json, styleKey, "primaryFields");
+        extras = appendData(extras, json, styleKey, "secondaryField");
+        extras = appendData(extras, json, styleKey, "auxiliaryFields");
+        extras = appendData(extras, json, styleKey, "backFields");
 
         return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
     }

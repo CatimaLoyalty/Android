@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DBHelper extends SQLiteOpenHelper
@@ -77,7 +78,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public long insertLoyaltyCard(final String store, final String note, final String cardId,
                                   final String barcodeType, final Integer headerColor,
-                                  final Integer headerTextColor, final JSONObject extras)
+                                  final Integer headerTextColor, final ExtrasHelper extras) throws JSONException
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -87,7 +88,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
-        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toJSON().toString());
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return newId;
     }
@@ -95,7 +96,7 @@ public class DBHelper extends SQLiteOpenHelper
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,
                                      final String store, final String note, final String cardId,
                                      final String barcodeType, final Integer headerColor,
-                                     final Integer headerTextColor, final JSONObject extras)
+                                     final Integer headerTextColor, final ExtrasHelper extras) throws JSONException
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -105,7 +106,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
-        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toJSON().toString());
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return (newId != -1);
     }
@@ -114,7 +115,7 @@ public class DBHelper extends SQLiteOpenHelper
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
                                      final String cardId, final String barcodeType,
                                      final Integer headerColor, final Integer headerTextColor,
-                                     final JSONObject extras)
+                                     final ExtrasHelper extras) throws JSONException
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -124,7 +125,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
-        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toString());
+        contentValues.put(LoyaltyCardDbIds.EXTRAS, extras.toJSON().toString());
         int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
                 LoyaltyCardDbIds.ID + "=?",
                 new String[]{Integer.toString(id)});

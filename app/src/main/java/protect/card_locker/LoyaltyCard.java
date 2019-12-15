@@ -23,11 +23,11 @@ public class LoyaltyCard
     public final Integer headerTextColor;
 
     @Nullable
-    public final JSONObject extras;
+    public final ExtrasHelper extras;
 
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
                        final String barcodeType, final Integer headerColor, final Integer headerTextColor,
-                       final JSONObject extras)
+                       final ExtrasHelper extras)
     {
         this.id = id;
         this.store = store;
@@ -64,13 +64,13 @@ public class LoyaltyCard
         }
 
         int extrasColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS);
-        JSONObject extras = new JSONObject();
+        ExtrasHelper extras = new ExtrasHelper();
 
         if(cursor.isNull(extrasColumn) == false)
         {
             try
             {
-                extras = new JSONObject(cursor.getString(extrasColumn));
+                extras = new ExtrasHelper().fromJSON(new JSONObject(cursor.getString(extrasColumn)));
             }
             catch (JSONException ex)
             {

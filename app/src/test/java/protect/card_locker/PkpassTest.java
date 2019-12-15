@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Iterator;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -53,39 +54,46 @@ public class PkpassTest {
         assertEquals(String.valueOf(Color.rgb(255, 255, 255)), card.headerTextColor.toString());
 
         // Check if all the extras got parsed correctly
-        JSONObject extras = card.extras;
-        assertEquals(7, extras.length());
+        ExtrasHelper extras = card.extras;
+        assertEquals(7, extras.getAllValues("en").keySet().size());
 
         // Check all 7 values
-        Iterator<String> extrasKeys = extras.keys();
+        Iterator<Map.Entry<String, String>> extrasKeys = extras.getAllValues("en").entrySet().iterator();
 
         // 1
-        assertEquals("staffNumber", extrasKeys.next());
-        assertEquals("001", extras.get("staffNumber"));
+        Map.Entry<String, String> entry = extrasKeys.next();
+        assertEquals("staffNumber", entry.getKey());
+        assertEquals("001", entry.getValue());
 
         // 2
-        assertEquals("staffName", extrasKeys.next());
-        assertEquals("Peter Brooke", extras.get("staffName"));
+        entry = extrasKeys.next();
+        assertEquals("staffName", entry.getKey());
+        assertEquals("Peter Brooke", entry.getValue());
 
         // 3
-        assertEquals("telephoneExt", extrasKeys.next());
-        assertEquals("9779", extras.get("telephoneExt"));
+        entry = extrasKeys.next();
+        assertEquals("telephoneExt", entry.getKey());
+        assertEquals("9779", entry.getValue());
 
         // 4
-        assertEquals("jobTitle", extrasKeys.next());
-        assertEquals("Chief Pass Creator", extras.get("jobTitle"));
+        entry = extrasKeys.next();
+        assertEquals("jobTitle", entry.getKey());
+        assertEquals("Chief Pass Creator", entry.getValue());
 
         // 5
-        assertEquals("expiryDate", extrasKeys.next());
-        assertEquals("2013-12-31T00:00-23:59", extras.get("expiryDate"));
+        entry = extrasKeys.next();
+        assertEquals("expiryDate", entry.getKey());
+        assertEquals("2013-12-31T00:00-23:59", entry.getValue());
 
         // 6
-        assertEquals("managersName", extrasKeys.next());
-        assertEquals("Paul Bailey", extras.get("managersName"));
+        entry = extrasKeys.next();
+        assertEquals("managersName", entry.getKey());
+        assertEquals("Paul Bailey", entry.getValue());
 
         // 7
-        assertEquals("managersExt", extrasKeys.next());
-        assertEquals("9673", extras.get("managersExt"));
+        entry = extrasKeys.next();
+        assertEquals("managersExt", entry.getKey());
+        assertEquals("9673", entry.getValue());
     }
 
     @Test
@@ -107,82 +115,100 @@ public class PkpassTest {
         assertEquals(String.valueOf(Color.parseColor("#AA0061")), card.headerTextColor.toString());
 
         // Check if all the extras got parsed correctly
-        JSONObject extras = card.extras;
-        assertEquals(18, extras.length());
+        ExtrasHelper extras = card.extras;
+        assertEquals(18, extras.getAllValues("en").size());
 
         // Check all 18 values
-        Iterator<String> extrasKeys = extras.keys();
+        Iterator<Map.Entry<String, String>> extrasKeys = extras.getAllValues("en").entrySet().iterator();
 
         // 1
-        assertEquals("gate", extrasKeys.next());
-        assertEquals("B61", extras.get("gate"));
+        Map.Entry<String, String> entry = extrasKeys.next();
+        assertEquals("gate", entry.getKey());
+        assertEquals("B61", entry.getValue());
 
         // 2
-        assertEquals("seat", extrasKeys.next());
-        assertEquals("16E", extras.get("seat"));
+        entry = extrasKeys.next();
+        assertEquals("seat", entry.getKey());
+        assertEquals("16E", entry.getValue());
 
         // 3
-        assertEquals("origin", extrasKeys.next());
-        assertEquals("CGN", extras.get("origin"));
+        entry = extrasKeys.next();
+        assertEquals("origin", entry.getKey());
+        assertEquals("CGN", entry.getValue());
 
         // 4
-        assertEquals("destination", extrasKeys.next());
-        assertEquals("DBV", extras.get("destination"));
+        entry = extrasKeys.next();
+        assertEquals("destination", entry.getKey());
+        assertEquals("DBV", entry.getValue());
 
         // 5
-        assertEquals("name", extrasKeys.next());
-        assertEquals("John Doe", extras.get("name"));
+        entry = extrasKeys.next();
+        assertEquals("name", entry.getKey());
+        assertEquals("John Doe", entry.getValue());
 
         // 6
-        assertEquals("status", extrasKeys.next());
-        assertEquals("-", extras.get("status"));
+        entry = extrasKeys.next();
+        assertEquals("status", entry.getKey());
+        assertEquals("-", entry.getValue());
 
         // 7
-        assertEquals("boardinggroup", extrasKeys.next());
-        assertEquals("GROUP 1", extras.get("boardinggroup"));
+        entry = extrasKeys.next();
+        assertEquals("boardinggroup", entry.getKey());
+        assertEquals("GROUP 1", entry.getValue());
 
         // 8
-        assertEquals("tarif", extrasKeys.next());
-        assertEquals("SMART", extras.get("tarif"));
+        entry = extrasKeys.next();
+        assertEquals("tarif", entry.getKey());
+        assertEquals("SMART", entry.getValue());
 
         // 9
-        assertEquals("flightNumber", extrasKeys.next());
-        assertEquals("EW 954", extras.get("flightNumber"));
+        entry = extrasKeys.next();
+        assertEquals("flightNumber", entry.getKey());
+        assertEquals("EW 954", entry.getValue());
 
         // 10
-        assertEquals("departureDate", extrasKeys.next());
-        assertEquals("08/09/2019", extras.get("departureDate"));
+        entry = extrasKeys.next();
+        assertEquals("departureDate", entry.getKey());
+        assertEquals("08/09/2019", entry.getValue());
 
         // 11
-        assertEquals("boarding", extrasKeys.next());
-        assertEquals("05:00", extras.get("boarding"));
+        entry = extrasKeys.next();
+        assertEquals("boarding", entry.getKey());
+        assertEquals("05:00", entry.getValue());
 
         // 12
-        assertEquals("closure", extrasKeys.next());
-        assertEquals("05:15", extras.get("closure"));
+        entry = extrasKeys.next();
+        assertEquals("closure", entry.getKey());
+        assertEquals("05:15", entry.getValue());
 
         // 13
-        assertEquals("info", extrasKeys.next());
-        assertEquals("info_content_str", extras.get("info"));
+        entry = extrasKeys.next();
+        assertEquals("info", entry.getKey());
+        assertEquals("info_content_str", entry.getValue());
 
         // 14
-        assertEquals("recordlocator", extrasKeys.next());
-        assertEquals("JBZPPP", extras.get("recordlocator"));
+        entry = extrasKeys.next();
+        assertEquals("recordlocator", entry.getKey());
+        assertEquals("JBZPPP", entry.getValue());
 
         // 15
-        assertEquals("sequence", extrasKeys.next());
-        assertEquals("73", extras.get("sequence"));
+        entry = extrasKeys.next();
+        assertEquals("sequence", entry.getKey());
+        assertEquals("73", entry.getValue());
 
         // 16
-        assertEquals("notice", extrasKeys.next());
-        assertEquals("notice_content_str", extras.get("notice"));
+        entry = extrasKeys.next();
+        assertEquals("notice", entry.getKey());
+        assertEquals("notice_content_str", entry.getValue());
 
         // 17
-        assertEquals("baggage", extrasKeys.next());
-        assertEquals("baggage_content_str", extras.get("baggage"));
+        entry = extrasKeys.next();
+        assertEquals("baggage", entry.getKey());
+        assertEquals("baggage_content_str", entry.getValue());
 
         // 18
-        assertEquals("contact", extrasKeys.next());
-        assertEquals("contact_content_str", extras.get("contact"));
+        entry = extrasKeys.next();
+        assertEquals("contact", entry.getKey());
+        assertEquals("contact_content_str", entry.getValue());
     }
 }

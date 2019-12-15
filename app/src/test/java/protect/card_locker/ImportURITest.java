@@ -36,7 +36,9 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException, JSONException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject("{\"key\": \"value\"}"));
+        ExtrasHelper extrasHelper = new ExtrasHelper();
+        extrasHelper.addLanguageValue("en", "key", "value");
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, extrasHelper);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);

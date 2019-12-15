@@ -358,13 +358,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardEditModeCheckDisplay() throws IOException
+    public void startWithLoyaltyCardEditModeCheckDisplay() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -374,13 +374,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardViewModeCheckDisplay() throws IOException
+    public void startWithLoyaltyCardViewModeCheckDisplay() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -390,13 +390,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardWithBarcodeUpdateBarcode() throws IOException
+    public void startWithLoyaltyCardWithBarcodeUpdateBarcode() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -411,13 +411,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException
+    public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -437,13 +437,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkMenu() throws IOException
+    public void checkMenu() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -482,13 +482,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersViewBack()
+    public void startWithoutParametersViewBack() throws JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -500,13 +500,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutColors()
+    public void startWithoutColors() throws JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -518,13 +518,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startLoyaltyCardWithoutColorsSave() throws IOException
+    public void startLoyaltyCardWithoutColorsSave() throws IOException, JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();
@@ -535,13 +535,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startCheckFontSizes()
+    public void startCheckFontSizes() throws JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         final int STORE_FONT_SIZE = 50;
         final int CARD_FONT_SIZE = 40;
@@ -575,7 +575,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkScreenOrientationLockSetting()
+    public void checkScreenOrientationLockSetting() throws JSONException
     {
         for(boolean locked : new boolean[] {false, true})
         {
@@ -583,7 +583,7 @@ public class LoyaltyCardViewActivityTest
 
             Activity activity = (Activity)activityController.get();
             DBHelper db = new DBHelper(activity);
-            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
             settings.edit()
@@ -612,13 +612,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkMoreInfoNoExtras()
+    public void checkMoreInfoNoExtras() throws JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject());
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new ExtrasHelper());
 
         activityController.start();
         activityController.resume();
@@ -637,7 +637,10 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, new JSONObject("{\"key\": \"value\"}"));
+        ExtrasHelper extrasHelper = new ExtrasHelper();
+        extrasHelper.addLanguageValue("en", "key", "value");
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, extrasHelper);
 
         activityController.start();
         activityController.resume();

@@ -31,8 +31,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import protect.card_locker.preferences.Settings;
 
@@ -220,7 +222,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
-        if(loyaltyCard != null && loyaltyCard.extras.length() > 0)
+        if(loyaltyCard != null && !loyaltyCard.extras.getAllValues(Locale.getDefault().getLanguage()).isEmpty())
         {
             MenuItem item = menu.findItem(R.id.action_view_extras);
             item.setVisible(true);
@@ -302,12 +304,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         StringBuilder items = new StringBuilder();
 
-        Iterator<String> iter = loyaltyCard.extras.keys();
-        while(iter.hasNext())
+        HashMap<String, String> extraValues = loyaltyCard.extras.getAllValues(Locale.getDefault().getLanguage());
+        for(String key : extraValues.keySet())
         {
-            String key = iter.next();
-            String value = loyaltyCard.extras.getString(key);
-            items.append(key + ": " + value + "\n");
+            items.append(extraValues.get(key) + "\n");
         }
 
         new AlertDialog.Builder(this)

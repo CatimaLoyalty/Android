@@ -222,7 +222,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
-        if(loyaltyCard != null && !loyaltyCard.extras.getAllValues(Locale.getDefault().getLanguage()).isEmpty())
+        if(loyaltyCard != null && !loyaltyCard.extras.getAllValues(new String[]{Locale.getDefault().getLanguage(), "en", ""}).isEmpty())
         {
             MenuItem item = menu.findItem(R.id.action_view_extras);
             item.setVisible(true);
@@ -304,7 +304,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         StringBuilder items = new StringBuilder();
 
-        HashMap<String, String> extraValues = loyaltyCard.extras.getAllValues(Locale.getDefault().getLanguage());
+        HashMap<String, String> extraValues = loyaltyCard.extras.getAllValues(new String[]{Locale.getDefault().getLanguage(), "en", ""});
         for(String key : extraValues.keySet())
         {
             items.append(extraValues.get(key) + "\n");

@@ -46,12 +46,7 @@ public class ImportURIHelper {
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             Integer headerColor = Integer.parseInt(uri.getQueryParameter(HEADER_COLOR));
             Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
-            // Extras was added in a later version, so don't crash if it doesn't exist
-            ExtrasHelper extras = new ExtrasHelper();
-            if(uri.getQueryParameter(EXTRAS) != null)
-            {
-                extras = new ExtrasHelper().fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
-            }
+            ExtrasHelper extras = new ExtrasHelper().fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
         } catch (NullPointerException | NumberFormatException | JSONException ex) {
             throw new InvalidObjectException("Not a valid import URI");
@@ -59,7 +54,7 @@ public class ImportURIHelper {
     }
 
     // Protected for usage in tests
-    protected Uri toUri(LoyaltyCard loyaltyCard) {
+    protected Uri toUri(LoyaltyCard loyaltyCard) throws JSONException {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https");
         uriBuilder.authority(host);
@@ -70,7 +65,7 @@ public class ImportURIHelper {
         uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
         uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
         uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
-        uriBuilder.appendQueryParameter(EXTRAS, loyaltyCard.extras.toString());
+        uriBuilder.appendQueryParameter(EXTRAS, loyaltyCard.extras.toJSON().toString());
 
         return uriBuilder.build();
     }
@@ -85,7 +80,14 @@ public class ImportURIHelper {
         context.startActivity(shareIntent);
     }
 
-    public void startShareIntent(LoyaltyCard loyaltyCard) {
-        startShareIntent(toUri(loyaltyCard));
+    public boolean startShareIntent(LoyaltyCard loyaltyCard) {
+        try
+        {
+            startShareIntent(toUri(loyaltyCard));
+            return true;
+        }
+        catch (JSONException ex) {}
+
+        return false;
     }
 }

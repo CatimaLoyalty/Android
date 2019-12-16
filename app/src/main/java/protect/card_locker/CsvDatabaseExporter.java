@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -25,7 +26,8 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR,
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
+                DBHelper.LoyaltyCardDbIds.EXTRAS);
 
         Cursor cursor = db.getLoyaltyCardCursor();
 
@@ -33,13 +35,23 @@ public class CsvDatabaseExporter implements DatabaseExporter
         {
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
 
+            String extras;
+            try {
+                extras = card.extras.toJSON().toString();
+            }
+            catch (JSONException ex)
+            {
+                throw new IOException(ex);
+            }
+
             printer.printRecord(card.id,
                     card.store,
                     card.note,
                     card.cardId,
                     card.headerColor,
                     card.headerTextColor,
-                    card.barcodeType);
+                    card.barcodeType,
+                    extras);
 
             if(Thread.currentThread().isInterrupted())
             {

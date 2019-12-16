@@ -105,7 +105,7 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
-            assertEquals(EXTRAS.toJSON().toString(), card.extras.toJSON().toString());
+            assertEquals("{\"en\":{\"key\":\"value\"}}", card.extras.toJSON().toString());
 
             index++;
         }

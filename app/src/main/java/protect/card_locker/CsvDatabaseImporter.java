@@ -149,11 +149,11 @@ public class CsvDatabaseImporter implements DatabaseImporter
             headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record, true);
         }
 
-        ExtrasHelper extras;
+        ExtrasHelper extras = new ExtrasHelper();
 
         try
         {
-            extras = new ExtrasHelper().fromJSON(new JSONObject(extractString(DBHelper.LoyaltyCardDbIds.EXTRAS, record, "{}")));
+            extras.fromJSON(new JSONObject(extractString(DBHelper.LoyaltyCardDbIds.EXTRAS, record, "{}")));
             helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
         }
         catch (JSONException ex)

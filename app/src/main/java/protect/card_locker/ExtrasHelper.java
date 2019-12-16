@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -56,7 +56,7 @@ public class ImportURITest {
         assertEquals(card.headerTextColor, parsedCard.headerTextColor);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.store, parsedCard.store);
-        assertEquals(card.extras.toString(), parsedCard.extras.toString());
+        assertEquals(card.extras.toJSON().toString(), parsedCard.extras.toJSON().toString());
     }
 
     @Test

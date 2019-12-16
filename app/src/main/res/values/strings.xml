@@ -45,6 +45,7 @@
     <string name="noCardIdError">No Card ID entered</string>
     <string name="noCardExistsError">Could not lookup loyalty card</string>
     <string name="failedParsingImportUriError">Could not parse the import Uri</string>
+    <string name="failedSharingCard">Could not share card</string>
     <string name="failedShowingExtras">Could not show extra information: data not correctly formatted</string>
     <string name="failedSavingCard">Could not save card</string>
 

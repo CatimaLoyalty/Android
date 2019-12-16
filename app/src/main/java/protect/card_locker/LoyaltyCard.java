@@ -70,7 +70,7 @@ public class LoyaltyCard
         {
             try
             {
-                extras = new ExtrasHelper().fromJSON(new JSONObject(cursor.getString(extrasColumn)));
+                extras = extras.fromJSON(new JSONObject(cursor.getString(extrasColumn)));
             }
             catch (JSONException ex)
             {

@@ -197,6 +197,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
         }
 
+        // Make notification area light if dark icons are needed
+        window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+
         if(format != null)
         {
             findViewById(R.id.barcode).setVisibility(View.VISIBLE);

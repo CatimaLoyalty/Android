@@ -6,14 +6,17 @@ import android.net.Uri;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.primitives.Chars;
 import com.google.zxing.BarcodeFormat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -33,13 +36,16 @@ public class PkpassImporter {
 
     private String readZipInputStream(ZipInputStream zipInputStream) throws IOException
     {
-        StringBuilder sb = new StringBuilder();
-        for (int c = zipInputStream.read(); c != -1; c = zipInputStream.read())
+        byte[] buffer = new byte[2048];
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int size;
+
+        while((size = zipInputStream.read(buffer, 0, buffer.length)) != -1)
         {
-            sb.append((char) c);
+            byteArrayOutputStream.write(buffer, 0, size);
         }
 
-        return sb.toString();
+        return byteArrayOutputStream.toString("UTF-8");
     }
 
     // FIXME: Probably very fragile
@@ -96,7 +102,12 @@ public class PkpassImporter {
             }
 
             // Add the completely untranslated stuff as fallback
-            extrasHelper.addLanguageValue("", key, label + ": " + value);
+            String formattedUntranslatedValue = value;
+            if(!label.isEmpty())
+            {
+                formattedUntranslatedValue = label + ": " + value;
+            }
+            extrasHelper.addLanguageValue("", key, formattedUntranslatedValue);
 
             // Try to find translations
             for(String language : translations.keySet())
@@ -286,7 +297,7 @@ public class PkpassImporter {
         ExtrasHelper extras = new ExtrasHelper();
         extras = appendData(extras, json, styleKey, "headerFields");
         extras = appendData(extras, json, styleKey, "primaryFields");
-        extras = appendData(extras, json, styleKey, "secondaryField");
+        extras = appendData(extras, json, styleKey, "secondaryFields");
         extras = appendData(extras, json, styleKey, "auxiliaryFields");
         extras = appendData(extras, json, styleKey, "backFields");
 

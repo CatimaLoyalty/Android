@@ -82,7 +82,7 @@ public class DatabaseTest
         assertEquals("note1", loyaltyCard.note);
         assertEquals("cardId1", loyaltyCard.cardId);
         assertEquals(BarcodeFormat.AZTEC.toString(), loyaltyCard.barcodeType);
-        assertEquals(DEFAULT_EXTRAS.toString(), loyaltyCard.extras.toString());
+        assertEquals(DEFAULT_EXTRAS.toJSON().toString(), loyaltyCard.extras.toJSON().toString());
     }
 
     @Test
@@ -110,7 +110,7 @@ public class DatabaseTest
         assertEquals("", loyaltyCard.note);
         assertEquals("", loyaltyCard.cardId);
         assertEquals("", loyaltyCard.barcodeType);
-        assertEquals("{}", loyaltyCard.extras.toString());
+        assertEquals("{}", loyaltyCard.extras.toJSON().toString());
     }
 
     @Test
@@ -146,7 +146,7 @@ public class DatabaseTest
             assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
             assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
             assertEquals(index*2, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR)));
-            assertEquals("{\"en\": {\"key\": \"value\"}}", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS)));
+            assertEquals("{\"en\":{\"key\":\"value\"}}", cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS)));
 
             cursor.moveToNext();
         }
@@ -181,7 +181,7 @@ public class DatabaseTest
     }
 
     @Test
-    public void databaseUpgradeFromVersion1()
+    public void databaseUpgradeFromVersion1() throws JSONException
     {
         SQLiteDatabase database = db.getWritableDatabase();
 
@@ -202,7 +202,7 @@ public class DatabaseTest
         assertEquals("", card.note);
         assertEquals(null, card.headerColor);
         assertEquals(null, card.headerTextColor);
-        assertEquals("{}", card.extras.toString());
+        assertEquals("{}", card.extras.toJSON().toString());
 
         database.close();
     }

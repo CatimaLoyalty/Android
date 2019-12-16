@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import android.support.annotation.NonNull;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,8 +49,29 @@ public class ExtrasHelper {
         extras.put(language, values);
     }
 
-    public HashMap<String, String> getAllValues(String language)
+    @NonNull
+    public LinkedHashMap<String, String> getAllValues(String language)
     {
-        return extras.get(language);
+        return getAllValues(new String[]{language});
+    }
+
+    @NonNull
+    public LinkedHashMap<String, String> getAllValues(String[] languages)
+    {
+        LinkedHashMap<String, String> values = new LinkedHashMap<>();
+
+        // Get least preferred language (last in list) first
+        // Then go further and further to the start of the list (preferred language)
+        for(int i = (languages.length - 1); i >= 0; i--)
+        {
+            LinkedHashMap<String, String> languageValues = extras.get(languages[i]);
+
+            if(languageValues != null)
+            {
+                values.putAll(languageValues);
+            }
+        }
+
+        return values;
     }
 }

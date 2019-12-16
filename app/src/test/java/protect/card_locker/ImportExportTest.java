@@ -87,7 +87,7 @@ public class ImportExportTest
      * specified in addLoyaltyCards(), and are in sequential order
      * where the smallest card's index is 1
      */
-    private void checkLoyaltyCards()
+    private void checkLoyaltyCards() throws JSONException
     {
         Cursor cursor = db.getLoyaltyCardCursor();
         int index = 1;
@@ -105,7 +105,7 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
-            assertEquals(EXTRAS, card.extras);
+            assertEquals(EXTRAS.toJSON().toString(), card.extras.toJSON().toString());
 
             index++;
         }

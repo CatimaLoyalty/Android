@@ -12,6 +12,7 @@
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode Type</string>
+    <string name="barcodeNoBarcode">This card has no barcode</string>
 
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
@@ -44,10 +45,10 @@
     <string name="noStoreError">No Store entered</string>
     <string name="noCardIdError">No Card ID entered</string>
     <string name="noCardExistsError">Could not lookup loyalty card</string>
-    <string name="failedParsingImportUriError">Could not parse the import Uri</string>
     <string name="failedSharingCard">Could not share card</string>
     <string name="failedShowingExtras">Could not show extra information: data not correctly formatted</string>
     <string name="failedSavingCard">Could not save card</string>
+    <string name="failedParsingImportUriError">Could not parse the import URI</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
@@ -89,7 +90,7 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="enterBarcodeInstructions">Enter the barcode value then select the image which represents the barcode you want to use</string>
+    <string name="enterBarcodeInstructions">Enter the card ID then select the image which represents the barcode you want to use, or select &#8220;This card has no barcode&#8221; to not use a barcode.</string>
 
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 

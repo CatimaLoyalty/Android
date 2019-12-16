@@ -407,7 +407,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             return;
         }
 
-        if(cardId.isEmpty() || barcodeType.isEmpty())
+        if(cardId.isEmpty())
         {
             Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
             return;
@@ -524,7 +524,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
 
         if(contents != null && contents.isEmpty() == false &&
-                format != null && format.isEmpty() == false)
+                format != null)
         {
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);

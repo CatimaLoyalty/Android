@@ -26,14 +26,9 @@ import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 import protect.card_locker.preferences.Settings;
@@ -130,7 +125,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         String formatString = loyaltyCard.barcodeType;
-        final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
+        final BarcodeFormat format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
         final String cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
@@ -177,37 +172,44 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
-        if(barcodeImage.getHeight() == 0)
+        if(format != null)
         {
-            Log.d(TAG, "ImageView size is not known known at start, waiting for load");
-            // The size of the ImageView is not yet available as it has not
-            // yet been drawn. Wait for it to be drawn so the size is available.
-            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                    new ViewTreeObserver.OnGlobalLayoutListener()
-                    {
-                        @Override
-                        public void onGlobalLayout()
+            findViewById(R.id.barcode).setVisibility(View.VISIBLE);
+            if(barcodeImage.getHeight() == 0)
+            {
+                Log.d(TAG, "ImageView size is not known known at start, waiting for load");
+                // The size of the ImageView is not yet available as it has not
+                // yet been drawn. Wait for it to be drawn so the size is available.
+                barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                        new ViewTreeObserver.OnGlobalLayoutListener()
                         {
-                            if (Build.VERSION.SDK_INT < 16)
+                            @Override
+                            public void onGlobalLayout()
                             {
-                                barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                            }
-                            else
-                            {
-                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                            }
+                                if (Build.VERSION.SDK_INT < 16)
+                                {
+                                    barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                                }
+                                else
+                                {
+                                    barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                                }
 
-                            Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                        }
-                    });
+                                Log.d(TAG, "ImageView size now known");
+                                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                            }
+                        });
+            }
+            else
+            {
+                Log.d(TAG, "ImageView size known known, creating barcode");
+                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            }
         }
         else
         {
-            Log.d(TAG, "ImageView size known known, creating barcode");
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            findViewById(R.id.barcode).setVisibility(View.GONE);
         }
-
     }
 
     @Override

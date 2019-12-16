@@ -90,6 +90,11 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
     public Bitmap doInBackground(Void... params)
     {
+        if (cardId.isEmpty())
+        {
+            return null;
+        }
+
         MultiFormatWriter writer = new MultiFormatWriter();
         BitMatrix bitMatrix;
         try

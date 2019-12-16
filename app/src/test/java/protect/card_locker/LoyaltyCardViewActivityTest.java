@@ -248,10 +248,6 @@ public class LoyaltyCardViewActivityTest
         noteField.setText("note");
         shadowActivity.clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
-
-        cardIdField.setText("cardId");
-        shadowActivity.clickMenuItem(R.id.action_save);
-        assertEquals(0, db.getLoyaltyCardCount());
     }
 
     @Test
@@ -288,7 +284,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, true);
     }
 
@@ -327,7 +323,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Cancel the gift card creation
+        // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
@@ -530,8 +526,25 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, false);
+    }
+
+    @Test
+    public void startLoyaltyCardWithExplicitNoBarcodeSave() throws IOException, JSONException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, "", Color.BLACK, Color.WHITE, new ExtrasHelper());
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // Save and check the loyalty card
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, "", false);
     }
 
     @Test

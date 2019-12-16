@@ -134,10 +134,6 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
 
         String barcodeType = extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
-        if(barcodeType.isEmpty())
-        {
-            throw new FormatException("No barcode type listed, but is required");
-        }
 
         Integer headerColor = null;
         Integer headerTextColor = null;

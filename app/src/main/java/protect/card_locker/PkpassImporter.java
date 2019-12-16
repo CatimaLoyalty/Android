@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -110,18 +111,18 @@ public class PkpassImporter {
             extrasHelper.addLanguageValue("", key, formattedUntranslatedValue);
 
             // Try to find translations
-            for(String language : translations.keySet())
+            for(Map.Entry<String, HashMap<String, String>> language : translations.entrySet())
             {
                 String translatedLabel = label;
-                if(translations.get(language).containsKey(label))
+                if(language.getValue().containsKey(label))
                 {
-                    translatedLabel = translations.get(language).get(label);
+                    translatedLabel = language.getValue().get(label);
                 }
 
                 String translatedValue = value;
-                if(translations.get(language).containsKey(value))
+                if(language.getValue().containsKey(value))
                 {
-                    translatedValue = translations.get(language).get(value);
+                    translatedValue = language.getValue().get(value);
                 }
 
                 String formattedValue = translatedValue;
@@ -131,7 +132,7 @@ public class PkpassImporter {
                     formattedValue = translatedLabel + ": " + translatedValue;
                 }
 
-                extrasHelper.addLanguageValue(language, key, formattedValue);
+                extrasHelper.addLanguageValue(language.getKey(), key, formattedValue);
             }
         }
 

@@ -30,6 +30,7 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import protect.card_locker.preferences.Settings;
 
@@ -307,9 +308,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         StringBuilder items = new StringBuilder();
 
         HashMap<String, String> extraValues = loyaltyCard.extras.getAllValues(new String[]{Locale.getDefault().getLanguage(), "en", ""});
-        for(String key : extraValues.keySet())
+        for(Map.Entry<String, String> entry : extraValues.entrySet())
         {
-            items.append(extraValues.get(key) + "\n");
+            items.append(entry.getValue() + "\n");
         }
 
         new AlertDialog.Builder(this)

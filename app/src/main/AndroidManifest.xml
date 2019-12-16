@@ -49,17 +49,18 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "https://github.com/brarcher/loyalty-card-locker/” -->
+                <!-- Accepts URIs that begin with "https://brarcher.github.io/loyalty-card-locker/share” -->
                 <data android:scheme="https"
                     android:host="@string/intent_import_card_from_url_host"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />
             </intent-filter>
             <intent-filter android:label="@string/intent_import_card_from_url">
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
                 <!-- Accept pkpass files -->
                 <data android:scheme="content" android:mimeType="application/octet-stream"/>
+                <data android:scheme="content" android:mimeType="application/x-compressed"/>
+                <data android:scheme="content" android:mimeType="application/x-zip-compressed"/>
                 <data android:scheme="content" android:mimeType="application/zip"/>
                 <data android:scheme="content" android:mimeType="application/vnd.apple.pkpass"/>
                 <data android:scheme="content" android:mimeType="application/pkpass"/>

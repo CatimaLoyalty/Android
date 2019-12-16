@@ -85,19 +85,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     private LoyaltyCard importCard(String type, Uri uri)
     {
-        // Pkpass
-        if(type != null && pkpassImporter.isPkpass(type))
-        {
-            try
-            {
-                return pkpassImporter.fromURI(uri);
-            }
-            catch (IOException | JSONException ex)
-            {
-                return null;
-            }
-        }
-
         // Import URI
         if(importUriHelper.isImportUri(uri))
         {
@@ -110,6 +97,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 return null;
             }
         }
+
+        // Pkpass
+        try
+        {
+            return pkpassImporter.fromURI(uri);
+        }
+        catch (IOException | JSONException ex) {}
 
         return null;
     }

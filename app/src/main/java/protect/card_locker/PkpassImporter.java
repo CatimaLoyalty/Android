@@ -138,10 +138,6 @@ public class PkpassImporter {
         return extrasHelper;
     }
 
-    public boolean isPkpass(String type) {
-        return Arrays.asList("application/octet-stream", "application/zip", "application/vnd.apple.pkpass", "application/pkpass", "application/vndapplepkpass", "application/vnd-com.apple.pkpass").contains(type);
-    }
-
     public LoyaltyCard fromURI(Uri uri) throws IOException, JSONException {
         return fromInputStream(context.getContentResolver().openInputStream(uri));
     }

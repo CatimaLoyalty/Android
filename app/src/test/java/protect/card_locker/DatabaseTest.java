@@ -2,8 +2,11 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 
 import com.google.zxing.BarcodeFormat;
@@ -30,6 +33,7 @@ public class DatabaseTest
 
     private static final Integer DEFAULT_HEADER_COLOR = Color.BLACK;
     private static final Integer DEFAULT_HEADER_TEXT_COLOR = Color.WHITE;
+    private static Bitmap DEFAULT_ICON = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.app_icon_intro);
     private static ExtrasHelper DEFAULT_EXTRAS;
 
     @Before
@@ -46,7 +50,7 @@ public class DatabaseTest
     public void addRemoveOneGiftCard() throws JSONException
     {
         assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
+        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_ICON, DEFAULT_EXTRAS);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -67,12 +71,12 @@ public class DatabaseTest
     @Test
     public void updateGiftCard() throws JSONException
     {
-        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
+        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_ICON, DEFAULT_EXTRAS);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
-        result = db.updateLoyaltyCard(1, "store1", "note1", "cardId1", BarcodeFormat.AZTEC.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
+        result = db.updateLoyaltyCard(1, "store1", "note1", "cardId1", BarcodeFormat.AZTEC.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_ICON, DEFAULT_EXTRAS);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -91,7 +95,7 @@ public class DatabaseTest
         assertEquals(0, db.getLoyaltyCardCount());
 
         boolean result = db.updateLoyaltyCard(1, "store1", "note1", "cardId1",
-                BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_EXTRAS);
+                BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, DEFAULT_ICON, DEFAULT_EXTRAS);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
     }
@@ -99,7 +103,7 @@ public class DatabaseTest
     @Test
     public void emptyGiftCardValues() throws JSONException
     {
-        long id = db.insertLoyaltyCard("", "", "", "", null, null, new ExtrasHelper());
+        long id = db.insertLoyaltyCard("", "", "", "", null, null, null, new ExtrasHelper());
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -123,7 +127,7 @@ public class DatabaseTest
         for(int index = CARDS_TO_ADD-1; index >= 0; index--)
         {
             long id = db.insertLoyaltyCard("store" + index, "note" + index, "cardId" + index,
-                    BarcodeFormat.UPC_A.toString(), index, index*2, DEFAULT_EXTRAS);
+                    BarcodeFormat.UPC_A.toString(), index, index*2, DEFAULT_ICON, DEFAULT_EXTRAS);
             boolean result = (id != -1);
             assertTrue(result);
         }

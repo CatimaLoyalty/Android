@@ -1,12 +1,13 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.primitives.Chars;
 import com.google.zxing.BarcodeFormat;
 
 import org.json.JSONArray;
@@ -16,8 +17,6 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -28,6 +27,8 @@ import java.util.zip.ZipInputStream;
 public class PkpassImporter {
     private Context context;
 
+    private Bitmap icon = null;
+
     private HashMap<String, HashMap<String, String>> translations = new HashMap<>();
 
     public PkpassImporter(Context context)
@@ -35,7 +36,7 @@ public class PkpassImporter {
         this.context = context;
     }
 
-    private String readZipInputStream(ZipInputStream zipInputStream) throws IOException
+    private ByteArrayOutputStream readZipInputStream(ZipInputStream zipInputStream) throws IOException
     {
         byte[] buffer = new byte[2048];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -46,7 +47,13 @@ public class PkpassImporter {
             byteArrayOutputStream.write(buffer, 0, size);
         }
 
-        return byteArrayOutputStream.toString("UTF-8");
+        return byteArrayOutputStream;
+    }
+
+    private void loadBitmap(ByteArrayOutputStream byteArrayOutputStream)
+    {
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        icon = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     // FIXME: Probably very fragile
@@ -152,17 +159,21 @@ public class PkpassImporter {
         ZipEntry entry;
 
         // We first want to parse the translations
-        while ((entry = zipInputStream.getNextEntry()) != null) {
-            if (entry.getName().endsWith("pass.strings"))
+        while((entry = zipInputStream.getNextEntry()) != null) {
+            if(entry.getName().endsWith("pass.strings"))
             {
                 // Example: en.lproj/pass.strings
                 String language = entry.getName().substring(0, entry.getName().indexOf("."));
 
-                parseTranslations(language, readZipInputStream(zipInputStream));
+                parseTranslations(language, readZipInputStream(zipInputStream).toString("UTF-8"));
             }
-            else if (entry.getName().equals("pass.json"))
+            else if(entry.getName().equals("pass.json"))
             {
-                passJSONString = readZipInputStream(zipInputStream);
+                passJSONString = readZipInputStream(zipInputStream).toString("UTF-8");
+            }
+            else if(entry.getName().equals("icon.png"))
+            {
+                loadBitmap(readZipInputStream(zipInputStream));
             }
         }
 
@@ -298,6 +309,6 @@ public class PkpassImporter {
         extras = appendData(extras, json, styleKey, "auxiliaryFields");
         extras = appendData(extras, json, styleKey, "backFields");
 
-        return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
+        return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, icon, extras);
     }
 }

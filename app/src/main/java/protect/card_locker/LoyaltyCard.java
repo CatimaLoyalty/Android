@@ -1,6 +1,8 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.Nullable;
 
 import org.json.JSONException;
@@ -23,11 +25,14 @@ public class LoyaltyCard
     public final Integer headerTextColor;
 
     @Nullable
+    public final Bitmap icon;
+
+    @Nullable
     public final ExtrasHelper extras;
 
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
                        final String barcodeType, final Integer headerColor, final Integer headerTextColor,
-                       final ExtrasHelper extras)
+                       final Bitmap icon, final ExtrasHelper extras)
     {
         this.id = id;
         this.store = store;
@@ -36,6 +41,7 @@ public class LoyaltyCard
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
         this.headerTextColor = headerTextColor;
+        this.icon = icon;
         this.extras = extras;
     }
 
@@ -63,6 +69,15 @@ public class LoyaltyCard
             headerTextColor = cursor.getInt(headerTextColorColumn);
         }
 
+        int iconColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ICON);
+        Bitmap icon = null;
+
+        if(cursor.isNull(iconColumn) == false)
+        {
+            byte[] iconData = cursor.getBlob(iconColumn);
+            icon = BitmapFactory.decodeByteArray(iconData, 0, iconData.length);
+        }
+
         int extrasColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXTRAS);
         ExtrasHelper extras = new ExtrasHelper();
 
@@ -80,6 +95,6 @@ public class LoyaltyCard
             }
         }
 
-        return new LoyaltyCard(id, store, note, cardId, barcodeType, headerColor, headerTextColor, extras);
+        return new LoyaltyCard(id, store, note, cardId, barcodeType, headerColor, headerTextColor, icon, extras);
     }
 }

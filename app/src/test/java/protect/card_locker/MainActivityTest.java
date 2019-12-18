@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -111,7 +109,7 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -143,8 +141,8 @@ public class MainActivityTest
         ListView list = mainActivity.findViewById(R.id.list);
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
-        db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
+        db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
+        db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
 
         activityController.pause();
         activityController.resume();

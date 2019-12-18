@@ -85,7 +85,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterEmptyNote() throws JSONException
     {
-        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
+        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -99,7 +99,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterWithNote() throws JSONException
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -113,7 +113,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterFontSizes() throws JSONException
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, new ExtrasHelper());
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, null, new ExtrasHelper());
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();

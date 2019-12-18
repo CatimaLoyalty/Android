@@ -1,6 +1,9 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import com.google.zxing.BarcodeFormat;
@@ -36,9 +39,10 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException, JSONException
     {
         // Generate card
+        Bitmap icon = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.app_icon_intro);
         ExtrasHelper extrasHelper = new ExtrasHelper();
         extrasHelper.addLanguageValue("en", "key", "value");
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, extrasHelper);
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, icon, extrasHelper);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -56,6 +60,7 @@ public class ImportURITest {
         assertEquals(card.headerTextColor, parsedCard.headerTextColor);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.store, parsedCard.store);
+        assertEquals(card.icon.getRowBytes(), parsedCard.icon.getRowBytes());
         assertEquals(card.extras.toJSON().toString(), parsedCard.extras.toJSON().toString());
     }
 

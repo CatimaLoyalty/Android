@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,10 +62,18 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
 
-        Integer letterBackgroundColor = loyaltyCard.headerColor;
-        Integer letterTextColor = loyaltyCard.headerTextColor;
-        LetterBitmap letterBitmap = new LetterBitmap(context, loyaltyCard.store, loyaltyCard.store,
-                tileLetterFontSize, pixelSize, pixelSize, letterBackgroundColor, letterTextColor);
-        thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+
+        if(loyaltyCard.icon == null)
+        {
+            Integer letterBackgroundColor = loyaltyCard.headerColor;
+            Integer letterTextColor = loyaltyCard.headerTextColor;
+            LetterBitmap letterBitmap = new LetterBitmap(context, loyaltyCard.store, loyaltyCard.store,
+                    tileLetterFontSize, pixelSize, pixelSize, letterBackgroundColor, letterTextColor);
+            thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+        }
+        else
+        {
+            thumbnail.setImageBitmap(loyaltyCard.icon);
+        }
     }
 }

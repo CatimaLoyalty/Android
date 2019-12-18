@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -65,6 +66,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     String importLoyaltyCardType = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
+    Bitmap icon = null;
     ExtrasHelper extras = new ExtrasHelper();
 
     DBHelper db;
@@ -237,6 +239,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             barcodeTypeField.setText(importCard.barcodeType);
             headingColorValue = importCard.headerColor;
             headingStoreTextColorValue = importCard.headerTextColor;
+            icon = importCard.icon;
             extras = importCard.extras;
         }
         else
@@ -415,12 +418,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {
-            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, extras);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, icon, extras);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, extras);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, icon, extras);
         }
 
         finish();

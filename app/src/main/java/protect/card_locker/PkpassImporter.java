@@ -53,6 +53,11 @@ public class PkpassImporter {
     private void loadBitmap(ByteArrayOutputStream byteArrayOutputStream)
     {
         byte[] bytes = byteArrayOutputStream.toByteArray();
+        // Only keep the largest icon
+        if(icon != null && bytes.length < icon.getByteCount())
+        {
+            return;
+        }
         icon = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
@@ -171,7 +176,7 @@ public class PkpassImporter {
             {
                 passJSONString = readZipInputStream(zipInputStream).toString("UTF-8");
             }
-            else if(entry.getName().equals("icon.png"))
+            else if(entry.getName().equals("icon.png") || entry.getName().equals("icon@2x.png"))
             {
                 loadBitmap(readZipInputStream(zipInputStream));
             }

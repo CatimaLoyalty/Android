@@ -3,14 +3,13 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Base64;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InvalidObjectException;
-import java.io.UnsupportedEncodingException;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
@@ -52,14 +51,15 @@ public class ImportURIHelper {
             Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
             String iconData = uri.getQueryParameter(ICON);
             Bitmap icon = null;
+
             if(!iconData.isEmpty())
             {
-                byte[] iconBytes = iconData.getBytes("UTF-8");
+                byte[] iconBytes = Base64.decode(iconData, Base64.URL_SAFE);
                 icon = DBHelper.convertBitmapBlobToBitmap(iconBytes);
             }
             ExtrasHelper extras = new ExtrasHelper().fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, icon, extras);
-        } catch (NullPointerException | NumberFormatException | JSONException | UnsupportedEncodingException ex) {
+        } catch (NullPointerException | NumberFormatException | JSONException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
     }
@@ -69,7 +69,7 @@ public class ImportURIHelper {
         String icon = "";
         if(loyaltyCard.icon != null)
         {
-            icon = DBHelper.convertBitmapToBlob(loyaltyCard.icon).toString();
+            icon = Base64.encodeToString(DBHelper.convertBitmapToBlob(loyaltyCard.icon), Base64.URL_SAFE);
         }
 
         Uri.Builder uriBuilder = new Uri.Builder();

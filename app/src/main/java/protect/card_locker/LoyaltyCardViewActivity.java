@@ -4,11 +4,15 @@ package protect.card_locker;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.graphics.ColorUtils;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
@@ -30,6 +34,7 @@ import protect.card_locker.preferences.Settings;
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
     private static final String TAG = "CardLocker";
+    private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;
     TextView noteView;
@@ -44,11 +49,29 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImportURIHelper importURIHelper;
     Settings settings;
 
+    boolean backgroundNeedsDarkIcons;
+
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
+    }
+
+    private Drawable getIcon(int icon, boolean dark)
+    {
+        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
+        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        if(dark)
+        {
+            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
+        }
+        else
+        {
+            DrawableCompat.setTintList(wrappedIcon, null);
+        }
+
+        return wrappedIcon;
     }
 
     @Override
@@ -165,6 +188,20 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
+        // If the background is very bright, we should use dark icons
+        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > LUMINANCE_MIDPOINT);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
+        {
+            actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
+        }
+
+        // Make notification area light if dark icons are needed
+        window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+
+        // Set shadow colour of store text so even same color on same color would be readable
+        storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
+
         if(format != null)
         {
             findViewById(R.id.barcode).setVisibility(View.VISIBLE);
@@ -210,12 +247,17 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
 
-        if(settings.getLockBarcodeScreenOrientation())
+        // Always calculate lockscreen icon, it may need a black color
+        boolean lockBarcodeScreenOrientation = settings.getLockBarcodeScreenOrientation();
+        MenuItem item = menu.findItem(R.id.action_lock_unlock);
+        setOrientatonLock(item, lockBarcodeScreenOrientation);
+        if(lockBarcodeScreenOrientation)
         {
-            MenuItem item = menu.findItem(R.id.action_lock_unlock);
-            setOrientatonLock(item, true);
             item.setVisible(false);
         }
+
+        menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
+        menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -265,13 +307,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         if(lock)
         {
-            item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+
+            item.setIcon(getIcon(R.drawable.ic_lock_outline_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.unlockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         else
         {
-            item.setIcon(R.drawable.ic_lock_open_white_24dp);
+            item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }

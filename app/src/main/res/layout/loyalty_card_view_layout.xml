@@ -47,7 +47,7 @@
                 android:layout_height="0dp"
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
-                app:layout_constraintTop_toBottomOf="@id/centerGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/barcode"
                 app:layout_constraintBottom_toTopOf="@+id/noteViewDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

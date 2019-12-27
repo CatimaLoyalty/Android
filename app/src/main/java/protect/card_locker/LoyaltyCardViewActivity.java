@@ -197,8 +197,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         // Make notification area light if dark icons are needed
-        window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
-        window.setStatusBarColor(Color.TRANSPARENT);
+        if(Build.VERSION.SDK_INT >= 23)
+        {
+            window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+        }
+        if(Build.VERSION.SDK_INT >= 21)
+        {
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
@@ -217,14 +223,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             @Override
                             public void onGlobalLayout()
                             {
-                                if (Build.VERSION.SDK_INT < 16)
-                                {
-                                    barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                                }
-                                else
-                                {
-                                    barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                                }
+                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                                 Log.d(TAG, "ImageView size now known");
                                 new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();

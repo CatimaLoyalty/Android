@@ -7,12 +7,12 @@ findbugs {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "protect.card_locker"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 35
         versionName "0.25.4"
     }

@@ -12,6 +12,7 @@
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode Type</string>
+    <string name="barcodeTypePlaceholder">Barcode Type: %1$s</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
 
     <string name="cancel">Cancel</string>

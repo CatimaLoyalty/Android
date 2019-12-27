@@ -119,7 +119,7 @@
 
                         <EditText
                             android:id="@+id/noteEdit"
-                            android:inputType="textCapSentences"
+                            android:inputType="textMultiLine"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"

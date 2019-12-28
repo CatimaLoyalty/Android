@@ -109,6 +109,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     @Override
     public void onNewIntent(Intent intent)
     {
+        super.onNewIntent(intent);
+
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
     }

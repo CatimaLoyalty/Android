@@ -115,6 +115,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     @Override
     public void onNewIntent(Intent intent)
     {
+        super.onNewIntent(intent);
+
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
 
@@ -459,6 +461,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
+        super.onActivityResult(requestCode, resultCode, intent);
+
         String contents = null;
         String format = null;
 

@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;

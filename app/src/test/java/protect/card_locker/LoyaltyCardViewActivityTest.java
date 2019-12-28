@@ -1,48 +1,46 @@
 package protect.card_locker;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import androidx.core.widget.TextViewCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import androidx.core.widget.TextViewCompat;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
-
+import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
-import org.robolectric.res.builder.RobolectricPackageManager;
+import org.robolectric.shadows.ShadowPackageManager;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowLog;
-import org.robolectric.android.controller.ActivityController;
-
-import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class LoyaltyCardViewActivityTest
 {
     private final String BARCODE_DATA = "428311627547";
@@ -72,7 +70,7 @@ public class LoyaltyCardViewActivityTest
     private void registerMediaStoreIntentHandler()
     {
         // Add something that will 'handle' the media capture intent
-        RobolectricPackageManager packageManager = shadowOf(RuntimeEnvironment.application.getPackageManager());
+        PackageManager packageManager = RuntimeEnvironment.application.getPackageManager();
 
         ResolveInfo info = new ResolveInfo();
         info.isDefault = true;
@@ -85,7 +83,7 @@ public class LoyaltyCardViewActivityTest
 
         Intent intent = new Intent(Intents.Scan.ACTION);
 
-        packageManager.addResolveInfoForIntent(intent, info);
+        shadowOf(packageManager).addResolveInfoForIntent(intent, info);
     }
 
     /**
@@ -228,7 +226,7 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         Activity activity = (Activity)activityController.get();
-        ShadowActivity shadowActivity = shadowOf(activity);
+        
         DBHelper db = new DBHelper(activity);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -236,15 +234,15 @@ public class LoyaltyCardViewActivityTest
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
     }
 
@@ -348,7 +346,7 @@ public class LoyaltyCardViewActivityTest
 
         intent.putExtras(bundle);
 
-        return Robolectric.buildActivity(clazz).withIntent(intent).create();
+        return Robolectric.buildActivity(clazz, intent).create();
     }
 
     @Test
@@ -629,7 +627,7 @@ public class LoyaltyCardViewActivityTest
         Intent intent = new Intent();
         intent.setData(importUri);
 
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).withIntent(intent).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class, intent).create();
 
         activityController.start();
         activityController.visible();
@@ -638,7 +636,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(activity.findViewById(R.id.headingColorSample).getBackground(), new ColorDrawable(-416706));
-        assertEquals(activity.findViewById(R.id.headingStoreTextColorSample).getBackground(), new ColorDrawable(-1));
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
+        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
     }
 }

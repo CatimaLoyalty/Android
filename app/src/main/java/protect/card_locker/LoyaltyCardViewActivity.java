@@ -7,13 +7,13 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.Toolbar;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -109,6 +109,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     @Override
     public void onNewIntent(Intent intent)
     {
+        super.onNewIntent(intent);
+
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
     }
@@ -197,7 +199,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         // Make notification area light if dark icons are needed
-        window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+        if(Build.VERSION.SDK_INT >= 23)
+        {
+            window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+        }
+        if(Build.VERSION.SDK_INT >= 21)
+        {
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
@@ -216,14 +225,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             @Override
                             public void onGlobalLayout()
                             {
-                                if (Build.VERSION.SDK_INT < 16)
-                                {
-                                    barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                                }
-                                else
-                                {
-                                    barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                                }
+                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                                 Log.d(TAG, "ImageView size now known");
                                 new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();

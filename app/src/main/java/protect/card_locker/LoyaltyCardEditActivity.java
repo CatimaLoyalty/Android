@@ -8,11 +8,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -115,6 +115,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     @Override
     public void onNewIntent(Intent intent)
     {
+        super.onNewIntent(intent);
+
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
 
@@ -459,6 +461,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
+        super.onActivityResult(requestCode, resultCode, intent);
+
         String contents = null;
         String format = null;
 

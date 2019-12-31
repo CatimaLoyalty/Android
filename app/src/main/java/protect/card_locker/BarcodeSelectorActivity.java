@@ -145,7 +145,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             public void onClick(View view) {
                 Log.d(TAG, "Selected no barcode");
                 Intent result = new Intent();
-                result.putExtra(BARCODE_FORMAT, "");
+                result.putExtra(BARCODE_FORMAT, LoyaltyCardEditActivity.NO_BARCODE);
                 result.putExtra(BARCODE_CONTENTS, cardId);
                 BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
                 finish();

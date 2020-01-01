@@ -126,7 +126,16 @@ public class LoyaltyCardViewActivityTest
         assertEquals(store, card.store);
         assertEquals(note, card.note);
         assertEquals(cardId, card.cardId);
-        assertEquals(barcodeType, card.barcodeType);
+
+        // The special "No barcode" string shouldn't actually be written to the loyalty card
+        if(barcodeType.equals(LoyaltyCardEditActivity.NO_BARCODE))
+        {
+            assertEquals("", card.barcodeType);
+        }
+        else
+        {
+            assertEquals(barcodeType, card.barcodeType);
+        }
         assertNotNull(card.headerColor);
         assertNotNull(card.headerTextColor);
     }
@@ -539,7 +548,7 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         // Save and check the loyalty card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, "", false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
     }
 
     @Test

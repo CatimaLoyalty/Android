@@ -63,7 +63,10 @@ public class BarcodeSelectorActivityTest {
         // Clicking button should create "empty" barcode
         activity.findViewById(R.id.noBarcode).performClick();
         Intent resultIntent = shadowOf(activity).getResultIntent();
-        assertEquals("", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT));
+
+        // The BarcodeSelectorActivity should return the special NO_BARCODE string to differentiate
+        // from nothing being set yet
+        assertEquals(LoyaltyCardEditActivity.NO_BARCODE, resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT));
         assertEquals("abcdefg", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS));
     }
 

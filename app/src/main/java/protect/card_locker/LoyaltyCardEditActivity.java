@@ -37,7 +37,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final String TAG = "CardLocker";
     protected static final String NO_BARCODE = "_NO_BARCODE_";
 
-    private static final int SELECT_BARCODE_REQUEST = 1;
+    protected static final int SELECT_BARCODE_REQUEST = 1;
 
     EditText storeFieldEdit;
     EditText noteFieldEdit;
@@ -499,7 +499,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
 
         if(contents != null && contents.isEmpty() == false &&
-                format != null && format.isEmpty() == false)
+                format != null)
         {
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
@@ -508,7 +508,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             cardIdView.setText(contents);
 
             final TextView barcodeTypeField = findViewById(R.id.barcodeType);
-            barcodeTypeField.setText(format);
+            // Set special NO_BARCODE value to prevent onResume from overwriting it
+            barcodeTypeField.setText(format.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : format);
             onResume();
         }
     }

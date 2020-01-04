@@ -218,6 +218,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(noteView,
                     getResources().getInteger(R.integer.settings_card_note_min_font_size_sp)-1,
                     settings.getCardNoteFontSize(), 1, TypedValue.COMPLEX_UNIT_SP);
+            noteView.setVisibility(View.VISIBLE);
+            noteViewDivider.setVisibility(View.VISIBLE);
         }
         else
         {

@@ -57,7 +57,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
             noteField.setVisibility(View.VISIBLE);
             if(cardCount > 1)
             {
-                noteField.setText(context.getResources().getString(R.string.cardBarcodeCount, cardCount));
+                noteField.setText(context.getResources().getString(R.string.cardCount, cardCount));
             }
             else
             {

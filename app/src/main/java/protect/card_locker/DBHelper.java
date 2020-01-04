@@ -7,6 +7,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "LoyaltyCards.db";
@@ -168,6 +171,34 @@ public class DBHelper extends SQLiteOpenHelper
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
                 " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
         return res;
+    }
+
+    /**
+     * Returns a list of all loyalty cards of the given store.
+     *
+     * @param store
+     * @return List<LoyaltyCard>
+     */
+    public List<LoyaltyCard> getLoyaltyCardsForStore(String store) {
+        List<LoyaltyCard> loyaltyCards = new ArrayList<>();
+
+        SQLiteDatabase db = getReadableDatabase();
+        String[] selectionArgs = { store };
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  IS ? " +
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+
+        try
+        {
+            while (res.moveToNext()) {
+                loyaltyCards.add(LoyaltyCard.toLoyaltyCard(res));
+            }
+        } finally {
+            res.close();
+        }
+
+        return loyaltyCards;
     }
 
     public int getLoyaltyCardCount()

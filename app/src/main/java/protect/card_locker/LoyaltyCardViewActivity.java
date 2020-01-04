@@ -26,7 +26,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
+
+import java.util.List;
 
 import protect.card_locker.preferences.Settings;
 
@@ -36,6 +39,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "CardLocker";
     private static final double LUMINANCE_MIDPOINT = 0.5;
 
+    TabLayout tabLayout;
+    TabLayout.OnTabSelectedListener onTabSelectedListener;
     TextView cardIdFieldView;
     TextView noteView;
     View noteViewDivider;
@@ -44,6 +49,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     View collapsingToolbarLayout;
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
+    List<LoyaltyCard> storeCards;
     boolean rotationEnabled;
     DBHelper db;
     ImportURIHelper importURIHelper;
@@ -96,6 +102,20 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         db = new DBHelper(this);
         importURIHelper = new ImportURIHelper(this);
 
+        tabLayout = findViewById(R.id.tabLayout);
+        onTabSelectedListener = new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                loyaltyCardId = storeCards.get(tab.getPosition()).id;
+                onResume();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {}
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
+        };
         cardIdFieldView = findViewById(R.id.cardIdView);
         noteView = findViewById(R.id.noteView);
         noteViewDivider = findViewById(R.id.noteViewDivider);
@@ -140,6 +160,32 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
             finish();
             return;
+        }
+
+        storeCards = db.getLoyaltyCardsForStore(loyaltyCard.store);
+        tabLayout.removeOnTabSelectedListener(onTabSelectedListener);
+        tabLayout.removeAllTabs();
+        for(int i = 0; i < storeCards.size(); i++)
+        {
+            LoyaltyCard storeCard = storeCards.get(i);
+
+            String loyaltyCardText = storeCard.note;
+            if(loyaltyCardText.isEmpty())
+            {
+                loyaltyCardText = String.valueOf(i + 1);
+            }
+
+            tabLayout.addTab(tabLayout.newTab().setText(loyaltyCardText));
+
+            if(storeCard.id == loyaltyCardId)
+            {
+                tabLayout.getTabAt(i).select();
+            }
+        }
+        tabLayout.addOnTabSelectedListener(onTabSelectedListener);
+        if(tabLayout.getTabCount() > 1)
+        {
+            tabLayout.setVisibility(View.VISIBLE);
         }
 
         String formatString = loyaltyCard.barcodeType;

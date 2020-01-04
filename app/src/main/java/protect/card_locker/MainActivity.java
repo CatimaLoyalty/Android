@@ -29,6 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Calendar;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
+    private FloatingActionButton fabAdd;
     protected String filter = "";
 
     @Override
@@ -52,6 +54,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        fabAdd = findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                startActivityForResult(i, MAIN_REQUEST_CODE);
+            }
+        });
 
         updateLoyaltyCardList("");
 
@@ -258,13 +269,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
-        if (id == R.id.action_add)
-        {
-            Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
-            return true;
-        }
 
         if(id == R.id.action_import_export)
         {

@@ -24,6 +24,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.core.widget.TextViewCompat;
+
+import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
 import java.io.IOException;
@@ -232,7 +234,6 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
-        final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
         activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
@@ -617,6 +618,53 @@ public class LoyaltyCardViewActivityTest
                 assertEquals(title, activity.getString(R.string.lockScreen));
             }
         }
+    }
+
+    @Test
+    public void checkNoTabViewOnSingleCardFromStore()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        final TabLayout tabLayout = activity.findViewById(R.id.tabLayout);
+        assertEquals(1, tabLayout.getTabCount());
+        assertEquals(View.GONE, tabLayout.getVisibility());
+    }
+
+    @Test
+    public void checkTabViewOnMultipleCardsFromSameStore()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note2", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        final TabLayout tabLayout = activity.findViewById(R.id.tabLayout);
+        assertEquals(2, tabLayout.getTabCount());
+        assertEquals(View.VISIBLE, tabLayout.getVisibility());
+        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        // Check if the card switches correctly
+        tabLayout.getTabAt(1).select();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note2", BARCODE_DATA, BARCODE_TYPE);
     }
 
     @Test

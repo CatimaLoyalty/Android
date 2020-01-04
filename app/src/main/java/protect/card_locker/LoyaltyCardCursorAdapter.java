@@ -14,11 +14,13 @@ import protect.card_locker.preferences.Settings;
 class LoyaltyCardCursorAdapter extends CursorAdapter
 {
     Settings settings;
+    DBHelper dbHelper;
 
     public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
     {
         super(context, cursor, 0);
         settings = new Settings(context);
+        dbHelper = new DBHelper(context);
     }
 
     // The newView method is used to inflate a new view and return it,
@@ -42,15 +44,25 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         // Extract properties from cursor
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
 
+        // Get amount of cards for this store
+        int cardCount = dbHelper.getLoyaltyCardsForStore(loyaltyCard.store).size();
+
         // Populate fields with extracted properties
         storeField.setText(loyaltyCard.store);
 
         storeField.setTextSize(settings.getCardTitleListFontSize());
 
-        if(loyaltyCard.note.isEmpty() == false)
+        if(cardCount > 1 || !loyaltyCard.note.isEmpty())
         {
             noteField.setVisibility(View.VISIBLE);
-            noteField.setText(loyaltyCard.note);
+            if(cardCount > 1)
+            {
+                noteField.setText(context.getResources().getString(R.string.cardBarcodeCount, cardCount));
+            }
+            else
+            {
+                noteField.setText(loyaltyCard.note);
+            }
             noteField.setTextSize(settings.getCardNoteListFontSize());
         }
         else

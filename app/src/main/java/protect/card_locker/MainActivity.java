@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             noMatchingCardsText.setVisibility(View.GONE);
         }
 
-        Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
+        Cursor cardCursor = db.getOneLoyaltyCardPerStoreCursor(filterText);
 
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);

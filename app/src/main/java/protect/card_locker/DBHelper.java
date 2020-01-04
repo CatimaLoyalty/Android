@@ -174,12 +174,35 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     /**
+     * Returns a cursor only containing the first loyalty card of the given store.
+     *
+     * @param filter
+     * @return Cursor
+     */
+    public Cursor getOneLoyaltyCardPerStoreCursor(final String filter)
+    {
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
+                " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
+                " GROUP BY " + LoyaltyCardDbIds.STORE +
+                " HAVING MIN(" + LoyaltyCardDbIds.ID + ")" +
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+        return res;
+    }
+
+    /**
      * Returns a list of all loyalty cards of the given store.
      *
      * @param store
      * @return List<LoyaltyCard>
      */
-    public List<LoyaltyCard> getLoyaltyCardsForStore(String store) {
+    public List<LoyaltyCard> getLoyaltyCardsForStore(String store)
+    {
         List<LoyaltyCard> loyaltyCards = new ArrayList<>();
 
         SQLiteDatabase db = getReadableDatabase();

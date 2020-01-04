@@ -99,7 +99,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:grantUriPermissions="true"
             android:exported="false"
             android:authorities="${applicationId}">

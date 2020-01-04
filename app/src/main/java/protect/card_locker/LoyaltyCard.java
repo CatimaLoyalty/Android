@@ -3,12 +3,10 @@ package protect.card_locker;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 public class LoyaltyCard
 {

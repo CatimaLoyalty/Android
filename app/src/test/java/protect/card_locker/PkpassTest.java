@@ -26,7 +26,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class PkpassTest {
     private PkpassImporter pkpassImporter;
 

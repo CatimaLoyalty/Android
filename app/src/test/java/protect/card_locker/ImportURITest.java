@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static protect.card_locker.DBHelper.LoyaltyCardDbIds;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class ImportURITest {
     private ImportURIHelper importURIHelper;
     private DBHelper db;

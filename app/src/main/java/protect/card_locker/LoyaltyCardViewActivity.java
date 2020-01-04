@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 
@@ -39,6 +40,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "CardLocker";
     private static final double LUMINANCE_MIDPOINT = 0.5;
 
+    FloatingActionButton FabAdd;
     TabLayout tabLayout;
     TabLayout.OnTabSelectedListener onTabSelectedListener;
     TextView cardIdFieldView;
@@ -102,6 +104,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         db = new DBHelper(this);
         importURIHelper = new ImportURIHelper(this);
 
+        FabAdd = findViewById(R.id.fabAdd);
+        FabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("store", loyaltyCard.store);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+            }
+        });
         tabLayout = findViewById(R.id.tabLayout);
         onTabSelectedListener = new TabLayout.OnTabSelectedListener() {
             @Override
@@ -286,7 +301,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         else
         {
-            findViewById(R.id.barcode).setVisibility(View.GONE);
+            findViewById(R.id.barcode).setVisibility(View.INVISIBLE);
         }
     }
 

@@ -57,6 +57,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    String loyaltyCardStorePrefill = "";
     Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
     Integer headingStoreTextColorValue = null;
@@ -69,6 +70,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        loyaltyCardStorePrefill = b != null ? b.getString("store", "") : "";
         importLoyaltyCardUri = intent.getData();
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
@@ -207,6 +209,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else
         {
             setTitle(R.string.addCardTitle);
+        }
+
+        // Set prefill values if nothing is set
+        if(storeFieldEdit.getText().length() == 0 && !loyaltyCardStorePrefill.isEmpty())
+        {
+            storeFieldEdit.setText(loyaltyCardStorePrefill);
         }
 
         if(headingColorValue == null)

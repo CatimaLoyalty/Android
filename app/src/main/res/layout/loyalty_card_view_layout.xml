@@ -8,6 +8,15 @@
     android:fitsSystemWindows="true"
     >
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_add_white_24dp"
+        android:contentDescription="@string/action_add"
+        android:layout_margin="16dp" />
+
     <FrameLayout
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -37,6 +46,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tabGravity="fill"
+                app:tabIndicatorAnimationDuration="0"
                 app:tabMode="scrollable"/>
 
             <ImageView

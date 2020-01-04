@@ -117,7 +117,7 @@ public class LoyaltyCardViewActivityTest
         barcodeTypeField.setText(barcodeType);
 
         assertEquals(false, activity.isFinishing());
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(true, activity.isFinishing());
 
         assertEquals(1, db.getLoyaltyCardCount());
@@ -234,15 +234,15 @@ public class LoyaltyCardViewActivityTest
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
     }
 

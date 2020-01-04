@@ -70,10 +70,9 @@ public class MainActivityTest
         assertTrue(menu != null);
 
         // The settings, search and add button should be present
-        assertEquals(menu.size(), 6);
+        assertEquals(menu.size(), 5);
 
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
-        assertEquals("Add", menu.findItem(R.id.action_add).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("Start Intro", menu.findItem(R.id.action_intro).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
@@ -85,7 +84,7 @@ public class MainActivityTest
     {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
-        shadowOf(activity).clickMenuItem(R.id.action_add);
+        activity.findViewById(R.id.fabAdd).performClick();
 
         Intent intent = shadowOf(activity).peekNextStartedActivityForResult().intent;
 

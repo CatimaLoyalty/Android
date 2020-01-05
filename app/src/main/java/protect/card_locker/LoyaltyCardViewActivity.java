@@ -146,6 +146,21 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         rotationEnabled = true;
 
         gestureDetector = new GestureDetectorCompat(this, this);
+
+        // Restore active card id after rotation
+        if(savedInstanceState != null)
+        {
+            loyaltyCardId = savedInstanceState.getInt("id");
+            onResume();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save active card id before rotation
+        savedInstanceState.putInt("id", loyaltyCardId);
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override

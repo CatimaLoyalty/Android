@@ -191,10 +191,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         {
             LoyaltyCard storeCard = storeCards.get(i);
 
-            String loyaltyCardText = storeCard.note;
+            // Use only first line of note
+            String loyaltyCardText = storeCard.note.split("\\r?\\n")[0].trim();
             if(loyaltyCardText.isEmpty())
             {
                 loyaltyCardText = String.valueOf(i + 1);
+            }
+            else if(loyaltyCardText.length() > 15)
+            {
+                // Shorten long notes
+                loyaltyCardText = loyaltyCardText.substring(0, 15).trim() + "…";
             }
 
             tabLayout.addTab(tabLayout.newTab().setText(loyaltyCardText));

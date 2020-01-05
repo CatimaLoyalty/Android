@@ -63,6 +63,8 @@ public class BarcodeSelectorActivityTest {
         // Clicking button should create "empty" barcode
         activity.findViewById(R.id.noBarcode).performClick();
         Intent resultIntent = shadowOf(activity).getResultIntent();
+
+        // The BarcodeSelectorActivity should return an empty string
         assertEquals("", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT));
         assertEquals("abcdefg", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS));
     }

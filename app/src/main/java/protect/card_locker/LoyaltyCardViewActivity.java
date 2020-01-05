@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.GestureDetectorCompat;
+import androidx.core.view.MotionEventCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +18,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -35,7 +39,7 @@ import java.util.List;
 import protect.card_locker.preferences.Settings;
 
 
-public class LoyaltyCardViewActivity extends AppCompatActivity
+public class LoyaltyCardViewActivity extends AppCompatActivity implements GestureDetector.OnGestureListener
 {
     private static final String TAG = "CardLocker";
     private static final double LUMINANCE_MIDPOINT = 0.5;
@@ -52,6 +56,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     List<LoyaltyCard> storeCards;
+    GestureDetectorCompat gestureDetector;
     boolean rotationEnabled;
     DBHelper db;
     ImportURIHelper importURIHelper;
@@ -139,6 +144,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
 
         rotationEnabled = true;
+
+        gestureDetector = new GestureDetectorCompat(this, this);
     }
 
     @Override
@@ -383,5 +390,54 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }
+    }
+
+    // Gesture detection
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {}
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) { }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        int currentTab = tabLayout.getSelectedTabPosition();
+
+        if (motionEvent1.getX() > motionEvent.getX())
+        {
+            // Swipe left
+            int nextTab = currentTab == 0 ? tabLayout.getTabCount() - 1 : currentTab - 1;
+            tabLayout.getTabAt(nextTab).select();
+        }
+        else
+        {
+            // Swipe right
+            int nextTab = currentTab < (tabLayout.getTabCount() - 1) ? currentTab + 1 : 0;
+            tabLayout.getTabAt(nextTab).select();
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent)
+    {
+        gestureDetector.onTouchEvent(motionEvent);
+        return super.onTouchEvent(motionEvent);
     }
 }

@@ -335,15 +335,64 @@
                         android:background="@color/inputBorder" />
                 </TableRow>
 
+                <!-- Barcode Type -->
+                <View
+                    android:id="@+id/barcodeTypeDivider"
+                    android:layout_height="@dimen/inputBorderThickness"
+                    android:layout_width="match_parent"
+                    android:background="@color/inputBorder" />
+                <TableRow
+                    android:id="@+id/barcodeTypeTableRow"
+                    android:background="@color/inputBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:gravity="start"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/inputPadding"
+                        android:paddingEnd="@dimen/inputPadding">
+
+                        <TextView
+                            android:id="@+id/barcodeTypeField"
+                            android:text="@string/barcodeType"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:textSize="@dimen/inputSize"
+                            android:padding="@dimen/inputPadding"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            />
+
+                        <TextView
+                            android:id="@+id/barcodeTypeView"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/inputPadding"
+                            android:textSize="@dimen/inputSize"
+                            android:layout_toEndOf="@id/barcodeTypeField"
+                            android:layout_toRightOf="@id/barcodeTypeField"
+                            />
+                    </RelativeLayout>
+
+                    <View
+                        android:gravity="end"
+                        android:layout_height="match_parent"
+                        android:layout_width="@dimen/inputBorderThickness"
+                        android:background="@color/inputBorder" />
+                </TableRow>
+
                 <View
                     android:layout_height="@dimen/inputBorderThickness"
                     android:layout_width="match_parent"
                     android:background="@color/inputBorder" />
-
-                <TextView android:id="@+id/barcodeType"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:visibility="gone"/>
 
                 <LinearLayout android:orientation="horizontal"
                               android:padding="10.0dip"

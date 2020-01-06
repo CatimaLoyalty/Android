@@ -104,7 +104,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         cardIdFieldView = findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = findViewById(R.id.barcodeType);
+        barcodeTypeField = findViewById(R.id.barcodeTypeView);
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
@@ -163,7 +163,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             if(barcodeTypeField.getText().length() == 0)
             {
-                barcodeTypeField.setText(loyaltyCard.barcodeType);
+                barcodeTypeField.setText(loyaltyCard.barcodeType.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : loyaltyCard.barcodeType);
             }
 
             if(headingColorValue == null)
@@ -232,7 +232,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             if(barcodeTypeField.getText().equals(NO_BARCODE))
             {
-                barcodeImageLayout.setVisibility(View.GONE);
+                hideBarcode();
             }
             else
             {
@@ -271,7 +271,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     new BarcodeImageWriterTask(barcodeImage, cardIdString, format, null).execute();
                 }
 
-                barcodeImageLayout.setVisibility(View.VISIBLE);
+                showBarcode();
             }
         }
 
@@ -507,10 +507,21 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             TextView cardIdView = findViewById(R.id.cardIdView);
             cardIdView.setText(contents);
 
-            final TextView barcodeTypeField = findViewById(R.id.barcodeType);
             // Set special NO_BARCODE value to prevent onResume from overwriting it
             barcodeTypeField.setText(format.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : format);
             onResume();
         }
+    }
+
+    private void showBarcode() {
+        barcodeImageLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.barcodeTypeDivider).setVisibility(View.VISIBLE);
+        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.VISIBLE);
+    }
+
+    private void hideBarcode() {
+        barcodeImageLayout.setVisibility(View.GONE);
+        findViewById(R.id.barcodeTypeDivider).setVisibility(View.GONE);
+        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.GONE);
     }
 }

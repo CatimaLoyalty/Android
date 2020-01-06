@@ -257,6 +257,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "");
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
     }
 
     @Test

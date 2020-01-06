@@ -208,6 +208,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else
         {
             setTitle(R.string.addCardTitle);
+            hideBarcode();
         }
 
         if(headingColorValue == null)

@@ -2,14 +2,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Карты лояльности</string>
+    <string name="action_search">Поиск</string>
     <string name="action_add">Добавить карту</string>
 
     <string name="noGiftCards">Пока нет ни одной карты. Нажмите на кнопку «+» (плюс) сверху для добавления.\n\n«Карты лояльности» позволяют хранить карты скидок в телефоне, так что они всегда будут под рукой.</string>
+    <string name="noMatchingGiftCards">Карт не найдено, попробуйте поискать по-другому.</string>
 
     <string name="storeName">Магазин</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
+    <string name="barcodeNoBarcode">Эта карта без штрихкода</string>
 
     <string name="cancel">Отменить</string>
     <string name="save">Сохранить</string>
@@ -25,6 +28,7 @@
     <string name="deleteConfirmation">Пожалуйста подтвердите удаление карты.</string>
     <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
+    <string name="share">Переслать</string>
     <string name="sendLabel">Отправить&#8230;</string>
     <string name="addedShortcut">Карта добавлена на главный экран.</string>
 
@@ -40,6 +44,7 @@
     <string name="noStoreError">Название магазина не указано</string>
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
+    <string name="failedParsingImportUriError">Не удалось разобрать импортируемый URI</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
@@ -79,7 +84,7 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите значение и выберете вид штрих-кода</string>
+    <string name="enterBarcodeInstructions">Введите ID карты и выберите тип штрих-кода.</string>
 
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
 
@@ -107,6 +112,10 @@
 
     <string name="settings">Настройки</string>
     <string name="settings_category_title_ui">Внешний вид</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_system_theme">Системная тема</string>
+    <string name="settings_light_theme">Светлая тема</string>
+    <string name="settings_dark_theme">Тёмная тема</string>
     <string name="settings_card_title_list_font_size">Размер шрифта названия карты для списка</string>
     <string name="settings_card_note_list_font_size">Размер шрифта примечания для списка</string>
     <string name="settings_card_title_font_size">Размер шрифта названия карты</string>
@@ -114,4 +123,6 @@
     <string name="settings_card_note_font_size">Размер шрифта примечания</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
+    <string name="intent_import_card_from_url">Импортировать карту</string>
+    <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
     </resources>

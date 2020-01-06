@@ -264,14 +264,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                                 barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                                 Log.d(TAG, "ImageView size now known");
-                                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                                new BarcodeImageWriterTask(barcodeImage, cardIdString, format, null).execute();
                             }
                         });
             }
             else
             {
                 Log.d(TAG, "ImageView size known known, creating barcode");
-                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                new BarcodeImageWriterTask(barcodeImage, cardIdString, format, null).execute();
             }
             barcodeFormatView.setText(getString(R.string.barcodeTypePlaceholder, format));
         }

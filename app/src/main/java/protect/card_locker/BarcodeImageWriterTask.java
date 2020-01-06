@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -28,16 +29,18 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private static final int MAX_WIDTH_2D = 500;
 
     private final WeakReference<ImageView> imageViewReference;
+    private final WeakReference<TextView> textViewReference;
     private final String cardId;
     private final BarcodeFormat format;
     private final int imageHeight;
     private final int imageWidth;
 
     BarcodeImageWriterTask(ImageView imageView, String cardIdString,
-                                  BarcodeFormat barcodeFormat)
+                           BarcodeFormat barcodeFormat, TextView textView)
     {
         // Use a WeakReference to ensure the ImageView can be garbage collected
         imageViewReference = new WeakReference<>(imageView);
+        textViewReference = new WeakReference<>(textView);
 
         cardId = cardIdString;
         format = barcodeFormat;
@@ -175,16 +178,24 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
 
         imageView.setImageBitmap(result);
+        TextView textView = textViewReference.get();
 
         if(result != null)
         {
             Log.i(TAG, "Displaying barcode");
             imageView.setVisibility(View.VISIBLE);
+
+            if (textView != null) {
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(format.name());
+            }
         }
         else
         {
             Log.i(TAG, "Barcode generation failed, removing image from display");
             imageView.setVisibility(View.GONE);
+            if (textView != null)
+                textView.setVisibility(View.GONE);
         }
     }
 }

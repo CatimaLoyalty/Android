@@ -36,19 +36,6 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.5"/>
 
-            <com.google.android.material.tabs.TabLayout
-                android:visibility="gone"
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/barcode"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tabGravity="fill"
-                app:tabIndicatorAnimationDuration="0"
-                app:tabMode="scrollable"/>
-
             <ImageView
                 android:id="@+id/barcode"
                 android:layout_width="0dp"
@@ -57,7 +44,7 @@
                 android:layout_marginBottom="10.0dip"
                 android:layout_marginStart="15.0dip"
                 android:layout_marginEnd="15.0dip"
-                app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/centerGuideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -161,6 +148,15 @@
                 android:layout_height="?actionBarSize"
                 app:contentInsetStart="72.0dip"
                 app:layout_collapseMode="pin" />
+            <com.google.android.material.tabs.TabLayout
+                android:visibility="gone"
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:tabGravity="fill"
+                app:tabIndicatorAnimationDuration="0"
+                app:tabMode="scrollable"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,12 +5,10 @@
     <string name="action_add">Añadir</string>
 
     <string name="noGiftCards">Actualmente no tienes ninguna tarjeta guardada. Presiona el botón \"+\" para comenzar.\n\nEsta cartera te permite llevar tus tarjetas de fidelización en tu teléfono para que estén siempre a tu alcance.</string>
-
     <string name="storeName">Tienda</string>
     <string name="note">Nota</string>
     <string name="cardId">ID de la Tarjeta</string>
     <string name="barcodeType">Tipo de Código de Barras</string>
-
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="capture">Escanear Tarjeta</string>
@@ -40,7 +38,6 @@
     <string name="noStoreError">Establecimiento no especificado</string>
     <string name="noCardIdError">ID de la Tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="importName">Importar</string>
@@ -79,8 +76,6 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> utiliza los siguientes recursos de terceros: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Selecciona el Código de Barras</string>
-    <string name="enterBarcodeInstructions">Introduce el valor del código de barras y después presiona en una imagen para seleccionar el tipo de código de barras.</string>
-
     <string name="copy_to_clipboard_toast">ID de la Tarjeta copiado al portapapeles</string>
 
     <string name="thumbnailDescription">Miniatura para la tarjeta</string>

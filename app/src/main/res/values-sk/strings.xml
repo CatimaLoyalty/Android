@@ -5,12 +5,10 @@
     <string name="action_add">Pridať</string>
 
     <string name="noGiftCards">Zatiaľ nemáte žiadne vernostné karty. Kliknite na tlačidlo \"+\" (plus) vyššie a začnite.\n\nAplikácia Vernostné karty umožňuje nosiť svoje vernostné karty v telefóne, kde sú vždy na dosah.</string>
-
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
     <string name="barcodeType">Typ čiarového kódu</string>
-
     <string name="cancel">Zrušiť</string>
     <string name="save">Uložiť</string>
     <string name="capture">Zosnímať kartu</string>
@@ -40,7 +38,6 @@
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
@@ -79,8 +76,6 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> používa tieto knižnice tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
-    <string name="enterBarcodeInstructions">Zadajte čiarový kód a vyberte obrázok reprezentujúci čiarový kód, ktorý chcete použiť</string>
-
     <string name="copy_to_clipboard_toast">ID karty skopírované do schránky</string>
 
     <string name="thumbnailDescription">Náhľad karty</string>

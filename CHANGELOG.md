@@ -1,3 +1,8 @@
+## v0.26.1 (2020-01-09)
+
+Changes:
+- Fix issue with sharing cards without background color ([#343](https://github.com/brarcher/loyalty-card-locker/pull/343))
+
 ## v0.26 (2020-01-05)
 
 Changes:

@@ -126,7 +126,16 @@ public class LoyaltyCardViewActivityTest
         assertEquals(store, card.store);
         assertEquals(note, card.note);
         assertEquals(cardId, card.cardId);
-        assertEquals(barcodeType, card.barcodeType);
+
+        // The special "No barcode" string shouldn't actually be written to the loyalty card
+        if(barcodeType.equals(LoyaltyCardEditActivity.NO_BARCODE))
+        {
+            assertEquals("", card.barcodeType);
+        }
+        else
+        {
+            assertEquals(barcodeType, card.barcodeType);
+        }
         assertNotNull(card.headerColor);
         assertNotNull(card.headerTextColor);
     }
@@ -155,12 +164,44 @@ public class LoyaltyCardViewActivityTest
         assertNotNull(bundle);
 
         Intent resultIntent = new Intent(intent);
-        Bundle resultBuddle = new Bundle();
-        resultBuddle.putString(Intents.Scan.RESULT, BARCODE_DATA);
-        resultBuddle.putString(Intents.Scan.RESULT_FORMAT, BARCODE_TYPE);
-        resultIntent.putExtras(resultBuddle);
+        Bundle resultBundle = new Bundle();
+        resultBundle.putString(Intents.Scan.RESULT, BARCODE_DATA);
+        resultBundle.putString(Intents.Scan.RESULT_FORMAT, BARCODE_TYPE);
+        resultIntent.putExtras(resultBundle);
 
         // Respond to image capture, success
+        shadowOf(activity).receiveResult(
+                intent,
+                success ? Activity.RESULT_OK : Activity.RESULT_CANCELED,
+                resultIntent);
+    }
+
+    /**
+     * Initiate and complete a barcode selection, either in success
+     * or in failure
+     */
+    private void selectBarcodeWithResult(final Activity activity, final int buttonId, final String barcodeData, final String barcodeType, final boolean success) throws IOException
+    {
+        // Start image capture
+        final Button captureButton = activity.findViewById(buttonId);
+        captureButton.performClick();
+
+        ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
+        assertNotNull(intentForResult);
+
+        Intent intent = intentForResult.intent;
+        assertNotNull(intent);
+
+        Bundle bundle = intent.getExtras();
+        assertNotNull(bundle);
+
+        Intent resultIntent = new Intent(intent);
+        Bundle resultBundle = new Bundle();
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeType);
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeData);
+        resultIntent.putExtras(resultBundle);
+
+        // Respond to barcode selection, success
         shadowOf(activity).receiveResult(
                 intent,
                 success ? Activity.RESULT_OK : Activity.RESULT_CANCELED,
@@ -540,7 +581,33 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         // Save and check the loyalty card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, "", false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+    }
+
+    @Test
+    public void removeBarcodeFromLoyaltyCard() throws IOException, JSONException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, null, new ExtrasHelper());
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // First check if the card is as expected
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        // Complete empty barcode selection successfully
+        selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
+
+        // Check if the barcode type is NO_BARCODE as expected
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE);
+
+        // Check if the special NO_BARCODE string doesn't get saved
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
     }
 
     @Test

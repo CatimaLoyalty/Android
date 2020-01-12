@@ -2,14 +2,17 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Carte fedeltà</string>
+    <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
 
-    <string name="noGiftCards">Non hai ancora alcuna tessera fedeltà al momento. Premi sul bottone "+" (più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue tessere fedeltà, così da averle sempre a disposizione.</string>
+    <string name="noGiftCards">Non hai ancora alcuna carta fedeltà. Premi sul bottone +(più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue carte fedeltà, così da averle sempre a disposizione.</string>
+    <string name="noMatchingGiftCards">Nessuna carta fedeltà corrisponde al filtro. Riprovare con altri valori</string>
 
     <string name="storeName">Negozio</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
     <string name="barcodeType">Tipo codice a barre</string>
+    <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
 
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
@@ -25,6 +28,7 @@
     <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
+    <string name="share">Condividi</string>
     <string name="sendLabel">Invia&#8230;</string>
     <string name="addedShortcut">Aggiunto al launcher</string>
 
@@ -39,11 +43,14 @@
 
     <string name="noStoreError">Nessun negozio inserito</string>
     <string name="noCardIdError">Nessun codice carta inserito</string>
+    <string name="noCardExistsError">Impossibile trovare la carta</string>
+    <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
+
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importa/Esporta</string>
     <string name="importName">Importa</string>
     <string name="exportName">Esporta</string>
-    <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue tessere da un dispositivo ad un altro.</string>
+    <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
     <string name="importedFrom">Importato da: %1$s</string>
     <string name="exportedTo">Esportato in: %1$s</string>
     <string name="fileMissing">File mancante: %1$s</string>
@@ -72,18 +79,20 @@
     <string name="app_license">Pubblicato sotto licenza GPLv3.</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informazione sulla revisione: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informazione sulla versione: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
-    <string name="enterBarcodeInstructions">Digita il valore del codice a barre, quindi seleziona l\'immagine che rappresenta il codice a barre che vuoi usare.</string>
+    <string name="enterBarcodeInstructions">Immettere l\'ID della carta, quindi selezionare l\'immagine che rappresenta il codice a barre desiderato oppure selezionare &#8220;Questa carta non ha un codice a barre&#8221; per non valorizzare il dato.</string>
 
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
 
-    <string name="startIntro">Incomincia introduzione</string>
-    <string name="intro1Title">Benvenuto in Carte fedeltà\n</string>
-    <string name="intro1Description">Gestisci le tue tessere direttamente dal telefono!\n\n</string>
+    <string name="thumbnailDescription">Miniatura carta</string>
+
+    <string name="startIntro">Introduzione</string>
+    <string name="intro1Title">Benvenuto in Carte Fedeltà\n</string>
+    <string name="intro1Description">Gestisci le tue carte direttamente dal telefono!\n\n</string>
     <string name="intro2Title">Aggiungi carte\n</string>
     <string name="intro2Description">Aggiungi una nuova carta premendo il + dall\'elenco delle carte.\n\n</string>
     <string name="intro3Title">Aggiungi carte\n</string>
@@ -93,6 +102,27 @@
     <string name="intro5Title">Backup\n</string>
     <string name="intro5Description">I dati delle tessere possono essere salvati. Per esportare o importare tessere premi Importa/Esporta nel menù nella schermata principale.\n\n</string>
     <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Questa app è gratuita, priva di pubblicità e open source. Guarda i dettagli premendo su Informazioni nella schermata principale.\n\nPer favore, lascia un feedback nell\'app store! (:</string>
+    <string name="intro6Description">Questa app è gratuita, priva di pubblicità e open source. Guarda i dettagli premendo su \"Informazioni\" nella schermata principale.\n\nPer favore, lascia un feedback nell\'app store! (:</string>
 
+    <string name="change">Cambia</string>
+    <string name="storeTextColorTitle">Colore titolo</string>
+    <string name="storeTextBackgroundColorTitle">Colore scheda</string>
+    <string name="storeNameBackgroundColorDescription">Colore di sfondo del titolo carta</string>
+    <string name="storeNameColorDescription">Colore del titolo carta</string>
+
+    <string name="settings">Impostazioni</string>
+    <string name="settings_category_title_ui">Interfaccia utente</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_system_theme">Tema del sistema</string>
+    <string name="settings_light_theme">Tema chiaro</string>
+    <string name="settings_dark_theme">Tema scuro</string>
+    <string name="settings_card_title_list_font_size">Dimensione testo del titolo carta (in lista carte)</string>
+    <string name="settings_card_note_list_font_size">Dimensione testo delle note carta (in lista carte)</string>
+    <string name="settings_card_title_font_size">Dimensione testo del titolo carta</string>
+    <string name="settings_card_id_font_size">Dimensione testo dell\'ID carta</string>
+    <string name="settings_card_note_font_size">Dimensione testo delle note carta</string>
+    <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
+    <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
+    <string name="intent_import_card_from_url">Importa carte fedeltà</string>
+    <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     </resources>

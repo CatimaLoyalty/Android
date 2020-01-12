@@ -5,12 +5,10 @@
     <string name="action_add">Přidat</string>
 
     <string name="noGiftCards">ZAtím némáte žádné věrnostní karty. Klikněte na tlačítko "+" (plus) nahoře a začněte.\n\nLoyalty Card Locker umožňuje nosit své věrnostní karty v telefonu, takže jsou vždy na dosah.</string>
-
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
     <string name="barcodeType">Typ čárového kódu</string>
-
     <string name="cancel">Zrušit</string>
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
@@ -67,8 +65,6 @@
     <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používá tyto knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
-    <string name="enterBarcodeInstructions">Zadejte hodnotu čárového kódu a potm vyberte kód, který představuje čárový kód, který je na kartě.</string>
-
     <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
 
     </resources>

@@ -43,12 +43,24 @@ public class ImportURIHelper {
         }
 
         try {
+            // These values are allowed to be null
+            Integer headerColor = null;
+            Integer headerTextColor = null;
+
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
-            Integer headerColor = Integer.parseInt(uri.getQueryParameter(HEADER_COLOR));
-            Integer headerTextColor = Integer.parseInt(uri.getQueryParameter(HEADER_TEXT_COLOR));
+            String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
+            if(unparsedHeaderColor != null)
+            {
+                headerColor = Integer.parseInt(unparsedHeaderColor);
+            }
+            String unparsedHeaderTextColor = uri.getQueryParameter(HEADER_TEXT_COLOR);
+            if(unparsedHeaderTextColor != null)
+            {
+                headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
+            }
             String iconData = uri.getQueryParameter(ICON);
             Bitmap icon = null;
 
@@ -80,8 +92,14 @@ public class ImportURIHelper {
         uriBuilder.appendQueryParameter(NOTE, loyaltyCard.note);
         uriBuilder.appendQueryParameter(CARD_ID, loyaltyCard.cardId);
         uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
-        uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
-        uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
+        if(loyaltyCard.headerColor != null)
+        {
+            uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
+        }
+        if(loyaltyCard.headerTextColor != null)
+        {
+            uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
+        }
         uriBuilder.appendQueryParameter(ICON, icon);
         uriBuilder.appendQueryParameter(EXTRAS, loyaltyCard.extras.toJSON().toString());
 

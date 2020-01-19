@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
@@ -19,6 +21,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -49,7 +52,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImportURIHelper importURIHelper;
     Settings settings;
 
+    String cardIdString;
+    BarcodeFormat format;
+
     boolean backgroundNeedsDarkIcons;
+    boolean barcodeIsFullscreen = false;
+    ViewGroup.LayoutParams barcodeImageState;
 
     private void extractIntentFields(Intent intent)
     {
@@ -104,6 +112,21 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
 
         rotationEnabled = true;
+
+        // Allow making barcode fullscreen on tap
+        barcodeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(barcodeIsFullscreen)
+                {
+                    setBarcodeFullscreen(false);
+                }
+                else
+                {
+                    setBarcodeFullscreen(true);
+                }
+            }
+        });
     }
 
     @Override
@@ -143,8 +166,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         String formatString = loyaltyCard.barcodeType;
-        final BarcodeFormat format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
-        final String cardIdString = loyaltyCard.cardId;
+        format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
+        cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
@@ -245,6 +268,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     }
 
     @Override
+    public void onBackPressed() {
+        if (barcodeIsFullscreen)
+        {
+            setBarcodeFullscreen(false);
+            return;
+        }
+
+        super.onBackPressed();
+        return;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
@@ -319,6 +354,68 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        }
+    }
+
+    private void setBarcodeFullscreen(boolean enabled)
+    {
+        ActionBar actionBar = getSupportActionBar();
+        if(enabled && !barcodeIsFullscreen)
+        {
+            // Save previous barcodeImage state
+            barcodeImageState = barcodeImage.getLayoutParams();
+
+            // Hide actionbar
+            if(actionBar != null)
+            {
+                actionBar.hide();
+            }
+
+            // Hide collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.GONE);
+
+            // Set Android to fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Make barcode take all space
+            barcodeImage.setLayoutParams(new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            ));
+
+            // Move barcode to top
+            barcodeImage.setScaleType(ImageView.ScaleType.FIT_START);
+
+            // Set current state
+            barcodeIsFullscreen = true;
+        }
+        else if(!enabled && barcodeIsFullscreen)
+        {
+            // Show actionbar
+            if(actionBar != null)
+            {
+                actionBar.show();
+            }
+
+            // Show collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.VISIBLE);
+
+            // Unset fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Turn barcode back to normal
+            barcodeImage.setLayoutParams(barcodeImageState);
+
+            // Set current state
+            barcodeIsFullscreen = false;
         }
     }
 }

@@ -738,21 +738,6 @@ public class LoyaltyCardViewActivityTest
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
 
-        // Resuming the activity should revert the state to normal view
-        activityController.pause();
-        activityController.resume();
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
-        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
-
-        // Clicking the barcode should still work to fullscreen again
-        barcodeImage.performClick();
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
-        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
-
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();

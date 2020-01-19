@@ -145,6 +145,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
 
+        if(barcodeIsFullscreen)
+        {
+            // Properly reset state to prevent any issues
+            recreate();
+        }
+
         // The brightness value is on a scale from [0, ..., 1], where
         // '1' is the brightest. We attempt to maximize the brightness
         // to help barcode readers scan the barcode.

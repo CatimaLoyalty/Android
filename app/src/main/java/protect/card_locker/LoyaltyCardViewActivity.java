@@ -119,11 +119,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             public void onClick(View view) {
                 if(barcodeIsFullscreen)
                 {
-                    setBarcodeFullscreen(false);
+                    setFullscreen(false);
                 }
                 else
                 {
-                    setBarcodeFullscreen(true);
+                    setFullscreen(true);
                 }
             }
         });
@@ -147,7 +147,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(barcodeIsFullscreen)
         {
-            // Properly reset state to prevent any issues
+            // Completely reset state
+            //
+            // This prevents the barcode from taking up the entire screen
+            // on resume and thus being stretched out of proportion.
             recreate();
         }
 
@@ -277,7 +280,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     public void onBackPressed() {
         if (barcodeIsFullscreen)
         {
-            setBarcodeFullscreen(false);
+            setFullscreen(false);
             return;
         }
 
@@ -363,10 +366,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
     }
 
-    private void setBarcodeFullscreen(boolean enabled)
+    /**
+     * When enabled, hides the status bar and moves the barcode to the top of the screen.
+     *
+     * The purpose of this function is to make sure the barcode can be scanned from the phone
+     * by machines which offer no space to insert the complete device.
+     */
+    private void setFullscreen(boolean enable)
     {
         ActionBar actionBar = getSupportActionBar();
-        if(enabled && !barcodeIsFullscreen)
+        if(enable && !barcodeIsFullscreen)
         {
             // Save previous barcodeImage state
             barcodeImageState = barcodeImage.getLayoutParams();
@@ -399,7 +408,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Set current state
             barcodeIsFullscreen = true;
         }
-        else if(!enabled && barcodeIsFullscreen)
+        else if(!enable && barcodeIsFullscreen)
         {
             // Show actionbar
             if(actionBar != null)

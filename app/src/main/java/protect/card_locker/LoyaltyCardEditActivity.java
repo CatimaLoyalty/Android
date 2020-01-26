@@ -262,14 +262,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                                     }
 
                                     Log.d(TAG, "ImageView size now known");
-                                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format, null).execute();
+                                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
                                 }
                             });
                 }
                 else
                 {
                     Log.d(TAG, "ImageView size known known, creating barcode");
-                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format, null).execute();
+                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
                 }
 
                 showBarcode();

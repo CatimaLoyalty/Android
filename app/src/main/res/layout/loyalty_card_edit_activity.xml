@@ -377,6 +377,7 @@
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
+                            android:textIsSelectable="true"
                             android:layout_toEndOf="@id/barcodeTypeField"
                             android:layout_toRightOf="@id/barcodeTypeField"
                             />

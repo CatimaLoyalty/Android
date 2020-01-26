@@ -61,6 +61,11 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
     }
 
+    BarcodeImageWriterTask(ImageView imageView, String cardIdString, BarcodeFormat barcodeFormat)
+    {
+        this(imageView, cardIdString, barcodeFormat, null);
+    }
+
     private int getMaxWidth(BarcodeFormat format)
     {
         switch(format)
@@ -194,8 +199,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         {
             Log.i(TAG, "Barcode generation failed, removing image from display");
             imageView.setVisibility(View.GONE);
-            if (textView != null)
+            if (textView != null) {
                 textView.setVisibility(View.GONE);
+            }
         }
     }
 }

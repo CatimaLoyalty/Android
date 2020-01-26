@@ -71,7 +71,7 @@ public class ImportExportActivityTest
 
             if(isInstalled)
             {
-                registerIntentHandler(Intent.ACTION_PICK);
+                registerIntentHandler(Intent.ACTION_GET_CONTENT);
             }
 
             Activity activity = Robolectric.setupActivity(ImportExportActivity.class);
@@ -102,7 +102,7 @@ public class ImportExportActivityTest
 
             if(isInstalled)
             {
-                registerIntentHandler(Intent.ACTION_GET_CONTENT);
+                registerIntentHandler(Intent.ACTION_PICK);
             }
 
             Activity activity = Robolectric.setupActivity(ImportExportActivity.class);

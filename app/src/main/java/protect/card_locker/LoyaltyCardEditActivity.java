@@ -231,7 +231,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
-            if(barcodeTypeField.getText().equals(NO_BARCODE))
+            if(barcodeTypeField.getText().toString().equals(NO_BARCODE))
             {
                 hideBarcode();
             }

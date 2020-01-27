@@ -4,17 +4,24 @@ package protect.card_locker;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +37,7 @@ import protect.card_locker.preferences.Settings;
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
     private static final String TAG = "CardLocker";
+    private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;
     TextView noteView;
@@ -44,11 +52,34 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImportURIHelper importURIHelper;
     Settings settings;
 
+    String cardIdString;
+    BarcodeFormat format;
+
+    boolean backgroundNeedsDarkIcons;
+    boolean barcodeIsFullscreen = false;
+    ViewGroup.LayoutParams barcodeImageState;
+
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
+    }
+
+    private Drawable getIcon(int icon, boolean dark)
+    {
+        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
+        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        if(dark)
+        {
+            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
+        }
+        else
+        {
+            DrawableCompat.setTintList(wrappedIcon, null);
+        }
+
+        return wrappedIcon;
     }
 
     @Override
@@ -81,11 +112,28 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
 
         rotationEnabled = true;
+
+        // Allow making barcode fullscreen on tap
+        barcodeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(barcodeIsFullscreen)
+                {
+                    setFullscreen(false);
+                }
+                else
+                {
+                    setFullscreen(true);
+                }
+            }
+        });
     }
 
     @Override
     public void onNewIntent(Intent intent)
     {
+        super.onNewIntent(intent);
+
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
     }
@@ -96,6 +144,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
+
+        if(barcodeIsFullscreen)
+        {
+            // Completely reset state
+            //
+            // This prevents the barcode from taking up the entire screen
+            // on resume and thus being stretched out of proportion.
+            recreate();
+        }
 
         // The brightness value is on a scale from [0, ..., 1], where
         // '1' is the brightest. We attempt to maximize the brightness
@@ -118,8 +175,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         String formatString = loyaltyCard.barcodeType;
-        final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
-        final String cardIdString = loyaltyCard.cardId;
+        format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
+        cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
@@ -165,37 +222,70 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
-        if(barcodeImage.getHeight() == 0)
+        // If the background is very bright, we should use dark icons
+        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > LUMINANCE_MIDPOINT);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
         {
-            Log.d(TAG, "ImageView size is not known known at start, waiting for load");
-            // The size of the ImageView is not yet available as it has not
-            // yet been drawn. Wait for it to be drawn so the size is available.
-            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                    new ViewTreeObserver.OnGlobalLayoutListener()
-                    {
-                        @Override
-                        public void onGlobalLayout()
+            actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
+        }
+
+        // Make notification area light if dark icons are needed
+        if(Build.VERSION.SDK_INT >= 23)
+        {
+            window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+        }
+        if(Build.VERSION.SDK_INT >= 21)
+        {
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+
+        // Set shadow colour of store text so even same color on same color would be readable
+        storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
+
+        if(format != null)
+        {
+            findViewById(R.id.barcode).setVisibility(View.VISIBLE);
+            if(barcodeImage.getHeight() == 0)
+            {
+                Log.d(TAG, "ImageView size is not known known at start, waiting for load");
+                // The size of the ImageView is not yet available as it has not
+                // yet been drawn. Wait for it to be drawn so the size is available.
+                barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                        new ViewTreeObserver.OnGlobalLayoutListener()
                         {
-                            if (Build.VERSION.SDK_INT < 16)
-                            {
-                                barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                            }
-                            else
+                            @Override
+                            public void onGlobalLayout()
                             {
                                 barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                            }
 
-                            Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                        }
-                    });
+                                Log.d(TAG, "ImageView size now known");
+                                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                            }
+                        });
+            }
+            else
+            {
+                Log.d(TAG, "ImageView size known known, creating barcode");
+                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            }
         }
         else
         {
-            Log.d(TAG, "ImageView size known known, creating barcode");
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+            findViewById(R.id.barcode).setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (barcodeIsFullscreen)
+        {
+            setFullscreen(false);
+            return;
         }
 
+        super.onBackPressed();
+        return;
     }
 
     @Override
@@ -203,12 +293,17 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
 
-        if(settings.getLockBarcodeScreenOrientation())
+        // Always calculate lockscreen icon, it may need a black color
+        boolean lockBarcodeScreenOrientation = settings.getLockBarcodeScreenOrientation();
+        MenuItem item = menu.findItem(R.id.action_lock_unlock);
+        setOrientatonLock(item, lockBarcodeScreenOrientation);
+        if(lockBarcodeScreenOrientation)
         {
-            MenuItem item = menu.findItem(R.id.action_lock_unlock);
-            setOrientatonLock(item, true);
             item.setVisible(false);
         }
+
+        menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
+        menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -258,15 +353,84 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     {
         if(lock)
         {
-            item.setIcon(R.drawable.ic_lock_outline_white_24dp);
+
+            item.setIcon(getIcon(R.drawable.ic_lock_outline_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.unlockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         }
         else
         {
-            item.setIcon(R.drawable.ic_lock_open_white_24dp);
+            item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.lockScreen);
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        }
+    }
+
+    /**
+     * When enabled, hides the status bar and moves the barcode to the top of the screen.
+     *
+     * The purpose of this function is to make sure the barcode can be scanned from the phone
+     * by machines which offer no space to insert the complete device.
+     */
+    private void setFullscreen(boolean enable)
+    {
+        ActionBar actionBar = getSupportActionBar();
+        if(enable && !barcodeIsFullscreen)
+        {
+            // Save previous barcodeImage state
+            barcodeImageState = barcodeImage.getLayoutParams();
+
+            // Hide actionbar
+            if(actionBar != null)
+            {
+                actionBar.hide();
+            }
+
+            // Hide collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.GONE);
+
+            // Set Android to fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Make barcode take all space
+            barcodeImage.setLayoutParams(new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            ));
+
+            // Move barcode to top
+            barcodeImage.setScaleType(ImageView.ScaleType.FIT_START);
+
+            // Set current state
+            barcodeIsFullscreen = true;
+        }
+        else if(!enable && barcodeIsFullscreen)
+        {
+            // Show actionbar
+            if(actionBar != null)
+            {
+                actionBar.show();
+            }
+
+            // Show collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.VISIBLE);
+
+            // Unset fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Turn barcode back to normal
+            barcodeImage.setLayoutParams(barcodeImageState);
+
+            // Set current state
+            barcodeIsFullscreen = false;
         }
     }
 }

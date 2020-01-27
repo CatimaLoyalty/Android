@@ -1,48 +1,47 @@
 package protect.card_locker;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.widget.TextViewCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.core.widget.TextViewCompat;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
-
+import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
-import org.robolectric.res.builder.RobolectricPackageManager;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowLog;
-import org.robolectric.android.controller.ActivityController;
-
-import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class LoyaltyCardViewActivityTest
 {
     private final String BARCODE_DATA = "428311627547";
@@ -72,7 +71,7 @@ public class LoyaltyCardViewActivityTest
     private void registerMediaStoreIntentHandler()
     {
         // Add something that will 'handle' the media capture intent
-        RobolectricPackageManager packageManager = shadowOf(RuntimeEnvironment.application.getPackageManager());
+        PackageManager packageManager = RuntimeEnvironment.application.getPackageManager();
 
         ResolveInfo info = new ResolveInfo();
         info.isDefault = true;
@@ -85,7 +84,7 @@ public class LoyaltyCardViewActivityTest
 
         Intent intent = new Intent(Intents.Scan.ACTION);
 
-        packageManager.addResolveInfoForIntent(intent, info);
+        shadowOf(packageManager).addResolveInfoForIntent(intent, info);
     }
 
     /**
@@ -128,7 +127,16 @@ public class LoyaltyCardViewActivityTest
         assertEquals(store, card.store);
         assertEquals(note, card.note);
         assertEquals(cardId, card.cardId);
-        assertEquals(barcodeType, card.barcodeType);
+
+        // The special "No barcode" string shouldn't actually be written to the loyalty card
+        if(barcodeType.equals(LoyaltyCardEditActivity.NO_BARCODE))
+        {
+            assertEquals("", card.barcodeType);
+        }
+        else
+        {
+            assertEquals(barcodeType, card.barcodeType);
+        }
         assertNotNull(card.headerColor);
         assertNotNull(card.headerTextColor);
     }
@@ -157,12 +165,44 @@ public class LoyaltyCardViewActivityTest
         assertNotNull(bundle);
 
         Intent resultIntent = new Intent(intent);
-        Bundle resultBuddle = new Bundle();
-        resultBuddle.putString(Intents.Scan.RESULT, BARCODE_DATA);
-        resultBuddle.putString(Intents.Scan.RESULT_FORMAT, BARCODE_TYPE);
-        resultIntent.putExtras(resultBuddle);
+        Bundle resultBundle = new Bundle();
+        resultBundle.putString(Intents.Scan.RESULT, BARCODE_DATA);
+        resultBundle.putString(Intents.Scan.RESULT_FORMAT, BARCODE_TYPE);
+        resultIntent.putExtras(resultBundle);
 
         // Respond to image capture, success
+        shadowOf(activity).receiveResult(
+                intent,
+                success ? Activity.RESULT_OK : Activity.RESULT_CANCELED,
+                resultIntent);
+    }
+
+    /**
+     * Initiate and complete a barcode selection, either in success
+     * or in failure
+     */
+    private void selectBarcodeWithResult(final Activity activity, final int buttonId, final String barcodeData, final String barcodeType, final boolean success) throws IOException
+    {
+        // Start image capture
+        final Button captureButton = activity.findViewById(buttonId);
+        captureButton.performClick();
+
+        ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
+        assertNotNull(intentForResult);
+
+        Intent intent = intentForResult.intent;
+        assertNotNull(intent);
+
+        Bundle bundle = intent.getExtras();
+        assertNotNull(bundle);
+
+        Intent resultIntent = new Intent(intent);
+        Bundle resultBundle = new Bundle();
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeType);
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeData);
+        resultIntent.putExtras(resultBundle);
+
+        // Respond to barcode selection, success
         shadowOf(activity).receiveResult(
                 intent,
                 success ? Activity.RESULT_OK : Activity.RESULT_CANCELED,
@@ -228,7 +268,7 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         Activity activity = (Activity)activityController.get();
-        ShadowActivity shadowActivity = shadowOf(activity);
+        
         DBHelper db = new DBHelper(activity);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -236,19 +276,15 @@ public class LoyaltyCardViewActivityTest
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        shadowActivity.clickMenuItem(R.id.action_save);
-        assertEquals(0, db.getLoyaltyCardCount());
-
-        cardIdField.setText("cardId");
-        shadowActivity.clickMenuItem(R.id.action_save);
+        shadowOf(activity).clickMenuItem(R.id.action_save);
         assertEquals(0, db.getLoyaltyCardCount());
     }
 
@@ -286,7 +322,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, true);
     }
 
@@ -325,7 +361,7 @@ public class LoyaltyCardViewActivityTest
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
-        // Cancel the gift card creation
+        // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
@@ -352,7 +388,7 @@ public class LoyaltyCardViewActivityTest
 
         intent.putExtras(bundle);
 
-        return Robolectric.buildActivity(clazz).withIntent(intent).create();
+        return Robolectric.buildActivity(clazz, intent).create();
     }
 
     @Test
@@ -527,8 +563,51 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        // Save and check the gift card
+        // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, false);
+    }
+
+    @Test
+    public void startLoyaltyCardWithExplicitNoBarcodeSave() throws IOException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, "", Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // Save and check the loyalty card
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+    }
+
+    @Test
+    public void removeBarcodeFromLoyaltyCard() throws IOException
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(true);
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        // First check if the card is as expected
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        // Complete empty barcode selection successfully
+        selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
+
+        // Check if the barcode type is NO_BARCODE as expected
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE);
+
+        // Check if the special NO_BARCODE string doesn't get saved
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
     }
 
     @Test
@@ -609,6 +688,69 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
+    public void checkBarcodeFullscreenWorkflow()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        assertEquals(false, activity.isFinishing());
+
+        ImageView barcodeImage = activity.findViewById(R.id.barcode);
+        View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
+
+        // Android should not be in fullscreen mode
+        int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        // Elements should be visible
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Click barcode to toggle fullscreen
+        barcodeImage.performClick();
+
+        // Android should be in fullscreen mode
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        // Elements should not be visible
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+
+        // Clicking barcode again should deactivate fullscreen mode
+        barcodeImage.performClick();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Another click back to fullscreen
+        barcodeImage.performClick();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+
+        // In full screen mode, back button should disable fullscreen
+        activity.onBackPressed();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Pressing back when not in full screen should finish activity
+        activity.onBackPressed();
+        assertEquals(true, activity.isFinishing());
+    }
+
+    @Test
     public void importCard()
     {
         Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
@@ -616,7 +758,7 @@ public class LoyaltyCardViewActivityTest
         Intent intent = new Intent();
         intent.setData(importUri);
 
-        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).withIntent(intent).create();
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class, intent).create();
 
         activityController.start();
         activityController.visible();
@@ -625,7 +767,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(activity.findViewById(R.id.headingColorSample).getBackground(), new ColorDrawable(-416706));
-        assertEquals(activity.findViewById(R.id.headingStoreTextColorSample).getBackground(), new ColorDrawable(-1));
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
+        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
     }
 }

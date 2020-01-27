@@ -32,7 +32,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class ImportExportTest
 {
     private Activity activity;
@@ -362,5 +362,36 @@ public class ImportExportTest
         boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
+    }
+
+    @Test
+    public void importWithNoBarcodeType() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
+        csvText += "1,store,note,12345,,1,1";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertEquals(true, result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("", card.barcodeType);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
     }
 }

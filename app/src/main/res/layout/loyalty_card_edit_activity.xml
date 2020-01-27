@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 android:fitsSystemWindows="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/inputContrastBackground"
-                app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
 
                         <EditText
                             android:id="@+id/noteEdit"
-                            android:inputType="textCapSentences"
+                            android:inputType="textMultiLine"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
@@ -151,7 +151,7 @@
                         android:layout_width="@dimen/inputBorderThickness"
                         android:background="@color/inputBorder" />
 
-                    <android.support.constraint.ConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                             android:padding="@dimen/inputPadding"
                             app:layout_constraintStart_toStartOf="parent"/>
 
-                        <android.support.constraint.ConstraintLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/headingColorSampleBorder"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -188,7 +188,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 android:background="@android:color/white"
                                 android:contentDescription="@string/storeNameBackgroundColorDescription"/>
-                        </android.support.constraint.ConstraintLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                        <Button
                            android:id="@+id/headingColorSelectButton"
@@ -199,7 +199,7 @@
                            android:layout_toEndOf="@id/headingColorSampleBorder"
                            android:layout_toRightOf="@id/headingColorSampleBorder"
                            app:layout_constraintEnd_toEndOf="parent"/>
-                    </android.support.constraint.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
                         android:gravity="end"
@@ -223,7 +223,7 @@
                         android:layout_width="@dimen/inputBorderThickness"
                         android:background="@color/inputBorder" />
 
-                    <android.support.constraint.ConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                             android:padding="@dimen/inputPadding"
                             app:layout_constraintStart_toStartOf="parent"/>
 
-                        <android.support.constraint.ConstraintLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/headingStoreTextColorSampleBorder"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -260,7 +260,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 android:background="@android:color/white"
                                 android:contentDescription="@string/storeNameColorDescription"/>
-                        </android.support.constraint.ConstraintLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <Button
                             android:id="@+id/headingStoreTextColorSelectButton"
@@ -271,7 +271,7 @@
                             android:layout_toEndOf="@id/headingStoreTextColorSampleBorder"
                             android:layout_toRightOf="@id/headingStoreTextColorSampleBorder"
                             app:layout_constraintEnd_toEndOf="parent"/>
-                    </android.support.constraint.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
                         android:gravity="end"
@@ -389,4 +389,4 @@
         </LinearLayout>
     </ScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

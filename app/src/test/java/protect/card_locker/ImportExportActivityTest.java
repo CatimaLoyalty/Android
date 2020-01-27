@@ -1,33 +1,32 @@
 package protect.card_locker;
 
+import static org.junit.Assert.assertEquals;
+import static org.robolectric.Shadows.shadowOf;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.view.View;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
-import org.robolectric.res.builder.RobolectricPackageManager;
-
-import static org.robolectric.Shadows.shadowOf;
-
-import static org.junit.Assert.assertEquals;
+import org.robolectric.shadows.ShadowPackageManager;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 23)
+@Config(sdk = 23)
 public class ImportExportActivityTest
 {
     private void registerIntentHandler(String handler)
     {
         // Add something that will 'handle' the given intent type
-        RobolectricPackageManager packageManager = shadowOf(RuntimeEnvironment.application.getPackageManager());
+        PackageManager packageManager = RuntimeEnvironment.application.getPackageManager();
 
         ResolveInfo info = new ResolveInfo();
         info.isDefault = true;
@@ -47,7 +46,7 @@ public class ImportExportActivityTest
             intent.setType("*/*");
         }
 
-        packageManager.addResolveInfoForIntent(intent, info);
+        shadowOf(packageManager).addResolveInfoForIntent(intent, info);
     }
 
     private void checkVisibility(Activity activity, int state, int divider, int title, int message, int button)
@@ -72,7 +71,7 @@ public class ImportExportActivityTest
 
             if(isInstalled)
             {
-                registerIntentHandler(Intent.ACTION_PICK);
+                registerIntentHandler(Intent.ACTION_GET_CONTENT);
             }
 
             Activity activity = Robolectric.setupActivity(ImportExportActivity.class);
@@ -103,7 +102,7 @@ public class ImportExportActivityTest
 
             if(isInstalled)
             {
-                registerIntentHandler(Intent.ACTION_GET_CONTENT);
+                registerIntentHandler(Intent.ACTION_PICK);
             }
 
             Activity activity = Robolectric.setupActivity(ImportExportActivity.class);

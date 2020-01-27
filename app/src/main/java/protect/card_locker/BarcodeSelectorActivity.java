@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -116,6 +116,10 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                     ImageView image = findViewById(barcodeViewMap.get(key));
                     createBarcodeOption(image, key, s.toString());
                 }
+
+                View noBarcodeButtonView = findViewById(R.id.noBarcode);
+                setButtonListener(noBarcodeButtonView, s.toString());
+                noBarcodeButtonView.setEnabled(s.length() > 0);
             }
 
             @Override
@@ -132,6 +136,21 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         {
             cardId.setText(initialCardId);
         }
+    }
+
+    private void setButtonListener(final View button, final String cardId)
+    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Selected no barcode");
+                Intent result = new Intent();
+                result.putExtra(BARCODE_FORMAT, "");
+                result.putExtra(BARCODE_CONTENTS, cardId);
+                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+                finish();
+            }
+        });
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId)

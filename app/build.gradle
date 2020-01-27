@@ -7,14 +7,14 @@ findbugs {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "protect.card_locker"
         minSdkVersion 16
-        targetSdkVersion 27
-        versionCode 35
-        versionName "0.25.4"
+        targetSdkVersion 29
+        versionCode 37
+        versionName "0.26.1"
     }
     buildTypes {
         release {
@@ -41,19 +41,19 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.android.support:design:27.0.2'
-    compile 'com.android.support:support-v4:27.0.2'
+    compile 'androidx.appcompat:appcompat:1.2.0-alpha01'
+    compile 'com.google.android.material:material:1.2.0-alpha03'
+    compile 'androidx.legacy:legacy-support-v4:1.0.0'
     compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     compile 'com.google.zxing:core:3.3.0'
     compile 'org.apache.commons:commons-csv:1.5'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'androidx.constraintlayout:constraintlayout:1.1.3'
     compile 'com.jaredrummler:colorpicker:1.0.2'
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile 'com.github.apl-devs:appintro:v4.2.0'
     compile "com.vanniktech:vntnumberpickerpreference:1.0.0"
     testCompile 'junit:junit:4.12'
-    testCompile "org.robolectric:robolectric:3.3.2"
+    testCompile "org.robolectric:robolectric:4.0.2"
 }
 
 task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {

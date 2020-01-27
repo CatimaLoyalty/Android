@@ -3,9 +3,9 @@ package protect.card_locker.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.IntegerRes;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.annotation.IntegerRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import protect.card_locker.R;
 

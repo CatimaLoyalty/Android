@@ -405,6 +405,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Move barcode to top
             barcodeImage.setScaleType(ImageView.ScaleType.FIT_START);
 
+            // Prevent centering
+            barcodeImage.setAdjustViewBounds(false);
+
             // Set current state
             barcodeIsFullscreen = true;
         }
@@ -428,6 +431,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
             // Turn barcode back to normal
             barcodeImage.setLayoutParams(barcodeImageState);
+
+            // Fix barcode centering
+            barcodeImage.setAdjustViewBounds(true);
 
             // Set current state
             barcodeIsFullscreen = false;

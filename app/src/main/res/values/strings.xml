@@ -11,7 +11,6 @@
     <string name="storeName">Store</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
-    <string name="barcodeType">Barcode Type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
 
     <string name="cancel">Cancel</string>
@@ -30,11 +29,9 @@
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
     <string name="sendLabel">Send&#8230;</string>
-    <string name="addedShortcut">Added to Home Screen</string>
 
     <string name="editCardTitle">Edit Loyalty Card</string>
     <string name="addCardTitle">Add Loyalty Card</string>
-    <string name="viewCardTitle">View Loyalty Card</string>
     <string name="scanCardBarcode">Scan Card\'s Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">There are no cards, add one first</string>
@@ -46,16 +43,11 @@
     <string name="noCardExistsError">Could not lookup loyalty card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
-
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
     <string name="importedFrom">Imported from: %1$s</string>
     <string name="exportedTo">Exported to: %1$s</string>
-    <string name="fileMissing">File missing: %1$s</string>
     <string name="importSuccessfulTitle">Import successful</string>
     <string name="importFailedTitle">Import failed</string>
     <string name="importFailed">Failed to import: %1$s</string>

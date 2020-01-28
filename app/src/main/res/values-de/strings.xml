@@ -11,7 +11,6 @@
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
-    <string name="barcodeType">Barcodeart</string>
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
     <string name="capture">Karte scannen</string>
@@ -27,11 +26,9 @@
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
     <string name="sendLabel">Senden&#8230;</string>
-    <string name="addedShortcut">Zum Home Screen hinzugefügt</string>
 
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
-    <string name="viewCardTitle">Kundenkarte anzeigen</string>
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Es ist noch keine Karte vorhanden, bitte zuerst eine hinzufügen</string>
@@ -41,14 +38,11 @@
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Exportieren</string>
     <string name="importExportHelp">Gesicherte Daten ermöglichen das Verschieben der Kundenkarten auf ein anderes Gerät.</string>
     <string name="importedFrom">Importiert von: %1$s</string>
     <string name="exportedTo">Exportiert nach: %1$s</string>
-    <string name="fileMissing">Datei fehlt: %1$s</string>
     <string name="importSuccessfulTitle">Import erfolgreich</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
     <string name="importFailed">Import fehlgeschlagen: %1$s</string>
@@ -65,9 +59,6 @@
     <string name="importOptionApplicationTitle">Externe App verwenden</string>
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
-    <string name="importOptionFixedTitle">Importiere aus Export-Pfad</string>
-    <string name="importOptionFixedExplanation">Nutze den Export-Pfad, um Karten zu importieren (dies stellt zuvor gesicherte Daten wieder her).</string>
-    <string name="importOptionFixedButton">Export-Pfad verwenden</string>
 
     <string name="about">Über</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

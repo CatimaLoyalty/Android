@@ -8,7 +8,6 @@
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
-    <string name="barcodeType">Typ čárového kódu</string>
     <string name="cancel">Zrušit</string>
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
@@ -23,20 +22,16 @@
     <string name="sendLabel">Odeslat&#8230;</string>
     <string name="editCardTitle">Editovat věrnostní kartu</string>
     <string name="addCardTitle">Přidat věrnostní kartu</string>
-    <string name="viewCardTitle">Zobrazit věrnostní kartu</string>
     <string name="scanCardBarcode">Oskenujte kód karty</string>
     <string name="barcodeImageDescription">Obrázek kódu karty</string>
 
     <string name="noStoreError">Nebyl zadán Obchod</string>
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
     <string name="importedFrom">Importováno z: %1$s</string>
     <string name="exportedTo">Exportováno do: %1$s</string>
-    <string name="fileMissing">Doubor chybí: %1$s</string>
     <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
     <string name="importFailedTitle">Import selhal</string>
     <string name="importFailed">Import selhal: %1$s</string>
@@ -53,9 +48,6 @@
     <string name="importOptionApplicationTitle">Použít externí aplikaci</string>
     <string name="importOptionApplicationExplanation">K otevření souboru použije externí aplikaci jako Dropbox, Google Drive, nebo vámi preferovaný prohlížeč souborů.</string>
     <string name="importOptionApplicationButton">Použít externí aplikaci</string>
-    <string name="importOptionFixedTitle">Import z umístění exportu</string>
-    <string name="importOptionFixedExplanation">Import ze stejné složky souborového systému do níž se zapisuje při exportu.</string>
-    <string name="importOptionFixedButton">Použít složku exportu</string>
 
     <string name="about">O aplikaci</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

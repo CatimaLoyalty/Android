@@ -9,7 +9,6 @@
     <string name="storeName">Butikk</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
-    <string name="barcodeType">Strekkodetype</string>
 
     <string name="cancel">Avbryt</string>
     <string name="save">Lagre</string>
@@ -26,11 +25,9 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
     <string name="sendLabel">Send&#8230;</string>
-    <string name="addedShortcut">Lagt til på hjemmeskjerm</string>
 
     <string name="editCardTitle">Rediger kundekort</string>
     <string name="addCardTitle">Legg til kundekort</string>
-    <string name="viewCardTitle">Vis kundekort</string>
     <string name="scanCardBarcode">Skann kortets strekkode</string>
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
@@ -41,16 +38,11 @@
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
     <string name="noCardExistsError">Kunne ikke finne kundekort</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
-
     <string name="importExport">Import/eksport</string>
-    <string name="importName">Importer</string>
     <string name="exportName">Eksporter</string>
     <string name="importExportHelp">Sikkerhetskopiering av data lar deg flytte kortene til en annen enhet.</string>
     <string name="importedFrom">Importert fra: %1$s</string>
     <string name="exportedTo">Exportert til: %1$s</string>
-    <string name="fileMissing">Fil mangler: %1$s</string>
     <string name="importSuccessfulTitle">Importert</string>
     <string name="importFailedTitle">Kunne ikke importere</string>
     <string name="importFailed">Klarte ikke å importere: %1$s</string>
@@ -67,9 +59,6 @@
     <string name="importOptionApplicationTitle">Brukt eksternt program</string>
     <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
-    <string name="importOptionFixedTitle">Importer fra eksporteringsområde</string>
-    <string name="importOptionFixedExplanation">Importer fra området i filsystemet eksporter skrives til.</string>
-    <string name="importOptionFixedButton">Bruk eksporteringsplassering</string>
 
     <string name="about">About</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

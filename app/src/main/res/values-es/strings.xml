@@ -8,7 +8,6 @@
     <string name="storeName">Tienda</string>
     <string name="note">Nota</string>
     <string name="cardId">ID de la Tarjeta</string>
-    <string name="barcodeType">Tipo de Código de Barras</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="capture">Escanear Tarjeta</string>
@@ -24,11 +23,9 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copiar ID al portapapeles</string>
     <string name="sendLabel">Enviar&#8230;</string>
-    <string name="addedShortcut">Añadido a la Pantalla de Inicio</string>
 
     <string name="editCardTitle">Editar Tarjeta de Fidelización</string>
     <string name="addCardTitle">Añadir Tarjeta de Fidelización</string>
-    <string name="viewCardTitle">Ver Tarjeta de Fidelización</string>
     <string name="scanCardBarcode">Escanear el Código de Barras de la Tarjeta</string>
     <string name="cardShortcut">Atajo de Tarjeta</string>
     <string name="noCardsMessage">No hay ninguna tarjeta, añade una primero</string>
@@ -38,14 +35,11 @@
     <string name="noStoreError">Establecimiento no especificado</string>
     <string name="noCardIdError">ID de la Tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importar/Exportar</string>
-    <string name="importName">Importar</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">La copia de seguridad te permite transferir tus tarjetas a otro dispositivo.</string>
     <string name="importedFrom">Importar desde: %1$s</string>
     <string name="exportedTo">Exportar a: %1$s</string>
-    <string name="fileMissing">Archivo perdido: %1$s</string>
     <string name="importSuccessfulTitle">Datos importados correctamente</string>
     <string name="importFailedTitle">Ha ocurrido un error al importar los datos</string>
     <string name="importFailed">Error al importar: %1$s</string>
@@ -62,9 +56,6 @@
     <string name="importOptionApplicationTitle">Usar una applicación externa</string>
     <string name="importOptionApplicationExplanation">Use una aplicación externa como Dropbox, Google Drive o tu gestor de archivos favoritos para abrir un archivo.</string>
     <string name="importOptionApplicationButton">Usar aplicación externa</string>
-    <string name="importOptionFixedTitle">Importar desde el lugar donde los datos son exportados</string>
-    <string name="importOptionFixedExplanation">Importar desde el mismo lugar en el sistema de archivos donde los datos son exportados.</string>
-    <string name="importOptionFixedButton">Utilizar el lugar donde los datos son exportados</string>
 
     <string name="about">Acerca de</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

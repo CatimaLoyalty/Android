@@ -8,7 +8,6 @@
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
-    <string name="barcodeType">Typ čiarového kódu</string>
     <string name="cancel">Zrušiť</string>
     <string name="save">Uložiť</string>
     <string name="capture">Zosnímať kartu</string>
@@ -24,11 +23,9 @@
     <string name="ok">Áno</string>
     <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
     <string name="sendLabel">Odoslať&#8230;</string>
-    <string name="addedShortcut">Pridané na domovskú obrazovku</string>
 
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
-    <string name="viewCardTitle">Zobraziť kartu</string>
     <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
     <string name="cardShortcut">Skratka</string>
     <string name="noCardsMessage">Nie sú uložené žiadne karty, vložte prvú</string>
@@ -38,14 +35,11 @@
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohovanie dát Vám umožní presunúť Vaše uložené karty na iné zariadenie.</string>
     <string name="importedFrom">Importované z: %1$s</string>
     <string name="exportedTo">Exportované do: %1$s</string>
-    <string name="fileMissing">Chýbajúci súbor: %1$s</string>
     <string name="importSuccessfulTitle">Import bol úspešný</string>
     <string name="importFailedTitle">Import zlyhal</string>
     <string name="importFailed">Zlyhal import: %1$s</string>
@@ -62,9 +56,6 @@
     <string name="importOptionApplicationTitle">Použite externú aplikáciu</string>
     <string name="importOptionApplicationExplanation">Na otvorenie súboru použite externú aplikáciu, ako Dropbox, Disk Google, alebo Vášho obľúbeného správcu súborov.</string>
     <string name="importOptionApplicationButton">Použiť externú aplikáciu</string>
-    <string name="importOptionFixedTitle">Importujte z exportovacieho umiestnenia.</string>
-    <string name="importOptionFixedExplanation">Importujte z rovnakého umiestnenia v súborovom systéme, na ktorý je zapisovaný export.</string>
-    <string name="importOptionFixedButton">Použite exportovacie umiestnenie</string>
 
     <string name="about">O aplikácii</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

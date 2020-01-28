@@ -11,7 +11,6 @@
     <string name="storeName">Sklep</string>
     <string name="note">Notatka</string>
     <string name="cardId">Identyfikator karty</string>
-    <string name="barcodeType">Typ kodu kreskowego</string>
     <string name="barcodeNoBarcode">Ta karta nie ma kodu kreskowego</string>
 
     <string name="cancel">Anuluj</string>
@@ -30,11 +29,9 @@
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
     <string name="sendLabel">Wyślij&#8230;</string>
-    <string name="addedShortcut">Dodano do ekranu głównego</string>
 
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
     <string name="addCardTitle">Dodaj kartę lojalnościową</string>
-    <string name="viewCardTitle">Pokaż kartę lojalnościową</string>
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
     <string name="cardShortcut">Skrót karty</string>
     <string name="noCardsMessage">Nie ma kart, należy dodać pierwszą</string>
@@ -46,14 +43,11 @@
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuj/Eksportuj</string>
-    <string name="importName">Importuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importedFrom">Zaimportowano z: %1$s</string>
     <string name="exportedTo">Wyeksportowano do: %1$s</string>
-    <string name="fileMissing">Brak pliku: %1$s</string>
     <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
     <string name="importFailedTitle">Import nie powiódł się</string>
     <string name="importFailed">Nie udało się zaimportować: %1$s</string>
@@ -70,9 +64,6 @@
     <string name="importOptionApplicationTitle">Użyj zewnętrznej aplikacji</string>
     <string name="importOptionApplicationExplanation">Użyj zewnętrznej aplikacji jak Dropbox, Google Drive, bądź ulubiony menedżer plików, aby otworzyć plik.</string>
     <string name="importOptionApplicationButton">Użyj zewnętrznej aplikacji</string>
-    <string name="importOptionFixedTitle">Importuj z lokalizacji eksportowania</string>
-    <string name="importOptionFixedExplanation">Importuj z tej samej lokalizacji w systemie plików, do którego zapisano przy eksporcie.</string>
-    <string name="importOptionFixedButton">Użyj lokalizacji eksportu</string>
 
     <string name="about">O aplikacji</string>
     <string name="app_copyright_fmt">© 2016 — <xliff:g>%d</xliff:g> Branden Archer.</string>

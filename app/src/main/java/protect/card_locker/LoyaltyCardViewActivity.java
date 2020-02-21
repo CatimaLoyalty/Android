@@ -504,6 +504,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
     {
         gestureDetector.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
+    }
 
     /**
      * When enabled, hides the status bar and moves the barcode to the top of the screen.

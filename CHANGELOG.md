@@ -1,3 +1,33 @@
+## v0.27 (2020-01-26)
+
+Changes:
+- Tapping on a barcode now moves it to the top of the screen ([#348](https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Add white space around barcodes to improve scanning in dark mode ([#328](https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Fix swapped import buttons. ([#346](https://github.com/brarcher/loyalty-card-locker/pull/346))
+
+## v0.26.1 (2020-01-09)
+
+Changes:
+- Fix issue with sharing cards without background color ([#343](https://github.com/brarcher/loyalty-card-locker/pull/343))
+
+## v0.26 (2020-01-05)
+
+Changes:
+- Add ability to search for a card ([#320](https://github.com/brarcher/loyalty-card-locker/pull/320))
+- Add ability to share and receive loyalty cards ([#321](https://github.com/brarcher/loyalty-card-locker/pull/321))
+- Dark mode support ([#322](https://github.com/brarcher/loyalty-card-locker/pull/322))
+- Loyalty cards can now be barcodeless (e.g. not have a barcode) ([#324](https://github.com/brarcher/loyalty-card-locker/pull/324))
+- Notes can span multiple lines ([#326](https://github.com/brarcher/loyalty-card-locker/pull/326))
+- Improvements with the sizing of notes ([#319](https://github.com/brarcher/loyalty-card-locker/pull/319))
+- Improve notification and app icon visibility ([#330](https://github.com/brarcher/loyalty-card-locker/pull/330))
+- Update target SDK to Android 10
+- Improve the following translations:
+  * German
+  * Italian
+  * Dutch
+  * Polish
+  * Russian
+
 ## v0.25.4 (2019-10-04)
 
 Changes

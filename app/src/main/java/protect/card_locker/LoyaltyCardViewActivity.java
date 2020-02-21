@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GestureDetectorCompat;
@@ -23,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -62,7 +65,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
     ImportURIHelper importURIHelper;
     Settings settings;
 
+    String cardIdString;
+    BarcodeFormat format;
+
     boolean backgroundNeedsDarkIcons;
+    boolean barcodeIsFullscreen = false;
+    ViewGroup.LayoutParams barcodeImageState;
 
     private void extractIntentFields(Intent intent)
     {
@@ -161,6 +169,21 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         savedInstanceState.putInt("id", loyaltyCardId);
 
         super.onSaveInstanceState(savedInstanceState);
+
+        // Allow making barcode fullscreen on tap
+        barcodeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(barcodeIsFullscreen)
+                {
+                    setFullscreen(false);
+                }
+                else
+                {
+                    setFullscreen(true);
+                }
+            }
+        });
     }
 
     @Override
@@ -178,6 +201,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
+
+        if(barcodeIsFullscreen)
+        {
+            // Completely reset state
+            //
+            // This prevents the barcode from taking up the entire screen
+            // on resume and thus being stretched out of proportion.
+            recreate();
+        }
 
         // The brightness value is on a scale from [0, ..., 1], where
         // '1' is the brightest. We attempt to maximize the brightness
@@ -232,8 +264,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         }
 
         String formatString = loyaltyCard.barcodeType;
-        final BarcodeFormat format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
-        final String cardIdString = loyaltyCard.cardId;
+        format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
+        cardIdString = loyaltyCard.cardId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
@@ -333,6 +365,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
         {
             findViewById(R.id.barcode).setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (barcodeIsFullscreen)
+        {
+            setFullscreen(false);
+            return;
+        }
+
+        super.onBackPressed();
+        return;
     }
 
     @Override
@@ -460,5 +504,72 @@ public class LoyaltyCardViewActivity extends AppCompatActivity implements Gestur
     {
         gestureDetector.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
+
+    /**
+     * When enabled, hides the status bar and moves the barcode to the top of the screen.
+     *
+     * The purpose of this function is to make sure the barcode can be scanned from the phone
+     * by machines which offer no space to insert the complete device.
+     */
+    private void setFullscreen(boolean enable)
+    {
+        ActionBar actionBar = getSupportActionBar();
+        if(enable && !barcodeIsFullscreen)
+        {
+            // Save previous barcodeImage state
+            barcodeImageState = barcodeImage.getLayoutParams();
+
+            // Hide actionbar
+            if(actionBar != null)
+            {
+                actionBar.hide();
+            }
+
+            // Hide collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.GONE);
+
+            // Set Android to fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Make barcode take all space
+            barcodeImage.setLayoutParams(new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            ));
+
+            // Move barcode to top
+            barcodeImage.setScaleType(ImageView.ScaleType.FIT_START);
+
+            // Set current state
+            barcodeIsFullscreen = true;
+        }
+        else if(!enable && barcodeIsFullscreen)
+        {
+            // Show actionbar
+            if(actionBar != null)
+            {
+                actionBar.show();
+            }
+
+            // Show collapsingToolbar
+            collapsingToolbarLayout.setVisibility(View.VISIBLE);
+
+            // Unset fullscreen mode
+            getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+
+            // Turn barcode back to normal
+            barcodeImage.setLayoutParams(barcodeImageState);
+
+            // Set current state
+            barcodeIsFullscreen = false;
+        }
     }
 }

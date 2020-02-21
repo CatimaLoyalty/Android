@@ -5,12 +5,10 @@
     <string name="action_add">Προσθήκη</string>
 
     <string name="noGiftCards">Δεν έχετε κάρτες προς το παρόν. Πατήστε το κουμπί \"+\" (συν) στο πάνω μέρος για να ξεκινήσετε.\n\nΤο Loyalty Card Keychain σας δίνει τη δυνατότητα να έχετε τις κάρτες σας στο τηλέφωνο σας, έτσι ώστε να τις έχετε πάντα μαζί σας.</string>
-
     <string name="storeName">Κατάστημα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός Κάρτας</string>
     <string name="barcodeType">Τύπος Barcode</string>
-
     <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
     <string name="capture">Φωτογράφιση Κάρτας</string>
@@ -40,7 +38,6 @@
     <string name="noStoreError">Δεν δώσατε κατάστημα</string>
     <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="importName">Εισαγωγή</string>
@@ -79,8 +76,6 @@
     <string name="app_resources">Το <xliff:g id="app_name">%s</xliff:g> χρησιμοποιεί τους παρακάτω πόρους τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
-    <string name="enterBarcodeInstructions">Δώστε την τιμή του barcode και μετά επιλέξτε την εικόνα που αναπαριστά το barcode που θέλετε να χρησιμοποιείσετε</string>
-
     <string name="copy_to_clipboard_toast">Ο κωδικός της κάρτας αντιγράφτηκε στο πρόχειρο</string>
 
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>

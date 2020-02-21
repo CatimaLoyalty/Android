@@ -2,15 +2,16 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Loyalty Card Keychain</string>
+    <string name="action_search">Suche</string>
     <string name="action_add">Neu</string>
 
     <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den \"+\"-Button oben rechts können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
+    <string name="noMatchingGiftCards">Es passen keine Kundenkarten zum Suchfilter. Bitte probiere verschiedene Begriffe aus.</string>
 
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
     <string name="barcodeType">Barcodeart</string>
-
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
     <string name="capture">Karte scannen</string>
@@ -40,7 +41,6 @@
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="importName">Import</string>
@@ -79,8 +79,6 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> verwendet folgenden Dritt-Ressourcen: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Barcode auswählen</string>
-    <string name="enterBarcodeInstructions">Fügen Sie die Kundennummer ein, anschließend wählen Sie die korrekte Barcodeart aus.</string>
-
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
 
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
@@ -113,4 +111,5 @@
     <string name="settings_card_id_font_size">Schriftgröße der Kartennummer</string>
     <string name="settings_card_note_font_size">Schriftgröße der Notiz</string>
     <string name="settings_display_barcode_max_brightness">Helligkeit bei Barcode Ansicht erhöhen</string>
+    <string name="settings_lock_barcode_orientation">Barcodeausrichtung sperren</string>
     </resources>

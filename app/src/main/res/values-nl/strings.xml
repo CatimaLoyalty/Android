@@ -2,44 +2,49 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Klantenkaartkluis</string>
+    <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
 
-    <string name="noGiftCards">Er zijn nog geen klantenkaarten aanwezig. Klik op de knop \"+\" (plus) om te beginnen.\n\nKlantenkaartenkluis beheert klantenkaarten op een smartphone of tablet, zodat ze altijd binnen handbereik zijn.</string>
+    <string name="noGiftCards">Je hebt nog geen klantenkaarten toegevoegd. Druk op de knop \'+\' (plus) om te beginnen.\n\nMet Klantenkaartkluis beheer je je klantenkaarten op je smartphone of tablet zodat ze altijd binnen handbereik zijn.</string>
+    <string name="noMatchingGiftCards">Er zijn geen kaarten die overeenkomen met je zoekopdracht. Probeer het opnieuw.</string>
 
     <string name="storeName">Winkel</string>
-    <string name="note">Opmerking</string>
-    <string name="cardId">Kaart-ID</string>
-    <string name="barcodeType">Barcodetype</string>
+    <string name="note">Aantekening</string>
+    <string name="cardId">Kaartnummer</string>
+    <string name="barcodeType">Soort barcode</string>
+    <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
 
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
     <string name="capture">Scan een kaart</string>
-    <string name="enterCard">Voer een kaart in</string>
+    <string name="enterCard">Voer een kaartnummer in</string>
     <string name="editCard">Kaart bewerken</string>
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
     <string name="confirm">Bevestigen</string>
-    <string name="lockScreen">Draaien blokkeren</string>
-    <string name="unlockScreen">Draaien deblokkeren</string>
+    <string name="lockScreen">Draaien niet toestaan</string>
+    <string name="unlockScreen">Draaien toestaan</string>
     <string name="deleteTitle">Kaart verwijderen</string>
     <string name="deleteConfirmation">Bevestig dat je deze kaart wilt verwijderen.</string>
     <string name="ok">Oké</string>
-    <string name="copy_to_clipboard">ID kopiëren naar klembord</string>
+    <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
+    <string name="share">Delen</string>
     <string name="sendLabel">Versturen&#8230;</string>
-    <string name="addedShortcut">Toegevoegd aan beginscherm</string>
+    <string name="addedShortcut">Toegevoegd aan startscherm</string>
 
     <string name="editCardTitle">Klantenkaart bewerken</string>
     <string name="addCardTitle">Klantenkaart toevoegen</string>
-    <string name="viewCardTitle">Klantenkaart bekijken</string>
-    <string name="scanCardBarcode">Klantenkaart-barcode scannen</string>
+    <string name="viewCardTitle">Klantenkaart tonen</string>
+    <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
-    <string name="noCardsMessage">Er zijn geen kaarten; voeg er één toe.</string>
+    <string name="noCardsMessage">Je hebt nog geen kaarten toegevoegd.</string>
 
-    <string name="barcodeImageDescription">Afbeelding van klantenkaart-barcode</string>
+    <string name="barcodeImageDescription">Afbeelding van barcode</string>
 
-    <string name="noStoreError">Geen winkel ingevoerd</string>
-    <string name="noCardIdError">Geen kaart-ID ingevoerd</string>
-    <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd.</string>
+    <string name="noStoreError">Geen winkelnaam ingevoerd</string>
+    <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
+    <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd</string>
+    <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
 
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importeren/Exporteren</string>
@@ -58,7 +63,7 @@
     <string name="importing">Bezig met importeren&#8230;...</string>
     <string name="exporting">Bezig met exporteren&#8230;...</string>
     <string name="noExternalStoragePermissionError">Het importeren of exporteren van kaarten is niet mogelijk zonder de machtiging \'externe opslag\'.</string>
-    <string name="exportOptionExplanation">De gegevens zijn weggeschreven naar de hoogste map op de externe opslag.</string>
+    <string name="exportOptionExplanation">De gegevens worden weggeschreven naar de hoogste map op de externe opslag.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand uit het bestandssysteem.</string>
     <string name="importOptionFilesystemButton">Uit bestandssysteem</string>
@@ -75,31 +80,31 @@
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van derde partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van derde partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van externe partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van externe partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
-    <string name="selectBarcodeTitle">Barcode selecteren</string>
-    <string name="enterBarcodeInstructions">Voer de waarde van de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken.</string>
+    <string name="selectBarcodeTitle">Barcode toevoegen</string>
+    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken., of druk op &#8220;Deze kaart heeft geen barcode&#8221; om geen barcode te gebruiken.</string>
 
-    <string name="copy_to_clipboard_toast">Kaart-ID is gekopieerd naar het klembord</string>
+    <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
 
-    <string name="thumbnailDescription">Voorbeeldminiatuur voor kaart</string>
+    <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
 
     <string name="startIntro">Rondleiding starten</string>
     <string name="intro1Title">Welkom bij Klantenkaartkluis\n</string>
     <string name="intro1Description">Beheer je op barcodes gebaseerde klantenkaarten op je telefoon!\n\n</string>
     <string name="intro2Title">Kaarten toevoegen\n</string>
-    <string name="intro2Description">Voeg een nieuwe kaart toe door in de kaartenlijst op de plus-knop te drukken.\n\n</string>
+    <string name="intro2Description">Voeg een kaart toe door in de lijst met kaarten op de plus-knop te drukken.\n\n</string>
     <string name="intro3Title">Kaarten toevoegen\n</string>
     <string name="intro3Description">De barcode kan worden toegevoegd door deze handmatig in te voeren of te scannen met de camera.\n\n</string>
     <string name="intro4Title">Kaart tonen\n</string>
-    <string name="intro4Description">Als je een kaart wilt tonen, druk dan op het beginscherm op de naam van de winkel.\n\n</string>
+    <string name="intro4Description">Toon een kaart door op het kaartoverzicht op de naam van de winkel te drukken.\n\n</string>
     <string name="intro5Title">Back-uppen\n</string>
-    <string name="intro5Description">De kaarten kunnen worden geback-upt. Als je kaarten wilt exporteren of importeren, druk dan in het menu op het hoofdscherm op Importeren/Exporteren.\n\n</string>
+    <string name="intro5Description">Je kunt je kaarten back-uppen: druk in het menu op het kaartoverzicht op Importeren/Exporteren.\n\n</string>
     <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Deze app is gratis, advertentievrij en open source. Bekijk de details hiervan door op Over te drukken in het menu op het hoofdscherm.\n\nGeef feedback in de app-winkel! (:</string>
+    <string name="intro6Description">Deze app is gratis, reclamevrij en open source. Bekijk alle details door op \'Over\' te drukken in het menu op het kaartoverzicht.\n\nGeef feedback in de app-winkel! (:</string>
 
-    <string name="change">Wijzigen</string>
+    <string name="change">Aanpassen</string>
     <string name="storeTextColorTitle">Tekstkleur van winkelnaam</string>
     <string name="storeTextBackgroundColorTitle">Kopkleur</string>
     <string name="storeNameBackgroundColorDescription">Achtergrondkleur van winkeltekst</string>
@@ -107,11 +112,17 @@
 
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Uiterlijk en bediening</string>
-    <string name="settings_card_title_list_font_size">Kaarttitel lijstlettertypegrootte</string>
-    <string name="settings_card_note_list_font_size">Kaartnotitie lijstlettertypegrootte</string>
-    <string name="settings_card_title_font_size">Kaarttitel-lettertypegrootte</string>
-    <string name="settings_card_id_font_size">Kaart-ID lettertypegrootte</string>
-    <string name="settings_card_note_font_size">Kaartnotitie lettertypegrootte</string>
-    <string name="settings_display_barcode_max_brightness">Barcodeweergave lichter maken</string>
+    <string name="settings_theme">Thema</string>
+    <string name="settings_system_theme">Systeemthema</string>
+    <string name="settings_light_theme">Licht</string>
+    <string name="settings_dark_theme">Donker</string>
+    <string name="settings_card_title_list_font_size">Lettergrootte van kaartnamen op de lijst</string>
+    <string name="settings_card_note_list_font_size">Lettergrootte van aantekeningen op de lijst</string>
+    <string name="settings_card_title_font_size">Lettergrootte van kaartnamen</string>
+    <string name="settings_card_id_font_size">Lettergrootte van kaartnummer</string>
+    <string name="settings_card_note_font_size">Lettergrootte van aantekeningen</string>
+    <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
+    <string name="intent_import_card_from_url">Klantenkaart importeren</string>
+    <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     </resources>

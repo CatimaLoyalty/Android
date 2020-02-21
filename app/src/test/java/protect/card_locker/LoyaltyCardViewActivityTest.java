@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
@@ -22,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.widget.TextViewCompat;
 
@@ -37,7 +39,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowPackageManager;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowLog;
 
@@ -727,11 +728,70 @@ public class LoyaltyCardViewActivityTest
         // Check if the card switches correctly
         tabLayout.getTabAt(1).select();
 
+        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note2", BARCODE_DATA, BARCODE_TYPE);
+    }
+  
+    @Test
+    public void checkBarcodeFullscreenWorkflow()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note2", BARCODE_DATA, BARCODE_TYPE);
+        assertEquals(false, activity.isFinishing());
+
+        ImageView barcodeImage = activity.findViewById(R.id.barcode);
+        View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
+
+        // Android should not be in fullscreen mode
+        int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        // Elements should be visible
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Click barcode to toggle fullscreen
+        barcodeImage.performClick();
+
+        // Android should be in fullscreen mode
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        // Elements should not be visible
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+
+        // Clicking barcode again should deactivate fullscreen mode
+        barcodeImage.performClick();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Another click back to fullscreen
+        barcodeImage.performClick();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+
+        // In full screen mode, back button should disable fullscreen
+        activity.onBackPressed();
+        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+
+        // Pressing back when not in full screen should finish activity
+        activity.onBackPressed();
+        assertEquals(true, activity.isFinishing());
     }
 
     @Test

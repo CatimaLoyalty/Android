@@ -5,12 +5,10 @@
     <string name="action_add">Dodaj</string>
 
     <string name="noGiftCards">Trenutno nimate shranjene nobene kartice zvestobe. Kliknite  \"+\" (plus) na vrhu, da jih dodate.\n\n Aplikacija Kartice zvestobe Vam omogoča, da imate kartice zvestobe shranjene na Vašem telefonu in vedno v dosegu roke.</string>
-
     <string name="storeName">Shrani</string>
     <string name="note">Zabeležka</string>
     <string name="cardId">Št. kartice</string>
     <string name="barcodeType">Vrsta črne kode</string>
-
     <string name="cancel">Prekliči</string>
     <string name="save">Shrani</string>
     <string name="capture">Slikaj kartico</string>
@@ -40,7 +38,6 @@
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
-
     <string name="cardIdFormat">%1$s:%2$s</string>
     <string name="importExport">Uvozi/izvozi</string>
     <string name="importName">Uvozi</string>
@@ -79,8 +76,6 @@
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g>uporablja sledeče zunanje vire: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Izberite črtno kodo</string>
-    <string name="enterBarcodeInstructions">Vnesite vrednost črtne kode in izberite črtno kodo, ki jo želite uporabljati</string>
-
     <string name="copy_to_clipboard_toast">Številka kartice je bila kopirana v odložišče</string>
 
     <string name="thumbnailDescription">Ikona kartice</string>

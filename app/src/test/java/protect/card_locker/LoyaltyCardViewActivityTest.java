@@ -732,6 +732,7 @@ public class LoyaltyCardViewActivityTest
 
     @Test
     public void checkBarcodeFullscreenWorkflow()
+    {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();

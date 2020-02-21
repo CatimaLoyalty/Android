@@ -1,3 +1,10 @@
+## v0.27 (2020-01-26)
+
+Changes:
+- Tapping on a barcode now moves it to the top of the screen ([#348](https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Add white space around barcodes to improve scanning in dark mode ([#328](https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Fix swapped import buttons. ([#346](https://github.com/brarcher/loyalty-card-locker/pull/346))
+
 ## v0.26.1 (2020-01-09)
 
 Changes:

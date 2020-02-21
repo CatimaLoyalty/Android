@@ -81,36 +81,14 @@ public class ImportExportActivity extends AppCompatActivity
             }
         });
 
-
-        // Check that there is an activity that can bring up a file chooser
-        final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-
-        Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
-        importFilesystem.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                chooseFileWithIntent(intentPickAction);
-            }
-        });
-
-        if(isCallable(getApplicationContext(), intentPickAction) == false)
-        {
-            findViewById(R.id.dividerImportFilesystem).setVisibility(View.GONE);
-            findViewById(R.id.importOptionFilesystemTitle).setVisibility(View.GONE);
-            findViewById(R.id.importOptionFilesystemExplanation).setVisibility(View.GONE);
-            importFilesystem.setVisibility(View.GONE);
-        }
-
-
-        // Check that there is an application that can find content
+        // Check that there is a file manager available
         final Intent intentGetContentAction = new Intent(Intent.ACTION_GET_CONTENT);
         intentGetContentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentGetContentAction.setType("*/*");
 
-        Button importApplication = findViewById(R.id.importOptionApplicationButton);
-        importApplication.setOnClickListener(new View.OnClickListener()
+
+        Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
+        importFilesystem.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -121,12 +99,32 @@ public class ImportExportActivity extends AppCompatActivity
 
         if(isCallable(getApplicationContext(), intentGetContentAction) == false)
         {
+            findViewById(R.id.dividerImportFilesystem).setVisibility(View.GONE);
+            findViewById(R.id.importOptionFilesystemTitle).setVisibility(View.GONE);
+            findViewById(R.id.importOptionFilesystemExplanation).setVisibility(View.GONE);
+            importFilesystem.setVisibility(View.GONE);
+        }
+
+        // Check that there is an app that data can be imported from
+        final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
+
+        Button importApplication = findViewById(R.id.importOptionApplicationButton);
+        importApplication.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                chooseFileWithIntent(intentPickAction);
+            }
+        });
+
+        if(isCallable(getApplicationContext(), intentPickAction) == false)
+        {
             findViewById(R.id.dividerImportApplication).setVisibility(View.GONE);
             findViewById(R.id.importOptionApplicationTitle).setVisibility(View.GONE);
             findViewById(R.id.importOptionApplicationExplanation).setVisibility(View.GONE);
             importApplication.setVisibility(View.GONE);
         }
-
 
         // This option, to import from the fixed location, should always be present
 

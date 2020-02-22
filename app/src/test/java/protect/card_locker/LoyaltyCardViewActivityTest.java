@@ -731,13 +731,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkBarcodeFullscreenWorkflow()
+    public void checkBarcodeFullscreenWorkflow() throws JSONException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, null, new ExtrasHelper());
 
         activityController.start();
         activityController.visible();

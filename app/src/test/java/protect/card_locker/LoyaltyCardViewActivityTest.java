@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
+import static protect.card_locker.LoyaltyCardEditActivity.NO_BARCODE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -110,7 +111,7 @@ public class LoyaltyCardViewActivityTest
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
-        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeType);
+        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeView);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -129,7 +130,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(cardId, card.cardId);
 
         // The special "No barcode" string shouldn't actually be written to the loyalty card
-        if(barcodeType.equals(LoyaltyCardEditActivity.NO_BARCODE))
+        if(barcodeType.equals(NO_BARCODE))
         {
             assertEquals("", card.barcodeType);
         }
@@ -240,7 +241,7 @@ public class LoyaltyCardViewActivityTest
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
             checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
+            checkFieldProperties(activity, R.id.barcodeTypeView, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
         }
@@ -257,6 +258,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
     }
 
     @Test
@@ -581,7 +583,7 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         // Save and check the loyalty card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
     }
 
     @Test
@@ -604,10 +606,11 @@ public class LoyaltyCardViewActivityTest
         selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
 
         // Check if the barcode type is NO_BARCODE as expected
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, NO_BARCODE);
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
 
         // Check if the special NO_BARCODE string doesn't get saved
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
     }
 
     @Test

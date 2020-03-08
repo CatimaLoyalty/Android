@@ -54,9 +54,6 @@
     <string name="importOptionApplicationTitle">Brukt eksternt program</string>
     <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
-    <string name="importOptionFixedTitle">Importer fra eksporteringsområde</string>
-    <string name="importOptionFixedExplanation">Importer fra området i filsystemet eksporter skrives til.</string>
-    <string name="importOptionFixedButton">Bruk eksporteringsplassering</string>
     <string name="about">Om</string>
     <string name="app_copyright_fmt">Kopirett 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lisensiert GPLv3+.</string>

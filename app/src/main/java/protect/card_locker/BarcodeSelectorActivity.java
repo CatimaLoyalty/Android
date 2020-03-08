@@ -11,11 +11,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.zxing.BarcodeFormat;
@@ -58,7 +60,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 BarcodeFormat.UPC_A.name()
         ));
 
-    private Map<String, Integer> barcodeViewMap;
+    private Map<String, Pair<Integer, Integer>> barcodeViewMap;
     private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
 
     @Override
@@ -75,18 +77,18 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        barcodeViewMap = ImmutableMap.<String, Integer>builder()
-                .put(BarcodeFormat.AZTEC.name(), R.id.aztecBarcode)
-                .put(BarcodeFormat.CODE_39.name(), R.id.code39Barcode)
-                .put(BarcodeFormat.CODE_128.name(), R.id.code128Barcode)
-                .put(BarcodeFormat.CODABAR.name(), R.id.codabarBarcode)
-                .put(BarcodeFormat.DATA_MATRIX.name(), R.id.datamatrixBarcode)
-                .put(BarcodeFormat.EAN_8.name(), R.id.ean8Barcode)
-                .put(BarcodeFormat.EAN_13.name(), R.id.ean13Barcode)
-                .put(BarcodeFormat.ITF.name(), R.id.itfBarcode)
-                .put(BarcodeFormat.PDF_417.name(), R.id.pdf417Barcode)
-                .put(BarcodeFormat.QR_CODE.name(), R.id.qrcodeBarcode)
-                .put(BarcodeFormat.UPC_A.name(), R.id.upcaBarcode)
+        barcodeViewMap = ImmutableMap.<String, Pair<Integer, Integer>>builder()
+                .put(BarcodeFormat.AZTEC.name(), new Pair<>(R.id.aztecBarcode, R.id.aztecBarcodeText))
+                .put(BarcodeFormat.CODE_39.name(), new Pair<>(R.id.code39Barcode, R.id.code39BarcodeText))
+                .put(BarcodeFormat.CODE_128.name(), new Pair<>(R.id.code128Barcode, R.id.code128BarcodeText))
+                .put(BarcodeFormat.CODABAR.name(), new Pair<>(R.id.codabarBarcode, R.id.codabarBarcodeText))
+                .put(BarcodeFormat.DATA_MATRIX.name(), new Pair<>(R.id.datamatrixBarcode, R.id.datamatrixBarcodeText))
+                .put(BarcodeFormat.EAN_8.name(), new Pair<>(R.id.ean8Barcode, R.id.ean8BarcodeText))
+                .put(BarcodeFormat.EAN_13.name(), new Pair<>(R.id.ean13Barcode, R.id.ean13BarcodeText))
+                .put(BarcodeFormat.ITF.name(), new Pair<>(R.id.itfBarcode, R.id.itfBarcodeText))
+                .put(BarcodeFormat.PDF_417.name(), new Pair<>(R.id.pdf417Barcode, R.id.pdf417BarcodeText))
+                .put(BarcodeFormat.QR_CODE.name(), new Pair<>(R.id.qrcodeBarcode, R.id.qrcodeBarcodeText))
+                .put(BarcodeFormat.UPC_A.name(), new Pair<>(R.id.upcaBarcode, R.id.upcaBarcodeText))
                 .build();
 
         EditText cardId = findViewById(R.id.cardId);
@@ -113,8 +115,9 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 // Update barcodes
                 for(String key : barcodeViewMap.keySet())
                 {
-                    ImageView image = findViewById(barcodeViewMap.get(key));
-                    createBarcodeOption(image, key, s.toString());
+                    ImageView image = findViewById(barcodeViewMap.get(key).first);
+                    TextView text = findViewById(barcodeViewMap.get(key).second);
+                    createBarcodeOption(image, key, s.toString(), text);
                 }
 
                 View noBarcodeButtonView = findViewById(R.id.noBarcode);
@@ -153,7 +156,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         });
     }
 
-    private void createBarcodeOption(final ImageView image, final String formatType, final String cardId)
+    private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text)
     {
         final BarcodeFormat format = BarcodeFormat.valueOf(formatType);
         if(format == null)
@@ -198,7 +201,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                         }
 
                         Log.d(TAG, "Generating barcode for type " + formatType);
-                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format);
+                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text);
                         barcodeGeneratorTasks.add(task);
                         task.execute();
                     }
@@ -207,7 +210,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         else
         {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format);
+            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text);
             barcodeGeneratorTasks.add(task);
             task.execute();
         }

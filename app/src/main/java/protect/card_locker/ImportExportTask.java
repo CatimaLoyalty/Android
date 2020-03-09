@@ -4,16 +4,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
@@ -24,7 +20,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     private Activity activity;
     private boolean doImport;
     private DataFormat format;
-    private File target;
+    private OutputStream outputStream;
     private InputStream inputStream;
     private TaskCompleteListener listener;
 
@@ -33,14 +29,14 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     /**
      * Constructor which will setup a task for exporting to the given file
      */
-    ImportExportTask(Activity activity, DataFormat format, File target,
+    ImportExportTask(Activity activity, DataFormat format, OutputStream output,
             TaskCompleteListener listener)
     {
         super();
         this.activity = activity;
         this.doImport = false;
         this.format = format;
-        this.target = target;
+        this.outputStream = output;
         this.listener = listener;
     }
 
@@ -78,14 +74,13 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         return result;
     }
 
-    private boolean performExport(File exportFile, DBHelper db)
+    private boolean performExport(OutputStream stream, DBHelper db)
     {
         boolean result = false;
 
         try
         {
-            FileOutputStream fileWriter = new FileOutputStream(exportFile);
-            OutputStreamWriter writer = new OutputStreamWriter(fileWriter, Charset.forName("UTF-8"));
+            OutputStreamWriter writer = new OutputStreamWriter(stream, Charset.forName("UTF-8"));
             result = MultiFormatExporter.exportData(db, writer, format);
             writer.close();
         }
@@ -94,7 +89,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
             Log.e(TAG, "Unable to export file", e);
         }
 
-        Log.i(TAG, "Export of '" + exportFile.getAbsolutePath() + "' result: " + result);
+        Log.i(TAG, "Export result: " + result);
 
         return result;
     }
@@ -127,7 +122,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         }
         else
         {
-            result = performExport(target, db);
+            result = performExport(outputStream, db);
         }
 
         return result;

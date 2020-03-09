@@ -11,7 +11,6 @@
     <string name="storeName">Winkel</string>
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
-    <string name="barcodeType">Soort barcode</string>
     <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
 
     <string name="cancel">Annuleren</string>
@@ -30,11 +29,9 @@
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
     <string name="sendLabel">Versturen&#8230;</string>
-    <string name="addedShortcut">Toegevoegd aan startscherm</string>
 
     <string name="editCardTitle">Klantenkaart bewerken</string>
     <string name="addCardTitle">Klantenkaart toevoegen</string>
-    <string name="viewCardTitle">Klantenkaart tonen</string>
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Je hebt nog geen kaarten toegevoegd.</string>
@@ -46,14 +43,11 @@
     <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importeren/Exporteren</string>
-    <string name="importName">Importeren</string>
     <string name="exportName">Exporteren</string>
     <string name="importExportHelp">Door de gegevens te back-uppen kun je je kaarten overzetten naar een ander apparaat.</string>
     <string name="importedFrom">Geïmporteerd uit: %1$s</string>
     <string name="exportedTo">Geëxporteerd naar: %1$s</string>
-    <string name="fileMissing">Bestand ontbreekt: %1$s</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
     <string name="importFailed">Het importeren is mislukt: %1$s</string>
@@ -70,9 +64,6 @@
     <string name="importOptionApplicationTitle">Externe app gebruiken</string>
     <string name="importOptionApplicationExplanation">Open een bestand middels een externe app, zoals Dropbox, Google Drive of je favoriete bestandsbeheerder.</string>
     <string name="importOptionApplicationButton">Externe app gebruiken</string>
-    <string name="importOptionFixedTitle">Importeren uit exportlocatie</string>
-    <string name="importOptionFixedExplanation">Importeer uit dezelfde locatie op het bestandssysteem waar tijdens het exporteren naar weggeschreven is.</string>
-    <string name="importOptionFixedButton">Exportlocatie gebruiken</string>
 
     <string name="about">Over</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

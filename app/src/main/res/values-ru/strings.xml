@@ -11,7 +11,6 @@
     <string name="storeName">Магазин</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
-    <string name="barcodeType">Тип штрих-кода</string>
     <string name="barcodeNoBarcode">Эта карта без штрихкода</string>
 
     <string name="cancel">Отменить</string>
@@ -30,11 +29,9 @@
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить&#8230;</string>
-    <string name="addedShortcut">Карта добавлена на главный экран.</string>
 
     <string name="editCardTitle">Редактировать карту</string>
     <string name="addCardTitle">Добавить карту</string>
-    <string name="viewCardTitle">Посмотреть карту</string>
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Карт нет, добавьте одну для начала</string>
@@ -46,14 +43,11 @@
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Не удалось разобрать импортируемый URI</string>
 
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
-    <string name="importName">Импорт</string>
     <string name="exportName">Экспорт</string>
     <string name="importExportHelp">Сохранение карт позволяет перенести их на другое устройство.</string>
     <string name="importedFrom">Импортировано из: %1$s</string>
     <string name="exportedTo">Экспортировано в: %1$s</string>
-    <string name="fileMissing">Файл не найден: %1$s</string>
     <string name="importSuccessfulTitle">Успешный импорт</string>
     <string name="importFailedTitle">Импорт не удался</string>
     <string name="importFailed">Не удалось импортировать: %1$s</string>
@@ -70,9 +64,6 @@
     <string name="importOptionApplicationTitle">Использование другого приложения</string>
     <string name="importOptionApplicationExplanation">Использовать другое приложение такое как Dropbox, Google Drive, или ваш любимый файловый менеджер чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
-    <string name="importOptionFixedTitle">Импорт из файла экспорта</string>
-    <string name="importOptionFixedExplanation">Импорт из того же файла, куда сохраняется экспорт.</string>
-    <string name="importOptionFixedButton">Использовать файл экспорта</string>
 
     <string name="about">О программе</string>
     <string name="app_copyright_fmt">Все права защищены 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

@@ -99,7 +99,6 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/importOptionFilesystemButton" />
 
-
             <View
                 android:id="@+id/dividerImportApplication"
                 android:layout_width="fill_parent"
@@ -129,36 +128,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:text="@string/importOptionApplicationButton" />
-
-            <View
-                android:id="@+id/dividerImportFixed"
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_margin="16dp"
-                android:background="?android:attr/listDivider"/>
-
-            <TextView
-                android:id="@+id/importOptionFixedTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_large"
-                android:text="@string/importOptionFixedTitle"/>
-
-            <TextView
-                android:id="@+id/importOptionFixedExplanation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="@dimen/text_size_medium"
-                android:text="@string/importOptionFixedExplanation"/>
-
-            <Button
-                android:id="@+id/importOptionFixedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:text="@string/importOptionFixedButton" />
         </LinearLayout>
     </ScrollView>
 

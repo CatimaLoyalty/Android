@@ -8,7 +8,6 @@
     <string name="storeName">Shrani</string>
     <string name="note">Zabeležka</string>
     <string name="cardId">Št. kartice</string>
-    <string name="barcodeType">Vrsta črne kode</string>
     <string name="cancel">Prekliči</string>
     <string name="save">Shrani</string>
     <string name="capture">Slikaj kartico</string>
@@ -24,11 +23,9 @@
     <string name="ok">Vredu</string>
     <string name="copy_to_clipboard">Kopirajte številko kartice</string>
     <string name="sendLabel">Pošlji#8230;</string>
-    <string name="addedShortcut">Dodajte na domači zaslon</string>
 
     <string name="editCardTitle">Uredi kartico zvestobe</string>
     <string name="addCardTitle">Dodaj kartico zvestobe</string>
-    <string name="viewCardTitle">Prikaži kartico zvestobe</string>
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Trenutno ni na voljo nobene kartice. Najprej jih je potrebno dodati.</string>
@@ -38,14 +35,11 @@
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
-    <string name="cardIdFormat">%1$s:%2$s</string>
     <string name="importExport">Uvozi/izvozi</string>
-    <string name="importName">Uvozi</string>
     <string name="exportName">Izvozi</string>
     <string name="importExportHelp">Varnostna kopija omogoča varen prenos kartic na druge telefonske naprave.</string>
     <string name="importedFrom">Uvoženo iz: %1$s</string>
     <string name="exportedTo">Izvoženo v:%1$s</string>
-    <string name="fileMissing">Manjkajoča datoteka: %1$s</string>
     <string name="importSuccessfulTitle">Uvoz je bil uspešen</string>
     <string name="importFailedTitle">Uvoz ni uspel</string>
     <string name="importFailed">Napaka pri uvozu: %1$s</string>
@@ -62,9 +56,6 @@
     <string name="importOptionApplicationTitle">Uporabi zunanjo aplikacijo</string>
     <string name="importOptionApplicationExplanation">Uporabi zunanjo aplikacijo, kot npr. Dropbox, Google Drive ali ostale upravljalnike datotek, za odpiranje datoteko.</string>
     <string name="importOptionApplicationButton">Uporabi zunanjo aplikacijo</string>
-    <string name="importOptionFixedTitle">Uvozi iz zunanje aplikacije</string>
-    <string name="importOptionFixedExplanation">Uvozi iz iste lokacije, ki je namenjena izvozu</string>
-    <string name="importOptionFixedButton">Uporabi lokacijo izvoza</string>
 
     <string name="about">Več o aplikaciji</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

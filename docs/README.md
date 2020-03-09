@@ -20,9 +20,6 @@ Stores all of your store loyalty cards on your phone, removing the need to carry
 - QR_CODE
 - UPC_A
 
-If there is any interest in improving this project, kindly submit a pull request with
-proposed changes.
-
 # Screenshots
 
 [<img src="https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png" width=250>](https://github.com/brarcher/loyalty-card-locker/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png)
@@ -56,3 +53,6 @@ If you are interested in translating this application to another language, find 
 
 This application uses the following image:
 - [Save](https://thenounproject.com/term/save/716011) by [Bernar Novalyi](https://thenounproject.com/bernar.novalyi)
+
+# Note from Developer
+The developer is currently on hiatus from the project. Questions and pull requests may not be looked at for some time. Apologies in advance.

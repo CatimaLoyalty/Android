@@ -26,6 +26,7 @@
 
     <string name="noStoreError">Parduotuvė neįvesta</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
     <string name="importedFrom">Importuota iš: %1$s</string>

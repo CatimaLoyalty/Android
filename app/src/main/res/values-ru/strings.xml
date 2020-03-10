@@ -11,6 +11,7 @@
     <string name="storeName">Магазин</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
+    <string name="barcodeType">Тип штрихкода</string>
     <string name="barcodeNoBarcode">Эта карта без штрихкода</string>
 
     <string name="cancel">Отменить</string>
@@ -29,7 +30,7 @@
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить&#8230;</string>
-
+    <string name="addedShortcut">Добавленный ярлык</string>
     <string name="editCardTitle">Редактировать карту</string>
     <string name="addCardTitle">Добавить карту</string>
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
@@ -42,7 +43,7 @@
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Не удалось разобрать импортируемый URI</string>
-
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
     <string name="exportName">Экспорт</string>
     <string name="importExportHelp">Сохранение карт позволяет перенести их на другое устройство.</string>
@@ -57,7 +58,7 @@
     <string name="importing">Импорт&#8230;</string>
     <string name="exporting">Экспорт&#8230;</string>
     <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>
-    <string name="exportOptionExplanation">Данные сохраняются в корневой каталог хранилища.</string>
+    <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>

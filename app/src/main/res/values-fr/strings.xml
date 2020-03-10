@@ -23,7 +23,6 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer&#8230;</string>
-
     <string name="editCardTitle">Modifier la carte de fidélité</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="scanCardBarcode">Flasher le code-barres de la carte</string>
@@ -35,6 +34,7 @@
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
     <string name="noCardExistsError">N\'a pas pu retrouver la carte de fidélité</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
     <string name="importExportHelp">Exporter vos données vous permet de récupérer vos cartes sur un autre appareil.</string>
@@ -49,7 +49,6 @@
     <string name="importing">Import &#8230;</string>
     <string name="exporting">Export &#8230;</string>
     <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>
-    <string name="exportOptionExplanation">Les données sont sauvegardées à la racine du stockage externe.</string>
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>

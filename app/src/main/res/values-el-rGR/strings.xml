@@ -23,7 +23,6 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Αντιγραφή κωδικού στο πρόχειρο</string>
     <string name="sendLabel">Αποστολή&#8230;</string>
-
     <string name="editCardTitle">Επεξεργασία Κάρτας</string>
     <string name="addCardTitle">Προσθήκη Κάρτας</string>
     <string name="scanCardBarcode">Σαρώστε τον κωδικό της κάρτας</string>
@@ -35,6 +34,7 @@
     <string name="noStoreError">Δεν δώσατε κατάστημα</string>
     <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
     <string name="importExportHelp">Τα εφεδρικά δεδομένα σας δίνουν την δυνατότητα να μεταφέρετε τις κάρτες σας σε μία άλλη συσκευή.</string>
@@ -49,7 +49,6 @@
     <string name="importing">Γίνεται εισαγωγή του&#8230;</string>
     <string name="exporting">Γίνεται εξαγωγή του&#8230;</string>
     <string name="noExternalStoragePermissionError">Δεν είναι δυνατή η εισαγωγή ή εξαγωγή καρτών χωρίς την άδεια πρόσβασης στον εξωτερικό χώρο αποθήκευσης</string>
-    <string name="exportOptionExplanation">Τα δεδομένα αποθηκεύονται στον αρχικό φάκελο του εξωτερικού χώρου αποθήκευσης.</string>
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
     <string name="importOptionFilesystemButton">Από το σύστημα αρχείων</string>

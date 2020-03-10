@@ -23,7 +23,6 @@
     <string name="ok">Áno</string>
     <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
     <string name="sendLabel">Odoslať&#8230;</string>
-
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
     <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
@@ -35,6 +34,7 @@
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohovanie dát Vám umožní presunúť Vaše uložené karty na iné zariadenie.</string>
@@ -49,7 +49,6 @@
     <string name="importing">Importujem&#8230;</string>
     <string name="exporting">Exportujem&#8230;</string>
     <string name="noExternalStoragePermissionError">Nie je možné importovať a exportovať karty bez prístupu k externému úložisku</string>
-    <string name="exportOptionExplanation">Dáta sú zapísané do koreňového adresára na externom úložisku.</string>
     <string name="importOptionFilesystemTitle">Import zo súborového systému.</string>
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
     <string name="importOptionFilesystemButton">Zo súborového systému</string>

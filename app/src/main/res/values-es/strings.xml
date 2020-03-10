@@ -23,7 +23,6 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copiar ID al portapapeles</string>
     <string name="sendLabel">Enviar&#8230;</string>
-
     <string name="editCardTitle">Editar Tarjeta de Fidelización</string>
     <string name="addCardTitle">Añadir Tarjeta de Fidelización</string>
     <string name="scanCardBarcode">Escanear el Código de Barras de la Tarjeta</string>
@@ -35,6 +34,7 @@
     <string name="noStoreError">Establecimiento no especificado</string>
     <string name="noCardIdError">ID de la Tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">La copia de seguridad te permite transferir tus tarjetas a otro dispositivo.</string>
@@ -49,7 +49,6 @@
     <string name="importing">Importando&#8230;</string>
     <string name="exporting">Exportando&#8230;</string>
     <string name="noExternalStoragePermissionError">No se pueden importar o exportar tarjetas sin el permiso de almacenamiento</string>
-    <string name="exportOptionExplanation">Los datos son guardados en la carpeta base del almacenamiento externo.</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Seleccionar un archivo del sistema de archivos</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>

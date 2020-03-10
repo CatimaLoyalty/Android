@@ -23,7 +23,6 @@
     <string name="ok">Vredu</string>
     <string name="copy_to_clipboard">Kopirajte številko kartice</string>
     <string name="sendLabel">Pošlji#8230;</string>
-
     <string name="editCardTitle">Uredi kartico zvestobe</string>
     <string name="addCardTitle">Dodaj kartico zvestobe</string>
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
@@ -35,6 +34,7 @@
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
+    <string name="cardIdFormat">%1$s:%2$s</string>
     <string name="importExport">Uvozi/izvozi</string>
     <string name="exportName">Izvozi</string>
     <string name="importExportHelp">Varnostna kopija omogoča varen prenos kartic na druge telefonske naprave.</string>
@@ -49,7 +49,6 @@
     <string name="importing">Uvažanje&#8230;</string>
     <string name="exporting">Izvažanje&#8230;</string>
     <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>
-    <string name="exportOptionExplanation">Podati so bili zapisani v prvo mapo v zunanji shrambi</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>

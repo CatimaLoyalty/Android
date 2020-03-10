@@ -29,7 +29,6 @@
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
     <string name="sendLabel">Wyślij&#8230;</string>
-
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
     <string name="addCardTitle">Dodaj kartę lojalnościową</string>
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
@@ -42,7 +41,7 @@
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
-
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
@@ -57,7 +56,6 @@
     <string name="importing">Importowanie&#8230;</string>
     <string name="exporting">Eksportowanie&#8230;</string>
     <string name="noExternalStoragePermissionError">Nie można importować ani eksportować kart bez uprawnień do pamięci zewnętrznej</string>
-    <string name="exportOptionExplanation">Dane zapisywane są w głównym katalogu pamięci zewnętrznej.</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
     <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
@@ -83,7 +81,7 @@
 
     <string name="startIntro">Pokaż ekran powitalny</string>
     <string name="intro1Title">Witaj w Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Zarządzaj kartami sklepowymi/lojalnościowymi opartymi na kodzie kreskowym na swoim telefonie!\n\n</string>
+    <string name="intro1Description">Zarządzaj swoimi kartami lojalnościowymi z poziomu telefonu!\n\n</string>
     <string name="intro2Title">Dodawanie kart\n</string>
     <string name="intro2Description">Dodaj nową kartę, dotykając znaku plus z listy kart. \n\n</string>
     <string name="intro3Title">Dodawanie kart\n</string>
@@ -91,7 +89,7 @@
     <string name="intro4Title">Pokaż kartę\n</string>
     <string name="intro4Description">Aby wyświetlić kartę, na głównym ekranie kliknij nazwę sklepu \n\n</string>
     <string name="intro5Title">Kopia zapasowa\n</string>
-    <string name="intro5Description">Karty można zarchiwizować. Aby wyeksportować lub zaimportować dane karty, dotknij opcji Importuj/eksportuj w menu na stronie głównej. \n\n</string>
+    <string name="intro5Description">Karty mogą zostać zarchiwizowane. Aby wyeksportować lub zaimportować dane kart, skorzystaj z opcji Importuj/Eksportuj w menu na stronie głównej.\n\n</string>
     <string name="intro6Title">Informacje zwrotne\n</string>
     <string name="intro6Description">Ta aplikacja jest darmowa, bez reklam i z otwartym kodem źródłowym. Zobacz szczegóły, klikając Informacje w menu na stronie głównej. \n\n Proszę zostawić opinię o programie w sklepie z aplikacjami! (:</string>
 

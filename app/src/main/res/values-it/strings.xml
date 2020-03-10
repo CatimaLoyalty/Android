@@ -29,7 +29,6 @@
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>
     <string name="sendLabel">Invia&#8230;</string>
-
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
     <string name="scanCardBarcode">Scansiona codice carta</string>
@@ -42,7 +41,7 @@
     <string name="noCardIdError">Nessun codice carta inserito</string>
     <string name="noCardExistsError">Impossibile trovare la carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
-
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importa/Esporta</string>
     <string name="exportName">Esporta</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
@@ -57,7 +56,6 @@
     <string name="importing">Importazione in corso&#8230;</string>
     <string name="exporting">Esportazione in corso&#8230;</string>
     <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
-    <string name="exportOptionExplanation">I dati sono stati scritti nella cartella principale della memoria esterna.</string>
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
     <string name="importOptionFilesystemButton">Dal file system</string>

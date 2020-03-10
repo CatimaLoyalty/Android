@@ -27,6 +27,7 @@
 
     <string name="noStoreError">Nebyl zadán Obchod</string>
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
@@ -41,7 +42,6 @@
     <string name="importing">Importuji&#8230;</string>
     <string name="exporting">Exportuji&#8230;</string>
     <string name="noExternalStoragePermissionError">Nelze importovat nebo exportovat karty bez přístupu k externímu uložišti</string>
-    <string name="exportOptionExplanation">Data jsou zapsána do kořenové složky externího uložiště.</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>

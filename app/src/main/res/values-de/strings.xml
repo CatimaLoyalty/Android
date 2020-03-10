@@ -26,7 +26,6 @@
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
     <string name="sendLabel">Senden&#8230;</string>
-
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
     <string name="scanCardBarcode">Barcode scannen</string>
@@ -38,6 +37,7 @@
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
+    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Exportieren</string>
     <string name="importExportHelp">Gesicherte Daten ermöglichen das Verschieben der Kundenkarten auf ein anderes Gerät.</string>
@@ -52,7 +52,6 @@
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
-    <string name="exportOptionExplanation">Die Datei wird ins Rootverzeichnis des externen Speichers geschrieben.</string>
     <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
     <string name="importOptionFilesystemButton">Aus Dateisystem</string>

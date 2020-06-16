@@ -38,14 +38,12 @@
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohovanie dát Vám umožní presunúť Vaše uložené karty na iné zariadenie.</string>
-    <string name="importedFrom">Importované z: %1$s</string>
-    <string name="exportedTo">Exportované do: %1$s</string>
     <string name="importSuccessfulTitle">Import bol úspešný</string>
     <string name="importFailedTitle">Import zlyhal</string>
-    <string name="importFailed">Zlyhal import: %1$s</string>
+    <string name="importFailed">Zlyhal import</string>
     <string name="exportSuccessfulTitle">Export bol úspešný</string>
     <string name="exportFailedTitle">Export zlyhal</string>
-    <string name="exportFailed">Zlyhal export: %1$s</string>
+    <string name="exportFailed">Zlyhal export</string>
     <string name="importing">Importujem&#8230;</string>
     <string name="exporting">Exportujem&#8230;</string>
     <string name="noExternalStoragePermissionError">Nie je možné importovať a exportovať karty bez prístupu k externému úložisku</string>

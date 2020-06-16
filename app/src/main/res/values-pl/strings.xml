@@ -45,14 +45,12 @@
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
-    <string name="importedFrom">Zaimportowano z: %1$s</string>
-    <string name="exportedTo">Wyeksportowano do: %1$s</string>
     <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
     <string name="importFailedTitle">Import nie powiódł się</string>
-    <string name="importFailed">Nie udało się zaimportować: %1$s</string>
+    <string name="importFailed">Nie udało się zaimportować</string>
     <string name="exportSuccessfulTitle">Wyeksportowano pomyślnie</string>
     <string name="exportFailedTitle">Eksport nie powiódł się</string>
-    <string name="exportFailed">Nie udało się wyeksportować: %1$s</string>
+    <string name="exportFailed">Nie udało się wyeksportować</string>
     <string name="importing">Importowanie&#8230;</string>
     <string name="exporting">Eksportowanie&#8230;</string>
     <string name="noExternalStoragePermissionError">Nie można importować ani eksportować kart bez uprawnień do pamięci zewnętrznej</string>

@@ -45,14 +45,12 @@
     <string name="importExport">Importa/Esporta</string>
     <string name="exportName">Esporta</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
-    <string name="importedFrom">Importato da: %1$s</string>
-    <string name="exportedTo">Esportato in: %1$s</string>
     <string name="importSuccessfulTitle">Importazione avvenuta con successo</string>
     <string name="importFailedTitle">Importazione fallita</string>
-    <string name="importFailed">Impossibile importare: %1$s</string>
+    <string name="importFailed">Impossibile importare</string>
     <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
-    <string name="exportFailed">Impossibile esportare: %1$s</string>
+    <string name="exportFailed">Impossibile esportare</string>
     <string name="importing">Importazione in corso&#8230;</string>
     <string name="exporting">Esportazione in corso&#8230;</string>
     <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>

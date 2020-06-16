@@ -41,14 +41,12 @@
     <string name="importExport">Import/Export</string>
     <string name="exportName">Exportieren</string>
     <string name="importExportHelp">Gesicherte Daten ermöglichen das Verschieben der Kundenkarten auf ein anderes Gerät.</string>
-    <string name="importedFrom">Importiert von: %1$s</string>
-    <string name="exportedTo">Exportiert nach: %1$s</string>
     <string name="importSuccessfulTitle">Import erfolgreich</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
-    <string name="importFailed">Import fehlgeschlagen: %1$s</string>
+    <string name="importFailed">Import fehlgeschlagen</string>
     <string name="exportSuccessfulTitle">Export erfolgreich</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportFailed">Export fehlgeschlagen: %1$s</string>
+    <string name="exportFailed">Export fehlgeschlagen</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>

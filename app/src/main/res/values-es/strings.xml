@@ -38,14 +38,12 @@
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">La copia de seguridad te permite transferir tus tarjetas a otro dispositivo.</string>
-    <string name="importedFrom">Importar desde: %1$s</string>
-    <string name="exportedTo">Exportar a: %1$s</string>
     <string name="importSuccessfulTitle">Datos importados correctamente</string>
     <string name="importFailedTitle">Ha ocurrido un error al importar los datos</string>
-    <string name="importFailed">Error al importar: %1$s</string>
+    <string name="importFailed">Error al importar</string>
     <string name="exportSuccessfulTitle">Datos exportados correctamente</string>
     <string name="exportFailedTitle">Ha ocurrido un error al exportar los datos</string>
-    <string name="exportFailed">Error al exportar: %1$s</string>
+    <string name="exportFailed">Error al exportar</string>
     <string name="importing">Importando&#8230;</string>
     <string name="exporting">Exportando&#8230;</string>
     <string name="noExternalStoragePermissionError">No se pueden importar o exportar tarjetas sin el permiso de almacenamiento</string>

@@ -38,14 +38,12 @@
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
     <string name="importExportHelp">Τα εφεδρικά δεδομένα σας δίνουν την δυνατότητα να μεταφέρετε τις κάρτες σας σε μία άλλη συσκευή.</string>
-    <string name="importedFrom">Εισαγωγή από: %1$s</string>
-    <string name="exportedTo">Εξαγωγή σε: %1$s</string>
     <string name="importSuccessfulTitle">Εισαγωγή επιτυχής</string>
     <string name="importFailedTitle">Εισαγωγή ανεπιτυχής</string>
-    <string name="importFailed">Δεν εισήχθει: %1$s</string>
+    <string name="importFailed">Δεν εισήχθει</string>
     <string name="exportSuccessfulTitle">Εξαγωγή επιτυχής</string>
     <string name="exportFailedTitle">Εξαγωγή ανεπιτυχής</string>
-    <string name="exportFailed">Δεν εξήχθη: %1$s</string>
+    <string name="exportFailed">Δεν εξήχθη</string>
     <string name="importing">Γίνεται εισαγωγή του&#8230;</string>
     <string name="exporting">Γίνεται εξαγωγή του&#8230;</string>
     <string name="noExternalStoragePermissionError">Δεν είναι δυνατή η εισαγωγή ή εξαγωγή καρτών χωρίς την άδεια πρόσβασης στον εξωτερικό χώρο αποθήκευσης</string>

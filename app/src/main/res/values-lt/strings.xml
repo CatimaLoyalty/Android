@@ -29,10 +29,8 @@
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importedFrom">Importuota iš: %1$s</string>
-    <string name="exportedTo">Eksportuota į: %1$s</string>
-    <string name="importFailed">Nepavyko importuoti: %1$s</string>
-    <string name="exportFailed">Nepavyko eksportuoti: %1$s</string>
+    <string name="importFailed">Nepavyko importuoti</string>
+    <string name="exportFailed">Nepavyko eksportuoti</string>
     <string name="importing">Importuoja&#8230;</string>
     <string name="exporting">Eksportuoja&#8230;</string>
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>

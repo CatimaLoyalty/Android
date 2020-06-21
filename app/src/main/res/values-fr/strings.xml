@@ -38,14 +38,12 @@
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
     <string name="importExportHelp">Exporter vos données vous permet de récupérer vos cartes sur un autre appareil.</string>
-    <string name="importedFrom">Importé depuis : %1$s</string>
-    <string name="exportedTo">Exporté vers : %1$s</string>
     <string name="importSuccessfulTitle">Importé avec succès</string>
     <string name="importFailedTitle">Échec de l\'import</string>
-    <string name="importFailed">Échec de l\'import : %1$s</string>
+    <string name="importFailed">Échec de l\'import </string>
     <string name="exportSuccessfulTitle">Exporté avec succès</string>
     <string name="exportFailedTitle">Échec de l\'export</string>
-    <string name="exportFailed">Échec de l\'export : %1$s</string>
+    <string name="exportFailed">Échec de l\'export </string>
     <string name="importing">Import &#8230;</string>
     <string name="exporting">Export &#8230;</string>
     <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>

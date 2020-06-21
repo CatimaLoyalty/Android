@@ -47,14 +47,12 @@
     <string name="importExport">Importeren/Exporteren</string>
     <string name="exportName">Exporteren</string>
     <string name="importExportHelp">Door de gegevens te back-uppen kun je je kaarten overzetten naar een ander apparaat.</string>
-    <string name="importedFrom">Geïmporteerd uit: %1$s</string>
-    <string name="exportedTo">Geëxporteerd naar: %1$s</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
-    <string name="importFailed">Het importeren is mislukt: %1$s</string>
+    <string name="importFailed">Het importeren is mislukt</string>
     <string name="exportSuccessfulTitle">Exporteren voltooid</string>
     <string name="exportFailedTitle">Exporteren mislukt</string>
-    <string name="exportFailed">Het exporteren is mislukt: %1$s</string>
+    <string name="exportFailed">Het exporteren is mislukt</string>
     <string name="importing">Bezig met importeren&#8230;...</string>
     <string name="exporting">Bezig met exporteren&#8230;...</string>
     <string name="noExternalStoragePermissionError">Het importeren of exporteren van kaarten is niet mogelijk zonder de machtiging \'externe opslag\'.</string>

@@ -83,7 +83,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterEmptyNote()
     {
-        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -97,7 +97,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterWithNote()
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -111,7 +111,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterFontSizes()
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();

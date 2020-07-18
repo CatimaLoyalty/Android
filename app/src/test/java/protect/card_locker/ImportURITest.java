@@ -34,7 +34,7 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -58,7 +58,7 @@ public class ImportURITest {
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, null);
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);

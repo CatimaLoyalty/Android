@@ -10,8 +10,11 @@ public class ImportURIHelper {
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
+    private static final String STARRED = DBHelper.LoyaltyCardDbIds.STARRED;
+
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
     private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
+
 
     private final Context context;
     private final String host;
@@ -38,11 +41,15 @@ public class ImportURIHelper {
             // These values are allowed to be null
             Integer headerColor = null;
             Integer headerTextColor = null;
+            Integer starred;
 
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
+            if (uri.getBooleanQueryParameter(STARRED, false) == false) starred = 0;
+                else starred = 1;
+            
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)
             {
@@ -53,7 +60,7 @@ public class ImportURIHelper {
             {
                 headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
             }
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
+            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, starred);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

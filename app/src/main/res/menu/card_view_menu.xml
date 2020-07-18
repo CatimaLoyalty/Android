@@ -17,4 +17,9 @@
         android:icon="@drawable/ic_mode_edit_white_24dp"
         android:title="@string/edit"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_star_unstar"
+        android:icon="@drawable/ic_unstarred"
+        android:title="@string/unstarred"
+        app:showAsAction="always" />
 </menu>

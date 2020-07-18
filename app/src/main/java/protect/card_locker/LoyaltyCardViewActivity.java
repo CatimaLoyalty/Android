@@ -55,6 +55,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     String cardIdString;
     BarcodeFormat format;
 
+    boolean starred;
     boolean backgroundNeedsDarkIcons;
     boolean barcodeIsFullscreen = false;
     ViewGroup.LayoutParams barcodeImageState;
@@ -174,6 +175,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             return;
         }
 
+        starred = loyaltyCard.starred != 0;
         String formatString = loyaltyCard.barcodeType;
         format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
         cardIdString = loyaltyCard.cardId;
@@ -302,6 +304,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
+        MenuItem starMenuItem = menu.findItem(R.id.action_star_unstar);
+        if (starred) {
+            starMenuItem.setIcon(R.drawable.ic_starred);
+            starMenuItem.setTitle(R.string.starred);
+        }
+
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
 
@@ -344,9 +352,40 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 }
                 rotationEnabled = !rotationEnabled;
                 return true;
+
+            case R.id.action_star_unstar:
+                if (starred)
+                {
+                    setStarinDB(item, loyaltyCardId, false);
+                }
+                else
+                {
+                    setStarinDB(item, loyaltyCardId, true);
+                }
+                starred = !starred;
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setStarinDB(MenuItem item,int card_id, boolean setstarred)
+    {
+        if(setstarred)
+        {
+            item.setIcon(R.drawable.ic_starred);
+            item.setTitle(R.string.starred);
+            //only starred has to be changed in db
+            db.updateLoyaltyCard(card_id, 1);
+        }
+        else
+        {
+            item.setIcon(R.drawable.ic_unstarred);
+            item.setTitle(R.string.unstarred);
+            //only starred has to be changed in db
+            db.updateLoyaltyCard(card_id, 0);
+
+        }
     }
 
     private void setOrientatonLock(MenuItem item, boolean lock)

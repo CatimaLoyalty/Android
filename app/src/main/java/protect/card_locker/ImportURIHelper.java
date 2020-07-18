@@ -49,7 +49,7 @@ public class ImportURIHelper {
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             if (uri.getBooleanQueryParameter(STARRED, false) == false) starred = 0;
                 else starred = 1;
-            
+
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)
             {

@@ -6,5 +6,3 @@
 .DS_Store
 /build
 /captures
-/gradle/wrapper/gradle-wrapper.properties
-/app/src/androidTest/java/protect/card_locker/ApplicationTest.java

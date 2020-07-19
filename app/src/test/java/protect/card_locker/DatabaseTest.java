@@ -97,7 +97,7 @@ public class DatabaseTest
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
         assertEquals("cardId", loyaltyCard.cardId);
-        assertEquals("myTest", 1, loyaltyCard.starred);
+        assertEquals(1, loyaltyCard.starred);
         assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
     }
 

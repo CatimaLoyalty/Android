@@ -94,11 +94,11 @@ public class DatabaseTest
 
         LoyaltyCard loyaltyCard = db.getLoyaltyCard(1);
         assertNotNull(loyaltyCard);
-        assertEquals("store1", loyaltyCard.store);
-        assertEquals("note1", loyaltyCard.note);
-        assertEquals("cardId1", loyaltyCard.cardId);
-        assertEquals(1, loyaltyCard.starred);
-        assertEquals(BarcodeFormat.AZTEC.toString(), loyaltyCard.barcodeType);
+        assertEquals("store", loyaltyCard.store);
+        assertEquals("note", loyaltyCard.note);
+        assertEquals("cardId", loyaltyCard.cardId);
+        assertEquals("myTest", 1, loyaltyCard.starred);
+        assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
     }
 
 

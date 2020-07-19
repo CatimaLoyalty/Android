@@ -17,11 +17,10 @@ public class LoyaltyCard
     @Nullable
     public final Integer headerTextColor;
 
-    @Nullable
-    public final Integer starred;
+    public final int starred;
 
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
-                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,final Integer starred)
+                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,final int starred)
     {
         this.id = id;
         this.store = store;
@@ -40,7 +39,7 @@ public class LoyaltyCard
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeType = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE));
-        Integer starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED));
+        int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED));
 
 
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);

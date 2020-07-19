@@ -244,6 +244,7 @@ public class LoyaltyCardViewActivityTest
             checkFieldProperties(activity, R.id.barcodeTypeView, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
+            checkFieldProperties(activity, R.id.action_star_unstar, View.VISIBLE, null);
         }
     }
 

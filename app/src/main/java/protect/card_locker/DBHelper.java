@@ -75,7 +75,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public long insertLoyaltyCard(final String store, final String note, final String cardId,
                                   final String barcodeType, final Integer headerColor,
-                                  final Integer headerTextColor, final Integer starred)
+                                  final Integer headerTextColor, final int starred)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -93,7 +93,7 @@ public class DBHelper extends SQLiteOpenHelper
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,
                                      final String store, final String note, final String cardId,
                                      final String barcodeType, final Integer headerColor,
-                                     final Integer headerTextColor, final Integer starred)
+                                     final Integer headerTextColor, final int starred)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -127,7 +127,7 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsUpdated == 1);
     }
 
-    public boolean updateLoyaltyCard(final int id, final Integer starred)
+    public boolean updateLoyaltyCard(final int id, final int starred)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();

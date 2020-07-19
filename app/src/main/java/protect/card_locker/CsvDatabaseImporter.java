@@ -142,9 +142,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
             headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record, true);
         }
 
-        Integer starred = extractInt(DBHelper.LoyaltyCardDbIds.STARRED, record, true);
-        if (starred == null) starred = 0;
+        //Starred status will not be imported
+        //Integer starred = extractInt(DBHelper.LoyaltyCardDbIds.STARRED, record, true);
+        //if (starred == null) starred = 0;
 
-        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, starred);
+        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, 0);
     }
 }

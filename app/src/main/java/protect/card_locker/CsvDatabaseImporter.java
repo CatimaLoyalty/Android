@@ -143,9 +143,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
 
         Integer starred = extractInt(DBHelper.LoyaltyCardDbIds.STARRED, record, true);
-        if (starred == null) {
-            throw new FormatException("No Favorite listed, but is required");
-        }
+        if (starred == null) starred = 0;
 
         helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, starred);
     }

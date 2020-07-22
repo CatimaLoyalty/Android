@@ -41,14 +41,12 @@ public class ImportURIHelper {
             // These values are allowed to be null
             Integer headerColor = null;
             Integer headerTextColor = null;
-            Integer starred;
 
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
-            if (uri.getBooleanQueryParameter(STARRED, false) == false) starred = 0;
-                else starred = 1;
+            int starred = !uri.getBooleanQueryParameter(STARRED, false) ? 0 : 1;
 
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)

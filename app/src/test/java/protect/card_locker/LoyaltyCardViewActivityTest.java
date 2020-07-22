@@ -494,7 +494,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
-        assertEquals("Remove from favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+        assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
     }
 
     @Test

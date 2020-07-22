@@ -102,6 +102,7 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
+            assertEquals(0, card.starred);
 
             index++;
         }
@@ -291,11 +292,13 @@ public class ImportExportTest
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                       DBHelper.LoyaltyCardDbIds.STORE + "," +
-                       DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                       DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                       DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "\n";
-        csvText += "1,store,note,12345,type";
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE +
+                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+
+        csvText += "1,store,note,12345,type,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -311,6 +314,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starred);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -325,8 +329,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,type,,";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+
+        csvText += "1,store,note,12345,type,,,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -342,6 +348,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starred);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -356,8 +363,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,type,not a number,invalid";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+
+        csvText += "1,store,note,12345,type,not a number,invalid,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -378,8 +387,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,,1,1";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+
+        csvText += "1,store,note,12345,,1,1,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -395,7 +406,32 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("", card.barcodeType);
+        assertEquals(0, card.starred);
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, (long) card.headerTextColor);
+    }
+
+    @Test
+    public void importWithNoStarredField() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
+        csvText += "1,store,note,12345,,1,1";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertEquals(false, result);
+        assertEquals(0, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
     }
 }

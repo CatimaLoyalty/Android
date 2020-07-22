@@ -127,7 +127,7 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsUpdated == 1);
     }
 
-    public boolean updateLoyaltyCard(final int id, final int starred)
+    public boolean updateLoyaltyCardStarStatus(final int id, final int starred)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();

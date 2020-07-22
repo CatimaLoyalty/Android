@@ -88,7 +88,7 @@ public class DatabaseTest
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
-        result = db.updateLoyaltyCard(1, 1);
+        result = db.updateLoyaltyCardStarStatus(1, 1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 

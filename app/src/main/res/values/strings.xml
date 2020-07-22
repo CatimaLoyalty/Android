@@ -14,8 +14,8 @@
     <string name="barcodeType">Barcode type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
 
-    <string name="starred">Add to favorites</string>
-    <string name="unstarred">Remove from favorites</string>
+    <string name="unstarred">Add to favorites</string>
+    <string name="starred">Remove from favorites</string>
 
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>

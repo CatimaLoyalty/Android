@@ -3,12 +3,10 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
 
-import org.apache.tools.ant.filters.StringInputStream;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +23,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
@@ -295,7 +292,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
                 DBHelper.LoyaltyCardDbIds.NOTE + "," +
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.STARRED + "\n";
 
         csvText += "1,store,note,12345,type,0";
@@ -329,7 +326,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STARRED + "\n";
 
         csvText += "1,store,note,12345,type,,,0";
@@ -363,7 +360,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STARRED + "\n";
 
         csvText += "1,store,note,12345,type,not a number,invalid,0";
@@ -387,7 +384,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STARRED + "\n";
 
         csvText += "1,store,note,12345,,1,1,0";

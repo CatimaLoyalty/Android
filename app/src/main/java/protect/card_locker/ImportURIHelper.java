@@ -58,14 +58,8 @@ public class ImportURIHelper {
             {
                 headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
             }
-            String unparsedStarStatus = uri.getQueryParameter(STAR_STATUS);
-            int starStatus=0;
-            //not required; starStatus is not exported
-/*            if(unparsedStarStatus != null)
-            {
-                starStatus = Integer.parseInt(STAR_STATUS);
-            }*/
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, starStatus);
+
+            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

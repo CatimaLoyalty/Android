@@ -50,7 +50,7 @@ public class DatabaseTest
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
         assertEquals("cardId", loyaltyCard.cardId);
-        assertEquals(0, loyaltyCard.starred);
+        assertEquals(0, loyaltyCard.starStatus);
         assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
 
         result = db.deleteLoyaltyCard(1);
@@ -76,7 +76,7 @@ public class DatabaseTest
         assertEquals("store1", loyaltyCard.store);
         assertEquals("note1", loyaltyCard.note);
         assertEquals("cardId1", loyaltyCard.cardId);
-        assertEquals(0, loyaltyCard.starred);
+        assertEquals(0, loyaltyCard.starStatus);
         assertEquals(BarcodeFormat.AZTEC.toString(), loyaltyCard.barcodeType);
     }
 
@@ -97,7 +97,7 @@ public class DatabaseTest
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
         assertEquals("cardId", loyaltyCard.cardId);
-        assertEquals(1, loyaltyCard.starred);
+        assertEquals(1, loyaltyCard.starStatus);
         assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
     }
 
@@ -161,7 +161,7 @@ public class DatabaseTest
             assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
             assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
             assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
-            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED)));
+            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
             assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
             assertEquals(index*2, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR)));
 
@@ -207,7 +207,7 @@ public class DatabaseTest
         assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
         assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
         assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
-        assertEquals(1, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED)));
+        assertEquals(1, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
         assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
         assertEquals(index*2, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR)));
 
@@ -220,7 +220,7 @@ public class DatabaseTest
             assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
             assertEquals("cardId"+index, cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID)));
             assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
-            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED)));
+            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
             assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
             assertEquals(index*2, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR)));
 

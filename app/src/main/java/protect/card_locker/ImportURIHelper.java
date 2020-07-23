@@ -10,10 +10,11 @@ public class ImportURIHelper {
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
-    private static final String STARRED = DBHelper.LoyaltyCardDbIds.STARRED;
+    private static final String STAR_STATUS = DBHelper.LoyaltyCardDbIds.STAR_STATUS;
 
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
     private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
+
 
 
     private final Context context;
@@ -46,7 +47,6 @@ public class ImportURIHelper {
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
-            int starred = !uri.getBooleanQueryParameter(STARRED, false) ? 0 : 1;
 
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)
@@ -58,7 +58,14 @@ public class ImportURIHelper {
             {
                 headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
             }
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, starred);
+            String unparsedStarStatus = uri.getQueryParameter(STAR_STATUS);
+            int starStatus=0;
+            //not required; starStatus is not exported
+/*            if(unparsedStarStatus != null)
+            {
+                starStatus = Integer.parseInt(STAR_STATUS);
+            }*/
+            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, starStatus);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -82,7 +89,7 @@ public class ImportURIHelper {
         {
             uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
         }
-
+        //StarStatus will not be exported
         return uriBuilder.build();
     }
 

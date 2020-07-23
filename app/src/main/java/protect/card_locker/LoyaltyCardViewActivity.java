@@ -175,7 +175,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             return;
         }
 
-        starred = loyaltyCard.starred != 0;
+        starred = loyaltyCard.starStatus != 0;
         String formatString = loyaltyCard.barcodeType;
         format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
         cardIdString = loyaltyCard.cardId;
@@ -368,14 +368,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             item.setIcon(R.drawable.ic_starred);
             item.setTitle(R.string.unstarred);
-            //only starred has to be changed in db
+            //only starStatus has to be changed in db
             db.updateLoyaltyCardStarStatus(card_id, 1);
         }
         else
         {
             item.setIcon(R.drawable.ic_unstarred);
             item.setTitle(R.string.starred);
-            //only starred has to be changed in db
+            //only starStatus has to be changed in db
             db.updateLoyaltyCardStarStatus(card_id, 0);
 
         }

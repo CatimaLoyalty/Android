@@ -17,10 +17,10 @@ public class LoyaltyCard
     @Nullable
     public final Integer headerTextColor;
 
-    public final int starred;
+    public final int starStatus;
 
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
-                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,final int starred)
+                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,final int starStatus)
     {
         this.id = id;
         this.store = store;
@@ -29,7 +29,7 @@ public class LoyaltyCard
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
         this.headerTextColor = headerTextColor;
-        this.starred = starred;
+        this.starStatus = starStatus;
     }
 
     public static LoyaltyCard toLoyaltyCard(Cursor cursor)
@@ -39,7 +39,7 @@ public class LoyaltyCard
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeType = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE));
-        int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STARRED));
+        int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
 
 
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);

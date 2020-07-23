@@ -99,7 +99,7 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
-            assertEquals(0, card.starred);
+            assertEquals(0, card.starStatus);
 
             index++;
         }
@@ -293,7 +293,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.NOTE + "," +
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
         csvText += "1,store,note,12345,type,0";
 
@@ -311,7 +311,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
-        assertEquals(0, card.starred);
+        assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -327,7 +327,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
         csvText += "1,store,note,12345,type,,,0";
 
@@ -345,7 +345,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
-        assertEquals(0, card.starred);
+        assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -361,7 +361,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
         csvText += "1,store,note,12345,type,not a number,invalid,0";
 
@@ -385,7 +385,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STARRED + "\n";
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
         csvText += "1,store,note,12345,,1,1,0";
 
@@ -403,7 +403,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("", card.barcodeType);
-        assertEquals(0, card.starred);
+        assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, (long) card.headerTextColor);
     }

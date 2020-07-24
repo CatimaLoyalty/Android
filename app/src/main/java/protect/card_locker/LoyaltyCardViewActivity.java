@@ -307,7 +307,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         MenuItem starMenuItem = menu.findItem(R.id.action_star_unstar);
         if (starred) {
             starMenuItem.setIcon(R.drawable.ic_starred);
-            starMenuItem.setTitle(R.string.starred);
+            starMenuItem.setTitle(R.string.unstar);
         }
 
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
@@ -367,14 +367,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         if(setStarred)
         {
             item.setIcon(R.drawable.ic_starred);
-            item.setTitle(R.string.unstarred);
+            item.setTitle(R.string.star);
             //only starStatus has to be changed in db
             db.updateLoyaltyCardStarStatus(card_id, 1);
         }
         else
         {
             item.setIcon(R.drawable.ic_unstarred);
-            item.setTitle(R.string.starred);
+            item.setTitle(R.string.unstar);
             //only starStatus has to be changed in db
             db.updateLoyaltyCardStarStatus(card_id, 0);
 

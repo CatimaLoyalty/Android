@@ -20,6 +20,6 @@
     <item
         android:id="@+id/action_star_unstar"
         android:icon="@drawable/ic_unstarred"
-        android:title="@string/unstarred"
+        android:title="@string/star"
         app:showAsAction="always" />
 </menu>

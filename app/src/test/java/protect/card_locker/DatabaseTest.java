@@ -172,7 +172,7 @@ public class DatabaseTest
     }
 
     @Test
-    public void giftCardsViaCursorWithOneStarred()      //sorting test
+    public void giftCardsViaCursorWithOneStarred()      //sorting test; stared card should appear first
     {
         final int CARDS_TO_ADD = 10;
         long id;

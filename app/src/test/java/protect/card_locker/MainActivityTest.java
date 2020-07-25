@@ -128,6 +128,46 @@ public class MainActivityTest
     }
 
     @Test
+    public void addTwoLoyaltyCardsOneStarred()
+    {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity)activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
+        ListView list = mainActivity.findViewById(R.id.list);
+
+        assertEquals(0, list.getCount());
+
+        DBHelper db = new DBHelper(mainActivity);
+        db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+
+        assertEquals(View.VISIBLE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getAdapter().getCount());
+        Cursor cursor = (Cursor)list.getAdapter().getItem(0);
+        assertNotNull(cursor);
+        assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(1);
+        assertNotNull(cursor);
+        assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+    }
+
+    @Test
     public void testFiltering()
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();

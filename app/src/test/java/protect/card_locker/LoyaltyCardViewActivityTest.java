@@ -692,6 +692,30 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
+    public void checkPushStarIcon()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity) activityController.get();
+        DBHelper db = new DBHelper(activity);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        assertEquals(false, activity.isFinishing());
+
+        shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        assertEquals(1, db.getLoyaltyCard(0).starStatus);
+        assertEquals(false, activity.isFinishing());
+
+        shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        assertEquals(0, db.getLoyaltyCard(0).starStatus);
+        assertEquals(false, activity.isFinishing());
+    }
+
+    @Test
     public void checkBarcodeFullscreenWorkflow()
     {
         ActivityController activityController = createActivityWithLoyaltyCard(false);

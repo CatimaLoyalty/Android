@@ -128,7 +128,7 @@ public class MainActivityTest
     }
 
     @Test
-    public void addTwoLoyaltyCardsOneStarred()
+    public void addFourLoyaltyCardsTwoStarred()  // Main screen showing starred cards on top correctly
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
@@ -143,8 +143,10 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
+        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
         db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
-        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+        db.insertLoyaltyCard("storeD", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+        db.insertLoyaltyCard("storeC", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -157,12 +159,20 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getAdapter().getCount());
+        assertEquals(4, list.getAdapter().getCount());
         Cursor cursor = (Cursor)list.getAdapter().getItem(0);
         assertNotNull(cursor);
-        assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+        assertEquals("storeC",cursor.getString(cursor.getColumnIndex("store")));
 
         cursor = (Cursor)list.getAdapter().getItem(1);
+        assertNotNull(cursor);
+        assertEquals("storeD",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(2);
+        assertNotNull(cursor);
+        assertEquals("storeA",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(3);
         assertNotNull(cursor);
         assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
     }

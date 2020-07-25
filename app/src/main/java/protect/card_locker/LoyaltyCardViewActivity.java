@@ -312,6 +312,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
+        //todo dark background for star
 
         return super.onCreateOptionsMenu(menu);
     }

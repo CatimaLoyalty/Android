@@ -10,7 +10,6 @@ public class ImportURIHelper {
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
-    private static final String STAR_STATUS = DBHelper.LoyaltyCardDbIds.STAR_STATUS;
 
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
     private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
@@ -47,6 +46,7 @@ public class ImportURIHelper {
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
+            if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
 
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)

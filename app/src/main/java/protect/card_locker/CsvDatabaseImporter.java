@@ -143,7 +143,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
 
         int starStatus = extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
-
+        if (starStatus>1 || starStatus<0) throw new FormatException("Wrong Star (Favorite) information listed, but is required");
         helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, starStatus);
     }
 }

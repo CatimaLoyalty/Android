@@ -19,7 +19,7 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_star_unstar"
-        android:icon="@drawable/ic_unstarred"
+        android:icon="@drawable/ic_unstarred_white"
         android:title="@string/star"
         app:showAsAction="always" />
 </menu>

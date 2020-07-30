@@ -691,7 +691,6 @@ public class LoyaltyCardViewActivityTest
         }
     }
 
-    //todo UI shows correct buttons and buttons cause correct state change (once for starring and once for unstarring)
     @Test
     public void checkPushStarIcon()
     {
@@ -699,16 +698,26 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity) activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
-
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE,0);
         activityController.start();
         activityController.visible();
         activityController.resume();
 
         assertEquals(false, activity.isFinishing());
 
-        //shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        final Menu menu = shadowOf(activity).getOptionsMenu();
+        assertTrue(menu != null);
 
+        // The share, settings, add and star button should be present
+        assertEquals(menu.size(), 4);
+
+        assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+
+        shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        assertEquals("Remove from favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+
+        shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
     }
 
     @Test

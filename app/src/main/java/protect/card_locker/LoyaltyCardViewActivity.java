@@ -175,7 +175,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             return;
         }
 
-        starred = loyaltyCard.starStatus != 0;
         String formatString = loyaltyCard.barcodeType;
         format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
         cardIdString = loyaltyCard.cardId;
@@ -304,17 +303,28 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             item.setVisible(false);
         }
 
-        MenuItem starMenuItem = menu.findItem(R.id.action_star_unstar);
-        if (starred) {
-            starMenuItem.setIcon(R.drawable.ic_starred);
-            starMenuItem.setTitle(R.string.unstar);
-        }
+        loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+        starred = loyaltyCard.starStatus != 0;
 
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
-        //todo dark background for star
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if (starred) {
+            menu.findItem(R.id.action_star_unstar).setIcon(getIcon(R.drawable.ic_starred_white, backgroundNeedsDarkIcons));
+            menu.findItem(R.id.action_star_unstar).setTitle(R.string.unstar);
+        }
+        else {
+            menu.findItem(R.id.action_star_unstar).setIcon(getIcon(R.drawable.ic_unstarred_white, backgroundNeedsDarkIcons));
+            menu.findItem(R.id.action_star_unstar).setTitle(R.string.star);
+        }
+        return true;
     }
 
     @Override
@@ -356,31 +366,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
             case R.id.action_star_unstar:
                 starred = !starred;
-                setStarInDB(item, loyaltyCardId, starred);
+                db.updateLoyaltyCardStarStatus(loyaltyCardId, starred ? 1 : 0);
+                invalidateOptionsMenu();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void setStarInDB(MenuItem item,int card_id, boolean setStarred)
-    {
-        if(setStarred)
-        {
-            item.setIcon(R.drawable.ic_starred);
-            item.setTitle(R.string.star);
-            //only starStatus has to be changed in db
-            db.updateLoyaltyCardStarStatus(card_id, 1);
-        }
-        else
-        {
-            item.setIcon(R.drawable.ic_unstarred);
-            item.setTitle(R.string.unstar);
-            //only starStatus has to be changed in db
-            db.updateLoyaltyCardStarStatus(card_id, 0);
-
-        }
-    }
 
     private void setOrientatonLock(MenuItem item, boolean lock)
     {

@@ -56,6 +56,7 @@ dependencies {
     testCompile "org.robolectric:robolectric:4.0.2"
 
 
+
 }
 
 task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {

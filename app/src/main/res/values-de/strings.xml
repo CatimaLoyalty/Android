@@ -21,6 +21,8 @@
     <string name="confirm">Bestätigen</string>
     <string name="lockScreen">Rotation blockieren</string>
     <string name="unlockScreen">Rotation zulassen</string>
+    <string name="star">Zu den Favoriten hinzufügen</string>
+    <string name="unstar">Aus der Favoritenlsite entfernen</string>
     <string name="deleteTitle">Karte entfernen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
     <string name="ok">Ok</string>

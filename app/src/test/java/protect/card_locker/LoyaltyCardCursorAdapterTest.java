@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
@@ -124,5 +125,30 @@ public class LoyaltyCardCursorAdapterTest
         setFontSizes(30, 31);
         view = createView(cursor);
         checkView(view, card.store, card.note, true);
+    }
+
+    @Test
+    public void TestCursorAdapterStarring()
+    {
+        db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+        db.insertLoyaltyCard("storeC", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+
+
+        Cursor cursor = db.getLoyaltyCardCursor();
+        cursor.moveToFirst();
+        View view = createView(cursor);
+        ImageView star = view.findViewById(R.id.star);
+        assertEquals(View.VISIBLE, star.getVisibility());
+
+        cursor.moveToNext();
+        view = createView(cursor);
+        star = view.findViewById(R.id.star);
+        assertEquals(View.VISIBLE, star.getVisibility());
+
+        cursor.moveToNext();
+        view = createView(cursor);
+        star = view.findViewById(R.id.star);
+        assertEquals(View.GONE, star.getVisibility());
     }
 }

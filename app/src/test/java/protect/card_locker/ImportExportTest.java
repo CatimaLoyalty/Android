@@ -575,8 +575,18 @@ public class ImportExportTest
 
         // Import the CSV data
         boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-        assertEquals(false, result);
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(true, result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
     }
 
     @Test
@@ -599,8 +609,8 @@ public class ImportExportTest
 
         // Import the CSV data
         boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-        assertFalse(result);
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
 
         csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -619,8 +629,17 @@ public class ImportExportTest
 
         // Import the CSV data
         result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-        assertFalse(result);
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
 
-    }
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
+        }
 }

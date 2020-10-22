@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Ajouter</string>
 
     <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>

@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Vernostné karty</string>
     <string name="action_add">Pridať</string>
 
     <string name="noGiftCards">Zatiaľ nemáte žiadne vernostné karty. Kliknite na tlačidlo \"+\" (plus) vyššie a začnite.\n\nAplikácia Vernostné karty umožňuje nosiť svoje vernostné karty v telefóne, kde sú vždy na dosah.</string>

@@ -36,7 +36,7 @@ import java.util.Map;
  */
 public class BarcodeSelectorActivity extends AppCompatActivity
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     // Result this activity will return
     public static final String BARCODE_CONTENTS = "contents";

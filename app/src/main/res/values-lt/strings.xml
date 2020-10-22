@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Pridėti</string>
 
     <string name="noGiftCards">Šiuo metu neturite nė vienos įvestos lojalumo kortelės. Paspauskite "+" (pliuso) pliuso mygtuką, kad pradėtumėte.\n\nLoyalty Card Locker leidžia Jums visada nešiotis lojalumo kortelių informaciją savo telefone ar planšetėje, taip jos visada pasiekiamos.</string>

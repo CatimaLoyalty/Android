@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
  */
 class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     // When drawn in a smaller window 1D barcodes for some reason end up
     // squished, whereas 2D barcodes look fine.

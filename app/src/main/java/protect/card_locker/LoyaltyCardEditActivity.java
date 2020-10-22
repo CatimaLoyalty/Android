@@ -34,7 +34,7 @@ import java.io.InvalidObjectException;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
-    private static final String TAG = "CardLocker";
+    private static final String TAG = "Catima";
     protected static final String NO_BARCODE = "_NO_BARCODE_";
 
     protected static final int SELECT_BARCODE_REQUEST = 1;

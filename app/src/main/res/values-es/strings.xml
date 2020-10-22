@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Cartera para Tarjetas de Fidelización.</string>
     <string name="action_add">Añadir</string>
 
     <string name="noGiftCards">Actualmente no tienes ninguna tarjeta guardada. Presiona el botón \"+\" para comenzar.\n\nEsta cartera te permite llevar tus tarjetas de fidelización en tu teléfono para que estén siempre a tu alcance.</string>

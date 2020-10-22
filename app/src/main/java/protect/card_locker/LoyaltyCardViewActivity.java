@@ -36,7 +36,7 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
-    private static final String TAG = "CardLocker";
+    private static final String TAG = "Catima";
     private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;

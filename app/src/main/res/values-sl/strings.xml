@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Kartice zvestobe</string>
     <string name="action_add">Dodaj</string>
 
     <string name="noGiftCards">Trenutno nimate shranjene nobene kartice zvestobe. Kliknite  \"+\" (plus) na vrhu, da jih dodate.\n\n Aplikacija Kartice zvestobe Vam omogoča, da imate kartice zvestobe shranjene na Vašem telefonu in vedno v dosegu roke.</string>

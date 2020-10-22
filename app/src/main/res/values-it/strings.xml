@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Carte fedeltà</string>
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
 

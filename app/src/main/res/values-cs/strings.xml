@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Přidat</string>
 
     <string name="noGiftCards">ZAtím némáte žádné věrnostní karty. Klikněte na tlačítko "+" (plus) nahoře a začněte.\n\nLoyalty Card Locker umožňuje nosit své věrnostní karty v telefonu, takže jsou vždy na dosah.</string>

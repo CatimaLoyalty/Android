@@ -34,7 +34,7 @@ import java.util.List;
 
 public class ImportExportActivity extends AppCompatActivity
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
     private static final int CHOOSE_EXPORT_LOCATION = 2;
@@ -73,7 +73,7 @@ public class ImportExportActivity extends AppCompatActivity
         final Intent intentCreateDocumentAction = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intentCreateDocumentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentCreateDocumentAction.setType("text/csv");
-        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "LoyaltyCardKeychain.csv");
+        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "Catima.csv");
 
         Button exportButton = findViewById(R.id.exportButton);
         exportButton.setOnClickListener(new View.OnClickListener()

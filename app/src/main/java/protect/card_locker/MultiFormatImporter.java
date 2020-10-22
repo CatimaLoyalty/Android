@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class MultiFormatImporter
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     /**
      * Attempts to import data from the input stream of the

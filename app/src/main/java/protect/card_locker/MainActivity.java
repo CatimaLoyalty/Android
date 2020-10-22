@@ -39,7 +39,7 @@ import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
@@ -371,6 +371,8 @@ public class MainActivity extends AppCompatActivity
                             "</a>") +
             "</p><hr/><p>" +
             String.format(getString(R.string.app_copyright_fmt), year) +
+            "</p><p>" +
+            getString(R.string.app_copyright_old) +
             "</p><hr/><p>" +
             getString(R.string.app_license) +
             "</p><hr/><p>" +

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Kundekortknippe</string>
     <string name="action_add">Legg til</string>
     <string name="noGiftCards">Du har ingen kundekort for øyeblikket. Klikk på \"+\" (pluss)-knappen øverst for å komme igang.\n\nDa har du dem alltid hendig.</string>
     <string name="storeName">Butikk</string>

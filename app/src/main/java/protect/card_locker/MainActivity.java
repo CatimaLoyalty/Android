@@ -34,7 +34,6 @@ import com.google.common.collect.ImmutableMap;
 import java.util.Calendar;
 import java.util.Map;
 
-import protect.card_locker.intro.IntroActivity;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -54,12 +53,6 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList("");
-
-        SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
-        if (prefs.getBoolean("firstrun", true)) {
-            startIntro();
-            prefs.edit().putBoolean("firstrun", false).commit();
-        }
     }
 
     @Override
@@ -280,12 +273,6 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        if(id == R.id.action_intro)
-        {
-            startIntro();
-            return true;
-        }
-
         if(id == R.id.action_about)
         {
             displayAboutDialog();
@@ -392,11 +379,5 @@ public class MainActivity extends AppCompatActivity
                 }
             })
             .show();
-    }
-
-    private void startIntro()
-    {
-        Intent intent = new Intent(this, IntroActivity.class);
-        startActivityForResult(intent, MAIN_REQUEST_CODE);
     }
 }

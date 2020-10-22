@@ -5,7 +5,7 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">You don\'t have any cards at the moment. Click the "+" (plus) button up top to get started.\n\nCatima lets you carry your loyalty cards on your phone, so they are always within reach.</string>
+    <string name="noGiftCards">You don\'t have any cards at the moment. Click the "+" (plus) button to get started.\n\nCatima lets you carry your cards on your phone, so they are always within reach.</string>
     <string name="noMatchingGiftCards">No cards match the search filter. Please try some different terms.</string>
 
     <string name="storeName">Store</string>

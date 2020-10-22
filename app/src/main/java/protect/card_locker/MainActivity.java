@@ -29,6 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Calendar;
@@ -69,6 +70,15 @@ public class MainActivity extends AppCompatActivity
         }
 
         updateLoyaltyCardList(filter);
+
+        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                startActivityForResult(i, MAIN_REQUEST_CODE);
+            }
+        });
     }
 
     @Override
@@ -251,13 +261,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
-        if (id == R.id.action_add)
-        {
-            Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
-            return true;
-        }
 
         if(id == R.id.action_import_export)
         {

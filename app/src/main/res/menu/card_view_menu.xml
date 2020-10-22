@@ -12,9 +12,4 @@
         android:icon="@drawable/ic_share_white"
         android:title="@string/share"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_edit"
-        android:icon="@drawable/ic_mode_edit_white_24dp"
-        android:title="@string/edit"
-        app:showAsAction="always"/>
 </menu>

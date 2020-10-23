@@ -1,5 +1,5 @@
 # Catima
-[![Build Status](https://travis-ci.org/TheLastProject/Catima.svg?branch=master)](https://travis-ci.org/TheLastProject/Catima)
+![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
 
 <a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>

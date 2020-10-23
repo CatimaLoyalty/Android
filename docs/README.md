@@ -33,6 +33,10 @@ Stores all of your store loyalty cards on your phone, removing the need to carry
 [<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-09.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-09.png)
 [<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-10.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-10.png)
 
+# Migrating from other apps
+
+[See our migration guides](migrate).
+
 # Building
 
 To build, use the gradle wrapper scripts provided in the top level directory of the project. The following will

@@ -1,8 +1,6 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Ajouter</string>
-
     <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
     <string name="storeName">Nom</string>
     <string name="note">Note</string>
@@ -18,18 +16,16 @@
     <string name="lockScreen">Désactiver la rotation</string>
     <string name="unlockScreen">Activer la rotation</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
-    <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte</string>
+    <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
-    <string name="sendLabel">Envoyer&#8230;</string>
+    <string name="sendLabel">Envoyer…</string>
     <string name="editCardTitle">Modifier la carte de fidélité</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
-    <string name="scanCardBarcode">Flasher le code-barres de la carte</string>
+    <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
-    <string name="noCardsMessage">Il n\'y a aucune carte. Ajoutez en une d\'abord.</string>
-
+    <string name="noCardsMessage">Il n\'y a aucune carte. Ajoutez-en une d\'abord</string>
     <string name="barcodeImageDescription">Image du code-barres de la carte</string>
-
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
     <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
     <string name="noCardExistsError">N\'a pas pu retrouver la carte de fidélité</string>
@@ -43,52 +39,57 @@
     <string name="exportSuccessfulTitle">Exporté avec succès</string>
     <string name="exportFailedTitle">Échec de l\'export</string>
     <string name="exportFailed">Échec de l\'export </string>
-    <string name="importing">Import &#8230;</string>
-    <string name="exporting">Export &#8230;</string>
+    <string name="importing">Import …</string>
+    <string name="exporting">Export …</string>
     <string name="noExternalStoragePermissionError">Impossible d\'importer ou d\'exporter les données sans l\'autorisation d\'accès au stockage externe</string>
-    <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers.</string>
+    <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
     <string name="importOptionApplicationTitle">Application externe</string>
     <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
     <string name="importOptionApplicationButton">Application externe</string>
-
     <string name="about">À propos</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2019-&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Sylvia van Os.<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licence GPLv3.</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Notes sur les versions : <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> utilise les ressources-tierces suivantes : <xliff:g id="app_resources_list">%s</xliff:g></string>
-
-    <string name="selectBarcodeTitle">Choisissez le code-barre</string>
+    <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
-
     <string name="thumbnailDescription">Miniature pour la carte</string>
-
     <string name="startIntro">Présentation</string>
-    <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>
-    <string name="intro1Description">Gérez vos cartes de fidélité\nsur votre téléphone !\n\n</string>
+    <string name="intro1Title">Bienvenue dans Catima
+\n</string>
+    <string name="intro1Description">Gérez vos cartes de fidélité
+\nsur votre téléphone !
+\n
+\n</string>
     <string name="intro2Title">Ajouter une carte\n</string>
-    <string name="intro2Description">Ajoutez une nouvelle carte en appuyant sur le bouton \"+\" depuis la liste des cartes.\n\n</string>
+    <string name="intro2Description">Ajoutez une nouvelle carte en appuyant sur le bouton + depuis la liste des cartes.
+\n
+\n</string>
     <string name="intro3Title">Ajouter une carte\n</string>
     <string name="intro3Description">Pour enregistrer le code-barres, utilisez l\'appareil-photo ou entrez-le manuellement.\n\n</string>
     <string name="intro4Title">Afficher une carte\n</string>
     <string name="intro4Description">Pour afficher une carte, appuyez sur le nom du magasin depuis l\'écran principal\n\n</string>
     <string name="intro5Title">Sauvegarde\n</string>
-    <string name="intro5Description">Les cartes peuvent être sauvegardées. Appuyez sur \"Importer/Exporter\" depuis l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
-    <string name="intro6Title">Commentaire\n</string>
-    <string name="intro6Description">Cette application est gratuite, sans pub, et son code est ouvert. Plus de détails en appuyant sur \"À propos\" depuis l\'écran principal.\n\nMerci de laisser un commentaire sur le Play Store (:</string>
-
+    <string name="intro5Description">Les cartes peuvent être sauvegardées. Appuyez sur « Importer/Exporter » depuis l\'écran principal pour restaurer ou sauvegarder les cartes.
+\n
+\n</string>
+    <string name="intro6Title">Remarques
+\n</string>
+    <string name="intro6Description">Cette application est gratuite, sans pub, et son code est ouvert. Plus de détails en appuyant sur « À propos » depuis l\'écran principal.
+\n
+\nMerci de laisser des remarques dans le magasin d\'applications (:</string>
     <string name="change">Modifier</string>
     <string name="storeTextColorTitle">Couleur du texte du magasin</string>
     <string name="storeTextBackgroundColorTitle">Couleur du titre</string>
     <string name="storeNameBackgroundColorDescription">Couleur de fond du texte du magasin</string>
     <string name="storeNameColorDescription">Couleur pour le nom du magasin</string>
-
     <string name="settings">Paramètres</string>
-    <string name="settings_category_title_ui">Interface</string>
+    <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_card_title_list_font_size">Taille de police pour les titres de carte en liste</string>
     <string name="settings_card_note_list_font_size">Taille de police pour les notes de carte en liste</string>
     <string name="settings_card_title_font_size">Taille de police pour les titres de carte</string>
@@ -96,4 +97,22 @@
     <string name="settings_card_note_font_size">Taille de police pour les notes de carte</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
     <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
-    </resources>
+    <string name="exportSuccessful">Carte de fidélité exportée avec succès</string>
+    <string name="importSuccessful">Carte de fidélité importée avec succès</string>
+    <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
+    <string name="intent_import_card_from_url">Importer dans Catima</string>
+    <string name="settings_dark_theme">Thème sombre</string>
+    <string name="settings_light_theme">Thème clair</string>
+    <string name="settings_system_theme">Thème du système</string>
+    <string name="settings_theme">Thème</string>
+    <string name="enterBarcodeInstructions">Entrez l\'identifiant de la carte puis sélectionnez l\'image qui représente le code-barres que vous souhaitez utiliser, ou sélectionnez « Cette carte n\'a pas de code-barres » pour ne pas utiliser de code-barres.</string>
+    <string name="app_copyright_old">Basé sur Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
+    <string name="exportOptionExplanation">Les données seront écrites à un emplacement de votre choix.</string>
+    <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
+    <string name="addedShortcut">Raccourci ajouté</string>
+    <string name="share">Partager</string>
+    <string name="barcodeNoBarcode">Cette carte n\'a pas de code-barres</string>
+    <string name="barcodeType">Type de code-barres</string>
+    <string name="noMatchingGiftCards">Aucune carte ne correspond au filtre de recherche. Veuillez essayer d\'autres termes.</string>
+    <string name="action_search">Rechercher</string>
+</resources>

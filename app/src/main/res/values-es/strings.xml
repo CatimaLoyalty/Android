@@ -123,4 +123,5 @@
     <string name="barcodeNoBarcode">Esta tarjeta no tiene código de barras</string>
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noMatchingGiftCards">Ninguna tarjeta coincide con el filtro de búsqueda. Pruebe con términos distintos.</string>
+    <string name="action_search">Buscar</string>
 </resources>

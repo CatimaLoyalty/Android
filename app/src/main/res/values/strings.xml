@@ -60,13 +60,13 @@
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use external application</string>
+    <string name="importOptionApplicationTitle">Use external ap1plication</string>
     <string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
     <string name="importOptionApplicationButton">Use external application</string>
 
     <string name="about">About</string>
     <string name="app_copyright_fmt">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_copyright_old">Based on Loyalty Card Locker, copyright 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
     <string name="app_license">Licensed under the GPLv3.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>

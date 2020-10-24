@@ -71,11 +71,6 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".intro.IntroActivity"
-            android:label=""
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
             android:name=".CardShortcutConfigure"
             android:label="@string/cardShortcut"
             android:configChanges="orientation|screenSize"

@@ -49,7 +49,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "https://brarcher.github.io/loyalty-card-locker/share” -->
+                <!-- Accepts URIs that begin with "https://thelastproject.github.io/Catima/share" or "https://brarcher.github.io/loyalty-card-locker/share” -->
                 <data android:scheme="https"
                     android:host="@string/intent_import_card_from_url_host"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />

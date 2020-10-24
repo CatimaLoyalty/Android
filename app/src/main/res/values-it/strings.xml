@@ -109,6 +109,5 @@
     <string name="settings_card_note_font_size">Dimensione testo delle note carta</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
-    <string name="intent_import_card_from_url">Importa carte fedeltà</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     </resources>

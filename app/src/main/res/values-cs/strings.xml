@@ -1,14 +1,12 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Přidat</string>
 
     <string name="noGiftCards">ZAtím némáte žádné věrnostní karty. Klikněte na tlačítko "+" (plus) nahoře a začněte.\n\nLoyalty Card Locker umožňuje nosit své věrnostní karty v telefonu, takže jsou vždy na dosah.</string>
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
-    <string name="barcodeType">Typ čárového kódu</string>
     <string name="cancel">Zrušit</string>
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
@@ -23,7 +21,6 @@
     <string name="sendLabel">Odeslat&#8230;</string>
     <string name="editCardTitle">Editovat věrnostní kartu</string>
     <string name="addCardTitle">Přidat věrnostní kartu</string>
-    <string name="viewCardTitle">Zobrazit věrnostní kartu</string>
     <string name="scanCardBarcode">Oskenujte kód karty</string>
     <string name="barcodeImageDescription">Obrázek kódu karty</string>
 
@@ -31,31 +28,23 @@
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
-    <string name="importedFrom">Importováno z: %1$s</string>
-    <string name="exportedTo">Exportováno do: %1$s</string>
-    <string name="fileMissing">Doubor chybí: %1$s</string>
     <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
     <string name="importFailedTitle">Import selhal</string>
-    <string name="importFailed">Import selhal: %1$s</string>
+    <string name="importFailed">Import selhal</string>
     <string name="exportSuccessfulTitle">Export proběhl úspěšně</string>
     <string name="exportFailedTitle">Export selhal</string>
-    <string name="exportFailed">Export selhal: %1$s</string>
+    <string name="exportFailed">Export selhal</string>
     <string name="importing">Importuji&#8230;</string>
     <string name="exporting">Exportuji&#8230;</string>
     <string name="noExternalStoragePermissionError">Nelze importovat nebo exportovat karty bez přístupu k externímu uložišti</string>
-    <string name="exportOptionExplanation">Data jsou zapsána do kořenové složky externího uložiště.</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
     <string name="importOptionApplicationTitle">Použít externí aplikaci</string>
     <string name="importOptionApplicationExplanation">K otevření souboru použije externí aplikaci jako Dropbox, Google Drive, nebo vámi preferovaný prohlížeč souborů.</string>
     <string name="importOptionApplicationButton">Použít externí aplikaci</string>
-    <string name="importOptionFixedTitle">Import z umístění exportu</string>
-    <string name="importOptionFixedExplanation">Import ze stejné složky souborového systému do níž se zapisuje při exportu.</string>
-    <string name="importOptionFixedButton">Použít složku exportu</string>
 
     <string name="about">O aplikaci</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>

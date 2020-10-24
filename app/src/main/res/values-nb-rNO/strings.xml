@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Kundekortknippe</string>
     <string name="action_add">Legg til</string>
     <string name="noGiftCards">Du har ingen kundekort for øyeblikket. Klikk på \"+\" (pluss)-knappen øverst for å komme igang.\n\nDa har du dem alltid hendig.</string>
     <string name="storeName">Butikk</string>
@@ -25,7 +24,6 @@
     <string name="addedShortcut">Lagt til på hjemmeskjerm</string>
     <string name="editCardTitle">Rediger kundekort</string>
     <string name="addCardTitle">Legg til kundekort</string>
-    <string name="viewCardTitle">Vis kundekort</string>
     <string name="scanCardBarcode">Skann kortets strekkode</string>
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
@@ -35,18 +33,14 @@
     <string name="noCardExistsError">Kunne ikke finne kundekort</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/eksport</string>
-    <string name="importName">Importer</string>
     <string name="exportName">Eksporter</string>
     <string name="importExportHelp">Sikkerhetskopiering av data lar deg flytte kortene til en annen enhet.</string>
-    <string name="importedFrom">Importert fra: %1$s</string>
-    <string name="exportedTo">Exportert til: %1$s</string>
-    <string name="fileMissing">Fil mangler: %1$s</string>
     <string name="importSuccessfulTitle">Importert</string>
     <string name="importFailedTitle">Kunne ikke importere</string>
-    <string name="importFailed">Klarte ikke å importere: %1$s</string>
+    <string name="importFailed">Klarte ikke å importere</string>
     <string name="exportSuccessfulTitle">Eksportert</string>
     <string name="exportFailedTitle">Kunne ikke eksportere</string>
-    <string name="exportFailed">Klarte ikke å eksportere: %1$s</string>
+    <string name="exportFailed">Klarte ikke å eksportere</string>
     <string name="importing">Importerer…</string>
     <string name="exporting">Exporterer…</string>
     <string name="noExternalStoragePermissionError">Kan ikke importere eller eksportere kort uten tilgang til ekstern lagring</string>
@@ -57,9 +51,6 @@
     <string name="importOptionApplicationTitle">Brukt eksternt program</string>
     <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
-    <string name="importOptionFixedTitle">Importer fra eksporteringsområde</string>
-    <string name="importOptionFixedExplanation">Importer fra området i filsystemet eksporter skrives til.</string>
-    <string name="importOptionFixedButton">Bruk eksporteringsplassering</string>
     <string name="about">Om</string>
     <string name="app_copyright_fmt">Kopirett 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lisensiert GPLv3+.</string>
@@ -78,27 +69,6 @@
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
-    <string name="startIntro">Start intro</string>
-    <string name="intro1Title">Velkommen til Kundekortknippe\n</string>
-    <string name="intro1Description">Håndter strekkodekodekundekort på din enhet.\n\n</string>
-    <string name="intro2Title">Tillegg av kort\n</string>
-    <string name="intro2Description">Legg til et nytt kort ved å trykke på + i kortlisten.
-\n
-\n</string>
-    <string name="intro3Title">Tillegg av kort\n</string>
-    <string name="intro3Description">Legg til strekkoder med kamera eller skriv dem inn manuelt.
-\n
-\n</string>
-    <string name="intro4Title">Vis kort\n</string>
-    <string name="intro4Description">For å vise et kort, klikk på butikknavnet fra hovedskjermen\n\n</string>
-    <string name="intro5Title">Sikkerhetskopi\n</string>
-    <string name="intro5Description">Kortene kan sikkerhetskopieres. For å eksportere eller importere kortdata, trykk på \"Importer/eksporter\" i hovedsidemenyen.
-\n
-\n</string>
-    <string name="intro6Title">Tilbakemeldinger\n</string>
-    <string name="intro6Description">Dette programmet er reklamefri og gratis genenslig fri programvare. Se flere detaljer ved å trykke på \"Om\"-skjermen på hovedsiden.
-\n
-\nLevn en vurdering i programbutikken. (:</string>
     <string name="change">Endre</string>
     <string name="storeTextColorTitle">Skriftstørrelse for butikktekst</string>
     <string name="storeTextBackgroundColorTitle">Overskriftsfarge</string>

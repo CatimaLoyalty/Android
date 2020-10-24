@@ -24,17 +24,21 @@ public class ImportURIHelper {
     private final Context context;
     private final String host;
     private final String path;
+    private final String oldHost;
+    private final String oldPath;
     private final String shareText;
 
     public ImportURIHelper(Context context) {
         this.context = context;
         host = context.getResources().getString(R.string.intent_import_card_from_url_host);
         path = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix);
+        oldHost = context.getResources().getString(R.string.intent_import_card_from_url_host_old);
+        oldPath = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix_old);
         shareText = context.getResources().getString(R.string.intent_import_card_from_url_share_text);
     }
 
     public boolean isImportUri(Uri uri) {
-        return uri.getHost().equals(host) && uri.getPath().equals(path);
+        return (uri.getHost().equals(host) && uri.getPath().equals(path)) || (uri.getHost().equals(oldHost) && uri.getPath().equals(oldPath));
     }
 
     public LoyaltyCard parse(Uri uri) throws InvalidObjectException {
@@ -64,12 +68,19 @@ public class ImportURIHelper {
             String iconData = uri.getQueryParameter(ICON);
             Bitmap icon = null;
 
-            if(!iconData.isEmpty())
+            if(iconData != null && !iconData.isEmpty())
             {
                 byte[] iconBytes = Base64.decode(iconData, Base64.URL_SAFE);
                 icon = DBHelper.convertBitmapBlobToBitmap(iconBytes);
             }
-            ExtrasHelper extras = new ExtrasHelper().fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
+
+            String extrasData = uri.getQueryParameter(EXTRAS);
+            ExtrasHelper extras = new ExtrasHelper();
+            if(extrasData != null && !extrasData.isEmpty())
+            {
+                extras.fromJSON(new JSONObject(uri.getQueryParameter(EXTRAS)));
+            }
+
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, icon, extras);
         } catch (NullPointerException | NumberFormatException | JSONException ex) {
             throw new InvalidObjectException("Not a valid import URI");

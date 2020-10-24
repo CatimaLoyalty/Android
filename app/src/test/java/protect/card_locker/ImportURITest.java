@@ -42,7 +42,7 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException, JSONException
     {
         // Generate card
-        Bitmap icon = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.app_icon_intro);
+        Bitmap icon = BitmapFactory.decodeResource(Resources.getSystem(), R.mipmap.ic_launcher);
         assertNotNull(icon);
         ExtrasHelper extrasHelper = new ExtrasHelper();
         extrasHelper.addLanguageValue("en", "key", "value");

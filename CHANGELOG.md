@@ -1,3 +1,10 @@
+## v0.28 (2020-03-09)
+
+Changes:
+- Fix barcode centering when exiting full screen ([#351](https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Allow backup export location to be selected ([#352](https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Update translations ([#357](https://github.com/brarcher/loyalty-card-locker/pull/357)) & ([#362](https://github.com/brarcher/loyalty-card-locker/pull/362))
+
 ## v0.27 (2020-01-26)
 
 Changes:

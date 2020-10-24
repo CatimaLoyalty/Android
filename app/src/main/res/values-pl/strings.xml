@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_search">Szukaj</string>
     <string name="action_add">Dodaj</string>
 
@@ -11,7 +10,6 @@
     <string name="storeName">Sklep</string>
     <string name="note">Notatka</string>
     <string name="cardId">Identyfikator karty</string>
-    <string name="barcodeType">Typ kodu kreskowego</string>
     <string name="barcodeNoBarcode">Ta karta nie ma kodu kreskowego</string>
 
     <string name="cancel">Anuluj</string>
@@ -30,11 +28,8 @@
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
     <string name="sendLabel">Wyślij&#8230;</string>
-    <string name="addedShortcut">Dodano do ekranu głównego</string>
-
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
     <string name="addCardTitle">Dodaj kartę lojalnościową</string>
-    <string name="viewCardTitle">Pokaż kartę lojalnościową</string>
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
     <string name="cardShortcut">Skrót karty</string>
     <string name="noCardsMessage">Nie ma kart, należy dodać pierwszą</string>
@@ -45,34 +40,25 @@
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuj/Eksportuj</string>
-    <string name="importName">Importuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
-    <string name="importedFrom">Zaimportowano z: %1$s</string>
-    <string name="exportedTo">Wyeksportowano do: %1$s</string>
-    <string name="fileMissing">Brak pliku: %1$s</string>
     <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
     <string name="importFailedTitle">Import nie powiódł się</string>
-    <string name="importFailed">Nie udało się zaimportować: %1$s</string>
+    <string name="importFailed">Nie udało się zaimportować</string>
     <string name="exportSuccessfulTitle">Wyeksportowano pomyślnie</string>
     <string name="exportFailedTitle">Eksport nie powiódł się</string>
-    <string name="exportFailed">Nie udało się wyeksportować: %1$s</string>
+    <string name="exportFailed">Nie udało się wyeksportować</string>
     <string name="importing">Importowanie&#8230;</string>
     <string name="exporting">Eksportowanie&#8230;</string>
     <string name="noExternalStoragePermissionError">Nie można importować ani eksportować kart bez uprawnień do pamięci zewnętrznej</string>
-    <string name="exportOptionExplanation">Dane zapisywane są w głównym katalogu pamięci zewnętrznej.</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
     <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
     <string name="importOptionApplicationTitle">Użyj zewnętrznej aplikacji</string>
     <string name="importOptionApplicationExplanation">Użyj zewnętrznej aplikacji jak Dropbox, Google Drive, bądź ulubiony menedżer plików, aby otworzyć plik.</string>
     <string name="importOptionApplicationButton">Użyj zewnętrznej aplikacji</string>
-    <string name="importOptionFixedTitle">Importuj z lokalizacji eksportowania</string>
-    <string name="importOptionFixedExplanation">Importuj z tej samej lokalizacji w systemie plików, do którego zapisano przy eksporcie.</string>
-    <string name="importOptionFixedButton">Użyj lokalizacji eksportu</string>
 
     <string name="about">O aplikacji</string>
     <string name="app_copyright_fmt">© 2016 — <xliff:g>%d</xliff:g> Branden Archer.</string>
@@ -89,20 +75,6 @@
     <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
 
     <string name="thumbnailDescription">Miniaturka karty</string>
-
-    <string name="startIntro">Pokaż ekran powitalny</string>
-    <string name="intro1Title">Witaj w Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Zarządzaj kartami sklepowymi/lojalnościowymi opartymi na kodzie kreskowym na swoim telefonie!\n\n</string>
-    <string name="intro2Title">Dodawanie kart\n</string>
-    <string name="intro2Description">Dodaj nową kartę, dotykając znaku plus z listy kart. \n\n</string>
-    <string name="intro3Title">Dodawanie kart\n</string>
-    <string name="intro3Description">Aby dodać kod kreskowy, wykonaj zdjęcie aparatem lub wpisz ręcznie. \n\n</string>
-    <string name="intro4Title">Pokaż kartę\n</string>
-    <string name="intro4Description">Aby wyświetlić kartę, na głównym ekranie kliknij nazwę sklepu \n\n</string>
-    <string name="intro5Title">Kopia zapasowa\n</string>
-    <string name="intro5Description">Karty można zarchiwizować. Aby wyeksportować lub zaimportować dane karty, dotknij opcji Importuj/eksportuj w menu na stronie głównej. \n\n</string>
-    <string name="intro6Title">Informacje zwrotne\n</string>
-    <string name="intro6Description">Ta aplikacja jest darmowa, bez reklam i z otwartym kodem źródłowym. Zobacz szczegóły, klikając Informacje w menu na stronie głównej. \n\n Proszę zostawić opinię o programie w sklepie z aplikacjami! (:</string>
 
     <string name="change">Zmień</string>
     <string name="storeTextColorTitle">Kolor tekstu nazwy sklepu</string>
@@ -123,6 +95,5 @@
     <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
-    <string name="intent_import_card_from_url">Importuj kartę lojalnościową</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     </resources>

@@ -1,17 +1,17 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
+    <string name="app_name" translatable="false">Catima</string>
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">You don\'t have any loyalty cards at the moment. Click the "+" (plus) button up top to get started.\n\nLoyalty Card Locker lets you carry your loyalty cards on your phone, so they are always within reach.</string>
-    <string name="noMatchingGiftCards">No loyalty cards match the search filter. Please try some different terms.</string>
+    <string name="noGiftCards">You don\'t have any cards at the moment. Click the "+" (plus) button to get started.\n\nCatima lets you carry your cards on your phone, so they are always within reach.</string>
+    <string name="noMatchingGiftCards">No cards match the search filter. Please try some different terms.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
-    <string name="barcodeType">Barcode Type</string>
+    <string name="barcodeType">Barcode type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
 
     <string name="cancel">Cancel</string>
@@ -25,17 +25,15 @@
     <string name="confirm">Confirm</string>
     <string name="lockScreen">Block Rotation</string>
     <string name="unlockScreen">Unblock Rotation</string>
-    <string name="deleteTitle">Remove Loyalty Card</string>
+    <string name="deleteTitle">Remove Card</string>
     <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
     <string name="sendLabel">Send&#8230;</string>
-    <string name="addedShortcut">Added to Home Screen</string>
-
-    <string name="editCardTitle">Edit Loyalty Card</string>
-    <string name="addCardTitle">Add Loyalty Card</string>
-    <string name="viewCardTitle">View Loyalty Card</string>
+    <string name="addedShortcut">Added shortcut</string>
+    <string name="editCardTitle">Edit Card</string>
+    <string name="addCardTitle">Add Card</string>
     <string name="scanCardBarcode">Scan Card\'s Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">There are no cards, add one first</string>
@@ -49,39 +47,30 @@
     <string name="failedShowingExtras">Could not show extra information: data not correctly formatted</string>
     <string name="failedSavingCard">Could not save card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
-    <string name="storeNameAndNoteFormat" translatable="false">%1$s - %2$s</string>
-
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
-    <string name="importedFrom">Imported from: %1$s</string>
-    <string name="exportedTo">Exported to: %1$s</string>
-    <string name="fileMissing">File missing: %1$s</string>
     <string name="importSuccessfulTitle">Import successful</string>
     <string name="importFailedTitle">Import failed</string>
-    <string name="importFailed">Failed to import: %1$s</string>
+    <string name="importFailed">Failed to import</string>
     <string name="exportSuccessfulTitle">Export successful</string>
     <string name="exportFailedTitle">Export failed</string>
-    <string name="exportFailed">Failed to export: %1$s</string>
+    <string name="exportFailed">Failed to export</string>
     <string name="importing">Importing&#8230;</string>
     <string name="exporting">Exporting&#8230;</string>
     <string name="noExternalStoragePermissionError">Unable to import or export cards without the external storage permission</string>
-    <string name="exportOptionExplanation">Data is written to the top directory in external storage.</string>
+    <string name="exportOptionExplanation">Data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use external application</string>
+    <string name="importOptionApplicationTitle">Use external ap1plication</string>
     <string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
     <string name="importOptionApplicationButton">Use external application</string>
-    <string name="importOptionFixedTitle">Import from export location</string>
-    <string name="importOptionFixedExplanation">Import from the same location on the filesystem that is written to on export.</string>
-    <string name="importOptionFixedButton">Use export location</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
     <string name="app_license">Licensed under the GPLv3.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
@@ -95,20 +84,6 @@
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 
     <string name="thumbnailDescription">Thumbnail for card</string>
-
-    <string name="startIntro">Start Intro</string>
-    <string name="intro1Title">Welcome to Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Manage your barcode-based store/loyalty cards on your phone!\n\n</string>
-    <string name="intro2Title">Adding Cards\n</string>
-    <string name="intro2Description">Add a new card by touching the plus from the card list.\n\n</string>
-    <string name="intro3Title">Adding Cards\n</string>
-    <string name="intro3Description">To add the barcode, either capture with the camera or type in manually.\n\n</string>
-    <string name="intro4Title">Show Card\n</string>
-    <string name="intro4Description">To display a card, click on the store name from the main screen\n\n</string>
-    <string name="intro5Title">Backup\n</string>
-    <string name="intro5Description">The cards can be backed-up. To export or import card data touch Import/Export in the menu on the main page.\n\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">This app is free, ad-free, and open source. See details by touching About in the menu on the main page.\n\nPlease leave feedback in the app store! (:</string>
 
     <string name="change">Change</string>
     <string name="storeTextColorTitle">Store Text Color</string>
@@ -141,8 +116,11 @@
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
 
-    <string name="intent_import_card_from_url">Import loyalty card</string>
-    <string name="intent_import_card_from_url_share_text">I want to share a loyalty card with you</string>
-    <string name="intent_import_card_from_url_host" translatable="false">brarcher.github.io</string>
-    <string name="intent_import_card_from_url_path_prefix" translatable="false">/loyalty-card-locker/share</string>
+    <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
+    <string name="intent_import_card_from_url_host" translatable="false">thelastproject.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix" translatable="false">/Catima/share</string>
+    <string name="intent_import_card_from_url_host_old" translatable="false">brarcher.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix_old" translatable="false">/loyalty-card-locker/share</string>
+    <string name="importSuccessful">Successfully imported loyalty card data</string>
+    <string name="exportSuccessful">Successfully exported loyalty card data</string>
 </resources>

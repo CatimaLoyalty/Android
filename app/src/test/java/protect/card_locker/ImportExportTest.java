@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
@@ -22,9 +23,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
@@ -252,7 +255,8 @@ public class ImportExportTest
             TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
             // Export to the file
-            ImportExportTask task = new ImportExportTask(activity, format, exportFile, listener);
+            FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
+            ImportExportTask task = new ImportExportTask(activity, format, fileOutputStream, listener);
             task.execute();
 
             // Actually run the task to completion

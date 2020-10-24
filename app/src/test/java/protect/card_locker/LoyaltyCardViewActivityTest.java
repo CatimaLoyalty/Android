@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
+import static protect.card_locker.LoyaltyCardEditActivity.NO_BARCODE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -111,7 +112,7 @@ public class LoyaltyCardViewActivityTest
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
-        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeType);
+        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeView);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -119,7 +120,7 @@ public class LoyaltyCardViewActivityTest
         barcodeTypeField.setText(barcodeType);
 
         assertEquals(false, activity.isFinishing());
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(true, activity.isFinishing());
 
         assertEquals(1, db.getLoyaltyCardCount());
@@ -130,7 +131,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(cardId, card.cardId);
 
         // The special "No barcode" string shouldn't actually be written to the loyalty card
-        if(barcodeType.equals(LoyaltyCardEditActivity.NO_BARCODE))
+        if(barcodeType.equals(NO_BARCODE))
         {
             assertEquals("", card.barcodeType);
         }
@@ -241,7 +242,7 @@ public class LoyaltyCardViewActivityTest
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
             checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.barcodeType, View.GONE, barcodeType);
+            checkFieldProperties(activity, R.id.barcodeTypeView, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
         }
@@ -258,6 +259,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
     }
 
     @Test
@@ -277,15 +279,15 @@ public class LoyaltyCardViewActivityTest
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
     }
 
@@ -487,12 +489,11 @@ public class LoyaltyCardViewActivityTest
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The rotation, share, edit and info button should be present
-        assertEquals(menu.size(), 4);
+        // The rotation,share and info button should be present
+        assertEquals(menu.size(), 3);
 
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
-        assertEquals("Edit", menu.findItem(R.id.action_edit).getTitle().toString());
         assertEquals("More Info", menu.findItem(R.id.action_view_extras).getTitle().toString());
     }
 
@@ -583,7 +584,7 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         // Save and check the loyalty card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
     }
 
     @Test
@@ -606,10 +607,11 @@ public class LoyaltyCardViewActivityTest
         selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
 
         // Check if the barcode type is NO_BARCODE as expected
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, NO_BARCODE);
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
 
         // Check if the special NO_BARCODE string doesn't get saved
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, LoyaltyCardEditActivity.NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
     }
 
     @Test
@@ -796,7 +798,28 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void importCard()
     {
-        Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1&icon=&extras={}");
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1&icon=&extras={}");
+
+        Intent intent = new Intent();
+        intent.setData(importUri);
+
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class, intent).create();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        Activity activity = (Activity)activityController.get();
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
+        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+    }
+
+    @Test
+    public void importCardOldURL()
+    {
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
         intent.setData(importUri);

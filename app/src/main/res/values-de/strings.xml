@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_search">Suche</string>
     <string name="action_add">Neu</string>
 
@@ -11,7 +10,6 @@
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
-    <string name="barcodeType">Barcodeart</string>
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
     <string name="capture">Karte scannen</string>
@@ -27,11 +25,8 @@
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
     <string name="sendLabel">Senden&#8230;</string>
-    <string name="addedShortcut">Zum Home Screen hinzugefügt</string>
-
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
-    <string name="viewCardTitle">Kundenkarte anzeigen</string>
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Es ist noch keine Karte vorhanden, bitte zuerst eine hinzufügen</string>
@@ -43,31 +38,23 @@
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
-    <string name="importName">Import</string>
     <string name="exportName">Exportieren</string>
     <string name="importExportHelp">Gesicherte Daten ermöglichen das Verschieben der Kundenkarten auf ein anderes Gerät.</string>
-    <string name="importedFrom">Importiert von: %1$s</string>
-    <string name="exportedTo">Exportiert nach: %1$s</string>
-    <string name="fileMissing">Datei fehlt: %1$s</string>
     <string name="importSuccessfulTitle">Import erfolgreich</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
-    <string name="importFailed">Import fehlgeschlagen: %1$s</string>
+    <string name="importFailed">Import fehlgeschlagen</string>
     <string name="exportSuccessfulTitle">Export erfolgreich</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportFailed">Export fehlgeschlagen: %1$s</string>
+    <string name="exportFailed">Export fehlgeschlagen</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
-    <string name="exportOptionExplanation">Die Datei wird ins Rootverzeichnis des externen Speichers geschrieben.</string>
     <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
     <string name="importOptionFilesystemButton">Aus Dateisystem</string>
     <string name="importOptionApplicationTitle">Externe App verwenden</string>
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
-    <string name="importOptionFixedTitle">Importiere aus Export-Pfad</string>
-    <string name="importOptionFixedExplanation">Nutze den Export-Pfad, um Karten zu importieren (dies stellt zuvor gesicherte Daten wieder her).</string>
-    <string name="importOptionFixedButton">Export-Pfad verwenden</string>
 
     <string name="about">Über</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
@@ -82,20 +69,6 @@
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
 
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
-
-    <string name="startIntro">Starte Einführung</string>
-    <string name="intro1Title">Willkommen zu Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Verwalten Sie Ihre Barcode-Kundenkarten auf Ihrem Smartphone!\n\n</string>
-    <string name="intro2Title">Karten hinzufügen\n</string>
-    <string name="intro2Description">Fügen Sie neue Karten hinzu indem Sie das "+" Symbol in der Liste berühren.\n\n</string>
-    <string name="intro3Title">Karten hinzufügen\n</string>
-    <string name="intro3Description">Um einen Barcode hinzuzufügen, verwenden Sie die Kamera oder geben Sie den Code manuell ein.\n\n</string>
-    <string name="intro4Title">Karte anzeigen\n</string>
-    <string name="intro4Description">Um eine Karte anzuzeigen, den entsprechenen Namen in der Hauptansicht anwählen.\n\n</string>
-    <string name="intro5Title">Backup\n</string>
-    <string name="intro5Description">Sie können selbstverständlich Backups anlegen. Um Karten zu exportieren oder importieren wählen Sie Import/Export im Menü auf dem Hauptbildschirm.\n\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
 
     <string name="change">Anpassen</string>
     <string name="storeTextColorTitle">Textfarbe</string>

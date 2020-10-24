@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -39,7 +41,7 @@ import java.io.InvalidObjectException;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
-    private static final String TAG = "CardLocker";
+    private static final String TAG = "Catima";
     protected static final String NO_BARCODE = "_NO_BARCODE_";
 
     protected static final int SELECT_BARCODE_REQUEST = 1;
@@ -140,7 +142,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         cardIdFieldView = findViewById(R.id.cardIdView);
         cardIdDivider = findViewById(R.id.cardIdDivider);
         cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = findViewById(R.id.barcodeType);
+        barcodeTypeField = findViewById(R.id.barcodeTypeView);
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
@@ -199,7 +201,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             if(barcodeTypeField.getText().length() == 0)
             {
-                barcodeTypeField.setText(loyaltyCard.barcodeType);
+                barcodeTypeField.setText(loyaltyCard.barcodeType.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : loyaltyCard.barcodeType);
             }
 
             if(headingColorValue == null)
@@ -248,6 +250,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else
         {
             setTitle(R.string.addCardTitle);
+            hideBarcode();
         }
 
         if(headingColorValue == null)
@@ -270,9 +273,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
-            if(barcodeTypeField.getText().equals(NO_BARCODE))
+            if(barcodeTypeField.getText().toString().equals(NO_BARCODE))
             {
-                barcodeImageLayout.setVisibility(View.GONE);
+                hideBarcode();
             }
             else
             {
@@ -311,7 +314,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
                 }
 
-                barcodeImageLayout.setVisibility(View.VISIBLE);
+                showBarcode();
             }
         }
 
@@ -363,6 +366,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             cardIdTableRow.setVisibility(View.GONE);
             enterButton.setText(R.string.enterCard);
         }
+
+        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    doSave();
+                } catch (JSONException ex) {
+                    Toast.makeText(getApplicationContext(), R.string.failedSavingCard, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     class ColorSelectListener implements View.OnClickListener
@@ -504,17 +519,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 dialog.show();
 
                 return true;
-
-            case R.id.action_save:
-                try {
-                    doSave();
-                }
-                catch (JSONException ex)
-                {
-                    Toast.makeText(this, R.string.failedSavingCard, Toast.LENGTH_LONG).show();
-                    return false;
-                }
-                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -554,10 +558,21 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             TextView cardIdView = findViewById(R.id.cardIdView);
             cardIdView.setText(contents);
 
-            final TextView barcodeTypeField = findViewById(R.id.barcodeType);
             // Set special NO_BARCODE value to prevent onResume from overwriting it
             barcodeTypeField.setText(format.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : format);
             onResume();
         }
+    }
+
+    private void showBarcode() {
+        barcodeImageLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.barcodeTypeDivider).setVisibility(View.VISIBLE);
+        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.VISIBLE);
+    }
+
+    private void hideBarcode() {
+        barcodeImageLayout.setVisibility(View.GONE);
+        findViewById(R.id.barcodeTypeDivider).setVisibility(View.GONE);
+        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.GONE);
     }
 }

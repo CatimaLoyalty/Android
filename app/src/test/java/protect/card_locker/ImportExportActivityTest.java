@@ -84,12 +84,6 @@ public class ImportExportActivityTest
             checkVisibility(activity, View.GONE, R.id.dividerImportApplication,
                     R.id.importOptionApplicationTitle, R.id.importOptionApplicationExplanation,
                     R.id.importOptionApplicationButton);
-
-            // Import from file system should always be present
-
-            checkVisibility(activity, View.VISIBLE, R.id.dividerImportFixed,
-                    R.id.importOptionFixedTitle, R.id.importOptionFixedExplanation,
-                    R.id.importOptionFixedButton);
         }
     }
 
@@ -115,12 +109,6 @@ public class ImportExportActivityTest
             checkVisibility(activity, View.GONE, R.id.dividerImportFilesystem,
                     R.id.importOptionFilesystemTitle, R.id.importOptionFilesystemExplanation,
                     R.id.importOptionFilesystemButton);
-
-            // Import from file system should always be present
-
-            checkVisibility(activity, View.VISIBLE, R.id.dividerImportFixed,
-                    R.id.importOptionFixedTitle, R.id.importOptionFixedExplanation,
-                    R.id.importOptionFixedButton);
         }
     }
 
@@ -139,9 +127,5 @@ public class ImportExportActivityTest
         checkVisibility(activity, View.VISIBLE, R.id.dividerImportFilesystem,
                 R.id.importOptionFilesystemTitle, R.id.importOptionFilesystemExplanation,
                 R.id.importOptionFilesystemButton);
-
-        checkVisibility(activity, View.VISIBLE, R.id.dividerImportFixed,
-                R.id.importOptionFixedTitle, R.id.importOptionFixedExplanation,
-                R.id.importOptionFixedButton);
     }
 }

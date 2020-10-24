@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Карты лояльности</string>
     <string name="action_search">Поиск</string>
     <string name="action_add">Добавить карту</string>
 
@@ -11,7 +10,7 @@
     <string name="storeName">Магазин</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
-    <string name="barcodeType">Тип штрих-кода</string>
+    <string name="barcodeType">Тип штрихкода</string>
     <string name="barcodeNoBarcode">Эта карта без штрихкода</string>
 
     <string name="cancel">Отменить</string>
@@ -30,11 +29,9 @@
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить&#8230;</string>
-    <string name="addedShortcut">Карта добавлена на главный экран.</string>
-
+    <string name="addedShortcut">Добавленный ярлык</string>
     <string name="editCardTitle">Редактировать карту</string>
     <string name="addCardTitle">Добавить карту</string>
-    <string name="viewCardTitle">Посмотреть карту</string>
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Карт нет, добавьте одну для начала</string>
@@ -45,34 +42,26 @@
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Не удалось разобрать импортируемый URI</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
-    <string name="importName">Импорт</string>
     <string name="exportName">Экспорт</string>
     <string name="importExportHelp">Сохранение карт позволяет перенести их на другое устройство.</string>
-    <string name="importedFrom">Импортировано из: %1$s</string>
-    <string name="exportedTo">Экспортировано в: %1$s</string>
-    <string name="fileMissing">Файл не найден: %1$s</string>
     <string name="importSuccessfulTitle">Успешный импорт</string>
     <string name="importFailedTitle">Импорт не удался</string>
-    <string name="importFailed">Не удалось импортировать: %1$s</string>
+    <string name="importFailed">Не удалось импортировать</string>
     <string name="exportSuccessfulTitle">Успешный экспорт</string>
     <string name="exportFailedTitle">Экспорт не удался</string>
-    <string name="exportFailed">Не удалось экспортировать: %1$s</string>
+    <string name="exportFailed">Не удалось экспортировать</string>
     <string name="importing">Импорт&#8230;</string>
     <string name="exporting">Экспорт&#8230;</string>
     <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>
-    <string name="exportOptionExplanation">Данные сохраняются в корневой каталог хранилища.</string>
+    <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
     <string name="importOptionApplicationTitle">Использование другого приложения</string>
     <string name="importOptionApplicationExplanation">Использовать другое приложение такое как Dropbox, Google Drive, или ваш любимый файловый менеджер чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
-    <string name="importOptionFixedTitle">Импорт из файла экспорта</string>
-    <string name="importOptionFixedExplanation">Импорт из того же файла, куда сохраняется экспорт.</string>
-    <string name="importOptionFixedButton">Использовать файл экспорта</string>
 
     <string name="about">О программе</string>
     <string name="app_copyright_fmt">Все права защищены 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
@@ -89,20 +78,6 @@
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
 
     <string name="thumbnailDescription">Логотип карты</string>
-
-    <string name="startIntro">Введение</string>
-    <string name="intro1Title">Добро пожаловать в Карты лояльности\n</string>
-    <string name="intro1Description">Храните все карты лояльности/магазинов со штрих-кодом в телефоне!\n\n</string>
-    <string name="intro2Title">Добавление карт\n</string>
-    <string name="intro2Description">Добавьте новую карту, нажав на плюс на экране со списком карт.\n\n</string>
-    <string name="intro3Title">Добавление карт\n</string>
-    <string name="intro3Description">Для добавления штрих-кода отсканируйте карту камерой или введите номер вручную.\n\n</string>
-    <string name="intro4Title">Показ карты\n</string>
-    <string name="intro4Description">Для показа карты, нажмите на название магазина на главном экране.\n\n</string>
-    <string name="intro5Title">Резервное копирование\n</string>
-    <string name="intro5Description">Можно сделать резервную копию карт. Для этого нажмите Импорт/Экспорт в меню на главном экране.\n\n</string>
-    <string name="intro6Title">Отзыв\n</string>
-    <string name="intro6Description">Это бесплатное приложение, без рекламы и с открытым исходным кодом. Подробнее в разделе «О программе» в меню на главном экране.\n\nПожалуйста, оставьте отзыв в маркете приложений! (:</string>
 
     <string name="change">Изменить</string>
     <string name="storeTextColorTitle">Цвет текста</string>
@@ -123,6 +98,5 @@
     <string name="settings_card_note_font_size">Размер шрифта примечания</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
-    <string name="intent_import_card_from_url">Импортировать карту</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
     </resources>

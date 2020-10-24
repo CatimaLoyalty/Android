@@ -1,14 +1,12 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Pridėti</string>
 
     <string name="noGiftCards">Šiuo metu neturite nė vienos įvestos lojalumo kortelės. Paspauskite "+" (pliuso) pliuso mygtuką, kad pradėtumėte.\n\nLoyalty Card Locker leidžia Jums visada nešiotis lojalumo kortelių informaciją savo telefone ar planšetėje, taip jos visada pasiekiamos.</string>
     <string name="storeName">Parduotuvė</string>
     <string name="note">Užrašas</string>
     <string name="cardId">Kortelės ID</string>
-    <string name="barcodeType">Brūkšninio kodo tipas</string>
     <string name="cancel">Atšaukti</string>
     <string name="save">Išsaugoti</string>
     <string name="capture">Nufotografuoti kortelę</string>
@@ -22,7 +20,6 @@
     <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
-    <string name="viewCardTitle">Paeržiūrėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Nuskanuokite kortelės brūkšninį kodą</string>
     <string name="barcodeImageDescription">Kortelės brūkšninio kodo paveikslėlis</string>
 
@@ -30,13 +27,9 @@
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuoti/Exportuoti</string>
-    <string name="importName">Importuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importedFrom">Importuota iš: %1$s</string>
-    <string name="exportedTo">Eksportuota į: %1$s</string>
-    <string name="fileMissing">Failas nerastas: %1$s</string>
-    <string name="importFailed">Nepavyko importuoti: %1$s</string>
-    <string name="exportFailed">Nepavyko eksportuoti: %1$s</string>
+    <string name="importFailed">Nepavyko importuoti</string>
+    <string name="exportFailed">Nepavyko eksportuoti</string>
     <string name="importing">Importuoja&#8230;</string>
     <string name="exporting">Eksportuoja&#8230;</string>
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>

@@ -28,17 +28,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Calendar;
 import java.util.Map;
 
-import protect.card_locker.intro.IntroActivity;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
@@ -53,12 +53,6 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList("");
-
-        SharedPreferences prefs = getSharedPreferences("protect.card_locker", MODE_PRIVATE);
-        if (prefs.getBoolean("firstrun", true)) {
-            startIntro();
-            prefs.edit().putBoolean("firstrun", false).commit();
-        }
     }
 
     @Override
@@ -75,6 +69,15 @@ public class MainActivity extends AppCompatActivity
         }
 
         updateLoyaltyCardList(filter);
+
+        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                startActivityForResult(i, MAIN_REQUEST_CODE);
+            }
+        });
     }
 
     @Override
@@ -261,13 +264,6 @@ public class MainActivity extends AppCompatActivity
     {
         int id = item.getItemId();
 
-        if (id == R.id.action_add)
-        {
-            Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
-            return true;
-        }
-
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
@@ -279,12 +275,6 @@ public class MainActivity extends AppCompatActivity
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivityForResult(i, MAIN_REQUEST_CODE);
-            return true;
-        }
-
-        if(id == R.id.action_intro)
-        {
-            startIntro();
             return true;
         }
 
@@ -356,7 +346,6 @@ public class MainActivity extends AppCompatActivity
         String html =
             "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
             css +
-            "<img src=\"file:///android_res/mipmap/ic_launcher.png\" alt=\"" + appName + "\"/>" +
             "<h1>" +
             String.format(getString(R.string.about_title_fmt),
                     "<a href=\"" + getString(R.string.app_webpage_url)) + "\">" +
@@ -369,10 +358,12 @@ public class MainActivity extends AppCompatActivity
             "</p><p>" +
             String.format(getString(R.string.app_revision_fmt),
                     "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-                            getString(R.string.app_revision_url) +
+                            "GitHub" +
                             "</a>") +
             "</p><hr/><p>" +
             String.format(getString(R.string.app_copyright_fmt), year) +
+            "</p><p>" +
+            getString(R.string.app_copyright_old) +
             "</p><hr/><p>" +
             getString(R.string.app_license) +
             "</p><hr/><p>" +
@@ -392,11 +383,5 @@ public class MainActivity extends AppCompatActivity
                 }
             })
             .show();
-    }
-
-    private void startIntro()
-    {
-        Intent intent = new Intent(this, IntroActivity.class);
-        startActivityForResult(intent, MAIN_REQUEST_CODE);
     }
 }

@@ -33,7 +33,7 @@ public class DatabaseTest
 
     private static final Integer DEFAULT_HEADER_COLOR = Color.BLACK;
     private static final Integer DEFAULT_HEADER_TEXT_COLOR = Color.WHITE;
-    private static Bitmap DEFAULT_ICON = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.app_icon_intro);
+    private static Bitmap DEFAULT_ICON = BitmapFactory.decodeResource(Resources.getSystem(), R.mipmap.ic_launcher);
     private static ExtrasHelper DEFAULT_EXTRAS;
 
     @Before

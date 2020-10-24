@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 
 public class MultiFormatExporter
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     /**
      * Attempts to export data to the output stream in the

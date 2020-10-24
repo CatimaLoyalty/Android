@@ -1,6 +1,6 @@
 # PRIVACY POLICY FOR LOYALTY CARD KEYCHAIN
 
-This privacy policy governs your use of the software application Loyalty Card Keychain (“Application”) for mobile devices
+This privacy policy governs your use of the software application Catima (“Application”) for mobile devices
 that was created by Protect. The Application is designed to store and display barcodes.
 
 # What information does the Application obtain and how is it used?
@@ -48,8 +48,8 @@ not delete such emails.
 # Children
 
 This Application is not used to knowingly solicit data from or market to children under the age of 13. If a parent or
-guardian becomes aware that his or her child has provided us with information without their consent, he or she should
-contact us at protect.github@gmail.com. We will delete such information from our files within a reasonable time.
+guardian becomes aware that his or her child has provided us with information without their consent, they should
+contact us at sylvia+googleplay@hackerchick.me. We will delete such information from our files within a reasonable time.
 
 # Security
 
@@ -67,4 +67,4 @@ checking this history of this file in GitHub.
 
 # Contact us
 If you have any questions regarding privacy while using the Application, or have questions about our practices,
-please contact us via email at protect.github@gmail.com.
+please contact us via email at sylvia+googleplay@hackerchick.me.

@@ -8,6 +8,15 @@
     android:fitsSystemWindows="true"
     >
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_mode_edit_white_24dp"
+        android:contentDescription="@string/edit"
+        android:layout_margin="16dp" />
+
     <FrameLayout
         android:clipChildren="false"
         android:clipToPadding="false"

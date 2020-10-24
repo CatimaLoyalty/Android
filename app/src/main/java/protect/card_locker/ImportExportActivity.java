@@ -10,15 +10,14 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,20 +27,20 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 public class ImportExportActivity extends AppCompatActivity
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
-    private static final int CHOOSE_EXPORT_FILE = 2;
+    private static final int CHOOSE_EXPORT_LOCATION = 2;
+    private static final int CHOOSE_EXPORTED_FILE = 3;
 
     private ImportExportTask importExporter;
-
-    private final File sdcardDir = Environment.getExternalStorageDirectory();
-    private final File exportFile = new File(sdcardDir, "LoyaltyCardKeychain.csv");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -70,6 +69,11 @@ public class ImportExportActivity extends AppCompatActivity
                     PERMISSIONS_EXTERNAL_STORAGE);
         }
 
+        // Check that there is a file manager available
+        final Intent intentCreateDocumentAction = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intentCreateDocumentAction.addCategory(Intent.CATEGORY_OPENABLE);
+        intentCreateDocumentAction.setType("text/csv");
+        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "Catima.csv");
 
         Button exportButton = findViewById(R.id.exportButton);
         exportButton.setOnClickListener(new View.OnClickListener()
@@ -77,7 +81,7 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                startExport();
+                chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
             }
         });
 
@@ -86,14 +90,13 @@ public class ImportExportActivity extends AppCompatActivity
         intentGetContentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentGetContentAction.setType("*/*");
 
-
         Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
         importFilesystem.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                chooseFileWithIntent(intentGetContentAction);
+                chooseFileWithIntent(intentGetContentAction, CHOOSE_EXPORTED_FILE);
             }
         });
 
@@ -114,7 +117,7 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                chooseFileWithIntent(intentPickAction);
+                chooseFileWithIntent(intentPickAction, CHOOSE_EXPORTED_FILE);
             }
         });
 
@@ -125,28 +128,6 @@ public class ImportExportActivity extends AppCompatActivity
             findViewById(R.id.importOptionApplicationExplanation).setVisibility(View.GONE);
             importApplication.setVisibility(View.GONE);
         }
-
-        // This option, to import from the fixed location, should always be present
-
-        Button importButton = findViewById(R.id.importOptionFixedButton);
-        importButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Uri uri = Uri.fromFile(exportFile);
-                try
-                {
-                    FileInputStream stream = new FileInputStream(exportFile);
-                    startImport(stream, uri);
-                }
-                catch(FileNotFoundException e)
-                {
-                    Log.e(TAG, "Could not import file " + exportFile.getAbsolutePath(), e);
-                    onImportComplete(false, uri);
-                }
-            }
-        });
     }
 
     private void startImport(final InputStream target, final Uri targetUri)
@@ -165,19 +146,19 @@ public class ImportExportActivity extends AppCompatActivity
         importExporter.execute();
     }
 
-    private void startExport()
+    private void startExport(final OutputStream target, final Uri targetUri)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
             public void onTaskComplete(boolean success)
             {
-                onExportComplete(success, exportFile);
+                onExportComplete(success, targetUri);
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                DataFormat.CSV, exportFile, listener);
+                DataFormat.CSV, target, listener);
         importExporter.execute();
     }
 
@@ -245,13 +226,9 @@ public class ImportExportActivity extends AppCompatActivity
             builder.setTitle(R.string.importFailedTitle);
         }
 
-        int messageId = success ? R.string.importedFrom : R.string.importFailed;
-        final String template = getResources().getString(messageId);
+        int messageId = success ? R.string.importSuccessful : R.string.importFailed;
+        final String message = getResources().getString(messageId);
 
-        // Get the filename of the file being imported
-        String filename = path.toString();
-
-        final String message = String.format(template, filename);
         builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
@@ -265,7 +242,7 @@ public class ImportExportActivity extends AppCompatActivity
         builder.create().show();
     }
 
-    private void onExportComplete(boolean success, final File path)
+    private void onExportComplete(boolean success, final Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -278,10 +255,9 @@ public class ImportExportActivity extends AppCompatActivity
             builder.setTitle(R.string.exportFailedTitle);
         }
 
-        int messageId = success ? R.string.exportedTo : R.string.exportFailed;
+        int messageId = success ? R.string.exportSuccessful : R.string.exportFailed;
+        final String message = getResources().getString(messageId);
 
-        final String template = getResources().getString(messageId);
-        final String message = String.format(template, path.getAbsolutePath());
         builder.setMessage(message);
         builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
         {
@@ -301,9 +277,8 @@ public class ImportExportActivity extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which)
                 {
-                    Uri outputUri = FileProvider.getUriForFile(ImportExportActivity.this, BuildConfig.APPLICATION_ID, path);
                     Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_STREAM, outputUri);
+                    sendIntent.putExtra(Intent.EXTRA_STREAM, path);
                     sendIntent.setType("text/csv");
 
                     // set flag to give temporary permission to external app to use the FileProvider
@@ -345,11 +320,11 @@ public class ImportExportActivity extends AppCompatActivity
         return false;
     }
 
-    private void chooseFileWithIntent(Intent intent)
+    private void chooseFileWithIntent(Intent intent, int requestCode)
     {
         try
         {
-            startActivityForResult(intent, CHOOSE_EXPORT_FILE);
+            startActivityForResult(intent, requestCode);
         }
         catch (ActivityNotFoundException e)
         {
@@ -362,7 +337,7 @@ public class ImportExportActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode != RESULT_OK || requestCode != CHOOSE_EXPORT_FILE)
+        if (resultCode != RESULT_OK || (requestCode != CHOOSE_EXPORT_LOCATION && requestCode != CHOOSE_EXPORTED_FILE))
         {
             Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
             return;
@@ -377,24 +352,48 @@ public class ImportExportActivity extends AppCompatActivity
 
         try
         {
-            InputStream reader;
-
-            if(uri.getScheme() != null)
+            if (requestCode == CHOOSE_EXPORT_LOCATION)
             {
-                reader = getContentResolver().openInputStream(uri);
+                OutputStream writer;
+                if (uri.getScheme() != null)
+                {
+                    writer = getContentResolver().openOutputStream(uri);
+                }
+                else
+                {
+                    writer = new FileOutputStream(new File(uri.toString()));
+                }
+
+                Log.e(TAG, "Starting file export with: " + uri.toString());
+                startExport(writer, uri);
             }
             else
             {
-                reader = new FileInputStream(new File(uri.toString()));
-            }
+                InputStream reader;
+                if(uri.getScheme() != null)
+                {
+                    reader = getContentResolver().openInputStream(uri);
+                }
+                else
+                {
+                    reader = new FileInputStream(new File(uri.toString()));
+                }
 
-            Log.e(TAG, "Starting file import with: " + uri.toString());
-            startImport(reader, uri);
+                Log.e(TAG, "Starting file export with: " + uri.toString());
+                startImport(reader, uri);
+            }
         }
         catch(FileNotFoundException e)
         {
-            Log.e(TAG, "Failed to import file: " + uri.toString(), e);
-            onImportComplete(false, uri);
+            Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
+            if (requestCode == CHOOSE_EXPORT_LOCATION)
+            {
+                onExportComplete(false, uri);
+            }
+            else
+            {
+                onImportComplete(false, uri);
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Carte fedeltà</string>
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
 
@@ -11,7 +10,6 @@
     <string name="storeName">Negozio</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
-    <string name="barcodeType">Tipo codice a barre</string>
     <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
 
     <string name="cancel">Annulla</string>
@@ -30,11 +28,8 @@
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>
     <string name="sendLabel">Invia&#8230;</string>
-    <string name="addedShortcut">Aggiunto al launcher</string>
-
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
-    <string name="viewCardTitle">Mostra carta</string>
     <string name="scanCardBarcode">Scansiona codice carta</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
     <string name="noCardsMessage">Non ci sono carte. Aggiungine prima una</string>
@@ -45,34 +40,25 @@
     <string name="noCardIdError">Nessun codice carta inserito</string>
     <string name="noCardExistsError">Impossibile trovare la carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
-
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importa/Esporta</string>
-    <string name="importName">Importa</string>
     <string name="exportName">Esporta</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
-    <string name="importedFrom">Importato da: %1$s</string>
-    <string name="exportedTo">Esportato in: %1$s</string>
-    <string name="fileMissing">File mancante: %1$s</string>
     <string name="importSuccessfulTitle">Importazione avvenuta con successo</string>
     <string name="importFailedTitle">Importazione fallita</string>
-    <string name="importFailed">Impossibile importare: %1$s</string>
+    <string name="importFailed">Impossibile importare</string>
     <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
-    <string name="exportFailed">Impossibile esportare: %1$s</string>
+    <string name="exportFailed">Impossibile esportare</string>
     <string name="importing">Importazione in corso&#8230;</string>
     <string name="exporting">Esportazione in corso&#8230;</string>
     <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
-    <string name="exportOptionExplanation">I dati sono stati scritti nella cartella principale della memoria esterna.</string>
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
     <string name="importOptionFilesystemButton">Dal file system</string>
     <string name="importOptionApplicationTitle">Usa un\'applicazione esterna</string>
     <string name="importOptionApplicationExplanation">Usa un\'applicazione esterna come Dropbox, Google Drive o il tuo file manager preferito per aprire il file.</string>
     <string name="importOptionApplicationButton">Usa un\'applicazione esterna</string>
-    <string name="importOptionFixedTitle">Importa da un altro posto</string>
-    <string name="importOptionFixedExplanation">Importa dallo stesso posto del file system dove si è esportato.</string>
-    <string name="importOptionFixedButton">Usa luogo dell\'esportazione</string>
 
     <string name="about">Informazioni</string>
     <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
@@ -89,20 +75,6 @@
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
 
     <string name="thumbnailDescription">Miniatura carta</string>
-
-    <string name="startIntro">Introduzione</string>
-    <string name="intro1Title">Benvenuto in Carte Fedeltà\n</string>
-    <string name="intro1Description">Gestisci le tue carte direttamente dal telefono!\n\n</string>
-    <string name="intro2Title">Aggiungi carte\n</string>
-    <string name="intro2Description">Aggiungi una nuova carta premendo il + dall\'elenco delle carte.\n\n</string>
-    <string name="intro3Title">Aggiungi carte\n</string>
-    <string name="intro3Description">Per aggiungere il codice a barre, catturalo con la fotocamera o inseriscilo manualmente.\n\n</string>
-    <string name="intro4Title">Mostra carta\n</string>
-    <string name="intro4Description">Per mostrare una carta, premi sul nome del negozio dalla schermata principale\n\n</string>
-    <string name="intro5Title">Backup\n</string>
-    <string name="intro5Description">I dati delle tessere possono essere salvati. Per esportare o importare tessere premi Importa/Esporta nel menù nella schermata principale.\n\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Questa app è gratuita, priva di pubblicità e open source. Guarda i dettagli premendo su \"Informazioni\" nella schermata principale.\n\nPer favore, lascia un feedback nell\'app store! (:</string>
 
     <string name="change">Cambia</string>
     <string name="storeTextColorTitle">Colore titolo</string>
@@ -123,6 +95,5 @@
     <string name="settings_card_note_font_size">Dimensione testo delle note carta</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
-    <string name="intent_import_card_from_url">Importa carte fedeltà</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     </resources>

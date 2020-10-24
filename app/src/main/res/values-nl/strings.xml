@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Klantenkaartkluis</string>
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
 
@@ -80,20 +79,6 @@
 
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
 
-    <string name="startIntro">Rondleiding starten</string>
-    <string name="intro1Title">Welkom bij Klantenkaartkluis\n</string>
-    <string name="intro1Description">Beheer je op barcodes gebaseerde klantenkaarten op je telefoon!\n\n</string>
-    <string name="intro2Title">Kaarten toevoegen\n</string>
-    <string name="intro2Description">Voeg een kaart toe door in de lijst met kaarten op de plus-knop te drukken.\n\n</string>
-    <string name="intro3Title">Kaarten toevoegen\n</string>
-    <string name="intro3Description">De barcode kan worden toegevoegd door deze handmatig in te voeren of te scannen met de camera.\n\n</string>
-    <string name="intro4Title">Kaart tonen\n</string>
-    <string name="intro4Description">Toon een kaart door op het kaartoverzicht op de naam van de winkel te drukken.\n\n</string>
-    <string name="intro5Title">Back-uppen\n</string>
-    <string name="intro5Description">Je kunt je kaarten back-uppen: druk in het menu op het kaartoverzicht op Importeren/Exporteren.\n\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Deze app is gratis, reclamevrij en open source. Bekijk alle details door op \'Over\' te drukken in het menu op het kaartoverzicht.\n\nGeef feedback in de app-winkel! (:</string>
-
     <string name="change">Aanpassen</string>
     <string name="storeTextColorTitle">Tekstkleur van winkelnaam</string>
     <string name="storeTextBackgroundColorTitle">Kopkleur</string>
@@ -113,6 +98,5 @@
     <string name="settings_card_note_font_size">Lettergrootte van aantekeningen</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
-    <string name="intent_import_card_from_url">Klantenkaart importeren</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     </resources>

@@ -36,14 +36,6 @@ public class MainActivityTest
 {
     private SharedPreferences prefs;
 
-    @Before
-    public void setUp()
-    {
-        // Assume that this is not the first launch
-        prefs = RuntimeEnvironment.application.getSharedPreferences("protect.card_locker", Context.MODE_PRIVATE);
-        prefs.edit().putBoolean("firstrun", false).commit();
-    }
-
     @Test
     public void initiallyNoLoyaltyCards() throws Exception
     {
@@ -69,12 +61,9 @@ public class MainActivityTest
         assertTrue(menu != null);
 
         // The settings, search and add button should be present
-        assertEquals(menu.size(), 6);
-
+        assertEquals(menu.size(), 4);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
-        assertEquals("Add", menu.findItem(R.id.action_add).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
-        assertEquals("Start Intro", menu.findItem(R.id.action_intro).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
         assertEquals("Settings", menu.findItem(R.id.action_settings).getTitle().toString());
     }
@@ -84,7 +73,7 @@ public class MainActivityTest
     {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
-        shadowOf(activity).clickMenuItem(R.id.action_add);
+        activity.findViewById(R.id.fabAdd).performClick();
 
         Intent intent = shadowOf(activity).peekNextStartedActivityForResult().intent;
 
@@ -267,27 +256,5 @@ public class MainActivityTest
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getCount());
-    }
-
-    @Test
-    public void testFirstRunStartsIntro()
-    {
-        prefs.edit().remove("firstrun").commit();
-
-        ActivityController controller = Robolectric.buildActivity(MainActivity.class).create();
-        Activity activity = (Activity)controller.get();
-
-        assertTrue(activity.isFinishing() == false);
-
-        Intent next = shadowOf(activity).getNextStartedActivity();
-
-        ComponentName componentName = next.getComponent();
-        String name = componentName.flattenToShortString();
-        assertEquals("protect.card_locker/.intro.IntroActivity", name);
-
-        Bundle extras = next.getExtras();
-        assertNull(extras);
-
-        assertEquals(false, prefs.getBoolean("firstrun", true));
     }
 }

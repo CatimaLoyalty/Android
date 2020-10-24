@@ -119,7 +119,7 @@ public class LoyaltyCardViewActivityTest
         barcodeTypeField.setText(barcodeType);
 
         assertEquals(false, activity.isFinishing());
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(true, activity.isFinishing());
 
         assertEquals(1, db.getLoyaltyCardCount());
@@ -278,15 +278,15 @@ public class LoyaltyCardViewActivityTest
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
 
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         storeField.setText("store");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
 
         noteField.setText("note");
-        shadowOf(activity).clickMenuItem(R.id.action_save);
+        activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
     }
 
@@ -785,6 +785,27 @@ public class LoyaltyCardViewActivityTest
 
     @Test
     public void importCard()
+    {
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+
+        Intent intent = new Intent();
+        intent.setData(importUri);
+
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class, intent).create();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        Activity activity = (Activity)activityController.get();
+
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
+        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+    }
+
+    @Test
+    public void importCardOldURL()
     {
         Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 

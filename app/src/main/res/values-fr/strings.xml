@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_add">Ajouter</string>
 
     <string name="noGiftCards">Aucune carte de fidélité enregistrée. Appuyez sur le bouton \"+\" (plus) pour commencer.\n\nLoyalty Card Locker vous permet d\'enregistrer vos cartes de fidélité sur votre téléphone pour toujours les avoir à portée de main.</string>
@@ -67,20 +66,6 @@
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
 
     <string name="thumbnailDescription">Miniature pour la carte</string>
-
-    <string name="startIntro">Présentation</string>
-    <string name="intro1Title">Bienvenue dans\nLoyalty Card Keychain\n</string>
-    <string name="intro1Description">Gérez vos cartes de fidélité\nsur votre téléphone !\n\n</string>
-    <string name="intro2Title">Ajouter une carte\n</string>
-    <string name="intro2Description">Ajoutez une nouvelle carte en appuyant sur le bouton \"+\" depuis la liste des cartes.\n\n</string>
-    <string name="intro3Title">Ajouter une carte\n</string>
-    <string name="intro3Description">Pour enregistrer le code-barres, utilisez l\'appareil-photo ou entrez-le manuellement.\n\n</string>
-    <string name="intro4Title">Afficher une carte\n</string>
-    <string name="intro4Description">Pour afficher une carte, appuyez sur le nom du magasin depuis l\'écran principal\n\n</string>
-    <string name="intro5Title">Sauvegarde\n</string>
-    <string name="intro5Description">Les cartes peuvent être sauvegardées. Appuyez sur \"Importer/Exporter\" depuis l\'écran principal pour restaurer ou sauvegarder les cartes.\n\n</string>
-    <string name="intro6Title">Commentaire\n</string>
-    <string name="intro6Description">Cette application est gratuite, sans pub, et son code est ouvert. Plus de détails en appuyant sur \"À propos\" depuis l\'écran principal.\n\nMerci de laisser un commentaire sur le Play Store (:</string>
 
     <string name="change">Modifier</string>
     <string name="storeTextColorTitle">Couleur du texte du magasin</string>

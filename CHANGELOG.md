@@ -1,3 +1,11 @@
+## [Unreleased]
+
+Changes:
+- Rebrand to Catima
+- Removed intro
+- Add floating action buttons
+- Fix Android 5 crash when opening About screen
+
 ## v0.28 (2020-03-09)
 
 Changes:

@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 
 class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 {
-    private static final String TAG = "LoyaltyCardLocker";
+    private static final String TAG = "Catima";
 
     private Activity activity;
     private boolean doImport;

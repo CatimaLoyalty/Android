@@ -45,7 +45,7 @@
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"
             android:exported="true">
-            <intent-filter android:label="@string/intent_import_card_from_url">
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -53,6 +53,9 @@
                 <data android:scheme="https"
                     android:host="@string/intent_import_card_from_url_host"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />
+                <data android:scheme="https"
+                    android:host="@string/intent_import_card_from_url_host_old"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_old" />
             </intent-filter>
         </activity>
         <activity
@@ -68,11 +71,6 @@
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".intro.IntroActivity"
-            android:label=""
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity

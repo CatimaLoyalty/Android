@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Loyalty Card Keychain</string>
     <string name="action_search">Szukaj</string>
     <string name="action_add">Dodaj</string>
 
@@ -77,20 +76,6 @@
 
     <string name="thumbnailDescription">Miniaturka karty</string>
 
-    <string name="startIntro">Pokaż ekran powitalny</string>
-    <string name="intro1Title">Witaj w Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Zarządzaj swoimi kartami lojalnościowymi z poziomu telefonu!\n\n</string>
-    <string name="intro2Title">Dodawanie kart\n</string>
-    <string name="intro2Description">Dodaj nową kartę, dotykając znaku plus z listy kart. \n\n</string>
-    <string name="intro3Title">Dodawanie kart\n</string>
-    <string name="intro3Description">Aby dodać kod kreskowy, wykonaj zdjęcie aparatem lub wpisz ręcznie. \n\n</string>
-    <string name="intro4Title">Pokaż kartę\n</string>
-    <string name="intro4Description">Aby wyświetlić kartę, na głównym ekranie kliknij nazwę sklepu \n\n</string>
-    <string name="intro5Title">Kopia zapasowa\n</string>
-    <string name="intro5Description">Karty mogą zostać zarchiwizowane. Aby wyeksportować lub zaimportować dane kart, skorzystaj z opcji Importuj/Eksportuj w menu na stronie głównej.\n\n</string>
-    <string name="intro6Title">Informacje zwrotne\n</string>
-    <string name="intro6Description">Ta aplikacja jest darmowa, bez reklam i z otwartym kodem źródłowym. Zobacz szczegóły, klikając Informacje w menu na stronie głównej. \n\n Proszę zostawić opinię o programie w sklepie z aplikacjami! (:</string>
-
     <string name="change">Zmień</string>
     <string name="storeTextColorTitle">Kolor tekstu nazwy sklepu</string>
     <string name="storeTextBackgroundColorTitle">Kolor nagłówka</string>
@@ -110,6 +95,5 @@
     <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
-    <string name="intent_import_card_from_url">Importuj kartę lojalnościową</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     </resources>

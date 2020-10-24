@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -34,7 +36,7 @@ import java.io.InvalidObjectException;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
-    private static final String TAG = "CardLocker";
+    private static final String TAG = "Catima";
     protected static final String NO_BARCODE = "_NO_BARCODE_";
 
     protected static final int SELECT_BARCODE_REQUEST = 1;
@@ -324,6 +326,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             cardIdTableRow.setVisibility(View.GONE);
             enterButton.setText(R.string.enterCard);
         }
+
+        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doSave();
+            }
+        });
     }
 
     class ColorSelectListener implements View.OnClickListener
@@ -464,10 +474,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
-                return true;
-
-            case R.id.action_save:
-                doSave();
                 return true;
         }
 

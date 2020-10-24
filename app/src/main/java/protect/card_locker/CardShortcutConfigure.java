@@ -17,7 +17,7 @@ import android.widget.Toast;
  */
 public class CardShortcutConfigure extends AppCompatActivity
 {
-    static final String TAG = "LoyaltyCardLocker";
+    static final String TAG = "Catima";
 
     @Override
     public void onCreate(Bundle bundle)

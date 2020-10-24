@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
 import protect.card_locker.preferences.Settings;
@@ -36,7 +37,7 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
-    private static final String TAG = "CardLocker";
+    private static final String TAG = "Catima";
     private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;
@@ -275,6 +276,20 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             findViewById(R.id.barcode).setVisibility(View.GONE);
         }
+
+        FloatingActionButton editButton = findViewById(R.id.fabEdit);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", loyaltyCardId);
+                bundle.putBoolean("update", true);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -307,7 +322,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         starred = loyaltyCard.starStatus != 0;
 
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
-        menu.findItem(R.id.action_edit).setIcon(getIcon(R.drawable.ic_mode_edit_white_24dp, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -340,16 +354,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
             case R.id.action_share:
                 importURIHelper.startShareIntent(loyaltyCard);
-                return true;
-
-            case R.id.action_edit:
-                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", loyaltyCardId);
-                bundle.putBoolean("update", true);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
                 return true;
 
             case R.id.action_lock_unlock:

@@ -1,7 +1,6 @@
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Vernostné karty</string>
     <string name="action_add">Pridať</string>
 
     <string name="noGiftCards">Zatiaľ nemáte žiadne vernostné karty. Kliknite na tlačidlo \"+\" (plus) vyššie a začnite.\n\nAplikácia Vernostné karty umožňuje nosiť svoje vernostné karty v telefóne, kde sú vždy na dosah.</string>
@@ -67,20 +66,6 @@
     <string name="copy_to_clipboard_toast">ID karty skopírované do schránky</string>
 
     <string name="thumbnailDescription">Náhľad karty</string>
-
-    <string name="startIntro">Zobraz úvod</string>
-    <string name="intro1Title">Vitajte v aplikácii Vernostné karty\n</string>
-    <string name="intro1Description">Používajte Vaše vernostné karty s čiarovými kódmi na Vašom mobilnom zariadení!\n\n</string>
-    <string name="intro2Title">Pridávanie kariet\n</string>
-    <string name="intro2Description">Pridajte novú kartu stlačením \"+\" v zozname kariet.\n\n</string>
-    <string name="intro3Title">Pridávanie kariet\n</string>
-    <string name="intro3Description">Čiarový kód nasnímajte kamerou, alebo ho vypíšte ručne.\n\n</string>
-    <string name="intro4Title">Zobrazenie karty\n</string>
-    <string name="intro4Description">Pre zobrazenie vernostnej karty stlačte názov obchodu v zozname kariet.\n\n</string>
-    <string name="intro5Title">Záloha\n</string>
-    <string name="intro5Description">Vaše uložené karty môžu byť zálohované. Pre export a import kariet stlačte \"Import/Export\" v menu aplikácie.\n\n</string>
-    <string name="intro6Title">Spätná väzba\n</string>
-    <string name="intro6Description">Táto aplikácia je slobodná, neobsahuje reklamu a má otvorený zdrojový kód. Ďalšie informácie nájdete v položke menu O aplikácii na hlavnej stránke.\n\n Prosíme, zanechajte spätnú väzbu v obchode s aplikáciami. (:</string>
 
     <string name="change">Upraviť</string>
     <string name="storeTextColorTitle">Farba textu</string>

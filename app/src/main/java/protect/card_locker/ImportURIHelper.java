@@ -19,17 +19,21 @@ public class ImportURIHelper {
     private final Context context;
     private final String host;
     private final String path;
+    private final String oldHost;
+    private final String oldPath;
     private final String shareText;
 
     public ImportURIHelper(Context context) {
         this.context = context;
         host = context.getResources().getString(R.string.intent_import_card_from_url_host);
         path = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix);
+        oldHost = "brarcher.github.io";
+        oldPath = "/loyalty-card-locker/share";
         shareText = context.getResources().getString(R.string.intent_import_card_from_url_share_text);
     }
 
     private boolean isImportUri(Uri uri) {
-        return uri.getHost().equals(host) && uri.getPath().equals(path);
+        return (uri.getHost().equals(host) && uri.getPath().equals(path)) || (uri.getHost().equals(oldHost) && uri.getPath().equals(oldPath));
     }
 
     public LoyaltyCard parse(Uri uri) throws InvalidObjectException {

@@ -67,20 +67,6 @@
 
     <string name="thumbnailDescription">Ikona kartice</string>
 
-    <string name="startIntro">Uvodnik</string>
-    <string name="intro1Title">Dobrodošli v aplikacijo Kartice zvestobe\n</string>
-    <string name="intro1Description">Urejajte vaše črtne kode oziroma kartice na Vašem telefonu!\n\n</string>
-    <string name="intro2Title">Dodajanje kartic\n</string>
-    <string name="intro2Description">Dodajte kartico s klikom na plus na seznamu kartic.\n\n</string>
-    <string name="intro3Title">Dodajanje kartic\n</string>
-    <string name="intro3Description">Če želite dodati črtno kodo jo ali slikajte s fotoaparatom ali jo vnesite ročno.\n\n</string>
-    <string name="intro4Title">Prikaži kartico\n</string>
-    <string name="intro4Description">Za prikaz kartice je potreben klik na ime trgovine na glavnem zaslonu\n\n</string>
-    <string name="intro5Title">Varnostna kopija\n</string>
-    <string name="intro5Description">Kartice lahko shranite s pomočjo varnostne kopije. Za uvoz ali izvoz kartic je potrebno klikniti Uvozi/Izvozi v meniju na glavni strani.\n\n</string>
-    <string name="intro6Title">Povratne informacije razvijalcem\n</string>
-    <string name="intro6Description">Aplikacija je brezplačna, brez oglasov in odprtokodna.  Če želite izvedeti več podrobnosti, kliknite na Več o aplikaciji v meniju na glavni strani.\n\nProsim, napišite Vaše mnenje o aplikaciji v spletni trgovini (:</string>
-
     <string name="change">Spremeni</string>
     <string name="storeTextColorTitle">Barva besedila trgovine</string>
     <string name="storeTextBackgroundColorTitle">Barva naslova</string>

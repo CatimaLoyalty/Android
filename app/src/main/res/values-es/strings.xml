@@ -67,20 +67,6 @@
 
     <string name="thumbnailDescription">Miniatura para la tarjeta</string>
 
-    <string name="startIntro">Empezar Introducción</string>
-    <string name="intro1Title">Bienvenido a la Cartera para Tarjetas de Fidelización\n</string>
-    <string name="intro1Description">Gestiona las tarjetas de fidelización o tarjetas cliente con codigo de barras desde tu teléfono!\n\n</string>
-    <string name="intro2Title">Añadir Tarjetas\n</string>
-    <string name="intro2Description">Añade una nueva tarjeta presionando el signo + en la lista de tarjetas.\n\n</string>
-    <string name="intro3Title">Añadir Tarjetas\n</string>
-    <string name="intro3Description">Para añadir el código de barras, escanea la tarjeta con tu cámara o introduce el código manualmente.\n\n</string>
-    <string name="intro4Title">Mostrar Tarjeta\n</string>
-    <string name="intro4Description">Para mostrar una tarjeta, presiona en el nombre de la tienda desde la pantalla principal\n\n</string>
-    <string name="intro5Title">Copias de Seguridad\n</string>
-    <string name="intro5Description">Puedes hacer una copia de seguridad de tus tarjetas. Para exportar o importar los datos presiona Importar/Exportar en el menú de la pagina principal.\n\n</string>
-    <string name="intro6Title">Tu Opinión\n</string>
-    <string name="intro6Description">Esta aplicación es gratuita, libre de publicidad y de código libre. Para más detalles presiona en Acerca De en el menu principal.\n\nPor favor deja tu opinión en la tienda de applicaciones! (:</string>
-
     <string name="change">Cambiar</string>
     <string name="storeTextColorTitle">Color del Texto de la Tienda</string>
     <string name="storeTextBackgroundColorTitle">Color Principal</string>

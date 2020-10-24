@@ -67,20 +67,6 @@
 
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>
 
-    <string name="startIntro">Έναρξη Επεξήγησης</string>
-    <string name="intro1Title">Καλώς ήλθατε στο Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Διαχειριστείτε τις κάρτες σας που βασίζονται σε barcodes μέσα από το κινητό σας!\n\n</string>
-    <string name="intro2Title">Προσθήκη Καρτών\n</string>
-    <string name="intro2Description">Προσθέστε μία νέα κάρτα πατώντας το συν από την λίστα καρτών.\n\n</string>
-    <string name="intro3Title">Προσθήκη Καρτών\n</string>
-    <string name="intro3Description">Για να προσθέσετε το barcode, είτε φωτογραφίστε με την κάμερα είτε γράψτε το χειροκίνητα.\n\n</string>
-    <string name="intro4Title">Εμφάνιση Κάρτας\n</string>
-    <string name="intro4Description">Για να εμφανίσετε μία κάρτα, πατήστε πάνω στο όνομα του καταστήματος, στην κεντρική οθόνη της εφαρμογής\n\n</string>
-    <string name="intro5Title">Αντίγραφα Ασφαλείας\n</string>
-    <string name="intro5Description">Μπορείτε να δημιουργήσετε αντίγραφα ασφαλείας των καρτών. Για εξαγωγή ή εισαγωγή των δεδομένων των καρτών πατήστε Εισαγωγή/Εξαγωγή στο μενού στην κεντρική οθόνη της εφαρμογής.\n\n</string>
-    <string name="intro6Title">Σχόλια\n</string>
-    <string name="intro6Description">Αυτή η εφαρμογή είναι δωρεάν, χωρίς διαφημίσεις και open source. Δείτε λεπτομέρειες πατώντας το Σχετικά στο μενού στην κεντρική οθόνη της εφαρμογής.\n\nΠαρακαλώ αφήστε σχόλια στο app store! (:</string>
-
     <string name="change">Αλλαγή</string>
     <string name="storeTextColorTitle">Χρώμα Κειμένου Καταστήματος</string>
     <string name="storeTextBackgroundColorTitle">Χρώμα Κεφαλίδας</string>

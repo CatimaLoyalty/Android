@@ -69,27 +69,6 @@
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
-    <string name="startIntro">Start intro</string>
-    <string name="intro1Title">Velkommen til Kundekortknippe\n</string>
-    <string name="intro1Description">Håndter strekkodekodekundekort på din enhet.\n\n</string>
-    <string name="intro2Title">Tillegg av kort\n</string>
-    <string name="intro2Description">Legg til et nytt kort ved å trykke på + i kortlisten.
-\n
-\n</string>
-    <string name="intro3Title">Tillegg av kort\n</string>
-    <string name="intro3Description">Legg til strekkoder med kamera eller skriv dem inn manuelt.
-\n
-\n</string>
-    <string name="intro4Title">Vis kort\n</string>
-    <string name="intro4Description">For å vise et kort, klikk på butikknavnet fra hovedskjermen\n\n</string>
-    <string name="intro5Title">Sikkerhetskopi\n</string>
-    <string name="intro5Description">Kortene kan sikkerhetskopieres. For å eksportere eller importere kortdata, trykk på \"Importer/eksporter\" i hovedsidemenyen.
-\n
-\n</string>
-    <string name="intro6Title">Tilbakemeldinger\n</string>
-    <string name="intro6Description">Dette programmet er reklamefri og gratis genenslig fri programvare. Se flere detaljer ved å trykke på \"Om\"-skjermen på hovedsiden.
-\n
-\nLevn en vurdering i programbutikken. (:</string>
     <string name="change">Endre</string>
     <string name="storeTextColorTitle">Skriftstørrelse for butikktekst</string>
     <string name="storeTextBackgroundColorTitle">Overskriftsfarge</string>

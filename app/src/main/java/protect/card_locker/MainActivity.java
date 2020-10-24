@@ -344,7 +344,6 @@ public class MainActivity extends AppCompatActivity
         String html =
             "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
             css +
-            "<img src=\"file:///android_res/mipmap/ic_launcher.png\" alt=\"" + appName + "\"/>" +
             "<h1>" +
             String.format(getString(R.string.about_title_fmt),
                     "<a href=\"" + getString(R.string.app_webpage_url)) + "\">" +
@@ -357,7 +356,7 @@ public class MainActivity extends AppCompatActivity
             "</p><p>" +
             String.format(getString(R.string.app_revision_fmt),
                     "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-                            getString(R.string.app_revision_url) +
+                            "GitHub" +
                             "</a>") +
             "</p><hr/><p>" +
             String.format(getString(R.string.app_copyright_fmt), year) +

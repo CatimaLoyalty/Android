@@ -70,20 +70,6 @@
 
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
 
-    <string name="startIntro">Starte Einführung</string>
-    <string name="intro1Title">Willkommen zu Loyalty Card Keychain\n</string>
-    <string name="intro1Description">Verwalten Sie Ihre Barcode-Kundenkarten auf Ihrem Smartphone!\n\n</string>
-    <string name="intro2Title">Karten hinzufügen\n</string>
-    <string name="intro2Description">Fügen Sie neue Karten hinzu indem Sie das "+" Symbol in der Liste berühren.\n\n</string>
-    <string name="intro3Title">Karten hinzufügen\n</string>
-    <string name="intro3Description">Um einen Barcode hinzuzufügen, verwenden Sie die Kamera oder geben Sie den Code manuell ein.\n\n</string>
-    <string name="intro4Title">Karte anzeigen\n</string>
-    <string name="intro4Description">Um eine Karte anzuzeigen, den entsprechenen Namen in der Hauptansicht anwählen.\n\n</string>
-    <string name="intro5Title">Backup\n</string>
-    <string name="intro5Description">Sie können selbstverständlich Backups anlegen. Um Karten zu exportieren oder importieren wählen Sie Import/Export im Menü auf dem Hauptbildschirm.\n\n</string>
-    <string name="intro6Title">Feedback\n</string>
-    <string name="intro6Description">Diese App enthält keine Werbung, und ist freie und quelloffene Software. Für Details berühren Sie Über im Menü auf der Hauptseite.\n\nHinterlassen Sie uns ein Feedback im App-Store (:</string>
-
     <string name="change">Anpassen</string>
     <string name="storeTextColorTitle">Textfarbe</string>
     <string name="storeTextBackgroundColorTitle">Hintergrundfarbe</string>

@@ -13,11 +13,6 @@
         android:title="@string/share"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/action_edit"
-        android:icon="@drawable/ic_mode_edit_white_24dp"
-        android:title="@string/edit"
-        app:showAsAction="always"/>
-    <item
         android:id="@+id/action_star_unstar"
         android:icon="@drawable/ic_unstarred_white"
         android:title="@string/star"

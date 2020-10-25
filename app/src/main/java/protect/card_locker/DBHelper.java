@@ -35,6 +35,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String HEADER_TEXT_COLOR = "headertextcolor";
         public static final String CARD_ID = "cardid";
         public static final String BARCODE_TYPE = "barcodetype";
+        public static final String STAR_STATUS = "starstatus";
     }
 
     static class LoyaltyCardDbIdsGroups
@@ -65,7 +66,8 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
-                LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null)");
+                LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null," +
+                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
 
         // create associative table for cards in groups
         db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -93,23 +95,17 @@ public class DBHelper extends SQLiteOpenHelper
                     + " ADD COLUMN " + LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER");
         }
 
-        // Upgrade from version 3 to 4
+        // Upgrade from version 3 to version 4
         if(oldVersion < 4 && newVersion >= 4)
         {
-            db.execSQL("create table " + LoyaltyCardDbGroups.TABLE + "(" +
-                    LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
-                    LoyaltyCardDbGroups.NAME + " TEXT not null)");
-
-            db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
-                    LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
-                    LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
-                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID +"))");;
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'");
         }
     }
 
     public long insertLoyaltyCard(final String store, final String note, final String cardId,
                                   final String barcodeType, final Integer headerColor,
-                                  final Integer headerTextColor)
+                                  final Integer headerTextColor, final int starStatus)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -119,6 +115,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return newId;
     }
@@ -126,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
                                      final String note, final String cardId,
                                      final String barcodeType, final Integer headerColor,
-                                     final Integer headerTextColor)
+                                     final Integer headerTextColor, final int starStatus)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -136,6 +133,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.HEADER_TEXT_COLOR, headerTextColor);
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return (newId != -1);
     }
@@ -158,7 +156,18 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsUpdated == 1);
     }
 
-    public LoyaltyCard getLoyaltyCard(final int id, boolean withGroups)
+    public boolean updateLoyaltyCardStarStatus(final int id, final int starStatus)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
+        int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
+                LoyaltyCardDbIds.ID + "=?",
+                new String[]{Integer.toString(id)});
+        return (rowsUpdated == 1);
+    }
+
+    public LoyaltyCard getLoyaltyCard(final int id)
     {
         SQLiteDatabase db = getReadableDatabase();
         Cursor data = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
@@ -170,12 +179,7 @@ public class DBHelper extends SQLiteOpenHelper
         {
             data.moveToFirst();
 
-            List<Group> groups = new ArrayList<>();
-            if (withGroups) {
-                groups = getLoyaltyCardGroups(id);
-            }
-
-            card = LoyaltyCard.toLoyaltyCard(data, groups);
+            card = LoyaltyCard.toLoyaltyCard(data);
         }
 
         data.close();
@@ -267,7 +271,7 @@ public class DBHelper extends SQLiteOpenHelper
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
-                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC," + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
         return res;
     }
 

@@ -57,7 +57,7 @@ public class CardShortcutConfigure extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected, new ArrayList<Group>());
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 
                 Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
 

@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected, new ArrayList<Group>());
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 
                 Intent i = new Intent(view.getContext(), LoyaltyCardViewActivity.class);
                 i.setAction("");
@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity
         ListView listView = findViewById(R.id.list);
 
         Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor, new ArrayList<Group>());
+        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
         if(card != null)
         {

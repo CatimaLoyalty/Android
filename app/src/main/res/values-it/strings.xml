@@ -1,17 +1,13 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
-
     <string name="noGiftCards">Non hai ancora alcuna carta fedeltà. Premi sul bottone +(più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue carte fedeltà, così da averle sempre a disposizione.</string>
-    <string name="noMatchingGiftCards">Nessuna carta fedeltà corrisponde al filtro. Riprovare con altri valori</string>
-
+    <string name="noMatchingGiftCards">Nessuna carta fedeltà corrisponde al filtro. Riprovare con altri valori.</string>
     <string name="storeName">Negozio</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
     <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
-
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="capture">Scansione carta</string>
@@ -27,15 +23,13 @@
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>
-    <string name="sendLabel">Invia&#8230;</string>
+    <string name="sendLabel">Invia…</string>
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
     <string name="scanCardBarcode">Scansiona codice carta</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
     <string name="noCardsMessage">Non ci sono carte. Aggiungine prima una</string>
-
     <string name="barcodeImageDescription">Immagine del codice a barre della carta</string>
-
     <string name="noStoreError">Nessun negozio inserito</string>
     <string name="noCardIdError">Nessun codice carta inserito</string>
     <string name="noCardExistsError">Impossibile trovare la carta</string>
@@ -50,38 +44,32 @@
     <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
     <string name="exportFailed">Impossibile esportare</string>
-    <string name="importing">Importazione in corso&#8230;</string>
-    <string name="exporting">Esportazione in corso&#8230;</string>
-    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna.</string>
+    <string name="importing">Importazione in corso…</string>
+    <string name="exporting">Esportazione in corso…</string>
+    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna</string>
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
     <string name="importOptionFilesystemButton">Dal file system</string>
     <string name="importOptionApplicationTitle">Usa un\'applicazione esterna</string>
     <string name="importOptionApplicationExplanation">Usa un\'applicazione esterna come Dropbox, Google Drive o il tuo file manager preferito per aprire il file.</string>
     <string name="importOptionApplicationButton">Usa un\'applicazione esterna</string>
-
     <string name="about">Informazioni</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2019-&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Sylvia van Os.<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Pubblicato sotto licenza GPLv3.</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informazione sulla versione: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
-    <string name="enterBarcodeInstructions">Immettere l\'ID della carta, quindi selezionare l\'immagine che rappresenta il codice a barre desiderato oppure selezionare &#8220;Questa carta non ha un codice a barre&#8221; per non valorizzare il dato.</string>
-
+    <string name="enterBarcodeInstructions">Immettere l\'ID della carta, quindi selezionare l\'immagine che rappresenta il codice a barre desiderato oppure selezionare «Questa carta non ha un codice a barre» per non valorizzare il dato.</string>
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
-
     <string name="thumbnailDescription">Miniatura carta</string>
-
     <string name="change">Cambia</string>
     <string name="storeTextColorTitle">Colore titolo</string>
     <string name="storeTextBackgroundColorTitle">Colore scheda</string>
     <string name="storeNameBackgroundColorDescription">Colore di sfondo del titolo carta</string>
     <string name="storeNameColorDescription">Colore del titolo carta</string>
-
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
     <string name="settings_theme">Tema</string>
@@ -96,4 +84,10 @@
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
-    </resources>
+    <string name="exportSuccessful">Dati della carta fedeltà esportati correttamente</string>
+    <string name="importSuccessful">Dati della carta fedeltà importati correttamente</string>
+    <string name="app_copyright_old">Basato su Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
+    <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
+    <string name="addedShortcut">Scorciatoia aggiunta</string>
+    <string name="barcodeType">Tipo di codice a barre</string>
+</resources>

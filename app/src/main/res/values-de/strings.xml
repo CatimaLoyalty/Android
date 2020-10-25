@@ -1,12 +1,9 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Suche</string>
     <string name="action_add">Neu</string>
-
     <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den \"+\"-Button oben rechts können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
     <string name="noMatchingGiftCards">Es passen keine Kundenkarten zum Suchfilter. Bitte probiere verschiedene Begriffe aus.</string>
-
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
@@ -20,19 +17,19 @@
     <string name="confirm">Bestätigen</string>
     <string name="lockScreen">Rotation blockieren</string>
     <string name="unlockScreen">Rotation zulassen</string>
+    <string name="star">Zu den Favoriten hinzufügen</string>
+    <string name="unstar">Aus der Favoritenliste entfernen</string>
     <string name="deleteTitle">Karte entfernen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
-    <string name="sendLabel">Senden&#8230;</string>
+    <string name="sendLabel">Senden…</string>
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
-    <string name="scanCardBarcode">Barcode scannen</string>
+    <string name="scanCardBarcode">Strichcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Es ist noch keine Karte vorhanden, bitte zuerst eine hinzufügen</string>
-
-    <string name="barcodeImageDescription">Bild des Barcodes</string>
-
+    <string name="barcodeImageDescription">Bild des Strichcodes</string>
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
@@ -48,34 +45,29 @@
     <string name="exportFailed">Export fehlgeschlagen</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
-    <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen.</string>
+    <string name="noExternalStoragePermissionError">Ohne die Berechtigung für den externen Speicher kann kein Import oder Export erfolgen</string>
     <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
     <string name="importOptionFilesystemButton">Aus Dateisystem</string>
     <string name="importOptionApplicationTitle">Externe App verwenden</string>
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
-
     <string name="about">Über</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
+    <string name="app_copyright_fmt">Copyright 2019-&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Sylvia van Os.<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lizensiert unter der GPLv3.</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informationen zu dieser Version: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> verwendet folgenden Dritt-Ressourcen: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
-    <string name="selectBarcodeTitle">Barcode auswählen</string>
+    <string name="selectBarcodeTitle">Strichcode auswählen</string>
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
-
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
-
     <string name="change">Anpassen</string>
     <string name="storeTextColorTitle">Textfarbe</string>
     <string name="storeTextBackgroundColorTitle">Hintergrundfarbe</string>
     <string name="storeNameBackgroundColorDescription">Hintergrundfarbe für den Geschäftsnamen</string>
     <string name="storeNameColorDescription">Farbe für den Geschäftsnamen</string>
-
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_card_title_list_font_size">Schriftgröße des Titels in der Listenansicht</string>
@@ -83,6 +75,21 @@
     <string name="settings_card_title_font_size">Schriftgröße des Titels</string>
     <string name="settings_card_id_font_size">Schriftgröße der Kartennummer</string>
     <string name="settings_card_note_font_size">Schriftgröße der Notiz</string>
-    <string name="settings_display_barcode_max_brightness">Helligkeit bei Barcode Ansicht erhöhen</string>
-    <string name="settings_lock_barcode_orientation">Barcodeausrichtung sperren</string>
-    </resources>
+    <string name="settings_display_barcode_max_brightness">Helligkeit bei Strichcode Ansicht erhöhen</string>
+    <string name="settings_lock_barcode_orientation">Strichcodeausrichtung sperren</string>
+    <string name="exportSuccessful">Kundenkartendaten erflogreich exportiert</string>
+    <string name="importSuccessful">Kundenkartendaten erflogreich importiert</string>
+    <string name="intent_import_card_from_url_share_text">Ich will eine Karte mit Ihnen teilen</string>
+    <string name="settings_dark_theme">Dunkel</string>
+    <string name="settings_light_theme">Hell</string>
+    <string name="settings_system_theme">Systemvorgabe</string>
+    <string name="settings_theme">Design</string>
+    <string name="enterBarcodeInstructions">Geben Sie die Karten-ID ein und wählen Sie das Bild aus, das den Strichcode darstellt, den Sie verwenden möchten, oder wählen Sie „Diese Karte hat keinen Strichcode“, um keinen Strichcode zu verwenden.</string>
+    <string name="app_copyright_old">Basiert auf Loyalty Card Keychain, Copyright 2016-2020 Branden Archer.</string>
+    <string name="exportOptionExplanation">Die Daten werden an einen Ort Ihrer Wahl geschrieben.</string>
+    <string name="failedParsingImportUriError">Der Import-URI konnte nicht analysiert werden</string>
+    <string name="addedShortcut">Verknüpfung hinzugefügt</string>
+    <string name="share">Teilen</string>
+    <string name="barcodeNoBarcode">Diese Karte hat keinen Strichcode</string>
+    <string name="barcodeType">Strichcode-Typ</string>
+</resources>

@@ -3,12 +3,10 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
 
-import org.apache.tools.ant.filters.StringInputStream;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +23,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
@@ -71,11 +68,35 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
 
+        assertEquals(cardsToAdd, db.getLoyaltyCardCount());
+    }
+
+    private void addLoyaltyCardsFiveStarred()
+    {
+        int cardsToAdd = 9;
+        // Add in reverse order to test sorting
+        for(int index = cardsToAdd; index > 4; index--)
+        {
+            String storeName = String.format("store, \"%4d", index);
+            String note = String.format("note, \"%4d", index);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 1);
+            boolean result = (id != -1);
+            assertTrue(result);
+        }
+        for(int index = cardsToAdd-5; index > 0; index--)
+        {
+            String storeName = String.format("store, \"%4d", index);
+            String note = String.format("note, \"%4d", index);
+            //if index is even
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 0);
+            boolean result = (id != -1);
+            assertTrue(result);
+        }
         assertEquals(cardsToAdd, db.getLoyaltyCardCount());
     }
 
@@ -102,9 +123,61 @@ public class ImportExportTest
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(Integer.valueOf(index*2), card.headerTextColor);
+            assertEquals(0, card.starStatus);
 
             index++;
         }
+        cursor.close();
+    }
+
+    /**
+     * Check that all of the cards follow the pattern
+     * specified in addLoyaltyCardsSomeStarred(), and are in sequential order
+     * with starred ones first
+     */
+    private void checkLoyaltyCardsFiveStarred()
+        {
+            Cursor cursor = db.getLoyaltyCardCursor();
+            int index = 5;
+
+            while(index<10)
+        {
+            cursor.moveToNext();
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+
+            String expectedStore = String.format("store, \"%4d", index);
+            String expectedNote = String.format("note, \"%4d", index);
+
+            assertEquals(expectedStore, card.store);
+            assertEquals(expectedNote, card.note);
+            assertEquals(BARCODE_DATA, card.cardId);
+            assertEquals(BARCODE_TYPE, card.barcodeType);
+            assertEquals(Integer.valueOf(index), card.headerColor);
+            assertEquals(Integer.valueOf(index*2), card.headerTextColor);
+            assertEquals(1, card.starStatus);
+
+            index++;
+        }
+
+        index = 1;
+        while(cursor.moveToNext() && index<5)
+    {
+        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+
+        String expectedStore = String.format("store, \"%4d", index);
+        String expectedNote = String.format("note, \"%4d", index);
+
+        assertEquals(expectedStore, card.store);
+        assertEquals(expectedNote, card.note);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(index), card.headerColor);
+        assertEquals(Integer.valueOf(index*2), card.headerTextColor);
+        assertEquals(0, card.starStatus);
+
+        index++;
+    }
+
         cursor.close();
     }
 
@@ -149,6 +222,41 @@ public class ImportExportTest
             assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
             checkLoyaltyCards();
+
+            // Clear the database for the next format under test
+            clearDatabase();
+        }
+    }
+
+    @Test
+    public void multipleCardsExportImportSomeStarred() throws IOException
+    {
+        final int NUM_CARDS = 9;
+
+        for(DataFormat format : DataFormat.values())
+        {
+            addLoyaltyCardsFiveStarred();
+
+            ByteArrayOutputStream outData = new ByteArrayOutputStream();
+            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+
+            // Export data to CSV format
+            boolean result = MultiFormatExporter.exportData(db, outStream, format);
+            assertTrue(result);
+            outStream.close();
+
+            clearDatabase();
+
+            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+            InputStreamReader inStream = new InputStreamReader(inData);
+
+            // Import the CSV data
+            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+            assertTrue(result);
+
+            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+
+            checkLoyaltyCardsFiveStarred();
 
             // Clear the database for the next format under test
             clearDatabase();
@@ -291,11 +399,13 @@ public class ImportExportTest
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                       DBHelper.LoyaltyCardDbIds.STORE + "," +
-                       DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                       DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                       DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "\n";
-        csvText += "1,store,note,12345,type";
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -311,6 +421,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -325,8 +436,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,type,,";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,,,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -342,6 +455,7 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
         assertNull(card.headerTextColor);
     }
@@ -356,8 +470,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,type,not a number,invalid";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,not a number,invalid,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -378,8 +494,10 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "\n";
-        csvText += "1,store,note,12345,,1,1";
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,,1,1,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
         InputStreamReader inStream = new InputStreamReader(inputStream);
@@ -395,7 +513,132 @@ public class ImportExportTest
         assertEquals("note", card.note);
         assertEquals("12345", card.cardId);
         assertEquals("", card.barcodeType);
+        assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, (long) card.headerTextColor);
     }
+
+    @Test
+    public void importWithStarredField() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,1,1,1";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertEquals(true, result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertEquals(1, card.starStatus);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
+    }
+
+
+
+    @Test
+    public void importWithNoStarredField() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,1,1,";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertEquals(true, result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
+    }
+
+    @Test
+    public void importWithInvalidStarField() throws IOException
+    {
+        String csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,1,1,2";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        csvText = "";
+        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
+                DBHelper.LoyaltyCardDbIds.STORE + "," +
+                DBHelper.LoyaltyCardDbIds.NOTE + "," +
+                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
+                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
+
+        csvText += "1,store,note,12345,type,1,1,text";
+
+        inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        inStream = new InputStreamReader(inputStream);
+
+        // Import the CSV data
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("store", card.store);
+        assertEquals("note", card.note);
+        assertEquals("12345", card.cardId);
+        assertEquals("type", card.barcodeType);
+        assertEquals(0, card.starStatus);
+        assertEquals(1, (long) card.headerColor);
+        assertEquals(1, (long) card.headerTextColor);
+        }
 }

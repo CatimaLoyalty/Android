@@ -40,9 +40,10 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
         TextView storeField = (TextView) view.findViewById(R.id.store);
         TextView noteField = (TextView) view.findViewById(R.id.note);
+        ImageView star = view.findViewById(R.id.star);
 
         // Extract properties from cursor
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor, new ArrayList<Group>());
+        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
 
         // Populate fields with extracted properties
         storeField.setText(loyaltyCard.store);
@@ -59,6 +60,9 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         {
             noteField.setVisibility(View.GONE);
         }
+
+        if (loyaltyCard.starStatus!=0) star.setVisibility(View.VISIBLE);
+            else star.setVisibility(View.GONE);
 
         int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);

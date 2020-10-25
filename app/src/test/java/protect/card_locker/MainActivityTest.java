@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.appcompat.widget.SearchView;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
@@ -61,9 +60,10 @@ public class MainActivityTest
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The settings, search and add button should be present
-        assertEquals(menu.size(), 4);
+        // The settings, import/export, groups, search and add button should be present
+        assertEquals(menu.size(), 5);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
+        assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
         assertEquals("Settings", menu.findItem(R.id.action_settings).getTitle().toString());
@@ -98,7 +98,7 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -117,6 +117,56 @@ public class MainActivityTest
     }
 
     @Test
+    public void addFourLoyaltyCardsTwoStarred()  // Main screen showing starred cards on top correctly
+    {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity)activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
+        ListView list = mainActivity.findViewById(R.id.list);
+
+        assertEquals(0, list.getCount());
+
+        DBHelper db = new DBHelper(mainActivity);
+        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("storeD", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+        db.insertLoyaltyCard("storeC", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 1);
+
+        assertEquals(View.VISIBLE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(4, list.getAdapter().getCount());
+        Cursor cursor = (Cursor)list.getAdapter().getItem(0);
+        assertNotNull(cursor);
+        assertEquals("storeC",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(1);
+        assertNotNull(cursor);
+        assertEquals("storeD",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(2);
+        assertNotNull(cursor);
+        assertEquals("storeA",cursor.getString(cursor.getColumnIndex("store")));
+
+        cursor = (Cursor)list.getAdapter().getItem(3);
+        assertNotNull(cursor);
+        assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+    }
+
+    @Test
     public void testFiltering()
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
@@ -130,8 +180,8 @@ public class MainActivityTest
         ListView list = mainActivity.findViewById(R.id.list);
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
-        db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE);
+        db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
 
         activityController.pause();
         activityController.resume();

@@ -145,7 +145,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {
-            final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId, true);
+            final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
             if(loyaltyCard == null)
             {
                 Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
@@ -167,9 +167,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(groupsChips.getChildCount() == 0)
             {
                 List<Group> existingGroups = db.getGroups();
+
+                List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
                 List<Integer> cardGroupIds = new ArrayList<>();
 
-                for (Group cardGroup : loyaltyCard.groups) {
+                for (Group cardGroup : loyaltyCardGroups) {
                     cardGroupIds.add(cardGroup.id);
                 }
 
@@ -448,13 +450,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
 
         if(updateLoyaltyCard)
-        {
+        {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, 0);
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);

@@ -61,7 +61,6 @@
     <string name="importOptionApplicationButton">Użyj zewnętrznej aplikacji</string>
 
     <string name="about">O aplikacji</string>
-    <string name="app_copyright_fmt">© 2016 — <xliff:g>%d</xliff:g> Branden Archer.</string>
     <string name="app_license">Licencjonowane na podstawie GNU General Public License, wersji 3.0.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>

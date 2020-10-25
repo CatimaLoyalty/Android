@@ -53,7 +53,6 @@
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
     <string name="about">Über</string>
-    <string name="app_copyright_fmt">Copyright 2019-&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Sylvia van Os.<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lizensiert unter der GPLv3.</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>

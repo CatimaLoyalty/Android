@@ -54,7 +54,6 @@
     <string name="importOptionApplicationButton">Χρήση εξωτερικής εφαρμογής</string>
 
     <string name="about">Σχετικά</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Άδεια χρήσης υπό το GPLv3.</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>

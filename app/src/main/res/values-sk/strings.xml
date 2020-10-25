@@ -54,7 +54,6 @@
     <string name="importOptionApplicationButton">Použiť externú aplikáciu</string>
 
     <string name="about">O aplikácii</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licencované GPLv3.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>

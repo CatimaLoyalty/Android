@@ -52,7 +52,6 @@
     <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
     <string name="about">Om</string>
-    <string name="app_copyright_fmt">Kopirett 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Lisensiert GPLv3+.</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g>
     </string>

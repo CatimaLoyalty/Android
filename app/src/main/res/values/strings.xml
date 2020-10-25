@@ -68,7 +68,7 @@
     <string name="importOptionApplicationButton">Use external application</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" translatable="false">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
     <string name="app_license">Licensed under the GPLv3.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>

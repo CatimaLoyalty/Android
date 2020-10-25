@@ -54,7 +54,6 @@
     <string name="importOptionApplicationButton">Uporabi zunanjo aplikacijo</string>
 
     <string name="about">Več o aplikaciji</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licencirano s skladu z GPLv3.</string>
     <string name="about_title_fmt">Več o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>

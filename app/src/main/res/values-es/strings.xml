@@ -51,7 +51,6 @@
     <string name="importOptionApplicationExplanation">Use una aplicación externa como Dropbox, Google Drive o tu gestor de archivos favoritos para abrir un archivo.</string>
     <string name="importOptionApplicationButton">Utilizar aplicación externa</string>
     <string name="about">Acerca de</string>
-    <string name="app_copyright_fmt">Derechos de autor © 2019-&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Sylvia van Os.<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Disponible en virtud de la GPLv3.</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>

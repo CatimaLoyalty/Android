@@ -64,7 +64,6 @@
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
 
     <string name="about">О программе</string>
-    <string name="app_copyright_fmt">Все права защищены 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Лицензия GPLv3.</string>
     <string name="about_title_fmt">О программе <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>

@@ -34,7 +34,6 @@
     <string name="exporting">Eksportuoja&#8230;</string>
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
     <string name="about">Apie</string>
-    <string name="app_copyright_fmt">Visos teisės saugomos 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Licenzijuota pagal GPLv3.</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>

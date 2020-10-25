@@ -64,7 +64,6 @@
     <string name="importOptionApplicationButton">Externe app gebruiken</string>
 
     <string name="about">Over</string>
-    <string name="app_copyright_fmt">Copyright 2016-<xliff:g>%d</xliff:g> Branden Archer</string>
     <string name="app_license">Uitgebracht onder de GPLv3-licentie.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>

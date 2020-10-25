@@ -71,7 +71,6 @@
     <string name="exportSuccessful">Se exportaron correctamente los datos de tarjetas de fidelización</string>
     <string name="importSuccessful">Se importaron correctamente los datos de tarjetas de fidelización</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirle una tarjeta</string>
-    <string name="intent_import_card_from_url">Importar en Catima</string>
     <string name="settings_lock_barcode_orientation">Bloquear orientación de código de barras</string>
     <string name="settings_dark_theme">Tema oscuro</string>
     <string name="settings_light_theme">Tema claro</string>

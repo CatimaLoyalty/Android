@@ -78,7 +78,6 @@
     <string name="exportSuccessful">Kundenkartendaten erflogreich exportiert</string>
     <string name="importSuccessful">Kundenkartendaten erflogreich importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich will eine Karte mit Ihnen teilen</string>
-    <string name="intent_import_card_from_url">In Catima importieren</string>
     <string name="settings_dark_theme">Dunkel</string>
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">Systemvorgabe</string>

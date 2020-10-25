@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.text.TextUtils.join;
+
 public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
@@ -209,6 +211,24 @@ public class DBHelper extends SQLiteOpenHelper
         return groups;
     }
 
+    public void setLoyaltyCardGroups(final int id, List<Group> groups)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // First delete lookup table entries associated with this card
+        db.delete(LoyaltyCardDbIdsGroups.TABLE,
+                LoyaltyCardDbIdsGroups.cardID + " = ? ",
+                new String[]{String.format("%d", id)});
+
+        // Then create entries for selected values
+        for (Group group : groups) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(LoyaltyCardDbIdsGroups.cardID, id);
+            contentValues.put(LoyaltyCardDbIdsGroups.groupID, group.id);
+            db.insert(LoyaltyCardDbIdsGroups.TABLE, null, contentValues);
+        }
+    }
+
     public boolean deleteLoyaltyCard (final int id)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -247,6 +267,34 @@ public class DBHelper extends SQLiteOpenHelper
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? " +
+                " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+        return res;
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store or note in a certain group.
+     *
+     * @param filter
+     * @param group
+     * @return Cursor
+     */
+    public Cursor getLoyaltyCardCursor(final String filter, Group group)
+    {
+        if (group == null) {
+            return getLoyaltyCardCursor(filter);
+        }
+
+        List<Integer> allowedIds = getGroupCardIds(group.id);
+
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter, join(",", allowedIds) };
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
+                " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
+                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
+                " AND " + LoyaltyCardDbIds.ID + " IN (?) " +
                 " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
         return res;
     }
@@ -301,6 +349,24 @@ public class DBHelper extends SQLiteOpenHelper
         return res;
     }
 
+    public List<Group> getGroups() {
+        Cursor data = getGroupCursor();
+
+        List<Group> groups = new ArrayList<>();
+
+        if (!data.moveToFirst()) {
+            return groups;
+        }
+
+        groups.add(Group.toGroup(data));
+
+        while (data.moveToNext()) {
+            groups.add(Group.toGroup(data));
+        }
+
+        return groups;
+    }
+
     public Group getGroup(final int id)
     {
         SQLiteDatabase db = getReadableDatabase();
@@ -337,6 +403,30 @@ public class DBHelper extends SQLiteOpenHelper
         data.close();
 
         return numItems;
+    }
+
+    public List<Integer> getGroupCardIds(final int id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor data =  db.rawQuery("SELECT " + LoyaltyCardDbIdsGroups.cardID +
+                " FROM " + LoyaltyCardDbIdsGroups.TABLE +
+                " WHERE " + LoyaltyCardDbIdsGroups.groupID + " =? ", new String[]{String.format("%d", id)});
+
+        List<Integer> cardIds = new ArrayList<>();
+
+        if (!data.moveToFirst()) {
+            return cardIds;
+        }
+
+        cardIds.add(data.getInt(0));
+
+        while (data.moveToNext()) {
+            cardIds.add(data.getInt(0));
+        }
+
+        data.close();
+
+        return cardIds;
     }
 
     public long insertGroup(final String name)

@@ -52,5 +52,12 @@
             android:ellipsize="end"
             android:textSize="@dimen/noteTextSize"/>
     </LinearLayout>
-
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="@dimen/cardThumbnailSize"
+        android:layout_height="@dimen/cardThumbnailSize"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:src="@drawable/ic_starred_white"
+        android:tint="#000000"
+        android:contentDescription="@string/starImage"/>
 </LinearLayout>

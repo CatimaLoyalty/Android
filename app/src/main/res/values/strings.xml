@@ -14,6 +14,9 @@
     <string name="barcodeType">Barcode type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
 
+    <string name="star">Add to favorites</string>
+    <string name="unstar">Remove from favorites</string>
+
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="capture">Capture Card</string>
@@ -80,6 +83,7 @@
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 
     <string name="thumbnailDescription">Thumbnail for card</string>
+    <string name="starImage">Favorite star</string>
 
     <string name="change">Change</string>
     <string name="storeTextColorTitle">Store Text Color</string>

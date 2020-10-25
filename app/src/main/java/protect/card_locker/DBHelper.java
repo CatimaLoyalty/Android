@@ -7,11 +7,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 4;
+
+    static class LoyaltyCardDbGroups
+    {
+        public static final String TABLE = "groups";
+        public static final String ID = "_id";
+        public static final String NAME = "name";
+    }
 
     static class LoyaltyCardDbIds
     {
@@ -25,6 +35,13 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String BARCODE_TYPE = "barcodetype";
     }
 
+    static class LoyaltyCardDbIdsGroups
+    {
+        public static final String TABLE = "cardsGroups";
+        public static final String cardID = "cardId";
+        public static final String groupID = "groupID";
+    }
+
     public DBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,7 +50,12 @@ public class DBHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        // create table for gift cards
+        // create table for card groups
+        db.execSQL("create table " + LoyaltyCardDbGroups.TABLE + "(" +
+                LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
+                LoyaltyCardDbGroups.NAME + " TEXT not null)");
+
+        // create table for cards
         db.execSQL("create table " + LoyaltyCardDbIds.TABLE + "(" +
                 LoyaltyCardDbIds.ID + " INTEGER primary key autoincrement," +
                 LoyaltyCardDbIds.STORE + " TEXT not null," +
@@ -42,6 +64,12 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT not null)");
+
+        // create associative table for cards in groups
+        db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
+                LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
+                LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
+                "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID +"))");
     }
 
     @Override
@@ -62,6 +90,19 @@ public class DBHelper extends SQLiteOpenHelper
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER");
         }
+
+        // Upgrade from version 3 to 4
+        if(oldVersion < 4 && newVersion >= 4)
+        {
+            db.execSQL("create table " + LoyaltyCardDbGroups.TABLE + "(" +
+                    LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
+                    LoyaltyCardDbGroups.NAME + " TEXT not null)");
+
+            db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
+                    LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
+                    LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
+                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID +"))");;
+        }
     }
 
     public long insertLoyaltyCard(final String store, final String note, final String cardId,
@@ -80,8 +121,8 @@ public class DBHelper extends SQLiteOpenHelper
         return newId;
     }
 
-    public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id,
-                                     final String store, final String note, final String cardId,
+    public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
+                                     final String note, final String cardId,
                                      final String barcodeType, final Integer headerColor,
                                      final Integer headerTextColor)
     {
@@ -96,7 +137,6 @@ public class DBHelper extends SQLiteOpenHelper
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
         return (newId != -1);
     }
-
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
                                      final String cardId, final String barcodeType,
@@ -116,7 +156,7 @@ public class DBHelper extends SQLiteOpenHelper
         return (rowsUpdated == 1);
     }
 
-    public LoyaltyCard getLoyaltyCard(final int id)
+    public LoyaltyCard getLoyaltyCard(final int id, boolean withGroups)
     {
         SQLiteDatabase db = getReadableDatabase();
         Cursor data = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
@@ -127,7 +167,13 @@ public class DBHelper extends SQLiteOpenHelper
         if(data.getCount() == 1)
         {
             data.moveToFirst();
-            card = LoyaltyCard.toLoyaltyCard(data);
+
+            List<Group> groups = new ArrayList<>();
+            if (withGroups) {
+                groups = getLoyaltyCardGroups(id);
+            }
+
+            card = LoyaltyCard.toLoyaltyCard(data, groups);
         }
 
         data.close();
@@ -135,12 +181,47 @@ public class DBHelper extends SQLiteOpenHelper
         return card;
     }
 
+    public List<Group> getLoyaltyCardGroups(final int id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor data = db.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE + " g " +
+                " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " ig ON ig." + LoyaltyCardDbIdsGroups.groupID + " = g." + LoyaltyCardDbGroups.ID +
+                " where " + LoyaltyCardDbIdsGroups.cardID + "=?", new String[]{String.format("%d", id)});
+
+        List<Group> groups = new ArrayList<>();
+
+        Group tempTag = new Group(0, "Test");
+
+        groups.add(tempTag);
+
+        if (!data.moveToFirst()) {
+            return groups;
+        }
+
+        groups.add(Group.toGroup(data));
+
+        while (data.moveToNext())
+
+        if(data.moveToFirst()) {
+            groups.add(Group.toGroup(data));
+        }
+
+        return groups;
+    }
+
     public boolean deleteLoyaltyCard (final int id)
     {
         SQLiteDatabase db = getWritableDatabase();
-        int rowsDeleted =  db.delete(LoyaltyCardDbIds.TABLE,
+        // Delete card
+        int rowsDeleted = db.delete(LoyaltyCardDbIds.TABLE,
                 LoyaltyCardDbIds.ID + " = ? ",
                 new String[]{String.format("%d", id)});
+
+        // And delete lookup table entries associated with this card
+        db.delete(LoyaltyCardDbIdsGroups.TABLE,
+                LoyaltyCardDbIdsGroups.cardID + " = ? ",
+                new String[]{String.format("%d", id)});
+
         return (rowsDeleted == 1);
     }
 
@@ -192,6 +273,104 @@ public class DBHelper extends SQLiteOpenHelper
                 " WHERE " + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? "
                 , selectionArgs, null);
+
+        int numItems = 0;
+
+        if(data.getCount() == 1)
+        {
+            data.moveToFirst();
+            numItems = data.getInt(0);
+        }
+
+        data.close();
+
+        return numItems;
+    }
+
+    /**
+     * Returns a cursor to all groups.
+     *
+     * @return Cursor
+     */
+    public Cursor getGroupCursor()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor res = db.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE +
+                " ORDER BY " + LoyaltyCardDbGroups.NAME + " COLLATE NOCASE ASC", null, null);
+        return res;
+    }
+
+    public Group getGroup(final int id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor data = db.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE +
+                " where " + LoyaltyCardDbGroups.ID + "=?", new String[]{String.format("%d", id)});
+
+        Group group = null;
+
+        if(data.getCount() == 1)
+        {
+            data.moveToFirst();
+
+            group = Group.toGroup(data);
+        }
+
+        data.close();
+
+        return group;
+    }
+
+    public int getGroupCount()
+    {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbGroups.TABLE, null);
+
+        int numItems = 0;
+
+        if(data.getCount() == 1)
+        {
+            data.moveToFirst();
+            numItems = data.getInt(0);
+        }
+
+        data.close();
+
+        return numItems;
+    }
+
+    public long insertGroup(final String name)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbGroups.NAME, name);
+        final long newId = db.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+        return newId;
+    }
+
+    public boolean deleteGroup(final int id)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        // Delete group
+        int rowsDeleted = db.delete(LoyaltyCardDbGroups.TABLE,
+                LoyaltyCardDbGroups.ID + " = ? ",
+                new String[]{String.format("%d", id)});
+
+        // And delete lookup table entries associated with this group
+        db.delete(LoyaltyCardDbIdsGroups.TABLE,
+                LoyaltyCardDbIdsGroups.groupID + " = ? ",
+                new String[]{String.format("%d", id)});
+
+        return (rowsDeleted == 1);
+    }
+
+    public int getGroupCardCount(final int id)
+    {
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor data =  db.rawQuery("SELECT Count(*) FROM " + LoyaltyCardDbIdsGroups.TABLE +
+                " where " + LoyaltyCardDbIdsGroups.groupID + "=?",
+                new String[]{String.format("%d", id)});
 
         int numItems = 0;
 

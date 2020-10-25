@@ -166,7 +166,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             window.setAttributes(attributes);
         }
 
-        loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+        loyaltyCard = db.getLoyaltyCard(loyaltyCardId, false);
         if(loyaltyCard == null)
         {
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);

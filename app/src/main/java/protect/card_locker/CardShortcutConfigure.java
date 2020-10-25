@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * The configuration screen for creating a shortcut.
  */
@@ -55,7 +57,7 @@ public class CardShortcutConfigure extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected, new ArrayList<Group>());
 
                 Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
 

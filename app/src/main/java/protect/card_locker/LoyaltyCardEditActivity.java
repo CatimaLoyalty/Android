@@ -139,7 +139,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {
-            final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+            final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId, true);
             if(loyaltyCard == null)
             {
                 Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);

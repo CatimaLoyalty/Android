@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import java.io.InvalidObjectException;
+import java.util.ArrayList;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
@@ -57,7 +58,7 @@ public class ImportURIHelper {
             {
                 headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
             }
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor);
+            return new LoyaltyCard(-1, store, note, new ArrayList<Group>(), cardId, barcodeType, headerColor, headerTextColor);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

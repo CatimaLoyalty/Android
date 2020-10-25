@@ -9,6 +9,8 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import protect.card_locker.preferences.Settings;
 
 class LoyaltyCardCursorAdapter extends CursorAdapter
@@ -40,7 +42,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         TextView noteField = (TextView) view.findViewById(R.id.note);
 
         // Extract properties from cursor
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor, new ArrayList<Group>());
 
         // Populate fields with extracted properties
         storeField.setText(loyaltyCard.store);

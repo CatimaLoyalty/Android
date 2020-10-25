@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVPrinter;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
@@ -31,7 +32,7 @@ public class CsvDatabaseExporter implements DatabaseExporter
 
         while(cursor.moveToNext())
         {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor, new ArrayList<Group>());
 
             printer.printRecord(card.id,
                     card.store,

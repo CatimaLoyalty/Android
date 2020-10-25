@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected, new ArrayList<Group>());
 
                 Intent i = new Intent(view.getContext(), LoyaltyCardViewActivity.class);
                 i.setAction("");
@@ -194,7 +195,7 @@ public class MainActivity extends AppCompatActivity
         ListView listView = findViewById(R.id.list);
 
         Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor, new ArrayList<Group>());
 
         if(card != null)
         {
@@ -261,6 +262,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
+
+        if (id == R.id.action_manage_groups)
+        {
+            Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
+            return true;
+        }
 
         if(id == R.id.action_import_export)
         {

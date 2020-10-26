@@ -5,6 +5,8 @@ Changes:
 - Removed intro
 - Add floating action buttons
 - Fix Android 5 crash when opening About screen
+- Add favourites support
+- Fix disabled auto-rotate being ignored
 
 ## v0.28 (2020-03-09)
 

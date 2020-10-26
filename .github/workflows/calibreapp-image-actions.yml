@@ -3,11 +3,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
 jobs:
   build:
     name: calibreapp/image-actions

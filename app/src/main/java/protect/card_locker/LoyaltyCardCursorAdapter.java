@@ -2,13 +2,15 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.appcompat.app.AppCompatDelegate;
 import protect.card_locker.preferences.Settings;
 
 class LoyaltyCardCursorAdapter extends CursorAdapter
@@ -32,13 +34,16 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
     // The bindView method is used to bind all data to a given view
     // such as setting the text on a TextView.
     @Override
-    public void bindView(View view, Context context, Cursor cursor)
-    {
+    public void bindView(View view, Context context, Cursor cursor) {
         // Find fields to populate in inflated template
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
-        TextView storeField = (TextView) view.findViewById(R.id.store);
-        TextView noteField = (TextView) view.findViewById(R.id.note);
+        TextView storeField = view.findViewById(R.id.store);
+        TextView noteField = view.findViewById(R.id.note);
         ImageView star = view.findViewById(R.id.star);
+
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            star.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        }
 
         // Extract properties from cursor
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
@@ -48,14 +53,11 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
 
         storeField.setTextSize(settings.getCardTitleListFontSize());
 
-        if(loyaltyCard.note.isEmpty() == false)
-        {
+        if (!loyaltyCard.note.isEmpty()) {
             noteField.setVisibility(View.VISIBLE);
             noteField.setText(loyaltyCard.note);
             noteField.setTextSize(settings.getCardNoteListFontSize());
-        }
-        else
-        {
+        } else {
             noteField.setVisibility(View.GONE);
         }
 

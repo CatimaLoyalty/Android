@@ -42,7 +42,6 @@
         <activity
             android:name=".LoyaltyCardEditActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"
             android:exported="true">
             <intent-filter android:label="@string/app_name">
@@ -62,21 +61,17 @@
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"
             android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".preferences.SettingsActivity"
-            android:label="@string/settings"
-            android:configChanges="orientation|screenSize"/>
+            android:label="@string/settings"/>
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
-            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".CardShortcutConfigure"
             android:label="@string/cardShortcut"
-            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>

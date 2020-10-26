@@ -392,7 +392,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
             item.setTitle(R.string.lockScreen);
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         }
     }
 

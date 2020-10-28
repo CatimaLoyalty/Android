@@ -2,23 +2,27 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import protect.card_locker.preferences.Settings;
 
 class LoyaltyCardCursorAdapter extends CursorAdapter
 {
     Settings settings;
+    boolean darkModeEnabled;
 
     public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
     {
         super(context, cursor, 0);
         settings = new Settings(context);
+        darkModeEnabled= MainActivity.isDarkModeEnabled(context);
+
     }
 
     // The newView method is used to inflate a new view and return it,
@@ -36,9 +40,14 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
     {
         // Find fields to populate in inflated template
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
-        TextView storeField = (TextView) view.findViewById(R.id.store);
-        TextView noteField = (TextView) view.findViewById(R.id.note);
+        TextView storeField = view.findViewById(R.id.store);
+        TextView noteField = view.findViewById(R.id.note);
         ImageView star = view.findViewById(R.id.star);
+
+        if(darkModeEnabled)
+        {
+            star.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        }
 
         // Extract properties from cursor
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
@@ -48,7 +57,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
 
         storeField.setTextSize(settings.getCardTitleListFontSize());
 
-        if(loyaltyCard.note.isEmpty() == false)
+        if(!loyaltyCard.note.isEmpty())
         {
             noteField.setVisibility(View.VISIBLE);
             noteField.setText(loyaltyCard.note);

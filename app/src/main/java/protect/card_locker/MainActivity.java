@@ -2,21 +2,15 @@ package protect.card_locker;
 
 import android.app.SearchManager;
 import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ClipboardManager;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -28,13 +22,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
-
 import java.util.Calendar;
 import java.util.Map;
-
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -196,23 +191,20 @@ public class MainActivity extends AppCompatActivity
         Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
         LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
-        if(card != null)
+        if(item.getItemId() == R.id.action_clipboard)
         {
-            if(item.getItemId() == R.id.action_clipboard)
-            {
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText(card.store, card.cardId);
-                clipboard.setPrimaryClip(clip);
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+            clipboard.setPrimaryClip(clip);
 
-                Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
-                return true;
-            }
-            else if(item.getItemId() == R.id.action_share)
-            {
-                final ImportURIHelper importURIHelper = new ImportURIHelper(this);
-                importURIHelper.startShareIntent(card);
-                return true;
-            }
+            Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else if(item.getItemId() == R.id.action_share)
+        {
+            final ImportURIHelper importURIHelper = new ImportURIHelper(this);
+            importURIHelper.startShareIntent(card);
+            return true;
         }
 
         return super.onContextItemSelected(item);
@@ -334,9 +326,7 @@ public class MainActivity extends AppCompatActivity
 
         // Set CSS for dark mode if dark mode
         String css = "";
-        Configuration config = getResources().getConfiguration();
-        int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        if(currentNightMode == Configuration.UI_MODE_NIGHT_YES)
+        if(isDarkModeEnabled(this))
         {
             css = "<style>body {color:white; background-color:black;}</style>";
         }
@@ -382,4 +372,12 @@ public class MainActivity extends AppCompatActivity
             })
             .show();
     }
+
+    protected static boolean isDarkModeEnabled(Context inputContext)
+    {
+        Configuration config = inputContext.getResources().getConfiguration();
+        int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
+    }
+
 }

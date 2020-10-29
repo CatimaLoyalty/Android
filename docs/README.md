@@ -6,7 +6,7 @@
 <a href="https://play.google.com/store/apps/details?id=me.hackerchick.catima" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
-![Logo](https://github.com/TheLastProject/Catima/app/src/main/ic_launcher-playstore.png)
+![Logo](https://github.com/TheLastProject/Catima/raw/master/app/src/main/ic_launcher-playstore.png)
 *Logo by [Rose (TangentFoxy)](http://github.com/TangentFoxy)*
 
 Stores all of your store loyalty cards on your phone, removing the need to carry them around.  Currently the following barcode types are supported:

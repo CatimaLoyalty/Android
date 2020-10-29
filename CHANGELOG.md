@@ -1,4 +1,4 @@
-## [Unreleased]
+## v0.29 (2020-10-29)
 
 Changes:
 - Rebrand to Catima

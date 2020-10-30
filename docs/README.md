@@ -1,5 +1,6 @@
 # Catima
 ![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
+[![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)
 
 <a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
@@ -58,7 +59,7 @@ Windows:
 
 # Translating
 
-We are going to set up a translation platform soon, please check back later.
+Please contribute through [our Weblate page](https://hosted.weblate.org/projects/catima/).
 
 # Thanks
 

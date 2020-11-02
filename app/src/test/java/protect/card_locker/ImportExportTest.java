@@ -395,7 +395,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutColors() throws IOException
+    public void importWithoutColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -427,7 +427,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutNullColors() throws IOException
+    public void importWithoutNullColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -461,7 +461,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutInvalidColors() throws IOException
+    public void importWithoutInvalidColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -485,7 +485,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithNoBarcodeType() throws IOException
+    public void importWithNoBarcodeTypeV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -519,7 +519,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithStarredField() throws IOException
+    public void importWithStarredFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -555,7 +555,7 @@ public class ImportExportTest
 
 
     @Test
-    public void importWithNoStarredField() throws IOException
+    public void importWithNoStarredFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -589,7 +589,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithInvalidStarField() throws IOException
+    public void importWithInvalidStarFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +

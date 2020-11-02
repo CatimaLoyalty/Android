@@ -269,7 +269,7 @@ public class DatabaseTest
 
         Group group = db.getGroup("group one");
         assertNotNull(group);
-        assertEquals("group one", group.name);
+        assertEquals("group one", group._id);
 
         result = db.deleteGroup("group one");
         assertTrue(result);
@@ -296,7 +296,7 @@ public class DatabaseTest
         // But group one renamed does
         Group group2 = db.getGroup("group one renamed");
         assertNotNull(group2);
-        assertEquals("group one renamed", group2.name);
+        assertEquals("group one renamed", group2._id);
     }
 
     @Test
@@ -329,7 +329,7 @@ public class DatabaseTest
 
         Group group = db.getGroup("group one");
         assertNotNull(group);
-        assertEquals("group one", group.name);
+        assertEquals("group one", group._id);
 
         // Should fail on duplicate
         long id2 = db.insertGroup("group one");
@@ -359,11 +359,11 @@ public class DatabaseTest
         // Rename failed so both should still be the same
         Group group = db.getGroup("group one");
         assertNotNull(group);
-        assertEquals("group one", group.name);
+        assertEquals("group one", group._id);
 
         Group group2 = db.getGroup("group two");
         assertNotNull(group2);
-        assertEquals("group two", group2.name);
+        assertEquals("group two", group2._id);
     }
 
     @Test
@@ -401,7 +401,7 @@ public class DatabaseTest
 
         List<Group> cardGroups1 = db.getLoyaltyCardGroups(1);
         assertEquals(1, cardGroups1.size());
-        assertEquals(cardGroups1.get(0).name, group1.name);
+        assertEquals(cardGroups1.get(0)._id, group1._id);
         assertEquals(1, db.getGroupCardCount("one"));
         assertEquals(0, db.getGroupCardCount("two"));
 

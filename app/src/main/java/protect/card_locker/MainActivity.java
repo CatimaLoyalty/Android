@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity
 
         for (Group group : groups) {
             TabLayout.Tab tab = groupsTabLayout.newTab();
-            tab.setText(group.name);
+            tab.setText(group._id);
             tab.setTag(group);
             groupsTabLayout.addTab(tab);
         }

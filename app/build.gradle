@@ -57,9 +57,6 @@ dependencies {
     compile "com.vanniktech:vntnumberpickerpreference:1.0.0"
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:4.0.2"
-
-
-
 }
 
 task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {

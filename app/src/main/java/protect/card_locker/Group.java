@@ -8,17 +8,17 @@ import androidx.annotation.Nullable;
 
 public class Group
 {
-    public final String name;
+    public final String _id;
 
-    public Group(final String name)
+    public Group(final String _id)
     {
-        this.name = name;
+        this._id = _id;
     }
 
     public static Group toGroup(Cursor cursor)
     {
-        String name = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.NAME));
+        String _id = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ID));
 
-        return new Group(name);
+        return new Group(_id);
     }
 }

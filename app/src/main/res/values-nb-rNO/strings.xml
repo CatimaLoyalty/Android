@@ -95,4 +95,7 @@
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
     <string name="noMatchingGiftCards">Fant ingen slike kort. Prøv å endre søket.</string>
     <string name="action_search">Søk</string>
+    <string name="starImage">Favorittstjerne</string>
+    <string name="unstar">Fjern fra favoritter</string>
+    <string name="star">Legg til i favoritter</string>
 </resources>

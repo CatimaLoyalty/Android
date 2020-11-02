@@ -89,4 +89,6 @@
     <string name="barcodeType">Type de code-barres</string>
     <string name="noMatchingGiftCards">Aucune carte ne correspond au filtre de recherche. Veuillez essayer d\'autres termes.</string>
     <string name="action_search">Rechercher</string>
+    <string name="unstar">Retirer des favoris</string>
+    <string name="star">Ajouter aux favoris</string>
 </resources>

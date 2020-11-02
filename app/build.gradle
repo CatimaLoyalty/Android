@@ -13,8 +13,8 @@ android {
         applicationId "me.hackerchick.catima"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 39
-        versionName "0.28"
+        versionCode 40
+        versionName "0.29"
     }
     buildTypes {
         release {

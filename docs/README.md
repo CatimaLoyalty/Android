@@ -1,10 +1,15 @@
 # Catima
 ![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
+[![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)
 
 <a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
 <a href="https://play.google.com/store/apps/details?id=me.hackerchick.catima" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
+
+![Logo](https://github.com/TheLastProject/Catima/raw/master/app/src/main/ic_launcher-playstore.png)
+
+*Logo by [Rose (TangentFoxy)](http://github.com/TangentFoxy)*
 
 Stores all of your store loyalty cards on your phone, removing the need to carry them around.  Currently the following barcode types are supported:
 
@@ -22,16 +27,16 @@ Stores all of your store loyalty cards on your phone, removing the need to carry
 
 # Screenshots
 
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-01.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-02.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-02.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-03.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-03.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-04.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-04.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-05.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-05.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-06.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-06.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-07.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-07.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-08.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-08.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-09.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-09.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-10.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/metadata/en-US/images/phoneScreenshots/screenshot-10.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-01.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-01.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-02.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-02.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-03.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-03.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-04.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-04.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-05.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-05.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-09.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-09.png)
+[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-10.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-10.png)
 
 # Migrating from other apps
 
@@ -54,7 +59,7 @@ Windows:
 
 # Translating
 
-We are going to set up a translation platform soon, please check back later.
+Please contribute through [our Weblate page](https://hosted.weblate.org/projects/catima/).
 
 # Thanks
 

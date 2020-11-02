@@ -21,7 +21,7 @@ As Catima is based on Loyalty Card Keychain, importing your data from it is very
 ![Step 6](step_6.png)
 
 ## 7. Open Catima
-TODO: Logo
+![Step 7](step_7.png)
 
 ## 8. Press the Import/Export button in the top right
 ![Step 8](step_8.png)

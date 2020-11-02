@@ -16,6 +16,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -100,8 +101,6 @@ public class DatabaseTest
         assertEquals(1, loyaltyCard.starStatus);
         assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
     }
-
-
 
     @Test
     public void updateMissingGiftCard()
@@ -254,6 +253,114 @@ public class DatabaseTest
         final long newId = database.insert(DBHelper.LoyaltyCardDbIds.TABLE, null, contentValues);
         assertTrue(newId != -1);
         return (int)newId;
+    }
+
+    @Test
+    public void addRemoveOneGroup()
+    {
+        assertEquals(0, db.getGroupCount());
+        long id = db.insertGroup("group one");
+        boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getGroupCount());
+
+        Group group = db.getGroup("group one");
+        assertNotNull(group);
+        assertEquals("group one", group.name);
+
+        result = db.deleteGroup("group one");
+        assertTrue(result);
+        assertEquals(0, db.getGroupCount());
+        assertNull(db.getGroup("group one"));
+    }
+
+    @Test
+    public void updateGroup()
+    {
+        long id = db.insertGroup("group one");
+        boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getGroupCount());
+
+        result = db.updateGroup("group one", "group one renamed");
+        assertTrue(result);
+        assertEquals(1, db.getGroupCount());
+
+        // Group one no longer exists
+        Group group = db.getGroup("group one");
+        assertNull(group);
+
+        // But group one renamed does
+        Group group2 = db.getGroup("group one renamed");
+        assertNotNull(group2);
+        assertEquals("group one renamed", group2.name);
+    }
+
+    @Test
+    public void updateMissingGroup()
+    {
+        assertEquals(0, db.getGroupCount());
+
+        boolean result = db.updateGroup("group one", "new name");
+        assertEquals(false, result);
+        assertEquals(0, db.getGroupCount());
+    }
+
+    @Test
+    public void emptyGroupValues()
+    {
+        long id = db.insertGroup("");
+        boolean result = (id != -1);
+        assertFalse(result);
+        assertEquals(0, db.getLoyaltyCardCount());
+    }
+
+    @Test
+    public void duplicateGroupName()
+    {
+        assertEquals(0, db.getGroupCount());
+        long id = db.insertGroup("group one");
+        boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getGroupCount());
+
+        Group group = db.getGroup("group one");
+        assertNotNull(group);
+        assertEquals("group one", group.name);
+
+        // Should fail on duplicate
+        long id2 = db.insertGroup("group one");
+        boolean result2 = (id2 != -1);
+        assertFalse(result2);
+        assertEquals(1, db.getGroupCount());
+    }
+
+    @Test
+    public void updateGroupDuplicate()
+    {
+        long id = db.insertGroup("group one");
+        boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getGroupCount());
+
+        long id2 = db.insertGroup("group two");
+        boolean result2 = (id2 != -1);
+        assertTrue(result2);
+        assertEquals(2, db.getGroupCount());
+
+        // Should fail when trying to rename group two to one
+        boolean result3 = db.updateGroup("group two", "group one");
+        assertFalse(result3);
+        assertEquals(2, db.getGroupCount());
+
+        // Rename failed so both should still be the same
+        Group group = db.getGroup("group one");
+        assertNotNull(group);
+        assertEquals("group one", group.name);
+
+        Group group2 = db.getGroup("group two");
+        assertNotNull(group2);
+        assertEquals("group two", group2.name);
     }
 
     @Test

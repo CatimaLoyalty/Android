@@ -97,7 +97,7 @@ public class ManageGroupsActivity extends AppCompatActivity
                 Cursor selected = (Cursor) parent.getItemAtPosition(position);
                 Group group = Group.toGroup(selected);
 
-                db.deleteGroup(group.id);
+                db.deleteGroup(group.name);
                 updateGroupList();
             }
         });

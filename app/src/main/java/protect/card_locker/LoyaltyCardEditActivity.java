@@ -169,11 +169,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 List<Group> existingGroups = db.getGroups();
 
                 List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
-                List<Integer> cardGroupIds = new ArrayList<>();
-
-                for (Group cardGroup : loyaltyCardGroups) {
-                    cardGroupIds.add(cardGroup.id);
-                }
 
                 View groupsView = findViewById(R.id.groupsView);
                 View groupsTableRow = findViewById(R.id.groupsTableRow);
@@ -190,7 +185,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
                     chip.setText(group.name);
                     chip.setTag(group);
-                    chip.setChecked(cardGroupIds.contains(group.id));
+                    chip.setChecked(loyaltyCardGroups.contains(group.name));
 
                     groupsChips.addView(chip);
                 }

@@ -15,6 +15,9 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -361,6 +364,53 @@ public class DatabaseTest
         Group group2 = db.getGroup("group two");
         assertNotNull(group2);
         assertEquals("group two", group2.name);
+    }
+
+    @Test
+    public void cardAddAndRemoveGroups()
+    {
+        // Create card
+        assertEquals(0, db.getLoyaltyCardCount());
+        long id = db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, DEFAULT_HEADER_TEXT_COLOR, 0);
+        boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        // Create two groups to only one card
+        assertEquals(0, db.getGroupCount());
+        long gid = db.insertGroup("one");
+        boolean gresult = (gid != -1);
+        assertTrue(gresult);
+
+        long gid2 = db.insertGroup("two");
+        boolean gresult2 = (gid2 != -1);
+        assertTrue(gresult2);
+
+        assertEquals(2, db.getGroupCount());
+
+        Group group1 = db.getGroup("one");
+
+        // Card has no groups by default
+        List<Group> cardGroups = db.getLoyaltyCardGroups(1);
+        assertEquals(0, cardGroups.size());
+
+        // Add one groups to card
+        List<Group> groupList1 = new ArrayList<>();
+        groupList1.add(group1);
+        db.setLoyaltyCardGroups(1, groupList1);
+
+        List<Group> cardGroups1 = db.getLoyaltyCardGroups(1);
+        assertEquals(1, cardGroups1.size());
+        assertEquals(cardGroups1.get(0).name, group1.name);
+        assertEquals(1, db.getGroupCardCount("one"));
+        assertEquals(0, db.getGroupCardCount("two"));
+
+        // Remove groups
+        db.setLoyaltyCardGroups(1, new ArrayList<Group>());
+        List<Group> cardGroups2 = db.getLoyaltyCardGroups(1);
+        assertEquals(0, cardGroups2.size());
+        assertEquals(0, db.getGroupCardCount("one"));
+        assertEquals(0, db.getGroupCardCount("two"));
     }
 
     @Test

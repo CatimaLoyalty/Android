@@ -1,0 +1,7 @@
+En avez-vous marre de chercher votre carte de fidélité en plastique lors de votre commande au magasin ? Vous recherchez une solution gratuite qui ne prendra pas vos informations ?
+
+Catima est une application qui stockera vos cartes de fidélité basées sur des codes-barres sur votre téléphone. Le code de l'application est ouvert et essaye de bien faire une chose : gérer vos cartes !
+
+De nouvelles cartes peuvent être ajoutées en un clin d'œil. Utilisez votre appareil photo pour capturer le code-barres ou saisissez le numéro. Lorsque le code-barres est chargé dans le magasin et affiché, il peut être scanné avec un lecteur de codes-barres moderne. (Certains magasins utilisent des lecteurs de codes-barres plus anciens, tels que des scanneurs à plat, au lieu de scanneurs d'images. Ceux-ci ne peuvent pas lire l'écran du téléphone. À la place, demandez au vendeur de saisir le numéro manuellement).
+
+L'application nécessite très peu d'autorisations et ne tente jamais d'accéder à Internet. Il existe une option pour sauvegarder vos cartes sur le stockage local. De là, vous pouvez envoyer la sauvegarde dans un endroit sûr.

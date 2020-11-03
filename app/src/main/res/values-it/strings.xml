@@ -89,4 +89,6 @@
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
     <string name="addedShortcut">Scorciatoia aggiunta</string>
     <string name="barcodeType">Tipo di codice a barre</string>
+    <string name="unstar">Rimuovi dai preferiti</string>
+    <string name="star">Aggiungi ai preferiti</string>
 </resources>

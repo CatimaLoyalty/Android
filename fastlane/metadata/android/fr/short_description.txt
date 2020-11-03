@@ -1,0 +1,1 @@
+Gère les cartes de fidélité basées sur des codes-barres sur votre téléphone

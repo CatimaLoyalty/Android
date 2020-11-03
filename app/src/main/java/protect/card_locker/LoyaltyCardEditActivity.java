@@ -185,7 +185,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
                     chip.setText(group._id);
                     chip.setTag(group);
-                    chip.setChecked(loyaltyCardGroups.contains(group._id));
+                    chip.setChecked(loyaltyCardGroups.contains(group));
 
                     groupsChips.addView(chip);
                 }

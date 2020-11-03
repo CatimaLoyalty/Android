@@ -486,7 +486,7 @@ public class DBHelper extends SQLiteOpenHelper
                     LoyaltyCardDbGroups.ID + "=?",
                     new String[]{groupName});
             return (rowsUpdated == 1);
-        } catch (android.database.sqlite.SQLiteConstraintException _) {
+        } catch (android.database.sqlite.SQLiteConstraintException _e) {
             return false;
         }
     }

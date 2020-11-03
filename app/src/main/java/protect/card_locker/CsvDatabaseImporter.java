@@ -31,7 +31,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
 
         try {
             version = Integer.parseInt(bufferedReader.readLine());
-        } catch (NumberFormatException _) {
+        } catch (NumberFormatException _e) {
             // Assume version 1
         }
 
@@ -286,7 +286,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         int starStatus = 0;
         try {
             starStatus = extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
-        } catch (FormatException _ ) {
+        } catch (FormatException _e ) {
             // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
         }

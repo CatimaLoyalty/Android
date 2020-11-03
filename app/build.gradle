@@ -55,6 +55,7 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile 'com.github.apl-devs:appintro:v4.2.0'
     compile "com.vanniktech:vntnumberpickerpreference:1.0.0"
+    implementation 'androidx.cardview:cardview:1.0.0'
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:4.0.2"
 

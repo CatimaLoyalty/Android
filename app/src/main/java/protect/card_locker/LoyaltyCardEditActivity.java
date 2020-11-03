@@ -181,11 +181,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     groupsTableRow.setVisibility(View.VISIBLE);
                 }
 
-                for (Group group: db.getGroups()) {
+                for (Group group : db.getGroups()) {
                     Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
                     chip.setText(group._id);
                     chip.setTag(group);
-                    chip.setChecked(loyaltyCardGroups.contains(group));
+
+                    chip.setChecked(false);
+                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                        if (loyaltyCardGroup._id.equals(group._id)) {
+                            chip.setChecked(true);
+                            break;
+                        }
+                    }
 
                     groupsChips.addView(chip);
                 }

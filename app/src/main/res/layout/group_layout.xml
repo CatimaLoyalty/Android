@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,5 +44,25 @@
             android:ellipsize="end"
             android:textSize="@dimen/noteTextSize"/>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/edit"
+        android:layout_width="@dimen/cardThumbnailSize"
+        android:layout_height="@dimen/cardThumbnailSize"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:src="@drawable/ic_mode_edit_white_24dp"
+        android:contentDescription="@string/edit"
+        app:tint="#000000"
+        android:onClick="editGroup" />
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="@dimen/cardThumbnailSize"
+        android:layout_height="@dimen/cardThumbnailSize"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:src="@drawable/ic_delete_white_24dp"
+        android:contentDescription="@string/delete"
+        app:tint="#000000"
+        android:onClick="deleteGroup"/>
 
 </LinearLayout>

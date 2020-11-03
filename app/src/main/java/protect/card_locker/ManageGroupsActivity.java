@@ -9,8 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -87,20 +89,6 @@ public class ManageGroupsActivity extends AppCompatActivity
         groupList.setAdapter(adapter);
 
         registerForContextMenu(groupList);
-
-        groupList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                // FIXME: Don't just delete group, create some actual UI flow
-                Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                Group group = Group.toGroup(selected);
-
-                db.deleteGroup(group._id);
-                updateGroupList();
-            }
-        });
     }
 
     @Override
@@ -113,6 +101,65 @@ public class ManageGroupsActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void editGroup(View view) {
+        LinearLayout parentRow = (LinearLayout) view.getParent();
+
+        TextView groupNameTextView = (TextView) parentRow.findViewById(R.id.name);
+
+        final String groupName = (String) groupNameTextView.getText();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.enter_group_name);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(groupName);
+        builder.setView(input);
+
+        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                db.updateGroup(groupName, input.getText().toString());
+                updateGroupList();
+            }
+        });
+        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void deleteGroup(View view) {
+        LinearLayout parentRow = (LinearLayout) view.getParent();
+
+        TextView groupNameTextView = (TextView) parentRow.findViewById(R.id.name);
+
+        final String groupName = (String) groupNameTextView.getText();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.deleteConfirmationGroup);
+        builder.setMessage(groupName);
+
+        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                db.deleteGroup(groupName);
+                updateGroupList();
+            }
+        });
+        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private AlertDialog createNewGroupDialog() {

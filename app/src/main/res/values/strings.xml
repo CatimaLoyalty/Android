@@ -129,4 +129,5 @@
     <string name="noGroups">You don\'t have any groups at the moment. Click the "+" (plus) button to get started.\n\nCards can be assigned to groups to make them easier to find.</string>
     <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
     <string name="all">All</string>
+    <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>
 </resources>

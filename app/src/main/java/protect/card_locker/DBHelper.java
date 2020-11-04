@@ -323,8 +323,7 @@ public class DBHelper extends SQLiteOpenHelper
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };
 
-        StringBuilder extraFilter = new StringBuilder();
-        extraFilter = new StringBuilder("AND (");
+        StringBuilder extraFilter = new StringBuilder("AND (");
 
         for (int i = 0; i < allowedIds.size(); i++) {
             extraFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));

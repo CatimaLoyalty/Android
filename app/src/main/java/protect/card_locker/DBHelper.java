@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -311,16 +312,36 @@ public class DBHelper extends SQLiteOpenHelper
 
         List<Integer> allowedIds = getGroupCardIds(group._id);
 
-        String actualFilter = String.format("%%%s%%", filter);
-        String[] selectionArgs = { actualFilter, actualFilter, join(",", allowedIds) };
-
         SQLiteDatabase db = getReadableDatabase();
+
+        // Empty group
+        if (allowedIds.size() == 0) {
+            // TODO: Find better way to return empty cursor
+            return db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + " WHERE 0 = 1", null, null);
+        }
+
+        String actualFilter = String.format("%%%s%%", filter);
+        String[] selectionArgs = { actualFilter, actualFilter };
+
+        StringBuilder extraFilter = new StringBuilder();
+        if (allowedIds.size() > 0) {
+            extraFilter = new StringBuilder("AND (");
+
+            for (int i = 0; i < allowedIds.size(); i++) {
+                extraFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));
+                if (i != allowedIds.size() - 1) {
+                    extraFilter.append(" OR ");
+                }
+            }
+            extraFilter.append(") ");
+        }
 
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
-                " AND " + LoyaltyCardDbIds.ID + " IN (?) " +
+                extraFilter.toString() +
                 " ORDER BY " + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+
         return res;
     }
 

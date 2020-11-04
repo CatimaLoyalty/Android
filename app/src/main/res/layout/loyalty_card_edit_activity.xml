@@ -184,9 +184,8 @@
 
                         <com.google.android.material.chip.ChipGroup
                             android:id="@+id/groupChips"
-                            app:singleLine="true"
                             android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:padding="@dimen/inputPadding"
                             android:textSize="@dimen/inputSize"
                             android:layout_toEndOf="@id/groupsField"

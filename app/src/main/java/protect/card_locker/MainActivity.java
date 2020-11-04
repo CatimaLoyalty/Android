@@ -12,9 +12,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
@@ -24,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,9 +35,67 @@ public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
-
+    LoyaltyCard card;
+    private ActionMode currentActionMode;
     private Menu menu;
     protected String filter = "";
+    private ActionMode.Callback currentActionModeCallback = new ActionMode.Callback()
+    {
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu)
+        {
+            mode.getMenuInflater().inflate(R.menu.card_longclick_menu, menu);
+            mode.setTitle(getString(R.string.card_selected) + card.store);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+        {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+        {
+            if (item.getItemId() == R.id.action_copy_to_clipboard)
+            {
+                mode.finish();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                return true;
+            }
+            else if (item.getItemId() == R.id.action_share)
+            {
+                mode.finish();
+                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+                importURIHelper.startShareIntent(card);
+                return true;
+            }
+            else if(item.getItemId() == R.id.action_edit)
+            {
+                mode.finish();
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", card.id);
+                bundle.putBoolean("update", true);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                return true;
+            }
+
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode)
+        {
+            currentActionMode= null;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,17 +106,39 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList("");
+
+        ListView listView = findViewById(R.id.list);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                if (currentActionMode != null)
+                {
+                    return false;
+                }
+
+                ListView listView = findViewById(R.id.list);
+                Cursor cardCursor = (Cursor) listView.getItemAtPosition(position);
+                card = LoyaltyCard.toLoyaltyCard(cardCursor);
+
+                currentActionMode = startSupportActionMode(currentActionModeCallback);
+                return true;
+            }
+        });
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
 
         if (menu != null)
         {
             SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-            if (!searchView.isIconified()) {
+            if (!searchView.isIconified())
+            {
                 filter = searchView.getQuery().toString();
             }
         }
@@ -67,9 +146,11 @@ public class MainActivity extends AppCompatActivity
         updateLoyaltyCardList(filter);
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
-        addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 startActivityForResult(i, MAIN_REQUEST_CODE);
             }
@@ -77,7 +158,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == MAIN_REQUEST_CODE)
@@ -97,7 +179,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         if (menu == null)
         {
             super.onBackPressed();
@@ -106,9 +189,12 @@ public class MainActivity extends AppCompatActivity
 
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-        if (!searchView.isIconified()) {
+        if (!searchView.isIconified())
+        {
             searchView.setIconified(true);
-        } else {
+        }
+        else
+            {
             super.onBackPressed();
         }
     }
@@ -172,45 +258,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
-    {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        if (v.getId()==R.id.list)
-        {
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.card_longclick_menu, menu);
-        }
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item)
-    {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        ListView listView = findViewById(R.id.list);
-
-        Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
-
-        if(item.getItemId() == R.id.action_clipboard)
-        {
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText(card.store, card.cardId);
-            clipboard.setPrimaryClip(clip);
-
-            Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
-            return true;
-        }
-        else if(item.getItemId() == R.id.action_share)
-        {
-            final ImportURIHelper importURIHelper = new ImportURIHelper(this);
-            importURIHelper.startShareIntent(card);
-            return true;
-        }
-
-        return super.onContextItemSelected(item);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         this.menu = menu;
@@ -218,34 +265,39 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        if (searchManager != null) {
+        if (searchManager != null)
+        {
             SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(false);
 
-            searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            searchView.setOnCloseListener(new SearchView.OnCloseListener()
+            {
                 @Override
-                public boolean onClose() {
+                public boolean onClose()
+                {
                     invalidateOptionsMenu();
                     return false;
                 }
             });
 
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+            {
                 @Override
-                public boolean onQueryTextSubmit(String query) {
+                public boolean onQueryTextSubmit(String query)
+                {
                     return false;
                 }
 
                 @Override
-                public boolean onQueryTextChange(String newText) {
+                public boolean onQueryTextChange(String newText)
+                {
                     filter = newText;
                     updateLoyaltyCardList(newText);
                     return true;
                 }
             });
         }
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -254,21 +306,21 @@ public class MainActivity extends AppCompatActivity
     {
         int id = item.getItemId();
 
-        if(id == R.id.action_import_export)
+        if (id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
             startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
-        if(id == R.id.action_settings)
+        if (id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivityForResult(i, MAIN_REQUEST_CODE);
             return true;
         }
 
-        if(id == R.id.action_about)
+        if (id == R.id.action_about)
         {
             displayAboutDialog();
             return true;
@@ -280,19 +332,19 @@ public class MainActivity extends AppCompatActivity
     private void displayAboutDialog()
     {
         final Map<String, String> USED_LIBRARIES = new ImmutableMap.Builder<String, String>()
-            .put("Commons CSV", "https://commons.apache.org/proper/commons-csv/")
-            .put("Guava", "https://github.com/google/guava")
-            .put("ZXing", "https://github.com/zxing/zxing")
-            .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
-            .put("AppIntro", "https://github.com/apl-devs/AppIntro")
-            .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
-            .put("VNTNumberPickerPreference", "https://github.com/vanniktech/VNTNumberPickerPreference")
-            .build();
+                .put("Commons CSV", "https://commons.apache.org/proper/commons-csv/")
+                .put("Guava", "https://github.com/google/guava")
+                .put("ZXing", "https://github.com/zxing/zxing")
+                .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
+                .put("AppIntro", "https://github.com/apl-devs/AppIntro")
+                .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
+                .put("VNTNumberPickerPreference", "https://github.com/vanniktech/VNTNumberPickerPreference")
+                .build();
 
         final Map<String, String> USED_ASSETS = ImmutableMap.of
-        (
-            "Save by Bernar Novalyi", "https://thenounproject.com/term/save/716011"
-        );
+                (
+                        "Save by Bernar Novalyi", "https://thenounproject.com/term/save/716011"
+                );
 
         StringBuilder libs = new StringBuilder().append("<ul>");
         for (Map.Entry<String, String> entry : USED_LIBRARIES.entrySet())
@@ -332,45 +384,45 @@ public class MainActivity extends AppCompatActivity
         }
 
         String html =
-            "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
-            css +
-            "<h1>" +
-            String.format(getString(R.string.about_title_fmt),
-                    "<a href=\"" + getString(R.string.app_webpage_url)) + "\">" +
-            appName +
-            "</a>" +
-            "</h1><p>" +
-            appName +
-            " " +
-            String.format(getString(R.string.debug_version_fmt), version) +
-            "</p><p>" +
-            String.format(getString(R.string.app_revision_fmt),
-                    "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-                            "GitHub" +
-                            "</a>") +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_copyright_fmt), year) +
-            "</p><p>" +
-            getString(R.string.app_copyright_old) +
-            "</p><hr/><p>" +
-            getString(R.string.app_license) +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_libraries), appName, libs.toString()) +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_resources), appName, resources.toString());
+                "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
+                        css +
+                        "<h1>" +
+                        String.format(getString(R.string.about_title_fmt),
+                                "<a href=\"" + getString(R.string.app_webpage_url)) + "\">" +
+                        appName +
+                        "</a>" +
+                        "</h1><p>" +
+                        appName +
+                        " " +
+                        String.format(getString(R.string.debug_version_fmt), version) +
+                        "</p><p>" +
+                        String.format(getString(R.string.app_revision_fmt),
+                                "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
+                                        "GitHub" +
+                                        "</a>") +
+                        "</p><hr/><p>" +
+                        String.format(getString(R.string.app_copyright_fmt), year) +
+                        "</p><p>" +
+                        getString(R.string.app_copyright_old) +
+                        "</p><hr/><p>" +
+                        getString(R.string.app_license) +
+                        "</p><hr/><p>" +
+                        String.format(getString(R.string.app_libraries), appName, libs.toString()) +
+                        "</p><hr/><p>" +
+                        String.format(getString(R.string.app_resources), appName, resources.toString());
 
         wv.loadDataWithBaseURL("file:///android_res/drawable/", html, "text/html", "utf-8", null);
         new AlertDialog.Builder(this)
-            .setView(wv)
-            .setCancelable(true)
-            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
-            {
-                public void onClick(DialogInterface dialog, int which)
+                .setView(wv)
+                .setCancelable(true)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
                 {
-                    dialog.dismiss();
-                }
-            })
-            .show();
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     protected static boolean isDarkModeEnabled(Context inputContext)

@@ -3,11 +3,24 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_clipboard"
+        android:id="@+id/action_copy_to_clipboard"
         android:title="@string/copy_to_clipboard"
+        android:icon="@drawable/ic_copy"
+        android:titleCondensed="@string/copy_to_clipboard"
         app:showAsAction="always"/>
+
     <item
         android:id="@+id/action_share"
         android:title="@string/share"
+        android:icon="@drawable/ic_share"
+        android:titleCondensed="@string/share"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_edit"
+        android:title="@string/editCard"
+        android:titleCondensed="@string/editCard"
+        app:showAsAction="always"/>
+
 </menu>

@@ -29,6 +29,8 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.ImmutableMap;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity
 
     private Menu menu;
     protected String filter = "";
+    protected int selectedTab = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                selectedTab = tab.getPosition();
                 updateLoyaltyCardList(filter, tab.getTag());
             }
 
@@ -84,8 +88,22 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        updateLoyaltyCardList(filter, null);
-        updateTabGroups();
+        TabLayout groupsTabLayout = findViewById(R.id.groups);
+        boolean hasReset = updateTabGroups(groupsTabLayout);
+
+        Object group = null;
+
+        if (groupsTabLayout.getTabCount() != 0) {
+            TabLayout.Tab tab = groupsTabLayout.getTabAt(0);
+
+            if (!hasReset) {
+                tab = groupsTabLayout.getTabAt(selectedTab);
+            }
+
+            groupsTabLayout.selectTab(tab);
+            group = tab.getTag();
+        }
+        updateLoyaltyCardList(filter, group);
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +150,8 @@ public class MainActivity extends AppCompatActivity
         } else {
             TabLayout groupsTabLayout = findViewById(R.id.groups);
 
-            if (groupsTabLayout.getVisibility() == View.VISIBLE && groupsTabLayout.getSelectedTabPosition() != 0) {
+            if (groupsTabLayout.getVisibility() == View.VISIBLE && selectedTab != 0) {
+                selectedTab = 0;
                 groupsTabLayout.selectTab(groupsTabLayout.getTabAt(0));
             } else {
                 super.onBackPressed();
@@ -203,34 +222,51 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    public void updateTabGroups()
+    public boolean updateTabGroups(TabLayout groupsTabLayout)
     {
         final DBHelper db = new DBHelper(this);
 
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
+        List<Group> newGroups = db.getGroups();
 
-        groupsTabLayout.removeAllTabs();
-
-        List<Group> groups = db.getGroups();
-
-        if (groups.isEmpty()) {
+        if (newGroups.size() == 0) {
+            groupsTabLayout.removeAllTabs();
             groupsTabLayout.setVisibility(View.GONE);
-            return;
+            return true;
         }
 
-        TabLayout.Tab allTab = groupsTabLayout.newTab();
-        allTab.setText(R.string.all);
-        allTab.setTag(null);
-        groupsTabLayout.addTab(allTab);
+        // -1 because there is an "All" tab
+        boolean isChanged = groupsTabLayout.getTabCount() - 1 != newGroups.size();
 
-        for (Group group : groups) {
-            TabLayout.Tab tab = groupsTabLayout.newTab();
-            tab.setText(group._id);
-            tab.setTag(group);
-            groupsTabLayout.addTab(tab);
+        if (!isChanged) {
+            for (int i = 0; i < newGroups.size(); i++) {
+                if (!((Group) groupsTabLayout.getTabAt(i + 1).getTag())._id.equals(newGroups.get(i)._id)) {
+                    isChanged = true;
+                    break;
+                }
+            }
         }
 
-        groupsTabLayout.setVisibility(View.VISIBLE);
+        if (isChanged) {
+            groupsTabLayout.removeAllTabs();
+
+            TabLayout.Tab allTab = groupsTabLayout.newTab();
+            allTab.setText(R.string.all);
+            allTab.setTag(null);
+            groupsTabLayout.addTab(allTab);
+
+            for (Group group : newGroups) {
+                TabLayout.Tab tab = groupsTabLayout.newTab();
+                tab.setText(group._id);
+                tab.setTag(group);
+                groupsTabLayout.addTab(tab);
+            }
+
+            groupsTabLayout.setVisibility(View.VISIBLE);
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override

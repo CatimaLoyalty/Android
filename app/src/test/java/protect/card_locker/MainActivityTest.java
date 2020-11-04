@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 
 import org.junit.Before;
@@ -23,6 +24,9 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -167,6 +171,54 @@ public class MainActivityTest
     }
 
     @Test
+    public void testGroups()
+    {
+        ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
+
+        Activity mainActivity = (Activity)activityController.get();
+        activityController.start();
+        activityController.resume();
+
+        DBHelper db = new DBHelper(mainActivity);
+
+        TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
+
+        // No group tabs by default
+        assertEquals(0, groupTabs.getTabCount());
+
+        // Having at least one group should create two tabs: One all and one for each group
+        db.insertGroup("One");
+        activityController.pause();
+        activityController.resume();
+        assertEquals(2, groupTabs.getTabCount());
+        assertEquals("All", groupTabs.getTabAt(0).getText().toString());
+        assertEquals("One", groupTabs.getTabAt(1).getText().toString());
+
+        // Adding another group should have them sorted alphabetically
+        db.insertGroup("Alphabetical two");
+        activityController.pause();
+        activityController.resume();
+        assertEquals(3, groupTabs.getTabCount());
+        assertEquals("All", groupTabs.getTabAt(0).getText().toString());
+        assertEquals("Alphabetical two", groupTabs.getTabAt(1).getText().toString());
+        assertEquals("One", groupTabs.getTabAt(2).getText().toString());
+
+        // Removing a group should also change the list
+        db.deleteGroup("Alphabetical two");
+        activityController.pause();
+        activityController.resume();
+        assertEquals(2, groupTabs.getTabCount());
+        assertEquals("All", groupTabs.getTabAt(0).getText().toString());
+        assertEquals("One", groupTabs.getTabAt(1).getText().toString());
+
+        // Removing the last group should make the tabs disappear
+        db.deleteGroup("One");
+        activityController.pause();
+        activityController.resume();
+        assertEquals(0, groupTabs.getTabCount());
+    }
+
+    @Test
     public void testFiltering()
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
@@ -178,10 +230,16 @@ public class MainActivityTest
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         ListView list = mainActivity.findViewById(R.id.list);
+        TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
 
         DBHelper db = new DBHelper(mainActivity);
         db.insertLoyaltyCard("The First Store", "Initial note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
         db.insertLoyaltyCard("The Second Store", "Secondary note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, Color.WHITE, 0);
+
+        db.insertGroup("Group one");
+        List<Group> groups = new ArrayList<>();
+        groups.add(db.getGroup("Group one"));
+        db.setLoyaltyCardGroups(1, groups);
 
         activityController.pause();
         activityController.resume();
@@ -203,10 +261,52 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getCount());
+
         mainActivity.filter = "first";
 
         activityController.pause();
         activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -225,10 +325,52 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
         mainActivity.filter = "second";
 
         activityController.pause();
         activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(0, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -247,10 +389,52 @@ public class MainActivityTest
 
         assertEquals(0, list.getCount());
 
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(0, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(0, list.getCount());
+
         mainActivity.filter = "";
 
         activityController.pause();
         activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(2, list.getCount());
+
+        // Switch to Group one
+        groupTabs.selectTab(groupTabs.getTabAt(1));
+
+        activityController.pause();
+        activityController.resume();
+
+        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, noMatchingCardsText.getVisibility());
+        assertEquals(View.VISIBLE, list.getVisibility());
+
+        assertEquals(1, list.getCount());
+
+        // Switch back to all groups
+        groupTabs.selectTab(groupTabs.getTabAt(0));
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());

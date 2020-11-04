@@ -311,7 +311,7 @@ public class ImportExportTest
             groupNames.add(group._id);
         }
 
-        return Ordering.natural().sortedCopy(groupNames);
+        return groupNames;
     }
 
     @Test
@@ -340,13 +340,13 @@ public class ImportExportTest
             groupsForThree.add(db.getGroup("group, \"   3"));
 
             List<Group> groupsForFour = new ArrayList<>();
-            groupsForFour.add(db.getGroup("group, \"   3"));
-            groupsForFour.add(db.getGroup("group, \"   2"));
             groupsForFour.add(db.getGroup("group, \"   1"));
+            groupsForFour.add(db.getGroup("group, \"   2"));
+            groupsForFour.add(db.getGroup("group, \"   3"));
 
             List<Group> groupsForFive = new ArrayList<>();
-            groupsForFive.add(db.getGroup("group, \"   3"));
             groupsForFive.add(db.getGroup("group, \"   1"));
+            groupsForFive.add(db.getGroup("group, \"   3"));
 
             db.setLoyaltyCardGroups(1, groupsForOne);
             db.setLoyaltyCardGroups(2, groupsForTwo);

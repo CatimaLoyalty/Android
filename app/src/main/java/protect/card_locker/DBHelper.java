@@ -212,9 +212,7 @@ public class DBHelper extends SQLiteOpenHelper
 
         groups.add(Group.toGroup(data));
 
-        while (data.moveToNext())
-
-        if(data.moveToFirst()) {
+        while (data.moveToNext()) {
             groups.add(Group.toGroup(data));
         }
 

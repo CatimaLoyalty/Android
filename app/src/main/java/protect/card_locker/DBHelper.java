@@ -324,17 +324,15 @@ public class DBHelper extends SQLiteOpenHelper
         String[] selectionArgs = { actualFilter, actualFilter };
 
         StringBuilder extraFilter = new StringBuilder();
-        if (allowedIds.size() > 0) {
-            extraFilter = new StringBuilder("AND (");
+        extraFilter = new StringBuilder("AND (");
 
-            for (int i = 0; i < allowedIds.size(); i++) {
-                extraFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));
-                if (i != allowedIds.size() - 1) {
-                    extraFilter.append(" OR ");
-                }
+        for (int i = 0; i < allowedIds.size(); i++) {
+            extraFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));
+            if (i != allowedIds.size() - 1) {
+                extraFilter.append(" OR ");
             }
-            extraFilter.append(") ");
         }
+        extraFilter.append(") ");
 
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +

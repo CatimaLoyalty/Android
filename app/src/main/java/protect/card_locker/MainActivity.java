@@ -1,11 +1,9 @@
 package protect.card_locker;
 
-import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -16,10 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.view.ActionMode;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import java.util.List;
@@ -37,10 +34,70 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 {
     private static final String TAG = "Catima";
 
+    LoyaltyCard card;
+    private ActionMode currentActionMode;
     private Menu menu;
     private GestureDetector gestureDetector;
     protected String filter = "";
     protected int selectedTab = 0;
+
+    private ActionMode.Callback currentActionModeCallback = new ActionMode.Callback()
+    {
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu)
+        {
+            mode.getMenuInflater().inflate(R.menu.card_longclick_menu, menu);
+            mode.setTitle(getString(R.string.card_selected) + card.store);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+        {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+        {
+            if (item.getItemId() == R.id.action_copy_to_clipboard)
+            {
+                mode.finish();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                return true;
+            }
+            else if (item.getItemId() == R.id.action_share)
+            {
+                mode.finish();
+                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+                importURIHelper.startShareIntent(card);
+                return true;
+            }
+            else if(item.getItemId() == R.id.action_edit)
+            {
+                mode.finish();
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", card.id);
+                bundle.putBoolean("update", true);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                return true;
+            }
+
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode)
+        {
+            currentActionMode= null;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -126,17 +183,39 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     .show();
         }
          */
+
+        ListView listView = findViewById(R.id.list);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
+        {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                if (currentActionMode != null)
+                {
+                    return false;
+                }
+
+                ListView listView = findViewById(R.id.list);
+                Cursor cardCursor = (Cursor) listView.getItemAtPosition(position);
+                card = LoyaltyCard.toLoyaltyCard(cardCursor);
+
+                currentActionMode = startSupportActionMode(currentActionModeCallback);
+                return true;
+            }
+        });
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
 
         if (menu != null)
         {
             SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-            if (!searchView.isIconified()) {
+            if (!searchView.isIconified())
+            {
                 filter = searchView.getQuery().toString();
             }
         }
@@ -167,7 +246,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
-        addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), ScanActivity.class);
@@ -209,7 +289,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         if (menu == null)
         {
             super.onBackPressed();
@@ -218,7 +299,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
         SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-        if (!searchView.isIconified()) {
+        if (!searchView.isIconified())
+        {
             searchView.setIconified(true);
         } else {
             TabLayout groupsTabLayout = findViewById(R.id.groups);
@@ -333,45 +415,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
-    {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        if (v.getId()==R.id.list)
-        {
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.card_longclick_menu, menu);
-        }
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item)
-    {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        ListView listView = findViewById(R.id.list);
-
-        Cursor cardCursor = (Cursor)listView.getItemAtPosition(info.position);
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
-
-        if(item.getItemId() == R.id.action_clipboard)
-        {
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText(card.store, card.cardId);
-            clipboard.setPrimaryClip(clip);
-
-            Toast.makeText(this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
-            return true;
-        }
-        else if(item.getItemId() == R.id.action_share)
-        {
-            final ImportURIHelper importURIHelper = new ImportURIHelper(this);
-            importURIHelper.startShareIntent(card);
-            return true;
-        }
-
-        return super.onContextItemSelected(item);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         this.menu = menu;
@@ -379,27 +422,33 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        if (searchManager != null) {
+        if (searchManager != null)
+        {
             SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(false);
 
-            searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            searchView.setOnCloseListener(new SearchView.OnCloseListener()
+            {
                 @Override
-                public boolean onClose() {
+                public boolean onClose()
+                {
                     invalidateOptionsMenu();
                     return false;
                 }
             });
 
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+            {
                 @Override
-                public boolean onQueryTextSubmit(String query) {
+                public boolean onQueryTextSubmit(String query)
+                {
                     return false;
                 }
 
                 @Override
-                public boolean onQueryTextChange(String newText) {
+                public boolean onQueryTextChange(String newText)
+                {
                     filter = newText;
 
                     TabLayout groupsTabLayout = findViewById(R.id.groups);
@@ -414,7 +463,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 }
             });
         }
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -430,14 +478,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             return true;
         }
 
-        if(id == R.id.action_import_export)
+        if (id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
             startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
-        if(id == R.id.action_settings)
+        if (id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivityForResult(i, Utils.MAIN_REQUEST);
@@ -450,7 +498,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             return true;
         }
 
-        if(id == R.id.action_about)
+        if (id == R.id.action_about)
         {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
             startActivityForResult(i, Utils.MAIN_REQUEST);

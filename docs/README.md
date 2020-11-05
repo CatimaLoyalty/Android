@@ -35,8 +35,6 @@ Stores all of your store loyalty cards on your phone, removing the need to carry
 [<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-06.png)
 [<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-07.png)
 [<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-08.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-09.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-09.png)
-[<img src="https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-10.png" width=250>](https://github.com/TheLastProject/Catima/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot-10.png)
 
 # Migrating from other apps
 

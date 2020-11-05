@@ -164,40 +164,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 noteFieldEdit.setText(loyaltyCard.note);
             }
 
-            if(groupsChips.getChildCount() == 0)
-            {
-                List<Group> existingGroups = db.getGroups();
-
-                List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
-
-                View groupsView = findViewById(R.id.groupsView);
-                View groupsTableRow = findViewById(R.id.groupsTableRow);
-
-                if (existingGroups.isEmpty()) {
-                    groupsView.setVisibility(View.GONE);
-                    groupsTableRow.setVisibility(View.GONE);
-                } else {
-                    groupsView.setVisibility(View.VISIBLE);
-                    groupsTableRow.setVisibility(View.VISIBLE);
-                }
-
-                for (Group group : db.getGroups()) {
-                    Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
-                    chip.setText(group._id);
-                    chip.setTag(group);
-
-                    chip.setChecked(false);
-                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                        if (loyaltyCardGroup._id.equals(group._id)) {
-                            chip.setChecked(true);
-                            break;
-                        }
-                    }
-
-                    groupsChips.addView(chip);
-                }
-            }
-
             if(cardIdFieldView.getText().length() == 0)
             {
                 cardIdFieldView.setText(loyaltyCard.cardId);
@@ -251,6 +217,40 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             setTitle(R.string.addCardTitle);
             hideBarcode();
+        }
+
+        if(groupsChips.getChildCount() == 0)
+        {
+            List<Group> existingGroups = db.getGroups();
+
+            List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
+
+            View groupsView = findViewById(R.id.groupsView);
+            View groupsTableRow = findViewById(R.id.groupsTableRow);
+
+            if (existingGroups.isEmpty()) {
+                groupsView.setVisibility(View.GONE);
+                groupsTableRow.setVisibility(View.GONE);
+            } else {
+                groupsView.setVisibility(View.VISIBLE);
+                groupsTableRow.setVisibility(View.VISIBLE);
+            }
+
+            for (Group group : db.getGroups()) {
+                Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
+                chip.setText(group._id);
+                chip.setTag(group);
+
+                chip.setChecked(false);
+                for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                    if (loyaltyCardGroup._id.equals(group._id)) {
+                        chip.setChecked(true);
+                        break;
+                    }
+                }
+
+                groupsChips.addView(chip);
+            }
         }
 
         if(headingColorValue == null)

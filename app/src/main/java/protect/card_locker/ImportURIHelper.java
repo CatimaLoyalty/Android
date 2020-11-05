@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import java.io.InvalidObjectException;
-import java.util.ArrayList;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;

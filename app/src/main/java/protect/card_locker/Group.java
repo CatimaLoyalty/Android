@@ -2,10 +2,6 @@ package protect.card_locker;
 
 import android.database.Cursor;
 
-import java.io.Serializable;
-
-import androidx.annotation.Nullable;
-
 public class Group
 {
     public final String _id;

@@ -1,17 +1,13 @@
 package protect.card_locker;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.text.TextUtils.join;
 
 public class DBHelper extends SQLiteOpenHelper
 {
@@ -299,7 +295,8 @@ public class DBHelper extends SQLiteOpenHelper
     {
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };
-        StringBuilder extraFilter = new StringBuilder();
+        StringBuilder groupFilter = new StringBuilder();
+        String limitString = "";
 
         SQLiteDatabase db = getReadableDatabase();
 
@@ -307,27 +304,27 @@ public class DBHelper extends SQLiteOpenHelper
             List<Integer> allowedIds = getGroupCardIds(group._id);
 
             // Empty group
-            if (allowedIds.size() == 0) {
-                // TODO: Find better way to return empty cursor
-                return db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + " WHERE 0 = 1", null, null);
-            }
+            if (allowedIds.size() > 0) {
+                groupFilter.append("AND (");
 
-            extraFilter.append("AND (");
-
-            for (int i = 0; i < allowedIds.size(); i++) {
-                extraFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));
-                if (i != allowedIds.size() - 1) {
-                    extraFilter.append(" OR ");
+                for (int i = 0; i < allowedIds.size(); i++) {
+                    groupFilter.append(LoyaltyCardDbIds.ID + " = " + allowedIds.get(i));
+                    if (i != allowedIds.size() - 1) {
+                        groupFilter.append(" OR ");
+                    }
                 }
+                groupFilter.append(") ");
+            } else {
+                limitString = "LIMIT 0";
             }
-            extraFilter.append(") ");
         }
 
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
-                extraFilter.toString() +
-                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC," + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC", selectionArgs, null);
+                groupFilter.toString() +
+                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC," + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                limitString, selectionArgs, null);
 
         return res;
     }

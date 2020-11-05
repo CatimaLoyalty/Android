@@ -2,9 +2,6 @@ package protect.card_locker;
 
 import android.database.Cursor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.Nullable;
 
 public class LoyaltyCard

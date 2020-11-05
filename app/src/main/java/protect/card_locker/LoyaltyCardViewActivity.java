@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -33,7 +32,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
 import protect.card_locker.preferences.Settings;
-
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {

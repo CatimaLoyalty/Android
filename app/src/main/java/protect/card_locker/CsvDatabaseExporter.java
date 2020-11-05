@@ -7,8 +7,6 @@ import org.apache.commons.csv.CSVPrinter;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)

@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
 
-import com.google.common.collect.Ordering;
 import com.google.zxing.BarcodeFormat;
 
 import org.junit.Before;

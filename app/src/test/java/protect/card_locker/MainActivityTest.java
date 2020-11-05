@@ -2,12 +2,10 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
@@ -16,12 +14,10 @@ import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
 

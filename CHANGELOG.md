@@ -2,6 +2,7 @@
 
 Changes:
 - Added rounded edges to card icons on main overview
+- Added support for grouping entries
 
 ## v0.29 (2020-10-29)
 

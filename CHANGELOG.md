@@ -1,4 +1,4 @@
-## Unreleased
+## v1.0 (2020-11-06)
 
 Changes:
 - Added rounded edges to card icons on main overview

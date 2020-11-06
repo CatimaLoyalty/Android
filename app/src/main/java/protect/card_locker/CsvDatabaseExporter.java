@@ -18,7 +18,34 @@ public class CsvDatabaseExporter implements DatabaseExporter
     {
         CSVPrinter printer = new CSVPrinter(output, CSVFormat.RFC4180);
 
-        // Print the header
+        // Print the version
+        printer.printRecord("2");
+
+        printer.println();
+
+        // Print the header for groups
+        printer.printRecord(DBHelper.LoyaltyCardDbGroups.ID);
+
+        Cursor groupCursor = db.getGroupCursor();
+
+        while(groupCursor.moveToNext())
+        {
+            Group group = Group.toGroup(groupCursor);
+
+            printer.printRecord(group._id);
+
+            if(Thread.currentThread().isInterrupted())
+            {
+                throw new InterruptedException();
+            }
+        }
+
+        groupCursor.close();
+
+        // Print an empty line
+        printer.println();
+
+        // Print the header for cards
         printer.printRecord(DBHelper.LoyaltyCardDbIds.ID,
                 DBHelper.LoyaltyCardDbIds.STORE,
                 DBHelper.LoyaltyCardDbIds.NOTE,
@@ -28,11 +55,11 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS);
 
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cardCursor = db.getLoyaltyCardCursor();
 
-        while(cursor.moveToNext())
+        while(cardCursor.moveToNext())
         {
-            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
             printer.printRecord(card.id,
                     card.store,
@@ -49,7 +76,32 @@ public class CsvDatabaseExporter implements DatabaseExporter
             }
         }
 
-        cursor.close();
+        cardCursor.close();
+
+        // Print an empty line
+        printer.println();
+
+        // Print the header for card group mappings
+        printer.printRecord(DBHelper.LoyaltyCardDbIdsGroups.cardID,
+                DBHelper.LoyaltyCardDbIdsGroups.groupID);
+
+        Cursor cardCursor2 = db.getLoyaltyCardCursor();
+
+        while(cardCursor2.moveToNext())
+        {
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor2);
+
+            for (Group group : db.getLoyaltyCardGroups(card.id)) {
+                printer.printRecord(card.id, group._id);
+            }
+
+            if(Thread.currentThread().isInterrupted())
+            {
+                throw new InterruptedException();
+            }
+        }
+
+        cardCursor2.close();
 
         printer.close();
     }

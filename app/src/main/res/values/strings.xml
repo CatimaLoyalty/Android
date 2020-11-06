@@ -6,7 +6,7 @@
     <string name="action_add">Add</string>
 
     <string name="noGiftCards">You don\'t have any cards at the moment. Click the "+" (plus) button to get started.\n\nCatima lets you carry your cards on your phone, so they are always within reach.</string>
-    <string name="noMatchingGiftCards">No cards match the search filter. Please try some different terms.</string>
+    <string name="noMatchingGiftCards">No cards match the filter. Please try some different terms.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>
@@ -123,4 +123,11 @@
     <string name="intent_import_card_from_url_path_prefix_old" translatable="false">/loyalty-card-locker/share</string>
     <string name="importSuccessful">Successfully imported loyalty card data</string>
     <string name="exportSuccessful">Successfully exported loyalty card data</string>
+
+    <string name="enter_group_name">Enter group name</string>
+    <string name="groups">Groups</string>
+    <string name="noGroups">You don\'t have any groups at the moment. Click the "+" (plus) button to get started.\n\nCards can be assigned to groups to make them easier to find.</string>
+    <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
+    <string name="all">All</string>
+    <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>
 </resources>

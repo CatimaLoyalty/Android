@@ -11,6 +11,10 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -22,13 +26,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.ImmutableMap;
+
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import protect.card_locker.preferences.SettingsActivity;
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity
 
     private Menu menu;
     protected String filter = "";
+    protected int selectedTab = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,7 +52,26 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateLoyaltyCardList("");
+        updateLoyaltyCardList(filter, null);
+
+        TabLayout groupsTabLayout = findViewById(R.id.groups);
+        groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                selectedTab = tab.getPosition();
+                updateLoyaltyCardList(filter, tab.getTag());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -64,7 +87,22 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        updateLoyaltyCardList(filter);
+        TabLayout groupsTabLayout = findViewById(R.id.groups);
+        boolean hasReset = updateTabGroups(groupsTabLayout);
+
+        Object group = null;
+
+        if (groupsTabLayout.getTabCount() != 0) {
+            TabLayout.Tab tab = groupsTabLayout.getTabAt(0);
+
+            if (!hasReset) {
+                tab = groupsTabLayout.getTabAt(selectedTab);
+            }
+
+            groupsTabLayout.selectTab(tab);
+            group = tab.getTag();
+        }
+        updateLoyaltyCardList(filter, group);
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -109,16 +147,30 @@ public class MainActivity extends AppCompatActivity
         if (!searchView.isIconified()) {
             searchView.setIconified(true);
         } else {
-            super.onBackPressed();
+            TabLayout groupsTabLayout = findViewById(R.id.groups);
+
+            if (groupsTabLayout.getVisibility() == View.VISIBLE && selectedTab != 0) {
+                selectedTab = 0;
+                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(0));
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
-    private void updateLoyaltyCardList(String filterText)
+    private void updateLoyaltyCardList(String filterText, Object tag)
     {
+        Group group = null;
+        if (tag != null) {
+            group = (Group) tag;
+        }
+
         final ListView cardList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
         final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         final DBHelper db = new DBHelper(this);
+
+        Cursor cardCursor = db.getLoyaltyCardCursor(filterText, group);
 
         if(db.getLoyaltyCardCount() > 0)
         {
@@ -127,7 +179,7 @@ public class MainActivity extends AppCompatActivity
             // the keyboard
             cardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
-            if(db.getLoyaltyCardCount(filterText) > 0)
+            if(cardCursor.getCount() > 0)
             {
                 noMatchingCardsText.setVisibility(View.GONE);
             }
@@ -142,8 +194,6 @@ public class MainActivity extends AppCompatActivity
             helpText.setVisibility(View.VISIBLE);
             noMatchingCardsText.setVisibility(View.GONE);
         }
-
-        Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
 
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
         cardList.setAdapter(adapter);
@@ -169,6 +219,53 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(i, MAIN_REQUEST_CODE);
             }
         });
+    }
+
+    public boolean updateTabGroups(TabLayout groupsTabLayout)
+    {
+        final DBHelper db = new DBHelper(this);
+
+        List<Group> newGroups = db.getGroups();
+
+        if (newGroups.size() == 0) {
+            groupsTabLayout.removeAllTabs();
+            groupsTabLayout.setVisibility(View.GONE);
+            return true;
+        }
+
+        // -1 because there is an "All" tab
+        boolean isChanged = groupsTabLayout.getTabCount() - 1 != newGroups.size();
+
+        if (!isChanged) {
+            for (int i = 0; i < newGroups.size(); i++) {
+                if (!((Group) groupsTabLayout.getTabAt(i + 1).getTag())._id.equals(newGroups.get(i)._id)) {
+                    isChanged = true;
+                    break;
+                }
+            }
+        }
+
+        if (isChanged) {
+            groupsTabLayout.removeAllTabs();
+
+            TabLayout.Tab allTab = groupsTabLayout.newTab();
+            allTab.setText(R.string.all);
+            allTab.setTag(null);
+            groupsTabLayout.addTab(allTab);
+
+            for (Group group : newGroups) {
+                TabLayout.Tab tab = groupsTabLayout.newTab();
+                tab.setText(group._id);
+                tab.setTag(group);
+                groupsTabLayout.addTab(tab);
+            }
+
+            groupsTabLayout.setVisibility(View.VISIBLE);
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -240,7 +337,10 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public boolean onQueryTextChange(String newText) {
                     filter = newText;
-                    updateLoyaltyCardList(newText);
+
+                    TabLayout groupsTabLayout = findViewById(R.id.groups);
+
+                    updateLoyaltyCardList(newText, groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition()).getTag());
                     return true;
                 }
             });
@@ -253,6 +353,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
+
+        if (id == R.id.action_manage_groups)
+        {
+            Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
+            startActivityForResult(i, MAIN_REQUEST_CODE);
+            return true;
+        }
 
         if(id == R.id.action_import_export)
         {

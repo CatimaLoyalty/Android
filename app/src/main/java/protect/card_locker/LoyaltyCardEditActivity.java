@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.ActionBar;
@@ -33,6 +35,8 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.io.InvalidObjectException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
@@ -43,6 +47,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     EditText storeFieldEdit;
     EditText noteFieldEdit;
+    ChipGroup groupsChips;
     ImageView headingColorSample;
     Button headingColorSelectButton;
     ImageView headingStoreTextColorSample;
@@ -99,6 +104,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
+        groupsChips = findViewById(R.id.groupChips);
         headingColorSample = findViewById(R.id.headingColorSample);
         headingColorSelectButton = findViewById(R.id.headingColorSelectButton);
         headingStoreTextColorSample = findViewById(R.id.headingStoreTextColorSample);
@@ -211,6 +217,40 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             setTitle(R.string.addCardTitle);
             hideBarcode();
+        }
+
+        if(groupsChips.getChildCount() == 0)
+        {
+            List<Group> existingGroups = db.getGroups();
+
+            List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
+
+            View groupsView = findViewById(R.id.groupsView);
+            View groupsTableRow = findViewById(R.id.groupsTableRow);
+
+            if (existingGroups.isEmpty()) {
+                groupsView.setVisibility(View.GONE);
+                groupsTableRow.setVisibility(View.GONE);
+            } else {
+                groupsView.setVisibility(View.VISIBLE);
+                groupsTableRow.setVisibility(View.VISIBLE);
+            }
+
+            for (Group group : db.getGroups()) {
+                Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
+                chip.setText(group._id);
+                chip.setTag(group);
+
+                chip.setChecked(false);
+                for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                    if (loyaltyCardGroup._id.equals(group._id)) {
+                        chip.setChecked(true);
+                        break;
+                    }
+                }
+
+                groupsChips.addView(chip);
+            }
         }
 
         if(headingColorValue == null)
@@ -404,6 +444,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             return;
         }
 
+        List<Group> selectedGroups = new ArrayList<>();
+
+        for (Integer chipId : groupsChips.getCheckedChipIds()) {
+            Chip chip = groupsChips.findViewById(chipId);
+            selectedGroups.add((Group) chip.getTag());
+        }
+
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
@@ -413,6 +460,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, 0);
         }
+
+        db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
 
         finish();
     }

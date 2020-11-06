@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+
 import androidx.annotation.Nullable;
 
 public class LoyaltyCard
@@ -20,7 +21,8 @@ public class LoyaltyCard
     public final int starStatus;
 
     public LoyaltyCard(final int id, final String store, final String note, final String cardId,
-                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,final int starStatus)
+                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,
+                       final int starStatus)
     {
         this.id = id;
         this.store = store;

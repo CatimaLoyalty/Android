@@ -24,7 +24,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -98,6 +100,20 @@ public class ImportExportTest
             assertTrue(result);
         }
         assertEquals(cardsToAdd, db.getLoyaltyCardCount());
+    }
+
+    private void addGroups(int groupsToAdd)
+    {
+        // Add in reverse order to test sorting
+        for(int index = groupsToAdd; index > 0; index--)
+        {
+            String groupName = String.format("group, \"%4d", index);
+            long id = db.insertGroup(groupName);
+            boolean result = (id != -1);
+            assertTrue(result);
+        }
+
+        assertEquals(groupsToAdd, db.getGroupCount());
     }
 
     /**
@@ -182,6 +198,29 @@ public class ImportExportTest
     }
 
     /**
+     * Check that all of the groups follow the pattern
+     * specified in addGroups(), and are in sequential order
+     * where the smallest group's index is 1
+     */
+    private void checkGroups()
+    {
+        Cursor cursor = db.getGroupCursor();
+        int index = 1;
+
+        while(cursor.moveToNext())
+        {
+            Group group = Group.toGroup(cursor);
+
+            String expectedGroupName = String.format("group, \"%4d", index);
+
+            assertEquals(expectedGroupName, group._id);
+
+            index++;
+        }
+        cursor.close();
+    }
+
+    /**
      * Delete the contents of the database
      */
     private void clearDatabase()
@@ -257,6 +296,96 @@ public class ImportExportTest
             assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
             checkLoyaltyCardsFiveStarred();
+
+            // Clear the database for the next format under test
+            clearDatabase();
+        }
+    }
+
+    private List<String> groupsToGroupNames(List<Group> groups)
+    {
+        List<String> groupNames = new ArrayList<>();
+
+        for (Group group : groups) {
+            groupNames.add(group._id);
+        }
+
+        return groupNames;
+    }
+
+    @Test
+    public void multipleCardsExportImportWithGroups() throws IOException
+    {
+        final int NUM_CARDS = 10;
+        final int NUM_GROUPS = 3;
+
+        for(DataFormat format : DataFormat.values())
+        {
+            addLoyaltyCards(NUM_CARDS);
+            addGroups(NUM_GROUPS);
+
+            List<Group> emptyGroup = new ArrayList<>();
+
+            List<Group> groupsForOne = new ArrayList<>();
+            groupsForOne.add(db.getGroup("group, \"   1"));
+
+            List<Group> groupsForTwo = new ArrayList<>();
+            groupsForTwo.add(db.getGroup("group, \"   1"));
+            groupsForTwo.add(db.getGroup("group, \"   2"));
+
+            List<Group> groupsForThree = new ArrayList<>();
+            groupsForThree.add(db.getGroup("group, \"   1"));
+            groupsForThree.add(db.getGroup("group, \"   2"));
+            groupsForThree.add(db.getGroup("group, \"   3"));
+
+            List<Group> groupsForFour = new ArrayList<>();
+            groupsForFour.add(db.getGroup("group, \"   1"));
+            groupsForFour.add(db.getGroup("group, \"   2"));
+            groupsForFour.add(db.getGroup("group, \"   3"));
+
+            List<Group> groupsForFive = new ArrayList<>();
+            groupsForFive.add(db.getGroup("group, \"   1"));
+            groupsForFive.add(db.getGroup("group, \"   3"));
+
+            db.setLoyaltyCardGroups(1, groupsForOne);
+            db.setLoyaltyCardGroups(2, groupsForTwo);
+            db.setLoyaltyCardGroups(3, groupsForThree);
+            db.setLoyaltyCardGroups(4, groupsForFour);
+            db.setLoyaltyCardGroups(5, groupsForFive);
+
+            ByteArrayOutputStream outData = new ByteArrayOutputStream();
+            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+
+            // Export data to CSV format
+            boolean result = MultiFormatExporter.exportData(db, outStream, format);
+            assertTrue(result);
+            outStream.close();
+
+            clearDatabase();
+
+            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+            InputStreamReader inStream = new InputStreamReader(inData);
+
+            // Import the CSV data
+            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+            assertTrue(result);
+
+            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+            assertEquals(NUM_GROUPS, db.getGroupCount());
+
+            checkLoyaltyCards();
+            checkGroups();
+
+            assertEquals(groupsToGroupNames(groupsForOne), groupsToGroupNames(db.getLoyaltyCardGroups(1)));
+            assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(db.getLoyaltyCardGroups(2)));
+            assertEquals(groupsToGroupNames(groupsForThree), groupsToGroupNames(db.getLoyaltyCardGroups(3)));
+            assertEquals(groupsToGroupNames(groupsForFour), groupsToGroupNames(db.getLoyaltyCardGroups(4)));
+            assertEquals(groupsToGroupNames(groupsForFive), groupsToGroupNames(db.getLoyaltyCardGroups(5)));
+            assertEquals(emptyGroup, db.getLoyaltyCardGroups(6));
+            assertEquals(emptyGroup, db.getLoyaltyCardGroups(7));
+            assertEquals(emptyGroup, db.getLoyaltyCardGroups(8));
+            assertEquals(emptyGroup, db.getLoyaltyCardGroups(9));
+            assertEquals(emptyGroup, db.getLoyaltyCardGroups(10));
 
             // Clear the database for the next format under test
             clearDatabase();
@@ -395,7 +524,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutColors() throws IOException
+    public void importWithoutColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -427,7 +556,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutNullColors() throws IOException
+    public void importWithoutNullColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -461,7 +590,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutInvalidColors() throws IOException
+    public void importWithoutInvalidColorsV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -485,7 +614,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithNoBarcodeType() throws IOException
+    public void importWithNoBarcodeTypeV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -519,7 +648,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithStarredField() throws IOException
+    public void importWithStarredFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -555,7 +684,7 @@ public class ImportExportTest
 
 
     @Test
-    public void importWithNoStarredField() throws IOException
+    public void importWithNoStarredFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
@@ -589,7 +718,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithInvalidStarField() throws IOException
+    public void importWithInvalidStarFieldV1() throws IOException
     {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +

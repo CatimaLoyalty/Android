@@ -45,7 +45,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'androidx.appcompat:appcompat:1.2.0'
-    compile 'com.google.android.material:material:1.2.0-alpha03'
+    compile 'com.google.android.material:material:1.2.1'
     compile 'androidx.legacy:legacy-support-v4:1.0.0'
     compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     compile 'com.google.zxing:core:3.3.0'

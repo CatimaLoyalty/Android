@@ -1,3 +1,8 @@
+## v1.0.1 (2020-11-07)
+
+Changes:
+- Fix crash in search with no groups
+
 ## v1.0 (2020-11-06)
 
 Changes:

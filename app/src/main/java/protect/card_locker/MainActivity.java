@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity
 
                     TabLayout groupsTabLayout = findViewById(R.id.groups);
 
-                    updateLoyaltyCardList(newText, groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition()).getTag());
+                    updateLoyaltyCardList(newText, groupsTabLayout.getTabCount() > 0 ? groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition()).getTag() : null);
                     return true;
                 }
             });

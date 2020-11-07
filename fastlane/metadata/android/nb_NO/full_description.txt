@@ -1,0 +1,7 @@
+Lei av å leite opp stamkundekortet mens du betaler i butikken? Ser du etter en fri løsning som ikke stjeler data?
+
+Catima er et program som lagrer strekkodebaserte stamkundekort på din enhet. Det er fri programvare, og gjør én ting bra, altså håndtering av kort.
+
+Nye kort kan legges til raskt. Bruk enten kamera for å scanne inn strekkoden, eller skriv inn nummeret. Når strekkoden er innlastet på butikken kan den skannes med en moderne strekkodeskanner. (Noen butikker bruker eldre strekkodeskannere, som inkrementelle skannere, istedenfor bildeskannere. Disse kan ikke lese skjermen på en smartelefon. Få isteden en ansatt til å skrive inn nummeret manuelt).
+
+Programmet krever veldig få tilganger, og bruker aldri Internett. Det er et valg om å sikkerhetskopiere kort lokalt. Derfra kan du sende sikkerhetskopien til en trygg plass.

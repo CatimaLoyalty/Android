@@ -111,7 +111,7 @@ public class LoyaltyCardViewActivityTest
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
-        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeView);
+        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeField);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -238,10 +238,9 @@ public class LoyaltyCardViewActivityTest
 
             checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
             checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
+            checkFieldProperties(activity, R.id.cardAndBarcodeLayout, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
-            checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.barcodeTypeView, View.VISIBLE, barcodeType);
+            checkFieldProperties(activity, R.id.barcodeTypeField, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
         }
@@ -258,7 +257,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
-        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
+        assertEquals(View.GONE, activity.findViewById(R.id.cardAndBarcodeLayout).getVisibility());
     }
 
     @Test
@@ -607,7 +606,7 @@ public class LoyaltyCardViewActivityTest
 
         // Check if the barcode type is NO_BARCODE as expected
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, NO_BARCODE);
-        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeLayout).getVisibility());
 
         // Check if the special NO_BARCODE string doesn't get saved
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
@@ -799,8 +798,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
-        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 
     @Test
@@ -820,7 +818,6 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
-        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 }

@@ -357,12 +357,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(cardIdFieldView.getText().length() > 0)
         {
-            cardIdFieldView.setVisibility(View.VISIBLE);
+            cardAndBarcodeLayout.setVisibility(View.VISIBLE);
             enterButton.setText(R.string.editCard);
         }
         else
         {
-            cardIdFieldView.setVisibility(View.GONE);
+            cardAndBarcodeLayout.setVisibility(View.GONE);
             enterButton.setText(R.string.enterCard);
         }
 
@@ -571,15 +571,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void showBarcode() {
-        cardAndBarcodeLayout.setVisibility(View.VISIBLE);
         barcodeImageLayout.setVisibility(View.VISIBLE);
-        findViewById(R.id.barcodeTypeView).setVisibility(View.VISIBLE);
     }
 
     private void hideBarcode() {
         barcodeImageLayout.setVisibility(View.GONE);
-        cardAndBarcodeLayout.setVisibility(View.GONE);
-        findViewById(R.id.barcodeTypeView).setVisibility(View.GONE);
     }
 
     private void generateIcon(String store) {

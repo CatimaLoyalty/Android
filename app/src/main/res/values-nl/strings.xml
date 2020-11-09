@@ -87,7 +87,7 @@
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
-    <string name="importSuccessful">de import van klantenkaartgegevens was succesvol</string>
+    <string name="importSuccessful">De import van klantenkaartgegevens was succesvol</string>
     <string name="deleteConfirmationGroup">Bevestig dat u deze groep wilt verwijderen</string>
     <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaart</string>
     <string name="noGroups">Je hebt geen groepen op dit moment. Klik op de + (plus) knop om te beginnen.

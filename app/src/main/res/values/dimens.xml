@@ -22,7 +22,7 @@
     <dimen name="inputBorderThickness">2dip</dimen>
     <dimen name="inputBorderDividerThickness">4dip</dimen>
     <dimen name="inputMargin">2dip</dimen>
-    <dimen name="inputPadding">20dip</dimen>
+    <dimen name="inputPadding">10dip</dimen>
     <dimen name="colorSamplePadding">10dip</dimen>
     <dimen name="inputSize">18sp</dimen>
 

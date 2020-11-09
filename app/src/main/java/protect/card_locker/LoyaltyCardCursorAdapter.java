@@ -71,13 +71,6 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         if (loyaltyCard.starStatus!=0) star.setVisibility(View.VISIBLE);
             else star.setVisibility(View.GONE);
 
-        int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
-        int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
-
-        Integer letterBackgroundColor = loyaltyCard.headerColor;
-        Integer letterTextColor = loyaltyCard.headerTextColor;
-        LetterBitmap letterBitmap = new LetterBitmap(context, loyaltyCard.store, loyaltyCard.store,
-                tileLetterFontSize, pixelSize, pixelSize, letterBackgroundColor, letterTextColor);
-        thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+        thumbnail.setImageBitmap(Utils.generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, loyaltyCard.headerTextColor).getLetterTile());
     }
 }

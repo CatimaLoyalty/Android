@@ -17,7 +17,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,17 +49,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     protected static final int SELECT_BARCODE_REQUEST = 1;
 
+    ImageView thumbnail;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
-    ImageView headingColorSample;
-    Button headingColorSelectButton;
-    ImageView headingStoreTextColorSample;
-    Button headingStoreTextColorSelectButton;
+    View cardAndBarcodeLayout;
     TextView cardIdFieldView;
-    View cardIdDivider;
-    View cardIdTableRow;
-    TextView barcodeTypeField;
+    EditText barcodeTypeField;
     ImageView barcodeImage;
     View barcodeImageLayout;
     View barcodeCaptureLayout;
@@ -102,23 +102,32 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         db = new DBHelper(this);
         importUriHelper = new ImportURIHelper(this);
 
+        thumbnail = findViewById(R.id.thumbnail);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
-        headingColorSample = findViewById(R.id.headingColorSample);
-        headingColorSelectButton = findViewById(R.id.headingColorSelectButton);
-        headingStoreTextColorSample = findViewById(R.id.headingStoreTextColorSample);
-        headingStoreTextColorSelectButton = findViewById(R.id.headingStoreTextColorSelectButton);
+        cardAndBarcodeLayout = findViewById(R.id.cardAndBarcodeLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
-        cardIdDivider = findViewById(R.id.cardIdDivider);
-        cardIdTableRow = findViewById(R.id.cardIdTableRow);
-        barcodeTypeField = findViewById(R.id.barcodeTypeView);
+        barcodeTypeField = findViewById(R.id.barcodeTypeField);
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
         captureButton = findViewById(R.id.captureButton);
         enterButton = findViewById(R.id.enterButton);
+
+        storeFieldEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                generateIcon(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
     }
 
     @Override
@@ -225,15 +234,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
 
-            View groupsView = findViewById(R.id.groupsView);
-            View groupsTableRow = findViewById(R.id.groupsTableRow);
-
             if (existingGroups.isEmpty()) {
-                groupsView.setVisibility(View.GONE);
-                groupsTableRow.setVisibility(View.GONE);
+                groupsChips.setVisibility(View.GONE);
             } else {
-                groupsView.setVisibility(View.VISIBLE);
-                groupsTableRow.setVisibility(View.VISIBLE);
+                groupsChips.setVisibility(View.VISIBLE);
             }
 
             for (Group group : db.getGroups()) {
@@ -266,10 +270,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             headingStoreTextColorValue = Color.WHITE;
         }
 
-        headingColorSample.setBackgroundColor(headingColorValue);
-        headingStoreTextColorSample.setBackgroundColor(headingStoreTextColorValue);
-        headingColorSelectButton.setOnClickListener(new ColorSelectListener(headingColorValue, true));
-        headingStoreTextColorSelectButton.setOnClickListener(new ColorSelectListener(headingStoreTextColorValue, false));
+        thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue, true));
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -356,14 +357,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(cardIdFieldView.getText().length() > 0)
         {
-            cardIdDivider.setVisibility(View.VISIBLE);
-            cardIdTableRow.setVisibility(View.VISIBLE);
+            cardIdFieldView.setVisibility(View.VISIBLE);
             enterButton.setText(R.string.editCard);
         }
         else
         {
-            cardIdDivider.setVisibility(View.GONE);
-            cardIdTableRow.setVisibility(View.GONE);
+            cardIdFieldView.setVisibility(View.GONE);
             enterButton.setText(R.string.enterCard);
         }
 
@@ -374,6 +373,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 doSave();
             }
         });
+
+        generateIcon(storeFieldEdit.getText().toString());
     }
 
     class ColorSelectListener implements View.OnClickListener
@@ -398,14 +399,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 {
                     if(isBackgroundColor)
                     {
-                        headingColorSample.setBackgroundColor(color);
                         headingColorValue = color;
                     }
                     else
                     {
-                        headingStoreTextColorSample.setBackgroundColor(color);
                         headingStoreTextColorValue = color;
                     }
+
+                    generateIcon(storeFieldEdit.getText().toString());
                 }
 
                 @Override
@@ -570,14 +571,32 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void showBarcode() {
+        cardAndBarcodeLayout.setVisibility(View.VISIBLE);
         barcodeImageLayout.setVisibility(View.VISIBLE);
-        findViewById(R.id.barcodeTypeDivider).setVisibility(View.VISIBLE);
-        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.VISIBLE);
+        findViewById(R.id.barcodeTypeView).setVisibility(View.VISIBLE);
     }
 
     private void hideBarcode() {
         barcodeImageLayout.setVisibility(View.GONE);
-        findViewById(R.id.barcodeTypeDivider).setVisibility(View.GONE);
-        findViewById(R.id.barcodeTypeTableRow).setVisibility(View.GONE);
+        cardAndBarcodeLayout.setVisibility(View.GONE);
+        findViewById(R.id.barcodeTypeView).setVisibility(View.GONE);
+    }
+
+    private void generateIcon(String store) {
+        if (headingColorValue == null && headingStoreTextColorValue == null) {
+            return;
+        }
+
+        thumbnail.setBackgroundColor(headingColorValue);
+
+        LetterBitmap letterBitmap = Utils.generateIcon(this, store, headingColorValue, headingStoreTextColorValue);
+
+        if (letterBitmap != null) {
+            thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+        } else {
+            thumbnail.setImageBitmap(null);
+        }
+
+        thumbnail.setMinimumWidth(thumbnail.getHeight());
     }
 }

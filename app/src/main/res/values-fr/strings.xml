@@ -45,7 +45,7 @@
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
-    <string name="importOptionApplicationTitle">Application externe</string>
+    <string name="importOptionApplicationTitle">Utiliser une application externe</string>
     <string name="importOptionApplicationExplanation">Utilisez une application externe comme Dropbox, Google Drive, ou votre gestionnaire de fichiers favori pour ouvrir un fichier.</string>
     <string name="importOptionApplicationButton">Application externe</string>
     <string name="about">À propos</string>
@@ -87,8 +87,17 @@
     <string name="share">Partager</string>
     <string name="barcodeNoBarcode">Cette carte n\'a pas de code-barres</string>
     <string name="barcodeType">Type de code-barres</string>
-    <string name="noMatchingGiftCards">Aucune carte ne correspond au filtre de recherche. Veuillez essayer d\'autres termes.</string>
+    <string name="noMatchingGiftCards">Aucune carte ne correspond au filtre. Veuillez essayer d\'autres termes.</string>
     <string name="action_search">Rechercher</string>
     <string name="unstar">Retirer des favoris</string>
     <string name="star">Ajouter aux favoris</string>
+    <string name="starImage">Étoile favorite</string>
+    <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer cette carte</string>
+    <string name="all">Tous</string>
+    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; cartes</string>
+    <string name="noGroups">Vous n\'avez aucun groupe pour le moment. Cliquez sur le bouton + (plus) pour commencer.
+\n
+\nLes cartes peuvent être attribuées à des groupes pour les rendre plus faciles à trouver.</string>
+    <string name="groups">Groupes</string>
+    <string name="enter_group_name">Entrez le nom du groupe</string>
 </resources>

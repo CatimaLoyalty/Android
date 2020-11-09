@@ -93,7 +93,7 @@
     <string name="noGroups">Je hebt geen groepen op dit moment. Klik op de + (plus) knop om te beginnen.
 \n
 \nKaarten kunnen worden toegewezen aan groepen om ze gemakkelijker te vinden.</string>
-    <string name="exportSuccessful">Met succes uitgevoerde klantenkaartgegevens</string>
+    <string name="exportSuccessful">De export van klantenkaartgegevens was succesvol</string>
     <string name="groups">Groep</string>
     <string name="enter_group_name">Voer groepsnaam in</string>
     <string name="starImage">Favoriete ster</string>

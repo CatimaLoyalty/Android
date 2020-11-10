@@ -1,18 +1,14 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
-
     <string name="noGiftCards">Je hebt nog geen klantenkaarten toegevoegd. Druk op de knop \'+\' (plus) om te beginnen.\n\nMet Klantenkaartkluis beheer je je klantenkaarten op je smartphone of tablet zodat ze altijd binnen handbereik zijn.</string>
-    <string name="noMatchingGiftCards">Er zijn geen kaarten die overeenkomen met je zoekopdracht. Probeer het opnieuw.</string>
-
+    <string name="noMatchingGiftCards">Geen kaarten komen overeen met het filter. Probeer alsjeblieft wat andere termen.</string>
     <string name="storeName">Winkel</string>
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
     <string name="barcodeType">Soort barcode</string>
     <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
-
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
     <string name="capture">Scan een kaart</string>
@@ -28,16 +24,14 @@
     <string name="ok">Oké</string>
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
-    <string name="sendLabel">Versturen&#8230;</string>
+    <string name="sendLabel">Versturen…</string>
     <string name="addedShortcut">Snelkoppeling is toegevoegd</string>
     <string name="editCardTitle">Klantenkaart bewerken</string>
     <string name="addCardTitle">Klantenkaart toevoegen</string>
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Je hebt nog geen kaarten toegevoegd.</string>
-
     <string name="barcodeImageDescription">Afbeelding van barcode</string>
-
     <string name="noStoreError">Geen winkelnaam ingevoerd</string>
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
     <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd</string>
@@ -52,17 +46,16 @@
     <string name="exportSuccessfulTitle">Exporteren voltooid</string>
     <string name="exportFailedTitle">Exporteren mislukt</string>
     <string name="exportFailed">Het exporteren is mislukt</string>
-    <string name="importing">Bezig met importeren&#8230;...</string>
-    <string name="exporting">Bezig met exporteren&#8230;...</string>
+    <string name="importing">Bezig met importeren…...</string>
+    <string name="exporting">Bezig met exporteren…...</string>
     <string name="noExternalStoragePermissionError">Het importeren of exporteren van kaarten is niet mogelijk zonder de machtiging \'externe opslag\'.</string>
     <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand uit het bestandssysteem.</string>
     <string name="importOptionFilesystemButton">Uit bestandssysteem</string>
-    <string name="importOptionApplicationTitle">Externe app gebruiken</string>
+    <string name="importOptionApplicationTitle">Externe toepassing gebruiken</string>
     <string name="importOptionApplicationExplanation">Open een bestand middels een externe app, zoals Dropbox, Google Drive of je favoriete bestandsbeheerder.</string>
     <string name="importOptionApplicationButton">Externe app gebruiken</string>
-
     <string name="about">Over</string>
     <string name="app_license">Uitgebracht onder de GPLv3-licentie.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
@@ -70,20 +63,15 @@
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van externe partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van externe partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken., of druk op &#8220;Deze kaart heeft geen barcode&#8221; om geen barcode te gebruiken.</string>
-
+    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken., of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
-
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
-
     <string name="change">Aanpassen</string>
     <string name="storeTextColorTitle">Tekstkleur van winkelnaam</string>
     <string name="storeTextBackgroundColorTitle">Kopkleur</string>
     <string name="storeNameBackgroundColorDescription">Achtergrondkleur van winkeltekst</string>
     <string name="storeNameColorDescription">Kleur van winkeltekst</string>
-
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Uiterlijk en bediening</string>
     <string name="settings_theme">Thema</string>
@@ -98,4 +86,18 @@
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
-    </resources>
+    <string name="all">Alles</string>
+    <string name="importSuccessful">De import van klantenkaartgegevens was succesvol</string>
+    <string name="deleteConfirmationGroup">Bevestig dat u deze groep wilt verwijderen</string>
+    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaart</string>
+    <string name="noGroups">Je hebt geen groepen op dit moment. Klik op de + (plus) knop om te beginnen.
+\n
+\nKaarten kunnen worden toegewezen aan groepen om ze gemakkelijker te vinden.</string>
+    <string name="exportSuccessful">De export van klantenkaartgegevens was succesvol</string>
+    <string name="groups">Groep</string>
+    <string name="enter_group_name">Voer groepsnaam in</string>
+    <string name="starImage">Favoriete ster</string>
+    <string name="app_copyright_old">Gebaseerd op Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
+    <string name="unstar">Verwijder uit favorieten</string>
+    <string name="star">Toevoegen aan favorieten</string>
+</resources>

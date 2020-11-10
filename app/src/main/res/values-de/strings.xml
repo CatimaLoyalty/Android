@@ -3,7 +3,7 @@
     <string name="action_search">Suche</string>
     <string name="action_add">Neu</string>
     <string name="noGiftCards">Sie haben noch keine Kundenkarte angelegt. Über den \"+\"-Button oben rechts können welche angelegt werden.\n\nDiese App ermöglicht es, Kundenkarten immer mit zu führen.</string>
-    <string name="noMatchingGiftCards">Es passen keine Kundenkarten zum Suchfilter. Bitte probiere verschiedene Begriffe aus.</string>
+    <string name="noMatchingGiftCards">Es passen keine Kundenkarten zum Filter. Bitte probiere verschiedene Begriffe aus.</string>
     <string name="storeName">Geschäft</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
@@ -49,7 +49,7 @@
     <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
     <string name="importOptionFilesystemButton">Aus Dateisystem</string>
-    <string name="importOptionApplicationTitle">Externe App verwenden</string>
+    <string name="importOptionApplicationTitle">Externe Anwendung verwenden</string>
     <string name="importOptionApplicationExplanation">Wählen Sie eine Datei aus einer App wie Dropbox, Google Drive, oder Ihrem bevorzugten Dateisystem aus.</string>
     <string name="importOptionApplicationButton">Nutze eine externe App</string>
     <string name="about">Über</string>
@@ -91,4 +91,13 @@
     <string name="share">Teilen</string>
     <string name="barcodeNoBarcode">Diese Karte hat keinen Strichcode</string>
     <string name="barcodeType">Strichcode-Typ</string>
+    <string name="starImage">Favoritenstern</string>
+    <string name="deleteConfirmationGroup">Bitte bestätigen Sie, dass Sie diese Gruppe löschen möchten</string>
+    <string name="all">Alle</string>
+    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Karten</string>
+    <string name="noGroups">Sie haben im Moment keine Gruppen. Klicken Sie auf die Schaltfläche + (Plus), um loszulegen.
+\n
+\nKarten können Gruppen zugewiesen werden, um sie leichter zu finden.</string>
+    <string name="groups">Gruppen</string>
+    <string name="enter_group_name">Geben Sie den Gruppennamen ein</string>
 </resources>

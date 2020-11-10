@@ -48,7 +48,7 @@
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
-    <string name="importOptionApplicationTitle">Brukt eksternt program</string>
+    <string name="importOptionApplicationTitle">Bruk eksternt program</string>
     <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
     <string name="about">Om</string>
@@ -85,7 +85,7 @@
     <string name="settings_light_theme">Lys</string>
     <string name="settings_system_theme">Systemdrakt</string>
     <string name="settings_theme">Drakt</string>
-    <string name="app_copyright_old">Basert på Kundekortknippe, opphavsrett 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Basert på Kundekortknippe, opphavsrett 2016–2020 Branden Archer.</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>

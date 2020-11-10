@@ -197,17 +197,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getCardTitleFontSize());
 
-        int textColor;
-        if(loyaltyCard.headerTextColor != null)
-        {
-            textColor = loyaltyCard.headerTextColor;
-        }
-        else
-        {
-            textColor = Color.WHITE;
-        }
-        storeName.setTextColor(textColor);
-
         int backgroundHeaderColor;
         if(loyaltyCard.headerColor != null)
         {
@@ -219,6 +208,17 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
+
+        int textColor;
+        if(Utils.needsDarkForeground(loyaltyCard.headerColor))
+        {
+            textColor = Color.BLACK;
+        }
+        else
+        {
+            textColor = Color.WHITE;
+        }
+        storeName.setTextColor(textColor);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);

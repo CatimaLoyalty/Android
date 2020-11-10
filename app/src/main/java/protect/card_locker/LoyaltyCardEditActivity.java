@@ -26,6 +26,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,7 +47,6 @@ import java.util.List;
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
-    protected static final String NO_BARCODE = "_NO_BARCODE_";
 
     protected static final int SELECT_BARCODE_REQUEST = 1;
 
@@ -55,7 +56,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ChipGroup groupsChips;
     View cardAndBarcodeLayout;
     TextView cardIdFieldView;
-    EditText barcodeTypeField;
+    View barcodeTypeView;
+    AutoCompleteTextView barcodeTypeField;
     ImageView barcodeImage;
     View barcodeImageLayout;
     View barcodeCaptureLayout;
@@ -107,6 +109,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         groupsChips = findViewById(R.id.groupChips);
         cardAndBarcodeLayout = findViewById(R.id.cardAndBarcodeLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
+        barcodeTypeView = findViewById(R.id.barcodeTypeView);
         barcodeTypeField = findViewById(R.id.barcodeTypeField);
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
@@ -122,6 +125,46 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 generateIcon(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+        cardIdFieldView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String formatString = barcodeTypeField.getText().toString();
+
+                if (!formatString.isEmpty()) {
+                    if (formatString.equals(getString(R.string.noBarcode))) {
+                        hideBarcode();
+                    } else {
+                        generateBarcode(s.toString(), BarcodeFormat.valueOf(formatString));
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+        barcodeTypeField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().isEmpty()) {
+                    if (s.toString().equals(getString(R.string.noBarcode))) {
+                        hideBarcode();
+                    } else {
+                        generateBarcode(cardIdFieldView.getText().toString(), BarcodeFormat.valueOf(s.toString()));
+                    }
+                }
             }
 
             @Override
@@ -179,7 +222,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             if(barcodeTypeField.getText().length() == 0)
             {
-                barcodeTypeField.setText(loyaltyCard.barcodeType.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : loyaltyCard.barcodeType);
+                barcodeTypeField.setText(loyaltyCard.barcodeType.isEmpty() ? getString(R.string.noBarcode) : loyaltyCard.barcodeType);
             }
 
             if(headingColorValue == null)
@@ -259,48 +302,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
-            if(barcodeTypeField.getText().toString().equals(NO_BARCODE))
+            String formatString = barcodeTypeField.getText().toString();
+
+            if(formatString.isEmpty() || formatString.equals(getString(R.string.noBarcode)))
             {
                 hideBarcode();
             }
             else
             {
-                String formatString = barcodeTypeField.getText().toString();
                 final BarcodeFormat format = BarcodeFormat.valueOf(formatString);
                 final String cardIdString = cardIdFieldView.getText().toString();
 
-                if(barcodeImage.getHeight() == 0)
-                {
-                    Log.d(TAG, "ImageView size is not known known at start, waiting for load");
-                    // The size of the ImageView is not yet available as it has not
-                    // yet been drawn. Wait for it to be drawn so the size is available.
-                    barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                            new ViewTreeObserver.OnGlobalLayoutListener()
-                            {
-                                @Override
-                                public void onGlobalLayout()
-                                {
-                                    if (Build.VERSION.SDK_INT < 16)
-                                    {
-                                        barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                                    }
-                                    else
-                                    {
-                                        barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                                    }
-
-                                    Log.d(TAG, "ImageView size now known");
-                                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                                }
-                            });
-                }
-                else
-                {
-                    Log.d(TAG, "ImageView size known known, creating barcode");
-                    new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                }
-
-                showBarcode();
+                generateBarcode(cardIdString, format);
             }
         }
 
@@ -321,24 +334,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         captureButton.setOnClickListener(captureCallback);
 
-        enterButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
-
-                String cardId = cardIdFieldView.getText().toString();
-                if(cardId.length() > 0)
-                {
-                    final Bundle b = new Bundle();
-                    b.putString("initialCardId", cardId);
-                    i.putExtras(b);
-                }
-
-                startActivityForResult(i, SELECT_BARCODE_REQUEST);
-            }
-        });
+        enterButton.setOnClickListener(new EditCardIdAndBarcode());
+        barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
 
         if(cardIdFieldView.getText().length() > 0)
         {
@@ -351,6 +348,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             enterButton.setText(R.string.enterCard);
         }
 
+        ArrayList<String> barcodeList = new ArrayList<>(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
+        barcodeList.add(0, getString(R.string.noBarcode));
+        ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, barcodeList);
+        barcodeTypeField.setAdapter(barcodeAdapter);
+
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -360,6 +362,25 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         });
 
         generateIcon(storeFieldEdit.getText().toString());
+    }
+
+    class EditCardIdAndBarcode implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
+
+            String cardId = cardIdFieldView.getText().toString();
+            if(cardId.length() > 0)
+            {
+                final Bundle b = new Bundle();
+                b.putString("initialCardId", cardId);
+                i.putExtras(b);
+            }
+
+            startActivityForResult(i, SELECT_BARCODE_REQUEST);
+        }
     }
 
     class ColorSelectListener implements View.OnClickListener
@@ -404,7 +425,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         // We do not want to save the no barcode string to the database
         // it is simply an empty there for no barcode
-        if(barcodeType.equals(NO_BARCODE))
+        if(barcodeType.equals(getString(R.string.noBarcode)))
         {
             barcodeType = "";
         }
@@ -541,7 +562,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             cardIdView.setText(contents);
 
             // Set special NO_BARCODE value to prevent onResume from overwriting it
-            barcodeTypeField.setText(format.isEmpty() ? LoyaltyCardEditActivity.NO_BARCODE : format);
+            barcodeTypeField.setText(format.isEmpty() ? getString(R.string.noBarcode) : format);
             onResume();
         }
     }
@@ -552,6 +573,33 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     private void hideBarcode() {
         barcodeImageLayout.setVisibility(View.GONE);
+    }
+
+    private void generateBarcode(final String cardId, final BarcodeFormat barcodeFormat) {
+        if (barcodeImage.getHeight() == 0) {
+            Log.d(TAG, "ImageView size is not known known at start, waiting for load");
+            // The size of the ImageView is not yet available as it has not
+            // yet been drawn. Wait for it to be drawn so the size is available.
+            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                    new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            if (Build.VERSION.SDK_INT < 16) {
+                                barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                            } else {
+                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                            }
+
+                            Log.d(TAG, "ImageView size now known");
+                            new BarcodeImageWriterTask(barcodeImage, cardId, barcodeFormat).execute();
+                        }
+                    });
+        } else {
+            Log.d(TAG, "ImageView size known known, creating barcode");
+            new BarcodeImageWriterTask(barcodeImage, cardId, barcodeFormat).execute();
+        }
+
+        showBarcode();
     }
 
     private void generateIcon(String store) {

@@ -172,7 +172,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/cardIdView"
-                        android:inputType="none"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -182,18 +181,17 @@
                 <!-- Barcode type -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/barcodeTypeView"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
                     android:hint="@string/barcodeType">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <AutoCompleteTextView
                         android:id="@+id/barcodeTypeField"
-                        android:inputType="none"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:inputType="none"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

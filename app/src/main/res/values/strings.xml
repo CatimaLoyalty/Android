@@ -5,8 +5,8 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">You don\'t have any cards at the moment. Click the "+" (plus) button to get started.\n\nCatima lets you carry your cards on your phone, so they are always within reach.</string>
-    <string name="noMatchingGiftCards">No cards match the filter. Please try some different terms.</string>
+    <string name="noGiftCards">Click the "+" (plus) button to add a card first.\n\nCatima carries your cards on the device, so they are always within reach.</string>
+    <string name="noMatchingGiftCards">Didn't find anything. Try changing your search.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>
@@ -28,7 +28,7 @@
     <string name="lockScreen">Block Rotation</string>
     <string name="unlockScreen">Unblock Rotation</string>
     <string name="deleteTitle">Remove Card</string>
-    <string name="deleteConfirmation">Please confirm that you want to delete this card.</string>
+    <string name="deleteConfirmation">Please confirm you want to delete this card.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
@@ -36,44 +36,44 @@
     <string name="addedShortcut">Added shortcut</string>
     <string name="editCardTitle">Edit Card</string>
     <string name="addCardTitle">Add Card</string>
-    <string name="scanCardBarcode">Scan Card\'s Barcode</string>
+    <string name="scanCardBarcode">Scan Card Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
-    <string name="noCardsMessage">There are no cards, add one first</string>
+    <string name="noCardsMessage">Add a card first</string>
 
-    <string name="barcodeImageDescription">Image of card\'s barcode</string>
+    <string name="barcodeImageDescription">Image of card barcode</string>
 
-    <string name="noStoreError">No Store entered</string>
-    <string name="noCardIdError">No Card ID entered</string>
-    <string name="noCardExistsError">Could not lookup loyalty card</string>
+    <string name="noStoreError">No store entered</string>
+    <string name="noCardIdError">No card ID entered</string>
+    <string name="noCardExistsError">Could not find card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Backed up data can allow you to move your cards to another device.</string>
-    <string name="importSuccessfulTitle">Import successful</string>
+    <string name="importExportHelp">Backing up your cards allows you to move them to another device.</string>
+    <string name="importSuccessfulTitle">Imported</string>
     <string name="importFailedTitle">Import failed</string>
-    <string name="importFailed">Failed to import</string>
-    <string name="exportSuccessfulTitle">Export successful</string>
+    <string name="importFailed">Could not import cards</string>
+    <string name="exportSuccessfulTitle">Exported</string>
     <string name="exportFailedTitle">Export failed</string>
-    <string name="exportFailed">Failed to export</string>
+    <string name="exportFailed">Could not export cards</string>
     <string name="importing">Importing&#8230;</string>
     <string name="exporting">Exporting&#8230;</string>
-    <string name="noExternalStoragePermissionError">Unable to import or export cards without the external storage permission</string>
-    <string name="exportOptionExplanation">Data will be written to a location of your choice.</string>
+    <string name="noExternalStoragePermissionError">Grant external storage permission to import or export cards first</string>
+    <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use external application</string>
-    <string name="importOptionApplicationExplanation">Use an external application like Dropbox, Google Drive, or your favorite file manager to open a file.</string>
-    <string name="importOptionApplicationButton">Use external application</string>
+    <string name="importOptionApplicationTitle">Use external app</string>
+    <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
+    <string name="importOptionApplicationButton">Use external app</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt" translatable="false">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
-    <string name="app_license">Licensed under the GPLv3.</string>
+    <string name="app_copyright_fmt" translatable="false">Copyright 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
+    <string name="app_license">Copylefted libre software, licensed GPLv3+.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revision Information: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> uses the following third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
@@ -95,15 +95,15 @@
     <string name="settings_category_title_ui">User interface</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_key_theme" translatable="false">pref_theme</string>
-    <string name="settings_system_theme">System theme</string>
+    <string name="settings_system_theme">System</string>
     <string name="settings_key_system_theme" translatable="false">system</string>
-    <string name="settings_light_theme">Light theme</string>
+    <string name="settings_light_theme">Light</string>
     <string name="settings_key_light_theme" translatable="false">light</string>
-    <string name="settings_dark_theme">Dark theme</string>
+    <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
-    <string name="settings_card_title_list_font_size">Card title list font size</string>
+    <string name="settings_card_title_list_font_size">Font size for card titles</string>
     <string name="settings_key_card_title_list_font_size" translatable="false">pref_card_title_list_font_size_sp</string>
-    <string name="settings_card_note_list_font_size">Card note list font size</string>
+    <string name="settings_card_note_list_font_size">Font size for card note list </string>
     <string name="settings_key_card_note_list_font_size" translatable="false">pref_card_note_list_font_size_sp</string>
     <string name="settings_card_title_font_size">Card title font size</string>
     <string name="settings_key_card_title_font_size" translatable="false">pref_card_title_font_size_sp</string>
@@ -121,12 +121,12 @@
     <string name="intent_import_card_from_url_path_prefix" translatable="false">/Catima/share</string>
     <string name="intent_import_card_from_url_host_old" translatable="false">brarcher.github.io</string>
     <string name="intent_import_card_from_url_path_prefix_old" translatable="false">/loyalty-card-locker/share</string>
-    <string name="importSuccessful">Successfully imported loyalty card data</string>
-    <string name="exportSuccessful">Successfully exported loyalty card data</string>
+    <string name="importSuccessful">Card data imported</string>
+    <string name="exportSuccessful">Card data exported</string>
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">You don\'t have any groups at the moment. Click the "+" (plus) button to get started.\n\nCards can be assigned to groups to make them easier to find.</string>
+    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nGroups make things easier to find.</string>
     <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>

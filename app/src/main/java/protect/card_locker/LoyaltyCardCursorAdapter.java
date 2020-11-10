@@ -71,6 +71,6 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         if (loyaltyCard.starStatus!=0) star.setVisibility(View.VISIBLE);
             else star.setVisibility(View.GONE);
 
-        thumbnail.setImageBitmap(Utils.generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, loyaltyCard.headerTextColor).getLetterTile());
+        thumbnail.setImageBitmap(Utils.generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
     }
 }

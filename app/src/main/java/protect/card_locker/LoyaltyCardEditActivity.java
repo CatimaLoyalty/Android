@@ -67,7 +67,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     boolean updateLoyaltyCard;
     Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
-    Integer headingStoreTextColorValue = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -192,15 +191,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
             }
 
-            if(headingStoreTextColorValue == null)
-            {
-                headingStoreTextColorValue = loyaltyCard.headerTextColor;
-                if(headingStoreTextColorValue == null)
-                {
-                    headingStoreTextColorValue = Color.WHITE;
-                }
-            }
-
             setTitle(R.string.editCardTitle);
         }
         else if(importLoyaltyCardUri != null)
@@ -220,7 +210,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             cardIdFieldView.setText(importCard.cardId);
             barcodeTypeField.setText(importCard.barcodeType);
             headingColorValue = importCard.headerColor;
-            headingStoreTextColorValue = importCard.headerTextColor;
         }
         else
         {
@@ -266,11 +255,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             colors.recycle();
         }
 
-        if(headingStoreTextColorValue == null) {
-            headingStoreTextColorValue = Color.WHITE;
-        }
-
-        thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue, true));
+        thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue));
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -380,12 +365,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     class ColorSelectListener implements View.OnClickListener
     {
         final int defaultColor;
-        final boolean isBackgroundColor;
 
-        ColorSelectListener(int defaultColor, boolean isBackgroundColor)
+        ColorSelectListener(int defaultColor)
         {
             this.defaultColor = defaultColor;
-            this.isBackgroundColor = isBackgroundColor;
         }
 
         @Override
@@ -397,14 +380,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 @Override
                 public void onColorSelected(int dialogId, int color)
                 {
-                    if(isBackgroundColor)
-                    {
-                        headingColorValue = color;
-                    }
-                    else
-                    {
-                        headingStoreTextColorValue = color;
-                    }
+                    headingColorValue = color;
 
                     generateIcon(storeFieldEdit.getText().toString());
                 }
@@ -454,12 +430,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, headingStoreTextColorValue, 0);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, 0);
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
@@ -579,13 +555,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void generateIcon(String store) {
-        if (headingColorValue == null && headingStoreTextColorValue == null) {
+        if (headingColorValue == null) {
             return;
         }
 
         thumbnail.setBackgroundColor(headingColorValue);
 
-        LetterBitmap letterBitmap = Utils.generateIcon(this, store, headingColorValue, headingStoreTextColorValue);
+        LetterBitmap letterBitmap = Utils.generateIcon(this, store, headingColorValue);
 
         if (letterBitmap != null) {
             thumbnail.setImageBitmap(letterBitmap.getLetterTile());

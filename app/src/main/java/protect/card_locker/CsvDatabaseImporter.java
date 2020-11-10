@@ -274,13 +274,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
         String barcodeType = extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
 
         Integer headerColor = null;
-        Integer headerTextColor = null;
 
-        if(record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR) &&
-           record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR))
+        if(record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR))
         {
             headerColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record, true);
-            headerTextColor = extractInt(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR, record, true);
         }
 
         int starStatus = 0;
@@ -291,7 +288,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
-        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, headerTextColor, starStatus);
+        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, starStatus);
     }
 
     /**

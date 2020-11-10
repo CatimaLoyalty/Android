@@ -6,7 +6,7 @@
     <string name="action_add">Add</string>
 
     <string name="noGiftCards">Click the "+" (plus) button to add a card first.\n\nCatima carries your cards on the device, so they are always within reach.</string>
-    <string name="noMatchingGiftCards">Could not find any such cards. Please try changing your search.</string>
+    <string name="noMatchingGiftCards">Maybe if you look elsewhere, or for something else you will find what you are looking for.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>
@@ -64,7 +64,7 @@
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
     <string name="importOptionApplicationTitle">Use external app</string>
-    <string name="importOptionApplicationExplanation">Use an external app like Nextcloud, OnionShare, or your favorite file manager to open a file.</string>
+    <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
     <string name="importOptionApplicationButton">Use external app</string>
 
     <string name="about">About</string>
@@ -126,7 +126,7 @@
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nCards can be assigned in groups to make them easier to find.</string>
+    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nCards can be grrouped to make them easier to find.</string>
     <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>

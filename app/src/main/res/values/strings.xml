@@ -126,7 +126,7 @@
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nCards can be grrouped to make them easier to find.</string>
+    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nCards can be grouped to make them easier to find.</string>
     <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>

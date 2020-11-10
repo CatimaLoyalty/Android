@@ -101,7 +101,7 @@
     <string name="settings_key_light_theme" translatable="false">light</string>
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
-    <string name="settings_card_title_list_font_size">Card title list font size</string>
+    <string name="settings_card_title_list_font_size">Font size for card titles</string>
     <string name="settings_key_card_title_list_font_size" translatable="false">pref_card_title_list_font_size_sp</string>
     <string name="settings_card_note_list_font_size">Font size for card note list </string>
     <string name="settings_key_card_note_list_font_size" translatable="false">pref_card_note_list_font_size_sp</string>

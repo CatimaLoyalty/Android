@@ -51,7 +51,6 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.NOTE,
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS);
 
@@ -66,7 +65,6 @@ public class CsvDatabaseExporter implements DatabaseExporter
                     card.note,
                     card.cardId,
                     card.headerColor,
-                    card.headerTextColor,
                     card.barcodeType,
                     card.starStatus);
 

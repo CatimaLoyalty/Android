@@ -35,7 +35,7 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, Color.WHITE, 1);
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -50,7 +50,6 @@ public class ImportURITest {
         assertEquals(card.barcodeType, parsedCard.barcodeType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.headerColor, parsedCard.headerColor);
-        assertEquals(card.headerTextColor, parsedCard.headerTextColor);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.store, parsedCard.store);
         // No export of starStatus for single cards foreseen therefore 0 will be imported
@@ -61,7 +60,7 @@ public class ImportURITest {
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, null, 0);
+        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -97,7 +96,7 @@ public class ImportURITest {
     {
         try {
             //"stare" instead of store
-            importURIHelper.parse(Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706&headertextcolor=-1"));
+            importURIHelper.parse(Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706"));
             assertTrue(false); // Shouldn't get here
         } catch(InvalidObjectException ex) {
             // Desired behaviour
@@ -120,7 +119,6 @@ public class ImportURITest {
         assertEquals("note", parsedCard.note);
         assertEquals("store", parsedCard.store);
         assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
-        assertEquals(Integer.valueOf(-1), parsedCard.headerTextColor);
         assertEquals(0, parsedCard.starStatus);
     }
 }

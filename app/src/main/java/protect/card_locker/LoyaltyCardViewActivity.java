@@ -210,7 +210,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
-        if(Utils.needsDarkForeground(loyaltyCard.headerColor))
+        if(Utils.needsDarkForeground(backgroundHeaderColor))
         {
             textColor = Color.BLACK;
         }

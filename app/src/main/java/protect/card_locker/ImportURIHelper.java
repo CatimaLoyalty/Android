@@ -12,9 +12,6 @@ public class ImportURIHelper {
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
 
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
-    private static final String HEADER_TEXT_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR;
-
-
 
     private final Context context;
     private final String host;
@@ -57,11 +54,6 @@ public class ImportURIHelper {
             {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
-            String unparsedHeaderTextColor = uri.getQueryParameter(HEADER_TEXT_COLOR);
-            if(unparsedHeaderTextColor != null)
-            {
-                headerTextColor = Integer.parseInt(unparsedHeaderTextColor);
-            }
 
             return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
@@ -82,10 +74,6 @@ public class ImportURIHelper {
         if(loyaltyCard.headerColor != null)
         {
             uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
-        }
-        if(loyaltyCard.headerTextColor != null)
-        {
-            uriBuilder.appendQueryParameter(HEADER_TEXT_COLOR, loyaltyCard.headerTextColor.toString());
         }
         //StarStatus will not be exported
         return uriBuilder.build();

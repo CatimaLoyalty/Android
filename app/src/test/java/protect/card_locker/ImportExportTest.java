@@ -70,7 +70,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 0);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -86,7 +86,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 1);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 1);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -95,7 +95,7 @@ public class ImportExportTest
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, index*2, 0);
+            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -138,7 +138,6 @@ public class ImportExportTest
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(Integer.valueOf(index*2), card.headerTextColor);
             assertEquals(0, card.starStatus);
 
             index++;
@@ -169,7 +168,6 @@ public class ImportExportTest
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
-            assertEquals(Integer.valueOf(index*2), card.headerTextColor);
             assertEquals(1, card.starStatus);
 
             index++;
@@ -188,7 +186,6 @@ public class ImportExportTest
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(index), card.headerColor);
-        assertEquals(Integer.valueOf(index*2), card.headerTextColor);
         assertEquals(0, card.starStatus);
 
         index++;
@@ -552,7 +549,6 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
-        assertNull(card.headerTextColor);
     }
 
     @Test
@@ -586,7 +582,6 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
-        assertNull(card.headerTextColor);
     }
 
     @Test
@@ -644,7 +639,6 @@ public class ImportExportTest
         assertEquals("", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
-        assertEquals(1, (long) card.headerTextColor);
     }
 
     @Test
@@ -678,7 +672,6 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(1, card.starStatus);
         assertEquals(1, (long) card.headerColor);
-        assertEquals(1, (long) card.headerTextColor);
     }
 
 
@@ -714,7 +707,6 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
-        assertEquals(1, (long) card.headerTextColor);
     }
 
     @Test
@@ -768,6 +760,5 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
-        assertEquals(1, (long) card.headerTextColor);
-        }
+    }
 }

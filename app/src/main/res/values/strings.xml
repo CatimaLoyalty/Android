@@ -13,6 +13,7 @@
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
+    <string name="noBarcode">No barcode</string>
 
     <string name="star">Add to favorites</string>
     <string name="unstar">Remove from favorites</string>

@@ -32,478 +32,191 @@
                 android:layout_height="wrap_content"
                 android:background="@color/inputContrastBackground"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TableLayout android:layout_width="fill_parent"
-                         android:layout_height="wrap_content"
-                         android:shrinkColumns="1"
-                         android:background="@color/inputContrastBackground">
 
-                <!-- Store Name -->
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
+            <!-- Store -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/inputPadding"
+                android:paddingTop="@dimen/inputPadding"
+                android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:layout_marginEnd="@dimen/activity_margin"
+                    android:layout_marginRight="@dimen/activity_margin"
+                    android:layout_gravity="center_vertical"
+                    app:cardCornerRadius="4dp"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    app:cardElevation="0dp">
 
-                        <TextView
-                            android:id="@+id/storeNameField"
-                            android:text="@string/storeName"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"/>
+                    <ImageView
+                        android:id="@+id/thumbnail"
+                        android:layout_width="@dimen/cardThumbnailSize"
+                        android:layout_height="@dimen/cardThumbnailSize"
+                        android:contentDescription="@string/thumbnailDescription"
+                        android:src="@mipmap/ic_launcher"/>
 
-                        <EditText
-                            android:id="@+id/storeNameEdit"
-                            android:inputType="textCapWords"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/storeNameField"
-                            android:layout_toRightOf="@id/storeNameField"
-                            />
+                </androidx.cardview.widget.CardView>
 
-                    </RelativeLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <!-- Note -->
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-
-                    <RelativeLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
-
-                        <TextView
-                            android:id="@+id/noteField"
-                            android:text="@string/note"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            />
-
-                        <EditText
-                            android:id="@+id/noteEdit"
-                            android:inputType="textMultiLine"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/noteField"
-                            android:layout_toRightOf="@id/noteField"
-                            />
-                    </RelativeLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <!-- Groups -->
-                <View
-                    android:id="@+id/groupsView"
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder"
-                    android:visibility="gone"/>
-                <TableRow
-                    android:id="@+id/groupsTableRow"
-                    android:background="@color/inputBackground"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/storeNameField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
+                    android:hint="@string/storeName">
 
-                    <RelativeLayout
-                        android:layout_weight="1"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/storeNameEdit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
+                        />
 
-                        <TextView
-                            android:id="@+id/groupsField"
-                            android:text="@string/groups"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-                        <com.google.android.material.chip.ChipGroup
-                            android:id="@+id/groupChips"
-                            android:layout_height="match_parent"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:layout_toEndOf="@id/groupsField"
-                            android:layout_toRightOf="@id/groupsField"
-                            />
-                    </RelativeLayout>
+            <!-- Note -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/inputPadding"
+                android:paddingTop="@dimen/inputPadding"
+                android:orientation="horizontal">
 
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-
-                <!-- Store Header Background Color -->
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/noteField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
+                    android:layout_height="wrap_content"
+                    android:hint="@string/note">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_weight="1"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/noteEdit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
+                        />
 
-                        <TextView
-                            android:id="@+id/headingField"
-                            android:text="@string/storeTextBackgroundColorTitle"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            app:layout_constraintStart_toStartOf="parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/headingColorSampleBorder"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_margin="@dimen/colorSamplePadding"
-                            app:layout_constraintStart_toEndOf="@id/headingField"
-                            app:layout_constraintEnd_toStartOf="@+id/headingColorSelectButton"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:background="@android:color/black">
-                            <ImageView
-                                android:id="@+id/headingColorSample"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_margin="1dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:background="@android:color/white"
-                                android:contentDescription="@string/storeNameBackgroundColorDescription"/>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Group -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/inputPadding"
+                android:paddingTop="@dimen/inputPadding"
+                android:orientation="horizontal">
 
-                       <Button
-                           android:id="@+id/headingColorSelectButton"
-                           android:text="@string/change"
-                           android:padding="@dimen/inputPadding"
-                           android:layout_width="wrap_content"
-                           android:layout_height="match_parent"
-                           android:layout_toEndOf="@id/headingColorSampleBorder"
-                           android:layout_toRightOf="@id/headingColorSampleBorder"
-                           app:layout_constraintEnd_toEndOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <!-- Store Text Color -->
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/groupChips"
+                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
+                    android:padding="@dimen/inputPadding"
+                    android:textSize="@dimen/inputSize" />
+            </LinearLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
-
-                        <TextView
-                            android:id="@+id/storeTextField"
-                            android:text="@string/storeTextColorTitle"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            app:layout_constraintStart_toStartOf="parent"/>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/headingStoreTextColorSampleBorder"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_margin="@dimen/colorSamplePadding"
-                            app:layout_constraintStart_toEndOf="@id/storeTextField"
-                            app:layout_constraintEnd_toStartOf="@+id/headingStoreTextColorSelectButton"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:background="@android:color/black">
-                            <ImageView
-                                android:id="@+id/headingStoreTextColorSample"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_margin="1dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:background="@android:color/white"
-                                android:contentDescription="@string/storeNameColorDescription"/>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <Button
-                            android:id="@+id/headingStoreTextColorSelectButton"
-                            android:text="@string/change"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_toEndOf="@id/headingStoreTextColorSampleBorder"
-                            android:layout_toRightOf="@id/headingStoreTextColorSampleBorder"
-                            app:layout_constraintEnd_toEndOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <!-- Card ID -->
-                <View
-                    android:id="@+id/cardIdDivider"
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:id="@+id/cardIdTableRow"
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-
-                    <RelativeLayout
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
-
-                        <TextView
-                            android:id="@+id/cardIdField"
-                            android:text="@string/cardId"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            />
-
-                        <TextView
-                            android:id="@+id/cardIdView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/cardIdField"
-                            android:layout_toRightOf="@id/cardIdField"
-                            />
-                    </RelativeLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <!-- Barcode Type -->
-                <View
-                    android:id="@+id/barcodeTypeDivider"
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-                <TableRow
-                    android:id="@+id/barcodeTypeTableRow"
-                    android:background="@color/inputBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <View
-                        android:gravity="start"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-
-                    <RelativeLayout
-                        android:orientation="horizontal"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/inputPadding"
-                        android:paddingEnd="@dimen/inputPadding">
-
-                        <TextView
-                            android:id="@+id/barcodeTypeField"
-                            android:text="@string/barcodeType"
-                            android:layout_height="match_parent"
-                            android:layout_width="wrap_content"
-                            android:textSize="@dimen/inputSize"
-                            android:padding="@dimen/inputPadding"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            />
-
-                        <TextView
-                            android:id="@+id/barcodeTypeView"
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            android:padding="@dimen/inputPadding"
-                            android:textSize="@dimen/inputSize"
-                            android:textIsSelectable="true"
-                            android:layout_toEndOf="@id/barcodeTypeField"
-                            android:layout_toRightOf="@id/barcodeTypeField"
-                            />
-                    </RelativeLayout>
-
-                    <View
-                        android:gravity="end"
-                        android:layout_height="match_parent"
-                        android:layout_width="@dimen/inputBorderThickness"
-                        android:background="@color/inputBorder" />
-                </TableRow>
-
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent"
-                    android:background="@color/inputBorder" />
-
-                <LinearLayout android:orientation="horizontal"
-                              android:padding="10.0dip"
-                              android:layout_width="fill_parent"
-                              android:layout_height="wrap_content"
-                              android:visibility="gone"
-                              android:id="@+id/barcodeLayout">
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/barcode_disp_height"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10.0dp"
-                        android:background="#ffffff"
-                        android:id="@+id/barcode"
-                        android:contentDescription="@string/barcodeImageDescription"
-                        android:layout_weight="1.0"/>
-                </LinearLayout>
+            <!-- Buttons -->
+            <TableLayout android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="1"
+                android:background="@color/inputContrastBackground">
 
                 <LinearLayout android:orientation="vertical"
-                              android:layout_width="fill_parent"
-                              android:layout_height="wrap_content"
-                              android:background="@color/inputBackground">
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/inputBackground">
 
                     <LinearLayout android:orientation="horizontal"
-                                  android:padding="10.0dip"
-                                  android:layout_width="fill_parent"
-                                  android:layout_height="wrap_content"
-                                  android:id="@+id/barcodeCaptureLayout">
+                        android:padding="10.0dip"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/barcodeCaptureLayout">
                         <Button android:id="@+id/captureButton"
-                                android:layout_margin="@dimen/inputMargin"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/capture"
-                                android:layout_weight="1.0"/>
+                            android:layout_margin="@dimen/inputMargin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/capture"
+                            android:layout_weight="1.0"/>
                         <Button android:id="@+id/enterButton"
-                                android:layout_margin="@dimen/inputMargin"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/enterCard"
-                                android:layout_weight="1.0"/>
+                            android:layout_margin="@dimen/inputMargin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enterCard"
+                            android:layout_weight="1.0"/>
                     </LinearLayout>
                 </LinearLayout>
-
             </TableLayout>
-        </LinearLayout>
+
+            <!-- Card ID and Barcode type -->
+            <LinearLayout
+                android:id="@+id/cardAndBarcodeLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/inputPadding"
+                android:paddingTop="@dimen/inputPadding"
+                android:orientation="horizontal">
+
+                <!-- Card ID -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cardIdField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:hint="@string/cardId">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cardIdView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Barcode type -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/barcodeTypeView"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:hint="@string/barcodeType">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/barcodeTypeField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Barcode -->
+            <View
+                android:layout_height="@dimen/inputBorderThickness"
+                android:layout_width="match_parent" />
+
+            <LinearLayout android:orientation="horizontal"
+                          android:padding="10.0dip"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:visibility="gone"
+                          android:id="@+id/barcodeLayout">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/barcode_disp_height"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="10.0dp"
+                    android:background="#ffffff"
+                    android:id="@+id/barcode"
+                    android:contentDescription="@string/barcodeImageDescription"
+                    android:layout_weight="1.0"/>
+            </LinearLayout>
+        </TableLayout>
     </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

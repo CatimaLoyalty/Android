@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
-import static protect.card_locker.LoyaltyCardEditActivity.NO_BARCODE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -111,7 +110,7 @@ public class LoyaltyCardViewActivityTest
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
-        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeView);
+        final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeField);
 
         storeField.setText(store);
         noteField.setText(note);
@@ -130,7 +129,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(cardId, card.cardId);
 
         // The special "No barcode" string shouldn't actually be written to the loyalty card
-        if(barcodeType.equals(NO_BARCODE))
+        if(barcodeType.equals(activity.getApplicationContext().getString(R.string.noBarcode)))
         {
             assertEquals("", card.barcodeType);
         }
@@ -238,10 +237,9 @@ public class LoyaltyCardViewActivityTest
 
             checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
             checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
+            checkFieldProperties(activity, R.id.cardAndBarcodeLayout, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
-            checkFieldProperties(activity, R.id.cardIdDivider, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.cardIdTableRow, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
-            checkFieldProperties(activity, R.id.barcodeTypeView, View.VISIBLE, barcodeType);
+            checkFieldProperties(activity, R.id.barcodeTypeField, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
         }
@@ -258,7 +256,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
-        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
+        assertEquals(View.GONE, activity.findViewById(R.id.cardAndBarcodeLayout).getVisibility());
     }
 
     @Test
@@ -400,7 +398,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -416,7 +414,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -432,7 +430,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -453,7 +451,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -479,7 +477,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -523,7 +521,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -541,7 +539,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, 0);
 
         activityController.start();
         activityController.visible();
@@ -559,7 +557,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, null, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, null, 0);
 
         activityController.start();
         activityController.visible();
@@ -576,14 +574,14 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, "", Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, "", Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
         // Save and check the loyalty card
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode), false);
     }
 
     @Test
@@ -593,7 +591,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -606,11 +604,11 @@ public class LoyaltyCardViewActivityTest
         selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
 
         // Check if the barcode type is NO_BARCODE as expected
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, NO_BARCODE);
-        assertEquals(View.GONE, activity.findViewById(R.id.barcodeTypeTableRow).getVisibility());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode));
+        assertEquals(View.GONE, activity.findViewById(R.id.barcodeLayout).getVisibility());
 
         // Check if the special NO_BARCODE string doesn't get saved
-        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, NO_BARCODE, false);
+        saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode), false);
     }
 
     @Test
@@ -620,7 +618,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         final int STORE_FONT_SIZE = 50;
         final int CARD_FONT_SIZE = 40;
@@ -662,7 +660,7 @@ public class LoyaltyCardViewActivityTest
 
             Activity activity = (Activity)activityController.get();
             DBHelper db = new DBHelper(activity);
-            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+            db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
             settings.edit()
@@ -697,7 +695,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity) activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE,0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK,0);
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -726,7 +724,7 @@ public class LoyaltyCardViewActivityTest
 
         Activity activity = (Activity)activityController.get();
         DBHelper db = new DBHelper(activity);
-        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, Color.WHITE, 0);
+        db.insertLoyaltyCard("store", "note", BARCODE_DATA, BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
@@ -799,8 +797,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
-        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 
     @Test
@@ -820,7 +817,6 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", "123456", "AZTEC");
-        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.headingColorSample).getBackground()).getColor());
-        assertEquals(-1, ((ColorDrawable) activity.findViewById(R.id.headingStoreTextColorSample).getBackground()).getColor());
+        assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 }

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.appcompat.app.ActionBar;
@@ -36,7 +35,6 @@ import protect.card_locker.preferences.Settings;
 public class LoyaltyCardViewActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
-    private static final double LUMINANCE_MIDPOINT = 0.5;
 
     TextView cardIdFieldView;
     TextView noteView;
@@ -199,17 +197,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getCardTitleFontSize());
 
-        int textColor;
-        if(loyaltyCard.headerTextColor != null)
-        {
-            textColor = loyaltyCard.headerTextColor;
-        }
-        else
-        {
-            textColor = Color.WHITE;
-        }
-        storeName.setTextColor(textColor);
-
         int backgroundHeaderColor;
         if(loyaltyCard.headerColor != null)
         {
@@ -222,8 +209,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
+        int textColor;
+        if(Utils.needsDarkForeground(backgroundHeaderColor))
+        {
+            textColor = Color.BLACK;
+        }
+        else
+        {
+            textColor = Color.WHITE;
+        }
+        storeName.setTextColor(textColor);
+
         // If the background is very bright, we should use dark icons
-        backgroundNeedsDarkIcons = (ColorUtils.calculateLuminance(backgroundHeaderColor) > LUMINANCE_MIDPOINT);
+        backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
         {

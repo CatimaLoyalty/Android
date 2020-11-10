@@ -486,5 +486,4 @@ public class MainActivity extends AppCompatActivity
         int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
     }
-
 }

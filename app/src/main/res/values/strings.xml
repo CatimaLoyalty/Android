@@ -6,7 +6,7 @@
     <string name="action_add">Add</string>
 
     <string name="noGiftCards">Click the "+" (plus) button to add a card first.\n\nCatima carries your cards on the device, so they are always within reach.</string>
-    <string name="noMatchingGiftCards">Didn't find anything. Please try again, or look elsewhere.</string>
+    <string name="noMatchingGiftCards">Didn't find anything. Try changing your search.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>

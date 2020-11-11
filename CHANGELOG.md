@@ -1,3 +1,10 @@
+## v1.1.0 (2020-11-11)
+
+Changes:
+- Improved edit UI
+- Removed header text colour option (now automatically generated based on brightness)
+- Updated translations
+
 ## v1.0.1 (2020-11-07)
 
 Changes:

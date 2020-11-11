@@ -77,7 +77,7 @@
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
 
-    <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
+    <string name="copy_to_clipboard_toast">Card ID(s) copied to clipboard</string>
 
     <string name="thumbnailDescription">Thumbnail for card</string>
     <string name="starImage">Favorite star</string>

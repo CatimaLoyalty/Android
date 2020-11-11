@@ -2,6 +2,10 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ComponentName;
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -9,14 +13,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+<<<<<<< HEAD
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 
+=======
+import com.google.zxing.BarcodeFormat;
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+<<<<<<< HEAD
 import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.shadows.ShadowActivity;
@@ -28,6 +37,13 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+=======
+import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.Config;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
@@ -37,10 +53,9 @@ public class MainActivityTest
     private SharedPreferences prefs;
 
     @Test
-    public void initiallyNoLoyaltyCards() throws Exception
-    {
+    public void initiallyNoLoyaltyCards() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
-        assertTrue(activity != null);
+        assertNotNull(activity);
 
         TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
@@ -53,12 +68,11 @@ public class MainActivityTest
     }
 
     @Test
-    public void onCreateShouldInflateLayout() throws Exception
-    {
+    public void onCreateShouldInflateLayout() {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         final Menu menu = shadowOf(activity).getOptionsMenu();
-        assertTrue(menu != null);
+        assertNotNull(menu);
 
         // The settings, import/export, groups, search and add button should be present
         assertEquals(menu.size(), 6);
@@ -251,7 +265,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
-        mainActivity.filter = "store";
+        mainActivity.mFilter = "store";
 
         activityController.pause();
         activityController.resume();
@@ -262,6 +276,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
+<<<<<<< HEAD
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
@@ -284,6 +299,9 @@ public class MainActivityTest
         assertEquals(2, list.getCount());
 
         mainActivity.filter = "first";
+=======
+        mainActivity.mFilter = "first";
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 
         activityController.pause();
         activityController.resume();
@@ -294,6 +312,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
+<<<<<<< HEAD
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
@@ -316,6 +335,9 @@ public class MainActivityTest
         assertEquals(1, list.getCount());
 
         mainActivity.filter = "initial";
+=======
+        mainActivity.mFilter = "initial";
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 
         activityController.pause();
         activityController.resume();
@@ -326,6 +348,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
+<<<<<<< HEAD
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
@@ -348,6 +371,9 @@ public class MainActivityTest
         assertEquals(1, list.getCount());
 
         mainActivity.filter = "second";
+=======
+        mainActivity.mFilter = "second";
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 
         activityController.pause();
         activityController.resume();
@@ -358,6 +384,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
+<<<<<<< HEAD
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
@@ -380,6 +407,9 @@ public class MainActivityTest
         assertEquals(1, list.getCount());
 
         mainActivity.filter = "company";
+=======
+        mainActivity.mFilter = "company";
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 
         activityController.pause();
         activityController.resume();
@@ -390,6 +420,7 @@ public class MainActivityTest
 
         assertEquals(0, list.getCount());
 
+<<<<<<< HEAD
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
@@ -412,6 +443,9 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         mainActivity.filter = "";
+=======
+        mainActivity.mFilter = "";
+>>>>>>> cdd9472 (WIP Issue #14 (and #65))
 
         activityController.pause();
         activityController.resume();

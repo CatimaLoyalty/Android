@@ -1,71 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:baselineAligned="false"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0.5dp"
+    android:background="@drawable/list_row"
+    android:clickable="true"
+    android:focusable="true"
     android:padding="@dimen/activity_margin">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/cardThumbnailSize"
-        android:layout_height="@dimen/cardThumbnailSize"
-        android:layout_marginEnd="@dimen/activity_margin"
-        android:layout_marginRight="@dimen/activity_margin"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="0dp">
-
-        <ImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="@dimen/cardThumbnailSize"
-            android:layout_height="@dimen/cardThumbnailSize"
-            android:contentDescription="@string/thumbnailDescription"
-            android:src="@mipmap/ic_launcher"/>
-
-    </androidx.cardview.widget.CardView>
-
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dip"
+        android:id="@+id/information_container"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_toEndOf="@+id/thumbnail_container"
+        android:layout_toRightOf="@+id/thumbnail_container"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail_container"
+        app:layout_constraintEnd_toStartOf="@+id/star"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail_container"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail_container">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/store"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
-                android:id="@+id/valueLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/store"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/storeNameTextSize"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/storeNameTextSize"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:textSize="@dimen/noteTextSize"/>
+            android:lines="1"
+            android:textSize="@dimen/noteTextSize" />
+
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/thumbnail_container"
+        android:layout_width="@dimen/cardThumbnailSize"
+        android:layout_height="@dimen/cardThumbnailSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:elevation="0dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/thumbnail_front"
+            android:layout_width="@dimen/cardThumbnailSize"
+            android:layout_height="@dimen/cardThumbnailSize">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="@dimen/cardThumbnailSize"
+                android:layout_height="@dimen/cardThumbnailSize"
+                android:contentDescription="@string/thumbnailDescription"
+                android:src="@mipmap/ic_launcher" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/thumbnail_back"
+            android:layout_width="@dimen/cardThumbnailSize"
+            android:layout_height="@dimen/cardThumbnailSize">
+
+            <ImageView
+                android:layout_width="@dimen/cardThumbnailSize"
+                android:layout_height="@dimen/cardThumbnailSize"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/thumbnailDescription"
+                android:src="@drawable/ic_done" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <ImageView
         android:id="@+id/star"
         android:layout_width="@dimen/cardThumbnailSize"
         android:layout_height="@dimen/cardThumbnailSize"
         android:layout_marginLeft="@dimen/activity_margin"
         android:src="@drawable/ic_starred_white"
-        android:tint="#000000"
-        android:contentDescription="@string/starImage"/>
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:contentDescription="@string/starImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

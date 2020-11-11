@@ -70,7 +70,7 @@
 
     <string name="about">About</string>
     <string name="app_copyright_fmt" translatable="false">Copyright 2019-<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="app_license">Licensed under the GPLv3.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
@@ -81,7 +81,7 @@
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID then select the image which represents the barcode you want to use, or select &#8220;This card has no barcode&#8221; to not use a barcode.</string>
 
-    <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
+    <string name="copy_to_clipboard_toast">Card ID(s) copied to clipboard</string>
 
     <string name="thumbnailDescription">Thumbnail for card</string>
     <string name="starImage">Favorite star</string>

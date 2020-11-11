@@ -11,6 +11,8 @@
     <color name="colorPrimaryText">#000000</color>
     <color name="colorSecondaryText">#ffffff</color>
 
+    <color name="listItemHighlight">#88000000</color>
+
     <color name="inputContrastBackground">#070707</color>
     <color name="inputBackground">#000000</color>
     <color name="inputBorder">#222222</color>

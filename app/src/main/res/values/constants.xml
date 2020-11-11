@@ -2,4 +2,6 @@
 <resources>
     <string name="app_revision_url" translatable="false">https://github.com/TheLastProject/Catima/releases</string>
     <string name="app_webpage_url" translatable="false">https://github.com/TheLastProject/Catima</string>
+    <integer name="full_rotation_duration">100</integer>
+    <integer name="half_rotation_duration">50</integer>
 </resources>

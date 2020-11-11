@@ -2,32 +2,24 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.zxing.BarcodeFormat;
-
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
-import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
-
+import org.robolectric.annotation.Config;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
@@ -37,10 +29,9 @@ public class MainActivityTest
     private SharedPreferences prefs;
 
     @Test
-    public void initiallyNoLoyaltyCards() throws Exception
-    {
+    public void initiallyNoLoyaltyCards() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
-        assertTrue(activity != null);
+        assertNotNull(activity);
 
         TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
@@ -53,12 +44,11 @@ public class MainActivityTest
     }
 
     @Test
-    public void onCreateShouldInflateLayout() throws Exception
-    {
+    public void onCreateShouldInflateLayout() {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         final Menu menu = shadowOf(activity).getOptionsMenu();
-        assertTrue(menu != null);
+        assertNotNull(menu);
 
         // The settings, search and add button should be present
         assertEquals(menu.size(), 4);
@@ -191,7 +181,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
-        mainActivity.filter = "store";
+        mainActivity.mFilter = "store";
 
         activityController.pause();
         activityController.resume();
@@ -202,7 +192,7 @@ public class MainActivityTest
 
         assertEquals(2, list.getCount());
 
-        mainActivity.filter = "first";
+        mainActivity.mFilter = "first";
 
         activityController.pause();
         activityController.resume();
@@ -213,7 +203,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        mainActivity.filter = "initial";
+        mainActivity.mFilter = "initial";
 
         activityController.pause();
         activityController.resume();
@@ -224,7 +214,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        mainActivity.filter = "second";
+        mainActivity.mFilter = "second";
 
         activityController.pause();
         activityController.resume();
@@ -235,7 +225,7 @@ public class MainActivityTest
 
         assertEquals(1, list.getCount());
 
-        mainActivity.filter = "company";
+        mainActivity.mFilter = "company";
 
         activityController.pause();
         activityController.resume();
@@ -246,7 +236,7 @@ public class MainActivityTest
 
         assertEquals(0, list.getCount());
 
-        mainActivity.filter = "";
+        mainActivity.mFilter = "";
 
         activityController.pause();
         activityController.resume();

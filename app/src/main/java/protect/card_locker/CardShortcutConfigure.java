@@ -4,20 +4,20 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * The configuration screen for creating a shortcut.
  */
-public class CardShortcutConfigure extends AppCompatActivity
+public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.MessageAdapterListener
 {
     static final String TAG = "Catima";
+    final DBHelper db= new DBHelper(this);
 
     @Override
     public void onCreate(Bundle bundle)
@@ -32,8 +32,6 @@ public class CardShortcutConfigure extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
 
-        final DBHelper db = new DBHelper(this);
-
         // If there are no cards, bail
         if(db.getLoyaltyCardCount() == 0)
         {
@@ -41,43 +39,55 @@ public class CardShortcutConfigure extends AppCompatActivity
             finish();
         }
 
-        final ListView cardList = findViewById(R.id.list);
+        final RecyclerView cardList = findViewById(R.id.list);
         cardList.setVisibility(View.VISIBLE);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
-        final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
+        final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
         cardList.setAdapter(adapter);
 
-        cardList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+    }
 
-                Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
+    private void onClickAction(int position) {
+        Cursor selected = db.getLoyaltyCardCursor();
+        selected.moveToPosition(position);
+        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 
-                Intent shortcutIntent = new Intent(CardShortcutConfigure.this, LoyaltyCardViewActivity.class);
-                shortcutIntent.setAction(Intent.ACTION_MAIN);
-                // Prevent instances of the view activity from piling up; if one exists let this
-                // one replace it.
-                shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", loyaltyCard.id);
-                bundle.putBoolean("view", true);
-                shortcutIntent.putExtras(bundle);
+        Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
 
-                Parcelable icon = Intent.ShortcutIconResource.fromContext(CardShortcutConfigure.this, R.mipmap.ic_launcher);
-                Intent intent = new Intent();
-                intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-                intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, loyaltyCard.store);
-                intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
-                setResult(RESULT_OK, intent);
+        Intent shortcutIntent = new Intent(CardShortcutConfigure.this, LoyaltyCardViewActivity.class);
+        shortcutIntent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", loyaltyCard.id);
+        bundle.putBoolean("view", true);
+        shortcutIntent.putExtras(bundle);
 
-                finish();
-            }
-        });
+        Parcelable icon = Intent.ShortcutIconResource.fromContext(CardShortcutConfigure.this, R.mipmap.ic_launcher);
+        Intent intent = new Intent();
+        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, loyaltyCard.store);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+        setResult(RESULT_OK, intent);
+
+        finish();
+    }
+
+    @Override
+    public void onIconClicked(int inputPosition) {
+        onClickAction(inputPosition);
+    }
+
+    @Override
+    public void onMessageRowClicked(int inputPosition) {
+        onClickAction(inputPosition);
+    }
+
+    @Override
+    public void onRowLongClicked(int inputPosition) {
+        // do nothing
     }
 }

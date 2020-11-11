@@ -16,8 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -25,62 +23,69 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.common.collect.ImmutableMap;
 import java.util.Calendar;
 import java.util.Map;
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.MessageAdapterListener
 {
     private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
-    LoyaltyCard card;
-    private ActionMode currentActionMode;
-    private Menu menu;
-    protected String filter = "";
-    private ActionMode.Callback currentActionModeCallback = new ActionMode.Callback()
+    private final DBHelper mDB = new DBHelper(this);
+    protected String mFilter = "";
+    LoyaltyCard mCard;
+    private ActionMode mCurrentActionMode;
+    private Menu mMenu;
+    private LoyaltyCardCursorAdapter mAdapter;
+    private RecyclerView mCardList;
+    private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
 
         @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu)
+        public boolean onCreateActionMode(ActionMode inputMode, Menu inputMenu)
         {
-            mode.getMenuInflater().inflate(R.menu.card_longclick_menu, menu);
-            mode.setTitle(getString(R.string.card_selected) + card.store);
+            inputMode.getMenuInflater().inflate(R.menu.card_longclick_menu, inputMenu);
             return true;
         }
 
         @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+        public boolean onPrepareActionMode(ActionMode inputMode, Menu inputMenu)
         {
             return false;
         }
 
         @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+        public boolean onActionItemClicked(ActionMode inputMode, MenuItem inputItem)
         {
-            if (item.getItemId() == R.id.action_copy_to_clipboard)
+            if (inputItem.getItemId() == R.id.action_copy_to_clipboard)
             {
-                mode.finish();
+                inputMode.finish();
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText(card.store, card.cardId);
+                ClipData clip = ClipData.newPlainText(mCard.store, mCard.cardId);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(MainActivity.this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
                 return true;
             }
-            else if (item.getItemId() == R.id.action_share)
+            else if (inputItem.getItemId() == R.id.action_share)
             {
-                mode.finish();
+                inputMode.finish();
                 final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
-                importURIHelper.startShareIntent(card);
+                importURIHelper.startShareIntent(mCard);
                 return true;
             }
-            else if(item.getItemId() == R.id.action_edit)
+            else if(inputItem.getItemId() == R.id.action_edit)
             {
-                mode.finish();
+                inputMode.finish();
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("id", card.id);
+                bundle.putInt("id", mCard.id);
                 bundle.putBoolean("update", true);
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -91,41 +96,30 @@ public class MainActivity extends AppCompatActivity
         }
 
         @Override
-        public void onDestroyActionMode(ActionMode mode)
+        public void onDestroyActionMode(ActionMode inputMode)
         {
-            currentActionMode= null;
+            mAdapter.clearSelections();
+            mCurrentActionMode = null;
+            mCardList.post(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    mAdapter.resetAnimationIndex();
+                }
+            });
         }
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle inputSavedInstanceState)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(inputSavedInstanceState);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         updateLoyaltyCardList("");
-
-        ListView listView = findViewById(R.id.list);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
-        {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                if (currentActionMode != null)
-                {
-                    return false;
-                }
-
-                ListView listView = findViewById(R.id.list);
-                Cursor cardCursor = (Cursor) listView.getItemAtPosition(position);
-                card = LoyaltyCard.toLoyaltyCard(cardCursor);
-
-                currentActionMode = startSupportActionMode(currentActionModeCallback);
-                return true;
-            }
-        });
     }
 
     @Override
@@ -133,17 +127,23 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
 
-        if (menu != null)
+        if(mCurrentActionMode != null)
         {
-            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+            mAdapter.clearSelections();
+            mCurrentActionMode.finish();
+        }
+
+        if (mMenu != null)
+        {
+            SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
 
             if (!searchView.isIconified())
             {
-                filter = searchView.getQuery().toString();
+                mFilter = searchView.getQuery().toString();
             }
         }
 
-        updateLoyaltyCardList(filter);
+        updateLoyaltyCardList(mFilter);
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(new View.OnClickListener()
@@ -158,22 +158,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    protected void onActivityResult(int inputRequestCode, int inputResultCode, Intent inputData)
     {
-        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(inputRequestCode, inputResultCode, inputData);
 
-        if (requestCode == MAIN_REQUEST_CODE)
+        if (inputRequestCode == MAIN_REQUEST_CODE)
         {
-            // We're coming back from another view so clear the search
-            // We only do this now to prevent a flash of all entries right after picking one
-            filter = "";
-            if (menu != null)
+            mFilter = "";
+            if (mMenu != null)
             {
-                MenuItem searchItem = menu.findItem(R.id.action_search);
+                MenuItem searchItem = mMenu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
-
-            // In case the theme changed
             recreate();
         }
     }
@@ -181,13 +177,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        if (menu == null)
+        if (mMenu == null)
         {
             super.onBackPressed();
             return;
         }
 
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
 
         if (!searchView.isIconified())
         {
@@ -199,21 +195,28 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void updateLoyaltyCardList(String filterText)
+    private void updateLoyaltyCardList(String inputFilterText)
     {
-        final ListView cardList = findViewById(R.id.list);
+        mCardList = findViewById(R.id.list);
+        RecyclerView.LayoutManager mLayoutManager= new LinearLayoutManager(getApplicationContext());
+        mCardList.setLayoutManager(mLayoutManager);
+        mCardList.setItemAnimator(new DefaultItemAnimator());
+
+        DividerItemDecoration itemDecorator= new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.list_divider));
+        mCardList.addItemDecoration(itemDecorator);
+
         final TextView helpText = findViewById(R.id.helpText);
         final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-        final DBHelper db = new DBHelper(this);
 
-        if(db.getLoyaltyCardCount() > 0)
+        if(mDB.getLoyaltyCardCount() > 0)
         {
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            cardList.setVisibility(View.VISIBLE);
+            mCardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
-            if(db.getLoyaltyCardCount(filterText) > 0)
+            if(mDB.getLoyaltyCardCount(inputFilterText) > 0)
             {
                 noMatchingCardsText.setVisibility(View.GONE);
             }
@@ -224,50 +227,31 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            cardList.setVisibility(View.GONE);
+            mCardList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
             noMatchingCardsText.setVisibility(View.GONE);
         }
 
-        Cursor cardCursor = db.getLoyaltyCardCursor(filterText);
+        Cursor cardCursor = mDB.getLoyaltyCardCursor(inputFilterText);
 
-        final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor);
-        cardList.setAdapter(adapter);
+        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
+        mCardList.setAdapter(mAdapter);
 
-        registerForContextMenu(cardList);
+        registerForContextMenu(mCardList);
 
-        cardList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Cursor selected = (Cursor) parent.getItemAtPosition(position);
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
-
-                Intent i = new Intent(view.getContext(), LoyaltyCardViewActivity.class);
-                i.setAction("");
-                final Bundle b = new Bundle();
-                b.putInt("id", loyaltyCard.id);
-                i.putExtras(b);
-
-                ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
-
-                startActivityForResult(i, MAIN_REQUEST_CODE);
-            }
-        });
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
+    public boolean onCreateOptionsMenu(Menu inputMenu)
     {
-        this.menu = menu;
+        this.mMenu = inputMenu;
 
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, inputMenu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null)
         {
-            SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+            SearchView searchView = (SearchView) inputMenu.findItem(R.id.action_search).getActionView();
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(false);
 
@@ -292,19 +276,19 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public boolean onQueryTextChange(String newText)
                 {
-                    filter = newText;
+                    mFilter = newText;
                     updateLoyaltyCardList(newText);
                     return true;
                 }
             });
         }
-        return super.onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu(inputMenu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
+    public boolean onOptionsItemSelected(MenuItem inputItem)
     {
-        int id = item.getItemId();
+        int id = inputItem.getItemId();
 
         if (id == R.id.action_import_export)
         {
@@ -326,7 +310,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(inputItem);
     }
 
     private void displayAboutDialog()
@@ -430,6 +414,74 @@ public class MainActivity extends AppCompatActivity
         Configuration config = inputContext.getResources().getConfiguration();
         int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
+    }
+
+    @Override
+    public void onRowLongClicked(int inputPosition)
+    {
+        enableActionMode(inputPosition);
+    }
+
+    private void enableActionMode(int inputPosition)
+    {
+        if (mCurrentActionMode == null)
+        {
+            mCurrentActionMode = startSupportActionMode(mCurrentActionModeCallback);
+        }
+        toggleSelection(inputPosition);
+    }
+
+    private void toggleSelection(int inputPosition)
+    {
+        mAdapter.toggleSelection(inputPosition);
+        int count = mAdapter.getSelectedItemCount();
+
+        if (count == 0)
+        {
+            mCurrentActionMode.finish();
+        } else
+        {
+            mCurrentActionMode.setTitle("Selected: " + count + " Cards");
+
+            mCurrentActionMode.invalidate();
+        }
+    }
+
+    @Override
+    public void onIconClicked(int inputPosition)
+    {
+        if (mCurrentActionMode == null)
+        {
+            mCurrentActionMode = startSupportActionMode(mCurrentActionModeCallback);
+        }
+
+        toggleSelection(inputPosition);
+    }
+
+    @Override
+    public void onMessageRowClicked(int inputPosition)
+    {
+
+        if (mAdapter.getSelectedItemCount() > 0)
+        {
+            enableActionMode(inputPosition);
+        }
+        else
+        {
+            Cursor selected = (Cursor) mDB.getLoyaltyCardCursor();
+            selected.moveToPosition(inputPosition);
+            LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+
+            Intent i = new Intent(this, LoyaltyCardViewActivity.class);
+            i.setAction("");
+            final Bundle b = new Bundle();
+            b.putInt("id", loyaltyCard.id);
+            i.putExtras(b);
+
+            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
+
+            startActivityForResult(i, MAIN_REQUEST_CODE);
+        }
     }
 
 }

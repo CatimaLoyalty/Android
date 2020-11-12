@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Legg til</string>
-    <string name="noGiftCards">Du har ingen kundekort for øyeblikket. Klikk på \"+\" (pluss)-knappen øverst for å komme igang.\n\nDa har du dem alltid hendig.</string>
+    <string name="noGiftCards">Klikk på \"+\" (pluss)-knappen for å legge til et kort først.
+\n
+\nDa har du dem alltid hendig.</string>
     <string name="storeName">Butikk</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
@@ -30,29 +32,29 @@
     <string name="barcodeImageDescription">Bilde av kortets strekkode</string>
     <string name="noStoreError">Ingen butikk angitt</string>
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
-    <string name="noCardExistsError">Kunne ikke finne kundekort</string>
+    <string name="noCardExistsError">Kunne ikke finne kort</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksporter</string>
-    <string name="importExportHelp">Sikkerhetskopiering av data lar deg flytte kortene til en annen enhet.</string>
+    <string name="importExportHelp">Sikkerhetskopiering av kort lar deg flytte dem til en annen enhet.</string>
     <string name="importSuccessfulTitle">Importert</string>
     <string name="importFailedTitle">Kunne ikke importere</string>
-    <string name="importFailed">Klarte ikke å importere</string>
+    <string name="importFailed">Klarte ikke å importere kort</string>
     <string name="exportSuccessfulTitle">Eksportert</string>
     <string name="exportFailedTitle">Kunne ikke eksportere</string>
-    <string name="exportFailed">Klarte ikke å eksportere</string>
+    <string name="exportFailed">Kunne ikke eksportere kort</string>
     <string name="importing">Importerer…</string>
     <string name="exporting">Exporterer…</string>
-    <string name="noExternalStoragePermissionError">Kan ikke importere eller eksportere kort uten tilgang til ekstern lagring</string>
-    <string name="exportOptionExplanation">Data skrives til rotmappen i eksternt lagringsområde.</string>
+    <string name="noExternalStoragePermissionError">Innvilg lagringstilgang til eksternlager for å importere eller eksportere kort først</string>
+    <string name="exportOptionExplanation">Data skrives dit du ønsker det.</string>
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
     <string name="importOptionApplicationTitle">Bruk eksternt program</string>
-    <string name="importOptionApplicationExplanation">Bruk eksternt program som Nextcloud, eller din favorittfilbehandler til å åpne ei fil.</string>
+    <string name="importOptionApplicationExplanation">Bruk hvilket som helst program, eller din favoritt-filutforsker for å åpne en fil.</string>
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
     <string name="about">Om</string>
-    <string name="app_license">Lisensiert GPLv3+.</string>
+    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g>
     </string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g>
@@ -78,28 +80,31 @@
     <string name="settings_card_note_font_size">Skriftstørrelse for kortmerknad</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
     <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
-    <string name="exportSuccessful">Eksporterte stamkundekortdata</string>
-    <string name="importSuccessful">Importerte stamkundekortdata</string>
+    <string name="exportSuccessful">Kortdata eksportert</string>
+    <string name="importSuccessful">Kortdata importert</string>
     <string name="intent_import_card_from_url_share_text">Jeg ønsker å dele et kort med deg</string>
     <string name="settings_dark_theme">Mørk</string>
     <string name="settings_light_theme">Lys</string>
-    <string name="settings_system_theme">Systemdrakt</string>
+    <string name="settings_system_theme">System</string>
     <string name="settings_theme">Drakt</string>
     <string name="app_copyright_old">Basert på Kundekortknippe, opphavsrett 2016–2020 Branden Archer.</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
-    <string name="noMatchingGiftCards">Fant ingen slike kort. Prøv å endre søket.</string>
+    <string name="noMatchingGiftCards">Fant ikke noe. Prøv å endre søket.</string>
     <string name="action_search">Søk</string>
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Legg til i favoritter</string>
     <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kort</string>
-    <string name="noGroups">Du har ikke noen grupper for øyeblikket. Klikk «+»-tegnet for å begynne.
+    <string name="noGroups">Klikk på «+»-tegnet for å legge til grupper først.
+\n
+\nGrupper gjør ting enklere å finne.
 \n
 \nKort kan tildeles grupper for å gjøre dem enklere å finne.</string>
     <string name="deleteConfirmationGroup">Bekreft at du ønsker å slette denne gruppen</string>
     <string name="all">Alle</string>
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
+    <string name="noBarcode">Ingen strekkode</string>
 </resources>

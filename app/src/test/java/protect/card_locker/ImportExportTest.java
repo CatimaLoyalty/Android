@@ -473,7 +473,7 @@ public class ImportExportTest
         final int NUM_CARDS = 10;
 
         final File sdcardDir = Environment.getExternalStorageDirectory();
-        final File exportFile = new File(sdcardDir, "LoyaltyCardLocker.csv");
+        final File exportFile = new File(sdcardDir, "Catima.csv");
 
         for(DataFormat format : DataFormat.values())
         {

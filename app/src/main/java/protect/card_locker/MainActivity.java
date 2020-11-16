@@ -17,9 +17,11 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -35,12 +37,13 @@ import java.util.List;
 import java.util.Map;
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
+    private GestureDetector gestureDetector;
     protected String filter = "";
     protected int selectedTab = 0;
 
@@ -72,6 +75,23 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+        gestureDetector = new GestureDetector(this, this);
+
+        View.OnTouchListener gestureTouchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View v, final MotionEvent event){
+                return gestureDetector.onTouchEvent(event);
+            }
+        };
+
+        final View helpText = findViewById(R.id.helpText);
+        final View noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
+        final View list = findViewById(R.id.list);
+
+        helpText.setOnTouchListener(gestureTouchListener);
+        noMatchingCardsText.setOnTouchListener(gestureTouchListener);
+        list.setOnTouchListener(gestureTouchListener);
     }
 
     @Override
@@ -485,5 +505,70 @@ public class MainActivity extends AppCompatActivity
         Configuration config = inputContext.getResources().getConfiguration();
         int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Log.d(TAG, "On fling");
+
+        TabLayout groupsTabLayout = findViewById(R.id.groups);
+        if (groupsTabLayout.getTabCount() < 2) {
+            return false;
+        }
+
+        Integer currentTab = groupsTabLayout.getSelectedTabPosition();
+
+        // Swipe right
+        if (velocityX < -150) {
+            Integer nextTab = currentTab + 1;
+
+            if (nextTab == groupsTabLayout.getTabCount()) {
+                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(0));
+            } else {
+                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(nextTab));
+            }
+
+            return true;
+        }
+
+        // Swipe left
+        if (velocityX > 150) {
+            Integer nextTab = currentTab - 1;
+
+            if (nextTab < 0) {
+                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(groupsTabLayout.getTabCount() - 1));
+            } else {
+                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(nextTab));
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }

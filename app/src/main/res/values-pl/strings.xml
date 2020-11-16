@@ -1,17 +1,13 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Szukaj</string>
     <string name="action_add">Dodaj</string>
-
     <string name="noGiftCards">W tej chwili nie masz żadnych kart lojalnościowych. Kliknij przycisk \"+\" (plus) u góry, aby rozpocząć. \n\nLoyalty Locker Card pozwala nosić karty lojalnościowe w telefonie, dzięki czemu są zawsze w zasięgu ręki.</string>
-    <string name="noMatchingGiftCards">Żadne karty lojalnościowe nie pasują do filtra wyszukiwania. Spróbuj użyć innych warunków.</string>
-
+    <string name="noMatchingGiftCards">Nic nie znaleziono. Spróbuj zmienić wyszukiwanie.</string>
     <string name="storeName">Sklep</string>
     <string name="note">Notatka</string>
     <string name="cardId">Identyfikator karty</string>
     <string name="barcodeNoBarcode">Ta karta nie ma kodu kreskowego</string>
-
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
     <string name="capture">Zeskanuj kod</string>
@@ -27,15 +23,13 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
-    <string name="sendLabel">Wyślij&#8230;</string>
+    <string name="sendLabel">Wyślij…</string>
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
     <string name="addCardTitle">Dodaj kartę lojalnościową</string>
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
     <string name="cardShortcut">Skrót karty</string>
-    <string name="noCardsMessage">Nie ma kart, należy dodać pierwszą</string>
-
+    <string name="noCardsMessage">Najpierw dodaj kartę</string>
     <string name="barcodeImageDescription">Obraz kodu kreskowego karty</string>
-
     <string name="noStoreError">Nie wprowadzono nazwy sklepu</string>
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
@@ -44,43 +38,37 @@
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
-    <string name="importSuccessfulTitle">Zaimportowano pomyślnie</string>
+    <string name="importSuccessfulTitle">Zaimportowano</string>
     <string name="importFailedTitle">Import nie powiódł się</string>
     <string name="importFailed">Nie udało się zaimportować</string>
-    <string name="exportSuccessfulTitle">Wyeksportowano pomyślnie</string>
+    <string name="exportSuccessfulTitle">Wyeksportowano</string>
     <string name="exportFailedTitle">Eksport nie powiódł się</string>
     <string name="exportFailed">Nie udało się wyeksportować</string>
-    <string name="importing">Importowanie&#8230;</string>
-    <string name="exporting">Eksportowanie&#8230;</string>
-    <string name="noExternalStoragePermissionError">Nie można importować ani eksportować kart bez uprawnień do pamięci zewnętrznej</string>
+    <string name="importing">Importowanie…</string>
+    <string name="exporting">Eksportowanie…</string>
+    <string name="noExternalStoragePermissionError">Najpierw przyznaj uprawnienia pamięci zewnętrznej do importowania lub eksportowania kart</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
     <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
     <string name="importOptionApplicationTitle">Użyj zewnętrznej aplikacji</string>
-    <string name="importOptionApplicationExplanation">Użyj zewnętrznej aplikacji jak Dropbox, Google Drive, bądź ulubiony menedżer plików, aby otworzyć plik.</string>
+    <string name="importOptionApplicationExplanation">Użyj dowolnej aplikacji lub ulubionego menedżera plików, aby otworzyć plik.</string>
     <string name="importOptionApplicationButton">Użyj zewnętrznej aplikacji</string>
-
     <string name="about">O aplikacji</string>
-    <string name="app_license">Licencjonowane na podstawie GNU General Public License, wersji 3.0.</string>
+    <string name="app_license">Wolne oprogramowanie copylefted, licencjonowane GPLv3 +.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informacje o wersji: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Info o wydaniu: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące biblioteki osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące zasoby osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
-    <string name="enterBarcodeInstructions">Wprowadź identyfikator karty, a następnie wybierz obraz reprezentujący kod kreskowy, którego chcesz użyć, lub wybierz &#8220;Ta karta nie ma kodu kreskowego&#8221;, aby nie używać kodu kreskowego.</string>
-
+    <string name="enterBarcodeInstructions">Wprowadź identyfikator karty, a następnie wybierz obraz reprezentujący kod kreskowy, którego chcesz użyć, lub wybierz “Ta karta nie ma kodu kreskowego”, aby nie używać kodu kreskowego.</string>
     <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
-
     <string name="thumbnailDescription">Miniaturka karty</string>
-
     <string name="change">Zmień</string>
     <string name="storeTextColorTitle">Kolor tekstu nazwy sklepu</string>
     <string name="storeTextBackgroundColorTitle">Kolor nagłówka</string>
     <string name="storeNameBackgroundColorDescription">Kolor tła tekstu nazwy sklepu</string>
     <string name="storeNameColorDescription">Kolor dla tekstu sklepu</string>
-
     <string name="settings">Ustawienia</string>
     <string name="settings_category_title_ui">Interfejs użytkownika</string>
     <string name="settings_theme">Motyw</string>
@@ -95,4 +83,22 @@
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
-    </resources>
+    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; karty</string>
+    <string name="deleteConfirmationGroup">Potwierdź, że chcesz usunąć tę grupę</string>
+    <string name="all">Wszystko</string>
+    <string name="noGroups">Kliknij przycisk + (plus), aby najpierw dodać grupy.
+\n
+\nGrupy ułatwiają wyszukiwanie.</string>
+    <string name="groups">Grupy</string>
+    <string name="enter_group_name">Wpisz nazwę grupy</string>
+    <string name="exportSuccessful">Dane karty zostały wyeksportowane</string>
+    <string name="importSuccessful">Zaimportowano dane karty</string>
+    <string name="starImage">Ulubiona gwiazda</string>
+    <string name="app_copyright_old">Na podstawie Loyalty Card Keychain, prawa autorskie 2016–2020 Branden Archer.</string>
+    <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez Ciebie miejscu.</string>
+    <string name="addedShortcut">Dodano skrót</string>
+    <string name="unstar">Usuń z ulubionych</string>
+    <string name="star">Dodaj do ulubionych</string>
+    <string name="noBarcode">Brak kodu kreskowego</string>
+    <string name="barcodeType">Typ kodu kreskowego</string>
+</resources>

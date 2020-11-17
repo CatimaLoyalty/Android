@@ -6,6 +6,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -63,6 +64,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             public void onTabSelected(TabLayout.Tab tab) {
                 selectedTab = tab.getPosition();
                 updateLoyaltyCardList(filter, tab.getTag());
+
+                // Store active tab in Shared Preference to restore next app launch
+                SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
+                        getString(R.string.sharedpreference_active_tab),
+                        Context.MODE_PRIVATE);
+                SharedPreferences.Editor activeTabPrefEditor = activeTabPref.edit();
+                activeTabPrefEditor.putInt(getString(R.string.sharedpreference_active_tab), selectedTab);
+                activeTabPrefEditor.apply();
             }
 
             @Override
@@ -107,15 +116,22 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             }
         }
 
+        // Start of active tab logic
         TabLayout groupsTabLayout = findViewById(R.id.groups);
-        boolean hasReset = updateTabGroups(groupsTabLayout);
+        updateTabGroups(groupsTabLayout);
+
+        // Restore active tab from Shared Preference
+        SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_active_tab),
+                Context.MODE_PRIVATE);
+        selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
 
         Object group = null;
 
         if (groupsTabLayout.getTabCount() != 0) {
             TabLayout.Tab tab = groupsTabLayout.getTabAt(0);
 
-            if (!hasReset) {
+            if (selectedTab < groupsTabLayout.getTabCount()) {
                 tab = groupsTabLayout.getTabAt(selectedTab);
             }
 
@@ -123,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             group = tab.getTag();
         }
         updateLoyaltyCardList(filter, group);
+        // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         });
     }
 
-    public boolean updateTabGroups(TabLayout groupsTabLayout)
+    public void updateTabGroups(TabLayout groupsTabLayout)
     {
         final DBHelper db = new DBHelper(this);
 
@@ -250,42 +267,24 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if (newGroups.size() == 0) {
             groupsTabLayout.removeAllTabs();
             groupsTabLayout.setVisibility(View.GONE);
-            return true;
+            return;
         }
 
-        // -1 because there is an "All" tab
-        boolean isChanged = groupsTabLayout.getTabCount() - 1 != newGroups.size();
+        groupsTabLayout.removeAllTabs();
 
-        if (!isChanged) {
-            for (int i = 0; i < newGroups.size(); i++) {
-                if (!((Group) groupsTabLayout.getTabAt(i + 1).getTag())._id.equals(newGroups.get(i)._id)) {
-                    isChanged = true;
-                    break;
-                }
-            }
+        TabLayout.Tab allTab = groupsTabLayout.newTab();
+        allTab.setText(R.string.all);
+        allTab.setTag(null);
+        groupsTabLayout.addTab(allTab, false);
+
+        for (Group group : newGroups) {
+            TabLayout.Tab tab = groupsTabLayout.newTab();
+            tab.setText(group._id);
+            tab.setTag(group);
+            groupsTabLayout.addTab(tab, false);
         }
 
-        if (isChanged) {
-            groupsTabLayout.removeAllTabs();
-
-            TabLayout.Tab allTab = groupsTabLayout.newTab();
-            allTab.setText(R.string.all);
-            allTab.setTag(null);
-            groupsTabLayout.addTab(allTab);
-
-            for (Group group : newGroups) {
-                TabLayout.Tab tab = groupsTabLayout.newTab();
-                tab.setText(group._id);
-                tab.setTag(group);
-                groupsTabLayout.addTab(tab);
-            }
-
-            groupsTabLayout.setVisibility(View.VISIBLE);
-
-            return true;
-        }
-
-        return false;
+        groupsTabLayout.setVisibility(View.VISIBLE);
     }
 
     @Override

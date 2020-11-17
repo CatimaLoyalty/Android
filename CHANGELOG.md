@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Remember active group tab between screens and sessions
+
 ## v1.2.1 (2020-11-17)
 
 Changes:

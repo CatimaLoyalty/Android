@@ -1,6 +1,8 @@
 package protect.card_locker;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
@@ -88,6 +90,16 @@ public class ManageGroupsActivity extends AppCompatActivity
         registerForContextMenu(groupList);
     }
 
+    private void invalidateHomescreenActiveTab()
+    {
+        SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_active_tab),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor activeTabPrefEditor = activeTabPref.edit();
+        activeTabPrefEditor.putInt(getString(R.string.sharedpreference_active_tab), 0);
+        activeTabPrefEditor.apply();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -119,6 +131,8 @@ public class ManageGroupsActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 db.updateGroup(groupName, input.getText().toString());
                 updateGroupList();
+                // Rename may change ordering, so invalidate
+                invalidateHomescreenActiveTab();
             }
         });
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -147,6 +161,8 @@ public class ManageGroupsActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 db.deleteGroup(groupName);
                 updateGroupList();
+                // Delete may change ordering, so invalidate
+                invalidateHomescreenActiveTab();
             }
         });
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -171,6 +187,8 @@ public class ManageGroupsActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 db.insertGroup(input.getText().toString());
                 updateGroupList();
+                // Create may change ordering, so invalidate
+                invalidateHomescreenActiveTab();
             }
         });
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {

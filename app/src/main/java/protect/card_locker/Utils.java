@@ -16,6 +16,10 @@ public class Utils {
         int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
 
+        if (backgroundColor == null) {
+            backgroundColor = LetterBitmap.getDefaultColor(context, store);
+        }
+
         return new LetterBitmap(context, store, store,
                 tileLetterFontSize, pixelSize, pixelSize, backgroundColor, needsDarkForeground(backgroundColor) ? Color.BLACK : Color.WHITE);
     }

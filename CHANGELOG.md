@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 (2020-11-17)
+
+Changes:
+
+- Add swiping between groups on the home screen
+- Fix crash with cards lacking header colour
+
 ## v1.1.0 (2020-11-11)
 
 Changes:

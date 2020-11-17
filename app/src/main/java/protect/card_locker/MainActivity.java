@@ -536,6 +536,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         Log.d(TAG, "On fling");
 
+        // Don't swipe if we have too much vertical movement
+        if (Math.abs(velocityY) > (0.75 * Math.abs(velocityX))) {
+            return false;
+        }
+
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         if (groupsTabLayout.getTabCount() < 2) {
             return false;

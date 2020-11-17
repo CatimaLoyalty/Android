@@ -37,13 +37,12 @@ import java.util.List;
 
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.MessageAdapterListener, GestureDetector.OnGestureListener
+public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
 
     private final DBHelper mDB = new DBHelper(this);
     private LoyaltyCardCursorAdapter mAdapter;
-    private LoyaltyCard mCard;
     private ActionMode mCurrentActionMode;
     private Menu mMenu;
     private GestureDetector mGestureDetector;
@@ -71,29 +70,55 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         {
             if (inputItem.getItemId() == R.id.action_copy_to_clipboard)
             {
-                inputMode.finish();
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText(mCard.store, mCard.cardId);
+
+                String clipboardData;
+                int cardCount = mAdapter.getSelectedItemCount();
+
+                if (cardCount == 1) {
+                    clipboardData = mAdapter.getSelectedItems().get(0).cardId;
+                } else {
+                    StringBuilder cardIds = new StringBuilder();
+
+
+                    for (int i = 0; i < cardCount - 1; i++) {
+                        LoyaltyCard loyaltyCard = mAdapter.getSelectedItems().get(i);
+
+                        cardIds.append(loyaltyCard.store + ": " + loyaltyCard.cardId);
+                        if (i != (cardCount - 1)) {
+                            cardIds.append("\n");
+                        }
+                    }
+
+                    clipboardData = cardIds.toString();
+                }
+
+                ClipData clip = ClipData.newPlainText(getString(R.string.card_ids_copied), clipboardData);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(MainActivity.this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, cardCount > 1 ? R.string.copy_to_clipboard_multiple_toast : R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                inputMode.finish();
                 return true;
             }
             else if (inputItem.getItemId() == R.id.action_share)
             {
+//                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+//                importURIHelper.startShareIntent(mCard);
                 inputMode.finish();
-                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
-                importURIHelper.startShareIntent(mCard);
                 return true;
             }
             else if(inputItem.getItemId() == R.id.action_edit)
             {
-                inputMode.finish();
+                if (mAdapter.getSelectedItemCount() != 1) {
+                    throw new IllegalArgumentException("Cannot edit more than 1 card at a time");
+                }
+
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("id", mCard.id);
+                bundle.putInt("id", mAdapter.getSelectedItems().get(0).id);
                 bundle.putBoolean("update", true);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                inputMode.finish();
                 return true;
             }
 
@@ -327,10 +352,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         mCardList.setLayoutManager(mLayoutManager);
         mCardList.setItemAnimator(new DefaultItemAnimator());
 
-        DividerItemDecoration itemDecorator= new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
-        itemDecorator.setDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.list_divider));
-        mCardList.addItemDecoration(itemDecorator);
-
         final TextView helpText = findViewById(R.id.helpText);
         final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
 
@@ -363,6 +384,10 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         mCardList.setAdapter(mAdapter);
 
         registerForContextMenu(mCardList);
+
+        if (mCurrentActionMode != null) {
+            mCurrentActionMode.finish();
+        }
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout)
@@ -616,7 +641,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     }
 
     @Override
-    public void onMessageRowClicked(int inputPosition)
+    public void onRowClicked(int inputPosition)
     {
 
         if (mAdapter.getSelectedItemCount() > 0)
@@ -625,7 +650,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         }
         else
         {
-            Cursor selected = (Cursor) mDB.getLoyaltyCardCursor();
+            Cursor selected = mAdapter.getCursor();
             selected.moveToPosition(inputPosition);
             LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 

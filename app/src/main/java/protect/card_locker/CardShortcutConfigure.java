@@ -21,7 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.MessageAdapterListener
+public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener
 {
     static final String TAG = "Catima";
     final DBHelper mDb = new DBHelper(this);
@@ -92,7 +92,7 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
     }
 
     @Override
-    public void onMessageRowClicked(int inputPosition) {
+    public void onRowClicked(int inputPosition) {
         onClickAction(inputPosition);
     }
 

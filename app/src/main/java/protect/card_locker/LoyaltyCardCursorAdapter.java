@@ -22,17 +22,19 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 {
 
     private static int mCurrentSelectedIndex = -1;
+    private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
     private Context mContext;
-    private MessageAdapterListener mListener;
+    private CardAdapterListener mListener;
     private SparseBooleanArray mSelectedItems;
     private SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
 
-    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, MessageAdapterListener inputListener)
+    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener)
     {
         super(inputCursor);
+        mCursor= inputCursor;
         this.mContext = inputContext;
         this.mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
@@ -106,7 +108,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             @Override
             public void onClick(View inputView)
             {
-                mListener.onMessageRowClicked(inputPosition);
+                mListener.onRowClicked(inputPosition);
             }
         });
 
@@ -115,7 +117,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             @Override
             public void onClick(View inputView)
             {
-                mListener.onMessageRowClicked(inputPosition);
+                mListener.onRowClicked(inputPosition);
             }
         });
 
@@ -212,15 +214,32 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return mSelectedItems.size();
     }
 
+    public String getSelectedItemsID()
+    {
+
+        StringBuilder result= new StringBuilder();
+
+        int i;
+        for(i= 0; i < (mSelectedItems.size() - 1); i++)
+        {
+            mCursor.moveToPosition(mSelectedItems.keyAt(i));
+            result.append(LoyaltyCard.toLoyaltyCard(mCursor).id).append(", ");
+        }
+        mCursor.moveToPosition(mSelectedItems.keyAt(i));
+        result.append(LoyaltyCard.toLoyaltyCard(mCursor).id);
+
+        return result.toString();
+    }
+
     private void resetCurrentIndex()
     {
         mCurrentSelectedIndex = -1;
     }
 
-    public interface MessageAdapterListener
+    public interface CardAdapterListener
     {
         void onIconClicked(int inputPosition);
-        void onMessageRowClicked(int inputPosition);
+        void onRowClicked(int inputPosition);
         void onRowLongClicked(int inputPosition);
     }
 
@@ -237,15 +256,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public LoyaltyCardListItemViewHolder(View inputView)
         {
             super(inputView);
-            mThumbnailContainer = (CardView) inputView.findViewById(R.id.thumbnail_container);
-            mRow = (ConstraintLayout) inputView.findViewById(R.id.row);
-            mThumbnailFrontContainer = (RelativeLayout) inputView.findViewById(R.id.thumbnail_front);
-            mThumbnailBackContainer = (RelativeLayout) inputView.findViewById(R.id.thumbnail_back);
-            mInformationContainer= (LinearLayout) inputView.findViewById(R.id.information_container);
-            mStoreField = (TextView) inputView.findViewById(R.id.store);
-            mNoteField = (TextView) inputView.findViewById(R.id.note);
-            mCardIcon = (ImageView) inputView.findViewById(R.id.thumbnail);
-            mStarIcon = (ImageView) inputView.findViewById(R.id.star);
+            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
+            mRow = inputView.findViewById(R.id.row);
+            mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
+            mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
+            mInformationContainer= inputView.findViewById(R.id.information_container);
+            mStoreField = inputView.findViewById(R.id.store);
+            mNoteField = inputView.findViewById(R.id.note);
+            mCardIcon = inputView.findViewById(R.id.thumbnail);
+            mStarIcon = inputView.findViewById(R.id.star);
             inputView.setOnLongClickListener(this);
         }
 

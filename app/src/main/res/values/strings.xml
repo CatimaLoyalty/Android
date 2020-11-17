@@ -40,6 +40,7 @@
     <string name="scanCardBarcode">Scan Card\'s Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">There are no cards, add one first</string>
+    <string name="card_ids_copied">Copied Card ID(s)</string>
 
     <string name="barcodeImageDescription">Image of card\'s barcode</string>
 

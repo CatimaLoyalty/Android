@@ -34,13 +34,12 @@ import java.util.Calendar;
 import java.util.Map;
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.MessageAdapterListener
+public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener
 {
     private static final String TAG = "Catima";
     private static final int MAIN_REQUEST_CODE = 1;
     private final DBHelper mDB = new DBHelper(this);
     protected String mFilter = "";
-    LoyaltyCard mCard;
     private ActionMode mCurrentActionMode;
     private Menu mMenu;
     private LoyaltyCardCursorAdapter mAdapter;
@@ -66,29 +65,30 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         {
             if (inputItem.getItemId() == R.id.action_copy_to_clipboard)
             {
-                inputMode.finish();
+                String selectedCardsID= mAdapter.getSelectedItemsID();
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText(mCard.store, mCard.cardId);
+                ClipData clip = ClipData.newPlainText(getString(R.string.card_ids_copied), selectedCardsID);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(MainActivity.this, R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                inputMode.finish();
                 return true;
             }
             else if (inputItem.getItemId() == R.id.action_share)
             {
+//                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+//                importURIHelper.startShareIntent(mCard);
                 inputMode.finish();
-                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
-                importURIHelper.startShareIntent(mCard);
                 return true;
             }
             else if(inputItem.getItemId() == R.id.action_edit)
             {
+//                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("id", mCard.id);
+//                bundle.putBoolean("update", true);
+//                intent.putExtras(bundle);
+//                startActivity(intent);
                 inputMode.finish();
-                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", mCard.id);
-                bundle.putBoolean("update", true);
-                intent.putExtras(bundle);
-                startActivity(intent);
                 return true;
             }
 
@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     }
 
     @Override
-    public void onMessageRowClicked(int inputPosition)
+    public void onRowClicked(int inputPosition)
     {
 
         if (mAdapter.getSelectedItemCount() > 0)
@@ -468,7 +468,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         }
         else
         {
-            Cursor selected = (Cursor) mDB.getLoyaltyCardCursor();
+            Cursor selected = mDB.getLoyaltyCardCursor();
             selected.moveToPosition(inputPosition);
             LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 

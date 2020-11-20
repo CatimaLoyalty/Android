@@ -61,56 +61,6 @@ public class ImportExportActivityTest
     }
 
     @Test
-    public void testImportFilesystemOption()
-    {
-        for(boolean isInstalled : new Boolean[]{false, true})
-        {
-            int visibility = isInstalled ? View.VISIBLE : View.GONE;
-
-            if(isInstalled)
-            {
-                registerIntentHandler(Intent.ACTION_GET_CONTENT);
-            }
-
-            Activity activity = Robolectric.setupActivity(ImportExportActivity.class);
-
-            checkVisibility(activity, visibility, R.id.dividerImportFilesystem,
-                    R.id.importOptionFilesystemTitle, R.id.importOptionFilesystemExplanation,
-                    R.id.importOptionFilesystemButton);
-
-            // Should always be gone, as its provider is never installed
-            checkVisibility(activity, View.GONE, R.id.dividerImportApplication,
-                    R.id.importOptionApplicationTitle, R.id.importOptionApplicationExplanation,
-                    R.id.importOptionApplicationButton);
-        }
-    }
-
-    @Test
-    public void testImportApplicationOption()
-    {
-        for(boolean isInstalled : new Boolean[]{false, true})
-        {
-            int visibility = isInstalled ? View.VISIBLE : View.GONE;
-
-            if(isInstalled)
-            {
-                registerIntentHandler(Intent.ACTION_PICK);
-            }
-
-            Activity activity = Robolectric.setupActivity(ImportExportActivity.class);
-
-            checkVisibility(activity, visibility, R.id.dividerImportApplication,
-                    R.id.importOptionApplicationTitle, R.id.importOptionApplicationExplanation,
-                    R.id.importOptionApplicationButton);
-
-            // Should always be gone, as its provider is never installed
-            checkVisibility(activity, View.GONE, R.id.dividerImportFilesystem,
-                    R.id.importOptionFilesystemTitle, R.id.importOptionFilesystemExplanation,
-                    R.id.importOptionFilesystemButton);
-        }
-    }
-
-    @Test
     public void testAllOptionsAvailable()
     {
         registerIntentHandler(Intent.ACTION_PICK);

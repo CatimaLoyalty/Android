@@ -84,7 +84,7 @@
     <string name="settings_system_theme">Systemvorgabe</string>
     <string name="settings_theme">Design</string>
     <string name="enterBarcodeInstructions">Geben Sie die Karten-ID ein und wählen Sie das Bild aus, das den Strichcode darstellt, den Sie verwenden möchten, oder wählen Sie „Diese Karte hat keinen Strichcode“, um keinen Strichcode zu verwenden.</string>
-    <string name="app_copyright_old">Basiert auf Loyalty Card Keychain, Copyright 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Basiert auf Loyalty Card Keychain, Copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort Ihrer Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Der Import-URI konnte nicht analysiert werden</string>
     <string name="addedShortcut">Verknüpfung hinzugefügt</string>

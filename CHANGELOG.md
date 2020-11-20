@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Always show all import/export options and show a toast on actual issues (improves compat with XPrivacyLua)
+
 ## v1.2.2 (2020-11-19)
 
 Changes:

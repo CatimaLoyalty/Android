@@ -100,14 +100,6 @@ public class ImportExportActivity extends AppCompatActivity
             }
         });
 
-        if(isCallable(getApplicationContext(), intentGetContentAction) == false)
-        {
-            findViewById(R.id.dividerImportFilesystem).setVisibility(View.GONE);
-            findViewById(R.id.importOptionFilesystemTitle).setVisibility(View.GONE);
-            findViewById(R.id.importOptionFilesystemExplanation).setVisibility(View.GONE);
-            importFilesystem.setVisibility(View.GONE);
-        }
-
         // Check that there is an app that data can be imported from
         final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
 
@@ -120,14 +112,6 @@ public class ImportExportActivity extends AppCompatActivity
                 chooseFileWithIntent(intentPickAction, CHOOSE_EXPORTED_FILE);
             }
         });
-
-        if(isCallable(getApplicationContext(), intentPickAction) == false)
-        {
-            findViewById(R.id.dividerImportApplication).setVisibility(View.GONE);
-            findViewById(R.id.importOptionApplicationTitle).setVisibility(View.GONE);
-            findViewById(R.id.importOptionApplicationExplanation).setVisibility(View.GONE);
-            importApplication.setVisibility(View.GONE);
-        }
     }
 
     private void startImport(final InputStream target, final Uri targetUri)
@@ -295,31 +279,6 @@ public class ImportExportActivity extends AppCompatActivity
         builder.create().show();
     }
 
-    /**
-     * Determines if there is at least one activity that can perform the given intent
-     */
-    private boolean isCallable(Context context, final Intent intent)
-    {
-        PackageManager manager = context.getPackageManager();
-        if(manager == null)
-        {
-            return false;
-        }
-
-        List<ResolveInfo> list = manager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-
-        for(ResolveInfo info : list)
-        {
-            if(info.activityInfo.exported)
-            {
-                // There is one activity which is available to be called
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private void chooseFileWithIntent(Intent intent, int requestCode)
     {
         try
@@ -328,6 +287,7 @@ public class ImportExportActivity extends AppCompatActivity
         }
         catch (ActivityNotFoundException e)
         {
+            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG);
             Log.e(TAG, "No activity found to handle intent", e);
         }
     }

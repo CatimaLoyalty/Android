@@ -107,4 +107,5 @@
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
     <string name="noBarcode">Ingen strekkode</string>
+    <string name="failedOpeningFileManager">Klarte ikke å åpne noen filbehandler. Forsikre deg om at du har installert en.</string>
 </resources>

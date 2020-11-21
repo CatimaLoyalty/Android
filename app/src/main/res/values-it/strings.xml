@@ -85,7 +85,7 @@
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     <string name="exportSuccessful">Dati della carta fedeltà esportati correttamente</string>
     <string name="importSuccessful">Dati della carta fedeltà importati correttamente</string>
-    <string name="app_copyright_old">Basato su Loyalty Card Keychain, copyright 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Basato su Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
     <string name="addedShortcut">Scorciatoia aggiunta</string>
     <string name="barcodeType">Tipo di codice a barre</string>

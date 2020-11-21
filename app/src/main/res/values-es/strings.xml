@@ -76,7 +76,7 @@
     <string name="settings_system_theme">Tema del sistema</string>
     <string name="settings_theme">Tema</string>
     <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione la imagen que represente el código de barras que se utilizará, o bien, elija «Esta tarjeta no tiene código de barras» para no utilizar ninguno.</string>
-    <string name="app_copyright_old">Basado en Loyalty Card Keychain, derechos de autor 2016-2020 de Branden Archer.</string>
+    <string name="app_copyright_old">Basado en Loyalty Card Keychain, derechos de autor 2016–2020 de Branden Archer.</string>
     <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija.</string>
     <string name="failedParsingImportUriError">No se pudo procesar el URI de importación</string>
     <string name="addedShortcut">Atajo añadido</string>

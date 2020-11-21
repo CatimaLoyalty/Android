@@ -21,7 +21,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,6 +71,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     DBHelper db;
     ImportURIHelper importUriHelper;
+
+    boolean hasChanged = false;
 
     private void extractIntentFields(Intent intent)
     {
@@ -124,6 +125,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 generateIcon(s.toString());
             }
 
@@ -137,6 +140,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 String formatString = barcodeTypeField.getText().toString();
 
                 if (!formatString.isEmpty()) {
@@ -158,6 +163,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 if (!s.toString().isEmpty()) {
                     if (s.toString().equals(getString(R.string.noBarcode))) {
                         hideBarcode();
@@ -362,6 +369,43 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         });
 
         generateIcon(storeFieldEdit.getText().toString());
+
+        hasChanged = false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        askBeforeQuitIfChanged();
+    }
+
+    private void askBeforeQuitIfChanged() {
+        if (!hasChanged) {
+            finish();
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.leaveWithoutSaveTitle);
+        builder.setMessage(R.string.leaveWithoutSaveConfirmation);
+        builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                finish();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     class EditCardIdAndBarcode implements View.OnClickListener
@@ -487,7 +531,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         switch(id)
         {
             case android.R.id.home:
-                finish();
+                askBeforeQuitIfChanged();
                 break;
 
             case R.id.action_delete:

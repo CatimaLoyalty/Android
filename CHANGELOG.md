@@ -5,6 +5,7 @@
 Changes:
 
 - Always show all import/export options and show a toast on actual issues (improves compat with XPrivacyLua)
+- Ask for confirmation when leaving edit view after making changes without saving
 
 ## v1.2.2 (2020-11-19)
 

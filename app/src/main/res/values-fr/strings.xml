@@ -16,7 +16,7 @@
     <string name="lockScreen">Désactiver la rotation</string>
     <string name="unlockScreen">Activer la rotation</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
-    <string name="deleteConfirmation">Confirmez que vous souhaitez supprimer cette carte.</string>
+    <string name="deleteConfirmation">Confirmez la suppression de cette carte.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
@@ -24,11 +24,11 @@
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
-    <string name="noCardsMessage">Il n\'y a aucune carte. Ajoutez-en une d\'abord</string>
-    <string name="barcodeImageDescription">Image du code-barres de la carte</string>
+    <string name="noCardsMessage">Ajoutez d\'abord une carte</string>
+    <string name="barcodeImageDescription">Image du code-barres</string>
     <string name="noStoreError">Aucun nom n\'a été saisi</string>
-    <string name="noCardIdError">Aucun numéro n\'a été saisi</string>
-    <string name="noCardExistsError">N\'a pas pu retrouver la carte de fidélité</string>
+    <string name="noCardIdError">Aucun numéro de carte saisi</string>
+    <string name="noCardExistsError">Aucune carte trouvée</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
@@ -100,4 +100,5 @@
 \nLes cartes peuvent être attribuées à des groupes pour les rendre plus faciles à trouver.</string>
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
+    <string name="noBarcode">Aucun code-barres</string>
 </resources>

@@ -102,15 +102,15 @@
     <string name="settings_key_light_theme" translatable="false">light</string>
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
-    <string name="settings_card_title_list_font_size">Font size for card titles</string>
+    <string name="settings_card_title_list_font_size">Card title font size (list mode)</string>
     <string name="settings_key_card_title_list_font_size" translatable="false">pref_card_title_list_font_size_sp</string>
-    <string name="settings_card_note_list_font_size">Font size for card note list </string>
+    <string name="settings_card_note_list_font_size">Card note font size (list mode)</string>
     <string name="settings_key_card_note_list_font_size" translatable="false">pref_card_note_list_font_size_sp</string>
-    <string name="settings_card_title_font_size">Card title font size</string>
+    <string name="settings_card_title_font_size">Card title font size (preview)</string>
     <string name="settings_key_card_title_font_size" translatable="false">pref_card_title_font_size_sp</string>
     <string name="settings_card_id_font_size">Card ID font size</string>
     <string name="settings_key_card_id_font_size" translatable="false">pref_card_id_font_size_sp</string>
-    <string name="settings_card_note_font_size">Card note font size</string>
+    <string name="settings_card_note_font_size">Card note font size (preview)</string>
     <string name="settings_key_card_note_font_size" translatable="false">pref_card_note_font_size_sp</string>
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>

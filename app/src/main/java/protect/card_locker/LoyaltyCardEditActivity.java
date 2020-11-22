@@ -75,6 +75,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     boolean hasChanged = false;
     boolean initDone = false;
+    AlertDialog confirmExitDialog = null;
 
     private void extractIntentFields(Intent intent)
     {
@@ -397,28 +398,26 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             return;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.leaveWithoutSaveTitle);
-        builder.setMessage(R.string.leaveWithoutSaveConfirmation);
-        builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                finish();
-                dialog.dismiss();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        if (confirmExitDialog == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.leaveWithoutSaveTitle);
+            builder.setMessage(R.string.leaveWithoutSaveConfirmation);
+            builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    dialog.dismiss();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            confirmExitDialog = builder.create();
+        }
+        confirmExitDialog.show();
     }
 
     class EditCardIdAndBarcode implements View.OnClickListener

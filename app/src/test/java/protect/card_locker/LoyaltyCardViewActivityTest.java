@@ -352,7 +352,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
 
@@ -363,7 +363,17 @@ public class LoyaltyCardViewActivityTest
 
         // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
+
+        // A change was made
         shadowOf(activity).clickMenuItem(android.R.id.home);
+        assertEquals(true, activity.confirmExitDialog.isShowing());
+        assertEquals(true, activity.hasChanged);
+        assertEquals(false, activity.isFinishing());
+
+        // Exit after setting hasChanged to false
+        activity.hasChanged = false;
+        shadowOf(activity).clickMenuItem(android.R.id.home);
+        assertEquals(false, activity.hasChanged);
         assertEquals(true, activity.isFinishing());
     }
 
@@ -448,7 +458,7 @@ public class LoyaltyCardViewActivityTest
     public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException
     {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
         DBHelper db = new DBHelper(activity);
 
         db.insertLoyaltyCard("store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, 0);
@@ -466,7 +476,16 @@ public class LoyaltyCardViewActivityTest
 
         // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
+        // A change was made
         shadowOf(activity).clickMenuItem(android.R.id.home);
+        assertEquals(true, activity.confirmExitDialog.isShowing());
+        assertEquals(true, activity.hasChanged);
+        assertEquals(false, activity.isFinishing());
+
+        // Exit after setting hasChanged to false
+        activity.hasChanged = false;
+        shadowOf(activity).clickMenuItem(android.R.id.home);
+        assertEquals(false, activity.hasChanged);
         assertEquals(true, activity.isFinishing());
     }
 

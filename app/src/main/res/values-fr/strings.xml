@@ -69,9 +69,9 @@
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_card_title_list_font_size">Taille du nom des cartes (mode liste)</string>
     <string name="settings_card_note_list_font_size">Taille de la description (mode liste)</string>
-    <string name="settings_card_title_font_size">Taille du nom des cartes</string>
-    <string name="settings_card_id_font_size">Taille de police pour les numéros de carte</string>
-    <string name="settings_card_note_font_size">Taille de la description</string>
+    <string name="settings_card_title_font_size">Taille du nom de la carte (aperçu)</string>
+    <string name="settings_card_id_font_size">Taille des numéros de carte</string>
+    <string name="settings_card_note_font_size">Taille de la description (aperçu)</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
     <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
     <string name="exportSuccessful">Carte exportée avec succès</string>

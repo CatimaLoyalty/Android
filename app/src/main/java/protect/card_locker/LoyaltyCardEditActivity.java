@@ -23,6 +23,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
@@ -73,6 +74,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ImportURIHelper importUriHelper;
 
     boolean hasChanged = false;
+    boolean initDone = false;
 
     private void extractIntentFields(Intent intent)
     {
@@ -291,6 +293,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         break;
                     }
                 }
+                chip.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        hasChanged = true;
+
+                        return false;
+                    }
+                });
 
                 groupsChips.addView(chip);
             }
@@ -370,7 +380,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         generateIcon(storeFieldEdit.getText().toString());
 
-        hasChanged = false;
+        if (!initDone) {
+            hasChanged = false;
+            initDone = true;
+        }
     }
 
     @Override
@@ -445,6 +458,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 @Override
                 public void onColorSelected(int dialogId, int color)
                 {
+                    hasChanged = true;
+
                     headingColorValue = color;
 
                     generateIcon(storeFieldEdit.getText().toString());
@@ -608,6 +623,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             // Set special NO_BARCODE value to prevent onResume from overwriting it
             barcodeTypeField.setText(format.isEmpty() ? getString(R.string.noBarcode) : format);
             onResume();
+
+            hasChanged = true;
         }
     }
 

@@ -28,7 +28,7 @@
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d\'abord une carte</string>
     <string name="barcodeImageDescription">Image du code-barres</string>
-    <string name="noStoreError">Aucun nom n\'a été saisi</string>
+    <string name="noStoreError">Aucun nom de magasin saisi</string>
     <string name="noCardIdError">Aucun numéro de carte saisi</string>
     <string name="noCardExistsError">Aucune carte trouvée</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
@@ -75,7 +75,7 @@
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
     <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
     <string name="exportSuccessful">Carte exportée avec succès</string>
-    <string name="importSuccessful">Données importées avec succès</string>
+    <string name="importSuccessful">Carte de fidélité importée</string>
     <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
     <string name="settings_dark_theme">Sombre</string>
     <string name="settings_light_theme">Clair</string>

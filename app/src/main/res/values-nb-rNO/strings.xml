@@ -55,10 +55,8 @@
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
     <string name="about">Om</string>
     <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
-    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g>
-    </string>
-    <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g>
-    </string>
+    <string name="about_title_fmt">Om &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="debug_version_fmt">Versjon: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"version\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> brukfer følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -99,13 +97,13 @@
     <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kort</string>
     <string name="noGroups">Klikk på «+»-tegnet for å legge til grupper først.
 \n
-\nGrupper gjør ting enklere å finne.
-\n
-\nKort kan tildeles grupper for å gjøre dem enklere å finne.</string>
+\nGrupper gjør ting enklere å finne.</string>
     <string name="deleteConfirmationGroup">Bekreft at du ønsker å slette denne gruppen</string>
     <string name="all">Alle</string>
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
     <string name="noBarcode">Ingen strekkode</string>
     <string name="failedOpeningFileManager">Klarte ikke å åpne noen filbehandler. Forsikre deg om at du har installert en.</string>
+    <string name="leaveWithoutSaveConfirmation">Er du sikker på at du vil forlate denne skjermen\? Endringer vil ikke bli lagret.</string>
+    <string name="leaveWithoutSaveTitle">Forlat uten å lagre</string>
 </resources>

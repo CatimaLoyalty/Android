@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Move About screen into its own activity
+
 ## v1.3.0 (2020-11-22)
 
 Changes:

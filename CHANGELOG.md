@@ -5,6 +5,7 @@
 Changes:
 
 - Move About screen into its own activity
+- Ask user if they want to use their camera or manually enter ID on add/edit card
 
 ## v1.3.0 (2020-11-22)
 

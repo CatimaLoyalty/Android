@@ -14,12 +14,13 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 6;
 
     static class LoyaltyCardDbGroups
     {
         public static final String TABLE = "groups";
         public static final String ID = "_id";
+        public static final String ORDER = "orderId";
     }
 
     static class LoyaltyCardDbIds
@@ -52,7 +53,8 @@ public class DBHelper extends SQLiteOpenHelper
     {
         // create table for card groups
         db.execSQL("create table " + LoyaltyCardDbGroups.TABLE + "(" +
-                LoyaltyCardDbGroups.ID + " TEXT primary key not null)");
+                LoyaltyCardDbGroups.ID + " TEXT primary key not null," +
+                LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0')");
 
         // create table for cards
         db.execSQL("create table " + LoyaltyCardDbIds.TABLE + "(" +
@@ -108,6 +110,13 @@ public class DBHelper extends SQLiteOpenHelper
                     LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
                     LoyaltyCardDbIdsGroups.groupID + " TEXT," +
                     "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID +"))");
+        }
+
+        // Upgrade from version 5 to 6
+        if(oldVersion < 6 && newVersion >= 6)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbGroups.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0'");
         }
     }
 
@@ -376,7 +385,7 @@ public class DBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor res = db.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE +
-                " ORDER BY " + LoyaltyCardDbGroups.ID + " COLLATE NOCASE ASC", null, null);
+                " ORDER BY " + LoyaltyCardDbGroups.ORDER + " ASC," + LoyaltyCardDbGroups.ID + " COLLATE NOCASE ASC", null, null);
         return res;
     }
 
@@ -396,6 +405,26 @@ public class DBHelper extends SQLiteOpenHelper
         }
 
         return groups;
+    }
+
+    public void reorderGroups(final List<Group> groups)
+    {
+        Integer order = 0;
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues;
+
+        for (Group group : groups)
+        {
+            contentValues = new ContentValues();
+            contentValues.put(LoyaltyCardDbGroups.ORDER, order);
+
+            db.update(LoyaltyCardDbGroups.TABLE, contentValues,
+                    LoyaltyCardDbGroups.ID + "=?",
+                    new String[]{group._id});
+
+            order++;
+        }
     }
 
     public Group getGroup(final String groupName)
@@ -467,6 +496,7 @@ public class DBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
+        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount());
         final long newId = db.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
         return newId;
     }
@@ -475,6 +505,7 @@ public class DBHelper extends SQLiteOpenHelper
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
+        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount());
         final long newId = db.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
         return (newId != -1);
     }

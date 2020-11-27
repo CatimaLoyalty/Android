@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -112,12 +114,16 @@ public class ManageGroupsActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void moveGroupUp(View view) {
+        moveGroup(view, true);
+    }
+
+    public void moveGroupDown(View view) {
+        moveGroup(view, false);
+    }
+
     public void editGroup(View view) {
-        LinearLayout parentRow = (LinearLayout) view.getParent();
-
-        TextView groupNameTextView = (TextView) parentRow.findViewById(R.id.name);
-
-        final String groupName = (String) groupNameTextView.getText();
+        final String groupName = getGroupname(view);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
@@ -131,8 +137,6 @@ public class ManageGroupsActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 db.updateGroup(groupName, input.getText().toString());
                 updateGroupList();
-                // Rename may change ordering, so invalidate
-                invalidateHomescreenActiveTab();
             }
         });
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -146,11 +150,7 @@ public class ManageGroupsActivity extends AppCompatActivity
     }
 
     public void deleteGroup(View view) {
-        LinearLayout parentRow = (LinearLayout) view.getParent();
-
-        TextView groupNameTextView = (TextView) parentRow.findViewById(R.id.name);
-
-        final String groupName = (String) groupNameTextView.getText();
+        final String groupName = getGroupname(view);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);
@@ -187,8 +187,6 @@ public class ManageGroupsActivity extends AppCompatActivity
             public void onClick(DialogInterface dialog, int which) {
                 db.insertGroup(input.getText().toString());
                 updateGroupList();
-                // Create may change ordering, so invalidate
-                invalidateHomescreenActiveTab();
             }
         });
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -200,5 +198,57 @@ public class ManageGroupsActivity extends AppCompatActivity
         AlertDialog dialog = builder.create();
 
         return dialog;
+    }
+
+    private String getGroupname(View view) {
+        LinearLayout parentRow = (LinearLayout) view.getParent().getParent();
+        TextView groupNameTextView = parentRow.findViewById(R.id.name);
+        return (String) groupNameTextView.getText();
+    }
+
+    private void moveGroup(View view, boolean up) {
+        final String groupName = getGroupname(view);
+
+        List<Group> groups = db.getGroups();
+
+        int currentIndex = -1;
+        Integer newIndex;
+
+        // Get current index in group list
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i)._id.equals(groupName)) {
+                currentIndex = i;
+
+                break;
+            }
+        }
+
+        if (currentIndex == -1) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        // Reinsert group in correct position
+        if (up) {
+            newIndex = currentIndex - 1;
+        } else {
+            newIndex = currentIndex + 1;
+        }
+
+        // Don't try to move out of bounds
+        if (newIndex < 0 || newIndex >= groups.size()) {
+            return;
+        }
+
+        Group group = groups.remove(currentIndex);
+        groups.add(newIndex, group);
+
+        // Update database
+        db.reorderGroups(groups);
+
+        // Update UI
+        updateGroupList();
+
+        // Ordering may have changed, so invalidate
+        invalidateHomescreenActiveTab();
     }
 }

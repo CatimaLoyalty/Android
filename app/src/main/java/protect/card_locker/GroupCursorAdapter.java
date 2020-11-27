@@ -37,8 +37,8 @@ class GroupCursorAdapter extends CursorAdapter
     public void bindView(View view, Context context, Cursor cursor)
     {
         // Find fields to populate in inflated template
-        TextView nameField = (TextView) view.findViewById(R.id.name);
-        TextView countField = (TextView) view.findViewById(R.id.cardCount);
+        TextView nameField = view.findViewById(R.id.name);
+        TextView countField = view.findViewById(R.id.cardCount);
 
         // Extract properties from cursor
         Group group = Group.toGroup(cursor);

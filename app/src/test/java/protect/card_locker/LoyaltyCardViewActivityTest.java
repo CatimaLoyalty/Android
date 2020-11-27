@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -38,6 +39,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowDialog;
 import org.robolectric.shadows.ShadowLog;
 
 @RunWith(RobolectricTestRunner.class)
@@ -145,11 +147,15 @@ public class LoyaltyCardViewActivityTest
      * Initiate and complete a barcode capture, either in success
      * or in failure
      */
-    private void captureBarcodeWithResult(final Activity activity, final int buttonId, final boolean success) throws IOException
+    private void captureBarcodeWithResult(final Activity activity, final boolean success) throws IOException
     {
         // Start image capture
-        final Button captureButton = activity.findViewById(buttonId);
-        captureButton.performClick();
+        final Button startButton = activity.findViewById(R.id.enterButton);
+        startButton.performClick();
+
+        Dialog dialog = ShadowDialog.getLatestDialog();
+        ShadowDialog shadowDialog = shadowOf(dialog);
+        shadowDialog.clickOn(R.id.add_from_camera);
 
         ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
@@ -181,11 +187,15 @@ public class LoyaltyCardViewActivityTest
      * Initiate and complete a barcode selection, either in success
      * or in failure
      */
-    private void selectBarcodeWithResult(final Activity activity, final int buttonId, final String barcodeData, final String barcodeType, final boolean success) throws IOException
+    private void selectBarcodeWithResult(final Activity activity, final String barcodeData, final String barcodeType, final boolean success) throws IOException
     {
-        // Start image capture
-        final Button captureButton = activity.findViewById(buttonId);
-        captureButton.performClick();
+        // Start barcode selector
+        final Button startButton = activity.findViewById(R.id.enterButton);
+        startButton.performClick();
+
+        Dialog dialog = ShadowDialog.getLatestDialog();
+        ShadowDialog shadowDialog = shadowOf(dialog);
+        shadowDialog.clickOn(R.id.add_manually);
 
         ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
@@ -231,8 +241,6 @@ public class LoyaltyCardViewActivityTest
         }
         else
         {
-            int captureVisibility = (mode == ViewMode.UPDATE_CARD || mode == ViewMode.ADD_CARD) ? View.VISIBLE : View.GONE;
-
             int editVisibility = View.VISIBLE;
 
             checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
@@ -240,7 +248,6 @@ public class LoyaltyCardViewActivityTest
             checkFieldProperties(activity, R.id.cardAndBarcodeLayout, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
             checkFieldProperties(activity, R.id.barcodeTypeField, View.VISIBLE, barcodeType);
-            checkFieldProperties(activity, R.id.captureButton, captureVisibility, null);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
         }
     }
@@ -318,7 +325,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
 
         // Complete barcode capture successfully
-        captureBarcodeWithResult(activity, R.id.captureButton, true);
+        captureBarcodeWithResult(activity, true);
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
@@ -339,7 +346,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
 
         // Complete barcode capture in failure
-        captureBarcodeWithResult(activity, R.id.captureButton, false);
+        captureBarcodeWithResult(activity, false);
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
     }
@@ -357,7 +364,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
 
         // Complete barcode capture successfully
-        captureBarcodeWithResult(activity, R.id.captureButton, true);
+        captureBarcodeWithResult(activity, true);
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", BARCODE_DATA, BARCODE_TYPE);
 
@@ -449,7 +456,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         // Complete barcode capture successfully
-        captureBarcodeWithResult(activity, R.id.captureButton, true);
+        captureBarcodeWithResult(activity, true);
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
     }
@@ -470,7 +477,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         // Complete barcode capture successfully
-        captureBarcodeWithResult(activity, R.id.captureButton, true);
+        captureBarcodeWithResult(activity, true);
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
 
@@ -620,7 +627,7 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
 
         // Complete empty barcode selection successfully
-        selectBarcodeWithResult(activity, R.id.enterButton, BARCODE_DATA, "", true);
+        selectBarcodeWithResult(activity, BARCODE_DATA, "", true);
 
         // Check if the barcode type is NO_BARCODE as expected
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode));

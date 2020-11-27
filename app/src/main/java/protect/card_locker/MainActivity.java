@@ -1,9 +1,11 @@
 package protect.card_locker;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.List;
 import protect.card_locker.preferences.SettingsActivity;
@@ -33,7 +38,6 @@ import protect.card_locker.preferences.SettingsActivity;
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
-    private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
     private GestureDetector gestureDetector;
@@ -137,18 +141,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                startActivityForResult(i, MAIN_REQUEST_CODE);
+                Utils.createSetBarcodeDialog(MainActivity.this, MainActivity.this, false, null);
             }
         });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
 
-        if (requestCode == MAIN_REQUEST_CODE)
-        {
+        if (requestCode == Utils.MAIN_REQUEST) {
             // We're coming back from another view so clear the search
             // We only do this now to prevent a flash of all entries right after picking one
             filter = "";
@@ -160,6 +162,19 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
             // In case the theme changed
             recreate();
+
+            return;
+        }
+
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+
+        if(!barcodeValues.isEmpty()) {
+            Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle newBundle = new Bundle();
+            newBundle.putString("barcodeType", barcodeValues.format());
+            newBundle.putString("cardId", barcodeValues.content());
+            newIntent.putExtras(newBundle);
+            startActivity(newIntent);
         }
     }
 
@@ -245,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
 
-                startActivityForResult(i, MAIN_REQUEST_CODE);
+                startActivityForResult(i, Utils.MAIN_REQUEST);
             }
         });
     }
@@ -368,28 +383,28 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if (id == R.id.action_manage_groups)
         {
             Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_about)
         {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 

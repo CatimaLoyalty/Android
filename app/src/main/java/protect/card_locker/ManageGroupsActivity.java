@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
@@ -218,7 +216,6 @@ public class ManageGroupsActivity extends AppCompatActivity
 
         // Get current index in group list
         for (int i = 0; i < groups.size(); i++) {
-            Log.w(TAG, groupName);
             if (groups.get(i)._id.equals(groupName)) {
                 currentIndex = i;
 

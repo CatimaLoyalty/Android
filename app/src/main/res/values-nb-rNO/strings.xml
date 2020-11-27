@@ -106,4 +106,6 @@
     <string name="failedOpeningFileManager">Klarte ikke å åpne noen filbehandler. Forsikre deg om at du har installert en.</string>
     <string name="leaveWithoutSaveConfirmation">Er du sikker på at du vil forlate denne skjermen\? Endringer vil ikke bli lagret.</string>
     <string name="leaveWithoutSaveTitle">Forlat uten å lagre</string>
+    <string name="addManually">Skriv inn kort-ID manuelt</string>
+    <string name="addWithCamera">Skann strekkoden med kameraet ditt</string>
 </resources>

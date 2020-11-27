@@ -48,12 +48,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
 
-    protected static final int SELECT_BARCODE_REQUEST = 1;
-
-    protected static final int STARTMODE_NONE = 0;
-    protected static final int STARTMODE_CAMERA = 1;
-    protected static final int STARTMODE_BARCODE_SELECTOR = 2;
-
     ImageView thumbnail;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
@@ -327,6 +321,21 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue));
 
+        if (!initDone) {
+            hasChanged = false;
+            initDone = true;
+        }
+
+        // Update from intent
+        if (barcodeType != null) {
+            barcodeTypeField.setText(barcodeType.isEmpty() ? getString(R.string.noBarcode) : barcodeType);
+            barcodeType = null;
+        }
+        if (cardId != null) {
+            cardIdFieldView.setText(cardId);
+            cardId = null;
+        }
+
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
             String formatString = barcodeTypeField.getText().toString();
@@ -343,15 +352,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 generateBarcode(cardIdString, format);
             }
         }
-
-        View.OnClickListener captureCallback = new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Utils.startCameraBarcodeScan(getApplicationContext(), LoyaltyCardEditActivity.this);
-            }
-        };
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
@@ -381,21 +381,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         });
 
         generateIcon(storeFieldEdit.getText().toString());
-
-        if (!initDone) {
-            hasChanged = false;
-            initDone = true;
-        }
-
-        // Update from intent
-        if (barcodeType != null) {
-            barcodeTypeField.setText(barcodeType.isEmpty() ? getString(R.string.noBarcode) : barcodeType);
-            barcodeType = null;
-        }
-        if (cardId != null) {
-            cardIdFieldView.setText(cardId);
-            cardId = null;
-        }
     }
 
     @Override
@@ -591,41 +576,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        String contents = null;
-        String format = null;
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
 
-        IntentResult result =
-                IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (result != null)
-        {
-            Log.i(TAG, "Received barcode information from capture");
-            contents = result.getContents();
-            format = result.getFormatName();
-        }
+        barcodeType = barcodeValues.format();
+        cardId = barcodeValues.content();
 
-        if(requestCode == SELECT_BARCODE_REQUEST && resultCode == Activity.RESULT_OK)
-        {
-            Log.i(TAG, "Received barcode information from typing it");
-
-            contents = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
-            format = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);
-        }
-
-        if(contents != null && contents.isEmpty() == false &&
-                format != null)
-        {
-            Log.i(TAG, "Read barcode id: " + contents);
-            Log.i(TAG, "Read format: " + format);
-
-            TextView cardIdView = findViewById(R.id.cardIdView);
-            cardIdView.setText(contents);
-
-            // Set special NO_BARCODE value to prevent onResume from overwriting it
-            barcodeTypeField.setText(format.isEmpty() ? getString(R.string.noBarcode) : format);
-            onResume();
-
-            hasChanged = true;
-        }
+        onResume();
     }
 
     private void showBarcode() {

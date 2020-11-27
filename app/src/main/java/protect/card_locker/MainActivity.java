@@ -150,19 +150,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        String barcodeType = null;
-        String cardId = null;
-
-        IntentResult result =
-                IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (result != null)
-        {
-            Log.i(TAG, "Received barcode information from capture");
-
-            barcodeType = result.getFormatName();
-            cardId = result.getContents();
-        }
-
         if (requestCode == Utils.MAIN_REQUEST) {
             // We're coming back from another view so clear the search
             // We only do this now to prevent a flash of all entries right after picking one
@@ -175,18 +162,17 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
             // In case the theme changed
             recreate();
-        } else if (requestCode == Utils.SELECT_BARCODE_REQUEST && resultCode == RESULT_OK) {
-            Log.i(TAG, "Received barcode information from typing it");
 
-            barcodeType = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);
-            cardId = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
+            return;
         }
 
-        if (barcodeType != null && cardId != null) {
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+
+        if(!barcodeValues.isEmpty()) {
             Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle newBundle = new Bundle();
-            newBundle.putString("barcodeType", barcodeType);
-            newBundle.putString("cardId", cardId);
+            newBundle.putString("barcodeType", barcodeValues.format());
+            newBundle.putString("cardId", barcodeValues.content());
             newIntent.putExtras(newBundle);
             startActivity(newIntent);
         }

@@ -7,14 +7,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import androidx.core.graphics.ColorUtils;
 
 public class Utils {
+    private static final String TAG = "Catima";
+
     // Barcode config dialog
     public static AlertDialog setBarcodeDialog;
 
@@ -103,5 +107,32 @@ public class Utils {
                 setBarcodeDialog.hide();
             }
         });
+    }
+
+    static public BarcodeValues parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent) {
+        String contents = null;
+        String format = null;
+
+        IntentResult result =
+                IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (result != null)
+        {
+            Log.i(TAG, "Received barcode information from capture");
+            contents = result.getContents();
+            format = result.getFormatName();
+        }
+
+        if(requestCode == Utils.SELECT_BARCODE_REQUEST && resultCode == Activity.RESULT_OK)
+        {
+            Log.i(TAG, "Received barcode information from typing it");
+
+            contents = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
+            format = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);
+        }
+
+        Log.i(TAG, "Read barcode id: " + contents);
+        Log.i(TAG, "Read format: " + format);
+
+        return new BarcodeValues(format, contents);
     }
 }

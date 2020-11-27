@@ -46,21 +46,28 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="@dimen/cardThumbnailSize"
-                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/activity_margin"
                     android:layout_marginRight="@dimen/activity_margin"
-                    android:layout_gravity="center_vertical"
-                    app:cardCornerRadius="4dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="6dp"
                     android:paddingHorizontal="@dimen/inputPadding"
                     app:cardElevation="0dp">
 
-                    <ImageView
-                        android:id="@+id/thumbnail"
-                        android:layout_width="@dimen/cardThumbnailSize"
-                        android:layout_height="@dimen/cardThumbnailSize"
-                        android:contentDescription="@string/thumbnailDescription"
-                        android:src="@mipmap/ic_launcher"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:id="@+id/thumbnail"
+                            android:layout_width="@dimen/cardThumbnailSize"
+                            android:layout_height="@dimen/cardThumbnailSize"
+                            android:contentDescription="@string/thumbnailDescription"
+                            android:src="@mipmap/ic_launcher"/>
+
+                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 

@@ -50,6 +50,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     protected static final int SELECT_BARCODE_REQUEST = 1;
 
+    protected static final int STARTMODE_NONE = 0;
+    protected static final int STARTMODE_CAMERA = 1;
+    protected static final int STARTMODE_BARCODE_SELECTOR = 2;
+
     ImageView thumbnail;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
@@ -62,11 +66,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     View barcodeImageLayout;
     View barcodeCaptureLayout;
 
-    Button captureButton;
     Button enterButton;
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    String barcodeType;
+    String cardId;
+
     Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
 
@@ -82,6 +88,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
+
+        barcodeType = b != null ? b.getString("barcodeType") : null;
+        cardId = b != null ? b.getString("cardId") : null;
+
         importLoyaltyCardUri = intent.getData();
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
@@ -119,7 +129,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
-        captureButton = findViewById(R.id.captureButton);
         enterButton = findViewById(R.id.enterButton);
 
         storeFieldEdit.addTextChangedListener(new TextWatcher() {
@@ -340,17 +349,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                IntentIntegrator integrator = new IntentIntegrator(LoyaltyCardEditActivity.this);
-                integrator.setDesiredBarcodeFormats(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
-
-                String prompt = getResources().getString(R.string.scanCardBarcode);
-                integrator.setPrompt(prompt);
-                integrator.setBeepEnabled(false);
-                integrator.initiateScan();
+                Utils.startCameraBarcodeScan(getApplicationContext(), LoyaltyCardEditActivity.this);
             }
         };
-
-        captureButton.setOnClickListener(captureCallback);
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
@@ -384,6 +385,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         if (!initDone) {
             hasChanged = false;
             initDone = true;
+        }
+
+        // Update from intent
+        if (barcodeType != null) {
+            barcodeTypeField.setText(barcodeType.isEmpty() ? getString(R.string.noBarcode) : barcodeType);
+            barcodeType = null;
+        }
+        if (cardId != null) {
+            cardIdFieldView.setText(cardId);
+            cardId = null;
         }
     }
 
@@ -425,17 +436,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
-            Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
-
-            String cardId = cardIdFieldView.getText().toString();
-            if(cardId.length() > 0)
-            {
-                final Bundle b = new Bundle();
-                b.putString("initialCardId", cardId);
-                i.putExtras(b);
-            }
-
-            startActivityForResult(i, SELECT_BARCODE_REQUEST);
+            Utils.createSetBarcodeDialog(LoyaltyCardEditActivity.this, LoyaltyCardEditActivity.this, true, cardIdFieldView.getText().toString());
         }
     }
 

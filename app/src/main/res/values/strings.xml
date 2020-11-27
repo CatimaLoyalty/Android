@@ -136,4 +136,6 @@
     <string name="failedOpeningFileManager">Failed opening a file manager. Please make sure one is installed.</string>
     <string name="leaveWithoutSaveTitle">Leave without saving</string>
     <string name="leaveWithoutSaveConfirmation">Are you sure you want to leave this screen? Changed made will not be saved.</string>
+    <string name="addWithCamera">Scan the barcode with your camera</string>
+    <string name="addManually">Manually enter card ID</string>
 </resources>

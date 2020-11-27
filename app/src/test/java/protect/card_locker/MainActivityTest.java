@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.shadows.ShadowAlertDialog;
+import org.robolectric.shadows.ShadowDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,16 +73,16 @@ public class MainActivityTest
     }
 
     @Test
-    public void clickAddLaunchesLoyaltyCardEditActivity()
+    public void clickAddLaunchesAddDialog()
     {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         activity.findViewById(R.id.fabAdd).performClick();
 
-        Intent intent = shadowOf(activity).peekNextStartedActivityForResult().intent;
+        Dialog dialog = ShadowDialog.getLatestDialog();
+        ShadowDialog shadowDialog = shadowOf(dialog);
 
-        assertEquals(new ComponentName(activity, LoyaltyCardEditActivity.class), intent.getComponent());
-        assertNull(intent.getExtras());
+        assertEquals("Add Card", shadowDialog.getTitle());
     }
 
     @Test

@@ -21,9 +21,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
@@ -48,8 +48,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
 
-    protected static final int SELECT_BARCODE_REQUEST = 1;
-
     ImageView thumbnail;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
@@ -62,22 +60,32 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     View barcodeImageLayout;
     View barcodeCaptureLayout;
 
-    Button captureButton;
     Button enterButton;
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    String barcodeType;
+    String cardId;
+
     Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
 
+    boolean hasChanged = false;
+    boolean initDone = false;
+    AlertDialog confirmExitDialog = null;
+
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         updateLoyaltyCard = b != null && b.getBoolean("update", false);
+
+        barcodeType = b != null ? b.getString("barcodeType") : null;
+        cardId = b != null ? b.getString("cardId") : null;
+
         importLoyaltyCardUri = intent.getData();
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
@@ -115,7 +123,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
-        captureButton = findViewById(R.id.captureButton);
         enterButton = findViewById(R.id.enterButton);
 
         storeFieldEdit.addTextChangedListener(new TextWatcher() {
@@ -124,6 +131,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 generateIcon(s.toString());
             }
 
@@ -137,6 +146,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 String formatString = barcodeTypeField.getText().toString();
 
                 if (!formatString.isEmpty()) {
@@ -158,6 +169,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 if (!s.toString().isEmpty()) {
                     if (s.toString().equals(getString(R.string.noBarcode))) {
                         hideBarcode();
@@ -284,6 +297,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         break;
                     }
                 }
+                chip.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        hasChanged = true;
+
+                        return false;
+                    }
+                });
 
                 groupsChips.addView(chip);
             }
@@ -299,6 +320,21 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
 
         thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue));
+
+        if (!initDone) {
+            hasChanged = false;
+            initDone = true;
+        }
+
+        // Update from intent
+        if (barcodeType != null) {
+            barcodeTypeField.setText(barcodeType.isEmpty() ? getString(R.string.noBarcode) : barcodeType);
+            barcodeType = null;
+        }
+        if (cardId != null) {
+            cardIdFieldView.setText(cardId);
+            cardId = null;
+        }
 
         if(cardIdFieldView.getText().length() > 0 && barcodeTypeField.getText().length() > 0)
         {
@@ -316,23 +352,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 generateBarcode(cardIdString, format);
             }
         }
-
-        View.OnClickListener captureCallback = new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                IntentIntegrator integrator = new IntentIntegrator(LoyaltyCardEditActivity.this);
-                integrator.setDesiredBarcodeFormats(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
-
-                String prompt = getResources().getString(R.string.scanCardBarcode);
-                integrator.setPrompt(prompt);
-                integrator.setBeepEnabled(false);
-                integrator.initiateScan();
-            }
-        };
-
-        captureButton.setOnClickListener(captureCallback);
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
@@ -364,22 +383,45 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         generateIcon(storeFieldEdit.getText().toString());
     }
 
+    @Override
+    public void onBackPressed() {
+        askBeforeQuitIfChanged();
+    }
+
+    private void askBeforeQuitIfChanged() {
+        if (!hasChanged) {
+            finish();
+            return;
+        }
+
+        if (confirmExitDialog == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.leaveWithoutSaveTitle);
+            builder.setMessage(R.string.leaveWithoutSaveConfirmation);
+            builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    dialog.dismiss();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            confirmExitDialog = builder.create();
+        }
+        confirmExitDialog.show();
+    }
+
     class EditCardIdAndBarcode implements View.OnClickListener
     {
         @Override
         public void onClick(View v)
         {
-            Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
-
-            String cardId = cardIdFieldView.getText().toString();
-            if(cardId.length() > 0)
-            {
-                final Bundle b = new Bundle();
-                b.putString("initialCardId", cardId);
-                i.putExtras(b);
-            }
-
-            startActivityForResult(i, SELECT_BARCODE_REQUEST);
+            Utils.createSetBarcodeDialog(LoyaltyCardEditActivity.this, LoyaltyCardEditActivity.this, true, cardIdFieldView.getText().toString());
         }
     }
 
@@ -401,6 +443,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 @Override
                 public void onColorSelected(int dialogId, int color)
                 {
+                    hasChanged = true;
+
                     headingColorValue = color;
 
                     generateIcon(storeFieldEdit.getText().toString());
@@ -487,7 +531,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         switch(id)
         {
             case android.R.id.home:
-                finish();
+                askBeforeQuitIfChanged();
                 break;
 
             case R.id.action_delete:
@@ -532,39 +576,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        String contents = null;
-        String format = null;
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
 
-        IntentResult result =
-                IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (result != null)
-        {
-            Log.i(TAG, "Received barcode information from capture");
-            contents = result.getContents();
-            format = result.getFormatName();
-        }
+        barcodeType = barcodeValues.format();
+        cardId = barcodeValues.content();
 
-        if(requestCode == SELECT_BARCODE_REQUEST && resultCode == Activity.RESULT_OK)
-        {
-            Log.i(TAG, "Received barcode information from typing it");
-
-            contents = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
-            format = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);
-        }
-
-        if(contents != null && contents.isEmpty() == false &&
-                format != null)
-        {
-            Log.i(TAG, "Read barcode id: " + contents);
-            Log.i(TAG, "Read format: " + format);
-
-            TextView cardIdView = findViewById(R.id.cardIdView);
-            cardIdView.setText(contents);
-
-            // Set special NO_BARCODE value to prevent onResume from overwriting it
-            barcodeTypeField.setText(format.isEmpty() ? getString(R.string.noBarcode) : format);
-            onResume();
-        }
+        onResume();
     }
 
     private void showBarcode() {

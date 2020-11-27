@@ -4,7 +4,15 @@
 
 Changes:
 
+- Move About screen into its own activity
+- Ask user if they want to use their camera or manually enter ID on add/edit card
+
+## v1.3.0 (2020-11-22)
+
+Changes:
+
 - Always show all import/export options and show a toast on actual issues (improves compat with XPrivacyLua)
+- Ask for confirmation when leaving edit view after making changes without saving
 
 ## v1.2.2 (2020-11-19)
 

@@ -34,6 +34,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".AboutActivity"
+            android:label="@string/about"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".ManageGroupsActivity"
             android:label="@string/groups"
             android:theme="@style/AppTheme.NoActionBar">

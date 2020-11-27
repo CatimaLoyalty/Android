@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -7,41 +8,36 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.google.common.collect.ImmutableMap;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
-    private static final int MAIN_REQUEST_CODE = 1;
 
     private Menu menu;
     private GestureDetector gestureDetector;
@@ -145,18 +141,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                startActivityForResult(i, MAIN_REQUEST_CODE);
+                Utils.createSetBarcodeDialog(MainActivity.this, MainActivity.this, false, null);
             }
         });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
 
-        if (requestCode == MAIN_REQUEST_CODE)
-        {
+        if (requestCode == Utils.MAIN_REQUEST) {
             // We're coming back from another view so clear the search
             // We only do this now to prevent a flash of all entries right after picking one
             filter = "";
@@ -168,6 +162,19 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
             // In case the theme changed
             recreate();
+
+            return;
+        }
+
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+
+        if(!barcodeValues.isEmpty()) {
+            Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle newBundle = new Bundle();
+            newBundle.putString("barcodeType", barcodeValues.format());
+            newBundle.putString("cardId", barcodeValues.content());
+            newIntent.putExtras(newBundle);
+            startActivity(newIntent);
         }
     }
 
@@ -253,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
                 ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
 
-                startActivityForResult(i, MAIN_REQUEST_CODE);
+                startActivityForResult(i, Utils.MAIN_REQUEST);
             }
         });
     }
@@ -376,127 +383,32 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if (id == R.id.action_manage_groups)
         {
             Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivityForResult(i, MAIN_REQUEST_CODE);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if(id == R.id.action_about)
         {
-            displayAboutDialog();
+            Intent i = new Intent(getApplicationContext(), AboutActivity.class);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void displayAboutDialog()
-    {
-        final Map<String, String> USED_LIBRARIES = new ImmutableMap.Builder<String, String>()
-            .put("Commons CSV", "https://commons.apache.org/proper/commons-csv/")
-            .put("Guava", "https://github.com/google/guava")
-            .put("ZXing", "https://github.com/zxing/zxing")
-            .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
-            .put("AppIntro", "https://github.com/apl-devs/AppIntro")
-            .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
-            .put("VNTNumberPickerPreference", "https://github.com/vanniktech/VNTNumberPickerPreference")
-            .build();
-
-        final Map<String, String> USED_ASSETS = ImmutableMap.of
-        (
-            "Save by Bernar Novalyi", "https://thenounproject.com/term/save/716011"
-        );
-
-        StringBuilder libs = new StringBuilder().append("<ul>");
-        for (Map.Entry<String, String> entry : USED_LIBRARIES.entrySet())
-        {
-            libs.append("<li><a href=\"").append(entry.getValue()).append("\">").append(entry.getKey()).append("</a></li>");
-        }
-        libs.append("</ul>");
-
-        StringBuilder resources = new StringBuilder().append("<ul>");
-        for (Map.Entry<String, String> entry : USED_ASSETS.entrySet())
-        {
-            resources.append("<li><a href=\"").append(entry.getValue()).append("\">").append(entry.getKey()).append("</a></li>");
-        }
-        resources.append("</ul>");
-
-        String appName = getString(R.string.app_name);
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-
-        String version = "?";
-        try
-        {
-            PackageInfo pi = getPackageManager().getPackageInfo(getPackageName(), 0);
-            version = pi.versionName;
-        }
-        catch (PackageManager.NameNotFoundException e)
-        {
-            Log.w(TAG, "Package name not found", e);
-        }
-
-        WebView wv = new WebView(this);
-
-        // Set CSS for dark mode if dark mode
-        String css = "";
-        if(isDarkModeEnabled(this))
-        {
-            css = "<style>body {color:white; background-color:black;}</style>";
-        }
-
-        String html =
-            "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />" +
-            css +
-            "<h1>" +
-            String.format(getString(R.string.about_title_fmt),
-                    "<a href=\"" + getString(R.string.app_webpage_url)) + "\">" +
-            appName +
-            "</a>" +
-            "</h1><p>" +
-            appName +
-            " " +
-            String.format(getString(R.string.debug_version_fmt), version) +
-            "</p><p>" +
-            String.format(getString(R.string.app_revision_fmt),
-                    "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-                            "GitHub" +
-                            "</a>") +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_copyright_fmt), year) +
-            "</p><p>" +
-            getString(R.string.app_copyright_old) +
-            "</p><hr/><p>" +
-            getString(R.string.app_license) +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_libraries), appName, libs.toString()) +
-            "</p><hr/><p>" +
-            String.format(getString(R.string.app_resources), appName, resources.toString());
-
-        wv.loadDataWithBaseURL("file:///android_res/drawable/", html, "text/html", "utf-8", null);
-        new AlertDialog.Builder(this)
-            .setView(wv)
-            .setCancelable(true)
-            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
-            {
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    dialog.dismiss();
-                }
-            })
-            .show();
     }
 
     protected static boolean isDarkModeEnabled(Context inputContext)

@@ -20,7 +20,7 @@ public class Utils {
     private static final String TAG = "Catima";
 
     // Barcode config dialog
-    public static AlertDialog setBarcodeDialog;
+    private static AlertDialog setBarcodeDialog;
 
     // Activity request codes
     public static final int MAIN_REQUEST = 1;

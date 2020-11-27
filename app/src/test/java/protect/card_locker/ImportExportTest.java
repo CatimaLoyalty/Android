@@ -202,7 +202,7 @@ public class ImportExportTest
     private void checkGroups()
     {
         Cursor cursor = db.getGroupCursor();
-        int index = 1;
+        int index = db.getGroupCount();
 
         while(cursor.moveToNext())
         {
@@ -212,7 +212,7 @@ public class ImportExportTest
 
             assertEquals(expectedGroupName, group._id);
 
-            index++;
+            index--;
         }
         cursor.close();
     }

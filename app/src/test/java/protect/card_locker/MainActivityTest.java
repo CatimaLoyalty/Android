@@ -193,14 +193,14 @@ public class MainActivityTest
         assertEquals("All", groupTabs.getTabAt(0).getText().toString());
         assertEquals("One", groupTabs.getTabAt(1).getText().toString());
 
-        // Adding another group should have them sorted alphabetically
+        // Adding another group should have it added to the end
         db.insertGroup("Alphabetical two");
         activityController.pause();
         activityController.resume();
         assertEquals(3, groupTabs.getTabCount());
         assertEquals("All", groupTabs.getTabAt(0).getText().toString());
-        assertEquals("Alphabetical two", groupTabs.getTabAt(1).getText().toString());
-        assertEquals("One", groupTabs.getTabAt(2).getText().toString());
+        assertEquals("One", groupTabs.getTabAt(1).getText().toString());
+        assertEquals("Alphabetical two", groupTabs.getTabAt(2).getText().toString());
 
         // Removing a group should also change the list
         db.deleteGroup("Alphabetical two");

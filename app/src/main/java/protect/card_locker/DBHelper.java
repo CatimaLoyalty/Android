@@ -6,12 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static protect.card_locker.CardShortcutConfigure.TAG;
 
 public class DBHelper extends SQLiteOpenHelper
 {

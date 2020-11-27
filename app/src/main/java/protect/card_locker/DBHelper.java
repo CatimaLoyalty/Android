@@ -16,8 +16,6 @@ public class DBHelper extends SQLiteOpenHelper
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 6;
 
-    private static final int automaticGroupCount = 2;
-
     static class LoyaltyCardDbGroups
     {
         public static final String TABLE = "groups";
@@ -411,9 +409,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public void reorderGroups(final List<Group> groups)
     {
-        // We start at 2 because of the "All" and future "Unsorted" groups
-        // TODO: Make "All" and "Ungrouped" sortable too
-        Integer order = automaticGroupCount;
+        Integer order = 0;
 
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues;
@@ -500,7 +496,7 @@ public class DBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
-        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount() + automaticGroupCount);
+        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount());
         final long newId = db.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
         return newId;
     }
@@ -509,7 +505,7 @@ public class DBHelper extends SQLiteOpenHelper
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
-        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount() + automaticGroupCount);
+        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount());
         final long newId = db.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
         return (newId != -1);
     }

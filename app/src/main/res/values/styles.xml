@@ -29,5 +29,4 @@
         <item name="android:padding">@dimen/no_data_padding</item>
         <item name="android:textSize">@dimen/no_data_textSize</item>
     </style>
-
 </resources>

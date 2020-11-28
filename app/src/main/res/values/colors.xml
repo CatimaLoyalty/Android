@@ -14,4 +14,6 @@
     <color name="inputBackground">#FFFFFF</color>
     <color name="inputBorder">#DDDDDD</color>
     <color name="inputDividerBorder">#AAAAAA</color>
+
+    <color name="iconColor">#000000</color>
 </resources>

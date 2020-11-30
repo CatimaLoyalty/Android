@@ -2,8 +2,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
-    <string name="noGiftCards">Je hebt nog geen klantenkaarten toegevoegd. Druk op de knop \'+\' (plus) om te beginnen.\n\nMet Klantenkaartkluis beheer je je klantenkaarten op je smartphone of tablet zodat ze altijd binnen handbereik zijn.</string>
-    <string name="noMatchingGiftCards">Geen kaarten komen overeen met het filter. Probeer alsjeblieft wat andere termen.</string>
+    <string name="noGiftCards">Druk op de knop \'+\' (plus) om een kaart toe te voegen.
+\n
+\nMet Catima heb je je klantenkaarten altijd binnen handbereik, gewoon op je apparaat.</string>
+    <string name="noMatchingGiftCards">Geen zoekresultaten. Probeer een andere zoekopdracht.</string>
     <string name="storeName">Winkel</string>
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
@@ -26,45 +28,45 @@
     <string name="share">Delen</string>
     <string name="sendLabel">Versturen…</string>
     <string name="addedShortcut">Snelkoppeling is toegevoegd</string>
-    <string name="editCardTitle">Klantenkaart bewerken</string>
-    <string name="addCardTitle">Klantenkaart toevoegen</string>
+    <string name="editCardTitle">Kaart bewerken</string>
+    <string name="addCardTitle">Kaart toevoegen</string>
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
-    <string name="noCardsMessage">Je hebt nog geen kaarten toegevoegd.</string>
+    <string name="noCardsMessage">Voeg eerst een kaart toe</string>
     <string name="barcodeImageDescription">Afbeelding van barcode</string>
     <string name="noStoreError">Geen winkelnaam ingevoerd</string>
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
-    <string name="noCardExistsError">De klantenkaart kan niet worden opgevraagd</string>
+    <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
     <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importeren/Exporteren</string>
     <string name="exportName">Exporteren</string>
-    <string name="importExportHelp">Door de gegevens te back-uppen kun je je kaarten overzetten naar een ander apparaat.</string>
+    <string name="importExportHelp">Door je kaarten te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
     <string name="importFailed">Het importeren is mislukt</string>
     <string name="exportSuccessfulTitle">Exporteren voltooid</string>
     <string name="exportFailedTitle">Exporteren mislukt</string>
     <string name="exportFailed">Het exporteren is mislukt</string>
-    <string name="importing">Bezig met importeren…...</string>
-    <string name="exporting">Bezig met exporteren…...</string>
-    <string name="noExternalStoragePermissionError">Het importeren of exporteren van kaarten is niet mogelijk zonder de machtiging \'externe opslag\'.</string>
+    <string name="importing">Bezig met importeren…</string>
+    <string name="exporting">Bezig met exporteren…</string>
+    <string name="noExternalStoragePermissionError">Verleen het recht \'externe opslag\' om kaarten te kunnen im- of exporteren</string>
     <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
-    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand uit het bestandssysteem.</string>
-    <string name="importOptionFilesystemButton">Uit bestandssysteem</string>
-    <string name="importOptionApplicationTitle">Externe toepassing gebruiken</string>
-    <string name="importOptionApplicationExplanation">Open een bestand middels een externe app, zoals Dropbox, Google Drive of je favoriete bestandsbeheerder.</string>
+    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand vanop het bestandssysteem.</string>
+    <string name="importOptionFilesystemButton">Van bestandssysteem</string>
+    <string name="importOptionApplicationTitle">Externe app gebruiken</string>
+    <string name="importOptionApplicationExplanation">Open een bestand middels een app of je favoriete bestandsbeheerder.</string>
     <string name="importOptionApplicationButton">Externe app gebruiken</string>
     <string name="about">Over</string>
-    <string name="app_license">Uitgebracht onder de GPLv3-licentie.</string>
+    <string name="app_license">Vrije software, uitgebracht onder de GPLv3-licentie.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van externe partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van externe partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken., of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
+    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
     <string name="change">Aanpassen</string>
@@ -73,31 +75,39 @@
     <string name="storeNameBackgroundColorDescription">Achtergrondkleur van winkeltekst</string>
     <string name="storeNameColorDescription">Kleur van winkeltekst</string>
     <string name="settings">Instellingen</string>
-    <string name="settings_category_title_ui">Uiterlijk en bediening</string>
+    <string name="settings_category_title_ui">Vormgeving</string>
     <string name="settings_theme">Thema</string>
-    <string name="settings_system_theme">Systeemthema</string>
+    <string name="settings_system_theme">Systeem</string>
     <string name="settings_light_theme">Licht</string>
     <string name="settings_dark_theme">Donker</string>
-    <string name="settings_card_title_list_font_size">Lettergrootte van kaartnamen op de lijst</string>
-    <string name="settings_card_note_list_font_size">Lettergrootte van aantekeningen op de lijst</string>
-    <string name="settings_card_title_font_size">Lettergrootte van kaartnamen</string>
+    <string name="settings_card_title_list_font_size">Lettergrootte van kaartnamen (lijstmodus)</string>
+    <string name="settings_card_note_list_font_size">Lettergrootte van aantekeningen (lijstmodus)</string>
+    <string name="settings_card_title_font_size">Lettergrootte van kaartnamen (voorvertoning)</string>
     <string name="settings_card_id_font_size">Lettergrootte van kaartnummer</string>
-    <string name="settings_card_note_font_size">Lettergrootte van aantekeningen</string>
+    <string name="settings_card_note_font_size">Lettergrootte van aantekeningen (voorvertoning)</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
-    <string name="importSuccessful">De import van klantenkaartgegevens was succesvol</string>
-    <string name="deleteConfirmationGroup">Bevestig dat u deze groep wilt verwijderen</string>
-    <string name="groupCardCount"><xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\">%d</xliff:g> kaart</string>
-    <string name="noGroups">Je hebt geen groepen op dit moment. Klik op de + (plus) knop om te beginnen.
+    <string name="importSuccessful">De kaartgegevens zijn geïmporteerd</string>
+    <string name="deleteConfirmationGroup">Bevestig dat je deze groep wilt verwijderen</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaart</string>
+    <string name="noGroups">Druk op de knop \'+\' (plus) om een groep toe te voegen.
 \n
-\nKaarten kunnen worden toegewezen aan groepen om ze gemakkelijker te vinden.</string>
-    <string name="exportSuccessful">De export van klantenkaartgegevens was succesvol</string>
-    <string name="groups">Groep</string>
-    <string name="enter_group_name">Voer groepsnaam in</string>
+\nDoor kaarten te groeperen vind je ze makkelijker terug.</string>
+    <string name="exportSuccessful">De kaartgegevens zijn geëxporteerd</string>
+    <string name="groups">Groepen</string>
+    <string name="enter_group_name">Voer een groepsnaam in</string>
     <string name="starImage">Favoriete ster</string>
     <string name="app_copyright_old">Gebaseerd op Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
-    <string name="unstar">Verwijder uit favorieten</string>
+    <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
+    <string name="addManually">Kaartnummer handmatig invoeren</string>
+    <string name="addWithCamera">Barcode scannen met camera</string>
+    <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je dit wilt\? Hierdoor worden je aanpassingen niet opgeslagen.</string>
+    <string name="leaveWithoutSaveTitle">Afbreken zonder opslaan</string>
+    <string name="moveDown">Omlaag verplaatsen</string>
+    <string name="moveUp">Omhoog verplaatsen</string>
+    <string name="failedOpeningFileManager">Kan de bestandsbeheerder niet openen - zorg dat je er een hebt geïnstalleerd.</string>
+    <string name="noBarcode">Geen barcode</string>
 </resources>

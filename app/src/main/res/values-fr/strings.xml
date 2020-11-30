@@ -96,7 +96,6 @@
     <string name="starImage">Étoile favorite</string>
     <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer cette carte</string>
     <string name="all">Tous</string>
-    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> cartes</string>
     <string name="noGroups">Cliquez d\'abord sur le bouton \"+\" (plus) pour ajouter un groupe.
 \n
 \nLes groupes permettent de facilement retrouver vos cartes.</string>

@@ -91,7 +91,6 @@
     <string name="all">Alles</string>
     <string name="importSuccessful">De kaartgegevens zijn geïmporteerd</string>
     <string name="deleteConfirmationGroup">Bevestig dat je deze groep wilt verwijderen</string>
-    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaart</string>
     <string name="noGroups">Druk op de knop \'+\' (plus) om een groep toe te voegen.
 \n
 \nDoor kaarten te groeperen vind je ze makkelijker terug.</string>

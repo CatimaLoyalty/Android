@@ -94,7 +94,6 @@
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Legg til i favoritter</string>
-    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</string>
     <string name="noGroups">Klikk på «+»-tegnet for å legge til grupper først.
 \n
 \nGrupper gjør ting enklere å finne.</string>

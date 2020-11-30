@@ -90,7 +90,6 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
     <string name="exportSuccessful">Данные карты экспортированы</string>
     <string name="all">Все</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карт</string>
     <string name="noGroups">Нажмите кнопку + (плюс), чтобы сначала добавить группы.
 \n
 \nГруппы упрощают поиск.</string>

@@ -43,9 +43,12 @@ class GroupCursorAdapter extends CursorAdapter
         // Extract properties from cursor
         Group group = Group.toGroup(cursor);
 
+        Integer groupCardCount = db.getGroupCardCount(group._id);
+
         // Populate fields with extracted properties
         nameField.setText(group._id);
-        countField.setText(String.format(context.getString(R.string.groupCardCount), db.getGroupCardCount(group._id)));
+
+        countField.setText(context.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
         nameField.setTextSize(settings.getCardTitleListFontSize());
         countField.setTextSize(settings.getCardNoteListFontSize());

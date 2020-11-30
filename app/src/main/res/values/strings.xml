@@ -130,7 +130,11 @@
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
     <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nGroups make things easier to find.</string>
-    <string name="groupCardCount"><xliff:g>%d</xliff:g> cards</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> card</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
+    </plurals>
+
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>
     <string name="failedOpeningFileManager">Failed opening a file manager. Please make sure one is installed.</string>

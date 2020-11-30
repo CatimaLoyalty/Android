@@ -94,7 +94,7 @@
     <string name="starImage">Stella preferita</string>
     <string name="deleteConfirmationGroup">Conferma di voler eliminare questo gruppo</string>
     <string name="all">Tutti</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carte</string>
     <string name="noGroups">Al momento non hai gruppi. Fai clic sul pulsante + (più) per iniziare.
 \n
 \nLe carte possono essere assegnate a gruppi per renderle più facili da trovare.</string>

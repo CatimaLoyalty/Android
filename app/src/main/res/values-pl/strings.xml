@@ -57,7 +57,7 @@
     <string name="app_license">Wolne oprogramowanie copylefted, licencjonowane GPLv3 +.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Info o wydaniu: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">Info o wydaniu: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące biblioteki osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące zasoby osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
@@ -83,7 +83,7 @@
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; karty</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> karty</string>
     <string name="deleteConfirmationGroup">Potwierdź, że chcesz usunąć tę grupę</string>
     <string name="all">Wszystko</string>
     <string name="noGroups">Kliknij przycisk + (plus), aby najpierw dodać grupy.

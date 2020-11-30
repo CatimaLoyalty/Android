@@ -96,7 +96,7 @@
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Bitte bestätigen Sie, dass Sie diese Gruppe löschen möchten</string>
     <string name="all">Alle</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Karten</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karten</string>
     <string name="noGroups">Klicken Sie auf die Schaltfläche + (plus), um zuerst Gruppen hinzuzufügen.
 \n
 \nGruppen machen es einfacher, Dinge zu finden.</string>

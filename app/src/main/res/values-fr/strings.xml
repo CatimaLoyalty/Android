@@ -54,7 +54,7 @@
     <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+.</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Notes de version : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">Notes de version : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> utilise les ressources-tierces suivantes : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
@@ -96,7 +96,7 @@
     <string name="starImage">Étoile favorite</string>
     <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer cette carte</string>
     <string name="all">Tous</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; cartes</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> cartes</string>
     <string name="noGroups">Cliquez d\'abord sur le bouton \"+\" (plus) pour ajouter un groupe.
 \n
 \nLes groupes permettent de facilement retrouver vos cartes.</string>

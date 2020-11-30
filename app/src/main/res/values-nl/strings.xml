@@ -89,7 +89,7 @@
     <string name="all">Alles</string>
     <string name="importSuccessful">De import van klantenkaartgegevens was succesvol</string>
     <string name="deleteConfirmationGroup">Bevestig dat u deze groep wilt verwijderen</string>
-    <string name="groupCardCount">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaart</string>
+    <string name="groupCardCount"><xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\">%d</xliff:g> kaart</string>
     <string name="noGroups">Je hebt geen groepen op dit moment. Klik op de + (plus) knop om te beginnen.
 \n
 \nKaarten kunnen worden toegewezen aan groepen om ze gemakkelijker te vinden.</string>

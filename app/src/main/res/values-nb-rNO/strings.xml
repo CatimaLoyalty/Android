@@ -108,4 +108,6 @@
     <string name="leaveWithoutSaveTitle">Forlat uten å lagre</string>
     <string name="addManually">Skriv inn kort-ID manuelt</string>
     <string name="addWithCamera">Skann strekkoden med kameraet ditt</string>
+    <string name="moveDown">Flytt nedover i listen</string>
+    <string name="moveUp">Flytt oppover i listen</string>
 </resources>

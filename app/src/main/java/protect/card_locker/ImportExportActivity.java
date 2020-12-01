@@ -287,7 +287,7 @@ public class ImportExportActivity extends AppCompatActivity
         }
         catch (ActivityNotFoundException e)
         {
-            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
             Log.e(TAG, "No activity found to handle intent", e);
         }
     }

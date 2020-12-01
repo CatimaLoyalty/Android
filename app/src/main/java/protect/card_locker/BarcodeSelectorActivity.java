@@ -191,14 +191,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                     public void onGlobalLayout()
                     {
                         Log.d(TAG, "Global layout finished, type: + " + formatType + ", width: " + image.getWidth());
-                        if (Build.VERSION.SDK_INT < 16)
-                        {
-                            image.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                        }
-                        else
-                        {
-                            image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }
+                        image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                         Log.d(TAG, "Generating barcode for type " + formatType);
                         BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text);

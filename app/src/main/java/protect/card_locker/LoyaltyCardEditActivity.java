@@ -590,11 +590,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
                         public void onGlobalLayout() {
-                            if (Build.VERSION.SDK_INT < 16) {
-                                barcodeImage.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                            } else {
-                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                            }
+                            barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
                             new BarcodeImageWriterTask(barcodeImage, cardId, barcodeFormat).execute();

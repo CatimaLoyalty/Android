@@ -1,5 +1,6 @@
 <resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name" translatable="false">Catima</string>
     <string name="action_search">Search</string>
@@ -69,7 +70,7 @@
     <string name="importOptionApplicationButton">Use external app</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt" translatable="false">Copyright 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" translatable="false" tools:ignore="PluralsCandidate">Copyright 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="app_license">Copylefted libre software, licensed GPLv3+.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>

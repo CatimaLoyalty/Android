@@ -102,4 +102,7 @@
     <string name="star">Добавить в избранное</string>
     <string name="noBarcode">Нет штрих-кода</string>
     <string name="deleteConfirmationGroup">Подтвердите, что хотите удалить эту группу</string>
+    <string name="leaveWithoutSaveConfirmation">Вы уверены, что хотите покинуть этот экран\? Изменения не будут сохранены.</string>
+    <string name="leaveWithoutSaveTitle">Выйти без сохранения</string>
+    <string name="failedOpeningFileManager">Не удалось открыть файловый менеджер. Пожалуйста, убедитись, что он установлен.</string>
 </resources>

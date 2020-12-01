@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Improved translations
+
 ## v1.4.0 (2020-11-28)
 
 Changes:

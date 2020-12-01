@@ -123,13 +123,11 @@
             <!-- Buttons -->
             <TableLayout android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:shrinkColumns="1"
-                android:background="@color/inputContrastBackground">
+                android:shrinkColumns="1">
 
                 <LinearLayout android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/inputBackground">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout android:orientation="horizontal"
                         android:padding="10.0dip"
@@ -140,7 +138,7 @@
                             android:layout_margin="@dimen/inputMargin"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/enterCard"
+                            android:text="@string/editCard"
                             android:layout_weight="1.0"/>
                     </LinearLayout>
                 </LinearLayout>

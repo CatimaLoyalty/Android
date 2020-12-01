@@ -356,17 +356,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
 
-        if(cardIdFieldView.getText().length() > 0)
-        {
-            cardAndBarcodeLayout.setVisibility(View.VISIBLE);
-            enterButton.setText(R.string.editCard);
-        }
-        else
-        {
-            cardAndBarcodeLayout.setVisibility(View.GONE);
-            enterButton.setText(R.string.enterCard);
-        }
-
         ArrayList<String> barcodeList = new ArrayList<>(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
         barcodeList.add(0, getString(R.string.noBarcode));
         ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, barcodeList);

@@ -95,7 +95,7 @@
 \nГруппы упрощают поиск.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
-    <string name="importSuccessful">Данные карты импортированы</string>
+    <string name="importSuccessful">Данные карты лояльности успешно импортированы</string>
     <string name="starImage">Любимая звезда</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain, авторские права 2016–2020 Branden Archer.</string>
     <string name="unstar">Удалить из избранного</string>

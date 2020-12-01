@@ -51,9 +51,9 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'org.apache.commons:commons-csv:1.5'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.jaredrummler:colorpicker:1.0.2'
-    implementation group: 'com.google.guava', name: 'guava', version: '24.1-jre'
+    implementation group: 'com.google.guava', name: 'guava', version: '20.0'
     implementation "com.vanniktech:vntnumberpickerpreference:1.0.0"
     implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.12'

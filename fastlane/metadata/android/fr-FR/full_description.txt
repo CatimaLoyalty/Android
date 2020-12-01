@@ -1,7 +1,7 @@
-En avez-vous marre de chercher votre carte de fidélité en plastique lors de votre commande au magasin ? Vous recherchez une solution gratuite qui ne prendra pas vos informations ?
+Vous en avez assez de chercher votre carte de fidélité en plastique à la caisse ? Vous cherchez une solution gratuite qui respecte vos données ?
 
-Catima est une application qui stockera vos cartes de fidélité basées sur des codes-barres sur votre téléphone. Le code de l'application est ouvert et essaye de bien faire une chose : gérer vos cartes !
+Catima est une application qui stocke toutes vos cartes de fidélité à code-barres dans votre téléphone. L'application ne fera qu'une chose : gérer vos cartes du mieux qu'elle peut. Son code est ouvert, vous pouvez donc le vérifier par vous-même !
 
-De nouvelles cartes peuvent être ajoutées en un clin d'œil. Utilisez votre appareil photo pour capturer le code-barres ou saisissez le numéro. Lorsque le code-barres est chargé dans le magasin et affiché, il peut être scanné avec un lecteur de codes-barres moderne. (Certains magasins utilisent des lecteurs de codes-barres plus anciens, tels que des scanneurs à plat, au lieu de scanneurs d'images. Ceux-ci ne peuvent pas lire l'écran du téléphone. À la place, demandez au vendeur de saisir le numéro manuellement).
+De nouvelles cartes peuvent être ajoutées en un clin d'œil. Vous pouvez soit photographier le code-barres, soit saisir le numéro manuellement. Lorsqu vous chargez une carte en caisse, son code-barres est affiché, ce qui permet au vendeur de le scanner avec n'importe quel lecteur moderne. (Certains magasins utilisent des lecteurs plus anciens, tels que des scanners à plat. Ceux-ci ne peuvent pas lire l'écran du téléphone. Le vendeur devra donc saisir le numéro manuellement).
 
-L'application nécessite très peu d'autorisations et ne tente jamais d'accéder à Internet. Il existe une option pour sauvegarder vos cartes sur le stockage local. De là, vous pouvez envoyer la sauvegarde dans un endroit sûr.
+L'application ne nécessite que très peu d'autorisations et ne tente jamais d'accéder à Internet. Il existe une fonction d'import/export de vos cartes. Celà vous permettra de les sauvegarder dans un endroit sûr.

@@ -109,4 +109,8 @@
     <string name="moveUp">Omhoog verplaatsen</string>
     <string name="failedOpeningFileManager">Kan de bestandsbeheerder niet openen - zorg dat je er een hebt geïnstalleerd.</string>
     <string name="noBarcode">Geen barcode</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaart</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaarten</item>
+    </plurals>
 </resources>

@@ -95,11 +95,14 @@
 \nГруппы упрощают поиск.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
-    <string name="importSuccessful">Данные карты импортированы</string>
+    <string name="importSuccessful">Данные карты лояльности успешно импортированы</string>
     <string name="starImage">Любимая звезда</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain, авторские права 2016–2020 Branden Archer.</string>
     <string name="unstar">Удалить из избранного</string>
     <string name="star">Добавить в избранное</string>
     <string name="noBarcode">Нет штрих-кода</string>
     <string name="deleteConfirmationGroup">Подтвердите, что хотите удалить эту группу</string>
+    <string name="leaveWithoutSaveConfirmation">Вы уверены, что хотите покинуть этот экран\? Изменения не будут сохранены.</string>
+    <string name="leaveWithoutSaveTitle">Выйти без сохранения</string>
+    <string name="failedOpeningFileManager">Не удалось открыть файловый менеджер. Пожалуйста, убедитись, что он установлен.</string>
 </resources>

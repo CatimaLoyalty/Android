@@ -105,4 +105,12 @@
     <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Toutes vos modifications seront perdues.</string>
     <string name="leaveWithoutSaveTitle">Quitter sans enregistrer</string>
     <string name="failedOpeningFileManager">Gestionnaire de fichiers introuvable. Installez-en un si nécessaire.</string>
+    <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
+    <string name="addWithCamera">Scannez le code-barres avec votre appareil photo</string>
+    <string name="moveDown">Descendre dans la liste</string>
+    <string name="moveUp">Monter dans la liste</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; cartes</item>
+    </plurals>
 </resources>

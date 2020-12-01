@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## v1.4.1 (2020-12-01)
 
 Changes:
 
 - Improved translations
+- Small UI fixes
 
 ## v1.4.0 (2020-11-28)
 

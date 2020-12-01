@@ -14,7 +14,6 @@
     <string name="cancel">Отменить</string>
     <string name="save">Сохранить</string>
     <string name="capture">Сканировать карту</string>
-    <string name="enterCard">Ввести номер</string>
     <string name="editCard">Редактировать штрих-код</string>
     <string name="edit">Редактировать</string>
     <string name="delete">Удалить карту</string>
@@ -27,7 +26,6 @@
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить…</string>
-    <string name="addedShortcut">Добавленный ярлык</string>
     <string name="editCardTitle">Редактировать карту</string>
     <string name="addCardTitle">Добавить карту</string>
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
@@ -38,7 +36,6 @@
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Не удалось разобрать импортируемый URI</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Импорт/Экспорт</string>
     <string name="exportName">Экспорт</string>
     <string name="importExportHelp">Резервное копирование карт позволяет переместить их на другое устройство.</string>
@@ -70,10 +67,6 @@
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
     <string name="change">Изменить</string>
-    <string name="storeTextColorTitle">Цвет текста</string>
-    <string name="storeTextBackgroundColorTitle">Цвет фона</string>
-    <string name="storeNameBackgroundColorDescription">Цвет фона названия магазина</string>
-    <string name="storeNameColorDescription">Цвет текста названия магазина</string>
     <string name="settings">Настройки</string>
     <string name="settings_category_title_ui">Внешний вид</string>
     <string name="settings_theme">Тема</string>

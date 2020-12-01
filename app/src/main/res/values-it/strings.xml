@@ -11,7 +11,6 @@
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="capture">Scansione carta</string>
-    <string name="enterCard">Inserisci carta</string>
     <string name="editCard">Modifica carta</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
@@ -34,7 +33,6 @@
     <string name="noCardIdError">Nessun codice carta inserito</string>
     <string name="noCardExistsError">Impossibile trovare la carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importa/Esporta</string>
     <string name="exportName">Esporta</string>
     <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
@@ -65,10 +63,6 @@
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
     <string name="thumbnailDescription">Miniatura carta</string>
     <string name="change">Cambia</string>
-    <string name="storeTextColorTitle">Colore titolo</string>
-    <string name="storeTextBackgroundColorTitle">Colore scheda</string>
-    <string name="storeNameBackgroundColorDescription">Colore di sfondo del titolo carta</string>
-    <string name="storeNameColorDescription">Colore del titolo carta</string>
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
     <string name="settings_theme">Tema</string>
@@ -87,7 +81,6 @@
     <string name="importSuccessful">Dati della carta fedeltà importati correttamente</string>
     <string name="app_copyright_old">Basato su Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
-    <string name="addedShortcut">Scorciatoia aggiunta</string>
     <string name="barcodeType">Tipo di codice a barre</string>
     <string name="unstar">Rimuovi dai preferiti</string>
     <string name="star">Aggiungi ai preferiti</string>

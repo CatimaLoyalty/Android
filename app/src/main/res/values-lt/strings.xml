@@ -10,7 +10,6 @@
     <string name="cancel">Atšaukti</string>
     <string name="save">Išsaugoti</string>
     <string name="capture">Nufotografuoti kortelę</string>
-    <string name="enterCard">Įvesti kortelę</string>
     <string name="edit">Redaguoti</string>
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
@@ -25,7 +24,6 @@
 
     <string name="noStoreError">Parduotuvė neįvesta</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
     <string name="importFailed">Nepavyko importuoti</string>

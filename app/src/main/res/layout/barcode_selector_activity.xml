@@ -55,6 +55,7 @@
                           android:labelFor="@+id/cardId"
                           android:text="@string/cardId" />
                 <EditText android:id="@+id/cardId"
+                          android:importantForAutofill="no"
                           android:layout_width="fill_parent"
                           android:layout_height="wrap_content"
                           android:inputType="text"/>

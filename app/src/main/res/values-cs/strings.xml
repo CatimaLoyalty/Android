@@ -10,7 +10,6 @@
     <string name="cancel">Zrušit</string>
     <string name="save">Uložit</string>
     <string name="capture">Naskenovat kartu</string>
-    <string name="enterCard">Vložit vlastnoručně</string>
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
@@ -26,7 +25,6 @@
 
     <string name="noStoreError">Nebyl zadán Obchod</string>
     <string name="noCardIdError">Nebylo zadáno ID karty</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>

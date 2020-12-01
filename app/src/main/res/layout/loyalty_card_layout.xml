@@ -12,7 +12,6 @@
         android:layout_width="@dimen/cardThumbnailSize"
         android:layout_height="@dimen/cardThumbnailSize"
         android:layout_marginEnd="@dimen/activity_margin"
-        android:layout_marginRight="@dimen/activity_margin"
         app:cardCornerRadius="4dp"
         app:cardElevation="0dp">
 
@@ -32,23 +31,17 @@
         android:layout_weight="1">
 
         <LinearLayout
+            android:id="@+id/valueLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:visibility="visible" >
 
-            <LinearLayout
-                android:id="@+id/valueLayout"
+            <TextView
+                android:id="@+id/store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/store"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/storeNameTextSize"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
+                android:textSize="@dimen/storeNameTextSize"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -64,8 +57,8 @@
         android:id="@+id/star"
         android:layout_width="@dimen/cardThumbnailSize"
         android:layout_height="@dimen/cardThumbnailSize"
-        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_marginStart="@dimen/activity_margin"
         android:src="@drawable/ic_starred_white"
-        android:tint="#000000"
+        app:tint="@color/iconColor"
         android:contentDescription="@string/starImage"/>
 </LinearLayout>

@@ -49,7 +49,6 @@
                     android:layout_width="@dimen/cardThumbnailSize"
                     android:layout_height="@dimen/cardThumbnailSize"
                     android:layout_marginEnd="@dimen/activity_margin"
-                    android:layout_marginRight="@dimen/activity_margin"
                     android:layout_gravity="center_vertical"
                     app:cardCornerRadius="4dp"
                     android:paddingHorizontal="@dimen/inputPadding"
@@ -121,28 +120,18 @@
             </LinearLayout>
 
             <!-- Buttons -->
-            <TableLayout android:layout_width="fill_parent"
+            <LinearLayout android:orientation="horizontal"
+                android:padding="10.0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:shrinkColumns="1">
-
-                <LinearLayout android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout android:orientation="horizontal"
-                        android:padding="10.0dip"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/barcodeCaptureLayout">
-                        <Button android:id="@+id/enterButton"
-                            android:layout_margin="@dimen/inputMargin"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/editCard"
-                            android:layout_weight="1.0"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </TableLayout>
+                android:id="@+id/barcodeCaptureLayout">
+                <Button android:id="@+id/enterButton"
+                        android:layout_margin="@dimen/inputMargin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/editCard"
+                    android:layout_weight="1.0"/>
+            </LinearLayout>
 
             <!-- Card ID and Barcode type -->
             <LinearLayout
@@ -151,7 +140,8 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/inputPadding"
                 android:paddingTop="@dimen/inputPadding"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <!-- Card ID -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -177,7 +167,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
-                    android:hint="@string/barcodeType">
+                    android:hint="@string/barcodeType"
+                    android:labelFor="@+id/barcodeTypeField">
 
                     <AutoCompleteTextView
                         android:id="@+id/barcodeTypeField"

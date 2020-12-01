@@ -10,7 +10,6 @@
     <string name="cancel">Zrušiť</string>
     <string name="save">Uložiť</string>
     <string name="capture">Zosnímať kartu</string>
-    <string name="enterCard">Zadať kód</string>
     <string name="editCard">Úprava karty</string>
     <string name="edit">Upraviť</string>
     <string name="delete">Vymazať</string>
@@ -33,7 +32,6 @@
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohovanie dát Vám umožní presunúť Vaše uložené karty na iné zariadenie.</string>
@@ -67,10 +65,6 @@
     <string name="thumbnailDescription">Náhľad karty</string>
 
     <string name="change">Upraviť</string>
-    <string name="storeTextColorTitle">Farba textu</string>
-    <string name="storeTextBackgroundColorTitle">Farba hlavičky</string>
-    <string name="storeNameBackgroundColorDescription">Farba hlavičky</string>
-    <string name="storeNameColorDescription">Farba textu</string>
 
     <string name="settings">Nastavenia</string>
     <string name="settings_category_title_ui">Používateľské prostredie</string>

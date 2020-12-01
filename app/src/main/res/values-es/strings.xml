@@ -10,7 +10,6 @@
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="capture">Capturar tarjeta</string>
-    <string name="enterCard">Introducir tarjeta</string>
     <string name="editCard">Editar tarjeta</string>
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
@@ -31,7 +30,6 @@
     <string name="noStoreError">Establecimiento no especificado</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importar/exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">La copia de respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
@@ -55,10 +53,6 @@
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="change">Cambiar</string>
-    <string name="storeTextColorTitle">Color de texto de establecimiento</string>
-    <string name="storeTextBackgroundColorTitle">Color principal</string>
-    <string name="storeNameBackgroundColorDescription">Color de fondo para el texto de la tienda</string>
-    <string name="storeNameColorDescription">Color del texto de la tienda</string>
     <string name="settings">Configuración</string>
     <string name="settings_category_title_ui">Interfaz de usuario</string>
     <string name="settings_card_title_list_font_size">Tamaño de la letra para el título (lista)</string>
@@ -79,7 +73,6 @@
     <string name="app_copyright_old">Basado en Loyalty Card Keychain, derechos de autor 2016–2020 de Branden Archer.</string>
     <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija.</string>
     <string name="failedParsingImportUriError">No se pudo procesar el URI de importación</string>
-    <string name="addedShortcut">Atajo añadido</string>
     <string name="share">Compartir</string>
     <string name="barcodeNoBarcode">Esta tarjeta no tiene código de barras</string>
     <string name="barcodeType">Tipo de código de barras</string>

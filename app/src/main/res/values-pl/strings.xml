@@ -11,7 +11,6 @@
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
     <string name="capture">Zeskanuj kod</string>
-    <string name="enterCard">Wprowadź ręcznie</string>
     <string name="editCard">Edytuj kartę</string>
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
@@ -34,7 +33,6 @@
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
@@ -65,10 +63,6 @@
     <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
     <string name="thumbnailDescription">Miniaturka karty</string>
     <string name="change">Zmień</string>
-    <string name="storeTextColorTitle">Kolor tekstu nazwy sklepu</string>
-    <string name="storeTextBackgroundColorTitle">Kolor nagłówka</string>
-    <string name="storeNameBackgroundColorDescription">Kolor tła tekstu nazwy sklepu</string>
-    <string name="storeNameColorDescription">Kolor dla tekstu sklepu</string>
     <string name="settings">Ustawienia</string>
     <string name="settings_category_title_ui">Interfejs użytkownika</string>
     <string name="settings_theme">Motyw</string>
@@ -95,7 +89,6 @@
     <string name="starImage">Ulubiona gwiazda</string>
     <string name="app_copyright_old">Na podstawie Loyalty Card Keychain, prawa autorskie 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez Ciebie miejscu.</string>
-    <string name="addedShortcut">Dodano skrót</string>
     <string name="unstar">Usuń z ulubionych</string>
     <string name="star">Dodaj do ulubionych</string>
     <string name="noBarcode">Brak kodu kreskowego</string>

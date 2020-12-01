@@ -14,7 +14,6 @@
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
     <string name="capture">Scan een kaart</string>
-    <string name="enterCard">Voer een kaartnummer in</string>
     <string name="editCard">Kaart bewerken</string>
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
@@ -27,7 +26,6 @@
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
     <string name="sendLabel">Versturen…</string>
-    <string name="addedShortcut">Snelkoppeling is toegevoegd</string>
     <string name="editCardTitle">Kaart bewerken</string>
     <string name="addCardTitle">Kaart toevoegen</string>
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
@@ -38,7 +36,6 @@
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importeren/Exporteren</string>
     <string name="exportName">Exporteren</string>
     <string name="importExportHelp">Door je kaarten te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
@@ -70,10 +67,6 @@
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
     <string name="change">Aanpassen</string>
-    <string name="storeTextColorTitle">Tekstkleur van winkelnaam</string>
-    <string name="storeTextBackgroundColorTitle">Kopkleur</string>
-    <string name="storeNameBackgroundColorDescription">Achtergrondkleur van winkeltekst</string>
-    <string name="storeNameColorDescription">Kleur van winkeltekst</string>
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Vormgeving</string>
     <string name="settings_theme">Thema</string>

@@ -15,14 +15,11 @@ import protect.card_locker.preferences.Settings;
 class LoyaltyCardCursorAdapter extends CursorAdapter
 {
     Settings settings;
-    boolean darkModeEnabled;
 
     public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
     {
         super(context, cursor, 0);
         settings = new Settings(context);
-        darkModeEnabled= MainActivity.isDarkModeEnabled(context);
-
     }
 
     // The newView method is used to inflate a new view and return it,
@@ -43,11 +40,6 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         TextView storeField = view.findViewById(R.id.store);
         TextView noteField = view.findViewById(R.id.note);
         ImageView star = view.findViewById(R.id.star);
-
-        if(darkModeEnabled)
-        {
-            star.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
-        }
 
         // Extract properties from cursor
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);

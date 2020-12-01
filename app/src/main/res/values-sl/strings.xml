@@ -10,7 +10,6 @@
     <string name="cancel">Prekliči</string>
     <string name="save">Shrani</string>
     <string name="capture">Slikaj kartico</string>
-    <string name="enterCard">Vnesi kartico</string>
     <string name="editCard">Uredi kartico</string>
     <string name="edit">Uredi</string>
     <string name="delete">Izbriši</string>
@@ -33,7 +32,6 @@
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
-    <string name="cardIdFormat">%1$s:%2$s</string>
     <string name="importExport">Uvozi/izvozi</string>
     <string name="exportName">Izvozi</string>
     <string name="importExportHelp">Varnostna kopija omogoča varen prenos kartic na druge telefonske naprave.</string>
@@ -67,10 +65,6 @@
     <string name="thumbnailDescription">Ikona kartice</string>
 
     <string name="change">Spremeni</string>
-    <string name="storeTextColorTitle">Barva besedila trgovine</string>
-    <string name="storeTextBackgroundColorTitle">Barva naslova</string>
-    <string name="storeNameBackgroundColorDescription">Barva ozadja za imenom trgovine</string>
-    <string name="storeNameColorDescription">Barva trgovine</string>
 
     <string name="settings">Nastavitve</string>
     <string name="settings_category_title_ui">Uporabniški vmesnik</string>

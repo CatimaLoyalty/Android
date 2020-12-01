@@ -12,7 +12,6 @@
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
     <string name="capture">Karte scannen</string>
-    <string name="enterCard">Manuell eingeben</string>
     <string name="editCard">Karte bearbeiten</string>
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
@@ -35,7 +34,6 @@
     <string name="noStoreError">Kein Geschäft angegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Exportieren</string>
     <string name="importExportHelp">Durch das Sichern Ihrer Karten können Sie sie auf ein anderes Gerät verschieben.</string>
@@ -65,10 +63,6 @@
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
     <string name="change">Anpassen</string>
-    <string name="storeTextColorTitle">Textfarbe</string>
-    <string name="storeTextBackgroundColorTitle">Hintergrundfarbe</string>
-    <string name="storeNameBackgroundColorDescription">Hintergrundfarbe für den Geschäftsnamen</string>
-    <string name="storeNameColorDescription">Farbe für den Geschäftsnamen</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_card_title_list_font_size">Schriftgröße des Kartentitels (Listenmodus)</string>
@@ -89,7 +83,6 @@
     <string name="app_copyright_old">Basiert auf Loyalty Card Keychain, Copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort Ihrer Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Der Import-URI konnte nicht analysiert werden</string>
-    <string name="addedShortcut">Verknüpfung hinzugefügt</string>
     <string name="share">Teilen</string>
     <string name="barcodeNoBarcode">Diese Karte hat keinen Strichcode</string>
     <string name="barcodeType">Strichcode-Typ</string>

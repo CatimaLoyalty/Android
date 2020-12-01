@@ -11,7 +11,6 @@
     <string name="cancel">Avbryt</string>
     <string name="save">Lagre</string>
     <string name="capture">Les inn kort</string>
-    <string name="enterCard">Skriv inn kort</string>
     <string name="editCard">Rediger kort</string>
     <string name="edit">Rediger</string>
     <string name="delete">Slett</string>
@@ -23,7 +22,6 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
     <string name="sendLabel">Send…</string>
-    <string name="addedShortcut">Lagt til på hjemmeskjerm</string>
     <string name="editCardTitle">Rediger kundekort</string>
     <string name="addCardTitle">Legg til kundekort</string>
     <string name="scanCardBarcode">Skann kortets strekkode</string>
@@ -33,7 +31,6 @@
     <string name="noStoreError">Ingen butikk angitt</string>
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
     <string name="noCardExistsError">Kunne ikke finne kort</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/eksport</string>
     <string name="exportName">Eksporter</string>
     <string name="importExportHelp">Sikkerhetskopiering av kort lar deg flytte dem til en annen enhet.</string>
@@ -65,10 +62,6 @@
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
     <string name="change">Endre</string>
-    <string name="storeTextColorTitle">Skriftstørrelse for butikktekst</string>
-    <string name="storeTextBackgroundColorTitle">Overskriftsfarge</string>
-    <string name="storeNameBackgroundColorDescription">Farge for butikktekstbakgrunn</string>
-    <string name="storeNameColorDescription">Butikktekstfarge</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
     <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse</string>

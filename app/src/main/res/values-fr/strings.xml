@@ -10,7 +10,6 @@
     <string name="cancel">Annuler</string>
     <string name="save">Enregistrer</string>
     <string name="capture">Mode capture</string>
-    <string name="enterCard">Mode manuel</string>
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
@@ -31,7 +30,6 @@
     <string name="noStoreError">Aucun nom de magasin saisi</string>
     <string name="noCardIdError">Aucun numéro de carte saisi</string>
     <string name="noCardExistsError">Aucune carte trouvée</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
     <string name="importExportHelp">Exporter vos cartes vous permet de les récupérer sur un autre appareil.</string>
@@ -61,10 +59,6 @@
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
     <string name="thumbnailDescription">Miniature pour la carte</string>
     <string name="change">Modifier</string>
-    <string name="storeTextColorTitle">Couleur du texte du magasin</string>
-    <string name="storeTextBackgroundColorTitle">Couleur du titre</string>
-    <string name="storeNameBackgroundColorDescription">Couleur de fond du texte du magasin</string>
-    <string name="storeNameColorDescription">Couleur pour le nom du magasin</string>
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_card_title_list_font_size">Taille du nom des cartes (mode liste)</string>
@@ -85,7 +79,6 @@
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Les données seront eportées vers l\'emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
-    <string name="addedShortcut">Raccourci ajouté</string>
     <string name="share">Partager</string>
     <string name="barcodeNoBarcode">Cette carte n\'a pas de code-barres</string>
     <string name="barcodeType">Type de code-barres</string>

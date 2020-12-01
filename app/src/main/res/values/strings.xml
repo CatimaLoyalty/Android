@@ -22,7 +22,6 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="capture">Capture Card</string>
-    <string name="enterCard">Enter Card</string>
     <string name="editCard">Edit Card</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
@@ -35,7 +34,6 @@
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
     <string name="sendLabel">Send&#8230;</string>
-    <string name="addedShortcut">Added shortcut</string>
     <string name="editCardTitle">Edit Card</string>
     <string name="addCardTitle">Add Card</string>
     <string name="scanCardBarcode">Scan Card Barcode</string>
@@ -48,7 +46,6 @@
     <string name="noCardIdError">No card ID entered</string>
     <string name="noCardExistsError">Could not find card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Backing up your cards allows you to move them to another device.</string>
@@ -88,10 +85,6 @@
     <string name="starImage">Favorite star</string>
 
     <string name="change">Change</string>
-    <string name="storeTextColorTitle">Store Text Color</string>
-    <string name="storeTextBackgroundColorTitle">Heading Color</string>
-    <string name="storeNameBackgroundColorDescription">Color for store text background</string>
-    <string name="storeNameColorDescription">Color for store text</string>
 
     <string name="settings">Settings</string>
     <string name="settings_category_title_ui">User interface</string>

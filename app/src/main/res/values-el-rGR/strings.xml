@@ -10,7 +10,6 @@
     <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
     <string name="capture">Φωτογράφιση Κάρτας</string>
-    <string name="enterCard">Εισάγετε Κάρτα</string>
     <string name="editCard">Επεξεργασία Κάρτας</string>
     <string name="edit">Επεξεργασία</string>
     <string name="delete">Διαγραφή</string>
@@ -33,7 +32,6 @@
     <string name="noStoreError">Δεν δώσατε κατάστημα</string>
     <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>
-    <string name="cardIdFormat">%1$s: %2$s</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
     <string name="importExportHelp">Τα εφεδρικά δεδομένα σας δίνουν την δυνατότητα να μεταφέρετε τις κάρτες σας σε μία άλλη συσκευή.</string>
@@ -67,10 +65,6 @@
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>
 
     <string name="change">Αλλαγή</string>
-    <string name="storeTextColorTitle">Χρώμα Κειμένου Καταστήματος</string>
-    <string name="storeTextBackgroundColorTitle">Χρώμα Κεφαλίδας</string>
-    <string name="storeNameBackgroundColorDescription">Χρώμα για το υπόβαθρο του καταστήματος</string>
-    <string name="storeNameColorDescription">Χρώμα για το κείμενο του καταστήματος</string>
 
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_category_title_ui">Διεπαφή χρήστη</string>

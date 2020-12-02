@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
@@ -27,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
@@ -37,8 +39,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "Catima";
 
     TextView cardIdFieldView;
+    TextView bottomSheet;
     TextView noteView;
-    View noteViewDivider;
     TextView storeName;
     ImageView barcodeImage;
     View collapsingToolbarLayout;
@@ -103,8 +105,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         importURIHelper = new ImportURIHelper(this);
 
         cardIdFieldView = findViewById(R.id.cardIdView);
+        bottomSheet = findViewById(R.id.bottom_sheet);
         noteView = findViewById(R.id.noteView);
-        noteViewDivider = findViewById(R.id.noteViewDivider);
         storeName = findViewById(R.id.storeName);
         barcodeImage = findViewById(R.id.barcode);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -124,6 +126,35 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                     setFullscreen(true);
                 }
             }
+        });
+
+        final FloatingActionButton editButton = findViewById(R.id.fabEdit);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", loyaltyCardId);
+                bundle.putBoolean("update", true);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED || newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    editButton.show();
+                } else {
+                    editButton.hide();
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) { }
         });
     }
 
@@ -183,6 +214,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(loyaltyCard.note.length() > 0)
         {
+            bottomSheet.setVisibility(View.VISIBLE);
             noteView.setText(loyaltyCard.note);
             TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(noteView,
                     getResources().getInteger(R.integer.settings_card_note_min_font_size_sp)-1,
@@ -190,8 +222,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         else
         {
-            noteView.setVisibility(View.GONE);
-            noteViewDivider.setVisibility(View.GONE);
+            bottomSheet.setVisibility(View.GONE);
         }
 
         storeName.setText(loyaltyCard.store);
@@ -272,20 +303,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         {
             findViewById(R.id.barcode).setVisibility(View.GONE);
         }
-
-        FloatingActionButton editButton = findViewById(R.id.fabEdit);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", loyaltyCardId);
-                bundle.putBoolean("update", true);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     @Override

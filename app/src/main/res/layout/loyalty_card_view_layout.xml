@@ -59,44 +59,14 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
                 app:layout_constraintTop_toBottomOf="@+id/barcode"
-                app:layout_constraintBottom_toTopOf="@+id/noteViewDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textAlignment="center"
                 app:autoSizeTextType="uniform"
                 app:autoSizeMinTextSize="@dimen/singleCardCardIdTextSizeMin"
                 app:autoSizeMaxTextSize="@dimen/singleCardCardIdTextSizeMax"
-                android:ellipsize="end"
-                android:textIsSelectable="true"/>
-
-            <View
-                android:id="@id/noteViewDivider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black"
-                app:layout_constraintTop_toBottomOf="@id/cardIdView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/noteView"
-                />
-
-            <TextView
-                android:id="@id/noteView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="10.0dip"
-                android:layout_gravity="bottom"
-                app:layout_constraintTop_toBottomOf="@id/noteViewDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-                app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
-                android:textIsSelectable="true"
-                android:scrollbars="vertical"/>
+                android:ellipsize="end"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -106,6 +76,36 @@
             android:layout_height="5.0dip"
             android:layout_gravity="top"/>
     </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="80dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/pullUpForMoreInfo"
+            android:textColor="@android:color/white"
+            app:drawableStartCompat="@drawable/ic_baseline_arrow_drop_up_24"
+            app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+
+        <TextView
+            android:id="@+id/noteView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
+            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax" />
+    </LinearLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"

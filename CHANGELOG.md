@@ -5,6 +5,7 @@
 Changes:
 
 - Improve contrast by always using white text on red buttons
+- Draggable bottom sheet in loyalty card view
 
 ## v1.4.1 (2020-12-01)
 

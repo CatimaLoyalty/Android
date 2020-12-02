@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Improve contrast by always using white text on red buttons
+
 ## v1.4.1 (2020-12-01)
 
 Changes:

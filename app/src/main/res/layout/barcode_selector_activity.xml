@@ -70,6 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/barcodeNoBarcode"
+                android:textColor="#FFFFFF"
                 android:enabled="false" />
             <LinearLayout android:orientation="vertical"
                           android:padding="10.0dp"

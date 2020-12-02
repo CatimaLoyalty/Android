@@ -245,7 +245,6 @@ public class LoyaltyCardViewActivityTest
 
             checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store);
             checkFieldProperties(activity, R.id.noteEdit, editVisibility, note);
-            checkFieldProperties(activity, R.id.cardAndBarcodeLayout, cardId.isEmpty() ? View.GONE : View.VISIBLE, null);
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId);
             checkFieldProperties(activity, R.id.barcodeTypeField, View.VISIBLE, barcodeType);
             checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null);
@@ -263,7 +262,6 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", "", "");
-        assertEquals(View.GONE, activity.findViewById(R.id.cardAndBarcodeLayout).getVisibility());
     }
 
     @Test

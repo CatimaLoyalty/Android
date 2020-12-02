@@ -93,9 +93,7 @@
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/pullUpForMoreInfo"
-            android:textColor="@android:color/white"
-            app:drawableStartCompat="@drawable/ic_baseline_arrow_drop_up_24"
-            app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/noteView"

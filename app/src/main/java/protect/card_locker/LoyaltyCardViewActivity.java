@@ -39,7 +39,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "Catima";
 
     TextView cardIdFieldView;
-    TextView bottomSheet;
+    View bottomSheet;
     TextView noteView;
     TextView storeName;
     ImageView barcodeImage;

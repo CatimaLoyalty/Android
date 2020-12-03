@@ -98,4 +98,13 @@
     <string name="leaveWithoutSaveTitle">Beenden ohne zu speichern</string>
     <string name="failedOpeningFileManager">Fehler beim Öffnen eines Dateiverwaltungsprogrammes. Stellen Sie sicher, dass eine installiert ist.</string>
     <string name="noBarcode">Kein Strichcode</string>
+    <string name="pullUpForMoreInfo">Weitere Informationen finden Sie hier</string>
+    <string name="addManually">Die Karten-ID manuell eingeben</string>
+    <string name="addWithCamera">Scannen Sie den Strichcode mit Ihrer Kamera</string>
+    <string name="moveDown">In der Liste nach unten verschieben</string>
+    <string name="moveUp">In der Liste nach oben verschieben</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Karte</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; Karten</item>
+    </plurals>
 </resources>

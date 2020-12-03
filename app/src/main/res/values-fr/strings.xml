@@ -57,7 +57,7 @@
     <string name="app_resources">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; utilise les ressources tierces suivantes : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_resources_list\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
-    <string name="thumbnailDescription">Miniature pour la carte</string>
+    <string name="thumbnailDescription">Miniature de la carte</string>
     <string name="change">Modifier</string>
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
@@ -95,7 +95,7 @@
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
     <string name="noBarcode">Aucun code-barres</string>
-    <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Toutes vos modifications seront perdues.</string>
+    <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Toutes vos modifications seront perdues.</string>
     <string name="leaveWithoutSaveTitle">Quitter sans enregistrer</string>
     <string name="failedOpeningFileManager">Gestionnaire de fichiers introuvable. Installez-en un si nécessaire.</string>
     <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
@@ -106,4 +106,5 @@
         <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</item>
         <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; cartes</item>
     </plurals>
+    <string name="pullUpForMoreInfo">Tirez pour plus d\'informations</string>
 </resources>

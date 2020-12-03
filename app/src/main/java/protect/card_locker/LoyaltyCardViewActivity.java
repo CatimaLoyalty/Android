@@ -152,18 +152,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                switch (newState) {
-                    case BottomSheetBehavior.STATE_COLLAPSED:
-                        bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
-                        editButton.show();
-                        break;
-                    case BottomSheetBehavior.STATE_EXPANDED:
-                        bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
-                        editButton.hide();
-                        break;
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        editButton.show();
-                        break;
+                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+                    editButton.hide();
+                } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
+                    editButton.hide();
+                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                    bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                    editButton.show();
                 }
             }
 

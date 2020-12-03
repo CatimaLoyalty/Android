@@ -106,4 +106,5 @@
         <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaart</item>
         <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kaarten</item>
     </plurals>
+    <string name="pullUpForMoreInfo">Trek omhoog om meer informatie te tonen</string>
 </resources>

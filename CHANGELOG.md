@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.1 (2020-12-03)
+
+Changes:
+
+- Fix bottomsheet background being transparent
+
 ## v1.5.0 (2020-12-03)
 
 Changes:

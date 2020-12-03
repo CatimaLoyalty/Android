@@ -81,11 +81,6 @@ public class Settings
         return getInt(R.string.settings_key_card_id_font_size, R.integer.settings_card_id_font_size_sp);
     }
 
-    public int getCardNoteFontSize()
-    {
-        return getInt(R.string.settings_key_card_note_font_size, R.integer.settings_card_note_font_size_sp);
-    }
-
     public boolean useMaxBrightnessDisplayingBarcode()
     {
         return getBoolean(R.string.settings_key_display_barcode_max_brightness, true);

@@ -106,5 +106,4 @@
         <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</item>
         <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; cartes</item>
     </plurals>
-    <string name="pullUpForMoreInfo">Tirez pour plus d\'informations</string>
 </resources>

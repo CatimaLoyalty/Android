@@ -32,6 +32,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
+import java.util.List;
+
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
@@ -40,7 +42,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     TextView cardIdFieldView;
     View bottomSheet;
+    ImageView bottomSheetButton;
     TextView noteView;
+    TextView groupsView;
     TextView storeName;
     ImageView barcodeImage;
     View collapsingToolbarLayout;
@@ -106,7 +110,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         cardIdFieldView = findViewById(R.id.cardIdView);
         bottomSheet = findViewById(R.id.bottom_sheet);
+        bottomSheetButton = findViewById(R.id.bottomSheetButton);
         noteView = findViewById(R.id.noteView);
+        groupsView = findViewById(R.id.groupsView);
         storeName = findViewById(R.id.storeName);
         barcodeImage = findViewById(R.id.barcode);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -142,19 +148,38 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             }
         });
 
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED || newState == BottomSheetBehavior.STATE_HIDDEN) {
-                    editButton.show();
-                } else {
-                    editButton.hide();
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                        bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+                        editButton.show();
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
+                        editButton.hide();
+                        break;
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        editButton.show();
+                        break;
                 }
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) { }
+        });
+
+        bottomSheetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                } else {
+                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            }
         });
     }
 
@@ -214,11 +239,33 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(loyaltyCard.note.length() > 0)
         {
-            bottomSheet.setVisibility(View.VISIBLE);
+            noteView.setVisibility(View.VISIBLE);
             noteView.setText(loyaltyCard.note);
-            TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(noteView,
-                    getResources().getInteger(R.integer.settings_card_note_min_font_size_sp)-1,
-                    settings.getCardNoteFontSize(), 1, TypedValue.COMPLEX_UNIT_SP);
+        }
+        else
+        {
+            noteView.setVisibility(View.GONE);
+        }
+
+        List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
+
+        if(loyaltyCardGroups.size() > 0) {
+            StringBuilder groupsString = new StringBuilder();
+            for (Group group : loyaltyCardGroups) {
+                groupsString.append(group._id);
+                groupsString.append(" ");
+            }
+
+            groupsView.setVisibility(View.VISIBLE);
+            groupsView.setText(getString(R.string.groupsList, groupsString.toString()));
+        }
+        else
+        {
+            groupsView.setVisibility(View.GONE);
+        }
+
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE) {
+            bottomSheet.setVisibility(View.VISIBLE);
         }
         else
         {

@@ -138,5 +138,5 @@
     <string name="leaveWithoutSaveConfirmation">Are you sure you want to leave this screen? Changed made will not be saved.</string>
     <string name="addWithCamera">Scan the barcode with your camera</string>
     <string name="addManually">Manually enter card ID</string>
-    <string name="pullUpForMoreInfo">Pull up for more info</string>
+    <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
 </resources>

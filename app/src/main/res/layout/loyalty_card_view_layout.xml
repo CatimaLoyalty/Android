@@ -87,19 +87,31 @@
         app:behavior_peekHeight="80dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-        <TextView
+        <ImageButton
+            android:id="@+id/bottomSheetButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="@string/pullUpForMoreInfo"
-            android:textColor="@android:color/white" />
+            android:src="@drawable/ic_baseline_arrow_drop_up_24"
+            android:tint="@android:color/white" />
 
         <TextView
             android:id="@+id/noteView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:padding="20dp"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
+            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax" />
+
+        <TextView
+            android:id="@+id/groupsView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="20dp"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
             app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax" />

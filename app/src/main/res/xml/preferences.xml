@@ -41,13 +41,6 @@
             app:vnt_maxValue="@integer/settings_card_id_max_font_size_sp"
             app:vnt_minValue="@integer/settings_card_id_min_font_size_sp" />
 
-        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
-            android:key="@string/settings_key_card_note_font_size"
-            android:title="@string/settings_card_note_font_size"
-            android:defaultValue="@integer/settings_card_note_font_size_sp"
-            app:vnt_maxValue="@integer/settings_card_note_max_font_size_sp"
-            app:vnt_minValue="@integer/settings_card_note_min_font_size_sp" />
-
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"

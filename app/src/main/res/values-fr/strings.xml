@@ -4,8 +4,8 @@
     <string name="noGiftCards">Appuyez d\'abord sur le bouton \"+\" (plus) pour ajouter une carte.
 \n
 \nCatima enregistre vos cartes sur votre appareil, pour toujours les avoir à portée de main.</string>
-    <string name="storeName">Nom</string>
-    <string name="note">Note</string>
+    <string name="storeName">Nom du Magasin</string>
+    <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
     <string name="cancel">Annuler</string>
     <string name="save">Enregistrer</string>
@@ -54,7 +54,7 @@
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Notes de version : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> utilise les bibliothèques-tierces suivantes : <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> utilise les ressources-tierces suivantes : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; utilise les ressources tierces suivantes : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_resources_list\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
     <string name="thumbnailDescription">Miniature pour la carte</string>

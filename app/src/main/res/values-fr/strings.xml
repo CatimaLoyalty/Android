@@ -57,7 +57,7 @@
     <string name="app_resources">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; utilise les ressources tierces suivantes : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_resources_list\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
-    <string name="thumbnailDescription">Miniature pour la carte</string>
+    <string name="thumbnailDescription">Miniature de la carte</string>
     <string name="change">Modifier</string>
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>

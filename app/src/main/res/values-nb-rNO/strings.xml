@@ -66,9 +66,9 @@
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
     <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse</string>
     <string name="settings_card_note_list_font_size">Skriftstørrelse for kortmerknadsliste</string>
-    <string name="settings_card_title_font_size">Skriftstørrelse for korttittel</string>
+    <string name="settings_card_title_font_size">Skriftstørrelse for korttittel (forhåndsvisning)</string>
     <string name="settings_card_id_font_size">Skriftstørrelse for kort-ID</string>
-    <string name="settings_card_note_font_size">Skriftstørrelse for kortmerknad</string>
+    <string name="settings_card_note_font_size">Skriftstørrelse for kortmerknad (forhåndsvisning)</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
     <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
     <string name="exportSuccessful">Kortdata eksportert</string>
@@ -102,4 +102,9 @@
     <string name="addWithCamera">Skann strekkoden med kameraet ditt</string>
     <string name="moveDown">Flytt nedover i listen</string>
     <string name="moveUp">Flytt oppover i listen</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kort</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; kort</item>
+    </plurals>
+    <string name="groupsList">Grupper: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
 </resources>

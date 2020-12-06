@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -26,7 +27,6 @@ public class ManageGroupsActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
 
-    private AlertDialog newGroupDialog;
     private final DBHelper db = new DBHelper(this);
 
     @Override
@@ -42,8 +42,6 @@ public class ManageGroupsActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        newGroupDialog = createNewGroupDialog();
-
         updateGroupList();
     }
 
@@ -57,7 +55,7 @@ public class ManageGroupsActivity extends AppCompatActivity
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newGroupDialog.show();
+                createGroup();
             }
         });
     }
@@ -147,6 +145,8 @@ public class ManageGroupsActivity extends AppCompatActivity
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
     }
 
     public void deleteGroup(View view) {
@@ -175,7 +175,7 @@ public class ManageGroupsActivity extends AppCompatActivity
         dialog.show();
     }
 
-    private AlertDialog createNewGroupDialog() {
+    private void createGroup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
@@ -196,8 +196,9 @@ public class ManageGroupsActivity extends AppCompatActivity
             }
         });
         AlertDialog dialog = builder.create();
-
-        return dialog;
+        dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
     }
 
     private String getGroupname(View view) {

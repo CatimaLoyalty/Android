@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Automatically focus text field when creating or editing a group
+
 ## v1.5.1 (2020-12-03)
 
 Changes:

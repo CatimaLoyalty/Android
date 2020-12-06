@@ -87,7 +87,7 @@
     <string name="unstar">Retirer des favoris</string>
     <string name="star">Ajouter aux favoris</string>
     <string name="starImage">Étoile favorite</string>
-    <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer cette carte</string>
+    <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer ce groupe</string>
     <string name="all">Tous</string>
     <string name="noGroups">Cliquez d\'abord sur le bouton \"+\" (plus) pour ajouter un groupe.
 \n

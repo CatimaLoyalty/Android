@@ -2,7 +2,10 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -271,17 +274,20 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getCardTitleFontSize());
 
-        int backgroundHeaderColor;
-        if(loyaltyCard.headerColor != null)
-        {
-            backgroundHeaderColor = loyaltyCard.headerColor;
-        }
-        else
-        {
-            backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
-        }
+        // TODO: Grab color from image
+        int backgroundHeaderColor = Color.WHITE;
 
-        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
+        if (loyaltyCard.icon != null) {
+            findViewById(R.id.storeHeaderImage).setBackground(new BitmapDrawable(getResources(), loyaltyCard.icon));
+        } else {
+            if (loyaltyCard.headerColor != null) {
+                backgroundHeaderColor = loyaltyCard.headerColor;
+            } else {
+                backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
+            }
+
+            collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
+        }
 
         int textColor;
         if(Utils.needsDarkForeground(backgroundHeaderColor))
@@ -313,7 +319,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         // Set shadow colour of store text so even same color on same color would be readable
-        storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
+        storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.WHITE : Color.BLACK);
 
         if(format != null)
         {

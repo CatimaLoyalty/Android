@@ -37,6 +37,7 @@ import com.google.zxing.BarcodeFormat;
 
 import java.util.List;
 
+import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
@@ -275,19 +276,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         storeName.setTextSize(settings.getCardTitleFontSize());
 
         // TODO: Grab color from image
-        int backgroundHeaderColor = Color.WHITE;
+        int backgroundHeaderColor;
 
-        if (loyaltyCard.icon != null) {
-            findViewById(R.id.storeHeaderImage).setBackground(new BitmapDrawable(getResources(), loyaltyCard.icon));
+        if (loyaltyCard.headerColor != null) {
+            backgroundHeaderColor = loyaltyCard.headerColor;
         } else {
-            if (loyaltyCard.headerColor != null) {
-                backgroundHeaderColor = loyaltyCard.headerColor;
-            } else {
-                backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
-            }
-
-            collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
+            backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
         }
+
+        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
         if(Utils.needsDarkForeground(backgroundHeaderColor))

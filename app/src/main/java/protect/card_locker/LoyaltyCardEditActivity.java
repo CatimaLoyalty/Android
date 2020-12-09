@@ -19,6 +19,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.palette.graphics.Palette;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -592,6 +593,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 e.printStackTrace();
             }
             icon = Utils.resizeBitmapForIcon(BitmapFactory.decodeStream(inputStream));
+            headingColorValue = Palette.from(icon).generate().getDominantColor(headingColorValue);
             return;
         }
 

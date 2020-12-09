@@ -173,7 +173,7 @@ public class Utils {
             return null;
         }
 
-        Integer maxSize = 512;
+        Integer maxSize = 128;
 
         Integer width = bitmap.getWidth();
         Integer height = bitmap.getHeight();

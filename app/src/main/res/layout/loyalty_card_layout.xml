@@ -58,7 +58,7 @@
         android:layout_width="@dimen/cardThumbnailSize"
         android:layout_height="@dimen/cardThumbnailSize"
         android:layout_marginStart="@dimen/activity_margin"
-        android:src="@drawable/ic_starred_white"
+        app:srcCompat="@drawable/ic_starred_white"
         app:tint="@color/iconColor"
         android:contentDescription="@string/starImage"/>
 </LinearLayout>

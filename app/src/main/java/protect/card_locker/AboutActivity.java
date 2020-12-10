@@ -60,7 +60,7 @@ public class AboutActivity extends AppCompatActivity
 
         final Map<String, String> USED_ASSETS = ImmutableMap.of
                 (
-                        "Save by Bernar Novalyi", "https://thenounproject.com/term/save/716011"
+                        "Android icons", "https://www.apache.org/licenses/LICENSE-2.0.txt"
                 );
 
         StringBuilder libs = new StringBuilder().append("<br/>");

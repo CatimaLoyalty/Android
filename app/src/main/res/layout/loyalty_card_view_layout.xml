@@ -93,7 +93,7 @@
             android:layout_height="80dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:src="@drawable/ic_baseline_arrow_drop_up_24"
+            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:tint="@android:color/white" />

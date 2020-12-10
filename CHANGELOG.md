@@ -5,6 +5,7 @@
 Changes:
 
 - Automatically focus text field when creating or editing a group
+- Fix blurry icons (use SVG everywhere)
 
 ## v1.5.1 (2020-12-03)
 

@@ -6,6 +6,7 @@ Changes:
 
 - Automatically focus text field when creating or editing a group
 - Fix blurry icons (use SVG everywhere)
+- Always open camera but add manual scan button to camera view
 
 ## v1.5.1 (2020-12-03)
 

@@ -25,6 +25,7 @@ public class Utils {
     // Activity request codes
     public static final int MAIN_REQUEST = 1;
     public static final int SELECT_BARCODE_REQUEST = 2;
+    public static final int BARCODE_SCAN = 3;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -48,83 +49,19 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
-    static public void startCameraBarcodeScan(Context context, Activity activity) {
-        IntentIntegrator integrator = new IntentIntegrator(activity);
-        integrator.setDesiredBarcodeFormats(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
-
-        String prompt = context.getResources().getString(R.string.scanCardBarcode);
-        integrator.setPrompt(prompt);
-        integrator.setBeepEnabled(false);
-        integrator.initiateScan();
-    }
-
-    static public void createSetBarcodeDialog(final Context context, final Activity activity, boolean isUpdate, final String initialCardId) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        // Get the layout inflater
-        LayoutInflater inflater = activity.getLayoutInflater();
-
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.dialog_create, null));
-
-        if (isUpdate) {
-            builder.setTitle(context.getString(R.string.editCardTitle));
-        } else {
-            builder.setTitle(context.getString(R.string.addCardTitle));
-        }
-
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                setBarcodeDialog.cancel();
-            }
-        });
-        setBarcodeDialog = builder.create();
-        setBarcodeDialog.show();
-
-        View addFromCamera = setBarcodeDialog.getWindow().findViewById(R.id.add_from_camera);
-        View addManually = setBarcodeDialog.getWindow().findViewById(R.id.add_manually);
-
-        addFromCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.startCameraBarcodeScan(context, activity);
-
-                setBarcodeDialog.hide();
-            }
-        });
-
-        addManually.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, BarcodeSelectorActivity.class);
-                if (initialCardId != null) {
-                    final Bundle b = new Bundle();
-                    b.putString("initialCardId", initialCardId);
-                    i.putExtras(b);
-                }
-                activity.startActivityForResult(i, Utils.SELECT_BARCODE_REQUEST);
-
-                setBarcodeDialog.hide();
-            }
-        });
-    }
-
     static public BarcodeValues parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent) {
         String contents = null;
         String format = null;
 
-        IntentResult result =
-                IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (result != null)
+        if (resultCode == Activity.RESULT_OK)
         {
-            Log.i(TAG, "Received barcode information from capture");
-            contents = result.getContents();
-            format = result.getFormatName();
-        }
-
-        if(requestCode == Utils.SELECT_BARCODE_REQUEST && resultCode == Activity.RESULT_OK)
-        {
-            Log.i(TAG, "Received barcode information from typing it");
+            if (requestCode == Utils.BARCODE_SCAN) {
+                Log.i(TAG, "Received barcode information from camera");
+            } else if (requestCode == Utils.SELECT_BARCODE_REQUEST) {
+                Log.i(TAG, "Received barcode information from typing it");
+            } else {
+                return new BarcodeValues(null, null);
+            }
 
             contents = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS);
             format = intent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT);

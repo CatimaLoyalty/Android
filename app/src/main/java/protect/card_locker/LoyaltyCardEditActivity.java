@@ -41,6 +41,7 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.io.InvalidObjectException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -410,7 +411,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
-            Utils.createSetBarcodeDialog(LoyaltyCardEditActivity.this, LoyaltyCardEditActivity.this, true, cardIdFieldView.getText().toString());
+
+            Intent i = new Intent(getApplicationContext(), ScanActivity.class);
+            final Bundle b = new Bundle();
+            b.putString("cardId", cardIdFieldView.getText().toString());
+            i.putExtras(b);
+            startActivityForResult(i, Utils.BARCODE_SCAN);
         }
     }
 

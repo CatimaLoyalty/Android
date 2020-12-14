@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.ClipData;
@@ -31,7 +32,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.Util;
 
+import java.io.Serializable;
 import java.util.List;
 import protect.card_locker.preferences.SettingsActivity;
 
@@ -141,7 +144,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.createSetBarcodeDialog(MainActivity.this, MainActivity.this, false, null);
+                Intent i = new Intent(getApplicationContext(), ScanActivity.class);
+                startActivityForResult(i, Utils.BARCODE_SCAN);
             }
         });
     }

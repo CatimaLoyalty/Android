@@ -48,7 +48,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
+    implementation 'com.journeyapps:zxing-android-embedded:4.0.2@aar'
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'org.apache.commons:commons-csv:1.5'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

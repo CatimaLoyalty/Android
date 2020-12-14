@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="protect.card_locker"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission
         android:name="android.permission.CAMERA"/>
@@ -15,6 +16,8 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <application
         android:name=".LoyaltyCardLockerApplication"
@@ -67,6 +70,10 @@
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix_old" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ScanActivity"
+            android:label="@string/scanCardBarcode"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".BarcodeSelectorActivity"
             android:label="@string/selectBarcodeTitle"

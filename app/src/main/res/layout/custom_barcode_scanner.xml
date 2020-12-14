@@ -20,13 +20,11 @@
         app:zxing_viewfinder_laser="@color/zxing_custom_viewfinder_laser"
         app:zxing_viewfinder_mask="@color/zxing_custom_viewfinder_mask"/>
 
-    <TextView
-        android:id="@+id/zxing_status_view"
+    <Button
+        android:id="@+id/add_manually"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/addManually"
         android:layout_gravity="bottom|center_horizontal"
-        android:background="@color/zxing_transparent"
-        android:text="@string/scanCardBarcode"
-        android:textColor="@color/zxing_status_text"/>
-
+        android:onClick="addManually"/>
 </merge>

@@ -7,20 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".ScanActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
         android:id="@+id/zxing_barcode_scanner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:zxing_scanner_layout="@layout/custom_barcode_scanner">
     </com.journeyapps.barcodescanner.DecoratedBarcodeView>
-
-    <Button
-        android:id="@+id/add_manually"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addManually"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="addManually"/>
-
 </RelativeLayout>

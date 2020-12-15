@@ -1,9 +1,11 @@
 package protect.card_locker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
@@ -110,6 +112,19 @@ public class ScanActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         return barcodeScannerView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
+            setResult(Activity.RESULT_CANCELED);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void addManually(View view) {

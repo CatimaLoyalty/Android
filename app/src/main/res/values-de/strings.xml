@@ -11,7 +11,6 @@
     <string name="cardId">Kartennummer</string>
     <string name="cancel">Abbrechen</string>
     <string name="save">Speichern</string>
-    <string name="capture">Karte scannen</string>
     <string name="editCard">Karte bearbeiten</string>
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
@@ -62,14 +61,12 @@
     <string name="selectBarcodeTitle">Strichcode auswählen</string>
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
-    <string name="change">Anpassen</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_card_title_list_font_size">Schriftgröße des Kartentitels (Listenmodus)</string>
     <string name="settings_card_note_list_font_size">Schriftgröße der Kartennotiz (Listenmodus)</string>
     <string name="settings_card_title_font_size">Schriftgröße des Kartentitels (Vorschau)</string>
     <string name="settings_card_id_font_size">Schriftgröße der Kartennummer</string>
-    <string name="settings_card_note_font_size">Schriftgröße der Kartennotiz (Vorschau)</string>
     <string name="settings_display_barcode_max_brightness">Helligkeit bei Strichcode Ansicht erhöhen</string>
     <string name="settings_lock_barcode_orientation">Strichcodeausrichtung sperren</string>
     <string name="exportSuccessful">Kartendaten exportiert</string>
@@ -99,7 +96,6 @@
     <string name="failedOpeningFileManager">Fehler beim Öffnen eines Dateiverwaltungsprogrammes. Stellen Sie sicher, dass eine installiert ist.</string>
     <string name="noBarcode">Kein Strichcode</string>
     <string name="addManually">Die Karten-ID manuell eingeben</string>
-    <string name="addWithCamera">Scannen Sie den Strichcode mit Ihrer Kamera</string>
     <string name="moveDown">In der Liste nach unten verschieben</string>
     <string name="moveUp">In der Liste nach oben verschieben</string>
     <plurals name="groupCardCount">

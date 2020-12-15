@@ -9,7 +9,6 @@
     <string name="cardId">Κωδικός Κάρτας</string>
     <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
-    <string name="capture">Φωτογράφιση Κάρτας</string>
     <string name="editCard">Επεξεργασία Κάρτας</string>
     <string name="edit">Επεξεργασία</string>
     <string name="delete">Διαγραφή</string>
@@ -64,13 +63,10 @@
 
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>
 
-    <string name="change">Αλλαγή</string>
-
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_category_title_ui">Διεπαφή χρήστη</string>
     <string name="settings_card_title_list_font_size">Μέγεθος κειμένου λίστας καρτών</string>
     <string name="settings_card_note_list_font_size">Μέγεθος κειμένου λίστας σημειώσεων καρτών</string>
     <string name="settings_card_title_font_size">Μέγεθος κειμένου τίτλου κάρτας</string>
     <string name="settings_card_id_font_size">Μέγεθος κειμένου κωδικού κάρτας</string>
-    <string name="settings_card_note_font_size">Μέγεθος κειμένου σημείωσης κάρτας</string>
-    </resources>
+</resources>

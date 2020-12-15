@@ -13,7 +13,6 @@
     <string name="barcodeNoBarcode">Эта карта без штрихкода</string>
     <string name="cancel">Отменить</string>
     <string name="save">Сохранить</string>
-    <string name="capture">Сканировать карту</string>
     <string name="editCard">Редактировать штрих-код</string>
     <string name="edit">Редактировать</string>
     <string name="delete">Удалить карту</string>
@@ -66,7 +65,6 @@
     <string name="enterBarcodeInstructions">Введите ID карты и выберите тип штрих-кода.</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
-    <string name="change">Изменить</string>
     <string name="settings">Настройки</string>
     <string name="settings_category_title_ui">Внешний вид</string>
     <string name="settings_theme">Тема</string>
@@ -77,7 +75,6 @@
     <string name="settings_card_note_list_font_size">Размер шрифта примечания для списка</string>
     <string name="settings_card_title_font_size">Размер шрифта названия карты</string>
     <string name="settings_card_id_font_size">Размер шрифта номера карты</string>
-    <string name="settings_card_note_font_size">Размер шрифта примечания</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>

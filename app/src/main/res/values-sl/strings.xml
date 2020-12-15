@@ -9,7 +9,6 @@
     <string name="cardId">Št. kartice</string>
     <string name="cancel">Prekliči</string>
     <string name="save">Shrani</string>
-    <string name="capture">Slikaj kartico</string>
     <string name="editCard">Uredi kartico</string>
     <string name="edit">Uredi</string>
     <string name="delete">Izbriši</string>
@@ -64,15 +63,12 @@
 
     <string name="thumbnailDescription">Ikona kartice</string>
 
-    <string name="change">Spremeni</string>
-
     <string name="settings">Nastavitve</string>
     <string name="settings_category_title_ui">Uporabniški vmesnik</string>
     <string name="settings_card_title_list_font_size">Velikost pisave seznama naslovov kartic</string>
     <string name="settings_card_note_list_font_size">Velikost pisave seznama zabeležk </string>
     <string name="settings_card_title_font_size">Velikost pisave imen kartic</string>
     <string name="settings_card_id_font_size">Velikost pisave številke kartice</string>
-    <string name="settings_card_note_font_size">Velikost pisave zabeležke</string>
     <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
     <string name="settings_lock_barcode_orientation">Zakleni orientacijo črtne kode</string>
     </resources>

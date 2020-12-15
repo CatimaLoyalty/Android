@@ -10,7 +10,6 @@
     <string name="barcodeNoBarcode">Ta karta nie ma kodu kreskowego</string>
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
-    <string name="capture">Zeskanuj kod</string>
     <string name="editCard">Edytuj kartę</string>
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
@@ -62,7 +61,6 @@
     <string name="enterBarcodeInstructions">Wprowadź identyfikator karty, a następnie wybierz obraz reprezentujący kod kreskowy, którego chcesz użyć, lub wybierz “Ta karta nie ma kodu kreskowego”, aby nie używać kodu kreskowego.</string>
     <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
     <string name="thumbnailDescription">Miniaturka karty</string>
-    <string name="change">Zmień</string>
     <string name="settings">Ustawienia</string>
     <string name="settings_category_title_ui">Interfejs użytkownika</string>
     <string name="settings_theme">Motyw</string>
@@ -73,7 +71,6 @@
     <string name="settings_card_note_list_font_size">Rozmiar czcionki listy kart</string>
     <string name="settings_card_title_font_size">Rozmiar czcionki tytułu karty</string>
     <string name="settings_card_id_font_size">Rozmiar czcionki identyfikatora karty</string>
-    <string name="settings_card_note_font_size">Rozmiar czcionki notatki karty</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>

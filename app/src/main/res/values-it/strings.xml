@@ -10,7 +10,6 @@
     <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
-    <string name="capture">Scansione carta</string>
     <string name="editCard">Modifica carta</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
@@ -62,7 +61,6 @@
     <string name="enterBarcodeInstructions">Immettere l\'ID della carta, quindi selezionare l\'immagine che rappresenta il codice a barre desiderato oppure selezionare «Questa carta non ha un codice a barre» per non valorizzare il dato.</string>
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
     <string name="thumbnailDescription">Miniatura carta</string>
-    <string name="change">Cambia</string>
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
     <string name="settings_theme">Tema</string>
@@ -73,7 +71,6 @@
     <string name="settings_card_note_list_font_size">Dimensione testo delle note carta (in lista carte)</string>
     <string name="settings_card_title_font_size">Dimensione testo del titolo carta</string>
     <string name="settings_card_id_font_size">Dimensione testo dell\'ID carta</string>
-    <string name="settings_card_note_font_size">Dimensione testo delle note carta</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>

@@ -9,7 +9,6 @@
     <string name="cardId">Numéro</string>
     <string name="cancel">Annuler</string>
     <string name="save">Enregistrer</string>
-    <string name="capture">Mode capture</string>
     <string name="editCard">Modifier</string>
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
@@ -58,14 +57,12 @@
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
     <string name="thumbnailDescription">Miniature de la carte</string>
-    <string name="change">Modifier</string>
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_card_title_list_font_size">Taille du nom des cartes (mode liste)</string>
     <string name="settings_card_note_list_font_size">Taille de la description (mode liste)</string>
     <string name="settings_card_title_font_size">Taille du nom de la carte (aperçu)</string>
     <string name="settings_card_id_font_size">Taille des numéros de carte</string>
-    <string name="settings_card_note_font_size">Taille de la description (aperçu)</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
     <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
     <string name="exportSuccessful">Carte exportée avec succès</string>
@@ -99,7 +96,6 @@
     <string name="leaveWithoutSaveTitle">Quitter sans enregistrer</string>
     <string name="failedOpeningFileManager">Gestionnaire de fichiers introuvable. Installez-en un si nécessaire.</string>
     <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
-    <string name="addWithCamera">Scannez le code-barres avec votre appareil photo</string>
     <string name="moveDown">Descendre dans la liste</string>
     <string name="moveUp">Monter dans la liste</string>
     <plurals name="groupCardCount">

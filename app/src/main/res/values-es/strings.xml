@@ -9,7 +9,6 @@
     <string name="cardId">Id. de tarjeta</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
-    <string name="capture">Capturar tarjeta</string>
     <string name="editCard">Editar tarjeta</string>
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
@@ -52,14 +51,12 @@
     <string name="app_license">Disponible en virtud de la GPLv3.</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
-    <string name="change">Cambiar</string>
     <string name="settings">Configuración</string>
     <string name="settings_category_title_ui">Interfaz de usuario</string>
     <string name="settings_card_title_list_font_size">Tamaño de la letra para el título (lista)</string>
     <string name="settings_card_note_list_font_size">Tamaño de la letra para notas (lista)</string>
     <string name="settings_card_title_font_size">Tamaño de la letra para el título</string>
     <string name="settings_card_id_font_size">Tamaño de la letra para el ID de la tarjeta</string>
-    <string name="settings_card_note_font_size">Tamaño de la letra para notas</string>
     <string name="settings_display_barcode_max_brightness">Iluminar vista de código de barras</string>
     <string name="exportSuccessful">Se exportaron correctamente los datos de tarjetas de fidelización</string>
     <string name="importSuccessful">Se importaron correctamente los datos de tarjetas de fidelización</string>

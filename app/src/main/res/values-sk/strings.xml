@@ -9,7 +9,6 @@
     <string name="cardId">ID karty</string>
     <string name="cancel">Zrušiť</string>
     <string name="save">Uložiť</string>
-    <string name="capture">Zosnímať kartu</string>
     <string name="editCard">Úprava karty</string>
     <string name="edit">Upraviť</string>
     <string name="delete">Vymazať</string>
@@ -64,15 +63,12 @@
 
     <string name="thumbnailDescription">Náhľad karty</string>
 
-    <string name="change">Upraviť</string>
-
     <string name="settings">Nastavenia</string>
     <string name="settings_category_title_ui">Používateľské prostredie</string>
     <string name="settings_card_title_list_font_size">Veľkosť názvu karty v zozname</string>
     <string name="settings_card_note_list_font_size">Veľkosť poznámky v zozname</string>
     <string name="settings_card_title_font_size">Veľkosť názvu karty</string>
     <string name="settings_card_id_font_size">Veľkosť ID karty pod čiarovým kódom</string>
-    <string name="settings_card_note_font_size">Veľkosť poznámky</string>
     <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
     <string name="settings_lock_barcode_orientation">Uzamkni orientáciu čiarového kódu</string>
     </resources>

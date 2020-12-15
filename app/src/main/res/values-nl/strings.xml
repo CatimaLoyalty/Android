@@ -13,7 +13,6 @@
     <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
-    <string name="capture">Scan een kaart</string>
     <string name="editCard">Kaart bewerken</string>
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
@@ -66,7 +65,6 @@
     <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
-    <string name="change">Aanpassen</string>
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Vormgeving</string>
     <string name="settings_theme">Thema</string>
@@ -77,7 +75,6 @@
     <string name="settings_card_note_list_font_size">Lettergrootte van aantekeningen (lijstmodus)</string>
     <string name="settings_card_title_font_size">Lettergrootte van kaartnamen (voorvertoning)</string>
     <string name="settings_card_id_font_size">Lettergrootte van kaartnummer</string>
-    <string name="settings_card_note_font_size">Lettergrootte van aantekeningen (voorvertoning)</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
@@ -95,7 +92,6 @@
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
     <string name="addManually">Kaartnummer handmatig invoeren</string>
-    <string name="addWithCamera">Barcode scannen met camera</string>
     <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je dit wilt\? Hierdoor worden je aanpassingen niet opgeslagen.</string>
     <string name="leaveWithoutSaveTitle">Afbreken zonder opslaan</string>
     <string name="moveDown">Omlaag verplaatsen</string>

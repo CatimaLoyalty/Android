@@ -10,7 +10,6 @@
     <string name="barcodeType">Strekkodetype</string>
     <string name="cancel">Avbryt</string>
     <string name="save">Lagre</string>
-    <string name="capture">Les inn kort</string>
     <string name="editCard">Rediger kort</string>
     <string name="edit">Rediger</string>
     <string name="delete">Slett</string>
@@ -61,14 +60,12 @@
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
-    <string name="change">Endre</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
     <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse</string>
     <string name="settings_card_note_list_font_size">Skriftstørrelse for kortmerknadsliste</string>
     <string name="settings_card_title_font_size">Skriftstørrelse for korttittel (forhåndsvisning)</string>
     <string name="settings_card_id_font_size">Skriftstørrelse for kort-ID</string>
-    <string name="settings_card_note_font_size">Skriftstørrelse for kortmerknad (forhåndsvisning)</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
     <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
     <string name="exportSuccessful">Kortdata eksportert</string>
@@ -99,7 +96,6 @@
     <string name="leaveWithoutSaveConfirmation">Er du sikker på at du vil forlate denne skjermen\? Endringer vil ikke bli lagret.</string>
     <string name="leaveWithoutSaveTitle">Forlat uten å lagre</string>
     <string name="addManually">Skriv inn kort-ID manuelt</string>
-    <string name="addWithCamera">Skann strekkoden med kameraet ditt</string>
     <string name="moveDown">Flytt nedover i listen</string>
     <string name="moveUp">Flytt oppover i listen</string>
     <plurals name="groupCardCount">

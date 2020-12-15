@@ -12,9 +12,6 @@ import androidx.core.graphics.ColorUtils;
 public class Utils {
     private static final String TAG = "Catima";
 
-    // Barcode config dialog
-    private static AlertDialog setBarcodeDialog;
-
     // Activity request codes
     public static final int MAIN_REQUEST = 1;
     public static final int SELECT_BARCODE_REQUEST = 2;

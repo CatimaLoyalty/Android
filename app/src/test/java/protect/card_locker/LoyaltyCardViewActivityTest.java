@@ -153,27 +153,19 @@ public class LoyaltyCardViewActivityTest
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
 
-        Dialog dialog = ShadowDialog.getLatestDialog();
-        ShadowDialog shadowDialog = shadowOf(dialog);
-        shadowDialog.clickOn(R.id.add_from_camera);
-
         ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
 
         Intent intent = intentForResult.intent;
         assertNotNull(intent);
 
-        String action = intent.getAction();
-        assertNotNull(action);
-        assertEquals(Intents.Scan.ACTION, action);
-
         Bundle bundle = intent.getExtras();
         assertNotNull(bundle);
 
         Intent resultIntent = new Intent(intent);
         Bundle resultBundle = new Bundle();
-        resultBundle.putString(Intents.Scan.RESULT, BARCODE_DATA);
-        resultBundle.putString(Intents.Scan.RESULT_FORMAT, BARCODE_TYPE);
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, BARCODE_DATA);
+        resultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, BARCODE_TYPE);
         resultIntent.putExtras(resultBundle);
 
         // Respond to image capture, success
@@ -193,14 +185,20 @@ public class LoyaltyCardViewActivityTest
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
 
-        Dialog dialog = ShadowDialog.getLatestDialog();
-        ShadowDialog shadowDialog = shadowOf(dialog);
-        shadowDialog.clickOn(R.id.add_manually);
-
         ShadowActivity.IntentForResult intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
+        Intent intent = intentForResult.intent;
+        assertNotNull(intent);
+        assertEquals(intent.getComponent().getClassName(), ScanActivity.class.getCanonicalName());
+
+        Activity newActivity = Robolectric.buildActivity(ScanActivity.class, intent).create().get();
+
+        final Button manualButton = newActivity.findViewById(R.id.add_manually);
+        manualButton.performClick();
+
+        intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
 
-        Intent intent = intentForResult.intent;
+        intent = intentForResult.intent;
         assertNotNull(intent);
 
         Bundle bundle = intent.getExtras();

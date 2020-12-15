@@ -21,6 +21,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowAlertDialog;
 import org.robolectric.shadows.ShadowDialog;
 
@@ -73,16 +74,14 @@ public class MainActivityTest
     }
 
     @Test
-    public void clickAddLaunchesAddDialog()
+    public void clickAddStartsScan()
     {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         activity.findViewById(R.id.fabAdd).performClick();
 
-        Dialog dialog = ShadowDialog.getLatestDialog();
-        ShadowDialog shadowDialog = shadowOf(dialog);
-
-        assertEquals("Add Card", shadowDialog.getTitle());
+        ShadowActivity shadowActivity = shadowOf(activity);
+        assertEquals(shadowActivity.peekNextStartedActivityForResult().intent.getComponent(), new ComponentName(activity, ScanActivity.class));
     }
 
     @Test

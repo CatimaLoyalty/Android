@@ -127,6 +127,24 @@ public class ScanActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent)
+    {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+
+        if (!barcodeValues.isEmpty()) {
+            Intent manualResult = new Intent();
+            Bundle manualResultBundle = new Bundle();
+            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
+            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
+            manualResult.putExtras(manualResultBundle);
+            ScanActivity.this.setResult(RESULT_OK, manualResult);
+            finish();
+        }
+    }
+
     public void addManually(View view) {
         Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
         if (cardId != null) {

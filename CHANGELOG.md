@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.6.1 (2020-12-16)
+
+Changes:
+
+- Fix regression causing manual barcode entry to not be saved
+
 ## v1.6.0 (2020-12-15)
 
 Changes:

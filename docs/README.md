@@ -61,10 +61,6 @@ Windows:
 
 Please contribute through [our Weblate page](https://hosted.weblate.org/projects/catima/).
 
-# Thanks
-
-This application uses the following image:
-- [Save](https://thenounproject.com/term/save/716011) by [Bernar Novalyi](https://thenounproject.com/bernar.novalyi)
-
 # Note from Developer
+
 This application is based on the great [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher). This fork was created due to the original developer having stopped development of this app.

@@ -59,6 +59,8 @@ Windows:
 
 # Translating
 
+[![Translation status](https://hosted.weblate.org/widgets/catima/-/open-graph.png)](https://hosted.weblate.org/engage/catima/)
+
 Please contribute through [our Weblate page](https://hosted.weblate.org/projects/catima/).
 
 # Note from Developer

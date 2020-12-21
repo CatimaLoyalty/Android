@@ -1,2 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="addManually">직접 카드 ID 입력</string>
+    <string name="groupsList">그룹: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="all">모두</string>
+    <string name="groups">그룹</string>
+    <string name="enter_group_name">그룹 이름 입력</string>
+    <string name="settings_lock_barcode_orientation">바코드 회전 잠금</string>
+    <string name="settings_card_id_font_size">카드 ID 글꼴 크기</string>
+    <string name="settings_card_title_font_size">카드 제목 글꼴 크기 (미리 보기)</string>
+    <string name="settings_card_note_list_font_size">카드 노트 글꼴 크기 (목록 모드)</string>
+    <string name="settings_card_title_list_font_size">카드 제목 글꼴 크기 (목록 모드)</string>
+    <string name="settings_dark_theme">어두움</string>
+    <string name="settings_light_theme">밝음</string>
+    <string name="debug_version_fmt">버전: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"version\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="about_title_fmt">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; 정보</string>
+    <string name="settings_system_theme">시스템</string>
+    <string name="settings_theme">테마</string>
+    <string name="settings_category_title_ui">사용자 인터페이스</string>
+    <string name="settings">설정</string>
+    <string name="enterBarcodeInstructions">카드 ID를 입력하고 카드에서 사용하는 바코드 이미지를 선택하세요. 바코드를 사용하지 않는 경우 \"이 카드는 바코드가 없음\"을 선택하세요.</string>
+    <string name="app_resources">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; 앱은 다음 서드 파티 리소스를 사용합니다: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_resources_list\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_libraries">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; 앱은 다음 서드 파티 라이브러리를 사용합니다: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_libraries_list\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">리비전 정보: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="selectBarcodeTitle">바코드 선택</string>
+    <string name="about">정보</string>
+    <string name="exporting">내보내는 중…</string>
+    <string name="importing">가져오는 중…</string>
+    <string name="importExportHelp">카드를 백업하면 다른 장치로 옮길 수 있습니다.</string>
+    <string name="exportName">내보내기</string>
+    <string name="importExport">가져오기/내보내기</string>
+    <string name="cardShortcut">카드 바로 가기</string>
+    <string name="scanCardBarcode">카드 바코드 스캔</string>
+    <string name="addCardTitle">카드 추가</string>
+    <string name="editCardTitle">카드 편집</string>
+    <string name="sendLabel">보내기…</string>
+    <string name="share">공유</string>
+    <string name="copy_to_clipboard">ID를 클립보드에 복사</string>
+    <string name="ok">확인</string>
+    <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
+    <string name="deleteTitle">카드 제거</string>
+    <string name="unlockScreen">회전 잠금 해제</string>
+    <string name="lockScreen">회전 잠금</string>
+    <string name="confirm">확인</string>
+    <string name="delete">삭제</string>
+    <string name="edit">편집</string>
+    <string name="editCard">카드 편집</string>
+    <string name="save">저장</string>
+    <string name="cancel">취소</string>
+    <string name="unstar">즐겨찾기에서 제거</string>
+    <string name="star">즐겨찾기에 추가</string>
+    <string name="noBarcode">바코드 없음</string>
+    <string name="barcodeNoBarcode">이 카드는 바코드가 없음</string>
+    <string name="barcodeType">바코드 형식</string>
+    <string name="cardId">카드 ID</string>
+    <string name="note">노트</string>
+    <string name="noMatchingGiftCards">아무것도 찾지 못했습니다. 검색어를 바꿔 보세요.</string>
+    <string name="noGiftCards">먼저 \'+\' 버튼을 눌러 카드를 추가하세요.
+\n
+\nCatima는 카드를 장치에 보관하므로 어디서든 사용할 수 있습니다.</string>
+    <string name="action_add">추가</string>
+    <string name="action_search">검색</string>
+</resources>

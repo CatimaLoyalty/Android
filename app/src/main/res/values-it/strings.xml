@@ -56,7 +56,7 @@
     <string name="app_license">Software libero con copyleft, licenza GPLv3+.</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informazioni sulla revisione: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt; %s &lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url"> %s </xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
@@ -91,7 +91,7 @@
 \nI gruppi rendono le cose più facili da trovare.</string>
     <string name="groups">Gruppi</string>
     <string name="enter_group_name">Inserisci il nome del gruppo</string>
-    <string name="groupsList">Gruppi: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="groupsList">Gruppi: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="addManually">Inserisci manualmente l\'ID della carta</string>
     <string name="leaveWithoutSaveConfirmation">Sei sicuro/a di voler uscire da questa schermata\? Le modifiche apportate non verranno salvate.</string>
     <string name="leaveWithoutSaveTitle">Esci senza salvare</string>
@@ -100,7 +100,7 @@
     <string name="failedOpeningFileManager">Apertura di un gestore di file non riuscita. Assicurati che ne sia installato uno.</string>
     <string name="noBarcode">Nessun codice a barre</string>
     <plurals name="groupCardCount">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carta</item>
-        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</item>
+        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carta</item>
+        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carte</item>
     </plurals>
 </resources>

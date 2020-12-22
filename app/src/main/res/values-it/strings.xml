@@ -2,8 +2,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
-    <string name="noGiftCards">Non hai ancora alcuna carta fedeltà. Premi sul bottone +(più) in alto per incominciare.\n\nL\'app ti permette di portare con te le tue carte fedeltà, così da averle sempre a disposizione.</string>
-    <string name="noMatchingGiftCards">Nessuna carta fedeltà corrisponde al filtro. Riprovare con altri valori.</string>
+    <string name="noGiftCards">Fai clic sul pulsante + (più) per aggiungere prima una carta.
+\n
+\nCatima trasporta le tue carte sul dispositivo, quindi sono sempre a portata di mano.</string>
+    <string name="noMatchingGiftCards">Non ho trovato niente. Prova a cambiare la tua ricerca.</string>
     <string name="storeName">Negozio</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
@@ -17,44 +19,44 @@
     <string name="lockScreen">Blocca rotazione</string>
     <string name="unlockScreen">Sblocca rotazione</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
-    <string name="deleteConfirmation">Conferma che vuoi eliminare questa carta.</string>
+    <string name="deleteConfirmation">Conferma di voler eliminare questa carta.</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>
     <string name="sendLabel">Invia…</string>
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
-    <string name="scanCardBarcode">Scansiona codice carta</string>
+    <string name="scanCardBarcode">Scansiona il codice carta</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
-    <string name="noCardsMessage">Non ci sono carte. Aggiungine prima una</string>
-    <string name="barcodeImageDescription">Immagine del codice a barre della carta</string>
+    <string name="noCardsMessage">Aggiungi prima una carta</string>
+    <string name="barcodeImageDescription">Immagine del codice della carta</string>
     <string name="noStoreError">Nessun negozio inserito</string>
     <string name="noCardIdError">Nessun codice carta inserito</string>
     <string name="noCardExistsError">Impossibile trovare la carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
     <string name="importExport">Importa/Esporta</string>
     <string name="exportName">Esporta</string>
-    <string name="importExportHelp">Fare il backup dei dati ti permette di spostare le tue carte da un dispositivo ad un altro.</string>
-    <string name="importSuccessfulTitle">Importazione avvenuta con successo</string>
+    <string name="importExportHelp">Il backup delle carte ti consente di spostarle su un altro dispositivo.</string>
+    <string name="importSuccessfulTitle">Importato</string>
     <string name="importFailedTitle">Importazione fallita</string>
-    <string name="importFailed">Impossibile importare</string>
-    <string name="exportSuccessfulTitle">Esportazione avvenuta con successo</string>
+    <string name="importFailed">Impossibile importare le carte</string>
+    <string name="exportSuccessfulTitle">Esportato</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
-    <string name="exportFailed">Impossibile esportare</string>
+    <string name="exportFailed">Impossibile esportare le carte</string>
     <string name="importing">Importazione in corso…</string>
     <string name="exporting">Esportazione in corso…</string>
-    <string name="noExternalStoragePermissionError">Impossibile importare o esportare i dati senza il permesso per l\'uso della memoria esterna</string>
+    <string name="noExternalStoragePermissionError">Concedi l\'autorizzazione all\'archiviazione esterna per importare o esportare prima le carte</string>
     <string name="importOptionFilesystemTitle">Importa dal file system</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dal file system.</string>
     <string name="importOptionFilesystemButton">Dal file system</string>
     <string name="importOptionApplicationTitle">Usa un\'applicazione esterna</string>
-    <string name="importOptionApplicationExplanation">Usa un\'applicazione esterna come Dropbox, Google Drive o il tuo file manager preferito per aprire il file.</string>
+    <string name="importOptionApplicationExplanation">Usa qualsiasi app o il tuo gestore di file preferito per aprire un file.</string>
     <string name="importOptionApplicationButton">Usa un\'applicazione esterna</string>
     <string name="about">Informazioni</string>
-    <string name="app_license">Pubblicato sotto licenza GPLv3.</string>
+    <string name="app_license">Software libero con copyleft, licenza GPLv3+.</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informazione sulla versione: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informazioni sulla revisione: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt; %s &lt;/xliff:g&gt;</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
@@ -64,18 +66,18 @@
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_system_theme">Tema del sistema</string>
-    <string name="settings_light_theme">Tema chiaro</string>
-    <string name="settings_dark_theme">Tema scuro</string>
-    <string name="settings_card_title_list_font_size">Dimensione testo del titolo carta (in lista carte)</string>
-    <string name="settings_card_note_list_font_size">Dimensione testo delle note carta (in lista carte)</string>
-    <string name="settings_card_title_font_size">Dimensione testo del titolo carta</string>
+    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_light_theme">Chiaro</string>
+    <string name="settings_dark_theme">Scuro</string>
+    <string name="settings_card_title_list_font_size">Dimensione caratteri del titolo della carta (modalità elenco)</string>
+    <string name="settings_card_note_list_font_size">Dimensione caratteri nota della carta (modalità elenco)</string>
+    <string name="settings_card_title_font_size">Dimensione caratteri del titolo della carta (anteprima)</string>
     <string name="settings_card_id_font_size">Dimensione testo dell\'ID carta</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
-    <string name="exportSuccessful">Dati della carta fedeltà esportati correttamente</string>
-    <string name="importSuccessful">Dati della carta fedeltà importati correttamente</string>
+    <string name="exportSuccessful">Dati della carta importati</string>
+    <string name="importSuccessful">Dati della carta importati</string>
     <string name="app_copyright_old">Basato su Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
     <string name="barcodeType">Tipo di codice a barre</string>
@@ -84,9 +86,21 @@
     <string name="starImage">Stella preferita</string>
     <string name="deleteConfirmationGroup">Conferma di voler eliminare questo gruppo</string>
     <string name="all">Tutti</string>
-    <string name="noGroups">Al momento non hai gruppi. Fai clic sul pulsante + (più) per iniziare.
+    <string name="noGroups">Fai clic sul pulsante + (più) per aggiungere prima i gruppi.
 \n
-\nLe carte possono essere assegnate a gruppi per renderle più facili da trovare.</string>
+\nI gruppi rendono le cose più facili da trovare.</string>
     <string name="groups">Gruppi</string>
     <string name="enter_group_name">Inserisci il nome del gruppo</string>
+    <string name="groupsList">Gruppi: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="addManually">Inserisci manualmente l\'ID della carta</string>
+    <string name="leaveWithoutSaveConfirmation">Sei sicuro/a di voler uscire da questa schermata\? Le modifiche apportate non verranno salvate.</string>
+    <string name="leaveWithoutSaveTitle">Esci senza salvare</string>
+    <string name="moveDown">Sposta in basso nell\'elenco</string>
+    <string name="moveUp">Sposta in alto nell\'elenco</string>
+    <string name="failedOpeningFileManager">Apertura di un gestore di file non riuscita. Assicurati che ne sia installato uno.</string>
+    <string name="noBarcode">Nessun codice a barre</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carta</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; carte</item>
+    </plurals>
 </resources>

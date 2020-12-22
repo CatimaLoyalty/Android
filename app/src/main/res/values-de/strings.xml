@@ -102,4 +102,5 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karte</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karten</item>
     </plurals>
+    <string name="groupsList">Gruppen: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
 </resources>

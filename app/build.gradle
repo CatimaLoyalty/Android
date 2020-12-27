@@ -1,9 +1,13 @@
-apply plugin: 'com.android.application'
-apply plugin: 'findbugs'
+import com.github.spotbugs.snom.SpotBugsTask
 
-findbugs {
-    sourceSets = []
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.spotbugs'
+
+spotbugs {
     ignoreFailures = false
+    effort = 'max'
+    excludeFilter = file("./config/spotbugs/exclude.xml")
+    reportsDir = file("$buildDir/reports/spotbugs/")
 }
 
 android {
@@ -73,18 +77,14 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.0.2'
 }
 
-task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {
+tasks.withType(SpotBugsTask) {
 
-    description 'Run findbugs'
+    description 'Run spotbugs'
     group 'verification'
 
-    classes = fileTree('build/intermediates/javac/debug/compileDebugJavaWithJavac/classes')
-    source = fileTree('src/main/java')
-    classpath = files()
-
-    effort = 'max'
-
-    excludeFilter = file("./config/findbugs/exclude.xml")
+    //classes = fileTree('build/intermediates/javac/debug/compileDebugJavaWithJavac/classes')
+    //source = fileTree('src/main/java')
+    //classpath = files()
 
     reports {
         xml.enabled = false

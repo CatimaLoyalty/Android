@@ -23,5 +23,5 @@ jobs:
       run: ./gradlew lintRelease
     - name: Run unit tests
       run: ./gradlew testReleaseUnitTest
-    - name: FindBugs
-      run: ./gradlew findbugs
+    - name: SpotBugs
+      run: ./gradlew spotbugs

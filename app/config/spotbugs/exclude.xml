@@ -1,4 +1,4 @@
-<FindBugsFilter>
+<SpotBugsFilter>
 
     <Match>
         <Class name="~.*R\$.*"/>
@@ -7,4 +7,4 @@
         <Class name="~.*Manifest\$.*"/>
     </Match>
 
-</FindBugsFilter>
+</SpotBugsFilter>

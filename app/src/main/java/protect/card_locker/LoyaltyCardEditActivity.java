@@ -446,7 +446,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     // Nothing to do, no change made
                 }
             });
-            dialog.show(getFragmentManager(), "color-picker-dialog");
+            dialog.show(getSupportFragmentManager(), "color-picker-dialog");
         }
     }
 

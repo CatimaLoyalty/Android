@@ -24,9 +24,11 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "Catima"
         }
         debug {
             applicationIdSuffix ".debug"
+            resValue "string", "app_name", "Catima Debug"
         }
     }
 

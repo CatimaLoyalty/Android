@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Añadir</string>
-    <string name="noGiftCards">Actualmente no tiene ninguna tarjeta guardada. Pulse el botón «+» para comenzar.
+    <string name="noGiftCards">Pulse el botón «+» para añadir una nueva tarjeta.
 \n
-\nCatima le permite llevar sus tarjetas en el teléfono para que estén siempre a su alcance.</string>
+\nCatima guarda sus tarjetas en el dispositivo, para que estén siempre a su alcance.</string>
     <string name="storeName">Tienda</string>
     <string name="note">Nota</string>
     <string name="cardId">Id. de tarjeta</string>
@@ -16,7 +16,7 @@
     <string name="lockScreen">Bloquear rotación</string>
     <string name="unlockScreen">Desbloquear rotación</string>
     <string name="deleteTitle">Eliminar tarjeta</string>
-    <string name="deleteConfirmation">Confirme que quiere eliminar esta tarjeta.</string>
+    <string name="deleteConfirmation">Por favor, confirme que quiere eliminar esta tarjeta.</string>
     <string name="ok">Aceptar</string>
     <string name="copy_to_clipboard">Copiar id. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
@@ -24,47 +24,47 @@
     <string name="addCardTitle">Añadir tarjeta</string>
     <string name="scanCardBarcode">Escanear código de barras de la tarjeta</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
-    <string name="noCardsMessage">No hay ninguna tarjeta; añada una primero</string>
+    <string name="noCardsMessage">Añada una tarjeta primero</string>
     <string name="barcodeImageDescription">Imagen del código de barras de la tarjeta</string>
     <string name="noStoreError">Establecimiento no especificado</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
-    <string name="noCardExistsError">No se ha podido encontrar la tarjeta de fidelización</string>
+    <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>
     <string name="importExport">Importar/exportar</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">La copia de respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
-    <string name="importSuccessfulTitle">Datos importados correctamente</string>
+    <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falló la importación</string>
-    <string name="importFailed">No se pudo importar</string>
-    <string name="exportSuccessfulTitle">Datos exportados correctamente</string>
+    <string name="importFailed">No se han podido importar tarjetas</string>
+    <string name="exportSuccessfulTitle">Exportado</string>
     <string name="exportFailedTitle">Falló la exportación</string>
-    <string name="exportFailed">No se pudo exportar</string>
+    <string name="exportFailed">No se han podido exportar las tarjetas</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
-    <string name="noExternalStoragePermissionError">No se pueden importar o exportar tarjetas sin el permiso de almacenamiento</string>
+    <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar tarjetas</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
     <string name="importOptionApplicationTitle">Utilizar aplicación externa</string>
-    <string name="importOptionApplicationExplanation">Use una aplicación externa como Dropbox, Google Drive o tu gestor de archivos favoritos para abrir un archivo.</string>
+    <string name="importOptionApplicationExplanation">Use una aplicación o su gestor de archivos favoritos para abrir un archivo.</string>
     <string name="importOptionApplicationButton">Utilizar aplicación externa</string>
     <string name="about">Acerca de</string>
-    <string name="app_license">Disponible en virtud de la GPLv3.</string>
+    <string name="app_license">Software libre con copyleft, disponible bajo la licencia GPLv3+.</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings">Configuración</string>
     <string name="settings_category_title_ui">Interfaz de usuario</string>
-    <string name="settings_card_title_list_font_size">Tamaño de la letra para el título (lista)</string>
-    <string name="settings_card_note_list_font_size">Tamaño de la letra para notas (lista)</string>
-    <string name="settings_card_title_font_size">Tamaño de la letra para el título</string>
+    <string name="settings_card_title_list_font_size">Tamaño de fuente del título de la tarjeta (modo lista)</string>
+    <string name="settings_card_note_list_font_size">Tamaño de fuente de las notas de la tarjeta (modo lista)</string>
+    <string name="settings_card_title_font_size">Tamaño de fuente del título de la tarjeta (vista previa)</string>
     <string name="settings_card_id_font_size">Tamaño de la letra para el ID de la tarjeta</string>
-    <string name="settings_display_barcode_max_brightness">Iluminar vista de código de barras</string>
-    <string name="exportSuccessful">Se exportaron correctamente los datos de tarjetas de fidelización</string>
-    <string name="importSuccessful">Se importaron correctamente los datos de tarjetas de fidelización</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar vista del código de barras</string>
+    <string name="exportSuccessful">Datos de las tarjetas exportados</string>
+    <string name="importSuccessful">Datos de las tarjetas importados</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirle una tarjeta</string>
-    <string name="settings_lock_barcode_orientation">Bloquear orientación de código de barras</string>
-    <string name="settings_dark_theme">Tema oscuro</string>
-    <string name="settings_light_theme">Tema claro</string>
-    <string name="settings_system_theme">Tema del sistema</string>
+    <string name="settings_lock_barcode_orientation">Bloquear orientación del código de barras</string>
+    <string name="settings_dark_theme">Oscuro</string>
+    <string name="settings_light_theme">Claro</string>
+    <string name="settings_system_theme">Sistema</string>
     <string name="settings_theme">Tema</string>
     <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione la imagen que represente el código de barras que se utilizará, o bien, elija «Esta tarjeta no tiene código de barras» para no utilizar ninguno.</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain, derechos de autor 2016–2020 de Branden Archer.</string>
@@ -73,6 +73,34 @@
     <string name="share">Compartir</string>
     <string name="barcodeNoBarcode">Esta tarjeta no tiene código de barras</string>
     <string name="barcodeType">Tipo de código de barras</string>
-    <string name="noMatchingGiftCards">Ninguna tarjeta coincide con el filtro de búsqueda. Pruebe con términos distintos.</string>
+    <string name="noMatchingGiftCards">No se ha encontrado nada. Pruebe a modificar su búsqueda.</string>
     <string name="action_search">Buscar</string>
+    <string name="app_libraries"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa las siguientes librerías de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_revision_fmt">Información de la revisión: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
+    <string name="noGroups">Pulse el botón «+» para añadir grupos.
+\n
+\nLos grupos permiten encontrar cosas fácilmente.</string>
+    <string name="starImage">Favorito</string>
+    <string name="thumbnailDescription">Miniatura de la tarjeta</string>
+    <string name="copy_to_clipboard_toast">Id. de la tarjeta copiado al portapapeles</string>
+    <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
+    <string name="app_resources"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa los siguientes recursos de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_resources_list">%s</xliff:g></string>
+    <string name="unstar">Eliminar de favoritos</string>
+    <string name="noBarcode">Sin código de barras</string>
+    <string name="enter_group_name">Introducir nombre del grupo</string>
+    <string name="groups">Grupos</string>
+    <string name="groupsList">Grupos: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="addManually">Introducir el id. de la tarjeta manualmente</string>
+    <string name="leaveWithoutSaveConfirmation">¿Está seguro de querer abandonar esta página\? Los cambios no se guardarán.</string>
+    <string name="leaveWithoutSaveTitle">Salir sin guardar</string>
+    <string name="moveDown">Bajar en la lista</string>
+    <string name="moveUp">Subir en la lista</string>
+    <string name="failedOpeningFileManager">Fallo al abrir el gestor de archivos. Por favor, asegúrese de que haya uno instalado.</string>
+    <string name="deleteConfirmationGroup">Por favor, confirme que desea eliminar este grupo</string>
+    <string name="all">Todo</string>
+    <string name="star">Añadir a favoritos</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjeta</item>
+        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjetas</item>
+    </plurals>
 </resources>

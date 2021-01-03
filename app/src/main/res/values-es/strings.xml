@@ -75,8 +75,8 @@
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noMatchingGiftCards">No se ha encontrado nada. Pruebe a modificar su búsqueda.</string>
     <string name="action_search">Buscar</string>
-    <string name="app_libraries">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; usa las siguientes librerías de terceros: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_libraries_list\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="app_revision_fmt">Información de la revisión: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_libraries"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa las siguientes librerías de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_revision_fmt">Información de la revisión: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
     <string name="noGroups">Pulse el botón «+» para añadir grupos.
 \n
 \nLos grupos permiten encontrar cosas fácilmente.</string>
@@ -84,12 +84,12 @@
     <string name="thumbnailDescription">Miniatura de la tarjeta</string>
     <string name="copy_to_clipboard_toast">Id. de la tarjeta copiado al portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
-    <string name="app_resources">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt; usa los siguientes recursos de terceros: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_resources_list\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_resources"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa los siguientes recursos de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_resources_list">%s</xliff:g></string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
     <string name="enter_group_name">Introducir nombre del grupo</string>
     <string name="groups">Grupos</string>
-    <string name="groupsList">Grupos: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="groupsList">Grupos: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="addManually">Introducir el id. de la tarjeta manualmente</string>
     <string name="leaveWithoutSaveConfirmation">¿Está seguro de querer abandonar esta página\? Los cambios no se guardarán.</string>
     <string name="leaveWithoutSaveTitle">Salir sin guardar</string>
@@ -100,7 +100,7 @@
     <string name="all">Todo</string>
     <string name="star">Añadir a favoritos</string>
     <plurals name="groupCardCount">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; tarjeta</item>
-        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; tarjetas</item>
+        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjeta</item>
+        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjetas</item>
     </plurals>
 </resources>

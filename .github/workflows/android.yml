@@ -25,3 +25,9 @@ jobs:
       run: ./gradlew testReleaseUnitTest
     - name: SpotBugs
       run: ./gradlew spotbugs
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-results
+        path: app/build/reports

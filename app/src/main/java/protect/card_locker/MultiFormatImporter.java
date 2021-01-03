@@ -31,32 +31,23 @@ public class MultiFormatImporter
                 break;
         }
 
-        if(importer != null)
+        if (importer != null)
         {
             try
             {
                 importer.importData(db, input);
                 return true;
             }
-            catch(IOException e)
+            catch(IOException | FormatException | InterruptedException e)
             {
-                Log.e(TAG, "Failed to input data", e);
-            }
-            catch(FormatException e)
-            {
-                Log.e(TAG, "Failed to input data", e);
-            }
-            catch(InterruptedException e)
-            {
-                Log.e(TAG, "Failed to input data", e);
+                Log.e(TAG, "Failed to import data", e);
             }
 
-            return false;
         }
         else
         {
             Log.e(TAG, "Unsupported data format imported: " + format.name());
-            return false;
         }
+        return false;
     }
 }

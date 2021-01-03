@@ -224,6 +224,8 @@ public class ImportExportTest
     {
         SQLiteDatabase database = db.getWritableDatabase();
         database.execSQL("delete from " + DBHelper.LoyaltyCardDbIds.TABLE);
+        database.execSQL("delete from " + DBHelper.LoyaltyCardDbGroups.TABLE);
+        database.execSQL("delete from " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
         database.close();
 
         assertEquals(0, db.getLoyaltyCardCount());
@@ -454,6 +456,8 @@ public class ImportExportTest
             assertEquals(false, result);
 
             assertEquals(0, db.getLoyaltyCardCount());
+
+            clearDatabase();
         }
     }
 
@@ -549,6 +553,8 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
+
+        clearDatabase();
     }
 
     @Test
@@ -582,6 +588,8 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
+
+        clearDatabase();
     }
 
     @Test
@@ -606,6 +614,8 @@ public class ImportExportTest
         boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
+
+        clearDatabase();
     }
 
     @Test
@@ -639,6 +649,8 @@ public class ImportExportTest
         assertEquals("", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
+
+        clearDatabase();
     }
 
     @Test
@@ -672,9 +684,9 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(1, card.starStatus);
         assertEquals(1, (long) card.headerColor);
+
+        clearDatabase();
     }
-
-
 
     @Test
     public void importWithNoStarredFieldV1() throws IOException
@@ -707,6 +719,8 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
+
+        clearDatabase();
     }
 
     @Test
@@ -760,5 +774,7 @@ public class ImportExportTest
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
+
+        clearDatabase();
     }
 }

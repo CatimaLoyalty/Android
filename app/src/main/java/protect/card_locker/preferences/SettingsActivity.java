@@ -2,6 +2,7 @@ package protect.card_locker.preferences;
 
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.appcompat.app.ActionBar;
@@ -23,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
         {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         // Display the fragment as the main content.
@@ -55,7 +56,9 @@ public class SettingsActivity extends AppCompatActivity
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
 
-            findPreference(getResources().getString(R.string.settings_key_theme)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
+            Preference themePreference = findPreference(getResources().getString(R.string.settings_key_theme));
+            assert themePreference != null;
+            themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
             {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o)
@@ -73,7 +76,10 @@ public class SettingsActivity extends AppCompatActivity
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     }
 
-                    getActivity().recreate();
+                    FragmentActivity activity = getActivity();
+                    if (activity != null) {
+                        activity.recreate();
+                    }
                     return true;
                 }
             });

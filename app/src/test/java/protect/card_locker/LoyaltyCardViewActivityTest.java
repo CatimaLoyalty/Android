@@ -139,6 +139,8 @@ public class LoyaltyCardViewActivityTest
         }
         assertNotNull(card.headerColor);
         assertNotNull(card.headerTextColor);
+
+        db.close();
     }
 
     /**
@@ -287,6 +289,8 @@ public class LoyaltyCardViewActivityTest
         noteField.setText("note");
         activity.findViewById(R.id.fabSave).performClick();
         assertEquals(0, db.getLoyaltyCardCount());
+
+        db.close();
     }
 
     @Test
@@ -416,6 +420,8 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        db.close();
     }
 
     @Test
@@ -432,6 +438,8 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        db.close();
     }
 
     @Test
@@ -453,6 +461,8 @@ public class LoyaltyCardViewActivityTest
         captureBarcodeWithResult(activity, true);
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", BARCODE_DATA, BARCODE_TYPE);
+
+        db.close();
     }
 
     @Test
@@ -488,6 +498,8 @@ public class LoyaltyCardViewActivityTest
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(false, activity.hasChanged);
         assertEquals(true, activity.isFinishing());
+
+        db.close();
     }
 
     @Test
@@ -512,6 +524,8 @@ public class LoyaltyCardViewActivityTest
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+
+        db.close();
     }
 
     @Test
@@ -550,6 +564,8 @@ public class LoyaltyCardViewActivityTest
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
+
+        db.close();
     }
 
     @Test
@@ -568,6 +584,8 @@ public class LoyaltyCardViewActivityTest
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
+
+        db.close();
     }
 
     @Test
@@ -585,6 +603,8 @@ public class LoyaltyCardViewActivityTest
 
         // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, BARCODE_TYPE, false);
+
+        db.close();
     }
 
     @Test
@@ -602,6 +622,8 @@ public class LoyaltyCardViewActivityTest
 
         // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode), false);
+
+        db.close();
     }
 
     @Test
@@ -629,6 +651,8 @@ public class LoyaltyCardViewActivityTest
 
         // Check if the special NO_BARCODE string doesn't get saved
         saveLoyaltyCardWithArguments(activity, "store", "note", BARCODE_DATA, activity.getApplicationContext().getString(R.string.noBarcode), false);
+
+        db.close();
     }
 
     @Test
@@ -665,6 +689,8 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
+
+        db.close();
     }
 
     @Test
@@ -701,6 +727,8 @@ public class LoyaltyCardViewActivityTest
                 String title = item.getTitle().toString();
                 assertEquals(title, activity.getString(R.string.lockScreen));
             }
+
+            db.close();
         }
     }
 
@@ -731,6 +759,8 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
+
+        db.close();
     }
 
     @Test
@@ -794,6 +824,8 @@ public class LoyaltyCardViewActivityTest
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();
         assertEquals(true, activity.isFinishing());
+
+        db.close();
     }
 
     @Test

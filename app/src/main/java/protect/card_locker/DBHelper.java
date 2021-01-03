@@ -215,6 +215,7 @@ public class DBHelper extends SQLiteOpenHelper
         List<Group> groups = new ArrayList<>();
 
         if (!data.moveToFirst()) {
+            data.close();
             return groups;
         }
 
@@ -223,6 +224,8 @@ public class DBHelper extends SQLiteOpenHelper
         while (data.moveToNext()) {
             groups.add(Group.toGroup(data));
         }
+
+        data.close();
 
         return groups;
     }
@@ -395,6 +398,7 @@ public class DBHelper extends SQLiteOpenHelper
         List<Group> groups = new ArrayList<>();
 
         if (!data.moveToFirst()) {
+            data.close();
             return groups;
         }
 
@@ -403,6 +407,8 @@ public class DBHelper extends SQLiteOpenHelper
         while (data.moveToNext()) {
             groups.add(Group.toGroup(data));
         }
+
+        data.close();
 
         return groups;
     }

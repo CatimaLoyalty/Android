@@ -24,7 +24,7 @@ jobs:
     - name: Run unit tests
       run: ./gradlew testReleaseUnitTest
     - name: SpotBugs
-      run: ./gradlew spotbugs
+      run: ./gradlew spotbugsRelease
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v1

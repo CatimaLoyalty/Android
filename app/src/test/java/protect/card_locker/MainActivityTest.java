@@ -111,6 +111,8 @@ public class MainActivityTest
         assertEquals(1, list.getAdapter().getCount());
         Cursor cursor = (Cursor)list.getAdapter().getItem(0);
         assertNotNull(cursor);
+
+        db.close();
     }
 
     @Test
@@ -161,6 +163,8 @@ public class MainActivityTest
         cursor = (Cursor)list.getAdapter().getItem(3);
         assertNotNull(cursor);
         assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+
+        db.close();
     }
 
     @Test
@@ -209,6 +213,8 @@ public class MainActivityTest
         activityController.pause();
         activityController.resume();
         assertEquals(0, groupTabs.getTabCount());
+
+        db.close();
     }
 
     @Test
@@ -434,5 +440,7 @@ public class MainActivityTest
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(2, list.getCount());
+
+        db.close();
     }
 }

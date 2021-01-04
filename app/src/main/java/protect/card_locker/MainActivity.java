@@ -120,13 +120,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Object group = null;
 
         if (groupsTabLayout.getTabCount() != 0) {
-            TabLayout.Tab tab = groupsTabLayout.getTabAt(0);
-
-            if (selectedTab < groupsTabLayout.getTabCount()) {
-                tab = groupsTabLayout.getTabAt(selectedTab);
+            TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
+            if (tab == null) {
+                tab = groupsTabLayout.getTabAt(0);
             }
 
             groupsTabLayout.selectTab(tab);
+            assert tab != null;
             group = tab.getTag();
         }
         updateLoyaltyCardList(filter, group);
@@ -361,8 +361,13 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                     filter = newText;
 
                     TabLayout groupsTabLayout = findViewById(R.id.groups);
+                    TabLayout.Tab currentTab = groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition());
 
-                    updateLoyaltyCardList(newText, groupsTabLayout.getTabCount() > 0 ? groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition()).getTag() : null);
+                    updateLoyaltyCardList(
+                        newText,
+                        currentTab != null ? currentTab.getTag() : null
+                    );
+
                     return true;
                 }
             });

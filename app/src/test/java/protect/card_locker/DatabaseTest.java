@@ -170,6 +170,8 @@ public class DatabaseTest
         }
 
         assertTrue(cursor.isAfterLast());
+
+        cursor.close();
     }
 
     @Test
@@ -227,6 +229,8 @@ public class DatabaseTest
         }
 
         assertTrue(cursor.isAfterLast());
+
+        cursor.close();
     }
 
     private void setupDatabaseVersion1(SQLiteDatabase database)

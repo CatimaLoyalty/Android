@@ -41,7 +41,7 @@ public class AboutActivity extends AppCompatActivity
                 .put("ZXing", "https://github.com/zxing/zxing")
                 .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
                 .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
-                .put("VNTNumberPickerPreference", "https://github.com/vanniktech/VNTNumberPickerPreference")
+                .put("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference")
                 .build();
 
         final Map<String, String> USED_ASSETS = ImmutableMap.of

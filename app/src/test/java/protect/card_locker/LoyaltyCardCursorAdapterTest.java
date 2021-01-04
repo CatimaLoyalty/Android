@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -93,6 +93,8 @@ public class LoyaltyCardCursorAdapterTest
         View view = createView(cursor);
 
         checkView(view, card.store, card.note, false);
+
+        cursor.close();
     }
 
     @Test
@@ -107,6 +109,8 @@ public class LoyaltyCardCursorAdapterTest
         View view = createView(cursor);
 
         checkView(view, card.store, card.note, false);
+
+        cursor.close();
     }
 
     @Test
@@ -125,6 +129,8 @@ public class LoyaltyCardCursorAdapterTest
         setFontSizes(30, 31);
         view = createView(cursor);
         checkView(view, card.store, card.note, true);
+
+        cursor.close();
     }
 
     @Test
@@ -133,7 +139,6 @@ public class LoyaltyCardCursorAdapterTest
         db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
         db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
         db.insertLoyaltyCard("storeC", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
-
 
         Cursor cursor = db.getLoyaltyCardCursor();
         cursor.moveToFirst();
@@ -150,5 +155,7 @@ public class LoyaltyCardCursorAdapterTest
         view = createView(cursor);
         star = view.findViewById(R.id.star);
         assertEquals(View.GONE, star.getVisibility());
+
+        cursor.close();
     }
 }

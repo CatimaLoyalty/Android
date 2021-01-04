@@ -47,6 +47,8 @@ public class CsvDatabaseImporter implements DatabaseImporter
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
         }
+
+        bufferedReader.close();
     }
 
     public void parseV1(DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
@@ -131,7 +133,6 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
     }
 
-
     public void parseV2Groups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
     {
         // Parse groups
@@ -145,10 +146,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
                     throw new InterruptedException();
                 }
             }
-
-            groupParser.close();
         } catch (IllegalArgumentException | IllegalStateException e) {
             throw new FormatException("Issue parsing CSV data", e);
+        } finally {
+            groupParser.close();
         }
     }
 
@@ -165,10 +166,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
                     throw new InterruptedException();
                 }
             }
-
-            cardParser.close();
         } catch (IllegalArgumentException | IllegalStateException e) {
             throw new FormatException("Issue parsing CSV data", e);
+        } finally {
+            cardParser.close();
         }
     }
 
@@ -185,10 +186,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
                     throw new InterruptedException();
                 }
             }
-
-            cardGroupParser.close();
         } catch (IllegalArgumentException | IllegalStateException e) {
             throw new FormatException("Issue parsing CSV data", e);
+        } finally {
+            cardGroupParser.close();
         }
     }
 

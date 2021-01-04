@@ -23,5 +23,11 @@ jobs:
       run: ./gradlew lintRelease
     - name: Run unit tests
       run: ./gradlew testReleaseUnitTest
-    - name: FindBugs
-      run: ./gradlew findbugs
+    - name: SpotBugs
+      run: ./gradlew spotbugsRelease
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-results
+        path: app/build/reports

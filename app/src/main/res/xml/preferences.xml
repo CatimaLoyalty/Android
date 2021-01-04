@@ -4,52 +4,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/settings_category_title_ui">
+        android:title="@string/settings_category_title_ui"
+        app:iconSpaceReserved="false">
 
         <ListPreference
             android:key="@string/settings_key_theme"
             android:title="@string/settings_theme"
             android:defaultValue="@string/settings_key_system_theme"
             android:entries="@array/theme_value_strings"
-            android:entryValues="@array/theme_values"/>
+            android:entryValues="@array/theme_values"
+            app:iconSpaceReserved="false" />
 
-        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_card_title_list_font_size"
             android:title="@string/settings_card_title_list_font_size"
-            android:defaultValue="@integer/settings_card_title_list_font_size_sp"
-            app:vnt_maxValue="@integer/settings_card_title_list_max_font_size_sp"
-            app:vnt_minValue="@integer/settings_card_title_list_min_font_size_sp" />
+            app:defaultValue="@integer/settings_card_title_list_font_size_sp"
+            app:numberPickerPreference_maxValue="@integer/settings_card_title_list_max_font_size_sp"
+            app:numberPickerPreference_minValue="@integer/settings_card_title_list_min_font_size_sp"
+            app:iconSpaceReserved="false" />
 
-        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_card_note_list_font_size"
             android:title="@string/settings_card_note_list_font_size"
-            android:defaultValue="@integer/settings_card_note_list_font_size_sp"
-            app:vnt_maxValue="@integer/settings_card_note_list_max_font_size_sp"
-            app:vnt_minValue="@integer/settings_card_note_list_min_font_size_sp" />
+            app:defaultValue="@integer/settings_card_note_list_font_size_sp"
+            app:numberPickerPreference_maxValue="@integer/settings_card_note_list_max_font_size_sp"
+            app:numberPickerPreference_minValue="@integer/settings_card_note_list_min_font_size_sp"
+            app:iconSpaceReserved="false" />
 
-        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_card_title_font_size"
             android:title="@string/settings_card_title_font_size"
-            android:defaultValue="@integer/settings_card_title_font_size_sp"
-            app:vnt_maxValue="@integer/settings_card_title_max_font_size_sp"
-            app:vnt_minValue="@integer/settings_card_title_min_font_size_sp"/>
+            app:defaultValue="@integer/settings_card_title_font_size_sp"
+            app:numberPickerPreference_maxValue="@integer/settings_card_title_max_font_size_sp"
+            app:numberPickerPreference_minValue="@integer/settings_card_title_min_font_size_sp"
+            app:iconSpaceReserved="false" />
 
-        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_card_id_font_size"
             android:title="@string/settings_card_id_font_size"
-            android:defaultValue="@integer/settings_card_id_font_size_sp"
-            app:vnt_maxValue="@integer/settings_card_id_max_font_size_sp"
-            app:vnt_minValue="@integer/settings_card_id_min_font_size_sp" />
+            app:defaultValue="@integer/settings_card_id_font_size_sp"
+            app:numberPickerPreference_maxValue="@integer/settings_card_id_max_font_size_sp"
+            app:numberPickerPreference_minValue="@integer/settings_card_id_min_font_size_sp"
+            app:iconSpaceReserved="false" />
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"
-            android:title="@string/settings_display_barcode_max_brightness"/>
+            android:title="@string/settings_display_barcode_max_brightness"
+            app:iconSpaceReserved="false" />
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="@string/settings_key_lock_barcode_orientation"
-            android:title="@string/settings_lock_barcode_orientation"/>
+            android:title="@string/settings_lock_barcode_orientation"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>

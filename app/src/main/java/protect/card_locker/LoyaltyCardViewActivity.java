@@ -73,6 +73,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private Drawable getIcon(int icon, boolean dark)
     {
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
+        assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
         if(dark)
         {
@@ -123,7 +124,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         barcodeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(barcodeIsFullscreen)
+                if (barcodeIsFullscreen)
                 {
                     setFullscreen(false);
                 }

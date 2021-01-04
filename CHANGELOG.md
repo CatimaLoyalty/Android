@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Fix edit button or more info bottom sheet drawing over barcode ID
+
 ## v1.6.1 (2020-12-16)
 
 Changes:

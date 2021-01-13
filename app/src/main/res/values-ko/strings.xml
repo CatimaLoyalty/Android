@@ -60,4 +60,28 @@
 \nCatima는 카드를 장치에 보관하므로 어디서든 사용할 수 있습니다.</string>
     <string name="action_add">추가</string>
     <string name="action_search">검색</string>
+    <string name="copy_to_clipboard_toast">카드 ID를 클립보드에 복사함</string>
+    <string name="importOptionApplicationTitle">외부 앱 사용</string>
+    <string name="importOptionFilesystemExplanation">파일 시스템에서 파일을 선택합니다.</string>
+    <string name="importOptionFilesystemTitle">파일 시스템에서 가져오기</string>
+    <string name="exportFailed">카드를 내보낼 수 없음</string>
+    <string name="importOptionApplicationExplanation">다른 파일 관리자 또는 앱을 사용하여 파일을 엽니다.</string>
+    <string name="exportFailedTitle">내보내기 실패</string>
+    <string name="exportSuccessfulTitle">내보내기 완료</string>
+    <string name="importFailed">카드를 가져올 수 없음</string>
+    <string name="importFailedTitle">가져오기 실패</string>
+    <string name="importSuccessfulTitle">가져오기 완료</string>
+    <string name="noCardIdError">카드 ID를 입력하지 않음</string>
+    <string name="barcodeImageDescription">카드 바코드 이미지</string>
+    <string name="storeName">매장</string>
+    <string name="thumbnailDescription">카드 섬네일</string>
+    <string name="importOptionApplicationButton">외부 앱 사용</string>
+    <string name="failedParsingImportUriError">가져온 URI를 분석할 수 없음</string>
+    <string name="noCardExistsError">카드를 찾을 수 없음</string>
+    <string name="moveUp">목록에서 위로 옮기기</string>
+    <string name="leaveWithoutSaveTitle">저장하지 않고 종료</string>
+    <string name="moveDown">목록에서 아래로 옮기기</string>
+    <string name="noStoreError">매장을 입력하지 않음</string>
+    <string name="starImage">즐겨찾기 별</string>
+    <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
 </resources>

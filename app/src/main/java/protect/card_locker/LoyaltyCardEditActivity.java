@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
@@ -43,6 +44,8 @@ import java.util.List;
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
+
+    TabLayout tabs;
 
     ImageView thumbnail;
     EditText storeFieldEdit;
@@ -107,6 +110,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         db = new DBHelper(this);
         importUriHelper = new ImportURIHelper(this);
 
+        tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
@@ -179,6 +183,25 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s) { }
         });
+
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                showPart(tab.getText().toString());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                showPart(tab.getText().toString());
+            }
+        });
+
+        tabs.selectTab(tabs.getTabAt(0));
     }
 
     @Override
@@ -621,5 +644,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
 
         thumbnail.setMinimumWidth(thumbnail.getHeight());
+    }
+
+    private void showPart(String part) {
+        View cardPart = findViewById(R.id.cardPart);
+        View barcodePart = findViewById(R.id.barcodePart);
+
+        if (getString(R.string.card).equals(part)) {
+            cardPart.setVisibility(View.VISIBLE);
+            barcodePart.setVisibility(View.GONE);
+        } else if (getString(R.string.barcode).equals(part)) {
+            cardPart.setVisibility(View.GONE);
+            barcodePart.setVisibility(View.VISIBLE);
+        } else {
+            throw new UnsupportedOperationException();
+        }
     }
 }

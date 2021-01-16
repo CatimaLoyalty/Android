@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Separate edit UI in tabs to make it feel more spacious
+
 ## v1.6.2 (2021-01-04)
 
 Changes:

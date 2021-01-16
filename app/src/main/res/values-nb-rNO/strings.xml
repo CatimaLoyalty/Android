@@ -103,4 +103,7 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
     </plurals>
     <string name="groupsList">Grupper: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="editBarcode">Rediger strekkode</string>
+    <string name="barcode">Strekkode</string>
+    <string name="card">Kort</string>
 </resources>

@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -250,6 +251,36 @@ public class CsvDatabaseImporter implements DatabaseImporter
     }
 
     /**
+     * Extract a long from the items array. The index into the array
+     * is determined by looking up the index in the fields map using the
+     * "key" as the key. If no such key exists, or the data is not a valid
+     * int, a FormatException is thrown.
+     */
+    private Long extractLong(String key, CSVRecord record, boolean nullIsOk)
+            throws FormatException
+    {
+        if(record.isMapped(key) == false)
+        {
+            throw new FormatException("Field not used but expected: " + key);
+        }
+
+        String value = record.get(key);
+        if(value.isEmpty() && nullIsOk)
+        {
+            return null;
+        }
+
+        try
+        {
+            return Long.parseLong(record.get(key));
+        }
+        catch(NumberFormatException e)
+        {
+            throw new FormatException("Failed to parse field: " + key, e);
+        }
+    }
+
+    /**
      * Import a single loyalty card into the database using the given
      * session.
      */
@@ -265,6 +296,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
 
         String note = extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
+        Date expiry = null;
+        try {
+            expiry = new Date(extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record, true));
+        } catch (NullPointerException | FormatException e) { }
 
         String cardId = extractString(DBHelper.LoyaltyCardDbIds.CARD_ID, record, "");
         if(cardId.isEmpty())
@@ -289,7 +324,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
-        helper.insertLoyaltyCard(database, id, store, note, cardId, barcodeType, headerColor, starStatus);
+        helper.insertLoyaltyCard(database, id, store, note, expiry, cardId, barcodeType, headerColor, starStatus);
     }
 
     /**

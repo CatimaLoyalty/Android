@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.DateFormat;
+
 import protect.card_locker.preferences.Settings;
 
 class LoyaltyCardCursorAdapter extends CursorAdapter
@@ -37,6 +40,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
         TextView storeField = view.findViewById(R.id.store);
         TextView noteField = view.findViewById(R.id.note);
+        TextView expiryField = view.findViewById(R.id.expiry);
         ImageView star = view.findViewById(R.id.star);
 
         // Extract properties from cursor
@@ -56,6 +60,17 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         else
         {
             noteField.setVisibility(View.GONE);
+        }
+
+        if(loyaltyCard.expiry != null)
+        {
+            expiryField.setVisibility(View.VISIBLE);
+            expiryField.setText(context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+            expiryField.setTextSize(settings.getCardNoteListFontSize());
+        }
+        else
+        {
+            expiryField.setVisibility(View.GONE);
         }
 
         if (loyaltyCard.starStatus!=0) star.setVisibility(View.VISIBLE);

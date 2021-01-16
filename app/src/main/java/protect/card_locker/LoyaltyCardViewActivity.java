@@ -32,6 +32,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import protect.card_locker.preferences.Settings;
@@ -45,6 +46,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImageView bottomSheetButton;
     TextView noteView;
     TextView groupsView;
+    TextView expiryView;
     TextView storeName;
     ImageView barcodeImage;
     View collapsingToolbarLayout;
@@ -114,6 +116,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         bottomSheetButton = findViewById(R.id.bottomSheetButton);
         noteView = findViewById(R.id.noteView);
         groupsView = findViewById(R.id.groupsView);
+        expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
         barcodeImage = findViewById(R.id.barcode);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -261,7 +264,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             groupsView.setVisibility(View.GONE);
         }
 
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE) {
+        if(loyaltyCard.expiry != null) {
+            expiryView.setVisibility(View.VISIBLE);
+            expiryView.setText(getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+        }
+        else
+        {
+            expiryView.setVisibility(View.GONE);
+        }
+
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);
         }
         else

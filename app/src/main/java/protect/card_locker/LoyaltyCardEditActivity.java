@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -15,6 +17,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,18 +30,25 @@ import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.zxing.BarcodeFormat;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.io.InvalidObjectException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
@@ -51,9 +61,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
+    AutoCompleteTextView expiryField;
     View cardAndBarcodeLayout;
     TextView cardIdFieldView;
-    View barcodeTypeView;
     AutoCompleteTextView barcodeTypeField;
     ImageView barcodeImage;
     View barcodeImageLayout;
@@ -115,9 +125,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
+        expiryField = findViewById(R.id.expiryField);
         cardAndBarcodeLayout = findViewById(R.id.cardAndBarcodeLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
-        barcodeTypeView = findViewById(R.id.barcodeTypeView);
         barcodeTypeField = findViewById(R.id.barcodeTypeField);
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
@@ -138,6 +148,37 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void afterTextChanged(Editable s) { }
+        });
+
+        expiryField.addTextChangedListener(new TextWatcher() {
+            CharSequence lastValue;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                lastValue = s;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
+                if (s.toString().equals(getString(R.string.never))) {
+                    expiryField.setTag(null);
+                } else if (s.toString().equals(getString(R.string.chooseExpiryDate))) {
+                    expiryField.setText(lastValue);
+                    DialogFragment datePickerFragment = new DatePickerFragment(expiryField);
+                    datePickerFragment.show(getSupportFragmentManager(), "datePicker");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ArrayList<String> expiryList = new ArrayList<>();
+                expiryList.add(0, getString(R.string.never));
+                expiryList.add(1, getString(R.string.chooseExpiryDate));
+                ArrayAdapter<String> expiryAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, expiryList);
+                expiryField.setAdapter(expiryAdapter);
+            }
         });
 
         cardIdFieldView.addTextChangedListener(new TextWatcher() {
@@ -215,6 +256,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         // Reset these fields, so they are re-populated in onResume().
         storeFieldEdit.setText("");
         noteFieldEdit.setText("");
+        expiryField.setTag(null);
+        expiryField.setText("");
         cardIdFieldView.setText("");
         barcodeTypeField.setText("");
     }
@@ -245,6 +288,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(noteFieldEdit.getText().length() == 0)
             {
                 noteFieldEdit.setText(loyaltyCard.note);
+            }
+
+            if(expiryField.getText().length() == 0)
+            {
+                expiryField.setTag(loyaltyCard.expiry);
+                if (loyaltyCard.expiry == null) {
+                    expiryField.setText(getString(R.string.never));
+                } else {
+                    expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry));
+                }
             }
 
             if(cardIdFieldView.getText().length() == 0)
@@ -282,6 +335,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             storeFieldEdit.setText(importCard.store);
             noteFieldEdit.setText(importCard.note);
+            expiryField.setTag(importCard.expiry);
+            if (importCard.expiry != null) {
+                expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(importCard.expiry));
+            } else {
+                expiryField.setText(R.string.never);
+            }
             cardIdFieldView.setText(importCard.cardId);
             barcodeTypeField.setText(importCard.barcodeType);
             headingColorValue = importCard.headerColor;
@@ -473,10 +532,58 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+
+        final EditText expiryFieldEdit;
+
+        DatePickerFragment(EditText expiryFieldEdit) {
+            this.expiryFieldEdit = expiryFieldEdit;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+
+            Date date = (Date) expiryFieldEdit.getTag();
+            if (date != null) {
+                c.setTime(date);
+            }
+
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            Calendar c = Calendar.getInstance();
+            c.set(Calendar.YEAR, year);
+            c.set(Calendar.MONTH, month);
+            c.set(Calendar.DAY_OF_MONTH, day);
+            c.set(Calendar.HOUR, 0);
+            c.set(Calendar.MINUTE, 0);
+            c.set(Calendar.SECOND, 0);
+            c.set(Calendar.MILLISECOND, 0);
+
+            long unixTime = c.getTimeInMillis();
+
+            Date date = new Date(unixTime);
+
+            expiryFieldEdit.setTag(date);
+            expiryFieldEdit.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
+        }
+    }
+
+
     private void doSave()
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
+        Date expiry = (Date) expiryField.getTag();
         String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 
@@ -508,12 +615,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, cardId, barcodeType, headingColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, cardId, barcodeType, headingColorValue);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, cardId, barcodeType, headingColorValue, 0);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, cardId, barcodeType, headingColorValue, 0);
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);

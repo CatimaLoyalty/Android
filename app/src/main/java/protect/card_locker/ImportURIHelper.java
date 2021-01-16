@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import java.io.InvalidObjectException;
+import java.util.Date;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
+    private static final String EXPIRY = DBHelper.LoyaltyCardDbIds.EXPIRY;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
 
@@ -45,6 +47,7 @@ public class ImportURIHelper {
 
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
+            long expiry = Long.parseLong(uri.getQueryParameter(EXPIRY));
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
@@ -55,7 +58,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, cardId, barcodeType, headerColor, headerTextColor, 0);
+            return new LoyaltyCard(-1, store, note, new Date(expiry), cardId, barcodeType, headerColor, headerTextColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -69,6 +72,7 @@ public class ImportURIHelper {
         uriBuilder.path(path);
         uriBuilder.appendQueryParameter(STORE, loyaltyCard.store);
         uriBuilder.appendQueryParameter(NOTE, loyaltyCard.note);
+        uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
         uriBuilder.appendQueryParameter(CARD_ID, loyaltyCard.cardId);
         uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
         if(loyaltyCard.headerColor != null)

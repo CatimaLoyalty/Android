@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
 
     static class LoyaltyCardDbGroups
     {
@@ -28,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String TABLE = "cards";
         public static final String ID = "_id";
         public static final String STORE = "store";
+        public static final String EXPIRY = "expiry";
         public static final String NOTE = "note";
         public static final String HEADER_COLOR = "headercolor";
         public static final String HEADER_TEXT_COLOR = "headertextcolor";
@@ -61,6 +63,7 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.ID + " INTEGER primary key autoincrement," +
                 LoyaltyCardDbIds.STORE + " TEXT not null," +
                 LoyaltyCardDbIds.NOTE + " TEXT not null," +
+                LoyaltyCardDbIds.EXPIRY + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
@@ -118,16 +121,23 @@ public class DBHelper extends SQLiteOpenHelper
             db.execSQL("ALTER TABLE " + LoyaltyCardDbGroups.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0'");
         }
+
+        if(oldVersion < 7 && newVersion >= 7)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.EXPIRY + " INTEGER");
+        }
     }
 
-    public long insertLoyaltyCard(final String store, final String note, final String cardId,
-                                  final String barcodeType, final Integer headerColor,
-                                  final int starStatus)
+    public long insertLoyaltyCard(final String store, final String note, final Date expiry,
+                                  final String cardId, final String barcodeType,
+                                  final Integer headerColor, final int starStatus)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -138,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
-                                     final String note, final String cardId,
+                                     final String note, final Date expiry, final String cardId,
                                      final String barcodeType, final Integer headerColor,
                                      final int starStatus)
     {
@@ -146,6 +156,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.ID, id);
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -156,13 +167,14 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
-                                     final String cardId, final String barcodeType,
-                                     final Integer headerColor)
+                                     final Date expiry, final String cardId,
+                                     final String barcodeType, final Integer headerColor)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
+        contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);

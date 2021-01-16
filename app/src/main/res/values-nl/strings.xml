@@ -103,4 +103,7 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaarten</item>
     </plurals>
     <string name="groupsList">Groepen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="editBarcode">Barcode aanpassen</string>
+    <string name="barcode">Barcode</string>
+    <string name="card">Kaart</string>
 </resources>

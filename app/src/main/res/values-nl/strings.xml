@@ -106,4 +106,8 @@
     <string name="editBarcode">Barcode aanpassen</string>
     <string name="barcode">Barcode</string>
     <string name="card">Kaart</string>
+    <string name="chooseExpiryDate">Kies een vervaldatum</string>
+    <string name="never">Nooit</string>
+    <string name="expiryDate">Vervaldatum</string>
+    <string name="expiryStateSentence">Vervalt op &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
 </resources>

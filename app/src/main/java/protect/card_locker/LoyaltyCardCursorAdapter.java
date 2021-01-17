@@ -68,7 +68,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
             expiryField.setVisibility(View.VISIBLE);
             int expiryString = R.string.expiryStateSentence;
             if(Utils.hasExpired(loyaltyCard.expiry)) {
-                expiryString = R.string.expiryStateSentence;
+                expiryString = R.string.expiryStateSentenceExpired;
                 expiryField.setTextColor(context.getResources().getColor(R.color.alert));
             }
             expiryField.setText(context.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));

@@ -229,6 +229,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
+            @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
             public void onTabSelected(TabLayout.Tab tab) {
                 showPart(tab.getText().toString());
             }
@@ -239,6 +240,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
 
             @Override
+            @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
             public void onTabReselected(TabLayout.Tab tab) {
                 showPart(tab.getText().toString());
             }

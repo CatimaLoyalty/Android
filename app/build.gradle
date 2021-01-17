@@ -68,6 +68,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.2.1'
+    implementation 'io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0'
 
 // Third-party
     implementation 'com.journeyapps:zxing-android-embedded:4.1.0@aar'

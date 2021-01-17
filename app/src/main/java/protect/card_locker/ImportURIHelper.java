@@ -53,7 +53,7 @@ public class ImportURIHelper {
             if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
 
             String unparsedExpiry = uri.getQueryParameter(EXPIRY);
-            if(unparsedExpiry != null && unparsedExpiry != "")
+            if(unparsedExpiry != null && !unparsedExpiry.equals(""))
             {
                 expiry = new Date(Long.parseLong(unparsedExpiry));
             }

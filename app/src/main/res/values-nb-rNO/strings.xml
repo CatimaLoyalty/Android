@@ -110,4 +110,5 @@
     <string name="chooseExpiryDate">Velg utløpsdato</string>
     <string name="never">Aldri</string>
     <string name="expiryDate">Utløpsdato</string>
+    <string name="expiryStateSentenceExpired">Utløpt: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
 </resources>

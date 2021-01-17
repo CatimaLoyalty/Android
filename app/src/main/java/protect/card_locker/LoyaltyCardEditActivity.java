@@ -165,7 +165,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 if (s.toString().equals(getString(R.string.never))) {
                     expiryField.setTag(null);
                 } else if (s.toString().equals(getString(R.string.chooseExpiryDate))) {
-                    expiryField.setText(lastValue);
+                    if (!lastValue.toString().equals(getString(R.string.chooseExpiryDate))) {
+                        expiryField.setText(lastValue);
+                    };
                     DialogFragment datePickerFragment = new DatePickerFragment(expiryField);
                     datePickerFragment.show(getSupportFragmentManager(), "datePicker");
                 }

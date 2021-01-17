@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.annotation.LooperMode;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -496,6 +497,7 @@ public class ImportExportTest
     }
 
     @Test
+    @LooperMode(LooperMode.Mode.LEGACY)
     public void useImportExportTask() throws FileNotFoundException
     {
         final int NUM_CARDS = 10;

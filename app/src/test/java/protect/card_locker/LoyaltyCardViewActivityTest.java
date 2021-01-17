@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
@@ -7,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -28,6 +30,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.widget.TextViewCompat;
 import androidx.test.core.app.ApplicationProvider;
+
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Intents;
 import java.io.IOException;
@@ -42,6 +47,8 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowAlertDialog;
+import org.robolectric.shadows.ShadowDialog;
 import org.robolectric.shadows.ShadowLog;
 
 @RunWith(RobolectricTestRunner.class)
@@ -114,7 +121,7 @@ public class LoyaltyCardViewActivityTest
 
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
-        final EditText expiryView = activity.findViewById(R.id.expiryView);
+        final TextInputLayout expiryView = activity.findViewById(R.id.expiryView);
         final TextView cardIdField = activity.findViewById(R.id.cardIdView);
         final TextView barcodeTypeField = activity.findViewById(R.id.barcodeTypeField);
 
@@ -232,8 +239,13 @@ public class LoyaltyCardViewActivityTest
         assertEquals(visibility, view.getVisibility());
         if(contents != null)
         {
-            TextView textView = (TextView)view;
-            assertEquals(contents, textView.getText().toString());
+            try {
+                TextView textView = (TextView) view;
+                assertEquals(contents, textView.getText().toString());
+            } catch (ClassCastException e) {
+                TextInputLayout textView = (TextInputLayout) view;
+                assertEquals(contents, textView.getEditText().getText().toString());
+            }
         }
     }
 
@@ -531,9 +543,18 @@ public class LoyaltyCardViewActivityTest
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         // Set date to today
-        activity.findViewById(R.id.expiryField).performClick();
+        MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
+        expiryField.setText(expiryField.getAdapter().getItem(1).toString(), false);
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(new Date())), BARCODE_DATA, BARCODE_TYPE);
+        shadowOf(getMainLooper()).idle();
+
+        DatePickerDialog datePickerDialog = (DatePickerDialog) (ShadowDialog.getLatestDialog());
+        assertNotNull(datePickerDialog);
+        datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).performClick();
+
+        shadowOf(getMainLooper()).idle();
+
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         db.close();
     }
@@ -552,12 +573,13 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(new Date())), EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
-        // Set date to today
-        activity.findViewById(R.id.expiryField).performClick();
+        // Set date to never
+        MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
+        expiryField.setText(expiryField.getAdapter().getItem(0).toString(), false);
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), BARCODE_DATA, BARCODE_TYPE);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         db.close();
     }
@@ -816,9 +838,11 @@ public class LoyaltyCardViewActivityTest
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
         shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        shadowOf(getMainLooper()).idle();
         assertEquals("Remove from favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
         shadowOf(activity).clickMenuItem(R.id.action_star_unstar);
+        shadowOf(getMainLooper()).idle();
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
         db.close();
@@ -892,7 +916,9 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void importCard()
     {
-        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+        Date date = new Date();
+
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
         intent.setData(importUri);
@@ -906,7 +932,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         final Context context = ApplicationProvider.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.never), "123456", "AZTEC");
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), "123456", "AZTEC");
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 

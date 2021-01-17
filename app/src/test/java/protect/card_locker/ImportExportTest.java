@@ -26,6 +26,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -70,7 +71,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 0);
+            long id = db.insertLoyaltyCard(storeName, note, null, BARCODE_DATA, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -86,7 +87,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 1);
+            long id = db.insertLoyaltyCard(storeName, note, null, BARCODE_DATA, BARCODE_TYPE, index, 1);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -95,11 +96,34 @@ public class ImportExportTest
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = db.insertLoyaltyCard(storeName, note, BARCODE_DATA, BARCODE_TYPE, index, 0);
+            long id = db.insertLoyaltyCard(storeName, note, null, BARCODE_DATA, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
         assertEquals(cardsToAdd, db.getLoyaltyCardCount());
+    }
+
+    private void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
+    {
+        long id = db.insertLoyaltyCard("No Expiry", "", null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        boolean result = (id != -1);
+        assertTrue(result);
+
+        id = db.insertLoyaltyCard("Past", "", new Date((long) 1), BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        result = (id != -1);
+        assertTrue(result);
+
+        id = db.insertLoyaltyCard("Today", "", new Date(), BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        result = (id != -1);
+        assertTrue(result);
+
+        // This will break after 19 January 2038
+        // If someone is still maintaining this code base by then: I love you
+        id = db.insertLoyaltyCard("Future", "", new Date(2147483648L), BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        result = (id != -1);
+        assertTrue(result);
+
+        assertEquals(4, db.getLoyaltyCardCount());
     }
 
     private void addGroups(int groupsToAdd)
@@ -549,6 +573,7 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -584,6 +609,7 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -645,6 +671,7 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -680,6 +707,7 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(1, card.starStatus);
@@ -715,6 +743,7 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -770,11 +799,60 @@ public class ImportExportTest
 
         assertEquals("store", card.store);
         assertEquals("note", card.note);
+        assertEquals(null, card.expiry);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
 
         clearDatabase();
+    }
+
+
+    private void checkLoyaltyCardsExpiry()
+    {
+        Cursor cursor = db.getLoyaltyCardCursor();
+        cursor.moveToNext();
+        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("Never", card.store);
+        assertEquals("", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
+        cursor.moveToNext();
+        card = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("Past", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.before(new Date()));
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
+        cursor.moveToNext();
+        card = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("Today", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.before(new Date(new Date().getTime()+86400)));
+        assertTrue(card.expiry.after(new Date(new Date().getTime()-86400)));
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
+        cursor.moveToNext();
+        card = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("Future", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.after(new Date(new Date().getTime()+86400)));
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
+        cursor.close();
     }
 }

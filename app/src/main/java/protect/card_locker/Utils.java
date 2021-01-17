@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import androidx.core.graphics.ColorUtils;
 
 public class Utils {
@@ -60,5 +64,17 @@ public class Utils {
         Log.i(TAG, "Read format: " + format);
 
         return new BarcodeValues(format, contents);
+    }
+
+    static public Boolean hasExpired(Date expiryDate) {
+        // today
+        Calendar date = new GregorianCalendar();
+        // reset hour, minutes, seconds and millis
+        date.set(Calendar.HOUR_OF_DAY, 0);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
+
+        return expiryDate.before(date.getTime());
     }
 }

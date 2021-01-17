@@ -348,6 +348,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         else
         {
             setTitle(R.string.addCardTitle);
+            expiryField.setTag(null);
+            expiryField.setText(getString(R.string.never));
             hideBarcode();
         }
 

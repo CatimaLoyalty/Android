@@ -33,6 +33,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
 import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import protect.card_locker.preferences.Settings;
@@ -266,12 +267,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(loyaltyCard.expiry != null) {
             expiryView.setVisibility(View.VISIBLE);
-            expiryView.setText(getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+
+            int expiryString = R.string.expiryStateSentence;
+            if(Utils.hasExpired(loyaltyCard.expiry)) {
+                expiryString = R.string.expiryStateSentenceExpired;
+                expiryView.setTextColor(getResources().getColor(R.color.alert));
+            }
+            expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
         }
         else
         {
             expiryView.setVisibility(View.GONE);
         }
+        expiryView.setTag(loyaltyCard.expiry);
 
         if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 import protect.card_locker.preferences.Settings;
 
@@ -65,7 +66,12 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         if(loyaltyCard.expiry != null)
         {
             expiryField.setVisibility(View.VISIBLE);
-            expiryField.setText(context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+            int expiryString = R.string.expiryStateSentence;
+            if(Utils.hasExpired(loyaltyCard.expiry)) {
+                expiryString = R.string.expiryStateSentence;
+                expiryField.setTextColor(context.getResources().getColor(R.color.alert));
+            }
+            expiryField.setText(context.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
             expiryField.setTextSize(settings.getCardNoteListFontSize());
         }
         else

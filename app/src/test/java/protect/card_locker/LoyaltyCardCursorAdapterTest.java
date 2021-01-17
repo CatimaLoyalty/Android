@@ -1,10 +1,13 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import androidx.preference.PreferenceManager;
+import androidx.test.core.app.ApplicationProvider;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +20,9 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -54,10 +60,11 @@ public class LoyaltyCardCursorAdapterTest
         return view;
     }
 
-    private void checkView(final View view, final String store, final String note, boolean checkFontSizes)
+    private void checkView(final View view, final String store, final String note, final String expiry, boolean checkFontSizes)
     {
         final TextView storeField = view.findViewById(R.id.store);
         final TextView noteField = view.findViewById(R.id.note);
+        final TextView expiryField = view.findViewById(R.id.expiry);
 
         if(checkFontSizes)
         {
@@ -66,6 +73,7 @@ public class LoyaltyCardCursorAdapterTest
 
             assertEquals(storeFontSize, (int)storeField.getTextSize());
             assertEquals(noteFontSize, (int)noteField.getTextSize());
+            assertEquals(noteFontSize, (int)expiryField.getTextSize());
         }
 
         assertEquals(store, storeField.getText().toString());
@@ -78,13 +86,23 @@ public class LoyaltyCardCursorAdapterTest
         {
             assertEquals(View.GONE, noteField.getVisibility());
         }
+
+        if(expiry.isEmpty() == false)
+        {
+            assertEquals(View.VISIBLE, expiryField.getVisibility());
+            assertEquals(expiry, expiryField.getText().toString());
+        }
+        else
+        {
+            assertEquals(View.GONE, expiryField.getVisibility());
+        }
     }
 
 
     @Test
     public void TestCursorAdapterEmptyNote()
     {
-        db.insertLoyaltyCard("store", "", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -92,7 +110,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, false);
+        checkView(view, card.store, card.note, "", false);
 
         cursor.close();
     }
@@ -100,7 +118,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterWithNote()
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -108,7 +126,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, false);
+        checkView(view, card.store, card.note, "", false);
 
         cursor.close();
     }
@@ -116,7 +134,11 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterFontSizes()
     {
-        db.insertLoyaltyCard("store", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        final Context context = ApplicationProvider.getApplicationContext();
+        Date expiryDate = new Date();
+        String dateString = context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate));
+
+        db.insertLoyaltyCard("store", "note", expiryDate, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -124,11 +146,12 @@ public class LoyaltyCardCursorAdapterTest
 
         setFontSizes(1, 2);
         View view = createView(cursor);
-        checkView(view, card.store, card.note, true);
+
+        checkView(view, card.store, card.note, dateString, true);
 
         setFontSizes(30, 31);
         view = createView(cursor);
-        checkView(view, card.store, card.note, true);
+        checkView(view, card.store, card.note, dateString, true);
 
         cursor.close();
     }
@@ -136,9 +159,9 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterStarring()
     {
-        db.insertLoyaltyCard("storeA", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
-        db.insertLoyaltyCard("storeB", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
-        db.insertLoyaltyCard("storeC", "note", "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
+        db.insertLoyaltyCard("storeA", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("storeB", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
+        db.insertLoyaltyCard("storeC", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
         cursor.moveToFirst();

@@ -11,6 +11,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import java.io.InvalidObjectException;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -35,7 +36,9 @@ public class ImportURITest {
     public void ensureNoDataLoss() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
+        Date date = new Date();
+
+        db.insertLoyaltyCard("store", "note", date, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -51,6 +54,7 @@ public class ImportURITest {
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.headerColor, parsedCard.headerColor);
         assertEquals(card.note, parsedCard.note);
+        assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.store, parsedCard.store);
         // No export of starStatus for single cards foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -60,7 +64,7 @@ public class ImportURITest {
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
+        db.insertLoyaltyCard("store", "note", null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -75,6 +79,7 @@ public class ImportURITest {
         assertEquals(card.barcodeType, parsedCard.barcodeType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.note, parsedCard.note);
+        assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.store, parsedCard.store);
         assertNull(parsedCard.headerColor);
         assertNull(parsedCard.headerTextColor);

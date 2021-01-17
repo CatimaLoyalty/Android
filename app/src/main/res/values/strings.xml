@@ -133,6 +133,8 @@
     <string name="addManually">Manually enter card ID</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
+
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
     <string name="editBarcode">Edit barcode</string>

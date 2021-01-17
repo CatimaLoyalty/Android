@@ -42,23 +42,28 @@ public class ImportURIHelper {
 
         try {
             // These values are allowed to be null
+            Date expiry = null;
             Integer headerColor = null;
             Integer headerTextColor = null;
 
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
-            long expiry = Long.parseLong(uri.getQueryParameter(EXPIRY));
             String cardId = uri.getQueryParameter(CARD_ID);
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
 
+            String unparsedExpiry = uri.getQueryParameter(EXPIRY);
+            if(unparsedExpiry != null && unparsedExpiry != "")
+            {
+                expiry = new Date(Long.parseLong(unparsedExpiry));
+            }
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)
             {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, new Date(expiry), cardId, barcodeType, headerColor, headerTextColor, 0);
+            return new LoyaltyCard(-1, store, note, expiry, cardId, barcodeType, headerColor, headerTextColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -72,7 +77,9 @@ public class ImportURIHelper {
         uriBuilder.path(path);
         uriBuilder.appendQueryParameter(STORE, loyaltyCard.store);
         uriBuilder.appendQueryParameter(NOTE, loyaltyCard.note);
-        uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
+        if (loyaltyCard.expiry != null) {
+            uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
+        }
         uriBuilder.appendQueryParameter(CARD_ID, loyaltyCard.cardId);
         uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
         if(loyaltyCard.headerColor != null)

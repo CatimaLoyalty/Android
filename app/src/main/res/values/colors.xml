@@ -16,4 +16,6 @@
     <color name="inputDividerBorder">#AAAAAA</color>
 
     <color name="iconColor">#000000</color>
+
+    <color name="alert">#FF0000</color>
 </resources>

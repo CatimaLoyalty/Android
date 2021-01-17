@@ -62,8 +62,8 @@
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
-    <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse</string>
-    <string name="settings_card_note_list_font_size">Skriftstørrelse for kortmerknadsliste</string>
+    <string name="settings_card_title_list_font_size">Korttittelskriftstørrelse (listemodus)</string>
+    <string name="settings_card_note_list_font_size">Skriftstørrelse for kortmerknadsliste (listemodus)</string>
     <string name="settings_card_title_font_size">Skriftstørrelse for korttittel (forhåndsvisning)</string>
     <string name="settings_card_id_font_size">Skriftstørrelse for kort-ID</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
@@ -106,4 +106,8 @@
     <string name="editBarcode">Rediger strekkode</string>
     <string name="barcode">Strekkode</string>
     <string name="card">Kort</string>
+    <string name="expiryStateSentence">Utløper: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="chooseExpiryDate">Velg utløpsdato</string>
+    <string name="never">Aldri</string>
+    <string name="expiryDate">Utløpsdato</string>
 </resources>

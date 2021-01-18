@@ -774,7 +774,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             barcodePart.setVisibility(View.VISIBLE);
 
             // Redraw barcode due to size change (Visibility.GONE sets it to 0)
-            generateBarcode(cardIdFieldView.getText().toString(), BarcodeFormat.valueOf(barcodeTypeField.getText().toString()));
+            String formatString = barcodeTypeField.getText().toString();
+            if (formatString.isEmpty() || formatString.equals(getString(R.string.noBarcode))) {
+                hideBarcode();
+            } else {
+                generateBarcode(cardIdFieldView.getText().toString(), BarcodeFormat.valueOf(formatString));
+            }
         } else {
             throw new UnsupportedOperationException();
         }

@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased
+## v1.7.1 (2021-01-18)
+
+Changes:
+
+- Fix crash on switching to barcode tab in edit view if there is no barcode
+
+## v1.7.0 (2021-01-18)
 
 Changes:
 

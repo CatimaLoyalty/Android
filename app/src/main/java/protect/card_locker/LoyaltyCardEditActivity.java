@@ -766,9 +766,15 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);
             barcodePart.setVisibility(View.GONE);
+
+            // Explicitly hide barcode (fixes blurriness on redraw)
+            hideBarcode();
         } else if (getString(R.string.barcode).equals(part)) {
             cardPart.setVisibility(View.GONE);
             barcodePart.setVisibility(View.VISIBLE);
+
+            // Redraw barcode due to size change (Visibility.GONE sets it to 0)
+            generateBarcode(cardIdFieldView.getText().toString(), BarcodeFormat.valueOf(barcodeTypeField.getText().toString()));
         } else {
             throw new UnsupportedOperationException();
         }

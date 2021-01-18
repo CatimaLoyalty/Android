@@ -110,5 +110,5 @@
     <string name="never">Nooit</string>
     <string name="expiryDate">Vervaldatum</string>
     <string name="expiryStateSentence">Vervalt op <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Verlopen: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentenceExpired">Verlopen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
 </resources>

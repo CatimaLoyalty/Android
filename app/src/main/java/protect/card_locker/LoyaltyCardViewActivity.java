@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.appcompat.app.ActionBar;
@@ -24,7 +25,9 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +36,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 import protect.card_locker.preferences.Settings;
@@ -43,13 +45,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private static final String TAG = "Catima";
 
     TextView cardIdFieldView;
+    BottomSheetBehavior behavior;
     View bottomSheet;
     ImageView bottomSheetButton;
     TextView noteView;
     TextView groupsView;
     TextView expiryView;
     TextView storeName;
+    ImageButton maximizeButton;
     ImageView barcodeImage;
+    ImageButton minimizeButton;
     View collapsingToolbarLayout;
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
@@ -61,10 +66,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     String cardIdString;
     BarcodeFormat format;
 
+    FloatingActionButton editButton;
+
+    Guideline centerGuideline;
+    SeekBar barcodeScaler;
+
     boolean starred;
     boolean backgroundNeedsDarkIcons;
     boolean barcodeIsFullscreen = false;
-    ViewGroup.LayoutParams barcodeImageState;
 
     private void extractIntentFields(Intent intent)
     {
@@ -119,41 +128,66 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         groupsView = findViewById(R.id.groupsView);
         expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
+        maximizeButton = findViewById(R.id.maximizeButton);
         barcodeImage = findViewById(R.id.barcode);
+        minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+
+        centerGuideline = findViewById(R.id.centerGuideline);
+        centerGuideline.setGuidelinePercent(0.5f);
+        barcodeScaler = findViewById(R.id.barcodeScaler);
+        barcodeScaler.setProgress(100);
+        barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Log.d(TAG, "Progress is " + progress);
+                Log.d(TAG, "Max is " + barcodeScaler.getMax());
+                float scale = (float) progress / (float) barcodeScaler.getMax();
+                Log.d(TAG, "Scaling to " + scale);
+
+                redrawBarcodeAfterResize();
+                centerGuideline.setGuidelinePercent(0.5f * scale);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         rotationEnabled = true;
 
         // Allow making barcode fullscreen on tap
-        barcodeImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (barcodeIsFullscreen)
-                {
-                    setFullscreen(false);
-                }
-                else
-                {
-                    setFullscreen(true);
-                }
+        maximizeButton.setOnClickListener(v -> setFullscreen(true));
+        barcodeImage.setOnClickListener(view -> {
+            if (barcodeIsFullscreen)
+            {
+                setFullscreen(false);
+            }
+            else
+            {
+                setFullscreen(true);
             }
         });
+        minimizeButton.setOnClickListener(v -> setFullscreen(false));
 
-        final FloatingActionButton editButton = findViewById(R.id.fabEdit);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", loyaltyCardId);
-                bundle.putBoolean("update", true);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
-            }
+        editButton = findViewById(R.id.fabEdit);
+        editButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("id", loyaltyCardId);
+            bundle.putBoolean("update", true);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
         });
 
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -172,14 +206,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             public void onSlide(@NonNull View bottomSheet, float slideOffset) { }
         });
 
-        bottomSheetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
-                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                } else {
-                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
+        bottomSheetButton.setOnClickListener(v -> {
+            if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            } else {
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
     }
@@ -199,15 +230,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
-
-        if(barcodeIsFullscreen)
-        {
-            // Completely reset state
-            //
-            // This prevents the barcode from taking up the entire screen
-            // on resume and thus being stretched out of proportion.
-            recreate();
-        }
 
         // The brightness value is on a scale from [0, ..., 1], where
         // '1' is the brightest. We attempt to maximize the brightness
@@ -281,12 +303,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         expiryView.setTag(loyaltyCard.expiry);
 
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
-            bottomSheet.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            bottomSheet.setVisibility(View.GONE);
+        if (!barcodeIsFullscreen) {
+            makeBottomSheetVisibleIfUseful();
         }
 
         storeName.setText(loyaltyCard.store);
@@ -338,24 +356,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(format != null)
         {
-            findViewById(R.id.barcode).setVisibility(View.VISIBLE);
+            if (!barcodeIsFullscreen) {
+                maximizeButton.setVisibility(View.VISIBLE);
+            }
+            barcodeImage.setVisibility(View.VISIBLE);
             if(barcodeImage.getHeight() == 0)
             {
                 Log.d(TAG, "ImageView size is not known known at start, waiting for load");
                 // The size of the ImageView is not yet available as it has not
                 // yet been drawn. Wait for it to be drawn so the size is available.
-                barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                        new ViewTreeObserver.OnGlobalLayoutListener()
-                        {
-                            @Override
-                            public void onGlobalLayout()
-                            {
-                                barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                                Log.d(TAG, "ImageView size now known");
-                                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                            }
-                        });
+                redrawBarcodeAfterResize();
             }
             else
             {
@@ -365,8 +375,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         else
         {
-            findViewById(R.id.barcode).setVisibility(View.GONE);
+            maximizeButton.setVisibility(View.GONE);
+            barcodeImage.setVisibility(View.GONE);
         }
+
+        Log.d(TAG, String.valueOf(bottomSheet.getTop()));
     }
 
     @Override
@@ -473,6 +486,33 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
     }
 
+    private void makeBottomSheetVisibleIfUseful()
+    {
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
+            bottomSheet.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            bottomSheet.setVisibility(View.GONE);
+        }
+    }
+
+    private void redrawBarcodeAfterResize()
+    {
+        barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener()
+                {
+                    @Override
+                    public void onGlobalLayout()
+                    {
+                        barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                        Log.d(TAG, "ImageView size now known");
+                        new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                    }
+                });
+    }
+
     /**
      * When enabled, hides the status bar and moves the barcode to the top of the screen.
      *
@@ -484,8 +524,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if(enable && !barcodeIsFullscreen)
         {
-            // Save previous barcodeImage state
-            barcodeImageState = barcodeImage.getLayoutParams();
+            // Prepare redraw after size change
+            redrawBarcodeAfterResize();
+
+            // Hide maximize and show minimize button and scaler
+            maximizeButton.setVisibility(View.GONE);
+            minimizeButton.setVisibility(View.VISIBLE);
+            barcodeScaler.setVisibility(View.VISIBLE);
 
             // Hide actionbar
             if(actionBar != null)
@@ -496,30 +541,36 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Hide collapsingToolbar
             collapsingToolbarLayout.setVisibility(View.GONE);
 
+            // Hide other UI elements
+            cardIdFieldView.setVisibility(View.GONE);
+            bottomSheet.setVisibility(View.GONE);
+            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            Log.d(TAG, String.valueOf(bottomSheet.getTop()));
+            editButton.hide();
+
             // Set Android to fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
-                getWindow().getDecorView().getSystemUiVisibility()
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    getWindow().getDecorView().getSystemUiVisibility()
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
             );
-
-            // Make barcode take all space
-            barcodeImage.setLayoutParams(new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.MATCH_PARENT
-            ));
-
-            // Move barcode to top
-            barcodeImage.setScaleType(ImageView.ScaleType.FIT_START);
-
-            // Prevent centering
-            barcodeImage.setAdjustViewBounds(false);
 
             // Set current state
             barcodeIsFullscreen = true;
         }
         else if(!enable && barcodeIsFullscreen)
         {
+            // Reset center guideline
+            barcodeScaler.setProgress(100);
+
+            // Prepare redraw after size change
+            redrawBarcodeAfterResize();
+
+            // Show maximize and hide minimize button and scaler
+            maximizeButton.setVisibility(View.VISIBLE);
+            minimizeButton.setVisibility(View.GONE);
+            barcodeScaler.setVisibility(View.GONE);
+
             // Show actionbar
             if(actionBar != null)
             {
@@ -529,18 +580,23 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Show collapsingToolbar
             collapsingToolbarLayout.setVisibility(View.VISIBLE);
 
+            // Show other UI elements
+            cardIdFieldView.setVisibility(View.VISIBLE);
+            makeBottomSheetVisibleIfUseful();
+            Log.d(TAG, String.valueOf(bottomSheet.getTop()));
+            editButton.show();
+
             // Unset fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
-                getWindow().getDecorView().getSystemUiVisibility()
-                & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+                    getWindow().getDecorView().getSystemUiVisibility()
+                            & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            & ~View.SYSTEM_UI_FLAG_FULLSCREEN
             );
 
-            // Turn barcode back to normal
-            barcodeImage.setLayoutParams(barcodeImageState);
-
-            // Fix barcode centering
-            barcodeImage.setAdjustViewBounds(true);
+            // FIXME: Figure out why the bottom sheet gets paddingTop 24px sometimes
+            // For some reason bottom sheet can get a 24px padding top after we enter and then leave fullscreen mode
+            // No clue why
+            // Android library bug?
 
             // Set current state
             barcodeIsFullscreen = false;

@@ -141,4 +141,6 @@
     <string name="expiryDate">Expiry date</string>
     <string name="never">Never</string>
     <string name="chooseExpiryDate">Choose expiry date</string>
+    <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
+    <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
 </resources>

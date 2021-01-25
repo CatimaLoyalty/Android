@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Add support for scaling the barcode when moving to top to fit even more small scanners
+
 ## v1.7.1 (2021-01-18)
 
 Changes:

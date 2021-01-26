@@ -889,6 +889,7 @@ public class LoyaltyCardViewActivityTest
 
         // Click barcode to toggle fullscreen
         barcodeImage.performClick();
+        shadowOf(getMainLooper()).idle();
 
         // Android should be in fullscreen mode
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
@@ -905,6 +906,7 @@ public class LoyaltyCardViewActivityTest
 
         // Clicking barcode again should deactivate fullscreen mode
         barcodeImage.performClick();
+        shadowOf(getMainLooper()).idle();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
@@ -917,6 +919,7 @@ public class LoyaltyCardViewActivityTest
 
         // Another click back to fullscreen
         barcodeImage.performClick();
+        shadowOf(getMainLooper()).idle();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
@@ -929,13 +932,20 @@ public class LoyaltyCardViewActivityTest
 
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();
+        shadowOf(getMainLooper()).idle();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
+        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, editButton.getVisibility());
+        assertEquals(View.GONE, barcodeScaler.getVisibility());
 
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();
+        shadowOf(getMainLooper()).idle();
         assertEquals(true, activity.isFinishing());
 
         db.close();

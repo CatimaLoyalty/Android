@@ -6,8 +6,7 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabEdit"
@@ -138,9 +137,10 @@
         android:orientation="vertical"
         android:visibility="gone"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="80dp"
+        app:behavior_peekHeight="104dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        tools:visibility="visible">
+        tools:visibility="visible"
+        android:fitsSystemWindows="true">
 
         <ImageButton
             android:id="@+id/bottomSheetButton"
@@ -155,7 +155,7 @@
         <TextView
             android:id="@+id/noteView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
@@ -166,7 +166,7 @@
         <TextView
             android:id="@+id/groupsView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
@@ -177,7 +177,7 @@
         <TextView
             android:id="@+id/expiryView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
@@ -203,6 +203,7 @@
             android:layout_height="wrap_content"
             android:minHeight="56.0dip"
             android:layout_weight="1.0"
+            android:paddingTop="24dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
             app:contentScrim="?colorPrimary"

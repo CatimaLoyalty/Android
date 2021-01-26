@@ -26,11 +26,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.core.widget.TextViewCompat;
 import androidx.test.core.app.ApplicationProvider;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.zxing.BarcodeFormat;
@@ -865,14 +868,24 @@ public class LoyaltyCardViewActivityTest
 
         ImageView barcodeImage = activity.findViewById(R.id.barcode);
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
+        View bottomSheet = activity.findViewById(R.id.bottom_sheet);
+        ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
+        ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
+        FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
+        SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode
         int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
 
-        // Elements should be visible
+        // Elements should be visible (except minimize button and scaler)
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
+        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, editButton.getVisibility());
+        assertEquals(View.GONE, barcodeScaler.getVisibility());
 
         // Click barcode to toggle fullscreen
         barcodeImage.performClick();
@@ -882,8 +895,13 @@ public class LoyaltyCardViewActivityTest
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
 
-        // Elements should not be visible
+        // Elements should not be visible (except minimize button and scaler)
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.GONE, bottomSheet.getVisibility());
+        assertEquals(View.GONE, maximizeButton.getVisibility());
+        assertEquals(View.VISIBLE, minimizeButton.getVisibility());
+        assertEquals(View.GONE, editButton.getVisibility());
+        assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
 
         // Clicking barcode again should deactivate fullscreen mode
         barcodeImage.performClick();
@@ -891,6 +909,11 @@ public class LoyaltyCardViewActivityTest
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
+        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, editButton.getVisibility());
+        assertEquals(View.GONE, barcodeScaler.getVisibility());
 
         // Another click back to fullscreen
         barcodeImage.performClick();
@@ -898,6 +921,11 @@ public class LoyaltyCardViewActivityTest
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.GONE, bottomSheet.getVisibility());
+        assertEquals(View.GONE, maximizeButton.getVisibility());
+        assertEquals(View.VISIBLE, minimizeButton.getVisibility());
+        assertEquals(View.GONE, editButton.getVisibility());
+        assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
 
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();

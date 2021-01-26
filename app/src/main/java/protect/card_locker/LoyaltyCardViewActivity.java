@@ -378,8 +378,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             maximizeButton.setVisibility(View.GONE);
             barcodeImage.setVisibility(View.GONE);
         }
-
-        Log.d(TAG, String.valueOf(bottomSheet.getTop()));
     }
 
     @Override
@@ -545,7 +543,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             cardIdFieldView.setVisibility(View.GONE);
             bottomSheet.setVisibility(View.GONE);
             behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            Log.d(TAG, String.valueOf(bottomSheet.getTop()));
             editButton.hide();
 
             // Set Android to fullscreen mode
@@ -583,7 +580,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);
             makeBottomSheetVisibleIfUseful();
-            Log.d(TAG, String.valueOf(bottomSheet.getTop()));
             editButton.show();
 
             // Unset fullscreen mode
@@ -592,11 +588,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             & ~View.SYSTEM_UI_FLAG_FULLSCREEN
             );
-
-            // FIXME: Figure out why the bottom sheet gets paddingTop 24px sometimes
-            // For some reason bottom sheet can get a 24px padding top after we enter and then leave fullscreen mode
-            // No clue why
-            // Android library bug?
 
             // Set current state
             barcodeIsFullscreen = false;

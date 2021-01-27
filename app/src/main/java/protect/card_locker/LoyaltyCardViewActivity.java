@@ -373,15 +373,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 Log.d(TAG, "ImageView size known known, creating barcode");
                 new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
             }
+
+            // Force redraw fullscreen state
+            setFullscreen(barcodeIsFullscreen);
         }
         else
         {
             maximizeButton.setVisibility(View.GONE);
             barcodeImage.setVisibility(View.GONE);
         }
-
-        // Force redraw fullscreen state
-        setFullscreen(barcodeIsFullscreen);
     }
 
     @Override
@@ -533,18 +533,18 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     private void redrawBarcodeAfterResize()
     {
-        barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener()
-                {
-                    @Override
-                    public void onGlobalLayout()
-                    {
-                        barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        if (format != null) {
+            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+                    new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
-                        Log.d(TAG, "ImageView size now known");
-                        new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
-                    }
-                });
+                            Log.d(TAG, "ImageView size now known");
+                            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                        }
+                    });
+        };
     }
 
     /**

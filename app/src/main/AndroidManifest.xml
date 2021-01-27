@@ -49,7 +49,6 @@
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label=""
             android:windowSoftInputMode="stateHidden"
             android:exported="true"/>
         <activity

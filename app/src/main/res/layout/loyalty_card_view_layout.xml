@@ -193,6 +193,7 @@
         android:clipToPadding="false"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="24dp"
         android:weightSum="1.0"
         android:fitsSystemWindows="true">
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -203,7 +204,6 @@
             android:layout_height="wrap_content"
             android:minHeight="56.0dip"
             android:layout_weight="1.0"
-            android:paddingTop="24dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
             app:contentScrim="?colorPrimary"
@@ -231,5 +231,14 @@
                 app:contentInsetStart="72.0dip"
                 app:layout_collapseMode="pin" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_landscape"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            android:theme="@style/CardView.ActionBarTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="?actionBarSize"
+            app:contentInsetStart="72.0dip"
+            app:layout_collapseMode="pin" />
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

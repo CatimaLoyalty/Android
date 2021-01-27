@@ -6,6 +6,7 @@ Changes:
 
 - Add support for scaling the barcode when moving to top to fit even more small scanners
 - Fix bottom sheet jumping after switching to fullscreen
+- Make header in loyalty card view small in landscape mode
 
 ## v1.7.1 (2021-01-18)
 

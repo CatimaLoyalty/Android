@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -31,6 +34,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
@@ -56,6 +60,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImageView barcodeImage;
     ImageButton minimizeButton;
     View collapsingToolbarLayout;
+    AppBarLayout appBarLayout;
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
@@ -110,14 +115,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         setContentView(R.layout.loyalty_card_view_layout);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         db = new DBHelper(this);
         importURIHelper = new ImportURIHelper(this);
 
@@ -132,6 +129,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         barcodeImage = findViewById(R.id.barcode);
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+        appBarLayout = findViewById(R.id.app_bar_layout);
 
         centerGuideline = findViewById(R.id.centerGuideline);
         centerGuideline.setGuidelinePercent(0.5f);
@@ -251,6 +249,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             return;
         }
 
+        setupOrientation();
+
         String formatString = loyaltyCard.barcodeType;
         format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
         cardIdString = loyaltyCard.cardId;
@@ -321,6 +321,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
+        appBarLayout.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
         if(Utils.needsDarkForeground(backgroundHeaderColor))
@@ -378,6 +379,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             maximizeButton.setVisibility(View.GONE);
             barcodeImage.setVisibility(View.GONE);
         }
+
+        // Force redraw fullscreen state
+        setFullscreen(barcodeIsFullscreen);
     }
 
     @Override
@@ -389,7 +393,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
 
         super.onBackPressed();
-        return;
     }
 
     @Override
@@ -466,7 +469,40 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void setupOrientation()
+    {
+        Toolbar portraitToolbar = findViewById(R.id.toolbar);
+        Toolbar landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d(TAG, "Detected landscape mode");
+
+            setTitle(loyaltyCard.store);
+
+            collapsingToolbarLayout.setVisibility(View.GONE);
+            portraitToolbar.setVisibility(View.GONE);
+            landscapeToolbar.setVisibility(View.VISIBLE);
+
+            setSupportActionBar(landscapeToolbar);
+        } else {
+            Log.d(TAG, "Detected portrait mode");
+
+            setTitle("");
+
+            collapsingToolbarLayout.setVisibility(View.VISIBLE);
+            portraitToolbar.setVisibility(View.VISIBLE);
+            landscapeToolbar.setVisibility(View.GONE);
+
+            setSupportActionBar(portraitToolbar);
+        }
+
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
+        {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
     private void setOrientatonLock(MenuItem item, boolean lock)
     {
         if(lock)
@@ -520,8 +556,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private void setFullscreen(boolean enable)
     {
         ActionBar actionBar = getSupportActionBar();
-        if(enable && !barcodeIsFullscreen)
+        if(enable)
         {
+            Log.d(TAG, "Move into of fullscreen");
             // Prepare redraw after size change
             redrawBarcodeAfterResize();
 
@@ -536,8 +573,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 actionBar.hide();
             }
 
-            // Hide collapsingToolbar
+            // Hide toolbars
+            //
+            // Appbar needs to be invisible and have padding removed
+            // Or the barcode will be centered instead of on top of the screen
+            // Don't ask me why...
+            appBarLayout.setVisibility(View.INVISIBLE);
+            appBarLayout.setPadding(0, 0, 0, 0);
             collapsingToolbarLayout.setVisibility(View.GONE);
+            findViewById(R.id.toolbar_landscape).setVisibility(View.GONE);
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);
@@ -555,8 +599,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Set current state
             barcodeIsFullscreen = true;
         }
-        else if(!enable && barcodeIsFullscreen)
+        else if(!enable)
         {
+            Log.d(TAG, "Move out of fullscreen");
+
             // Reset center guideline
             barcodeScaler.setProgress(100);
 
@@ -574,8 +620,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 actionBar.show();
             }
 
-            // Show collapsingToolbar
-            collapsingToolbarLayout.setVisibility(View.VISIBLE);
+            // Show appropriate toolbar
+            // And restore 24dp paddingTop for appBarLayout
+            appBarLayout.setVisibility(View.VISIBLE);
+            DisplayMetrics metrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(metrics);
+            appBarLayout.setPadding(0, (int) Math.ceil(metrics.density * 24), 0, 0);
+            setupOrientation();
 
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);

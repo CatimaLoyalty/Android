@@ -333,6 +333,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             textColor = Color.WHITE;
         }
         storeName.setTextColor(textColor);
+        ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);

@@ -600,6 +600,8 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
+        shadowOf(getMainLooper()).idle();
+
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
@@ -831,6 +833,8 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         assertEquals(false, activity.isFinishing());
+
+        shadowOf(getMainLooper()).idle();
 
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);

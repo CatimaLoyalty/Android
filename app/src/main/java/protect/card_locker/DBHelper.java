@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 
@@ -532,33 +533,66 @@ public class DBHelper extends SQLiteOpenHelper
     {
         if (newName.isEmpty()) return false;
 
+        boolean success = false;
+
         SQLiteDatabase db = getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(LoyaltyCardDbGroups.ID, newName);
+        ContentValues groupContentValues = new ContentValues();
+        groupContentValues.put(LoyaltyCardDbGroups.ID, newName);
+
+        ContentValues lookupContentValues = new ContentValues();
+        lookupContentValues.put(LoyaltyCardDbIdsGroups.groupID, newName);
+
+        db.beginTransaction();
         try {
-            int rowsUpdated = db.update(LoyaltyCardDbGroups.TABLE, contentValues,
+            // Update group name
+            int groupsChanged = db.update(LoyaltyCardDbGroups.TABLE, groupContentValues,
                     LoyaltyCardDbGroups.ID + "=?",
                     new String[]{groupName});
-            return (rowsUpdated == 1);
-        } catch (android.database.sqlite.SQLiteConstraintException _e) {
-            return false;
+
+            // Also update lookup tables
+            db.update(LoyaltyCardDbIdsGroups.TABLE, lookupContentValues,
+                    LoyaltyCardDbIdsGroups.groupID + "=?",
+                    new String[]{groupName});
+
+            if (groupsChanged == 1) {
+                db.setTransactionSuccessful();
+                success = true;
+            }
+        } catch (SQLiteException e) {
+        } finally {
+            db.endTransaction();
         }
+
+        return success;
     }
 
     public boolean deleteGroup(final String groupName)
     {
+        boolean success = false;
+
         SQLiteDatabase db = getWritableDatabase();
-        // Delete group
-        int rowsDeleted = db.delete(LoyaltyCardDbGroups.TABLE,
-                LoyaltyCardDbGroups.ID + " = ? ",
-                new String[]{groupName});
 
-        // And delete lookup table entries associated with this group
-        db.delete(LoyaltyCardDbIdsGroups.TABLE,
-                LoyaltyCardDbIdsGroups.groupID + " = ? ",
-                new String[]{groupName});
+        db.beginTransaction();
+        try {
+            // Delete group
+            int groupsDeleted = db.delete(LoyaltyCardDbGroups.TABLE,
+                    LoyaltyCardDbGroups.ID + " = ? ",
+                    new String[]{groupName});
 
-        return (rowsDeleted == 1);
+            // And delete lookup table entries associated with this group
+            db.delete(LoyaltyCardDbIdsGroups.TABLE,
+                    LoyaltyCardDbIdsGroups.groupID + " = ? ",
+                    new String[]{groupName});
+
+            if (groupsDeleted == 1) {
+                db.setTransactionSuccessful();
+                success = true;
+            }
+        } finally {
+            db.endTransaction();
+        }
+
+        return success;
     }
 
     public int getGroupCardCount(final String groupName)

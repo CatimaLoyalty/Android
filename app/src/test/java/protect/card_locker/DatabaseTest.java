@@ -286,23 +286,51 @@ public class DatabaseTest
     @Test
     public void updateGroup()
     {
-        long id = db.insertGroup("group one");
+        // Create card
+        assertEquals(0, db.getLoyaltyCardCount());
+        long id = db.insertLoyaltyCard("store", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
+        assertTrue(result);
+        assertEquals(1, db.getLoyaltyCardCount());
+
+        // Create group
+        long groupId = db.insertGroup("group one");
+        result = (groupId != -1);
         assertTrue(result);
         assertEquals(1, db.getGroupCount());
 
+        // Add card to group
+        Group group = db.getGroup("group one");
+        List<Group> groupList1 = new ArrayList<>();
+        groupList1.add(group);
+        db.setLoyaltyCardGroups(1, groupList1);
+
+        // Ensure the card has one group and the group has one card
+        List<Group> cardGroups = db.getLoyaltyCardGroups((int) id);
+        assertEquals(1, cardGroups.size());
+        assertEquals("group one", cardGroups.get(0)._id);
+        assertEquals(1, db.getGroupCardCount("group one"));
+
+        // Rename group
         result = db.updateGroup("group one", "group one renamed");
         assertTrue(result);
         assertEquals(1, db.getGroupCount());
 
         // Group one no longer exists
-        Group group = db.getGroup("group one");
+        group = db.getGroup("group one");
         assertNull(group);
 
         // But group one renamed does
         Group group2 = db.getGroup("group one renamed");
         assertNotNull(group2);
         assertEquals("group one renamed", group2._id);
+
+        // And card is in "group one renamed"
+        // Ensure the card has one group and the group has one card
+        cardGroups = db.getLoyaltyCardGroups((int) id);
+        assertEquals(1, cardGroups.size());
+        assertEquals("group one renamed", cardGroups.get(0)._id);
+        assertEquals(1, db.getGroupCardCount("group one renamed"));
     }
 
     @Test

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v1.8 (2021-01-28)
 
 Changes:
 

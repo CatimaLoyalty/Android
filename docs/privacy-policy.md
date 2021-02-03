@@ -1,7 +1,7 @@
 # PRIVACY POLICY FOR LOYALTY CARD KEYCHAIN
 
 This privacy policy governs your use of the software application Catima (“Application”) for mobile devices
-that was created by Protect. The Application is designed to store and display barcodes.
+that was created by Sylvia van Os. The Application is designed to store and display barcodes.
 
 # What information does the Application obtain and how is it used?
 

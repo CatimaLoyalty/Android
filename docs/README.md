@@ -2,10 +2,13 @@
 ![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
 [![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)
 
-<a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
-<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
 <a href="https://play.google.com/store/apps/details?id=me.hackerchick.catima" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
+<a href="https://appgallery.huawei.com/#/app/C103806479" target="_blank">
+<img src="https://huaweimobileservices.com/wp-content/uploads/2020/05/Explore-it-on-AppGallery.png" alt="Explore it on AppGallery" height="90"/></a>
+
+<a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
+<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima" target="_blank">
 <img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="90"/></a>
 

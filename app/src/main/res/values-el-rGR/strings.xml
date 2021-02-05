@@ -1,13 +1,11 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Προσθήκη</string>
-
     <string name="noGiftCards">Δεν έχετε κάρτες προς το παρόν. Πατήστε το κουμπί \"+\" (συν) στο πάνω μέρος για να ξεκινήσετε.\n\nΤο Loyalty Card Keychain σας δίνει τη δυνατότητα να έχετε τις κάρτες σας στο τηλέφωνο σας, έτσι ώστε να τις έχετε πάντα μαζί σας.</string>
     <string name="storeName">Κατάστημα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός Κάρτας</string>
-    <string name="cancel">Άκυρο</string>
+    <string name="cancel">Ακύρωση</string>
     <string name="save">Αποθήκευση</string>
     <string name="editCard">Επεξεργασία Κάρτας</string>
     <string name="edit">Επεξεργασία</string>
@@ -17,17 +15,15 @@
     <string name="unlockScreen">Περιστροφή</string>
     <string name="deleteTitle">Αφαίρεση Κάρτας</string>
     <string name="deleteConfirmation">Παρακαλώ επιβεβαιώστε ότι θέλετε να διαγράψετε αυτή την κάρτα.</string>
-    <string name="ok">OK</string>
+    <string name="ok">Εντάξει</string>
     <string name="copy_to_clipboard">Αντιγραφή κωδικού στο πρόχειρο</string>
-    <string name="sendLabel">Αποστολή&#8230;</string>
+    <string name="sendLabel">Αποστολή…</string>
     <string name="editCardTitle">Επεξεργασία Κάρτας</string>
     <string name="addCardTitle">Προσθήκη Κάρτας</string>
     <string name="scanCardBarcode">Σαρώστε τον κωδικό της κάρτας</string>
     <string name="cardShortcut">Συντόμευση Κάρτας</string>
     <string name="noCardsMessage">Δεν υπάρχουν κάρτες. προσθέστε μία πρώτα</string>
-
     <string name="barcodeImageDescription">Εικόνα του barcode της κάρτας</string>
-
     <string name="noStoreError">Δεν δώσατε κατάστημα</string>
     <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>
@@ -40,8 +36,8 @@
     <string name="exportSuccessfulTitle">Εξαγωγή επιτυχής</string>
     <string name="exportFailedTitle">Εξαγωγή ανεπιτυχής</string>
     <string name="exportFailed">Δεν εξήχθη</string>
-    <string name="importing">Γίνεται εισαγωγή του&#8230;</string>
-    <string name="exporting">Γίνεται εξαγωγή του&#8230;</string>
+    <string name="importing">Γίνεται εισαγωγή του…</string>
+    <string name="exporting">Γίνεται εξαγωγή του…</string>
     <string name="noExternalStoragePermissionError">Δεν είναι δυνατή η εισαγωγή ή εξαγωγή καρτών χωρίς την άδεια πρόσβασης στον εξωτερικό χώρο αποθήκευσης</string>
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
@@ -49,7 +45,6 @@
     <string name="importOptionApplicationTitle">Χρήση εξωτερικής εφαρμογής</string>
     <string name="importOptionApplicationExplanation">Κάντε χρήση μίας εξωτερικής εφαρμογής όπως είναι τα Dropbox, Google Drive ή ο αγαπημένος σας διαχειριστής αρχείων για να ανοίξετε ένα αρχείο.</string>
     <string name="importOptionApplicationButton">Χρήση εξωτερικής εφαρμογής</string>
-
     <string name="about">Σχετικά</string>
     <string name="app_license">Άδεια χρήσης υπό το GPLv3.</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
@@ -57,16 +52,16 @@
     <string name="app_revision_fmt">Πληροφορίες Αναθεώρησης: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Το <xliff:g id="app_name">%s</xliff:g> χρησιμοποιεί τις ακόλουθες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Το <xliff:g id="app_name">%s</xliff:g> χρησιμοποιεί τους παρακάτω πόρους τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
     <string name="copy_to_clipboard_toast">Ο κωδικός της κάρτας αντιγράφτηκε στο πρόχειρο</string>
-
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>
-
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_category_title_ui">Διεπαφή χρήστη</string>
     <string name="settings_card_title_list_font_size">Μέγεθος κειμένου λίστας καρτών</string>
     <string name="settings_card_note_list_font_size">Μέγεθος κειμένου λίστας σημειώσεων καρτών</string>
     <string name="settings_card_title_font_size">Μέγεθος κειμένου τίτλου κάρτας</string>
     <string name="settings_card_id_font_size">Μέγεθος κειμένου κωδικού κάρτας</string>
+    <string name="settings_dark_theme">Σκοτεινό</string>
+    <string name="settings_light_theme">Φωτεινό</string>
+    <string name="settings_system_theme">Σύστημα</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="storeName">Κατάστημα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός Κάρτας</string>
-    <string name="cancel">Ακύρωση</string>
+    <string name="cancel">Άκυρο</string>
     <string name="save">Αποθήκευση</string>
     <string name="editCard">Επεξεργασία Κάρτας</string>
     <string name="edit">Επεξεργασία</string>

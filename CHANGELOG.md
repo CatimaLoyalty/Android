@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.8.1 (2021-02-12)
+
+Changes:
+
+- Fix Crash on versions before Android 7
+
 ## v1.8 (2021-01-28)
 
 Changes:

@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import java.io.InvalidObjectException;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
     private static final String EXPIRY = DBHelper.LoyaltyCardDbIds.EXPIRY;
+    private static final String BALANCE = DBHelper.LoyaltyCardDbIds.BALANCE;
+    private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
 
@@ -43,6 +46,8 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             Date expiry = null;
+            BigDecimal balance = new BigDecimal("0.0");
+            String balanceType = null;
             Integer headerColor = null;
             Integer headerTextColor = null;
 
@@ -57,13 +62,24 @@ public class ImportURIHelper {
             {
                 expiry = new Date(Long.parseLong(unparsedExpiry));
             }
+            String unparsedBalance = uri.getQueryParameter(BALANCE);
+            if(unparsedBalance != null && !unparsedBalance.equals(""))
+            {
+                balance = new BigDecimal(unparsedBalance);
+            }
+            String unparsedBalanceType = uri.getQueryParameter(BALANCE_TYPE);
+            if (unparsedBalanceType != null && !unparsedBalanceType.equals(""))
+            {
+                balanceType = unparsedBalanceType;
+            }
+
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
             if(unparsedHeaderColor != null)
             {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, cardId, barcodeType, headerColor, headerTextColor, 0);
+            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeType, headerColor, headerTextColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

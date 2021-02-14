@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Add balance support
+
 ## v1.8.1 (2021-02-12)
 
 Changes:

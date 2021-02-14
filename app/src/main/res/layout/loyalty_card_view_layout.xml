@@ -175,6 +175,17 @@
             app:autoSizeTextType="uniform" />
 
         <TextView
+            android:id="@+id/balanceView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/inputBackground"
+            android:gravity="center"
+            android:padding="20dp"
+            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
+            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
+            app:autoSizeTextType="uniform" />
+
+        <TextView
             android:id="@+id/expiryView"
             android:layout_width="match_parent"
             android:layout_height="80dp"

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 8;
 
     static class LoyaltyCardDbGroups
     {
@@ -31,6 +32,8 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String ID = "_id";
         public static final String STORE = "store";
         public static final String EXPIRY = "expiry";
+        public static final String BALANCE = "balance";
+        public static final String BALANCE_TYPE = "balance_type";
         public static final String NOTE = "note";
         public static final String HEADER_COLOR = "headercolor";
         public static final String HEADER_TEXT_COLOR = "headertextcolor";
@@ -60,11 +63,14 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0')");
 
         // create table for cards
+        // Balance is TEXT and not REAL to be able to store a BigDecimal without precision loss
         db.execSQL("create table " + LoyaltyCardDbIds.TABLE + "(" +
                 LoyaltyCardDbIds.ID + " INTEGER primary key autoincrement," +
                 LoyaltyCardDbIds.STORE + " TEXT not null," +
                 LoyaltyCardDbIds.NOTE + " TEXT not null," +
                 LoyaltyCardDbIds.EXPIRY + " INTEGER," +
+                LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0.0'," +
+                LoyaltyCardDbIds.BALANCE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
@@ -128,9 +134,18 @@ public class DBHelper extends SQLiteOpenHelper
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.EXPIRY + " INTEGER");
         }
+
+        if(oldVersion < 8 && newVersion >= 8)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0.0'");
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.BALANCE_TYPE + " TEXT");
+        }
     }
 
     public long insertLoyaltyCard(final String store, final String note, final Date expiry,
+                                  final BigDecimal balance, final String balanceType,
                                   final String cardId, final String barcodeType,
                                   final Integer headerColor, final int starStatus)
     {
@@ -139,6 +154,8 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -149,7 +166,8 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
-                                     final String note, final Date expiry, final String cardId,
+                                     final String note, final Date expiry, final BigDecimal balance,
+                                     final String balanceType, final String cardId,
                                      final String barcodeType, final Integer headerColor,
                                      final int starStatus)
     {
@@ -158,6 +176,8 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -168,7 +188,8 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
-                                     final Date expiry, final String cardId,
+                                     final Date expiry, final BigDecimal balance,
+                                     final String balanceType, final String cardId,
                                      final String barcodeType, final Integer headerColor)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -176,6 +197,8 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.STORE, store);
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
+        contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);

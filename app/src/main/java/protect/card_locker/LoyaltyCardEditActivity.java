@@ -208,6 +208,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
+        balanceField.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol((BigDecimal) balanceField.getTag(), (Currency) balanceCurrencyField.getTag()));
+            }
+        });
+
         balanceField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -217,8 +223,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 hasChanged = true;
 
                 try {
-                    balanceField.setTag(Utils.parseCurrencyInUserLocale(s.toString()));
+                    BigDecimal balance = Utils.parseCurrencyInUserLocale(s.toString());
                     validBalance = true;
+
+                    balanceField.setTag(balance);
                 } catch (ParseException | NumberFormatException e) {
                     validBalance = false;
                     e.printStackTrace();
@@ -230,12 +238,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         });
 
         balanceCurrencyField.addTextChangedListener(new TextWatcher() {
-            CharSequence lastValue;
-
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                lastValue = s;
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {

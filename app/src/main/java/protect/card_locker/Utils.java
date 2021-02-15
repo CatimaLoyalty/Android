@@ -117,6 +117,9 @@ public class Utils {
         NumberFormat numberInputFormat = NumberFormat.getNumberInstance();
         NumberFormat numberToBigDecimalFormat = NumberFormat.getNumberInstance(Locale.US);
 
+        // BigDecimal won't understand values like 1,000 instead of 1000
+        numberToBigDecimalFormat.setGroupingUsed(false);
+
         return new BigDecimal(numberToBigDecimalFormat.format(numberInputFormat.parse(value)));
     }
 }

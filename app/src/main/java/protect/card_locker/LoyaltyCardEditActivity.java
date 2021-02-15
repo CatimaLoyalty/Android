@@ -214,6 +214,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
                 try {
                     balanceField.setTag(Utils.parseCurrencyInUserLocale(s.toString()));
                     validBalance = true;

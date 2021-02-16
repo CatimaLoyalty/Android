@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String STORE = "store";
         public static final String EXPIRY = "expiry";
         public static final String BALANCE = "balance";
-        public static final String BALANCE_TYPE = "balance_type";
+        public static final String BALANCE_TYPE = "balancetype";
         public static final String NOTE = "note";
         public static final String HEADER_COLOR = "headercolor";
         public static final String HEADER_TEXT_COLOR = "headertextcolor";
@@ -145,7 +146,7 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public long insertLoyaltyCard(final String store, final String note, final Date expiry,
-                                  final BigDecimal balance, final String balanceType,
+                                  final BigDecimal balance, final Currency balanceType,
                                   final String cardId, final String barcodeType,
                                   final Integer headerColor, final int starStatus)
     {
@@ -155,7 +156,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
-        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -167,7 +168,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
                                      final String note, final Date expiry, final BigDecimal balance,
-                                     final String balanceType, final String cardId,
+                                     final Currency balanceType, final String cardId,
                                      final String barcodeType, final Integer headerColor,
                                      final int starStatus)
     {
@@ -177,7 +178,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
-        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
@@ -189,7 +190,7 @@ public class DBHelper extends SQLiteOpenHelper
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,
                                      final Date expiry, final BigDecimal balance,
-                                     final String balanceType, final String cardId,
+                                     final Currency balanceType, final String cardId,
                                      final String barcodeType, final Integer headerColor)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -198,7 +199,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.NOTE, note);
         contentValues.put(LoyaltyCardDbIds.EXPIRY, expiry != null ? expiry.getTime() : null);
         contentValues.put(LoyaltyCardDbIds.BALANCE, balance.toString());
-        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType);
+        contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);

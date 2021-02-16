@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Date;
 
 public class ImportURIHelper {
@@ -12,7 +13,7 @@ public class ImportURIHelper {
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
     private static final String EXPIRY = DBHelper.LoyaltyCardDbIds.EXPIRY;
     private static final String BALANCE = DBHelper.LoyaltyCardDbIds.BALANCE;
-    private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
+    private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BALANCE_TYPE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
 
@@ -47,7 +48,7 @@ public class ImportURIHelper {
             // These values are allowed to be null
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0.0");
-            String balanceType = null;
+            Currency balanceType = null;
             Integer headerColor = null;
             Integer headerTextColor = null;
 
@@ -57,11 +58,6 @@ public class ImportURIHelper {
             String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
             if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
 
-            String unparsedExpiry = uri.getQueryParameter(EXPIRY);
-            if(unparsedExpiry != null && !unparsedExpiry.equals(""))
-            {
-                expiry = new Date(Long.parseLong(unparsedExpiry));
-            }
             String unparsedBalance = uri.getQueryParameter(BALANCE);
             if(unparsedBalance != null && !unparsedBalance.equals(""))
             {
@@ -70,7 +66,12 @@ public class ImportURIHelper {
             String unparsedBalanceType = uri.getQueryParameter(BALANCE_TYPE);
             if (unparsedBalanceType != null && !unparsedBalanceType.equals(""))
             {
-                balanceType = unparsedBalanceType;
+                balanceType = Currency.getInstance(unparsedBalanceType);
+            }
+            String unparsedExpiry = uri.getQueryParameter(EXPIRY);
+            if(unparsedExpiry != null && !unparsedExpiry.equals(""))
+            {
+                expiry = new Date(Long.parseLong(unparsedExpiry));
             }
 
             String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
@@ -93,6 +94,10 @@ public class ImportURIHelper {
         uriBuilder.path(path);
         uriBuilder.appendQueryParameter(STORE, loyaltyCard.store);
         uriBuilder.appendQueryParameter(NOTE, loyaltyCard.note);
+        uriBuilder.appendQueryParameter(BALANCE, loyaltyCard.balance.toString());
+        if (loyaltyCard.balanceType != null) {
+            uriBuilder.appendQueryParameter(BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
+        }
         if (loyaltyCard.expiry != null) {
             uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
         }

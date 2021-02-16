@@ -467,7 +467,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             noteFieldEdit.setText(importCard.note);
             expiryField.setTag(importCard.expiry);
             formatExpiryField(importCard.expiry);
-            balanceField.setTag(importCard.balanceType);
+            balanceField.setTag(importCard.balance);
+            balanceCurrencyField.setTag(importCard.balanceType);
             formatBalanceCurrencyField(importCard.balanceType);
             cardIdFieldView.setText(importCard.cardId);
             barcodeTypeField.setText(importCard.barcodeType);
@@ -478,10 +479,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             setTitle(R.string.addCardTitle);
             expiryField.setTag(null);
             expiryField.setText(getString(R.string.never));
-            balanceField.setTag(null);
-            balanceField.setText(String.format("%f", new BigDecimal("0.0")));
+            balanceField.setTag(new BigDecimal("0.0"));
             balanceCurrencyField.setTag(null);
-            balanceCurrencyField.setText(getString(R.string.points));
+            formatBalanceCurrencyField(null);
             hideBarcode();
         }
 
@@ -734,7 +734,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         String note = noteFieldEdit.getText().toString();
         Date expiry = (Date) expiryField.getTag();
         BigDecimal balance = (BigDecimal) balanceField.getTag();
-        String balanceType = balanceCurrencyField.getTag() != null ? ((Currency) balanceCurrencyField.getTag()).getCurrencyCode() : null;
+        Currency balanceType = balanceCurrencyField.getTag() != null ? ((Currency) balanceCurrencyField.getTag()) : null;
         String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 

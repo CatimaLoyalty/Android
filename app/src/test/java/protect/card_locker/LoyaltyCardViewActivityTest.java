@@ -1080,7 +1080,7 @@ public class LoyaltyCardViewActivityTest
     {
         Date date = new Date();
 
-        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&balance=10&balanceType=EUR&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&balance=10&balancetype=EUR&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
         intent.setData(importUri);

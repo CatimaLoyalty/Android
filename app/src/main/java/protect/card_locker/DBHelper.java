@@ -70,7 +70,7 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.STORE + " TEXT not null," +
                 LoyaltyCardDbIds.NOTE + " TEXT not null," +
                 LoyaltyCardDbIds.EXPIRY + " INTEGER," +
-                LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0.0'," +
+                LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0'," +
                 LoyaltyCardDbIds.BALANCE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.HEADER_TEXT_COLOR + " INTEGER," +
@@ -139,7 +139,7 @@ public class DBHelper extends SQLiteOpenHelper
         if(oldVersion < 8 && newVersion >= 8)
         {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
-                    + " ADD COLUMN " + LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0.0'");
+                    + " ADD COLUMN " + LoyaltyCardDbIds.BALANCE + " TEXT not null DEFAULT '0'");
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.BALANCE_TYPE + " TEXT");
         }

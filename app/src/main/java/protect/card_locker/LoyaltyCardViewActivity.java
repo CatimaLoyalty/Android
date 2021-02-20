@@ -292,7 +292,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(!loyaltyCard.balance.equals(new BigDecimal(0))) {
             balanceView.setVisibility(View.VISIBLE);
-            balanceView.setText(getString(R.string.balanceSentence, Utils.formatBalance(loyaltyCard.balance, loyaltyCard.balanceType)));
+            balanceView.setText(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         }
         else
         {

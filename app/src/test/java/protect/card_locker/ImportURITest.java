@@ -12,6 +12,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -39,7 +40,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "note", date, new BigDecimal("0"), null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
+        db.insertLoyaltyCard("store", "note", date, new BigDecimal("100"), null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -56,6 +57,8 @@ public class ImportURITest {
         assertEquals(card.headerColor, parsedCard.headerColor);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.expiry, parsedCard.expiry);
+        assertEquals(card.balance, parsedCard.balance);
+        assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.store, parsedCard.store);
         // No export of starStatus for single cards foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -65,7 +68,7 @@ public class ImportURITest {
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -81,6 +84,8 @@ public class ImportURITest {
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.expiry, parsedCard.expiry);
+        assertEquals(card.balance, parsedCard.balance);
+        assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.store, parsedCard.store);
         assertNull(parsedCard.headerColor);
         assertNull(parsedCard.headerTextColor);
@@ -126,5 +131,8 @@ public class ImportURITest {
         assertEquals("store", parsedCard.store);
         assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
         assertEquals(0, parsedCard.starStatus);
+        assertEquals(null, parsedCard.expiry);
+        assertEquals(new BigDecimal("0"), parsedCard.balance);
+        assertEquals(null, parsedCard.balanceType);
     }
 }

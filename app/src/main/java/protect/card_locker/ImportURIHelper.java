@@ -47,7 +47,7 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             Date expiry = null;
-            BigDecimal balance = new BigDecimal("0.0");
+            BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
             Integer headerColor = null;
             Integer headerTextColor = null;

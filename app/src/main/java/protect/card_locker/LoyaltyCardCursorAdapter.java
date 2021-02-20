@@ -65,9 +65,9 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
             noteField.setVisibility(View.GONE);
         }
 
-        if(!loyaltyCard.balance.equals(new BigDecimal(0))) {
+        if(!loyaltyCard.balance.equals(new BigDecimal("0"))) {
             balanceField.setVisibility(View.VISIBLE);
-            balanceField.setText(context.getString(R.string.balanceSentence, Utils.formatBalance(loyaltyCard.balance, loyaltyCard.balanceType)));
+            balanceField.setText(context.getString(R.string.balanceSentence, Utils.formatBalance(context, loyaltyCard.balance, loyaltyCard.balanceType)));
         }
         else
         {

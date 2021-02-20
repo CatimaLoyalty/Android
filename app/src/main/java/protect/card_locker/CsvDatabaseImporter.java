@@ -309,7 +309,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         } catch (FormatException _e ) {
             // These fields did not exist in versions 1.8.1 and before
             // We catch this exception so we can still import old backups
-            balance = new BigDecimal("0.0");
+            balance = new BigDecimal("0");
         }
 
         Currency balanceType = null;

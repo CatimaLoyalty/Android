@@ -479,7 +479,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             setTitle(R.string.addCardTitle);
             expiryField.setTag(null);
             expiryField.setText(getString(R.string.never));
-            balanceField.setTag(new BigDecimal("0.0"));
+            balanceField.setTag(new BigDecimal("0"));
             balanceCurrencyField.setTag(null);
             formatBalanceCurrencyField(null);
             hideBarcode();

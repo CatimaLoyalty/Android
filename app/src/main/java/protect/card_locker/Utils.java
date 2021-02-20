@@ -83,12 +83,12 @@ public class Utils {
         return expiryDate.before(date.getTime());
     }
 
-    static public String formatBalance(BigDecimal value, Currency currency) {
+    static public String formatBalance(Context context, BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
-            return numberFormat.format(value);
+            return context.getString(R.string.balancePoints, numberFormat.format(value));
         }
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();

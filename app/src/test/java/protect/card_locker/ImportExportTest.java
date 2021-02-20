@@ -105,7 +105,8 @@ public class ImportExportTest
         assertEquals(cardsToAdd, db.getLoyaltyCardCount());
     }
 
-    private void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
+    @Test
+    public void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
     {
         long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
         boolean result = (id != -1);
@@ -161,6 +162,8 @@ public class ImportExportTest
 
             assertEquals(expectedStore, card.store);
             assertEquals(expectedNote, card.note);
+            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+            assertEquals(null, card.balanceType);
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
@@ -191,6 +194,8 @@ public class ImportExportTest
 
             assertEquals(expectedStore, card.store);
             assertEquals(expectedNote, card.note);
+            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+            assertEquals(null, card.balanceType);
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(BARCODE_TYPE, card.barcodeType);
             assertEquals(Integer.valueOf(index), card.headerColor);
@@ -209,6 +214,8 @@ public class ImportExportTest
 
         assertEquals(expectedStore, card.store);
         assertEquals(expectedNote, card.note);
+        assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(index), card.headerColor);
@@ -577,6 +584,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -613,6 +622,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -675,6 +686,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -711,6 +724,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(1, card.starStatus);
@@ -747,6 +762,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -803,6 +820,8 @@ public class ImportExportTest
         assertEquals("store", card.store);
         assertEquals("note", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals("type", card.barcodeType);
         assertEquals(0, card.starStatus);
@@ -820,6 +839,8 @@ public class ImportExportTest
         assertEquals("Never", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(0), card.headerColor);
@@ -830,6 +851,8 @@ public class ImportExportTest
         assertEquals("Past", card.store);
         assertEquals("", card.note);
         assertTrue(card.expiry.before(new Date()));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(0), card.headerColor);
@@ -841,6 +864,8 @@ public class ImportExportTest
         assertEquals("", card.note);
         assertTrue(card.expiry.before(new Date(new Date().getTime()+86400)));
         assertTrue(card.expiry.after(new Date(new Date().getTime()-86400)));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(0), card.headerColor);
@@ -851,6 +876,8 @@ public class ImportExportTest
         assertEquals("Future", card.store);
         assertEquals("", card.note);
         assertTrue(card.expiry.after(new Date(new Date().getTime()+86400)));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(BARCODE_TYPE, card.barcodeType);
         assertEquals(Integer.valueOf(0), card.headerColor);

@@ -11,6 +11,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import java.io.InvalidObjectException;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -38,7 +39,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "note", date, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
+        db.insertLoyaltyCard("store", "note", date, new BigDecimal("0"), null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -64,7 +65,7 @@ public class ImportURITest {
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BarcodeFormat.UPC_A.toString(), LoyaltyCardDbIds.BARCODE_TYPE, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);

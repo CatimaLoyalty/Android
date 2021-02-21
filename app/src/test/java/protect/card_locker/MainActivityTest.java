@@ -21,6 +21,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.shadows.ShadowActivity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("store", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -131,10 +132,10 @@ public class MainActivityTest
         assertEquals(0, list.getCount());
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("storeB", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
-        db.insertLoyaltyCard("storeA", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
-        db.insertLoyaltyCard("storeD", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
-        db.insertLoyaltyCard("storeC", "note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
+        db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("storeD", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
+        db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 1);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -232,8 +233,8 @@ public class MainActivityTest
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
 
         DBHelper db = new DBHelper(mainActivity);
-        db.insertLoyaltyCard("The First Store", "Initial note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
-        db.insertLoyaltyCard("The Second Store", "Secondary note", null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("The First Store", "Initial note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("The Second Store", "Secondary note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
 
         db.insertGroup("Group one");
         List<Group> groups = new ArrayList<>();

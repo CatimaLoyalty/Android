@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.chip.Chip;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
+import android.os.LocaleList;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -45,11 +48,21 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.io.InvalidObjectException;
+import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
@@ -62,6 +75,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     EditText noteFieldEdit;
     ChipGroup groupsChips;
     AutoCompleteTextView expiryField;
+    EditText balanceField;
+    AutoCompleteTextView balanceCurrencyField;
     View cardAndBarcodeLayout;
     TextView cardIdFieldView;
     AutoCompleteTextView barcodeTypeField;
@@ -85,6 +100,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     boolean hasChanged = false;
     boolean initDone = false;
     AlertDialog confirmExitDialog = null;
+
+    boolean validBalance = true;
+
+    HashMap<String, Currency> currencies = new HashMap<>();
 
     private void extractIntentFields(Intent intent)
     {
@@ -120,12 +139,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         db = new DBHelper(this);
         importUriHelper = new ImportURIHelper(this);
 
+        for (Currency currency : Currency.getAvailableCurrencies()) {
+            currencies.put(currency.getSymbol(), currency);
+        }
+
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
         expiryField = findViewById(R.id.expiryField);
+        balanceField = findViewById(R.id.balanceField);
+        balanceCurrencyField = findViewById(R.id.balanceCurrencyField);
         cardAndBarcodeLayout = findViewById(R.id.cardAndBarcodeLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
         barcodeTypeField = findViewById(R.id.barcodeTypeField);
@@ -180,6 +205,94 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 expiryList.add(1, getString(R.string.chooseExpiryDate));
                 ArrayAdapter<String> expiryAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, expiryList);
                 expiryField.setAdapter(expiryAdapter);
+            }
+        });
+
+        balanceField.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol((BigDecimal) balanceField.getTag(), (Currency) balanceCurrencyField.getTag()));
+            }
+        });
+
+        balanceField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
+                try {
+                    BigDecimal balance = Utils.parseCurrencyInUserLocale(s.toString());
+                    validBalance = true;
+
+                    balanceField.setTag(balance);
+                } catch (ParseException | NumberFormatException e) {
+                    validBalance = false;
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+        balanceCurrencyField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hasChanged = true;
+
+                Currency currency;
+
+                if (s.toString().equals(getString(R.string.points))) {
+                    currency = null;
+                } else {
+                    currency = currencies.get(s.toString());
+                }
+
+                balanceCurrencyField.setTag(currency);
+
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol((BigDecimal) balanceField.getTag(), currency));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ArrayList<String> currencyList = new ArrayList<>(currencies.keySet());
+                Collections.sort(currencyList, (o1, o2) -> {
+                    boolean o1ascii = o1.matches("^[^a-zA-Z]*$");
+                    boolean o2ascii = o2.matches("^[^a-zA-Z]*$");
+
+                    if (!o1ascii && o2ascii) {
+                        return 1;
+                    } else if (o1ascii && !o2ascii) {
+                        return -1;
+                    }
+
+                    return o1.compareTo(o2);
+                });
+
+                // Sort locale currencies on top
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    LocaleList locales = getApplicationContext().getResources().getConfiguration().getLocales();
+
+                    for (int i = locales.size() - 1; i > 0; i--) {
+                        Locale locale = locales.get(i);
+                        String currencySymbol = Currency.getInstance(locale).getSymbol();
+                        currencyList.remove(currencySymbol);
+                        currencyList.add(0, currencySymbol);
+                    }
+                } else {
+                    String currencySymbol = Currency.getInstance(getApplicationContext().getResources().getConfiguration().locale).getSymbol();
+                    currencyList.remove(currencySymbol);
+                    currencyList.add(0, currencySymbol);
+                }
+
+                currencyList.add(0, getString(R.string.points));
+                ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
+                balanceCurrencyField.setAdapter(currencyAdapter);
             }
         });
 
@@ -262,10 +375,15 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         noteFieldEdit.setText("");
         expiryField.setTag(null);
         expiryField.setText("");
+        balanceField.setTag(null);
+        balanceField.setText("");
+        balanceCurrencyField.setTag(null);
+        balanceCurrencyField.setText("");
         cardIdFieldView.setText("");
         barcodeTypeField.setText("");
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onResume()
     {
@@ -297,11 +415,19 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             if(expiryField.getText().length() == 0)
             {
                 expiryField.setTag(loyaltyCard.expiry);
-                if (loyaltyCard.expiry == null) {
-                    expiryField.setText(getString(R.string.never));
-                } else {
-                    expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry));
-                }
+                formatExpiryField(loyaltyCard.expiry);
+            }
+
+            if(balanceField.getText().length() == 0)
+            {
+                balanceField.setTag(loyaltyCard.balance);
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(loyaltyCard.balance, loyaltyCard.balanceType));
+            }
+
+            if(balanceCurrencyField.getText().length() == 0)
+            {
+                balanceCurrencyField.setTag(loyaltyCard.balanceType);
+                formatBalanceCurrencyField(loyaltyCard.balanceType);
             }
 
             if(cardIdFieldView.getText().length() == 0)
@@ -340,11 +466,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             storeFieldEdit.setText(importCard.store);
             noteFieldEdit.setText(importCard.note);
             expiryField.setTag(importCard.expiry);
-            if (importCard.expiry != null) {
-                expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(importCard.expiry));
-            } else {
-                expiryField.setText(R.string.never);
-            }
+            formatExpiryField(importCard.expiry);
+            balanceField.setTag(importCard.balance);
+            balanceCurrencyField.setTag(importCard.balanceType);
+            formatBalanceCurrencyField(importCard.balanceType);
             cardIdFieldView.setText(importCard.cardId);
             barcodeTypeField.setText(importCard.barcodeType);
             headingColorValue = importCard.headerColor;
@@ -354,6 +479,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             setTitle(R.string.addCardTitle);
             expiryField.setTag(null);
             expiryField.setText(getString(R.string.never));
+            balanceField.setTag(new BigDecimal("0"));
+            balanceCurrencyField.setTag(null);
+            formatBalanceCurrencyField(null);
             hideBarcode();
         }
 
@@ -454,6 +582,22 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         });
 
         generateIcon(storeFieldEdit.getText().toString());
+    }
+
+    private void formatExpiryField(Date expiry) {
+        if (expiry == null) {
+            expiryField.setText(getString(R.string.never));
+        } else {
+            expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
+        }
+    }
+
+    private void formatBalanceCurrencyField(Currency balanceType) {
+        if (balanceType == null) {
+            balanceCurrencyField.setText(getString(R.string.points));
+        } else {
+            balanceCurrencyField.setText(balanceType.getSymbol());
+        }
     }
 
     @Override
@@ -584,12 +728,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
-
     private void doSave()
     {
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
         Date expiry = (Date) expiryField.getTag();
+        BigDecimal balance = (BigDecimal) balanceField.getTag();
+        Currency balanceType = balanceCurrencyField.getTag() != null ? ((Currency) balanceCurrencyField.getTag()) : null;
         String cardId = cardIdFieldView.getText().toString();
         String barcodeType = barcodeTypeField.getText().toString();
 
@@ -612,6 +757,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             return;
         }
 
+        if(!validBalance)
+        {
+            Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
+            return;
+        }
+
         List<Group> selectedGroups = new ArrayList<>();
 
         for (Integer chipId : groupsChips.getCheckedChipIds()) {
@@ -621,12 +772,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, cardId, barcodeType, headingColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeType, headingColorValue);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, cardId, barcodeType, headingColorValue, 0);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeType, headingColorValue, 0);
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);

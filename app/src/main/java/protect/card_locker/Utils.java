@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -76,5 +81,45 @@ public class Utils {
         date.set(Calendar.MILLISECOND, 0);
 
         return expiryDate.before(date.getTime());
+    }
+
+    static public String formatBalance(Context context, BigDecimal value, Currency currency) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
+        if (currency == null) {
+            numberFormat.setMaximumFractionDigits(0);
+            return context.getString(R.string.balancePoints, numberFormat.format(value));
+        }
+
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        currencyFormat.setCurrency(currency);
+
+        return currencyFormat.format(value);
+    }
+
+    static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
+        if (currency == null) {
+            numberFormat.setMaximumFractionDigits(0);
+            return numberFormat.format(value);
+        }
+
+        numberFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
+        numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
+
+        return numberFormat.format(value);
+    }
+
+    static public BigDecimal parseCurrencyInUserLocale(String value) throws ParseException, NumberFormatException {
+        // BigDecimal only likes to parse in US locale
+        // So we have to translate whatever the input was to US locale
+        NumberFormat numberInputFormat = NumberFormat.getNumberInstance();
+        NumberFormat numberToBigDecimalFormat = NumberFormat.getNumberInstance(Locale.US);
+
+        // BigDecimal won't understand values like 1,000 instead of 1000
+        numberToBigDecimalFormat.setGroupingUsed(false);
+
+        return new BigDecimal(numberToBigDecimalFormat.format(numberInputFormat.parse(value)));
     }
 }

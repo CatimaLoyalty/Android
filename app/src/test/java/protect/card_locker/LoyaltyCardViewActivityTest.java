@@ -674,13 +674,13 @@ public class LoyaltyCardViewActivityTest
         final Context context = ApplicationProvider.getApplicationContext();
         DBHelper db = new DBHelper(activity);
 
-        db.insertLoyaltyCard("store", "note", new Date(), new BigDecimal("10.00"), Currency.getInstance("EUR"), EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), EAN_BARCODE_DATA, EAN_BARCODE_TYPE, Color.BLACK, 0);
 
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "10.00", "€", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "10.00", "$", EAN_BARCODE_DATA, EAN_BARCODE_TYPE);
 
         shadowOf(getMainLooper()).idle();
 
@@ -1080,7 +1080,7 @@ public class LoyaltyCardViewActivityTest
     {
         Date date = new Date();
 
-        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&balance=10&balancetype=EUR&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&balance=10&balancetype=USD&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
         intent.setData(importUri);
@@ -1096,7 +1096,7 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), "10.00", "€", "123456", "AZTEC");
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), "10.00", "$", "123456", "AZTEC");
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 

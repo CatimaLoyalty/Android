@@ -244,9 +244,9 @@ public class LoyaltyCardCursorAdapterTest
     }
 
     @Test
-    public void TestCursorAdapter10Eur()
+    public void TestCursorAdapter10USD()
     {
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", BarcodeFormat.UPC_A.toString(), Color.BLACK, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -254,7 +254,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "Balance: €10.00",false);
+        checkView(view, card.store, card.note, "", "Balance: $10.00",false);
 
         cursor.close();
     }

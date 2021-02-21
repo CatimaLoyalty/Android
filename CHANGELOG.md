@@ -5,6 +5,7 @@
 Changes:
 
 - Add balance support
+- Reorganize barcode tab of edit view
 
 ## v1.8.1 (2021-02-12)
 

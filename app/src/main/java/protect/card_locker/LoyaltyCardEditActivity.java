@@ -214,11 +214,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 hasChanged = true;
 
                 try {
-                    BigDecimal balance = Utils.parseCurrencyInUserLocale(s.toString());
+                    BigDecimal balance = Utils.parseCurrency(s.toString());
                     validBalance = true;
 
                     balanceField.setTag(balance);
-                } catch (ParseException | NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     validBalance = false;
                     e.printStackTrace();
                 }
@@ -500,13 +500,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         break;
                     }
                 }
-                chip.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        hasChanged = true;
+                chip.setOnTouchListener((v, event) -> {
+                    hasChanged = true;
 
-                        return false;
-                    }
+                    return false;
                 });
 
                 groupsChips.addView(chip);
@@ -565,12 +562,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeTypeField.setAdapter(barcodeAdapter);
 
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doSave();
-            }
-        });
+        saveButton.setOnClickListener(v -> doSave());
 
         generateIcon(storeFieldEdit.getText().toString());
     }

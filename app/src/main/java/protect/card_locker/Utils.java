@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 
 import androidx.core.graphics.ColorUtils;
@@ -111,15 +112,17 @@ public class Utils {
         return numberFormat.format(value);
     }
 
-    static public BigDecimal parseCurrencyInUserLocale(String value) throws ParseException, NumberFormatException {
-        // BigDecimal only likes to parse in US locale
-        // So we have to translate whatever the input was to US locale
-        NumberFormat numberInputFormat = NumberFormat.getNumberInstance();
-        NumberFormat numberToBigDecimalFormat = NumberFormat.getNumberInstance(Locale.US);
+    static public BigDecimal parseCurrency(String value) throws NumberFormatException {
+        // There are many ways users can write a currency, so we fix it up a bit
+        // 1. Replace all commas with dots
+        value = value.replace(',', '.');
 
-        // BigDecimal won't understand values like 1,000 instead of 1000
-        numberToBigDecimalFormat.setGroupingUsed(false);
+        // 2. Remove all but the last dot
+        while (value.split("\\.").length > 2) {
+            value = value.replaceFirst("\\.", "");
+        }
 
-        return new BigDecimal(numberToBigDecimalFormat.format(numberInputFormat.parse(value)));
+        // Parse as BigDecimal
+        return new BigDecimal(value);
     }
 }

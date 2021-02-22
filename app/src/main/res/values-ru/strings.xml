@@ -85,6 +85,6 @@
     <string name="settings_card_note_font_size">Размер шрифта примечания</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
-    <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
+    <string name="intent_import_card_from_url_share_text_singular">Я хочу поделиться картой с вами</string>
     <string name="exportSuccessful">Данные карты лояльности успешно экспортированы</string>
 </resources>

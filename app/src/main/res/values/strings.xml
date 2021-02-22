@@ -118,7 +118,8 @@
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
 
-    <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
+    <string name="intent_import_card_from_url_share_text_singular">I would like to share a card with you</string>
+    <string name="intent_import_card_from_url_share_text_plural">I would like to share some cards with you</string>
     <string name="intent_import_card_from_url_host" translatable="false">thelastproject.github.io</string>
     <string name="intent_import_card_from_url_path_prefix" translatable="false">/Catima/share</string>
     <string name="intent_import_card_from_url_host_old" translatable="false">brarcher.github.io</string>

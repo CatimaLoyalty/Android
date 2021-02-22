@@ -84,7 +84,7 @@
     <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
     <string name="exportSuccessful">Eksporterte stamkundekortdata</string>
     <string name="importSuccessful">Importerte stamkundekortdata</string>
-    <string name="intent_import_card_from_url_share_text">Jeg ønsker å dele et kort med deg</string>
+    <string name="intent_import_card_from_url_share_text_singular">Jeg ønsker å dele et kort med deg</string>
     <string name="settings_dark_theme">Mørk</string>
     <string name="settings_light_theme">Lys</string>
     <string name="settings_system_theme">Systemdrakt</string>

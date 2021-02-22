@@ -7,15 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.TextViewCompat;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -28,10 +19,16 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
-
 import protect.card_locker.preferences.Settings;
 
 
@@ -119,14 +116,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         barcodeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(barcodeIsFullscreen)
-                {
-                    setFullscreen(false);
-                }
-                else
-                {
-                    setFullscreen(true);
-                }
+                setFullscreen(!barcodeIsFullscreen);
             }
         });
     }
@@ -357,14 +347,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 return true;
 
             case R.id.action_lock_unlock:
-                if(rotationEnabled)
-                {
-                    setOrientatonLock(item, true);
-                }
-                else
-                {
-                    setOrientatonLock(item, false);
-                }
+                setOrientatonLock(item, rotationEnabled);
                 rotationEnabled = !rotationEnabled;
                 return true;
 

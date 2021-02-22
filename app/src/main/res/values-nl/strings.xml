@@ -97,5 +97,5 @@
     <string name="settings_card_note_font_size">Lettergrootte van aantekeningen</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
-    <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
+    <string name="intent_import_card_from_url_share_text_singular">Ik wil een klantenkaart met je delen</string>
     </resources>

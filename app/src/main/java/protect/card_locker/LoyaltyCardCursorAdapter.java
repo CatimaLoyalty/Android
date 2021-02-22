@@ -13,28 +13,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 import protect.card_locker.preferences.Settings;
 
-public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder>
-{
+public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
 
     private static int mCurrentSelectedIndex = -1;
-    private Cursor mCursor;
+    private final Cursor mCursor;
+    private final Context mContext;
+    private final CardAdapterListener mListener;
+    private final SparseBooleanArray mSelectedItems;
+    private final SparseBooleanArray mAnimationItemsIndex;
     Settings mSettings;
     boolean mDarkModeEnabled;
-    private Context mContext;
-    private CardAdapterListener mListener;
-    private SparseBooleanArray mSelectedItems;
-    private SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
 
-    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener)
-    {
+    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor);
-        mCursor= inputCursor;
+        mCursor = inputCursor;
         this.mContext = inputContext;
         this.mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
@@ -44,9 +44,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mDarkModeEnabled = MainActivity.isDarkModeEnabled(inputContext);
     }
 
+    @NonNull
     @Override
-    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
-    {
+    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
         return new LoyaltyCardListItemViewHolder(itemView);
     }
@@ -54,8 +54,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     @Override
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
 
-        if(mDarkModeEnabled)
-        {
+        if (mDarkModeEnabled) {
             inputHolder.mStarIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         }
 
@@ -63,19 +62,16 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         inputHolder.mStoreField.setText(loyaltyCard.store);
         inputHolder.mStoreField.setTextSize(mSettings.getCardTitleListFontSize());
-        if(!loyaltyCard.note.isEmpty())
-        {
+        if (!loyaltyCard.note.isEmpty()) {
             inputHolder.mNoteField.setVisibility(View.VISIBLE);
             inputHolder.mNoteField.setText(loyaltyCard.note);
             inputHolder.mNoteField.setTextSize(mSettings.getCardNoteListFontSize());
-        }
-        else
-        {
+        } else {
             inputHolder.mNoteField.setVisibility(View.GONE);
         }
 
 
-        inputHolder.mStarIcon.setVisibility(((loyaltyCard.starStatus!=0)) ? View.VISIBLE : View.GONE);
+        inputHolder.mStarIcon.setVisibility(((loyaltyCard.starStatus != 0)) ? View.VISIBLE : View.GONE);
 
         int tileLetterFontSize = mContext.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         int pixelSize = mContext.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
@@ -92,51 +88,40 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     }
 
-    private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
-    {
-        inputHolder.mThumbnailContainer.setOnClickListener(new View.OnClickListener()
-        {
+    private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
+        inputHolder.mThumbnailContainer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View inputView)
-            {
+            public void onClick(View inputView) {
                 mListener.onIconClicked(inputPosition);
             }
         });
 
-        inputHolder.mRow.setOnClickListener(new View.OnClickListener()
-        {
+        inputHolder.mRow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View inputView)
-            {
+            public void onClick(View inputView) {
                 mListener.onRowClicked(inputPosition);
             }
         });
 
-        inputHolder.mInformationContainer.setOnClickListener(new View.OnClickListener()
-        {
+        inputHolder.mInformationContainer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View inputView)
-            {
+            public void onClick(View inputView) {
                 mListener.onRowClicked(inputPosition);
             }
         });
 
-        inputHolder.mRow.setOnLongClickListener(new View.OnLongClickListener()
-        {
+        inputHolder.mRow.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View inputView)
-            {
+            public boolean onLongClick(View inputView) {
                 mListener.onRowLongClicked(inputPosition);
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             }
         });
 
-        inputHolder.mInformationContainer.setOnLongClickListener(new View.OnLongClickListener()
-        {
+        inputHolder.mInformationContainer.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View inputView)
-            {
+            public boolean onLongClick(View inputView) {
                 mListener.onRowLongClicked(inputPosition);
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
@@ -144,84 +129,80 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         });
     }
 
-    private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition)
-    {
-        if (mSelectedItems.get(inputPosition, false))
-        {
+    private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition) {
+        if (mSelectedItems.get(inputPosition, false)) {
             inputHolder.mThumbnailFrontContainer.setVisibility(View.GONE);
             resetIconYAxis(inputHolder.mThumbnailBackContainer);
             inputHolder.mThumbnailBackContainer.setVisibility(View.VISIBLE);
             inputHolder.mThumbnailBackContainer.setAlpha(1);
-            if (mCurrentSelectedIndex == inputPosition)
-            {
+            if (mCurrentSelectedIndex == inputPosition) {
                 LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, true);
                 resetCurrentIndex();
             }
-        }
-        else
-        {
+        } else {
             inputHolder.mThumbnailBackContainer.setVisibility(View.GONE);
             resetIconYAxis(inputHolder.mThumbnailFrontContainer);
             inputHolder.mThumbnailFrontContainer.setVisibility(View.VISIBLE);
             inputHolder.mThumbnailFrontContainer.setAlpha(1);
-            if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition)
-            {
+            if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition) {
                 LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, false);
                 resetCurrentIndex();
             }
         }
     }
 
-    private void resetIconYAxis(View inputView)
-    {
-        if (inputView.getRotationY() != 0)
-        {
+    private void resetIconYAxis(View inputView) {
+        if (inputView.getRotationY() != 0) {
             inputView.setRotationY(0);
         }
     }
 
-    public void resetAnimationIndex()
-    {
+    public void resetAnimationIndex() {
         mReverseAllAnimations = false;
         mAnimationItemsIndex.clear();
     }
 
-    public void toggleSelection(int inputPosition)
-    {
+    public void toggleSelection(int inputPosition) {
         mCurrentSelectedIndex = inputPosition;
-        if (mSelectedItems.get(inputPosition, false))
-        {
+        if (mSelectedItems.get(inputPosition, false)) {
             mSelectedItems.delete(inputPosition);
             mAnimationItemsIndex.delete(inputPosition);
-        }
-        else
-        {
+        } else {
             mSelectedItems.put(inputPosition, true);
             mAnimationItemsIndex.put(inputPosition, true);
         }
         notifyItemChanged(inputPosition);
     }
 
-    public void clearSelections()
-    {
+    public void clearSelections() {
         mReverseAllAnimations = true;
         mSelectedItems.clear();
         notifyDataSetChanged();
     }
 
-    public int getSelectedItemCount()
-    {
+    public int getSelectedItemCount() {
         return mSelectedItems.size();
     }
 
-    public String getSelectedItemsID()
-    {
+    public ArrayList<LoyaltyCard> getSelectedItems() {
 
-        StringBuilder result= new StringBuilder();
+        ArrayList<LoyaltyCard> result = new ArrayList<>();
 
         int i;
-        for(i= 0; i < (mSelectedItems.size() - 1); i++)
-        {
+        for (i = 0; i < mSelectedItems.size(); i++) {
+            mCursor.moveToPosition(mSelectedItems.keyAt(i));
+            result.add(LoyaltyCard.toLoyaltyCard(mCursor));
+        }
+
+        return result;
+    }
+
+    public String getSelectedItemsID() {
+
+        StringBuilder result = new StringBuilder();
+
+        int i;
+        for (i = 0; i < (mSelectedItems.size() - 1); i++) {
             mCursor.moveToPosition(mSelectedItems.keyAt(i));
             result.append(LoyaltyCard.toLoyaltyCard(mCursor).id).append(", ");
         }
@@ -231,20 +212,19 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return result.toString();
     }
 
-    private void resetCurrentIndex()
-    {
+    private void resetCurrentIndex() {
         mCurrentSelectedIndex = -1;
     }
 
-    public interface CardAdapterListener
-    {
+    public interface CardAdapterListener {
         void onIconClicked(int inputPosition);
+
         void onRowClicked(int inputPosition);
+
         void onRowLongClicked(int inputPosition);
     }
 
-    public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener
-    {
+    public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
 
         public TextView mStoreField, mNoteField;
         public LinearLayout mInformationContainer;
@@ -253,14 +233,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public ConstraintLayout mRow;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
 
-        public LoyaltyCardListItemViewHolder(View inputView)
-        {
+        public LoyaltyCardListItemViewHolder(View inputView) {
             super(inputView);
             mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
             mRow = inputView.findViewById(R.id.row);
             mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
             mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
-            mInformationContainer= inputView.findViewById(R.id.information_container);
+            mInformationContainer = inputView.findViewById(R.id.information_container);
             mStoreField = inputView.findViewById(R.id.store);
             mNoteField = inputView.findViewById(R.id.note);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
@@ -269,8 +248,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         @Override
-        public boolean onLongClick(View inputView)
-        {
+        public boolean onLongClick(View inputView) {
             mListener.onRowLongClicked(getAdapterPosition());
             inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             return true;

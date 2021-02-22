@@ -74,7 +74,7 @@
     <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
     <string name="exportSuccessful">Carte de fidélité exportée avec succès</string>
     <string name="importSuccessful">Carte de fidélité importée avec succès</string>
-    <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
+    <string name="intent_import_card_from_url_share_text_singular">Je veux partager une carte avec toi</string>
     <string name="settings_dark_theme">Thème sombre</string>
     <string name="settings_light_theme">Thème clair</string>
     <string name="settings_system_theme">Thème du système</string>

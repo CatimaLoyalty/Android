@@ -113,10 +113,10 @@
     <string name="expiryStateSentenceExpired">Verlopen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="moveBarcodeToCenterOfScreen">Barcode verplaatsen naar midden van scherm</string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
-    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; lijkt geen geldig saldo te zijn.</string>
+    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; punten</string>
-    <string name="balanceSentence">Saldo: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punten</string>
+    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
 </resources>

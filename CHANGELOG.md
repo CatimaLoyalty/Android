@@ -5,6 +5,7 @@
 Changes:
 
 - Improve balance parsing logic
+- Fix currency decimal display on main screen
 
 ## v1.9 (2021-02-22)
 

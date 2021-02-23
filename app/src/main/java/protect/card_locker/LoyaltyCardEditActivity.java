@@ -246,7 +246,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                 balanceCurrencyField.setTag(currency);
 
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol((BigDecimal) balanceField.getTag(), currency));
+                BigDecimal balance = (BigDecimal) balanceField.getTag();
+
+                if (balance != null) {
+                    balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(balance, currency));
+                }
             }
 
             @Override
@@ -366,10 +370,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         noteFieldEdit.setText("");
         expiryField.setTag(null);
         expiryField.setText("");
-        balanceField.setTag(null);
-        balanceField.setText("");
         balanceCurrencyField.setTag(null);
         balanceCurrencyField.setText("");
+        balanceField.setTag(null);
+        balanceField.setText("");
         cardIdFieldView.setText("");
         barcodeTypeField.setText("");
     }
@@ -409,16 +413,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 formatExpiryField(loyaltyCard.expiry);
             }
 
-            if(balanceField.getText().length() == 0)
-            {
-                balanceField.setTag(loyaltyCard.balance);
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(loyaltyCard.balance, loyaltyCard.balanceType));
-            }
-
             if(balanceCurrencyField.getText().length() == 0)
             {
                 balanceCurrencyField.setTag(loyaltyCard.balanceType);
                 formatBalanceCurrencyField(loyaltyCard.balanceType);
+            }
+
+            if(balanceField.getText().length() == 0)
+            {
+                balanceField.setTag(loyaltyCard.balance);
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(loyaltyCard.balance, loyaltyCard.balanceType));
             }
 
             if(cardIdFieldView.getText().length() == 0)

@@ -94,6 +94,8 @@ public class Utils {
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         currencyFormat.setCurrency(currency);
+        currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
+        currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
 
         return currencyFormat.format(value);
     }

@@ -214,7 +214,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 hasChanged = true;
 
                 try {
-                    BigDecimal balance = Utils.parseCurrency(s.toString());
+                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals((Currency) balanceCurrencyField.getTag()));
                     validBalance = true;
 
                     balanceField.setTag(balance);

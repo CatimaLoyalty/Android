@@ -112,7 +112,21 @@ public class Utils {
         return numberFormat.format(value);
     }
 
-    static public BigDecimal parseCurrency(String value) throws NumberFormatException {
+    static public Boolean currencyHasDecimals(Currency currency) {
+        if (currency == null) {
+            return false;
+        }
+
+        return currency.getDefaultFractionDigits() != 0;
+    }
+
+    static public BigDecimal parseCurrency(String value, Boolean hasDecimals) throws NumberFormatException {
+        // If there are no decimals expected, remove all separators before parsing
+        if (!hasDecimals) {
+            value = value.replaceAll("\\.", "").replaceAll(",", "");
+            return new BigDecimal(value);
+        }
+
         // There are many ways users can write a currency, so we fix it up a bit
         // 1. Replace all commas with dots
         value = value.replace(',', '.');

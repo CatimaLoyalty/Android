@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.9.1 (2021-02-23)
+
+Changes:
+
+- Improve balance parsing logic
+
 ## v1.9 (2021-02-22)
 
 Changes:

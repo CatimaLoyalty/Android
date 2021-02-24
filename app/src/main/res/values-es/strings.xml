@@ -112,5 +112,5 @@
     <string name="editBarcode">Editar el código de barras</string>
     <string name="barcode">Código de barras</string>
     <string name="card">Tarjeta</string>
-    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; puntos</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> puntos</string>
 </resources>

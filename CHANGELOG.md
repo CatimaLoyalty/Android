@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.9.2 (2021-02-24)
+
+Changes:
+
+- Fix parsing balance for countries using space as separator
+
 ## v1.9.1 (2021-02-23)
 
 Changes:

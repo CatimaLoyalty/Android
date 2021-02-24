@@ -25,28 +25,37 @@ public class UtilsTest
         assertEquals("1", Utils.parseCurrency("1", true).toPlainString());
         assertEquals("1.00", Utils.parseCurrency("1.00", true).toPlainString());
         assertEquals("1.00", Utils.parseCurrency("1,00", true).toPlainString());
+        assertEquals("1.00", Utils.parseCurrency("1 00", true).toPlainString());
 
         assertEquals("25", Utils.parseCurrency("2.5", false).toPlainString());
         assertEquals("25", Utils.parseCurrency("2,5", false).toPlainString());
+        assertEquals("25", Utils.parseCurrency("2 5", false).toPlainString());
         assertEquals("205", Utils.parseCurrency("2.05", false).toPlainString());
         assertEquals("205", Utils.parseCurrency("2,05", false).toPlainString());
+        assertEquals("205", Utils.parseCurrency("2 05", false).toPlainString());
 
         assertEquals("2.5", Utils.parseCurrency("2.5", true).toPlainString());
         assertEquals("2.5", Utils.parseCurrency("2,5", true).toPlainString());
+        assertEquals("2.5", Utils.parseCurrency("2 5", true).toPlainString());
         assertEquals("2.05", Utils.parseCurrency("2.05", true).toPlainString());
         assertEquals("2.05", Utils.parseCurrency("2,05", true).toPlainString());
+        assertEquals("2.05", Utils.parseCurrency("2 05", true).toPlainString());
         assertEquals("2.50", Utils.parseCurrency("2.50", true).toPlainString());
         assertEquals("2.50", Utils.parseCurrency("2,50", true).toPlainString());
+        assertEquals("2.50", Utils.parseCurrency("2 50", true).toPlainString());
 
         assertEquals("995", Utils.parseCurrency("9.95", false).toPlainString());
         assertEquals("995", Utils.parseCurrency("9,95", false).toPlainString());
+        assertEquals("995", Utils.parseCurrency("9 95", false).toPlainString());
 
         assertEquals("9.95", Utils.parseCurrency("9.95", true).toPlainString());
         assertEquals("9.95", Utils.parseCurrency("9,95", true).toPlainString());
+        assertEquals("9.95", Utils.parseCurrency("9 95", true).toPlainString());
 
         assertEquals("1234", Utils.parseCurrency("1234", false).toPlainString());
         assertEquals("1234", Utils.parseCurrency("1.234", false).toPlainString());
         assertEquals("1234", Utils.parseCurrency("1,234", false).toPlainString());
+        assertEquals("1234", Utils.parseCurrency("1 234", false).toPlainString());
 
         assertEquals("1234", Utils.parseCurrency("1234", true).toPlainString());
         assertEquals("1234.00", Utils.parseCurrency("1234.00", true).toPlainString());
@@ -54,6 +63,10 @@ public class UtilsTest
         assertEquals("1234.00", Utils.parseCurrency("1.234,00", true).toPlainString());
         assertEquals("1234.00", Utils.parseCurrency("1,234.00", true).toPlainString());
         assertEquals("1234.00", Utils.parseCurrency("1,234,00", true).toPlainString());
+        assertEquals("1234.00", Utils.parseCurrency("1 234,00", true).toPlainString());
+        assertEquals("1234.00", Utils.parseCurrency("1 234,00", true).toPlainString());
+        assertEquals("1234.00", Utils.parseCurrency("1 234 00", true).toPlainString());
+
     }
 
     @Test

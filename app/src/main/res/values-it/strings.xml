@@ -115,8 +115,8 @@
     <string name="editBarcode">Modifica il codice a barre</string>
     <string name="barcode">Codice a barre</string>
     <string name="card">Carta</string>
-    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; punti</string>
-    <string name="balanceSentence">Saldo: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentenceExpired">Scaduta: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentence">Scade: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punti</string>
+    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Scaduta: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Scade: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
 </resources>

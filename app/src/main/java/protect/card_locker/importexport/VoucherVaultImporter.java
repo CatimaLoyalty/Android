@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Currency;
 import java.util.Date;
+import java.util.TimeZone;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
@@ -53,6 +54,7 @@ public class VoucherVaultImporter implements DatabaseImporter
             Date expiry = null;
             if (!jsonCard.isNull("expires")) {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
                 expiry = dateFormat.parse(jsonCard.getString("expires"));
             }
 

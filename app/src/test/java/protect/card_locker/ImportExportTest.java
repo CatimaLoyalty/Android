@@ -931,7 +931,7 @@ public class ImportExportTest
 
         assertEquals("Department Store", card.store);
         assertEquals("", card.note);
-        assertEquals(new Date(1616713200000L), card.expiry);
+        assertEquals(new Date(1616716800000L), card.expiry);
         assertEquals(new BigDecimal("3.5"), card.balance);
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("26846363", card.cardId);

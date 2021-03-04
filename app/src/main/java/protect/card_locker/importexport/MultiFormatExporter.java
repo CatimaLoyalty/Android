@@ -33,6 +33,9 @@ public class MultiFormatExporter
             case Catima:
                 exporter = new CsvDatabaseExporter();
                 break;
+            default:
+                Log.e(TAG, "Failed to export data, unknown format " + format.name());
+                break;
         }
 
         if(exporter != null)

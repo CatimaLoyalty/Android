@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Support importing [Voucher Vault](https://github.com/tim-smart/vouchervault/) exports
+
 ## v1.9.2 (2021-02-24)
 
 Changes:

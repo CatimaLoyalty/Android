@@ -30,7 +30,7 @@ public class MultiFormatExporter
 
         switch(format)
         {
-            case CSV:
+            case Catima:
                 exporter = new CsvDatabaseExporter();
                 break;
         }

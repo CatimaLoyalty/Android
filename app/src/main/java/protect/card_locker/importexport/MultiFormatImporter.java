@@ -35,8 +35,11 @@ public class MultiFormatImporter
 
         switch(format)
         {
-            case CSV:
+            case Catima:
                 importer = new CsvDatabaseImporter();
+                break;
+            case VoucherVault:
+                importer = new VoucherVaultImporter();
                 break;
         }
 

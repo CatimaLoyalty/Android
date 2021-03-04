@@ -151,4 +151,5 @@
     <string name="points">Points</string>
 
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
+    <string name="chooseImportType">Import data from which app?</string>
 </resources>

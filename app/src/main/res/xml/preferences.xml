@@ -60,9 +60,15 @@
             app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="@string/settings_key_keep_screen_on"
             android:title="@string/settings_keep_screen_on"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/settings_key_disable_lockscreen_while_viewing_card"
+            android:title="@string/settings_disable_lockscreen_while_viewing_card"
             app:iconSpaceReserved="false" />
     </PreferenceCategory>
 

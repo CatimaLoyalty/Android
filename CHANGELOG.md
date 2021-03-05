@@ -5,6 +5,8 @@
 Changes:
 
 - Support importing [Voucher Vault](https://github.com/tim-smart/vouchervault/) exports
+- Option to keep the screen on while viewing a loyalty card
+- Option to suspend the lock screen while viewing a loyalty card 
 
 ## v1.9.2 (2021-02-24)
 

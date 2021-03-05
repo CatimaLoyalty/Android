@@ -93,6 +93,11 @@ public class Settings
 
     public boolean getKeepScreenOn()
     {
-        return getBoolean(R.string.settings_key_keep_screen_on, false);
+        return getBoolean(R.string.settings_key_keep_screen_on, true);
+    }
+
+    public boolean getDisableLockscreenWhileViewingCard()
+    {
+        return getBoolean(R.string.settings_key_disable_lockscreen_while_viewing_card, true);
     }
 }

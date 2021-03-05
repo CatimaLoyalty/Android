@@ -245,10 +245,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 attributes.screenBrightness = 1F;
             }
 
-            if (settings.getKeepScreenOn())
-            {
-                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
-                        WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
+            if (settings.getKeepScreenOn()) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+
+            if (settings.getDisableLockscreenWhileViewingCard()) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
                         WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
             }
 

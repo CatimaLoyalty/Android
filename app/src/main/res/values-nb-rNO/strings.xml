@@ -119,4 +119,5 @@
     <string name="balance">Saldo</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> poeng</string>
     <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="chooseImportType">Hvilket program vil du importere data fra\?</string>
 </resources>

@@ -9,6 +9,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -41,6 +42,7 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         ImageView thumbnail = view.findViewById(R.id.thumbnail);
         TextView storeField = view.findViewById(R.id.store);
         TextView noteField = view.findViewById(R.id.note);
+        TextView balanceField = view.findViewById(R.id.balance);
         TextView expiryField = view.findViewById(R.id.expiry);
         ImageView star = view.findViewById(R.id.star);
 
@@ -61,6 +63,15 @@ class LoyaltyCardCursorAdapter extends CursorAdapter
         else
         {
             noteField.setVisibility(View.GONE);
+        }
+
+        if(!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+            balanceField.setVisibility(View.VISIBLE);
+            balanceField.setText(context.getString(R.string.balanceSentence, Utils.formatBalance(context, loyaltyCard.balance, loyaltyCard.balanceType)));
+        }
+        else
+        {
+            balanceField.setVisibility(View.GONE);
         }
 
         if(loyaltyCard.expiry != null)

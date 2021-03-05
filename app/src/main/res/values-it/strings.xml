@@ -103,4 +103,20 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carta</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carte</item>
     </plurals>
+    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; non sembra un saldo corretto.</string>
+    <string name="points">Punti</string>
+    <string name="currency">Valuta</string>
+    <string name="balance">Saldo</string>
+    <string name="moveBarcodeToCenterOfScreen">Centra il codice a barre sullo schermo</string>
+    <string name="moveBarcodeToTopOfScreen">Sposta il codice a barre in cima allo schermo</string>
+    <string name="chooseExpiryDate">Scegli data di scadenza</string>
+    <string name="never">Mai</string>
+    <string name="expiryDate">Data di scadenza</string>
+    <string name="editBarcode">Modifica il codice a barre</string>
+    <string name="barcode">Codice a barre</string>
+    <string name="card">Carta</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punti</string>
+    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Scaduta: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Scade: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
 </resources>

@@ -1,4 +1,4 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -10,8 +10,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+
+import protect.card_locker.DBHelper;
+import protect.card_locker.FormatException;
+import protect.card_locker.Group;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -301,6 +307,21 @@ public class CsvDatabaseImporter implements DatabaseImporter
             expiry = new Date(extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record, true));
         } catch (NullPointerException | FormatException e) { }
 
+        BigDecimal balance;
+        try {
+            balance = new BigDecimal(extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null));
+        } catch (FormatException _e ) {
+            // These fields did not exist in versions 1.8.1 and before
+            // We catch this exception so we can still import old backups
+            balance = new BigDecimal("0");
+        }
+
+        Currency balanceType = null;
+        String unparsedBalanceType = extractString(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE, record, "");
+        if(!unparsedBalanceType.isEmpty()) {
+            balanceType = Currency.getInstance(unparsedBalanceType);
+        }
+
         String cardId = extractString(DBHelper.LoyaltyCardDbIds.CARD_ID, record, "");
         if(cardId.isEmpty())
         {
@@ -324,7 +345,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
-        helper.insertLoyaltyCard(database, id, store, note, expiry, cardId, barcodeType, headerColor, starStatus);
+        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeType, headerColor, starStatus);
     }
 
     /**

@@ -136,6 +136,8 @@
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> points</string>
 
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
@@ -145,4 +147,11 @@
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
     <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
+
+    <string name="balance">Balance</string>
+    <string name="currency">Currency</string>
+    <string name="points">Points</string>
+
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
+    <string name="chooseImportType">Import data from which app?</string>
 </resources>

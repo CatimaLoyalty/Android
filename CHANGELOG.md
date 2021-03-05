@@ -1,5 +1,31 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Support importing [Voucher Vault](https://github.com/tim-smart/vouchervault/) exports
+
+## v1.9.2 (2021-02-24)
+
+Changes:
+
+- Fix parsing balance for countries using space as separator
+
+## v1.9.1 (2021-02-23)
+
+Changes:
+
+- Improve balance parsing logic
+- Fix currency decimal display on main screen
+
+## v1.9 (2021-02-22)
+
+Changes:
+
+- Add balance support
+- Reorganize barcode tab of edit view
+
 ## v1.8.1 (2021-02-12)
 
 Changes:

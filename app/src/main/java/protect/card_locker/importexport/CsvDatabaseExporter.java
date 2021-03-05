@@ -1,4 +1,4 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
 
 import android.database.Cursor;
 
@@ -7,6 +7,10 @@ import org.apache.commons.csv.CSVPrinter;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+
+import protect.card_locker.DBHelper;
+import protect.card_locker.Group;
+import protect.card_locker.LoyaltyCard;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
@@ -50,6 +54,8 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.STORE,
                 DBHelper.LoyaltyCardDbIds.NOTE,
                 DBHelper.LoyaltyCardDbIds.EXPIRY,
+                DBHelper.LoyaltyCardDbIds.BALANCE,
+                DBHelper.LoyaltyCardDbIds.BALANCE_TYPE,
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
@@ -65,6 +71,8 @@ public class CsvDatabaseExporter implements DatabaseExporter
                     card.store,
                     card.note,
                     card.expiry != null ? card.expiry.getTime() : "",
+                    card.balance,
+                    card.balanceType,
                     card.cardId,
                     card.headerColor,
                     card.barcodeType,

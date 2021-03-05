@@ -6,9 +6,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -76,5 +82,63 @@ public class Utils {
         date.set(Calendar.MILLISECOND, 0);
 
         return expiryDate.before(date.getTime());
+    }
+
+    static public String formatBalance(Context context, BigDecimal value, Currency currency) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
+        if (currency == null) {
+            numberFormat.setMaximumFractionDigits(0);
+            return context.getString(R.string.balancePoints, numberFormat.format(value));
+        }
+
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        currencyFormat.setCurrency(currency);
+        currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
+        currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
+
+        return currencyFormat.format(value);
+    }
+
+    static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
+        if (currency == null) {
+            numberFormat.setMaximumFractionDigits(0);
+            return numberFormat.format(value);
+        }
+
+        numberFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
+        numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
+
+        return numberFormat.format(value);
+    }
+
+    static public Boolean currencyHasDecimals(Currency currency) {
+        if (currency == null) {
+            return false;
+        }
+
+        return currency.getDefaultFractionDigits() != 0;
+    }
+
+    static public BigDecimal parseCurrency(String value, Boolean hasDecimals) throws NumberFormatException {
+        // If there are no decimals expected, remove all separators before parsing
+        if (!hasDecimals) {
+            value = value.replaceAll("[^0-9]", "");
+            return new BigDecimal(value);
+        }
+
+        // There are many ways users can write a currency, so we fix it up a bit
+        // 1. Replace all non-numbers with dots
+        value = value.replaceAll("[^0-9]", ".");
+
+        // 2. Remove all but the last dot
+        while (value.split("\\.").length > 2) {
+            value = value.replaceFirst("\\.", "");
+        }
+
+        // Parse as BigDecimal
+        return new BigDecimal(value);
     }
 }

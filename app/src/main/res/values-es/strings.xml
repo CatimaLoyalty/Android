@@ -103,4 +103,14 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjeta</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjetas</item>
     </plurals>
+    <string name="points">Puntos</string>
+    <string name="moveBarcodeToCenterOfScreen">Centrar el código de barras en la pantalla</string>
+    <string name="moveBarcodeToTopOfScreen">Mover el código de barras a la zona superior de la pantalla</string>
+    <string name="chooseExpiryDate">Elegir fecha de caducidad</string>
+    <string name="never">Nunca</string>
+    <string name="expiryDate">Fecha de caducidad</string>
+    <string name="editBarcode">Editar el código de barras</string>
+    <string name="barcode">Código de barras</string>
+    <string name="card">Tarjeta</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> puntos</string>
 </resources>

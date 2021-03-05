@@ -39,6 +39,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImageView bottomSheetButton;
     TextView noteView;
     TextView groupsView;
+    TextView balanceView;
     TextView expiryView;
     TextView storeName;
     ImageButton maximizeButton;
@@ -123,6 +125,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         bottomSheetButton = findViewById(R.id.bottomSheetButton);
         noteView = findViewById(R.id.noteView);
         groupsView = findViewById(R.id.groupsView);
+        balanceView = findViewById(R.id.balanceView);
         expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
@@ -297,6 +300,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         else
         {
             groupsView.setVisibility(View.GONE);
+        }
+
+        if(!loyaltyCard.balance.equals(new BigDecimal(0))) {
+            balanceView.setVisibility(View.VISIBLE);
+            balanceView.setText(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        }
+        else
+        {
+            balanceView.setVisibility(View.GONE);
         }
 
         if(loyaltyCard.expiry != null) {
@@ -535,7 +547,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     private void makeBottomSheetVisibleIfUseful()
     {
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);
         }
         else

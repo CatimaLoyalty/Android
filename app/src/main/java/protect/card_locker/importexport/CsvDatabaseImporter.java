@@ -1,4 +1,4 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -14,6 +14,10 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+
+import protect.card_locker.DBHelper;
+import protect.card_locker.FormatException;
+import protect.card_locker.Group;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)

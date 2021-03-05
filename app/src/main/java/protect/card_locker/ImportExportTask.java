@@ -13,6 +13,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
+import protect.card_locker.importexport.MultiFormatExporter;
+import protect.card_locker.importexport.MultiFormatImporter;
+
 class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 {
     private static final String TAG = "Catima";

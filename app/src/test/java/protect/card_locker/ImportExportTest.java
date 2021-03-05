@@ -3,10 +3,12 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Environment;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,10 +28,15 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+
+import protect.card_locker.importexport.MultiFormatExporter;
+import protect.card_locker.importexport.MultiFormatImporter;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -112,19 +119,64 @@ public class ImportExportTest
         boolean result = (id != -1);
         assertTrue(result);
 
+        LoyaltyCard card = db.getLoyaltyCard((int) id);
+        assertEquals("No Expiry", card.store);
+        assertEquals("", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
         id = db.insertLoyaltyCard("Past", "", new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
+
+        card = db.getLoyaltyCard((int) id);
+        assertEquals("Past", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.before(new Date()));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
 
         id = db.insertLoyaltyCard("Today", "", new Date(), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
+        card = db.getLoyaltyCard((int) id);
+        assertEquals("Today", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.before(new Date(new Date().getTime()+86400)));
+        assertTrue(card.expiry.after(new Date(new Date().getTime()-86400)));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
+
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = db.insertLoyaltyCard("Future", "", new Date(2147483648L), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        id = db.insertLoyaltyCard("Future", "", new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
+
+        card = db.getLoyaltyCard((int) id);
+        assertEquals("Future", card.store);
+        assertEquals("", card.note);
+        assertTrue(card.expiry.after(new Date(new Date().getTime()+86400)));
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals(BARCODE_DATA, card.cardId);
+        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(0, card.starStatus);
 
         assertEquals(4, db.getLoyaltyCardCount());
     }
@@ -269,34 +321,31 @@ public class ImportExportTest
     {
         final int NUM_CARDS = 10;
 
-        for(DataFormat format : DataFormat.values())
-        {
-            addLoyaltyCards(NUM_CARDS);
+        addLoyaltyCards(NUM_CARDS);
 
-            ByteArrayOutputStream outData = new ByteArrayOutputStream();
-            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
-            // Export data to CSV format
-            boolean result = MultiFormatExporter.exportData(db, outStream, format);
-            assertTrue(result);
-            outStream.close();
+        // Export data to CSV format
+        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        assertTrue(result);
+        outStream.close();
 
-            clearDatabase();
+        clearDatabase();
 
-            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-            InputStreamReader inStream = new InputStreamReader(inData);
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+        InputStreamReader inStream = new InputStreamReader(inData);
 
-            // Import the CSV data
-            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-            assertTrue(result);
+        // Import the CSV data
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        assertTrue(result);
 
-            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
-            checkLoyaltyCards();
+        checkLoyaltyCards();
 
-            // Clear the database for the next format under test
-            clearDatabase();
-        }
+        // Clear the database for the next format under test
+        clearDatabase();
     }
 
     @Test
@@ -304,34 +353,31 @@ public class ImportExportTest
     {
         final int NUM_CARDS = 9;
 
-        for(DataFormat format : DataFormat.values())
-        {
-            addLoyaltyCardsFiveStarred();
+        addLoyaltyCardsFiveStarred();
 
-            ByteArrayOutputStream outData = new ByteArrayOutputStream();
-            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
-            // Export data to CSV format
-            boolean result = MultiFormatExporter.exportData(db, outStream, format);
-            assertTrue(result);
-            outStream.close();
+        // Export data to CSV format
+        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        assertTrue(result);
+        outStream.close();
 
-            clearDatabase();
+        clearDatabase();
 
-            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-            InputStreamReader inStream = new InputStreamReader(inData);
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+        InputStreamReader inStream = new InputStreamReader(inData);
 
-            // Import the CSV data
-            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-            assertTrue(result);
+        // Import the CSV data
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        assertTrue(result);
 
-            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
-            checkLoyaltyCardsFiveStarred();
+        checkLoyaltyCardsFiveStarred();
 
-            // Clear the database for the next format under test
-            clearDatabase();
-        }
+        // Clear the database for the next format under test
+        clearDatabase();
     }
 
     private List<String> groupsToGroupNames(List<Group> groups)
@@ -351,77 +397,74 @@ public class ImportExportTest
         final int NUM_CARDS = 10;
         final int NUM_GROUPS = 3;
 
-        for(DataFormat format : DataFormat.values())
-        {
-            addLoyaltyCards(NUM_CARDS);
-            addGroups(NUM_GROUPS);
+        addLoyaltyCards(NUM_CARDS);
+        addGroups(NUM_GROUPS);
 
-            List<Group> emptyGroup = new ArrayList<>();
+        List<Group> emptyGroup = new ArrayList<>();
 
-            List<Group> groupsForOne = new ArrayList<>();
-            groupsForOne.add(db.getGroup("group, \"   1"));
+        List<Group> groupsForOne = new ArrayList<>();
+        groupsForOne.add(db.getGroup("group, \"   1"));
 
-            List<Group> groupsForTwo = new ArrayList<>();
-            groupsForTwo.add(db.getGroup("group, \"   1"));
-            groupsForTwo.add(db.getGroup("group, \"   2"));
+        List<Group> groupsForTwo = new ArrayList<>();
+        groupsForTwo.add(db.getGroup("group, \"   1"));
+        groupsForTwo.add(db.getGroup("group, \"   2"));
 
-            List<Group> groupsForThree = new ArrayList<>();
-            groupsForThree.add(db.getGroup("group, \"   1"));
-            groupsForThree.add(db.getGroup("group, \"   2"));
-            groupsForThree.add(db.getGroup("group, \"   3"));
+        List<Group> groupsForThree = new ArrayList<>();
+        groupsForThree.add(db.getGroup("group, \"   1"));
+        groupsForThree.add(db.getGroup("group, \"   2"));
+        groupsForThree.add(db.getGroup("group, \"   3"));
 
-            List<Group> groupsForFour = new ArrayList<>();
-            groupsForFour.add(db.getGroup("group, \"   1"));
-            groupsForFour.add(db.getGroup("group, \"   2"));
-            groupsForFour.add(db.getGroup("group, \"   3"));
+        List<Group> groupsForFour = new ArrayList<>();
+        groupsForFour.add(db.getGroup("group, \"   1"));
+        groupsForFour.add(db.getGroup("group, \"   2"));
+        groupsForFour.add(db.getGroup("group, \"   3"));
 
-            List<Group> groupsForFive = new ArrayList<>();
-            groupsForFive.add(db.getGroup("group, \"   1"));
-            groupsForFive.add(db.getGroup("group, \"   3"));
+        List<Group> groupsForFive = new ArrayList<>();
+        groupsForFive.add(db.getGroup("group, \"   1"));
+        groupsForFive.add(db.getGroup("group, \"   3"));
 
-            db.setLoyaltyCardGroups(1, groupsForOne);
-            db.setLoyaltyCardGroups(2, groupsForTwo);
-            db.setLoyaltyCardGroups(3, groupsForThree);
-            db.setLoyaltyCardGroups(4, groupsForFour);
-            db.setLoyaltyCardGroups(5, groupsForFive);
+        db.setLoyaltyCardGroups(1, groupsForOne);
+        db.setLoyaltyCardGroups(2, groupsForTwo);
+        db.setLoyaltyCardGroups(3, groupsForThree);
+        db.setLoyaltyCardGroups(4, groupsForFour);
+        db.setLoyaltyCardGroups(5, groupsForFive);
 
-            ByteArrayOutputStream outData = new ByteArrayOutputStream();
-            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
-            // Export data to CSV format
-            boolean result = MultiFormatExporter.exportData(db, outStream, format);
-            assertTrue(result);
-            outStream.close();
+        // Export data to CSV format
+        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        assertTrue(result);
+        outStream.close();
 
-            clearDatabase();
+        clearDatabase();
 
-            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-            InputStreamReader inStream = new InputStreamReader(inData);
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+        InputStreamReader inStream = new InputStreamReader(inData);
 
-            // Import the CSV data
-            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-            assertTrue(result);
+        // Import the CSV data
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        assertTrue(result);
 
-            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
-            assertEquals(NUM_GROUPS, db.getGroupCount());
+        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+        assertEquals(NUM_GROUPS, db.getGroupCount());
 
-            checkLoyaltyCards();
-            checkGroups();
+        checkLoyaltyCards();
+        checkGroups();
 
-            assertEquals(groupsToGroupNames(groupsForOne), groupsToGroupNames(db.getLoyaltyCardGroups(1)));
-            assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(db.getLoyaltyCardGroups(2)));
-            assertEquals(groupsToGroupNames(groupsForThree), groupsToGroupNames(db.getLoyaltyCardGroups(3)));
-            assertEquals(groupsToGroupNames(groupsForFour), groupsToGroupNames(db.getLoyaltyCardGroups(4)));
-            assertEquals(groupsToGroupNames(groupsForFive), groupsToGroupNames(db.getLoyaltyCardGroups(5)));
-            assertEquals(emptyGroup, db.getLoyaltyCardGroups(6));
-            assertEquals(emptyGroup, db.getLoyaltyCardGroups(7));
-            assertEquals(emptyGroup, db.getLoyaltyCardGroups(8));
-            assertEquals(emptyGroup, db.getLoyaltyCardGroups(9));
-            assertEquals(emptyGroup, db.getLoyaltyCardGroups(10));
+        assertEquals(groupsToGroupNames(groupsForOne), groupsToGroupNames(db.getLoyaltyCardGroups(1)));
+        assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(db.getLoyaltyCardGroups(2)));
+        assertEquals(groupsToGroupNames(groupsForThree), groupsToGroupNames(db.getLoyaltyCardGroups(3)));
+        assertEquals(groupsToGroupNames(groupsForFour), groupsToGroupNames(db.getLoyaltyCardGroups(4)));
+        assertEquals(groupsToGroupNames(groupsForFive), groupsToGroupNames(db.getLoyaltyCardGroups(5)));
+        assertEquals(emptyGroup, db.getLoyaltyCardGroups(6));
+        assertEquals(emptyGroup, db.getLoyaltyCardGroups(7));
+        assertEquals(emptyGroup, db.getLoyaltyCardGroups(8));
+        assertEquals(emptyGroup, db.getLoyaltyCardGroups(9));
+        assertEquals(emptyGroup, db.getLoyaltyCardGroups(10));
 
-            // Clear the database for the next format under test
-            clearDatabase();
-        }
+        // Clear the database for the next format under test
+        clearDatabase();
     }
 
     @Test
@@ -429,32 +472,29 @@ public class ImportExportTest
     {
         final int NUM_CARDS = 10;
 
-        for(DataFormat format : DataFormat.values())
-        {
-            addLoyaltyCards(NUM_CARDS);
+        addLoyaltyCards(NUM_CARDS);
 
-            ByteArrayOutputStream outData = new ByteArrayOutputStream();
-            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
-            // Export into CSV data
-            boolean result = MultiFormatExporter.exportData(db, outStream, format);
-            assertTrue(result);
-            outStream.close();
+        // Export into CSV data
+        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        assertTrue(result);
+        outStream.close();
 
-            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-            InputStreamReader inStream = new InputStreamReader(inData);
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+        InputStreamReader inStream = new InputStreamReader(inData);
 
-            // Import the CSV data on top of the existing database
-            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
-            assertTrue(result);
+        // Import the CSV data on top of the existing database
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        assertTrue(result);
 
-            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
-            checkLoyaltyCards();
+        checkLoyaltyCards();
 
-            // Clear the database for the next format under test
-            clearDatabase();
-        }
+        // Clear the database for the next format under test
+        clearDatabase();
     }
 
     @Test
@@ -470,7 +510,7 @@ public class ImportExportTest
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            boolean result = MultiFormatExporter.exportData(db, outStream, format);
+            boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
             assertTrue(result);
 
             clearDatabase();
@@ -484,8 +524,8 @@ public class ImportExportTest
             ByteArrayInputStream inData = new ByteArrayInputStream((outData.toString() + corruptEntry).getBytes());
             InputStreamReader inStream = new InputStreamReader(inData);
 
-            // Attempt to import the CSV data
-            result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+            // Attempt to import the data
+            result = MultiFormatImporter.importData(db, inStream, format);
             assertEquals(false, result);
 
             assertEquals(0, db.getLoyaltyCardCount());
@@ -513,49 +553,46 @@ public class ImportExportTest
         final File sdcardDir = Environment.getExternalStorageDirectory();
         final File exportFile = new File(sdcardDir, "Catima.csv");
 
-        for(DataFormat format : DataFormat.values())
-        {
-            addLoyaltyCards(NUM_CARDS);
+        addLoyaltyCards(NUM_CARDS);
 
-            TestTaskCompleteListener listener = new TestTaskCompleteListener();
+        TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
-            // Export to the file
-            FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-            ImportExportTask task = new ImportExportTask(activity, format, fileOutputStream, listener);
-            task.execute();
+        // Export to the file
+        FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, listener);
+        task.execute();
 
-            // Actually run the task to completion
-            Robolectric.flushBackgroundThreadScheduler();
+        // Actually run the task to completion
+        Robolectric.flushBackgroundThreadScheduler();
 
-            // Check that the listener was executed
-            assertNotNull(listener.success);
-            assertEquals(true, listener.success);
+        // Check that the listener was executed
+        assertNotNull(listener.success);
+        assertEquals(true, listener.success);
 
-            clearDatabase();
+        clearDatabase();
 
-            // Import everything back from the default location
+        // Import everything back from the default location
 
-            listener = new TestTaskCompleteListener();
+        listener = new TestTaskCompleteListener();
 
-            FileInputStream fileStream = new FileInputStream(exportFile);
+        FileInputStream fileStream = new FileInputStream(exportFile);
 
-            task = new ImportExportTask(activity, format, fileStream, listener);
-            task.execute();
+        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, listener);
+        task.execute();
 
-            // Actually run the task to completion
-            Robolectric.flushBackgroundThreadScheduler();
+        // Actually run the task to completion
+        Robolectric.flushBackgroundThreadScheduler();
 
-            // Check that the listener was executed
-            assertNotNull(listener.success);
-            assertEquals(true, listener.success);
+        // Check that the listener was executed
+        assertNotNull(listener.success);
+        assertEquals(true, listener.success);
 
-            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
-            checkLoyaltyCards();
+        checkLoyaltyCards();
 
-            // Clear the database for the next format under test
-            clearDatabase();
-        }
+        // Clear the database for the next format under test
+        clearDatabase();
     }
 
     @Test
@@ -575,7 +612,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -613,7 +650,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -651,7 +688,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -677,7 +714,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -715,7 +752,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -753,7 +790,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -791,7 +828,7 @@ public class ImportExportTest
         InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -811,7 +848,7 @@ public class ImportExportTest
         inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.CSV);
+        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -830,59 +867,63 @@ public class ImportExportTest
         clearDatabase();
     }
 
+    @Test
+    public void importVoucherVault() throws IOException, FormatException, JSONException, ParseException {
+        String jsonText = "[\n" +
+                "  {\n" +
+                "    \"uuid\": \"ae1ae525-3f27-481e-853a-8c30b7fa12d8\",\n" +
+                "    \"description\": \"Clothes Store\",\n" +
+                "    \"code\": \"123456\",\n" +
+                "    \"codeType\": \"CODE128\",\n" +
+                "    \"expires\": null,\n" +
+                "    \"removeOnceExpired\": true,\n" +
+                "    \"balance\": null,\n" +
+                "    \"color\": \"GREY\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"uuid\": \"29a5d3b3-eace-4311-a15c-4c7e6a010531\",\n" +
+                "    \"description\": \"Department Store\",\n" +
+                "    \"code\": \"26846363\",\n" +
+                "    \"codeType\": \"CODE39\",\n" +
+                "    \"expires\": \"2021-03-26T00:00:00.000\",\n" +
+                "    \"removeOnceExpired\": true,\n" +
+                "    \"balance\": 3.5,\n" +
+                "    \"color\": \"PURPLE\"\n" +
+                "  }\n" +
+                "]";
 
-    private void checkLoyaltyCardsExpiry()
-    {
-        Cursor cursor = db.getLoyaltyCardCursor();
-        cursor.moveToNext();
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("Never", card.store);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(jsonText.getBytes(StandardCharsets.UTF_8));
+        InputStreamReader inStream = new InputStreamReader(inputStream);
+
+        // Import the Voucher Vault data
+        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.VoucherVault);
+        assertTrue(result);
+        assertEquals(2, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("Clothes Store", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals(BARCODE_DATA, card.cardId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
-        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(Currency.getInstance("USD"), card.balanceType);
+        assertEquals("123456", card.cardId);
+        assertEquals(BarcodeFormat.CODE_128.name(), card.barcodeType);
         assertEquals(0, card.starStatus);
+        assertEquals(Color.GRAY, (long) card.headerColor);
 
-        cursor.moveToNext();
-        card = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("Past", card.store);
+        card = db.getLoyaltyCard(2);
+
+        assertEquals("Department Store", card.store);
         assertEquals("", card.note);
-        assertTrue(card.expiry.before(new Date()));
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals(BARCODE_DATA, card.cardId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
-        assertEquals(Integer.valueOf(0), card.headerColor);
+        assertEquals(new Date(1616716800000L), card.expiry);
+        assertEquals(new BigDecimal("3.5"), card.balance);
+        assertEquals(Currency.getInstance("USD"), card.balanceType);
+        assertEquals("26846363", card.cardId);
+        assertEquals(BarcodeFormat.CODE_39.name(), card.barcodeType);
         assertEquals(0, card.starStatus);
+        assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
 
-        cursor.moveToNext();
-        card = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("Today", card.store);
-        assertEquals("", card.note);
-        assertTrue(card.expiry.before(new Date(new Date().getTime()+86400)));
-        assertTrue(card.expiry.after(new Date(new Date().getTime()-86400)));
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals(BARCODE_DATA, card.cardId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
-        assertEquals(Integer.valueOf(0), card.headerColor);
-        assertEquals(0, card.starStatus);
-
-        cursor.moveToNext();
-        card = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("Future", card.store);
-        assertEquals("", card.note);
-        assertTrue(card.expiry.after(new Date(new Date().getTime()+86400)));
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals(BARCODE_DATA, card.cardId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
-        assertEquals(Integer.valueOf(0), card.headerColor);
-        assertEquals(0, card.starStatus);
-
-        cursor.close();
+        clearDatabase();
     }
 }

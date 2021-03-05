@@ -20,14 +20,14 @@ public class DBHelper extends SQLiteOpenHelper
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 8;
 
-    static class LoyaltyCardDbGroups
+    public static class LoyaltyCardDbGroups
     {
         public static final String TABLE = "groups";
         public static final String ID = "_id";
         public static final String ORDER = "orderId";
     }
 
-    static class LoyaltyCardDbIds
+    public static class LoyaltyCardDbIds
     {
         public static final String TABLE = "cards";
         public static final String ID = "_id";
@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String STAR_STATUS = "starstatus";
     }
 
-    static class LoyaltyCardDbIdsGroups
+    public static class LoyaltyCardDbIdsGroups
     {
         public static final String TABLE = "cardsGroups";
         public static final String cardID = "cardId";

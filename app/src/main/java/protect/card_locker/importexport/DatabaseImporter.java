@@ -1,7 +1,13 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
+
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+
+import protect.card_locker.DBHelper;
+import protect.card_locker.FormatException;
 
 /**
  * Interface for a class which can import the contents of a stream
@@ -15,5 +21,5 @@ public interface DatabaseImporter
      * @throws IOException
      * @throws FormatException
      */
-    void importData(DBHelper db, InputStreamReader input) throws IOException, FormatException, InterruptedException;
+    void importData(DBHelper db, InputStreamReader input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

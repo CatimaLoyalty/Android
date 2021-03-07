@@ -120,4 +120,7 @@
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punten</string>
     <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="chooseImportType">Uit welke app wil je gegevens importeren\?</string>
+    <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen tijdens tonen van kaart</string>
+    <string name="settings_keep_screen_on">Scherm niet uitschakelen tijdens tonen van kaart</string>
 </resources>

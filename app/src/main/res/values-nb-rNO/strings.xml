@@ -120,4 +120,7 @@
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> poeng</string>
     <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="chooseImportType">Hvilket program vil du importere data fra\?</string>
+    <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Skru av låseskjerm under kortvisning</string>
+    <string name="settings_keep_screen_on">Behold skjerm påslått under kortvisning</string>
 </resources>

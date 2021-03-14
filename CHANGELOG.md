@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Add privacy policy dialog on first start (required by Huawei)
+
 ## v1.10 (2021-03-07)
 
 Changes:

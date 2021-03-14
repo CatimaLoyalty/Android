@@ -1,13 +1,16 @@
 package protect.card_locker;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -92,6 +95,29 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         helpText.setOnTouchListener(gestureTouchListener);
         noMatchingCardsText.setOnTouchListener(gestureTouchListener);
         list.setOnTouchListener(gestureTouchListener);
+
+        // Show privacy policy on first run
+        SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_privacy_policy_shown),
+                Context.MODE_PRIVATE);
+
+        if (privacyPolicyShownPref.getInt(getString(R.string.sharedpreference_privacy_policy_shown), 0) == 0) {
+            SharedPreferences.Editor privacyPolicyShownPrefEditor = privacyPolicyShownPref.edit();
+            privacyPolicyShownPrefEditor.putInt(getString(R.string.sharedpreference_privacy_policy_shown), 1);
+            privacyPolicyShownPrefEditor.apply();
+
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.privacy_policy)
+                    .setMessage(R.string.privacy_policy_popup_text)
+                    .setPositiveButton(R.string.thank_you, null)
+                    .setNegativeButton(R.string.privacy_policy, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            openPrivacyPolicy();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
+        };
     }
 
     @Override
@@ -290,6 +316,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         groupsTabLayout.setVisibility(View.VISIBLE);
     }
 
+    private void openPrivacyPolicy() {
+        Intent browserIntent = new Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://thelastproject.github.io/Catima/privacy-policy")
+        );
+        startActivity(browserIntent);
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
     {
@@ -399,6 +433,12 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivityForResult(i, Utils.MAIN_REQUEST);
+            return true;
+        }
+
+        if(id == R.id.action_privacy_policy)
+        {
+            openPrivacyPolicy();
             return true;
         }
 

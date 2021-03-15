@@ -5,7 +5,7 @@
     <string name="noGiftCards">Нажмите кнопку + (плюс), чтобы сначала добавить карту.
 \n
 \nCatima хранит ваши карты на устройстве, поэтому они всегда под рукой.</string>
-    <string name="noMatchingGiftCards">"Ничего не найдено.  Попробуйте изменить свой поиск."</string>
+    <string name="noMatchingGiftCards">Ничего не найдено. Попробуйте изменить поисковый запрос.</string>
     <string name="storeName">Магазин</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
@@ -20,7 +20,7 @@
     <string name="lockScreen">Блокировать поворот экрана</string>
     <string name="unlockScreen">Автоповорот экрана</string>
     <string name="deleteTitle">Удаление карты</string>
-    <string name="deleteConfirmation">Пожалуйста подтвердите удаление карты.</string>
+    <string name="deleteConfirmation">Подтвердите удаление карты.</string>
     <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
@@ -43,7 +43,7 @@
     <string name="importFailed">Не удалось импортировать карты</string>
     <string name="exportSuccessfulTitle">Экспортировано</string>
     <string name="exportFailedTitle">Экспорт не удался</string>
-    <string name="exportFailed">Не удалось экспортировать</string>
+    <string name="exportFailed">Невозможно экспортировать карты</string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
     <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>
@@ -51,18 +51,18 @@
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
-    <string name="importOptionApplicationTitle">Использование другого приложения</string>
+    <string name="importOptionApplicationTitle">Использовать другое приложение</string>
     <string name="importOptionApplicationExplanation">Используйте любое приложение или ваш любимый файловый менеджер, чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О программе</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+.</string>
-    <string name="about_title_fmt">О программе <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="about_title_fmt">О приложении &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Информация о версии: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите ID карты и выберите тип штрих-кода.</string>
+    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода.</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
     <string name="settings">Настройки</string>
@@ -71,9 +71,9 @@
     <string name="settings_system_theme">Системная</string>
     <string name="settings_light_theme">Светлая</string>
     <string name="settings_dark_theme">Тёмная</string>
-    <string name="settings_card_title_list_font_size">Размер шрифта для названий карт</string>
-    <string name="settings_card_note_list_font_size">Размер шрифта примечания для списка</string>
-    <string name="settings_card_title_font_size">Размер шрифта названия карты</string>
+    <string name="settings_card_title_list_font_size">Размер шрифта названий карт (режим списка)</string>
+    <string name="settings_card_note_list_font_size">Размер шрифта примечания (режим списка)</string>
+    <string name="settings_card_title_font_size">Размер шрифта названия карты (просмотр)</string>
     <string name="settings_card_id_font_size">Размер шрифта номера карты</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
@@ -95,4 +95,39 @@
     <string name="leaveWithoutSaveConfirmation">Вы уверены, что хотите покинуть этот экран\? Изменения не будут сохранены.</string>
     <string name="leaveWithoutSaveTitle">Выйти без сохранения</string>
     <string name="failedOpeningFileManager">Не удалось открыть файловый менеджер. Пожалуйста, убедитись, что он установлен.</string>
+    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; баллов</string>
+    <string name="balanceSentence">Баланс: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentenceExpired">Истёк срок действия: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentence">Истекает срок действия: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="points">Баллы</string>
+    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; не похож на правильный баланс.</string>
+    <string name="addManually">Ручной ввод номера карты</string>
+    <string name="privacy_policy_popup_text">Многие магазины приложений требуют, чтобы приложение показывало свою политику конфиденциальности при первом запуске. Вот наша:
+\n
+\nМы НЕ собираем НИКАКИХ ДАННЫХ и наше приложение имеет открытый исходный код, так что любой может убедиться в том, что это правда.</string>
+    <string name="thank_you">Спасибо</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="chooseImportType">Из какого приложения импортировать данные\?</string>
+    <string name="balance">Баланс</string>
+    <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
+    <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
+    <string name="currency">Валюта</string>
+    <string name="chooseExpiryDate">Введите дату окончания срока действия</string>
+    <string name="never">Никогда</string>
+    <string name="expiryDate">Дата окончания срока действия</string>
+    <string name="editBarcode">Изменить штрих-код</string>
+    <string name="barcode">Штрих-код</string>
+    <string name="card">Карта</string>
+    <string name="groupsList">Группы: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="moveDown">Переместить ниже в вписке</string>
+    <string name="moveUp">Переместить выше в вписке</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Отключать блокировку экрана во время отображения карты</string>
+    <string name="settings_keep_screen_on">Держать экран включённым во время отображения карты</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карта</item>
+        <item quantity="few">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карты</item>
+        <item quantity="many">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карт</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карт</item>
+    </plurals>
 </resources>

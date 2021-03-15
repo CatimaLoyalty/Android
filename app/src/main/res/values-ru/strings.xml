@@ -51,14 +51,14 @@
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
     <string name="importOptionFilesystemButton">Выбрать файл</string>
-    <string name="importOptionApplicationTitle">Использовать другое приложение</string>
+    <string name="importOptionApplicationTitle">Использование другого приложения</string>
     <string name="importOptionApplicationExplanation">Используйте любое приложение или ваш любимый файловый менеджер, чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О приложении</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+.</string>
     <string name="about_title_fmt">О приложении &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Информация о версии: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">Информация о версиях: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>

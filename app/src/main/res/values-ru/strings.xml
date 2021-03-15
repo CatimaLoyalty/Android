@@ -56,9 +56,9 @@
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О приложении</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+.</string>
-    <string name="about_title_fmt">О приложении &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_name\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="about_title_fmt">О приложении <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Информация о версии: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="app_revision_fmt">Информация о версии: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s<xliff:g></string>
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
@@ -95,12 +95,12 @@
     <string name="leaveWithoutSaveConfirmation">Вы уверены, что хотите покинуть этот экран\? Изменения не будут сохранены.</string>
     <string name="leaveWithoutSaveTitle">Выйти без сохранения</string>
     <string name="failedOpeningFileManager">Невозможно открыть файловый менеджер. Убедитесь, что он установлен.</string>
-    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; баллов</string>
-    <string name="balanceSentence">Баланс: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentenceExpired">Истёк срок действия: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentence">Истекает срок действия: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> баллов</string>
+    <string name="balanceSentence">Баланс: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Истёк срок действия: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Истекает срок действия: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="points">Баллы</string>
-    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; не похож на правильный баланс.</string>
+    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> не похож на правильный баланс.</string>
     <string name="addManually">Ручной ввод номера карты</string>
     <string name="privacy_policy_popup_text">Многие магазины приложений требуют, чтобы приложение показывало свою политику конфиденциальности при первом запуске. Вот наша:
 \n
@@ -119,15 +119,15 @@
     <string name="editBarcode">Изменить штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Карта</string>
-    <string name="groupsList">Группы: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="groupsList">Группы: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="moveDown">Переместить ниже в вписке</string>
     <string name="moveUp">Переместить выше в вписке</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Отключать блокировку экрана при отображении карты</string>
     <string name="settings_keep_screen_on">Держать экран включённым при отображении карты</string>
     <plurals name="groupCardCount">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карта</item>
-        <item quantity="few">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карты</item>
-        <item quantity="many">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карт</item>
-        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%d&lt;/xliff:g&gt; карт</item>
+        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карта</item>
+        <item quantity="few"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карты</item>
+        <item quantity="many"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
+        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
     </plurals>
 </resources>

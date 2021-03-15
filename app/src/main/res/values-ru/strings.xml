@@ -25,7 +25,7 @@
     <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить…</string>
-    <string name="editCardTitle">Редактировать карту</string>
+    <string name="editCardTitle">Изменить карту</string>
     <string name="addCardTitle">Добавить карту</string>
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
@@ -71,8 +71,8 @@
     <string name="settings_system_theme">Системная</string>
     <string name="settings_light_theme">Светлая</string>
     <string name="settings_dark_theme">Тёмная</string>
-    <string name="settings_card_title_list_font_size">Размер шрифта названия карты (режим списка)</string>
-    <string name="settings_card_note_list_font_size">Размер шрифта примечания (режим списка)</string>
+    <string name="settings_card_title_list_font_size">Размер шрифта названия карты (список)</string>
+    <string name="settings_card_note_list_font_size">Размер шрифта примечания (список)</string>
     <string name="settings_card_title_font_size">Размер шрифта названия карты (просмотр)</string>
     <string name="settings_card_id_font_size">Размер шрифта номера карты</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при отображении карты</string>
@@ -85,7 +85,7 @@
 \nГруппы упрощают поиск.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
-    <string name="importSuccessful">Данные карты лояльности успешно импортированы</string>
+    <string name="importSuccessful">Данные карты успешно импортированы</string>
     <string name="starImage">Звезда избранного</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain, авторские права 2016–2020 Branden Archer.</string>
     <string name="unstar">Удалить из избранного</string>
@@ -113,9 +113,9 @@
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
     <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
     <string name="currency">Валюта</string>
-    <string name="chooseExpiryDate">Укажите дату окончания срока действия</string>
+    <string name="chooseExpiryDate">Указать срок действия</string>
     <string name="never">Никогда</string>
-    <string name="expiryDate">Дата окончания срока действия</string>
+    <string name="expiryDate">Окончание срока действия</string>
     <string name="editBarcode">Изменить штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Карта</string>

@@ -123,4 +123,9 @@
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen tijdens tonen van kaart</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen tijdens tonen van kaart</string>
+    <string name="privacy_policy_popup_text">Veel appwinkels vereisen dat apps na de eerste keer opstarten hun privacybeleid tonen. Dat van ons is eenvoudig:
+\n
+\nWe verzamelen HELEMAAL NIKS. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
+    <string name="thank_you">Bedankt</string>
+    <string name="privacy_policy">Privacybeleid</string>
 </resources>

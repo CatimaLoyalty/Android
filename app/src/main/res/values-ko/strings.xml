@@ -44,7 +44,6 @@
     <string name="confirm">확인</string>
     <string name="delete">삭제</string>
     <string name="edit">편집</string>
-    <string name="editCard">카드 편집</string>
     <string name="save">저장</string>
     <string name="cancel">취소</string>
     <string name="unstar">즐겨찾기에서 제거</string>

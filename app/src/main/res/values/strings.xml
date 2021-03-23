@@ -20,7 +20,6 @@
 
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
-    <string name="editCard">Edit Card</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
@@ -160,6 +159,6 @@
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
 
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="thank_you">Thank you</string>
     <string name="privacy_policy_popup_text">Many app stores require apps to show their privacy policy on first start. Here is ours:\n\nWe collect NO DATA AT ALL and our app is Open Source so anyone can confirm this to be true.</string>
+    <string name="accept">Accept</string>
 </resources>

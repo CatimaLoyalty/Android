@@ -12,7 +12,6 @@
     <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
-    <string name="editCard">Modifica carta</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
     <string name="confirm">Conferma</string>

@@ -13,7 +13,6 @@
     <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
-    <string name="editCard">Kaart bewerken</string>
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
     <string name="confirm">Bevestigen</string>
@@ -126,6 +125,5 @@
     <string name="privacy_policy_popup_text">Veel appwinkels vereisen dat apps na de eerste keer opstarten hun privacybeleid tonen. Dat van ons is eenvoudig:
 \n
 \nWe verzamelen HELEMAAL NIKS. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
-    <string name="thank_you">Bedankt</string>
     <string name="privacy_policy">Privacybeleid</string>
 </resources>

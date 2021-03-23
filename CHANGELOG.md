@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Change "Thank you" text on privacy dialog to "Accept" because Huawei is overly pedantic
+
 ## v1.11 (2021-03-21)
 
 Changes:

@@ -10,7 +10,6 @@
     <string name="barcodeNoBarcode">Ta karta nie ma kodu kreskowego</string>
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
-    <string name="editCard">Edytuj kartę</string>
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
     <string name="confirm">Potwierdź</string>

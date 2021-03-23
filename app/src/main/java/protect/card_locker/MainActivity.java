@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             new AlertDialog.Builder(this)
                     .setTitle(R.string.privacy_policy)
                     .setMessage(R.string.privacy_policy_popup_text)
-                    .setPositiveButton(R.string.thank_you, null)
+                    .setPositiveButton(R.string.accept, null)
                     .setNegativeButton(R.string.privacy_policy, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             openPrivacyPolicy();

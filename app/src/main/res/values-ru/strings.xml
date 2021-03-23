@@ -13,7 +13,6 @@
     <string name="barcodeNoBarcode">Эта карта без штрих-кода</string>
     <string name="cancel">Отменить</string>
     <string name="save">Сохранить</string>
-    <string name="editCard">Изменить штрих-код</string>
     <string name="edit">Изменить</string>
     <string name="delete">Удалить карту</string>
     <string name="confirm">Подтвердить</string>
@@ -105,7 +104,6 @@
     <string name="privacy_policy_popup_text">Многие магазины приложений требуют, чтобы приложение показывало свою политику конфиденциальности при первом запуске. Вот наша:
 \n
 \nМы НЕ собираем НИКАКИХ ДАННЫХ и наше приложение имеет открытый исходный код, так что любой может убедиться в том, что это правда.</string>
-    <string name="thank_you">Спасибо</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Из какого приложения импортировать данные\?</string>

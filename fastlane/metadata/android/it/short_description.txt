@@ -1,0 +1,1 @@
+Gestisce le carte fedeltà basate su codici a barre sul telefono

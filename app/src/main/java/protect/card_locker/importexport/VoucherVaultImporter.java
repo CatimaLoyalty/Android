@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Currency;
@@ -34,7 +35,7 @@ import protect.card_locker.FormatException;
 public class VoucherVaultImporter implements DatabaseImporter
 {
     public void importData(DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         StringBuilder sb = new StringBuilder();
         String line;

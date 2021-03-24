@@ -15,6 +15,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.Currency;
 import java.util.Date;
@@ -36,7 +38,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
 {
     public void importData(DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException
     {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         bufferedReader.mark(100);
 

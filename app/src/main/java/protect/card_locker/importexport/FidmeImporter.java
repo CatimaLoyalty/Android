@@ -20,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Currency;
@@ -54,7 +55,7 @@ public class FidmeImporter implements DatabaseImporter
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
             if (zipEntry.getName().equals("loyalty_programs.csv")) {
                 while ((read = zipInputStream.read(buffer, 0, 1024)) >= 0) {
-                    loyaltyCards.append(new String(buffer, 0, read));
+                    loyaltyCards.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
                 }
             }
         }
@@ -85,6 +86,8 @@ public class FidmeImporter implements DatabaseImporter
         database.setTransactionSuccessful();
         database.endTransaction();
         database.close();
+
+        zipInputStream.close();
     }
 
     /**

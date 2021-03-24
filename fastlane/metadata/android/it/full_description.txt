@@ -1,0 +1,7 @@
+Sei stanco di cercare la tua carta fedeltà durante i pagamenti in negozio? Cerchi una soluzione gratuita che non catture le tue informazioni? 
+
+Catima è un'applicazione che memorizzerà sul tuo telefono le tue carte fedeltà basate su codici a barre. L'applicazione è open source e cerca di fare bene una cosa: gestire le tue carte! 
+
+Nuove carte possono essere aggiunte in un attimo. Utilizza la fotocamera per acquisire il codice a barre o digita il numero. Quando il codice a barre viene caricato nel negozio e visualizzato, può essere scansionato con un moderno lettore di codici a barre. (Alcuni negozi utilizzano lettori di codici a barre meno recenti, come scanner piani, invece di scanner di immagini. Questi non possono leggere il display dello smartphone. In questi casi, devi chiedere all'impiegato di digitare il numero manualmente). 
+
+L'applicazione richiede pochissime autorizzazioni e non tenta mai di accedere a Internet. E' possibile eseguire il backup delle carte nella memoria locale. E da lì puoi conservare il backup da qualche parte al sicuro.

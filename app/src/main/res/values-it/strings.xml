@@ -119,7 +119,12 @@
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentence">Scade: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni schermo acceso durante la visualizzazione di una carta</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Portachiavi carta fedeltà</string>
     <string name="chooseImportType">Da quale app vuoi importare i dati\?</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Mantieni schermo attivo mentre visualizzi una carta</string>
+    <string name="accept">Accetta</string>
+    <string name="privacy_policy_popup_text">È spesso richiesto alle applicazioni di mostrare la loro politica sulla riservatezza al primo avvio. Ecco la nostra:
+\n
+\nNon raccogliamo ALCUN DATO e il codice sorgente della nostra applicazione è aperto, quindi chiunque può confermare che ciò sia vero.</string>
+    <string name="privacy_policy">Informativa sulla riservatezza</string>
 </resources>

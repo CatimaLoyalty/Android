@@ -1,1 +1,1 @@
-Verwaltet barcode-basierte Kunden-/Treuekarten auf dem Handy
+Verwaltet Strichcode-basierte Kunden-/Treuekarten auf dem Mobiltelefon

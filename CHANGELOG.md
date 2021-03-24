@@ -5,6 +5,7 @@
 Changes:
 
 - Support importing [Fidme](https://play.google.com/store/apps/details?id=fr.snapp.fidme) exports
+- Fix multiline note cutoff
 - Change "Thank you" text on privacy dialog to "Accept" because Huawei is overly pedantic
 
 ## v1.11 (2021-03-21)

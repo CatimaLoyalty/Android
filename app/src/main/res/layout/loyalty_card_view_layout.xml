@@ -135,6 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="20dp"
         android:visibility="gone"
         app:behavior_hideable="false"
         app:behavior_peekHeight="104dp"
@@ -155,46 +156,38 @@
         <TextView
             android:id="@+id/noteView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
-            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
-            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-            app:autoSizeTextType="uniform" />
+            android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
         <TextView
             android:id="@+id/groupsView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
-            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
-            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-            app:autoSizeTextType="uniform" />
+            android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
         <TextView
             android:id="@+id/balanceView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
-            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
-            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-            app:autoSizeTextType="uniform" />
+            android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
         <TextView
             android:id="@+id/expiryView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:background="@color/inputBackground"
             android:gravity="center"
             android:padding="20dp"
-            app:autoSizeMaxTextSize="@dimen/singleCardNoteTextSizeMax"
-            app:autoSizeMinTextSize="@dimen/singleCardNoteTextSizeMin"
-            app:autoSizeTextType="uniform" />
+            android:textSize="@dimen/singleCardNoteTextSizeMin" />
     </LinearLayout>
 
     <com.google.android.material.appbar.AppBarLayout

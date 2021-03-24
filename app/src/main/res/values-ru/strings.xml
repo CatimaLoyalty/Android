@@ -128,4 +128,5 @@
         <item quantity="many"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
     </plurals>
+    <string name="accept">Принять</string>
 </resources>

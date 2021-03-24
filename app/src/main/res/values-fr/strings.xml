@@ -4,7 +4,7 @@
     <string name="noGiftCards">Appuyez d\'abord sur le bouton \"+\" (plus) pour ajouter une carte.
 \n
 \nCatima enregistre vos cartes sur votre appareil, pour toujours les avoir à portée de main.</string>
-    <string name="storeName">Nom du Magasin</string>
+    <string name="storeName">Magasin</string>
     <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
     <string name="cancel">Annuler</string>
@@ -102,4 +102,29 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> cartes</item>
     </plurals>
     <string name="groupsList">Groupes : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="accept">Accepter</string>
+    <string name="privacy_policy_popup_text">De nombreux magasins d\'applications exigent que les applications affichent leur politique de confidentialité au premier démarrage. Voici la nôtre :
+\n
+\nNous ne collectons AUCUNE DONNÉE et le code source de notre application est ouvert afin que tout le monde puisse le confirmer.</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="app_loyalty_card_keychain">Porte-clé de carte de fidélité</string>
+    <string name="chooseImportType">Importer des données à partir de quelle application \?</string>
+    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; ne semble pas être un solde valide.</string>
+    <string name="points">Points</string>
+    <string name="currency">Monnaie</string>
+    <string name="balance">Solde</string>
+    <string name="moveBarcodeToCenterOfScreen">Centrer le code-barres sur l\'écran</string>
+    <string name="moveBarcodeToTopOfScreen">Déplacez le code-barres vers le haut de l\'écran</string>
+    <string name="chooseExpiryDate">Choisissez la date d\'expiration</string>
+    <string name="never">Jamais</string>
+    <string name="expiryDate">Date d\'expiration</string>
+    <string name="editBarcode">Modifier le code-barres</string>
+    <string name="barcode">Code-barres</string>
+    <string name="card">Carte</string>
+    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; points</string>
+    <string name="balanceSentence">Solde : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentenceExpired">Expiré : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentence">Expire : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Désactiver l\'écran de verrouillage pendant l\'affichage d\'une carte</string>
+    <string name="settings_keep_screen_on">Garder l\'écran allumé pendant l\'affichage d\'une carte</string>
 </resources>

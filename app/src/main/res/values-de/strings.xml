@@ -102,19 +102,19 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karten</item>
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Kundenkartenanhänger</string>
     <string name="chooseImportType">Aus welcher App Daten importieren\?</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
     <string name="balance">Guthaben</string>
-    <string name="moveBarcodeToCenterOfScreen">Barcode auf dem Bildschirm zentrieren</string>
-    <string name="moveBarcodeToTopOfScreen">Barcode auf dem Bildschirm nach oben schieben</string>
+    <string name="moveBarcodeToCenterOfScreen">Strichcode auf dem Bildschirm zentrieren</string>
+    <string name="moveBarcodeToTopOfScreen">Strichcode auf dem Bildschirm nach oben schieben</string>
     <string name="chooseExpiryDate">Ablaufdatum wählen</string>
     <string name="never">Nie</string>
     <string name="expiryDate">Ablaufdatum</string>
-    <string name="editBarcode">Barcode bearbeiten</string>
-    <string name="barcode">Barcode</string>
+    <string name="editBarcode">Strichcode bearbeiten</string>
+    <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> Punkte</string>
     <string name="balanceSentence">Guthaben: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
@@ -122,4 +122,9 @@
     <string name="expiryStateSentence">Läuft ab: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm deaktivieren während eine Karte angesehen wird</string>
     <string name="settings_keep_screen_on">Bildschirm anlassen während eine Karte angesehen wird</string>
+    <string name="privacy_policy_popup_text">Es wird oft verlangt, dass Anwendungen beim ersten Start ihre Datenschutzrichtlinien anzeigen. Hier ist unsere:
+\n
+\nWir sammeln KEINE DATEN und unsere Anwendung ist quelloffen, sodass jeder bestätigen kann, dass dies wahr ist.</string>
+    <string name="accept">Annehmen</string>
+    <string name="privacy_policy">Datenschutzrichtlinie</string>
 </resources>

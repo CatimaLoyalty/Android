@@ -122,4 +122,9 @@
     <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Skru av låseskjerm under kortvisning</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått under kortvisning</string>
+    <string name="privacy_policy_popup_text">Mange programbutikker krever at programmer viser personvernspraksisen sin ved første oppstart. Her er vår:
+\n
+\nVi SAMLER IKKE IN NOEN DATA overhodet, og programmet vårt er fri programvare, så alle kan bekrefte at dette stemmer.</string>
+    <string name="accept">Godta</string>
+    <string name="privacy_policy">Personvernspraksis</string>
 </resources>

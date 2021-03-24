@@ -127,4 +127,22 @@
 \n
 \nNon raccogliamo ALCUN DATO e il codice sorgente della nostra applicazione è aperto, quindi chiunque può confermare che ciò sia vero.</string>
     <string name="privacy_policy">Informativa sulla riservatezza</string>
+    <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione Voucher Vault. Molto probabilmente si chiama vouchervault.json.
+\n
+\nÈ possibile creare un file di esportazione Voucher Vault premendo Esporta.</string>
+    <string name="importVoucherVault">Importa da Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleziona il file di esportazione Loyalty Card Keychain . Molto probabilmente si chiama LoyaltyCardKeychain.csv.
+\n
+\nÈ possibile creare un file di esportazione Loyalty Card Keychain accedendo al menu Importa / Esporta e premendo Esporta.</string>
+    <string name="importLoyaltyCardKeychain">Importa da Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Seleziona il tuo file di esportazione Fidme. Molto probabilmente si chiama qualcosa come fidme-export-request-xxxxxx.zip.
+\n
+\nUn file di esportazione Fidme può essere creato nell\'app Fidme andando sul tuo profilo, scegliendo Protezione dati e quindi premendo Estrai i miei dati.
+\n
+\nTieni presente che Fidme non memorizza il tipo di codice a barre nei dati di esportazione, quindi dovrai modificare manualmente le carte importate.</string>
+    <string name="importFidme">Importa da Fidme</string>
+    <string name="importCatimaMessage">Seleziona il tuo file di esportazione Catima. Molto probabilmente si chiama Catima.csv.
+\n
+\nÈ possibile creare un file di esportazione Catima andando nel menu Importa / Esporta e premendo Esporta.</string>
+    <string name="importCatima">Importa da Catima</string>
 </resources>

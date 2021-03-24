@@ -334,10 +334,9 @@ public class ImportExportTest
         clearDatabase();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-        InputStreamReader inStream = new InputStreamReader(inData);
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -366,10 +365,9 @@ public class ImportExportTest
         clearDatabase();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-        InputStreamReader inStream = new InputStreamReader(inData);
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -440,10 +438,9 @@ public class ImportExportTest
         clearDatabase();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-        InputStreamReader inStream = new InputStreamReader(inData);
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -483,10 +480,9 @@ public class ImportExportTest
         outStream.close();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
-        InputStreamReader inStream = new InputStreamReader(inData);
 
         // Import the CSV data on top of the existing database
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -522,10 +518,9 @@ public class ImportExportTest
             String corruptEntry = "ThisStringIsLikelyNotPartOfAnyFormat,\"\"a";
 
             ByteArrayInputStream inData = new ByteArrayInputStream((outData.toString() + corruptEntry).getBytes());
-            InputStreamReader inStream = new InputStreamReader(inData);
 
             // Attempt to import the data
-            result = MultiFormatImporter.importData(db, inStream, format);
+            result = MultiFormatImporter.importData(db, inData, format);
             assertEquals(false, result);
 
             assertEquals(0, db.getLoyaltyCardCount());
@@ -609,10 +604,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -647,10 +641,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,,,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -685,10 +678,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,not a number,invalid,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -711,10 +703,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,,1,1,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -749,10 +740,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,1,1,1";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -787,10 +777,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,1,1,";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -825,10 +814,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,1,1,2";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -845,10 +833,9 @@ public class ImportExportTest
         csvText += "1,store,note,12345,type,1,1,text";
 
         inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
-        inStream = new InputStreamReader(inputStream);
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -893,10 +880,9 @@ public class ImportExportTest
                 "]";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(jsonText.getBytes(StandardCharsets.UTF_8));
-        InputStreamReader inStream = new InputStreamReader(inputStream);
 
         // Import the Voucher Vault data
-        boolean result = MultiFormatImporter.importData(db, inStream, DataFormat.VoucherVault);
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.VoucherVault);
         assertTrue(result);
         assertEquals(2, db.getLoyaltyCardCount());
 

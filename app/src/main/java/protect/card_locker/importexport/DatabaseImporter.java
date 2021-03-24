@@ -2,7 +2,9 @@ package protect.card_locker.importexport;
 
 import org.json.JSONException;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 
@@ -21,5 +23,5 @@ public interface DatabaseImporter
      * @throws IOException
      * @throws FormatException
      */
-    void importData(DBHelper db, InputStreamReader input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
+    void importData(DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

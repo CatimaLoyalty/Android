@@ -2,6 +2,7 @@
 <resources>
     <string-array name="import_types_array">
         <item>Catima</item>
+        <item>Fidme</item>
         <item>@string/app_loyalty_card_keychain</item>
         <item>Voucher Vault</item>
     </string-array>

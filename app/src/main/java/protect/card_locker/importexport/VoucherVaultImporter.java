@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -32,8 +33,8 @@ import protect.card_locker.FormatException;
  */
 public class VoucherVaultImporter implements DatabaseImporter
 {
-    public void importData(DBHelper db, InputStreamReader input) throws IOException, FormatException, JSONException, ParseException {
-        BufferedReader bufferedReader = new BufferedReader(input);
+    public void importData(DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input));
 
         StringBuilder sb = new StringBuilder();
         String line;

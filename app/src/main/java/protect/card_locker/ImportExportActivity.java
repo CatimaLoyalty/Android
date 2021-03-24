@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
 
 public class ImportExportActivity extends AppCompatActivity
 {
@@ -39,6 +41,8 @@ public class ImportExportActivity extends AppCompatActivity
 
     private ImportExportTask importExporter;
 
+    private String importAlertTitle;
+    private String importAlertMessage;
     private DataFormat importDataFormat;
 
     @Override
@@ -120,18 +124,43 @@ public class ImportExportActivity extends AppCompatActivity
                     switch (which) {
                         // Catima
                         case 0:
-                        // Loyalty Card Keychain
+                            importAlertTitle = getString(R.string.importCatima);
+                            importAlertMessage = getString(R.string.importCatimaMessage);
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Fidme
                         case 1:
+                            importAlertTitle = getString(R.string.importFidme);
+                            importAlertMessage = getString(R.string.importFidmeMessage);
+                            importDataFormat = DataFormat.Fidme;
+                            break;
+                        // Loyalty Card Keychain
+                        case 2:
+                            importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
+                            importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
                             importDataFormat = DataFormat.Catima;
                             break;
                         // Voucher Vault
-                        case 2:
+                        case 3:
+                            importAlertTitle = getString(R.string.importVoucherVault);
+                            importAlertMessage = getString(R.string.importVoucherVaultMessage);
                             importDataFormat = DataFormat.VoucherVault;
                             break;
                         default:
                             throw new IllegalArgumentException("Unknown DataFormat");
                     }
-                    chooseFileWithIntent(baseIntent, IMPORT);
+
+                    new AlertDialog.Builder(this)
+                            .setTitle(importAlertTitle)
+                            .setMessage(importAlertMessage)
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            chooseFileWithIntent(baseIntent, IMPORT);
+                                        }
+                                    })
+                            .setNegativeButton(R.string.cancel, null)
+                            .show();
                 });
         builder.show();
     }

@@ -61,16 +61,8 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     {
         boolean result = false;
 
-        try
-        {
-            InputStreamReader reader = new InputStreamReader(stream, Charset.forName("UTF-8"));
-            result = MultiFormatImporter.importData(db, reader, format);
-            reader.close();
-        }
-        catch(IOException e)
-        {
-            Log.e(TAG, "Unable to import file", e);
-        }
+
+        result = MultiFormatImporter.importData(db, stream, format);
 
         Log.i(TAG, "Import result: " + result);
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 
@@ -29,7 +30,7 @@ public class MultiFormatImporter
      * false otherwise. If false, no data was written to
      * the database.
      */
-    public static boolean importData(DBHelper db, InputStreamReader input, DataFormat format)
+    public static boolean importData(DBHelper db, InputStream input, DataFormat format)
     {
         DatabaseImporter importer = null;
 
@@ -37,6 +38,9 @@ public class MultiFormatImporter
         {
             case Catima:
                 importer = new CsvDatabaseImporter();
+                break;
+            case Fidme:
+                importer = new FidmeImporter();
                 break;
             case VoucherVault:
                 importer = new VoucherVaultImporter();

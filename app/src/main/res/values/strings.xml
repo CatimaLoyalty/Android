@@ -20,7 +20,6 @@
 
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
-    <string name="editCard">Edit Card</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
@@ -104,9 +103,13 @@
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
-
+    <string name="settings_keep_screen_on">Keep screen on while viewing a card</string>
+    <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Disable lock screen while viewing a card</string>
+    <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
+    <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
 
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host" translatable="false">thelastproject.github.io</string>
@@ -136,6 +139,8 @@
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> points</string>
 
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
@@ -145,6 +150,27 @@
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
     <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
+
     <string name="noBarcodeFound">No barcode was found</string>
     <string name="errorReadingImage">Error reading image</string>
+
+    <string name="balance">Balance</string>
+    <string name="currency">Currency</string>
+    <string name="points">Points</string>
+
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
+    <string name="chooseImportType">Import data from which app?</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_popup_text">Many app stores require apps to show their privacy policy on first start. Here is ours:\n\nWe collect NO DATA AT ALL and our app is Open Source so anyone can confirm this to be true.</string>
+    <string name="accept">Accept</string>
+    <string name="importCatima">Import from Catima</string>
+    <string name="importCatimaMessage">Please select your Catima export file. It is most likely named Catima.csv.\n\nA Catima export file can be created by going to the Import/Export menu and pressing "Export".</string>
+    <string name="importFidme">Import from Fidme</string>
+    <string name="importFidmeMessage">Please select your Fidme export file. It is most likely named something like fidme-export-request-xxxxxx.zip.\n\nA Fidme export file can be created in the Fidme app by going to your profile, choosing "Data Protection" and then pressing "Extract my data".\n\nPlease note that Fidme does not store the barcode type in the export data so you will have to edit the imported cards manually.</string>
+    <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Please select your Loyalty Card Keychain export file. It is most likely named LoyaltyCardKeychain.csv.\n\nA Loyalty Card Keychain export file can be created by going to the Import/Export menu and pressing "Export".</string>
+    <string name="importVoucherVault">Import from Voucher Vault</string>
+    <string name="importVoucherVaultMessage">Please select your Voucher Vault export file. It is most likely named vouchervault.json.\n\nA Voucher Vault export file can be created by pressing "Export".</string>
 </resources>

@@ -1,5 +1,47 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Support importing [Fidme](https://play.google.com/store/apps/details?id=fr.snapp.fidme) exports
+- Fix multiline note cutoff
+- Change "Thank you" text on privacy dialog to "Accept" because Huawei is overly pedantic
+
+## v1.11 (2021-03-21)
+
+Changes:
+
+- Add privacy policy dialog on first start (required by Huawei)
+
+## v1.10 (2021-03-07)
+
+Changes:
+
+- Support importing [Voucher Vault](https://github.com/tim-smart/vouchervault/) exports
+- Option to keep the screen on while viewing a loyalty card
+- Option to suspend the lock screen while viewing a loyalty card
+
+## v1.9.2 (2021-02-24)
+
+Changes:
+
+- Fix parsing balance for countries using space as separator
+
+## v1.9.1 (2021-02-23)
+
+Changes:
+
+- Improve balance parsing logic
+- Fix currency decimal display on main screen
+
+## v1.9 (2021-02-22)
+
+Changes:
+
+- Add balance support
+- Reorganize barcode tab of edit view
+
 ## v1.8.1 (2021-02-12)
 
 Changes:

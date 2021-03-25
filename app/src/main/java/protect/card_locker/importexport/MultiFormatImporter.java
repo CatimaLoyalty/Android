@@ -1,9 +1,19 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
 
 import android.util.Log;
 
+import org.json.JSONException;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+
+import protect.card_locker.DBHelper;
+import protect.card_locker.DataFormat;
+import protect.card_locker.FormatException;
+import protect.card_locker.importexport.CsvDatabaseImporter;
+import protect.card_locker.importexport.DatabaseImporter;
 
 public class MultiFormatImporter
 {
@@ -20,14 +30,20 @@ public class MultiFormatImporter
      * false otherwise. If false, no data was written to
      * the database.
      */
-    public static boolean importData(DBHelper db, InputStreamReader input, DataFormat format)
+    public static boolean importData(DBHelper db, InputStream input, DataFormat format)
     {
         DatabaseImporter importer = null;
 
         switch(format)
         {
-            case CSV:
+            case Catima:
                 importer = new CsvDatabaseImporter();
+                break;
+            case Fidme:
+                importer = new FidmeImporter();
+                break;
+            case VoucherVault:
+                importer = new VoucherVaultImporter();
                 break;
         }
 
@@ -38,7 +54,7 @@ public class MultiFormatImporter
                 importer.importData(db, input);
                 return true;
             }
-            catch(IOException | FormatException | InterruptedException e)
+            catch(IOException | FormatException | InterruptedException | JSONException | ParseException e)
             {
                 Log.e(TAG, "Failed to import data", e);
             }

@@ -1,7 +1,9 @@
-package protect.card_locker;
+package protect.card_locker.importexport;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+
+import protect.card_locker.DBHelper;
 
 /**
  * Interface for a class which can export the contents of the database

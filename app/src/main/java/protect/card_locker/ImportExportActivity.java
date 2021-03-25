@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
 
 public class ImportExportActivity extends AppCompatActivity
 {
@@ -35,9 +37,13 @@ public class ImportExportActivity extends AppCompatActivity
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
     private static final int CHOOSE_EXPORT_LOCATION = 2;
-    private static final int CHOOSE_EXPORTED_FILE = 3;
+    private static final int IMPORT = 3;
 
     private ImportExportTask importExporter;
+
+    private String importAlertTitle;
+    private String importAlertMessage;
+    private DataFormat importDataFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -93,7 +99,7 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                chooseFileWithIntent(intentGetContentAction, CHOOSE_EXPORTED_FILE);
+                chooseImportType(intentGetContentAction);
             }
         });
 
@@ -106,12 +112,60 @@ public class ImportExportActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                chooseFileWithIntent(intentPickAction, CHOOSE_EXPORTED_FILE);
+                chooseImportType(intentPickAction);
             }
         });
     }
 
-    private void startImport(final InputStream target, final Uri targetUri)
+    private void chooseImportType(Intent baseIntent) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.chooseImportType)
+                .setItems(R.array.import_types_array, (dialog, which) -> {
+                    switch (which) {
+                        // Catima
+                        case 0:
+                            importAlertTitle = getString(R.string.importCatima);
+                            importAlertMessage = getString(R.string.importCatimaMessage);
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Fidme
+                        case 1:
+                            importAlertTitle = getString(R.string.importFidme);
+                            importAlertMessage = getString(R.string.importFidmeMessage);
+                            importDataFormat = DataFormat.Fidme;
+                            break;
+                        // Loyalty Card Keychain
+                        case 2:
+                            importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
+                            importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Voucher Vault
+                        case 3:
+                            importAlertTitle = getString(R.string.importVoucherVault);
+                            importAlertMessage = getString(R.string.importVoucherVaultMessage);
+                            importDataFormat = DataFormat.VoucherVault;
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Unknown DataFormat");
+                    }
+
+                    new AlertDialog.Builder(this)
+                            .setTitle(importAlertTitle)
+                            .setMessage(importAlertMessage)
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            chooseFileWithIntent(baseIntent, IMPORT);
+                                        }
+                                    })
+                            .setNegativeButton(R.string.cancel, null)
+                            .show();
+                });
+        builder.show();
+    }
+
+    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
@@ -123,7 +177,7 @@ public class ImportExportActivity extends AppCompatActivity
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                DataFormat.CSV, target, listener);
+                dataFormat, target, listener);
         importExporter.execute();
     }
 
@@ -139,7 +193,7 @@ public class ImportExportActivity extends AppCompatActivity
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                DataFormat.CSV, target, listener);
+                DataFormat.Catima, target, listener);
         importExporter.execute();
     }
 
@@ -294,7 +348,7 @@ public class ImportExportActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode != RESULT_OK || (requestCode != CHOOSE_EXPORT_LOCATION && requestCode != CHOOSE_EXPORTED_FILE))
+        if (resultCode != RESULT_OK)
         {
             Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
             return;
@@ -336,8 +390,9 @@ public class ImportExportActivity extends AppCompatActivity
                     reader = new FileInputStream(new File(uri.toString()));
                 }
 
-                Log.e(TAG, "Starting file export with: " + uri.toString());
-                startImport(reader, uri);
+                Log.e(TAG, "Starting file import with: " + uri.toString());
+
+                startImport(reader, uri, importDataFormat);
             }
         }
         catch(FileNotFoundException e)

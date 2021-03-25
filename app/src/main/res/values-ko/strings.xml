@@ -44,7 +44,6 @@
     <string name="confirm">확인</string>
     <string name="delete">삭제</string>
     <string name="edit">편집</string>
-    <string name="editCard">카드 편집</string>
     <string name="save">저장</string>
     <string name="cancel">취소</string>
     <string name="unstar">즐겨찾기에서 제거</string>
@@ -84,4 +83,5 @@
     <string name="noStoreError">매장을 입력하지 않음</string>
     <string name="starImage">즐겨찾기 별</string>
     <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
+    <string name="barcode">바코드</string>
 </resources>

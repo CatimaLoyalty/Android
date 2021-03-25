@@ -12,7 +12,6 @@
     <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
-    <string name="editCard">Modifica carta</string>
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
     <string name="confirm">Conferma</string>
@@ -20,7 +19,7 @@
     <string name="unlockScreen">Sblocca rotazione</string>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Conferma di voler eliminare questa carta.</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>
     <string name="sendLabel">Invia…</string>
@@ -103,4 +102,47 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carta</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carte</item>
     </plurals>
+    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; non sembra un saldo corretto.</string>
+    <string name="points">Punti</string>
+    <string name="currency">Valuta</string>
+    <string name="balance">Saldo</string>
+    <string name="moveBarcodeToCenterOfScreen">Centra il codice a barre sullo schermo</string>
+    <string name="moveBarcodeToTopOfScreen">Sposta il codice a barre in cima allo schermo</string>
+    <string name="chooseExpiryDate">Scegli data di scadenza</string>
+    <string name="never">Mai</string>
+    <string name="expiryDate">Data di scadenza</string>
+    <string name="editBarcode">Modifica il codice a barre</string>
+    <string name="barcode">Codice a barre</string>
+    <string name="card">Carta</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punti</string>
+    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Scaduta: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Scade: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="settings_keep_screen_on">Mantieni schermo acceso durante la visualizzazione di una carta</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="chooseImportType">Da quale app vuoi importare i dati\?</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mantieni schermo attivo mentre visualizzi una carta</string>
+    <string name="accept">Accetta</string>
+    <string name="privacy_policy_popup_text">È spesso richiesto alle applicazioni di mostrare la loro politica sulla riservatezza al primo avvio. Ecco la nostra:
+\n
+\nNon raccogliamo ALCUN DATO e il codice sorgente della nostra applicazione è aperto, quindi chiunque può confermare che ciò sia vero.</string>
+    <string name="privacy_policy">Informativa sulla riservatezza</string>
+    <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione Voucher Vault. Molto probabilmente si chiama vouchervault.json.
+\n
+\nÈ possibile creare un file di esportazione Voucher Vault premendo Esporta.</string>
+    <string name="importVoucherVault">Importa da Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleziona il file di esportazione Loyalty Card Keychain . Molto probabilmente si chiama LoyaltyCardKeychain.csv.
+\n
+\nÈ possibile creare un file di esportazione Loyalty Card Keychain accedendo al menu Importa / Esporta e premendo Esporta.</string>
+    <string name="importLoyaltyCardKeychain">Importa da Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Seleziona il tuo file di esportazione Fidme. Molto probabilmente si chiama qualcosa come fidme-export-request-xxxxxx.zip.
+\n
+\nUn file di esportazione Fidme può essere creato nell\'app Fidme andando sul tuo profilo, scegliendo Protezione dati e quindi premendo Estrai i miei dati.
+\n
+\nTieni presente che Fidme non memorizza il tipo di codice a barre nei dati di esportazione, quindi dovrai modificare manualmente le carte importate.</string>
+    <string name="importFidme">Importa da Fidme</string>
+    <string name="importCatimaMessage">Seleziona il tuo file di esportazione Catima. Molto probabilmente si chiama Catima.csv.
+\n
+\nÈ possibile creare un file di esportazione Catima andando nel menu Importa / Esporta e premendo Esporta.</string>
+    <string name="importCatima">Importa da Catima</string>
 </resources>

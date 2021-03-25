@@ -13,7 +13,6 @@
     <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
-    <string name="editCard">Kaart bewerken</string>
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
     <string name="confirm">Bevestigen</string>
@@ -113,4 +112,37 @@
     <string name="expiryStateSentenceExpired">Verlopen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="moveBarcodeToCenterOfScreen">Barcode verplaatsen naar midden van scherm</string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
+    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
+    <string name="points">Aantal punten</string>
+    <string name="currency">Valuta</string>
+    <string name="balance">Saldo</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punten</string>
+    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="chooseImportType">Uit welke app wil je gegevens importeren\?</string>
+    <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen tijdens tonen van kaart</string>
+    <string name="settings_keep_screen_on">Scherm niet uitschakelen tijdens tonen van kaart</string>
+    <string name="privacy_policy_popup_text">Veel appwinkels vereisen dat apps na de eerste keer opstarten hun privacybeleid tonen. Dat van ons is eenvoudig:
+\n
+\nWe verzamelen HELEMAAL NIKS. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="accept">Accepteren</string>
+    <string name="importVoucherVaultMessage">Kies het gewenste Voucher Vault-exportbestand - normaliter heet dit bestand \'vouchervault.json\'.
+\n
+\nGa naar het Exportmenu om een Voucher Vault-exportbestand samen te stellen.</string>
+    <string name="importVoucherVault">Importeren uit Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Kies het gewenste Klantenkaartkluis-exportbestand - normaliter heet dit bestand \'LoyaltyCardKeychain.csv\'.
+\n
+\nGa naar het Import-/Exportmenu om een Klantenkaartkluis-exportbestand samen te stellen.</string>
+    <string name="importLoyaltyCardKeychain">Importeren uit Klantenkaartkluis</string>
+    <string name="importFidmeMessage">Kies het gewenste Fidme-exportbestand - normaliter heet dit bestand \'fidme-export-request-xxxxxx.zip\'.
+\n
+\nOpen de Fidme-app, ga naar je profiel en druk op \'Gegevensbescherming\' om een exportbestand samen te stellen.
+\n
+\nLet op: Fidme slaat de soorten barcodes niet op in het exportbestand, dus dat moet je na achteraf nog instellen.</string>
+    <string name="importCatimaMessage">Kies het gewenste Catima-exportbestand - normaliter heet dit bestand \'Catima.csv\'.
+\n
+\nGa naar het Import-/Exportmenu om een Catima-exportbestand samen te stellen.</string>
+    <string name="importFidme">Importeren uit Fidme</string>
+    <string name="importCatima">Importeren uit Catima</string>
 </resources>

@@ -39,6 +39,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     ImageView bottomSheetButton;
     TextView noteView;
     TextView groupsView;
+    TextView balanceView;
     TextView expiryView;
     TextView storeName;
     ImageButton maximizeButton;
@@ -123,6 +125,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         bottomSheetButton = findViewById(R.id.bottomSheetButton);
         noteView = findViewById(R.id.noteView);
         groupsView = findViewById(R.id.groupsView);
+        balanceView = findViewById(R.id.balanceView);
         expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
@@ -233,10 +236,24 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         // '1' is the brightest. We attempt to maximize the brightness
         // to help barcode readers scan the barcode.
         Window window = getWindow();
-        if(window != null && settings.useMaxBrightnessDisplayingBarcode())
+        if(window != null)
         {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = 1F;
+
+            if (settings.useMaxBrightnessDisplayingBarcode())
+            {
+                attributes.screenBrightness = 1F;
+            }
+
+            if (settings.getKeepScreenOn()) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+
+            if (settings.getDisableLockscreenWhileViewingCard()) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+            }
+
             window.setAttributes(attributes);
         }
 
@@ -285,6 +302,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         else
         {
             groupsView.setVisibility(View.GONE);
+        }
+
+        if(!loyaltyCard.balance.equals(new BigDecimal(0))) {
+            balanceView.setVisibility(View.VISIBLE);
+            balanceView.setText(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        }
+        else
+        {
+            balanceView.setVisibility(View.GONE);
         }
 
         if(loyaltyCard.expiry != null) {
@@ -523,7 +549,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     private void makeBottomSheetVisibleIfUseful()
     {
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);
         }
         else

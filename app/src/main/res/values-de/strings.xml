@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="action_search">Suche</string>
-    <string name="action_add">Neu</string>
+    <string name="action_search">Suchen</string>
+    <string name="action_add">Hinzufügen</string>
     <string name="noGiftCards">Klicken Sie auf die Schaltfläche + (plus), um zuerst eine Karte hinzuzufügen.
 \n
 \nCatima trägt Ihre Karten auf dem Gerät, so dass sie immer in Reichweite sind.</string>
@@ -20,9 +20,9 @@
     <string name="unstar">Aus der Favoritenliste entfernen</string>
     <string name="deleteTitle">Karte entfernen</string>
     <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
-    <string name="ok">Ok</string>
-    <string name="copy_to_clipboard">Kopiere die Nummer in die Zwischenablage</string>
-    <string name="sendLabel">Senden…</string>
+    <string name="ok">OK</string>
+    <string name="copy_to_clipboard">Nummer in die Zwischenablage kopieren</string>
+    <string name="sendLabel">Senden …</string>
     <string name="editCardTitle">Kundenkarte bearbeiten</string>
     <string name="addCardTitle">Neue Kundenkarte</string>
     <string name="scanCardBarcode">Strichcode scannen</string>
@@ -102,7 +102,7 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karten</item>
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="app_loyalty_card_keychain">Kundenkartenanhänger</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Aus welcher App Daten importieren\?</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
@@ -127,4 +127,22 @@
 \nWir sammeln KEINE DATEN und unsere Anwendung ist quelloffen, sodass jeder bestätigen kann, dass dies wahr ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
+    <string name="importVoucherVaultMessage">Bitte wählen Sie Ihre Voucher Vault-Exportdatei aus. Es heißt höchstwahrscheinlich vouchervault.json.
+\n
+\nEine Voucher Vault-Exportdatei kann durch Drücken von Exportieren erstellt werden.</string>
+    <string name="importVoucherVault">Aus Voucher Vault importieren</string>
+    <string name="importLoyaltyCardKeychainMessage">Bitte wählen Sie Ihre Loyalty Card Keychain-Exportdatei aus. Es heißt höchstwahrscheinlich LoyaltyCardKeychain.csv.
+\n
+\nEine Loyalty Card Keychain-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
+    <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
+    <string name="importFidmeMessage">Bitte wählen Sie Ihre Fidme-Exportdatei aus. Es wird höchstwahrscheinlich so etwas wie fidme-export-request-xxxxxx.zip genannt.
+\n
+\nEine Fidme-Exportdatei kann in der Fidme-Anwendung erstellt werden, indem Sie zu Ihrem Profil gehen, Datenschutz auswählen und dann auf Meine Daten extrahieren klicken.
+\n
+\nBitte beachten Sie, dass Fidme den Strichcode-Typ nicht in den Exportdaten speichert, sodass Sie die importierten Karten manuell bearbeiten müssen.</string>
+    <string name="importFidme">Aus Fidme importieren</string>
+    <string name="importCatimaMessage">Bitte wählen Sie Ihre Catima-Exportdatei aus. Es heißt höchstwahrscheinlich Catima.csv.
+\n
+\nEine Catima-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
+    <string name="importCatima">Aus Catima importieren</string>
 </resources>

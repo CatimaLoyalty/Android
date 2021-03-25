@@ -19,7 +19,7 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
-    <string name="editCardTitle">Modifier la carte de fidélité</string>
+    <string name="editCardTitle">Modifier la carte</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
@@ -107,7 +107,7 @@
 \n
 \nNous ne collectons AUCUNE DONNÉE et le code source de notre application est ouvert afin que tout le monde puisse le confirmer.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
-    <string name="app_loyalty_card_keychain">Porte-clé de carte de fidélité</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importer des données à partir de quelle application \?</string>
     <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
@@ -127,4 +127,22 @@
     <string name="expiryStateSentence">Expire : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Désactiver l\'écran de verrouillage pendant l\'affichage d\'une carte</string>
     <string name="settings_keep_screen_on">Garder l\'écran allumé pendant l\'affichage d\'une carte</string>
+    <string name="importVoucherVaultMessage">Veuillez sélectionner votre fichier d\'exportation Voucher Vault. Il est probablement nommé vouchervault.json.
+\n
+\nUn fichier d\'exportation Voucher Vault peut être créé en appuyant sur Exporter.</string>
+    <string name="importVoucherVault">Importer depuis Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Veuillez sélectionner votre fichier d\'exportation Loyalty Card Keychain . Il s\'appelle très probablement LoyaltyCardKeychain.csv.
+\n
+\nUn fichier d\'exportation Loyalty Card Keychain peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
+    <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Veuillez sélectionner votre fichier d\'exportation Fidme. Il est très probablement nommé quelque chose comme fidme-export-request-xxxxxx.zip.
+\n
+\nUn fichier d\'exportation Fidme peut être créé dans l\'application Fidme en accédant à votre profil, en choisissant Protection des données, puis en appuyant sur Extraire mes données.
+\n
+\nVeuillez noter que Fidme ne stocke pas le type de code-barres dans les données d\'exportation, vous devrez donc éditer les cartes importées manuellement.</string>
+    <string name="importFidme">Importer depuis Fidme</string>
+    <string name="importCatimaMessage">Veuillez sélectionner votre fichier d\'exportation Catima. Il est probablement nommé Catima.csv.
+\n
+\nUn fichier d\'exportation Catima peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
+    <string name="importCatima">Importer depuis Catima</string>
 </resources>

@@ -21,7 +21,7 @@
     <string name="deleteTitle">Удаление карты</string>
     <string name="deleteConfirmation">Подтвердите удаление карты.</string>
     <string name="ok">ОК</string>
-    <string name="copy_to_clipboard">Скопировать номер карты в буфер обмена</string>
+    <string name="copy_to_clipboard">Копировать номер карты</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить…</string>
     <string name="editCardTitle">Изменить карту</string>
@@ -77,14 +77,14 @@
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
-    <string name="exportSuccessful">Данные карты экспортированы</string>
+    <string name="exportSuccessful">Данные карт успешно экспортированы</string>
     <string name="all">Все</string>
     <string name="noGroups">Нажмите кнопку + (плюс), чтобы добавить группы.
 \n
 \nГруппы упрощают поиск.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
-    <string name="importSuccessful">Данные карты успешно импортированы</string>
+    <string name="importSuccessful">Данные карт успешно импортированы</string>
     <string name="starImage">Звезда избранного</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain, авторские права 2016–2020 Branden Archer.</string>
     <string name="unstar">Удалить из избранного</string>
@@ -129,4 +129,22 @@
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
     </plurals>
     <string name="accept">Принять</string>
+    <string name="importVoucherVaultMessage">Выберите файл экспорта Voucher Vault. Обычно он называется \"vouchervault.json\".
+\n
+\nФайл экспорта Voucher Vault можно создать, нажав кнопку \"Экспорт\".</string>
+    <string name="importVoucherVault">Импорт из Voucher Vault</string>
+    <string name="importFidmeMessage">Выберите файл экспорта Fidme. Обычно он называется как-то вроде \"fidme-export-request-xxxxxx.zip\".
+\n
+\nФайл экспорта Fidme можно создать в приложении Fidme, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".
+\n
+\nОбратите внимание, что Fidme не сохраняет тип штрих-кода в экспортированных данных, поэтому вам придётся редактировать импортированные данные карт вручную.</string>
+    <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта Loyalty Card Keychain. Обычно он называется \"LoyaltyCardKeychain.csv\".
+\n
+\nФайл экспорта Loyalty Card Keychain можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importLoyaltyCardKeychain">Импорт из Loyalty Card Keychain</string>
+    <string name="importCatimaMessage">Выберите файл экспорта Catima. Обычно он называется \"Catima.csv\".
+\n
+\nФайл экспорта Catima можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importFidme">Импорт из Fidme</string>
+    <string name="importCatima">Импорт из Catima</string>
 </resources>

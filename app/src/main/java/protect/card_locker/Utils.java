@@ -84,7 +84,7 @@ public class Utils {
                 } catch (IOException e) {
                     Log.e(TAG, "Error getting the image data");
                     e.printStackTrace();
-                    Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG);
+                    Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                     return new BarcodeValues(null, null);
                 }
 
@@ -103,7 +103,7 @@ public class Utils {
                     format = qrCodeResult.getBarcodeFormat().name();
                 } catch (NotFoundException e) {
                     Log.i(TAG, "No barcode was found");
-                    Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG);
+                    Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
                 }
             }
         }

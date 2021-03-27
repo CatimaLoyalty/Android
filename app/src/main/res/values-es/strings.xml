@@ -112,4 +112,6 @@
     <string name="barcode">Código de barras</string>
     <string name="card">Tarjeta</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> puntos</string>
+    <string name="expiryStateSentenceExpired">Expirado: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="expiryStateSentence">Expira: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
 </resources>

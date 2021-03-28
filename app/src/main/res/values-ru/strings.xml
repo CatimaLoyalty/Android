@@ -147,4 +147,7 @@
 \nФайл экспорта Catima можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importFidme">Импорт из Fidme</string>
     <string name="importCatima">Импорт из Catima</string>
+    <string name="errorReadingImage">Ошибка при чтении изображения</string>
+    <string name="noBarcodeFound">Штрих-код не найден</string>
+    <string name="addFromImage">Выбрать изображение из галереи</string>
 </resources>

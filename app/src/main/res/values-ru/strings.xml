@@ -34,7 +34,7 @@
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Невозможно разобрать импортируемый URI</string>
-    <string name="importExport">Импорт/экспорт</string>
+    <string name="importExport">Импорт/Экспорт</string>
     <string name="exportName">Экспорт</string>
     <string name="importExportHelp">Резервное копирование карт позволяет переместить их на другое устройство.</string>
     <string name="importSuccessfulTitle">Импортировано</string>

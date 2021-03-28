@@ -132,7 +132,7 @@ public class ScanActivity extends AppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
         if (!barcodeValues.isEmpty()) {
             Intent manualResult = new Intent();
@@ -153,5 +153,11 @@ public class ScanActivity extends AppCompatActivity {
             i.putExtras(b);
         }
         startActivityForResult(i, Utils.SELECT_BARCODE_REQUEST);
+    }
+
+    public void addFromImage(View view) {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT_FROM_IMAGE_FILE);
     }
 }

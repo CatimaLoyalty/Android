@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -76,6 +77,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     View barcodeImageLayout;
     View barcodeCaptureLayout;
 
+    Button captureButton;
+    Button importImageButton;
     Button enterButton;
 
     int loyaltyCardId;
@@ -634,6 +637,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+
     class ColorSelectListener implements View.OnClickListener
     {
         final int defaultColor;
@@ -840,7 +844,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent);
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
         barcodeType = barcodeValues.format();
         cardId = barcodeValues.content();

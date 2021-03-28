@@ -135,7 +135,7 @@
     <string name="leaveWithoutSaveTitle">Leave without saving</string>
     <string name="leaveWithoutSaveConfirmation">Are you sure you want to leave this screen? Changed made will not be saved.</string>
     <string name="addManually">Manually enter card ID</string>
-    <string name="addFromImage">Import from image</string>
+    <string name="addFromImage">Select image from gallery</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>

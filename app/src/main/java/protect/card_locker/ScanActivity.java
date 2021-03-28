@@ -158,6 +158,6 @@ public class ScanActivity extends AppCompatActivity {
     public void addFromImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT);
+        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT_FROM_IMAGE_FILE);
     }
 }

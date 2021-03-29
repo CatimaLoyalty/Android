@@ -145,4 +145,7 @@
 \nGa naar het Import-/Exportmenu om een Catima-exportbestand samen te stellen.</string>
     <string name="importFidme">Importeren uit Fidme</string>
     <string name="importCatima">Importeren uit Catima</string>
+    <string name="errorReadingImage">De afbeelding kan niet worden uitgelezen</string>
+    <string name="noBarcodeFound">Geen barcode aangetroffen</string>
+    <string name="addFromImage">Afbeelding kiezen uit galerij</string>
 </resources>

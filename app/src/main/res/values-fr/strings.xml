@@ -145,4 +145,7 @@
 \n
 \nUn fichier d\'exportation Catima peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
+    <string name="addFromImage">Sélectionner dans la galerie</string>
+    <string name="errorReadingImage">Erreur lors de la lecture de l\'image</string>
+    <string name="noBarcodeFound">Aucun code-barres n\'a été trouvé</string>
 </resources>

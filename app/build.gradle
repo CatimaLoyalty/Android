@@ -18,7 +18,7 @@ android {
         applicationId "me.hackerchick.catima"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 65
+        versionCode 66
         versionName "1.12"
 
         vectorDrawables.useSupportLibrary true

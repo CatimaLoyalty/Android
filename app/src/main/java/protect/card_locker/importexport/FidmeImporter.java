@@ -137,11 +137,11 @@ public class FidmeImporter implements DatabaseImporter
         // Sadly, Fidme exports don't contain the card type
         // I guess they have an online DB of all the different companies and what type they use
         // TODO: Hook this into our own loyalty card DB if we ever get one
-        String barcodeType = "";
+        BarcodeFormat barcodeType = null;
 
         // No favourite data in the export either
         int starStatus = 0;
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, barcodeType, null, starStatus);
+        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
     }
 }

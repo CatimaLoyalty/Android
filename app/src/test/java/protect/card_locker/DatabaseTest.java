@@ -45,7 +45,7 @@ public class DatabaseTest
     public void addRemoveOneGiftCard()
     {
         assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
+        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -59,7 +59,7 @@ public class DatabaseTest
         assertEquals(null, loyaltyCard.balanceType);
         assertEquals("cardId", loyaltyCard.cardId);
         assertEquals(0, loyaltyCard.starStatus);
-        assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
+        assertEquals(BarcodeFormat.UPC_A, loyaltyCard.barcodeType);
 
         result = db.deleteLoyaltyCard(1);
         assertTrue(result);
@@ -70,12 +70,12 @@ public class DatabaseTest
     @Test
     public void updateGiftCard()
     {
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
+        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
-        result = db.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", BarcodeFormat.AZTEC.toString(), DEFAULT_HEADER_COLOR);
+        result = db.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, BarcodeFormat.AZTEC, DEFAULT_HEADER_COLOR);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -88,13 +88,13 @@ public class DatabaseTest
         assertEquals(Currency.getInstance("EUR"), loyaltyCard.balanceType);
         assertEquals("cardId1", loyaltyCard.cardId);
         assertEquals(0, loyaltyCard.starStatus);
-        assertEquals(BarcodeFormat.AZTEC.toString(), loyaltyCard.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, loyaltyCard.barcodeType);
     }
 
     @Test
     public void updateGiftCardOnlyStar()
     {
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
+        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -112,7 +112,7 @@ public class DatabaseTest
         assertEquals(null, loyaltyCard.balanceType);
         assertEquals("cardId", loyaltyCard.cardId);
         assertEquals(1, loyaltyCard.starStatus);
-        assertEquals(BarcodeFormat.UPC_A.toString(), loyaltyCard.barcodeType);
+        assertEquals(BarcodeFormat.UPC_A, loyaltyCard.barcodeType);
     }
 
     @Test
@@ -121,7 +121,7 @@ public class DatabaseTest
         assertEquals(0, db.getLoyaltyCardCount());
 
         boolean result = db.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("0"), null, "cardId1",
-                BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR);
+                null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
     }
@@ -129,7 +129,7 @@ public class DatabaseTest
     @Test
     public void emptyGiftCardValues()
     {
-        long id = db.insertLoyaltyCard("", "", null, new BigDecimal("0"), null, "", "", null, 0);
+        long id = db.insertLoyaltyCard("", "", null, new BigDecimal("0"), null, "", "", null, null, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -142,7 +142,7 @@ public class DatabaseTest
         assertEquals(new BigDecimal("0"), loyaltyCard.balance);
         assertEquals(null, loyaltyCard.balanceType);
         assertEquals("", loyaltyCard.cardId);
-        assertEquals("", loyaltyCard.barcodeType);
+        assertEquals(null, loyaltyCard.barcodeType);
     }
 
     @Test
@@ -155,7 +155,7 @@ public class DatabaseTest
         for(int index = CARDS_TO_ADD-1; index >= 0; index--)
         {
             long id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
-                    BarcodeFormat.UPC_A.toString(), index, 0);
+                    null, BarcodeFormat.UPC_A, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -200,12 +200,12 @@ public class DatabaseTest
         {
             if (index == CARDS_TO_ADD-1) {
                 id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
-                        BarcodeFormat.UPC_A.toString(), index, 1);
+                        null, BarcodeFormat.UPC_A, index, 1);
             }
 
             else {
                 id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
-                        BarcodeFormat.UPC_A.toString(), index, 0);
+                        null, BarcodeFormat.UPC_A, index, 0);
             }
             boolean result = (id != -1);
             assertTrue(result);
@@ -304,7 +304,7 @@ public class DatabaseTest
     {
         // Create card
         assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
+        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -421,7 +421,7 @@ public class DatabaseTest
     {
         // Create card
         assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", BarcodeFormat.UPC_A.toString(), DEFAULT_HEADER_COLOR, 0);
+        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, DEFAULT_HEADER_COLOR, 0);
         boolean result = (id != -1);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
@@ -484,10 +484,9 @@ public class DatabaseTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("cardId", card.cardId);
-        assertEquals(BarcodeFormat.UPC_A.toString(), card.barcodeType);
+        assertEquals(BarcodeFormat.UPC_A, card.barcodeType);
         assertEquals("", card.note);
         assertEquals(null, card.headerColor);
-        assertEquals(null, card.headerTextColor);
 
         database.close();
     }

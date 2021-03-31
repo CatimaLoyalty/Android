@@ -3,6 +3,9 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
+import com.google.zxing.BarcodeFormat;
+
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -15,6 +18,7 @@ public class ImportURIHelper {
     private static final String BALANCE = DBHelper.LoyaltyCardDbIds.BALANCE;
     private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BALANCE_TYPE;
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
+    private static final String BARCODE_ID = DBHelper.LoyaltyCardDbIds.BARCODE_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
 
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
@@ -46,17 +50,23 @@ public class ImportURIHelper {
 
         try {
             // These values are allowed to be null
+            BarcodeFormat barcodeType = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
             Integer headerColor = null;
-            Integer headerTextColor = null;
 
             String store = uri.getQueryParameter(STORE);
             String note = uri.getQueryParameter(NOTE);
             String cardId = uri.getQueryParameter(CARD_ID);
-            String barcodeType = uri.getQueryParameter(BARCODE_TYPE);
-            if (store == null || note == null || cardId == null || barcodeType == null) throw new InvalidObjectException("Not a valid import URI");
+            String barcodeId = uri.getQueryParameter(BARCODE_ID);
+            if (store == null || note == null || cardId == null) throw new InvalidObjectException("Not a valid import URI");
+
+            String unparsedBarcodeType = uri.getQueryParameter(BARCODE_TYPE);
+            if(unparsedBarcodeType != null && !unparsedBarcodeType.equals(""))
+            {
+                barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
+            }
 
             String unparsedBalance = uri.getQueryParameter(BALANCE);
             if(unparsedBalance != null && !unparsedBalance.equals(""))
@@ -80,7 +90,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeType, headerColor, headerTextColor, 0);
+            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -102,9 +112,14 @@ public class ImportURIHelper {
             uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
         }
         uriBuilder.appendQueryParameter(CARD_ID, loyaltyCard.cardId);
-        uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType);
-        if(loyaltyCard.headerColor != null)
-        {
+        if(loyaltyCard.barcodeId != null) {
+            uriBuilder.appendQueryParameter(BARCODE_ID, loyaltyCard.barcodeId);
+        }
+
+        if(loyaltyCard.barcodeType != null) {
+            uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType.toString());
+        }
+        if(loyaltyCard.headerColor != null) {
             uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
         }
         //StarStatus will not be exported

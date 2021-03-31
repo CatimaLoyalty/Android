@@ -54,7 +54,7 @@ public class ImportExportTest
     private final int MONTHS_PER_YEAR = 12;
 
     private final String BARCODE_DATA = "428311627547";
-    private final String BARCODE_TYPE = BarcodeFormat.UPC_A.name();
+    private final BarcodeFormat BARCODE_TYPE = BarcodeFormat.UPC_A;
 
     @Before
     public void setUp()
@@ -80,7 +80,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, BARCODE_TYPE, index, 0);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -96,7 +96,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, BARCODE_TYPE, index, 1);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -105,7 +105,7 @@ public class ImportExportTest
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, BARCODE_TYPE, index, 0);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -115,7 +115,7 @@ public class ImportExportTest
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
     {
-        long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         boolean result = (id != -1);
         assertTrue(result);
 
@@ -130,7 +130,7 @@ public class ImportExportTest
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = db.insertLoyaltyCard("Past", "", new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        id = db.insertLoyaltyCard("Past", "", new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -145,7 +145,7 @@ public class ImportExportTest
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = db.insertLoyaltyCard("Today", "", new Date(), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        id = db.insertLoyaltyCard("Today", "", new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -163,7 +163,7 @@ public class ImportExportTest
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = db.insertLoyaltyCard("Future", "", new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, BARCODE_TYPE, 0, 0);
+        id = db.insertLoyaltyCard("Future", "", new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -601,7 +601,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,0";
+        csvText += "1,store,note,12345,AZTEC,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -618,7 +618,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("type", card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
 
@@ -638,7 +638,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,,,0";
+        csvText += "1,store,note,12345,AZTEC,,,0";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -655,7 +655,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("type", card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertNull(card.headerColor);
 
@@ -717,7 +717,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("", card.barcodeType);
+        assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
 
@@ -737,7 +737,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,1,1,1";
+        csvText += "1,store,note,12345,AZTEC,1,1,1";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -754,7 +754,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("type", card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(1, card.starStatus);
         assertEquals(1, (long) card.headerColor);
 
@@ -774,7 +774,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,1,1,";
+        csvText += "1,store,note,12345,AZTEC,1,1,";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -791,7 +791,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("type", card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
 
@@ -811,7 +811,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,1,1,2";
+        csvText += "1,store,note,12345,AZTEC,1,1,2";
 
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -830,7 +830,7 @@ public class ImportExportTest
                 DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
                 DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
 
-        csvText += "1,store,note,12345,type,1,1,text";
+        csvText += "1,store,note,12345,AZTEC,1,1,text";
 
         inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
@@ -847,7 +847,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
-        assertEquals("type", card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(1, (long) card.headerColor);
 
@@ -894,7 +894,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("123456", card.cardId);
-        assertEquals(BarcodeFormat.CODE_128.name(), card.barcodeType);
+        assertEquals(BarcodeFormat.CODE_128, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(Color.GRAY, (long) card.headerColor);
 
@@ -906,7 +906,7 @@ public class ImportExportTest
         assertEquals(new BigDecimal("3.5"), card.balance);
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("26846363", card.cardId);
-        assertEquals(BarcodeFormat.CODE_39.name(), card.barcodeType);
+        assertEquals(BarcodeFormat.CODE_39, card.barcodeType);
         assertEquals(0, card.starStatus);
         assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
 

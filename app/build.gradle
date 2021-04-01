@@ -68,15 +68,19 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0'
 
 // Third-party
     implementation 'com.journeyapps:zxing-android-embedded:4.1.0@aar'
-    implementation 'com.google.zxing:core:3.3.3' // Do not upgrade past 3.3.3! Causes a crash on versions before Android 7
+    // Do not upgrade past 3.3.3! Causes a crash on versions before Android Nougat
+    //noinspection GradleDependency
+    implementation 'com.google.zxing:core:3.3.3'
     implementation 'org.apache.commons:commons-csv:1.8'
     implementation 'com.jaredrummler:colorpicker:1.1.0'
     implementation 'com.google.guava:guava:30.1-jre'
     implementation 'com.github.invissvenska:NumberPickerPreference:1.0.1'
+
+// SpotBugs
+    implementation 'io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0'
 
 // Testing
     testImplementation 'androidx.test:core:1.0.0'

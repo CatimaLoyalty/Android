@@ -173,4 +173,7 @@
     <string name="importLoyaltyCardKeychainMessage">Please select your Loyalty Card Keychain export file. It is most likely named LoyaltyCardKeychain.csv.\n\nA Loyalty Card Keychain export file can be created by going to the Import/Export menu and pressing "Export".</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Please select your Voucher Vault export file. It is most likely named vouchervault.json.\n\nA Voucher Vault export file can be created by pressing "Export".</string>
+    <string name="barcodeId">Barcode value</string>
+    <string name="sameAsCardId">Same as card ID</string>
+    <string name="setBarcodeId">Set barcode value</string>
 </resources>

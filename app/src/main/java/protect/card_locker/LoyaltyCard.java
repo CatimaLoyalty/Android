@@ -2,6 +2,8 @@ package protect.card_locker;
 
 import android.database.Cursor;
 
+import com.google.zxing.BarcodeFormat;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
@@ -17,19 +19,20 @@ public class LoyaltyCard
     public final BigDecimal balance;
     public final Currency balanceType;
     public final String cardId;
-    public final String barcodeType;
+
+    @Nullable
+    public final String barcodeId;
+
+    public final BarcodeFormat barcodeType;
 
     @Nullable
     public final Integer headerColor;
-
-    @Nullable
-    public final Integer headerTextColor;
 
     public final int starStatus;
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
-                       final String barcodeType, final Integer headerColor, final Integer headerTextColor,
+                       final String barcodeId, final BarcodeFormat barcodeType, final Integer headerColor,
                        final int starStatus)
     {
         this.id = id;
@@ -39,9 +42,9 @@ public class LoyaltyCard
         this.balance = balance;
         this.balanceType = balanceType;
         this.cardId = cardId;
+        this.barcodeId = barcodeId;
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
-        this.headerTextColor = headerTextColor;
         this.starStatus = starStatus;
     }
 
@@ -53,17 +56,22 @@ public class LoyaltyCard
         long expiryLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY));
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
-        String barcodeType = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE));
+        String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
         int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
 
+        int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
-        int headerTextColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR);
 
+        BarcodeFormat barcodeType = null;
         Currency balanceType = null;
         Date expiry = null;
         Integer headerColor = null;
-        Integer headerTextColor = null;
+
+        if (cursor.isNull(barcodeTypeColumn) == false)
+        {
+            barcodeType = BarcodeFormat.valueOf(cursor.getString(barcodeTypeColumn));
+        }
 
         if (cursor.isNull(balanceTypeColumn) == false)
         {
@@ -80,11 +88,6 @@ public class LoyaltyCard
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        if(cursor.isNull(headerTextColorColumn) == false)
-        {
-            headerTextColor = cursor.getInt(headerTextColorColumn);
-        }
-
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeType, headerColor, headerTextColor, starred);
+        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred);
     }
 }

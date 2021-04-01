@@ -71,21 +71,21 @@ public class VoucherVaultImporter implements DatabaseImporter
 
             String cardId = jsonCard.getString("code");
 
-            String barcodeType = null;
+            BarcodeFormat barcodeType = null;
 
             String codeTypeFromJSON = jsonCard.getString("codeType");
             switch (codeTypeFromJSON) {
                 case "CODE128":
-                    barcodeType = BarcodeFormat.CODE_128.name();
+                    barcodeType = BarcodeFormat.CODE_128;
                     break;
                 case "CODE39":
-                    barcodeType = BarcodeFormat.CODE_39.name();
+                    barcodeType = BarcodeFormat.CODE_39;
                     break;
                 case "EAN13":
-                    barcodeType = BarcodeFormat.EAN_13.name();
+                    barcodeType = BarcodeFormat.EAN_13;
                     break;
                 case "QR":
-                    barcodeType = BarcodeFormat.QR_CODE.name();
+                    barcodeType = BarcodeFormat.QR_CODE;
                     break;
                 case "TEXT":
                     break;
@@ -122,7 +122,7 @@ public class VoucherVaultImporter implements DatabaseImporter
                     throw new FormatException("Unknown colour type foun: " + colorFromJSON);
             }
 
-            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, barcodeType, headerColor, 0);
+            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0);
         }
 
         database.setTransactionSuccessful();

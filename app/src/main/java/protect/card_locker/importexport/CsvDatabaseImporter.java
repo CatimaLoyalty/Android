@@ -2,6 +2,8 @@ package protect.card_locker.importexport;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.google.zxing.BarcodeFormat;
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -250,7 +252,14 @@ public class CsvDatabaseImporter implements DatabaseImporter
             throw new FormatException("No card ID listed, but is required");
         }
 
-        String barcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
+        String barcodeId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ID, record, "");
+
+        BarcodeFormat barcodeType = null;
+        String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
+        if(!unparsedBarcodeType.isEmpty())
+        {
+            barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
+        }
 
         Integer headerColor = null;
 
@@ -267,7 +276,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
-        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeType, headerColor, starStatus);
+        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
     }
 
     /**

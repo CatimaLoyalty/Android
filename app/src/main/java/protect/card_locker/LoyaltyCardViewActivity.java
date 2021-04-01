@@ -71,6 +71,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     Settings settings;
 
     String cardIdString;
+    String barcodeIdString;
     BarcodeFormat format;
 
     FloatingActionButton editButton;
@@ -268,9 +269,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         setupOrientation();
 
-        String formatString = loyaltyCard.barcodeType;
-        format = !formatString.isEmpty() ? BarcodeFormat.valueOf(formatString) : null;
+        format = loyaltyCard.barcodeType;
         cardIdString = loyaltyCard.cardId;
+        barcodeIdString = loyaltyCard.barcodeId;
 
         cardIdFieldView.setText(loyaltyCard.cardId);
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
@@ -398,7 +399,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             else
             {
                 Log.d(TAG, "ImageView size known known, creating barcode");
-                new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                new BarcodeImageWriterTask(
+                    barcodeImage,
+                    barcodeIdString != null ? barcodeIdString : cardIdString,
+                    format)
+                .execute();
             }
 
             // Force redraw fullscreen state
@@ -568,7 +573,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, format).execute();
+                            new BarcodeImageWriterTask(
+                                barcodeImage,
+                                barcodeIdString != null ? barcodeIdString : cardIdString,
+                                format)
+                            .execute();
                         }
                     });
         };

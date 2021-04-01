@@ -62,10 +62,6 @@
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
-    <string name="settings_card_title_list_font_size">Schriftgröße des Kartentitels (Listenmodus)</string>
-    <string name="settings_card_note_list_font_size">Schriftgröße der Kartennotiz (Listenmodus)</string>
-    <string name="settings_card_title_font_size">Schriftgröße des Kartentitels (Vorschau)</string>
-    <string name="settings_card_id_font_size">Schriftgröße der Kartennummer</string>
     <string name="settings_display_barcode_max_brightness">Helligkeit bei Strichcode Ansicht erhöhen</string>
     <string name="settings_lock_barcode_orientation">Strichcodeausrichtung sperren</string>
     <string name="exportSuccessful">Kartendaten exportiert</string>

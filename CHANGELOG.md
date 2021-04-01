@@ -5,6 +5,7 @@
 Changes:
 
 - Add option to set a separate barcode value from card ID
+- Simplify font sizing configuration
 
 ## v1.12 (2021-03-30)
 

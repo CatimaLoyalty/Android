@@ -66,10 +66,6 @@
     <string name="settings_system_theme">Systemowy</string>
     <string name="settings_light_theme">Jasny</string>
     <string name="settings_dark_theme">Ciemny</string>
-    <string name="settings_card_title_list_font_size">Rozmiar czcionki listy tytułów kart</string>
-    <string name="settings_card_note_list_font_size">Rozmiar czcionki listy kart</string>
-    <string name="settings_card_title_font_size">Rozmiar czcionki tytułu karty</string>
-    <string name="settings_card_id_font_size">Rozmiar czcionki identyfikatora karty</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
     <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>

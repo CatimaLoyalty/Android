@@ -61,24 +61,34 @@ public class Settings
         return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
 
-    public int getCardTitleListFontSize()
+    public double getFontSizeScale()
     {
-        return getInt(R.string.settings_key_card_title_list_font_size, R.integer.settings_card_title_list_font_size_sp);
+        return getInt(R.string.settings_key_max_font_size_scale, R.integer.settings_max_font_size_scale_pct) / 100.0;
     }
 
-    public int getCardNoteListFontSize()
+    public int getSmallFont()
     {
-        return getInt(R.string.settings_key_card_note_list_font_size, R.integer.settings_card_note_list_font_size_sp);
+        return 14;
     }
 
-    public int getCardTitleFontSize()
+    public int getMediumFont()
     {
-        return getInt(R.string.settings_key_card_title_font_size, R.integer.settings_card_title_font_size_sp);
+        return 28;
     }
 
-    public int getCardIdFontSize()
+    public int getLargeFont()
     {
-        return getInt(R.string.settings_key_card_id_font_size, R.integer.settings_card_id_font_size_sp);
+        return 40;
+    }
+
+    public int getFontSizeMin(int fontSize)
+    {
+        return Math.round(fontSize / 2) - 1;
+    }
+
+    public int getFontSizeMax(int fontSize)
+    {
+        return (int) Math.round(fontSize * getFontSizeScale());
     }
 
     public boolean useMaxBrightnessDisplayingBarcode()

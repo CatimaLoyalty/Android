@@ -24,18 +24,9 @@
     </array>
 
     <!-- Default values -->
-    <integer name="settings_card_title_list_font_size_sp">28</integer>
-    <integer name="settings_card_note_list_font_size_sp">14</integer>
-    <integer name="settings_card_title_font_size_sp">40</integer>
-    <integer name="settings_card_id_font_size_sp">50</integer>
+    <integer name="settings_max_font_size_scale_pct">100</integer>
 
     <!-- Constraints -->
-    <integer name="settings_card_title_list_max_font_size_sp">40</integer>
-    <integer name="settings_card_title_list_min_font_size_sp">16</integer>
-    <integer name="settings_card_note_list_max_font_size_sp">25</integer>
-    <integer name="settings_card_note_list_min_font_size_sp">10</integer>
-    <integer name="settings_card_title_max_font_size_sp">50</integer>
-    <integer name="settings_card_title_min_font_size_sp">16</integer>
-    <integer name="settings_card_id_max_font_size_sp">50</integer>
-    <integer name="settings_card_id_min_font_size_sp">16</integer>
+    <integer name="settings_max_font_size_scale_pct_min">50</integer>
+    <integer name="settings_max_font_size_scale_pct_max">200</integer>
 </resources>

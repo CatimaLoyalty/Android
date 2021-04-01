@@ -16,35 +16,13 @@
             app:iconSpaceReserved="false" />
 
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="@string/settings_key_card_title_list_font_size"
-            android:title="@string/settings_card_title_list_font_size"
-            app:defaultValue="@integer/settings_card_title_list_font_size_sp"
-            app:numberPickerPreference_maxValue="@integer/settings_card_title_list_max_font_size_sp"
-            app:numberPickerPreference_minValue="@integer/settings_card_title_list_min_font_size_sp"
-            app:iconSpaceReserved="false" />
-
-        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="@string/settings_key_card_note_list_font_size"
-            android:title="@string/settings_card_note_list_font_size"
-            app:defaultValue="@integer/settings_card_note_list_font_size_sp"
-            app:numberPickerPreference_maxValue="@integer/settings_card_note_list_max_font_size_sp"
-            app:numberPickerPreference_minValue="@integer/settings_card_note_list_min_font_size_sp"
-            app:iconSpaceReserved="false" />
-
-        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="@string/settings_key_card_title_font_size"
-            android:title="@string/settings_card_title_font_size"
-            app:defaultValue="@integer/settings_card_title_font_size_sp"
-            app:numberPickerPreference_maxValue="@integer/settings_card_title_max_font_size_sp"
-            app:numberPickerPreference_minValue="@integer/settings_card_title_min_font_size_sp"
-            app:iconSpaceReserved="false" />
-
-        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="@string/settings_key_card_id_font_size"
-            android:title="@string/settings_card_id_font_size"
-            app:defaultValue="@integer/settings_card_id_font_size_sp"
-            app:numberPickerPreference_maxValue="@integer/settings_card_id_max_font_size_sp"
-            app:numberPickerPreference_minValue="@integer/settings_card_id_min_font_size_sp"
+            android:key="@string/settings_key_max_font_size_scale"
+            android:title="@string/settings_max_font_size_scale"
+            app:defaultValue="@integer/settings_max_font_size_scale_pct"
+            app:numberPickerPreference_maxValue="@integer/settings_max_font_size_scale_pct_max"
+            app:numberPickerPreference_minValue="@integer/settings_max_font_size_scale_pct_min"
+            app:numberPickerPreference_stepValue="10"
+            app:numberPickerPreference_unitText="%"
             app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat

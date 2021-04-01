@@ -68,10 +68,6 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_light_theme">Chiaro</string>
     <string name="settings_dark_theme">Scuro</string>
-    <string name="settings_card_title_list_font_size">Dimensione caratteri del titolo della carta (modalità elenco)</string>
-    <string name="settings_card_note_list_font_size">Dimensione caratteri nota della carta (modalità elenco)</string>
-    <string name="settings_card_title_font_size">Dimensione caratteri del titolo della carta (anteprima)</string>
-    <string name="settings_card_id_font_size">Dimensione testo dell\'ID carta</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando apro un codice a barre</string>
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>

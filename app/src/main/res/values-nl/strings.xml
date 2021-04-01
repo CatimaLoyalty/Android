@@ -70,10 +70,6 @@
     <string name="settings_system_theme">Systeem</string>
     <string name="settings_light_theme">Licht</string>
     <string name="settings_dark_theme">Donker</string>
-    <string name="settings_card_title_list_font_size">Lettergrootte van kaartnamen (lijstmodus)</string>
-    <string name="settings_card_note_list_font_size">Lettergrootte van aantekeningen (lijstmodus)</string>
-    <string name="settings_card_title_font_size">Lettergrootte van kaartnamen (voorvertoning)</string>
-    <string name="settings_card_id_font_size">Lettergrootte van kaartnummer</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>

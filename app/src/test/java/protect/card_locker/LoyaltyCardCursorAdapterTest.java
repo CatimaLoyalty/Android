@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import androidx.preference.PreferenceManager;
 import androidx.test.core.app.ApplicationProvider;
+import protect.card_locker.preferences.Settings;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -44,11 +45,10 @@ public class LoyaltyCardCursorAdapterTest
         settings = PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
-    private void setFontSizes(int storeFontSize, int noteFontSize)
+    private void setFontScale(int fontSizeScale)
     {
         settings.edit()
-            .putInt(activity.getResources().getString(R.string.settings_key_card_title_list_font_size), storeFontSize)
-            .putInt(activity.getResources().getString(R.string.settings_key_card_note_list_font_size), noteFontSize)
+            .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), fontSizeScale)
             .apply();
     }
 
@@ -71,12 +71,13 @@ public class LoyaltyCardCursorAdapterTest
 
         if(checkFontSizes)
         {
-            int storeFontSize = settings.getInt(activity.getResources().getString(R.string.settings_key_card_title_list_font_size), 0);
-            int noteFontSize = settings.getInt(activity.getResources().getString(R.string.settings_key_card_note_list_font_size), 0);
+            Settings preferences = new Settings(activity.getApplicationContext());
+            int mediumFontSize = preferences.getFontSizeMax(preferences.getMediumFont());
+            int smallFontSize = preferences.getFontSizeMax(preferences.getSmallFont());
 
-            assertEquals(storeFontSize, (int)storeField.getTextSize());
-            assertEquals(noteFontSize, (int)noteField.getTextSize());
-            assertEquals(noteFontSize, (int)expiryField.getTextSize());
+            assertEquals(mediumFontSize, (int)storeField.getTextSize());
+            assertEquals(smallFontSize, (int)noteField.getTextSize());
+            assertEquals(smallFontSize, (int)expiryField.getTextSize());
         }
 
         assertEquals(store, storeField.getText().toString());
@@ -157,12 +158,12 @@ public class LoyaltyCardCursorAdapterTest
         Cursor cursor = db.getLoyaltyCardCursor();
         cursor.moveToFirst();
 
-        setFontSizes(1, 2);
+        setFontScale(50);
         View view = createView(cursor);
 
         checkView(view, card.store, card.note, dateString, "", true);
 
-        setFontSizes(30, 31);
+        setFontScale(200);
         view = createView(cursor);
         checkView(view, card.store, card.note, dateString, "",true);
 

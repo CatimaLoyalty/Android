@@ -892,13 +892,11 @@ public class LoyaltyCardViewActivityTest
         DBHelper db = new DBHelper(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0);
 
-        final int STORE_FONT_SIZE = 50;
-        final int CARD_FONT_SIZE = 40;
+        final int LARGE_FONT_SIZE = 40;
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
         settings.edit()
-            .putInt(activity.getResources().getString(R.string.settings_key_card_title_font_size), STORE_FONT_SIZE)
-            .putInt(activity.getResources().getString(R.string.settings_key_card_id_font_size), CARD_FONT_SIZE)
+            .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), 100)
             .apply();
 
         activityController.start();
@@ -912,8 +910,8 @@ public class LoyaltyCardViewActivityTest
 
         TextViewCompat.getAutoSizeMaxTextSize(storeName);
         TextViewCompat.getAutoSizeMaxTextSize(storeName);
-        assertEquals(STORE_FONT_SIZE, (int)storeName.getTextSize());
-        assertEquals(CARD_FONT_SIZE, TextViewCompat.getAutoSizeMaxTextSize(cardIdFieldView));
+        assertEquals(LARGE_FONT_SIZE, (int)storeName.getTextSize());
+        assertEquals(LARGE_FONT_SIZE, TextViewCompat.getAutoSizeMaxTextSize(cardIdFieldView));
 
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());

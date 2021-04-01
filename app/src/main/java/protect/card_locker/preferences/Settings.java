@@ -83,7 +83,7 @@ public class Settings
 
     public int getFontSizeMin(int fontSize)
     {
-        return Math.round(fontSize / 2) - 1;
+        return (int) (Math.round(fontSize / 2.0) - 1);
     }
 
     public int getFontSizeMax(int fontSize)

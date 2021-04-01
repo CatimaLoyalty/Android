@@ -149,4 +149,5 @@
     <string name="setBarcodeId">Указать значение</string>
     <string name="sameAsCardId">Как номер карты</string>
     <string name="barcodeId">Значение штрих-кода</string>
+    <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
 </resources>

@@ -96,6 +96,7 @@ public class SettingsActivity extends AppCompatActivity
                                 dialogPreference.getKey(),
                                 dialogPreference.getMinValue(),
                                 dialogPreference.getMaxValue(),
+                                dialogPreference.getStepValue(),
                                 dialogPreference.getUnitText()
                         );
                 dialogFragment.setTargetFragment(this, 0);

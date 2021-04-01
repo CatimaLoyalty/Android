@@ -20,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_activity);
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
@@ -29,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity
 
         // Display the fragment as the main content.
         getSupportFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new SettingsFragment())
+                .replace(R.id.settings_container, new SettingsFragment())
                 .commit();
     }
 
@@ -96,6 +97,7 @@ public class SettingsActivity extends AppCompatActivity
                                 dialogPreference.getKey(),
                                 dialogPreference.getMinValue(),
                                 dialogPreference.getMaxValue(),
+                                dialogPreference.getStepValue(),
                                 dialogPreference.getUnitText()
                         );
                 dialogFragment.setTargetFragment(this, 0);

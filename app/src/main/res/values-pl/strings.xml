@@ -57,7 +57,7 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące biblioteki osób trzecich: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> wykorzystuje następujące zasoby osób trzecich: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
-    <string name="enterBarcodeInstructions">Wprowadź identyfikator karty, a następnie wybierz obraz reprezentujący kod kreskowy, którego chcesz użyć, lub wybierz “Ta karta nie ma kodu kreskowego”, aby nie używać kodu kreskowego.</string>
+    <string name="enterBarcodeInstructions">Wprowadź identyfikator karty, a następnie wybierz obraz reprezentujący kod kreskowy, którego chcesz użyć, lub wybierz „Ta karta nie ma kodu kreskowego”, aby nie używać kodu kreskowego.</string>
     <string name="copy_to_clipboard_toast">Skopiowano identyfikator karty do schowka</string>
     <string name="thumbnailDescription">Miniaturka karty</string>
     <string name="settings">Ustawienia</string>

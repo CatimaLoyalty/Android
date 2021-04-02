@@ -14,7 +14,7 @@
     <string name="settings_theme">테마</string>
     <string name="settings_category_title_ui">사용자 인터페이스</string>
     <string name="settings">설정</string>
-    <string name="enterBarcodeInstructions">카드 ID를 입력하고 카드에서 사용하는 바코드 이미지를 선택하세요. 바코드를 사용하지 않는 경우 \"이 카드는 바코드가 없음\"을 선택하세요.</string>
+    <string name="enterBarcodeInstructions">카드 ID를 입력하고 카드에서 사용하는 바코드 이미지를 선택하세요. 바코드를 사용하지 않는 경우 “이 카드는 바코드가 없음”을 선택하세요.</string>
     <string name="app_resources"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> 앱은 다음 서드 파티 리소스를 사용합니다: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> 앱은 다음 서드 파티 라이브러리를 사용합니다: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_libraries_list">%s</xliff:g></string>
     <string name="app_revision_fmt">리비전 정보: &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\" id=\"app_revision_url\"&gt;%s&lt;/xliff:g&gt;</string>

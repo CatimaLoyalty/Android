@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Ajouter</string>
-    <string name="noGiftCards">Appuyez d\'abord sur le bouton \"+\" (plus) pour ajouter une carte.
+    <string name="noGiftCards">Appuyez d\'abord sur le bouton + (plus) pour ajouter une carte.
 \n
 \nCatima enregistre vos cartes sur votre appareil, pour toujours les avoir à portée de main.</string>
     <string name="storeName">Magasin</string>
@@ -81,7 +81,7 @@
     <string name="starImage">Étoile favorite</string>
     <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer ce groupe</string>
     <string name="all">Tous</string>
-    <string name="noGroups">Cliquez d\'abord sur le bouton \"+\" (plus) pour ajouter un groupe.
+    <string name="noGroups">Cliquez d\'abord sur le bouton + (plus) pour ajouter un groupe.
 \n
 \nLes groupes permettent de facilement retrouver vos cartes.</string>
     <string name="groups">Groupes</string>
@@ -144,4 +144,8 @@
     <string name="addFromImage">Sélectionner dans la galerie</string>
     <string name="errorReadingImage">Erreur lors de la lecture de l\'image</string>
     <string name="noBarcodeFound">Aucun code-barres n\'a été trouvé</string>
+    <string name="setBarcodeId">Définir la valeur du code-barres</string>
+    <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
+    <string name="barcodeId">Valeur du code-barres</string>
+    <string name="settings_max_font_size_scale">Échelle maximale de taille de police</string>
 </resources>

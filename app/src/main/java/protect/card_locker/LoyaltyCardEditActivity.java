@@ -388,7 +388,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         barcodeTypeField.setTag(null);
                     } else {
                         try {
-                            barcodeTypeField.setTag(BarcodeFormat.valueOf(s.toString()));
+                            BarcodeFormat barcodeFormat = BarcodeFormat.valueOf(s.toString());
+
+                            barcodeTypeField.setTag(barcodeFormat);
+
+                            if (!BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
+                                Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
+                            }
                         } catch (IllegalArgumentException e) {}
                     }
 

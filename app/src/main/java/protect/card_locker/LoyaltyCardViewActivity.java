@@ -387,7 +387,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
 
-        if(format != null)
+        Boolean isBarcodeSupported = true;
+
+        if (format != null && !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(format.name())) {
+            isBarcodeSupported = false;
+
+            Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
+        }
+
+        if(format != null && isBarcodeSupported)
         {
             if (!barcodeIsFullscreen) {
                 maximizeButton.setVisibility(View.VISIBLE);

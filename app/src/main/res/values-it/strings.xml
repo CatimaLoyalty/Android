@@ -141,4 +141,11 @@
 \n
 \nÈ possibile creare un file di esportazione Catima andando nel menu Importa / Esporta e premendo Esporta.</string>
     <string name="importCatima">Importa da Catima</string>
+    <string name="setBarcodeId">Imposta il valore del codice a barre</string>
+    <string name="sameAsCardId">Uguale all\'ID della carta</string>
+    <string name="barcodeId">Valore del codice a barre</string>
+    <string name="errorReadingImage">Errore durante la lettura dell\'immagine</string>
+    <string name="noBarcodeFound">Nessun codice a barre trovato</string>
+    <string name="addFromImage">Seleziona immagine dalla galleria</string>
+    <string name="settings_max_font_size_scale">Scala massima delle dimensioni dei caratteri</string>
 </resources>

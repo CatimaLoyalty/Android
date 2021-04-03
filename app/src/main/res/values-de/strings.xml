@@ -141,4 +141,11 @@
 \n
 \nEine Catima-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
     <string name="importCatima">Aus Catima importieren</string>
+    <string name="setBarcodeId">Strichcodewert setzen</string>
+    <string name="sameAsCardId">Gleich wie Karten-ID</string>
+    <string name="barcodeId">Strichcodewert</string>
+    <string name="errorReadingImage">Fehler beim Lesen des Bildes</string>
+    <string name="noBarcodeFound">Kein Strichcode gefunden</string>
+    <string name="addFromImage">Bild aus der Galerie auswählen</string>
+    <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
 </resources>

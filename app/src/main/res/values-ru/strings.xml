@@ -61,7 +61,7 @@
     <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите «Эта карта без штрих-кода», чтобы не использовать его.</string>
+    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите \"Эта карта без штрих-кода\", чтобы не использовать его.</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
     <string name="settings">Настройки</string>

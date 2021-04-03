@@ -124,11 +124,11 @@
 
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>
-    <string name="failedOpeningFileManager">Failed opening a file manager. Please make sure one is installed.</string>
+    <string name="failedOpeningFileManager">Install a file manager first.</string>
     <string name="moveUp">Move up in list</string>
     <string name="moveDown">Move down in list</string>
-    <string name="leaveWithoutSaveTitle">Leave without saving</string>
-    <string name="leaveWithoutSaveConfirmation">Are you sure you want to leave this screen? Changed made will not be saved.</string>
+    <string name="leaveWithoutSaveTitle">Exit</string>
+    <string name="leaveWithoutSaveConfirmation">Leave without saving?</string>
     <string name="addManually">Manually enter card ID</string>
     <string name="addFromImage">Select image from gallery</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
@@ -147,23 +147,23 @@
     <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
 
     <string name="noBarcodeFound">No barcode was found</string>
-    <string name="errorReadingImage">Error reading image</string>
+    <string name="errorReadingImage">Could not read the image</string>
 
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
     <string name="points">Points</string>
 
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
-    <string name="chooseImportType">Import data from which app?</string>
+    <string name="chooseImportType">Import data from?</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
 
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_popup_text">Many app stores require apps to show their privacy policy on first start. Here is ours:\n\nWe collect NO DATA AT ALL and our app is Open Source so anyone can confirm this to be true.</string>
+    <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nWe collect NO DATA AT ALL, which anyone can confirm since our app is libre software.</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
     <string name="importCatimaMessage">Please select your Catima export file. It is most likely named Catima.csv.\n\nA Catima export file can be created by going to the Import/Export menu and pressing "Export".</string>
-    <string name="importFidme">Import from Fidme</string>
-    <string name="importFidmeMessage">Please select your Fidme export file. It is most likely named something like fidme-export-request-xxxxxx.zip.\n\nA Fidme export file can be created in the Fidme app by going to your profile, choosing "Data Protection" and then pressing "Extract my data".\n\nPlease note that Fidme does not store the barcode type in the export data so you will have to edit the imported cards manually.</string>
+    <string name="importFidme">Import from FidMe</string>
+    <string name="importFidmeMessage">Please select your FidMe export file. It is most likely named something like fidme-export-request-xxxxxx.zip.\n\nA Fidme export file can be created in the Fidme app by going to your profile, choosing "Data Protection" and then pressing "Extract my data".\n\nPlease note that Fidme does not store the barcode type in the export data so you will have to edit the imported cards manually.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Please select your Loyalty Card Keychain export file. It is most likely named LoyaltyCardKeychain.csv.\n\nA Loyalty Card Keychain export file can be created by going to the Import/Export menu and pressing "Export".</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
@@ -171,5 +171,5 @@
     <string name="barcodeId">Barcode value</string>
     <string name="sameAsCardId">Same as card ID</string>
     <string name="setBarcodeId">Set barcode value</string>
-    <string name="unsupportedBarcodeType">We cannot currently display this barcode type. We hope to add support in a newer version of the app.</string>
+    <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a newer version of the app.</string>
 </resources>

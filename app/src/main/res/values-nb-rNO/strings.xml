@@ -128,4 +128,25 @@
     <string name="errorReadingImage">Klarte ikke å lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>
     <string name="addFromImage">Velg bilde fra galleri</string>
+    <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
+    <string name="setBarcodeId">Sett strekkodeverdi</string>
+    <string name="sameAsCardId">Samme som kort-ID</string>
+    <string name="barcodeId">Strekkodeverdi</string>
+    <string name="importVoucherVaultMessage">Velg din Voucher Vault-eksportfil. Antagelig vouchervault.json.
+\n
+\nEn Voucher Vault-eksportfil kan opprettes ved å trykke «Eksporter».</string>
+    <string name="importVoucherVault">Importer fra Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Velg din Kundekortknippe-eksportfil. Antagelig LoyaltyCardKeychain.csv.
+\n
+\nDen kan opprettes ved å gå til import/eksport-menyen der og trykke «Eksporter».</string>
+    <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
+    <string name="importFidmeMessage">Velg din FidMe-eksportfil. Antagelig fidme-export-request-xxxxxx.zip.
+\n
+\nDen kan opprettes i FidMe-programmet ved å gå til profilen din der, velge \"Databeskyttelse\", og så trykke «Pakk ut dataen min».
+\n
+\nMerk deg at FidMe ikke lagrer strekkodetypen i eksportdata, så du må redigere importerte kort manuelt.</string>
+    <string name="importCatimaMessage">Velg din Catima-eksportfil. Antagelig Catima.csv.
+\n
+\nDen kan eksporteres ved å gå til import/eksport-menyen og trykke «Eksporter».</string>
+    <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
 </resources>

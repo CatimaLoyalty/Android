@@ -123,4 +123,9 @@
 \nVi SAMLER IKKE IN NOEN DATA overhodet, og programmet vårt er fri programvare, så alle kan bekrefte at dette stemmer.</string>
     <string name="accept">Godta</string>
     <string name="privacy_policy">Personvernspraksis</string>
+    <string name="importFidme">Importer fra Fidme</string>
+    <string name="importCatima">Importer fra Catima</string>
+    <string name="errorReadingImage">Klarte ikke å lese bildet</string>
+    <string name="noBarcodeFound">Fant ingen strekkode</string>
+    <string name="addFromImage">Velg bilde fra galleri</string>
 </resources>

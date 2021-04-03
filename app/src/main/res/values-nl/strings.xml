@@ -148,4 +148,5 @@
     <string name="sameAsCardId">Gelijk aan kaart-id</string>
     <string name="barcodeId">Barcodewaarde</string>
     <string name="settings_max_font_size_scale">Maximale tekstgrootte</string>
+    <string name="unsupportedBarcodeType">Catima kan dit type barcode momenteel niet tonen - we hopen hiervoor op een later moment ondersteuning toe te voegen.</string>
 </resources>

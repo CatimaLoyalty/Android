@@ -13,7 +13,8 @@
             android:defaultValue="@string/settings_key_system_theme"
             android:entries="@array/theme_value_strings"
             android:entryValues="@array/theme_values"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
 
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_max_font_size_scale"
@@ -23,31 +24,36 @@
             app:numberPickerPreference_minValue="@integer/settings_max_font_size_scale_pct_min"
             app:numberPickerPreference_stepValue="10"
             app:numberPickerPreference_unitText="%"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
 
         <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"
             android:title="@string/settings_display_barcode_max_brightness"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
 
         <SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="@string/settings_key_lock_barcode_orientation"
             android:title="@string/settings_lock_barcode_orientation"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
 
         <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="@string/settings_key_keep_screen_on"
             android:title="@string/settings_keep_screen_on"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
 
         <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="@string/settings_key_disable_lockscreen_while_viewing_card"
             android:title="@string/settings_disable_lockscreen_while_viewing_card"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>

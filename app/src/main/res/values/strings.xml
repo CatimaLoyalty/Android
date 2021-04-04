@@ -5,7 +5,7 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">Click the ⊕ plus button to add a card, or import some from the ⋮menu first.</string>
+    <string name="noGiftCards">Click the ⊕ plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Change your search to try again.</string>
 
     <string name="storeName">Store</string>
@@ -74,7 +74,7 @@
     <string name="app_resources">Libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="enterBarcodeInstructions">Enter the card ID then select the image representing the barcode you want to use, or select &#8220;This card has no barcode&#8221; to not use a barcode.</string>
+    <string name="enterBarcodeInstructions">Enter the card ID, then either select the image representing the barcode you want to use, or &#8220;This card has no barcode&#8221;.</string>
 
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 

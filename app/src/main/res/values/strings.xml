@@ -125,8 +125,8 @@
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
-    <string name="moveUp">⇧</string>
-    <string name="moveDown">⇩</string>
+    <string name="moveUp">🡅</string>
+    <string name="moveDown">🡇</string>
     <string name="leaveWithoutSaveTitle">Exit</string>
     <string name="leaveWithoutSaveConfirmation">Leave without saving?</string>
     <string name="addManually">Manually enter card ID</string>

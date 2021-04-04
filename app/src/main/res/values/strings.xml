@@ -8,7 +8,7 @@
     <string name="noGiftCards">Click the ⊕ plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Change your search to try again.</string>
 
-    <string name="storeName">Store</string>
+    <string name="storeName">Name</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode type</string>
@@ -39,7 +39,7 @@
 
     <string name="barcodeImageDescription">Image of card barcode</string>
 
-    <string name="noStoreError">No store entered</string>
+    <string name="noStoreError">No name entered</string>
     <string name="noCardIdError">No card ID entered</string>
     <string name="noCardExistsError">Could not find card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>

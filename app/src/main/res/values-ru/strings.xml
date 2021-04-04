@@ -87,9 +87,9 @@
     <string name="star">Добавить в избранное</string>
     <string name="noBarcode">Нет штрих-кода</string>
     <string name="deleteConfirmationGroup">Подтвердите, что хотите удалить эту группу</string>
-    <string name="leaveWithoutSaveConfirmation">Вы уверены, что хотите покинуть этот экран\? Изменения не будут сохранены.</string>
-    <string name="leaveWithoutSaveTitle">Выйти без сохранения</string>
-    <string name="failedOpeningFileManager">Невозможно открыть файловый менеджер. Убедитесь, что он установлен.</string>
+    <string name="leaveWithoutSaveConfirmation">Выйти без сохранения\?</string>
+    <string name="leaveWithoutSaveTitle">Выход</string>
+    <string name="failedOpeningFileManager">Требуется файловый менеджер.</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> баллов</string>
     <string name="balanceSentence">Баланс: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Истёк срок действия: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
@@ -97,12 +97,12 @@
     <string name="points">Баллы</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> не похож на правильный баланс.</string>
     <string name="addManually">Ручной ввод номера карты</string>
-    <string name="privacy_policy_popup_text">Многие магазины приложений требуют, чтобы приложение показывало свою политику конфиденциальности при первом запуске. Вот наша:
+    <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
 \n
-\nМы НЕ собираем НИКАКИХ ДАННЫХ и наше приложение имеет открытый исходный код, так что любой может убедиться в том, что это правда.</string>
+\nМы ВООБЩЕ НЕ собираем НИКАКИХ ДАННЫХ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Из какого приложения импортировать данные\?</string>
+    <string name="chooseImportType">Откуда импортировать данные\?</string>
     <string name="balance">Баланс</string>
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
     <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
@@ -129,11 +129,11 @@
 \n
 \nФайл экспорта Voucher Vault можно создать, нажав кнопку \"Экспорт\".</string>
     <string name="importVoucherVault">Импорт из Voucher Vault</string>
-    <string name="importFidmeMessage">Выберите файл экспорта Fidme. Обычно он называется как-то вроде \"fidme-export-request-xxxxxx.zip\".
+    <string name="importFidmeMessage">Выберите файл экспорта FidMe. Обычно он называется как-то вроде \"fidme-export-request-xxxxxx.zip\".
 \n
-\nФайл экспорта Fidme можно создать в приложении Fidme, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".
+\nФайл экспорта FidMe можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".
 \n
-\nОбратите внимание, что Fidme не сохраняет тип штрих-кода в экспортированных данных, поэтому вам придётся редактировать импортированные данные карт вручную.</string>
+\nОбратите внимание, что FidMe не сохраняет тип штрих-кода в экспортированных данных, поэтому вам придётся редактировать импортированные данные карт вручную.</string>
     <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта Loyalty Card Keychain. Обычно он называется \"LoyaltyCardKeychain.csv\".
 \n
 \nФайл экспорта Loyalty Card Keychain можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
@@ -141,14 +141,14 @@
     <string name="importCatimaMessage">Выберите файл экспорта Catima. Обычно он называется \"Catima.csv\".
 \n
 \nФайл экспорта Catima можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
-    <string name="importFidme">Импорт из Fidme</string>
+    <string name="importFidme">Импорт из FidMe</string>
     <string name="importCatima">Импорт из Catima</string>
-    <string name="errorReadingImage">Ошибка при чтении изображения</string>
+    <string name="errorReadingImage">Невозможно считать изображение</string>
     <string name="noBarcodeFound">Штрих-код не найден</string>
     <string name="addFromImage">Выбрать изображение из галереи</string>
     <string name="setBarcodeId">Указать значение</string>
     <string name="sameAsCardId">Как номер карты</string>
     <string name="barcodeId">Значение штрих-кода</string>
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
-    <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не поддерживается. При наличии возможности его поддержка будет добавлена в дальнейшем.</string>
+    <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
 </resources>

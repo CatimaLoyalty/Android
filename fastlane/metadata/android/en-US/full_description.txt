@@ -15,6 +15,7 @@ With this essential everyday carry (EDC) tool you can replace useless plastic wi
 - Localized hand-made translations for 20+ languages.
 - Gratis, supported by community donations.
 - Made for everyone by the libre software community.
+- Use, study, change and share it as you wish; with all.
 - Not only Open Source. Copylefted Free Software/libre software (GPLv3+) card management.
 
 Simplify your life and shopping, and never lose a paper receipt, in-store payment gift card or airplane ticket again.

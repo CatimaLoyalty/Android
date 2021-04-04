@@ -59,9 +59,9 @@
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use external app</string>
+    <string name="importOptionApplicationTitle">Use another app</string>
     <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
-    <string name="importOptionApplicationButton">Use external app</string>
+    <string name="importOptionApplicationButton">Use another app</string>
 
     <string name="about">About</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
@@ -92,7 +92,7 @@
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
-    <string name="settings_max_font_size_scale">Maximum font size scale</string>
+    <string name="settings_max_font_size_scale">Max font size</string>
 
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>

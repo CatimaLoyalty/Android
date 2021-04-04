@@ -1,7 +1,19 @@
-Are you tired of searching for your plastic reward card while checking out at the store? Are you looking for a free solution which will not take your information?
+Stop searching for plastic reward cards while checking out at stores or webshops.
+Scan barcodes from gift cards and cupons for deals to your device using its camera, and leave them at home.
 
-Catima is a application which will store your barcode-based loyalty cards on your phone. The application is open source and tries to do one thing well: manage your cards!
+With this essential everyday carry (EDC) tool you can type in the loyalty card number manually
+if there is no barcode to store, or it can't be used. Drop your wallet, or use it for valuables.
 
-New cards can be added in a snap. Either use your camera to capture the barcode, or type in the number. When the barcode is loaded at the store and displayed it can be scanned with a modern barcode scanner. (Some stores use older barcode scanners, such as flatbed scanners, instead of image scanners. These cannot read the smartphone's display. Instead, request the clerk to type in the number manually).
+- Avoid spying with very few permissions. No Internet access and no ads.
+- Add cards or codes with names and customizable colours.
+- Import cards and codes from files, Catima, Loyalty Card Keychain, Voucher Vault, and FidMe.
+- Make a backup of all your cards and transfer it to a new device if you want.
+- Share cupons, exclusive offers, promo codes, or cards and codes using any app.
+- Dark theme and accesiblity options for vision impaired users
+- Localized hand-made translations for 20+ languages.
+- Gratis, supported by community donations.
+- Made for everyone by the libre software community.
+- Not only Open Source. Copylefted Free Software/libre software (GPLv3+) card management.
 
-The application requires very few permissions, and never attempts to access the Internet. There is an option to backup your cards to local storage. From there you can send the backup somewhere safe.
+Simplify your life and shopping, and never lose a paper receipt, in-store payment gift card or airplane ticket again.
+Take all your rewards and bonuses with you, and save as you go.

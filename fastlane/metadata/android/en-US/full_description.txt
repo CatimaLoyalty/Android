@@ -1,13 +1,13 @@
-Stop searching for plastic reward cards while checking out at stores or webshops.
-Scan barcodes from gift cards and coupons for deals to your device using its camera, and leave them at home.
-
-With this essential everyday carry (EDC) tool you can type in the loyalty card number manually
-if there is no barcode to store, or it can't be used.
+Stop the search for plastic reward cards during store or webshop checkout.
+Scan barcodes for deals to your device using its camera, and keep not remembering where they are.
 
 Drop your wallet, or keep it ultralight for valuables.
 
+With this essential everyday carry (EDC) tool you can replace useless plastic with cash.
+
 - Avoid spying with very few permissions. No Internet access and no ads.
 - Add cards or codes with names and customizable colours.
+- Manual code entry if there is no barcode to store, or it can't be used.
 - Import cards and codes from files, Catima, Loyalty Card Keychain, Voucher Vault, and FidMe.
 - Make a backup of all your cards and transfer it to a new device if you want.
 - Share coupons, exclusive offers, promo codes, or cards and codes using any app.

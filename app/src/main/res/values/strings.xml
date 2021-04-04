@@ -163,7 +163,7 @@
     <string name="importCatima">Import from Catima</string>
     <string name="importCatimaMessage">Find a file likely named <i>Catima.csv</i> to import.\nOr create it from the Import/Export menu of another Catima app and pressing "Export" first.</string>
     <string name="importFidme">Import from FidMe</string>
-    <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.\n\nAdd the barcode type manually afterwards.</string>
+    <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import, and then select the barcode types manually afterwards.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Find a file most likely named <i>LoyaltyCardKeychain.csv</i> to import.\nOr create it from the Import/Export menu in Loyalty Card Keychain by pressing "Export" first.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>

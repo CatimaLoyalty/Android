@@ -1,5 +1,5 @@
 Stop searching for plastic reward cards while checking out at stores or webshops.
-Scan barcodes from gift cards and cupons for deals to your device using its camera, and leave them at home.
+Scan barcodes from gift cards and coupons for deals to your device using its camera, and leave them at home.
 
 With this essential everyday carry (EDC) tool you can type in the loyalty card number manually
 if there is no barcode to store, or it can't be used. Drop your wallet, or use it for valuables.
@@ -8,7 +8,7 @@ if there is no barcode to store, or it can't be used. Drop your wallet, or use i
 - Add cards or codes with names and customizable colours.
 - Import cards and codes from files, Catima, Loyalty Card Keychain, Voucher Vault, and FidMe.
 - Make a backup of all your cards and transfer it to a new device if you want.
-- Share cupons, exclusive offers, promo codes, or cards and codes using any app.
+- Share coupons, exclusive offers, promo codes, or cards and codes using any app.
 - Dark theme and accesiblity options for vision impaired users
 - Localized hand-made translations for 20+ languages.
 - Gratis, supported by community donations.

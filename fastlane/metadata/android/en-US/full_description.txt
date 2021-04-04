@@ -2,7 +2,9 @@ Stop searching for plastic reward cards while checking out at stores or webshops
 Scan barcodes from gift cards and coupons for deals to your device using its camera, and leave them at home.
 
 With this essential everyday carry (EDC) tool you can type in the loyalty card number manually
-if there is no barcode to store, or it can't be used. Drop your wallet, or use it for valuables.
+if there is no barcode to store, or it can't be used.
+
+Drop your wallet, or keep it ultralight for valuables.
 
 - Avoid spying with very few permissions. No Internet access and no ads.
 - Add cards or codes with names and customizable colours.

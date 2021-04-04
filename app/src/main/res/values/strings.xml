@@ -6,7 +6,7 @@
     <string name="action_add">Add</string>
 
     <string name="noGiftCards">Click the "+" (plus) button to add a card first.</string>
-    <string name="noMatchingGiftCards">Change the search to try again.</string>
+    <string name="noMatchingGiftCards">Change your search to try again.</string>
 
     <string name="storeName">Store</string>
     <string name="note">Note</string>
@@ -68,10 +68,10 @@
     <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer.</string>
     <string name="app_license">🄯 Copylefted libre software, licensed GPLv3+.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt"><big>Version: <xliff:g id="version">%s</xliff:g></big></string>
+    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Libre software libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Libre software resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID then select the image representing the barcode you want to use, or select &#8220;This card has no barcode&#8221; to not use a barcode.</string>
@@ -98,9 +98,9 @@
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
-    <string name="settings_keep_screen_on">Keep screen on while viewing a card</string>
+    <string name="settings_keep_screen_on">Keep screen on while displaying</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">No lock screen while displaying cards</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">No lock screen while displaying</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
@@ -125,8 +125,8 @@
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
-    <string name="moveUp">🡅</string>
-    <string name="moveDown">🡇</string>
+    <string name="moveUp">Move upwards</string>
+    <string name="moveDown">Move downwards</string>
     <string name="leaveWithoutSaveTitle">Exit</string>
     <string name="leaveWithoutSaveConfirmation">Leave without saving?</string>
     <string name="addManually">Manually enter card ID</string>

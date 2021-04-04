@@ -13,7 +13,7 @@ With this essential everyday carry (EDC) tool you can replace useless plastic wi
 - Share coupons, exclusive offers, promo codes, or cards and codes using any app.
 - Dark theme and accesiblity options for vision impaired users
 - Localized hand-made translations for 20+ languages.
-- Gratis, supported by community donations.
+- Gratis, supported by community contributions.
 - Made for everyone by the libre software community.
 - Use, study, change and share it as you wish; with all.
 - Not only Open Source. Copylefted Free Software/libre software (GPLv3+) card management.

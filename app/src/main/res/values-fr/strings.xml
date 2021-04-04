@@ -87,7 +87,7 @@
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
     <string name="noBarcode">Aucun code-barres</string>
-    <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Toutes vos modifications seront perdues.</string>
+    <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Les modifications faites seront perdues.</string>
     <string name="leaveWithoutSaveTitle">Quitter sans enregistrer</string>
     <string name="failedOpeningFileManager">Gestionnaire de fichiers introuvable. Installez-en un si nécessaire.</string>
     <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
@@ -148,4 +148,5 @@
     <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="settings_max_font_size_scale">Échelle maximale de taille de police</string>
+    <string name="unsupportedBarcodeType">Nous ne pouvons actuellement pas afficher ce type de code-barres. Nous espérons pouvoir ajouter la prise en charge dans une nouvelle version de l\'application.</string>
 </resources>

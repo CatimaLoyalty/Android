@@ -148,4 +148,5 @@
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
     <string name="settings_max_font_size_scale">Scala massima delle dimensioni dei caratteri</string>
+    <string name="unsupportedBarcodeType">Attualmente non possiamo visualizzare questo tipo di codice a barre. Speriamo di aggiungere il supporto in una nuova versione dell\'applicazione.</string>
 </resources>

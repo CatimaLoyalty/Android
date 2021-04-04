@@ -148,4 +148,5 @@
     <string name="noBarcodeFound">Kein Strichcode gefunden</string>
     <string name="addFromImage">Bild aus der Galerie auswählen</string>
     <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
+    <string name="unsupportedBarcodeType">Wir können diesen Strichcodetyp derzeit nicht anzeigen. Wir hoffen, die Unterstützung in einer neueren Version der Anwendung hinzufügen zu können.</string>
 </resources>

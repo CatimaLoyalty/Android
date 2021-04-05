@@ -99,6 +99,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
+    BarcodeFormat lastValidBarcodeType = null;
+    Runnable updateOrRevertValidBarcodeType;
 
     HashMap<String, Currency> currencies = new HashMap<>();
 
@@ -157,6 +159,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
 
         enterButton = findViewById(R.id.enterButton);
+
+        updateOrRevertValidBarcodeType = new Runnable() {
+            @Override
+            public void run() {
+                if ((boolean) barcodeImage.getTag()) {
+                    lastValidBarcodeType = (BarcodeFormat) barcodeTypeField.getTag();
+                } else {
+                    Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+                    barcodeTypeField.setText(lastValidBarcodeType != null ? lastValidBarcodeType.name() : getString(R.string.noBarcode));
+                }
+            }
+        };
 
         storeFieldEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -403,7 +417,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
 
             @Override
-            public void afterTextChanged(Editable s) { }
+            public void afterTextChanged(Editable s) {
+                ArrayList<String> barcodeList = new ArrayList<>(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
+                barcodeList.add(0, getString(R.string.noBarcode));
+                ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeList);
+                barcodeTypeField.setAdapter(barcodeAdapter);
+            }
         });
 
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -638,11 +657,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
-
-        ArrayList<String> barcodeList = new ArrayList<>(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
-        barcodeList.add(0, getString(R.string.noBarcode));
-        ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, barcodeList);
-        barcodeTypeField.setAdapter(barcodeAdapter);
 
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(v -> doSave());
@@ -937,7 +951,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         String cardIdString = barcodeIdField.getTag() != null ? barcodeIdField.getTag().toString() : cardIdFieldView.getText().toString();
         BarcodeFormat barcodeFormat = (BarcodeFormat) barcodeTypeField.getTag();
 
-        if (barcodeFormat == null || cardIdString.isEmpty()) {
+        if (barcodeFormat == null || cardIdString.isEmpty() || !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
             hideBarcode();
         } else {
             generateBarcode(cardIdString, barcodeFormat);
@@ -956,12 +970,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat).execute();
+                            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, updateOrRevertValidBarcodeType).execute();
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat).execute();
+            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, updateOrRevertValidBarcodeType).execute();
         }
 
         showBarcode();

@@ -414,7 +414,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 new BarcodeImageWriterTask(
                     barcodeImage,
                     barcodeIdString != null ? barcodeIdString : cardIdString,
-                    format)
+                    format,
+                    null,
+                    false,
+                    null)
                 .execute();
             }
 
@@ -588,7 +591,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             new BarcodeImageWriterTask(
                                 barcodeImage,
                                 barcodeIdString != null ? barcodeIdString : cardIdString,
-                                format)
+                                format,
+                                null,
+                                false,
+                                null)
                             .execute();
                         }
                     });

@@ -172,4 +172,5 @@
     <string name="sameAsCardId">Same as card ID</string>
     <string name="setBarcodeId">Set barcode value</string>
     <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a newer version of the app.</string>
+    <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
 </resources>

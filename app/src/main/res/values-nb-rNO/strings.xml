@@ -53,7 +53,7 @@
     <string name="about_title_fmt">Om <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> brukfer følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
@@ -87,9 +87,9 @@
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
     <string name="noBarcode">Ingen strekkode</string>
-    <string name="failedOpeningFileManager">Klarte ikke å åpne noen filbehandler. Forsikre deg om at du har installert en.</string>
-    <string name="leaveWithoutSaveConfirmation">Er du sikker på at du vil forlate denne skjermen\? Endringer vil ikke bli lagret.</string>
-    <string name="leaveWithoutSaveTitle">Forlat uten å lagre</string>
+    <string name="failedOpeningFileManager">Installer en filbehandler først.</string>
+    <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre\?</string>
+    <string name="leaveWithoutSaveTitle">Avslutt</string>
     <string name="addManually">Skriv inn kort-ID manuelt</string>
     <string name="moveDown">Flytt nedover i listen</string>
     <string name="moveUp">Flytt oppover i listen</string>
@@ -114,7 +114,7 @@
     <string name="balance">Saldo</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> poeng</string>
     <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="chooseImportType">Hvilket program vil du importere data fra\?</string>
+    <string name="chooseImportType">Importer data fra\?</string>
     <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Skru av låseskjerm under kortvisning</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått under kortvisning</string>
@@ -123,7 +123,7 @@
 \nVi SAMLER IKKE IN NOEN DATA overhodet, og programmet vårt er fri programvare, så alle kan bekrefte at dette stemmer.</string>
     <string name="accept">Godta</string>
     <string name="privacy_policy">Personvernspraksis</string>
-    <string name="importFidme">Importer fra Fidme</string>
+    <string name="importFidme">Importer fra FidMe</string>
     <string name="importCatima">Importer fra Catima</string>
     <string name="errorReadingImage">Klarte ikke å lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>

@@ -9,9 +9,9 @@ With this essential everyday carry (EDC) tool you can replace useless plastic wi
 - Add cards or codes with names and customizable colours.
 - Manual code entry if there is no barcode to store, or it can't be used.
 - Import cards and codes from files, Catima, Loyalty Card Keychain, Voucher Vault, and FidMe.
-- Make a backup of all your cards and transfer it to a new device if you want.
+- Make a backup of all your cards and transfer them to a new device if you want.
 - Share coupons, exclusive offers, promo codes, or cards and codes using any app.
-- Dark theme and accesiblity options for vision impaired users
+- Dark theme and accessibility options for vision impaired users.
 - Made for everyone by the libre software community.
 - Localized hand-made translations for 20+ languages.
 - Gratis, supported by community contributions.

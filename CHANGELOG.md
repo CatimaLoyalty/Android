@@ -7,6 +7,7 @@ Changes:
 - Add option to set a separate barcode value from card ID
 - Simplify font sizing configuration
 - Several small UI fixes
+- Use letter icon for shortcuts too
 
 ## v1.12 (2021-03-30)
 

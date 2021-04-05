@@ -40,11 +40,21 @@ public class Utils {
     static final double LUMINANCE_MIDPOINT = 0.5;
 
     static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor) {
+        return generateIcon(context, store, backgroundColor, false);
+    }
+
+    static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor, boolean forShortcut) {
         if (store.length() == 0) {
             return null;
         }
 
-        int tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
+        int tileLetterFontSize;
+        if (forShortcut) {
+            tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSizeForShortcut);
+        } else {
+            tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
+        }
+
         int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
 
         if (backgroundColor == null) {

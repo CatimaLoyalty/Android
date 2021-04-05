@@ -47,7 +47,8 @@ These barcode types are supported:
 
 # Moving data from other apps
 
-[See our migration guides](migrate).
+Within the app you can import cards and codes from files, Catima, Loyalty Card Keychain, Voucher Vault, and FidMe.
+For FidMe you need to select the barcode type for each entry afterwards.
 
 # Building
 

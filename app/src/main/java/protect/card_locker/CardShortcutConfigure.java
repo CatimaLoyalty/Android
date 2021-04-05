@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 /**
  * The configuration screen for creating a shortcut.
  */
@@ -31,6 +33,10 @@ public class CardShortcutConfigure extends AppCompatActivity
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
+
+        // Hide new button because it won't work here anyway
+        FloatingActionButton newFab = findViewById(R.id.fabAdd);
+        newFab.setVisibility(View.GONE);
 
         final DBHelper db = new DBHelper(this);
 

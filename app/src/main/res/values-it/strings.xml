@@ -88,11 +88,11 @@
     <string name="enter_group_name">Inserisci il nome del gruppo</string>
     <string name="groupsList">Gruppi: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="addManually">Inserisci manualmente l\'ID della carta</string>
-    <string name="leaveWithoutSaveConfirmation">Sei sicuro/a di voler uscire da questa schermata\? Le modifiche apportate non verranno salvate.</string>
-    <string name="leaveWithoutSaveTitle">Esci senza salvare</string>
+    <string name="leaveWithoutSaveConfirmation">Uscire senza salvare\?</string>
+    <string name="leaveWithoutSaveTitle">Esci</string>
     <string name="moveDown">Sposta in basso nell\'elenco</string>
     <string name="moveUp">Sposta in alto nell\'elenco</string>
-    <string name="failedOpeningFileManager">Apertura di un gestore di file non riuscita. Assicurati che ne sia installato uno.</string>
+    <string name="failedOpeningFileManager">Installa prima un gestore di file.</string>
     <string name="noBarcode">Nessun codice a barre</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carta</item>
@@ -116,12 +116,12 @@
     <string name="expiryStateSentence">Scade: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni schermo acceso durante la visualizzazione di una carta</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Da quale app vuoi importare i dati\?</string>
+    <string name="chooseImportType">Importare i dati da\?</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Mantieni schermo attivo mentre visualizzi una carta</string>
     <string name="accept">Accetta</string>
-    <string name="privacy_policy_popup_text">È spesso richiesto alle applicazioni di mostrare la loro politica sulla riservatezza al primo avvio. Ecco la nostra:
+    <string name="privacy_policy_popup_text">Informativa sulla riservatezza (spesso richiesta):
 \n
-\nNon raccogliamo ALCUN DATO e il codice sorgente della nostra applicazione è aperto, quindi chiunque può confermare che ciò sia vero.</string>
+\nNon raccogliamo NESSUN dato, cosa che chiunque può confermare dato che la nostra applicazione è un software libero.</string>
     <string name="privacy_policy">Informativa sulla riservatezza</string>
     <string name="importVoucherVaultMessage">Seleziona il tuo file di esportazione Voucher Vault. Molto probabilmente si chiama vouchervault.json.
 \n
@@ -131,12 +131,12 @@
 \n
 \nÈ possibile creare un file di esportazione Loyalty Card Keychain accedendo al menu Importa / Esporta e premendo Esporta.</string>
     <string name="importLoyaltyCardKeychain">Importa da Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Seleziona il tuo file di esportazione Fidme. Molto probabilmente si chiama qualcosa come fidme-export-request-xxxxxx.zip.
+    <string name="importFidmeMessage">Seleziona il tuo file di esportazione FidMe. Molto probabilmente si chiama qualcosa come fidme-export-request-xxxxxx.zip.
 \n
-\nUn file di esportazione Fidme può essere creato nell\'app Fidme andando sul tuo profilo, scegliendo Protezione dati e quindi premendo Estrai i miei dati.
+\nUn file di esportazione FidMe può essere creato nell\'app FidMe andando sul tuo profilo, scegliendo Protezione dati e quindi premendo Estrai i miei dati.
 \n
-\nTieni presente che Fidme non memorizza il tipo di codice a barre nei dati di esportazione, quindi dovrai modificare manualmente le carte importate.</string>
-    <string name="importFidme">Importa da Fidme</string>
+\nTieni presente che FidMe non memorizza il tipo di codice a barre nei dati di esportazione, quindi dovrai modificare manualmente le carte importate.</string>
+    <string name="importFidme">Importa da FidMe</string>
     <string name="importCatimaMessage">Seleziona il tuo file di esportazione Catima. Molto probabilmente si chiama Catima.csv.
 \n
 \nÈ possibile creare un file di esportazione Catima andando nel menu Importa / Esporta e premendo Esporta.</string>
@@ -144,9 +144,9 @@
     <string name="setBarcodeId">Imposta il valore del codice a barre</string>
     <string name="sameAsCardId">Uguale all\'ID della carta</string>
     <string name="barcodeId">Valore del codice a barre</string>
-    <string name="errorReadingImage">Errore durante la lettura dell\'immagine</string>
+    <string name="errorReadingImage">Impossibile leggere l\'immagine</string>
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
     <string name="settings_max_font_size_scale">Scala massima delle dimensioni dei caratteri</string>
-    <string name="unsupportedBarcodeType">Attualmente non possiamo visualizzare questo tipo di codice a barre. Speriamo di aggiungere il supporto in una nuova versione dell\'applicazione.</string>
+    <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione più recente dell\'applicazione.</string>
 </resources>

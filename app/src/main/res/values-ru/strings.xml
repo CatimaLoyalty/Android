@@ -151,4 +151,5 @@
     <string name="barcodeId">Значение штрих-кода</string>
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
+    <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
 </resources>

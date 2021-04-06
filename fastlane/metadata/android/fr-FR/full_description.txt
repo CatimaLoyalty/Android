@@ -1,7 +1,23 @@
-Vous en avez assez de chercher votre carte de fidélité en plastique à la caisse ? Vous cherchez une solution gratuite qui respecte vos données ?
-
-Catima est une application qui stocke toutes vos cartes de fidélité à code-barres dans votre téléphone. L'application ne fera qu'une chose : gérer vos cartes du mieux qu'elle peut. Son code est ouvert, vous pouvez donc le vérifier par vous-même !
-
-De nouvelles cartes peuvent être ajoutées en un clin d'œil. Vous pouvez soit photographier le code-barres, soit saisir le numéro manuellement. Lorsqu vous chargez une carte en caisse, son code-barres est affiché, ce qui permet au vendeur de le scanner avec n'importe quel lecteur moderne. (Certains magasins utilisent des lecteurs plus anciens, tels que des scanners à plat. Ceux-ci ne peuvent pas lire l'écran du téléphone. Le vendeur devra donc saisir le numéro manuellement).
-
-L'application ne nécessite que très peu d'autorisations et ne tente jamais d'accéder à Internet. Il existe une fonction d'import/export de vos cartes. Celà vous permettra de les sauvegarder dans un endroit sûr.
+Arrêtez de chercher des cartes de fidélité en plastique lors du passage à la caisse des magasins ou des boutiques en ligne.
+<b>Scannez les codes-barres sur votre appareil en utilisant son appareil photo, oubliez les cartes</b>.
+😺
+Oubliez votre portefeuille, ou gardez-le ultraléger pour les objets de valeur.
+😺
+Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plastique inutile par de l'argent liquide.
+😺
+- Évitez l'espionnage avec très peu de permissions. Aucun accès à Internet et aucune publicité.
+- Ajoutez des cartes ou des codes avec des noms et des couleurs personnalisables.
+- Saisie manuelle du code s'il n'y a pas de code-barres à stocker ou s'il ne peut pas être utilisé.
+- Importez des cartes et des codes depuis des fichiers, Catima, Loyalty Card Keychain, Voucher Vault et FidMe.
+- Faites une sauvegarde de toutes vos cartes et transférez-les sur un nouvel appareil si vous le souhaitez.
+- Partagez des coupons, des offres exclusives, des codes promotionnels ou des cartes et des codes en utilisant n'importe quelle application.
+- Thème sombre et options d'accessibilité pour les utilisateurs malvoyants.
+- Fait pour tout le monde par la communauté des logiciels libres.
+- Traductions artisanales localisées pour plus de 20 langues.
+- Gratis, soutenu par les contributions de la communauté.
+- Utilisez, étudiez, modifiez et partagez comme vous le souhaitez ; <i>avec tous</i>.
+- Pas seulement logiciel libre et à code source ouvert <i>logiciel libre à copyleft</i> (GPLv3+) pour la gestion des cartes.
+😺
+Simplifiez votre vie et vos achats, et ne perdez plus jamais un reçu papier, une carte cadeau de paiement en magasin ou un billet d'avion.
+Emportez toutes vos récompenses et primes avec vous, et économisez au fur et à mesure.
+😺

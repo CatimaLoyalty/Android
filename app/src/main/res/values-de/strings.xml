@@ -86,9 +86,9 @@
 \nGruppen machen es einfacher, Dinge zu finden.</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Geben Sie den Gruppennamen ein</string>
-    <string name="leaveWithoutSaveConfirmation">Sind Sie sicher, dass Sie diesen Bildschirm verlassen wollen\? Vorgenommene Änderungen werden nicht gespeichert.</string>
-    <string name="leaveWithoutSaveTitle">Beenden ohne zu speichern</string>
-    <string name="failedOpeningFileManager">Fehler beim Öffnen eines Dateiverwaltungsprogrammes. Stellen Sie sicher, dass eine installiert ist.</string>
+    <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
+    <string name="leaveWithoutSaveTitle">Beenden</string>
+    <string name="failedOpeningFileManager">Installieren Sie zunächst ein Dateiverwaltungsprogramm.</string>
     <string name="noBarcode">Kein Strichcode</string>
     <string name="addManually">Die Karten-ID manuell eingeben</string>
     <string name="moveDown">In der Liste nach unten verschieben</string>
@@ -99,7 +99,7 @@
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Aus welcher App Daten importieren\?</string>
+    <string name="chooseImportType">Daten importieren aus\?</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
@@ -118,9 +118,9 @@
     <string name="expiryStateSentence">Läuft ab: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm deaktivieren während eine Karte angesehen wird</string>
     <string name="settings_keep_screen_on">Bildschirm anlassen während eine Karte angesehen wird</string>
-    <string name="privacy_policy_popup_text">Es wird oft verlangt, dass Anwendungen beim ersten Start ihre Datenschutzrichtlinien anzeigen. Hier ist unsere:
+    <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (oft gefordert):
 \n
-\nWir sammeln KEINE DATEN und unsere Anwendung ist quelloffen, sodass jeder bestätigen kann, dass dies wahr ist.</string>
+\nWir sammeln KEINE DATEN, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="importVoucherVaultMessage">Bitte wählen Sie Ihre Voucher Vault-Exportdatei aus. Es heißt höchstwahrscheinlich vouchervault.json.
@@ -131,12 +131,12 @@
 \n
 \nEine Loyalty Card Keychain-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Bitte wählen Sie Ihre Fidme-Exportdatei aus. Es wird höchstwahrscheinlich so etwas wie fidme-export-request-xxxxxx.zip genannt.
+    <string name="importFidmeMessage">Bitte wählen Sie Ihre FidMe-Exportdatei aus. Es wird höchstwahrscheinlich so etwas wie fidme-export-request-xxxxxx.zip genannt.
 \n
-\nEine Fidme-Exportdatei kann in der Fidme-Anwendung erstellt werden, indem Sie zu Ihrem Profil gehen, Datenschutz auswählen und dann auf Meine Daten extrahieren klicken.
+\nEine FidMe-Exportdatei kann in der FidMe-Anwendung erstellt werden, indem Sie zu Ihrem Profil gehen, Datenschutz auswählen und dann auf Meine Daten extrahieren klicken.
 \n
-\nBitte beachten Sie, dass Fidme den Strichcode-Typ nicht in den Exportdaten speichert, sodass Sie die importierten Karten manuell bearbeiten müssen.</string>
-    <string name="importFidme">Aus Fidme importieren</string>
+\nBitte beachten Sie, dass FidMe den Strichcode-Typ nicht in den Exportdaten speichert, sodass Sie die importierten Karten manuell bearbeiten müssen.</string>
+    <string name="importFidme">Aus FidMe importieren</string>
     <string name="importCatimaMessage">Bitte wählen Sie Ihre Catima-Exportdatei aus. Es heißt höchstwahrscheinlich Catima.csv.
 \n
 \nEine Catima-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
@@ -144,9 +144,9 @@
     <string name="setBarcodeId">Strichcodewert setzen</string>
     <string name="sameAsCardId">Gleich wie Karten-ID</string>
     <string name="barcodeId">Strichcodewert</string>
-    <string name="errorReadingImage">Fehler beim Lesen des Bildes</string>
+    <string name="errorReadingImage">Das Bild konnte nicht gelesen werden</string>
     <string name="noBarcodeFound">Kein Strichcode gefunden</string>
     <string name="addFromImage">Bild aus der Galerie auswählen</string>
     <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
-    <string name="unsupportedBarcodeType">Wir können diesen Strichcodetyp derzeit nicht anzeigen. Wir hoffen, die Unterstützung in einer neueren Version der Anwendung hinzufügen zu können.</string>
+    <string name="unsupportedBarcodeType">Dieser Strichcodetyp kann noch nicht angezeigt werden. Er wird möglicherweise in einer neueren Version der Anwendung unterstützt.</string>
 </resources>

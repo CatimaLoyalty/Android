@@ -99,8 +99,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
-    BarcodeFormat lastValidBarcodeType = null;
-    Runnable updateOrRevertValidBarcodeType;
+    Runnable warnOnInvalidBarcodeType;
 
     HashMap<String, Currency> currencies = new HashMap<>();
 
@@ -160,14 +159,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         enterButton = findViewById(R.id.enterButton);
 
-        updateOrRevertValidBarcodeType = new Runnable() {
+        warnOnInvalidBarcodeType = new Runnable() {
             @Override
             public void run() {
-                if ((boolean) barcodeImage.getTag()) {
-                    lastValidBarcodeType = (BarcodeFormat) barcodeTypeField.getTag();
-                } else {
+                if (!(boolean) barcodeImage.getTag()) {
                     Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-                    barcodeTypeField.setText(lastValidBarcodeType != null ? lastValidBarcodeType.name() : getString(R.string.noBarcode));
                 }
             }
         };

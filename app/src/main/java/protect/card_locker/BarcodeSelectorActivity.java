@@ -139,11 +139,11 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         barcodeGeneratorTasks.clear();
 
         // Update barcodes
-        for(String key : barcodeViewMap.keySet())
+        for(Map.Entry<String, Pair<Integer, Integer>> entry : barcodeViewMap.entrySet())
         {
-            ImageView image = findViewById(barcodeViewMap.get(key).first);
-            TextView text = findViewById(barcodeViewMap.get(key).second);
-            createBarcodeOption(image, key, value, text);
+            ImageView image = findViewById(entry.getValue().first);
+            TextView text = findViewById(entry.getValue().second);
+            createBarcodeOption(image, entry.getKey(), value, text);
         }
     }
 

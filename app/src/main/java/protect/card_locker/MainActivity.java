@@ -96,16 +96,18 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         noMatchingCardsText.setOnTouchListener(gestureTouchListener);
         list.setOnTouchListener(gestureTouchListener);
 
-        // Show privacy policy on first run
-        SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_privacy_policy_shown),
-                Context.MODE_PRIVATE);
-
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
          * Just leaving this commented out if needed for the future idk
          * https://twitter.com/SylvieLorxu/status/1379437902741012483
          *
+
+        // Show privacy policy on first run
+        SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_privacy_policy_shown),
+                Context.MODE_PRIVATE);
+
+
         if (privacyPolicyShownPref.getInt(getString(R.string.sharedpreference_privacy_policy_shown), 0) == 0) {
             SharedPreferences.Editor privacyPolicyShownPrefEditor = privacyPolicyShownPref.edit();
             privacyPolicyShownPrefEditor.putInt(getString(R.string.sharedpreference_privacy_policy_shown), 1);

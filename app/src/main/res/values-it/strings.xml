@@ -149,4 +149,5 @@
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
     <string name="settings_max_font_size_scale">Scala massima delle dimensioni dei caratteri</string>
     <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione più recente dell\'applicazione.</string>
+    <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
 </resources>

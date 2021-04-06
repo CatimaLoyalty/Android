@@ -10,6 +10,7 @@ Changes:
 - Use letter icon for shortcuts too
 - Always show all barcode types in manual entry
 - Revert to valid barcode type if the value is not valid for the selected barcode type in edit activity
+- Remove privacy policy first start dialog
 
 ## v1.12 (2021-03-30)
 

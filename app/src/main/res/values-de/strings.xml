@@ -149,4 +149,5 @@
     <string name="addFromImage">Bild aus der Galerie auswählen</string>
     <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
     <string name="unsupportedBarcodeType">Dieser Strichcodetyp kann noch nicht angezeigt werden. Er wird möglicherweise in einer neueren Version der Anwendung unterstützt.</string>
+    <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Strichcodetyp nicht gültig</string>
 </resources>

@@ -253,6 +253,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
 
         String barcodeId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ID, record, "");
+        if(barcodeId.isEmpty())
+        {
+            barcodeId = null;
+        }
 
         BarcodeFormat barcodeType = null;
         String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");

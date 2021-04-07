@@ -485,6 +485,7 @@ public class DatabaseTest
 
         // Insert a budget and transaction
         int newCardId = insertCardVersion1(database, "store", "cardId", BarcodeFormat.UPC_A.toString());
+        int newCardId2 = insertCardVersion1(database, "store", "cardId", "");
 
         // Upgrade database
         db.onUpgrade(database, DBHelper.ORIGINAL_DATABASE_VERSION, DBHelper.DATABASE_VERSION);
@@ -501,6 +502,19 @@ public class DatabaseTest
         assertEquals(BarcodeFormat.UPC_A, card.barcodeType);
         assertEquals(null, card.headerColor);
         assertEquals(0, card.starStatus);
+
+        // Determine that the entries are queryable and the fields are correct
+        LoyaltyCard card2 = db.getLoyaltyCard(newCardId2);
+        assertEquals("store", card2.store);
+        assertEquals("", card2.note);
+        assertEquals(null, card2.expiry);
+        assertEquals(new BigDecimal("0"), card2.balance);
+        assertEquals(null, card2.balanceType);
+        assertEquals("cardId", card2.cardId);
+        assertEquals(null, card2.barcodeId);
+        assertEquals(null, card2.barcodeType); // Empty string should've become null
+        assertEquals(null, card2.headerColor);
+        assertEquals(0, card2.starStatus);
 
         database.close();
     }

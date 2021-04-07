@@ -53,7 +53,7 @@ For FidMe you need to select the barcode type for each entry afterwards.
 # Building
 
 Use the Gradle wrapper scripts provided in the top level directory of the project.
-To compile the app and runs all unit tests:
+To compile the app and run all unit tests:
 
 Linux|GNU, Unix-like, macOS:
 ```
@@ -73,4 +73,4 @@ Help translate the app to your language from [our Hosted Weblate page](https://h
 
 # Developer Note
 
-This app is based on the great but no longer developed [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher).
+This app is based on the great (but no longer developed) [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher).

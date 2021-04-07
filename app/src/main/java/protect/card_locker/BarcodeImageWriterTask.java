@@ -254,7 +254,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             if (isSuccesful) {
                 imageView.setColorFilter(null);
             } else {
-                imageView.setColorFilter(Color.GRAY, PorterDuff.Mode.LIGHTEN);
+                imageView.setColorFilter(Color.LTGRAY, PorterDuff.Mode.LIGHTEN);
             }
 
             if (textView != null) {

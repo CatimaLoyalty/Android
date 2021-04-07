@@ -149,4 +149,5 @@
 \n
 \nDen kan eksporteres ved å gå til import/eksport-menyen og trykke «Eksporter».</string>
     <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
+    <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
 </resources>

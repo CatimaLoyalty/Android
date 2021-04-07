@@ -1,7 +1,23 @@
-Ben jij het ook zo zat om tijdens het afrekenen steeds weer te moeten graaien naar je plastic klantenkaart? Heb je niet liever een gratis, digitaal alternatief dat veilig omgaat met je gegevens?
-
-Dan is Catima wat voor jou! Met deze app kun je je op barcode gebaseerde klantenkaarten opslaan op je telefoon. De app is open source en heeft maar één doel: het beheren en organiseren van je kaarten!
-
-Je voegt nieuwe kaarten in een handomdraai toe, met je camera of door het nummer ervan in te voeren. In de winkel hoef je vervolgens alleen maar de kaart te openen zodat deze kan worden gescand door elke moderne barcodescanner. (Sommige winkels gebruiken nog ouderwetse barcodescanners, zoals scanners, welke je scherm niet kunnen aflezen. In dat geval moet de kassamedewerker het nummer handmatig invoeren.).
-
-Catima vereist nauwelijks rechten en maakt geen contact met het internet. Je kunt je kaarten back-uppen naar je lokale opslag en de back-up vervolgens overzetten naar een veilig opslagmedium.
+Stop met zoeken naar plastic kaarten tijdens het afrekenen.
+<b>Scan barcodes met de camera en sla ze op op je apparaat.</b>
+😺
+Vergeet je portemonnee of gebruik hem alleen voor waardevolle dingen.
+😺
+Met deze essentiële app kun je je waardeloze plastic kaarten weggooien.
+😺
+- Weinig rechten vereist, geen spionage/tracking, geen internettoegang en geen reclame;
+- Voorzie kaarten of codes van namen en zelfgekozen kleuren;
+- Voer codes handmatig in als er geen barcode is;
+- Importeer kaarten en codes uit bestanden, Catima, Klantenkaartkluis, Voucher Vault, en FidMe;
+- Maak een back-up van al je kaarten en importeer deze op een ander apparaat;
+- Deel coupons, exclusieve aanbiedingen, promocodes of kaarten en codes met andere apps;
+- Donker thema en toegankelijkheidsopties voor blinden en slechtzienden;
+- Gemaakt voor iedereen door de vrijesoftwaregemeenschap;
+- De app is met de hand vertaald naar meer dan 20 talen;
+- Gratis, ondersteund door de gemeenschap;
+- Bekijk de broncode, pas deze aan en deel deze <i>met iedereen</i> (indien gewenst);
+- Niet alleen vrije software/open source, maar ook <i>copyleft</i> vrije software (GPLv3+).
+😺
+Maak je leven en winkeluitjes makkelijker doordat je nooit meer een kaart of bonnetje vergeet.
+Met deze app heb je ze altijd bij de hand en bespaar je tijd.
+😺

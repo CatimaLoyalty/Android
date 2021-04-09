@@ -29,6 +29,7 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Currency;
@@ -866,6 +867,137 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
+
+        clearDatabase();
+    }
+
+    @Test
+    public void importV2() throws IOException
+    {
+        String csvText = "2\n" +
+                "\n" +
+                "_id\n" +
+                "Health\n" +
+                "Food\n" +
+                "Fashion\n" +
+                "\n" +
+                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus\n" +
+                "8,Clothes Store,Note about store,,0,,a,,-5317,,0\n" +
+                "2,Department Store,,,0,,A,,-9977996,,0\n" +
+                "3,Grocery Store,,,150,,dhd,,-9977996,,0\n" +
+                "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,0\n" +
+                "5,Restaurant,Note about restaurant here,,0,,98765432,23456,-10902850,CODE_128,0\n" +
+                "6,Shoe Store,,,12.50,EUR,a,-5317,,AZTEC,0\n" +
+                "\n" +
+                "cardId,groupId\n" +
+                "8,Fashion\n" +
+                "3,Food\n" +
+                "4,Health\n" +
+                "5,Food\n" +
+                "6,Fashion\n";
+
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+
+        // Import the CSV data
+        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        assertEquals(true, result);
+        assertEquals(6, db.getLoyaltyCardCount());
+        assertEquals(3, db.getGroupCount());
+
+        // Check all groups
+        Group healthGroup = db.getGroup("Health");
+        assertNotNull(healthGroup);
+        assertEquals(1, db.getGroupCardCount("Health"));
+        assertEquals(Arrays.asList(4), db.getGroupCardIds("Health"));
+
+        Group foodGroup = db.getGroup("Food");
+        assertNotNull(foodGroup);
+        assertEquals(2, db.getGroupCardCount("Food"));
+        assertEquals(Arrays.asList(3, 5), db.getGroupCardIds("Food"));
+
+        Group fashionGroup = db.getGroup("Fashion");
+        assertNotNull(fashionGroup);
+        assertEquals(2, db.getGroupCardCount("Fashion"));
+        assertEquals(Arrays.asList(8, 6), db.getGroupCardIds("Fashion"));
+
+        // Check all cards
+        LoyaltyCard card8 = db.getLoyaltyCard(8);
+
+        assertEquals("Clothes Store", card8.store);
+        assertEquals("Note about store", card8.note);
+        assertEquals(null, card8.expiry);
+        assertEquals(new BigDecimal("0"), card8.balance);
+        assertEquals(null, card8.balanceType);
+        assertEquals("a", card8.cardId);
+        assertEquals(null, card8.barcodeId);
+        assertEquals(null, card8.barcodeType);
+        assertEquals(-5317, (long) card8.headerColor);
+        assertEquals(0, card8.starStatus);
+
+        LoyaltyCard card2 = db.getLoyaltyCard(2);
+
+        assertEquals("Department Store", card2.store);
+        assertEquals("", card2.note);
+        assertEquals(null, card2.expiry);
+        assertEquals(new BigDecimal("0"), card2.balance);
+        assertEquals(null, card2.balanceType);
+        assertEquals("A", card2.cardId);
+        assertEquals(null, card2.barcodeId);
+        assertEquals(null, card2.barcodeType);
+        assertEquals(-9977996, (long) card2.headerColor);
+        assertEquals(0, card2.starStatus);
+
+        LoyaltyCard card3 = db.getLoyaltyCard(3);
+
+        assertEquals("Grocery Store", card3.store);
+        assertEquals("", card3.note);
+        assertEquals(null, card3.expiry);
+        assertEquals(new BigDecimal("150"), card3.balance);
+        assertEquals(null, card3.balanceType);
+        assertEquals("dhd", card3.cardId);
+        assertEquals(null, card3.barcodeId);
+        assertEquals(null, card3.barcodeType);
+        assertEquals(-9977996, (long) card3.headerColor);
+        assertEquals(0, card3.starStatus);
+
+        LoyaltyCard card4 = db.getLoyaltyCard(4);
+
+        assertEquals("Pharmacy", card4.store);
+        assertEquals("", card4.note);
+        assertEquals(null, card4.expiry);
+        assertEquals(new BigDecimal("0"), card4.balance);
+        assertEquals(null, card4.balanceType);
+        assertEquals("dhshsvshs", card4.cardId);
+        assertEquals(null, card4.barcodeId);
+        assertEquals(null, card4.barcodeType);
+        assertEquals(-10902850, (long) card4.headerColor);
+        assertEquals(0, card4.starStatus);
+
+        LoyaltyCard card5 = db.getLoyaltyCard(5);
+
+        assertEquals("Restaurant", card5.store);
+        assertEquals("Note about restaurant here", card5.note);
+        assertEquals(null, card5.expiry);
+        assertEquals(new BigDecimal("0"), card5.balance);
+        assertEquals(null, card5.balanceType);
+        assertEquals("98765432", card5.cardId);
+        assertEquals("23456", card5.barcodeId);
+        assertEquals(BarcodeFormat.CODE_128, card5.barcodeType);
+        assertEquals(-10902850, (long) card5.headerColor);
+        assertEquals(0, card5.starStatus);
+
+        LoyaltyCard card6 = db.getLoyaltyCard(6);
+
+        assertEquals("Shoe Store", card6.store);
+        assertEquals("", card6.note);
+        assertEquals(null, card6.expiry);
+        assertEquals(new BigDecimal("12.50"), card6.balance);
+        assertEquals(Currency.getInstance("EUR"), card6.balanceType);
+        assertEquals("a", card6.cardId);
+        assertEquals("-5317", card6.barcodeId);
+        assertEquals(BarcodeFormat.AZTEC, card6.barcodeType);
+        assertEquals(null, card6.headerColor);
+        assertEquals(0, card6.starStatus);
 
         clearDatabase();
     }

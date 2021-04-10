@@ -6,7 +6,7 @@
     <string name="action_add">Add</string>
 
     <string name="noGiftCards">Click the ⊕ plus button to add a card, or import some from the ⋮ menu first.</string>
-    <string name="noMatchingGiftCards">Change your search to try again.</string>
+    <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
 
     <string name="storeName">Name</string>
     <string name="note">Note</string>

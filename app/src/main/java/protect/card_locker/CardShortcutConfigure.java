@@ -2,15 +2,21 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Parcelable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * The configuration screen for creating a shortcut.
@@ -31,6 +37,10 @@ public class CardShortcutConfigure extends AppCompatActivity
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
+
+        // Hide new button because it won't work here anyway
+        FloatingActionButton newFab = findViewById(R.id.fabAdd);
+        newFab.setVisibility(View.GONE);
 
         final DBHelper db = new DBHelper(this);
 
@@ -69,11 +79,15 @@ public class CardShortcutConfigure extends AppCompatActivity
                 bundle.putBoolean("view", true);
                 shortcutIntent.putExtras(bundle);
 
-                Parcelable icon = Intent.ShortcutIconResource.fromContext(CardShortcutConfigure.this, R.mipmap.ic_launcher);
-                Intent intent = new Intent();
-                intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-                intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, loyaltyCard.store);
-                intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+                Bitmap icon = Utils.generateIcon(CardShortcutConfigure.this, loyaltyCard.store, loyaltyCard.headerColor, true).getLetterTile();
+
+                ShortcutInfoCompat shortcutInfo = new ShortcutInfoCompat.Builder(CardShortcutConfigure.this, String.valueOf(loyaltyCard.id))
+                        .setIntent(shortcutIntent)
+                        .setIcon(IconCompat.createWithAdaptiveBitmap(icon))
+                        .setShortLabel(loyaltyCard.store)
+                        .build();
+
+                Intent intent = ShortcutManagerCompat.createShortcutResultIntent(CardShortcutConfigure.this, shortcutInfo);
                 setResult(RESULT_OK, intent);
 
                 finish();

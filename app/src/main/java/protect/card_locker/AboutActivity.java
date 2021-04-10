@@ -8,10 +8,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.common.collect.ImmutableMap;
-
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Map;
+import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,30 +34,27 @@ public class AboutActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        final Map<String, String> USED_LIBRARIES = new ImmutableMap.Builder<String, String>()
-                .put("Commons CSV", "https://commons.apache.org/proper/commons-csv/")
-                .put("Guava", "https://github.com/google/guava")
-                .put("ZXing", "https://github.com/zxing/zxing")
-                .put("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded")
-                .put("Color Picker", "https://github.com/jaredrummler/ColorPicker")
-                .put("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference")
-                .build();
+        final List<ThirdPartyInfo> USED_LIBRARIES = new ArrayList<>();
+        USED_LIBRARIES.add(new ThirdPartyInfo("Commons CSV", "https://commons.apache.org/proper/commons-csv/", "Apache 2.0"));
+        USED_LIBRARIES.add(new ThirdPartyInfo("Guava", "https://github.com/google/guava", "Apache 2.0"));
+        USED_LIBRARIES.add(new ThirdPartyInfo("ZXing", "https://github.com/zxing/zxing", "Apache 2.0"));
+        USED_LIBRARIES.add(new ThirdPartyInfo("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded", "Apache 2.0"));
+        USED_LIBRARIES.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
+        USED_LIBRARIES.add(new ThirdPartyInfo("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference", "GNU LGPL 3.0"));
 
-        final Map<String, String> USED_ASSETS = ImmutableMap.of
-                (
-                        "Android icons", "https://www.apache.org/licenses/LICENSE-2.0.txt"
-                );
+        final List<ThirdPartyInfo> USED_ASSETS = new ArrayList<>();
+        USED_ASSETS.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
 
         StringBuilder libs = new StringBuilder().append("<br/>");
-        for (Map.Entry<String, String> entry : USED_LIBRARIES.entrySet())
+        for (ThirdPartyInfo entry : USED_LIBRARIES)
         {
-            libs.append("<br/><a href=\"").append(entry.getValue()).append("\">").append(entry.getKey()).append("</a><br/>");
+            libs.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")<br/>");
         }
 
         StringBuilder resources = new StringBuilder().append("<br/>");
-        for (Map.Entry<String, String> entry : USED_ASSETS.entrySet())
+        for (ThirdPartyInfo entry : USED_ASSETS)
         {
-            resources.append("<br/><a href=\"").append(entry.getValue()).append("\">").append(entry.getKey()).append("</a><br/>");
+            resources.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")<br/>");
         }
 
         String appName = getString(R.string.app_name);

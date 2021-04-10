@@ -1,11 +1,15 @@
 # Changelog
 
-## Unreleased
+## v1.13 (2021-04-10)
 
 Changes:
 
 - Add option to set a separate barcode value from card ID
 - Simplify font sizing configuration
+- Several small UI fixes
+- Use letter icon for shortcuts too
+- Always show all barcode types in manual entry
+- Remove privacy policy first start dialog
 
 ## v1.12 (2021-03-30)
 

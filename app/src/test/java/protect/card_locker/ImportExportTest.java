@@ -883,9 +883,9 @@ public class ImportExportTest
                 "\n" +
                 "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus\n" +
                 "8,Clothes Store,Note about store,,0,,a,,-5317,,0\n" +
-                "2,Department Store,,,0,,A,,-9977996,,0\n" +
+                "2,Department Store,,1618041729,0,,A,,-9977996,,0\n" +
                 "3,Grocery Store,,,150,,dhd,,-9977996,,0\n" +
-                "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,0\n" +
+                "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,1\n" +
                 "5,Restaurant,Note about restaurant here,,0,,98765432,23456,-10902850,CODE_128,0\n" +
                 "6,Shoe Store,,,12.50,EUR,a,-5317,,AZTEC,0\n" +
                 "\n" +
@@ -938,7 +938,7 @@ public class ImportExportTest
 
         assertEquals("Department Store", card2.store);
         assertEquals("", card2.note);
-        assertEquals(null, card2.expiry);
+        assertEquals(new Date(1618041729), card2.expiry);
         assertEquals(new BigDecimal("0"), card2.balance);
         assertEquals(null, card2.balanceType);
         assertEquals("A", card2.cardId);
@@ -971,7 +971,7 @@ public class ImportExportTest
         assertEquals(null, card4.barcodeId);
         assertEquals(null, card4.barcodeType);
         assertEquals(-10902850, (long) card4.headerColor);
-        assertEquals(0, card4.starStatus);
+        assertEquals(1, card4.starStatus);
 
         LoyaltyCard card5 = db.getLoyaltyCard(5);
 

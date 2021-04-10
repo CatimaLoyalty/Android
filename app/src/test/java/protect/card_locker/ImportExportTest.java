@@ -17,6 +17,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.annotation.LooperMode;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -872,7 +873,33 @@ public class ImportExportTest
     }
 
     @Test
-    public void importV2() throws IOException
+    public void exportV2()
+    {
+        db.insertGroup("Example");
+        int loyaltyCard = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
+        db.setLoyaltyCardGroups(loyaltyCard, Arrays.asList(db.getGroup("Example")));
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+
+        MultiFormatExporter.exportData(db, outputStreamWriter, DataFormat.Catima);
+
+        String outputCsv = "2\r\n" +
+                "\r\n" +
+                "_id\r\n" +
+                "Example\r\n" +
+                "\r\n" +
+                "_id,store,note,expiry,balance,balancetype,cardid,headercolor,barcodetype,starstatus\r\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,1,QR_CODE,0\r\n" +
+                "\r\n" +
+                "cardId,groupId\r\n" +
+                "1,Example\r\n";
+
+        assertEquals(outputCsv, outputStream.toString());
+    }
+
+    @Test
+    public void importV2()
     {
         String csvText = "2\n" +
                 "\n" +

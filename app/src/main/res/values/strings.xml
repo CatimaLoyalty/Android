@@ -73,7 +73,7 @@
     <string name="app_libraries">Libre software libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
-    <string name="selectBarcodeTitle">Scan instead</string>
+    <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
 
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>

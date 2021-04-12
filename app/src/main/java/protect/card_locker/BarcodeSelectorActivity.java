@@ -17,6 +17,7 @@ import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.zxing.BarcodeFormat;
@@ -104,20 +105,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             {
                 Log.d(TAG, "Entered text: " + s);
 
-                // Stop any async tasks which may not have been started yet
-                for(AsyncTask task : barcodeGeneratorTasks)
-                {
-                    task.cancel(false);
-                }
-                barcodeGeneratorTasks.clear();
-
-                // Update barcodes
-                for(String key : barcodeViewMap.keySet())
-                {
-                    ImageView image = findViewById(barcodeViewMap.get(key).first);
-                    TextView text = findViewById(barcodeViewMap.get(key).second);
-                    createBarcodeOption(image, key, s.toString(), text);
-                }
+                generateBarcodes(s.toString());
 
                 View noBarcodeButtonView = findViewById(R.id.noBarcode);
                 setButtonListener(noBarcodeButtonView, s.toString());
@@ -137,6 +125,25 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         if(initialCardId != null)
         {
             cardId.setText(initialCardId);
+        } else {
+            generateBarcodes("");
+        }
+    }
+
+    private void generateBarcodes(String value) {
+        // Stop any async tasks which may not have been started yet
+        for(AsyncTask task : barcodeGeneratorTasks)
+        {
+            task.cancel(false);
+        }
+        barcodeGeneratorTasks.clear();
+
+        // Update barcodes
+        for(Map.Entry<String, Pair<Integer, Integer>> entry : barcodeViewMap.entrySet())
+        {
+            ImageView image = findViewById(entry.getValue().first);
+            TextView text = findViewById(entry.getValue().second);
+            createBarcodeOption(image, entry.getKey(), value, text);
         }
     }
 
@@ -171,6 +178,12 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Log.d(TAG, "Selected barcode type " + formatType);
+
+                if (!((boolean) image.getTag())) {
+                    Toast.makeText(BarcodeSelectorActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 Intent result = new Intent();
                 result.putExtra(BARCODE_FORMAT, formatType);
                 result.putExtra(BARCODE_CONTENTS, cardId);
@@ -193,7 +206,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                         image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                         Log.d(TAG, "Generating barcode for type " + formatType);
-                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text);
+                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
                         barcodeGeneratorTasks.add(task);
                         task.execute();
                     }
@@ -202,7 +215,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         else
         {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text);
+            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
             barcodeGeneratorTasks.add(task);
             task.execute();
         }

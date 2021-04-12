@@ -51,6 +51,6 @@ class GroupCursorAdapter extends CursorAdapter
         countField.setText(context.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
         nameField.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        countField.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
+        countField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
     }
 }

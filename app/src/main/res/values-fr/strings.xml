@@ -85,9 +85,9 @@
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
     <string name="noBarcode">Aucun code-barres</string>
-    <string name="leaveWithoutSaveConfirmation">Voulez-vous quitter la page \? Les modifications faites seront perdues.</string>
-    <string name="leaveWithoutSaveTitle">Quitter sans enregistrer</string>
-    <string name="failedOpeningFileManager">Gestionnaire de fichiers introuvable. Installez-en un si nécessaire.</string>
+    <string name="leaveWithoutSaveConfirmation">Quitter sans enregistrer \?</string>
+    <string name="leaveWithoutSaveTitle">Quitter</string>
+    <string name="failedOpeningFileManager">Installez d’abord un gestionnaire de fichiers.</string>
     <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
     <string name="moveDown">Descendre dans la liste</string>
     <string name="moveUp">Monter dans la liste</string>
@@ -97,12 +97,12 @@
     </plurals>
     <string name="groupsList">Groupes : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="accept">Accepter</string>
-    <string name="privacy_policy_popup_text">De nombreux magasins d\'applications exigent que les applications affichent leur politique de confidentialité au premier démarrage. Voici la nôtre :
+    <string name="privacy_policy_popup_text">Avis sur la politique de confidentialité (exigé par certains magasins d\'applications) :
 \n
-\nNous ne collectons AUCUNE DONNÉE et le code source de notre application est ouvert afin que tout le monde puisse le confirmer.</string>
+\nNous ne collectons AUCUNE DONNÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importer des données à partir de quelle application \?</string>
+    <string name="chooseImportType">Importer les données depuis \?</string>
     <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
     <string name="currency">Monnaie</string>
@@ -129,22 +129,23 @@
 \n
 \nUn fichier d\'exportation Loyalty Card Keychain peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
     <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Veuillez sélectionner votre fichier d\'exportation Fidme. Il est très probablement nommé quelque chose comme fidme-export-request-xxxxxx.zip.
+    <string name="importFidmeMessage">Veuillez sélectionner votre fichier d\'exportation FidMe. Il est très probablement nommé quelque chose comme fidme-export-request-xxxxxx.zip.
 \n
-\nUn fichier d\'exportation Fidme peut être créé dans l\'application Fidme en accédant à votre profil, en choisissant Protection des données, puis en appuyant sur Extraire mes données.
+\nUn fichier d\'exportation FidMe peut être créé dans l\'application FidMe en accédant à votre profil, en choisissant Protection des données, puis en appuyant sur Extraire mes données.
 \n
-\nVeuillez noter que Fidme ne stocke pas le type de code-barres dans les données d\'exportation, vous devrez donc éditer les cartes importées manuellement.</string>
-    <string name="importFidme">Importer depuis Fidme</string>
+\nVeuillez noter que FidMe ne stocke pas le type de code-barres dans les données d\'exportation, vous devrez donc éditer les cartes importées manuellement.</string>
+    <string name="importFidme">Importer depuis FidMe</string>
     <string name="importCatimaMessage">Veuillez sélectionner votre fichier d\'exportation Catima. Il est probablement nommé Catima.csv.
 \n
 \nUn fichier d\'exportation Catima peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
-    <string name="errorReadingImage">Erreur lors de la lecture de l\'image</string>
+    <string name="errorReadingImage">Impossible de lire l\'image</string>
     <string name="noBarcodeFound">Aucun code-barres n\'a été trouvé</string>
     <string name="setBarcodeId">Définir la valeur du code-barres</string>
     <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="settings_max_font_size_scale">Échelle maximale de taille de police</string>
-    <string name="unsupportedBarcodeType">Nous ne pouvons actuellement pas afficher ce type de code-barres. Nous espérons pouvoir ajouter la prise en charge dans une nouvelle version de l\'application.</string>
+    <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version plus récente de l\'application.</string>
+    <string name="wrongValueForBarcodeType">La valeur n\'est pas valide pour le type de code-barres sélectionné</string>
 </resources>

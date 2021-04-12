@@ -1,7 +1,23 @@
-Lei av å leite opp stamkundekortet mens du betaler i butikken? Ser du etter en fri løsning som ikke stjeler data?
-
-Catima er et program som lagrer strekkodebaserte stamkundekort på din enhet. Det er fri programvare, og gjør én ting bra, altså håndtering av kort.
-
-Nye kort kan legges til raskt. Bruk enten kamera for å scanne inn strekkoden, eller skriv inn nummeret. Når strekkoden er innlastet på butikken kan den skannes med en moderne strekkodeskanner. (Noen butikker bruker eldre strekkodeskannere, som inkrementelle skannere, istedenfor bildeskannere. Disse kan ikke lese skjermen på en smartelefon. Få isteden en ansatt til å skrive inn nummeret manuelt).
-
-Programmet krever veldig få tilganger, og bruker aldri Internett. Det er et valg om å sikkerhetskopiere kort lokalt. Derfra kan du sende sikkerhetskopien til en trygg plass.
+Stopp leitingen etter plastikkfordelskort når du er i kassen på nett eller i butikk.
+<b>Skann strekkoder til enheten din ved bruk av kameraet, og glem kortene.</b>
+😺
+Glem hele lommeboken, eller behold den ultralett for verdisaker.
+😺
+Med dette essensielle verktøyet kan du erstatte unyttig plast med kontanter.
+😺
+- Unngå spionasje med veldig få tilganger. Ingen tilgang til Internett, og ingen reklame.
+- Legg til kort eller koder med navn og egne farger.
+- Manuell kodeinnskriving hvis det ikke er noen strekkode å lagre, eller den ikke kan brukes.
+- Importer kort og koder fra filer, Catima, Loyalty Card Keychain, Voucher Vault, og FidMe.
+- Lag en sikkerhetskopi av alle kortene dine og overfør dem til en ny enhet hvis du ønsker det.
+- Del kupponger, eksklusive tilbud, promokoder eller kort og koder ved bruk av ethvert program.
+- Mørk drakt og tilgjengelighetsvalg for synshemmede brukere.
+- Laget for alle av friprogramvare-gemenskapen.
+- Oversettelser til mer enn 20 språk gjort for hånd.
+- Gratis, med støtte fra gemenskapsbidrag.
+- Bruk, studer, endre og del som du vil; <i>med alle</i>.
+- Ikke bare åpen kildekode. <i>Gemenhetslig</i> fri programvare (GPLv3+).
+😺
+Forenkle livet ditt og handlingen, og aldri mist en papirkvittering, butikkbetalingskort, gavekort eller flybillett igjen.
+Ta alle dine belønninger og bonuser med deg, og spar mens du er på farten.
+😺

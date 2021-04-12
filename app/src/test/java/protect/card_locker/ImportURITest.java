@@ -52,16 +52,16 @@ public class ImportURITest {
         LoyaltyCard parsedCard = importURIHelper.parse(cardUri);
 
         // Compare everything
-        assertEquals(card.barcodeType, parsedCard.barcodeType);
-        assertEquals(card.barcodeId, parsedCard.barcodeId);
-        assertEquals(card.cardId, parsedCard.cardId);
-        assertEquals(card.headerColor, parsedCard.headerColor);
+        assertEquals(card.store, parsedCard.store);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.balance, parsedCard.balance);
         assertEquals(card.balanceType, parsedCard.balanceType);
-        assertEquals(card.store, parsedCard.store);
-        // No export of starStatus for single cards foreseen therefore 0 will be imported
+        assertEquals(card.cardId, parsedCard.cardId);
+        assertEquals(card.barcodeId, parsedCard.barcodeId);
+        assertEquals(card.barcodeType, parsedCard.barcodeType);
+        assertEquals(card.headerColor, parsedCard.headerColor);
+        // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
     }
 
@@ -81,15 +81,17 @@ public class ImportURITest {
         LoyaltyCard parsedCard = importURIHelper.parse(cardUri);
 
         // Compare everything
-        assertEquals(card.barcodeType, parsedCard.barcodeType);
-        assertEquals(card.barcodeId, parsedCard.barcodeId);
-        assertEquals(card.cardId, parsedCard.cardId);
+        assertEquals(card.store, parsedCard.store);
         assertEquals(card.note, parsedCard.note);
         assertEquals(card.expiry, parsedCard.expiry);
         assertEquals(card.balance, parsedCard.balance);
         assertEquals(card.balanceType, parsedCard.balanceType);
-        assertEquals(card.store, parsedCard.store);
+        assertEquals(card.cardId, parsedCard.cardId);
+        assertEquals(card.barcodeId, parsedCard.barcodeId);
+        assertEquals(card.barcodeType, parsedCard.barcodeType);
         assertNull(parsedCard.headerColor);
+        // No export of starStatus for export URL foreseen therefore 0 will be imported
+        assertEquals(0, parsedCard.starStatus);
     }
 
     @Test
@@ -126,15 +128,15 @@ public class ImportURITest {
         }
 
         // Compare everything
-        assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType);
-        assertEquals(null, parsedCard.barcodeId);
-        assertEquals("12345", parsedCard.cardId);
-        assertEquals("note", parsedCard.note);
         assertEquals("store", parsedCard.store);
-        assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
-        assertEquals(0, parsedCard.starStatus);
+        assertEquals("note", parsedCard.note);
         assertEquals(null, parsedCard.expiry);
         assertEquals(new BigDecimal("0"), parsedCard.balance);
         assertEquals(null, parsedCard.balanceType);
+        assertEquals("12345", parsedCard.cardId);
+        assertEquals(null, parsedCard.barcodeId);
+        assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType);
+        assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
+        assertEquals(0, parsedCard.starStatus);
     }
 }

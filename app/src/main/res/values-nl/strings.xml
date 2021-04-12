@@ -85,11 +85,11 @@
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
     <string name="addManually">Kaartnummer handmatig invoeren</string>
-    <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je dit wilt\? Hierdoor worden je aanpassingen niet opgeslagen.</string>
-    <string name="leaveWithoutSaveTitle">Afbreken zonder opslaan</string>
+    <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je niet wilt opslaan\?</string>
+    <string name="leaveWithoutSaveTitle">Afsluiten</string>
     <string name="moveDown">Omlaag verplaatsen</string>
     <string name="moveUp">Omhoog verplaatsen</string>
-    <string name="failedOpeningFileManager">Kan de bestandsbeheerder niet openen - zorg dat je er een hebt geïnstalleerd.</string>
+    <string name="failedOpeningFileManager">Installeer een bestandsbeheerder.</string>
     <string name="noBarcode">Geen barcode</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaart</item>
@@ -112,11 +112,11 @@
     <string name="balance">Saldo</string>
     <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punten</string>
     <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="chooseImportType">Uit welke app wil je gegevens importeren\?</string>
+    <string name="chooseImportType">Gegevens importeren uit…\?</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen tijdens tonen van kaart</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen tijdens tonen van kaart</string>
-    <string name="privacy_policy_popup_text">Veel appwinkels vereisen dat apps na de eerste keer opstarten hun privacybeleid tonen. Dat van ons is eenvoudig:
+    <string name="privacy_policy_popup_text">Privacybeleid (vereist door sommige appwinkels):
 \n
 \nWe verzamelen HELEMAAL NIKS. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
     <string name="privacy_policy">Privacybeleid</string>
@@ -129,15 +129,15 @@
 \n
 \nGa naar het Import-/Exportmenu om een Klantenkaartkluis-exportbestand samen te stellen.</string>
     <string name="importLoyaltyCardKeychain">Importeren uit Klantenkaartkluis</string>
-    <string name="importFidmeMessage">Kies het gewenste Fidme-exportbestand - normaliter heet dit bestand \'fidme-export-request-xxxxxx.zip\'.
+    <string name="importFidmeMessage">Kies het gewenste FidMe-exportbestand - normaliter heet dit bestand \'fidme-export-request-xxxxxx.zip\'.
 \n
-\nOpen de Fidme-app, ga naar je profiel en druk op \'Gegevensbescherming\' om een exportbestand samen te stellen.
+\nOpen de FidMe-app, ga naar je profiel en druk op \'Gegevensbescherming\' om een exportbestand samen te stellen.
 \n
-\nLet op: Fidme slaat de soorten barcodes niet op in het exportbestand, dus dat moet je na achteraf nog instellen.</string>
+\nLet op: FidMe slaat de soorten barcodes niet op in het exportbestand, dus dat moet je achteraf nog instellen.</string>
     <string name="importCatimaMessage">Kies het gewenste Catima-exportbestand - normaliter heet dit bestand \'Catima.csv\'.
 \n
 \nGa naar het Import-/Exportmenu om een Catima-exportbestand samen te stellen.</string>
-    <string name="importFidme">Importeren uit Fidme</string>
+    <string name="importFidme">Importeren uit FidMe</string>
     <string name="importCatima">Importeren uit Catima</string>
     <string name="errorReadingImage">De afbeelding kan niet worden uitgelezen</string>
     <string name="noBarcodeFound">Geen barcode aangetroffen</string>
@@ -146,5 +146,6 @@
     <string name="sameAsCardId">Gelijk aan kaart-id</string>
     <string name="barcodeId">Barcodewaarde</string>
     <string name="settings_max_font_size_scale">Maximale tekstgrootte</string>
-    <string name="unsupportedBarcodeType">Catima kan dit type barcode momenteel niet tonen - we hopen hiervoor op een later moment ondersteuning toe te voegen.</string>
+    <string name="unsupportedBarcodeType">Dit type barcode kan nog niet worden getoond - we hopen hiervoor in een nieuwere versie ondersteuning toe te voegen.</string>
+    <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
 </resources>

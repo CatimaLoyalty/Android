@@ -34,5 +34,6 @@
 
     <!-- The default letter tile text size -->
     <dimen name="tileLetterFontSize">33sp</dimen>
+    <dimen name="tileLetterFontSizeForShortcut">24dp</dimen>
     <dimen name="cardViewLetterFontSize">100sp</dimen>
 </resources>

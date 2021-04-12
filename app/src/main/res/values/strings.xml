@@ -5,7 +5,7 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">Click the ⊕ plus button to add a card, or import some from the ⋮ menu first.</string>
+    <string name="noGiftCards">Click the 🞣 plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
 
     <string name="storeName">Name</string>
@@ -116,7 +116,7 @@
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">Click the ⊕ plus button to add groups for categorization first.</string>
+    <string name="noGroups">Click the 🞣 plus button to add groups for categorization first.</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>

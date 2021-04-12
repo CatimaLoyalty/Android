@@ -58,8 +58,6 @@
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bibliotheken van externe partijen: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> gebruikt de volgende bronnen van externe partijen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
     <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>

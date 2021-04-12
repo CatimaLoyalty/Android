@@ -91,9 +91,9 @@ public class AboutActivity extends AppCompatActivity
                 "<br/><br/>" +
                 getString(R.string.app_license) +
                 "<br/><br/>" +
-                String.format(getString(R.string.app_libraries), appName, libs.toString()) +
+                String.format(getString(R.string.app_libraries), libs.toString()) +
                 "<br/><br/>" +
-                String.format(getString(R.string.app_resources), appName, resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+                String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
         aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 

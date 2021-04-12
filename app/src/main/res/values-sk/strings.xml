@@ -54,8 +54,6 @@
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informácia pri revízii: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> používa nasledujúce knižnice tretej strany: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> používa tieto knižnice tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="copy_to_clipboard_toast">ID karty skopírované do schránky</string>

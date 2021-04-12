@@ -70,7 +70,6 @@
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noMatchingGiftCards">No se ha encontrado nada. Pruebe a modificar su búsqueda.</string>
     <string name="action_search">Buscar</string>
-    <string name="app_libraries"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa las siguientes librerías de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_libraries_list">%s</xliff:g></string>
     <string name="app_revision_fmt">Información de la revisión: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
     <string name="noGroups">Pulse el botón «+» para añadir grupos.
 \n
@@ -79,7 +78,6 @@
     <string name="thumbnailDescription">Miniatura de la tarjeta</string>
     <string name="copy_to_clipboard_toast">Id. de la tarjeta copiado al portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
-    <string name="app_resources"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> usa los siguientes recursos de terceros: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_resources_list">%s</xliff:g></string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
     <string name="enter_group_name">Introducir nombre del grupo</string>

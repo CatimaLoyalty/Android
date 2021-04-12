@@ -100,7 +100,7 @@
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
     <string name="settings_keep_screen_on">Keep screen on while displaying</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">No lock screen while displaying</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Prevent lock screen</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>

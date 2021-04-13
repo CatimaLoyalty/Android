@@ -5,7 +5,7 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">Click the 🞣 plus button to add a card, or import some from the ⋮ menu first.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
 
     <string name="storeName">Name</string>
@@ -71,7 +71,7 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Libre software libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Third-party libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
@@ -116,7 +116,7 @@
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">Click the 🞣 plus button to add groups for categorization first.</string>
+    <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>

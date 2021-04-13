@@ -53,8 +53,6 @@
     <string name="about_title_fmt">Om <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> bruker følgende tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>

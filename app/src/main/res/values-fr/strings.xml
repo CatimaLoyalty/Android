@@ -69,7 +69,7 @@
     <string name="settings_theme">Thème</string>
     <string name="enterBarcodeInstructions">Entrez l\'identifiant de la carte puis sélectionnez l\'image qui représente le code-barres que vous souhaitez utiliser, ou sélectionnez « Cette carte n\'a pas de code-barres » pour ne pas utiliser de code-barres.</string>
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
-    <string name="exportOptionExplanation">Les données seront eportées vers l\'emplacement de votre choix.</string>
+    <string name="exportOptionExplanation">Les données seront exportées vers l\'emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
     <string name="share">Partager</string>
     <string name="barcodeNoBarcode">Cette carte n\'a pas de code-barres</string>

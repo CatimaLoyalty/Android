@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Поиск</string>
     <string name="action_add">Добавить</string>
-    <string name="noGiftCards">Нажмите кнопку + (плюс), чтобы добавить карту.
-\n
-\nCatima хранит ваши карты на устройстве, поэтому они всегда под рукой.</string>
+    <string name="noGiftCards">Нажмите кнопку \"+\" для добавления карты или используйте меню \"⋮\" для импортирования.</string>
     <string name="noMatchingGiftCards">Ничего не найдено. Попробуйте изменить поисковый запрос.</string>
-    <string name="storeName">Магазин</string>
+    <string name="storeName">Название</string>
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
@@ -19,7 +17,7 @@
     <string name="lockScreen">Блокировать поворот экрана</string>
     <string name="unlockScreen">Автоповорот экрана</string>
     <string name="deleteTitle">Удаление карты</string>
-    <string name="deleteConfirmation">Подтвердите удаление карты.</string>
+    <string name="deleteConfirmation">Удалить карту\?</string>
     <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Копировать номер карты</string>
     <string name="share">Переслать</string>
@@ -30,7 +28,7 @@
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Сначала добавьте карту</string>
     <string name="barcodeImageDescription">Изображение штрих-кода карты</string>
-    <string name="noStoreError">Название магазина не указано</string>
+    <string name="noStoreError">Название не указано</string>
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Невозможно разобрать импортируемый URI</string>
@@ -55,11 +53,11 @@
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О приложении</string>
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+.</string>
-    <string name="about_title_fmt">О приложении <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
+    <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Информация о версиях: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите \"Эта карта без штрих-кода\", чтобы не использовать его.</string>
+    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите \"Эта карта без штрих-кода\".</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
     <string name="settings">Настройки</string>
@@ -73,31 +71,30 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
     <string name="exportSuccessful">Данные карт успешно экспортированы</string>
     <string name="all">Все</string>
-    <string name="noGroups">Нажмите кнопку + (плюс), чтобы добавить группы.
-\n
-\nГруппы упрощают поиск.</string>
+    <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для упорядочивания записей.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
     <string name="importSuccessful">Данные карт успешно импортированы</string>
     <string name="starImage">Звезда избранного</string>
-    <string name="app_copyright_old">На основе Loyalty Card Keychain, авторские права 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_old">На основе Loyalty Card Keychain
+\nавторские права © 2016–2020 Branden Archer.</string>
     <string name="unstar">Удалить из избранного</string>
     <string name="star">Добавить в избранное</string>
     <string name="noBarcode">Нет штрих-кода</string>
-    <string name="deleteConfirmationGroup">Подтвердите, что хотите удалить эту группу</string>
+    <string name="deleteConfirmationGroup">Удалить группу\?</string>
     <string name="leaveWithoutSaveConfirmation">Выйти без сохранения\?</string>
     <string name="leaveWithoutSaveTitle">Выход</string>
     <string name="failedOpeningFileManager">Требуется файловый менеджер.</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> баллов</string>
-    <string name="balanceSentence">Баланс: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Истёк срок действия: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentence">Истекает срок действия: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> баллов</string>
+    <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Срок действия истёк: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
     <string name="points">Баллы</string>
-    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> не похож на правильный баланс.</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не похож на правильный баланс.</string>
     <string name="addManually">Ручной ввод номера карты</string>
     <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
 \n
-\nМы ВООБЩЕ НЕ собираем НИКАКИХ ДАННЫХ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
+\nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Откуда импортировать данные\?</string>
@@ -111,34 +108,28 @@
     <string name="editBarcode">Изменить штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Карта</string>
-    <string name="groupsList">Группы: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="moveDown">Переместить ниже в вписке</string>
-    <string name="moveUp">Переместить выше в вписке</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Не блокировать экран при показе карты</string>
-    <string name="settings_keep_screen_on">Не отключать экран при показе карты</string>
+    <string name="groupsList">Группы: <xliff:g>%s</xliff:g></string>
+    <string name="moveDown">Переместить ниже</string>
+    <string name="moveUp">Переместить выше</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Не давать блокировать экран</string>
+    <string name="settings_keep_screen_on">Не отключать экран</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карта</item>
-        <item quantity="few"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карты</item>
-        <item quantity="many"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> карт</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> карта</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> карты</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> карт</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> карт</item>
     </plurals>
     <string name="accept">Принять</string>
-    <string name="importVoucherVaultMessage">Выберите файл экспорта Voucher Vault. Обычно он называется \"vouchervault.json\".
-\n
-\nФайл экспорта Voucher Vault можно создать, нажав кнопку \"Экспорт\".</string>
+    <string name="importVoucherVaultMessage">Выберите файл для импортирования, обычно именуемый <i>vouchervault.json</i>.
+\nФайл экспорта можно создать в приложении Voucher Vault, нажав кнопку \"Экспорт\".</string>
     <string name="importVoucherVault">Импорт из Voucher Vault</string>
-    <string name="importFidmeMessage">Выберите файл экспорта FidMe. Обычно он называется как-то вроде \"fidme-export-request-xxxxxx.zip\".
-\n
-\nФайл экспорта FidMe можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".
-\n
-\nОбратите внимание, что FidMe не сохраняет тип штрих-кода в экспортированных данных, поэтому вам придётся редактировать импортированные данные карт вручную.</string>
-    <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта Loyalty Card Keychain. Обычно он называется \"LoyaltyCardKeychain.csv\".
-\n
-\nФайл экспорта Loyalty Card Keychain можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importFidmeMessage">Выберите файл для импортирования, обычно именуемый <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную выберите типы штрих-кодов.
+\nФайл экспорта можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта, обычно именуемый <i>LoyaltyCardKeychain.csv</i>.
+\nФайл экспорта можно создать в приложении Loyalty Card Keychain, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importLoyaltyCardKeychain">Импорт из Loyalty Card Keychain</string>
-    <string name="importCatimaMessage">Выберите файл экспорта Catima. Обычно он называется \"Catima.csv\".
-\n
-\nФайл экспорта Catima можно создать, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
+    <string name="importCatimaMessage">Выберите файл для импортирования, обычно именуемый <i>Catima.csv</i>.
+\nФайл экспорта можно создать в другой копии Catima, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importFidme">Импорт из FidMe</string>
     <string name="importCatima">Импорт из Catima</string>
     <string name="errorReadingImage">Невозможно считать изображение</string>
@@ -150,4 +141,7 @@
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
+    <string name="app_resources">Сторонние свободные ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Сторонние свободные библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
 </resources>

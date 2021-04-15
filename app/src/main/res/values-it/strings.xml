@@ -56,8 +56,6 @@
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url"> %s </xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> usa le seguenti librerie di terze parti: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> usa le seguenti risorse di terze parti: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
     <string name="enterBarcodeInstructions">Immettere l\'ID della carta, quindi selezionare l\'immagine che rappresenta il codice a barre desiderato oppure selezionare «Questa carta non ha un codice a barre» per non valorizzare il dato.</string>
     <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>

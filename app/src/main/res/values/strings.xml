@@ -5,10 +5,10 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
 
-    <string name="noGiftCards">Click the "+" (plus) button to add a card first.\n\nCatima carries your cards on the device, so they are always within reach.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
 
-    <string name="storeName">Store</string>
+    <string name="storeName">Name</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode type</string>
@@ -26,7 +26,7 @@
     <string name="lockScreen">Block Rotation</string>
     <string name="unlockScreen">Unblock Rotation</string>
     <string name="deleteTitle">Remove Card</string>
-    <string name="deleteConfirmation">Please confirm you want to delete this card.</string>
+    <string name="deleteConfirmation">Delete this card?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
@@ -39,7 +39,7 @@
 
     <string name="barcodeImageDescription">Image of card barcode</string>
 
-    <string name="noStoreError">No store entered</string>
+    <string name="noStoreError">No name entered</string>
     <string name="noCardIdError">No card ID entered</string>
     <string name="noCardExistsError">Could not find card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
@@ -59,22 +59,22 @@
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
     <string name="importOptionFilesystemButton">From filesystem</string>
-    <string name="importOptionApplicationTitle">Use external app</string>
+    <string name="importOptionApplicationTitle">Use another app</string>
     <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
-    <string name="importOptionApplicationButton">Use external app</string>
+    <string name="importOptionApplicationButton">Use another app</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt" translatable="false" tools:ignore="PluralsCandidate">Copyright 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_copyright_old">Based on Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer.</string>
     <string name="app_license">Copylefted libre software, licensed GPLv3+.</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> uses the following third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> uses the following third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Third-party libre libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Third-party libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="enterBarcodeInstructions">Enter the card ID then select the image which represents the barcode you want to use, or select &#8220;This card has no barcode&#8221; to not use a barcode.</string>
+    <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
 
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
 
@@ -92,15 +92,15 @@
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
-    <string name="settings_max_font_size_scale">Maximum font size scale</string>
+    <string name="settings_max_font_size_scale">Max. font size</string>
 
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
     <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
-    <string name="settings_keep_screen_on">Keep screen on while viewing a card</string>
+    <string name="settings_keep_screen_on">Keep screen on</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Disable lock screen while viewing a card</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Prevent lock screen</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
@@ -116,17 +116,17 @@
 
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
-    <string name="noGroups">Click the "+" (plus) button to add groups first.\n\nGroups make things easier to find.</string>
+    <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
     </plurals>
 
     <string name="all">All</string>
-    <string name="deleteConfirmationGroup">Please confirm you want to delete this group</string>
+    <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
-    <string name="moveUp">Move up in list</string>
-    <string name="moveDown">Move down in list</string>
+    <string name="moveUp">Move upwards</string>
+    <string name="moveDown">Move downwards</string>
     <string name="leaveWithoutSaveTitle">Exit</string>
     <string name="leaveWithoutSaveConfirmation">Leave without saving?</string>
     <string name="addManually">Manually enter card ID</string>
@@ -158,16 +158,16 @@
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
 
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nWe collect NO DATA AT ALL, which anyone can confirm since our app is libre software.</string>
+    <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nNO DATA IS COLLECTED AT ALL, which anyone can confirm since our app is libre software.</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
-    <string name="importCatimaMessage">Please select your Catima export file. It is most likely named Catima.csv.\n\nA Catima export file can be created by going to the Import/Export menu and pressing "Export".</string>
+    <string name="importCatimaMessage">Find a file likely named <i>Catima.csv</i> to import.\nOr create it from the Import/Export menu of another Catima app by pressing "Export" there first.</string>
     <string name="importFidme">Import from FidMe</string>
-    <string name="importFidmeMessage">Please select your FidMe export file. It is most likely named something like fidme-export-request-xxxxxx.zip.\n\nA FidMe export file can be created in the FidMe app by going to your profile, choosing "Data Protection" and then pressing "Extract my data".\n\nPlease note that FidMe does not store the barcode type in the export data so you will have to edit the imported cards manually.</string>
+    <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import, and then select the barcode types manually afterwards.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Please select your Loyalty Card Keychain export file. It is most likely named LoyaltyCardKeychain.csv.\n\nA Loyalty Card Keychain export file can be created by going to the Import/Export menu and pressing "Export".</string>
+    <string name="importLoyaltyCardKeychainMessage">Find a file most likely named <i>LoyaltyCardKeychain.csv</i> to import.\nOr create it from the Import/Export menu in Loyalty Card Keychain by pressing "Export" first.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Please select your Voucher Vault export file. It is most likely named vouchervault.json.\n\nA Voucher Vault export file can be created by pressing "Export".</string>
+    <string name="importVoucherVaultMessage">Find a file likely named <i>vouchervault.json</i> to import.\nOr create it by pressing "Export" in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>
     <string name="sameAsCardId">Same as card ID</string>
     <string name="setBarcodeId">Set barcode value</string>

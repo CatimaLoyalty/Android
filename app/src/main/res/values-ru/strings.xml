@@ -58,8 +58,6 @@
     <string name="about_title_fmt">О приложении <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Информация о версиях: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> использует следующие сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
     <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите \"Эта карта без штрих-кода\", чтобы не использовать его.</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>

@@ -55,8 +55,6 @@
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informationen zu dieser Version: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries"><xliff:g id="app_name">%s</xliff:g> benutzt die folgenden Fremdbibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources"><xliff:g id="app_name">%s</xliff:g> verwendet folgenden Dritt-Ressourcen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Strichcode auswählen</string>
     <string name="copy_to_clipboard_toast">Nummer in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild für die Karte</string>

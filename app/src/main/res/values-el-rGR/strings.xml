@@ -49,8 +49,6 @@
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Πληροφορίες Αναθεώρησης: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries">Το <xliff:g id="app_name">%s</xliff:g> χρησιμοποιεί τις ακόλουθες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Το <xliff:g id="app_name">%s</xliff:g> χρησιμοποιεί τους παρακάτω πόρους τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
     <string name="copy_to_clipboard_toast">Ο κωδικός της κάρτας αντιγράφτηκε στο πρόχειρο</string>
     <string name="thumbnailDescription">Μικρογραφία κάρτας</string>

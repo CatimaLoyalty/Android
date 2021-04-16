@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Ajouter</string>
-    <string name="noGiftCards">Appuyez d\'abord sur le bouton + (plus) pour ajouter une carte.
-\n
-\nCatima enregistre vos cartes sur votre appareil, pour toujours les avoir à portée de main.</string>
-    <string name="storeName">Magasin</string>
+    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez-en d’abord depuis le menu ⋮</string>
+    <string name="storeName">Nom</string>
     <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
     <string name="cancel">Annuler</string>
@@ -15,7 +13,7 @@
     <string name="lockScreen">Désactiver la rotation</string>
     <string name="unlockScreen">Activer la rotation</string>
     <string name="deleteTitle">Supprimer la carte de fidélité</string>
-    <string name="deleteConfirmation">Confirmez la suppression de cette carte.</string>
+    <string name="deleteConfirmation">Supprimer cette carte \?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
@@ -25,7 +23,7 @@
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d\'abord une carte</string>
     <string name="barcodeImageDescription">Image du code-barres</string>
-    <string name="noStoreError">Aucun nom de magasin saisi</string>
+    <string name="noStoreError">Aucun nom saisi</string>
     <string name="noCardIdError">Aucun numéro de carte saisi</string>
     <string name="noCardExistsError">Aucune carte trouvée</string>
     <string name="importExport">Importer/Exporter</string>
@@ -43,14 +41,14 @@
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
-    <string name="importOptionApplicationTitle">Utiliser une application externe</string>
+    <string name="importOptionApplicationTitle">Utiliser une autre application</string>
     <string name="importOptionApplicationExplanation">Utilisez le gestionnaire de fichiers de votre choix pour importer un fichier.</string>
-    <string name="importOptionApplicationButton">Utiliser une application externe</string>
+    <string name="importOptionApplicationButton">Utiliser une autre application</string>
     <string name="about">À propos</string>
     <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+.</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Notes de version : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Notes de version : <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
     <string name="thumbnailDescription">Miniature de la carte</string>
@@ -65,8 +63,9 @@
     <string name="settings_light_theme">Clair</string>
     <string name="settings_system_theme">Système</string>
     <string name="settings_theme">Thème</string>
-    <string name="enterBarcodeInstructions">Entrez l\'identifiant de la carte puis sélectionnez l\'image qui représente le code-barres que vous souhaitez utiliser, ou sélectionnez « Cette carte n\'a pas de code-barres » pour ne pas utiliser de code-barres.</string>
-    <string name="app_copyright_old">Basé sur Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
+    <string name="enterBarcodeInstructions">Entrez l’identifiant de la carte et choisissez le type de code-barres ci-dessous, ou « Cette carte n’a pas de code-barres ».</string>
+    <string name="app_copyright_old">Basé sur Loyalty Card Keychain
+\ncopyright © 2016-2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Les données seront exportées vers l\'emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
     <string name="share">Partager</string>
@@ -77,11 +76,9 @@
     <string name="unstar">Retirer des favoris</string>
     <string name="star">Ajouter aux favoris</string>
     <string name="starImage">Étoile favorite</string>
-    <string name="deleteConfirmationGroup">Confirmez que vous voulez supprimer ce groupe</string>
+    <string name="deleteConfirmationGroup">Supprimer le groupe \?</string>
     <string name="all">Tous</string>
-    <string name="noGroups">Cliquez d\'abord sur le bouton + (plus) pour ajouter un groupe.
-\n
-\nLes groupes permettent de facilement retrouver vos cartes.</string>
+    <string name="noGroups">Cliquez sur le bouton + pour ajouter des groupes à catégoriser.</string>
     <string name="groups">Groupes</string>
     <string name="enter_group_name">Entrez le nom du groupe</string>
     <string name="noBarcode">Aucun code-barres</string>
@@ -89,17 +86,17 @@
     <string name="leaveWithoutSaveTitle">Quitter</string>
     <string name="failedOpeningFileManager">Installez d’abord un gestionnaire de fichiers.</string>
     <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
-    <string name="moveDown">Descendre dans la liste</string>
-    <string name="moveUp">Monter dans la liste</string>
+    <string name="moveDown">Descendre</string>
+    <string name="moveUp">Monter</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> carte</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> cartes</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> carte</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartes</item>
     </plurals>
-    <string name="groupsList">Groupes : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">Groupes : <xliff:g>%s</xliff:g></string>
     <string name="accept">Accepter</string>
     <string name="privacy_policy_popup_text">Avis sur la politique de confidentialité (exigé par certains magasins d\'applications) :
 \n
-\nNous ne collectons AUCUNE DONNÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
+\nAUCUNE DONNÉE N’EST COLLECTÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importer les données depuis \?</string>
@@ -119,25 +116,19 @@
     <string name="balanceSentence">Solde : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="expiryStateSentenceExpired">Expiré : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="expiryStateSentence">Expire : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Désactiver l\'écran de verrouillage pendant l\'affichage d\'une carte</string>
-    <string name="settings_keep_screen_on">Garder l\'écran allumé pendant l\'affichage d\'une carte</string>
-    <string name="importVoucherVaultMessage">Veuillez sélectionner votre fichier d\'exportation Voucher Vault. Il est probablement nommé vouchervault.json.
-\n
-\nUn fichier d\'exportation Voucher Vault peut être créé en appuyant sur Exporter.</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
+    <string name="settings_keep_screen_on">Garder l’écran allumé</string>
+    <string name="importVoucherVaultMessage">Trouvez un fichier probablement nommé <i>vouchervault.json</i> à importer.
+\nOu créez-le en appuyant d’abord sur Exporter dans Voucher Vault.</string>
     <string name="importVoucherVault">Importer depuis Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Veuillez sélectionner votre fichier d\'exportation Loyalty Card Keychain . Il s\'appelle très probablement LoyaltyCardKeychain.csv.
-\n
-\nUn fichier d\'exportation Loyalty Card Keychain peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
+    <string name="importLoyaltyCardKeychainMessage">Trouvez un fichier probablement nommé <i>LoyaltyCardKeychain.csv</i> à importer.
+\nOu créez-le à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
     <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Veuillez sélectionner votre fichier d\'exportation FidMe. Il est très probablement nommé quelque chose comme fidme-export-request-xxxxxx.zip.
-\n
-\nUn fichier d\'exportation FidMe peut être créé dans l\'application FidMe en accédant à votre profil, en choisissant Protection des données, puis en appuyant sur Extraire mes données.
-\n
-\nVeuillez noter que FidMe ne stocke pas le type de code-barres dans les données d\'exportation, vous devrez donc éditer les cartes importées manuellement.</string>
+    <string name="importFidmeMessage">Trouvez un fichier probablement nommé <i>fidme-export-request-xxxxxx.zip</i> pour l’importer, et sélectionnez ensuite manuellement les types de codes-barres.
+\nVous pouvez aussi le créer à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données.</string>
     <string name="importFidme">Importer depuis FidMe</string>
-    <string name="importCatimaMessage">Veuillez sélectionner votre fichier d\'exportation Catima. Il est probablement nommé Catima.csv.
-\n
-\nUn fichier d\'exportation Catima peut être créé en allant dans le menu Importer/Exporter et en appuyant sur Exporter.</string>
+    <string name="importCatimaMessage">Trouvez un fichier probablement nommé <i>Catima.csv</i> à importer.
+\nOu créez-le à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
     <string name="errorReadingImage">Impossible de lire l\'image</string>
@@ -145,7 +136,10 @@
     <string name="setBarcodeId">Définir la valeur du code-barres</string>
     <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
     <string name="barcodeId">Valeur du code-barres</string>
-    <string name="settings_max_font_size_scale">Échelle maximale de taille de police</string>
+    <string name="settings_max_font_size_scale">Taille max. de la police</string>
     <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version plus récente de l\'application.</string>
     <string name="wrongValueForBarcodeType">La valeur n\'est pas valide pour le type de code-barres sélectionné</string>
+    <string name="app_resources">Ressources libres tierces : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliothèques libres tierces : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
 </resources>

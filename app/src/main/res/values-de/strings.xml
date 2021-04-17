@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Suchen</string>
     <string name="action_add">Hinzufügen</string>
-    <string name="noGiftCards">Klicken Sie auf die Schaltfläche + (plus), um zuerst eine Karte hinzuzufügen.
-\n
-\nCatima trägt Ihre Karten auf dem Gerät, so dass sie immer in Reichweite sind.</string>
+    <string name="noGiftCards">Klicken Sie auf das Pluszeichen +, um eine Karte hinzuzufügen, oder importieren Sie zunächst einige aus dem ⋮ Menü.</string>
     <string name="noMatchingGiftCards">Nichts gefunden. Versuchen Sie, Ihre Suche zu ändern.</string>
-    <string name="storeName">Geschäft</string>
+    <string name="storeName">Name</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
     <string name="cancel">Abbrechen</string>
@@ -19,7 +17,7 @@
     <string name="star">Zu den Favoriten hinzufügen</string>
     <string name="unstar">Aus der Favoritenliste entfernen</string>
     <string name="deleteTitle">Karte entfernen</string>
-    <string name="deleteConfirmation">Bitte bestätigen Sie, dass diese Karte gelöscht werden soll.</string>
+    <string name="deleteConfirmation">Diese Karte löschen\?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Nummer in die Zwischenablage kopieren</string>
     <string name="sendLabel">Senden …</string>
@@ -29,7 +27,7 @@
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Fügen Sie zuerst eine Karte hinzu</string>
     <string name="barcodeImageDescription">Bild des Strichcodes</string>
-    <string name="noStoreError">Kein Geschäft angegeben</string>
+    <string name="noStoreError">Kein Name eingegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
     <string name="importExport">Import/Export</string>
@@ -47,9 +45,9 @@
     <string name="importOptionFilesystemTitle">Importiere aus Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei aus dem Speicher aus.</string>
     <string name="importOptionFilesystemButton">Aus Dateisystem</string>
-    <string name="importOptionApplicationTitle">Externe Anwendung verwenden</string>
+    <string name="importOptionApplicationTitle">Andere Anwendung verwenden</string>
     <string name="importOptionApplicationExplanation">Verwenden Sie eine beliebige Anwendung oder Ihren bevorzugten Dateiverwaltungsprogramm, um eine Datei zu öffnen.</string>
-    <string name="importOptionApplicationButton">Externe Anwendung nutzen</string>
+    <string name="importOptionApplicationButton">Andere Anwendung verwenden</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+.</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
@@ -69,19 +67,18 @@
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Design</string>
-    <string name="enterBarcodeInstructions">Geben Sie die Karten-ID ein und wählen Sie das Bild aus, das den Strichcode darstellt, den Sie verwenden möchten, oder wählen Sie „Diese Karte hat keinen Strichcode“, um keinen Strichcode zu verwenden.</string>
-    <string name="app_copyright_old">Basiert auf Loyalty Card Keychain, Copyright 2016–2020 Branden Archer.</string>
+    <string name="enterBarcodeInstructions">Geben Sie die Karten-ID ein und wählen Sie unten entweder den Strichcodetyp oder „Diese Karte hat keinen Strichcode“.</string>
+    <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
+\nCopyright © 2016-2020 Branden Archer.</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort Ihrer Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Der Import-URI konnte nicht analysiert werden</string>
     <string name="share">Teilen</string>
     <string name="barcodeNoBarcode">Diese Karte hat keinen Strichcode</string>
     <string name="barcodeType">Strichcode-Typ</string>
     <string name="starImage">Favoritenstern</string>
-    <string name="deleteConfirmationGroup">Bitte bestätigen Sie, dass Sie diese Gruppe löschen möchten</string>
+    <string name="deleteConfirmationGroup">Gruppe löschen\?</string>
     <string name="all">Alle</string>
-    <string name="noGroups">Klicken Sie auf die Schaltfläche + (plus), um zuerst Gruppen hinzuzufügen.
-\n
-\nGruppen machen es einfacher, Dinge zu finden.</string>
+    <string name="noGroups">Klicken Sie auf das Pluszeichen +, um zunächst Gruppen zur Kategorisierung hinzuzufügen.</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Geben Sie den Gruppennamen ein</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
@@ -89,16 +86,16 @@
     <string name="failedOpeningFileManager">Installieren Sie zunächst ein Dateiverwaltungsprogramm.</string>
     <string name="noBarcode">Kein Strichcode</string>
     <string name="addManually">Die Karten-ID manuell eingeben</string>
-    <string name="moveDown">In der Liste nach unten verschieben</string>
-    <string name="moveUp">In der Liste nach oben verschieben</string>
+    <string name="moveDown">Nach unten verschieben</string>
+    <string name="moveUp">Nach oben verschieben</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karte</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> Karten</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> Karte</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> Karten</item>
     </plurals>
-    <string name="groupsList">Gruppen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Daten importieren aus\?</string>
-    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
     <string name="balance">Guthaben</string>
@@ -110,34 +107,28 @@
     <string name="editBarcode">Strichcode bearbeiten</string>
     <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> Punkte</string>
-    <string name="balanceSentence">Guthaben: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentence">Läuft ab: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm deaktivieren während eine Karte angesehen wird</string>
-    <string name="settings_keep_screen_on">Bildschirm anlassen während eine Karte angesehen wird</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> Punkte</string>
+    <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
+    <string name="settings_keep_screen_on">Bildschirm eingeschaltet halten</string>
     <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (oft gefordert):
 \n
-\nWir sammeln KEINE DATEN, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
+\nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Bitte wählen Sie Ihre Voucher Vault-Exportdatei aus. Es heißt höchstwahrscheinlich vouchervault.json.
-\n
-\nEine Voucher Vault-Exportdatei kann durch Drücken von Exportieren erstellt werden.</string>
+    <string name="importVoucherVaultMessage">Suchen Sie eine Datei, die wahrscheinlich <i>vouchervault.json</i> heißt, um sie zu importieren.
+\nOder erstellen Sie sie, indem Sie zuerst in Voucher Vault auf Export drücken.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
-    <string name="importLoyaltyCardKeychainMessage">Bitte wählen Sie Ihre Loyalty Card Keychain-Exportdatei aus. Es heißt höchstwahrscheinlich LoyaltyCardKeychain.csv.
-\n
-\nEine Loyalty Card Keychain-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
+    <string name="importLoyaltyCardKeychainMessage">Suchen Sie eine Datei, die höchstwahrscheinlich <i>LoyaltyCardKeychain.csv</i> heißt, um sie zu importieren.
+\nOder erstellen Sie sie über das Menü Import/Export in Loyalty Card Keychain, indem Sie zuerst auf Export drücken.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Bitte wählen Sie Ihre FidMe-Exportdatei aus. Es wird höchstwahrscheinlich so etwas wie fidme-export-request-xxxxxx.zip genannt.
-\n
-\nEine FidMe-Exportdatei kann in der FidMe-Anwendung erstellt werden, indem Sie zu Ihrem Profil gehen, Datenschutz auswählen und dann auf Meine Daten extrahieren klicken.
-\n
-\nBitte beachten Sie, dass FidMe den Strichcode-Typ nicht in den Exportdaten speichert, sodass Sie die importierten Karten manuell bearbeiten müssen.</string>
+    <string name="importFidmeMessage">Suchen Sie eine Datei, die wahrscheinlich <i>fidme-export-request-xxxxxx.zip</i> heißt, um sie zu importieren, und wählen Sie anschließend die Strichcodetypen manuell aus.
+\nOder erstellen Sie sie aus Ihrem FidMe-Profil, indem Sie Datenschutz wählen und dann zuerst auf Extrahiere meine Daten drücken.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Bitte wählen Sie Ihre Catima-Exportdatei aus. Es heißt höchstwahrscheinlich Catima.csv.
-\n
-\nEine Catima-Exportdatei kann erstellt werden, indem Sie im Menü Import/Export auf Exportieren klicken.</string>
+    <string name="importCatimaMessage">Suchen Sie eine Datei, die wahrscheinlich <i>Catima.csv</i> heißt, um sie zu importieren.
+\nOder erstellen Sie sie aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Strichcodewert setzen</string>
     <string name="sameAsCardId">Gleich wie Karten-ID</string>
@@ -145,7 +136,10 @@
     <string name="errorReadingImage">Das Bild konnte nicht gelesen werden</string>
     <string name="noBarcodeFound">Kein Strichcode gefunden</string>
     <string name="addFromImage">Bild aus der Galerie auswählen</string>
-    <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
+    <string name="settings_max_font_size_scale">Max. Schriftgröße</string>
     <string name="unsupportedBarcodeType">Dieser Strichcodetyp kann noch nicht angezeigt werden. Er wird möglicherweise in einer neueren Version der Anwendung unterstützt.</string>
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Strichcodetyp nicht gültig</string>
+    <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
 </resources>

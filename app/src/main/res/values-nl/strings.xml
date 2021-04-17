@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Zoeken</string>
     <string name="action_add">Toevoegen</string>
-    <string name="noGiftCards">Druk op de knop \'+\' (plus) om een kaart toe te voegen.
-\n
-\nMet Catima heb je je klantenkaarten altijd binnen handbereik, gewoon op je apparaat.</string>
+    <string name="noGiftCards">Druk op de plusknop (\'+\') om een kaart toe te voegen of importeer kaarten via het ⋮-menu.</string>
     <string name="noMatchingGiftCards">Geen zoekresultaten. Probeer een andere zoekopdracht.</string>
-    <string name="storeName">Winkel</string>
+    <string name="storeName">Naam</string>
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
     <string name="barcodeType">Soort barcode</string>
@@ -19,7 +17,7 @@
     <string name="lockScreen">Draaien niet toestaan</string>
     <string name="unlockScreen">Draaien toestaan</string>
     <string name="deleteTitle">Kaart verwijderen</string>
-    <string name="deleteConfirmation">Bevestig dat je deze kaart wilt verwijderen.</string>
+    <string name="deleteConfirmation">Kaart verwijderen\?</string>
     <string name="ok">Oké</string>
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
@@ -30,7 +28,7 @@
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
     <string name="barcodeImageDescription">Afbeelding van barcode</string>
-    <string name="noStoreError">Geen winkelnaam ingevoerd</string>
+    <string name="noStoreError">Geen naam ingevoerd</string>
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
@@ -50,16 +48,16 @@
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand vanop het bestandssysteem.</string>
     <string name="importOptionFilesystemButton">Van bestandssysteem</string>
-    <string name="importOptionApplicationTitle">Externe app gebruiken</string>
+    <string name="importOptionApplicationTitle">Andere app gebruiken</string>
     <string name="importOptionApplicationExplanation">Open een bestand middels een app of je favoriete bestandsbeheerder.</string>
-    <string name="importOptionApplicationButton">Externe app gebruiken</string>
+    <string name="importOptionApplicationButton">Andere app gebruiken</string>
     <string name="about">Over</string>
     <string name="app_license">Vrije software, uitgebracht onder de GPLv3-licentie.</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="enterBarcodeInstructions">Voer de barcode in en kies daarna de afbeelding van de barcode die je wilt gebruiken of druk op “Deze kaart heeft geen barcode” om geen barcode te gebruiken.</string>
+    <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode druk op “Deze kaart heeft geen barcode”.</string>
     <string name="copy_to_clipboard_toast">Kaartnummer is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
     <string name="settings">Instellingen</string>
@@ -73,15 +71,14 @@
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
     <string name="importSuccessful">De kaartgegevens zijn geïmporteerd</string>
-    <string name="deleteConfirmationGroup">Bevestig dat je deze groep wilt verwijderen</string>
-    <string name="noGroups">Druk op de knop \'+\' (plus) om een groep toe te voegen.
-\n
-\nDoor kaarten te groeperen vind je ze makkelijker terug.</string>
+    <string name="deleteConfirmationGroup">Groep verwijderen\?</string>
+    <string name="noGroups">Druk op de plusknop (\'+\') om een groep toe te voegen.</string>
     <string name="exportSuccessful">De kaartgegevens zijn geëxporteerd</string>
     <string name="groups">Groepen</string>
     <string name="enter_group_name">Voer een groepsnaam in</string>
     <string name="starImage">Favoriete ster</string>
-    <string name="app_copyright_old">Gebaseerd op Loyalty Card Keychain, copyright 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_old">Gebaseerd op Loyalty Card Keychain,
+\ncopyright ©2016–2020 Branden Archer.</string>
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
     <string name="addManually">Kaartnummer handmatig invoeren</string>
@@ -92,51 +89,45 @@
     <string name="failedOpeningFileManager">Installeer een bestandsbeheerder.</string>
     <string name="noBarcode">Geen barcode</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaart</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kaarten</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> kaart</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kaarten</item>
     </plurals>
-    <string name="groupsList">Groepen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">Groepen: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Barcode aanpassen</string>
     <string name="barcode">Barcode</string>
     <string name="card">Kaart</string>
     <string name="chooseExpiryDate">Kies een vervaldatum</string>
     <string name="never">Nooit</string>
     <string name="expiryDate">Vervaldatum</string>
-    <string name="expiryStateSentence">Vervalt op <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Verlopen: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Vervalt op <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Verlopen: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToCenterOfScreen">Barcode verplaatsen naar midden van scherm</string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
-    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> punten</string>
-    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> punten</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Gegevens importeren uit…\?</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen tijdens tonen van kaart</string>
-    <string name="settings_keep_screen_on">Scherm niet uitschakelen tijdens tonen van kaart</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen</string>
+    <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
     <string name="privacy_policy_popup_text">Privacybeleid (vereist door sommige appwinkels):
 \n
-\nWe verzamelen HELEMAAL NIKS. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
+\nER WORDEN GEEN GEGEVENS VERZAMELD. Bovendien is onze app open source, zodat een ieder met eigen ogen kan zien wat de app wel of niet doet.</string>
     <string name="privacy_policy">Privacybeleid</string>
     <string name="accept">Accepteren</string>
-    <string name="importVoucherVaultMessage">Kies het gewenste Voucher Vault-exportbestand - normaliter heet dit bestand \'vouchervault.json\'.
-\n
-\nGa naar het Exportmenu om een Voucher Vault-exportbestand samen te stellen.</string>
+    <string name="importVoucherVaultMessage">Kies het te importeren Voucher Vault-exportbestand genaamd <i>vouchervault.json</i>.
+\nOf ga naar het exportmenu van Voucher Vault om exportbestand samen te stellen.</string>
     <string name="importVoucherVault">Importeren uit Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Kies het gewenste Klantenkaartkluis-exportbestand - normaliter heet dit bestand \'LoyaltyCardKeychain.csv\'.
-\n
-\nGa naar het Import-/Exportmenu om een Klantenkaartkluis-exportbestand samen te stellen.</string>
+    <string name="importLoyaltyCardKeychainMessage">Kies het te importeren Klantenkaartkluis-exportbestand - genaamd <i>LoyaltyCardKeychain.csv</i>.
+\nOf ga naar het import-/exportmenu van Klantenkaartkluis om een exportbestand samen te stellen.</string>
     <string name="importLoyaltyCardKeychain">Importeren uit Klantenkaartkluis</string>
-    <string name="importFidmeMessage">Kies het gewenste FidMe-exportbestand - normaliter heet dit bestand \'fidme-export-request-xxxxxx.zip\'.
-\n
-\nOpen de FidMe-app, ga naar je profiel en druk op \'Gegevensbescherming\' om een exportbestand samen te stellen.
-\n
-\nLet op: FidMe slaat de soorten barcodes niet op in het exportbestand, dus dat moet je achteraf nog instellen.</string>
-    <string name="importCatimaMessage">Kies het gewenste Catima-exportbestand - normaliter heet dit bestand \'Catima.csv\'.
-\n
-\nGa naar het Import-/Exportmenu om een Catima-exportbestand samen te stellen.</string>
+    <string name="importFidmeMessage">Kies te importeren FidMe-exportbestand genaamd <i>fidme-export-request-xxxxxx.zip</i>.
+\nOf ga naar je FidMe-profiel en druk op \'Gegevensbescherming\' om een exportbestand samen te stellen.</string>
+    <string name="importCatimaMessage">Kies het te importeren exportbestand genaamd <i>Catima.csv</i>.
+\nOf ga naar het import-/exportmenu van Catima op een ander apparaat om een exportbestand samen te stellen.</string>
     <string name="importFidme">Importeren uit FidMe</string>
     <string name="importCatima">Importeren uit Catima</string>
     <string name="errorReadingImage">De afbeelding kan niet worden uitgelezen</string>
@@ -145,7 +136,10 @@
     <string name="setBarcodeId">Barcodewaarde instellen</string>
     <string name="sameAsCardId">Gelijk aan kaart-id</string>
     <string name="barcodeId">Barcodewaarde</string>
-    <string name="settings_max_font_size_scale">Maximale tekstgrootte</string>
+    <string name="settings_max_font_size_scale">Max. tekstgrootte</string>
     <string name="unsupportedBarcodeType">Dit type barcode kan nog niet worden getoond - we hopen hiervoor in een nieuwere versie ondersteuning toe te voegen.</string>
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
+    <string name="app_resources">Externe vrije bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Externe vrije bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
 </resources>

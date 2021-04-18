@@ -5,10 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import androidx.preference.PreferenceManager;
-import androidx.test.core.app.ApplicationProvider;
-import protect.card_locker.preferences.Settings;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,6 +22,10 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.Currency;
 import java.util.Date;
+
+import androidx.preference.PreferenceManager;
+import androidx.test.core.app.ApplicationProvider;
+import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;
 

@@ -7,24 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Guideline;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.TextViewCompat;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.Toolbar;
-
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,8 +29,17 @@ import com.google.zxing.BarcodeFormat;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends AppCompatActivity
@@ -491,7 +488,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 break;
 
             case R.id.action_share:
-                importURIHelper.startShareIntent(loyaltyCard);
+                importURIHelper.startShareIntent(Arrays.asList(loyaltyCard));
                 return true;
 
             case R.id.action_lock_unlock:

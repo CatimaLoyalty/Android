@@ -2,10 +2,6 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.ComponentName;
-<<<<<<< HEAD
-=======
-import android.content.Intent;
->>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -13,21 +9,16 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-<<<<<<< HEAD
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 
-=======
-import com.google.zxing.BarcodeFormat;
->>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-<<<<<<< HEAD
-import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
 import java.math.BigDecimal;
@@ -36,15 +27,17 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-=======
-import org.robolectric.android.controller.ActivityController;
-import org.robolectric.annotation.Config;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
->>>>>>> cdd9472 (WIP Issue #14 (and #65))
 import static org.robolectric.Shadows.shadowOf;
+
+<<<<<<<HEAD
+=======
+        >>>>>>>cdd9472(WIP Issue #14(and #65))
+        <<<<<<<HEAD
+=======
+        >>>>>>>cdd9472(WIP Issue #14(and #65))
+        <<<<<<<HEAD
+=======
+        >>>>>>>cdd9472(WIP Issue #14(and #65))
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)

@@ -10,6 +10,7 @@ import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
@@ -29,6 +30,7 @@ public class ImportURIHelper {
     private final String oldHost;
     private final String oldPath;
     private final String shareText;
+    private final String shareMultipleText;
 
     public ImportURIHelper(Context context) {
         this.context = context;
@@ -37,6 +39,7 @@ public class ImportURIHelper {
         oldHost = "brarcher.github.io";
         oldPath = "/loyalty-card-locker/share";
         shareText = context.getResources().getString(R.string.intent_import_card_from_url_share_text);
+        shareMultipleText = context.getResources().getString(R.string.intent_import_card_from_url_share_multiple_text);
     }
 
     private boolean isImportUri(Uri uri) {
@@ -126,17 +129,33 @@ public class ImportURIHelper {
         return uriBuilder.build();
     }
 
-    private void startShareIntent(Uri uri) {
+    public void startShareIntent(List<LoyaltyCard> loyaltyCards) {
+        int loyaltyCardCount = loyaltyCards.size();
+
+        StringBuilder text = new StringBuilder();
+        if (loyaltyCardCount == 1) {
+            text.append(shareText);
+        } else {
+            text.append(shareMultipleText);
+        }
+        text.append("\n\n");
+
+        for (int i = 0; i < loyaltyCardCount; i++) {
+            LoyaltyCard loyaltyCard = loyaltyCards.get(i);
+
+            text.append(loyaltyCard.store + ": " + toUri(loyaltyCard));
+
+            if (i < (loyaltyCardCount - 1)) {
+                text.append("\n");
+            }
+        }
+
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, shareText + "\n" + uri.toString());
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
         sendIntent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         context.startActivity(shareIntent);
-    }
-
-    public void startShareIntent(LoyaltyCard loyaltyCard) {
-        startShareIntent(toUri(loyaltyCard));
     }
 }

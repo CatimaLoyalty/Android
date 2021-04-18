@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class BaseCursorAdapter<V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V>

@@ -10,31 +10,27 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-import java.util.List;
-
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
@@ -80,12 +76,11 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 } else {
                     StringBuilder cardIds = new StringBuilder();
 
-
-                    for (int i = 0; i < cardCount - 1; i++) {
+                    for (int i = 0; i < cardCount; i++) {
                         LoyaltyCard loyaltyCard = mAdapter.getSelectedItems().get(i);
 
                         cardIds.append(loyaltyCard.store + ": " + loyaltyCard.cardId);
-                        if (i != (cardCount - 1)) {
+                        if (i < (cardCount - 1)) {
                             cardIds.append("\n");
                         }
                     }
@@ -101,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             }
             else if (inputItem.getItemId() == R.id.action_share)
             {
-//                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
-//                importURIHelper.startShareIntent(mCard);
+                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+                importURIHelper.startShareIntent(mAdapter.getSelectedItems());
                 inputMode.finish();
                 return true;
             }
@@ -618,12 +613,19 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         mAdapter.toggleSelection(inputPosition);
         int count = mAdapter.getSelectedItemCount();
 
-        if (count == 0)
-        {
+        if (count == 0) {
             mCurrentActionMode.finish();
-        } else
-        {
+        } else {
             mCurrentActionMode.setTitle("Selected: " + count + " Cards");
+
+            MenuItem editItem = mCurrentActionMode.getMenu().findItem(R.id.action_edit);
+            if (count == 1) {
+                editItem.setVisible(true);
+                editItem.setEnabled(true);
+            } else {
+                editItem.setVisible(false);
+                editItem.setEnabled(false);
+            }
 
             mCurrentActionMode.invalidate();
         }

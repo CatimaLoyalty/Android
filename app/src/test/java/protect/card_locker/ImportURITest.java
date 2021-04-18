@@ -3,13 +3,16 @@ package protect.card_locker;
 import android.app.Activity;
 import android.graphics.Color;
 import android.net.Uri;
+
 import com.google.zxing.BarcodeFormat;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -18,7 +21,6 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static protect.card_locker.DBHelper.LoyaltyCardDbIds;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)

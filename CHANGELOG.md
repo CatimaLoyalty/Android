@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Support copying multiple barcodes at once
+- Support sharing multiple loyalty cards at once
+
 ## v1.13 (2021-04-10)
 
 Changes:

@@ -21,12 +21,11 @@ import java.util.ArrayList;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder>
 {
-    Settings settings;
-
     private static int mCurrentSelectedIndex = -1;
     private Cursor mCursor;
     Settings mSettings;
@@ -204,6 +203,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mAnimationItemsIndex.clear();
     }
 
+    @SuppressFBWarnings("ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD")
     public void toggleSelection(int inputPosition)
     {
         mCurrentSelectedIndex = inputPosition;

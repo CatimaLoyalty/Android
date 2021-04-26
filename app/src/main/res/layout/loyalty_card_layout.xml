@@ -94,7 +94,7 @@
                 android:layout_height="@dimen/cardThumbnailSize"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/thumbnailDescription"
-                android:src="@drawable/ic_done" />
+                app:srcCompat="@drawable/ic_done" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

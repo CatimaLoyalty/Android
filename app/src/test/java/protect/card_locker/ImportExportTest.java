@@ -17,7 +17,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.annotation.LooperMode;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -25,13 +24,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
@@ -62,7 +60,7 @@ public class ImportExportTest
     public void setUp()
     {
         activity = Robolectric.setupActivity(MainActivity.class);
-        db = new DBHelper(activity);
+        db = TestHelpers.getEmptyDb(activity);
         nowMs = System.currentTimeMillis();
 
         Calendar lastYear = Calendar.getInstance();
@@ -314,20 +312,6 @@ public class ImportExportTest
         cursor.close();
     }
 
-    /**
-     * Delete the contents of the database
-     */
-    private void clearDatabase()
-    {
-        SQLiteDatabase database = db.getWritableDatabase();
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbIds.TABLE);
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbGroups.TABLE);
-        database.execSQL("delete from " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
-        database.close();
-
-        assertEquals(0, db.getLoyaltyCardCount());
-    }
-
     @Test
     public void multipleCardsExportImport() throws IOException
     {
@@ -343,7 +327,7 @@ public class ImportExportTest
         assertTrue(result);
         outStream.close();
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
@@ -356,7 +340,7 @@ public class ImportExportTest
         checkLoyaltyCards();
 
         // Clear the database for the next format under test
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -374,7 +358,7 @@ public class ImportExportTest
         assertTrue(result);
         outStream.close();
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
@@ -387,7 +371,7 @@ public class ImportExportTest
         checkLoyaltyCardsFiveStarred();
 
         // Clear the database for the next format under test
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     private List<String> groupsToGroupNames(List<Group> groups)
@@ -447,7 +431,7 @@ public class ImportExportTest
         assertTrue(result);
         outStream.close();
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
@@ -473,7 +457,7 @@ public class ImportExportTest
         assertEquals(emptyGroup, db.getLoyaltyCardGroups(10));
 
         // Clear the database for the next format under test
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -502,7 +486,7 @@ public class ImportExportTest
         checkLoyaltyCards();
 
         // Clear the database for the next format under test
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -521,7 +505,7 @@ public class ImportExportTest
             boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
             assertTrue(result);
 
-            clearDatabase();
+            TestHelpers.getEmptyDb(activity);
 
             // commons-csv would throw a RuntimeException if an entry was quotes but had
             // content after. For example:
@@ -537,7 +521,7 @@ public class ImportExportTest
 
             assertEquals(0, db.getLoyaltyCardCount());
 
-            clearDatabase();
+            TestHelpers.getEmptyDb(activity);
         }
     }
 
@@ -576,7 +560,7 @@ public class ImportExportTest
         assertNotNull(listener.success);
         assertEquals(true, listener.success);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
 
         // Import everything back from the default location
 
@@ -599,7 +583,7 @@ public class ImportExportTest
         checkLoyaltyCards();
 
         // Clear the database for the next format under test
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -635,7 +619,7 @@ public class ImportExportTest
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -673,7 +657,7 @@ public class ImportExportTest
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -698,7 +682,7 @@ public class ImportExportTest
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -736,7 +720,7 @@ public class ImportExportTest
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -774,7 +758,7 @@ public class ImportExportTest
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -812,7 +796,7 @@ public class ImportExportTest
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -869,7 +853,7 @@ public class ImportExportTest
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -1026,7 +1010,7 @@ public class ImportExportTest
         assertEquals(null, card6.headerColor);
         assertEquals(0, card6.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 
     @Test
@@ -1087,6 +1071,6 @@ public class ImportExportTest
         assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
-        clearDatabase();
+        TestHelpers.getEmptyDb(activity);
     }
 }

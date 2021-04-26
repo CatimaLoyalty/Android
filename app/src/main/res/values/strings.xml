@@ -4,6 +4,7 @@
 
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
+    <string name="card_selected">Selected:\u0020</string>
 
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
@@ -36,6 +37,7 @@
     <string name="scanCardBarcode">Scan Card Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">Add a card first</string>
+    <string name="card_ids_copied">Copied Card ID(s)</string>
 
     <string name="barcodeImageDescription">Image of card barcode</string>
 
@@ -76,7 +78,7 @@
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
 
-    <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
+    <string name="copy_to_clipboard_toast">Card ID(s) copied to clipboard</string>
 
     <string name="thumbnailDescription">Thumbnail for card</string>
     <string name="starImage">Favorite star</string>
@@ -173,4 +175,6 @@
     <string name="setBarcodeId">Set barcode value</string>
     <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a newer version of the app.</string>
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
+    <string name="copy_to_clipboard_multiple_toast">Copied card IDs to clipboard</string>
+    <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
 </resources>

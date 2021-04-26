@@ -38,7 +38,7 @@ public class DatabaseTest
     public void setUp()
     {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
-        db = new DBHelper(activity);
+        db = TestHelpers.getEmptyDb(activity);
     }
 
     @Test

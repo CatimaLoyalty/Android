@@ -6,14 +6,11 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.ParseException;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.DataFormat;
 import protect.card_locker.FormatException;
-import protect.card_locker.importexport.CsvDatabaseImporter;
-import protect.card_locker.importexport.DatabaseImporter;
 
 public class MultiFormatImporter
 {

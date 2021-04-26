@@ -7,23 +7,17 @@ import com.google.zxing.BarcodeFormat;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.json.JSONException;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
-import java.util.zip.ZipFile;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;

@@ -17,17 +17,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
+import org.w3c.dom.Text;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
@@ -37,10 +40,9 @@ public class MainActivityTest
     private SharedPreferences prefs;
 
     @Test
-    public void initiallyNoLoyaltyCards() throws Exception
-    {
+    public void initiallyNoLoyaltyCards() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
-        assertTrue(activity != null);
+        assertNotNull(activity);
 
         TextView helpText = activity.findViewById(R.id.helpText);
         assertEquals(View.VISIBLE, helpText.getVisibility());
@@ -48,17 +50,16 @@ public class MainActivityTest
         TextView noMatchingCardsText = activity.findViewById(R.id.noMatchingCardsText);
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
 
-        ListView list = activity.findViewById(R.id.list);
+        RecyclerView list = activity.findViewById(R.id.list);
         assertEquals(View.GONE, list.getVisibility());
     }
 
     @Test
-    public void onCreateShouldInflateLayout() throws Exception
-    {
+    public void onCreateShouldInflateLayout() {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         final Menu menu = shadowOf(activity).getOptionsMenu();
-        assertTrue(menu != null);
+        assertNotNull(menu);
 
         // The settings, import/export, groups, search and add button should be present
         assertEquals(menu.size(), 6);
@@ -92,11 +93,11 @@ public class MainActivityTest
 
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
-        ListView list = mainActivity.findViewById(R.id.list);
+        RecyclerView list = mainActivity.findViewById(R.id.list);
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
-        DBHelper db = new DBHelper(mainActivity);
+        DBHelper db = TestHelpers.getEmptyDb(mainActivity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
@@ -110,9 +111,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getAdapter().getCount());
-        Cursor cursor = (Cursor)list.getAdapter().getItem(0);
-        assertNotNull(cursor);
+        assertEquals(1, list.getAdapter().getItemCount());
 
         db.close();
     }
@@ -125,14 +124,15 @@ public class MainActivityTest
         Activity mainActivity = (Activity)activityController.get();
         activityController.start();
         activityController.resume();
+        activityController.visible();
 
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
-        ListView list = mainActivity.findViewById(R.id.list);
+        RecyclerView list = mainActivity.findViewById(R.id.list);
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
-        DBHelper db = new DBHelper(mainActivity);
+        DBHelper db = TestHelpers.getEmptyDb(mainActivity);
         db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
         db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
         db.insertLoyaltyCard("storeD", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1);
@@ -144,27 +144,17 @@ public class MainActivityTest
 
         activityController.pause();
         activityController.resume();
+        activityController.visible();
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(4, list.getAdapter().getCount());
-        Cursor cursor = (Cursor)list.getAdapter().getItem(0);
-        assertNotNull(cursor);
-        assertEquals("storeC",cursor.getString(cursor.getColumnIndex("store")));
-
-        cursor = (Cursor)list.getAdapter().getItem(1);
-        assertNotNull(cursor);
-        assertEquals("storeD",cursor.getString(cursor.getColumnIndex("store")));
-
-        cursor = (Cursor)list.getAdapter().getItem(2);
-        assertNotNull(cursor);
-        assertEquals("storeA",cursor.getString(cursor.getColumnIndex("store")));
-
-        cursor = (Cursor)list.getAdapter().getItem(3);
-        assertNotNull(cursor);
-        assertEquals("storeB",cursor.getString(cursor.getColumnIndex("store")));
+        assertEquals(4, list.getAdapter().getItemCount());
+        assertEquals("storeC", ((TextView) list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.store)).getText());
+        assertEquals("storeD", ((TextView) list.findViewHolderForAdapterPosition(1).itemView.findViewById(R.id.store)).getText());
+        assertEquals("storeA", ((TextView) list.findViewHolderForAdapterPosition(2).itemView.findViewById(R.id.store)).getText());
+        assertEquals("storeB", ((TextView) list.findViewHolderForAdapterPosition(3).itemView.findViewById(R.id.store)).getText());
 
         db.close();
     }
@@ -178,7 +168,7 @@ public class MainActivityTest
         activityController.start();
         activityController.resume();
 
-        DBHelper db = new DBHelper(mainActivity);
+        DBHelper db = TestHelpers.getEmptyDb(mainActivity);
 
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
 
@@ -230,10 +220,10 @@ public class MainActivityTest
 
         TextView helpText = mainActivity.findViewById(R.id.helpText);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
-        ListView list = mainActivity.findViewById(R.id.list);
+        RecyclerView list = mainActivity.findViewById(R.id.list);
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
 
-        DBHelper db = new DBHelper(mainActivity);
+        DBHelper db = TestHelpers.getEmptyDb(mainActivity);
         db.insertLoyaltyCard("The First Store", "Initial note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
         db.insertLoyaltyCard("The Second Store", "Secondary note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
 
@@ -249,9 +239,9 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getCount());
+        assertEquals(2, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "store";
+        mainActivity.mFilter = "store";
 
         activityController.pause();
         activityController.resume();
@@ -260,7 +250,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getCount());
+        assertEquals(2, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
@@ -272,7 +262,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -281,9 +271,9 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getCount());
+        assertEquals(2, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "first";
+        mainActivity.mFilter = "first";
 
         activityController.pause();
         activityController.resume();
@@ -292,7 +282,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
@@ -304,7 +294,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -313,9 +303,9 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "initial";
+        mainActivity.mFilter = "initial";
 
         activityController.pause();
         activityController.resume();
@@ -324,7 +314,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
@@ -336,7 +326,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -345,9 +335,9 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "second";
+        mainActivity.mFilter = "second";
 
         activityController.pause();
         activityController.resume();
@@ -356,19 +346,21 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
 
         activityController.pause();
         activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -377,18 +369,20 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "company";
+        mainActivity.mFilter = "company";
 
         activityController.pause();
         activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
@@ -396,11 +390,13 @@ public class MainActivityTest
         activityController.pause();
         activityController.resume();
 
+        shadowOf(getMainLooper()).idle();
+
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -409,18 +405,20 @@ public class MainActivityTest
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(0, list.getCount());
+        assertEquals(0, list.getAdapter().getItemCount());
 
-        mainActivity.filter = "";
+        mainActivity.mFilter = "";
 
         activityController.pause();
         activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getCount());
+        assertEquals(2, list.getAdapter().getItemCount());
 
         // Switch to Group one
         groupTabs.selectTab(groupTabs.getTabAt(1));
@@ -428,11 +426,13 @@ public class MainActivityTest
         activityController.pause();
         activityController.resume();
 
+        shadowOf(getMainLooper()).idle();
+
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(1, list.getCount());
+        assertEquals(1, list.getAdapter().getItemCount());
 
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
@@ -441,7 +441,7 @@ public class MainActivityTest
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
-        assertEquals(2, list.getCount());
+        assertEquals(2, list.getAdapter().getItemCount());
 
         db.close();
     }

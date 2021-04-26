@@ -2,98 +2,296 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.util.SparseBooleanArray;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import protect.card_locker.preferences.Settings;
 
-class LoyaltyCardCursorAdapter extends CursorAdapter
+public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder>
 {
-    Settings settings;
+    private static int mCurrentSelectedIndex = -1;
+    private Cursor mCursor;
+    Settings mSettings;
+    boolean mDarkModeEnabled;
+    private Context mContext;
+    private CardAdapterListener mListener;
+    private SparseBooleanArray mSelectedItems;
+    private SparseBooleanArray mAnimationItemsIndex;
+    private boolean mReverseAllAnimations = false;
 
-    public LoyaltyCardCursorAdapter(Context context, Cursor cursor)
+    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener)
     {
-        super(context, cursor, 0);
-        settings = new Settings(context);
+        super(inputCursor);
+        mSettings = new Settings(inputContext);
+        mCursor = inputCursor;
+        mContext = inputContext;
+        mListener = inputListener;
+        mSelectedItems = new SparseBooleanArray();
+        mAnimationItemsIndex = new SparseBooleanArray();
+
+        mDarkModeEnabled = MainActivity.isDarkModeEnabled(inputContext);
     }
 
-    // The newView method is used to inflate a new view and return it,
-    // you don't bind any data to the view at this point.
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent)
+    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
     {
-        return LayoutInflater.from(context).inflate(R.layout.loyalty_card_layout, parent, false);
+        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
+        return new LoyaltyCardListItemViewHolder(itemView);
     }
 
-    // The bindView method is used to bind all data to a given view
-    // such as setting the text on a TextView.
-    @Override
-    public void bindView(View view, Context context, Cursor cursor)
+    public Cursor getCursor()
     {
-        // Find fields to populate in inflated template
-        ImageView thumbnail = view.findViewById(R.id.thumbnail);
-        TextView storeField = view.findViewById(R.id.store);
-        TextView noteField = view.findViewById(R.id.note);
-        TextView balanceField = view.findViewById(R.id.balance);
-        TextView expiryField = view.findViewById(R.id.expiry);
-        ImageView star = view.findViewById(R.id.star);
+        return mCursor;
+    }
 
-        // Extract properties from cursor
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-
-        // Populate fields with extracted properties
-        storeField.setText(loyaltyCard.store);
-
-        storeField.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-
-        if(!loyaltyCard.note.isEmpty())
-        {
-            noteField.setVisibility(View.VISIBLE);
-            noteField.setText(loyaltyCard.note);
-            noteField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        }
-        else
-        {
-            noteField.setVisibility(View.GONE);
+    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
+        if (mDarkModeEnabled) {
+            inputHolder.mStarIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         }
 
-        if(!loyaltyCard.balance.equals(new BigDecimal("0"))) {
-            balanceField.setVisibility(View.VISIBLE);
-            balanceField.setText(context.getString(R.string.balanceSentence, Utils.formatBalance(context, loyaltyCard.balance, loyaltyCard.balanceType)));
-            balanceField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        }
-        else
-        {
-            balanceField.setVisibility(View.GONE);
+        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+
+        inputHolder.mStoreField.setText(loyaltyCard.store);
+        inputHolder.mStoreField.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
+        if (!loyaltyCard.note.isEmpty()) {
+            inputHolder.mNoteField.setVisibility(View.VISIBLE);
+            inputHolder.mNoteField.setText(loyaltyCard.note);
+            inputHolder.mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mNoteField.setVisibility(View.GONE);
         }
 
-        if(loyaltyCard.expiry != null)
+        if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+            inputHolder.mBalanceField.setVisibility(View.VISIBLE);
+            inputHolder.mBalanceField.setText(mContext.getString(R.string.balanceSentence, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType)));
+            inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mBalanceField.setVisibility(View.GONE);
+        }
+
+        if (loyaltyCard.expiry != null)
         {
-            expiryField.setVisibility(View.VISIBLE);
+            inputHolder.mExpiryField.setVisibility(View.VISIBLE);
             int expiryString = R.string.expiryStateSentence;
             if(Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryString = R.string.expiryStateSentenceExpired;
-                expiryField.setTextColor(context.getResources().getColor(R.color.alert));
+                inputHolder.mExpiryField.setTextColor(mContext.getResources().getColor(R.color.alert));
             }
-            expiryField.setText(context.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
-            expiryField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
+            inputHolder.mExpiryField.setText(mContext.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+            inputHolder.mExpiryField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mExpiryField.setVisibility(View.GONE);
+        }
+
+        inputHolder.mStarIcon.setVisibility((loyaltyCard.starStatus != 0) ? View.VISIBLE : View.GONE);
+        inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+
+        inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
+        applyIconAnimation(inputHolder, inputCursor.getPosition());
+        applyClickEvents(inputHolder, inputCursor.getPosition());
+
+    }
+
+    private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
+    {
+        inputHolder.mThumbnailContainer.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View inputView)
+            {
+                mListener.onIconClicked(inputPosition);
+            }
+        });
+
+        inputHolder.mRow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View inputView)
+            {
+                mListener.onRowClicked(inputPosition);
+            }
+        });
+
+        inputHolder.mInformationContainer.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View inputView)
+            {
+                mListener.onRowClicked(inputPosition);
+            }
+        });
+
+        inputHolder.mRow.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View inputView)
+            {
+                mListener.onRowLongClicked(inputPosition);
+                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            }
+        });
+
+        inputHolder.mInformationContainer.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View inputView)
+            {
+                mListener.onRowLongClicked(inputPosition);
+                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            }
+        });
+    }
+
+    private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition)
+    {
+        if (mSelectedItems.get(inputPosition, false))
+        {
+            inputHolder.mThumbnailFrontContainer.setVisibility(View.GONE);
+            resetIconYAxis(inputHolder.mThumbnailBackContainer);
+            inputHolder.mThumbnailBackContainer.setVisibility(View.VISIBLE);
+            inputHolder.mThumbnailBackContainer.setAlpha(1);
+            if (mCurrentSelectedIndex == inputPosition)
+            {
+                LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, true);
+                resetCurrentIndex();
+            }
         }
         else
         {
-            expiryField.setVisibility(View.GONE);
+            inputHolder.mThumbnailBackContainer.setVisibility(View.GONE);
+            resetIconYAxis(inputHolder.mThumbnailFrontContainer);
+            inputHolder.mThumbnailFrontContainer.setVisibility(View.VISIBLE);
+            inputHolder.mThumbnailFrontContainer.setAlpha(1);
+            if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition)
+            {
+                LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, false);
+                resetCurrentIndex();
+            }
+        }
+    }
+
+    private void resetIconYAxis(View inputView)
+    {
+        if (inputView.getRotationY() != 0)
+        {
+            inputView.setRotationY(0);
+        }
+    }
+
+    public void resetAnimationIndex()
+    {
+        mReverseAllAnimations = false;
+        mAnimationItemsIndex.clear();
+    }
+
+    @SuppressFBWarnings("ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD")
+    public void toggleSelection(int inputPosition)
+    {
+        mCurrentSelectedIndex = inputPosition;
+        if (mSelectedItems.get(inputPosition, false))
+        {
+            mSelectedItems.delete(inputPosition);
+            mAnimationItemsIndex.delete(inputPosition);
+        }
+        else
+        {
+            mSelectedItems.put(inputPosition, true);
+            mAnimationItemsIndex.put(inputPosition, true);
+        }
+        notifyItemChanged(inputPosition);
+    }
+
+    public void clearSelections()
+    {
+        mReverseAllAnimations = true;
+        mSelectedItems.clear();
+        notifyDataSetChanged();
+    }
+
+    public int getSelectedItemCount()
+    {
+        return mSelectedItems.size();
+    }
+
+    public ArrayList<LoyaltyCard> getSelectedItems()
+    {
+
+        ArrayList<LoyaltyCard> result = new ArrayList<>();
+
+        int i;
+        for(i = 0; i < mSelectedItems.size(); i++)
+        {
+            mCursor.moveToPosition(mSelectedItems.keyAt(i));
+            result.add(LoyaltyCard.toLoyaltyCard(mCursor));
         }
 
-        if (loyaltyCard.starStatus!=0) star.setVisibility(View.VISIBLE);
-            else star.setVisibility(View.GONE);
+        return result;
+    }
 
-        thumbnail.setImageBitmap(Utils.generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+    private void resetCurrentIndex()
+    {
+        mCurrentSelectedIndex = -1;
+    }
+
+    public interface CardAdapterListener
+    {
+        void onIconClicked(int inputPosition);
+        void onRowClicked(int inputPosition);
+        void onRowLongClicked(int inputPosition);
+    }
+
+    public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener
+    {
+
+        public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
+        public LinearLayout mInformationContainer;
+        public ImageView mCardIcon, mStarIcon;
+        public CardView mThumbnailContainer;
+        public ConstraintLayout mRow;
+        public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
+
+        public LoyaltyCardListItemViewHolder(View inputView)
+        {
+            super(inputView);
+            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
+            mRow = inputView.findViewById(R.id.row);
+            mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
+            mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
+            mInformationContainer = inputView.findViewById(R.id.information_container);
+            mStoreField = inputView.findViewById(R.id.store);
+            mNoteField = inputView.findViewById(R.id.note);
+            mBalanceField = inputView.findViewById(R.id.balance);
+            mExpiryField = inputView.findViewById(R.id.expiry);
+            mCardIcon = inputView.findViewById(R.id.thumbnail);
+            mStarIcon = inputView.findViewById(R.id.star);
+            inputView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View inputView)
+        {
+            mListener.onRowLongClicked(getAdapterPosition());
+            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+            return true;
+        }
     }
 }

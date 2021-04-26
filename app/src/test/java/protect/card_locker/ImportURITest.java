@@ -33,7 +33,7 @@ public class ImportURITest {
     {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         importURIHelper = new ImportURIHelper(activity);
-        db = new DBHelper(activity);
+        db = TestHelpers.getEmptyDb(activity);
     }
 
     @Test

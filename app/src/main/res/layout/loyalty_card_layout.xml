@@ -44,7 +44,7 @@
             android:textSize="@dimen/noteTextSize" />
 
         <TextView
-            android:id="@+id/balanceField"
+            android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -52,7 +52,7 @@
             android:textSize="@dimen/noteTextSize" />
 
         <TextView
-            android:id="@+id/expiryField"
+            android:id="@+id/expiry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"

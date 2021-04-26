@@ -146,7 +146,7 @@ public class ImportURIHelper {
             text.append(loyaltyCard.store + ": " + toUri(loyaltyCard));
 
             if (i < (loyaltyCardCount - 1)) {
-                text.append("\n");
+                text.append("\n\n");
             }
         }
 

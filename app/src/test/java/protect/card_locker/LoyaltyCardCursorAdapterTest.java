@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowLog;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -24,10 +26,14 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.preference.PreferenceManager;
-import androidx.test.core.app.ApplicationProvider;
+import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
+import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
@@ -40,8 +46,10 @@ public class LoyaltyCardCursorAdapterTest
     @Before
     public void setUp()
     {
+        ShadowLog.stream = System.out;
+
         activity = Robolectric.setupActivity(MainActivity.class);
-        db = new DBHelper(activity);
+        db = TestHelpers.getEmptyDb(activity);
         settings = PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
@@ -54,12 +62,12 @@ public class LoyaltyCardCursorAdapterTest
 
     private View createView(Cursor cursor)
     {
-        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor);
+        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity);
 
-        View view = adapter.newView(activity.getApplicationContext(), cursor, null);
-        adapter.bindView(view, activity.getApplicationContext(), cursor);
+        RecyclerView.ViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
+        adapter.bindViewHolder((LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder) viewHolder, cursor.getPosition());
 
-        return view;
+        return viewHolder.itemView;
     }
 
     private void checkView(final View view, final String store, final String note, final String expiry, final String balance, boolean checkFontSizes)
@@ -148,7 +156,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterFontSizes()
     {
-        final Context context = ApplicationProvider.getApplicationContext();
+        final Context context = activity.getApplicationContext();
         Date expiryDate = new Date();
         String dateString = context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate));
 
@@ -173,22 +181,39 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterStarring()
     {
-        db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
-        db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1);
-        db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1);
+        assertNotEquals(-1, db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0));
+        assertNotEquals(-1, db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1));
+        assertNotEquals(-1, db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1));
+
+        assertEquals(3, db.getLoyaltyCardCount());
 
         Cursor cursor = db.getLoyaltyCardCursor();
+        assertEquals(3, cursor.getCount());
+
         cursor.moveToFirst();
+        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
+        cursor.moveToNext();
+        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
+        cursor.moveToNext();
+        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
+
+        assertTrue(cursor.moveToFirst());
+        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("storeB", loyaltyCard.store);
         View view = createView(cursor);
         ImageView star = view.findViewById(R.id.star);
         assertEquals(View.VISIBLE, star.getVisibility());
 
-        cursor.moveToNext();
+        assertTrue(cursor.moveToNext());
+        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("storeC", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
         assertEquals(View.VISIBLE, star.getVisibility());
 
-        cursor.moveToNext();
+        assertTrue(cursor.moveToNext());
+        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("storeA", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
         assertEquals(View.GONE, star.getVisibility());

@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         }
 
         mCardList = findViewById(R.id.list);
-        RecyclerView.LayoutManager mLayoutManager= new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mCardList.setLayoutManager(mLayoutManager);
         mCardList.setItemAnimator(new DefaultItemAnimator());
 
@@ -352,6 +352,11 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
 
         Cursor cardCursor = mDB.getLoyaltyCardCursor(filterText, group);
 
+        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
+        mCardList.setAdapter(mAdapter);
+
+        registerForContextMenu(mCardList);
+
         if(mDB.getLoyaltyCardCount() > 0)
         {
             // We want the cardList to be visible regardless of the filtered match count
@@ -359,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             // the keyboard
             mCardList.setVisibility(View.VISIBLE);
             helpText.setVisibility(View.GONE);
-            if(mDB.getLoyaltyCardCount(filterText) > 0)
+            if(mAdapter.getItemCount() > 0)
             {
                 noMatchingCardsText.setVisibility(View.GONE);
             }
@@ -374,11 +379,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             helpText.setVisibility(View.VISIBLE);
             noMatchingCardsText.setVisibility(View.GONE);
         }
-
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
-        mCardList.setAdapter(mAdapter);
-
-        registerForContextMenu(mCardList);
 
         if (mCurrentActionMode != null) {
             mCurrentActionMode.finish();

@@ -40,14 +40,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener)
     {
         super(inputCursor);
-        settings = new Settings(inputContext);
+        mSettings = new Settings(inputContext);
         mCursor = inputCursor;
-        this.mContext = inputContext;
-        this.mListener = inputListener;
+        mContext = inputContext;
+        mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
-        mSettings = new Settings(inputContext);
         mDarkModeEnabled = MainActivity.isDarkModeEnabled(inputContext);
     }
 
@@ -71,28 +70,24 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
 
         inputHolder.mStoreField.setText(loyaltyCard.store);
-        inputHolder.mStoreField.setTextSize(mSettings.getMediumFont());
-        if(!loyaltyCard.note.isEmpty()) {
+        inputHolder.mStoreField.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
+        if (!loyaltyCard.note.isEmpty()) {
             inputHolder.mNoteField.setVisibility(View.VISIBLE);
             inputHolder.mNoteField.setText(loyaltyCard.note);
-            inputHolder.mNoteField.setTextSize(mSettings.getSmallFont());
-        }
-        else
-        {
+            inputHolder.mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
             inputHolder.mNoteField.setVisibility(View.GONE);
         }
 
-        if(!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+        if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setText(mContext.getString(R.string.balanceSentence, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType)));
-            inputHolder.mBalanceField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        }
-        else
-        {
+            inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
             inputHolder.mBalanceField.setVisibility(View.GONE);
         }
 
-        if(loyaltyCard.expiry != null)
+        if (loyaltyCard.expiry != null)
         {
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);
             int expiryString = R.string.expiryStateSentence;
@@ -101,14 +96,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 inputHolder.mExpiryField.setTextColor(mContext.getResources().getColor(R.color.alert));
             }
             inputHolder.mExpiryField.setText(mContext.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
-            inputHolder.mExpiryField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        }
-        else
-        {
+            inputHolder.mExpiryField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
             inputHolder.mExpiryField.setVisibility(View.GONE);
         }
 
-        inputHolder.mStarIcon.setVisibility(((loyaltyCard.starStatus!=0)) ? View.VISIBLE : View.GONE);
+        inputHolder.mStarIcon.setVisibility((loyaltyCard.starStatus != 0) ? View.VISIBLE : View.GONE);
         inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
@@ -286,8 +279,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mInformationContainer = inputView.findViewById(R.id.information_container);
             mStoreField = inputView.findViewById(R.id.store);
             mNoteField = inputView.findViewById(R.id.note);
-            mBalanceField = inputView.findViewById(R.id.balanceField);
-            mExpiryField = inputView.findViewById(R.id.expiryField);
+            mBalanceField = inputView.findViewById(R.id.balance);
+            mExpiryField = inputView.findViewById(R.id.expiry);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
             inputView.setOnLongClickListener(this);

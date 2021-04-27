@@ -58,7 +58,7 @@
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
     <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode druk op “Deze kaart heeft geen barcode”.</string>
-    <string name="copy_to_clipboard_toast">De kaart-id‘s zijn gekopieerd naar het klembord</string>
+    <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Vormgeving</string>

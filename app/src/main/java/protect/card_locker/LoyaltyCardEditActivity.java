@@ -6,11 +6,13 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.LocaleList;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -38,6 +40,7 @@ import com.google.zxing.BarcodeFormat;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
+import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -60,6 +63,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
 
+    private static final int ID_IMAGE_FRONT = 0;
+    private static final int ID_IMAGE_BACK = 1;
+
     TabLayout tabs;
 
     ImageView thumbnail;
@@ -75,6 +81,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ImageView barcodeImage;
     View barcodeImageLayout;
     View barcodeCaptureLayout;
+    View cardImageFrontHolder;
+    View cardImageBackHolder;
+    ImageView cardImageFront;
+    ImageView cardImageBack;
 
     Button enterButton;
 
@@ -86,6 +96,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     Uri importLoyaltyCardUri = null;
     Integer headingColorValue = null;
+    Bitmap frontImage = null;
+    Bitmap backImage = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -152,6 +164,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
+        cardImageFrontHolder = findViewById(R.id.frontImageHolder);
+        cardImageBackHolder = findViewById(R.id.backImageHolder);
+        cardImageFrontHolder.setId(ID_IMAGE_FRONT);
+        cardImageBackHolder.setId(ID_IMAGE_BACK);
+        cardImageFront = findViewById(R.id.frontImage);
+        cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
 
@@ -460,6 +478,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeIdField.setTag(null);
         barcodeIdField.setText("");
         barcodeTypeField.setText("");
+        cardImageFront.setTag(null);
+        cardImageBack.setTag(null);
     }
 
     @SuppressLint("DefaultLocale")
@@ -534,6 +554,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
             }
 
+            if(cardImageFront.getTag() == null)
+            {
+                setCardImage(cardImageFront, loyaltyCard.frontImage);
+            }
+
+            if(cardImageBack.getTag() == null)
+            {
+                setCardImage(cardImageBack, loyaltyCard.backImage);
+            }
+
             setTitle(R.string.editCardTitle);
         }
         else if(importLoyaltyCardUri != null)
@@ -560,6 +590,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             barcodeIdField.setText(importCard.barcodeId != null ? importCard.barcodeId : getString(R.string.sameAsCardId));
             barcodeTypeField.setText(importCard.barcodeType != null ? importCard.barcodeType.toString() : getString(R.string.noBarcode));
             headingColorValue = importCard.headerColor;
+            setCardImage(cardImageFront, importCard.frontImage);
+            setCardImage(cardImageBack, importCard.backImage);
         }
         else
         {
@@ -572,6 +604,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             balanceCurrencyField.setTag(null);
             formatBalanceCurrencyField(null);
             hideBarcode();
+            setCardImage(cardImageFront, null);
+            setCardImage(cardImageBack, null);
         }
 
         if(groupsChips.getChildCount() == 0)
@@ -650,10 +684,23 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
 
+        cardImageFrontHolder.setOnClickListener(new ChooseCardImage());
+        cardImageBackHolder.setOnClickListener(new ChooseCardImage());
+
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(v -> doSave());
 
         generateIcon(storeFieldEdit.getText().toString());
+    }
+
+    private void setCardImage(ImageView imageView, Bitmap bitmap) {
+        imageView.setTag(bitmap);
+
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+        } else {
+            imageView.setImageResource(R.drawable.ic_camera_white);
+        }
     }
 
     private void formatExpiryField(Date expiry) {
@@ -710,7 +757,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
-
             Intent i = new Intent(getApplicationContext(), ScanActivity.class);
             final Bundle b = new Bundle();
             b.putString("cardId", cardIdFieldView.getText().toString());
@@ -719,6 +765,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+    class ChooseCardImage implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            Intent i = new Intent(Intent.ACTION_PICK);
+            i.setType("image/*");
+            startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+        }
+    }
 
     class ColorSelectListener implements View.OnClickListener
     {
@@ -811,6 +867,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         String cardId = cardIdFieldView.getText().toString();
         String barcodeId = (String) barcodeIdField.getTag();
         BarcodeFormat barcodeType = (BarcodeFormat) barcodeTypeField.getTag();
+        Bitmap frontImage = (Bitmap) cardImageFront.getTag();
+        Bitmap backImage = (Bitmap) cardImageBack.getTag();
 
         if(store.isEmpty())
         {
@@ -839,12 +897,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, frontImage, backImage);
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0, frontImage, backImage);
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
@@ -920,12 +978,35 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
+            if (resultCode == RESULT_OK) {
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
+                } catch (IOException e) {
+                    Log.e(TAG, "Error getting data from image file");
+                    e.printStackTrace();
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                }
 
-        if (resultCode == RESULT_OK) {
-           cardId = barcodeValues.content();
-           barcodeType = barcodeValues.format();
-           barcodeId = "";
+                if (bitmap != null) {
+                    if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+                        setCardImage(cardImageFront, bitmap);
+                    } else {
+                        setCardImage(cardImageBack, bitmap);
+                    }
+
+                    hasChanged = true;
+                }
+            }
+        } else {
+            BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+
+            if (resultCode == RESULT_OK) {
+                cardId = barcodeValues.content();
+                barcodeType = barcodeValues.format();
+                barcodeId = "";
+            }
         }
 
         onResume();
@@ -994,19 +1075,29 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private void showPart(String part) {
         View cardPart = findViewById(R.id.cardPart);
         View barcodePart = findViewById(R.id.barcodePart);
+        View picturesPart = findViewById(R.id.picturesPart);
 
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);
             barcodePart.setVisibility(View.GONE);
+            picturesPart.setVisibility(View.GONE);
 
             // Explicitly hide barcode (fixes blurriness on redraw)
             hideBarcode();
         } else if (getString(R.string.barcode).equals(part)) {
             cardPart.setVisibility(View.GONE);
             barcodePart.setVisibility(View.VISIBLE);
+            picturesPart.setVisibility(View.GONE);
 
             // Redraw barcode due to size change (Visibility.GONE sets it to 0)
             generateOrHideBarcode();
+        } else if (getString(R.string.photos).equals(part)) {
+            cardPart.setVisibility(View.GONE);
+            barcodePart.setVisibility(View.GONE);
+            picturesPart.setVisibility(View.VISIBLE);
+
+            // Explicitly hide barcode (fixes blurriness on redraw)
+            hideBarcode();
         } else {
             throw new UnsupportedOperationException();
         }

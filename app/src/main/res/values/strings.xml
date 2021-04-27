@@ -177,4 +177,7 @@
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
     <string name="copy_to_clipboard_multiple_toast">Copied card IDs to clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
+    <string name="frontImageDescription">Card\'s front image</string>
+    <string name="backImageDescription">Card\'s back image</string>
+    <string name="photos">Photos</string>
 </resources>

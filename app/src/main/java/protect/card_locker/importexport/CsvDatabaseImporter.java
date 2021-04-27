@@ -1,6 +1,9 @@
 package protect.card_locker.importexport;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -274,7 +277,11 @@ public class CsvDatabaseImporter implements DatabaseImporter
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
-        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
+
+        Bitmap frontImage = CSVHelpers.extractImage(DBHelper.LoyaltyCardDbIds.IMAGE_FRONT, record);
+        Bitmap backImage = CSVHelpers.extractImage(DBHelper.LoyaltyCardDbIds.IMAGE_BACK, record);
+
+        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, frontImage, backImage);
     }
 
     /**

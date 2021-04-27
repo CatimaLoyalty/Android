@@ -4,6 +4,7 @@
 
 Changes:
 
+- Support adding a front and back photo to each card
 - Support copying multiple barcodes at once
 - Support sharing multiple loyalty cards at once
 

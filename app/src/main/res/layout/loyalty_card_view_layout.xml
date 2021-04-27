@@ -134,60 +134,114 @@
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/inputBackground"
+        android:fitsSystemWindows="true"
         android:orientation="vertical"
-        android:padding="20dp"
         android:visibility="gone"
         app:behavior_hideable="false"
         app:behavior_peekHeight="104dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        tools:visibility="visible"
-        android:fitsSystemWindows="true">
+        tools:visibility="visible">
 
         <ImageButton
             android:id="@+id/bottomSheetButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:layout_gravity="top|start"
             android:background="@color/colorPrimary"
             android:scaleType="fitCenter"
-            android:layout_gravity="top|start"
             android:tint="@android:color/white"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
 
-        <TextView
-            android:id="@+id/noteView"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bottomSheetContentWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/inputBackground"
-            android:gravity="center"
-            android:padding="20dp"
-            android:textSize="@dimen/singleCardNoteTextSizeMin" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/groupsView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/inputBackground"
-            android:gravity="center"
-            android:padding="20dp"
-            android:textSize="@dimen/singleCardNoteTextSizeMin" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/balanceView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/inputBackground"
-            android:gravity="center"
-            android:padding="20dp"
-            android:textSize="@dimen/singleCardNoteTextSizeMin" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/frontImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_margin"
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:layout_marginEnd="@dimen/activity_margin"
+                    android:layout_marginBottom="@dimen/activity_margin"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="0dp">
 
-        <TextView
-            android:id="@+id/expiryView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/inputBackground"
-            android:gravity="center"
-            android:padding="20dp"
-            android:textSize="@dimen/singleCardNoteTextSizeMin" />
+                    <ImageView
+                        android:id="@+id/frontImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/frontImageDescription"
+                        android:scaleType="fitCenter" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/backImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/activity_margin"
+                    android:layout_marginTop="@dimen/activity_margin"
+                    android:layout_marginEnd="@dimen/activity_margin"
+                    android:layout_marginBottom="@dimen/activity_margin"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:id="@+id/backImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/backImageDescription"
+                        android:scaleType="fitCenter" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/noteView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
+
+                <TextView
+                    android:id="@+id/groupsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
+
+                <TextView
+                    android:id="@+id/balanceView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
+
+                <TextView
+                    android:id="@+id/expiryView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
     <com.google.android.material.appbar.AppBarLayout

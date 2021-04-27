@@ -1,10 +1,29 @@
 package protect.card_locker.importexport;
 
+import android.graphics.Bitmap;
+
 import org.apache.commons.csv.CSVRecord;
 
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 public class CSVHelpers {
+    /**
+     * Extract an image from the items array. The index into the array
+     * is determined by looking up the index in the fields map using the
+     * "key" as the key. If no such key exists, defaultValue is returned
+     * if it is not null. Otherwise, a FormatException is thrown.
+     */
+    static Bitmap extractImage(String key, CSVRecord record)
+    {
+        if(record.isMapped(key))
+        {
+            return Utils.base64ToBitmap(record.get(key));
+        }
+
+        return null;
+    }
+
     /**
      * Extract a string from the items array. The index into the array
      * is determined by looking up the index in the fields map using the

@@ -119,10 +119,10 @@ public class VoucherVaultImporter implements DatabaseImporter
                     headerColor = Color.YELLOW;
                     break;
                 default:
-                    throw new FormatException("Unknown colour type foun: " + colorFromJSON);
+                    throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0);
+            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, null, null);
         }
 
         database.setTransactionSuccessful();

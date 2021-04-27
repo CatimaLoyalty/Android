@@ -130,6 +130,8 @@ public class FidmeImporter implements DatabaseImporter
         // No favourite data in the export either
         int starStatus = 0;
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
+        // TODO: Front and back image
+
+        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null, null);
     }
 }

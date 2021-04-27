@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -35,6 +38,10 @@ public class Utils {
     public static final int SELECT_BARCODE_REQUEST = 2;
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
+    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 5;
+    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 6;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 7;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 8;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -207,5 +214,57 @@ public class Utils {
 
         // Parse as BigDecimal
         return new BigDecimal(value);
+    }
+
+    static public byte[] bitmapToByteArray(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+        return bos.toByteArray();
+    }
+
+    static public Bitmap byteArrayToBitmap(byte[] byteArray) {
+        if (byteArray == null) {
+            return null;
+        }
+
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    static public String bitmapToBase64(Bitmap bitmap) {
+        return Base64.encodeToString(bitmapToByteArray(bitmap), Base64.URL_SAFE);
+    }
+
+    static public Bitmap base64ToBitmap(String base64) {
+        return byteArrayToBitmap(Base64.decode(base64, Base64.URL_SAFE));
+    }
+
+    static public Bitmap resizeBitmap(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        Integer maxSize = 128;
+
+        Integer width = bitmap.getWidth();
+        Integer height = bitmap.getHeight();
+
+        if (height > width) {
+            Integer scale = height / maxSize;
+            height = maxSize;
+            width = width / scale;
+        } else if (width > height) {
+            Integer scale = width / maxSize;
+            width = maxSize;
+            height = height / scale;
+        } else {
+            height = maxSize;
+            width = maxSize;
+        }
+
+        return Bitmap.createScaledBitmap(bitmap, width, height, true);
     }
 }

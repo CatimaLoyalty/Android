@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.google.zxing.BarcodeFormat;
@@ -21,7 +22,6 @@ public class ImportURIHelper {
     private static final String CARD_ID = DBHelper.LoyaltyCardDbIds.CARD_ID;
     private static final String BARCODE_ID = DBHelper.LoyaltyCardDbIds.BARCODE_ID;
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
-
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
 
     private final Context context;
@@ -93,7 +93,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0);
+            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, null, null);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -125,7 +125,8 @@ public class ImportURIHelper {
         if(loyaltyCard.headerColor != null) {
             uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
         }
-        //StarStatus will not be exported
+        // Star status will not be exported
+        // Front and back pictures are often too big to fit into a message in base64 nicely, not sharing either...
         return uriBuilder.build();
     }
 

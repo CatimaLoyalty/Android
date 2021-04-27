@@ -13,11 +13,13 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +51,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView cardIdFieldView;
     BottomSheetBehavior behavior;
     View bottomSheet;
+    View bottomSheetContentWrapper;
     ImageView bottomSheetButton;
+    View frontImageView;
+    ImageView frontImage;
+    View backImageView;
+    ImageView backImage;
     TextView noteView;
     TextView groupsView;
     TextView balanceView;
@@ -120,7 +127,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         cardIdFieldView = findViewById(R.id.cardIdView);
         bottomSheet = findViewById(R.id.bottom_sheet);
+        bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
         bottomSheetButton = findViewById(R.id.bottomSheetButton);
+        frontImageView = findViewById(R.id.frontImageView);
+        frontImage = findViewById(R.id.frontImage);
+        backImageView = findViewById(R.id.backImageView);
+        backImage = findViewById(R.id.backImage);
         noteView = findViewById(R.id.noteView);
         groupsView = findViewById(R.id.groupsView);
         balanceView = findViewById(R.id.balanceView);
@@ -198,6 +210,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                     bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
                     editButton.show();
+
+                    // Scroll bottomsheet content back to top
+                    bottomSheetContentWrapper.setScrollY(0);
                 }
             }
 
@@ -210,6 +225,25 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             } else {
                 behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+        // Fix bottom sheet content sizing
+        ViewTreeObserver viewTreeObserver = bottomSheet.getViewTreeObserver();
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                bottomSheet.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                int height = displayMetrics.heightPixels;
+                int maxHeight = height - appBarLayout.getHeight() - bottomSheetButton.getHeight();
+                Log.d(TAG, "Button sheet should be " + maxHeight + " pixels high");
+                bottomSheetContentWrapper.setLayoutParams(
+                        new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                maxHeight
+                        )
+                );
             }
         });
     }
@@ -274,6 +308,26 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
+
+        if(loyaltyCard.frontImage != null)
+        {
+            frontImageView.setVisibility(View.VISIBLE);
+            frontImage.setImageBitmap(loyaltyCard.frontImage);
+        }
+        else
+        {
+            frontImageView.setVisibility(View.GONE);
+        }
+
+        if(loyaltyCard.backImage != null)
+        {
+            backImageView.setVisibility(View.VISIBLE);
+            backImage.setImageBitmap(loyaltyCard.backImage);
+        }
+        else
+        {
+            backImageView.setVisibility(View.GONE);
+        }
 
         if(loyaltyCard.note.length() > 0)
         {
@@ -566,7 +620,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     private void makeBottomSheetVisibleIfUseful()
     {
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
+        if (frontImageView.getVisibility() == View.VISIBLE || backImageView.getVisibility() == View.VISIBLE || noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);
         }
         else

@@ -56,7 +56,7 @@
     <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g id="app_revision_url"> %s </xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
     <string name="enterBarcodeInstructions">Inserisci l’ID della carta, e scegli il suo tipo di codice a barre qui sotto, oppure «Questa carta non ha codice a barre».</string>
-    <string name="copy_to_clipboard_toast">ID della carta copiato negli appunti</string>
+    <string name="copy_to_clipboard_toast">Numero della carta copiato negli appunti</string>
     <string name="thumbnailDescription">Miniatura carta</string>
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
@@ -142,4 +142,8 @@
     <string name="app_resources">Risorse libre di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
     <string name="app_libraries">Librerie libre di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Voglio condividere alcune carte con te</string>
+    <string name="copy_to_clipboard_multiple_toast">Numeri delle carte copiati negli appunti</string>
+    <string name="card_ids_copied">Numero/i della carta copiato/i</string>
+    <string name="card_selected">"Selezionata: "</string>
 </resources>

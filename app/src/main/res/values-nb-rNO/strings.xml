@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Legg til</string>
-    <string name="noGiftCards">Klikk på \"+\" (pluss)-knappen for å legge til et kort først.
-\n
-\nDa har du dem alltid hendig.</string>
+    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importere kort fra ⋮-menyen først-.</string>
     <string name="storeName">Butikk</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
@@ -16,7 +14,7 @@
     <string name="lockScreen">Ingen rotering</string>
     <string name="unlockScreen">Skru på rotering</string>
     <string name="deleteTitle">Fjern kundekort</string>
-    <string name="deleteConfirmation">Bekreft at du ønsker å slette dette kortet.</string>
+    <string name="deleteConfirmation">Slett dette kortet\?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
     <string name="sendLabel">Send…</string>
@@ -50,8 +48,8 @@
     <string name="importOptionApplicationButton">Bruk eksternt program</string>
     <string name="about">Om</string>
     <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
-    <string name="about_title_fmt">Om <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g></string>
-    <string name="debug_version_fmt">Versjon: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="version">%s</xliff:g></string>
+    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
@@ -68,7 +66,8 @@
     <string name="settings_light_theme">Lys</string>
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Drakt</string>
-    <string name="app_copyright_old">Basert på Kundekortknippe, opphavsrett 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_old">Basert på Kundekortknippe
+\nopphavsrett 2016–2020 Branden Archer.</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
@@ -77,10 +76,8 @@
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Legg til i favoritter</string>
-    <string name="noGroups">Klikk på «+»-tegnet for å legge til grupper først.
-\n
-\nGrupper gjør ting enklere å finne.</string>
-    <string name="deleteConfirmationGroup">Bekreft at du ønsker å slette denne gruppen</string>
+    <string name="noGroups">Klikk på «+»- (pluss)-tegnet for å legge til grupper for kategorisering først.</string>
+    <string name="deleteConfirmationGroup">Slett gruppe\?</string>
     <string name="all">Alle</string>
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
@@ -92,26 +89,26 @@
     <string name="moveDown">Flytt nedover i listen</string>
     <string name="moveUp">Flytt oppover i listen</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
     </plurals>
-    <string name="groupsList">Grupper: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Rediger strekkode</string>
     <string name="barcode">Strekkode</string>
     <string name="card">Kort</string>
-    <string name="expiryStateSentence">Utløper: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Utløper: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">Velg utløpsdato</string>
     <string name="never">Aldri</string>
     <string name="expiryDate">Utløpsdato</string>
-    <string name="expiryStateSentenceExpired">Utløpt: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Utløpt: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToCenterOfScreen">Sentrer strekkoden på skjermen</string>
     <string name="moveBarcodeToTopOfScreen">Flytt strekkoden til toppen av skjermen</string>
-    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ser ikke ut til å være en gyldig saldo.</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ser ikke ut til å være en gyldig saldo.</string>
     <string name="points">Poeng</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> poeng</string>
-    <string name="balanceSentence">Saldo: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> poeng</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Importer data fra\?</string>
     <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Skru av låseskjerm under kortvisning</string>
@@ -130,22 +127,23 @@
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som kort-ID</string>
     <string name="barcodeId">Strekkodeverdi</string>
-    <string name="importVoucherVaultMessage">Velg din Voucher Vault-eksportfil. Antagelig vouchervault.json.
-\n
-\nEn Voucher Vault-eksportfil kan opprettes ved å trykke «Eksporter».</string>
+    <string name="importVoucherVaultMessage">Finn en fil som antagelig heter <i>voucher.vault.json</i> å importere.
+\nEller opprett den ved å trykke «Eksport» i Voucher Vault først.</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Velg din Kundekortknippe-eksportfil. Antagelig LoyaltyCardKeychain.csv.
-\n
-\nDen kan opprettes ved å gå til import/eksport-menyen der og trykke «Eksporter».</string>
+    <string name="importLoyaltyCardKeychainMessage">Finn en fil som antagelig heter <i>LoyaltyCardKeychain.csv</i> å importere.
+\nEller opprett den i Import/eksport-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Velg din FidMe-eksportfil. Antagelig fidme-export-request-xxxxxx.zip.
-\n
-\nDen kan opprettes i FidMe-programmet ved å gå til profilen din der, velge \"Databeskyttelse\", og så trykke «Pakk ut dataen min».
-\n
-\nMerk deg at FidMe ikke lagrer strekkodetypen i eksportdata, så du må redigere importerte kort manuelt.</string>
-    <string name="importCatimaMessage">Velg din Catima-eksportfil. Antagelig Catima.csv.
-\n
-\nDen kan eksporteres ved å gå til import/eksport-menyen og trykke «Eksporter».</string>
+    <string name="importFidmeMessage">Finn en fil som antagelig heter <i>fidme.export-request-xxxxx.zip</i> å importere, for så å så velge strekkodetypene manuelt etterpå-
+\nEller opprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
+    <string name="importCatimaMessage">Finn en fil som antagelig heter <i>Catima.csv</i> å importere.
+\nEller opprett den i Import/eksport-menyen i et annet Catima-program ved å trykke «Eksporter» der først.</string>
     <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Jeg ønsker å dele noen kort med deg</string>
+    <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID til utklippstavle</string>
+    <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="card_selected">"Valgt: "</string>
+    <string name="card_ids_copied">Kopierte kort-ID(er)</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
 </resources>

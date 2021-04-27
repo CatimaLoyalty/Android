@@ -235,10 +235,18 @@ public class Utils {
     }
 
     static public String bitmapToBase64(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
         return Base64.encodeToString(bitmapToByteArray(bitmap), Base64.URL_SAFE);
     }
 
     static public Bitmap base64ToBitmap(String base64) {
+        if (base64 == null) {
+            return null;
+        }
+
         return byteArrayToBitmap(Base64.decode(base64, Base64.URL_SAFE));
     }
 

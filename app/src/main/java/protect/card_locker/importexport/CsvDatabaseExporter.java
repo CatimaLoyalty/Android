@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
 import protect.card_locker.LoyaltyCard;
+import protect.card_locker.Utils;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
@@ -59,7 +60,9 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS);
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS,
+                DBHelper.LoyaltyCardDbIds.IMAGE_FRONT,
+                DBHelper.LoyaltyCardDbIds.IMAGE_BACK);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
@@ -76,7 +79,9 @@ public class CsvDatabaseExporter implements DatabaseExporter
                     card.cardId,
                     card.headerColor,
                     card.barcodeType,
-                    card.starStatus);
+                    card.starStatus,
+                    Utils.bitmapToBase64(card.frontImage),
+                    Utils.bitmapToBase64(card.backImage));
 
             if(Thread.currentThread().isInterrupted())
             {

@@ -273,7 +273,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
         } catch (FormatException _e ) {
-            // This field did not exist in versions 0.28 and before
+            // This field did not exist in versions 0.278 and before
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;

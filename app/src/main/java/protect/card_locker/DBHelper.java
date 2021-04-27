@@ -81,7 +81,9 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
+                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
+                LoyaltyCardDbIds.IMAGE_FRONT + " TEXT," +
+                LoyaltyCardDbIds.IMAGE_BACK + " TEXT)");
 
         // create associative table for cards in groups
         db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +

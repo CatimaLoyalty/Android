@@ -142,4 +142,8 @@
     <string name="app_resources">Ressources libres tierces : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques libres tierces : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
+    <string name="copy_to_clipboard_multiple_toast">Nméros des cartes copiés dans le presse-papier</string>
+    <string name="card_ids_copied">Num. de la carte copié(s)</string>
+    <string name="card_selected">"Sélectionnée : "</string>
 </resources>

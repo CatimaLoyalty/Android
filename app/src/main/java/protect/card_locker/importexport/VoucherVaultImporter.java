@@ -84,6 +84,9 @@ public class VoucherVaultImporter implements DatabaseImporter
                 case "EAN13":
                     barcodeType = BarcodeFormat.EAN_13;
                     break;
+                case "PDF417":
+                    barcodeType = BarcodeFormat.PDF_417;
+                    break;
                 case "QR":
                     barcodeType = BarcodeFormat.QR_CODE;
                     break;

@@ -4,6 +4,7 @@
 
 Changes:
 
+- Support new PDF417 export from Voucher Vault
 - Support copying multiple barcodes at once
 - Support sharing multiple loyalty cards at once
 

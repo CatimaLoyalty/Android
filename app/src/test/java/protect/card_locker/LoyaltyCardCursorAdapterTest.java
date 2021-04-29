@@ -124,7 +124,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterEmptyNote()
     {
-        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -140,7 +140,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterWithNote()
     {
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -160,7 +160,7 @@ public class LoyaltyCardCursorAdapterTest
         Date expiryDate = new Date();
         String dateString = context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate));
 
-        db.insertLoyaltyCard("store", "note", expiryDate, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", expiryDate, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -181,9 +181,9 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapterStarring()
     {
-        assertNotEquals(-1, db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0));
-        assertNotEquals(-1, db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1));
-        assertNotEquals(-1, db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1));
+        assertNotEquals(-1, db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null));
+        assertNotEquals(-1, db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1, null, null));
+        assertNotEquals(-1, db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 1, null, null));
 
         assertEquals(3, db.getLoyaltyCardCount());
 
@@ -224,7 +224,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapter0Points()
     {
-        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -240,7 +240,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapter0EUR()
     {
-        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -256,7 +256,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapter100Points()
     {
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("100"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("100"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();
@@ -272,7 +272,7 @@ public class LoyaltyCardCursorAdapterTest
     @Test
     public void TestCursorAdapter10USD()
     {
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0, null, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
         Cursor cursor = db.getLoyaltyCardCursor();

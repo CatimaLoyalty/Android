@@ -18,7 +18,13 @@ public class CSVHelpers {
     {
         if(record.isMapped(key))
         {
-            return Utils.base64ToBitmap(record.get(key));
+            String value = record.get(key);
+
+            if (value.isEmpty()) {
+                return null;
+            }
+
+            return Utils.base64ToBitmap(value);
         }
 
         return null;

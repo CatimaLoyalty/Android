@@ -991,9 +991,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                 if (bitmap != null) {
                     if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
-                        setCardImage(cardImageFront, bitmap);
+                        setCardImage(cardImageFront, Utils.resizeBitmap(bitmap));
                     } else {
-                        setCardImage(cardImageBack, bitmap);
+                        setCardImage(cardImageBack, Utils.resizeBitmap(bitmap));
                     }
 
                     hasChanged = true;

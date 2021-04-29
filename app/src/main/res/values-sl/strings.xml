@@ -1,8 +1,6 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Dodaj</string>
-
     <string name="noGiftCards">Trenutno nimate shranjene nobene kartice zvestobe. Kliknite  \"+\" (plus) na vrhu, da jih dodate.\n\n Aplikacija Kartice zvestobe Vam omogoča, da imate kartice zvestobe shranjene na Vašem telefonu in vedno v dosegu roke.</string>
     <string name="storeName">Shrani</string>
     <string name="note">Zabeležka</string>
@@ -18,15 +16,13 @@
     <string name="deleteConfirmation">Prosim potrdite, če želite izbrisati to kartico.</string>
     <string name="ok">Vredu</string>
     <string name="copy_to_clipboard">Kopirajte številko kartice</string>
-    <string name="sendLabel">Pošlji#8230;</string>
+    <string name="sendLabel">Pošlji…</string>
     <string name="editCardTitle">Uredi kartico zvestobe</string>
     <string name="addCardTitle">Dodaj kartico zvestobe</string>
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Trenutno ni na voljo nobene kartice. Najprej jih je potrebno dodati.</string>
-
     <string name="barcodeImageDescription">Slika črtne kode na kartici</string>
-
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
@@ -39,8 +35,8 @@
     <string name="exportSuccessfulTitle">Izvoz je uspel</string>
     <string name="exportFailedTitle">Izvoz ni uspel</string>
     <string name="exportFailed">Napaka pri izvozu</string>
-    <string name="importing">Uvažanje&#8230;</string>
-    <string name="exporting">Izvažanje&#8230;</string>
+    <string name="importing">Uvažanje…</string>
+    <string name="exporting">Izvažanje…</string>
     <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema</string>
@@ -48,20 +44,16 @@
     <string name="importOptionApplicationTitle">Uporabi zunanjo aplikacijo</string>
     <string name="importOptionApplicationExplanation">Uporabi zunanjo aplikacijo, kot npr. Dropbox, Google Drive ali ostale upravljalnike datotek, za odpiranje datoteko.</string>
     <string name="importOptionApplicationButton">Uporabi zunanjo aplikacijo</string>
-
     <string name="about">Več o aplikaciji</string>
     <string name="app_license">Licencirano s skladu z GPLv3.</string>
     <string name="about_title_fmt">Več o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informacije o popravkih: <xliff:g id="app_revision_url">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Izberite črtno kodo</string>
     <string name="copy_to_clipboard_toast">Številka kartice je bila kopirana v odložišče</string>
-
     <string name="thumbnailDescription">Ikona kartice</string>
-
     <string name="settings">Nastavitve</string>
     <string name="settings_category_title_ui">Uporabniški vmesnik</string>
     <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
     <string name="settings_lock_barcode_orientation">Zakleni orientacijo črtne kode</string>
-    </resources>
+</resources>

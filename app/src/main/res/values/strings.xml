@@ -180,4 +180,8 @@
     <string name="frontImageDescription">Card\'s front image</string>
     <string name="backImageDescription">Card\'s back image</string>
     <string name="photos">Photos</string>
+    <string name="setFrontImage">Set front image</string>
+    <string name="setBackImage">Set back image</string>
+    <string name="removeImage">Remove image</string>
+    <string name="chooseImageFromGallery">Choose image from gallery</string>
 </resources>

@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.provider.MediaStore;
+import android.telecom.Call;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -50,8 +51,12 @@ import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.NoSuchElementException;
+import java.util.concurrent.Callable;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -768,11 +773,42 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     class ChooseCardImage implements View.OnClickListener
     {
         @Override
-        public void onClick(View v)
+        public void onClick(View v) throws NoSuchElementException
         {
-            Intent i = new Intent(Intent.ACTION_PICK);
-            i.setType("image/*");
-            startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+            ImageView targetView = v.getId() == ID_IMAGE_FRONT ? cardImageFront : cardImageBack;
+
+            LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
+            if (targetView.getTag() != null) {
+                cardOptions.put(getString(R.string.removeImage), () -> {
+                    setCardImage(targetView, null);
+                    return null;
+                });
+            }
+
+            cardOptions.put(getString(R.string.chooseImageFromGallery), () -> {
+                Intent i = new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
+                startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+                return null;
+            });
+
+            new AlertDialog.Builder(LoyaltyCardEditActivity.this)
+                    .setTitle(v.getId() == ID_IMAGE_FRONT ? getString(R.string.setFrontImage) : getString(R.string.setBackImage))
+                    .setItems(cardOptions.keySet().toArray(new CharSequence[cardOptions.size()]), (dialog, which) -> {
+                        Iterator<Callable<Void>> callables = cardOptions.values().iterator();
+                        Callable<Void> callable = callables.next();
+
+                        for (int i = 0; i < which; i++) {
+                            callable = callables.next();
+                        }
+
+                        try {
+                            callable.call();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    })
+                    .show();
         }
     }
 

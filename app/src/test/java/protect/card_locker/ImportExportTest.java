@@ -894,9 +894,9 @@ public class ImportExportTest
                 "Example\r\n" +
                 "\r\n" +
                 "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus,frontimage,backimage\r\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQAAAADrRVxmAAAAGUlEQVR42mNgGAWjYBSMglEwCkbB\n" +
-                "KKAvAAAIgAABw1fMHQAAAABJRU5ErkJggg==\n\",\"iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQAAAADrRVxmAAAAGUlEQVR42mNgGAWjYBSMglEwCkbB\n" +
-                "KKAvAAAIgAABw1fMHQAAAABJRU5ErkJggg==\n\"\r\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
+                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\",\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
+                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\"\r\n" +
                 "\r\n" +
                 "cardId,groupId\r\n" +
                 "1,Example\r\n";
@@ -915,9 +915,9 @@ public class ImportExportTest
                 "Fashion\n" +
                 "\n" +
                 "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus,frontimage,backimage\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQAAAADrRVxmAAAAGUlEQVR42mNgGAWjYBSMglEwCkbB\n" +
-                "KKAvAAAIgAABw1fMHQAAAABJRU5ErkJggg==\n\",\"iVBORw0KGgoAAAANSUhEUgAAAIAAAACAAQAAAADrRVxmAAAAGUlEQVR42mNgGAWjYBSMglEwCkbB\n" +
-                "KKAvAAAIgAABw1fMHQAAAABJRU5ErkJggg==\n\"\r\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
+                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\",\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
+                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\"\r\n" +
                 "8,Clothes Store,Note about store,,0,,a,,-5317,,0,,\n" +
                 "2,Department Store,,1618041729,0,,A,,-9977996,,0,,\n" +
                 "3,Grocery Store,,,150,,dhd,,-9977996,,0,,\n" +

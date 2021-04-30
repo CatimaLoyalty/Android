@@ -13,7 +13,6 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -85,7 +84,14 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     boolean starred;
     boolean backgroundNeedsDarkIcons;
-    boolean barcodeIsFullscreen = false;
+    FullscreenType fullscreenType = FullscreenType.NONE;
+
+    enum FullscreenType {
+        NONE,
+        BARCODE,
+        IMAGE_FRONT,
+        IMAGE_BACK
+    }
 
     private void extractIntentFields(Intent intent)
     {
@@ -156,7 +162,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
-                redrawBarcodeAfterResize();
+                if (fullscreenType == FullscreenType.BARCODE) {
+                    redrawBarcodeAfterResize();
+                }
                 centerGuideline.setGuidelinePercent(0.5f * scale);
             }
 
@@ -174,18 +182,29 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         rotationEnabled = true;
 
         // Allow making barcode fullscreen on tap
-        maximizeButton.setOnClickListener(v -> setFullscreen(true));
+        maximizeButton.setOnClickListener(v -> setFullscreen(FullscreenType.BARCODE));
         barcodeImage.setOnClickListener(view -> {
-            if (barcodeIsFullscreen)
-            {
-                setFullscreen(false);
-            }
-            else
-            {
-                setFullscreen(true);
+            if (fullscreenType != FullscreenType.NONE) {
+                setFullscreen(FullscreenType.NONE);
+            } else {
+                setFullscreen(FullscreenType.BARCODE);
             }
         });
-        minimizeButton.setOnClickListener(v -> setFullscreen(false));
+        frontImageView.setOnClickListener(view -> {
+            if (fullscreenType != FullscreenType.IMAGE_FRONT) {
+                setFullscreen(FullscreenType.IMAGE_FRONT);
+            } else {
+                setFullscreen(FullscreenType.NONE);
+            }
+        });
+        backImageView.setOnClickListener(view -> {
+            if (fullscreenType != FullscreenType.IMAGE_BACK) {
+                setFullscreen(FullscreenType.IMAGE_BACK);
+            } else {
+                setFullscreen(FullscreenType.NONE);
+            }
+        });
+        minimizeButton.setOnClickListener(v -> setFullscreen(FullscreenType.NONE));
 
         editButton = findViewById(R.id.fabEdit);
         editButton.setOnClickListener(v -> {
@@ -209,7 +228,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                     editButton.hide();
                 } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                     bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
-                    editButton.show();
+                    if (fullscreenType == FullscreenType.NONE) {
+                        editButton.show();
+                    }
 
                     // Scroll bottomsheet content back to top
                     bottomSheetContentWrapper.setScrollY(0);
@@ -385,7 +406,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         expiryView.setTag(loyaltyCard.expiry);
 
-        if (!barcodeIsFullscreen) {
+        if (fullscreenType != FullscreenType.NONE) {
             makeBottomSheetVisibleIfUseful();
         }
 
@@ -448,7 +469,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         if(format != null && isBarcodeSupported)
         {
-            if (!barcodeIsFullscreen) {
+            if (fullscreenType == FullscreenType.NONE) {
                 maximizeButton.setVisibility(View.VISIBLE);
             }
             barcodeImage.setVisibility(View.VISIBLE);
@@ -473,7 +494,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             }
 
             // Force redraw fullscreen state
-            setFullscreen(barcodeIsFullscreen);
+            setFullscreen(fullscreenType);
         }
         else
         {
@@ -484,9 +505,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (barcodeIsFullscreen)
+        if (fullscreenType != FullscreenType.NONE)
         {
-            setFullscreen(false);
+            setFullscreen(FullscreenType.NONE);
             return;
         }
 
@@ -658,14 +679,21 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
      * The purpose of this function is to make sure the barcode can be scanned from the phone
      * by machines which offer no space to insert the complete device.
      */
-    private void setFullscreen(boolean enable)
+    private void setFullscreen(FullscreenType fullscreenType)
     {
         ActionBar actionBar = getSupportActionBar();
-        if(enable)
+        if (fullscreenType != FullscreenType.NONE)
         {
             Log.d(TAG, "Move into of fullscreen");
-            // Prepare redraw after size change
-            redrawBarcodeAfterResize();
+
+            if (fullscreenType == FullscreenType.IMAGE_FRONT) {
+                barcodeImage.setImageBitmap(loyaltyCard.frontImage);
+            } else if (fullscreenType == FullscreenType.IMAGE_BACK) {
+                barcodeImage.setImageBitmap(loyaltyCard.backImage);
+            } else {
+                // Prepare redraw after size change
+                redrawBarcodeAfterResize();
+            }
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -700,11 +728,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
             );
-
-            // Set current state
-            barcodeIsFullscreen = true;
         }
-        else if(!enable)
+        else
         {
             Log.d(TAG, "Move out of fullscreen");
 
@@ -744,9 +769,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                             & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             & ~View.SYSTEM_UI_FLAG_FULLSCREEN
             );
-
-            // Set current state
-            barcodeIsFullscreen = false;
         }
+
+        this.fullscreenType = fullscreenType;
     }
 }

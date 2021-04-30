@@ -45,6 +45,8 @@ public class Utils {
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
+    static final int BITMAP_SIZE_BIG = 512;
+
     static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor) {
         return generateIcon(context, store, backgroundColor, false);
     }
@@ -255,7 +257,7 @@ public class Utils {
             return null;
         }
 
-        Integer maxSize = 128;
+        Integer maxSize = BITMAP_SIZE_BIG;
 
         Integer width = bitmap.getWidth();
         Integer height = bitmap.getHeight();

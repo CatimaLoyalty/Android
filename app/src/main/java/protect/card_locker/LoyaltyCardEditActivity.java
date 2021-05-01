@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.provider.MediaStore;
-import android.telecom.Call;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -58,6 +57,7 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,6 +67,8 @@ import androidx.fragment.app.DialogFragment;
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
+
+    private final String STATE_TAB_INDEX = "savedTab";
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
@@ -130,6 +132,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        tabs = findViewById(R.id.tabs);
+        savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
+    }
+
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        tabs = findViewById(R.id.tabs);
+        tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
     }
 
     @Override

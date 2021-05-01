@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Añadir</string>
-    <string name="noGiftCards">Pulse el botón «+» para añadir una nueva tarjeta.
-\n
-\nCatima guarda sus tarjetas en el dispositivo, para que estén siempre a su alcance.</string>
-    <string name="storeName">Tienda</string>
+    <string name="noGiftCards">Pulse el botón «+» para añadir una tarjeta, o importe algunas del menú ⋮.</string>
+    <string name="storeName">Nombre</string>
     <string name="note">Nota</string>
     <string name="cardId">Id. de tarjeta</string>
     <string name="cancel">Cancelar</string>
@@ -12,10 +10,10 @@
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
-    <string name="lockScreen">Bloquear rotación</string>
-    <string name="unlockScreen">Desbloquear rotación</string>
+    <string name="lockScreen">Bloquear giro</string>
+    <string name="unlockScreen">Desbloquear giro</string>
     <string name="deleteTitle">Eliminar tarjeta</string>
-    <string name="deleteConfirmation">Por favor, confirme que quiere eliminar esta tarjeta.</string>
+    <string name="deleteConfirmation">¿Quiere eliminar esta tarjeta\?</string>
     <string name="ok">Aceptar</string>
     <string name="copy_to_clipboard">Copiar id. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
@@ -25,7 +23,7 @@
     <string name="cardShortcut">Atajo de tarjeta</string>
     <string name="noCardsMessage">Añada una tarjeta primero</string>
     <string name="barcodeImageDescription">Imagen del código de barras de la tarjeta</string>
-    <string name="noStoreError">Establecimiento no especificado</string>
+    <string name="noStoreError">No se proporcionó ningún nombre</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>
     <string name="importExport">Importar/exportar</string>
@@ -43,11 +41,11 @@
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
-    <string name="importOptionApplicationTitle">Utilizar aplicación externa</string>
+    <string name="importOptionApplicationTitle">Utilizar otra aplicación</string>
     <string name="importOptionApplicationExplanation">Use una aplicación o su gestor de archivos favoritos para abrir un archivo.</string>
-    <string name="importOptionApplicationButton">Utilizar aplicación externa</string>
+    <string name="importOptionApplicationButton">Utilizar otra aplicación</string>
     <string name="about">Acerca de</string>
-    <string name="app_license">Software libre con copyleft, disponible bajo la licencia GPLv3+.</string>
+    <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+.</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings">Configuración</string>
@@ -62,7 +60,8 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_theme">Tema</string>
     <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione la imagen que represente el código de barras que se utilizará, o bien, elija «Esta tarjeta no tiene código de barras» para no utilizar ninguno.</string>
-    <string name="app_copyright_old">Basado en Loyalty Card Keychain, derechos de autor 2016–2020 de Branden Archer.</string>
+    <string name="app_copyright_old">Basado en Loyalty Card Keychain
+\nderechos de autor © 2016-2020 de Branden Archer.</string>
     <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija.</string>
     <string name="failedParsingImportUriError">No se pudo procesar el URI de importación</string>
     <string name="share">Compartir</string>
@@ -70,31 +69,29 @@
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noMatchingGiftCards">No se ha encontrado nada. Pruebe a modificar su búsqueda.</string>
     <string name="action_search">Buscar</string>
-    <string name="app_revision_fmt">Información de la revisión: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
-    <string name="noGroups">Pulse el botón «+» para añadir grupos.
-\n
-\nLos grupos permiten encontrar cosas fácilmente.</string>
+    <string name="app_revision_fmt">Información de la revisión: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="noGroups">Primero pulse en el botón «+» para añadir grupos de categorización.</string>
     <string name="starImage">Favorito</string>
     <string name="thumbnailDescription">Miniatura de la tarjeta</string>
-    <string name="copy_to_clipboard_toast">Id. de la tarjeta copiado al portapapeles</string>
+    <string name="copy_to_clipboard_toast">Se copió el identificador de tarjeta en el portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
     <string name="enter_group_name">Introducir nombre del grupo</string>
     <string name="groups">Grupos</string>
-    <string name="groupsList">Grupos: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
     <string name="addManually">Introducir el id. de la tarjeta manualmente</string>
-    <string name="leaveWithoutSaveConfirmation">¿Está seguro de querer abandonar esta página\? Los cambios no se guardarán.</string>
-    <string name="leaveWithoutSaveTitle">Salir sin guardar</string>
-    <string name="moveDown">Bajar en la lista</string>
-    <string name="moveUp">Subir en la lista</string>
-    <string name="failedOpeningFileManager">Fallo al abrir el gestor de archivos. Por favor, asegúrese de que haya uno instalado.</string>
-    <string name="deleteConfirmationGroup">Por favor, confirme que desea eliminar este grupo</string>
+    <string name="leaveWithoutSaveConfirmation">¿Quiere abandonar sin guardar\?</string>
+    <string name="leaveWithoutSaveTitle">Salir</string>
+    <string name="moveDown">Bajar</string>
+    <string name="moveUp">Subir</string>
+    <string name="failedOpeningFileManager">Instale un gestor de archivos primero.</string>
+    <string name="deleteConfirmationGroup">¿Quiere eliminar el grupo\?</string>
     <string name="all">Todo</string>
     <string name="star">Añadir a favoritos</string>
     <plurals name="groupCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjeta</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> tarjetas</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> tarjeta</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
     <string name="points">Puntos</string>
     <string name="moveBarcodeToCenterOfScreen">Centrar el código de barras en la pantalla</string>
@@ -105,7 +102,10 @@
     <string name="editBarcode">Editar el código de barras</string>
     <string name="barcode">Código de barras</string>
     <string name="card">Tarjeta</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> puntos</string>
-    <string name="expiryStateSentenceExpired">Expirado: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentence">Expira: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> puntos</string>
+    <string name="expiryStateSentenceExpired">Expirado: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os.</string>
+    <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
 </resources>

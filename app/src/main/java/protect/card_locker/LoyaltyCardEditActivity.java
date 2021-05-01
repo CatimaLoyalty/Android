@@ -125,7 +125,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));

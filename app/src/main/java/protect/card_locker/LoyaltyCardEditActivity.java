@@ -50,6 +50,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,7 +61,7 @@ import androidx.fragment.app.DialogFragment;
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
-
+    private final String STATE_TAB_INDEX = "savedTab";
     TabLayout tabs;
 
     ImageView thumbnail;
@@ -113,6 +115,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         Log.d(TAG, "View activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        tabs = findViewById(R.id.tabs);
+        savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
+    }
+
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        tabs = findViewById(R.id.tabs);
+        tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
     }
 
     @Override

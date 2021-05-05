@@ -764,7 +764,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
                     takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
                 } else {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

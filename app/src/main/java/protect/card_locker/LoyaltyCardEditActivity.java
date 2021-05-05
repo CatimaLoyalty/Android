@@ -11,6 +11,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -1089,6 +1090,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                 if (bitmap != null) {
                     bitmap = Utils.resizeBitmap(bitmap);
+                    try {
+                        bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(tempCameraPicturePath));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT) {
                         setCardImage(cardImageFront, bitmap);
                     } else {

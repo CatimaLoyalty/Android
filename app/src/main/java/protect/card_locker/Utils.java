@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -276,5 +278,28 @@ public class Utils {
         }
 
         return Bitmap.createScaledBitmap(bitmap, width, height, true);
+    }
+
+    static public Bitmap rotateBitmap(Bitmap bitmap, ExifInterface exifInterface) {
+        switch (exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED)) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotateBitmap(bitmap, 90f);
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotateBitmap(bitmap, 180f);
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotateBitmap(bitmap, 270f);
+            default:
+                return bitmap;
+        }
+    }
+
+    static public Bitmap rotateBitmap(Bitmap bitmap, float rotation) {
+        if (rotation == 0) {
+            return bitmap;
+        }
+
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotation);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 }

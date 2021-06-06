@@ -7,6 +7,7 @@ Changes:
 - Support new PDF417 export from Voucher Vault
 - Support copying multiple barcodes at once
 - Support sharing multiple loyalty cards at once
+- Ask to update barcode value if card ID changes
 
 ## v1.13 (2021-04-10)
 

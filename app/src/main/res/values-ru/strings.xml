@@ -148,4 +148,8 @@
     <string name="card_ids_copied">Скопированные номера карт</string>
     <string name="copy_to_clipboard_multiple_toast">Номера карт скопированы в буфер обмена</string>
     <string name="card_selected">"Выбрано: "</string>
+    <string name="updateBarcodeQuestionText">Вы изменили номер карты. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="updateBarcodeQuestionTitle">Обновить значение штрих-кода\?</string>
 </resources>

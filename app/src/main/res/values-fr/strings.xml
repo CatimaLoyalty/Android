@@ -146,4 +146,8 @@
     <string name="copy_to_clipboard_multiple_toast">Nméros des cartes copiés dans le presse-papier</string>
     <string name="card_ids_copied">Num. de la carte copié(s)</string>
     <string name="card_selected">"Sélectionnée : "</string>
+    <string name="updateBarcodeQuestionText">Vous avez changé l\'identifiant de la carte. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
+    <string name="updateBarcodeQuestionTitle">Mettre à jour la valeur du code-barres \?</string>
 </resources>

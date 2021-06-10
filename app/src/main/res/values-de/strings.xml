@@ -146,4 +146,8 @@
     <string name="copy_to_clipboard_multiple_toast">Kartennummern in die Zwischenablage kopiert</string>
     <string name="card_ids_copied">Kartennummer(n) kopiert</string>
     <string name="card_selected">"Ausgewählt: "</string>
+    <string name="no">Nein</string>
+    <string name="yes">Ja</string>
+    <string name="updateBarcodeQuestionText">Sie haben die Karten-ID geändert. Möchten Sie auch den Strichcode aktualisieren, um denselben Wert zu verwenden\?</string>
+    <string name="updateBarcodeQuestionTitle">Strichcodewert aktualisieren\?</string>
 </resources>

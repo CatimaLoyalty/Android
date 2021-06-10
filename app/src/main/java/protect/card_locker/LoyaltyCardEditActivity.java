@@ -707,6 +707,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void askBarcodeChange(Runnable callback) {
+        if (tempStoredOldBarcodeValue.equals(cardIdFieldView.getText().toString())) {
+            // They are the same, don't ask
+            barcodeIdField.setText(R.string.sameAsCardId);
+            tempStoredOldBarcodeValue = null;
+
+            if (callback != null) {
+                callback.run();
+            }
+
+            return;
+        }
+
         new AlertDialog.Builder(this)
                 .setTitle(R.string.updateBarcodeQuestionTitle)
                 .setMessage(R.string.updateBarcodeQuestionText)
@@ -719,6 +731,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     }
                 })
                 .setNegativeButton(R.string.no, (dialog, which) -> {
+                    barcodeIdField.setText(tempStoredOldBarcodeValue);
+                    tempStoredOldBarcodeValue = null;
+
+                    if (callback != null) {
+                        callback.run();
+                    }
+                })
+                .setOnDismissListener(dialogInterface -> {
                     barcodeIdField.setText(tempStoredOldBarcodeValue);
                     tempStoredOldBarcodeValue = null;
 

@@ -5,6 +5,7 @@
 Changes:
 
 - Add missing barcode ID to export
+- Don't show update barcode dialog if value is the same as card ID
 
 ## v1.14 (2021-06-07)
 

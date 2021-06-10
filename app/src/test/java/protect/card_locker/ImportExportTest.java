@@ -873,8 +873,8 @@ public class ImportExportTest
                 "_id\r\n" +
                 "Example\r\n" +
                 "\r\n" +
-                "_id,store,note,expiry,balance,balancetype,cardid,headercolor,barcodetype,starstatus\r\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,1,QR_CODE,0\r\n" +
+                "_id,store,note,expiry,balance,balancetype,cardid,headercolor,barcodeid,barcodetype,starstatus\r\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,1,5432,QR_CODE,0\r\n" +
                 "\r\n" +
                 "cardId,groupId\r\n" +
                 "1,Example\r\n";

@@ -1,2 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="noExternalStoragePermissionError">Salli käyttöoikeus ulkoisen tallennustilan käyttöön voidaksesi tuoda tai viedä kortteja</string>
+    <string name="no">Ei</string>
+    <string name="yes">Kyllä</string>
+    <string name="updateBarcodeQuestionText">Vaihdoit kortin ID-tunnuksen. Haluatko päivittää myös viivakoodin käyttämään samaa arvoa\?</string>
+    <string name="updateBarcodeQuestionTitle">Päivitä viivakoodin arvo\?</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Haluan jakaa joitain kortteja kanssasi</string>
+    <string name="copy_to_clipboard_multiple_toast">Kopioitiin korttitunnukset leikepöydälle</string>
+    <string name="wrongValueForBarcodeType">Arvo ei ole kelvollinen valitulle viivakoodityypille</string>
+    <string name="unsupportedBarcodeType">Tätä viivakoodityyppiä ei voi vielä näyttää. Sitä saatetaan tukea sovelluksen uudemmassa versiossa.</string>
+    <string name="setBarcodeId">Aseta viivakoodin arvo</string>
+    <string name="sameAsCardId">Sama kuin kortin ID-tunnus</string>
+    <string name="barcodeId">Viivakoodin arvo</string>
+    <string name="importVoucherVaultMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>vouchervault.json</i> tuotavaksi.
+\nTai luo se Vie toiminnolla Voucher Vault sovelluksessa.</string>
+    <string name="importVoucherVault">Tuo Voucher Vault varmuuskopiotiedostosta</string>
+    <string name="importLoyaltyCardKeychainMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>LoyaltyCardKeychain.csv</i> tuotavaksi.
+\nTai luo se Tuo/Vie toiminnolla Loyalty Card Keychain sovelluksessa, valitsemalla valikosta Vie.</string>
+    <string name="importLoyaltyCardKeychain">Tuo Loyalty Card Keychain varmuuskopiotiedostosta</string>
+    <string name="importFidmeMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>fidme-export-request-xxxxxx.zip</i> tuotavaksi ja valitse viivakoodityypit manuaalisesti jälkeenpäin.
+\nTai luo se Tuo/Vie toiminnolla FidMe profiilistasi, valitsemalla Tietotosuoja ja sitten valitsemalla Vie tietoni.</string>
+    <string name="importFidme">Tuo FidMe varmuuskopiotiedostosta</string>
+    <string name="importCatimaMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>Catima.csv</i> tuotavaksi.
+\nTai luo se Tuo/Vie toiminnolla toisen puhelimen Catima sovelluksessa, valitsemalla valikosta Vie.</string>
+    <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
+    <string name="accept">Hyväksy</string>
+    <string name="privacy_policy_popup_text">Tietosuojaseloste (joidenkin sovelluskauppojen vaatimus):
+\n
+\nMITÄÄN TIETOJA EI KERÄTÄ LAINKAAN, minkä kuka tahansa voi vahvistaa, koska sovelluksemma on vapaa ohjelmisto.</string>
+    <string name="privacy_policy">Tietosuojakäytäntö</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain varmuuskopiotiedostosta</string>
+    <string name="chooseImportType">Tuo tietoja kohteesta\?</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ei vaikuta olevan kelvollinen saldo.</string>
+    <string name="points">Pisteet</string>
+    <string name="currency">Valuutta</string>
+    <string name="balance">Saldo</string>
+    <string name="errorReadingImage">Kuvaa ei voitu lukea</string>
+    <string name="noBarcodeFound">Viivakoodia ei löytynyt</string>
+    <string name="moveBarcodeToCenterOfScreen">Keskitä viivakoodi näytölle</string>
+    <string name="moveBarcodeToTopOfScreen">Siirrä viivakoodi näytön yläosaan</string>
+    <string name="chooseExpiryDate">Valitse viimeinen voimassaolopäivä</string>
+    <string name="never">Ei koskaan</string>
+    <string name="expiryDate">Viimeinen voimassaolopäivä</string>
+    <string name="editBarcode">Muokkaa viivakoodia</string>
+    <string name="barcode">Viivakoodi</string>
+    <string name="card">Kortti</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> pistettä</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Vanhentunut: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Vanhenee: <xliff:g>%s</xliff:g></string>
+    <string name="groupsList">Ryhmät: <xliff:g>%s</xliff:g></string>
+    <string name="addFromImage">Valitse kuva galleriasta</string>
+    <string name="addManually">Anna kortin ID-tunnus manuaalisesti</string>
+    <string name="leaveWithoutSaveConfirmation">Poistu tallentamatta\?</string>
+    <string name="leaveWithoutSaveTitle">Poistu</string>
+    <string name="moveDown">Siirrä alaspäin</string>
+    <string name="moveUp">Siirrä ylöspäin</string>
+    <string name="failedOpeningFileManager">Asenna ensin tiedostonhallintaohjelma.</string>
+    <string name="deleteConfirmationGroup">Poista ryhmä\?</string>
+    <string name="all">Kaikki</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kortti</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kortit</item>
+    </plurals>
+    <string name="noGroups">Napsauta + plus-painiketta lisätäksesi ensin ryhmät luokittelua varten.</string>
+    <string name="groups">Ryhmät</string>
+    <string name="enter_group_name">Anna ryhmän nimi</string>
+    <string name="exportSuccessful">Korttitietojen vienti valmis</string>
+    <string name="importSuccessful">Korttitietojen tuonti valmis</string>
+    <string name="intent_import_card_from_url_share_text">Haluan jakaa kortin kanssasi</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Estä lukitusnäyttö</string>
+    <string name="settings_keep_screen_on">Pidä näyttö päällä</string>
+    <string name="settings_lock_barcode_orientation">Lukitse viivakoodin suunta</string>
+    <string name="settings_display_barcode_max_brightness">Kirkasta viivakoodinäkymää</string>
+    <string name="settings_max_font_size_scale">Fontin enimmäiskoko</string>
+    <string name="settings_dark_theme">Tumma</string>
+    <string name="settings_light_theme">Vaalea</string>
+    <string name="settings_system_theme">Järjestelmän oletus</string>
+    <string name="settings_theme">Teema</string>
+    <string name="settings_category_title_ui">Käyttöliittymä</string>
+    <string name="settings">Asetukset</string>
+    <string name="starImage">Suosikki tähti</string>
+    <string name="thumbnailDescription">Kortin pikkukuva</string>
+    <string name="copy_to_clipboard_toast">Kortin ID-tunnus kopioitu leikepöydälle</string>
+    <string name="enterBarcodeInstructions">Syötä kortin ID-tunnus ja valitse sen viivakoodityyppi, tai valitse \"Tällä kortilla ei ole viivakoodia\".</string>
+    <string name="selectBarcodeTitle">Valitse viivakoodi</string>
+    <string name="app_resources">Kolmannen osapuolen vapaat resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Kolmannen osapuolen vapaat kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_revision_fmt">Muutostiedot: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt">Tietoja <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="app_license">Copyleft (käyttäjänoikeus) - vapaa ohjelmisto, lisenssi GPLv3+.</string>
+    <string name="app_copyright_old">Perustuu Loyalty Card Keychain sovellukseen
+\ntekijänoikeus © 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Tekijänoikeus © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="about">Tietoja</string>
+    <string name="importOptionApplicationButton">Käytä toista sovellusta</string>
+    <string name="importOptionApplicationExplanation">Käytä mitä tahansa sovellusta tai suosikkitiedostonhallintaasi tiedoston avaamiseen.</string>
+    <string name="importOptionApplicationTitle">Käytä toista sovellusta</string>
+    <string name="importOptionFilesystemButton">Tiedostojärjestelmästä</string>
+    <string name="importOptionFilesystemExplanation">Valitse tietty tiedosto tiedostojärjestelmästä.</string>
+    <string name="importOptionFilesystemTitle">Tuo tiedostojärjestelmästä</string>
+    <string name="exportOptionExplanation">Tiedot kirjoitetaan valitsemaasi sijaintiin.</string>
+    <string name="exporting">Viedään…</string>
+    <string name="importing">Tuodaan…</string>
+    <string name="exportFailed">Kortteja ei voitu viedä</string>
+    <string name="exportFailedTitle">Vienti epäonnistui</string>
+    <string name="exportSuccessfulTitle">Vienti valmis</string>
+    <string name="importFailed">Kortteja ei voitu tuoda</string>
+    <string name="importFailedTitle">Tuonti epäonnistui</string>
+    <string name="importSuccessfulTitle">Tuonti valmis</string>
+    <string name="importExportHelp">Varmuuskopioimalla korttisi, voit siirtää ne toiseen laitteeseen.</string>
+    <string name="exportName">Vie</string>
+    <string name="importExport">Tuo/Vie</string>
+    <string name="failedParsingImportUriError">Tuonnin URI: n jäsentäminen epäonnistui</string>
+    <string name="noCardExistsError">Korttia ei löytynyt</string>
+    <string name="noCardIdError">Kortin ID-tunnusta ei annettu</string>
+    <string name="noStoreError">Nimeä ei annettu</string>
+    <string name="barcodeImageDescription">Kuva kortin viivakoodista</string>
+    <string name="card_ids_copied">Kopioidut korttitunnukset</string>
+    <string name="noCardsMessage">Lisää ensin kortti</string>
+    <string name="cardShortcut">Kortin pikakuvake</string>
+    <string name="scanCardBarcode">Skannaa kortin viivakoodi</string>
+    <string name="addCardTitle">Lisää kortti</string>
+    <string name="editCardTitle">Muokkaa korttia</string>
+    <string name="sendLabel">Lähetä…</string>
+    <string name="share">Jaa</string>
+    <string name="copy_to_clipboard">Kopioi ID-tunnus leikepöydälle</string>
+    <string name="ok">OK</string>
+    <string name="deleteConfirmation">Poista tämä kortti\?</string>
+    <string name="deleteTitle">Poista kortti</string>
+    <string name="unlockScreen">Poista kierron esto</string>
+    <string name="lockScreen">Estä kierto</string>
+    <string name="confirm">Vahvista</string>
+    <string name="delete">Poista</string>
+    <string name="edit">Muokkaa</string>
+    <string name="save">Tallenna</string>
+    <string name="cancel">Peruuta</string>
+    <string name="unstar">Poista suosikeista</string>
+    <string name="star">Lisää suosikkeihin</string>
+    <string name="noBarcode">Ei viivakoodia</string>
+    <string name="barcodeNoBarcode">Tällä kortilla ei ole viivakoodia</string>
+    <string name="barcodeType">Viivakoodin tyyppi</string>
+    <string name="cardId">Kortin ID-tunnus</string>
+    <string name="note">Lisätieto</string>
+    <string name="storeName">Nimi</string>
+    <string name="noMatchingGiftCards">Ei hakutuloksia, kokeile toisella hakutermillä.</string>
+    <string name="noGiftCards">Lisää ensin kortti napsauttamalla + plus-painiketta, tai mene ⋮ valikkoon tuodaksesi varmuuskopiosta.</string>
+    <string name="card_selected">"Valittu: "</string>
+    <string name="action_add">Lisää</string>
+    <string name="action_search">Hae</string>
+</resources>

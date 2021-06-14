@@ -22,7 +22,7 @@
 \nTai luo se Tuo/Vie toiminnolla FidMe profiilistasi, valitsemalla Tietotosuoja ja sitten valitsemalla Vie tietoni.</string>
     <string name="importFidme">Tuo FidMe varmuuskopiotiedostosta</string>
     <string name="importCatimaMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>Catima.csv</i> tuotavaksi.
-\nTai luo se Tuo/Vie toiminnolla toisen puhelimen Catima sovelluksessa, valitsemalla valikosta Vie.</string>
+\nTai luo se Tuo/Vie toiminnolla Catima sovelluksessa, valitsemalla valikosta Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
     <string name="accept">Hyväksy</string>
     <string name="privacy_policy_popup_text">Tietosuojaseloste (joidenkin sovelluskauppojen vaatimus):

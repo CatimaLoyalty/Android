@@ -1,0 +1,23 @@
+Lopeta muovisten etukorttien etsiminen kaupan tai verkkokaupan kassalla.
+<b>Skannaa viivakoodit laitteeseesi sen kameran avulla, unohda kortit.</b>
+😺
+Unohda lompakko tai pidä se ultrakevyenä sinulle arvokkaita asioita varten.
+😺
+Tämän jokapäiväisen (EDC) työkalun avulla, voit korvata turhan muovin käteisellä.
+😺
+- Vältä vakoilua hyvin vähäisillä käyttöoikeuksilla. Ei Internet-yhteyttä eikä mainoksia.
+- Lisää kortteja tai koodeja nimettynä ja muokattavilla väreillä.
+- Koodin syöttäminen manuaalisesti, jos tallennettavaa viivakoodia ei ole tai sitä ei voida käyttää.
+- Tuo kortteja ja koodeja varmuuskopiotiedostoista, Catima, Loyalty Card Keychain, Voucher Vault, ja FidMe.
+- Tee varmuuskopio kaikista korteistasi ja siirrä ne halutessasi uuteen laitteeseen.
+- Jaa kuponkeja, erikoistarjouksia, tarjouskoodeja tai kortteja ja koodeja millä tahansa sovelluksella.
+- Tumma teema ja esteettömän käytön mahdollisuus näkövammaisille käyttäjille.
+- Vapaan ohjelmistoyhteisön kaikkia varten tekemä.
+- Lokalisoidut käsintehdyt käännökset yli 20 kielelle.
+- Vapaa, yhteisön tukema.
+- Käytä, opiskele, muuta ja jaa sitä toiveidesi mukaan; <i>kaikille</i>.
+- Ei vain vapaa ohjelma / Avoin lähdekoodi. <i>Copyleft</i> vapaa ohjelma (GPLv3+) korttien hallinta.
+😺
+Yksinkertaista elämääsi ja ostosten tekemistä, äläkä enää koskaan hukkaa paperikuittia, kaupassa maksettavaa lahjakorttia tai lentolippua.
+Ota kaikki edut ja bonukset mukaasi ja säästä missä menetkin.
+😺

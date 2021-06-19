@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Legg til</string>
     <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importere kort fra ⋮-menyen først-.</string>
-    <string name="storeName">Butikk</string>
+    <string name="storeName">Navn</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
     <string name="barcodeType">Strekkodetype</string>
@@ -24,7 +24,7 @@
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
     <string name="barcodeImageDescription">Bilde av kortets strekkode</string>
-    <string name="noStoreError">Ingen butikk angitt</string>
+    <string name="noStoreError">Navn ikke angitt</string>
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
     <string name="noCardExistsError">Kunne ikke finne kort</string>
     <string name="importExport">Import/eksport</string>
@@ -43,16 +43,16 @@
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
-    <string name="importOptionApplicationTitle">Bruk eksternt program</string>
+    <string name="importOptionApplicationTitle">Bruk et annet program</string>
     <string name="importOptionApplicationExplanation">Bruk hvilket som helst program, eller din favoritt-filutforsker for å åpne en fil.</string>
-    <string name="importOptionApplicationButton">Bruk eksternt program</string>
+    <string name="importOptionApplicationButton">Bruk et annet program</string>
     <string name="about">Om</string>
     <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
-    <string name="enterBarcodeInstructions">Skriv inn strekkodeverdien og velg så bildet som representerer strekkoden du ønsker å bruke.</string>
+    <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg dens strekkode nedenfor, eller «Dette kortet har ingen strekkode».</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
     <string name="settings">Innstillinger</string>
@@ -86,8 +86,8 @@
     <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre\?</string>
     <string name="leaveWithoutSaveTitle">Avslutt</string>
     <string name="addManually">Skriv inn kort-ID manuelt</string>
-    <string name="moveDown">Flytt nedover i listen</string>
-    <string name="moveUp">Flytt oppover i listen</string>
+    <string name="moveDown">Flytt nedover</string>
+    <string name="moveUp">Flytt oppover</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
@@ -111,8 +111,8 @@
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Importer data fra\?</string>
     <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Skru av låseskjerm under kortvisning</string>
-    <string name="settings_keep_screen_on">Behold skjerm påslått under kortvisning</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
+    <string name="settings_keep_screen_on">Behold skjerm påslått</string>
     <string name="privacy_policy_popup_text">Mange programbutikker krever at programmer viser personvernspraksisen sin ved første oppstart. Her er vår:
 \n
 \nVi SAMLER IKKE IN NOEN DATA overhodet, og programmet vårt er fri programvare, så alle kan bekrefte at dette stemmer.</string>
@@ -140,10 +140,14 @@
     <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg ønsker å dele noen kort med deg</string>
-    <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID til utklippstavle</string>
+    <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID-er til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_selected">"Valgt: "</string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
+    <string name="no">Nei</string>
+    <string name="yes">Ja</string>
+    <string name="updateBarcodeQuestionTitle">Oppdater strekkodeverdi\?</string>
 </resources>

@@ -29,7 +29,7 @@
 \n
 \nMITÄÄN TIETOJA EI KERÄTÄ LAINKAAN, minkä kuka tahansa voi vahvistaa, koska sovelluksemma on vapaa ohjelmisto.</string>
     <string name="privacy_policy">Tietosuojakäytäntö</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain varmuuskopiotiedostosta</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Tuo tietoja kohteesta\?</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ei vaikuta olevan kelvollinen saldo.</string>
     <string name="points">Pisteet</string>

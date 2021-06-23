@@ -93,7 +93,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, null, null);
+            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0);
         } catch (NullPointerException | NumberFormatException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

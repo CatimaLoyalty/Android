@@ -8,6 +8,9 @@ import protect.card_locker.FormatException;
 import protect.card_locker.Utils;
 
 public class CSVHelpers {
+    static String IMAGE_FRONT = "frontimage";
+    static String IMAGE_BACK = "backimage";
+
     /**
      * Extract an image from the items array. The index into the array
      * is determined by looking up the index in the fields map using the

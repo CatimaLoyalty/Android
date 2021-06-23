@@ -46,6 +46,7 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
@@ -102,6 +103,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     View cardImageBackHolder;
     ImageView cardImageFront;
     ImageView cardImageBack;
+
+    Bitmap frontImageBitmap;
+    Bitmap backImageBitmap;
 
     Button enterButton;
 
@@ -600,12 +604,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             if(cardImageFront.getTag() == null)
             {
-                setCardImage(cardImageFront, loyaltyCard.frontImage);
+                setCardImage(cardImageFront, Utils.retrieveCardImage(this, loyaltyCard.id, true));
             }
 
             if(cardImageBack.getTag() == null)
             {
-                setCardImage(cardImageBack, loyaltyCard.backImage);
+                setCardImage(cardImageBack, Utils.retrieveCardImage(this, loyaltyCard.id, false));
             }
 
             setTitle(R.string.editCardTitle);
@@ -634,8 +638,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             barcodeIdField.setText(importCard.barcodeId != null ? importCard.barcodeId : getString(R.string.sameAsCardId));
             barcodeTypeField.setText(importCard.barcodeType != null ? importCard.barcodeType.toString() : getString(R.string.noBarcode));
             headingColorValue = importCard.headerColor;
-            setCardImage(cardImageFront, importCard.frontImage);
-            setCardImage(cardImageBack, importCard.backImage);
         }
         else
         {
@@ -1024,8 +1026,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
-    private void doSave()
-    {
+    private void doSave() {
         if (tempStoredOldBarcodeValue != null) {
             askBarcodeChange(this::doSave);
             return;
@@ -1039,8 +1040,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         String cardId = cardIdFieldView.getText().toString();
         String barcodeId = (String) barcodeIdField.getTag();
         BarcodeFormat barcodeType = (BarcodeFormat) barcodeTypeField.getTag();
-        Bitmap frontImage = (Bitmap) cardImageFront.getTag();
-        Bitmap backImage = (Bitmap) cardImageBack.getTag();
 
         if(store.isEmpty())
         {
@@ -1069,12 +1068,24 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, frontImage, backImage);
+            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue);
+            try {
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0, frontImage, backImage);
+            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0);
+            try {
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);

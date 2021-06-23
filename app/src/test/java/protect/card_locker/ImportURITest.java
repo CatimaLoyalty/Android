@@ -42,7 +42,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "note", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), BarcodeFormat.QR_CODE, Color.BLACK, 1, null, null);
+        db.insertLoyaltyCard("store", "note", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), BarcodeFormat.QR_CODE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -65,16 +65,13 @@ public class ImportURITest {
         assertEquals(card.headerColor, parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
-        // No export of front and back image for export URL foreseen therefore nothing will be imported
-        assertEquals(null, parsedCard.frontImage);
-        assertEquals(null, parsedCard.backImage);
     }
 
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
     {
         // Generate card
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, BarcodeFormat.QR_CODE, null, 0, null, null);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, BarcodeFormat.QR_CODE, null, 0);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -97,9 +94,6 @@ public class ImportURITest {
         assertNull(parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
-        // No export of front and back image for export URL foreseen therefore nothing will be imported
-        assertEquals(null, parsedCard.frontImage);
-        assertEquals(null, parsedCard.backImage);
     }
 
     @Test

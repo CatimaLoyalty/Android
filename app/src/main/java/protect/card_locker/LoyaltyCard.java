@@ -34,16 +34,10 @@ public class LoyaltyCard
 
     public final int starStatus;
 
-    @Nullable
-    public final Bitmap frontImage;
-
-    @Nullable
-    public final Bitmap backImage;
-
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
                        final String barcodeId, final BarcodeFormat barcodeType, final Integer headerColor,
-                       final int starStatus, final Bitmap frontImage, final Bitmap backImage)
+                       final int starStatus)
     {
         this.id = id;
         this.store = store;
@@ -56,8 +50,6 @@ public class LoyaltyCard
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
         this.starStatus = starStatus;
-        this.frontImage = frontImage;
-        this.backImage = backImage;
     }
 
     public static LoyaltyCard toLoyaltyCard(Cursor cursor)
@@ -70,8 +62,6 @@ public class LoyaltyCard
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
         int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
-        Bitmap frontImage = Utils.byteArrayToBitmap(cursor.getBlob(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.IMAGE_FRONT)));
-        Bitmap backImage = Utils.byteArrayToBitmap(cursor.getBlob(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.IMAGE_BACK)));
 
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
@@ -102,6 +92,6 @@ public class LoyaltyCard
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, frontImage, backImage);
+        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred);
     }
 }

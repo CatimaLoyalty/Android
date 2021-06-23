@@ -93,7 +93,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null, null);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -109,7 +109,7 @@ public class ImportExportTest
         {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null, null);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -118,7 +118,7 @@ public class ImportExportTest
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null, null);
+            long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -128,7 +128,7 @@ public class ImportExportTest
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
     {
-        long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, null);
+        long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         boolean result = (id != -1);
         assertTrue(result);
 
@@ -144,7 +144,7 @@ public class ImportExportTest
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = db.insertLoyaltyCard("Past", "", new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, null);
+        id = db.insertLoyaltyCard("Past", "", new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -160,7 +160,7 @@ public class ImportExportTest
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = db.insertLoyaltyCard("Today", "", new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, null);
+        id = db.insertLoyaltyCard("Today", "", new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -179,7 +179,7 @@ public class ImportExportTest
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = db.insertLoyaltyCard("Future", "", new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, null);
+        id = db.insertLoyaltyCard("Future", "", new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0);
         result = (id != -1);
         assertTrue(result);
 
@@ -336,7 +336,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        boolean result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
         assertTrue(result);
         outStream.close();
 
@@ -345,7 +345,7 @@ public class ImportExportTest
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -367,7 +367,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        boolean result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
         assertTrue(result);
         outStream.close();
 
@@ -376,7 +376,7 @@ public class ImportExportTest
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -440,7 +440,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        boolean result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
         assertTrue(result);
         outStream.close();
 
@@ -449,7 +449,7 @@ public class ImportExportTest
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -484,14 +484,14 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+        boolean result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
         assertTrue(result);
         outStream.close();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
         // Import the CSV data on top of the existing database
-        result = MultiFormatImporter.importData(db, inData, DataFormat.Catima);
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima);
         assertTrue(result);
 
         assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
@@ -515,7 +515,7 @@ public class ImportExportTest
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            boolean result = MultiFormatExporter.exportData(db, outStream, DataFormat.Catima);
+            boolean result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
             assertTrue(result);
 
             TestHelpers.getEmptyDb(activity);
@@ -529,7 +529,7 @@ public class ImportExportTest
             ByteArrayInputStream inData = new ByteArrayInputStream((outData.toString() + corruptEntry).getBytes());
 
             // Attempt to import the data
-            result = MultiFormatImporter.importData(db, inData, format);
+            result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, format);
             assertEquals(false, result);
 
             assertEquals(0, db.getLoyaltyCardCount());
@@ -615,7 +615,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -653,7 +653,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -691,7 +691,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertEquals(false, result);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -716,7 +716,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -754,7 +754,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -792,7 +792,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -830,7 +830,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -849,7 +849,7 @@ public class ImportExportTest
         inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertTrue(result);
         assertEquals(1, db.getLoyaltyCardCount());
 
@@ -870,7 +870,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void exportV2()
+    public void exportV2() throws FileNotFoundException
     {
         db.insertGroup("Example");
 
@@ -880,21 +880,25 @@ public class ImportExportTest
         Bitmap frontImage = launcher.getBitmap();
         Bitmap backImage = roundLauncher.getBitmap();
 
-        int loyaltyCard = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0, Utils.resizeBitmap(frontImage), Utils.resizeBitmap(backImage));
+        int loyaltyCard = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
+
+        Utils.saveCardImage(activity.getApplicationContext(), Utils.resizeBitmap(frontImage), loyaltyCard, true);
+        Utils.saveCardImage(activity.getApplicationContext(), Utils.resizeBitmap(backImage), loyaltyCard, false);
+
         db.setLoyaltyCardGroups(loyaltyCard, Arrays.asList(db.getGroup("Example")));
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
-        MultiFormatExporter.exportData(db, outputStreamWriter, DataFormat.Catima);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStreamWriter, DataFormat.Catima);
 
         String outputCsv = "2\r\n" +
                 "\r\n" +
                 "_id\r\n" +
                 "Example\r\n" +
                 "\r\n" +
-                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus,frontimage,backimage\r\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
+                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,barcodetype,headercolor,starstatus,frontimage,backimage\r\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,QR_CODE,1,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
                 "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\",\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
                 "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\"\r\n" +
                 "\r\n" +
@@ -935,7 +939,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
 
         // Import the CSV data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.Catima);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Catima);
         assertEquals(true, result);
         assertEquals(7, db.getLoyaltyCardCount());
         assertEquals(3, db.getGroupCount());
@@ -975,8 +979,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType);
         assertEquals(1, (long) card1.headerColor);
         assertEquals(0, card1.starStatus);
-        assertTrue(Utils.resizeBitmap(frontImage).sameAs(card1.frontImage));
-        assertTrue(Utils.resizeBitmap(backImage).sameAs(card1.backImage));
+        assertTrue(Utils.resizeBitmap(frontImage).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, true)));
+        assertTrue(Utils.resizeBitmap(backImage).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, false)));
 
         LoyaltyCard card8 = db.getLoyaltyCard(8);
 
@@ -990,8 +994,8 @@ public class ImportExportTest
         assertEquals(null, card8.barcodeType);
         assertEquals(-5317, (long) card8.headerColor);
         assertEquals(0, card8.starStatus);
-        assertEquals(null, card8.frontImage);
-        assertEquals(null, card8.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, false));
 
         LoyaltyCard card2 = db.getLoyaltyCard(2);
 
@@ -1005,8 +1009,8 @@ public class ImportExportTest
         assertEquals(null, card2.barcodeType);
         assertEquals(-9977996, (long) card2.headerColor);
         assertEquals(0, card2.starStatus);
-        assertEquals(null, card2.frontImage);
-        assertEquals(null, card2.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, false));
 
         LoyaltyCard card3 = db.getLoyaltyCard(3);
 
@@ -1020,8 +1024,8 @@ public class ImportExportTest
         assertEquals(null, card3.barcodeType);
         assertEquals(-9977996, (long) card3.headerColor);
         assertEquals(0, card3.starStatus);
-        assertEquals(null, card3.frontImage);
-        assertEquals(null, card3.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, false));
 
         LoyaltyCard card4 = db.getLoyaltyCard(4);
 
@@ -1035,8 +1039,8 @@ public class ImportExportTest
         assertEquals(null, card4.barcodeType);
         assertEquals(-10902850, (long) card4.headerColor);
         assertEquals(1, card4.starStatus);
-        assertEquals(null, card4.frontImage);
-        assertEquals(null, card4.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, false));
 
         LoyaltyCard card5 = db.getLoyaltyCard(5);
 
@@ -1050,8 +1054,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.CODE_128, card5.barcodeType);
         assertEquals(-10902850, (long) card5.headerColor);
         assertEquals(0, card5.starStatus);
-        assertEquals(null, card5.frontImage);
-        assertEquals(null, card5.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, false));
 
         LoyaltyCard card6 = db.getLoyaltyCard(6);
 
@@ -1065,8 +1069,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.AZTEC, card6.barcodeType);
         assertEquals(null, card6.headerColor);
         assertEquals(0, card6.starStatus);
-        assertEquals(null, card6.frontImage);
-        assertEquals(null, card6.backImage);
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, false));
 
         TestHelpers.getEmptyDb(activity);
     }
@@ -1099,7 +1103,7 @@ public class ImportExportTest
         ByteArrayInputStream inputStream = new ByteArrayInputStream(jsonText.getBytes(StandardCharsets.UTF_8));
 
         // Import the Voucher Vault data
-        boolean result = MultiFormatImporter.importData(db, inputStream, DataFormat.VoucherVault);
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.VoucherVault);
         assertTrue(result);
         assertEquals(2, db.getLoyaltyCardCount());
 

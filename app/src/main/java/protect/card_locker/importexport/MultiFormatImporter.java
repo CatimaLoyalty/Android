@@ -1,5 +1,6 @@
 package protect.card_locker.importexport;
 
+import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -27,14 +28,14 @@ public class MultiFormatImporter
      * false otherwise. If false, no data was written to
      * the database.
      */
-    public static boolean importData(DBHelper db, InputStream input, DataFormat format)
+    public static boolean importData(Context context, DBHelper db, InputStream input, DataFormat format)
     {
-        DatabaseImporter importer = null;
+        Importer importer = null;
 
         switch(format)
         {
             case Catima:
-                importer = new CsvDatabaseImporter();
+                importer = new CsvImporter();
                 break;
             case Fidme:
                 importer = new FidmeImporter();
@@ -48,7 +49,7 @@ public class MultiFormatImporter
         {
             try
             {
-                importer.importData(db, input);
+                importer.importData(context, db, input);
                 return true;
             }
             catch(IOException | FormatException | InterruptedException | JSONException | ParseException e)

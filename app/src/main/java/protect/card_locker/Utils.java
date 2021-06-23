@@ -22,6 +22,9 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -301,5 +304,45 @@ public class Utils {
         Matrix matrix = new Matrix();
         matrix.postRotate(rotation);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    static private String getCardImageFileName(int loyaltyCardId, boolean front) {
+        StringBuilder cardImageFileNameBuilder = new StringBuilder();
+
+        cardImageFileNameBuilder.append("card_");
+        cardImageFileNameBuilder.append(loyaltyCardId);
+        cardImageFileNameBuilder.append("_");
+        if (front) {
+            cardImageFileNameBuilder.append("front");
+        } else {
+            cardImageFileNameBuilder.append("back");
+        }
+        cardImageFileNameBuilder.append(".png");
+
+        return cardImageFileNameBuilder.toString();
+    }
+
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
+        String fileName = getCardImageFileName(loyaltyCardId, front);
+
+        if (bitmap == null) {
+            context.deleteFile(fileName);
+            return;
+        }
+
+        FileOutputStream out = context.openFileOutput(getCardImageFileName(loyaltyCardId, front), Context.MODE_PRIVATE);
+
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+    }
+
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
+        FileInputStream in;
+        try {
+             in = context.openFileInput(getCardImageFileName(loyaltyCardId, front));
+        } catch (FileNotFoundException e) {
+            return null;
+        }
+
+        return BitmapFactory.decodeStream(in);
     }
 }

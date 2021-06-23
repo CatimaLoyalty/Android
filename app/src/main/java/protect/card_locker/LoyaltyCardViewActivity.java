@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -81,6 +82,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
     Guideline centerGuideline;
     SeekBar barcodeScaler;
+
+    Bitmap frontImageBitmap;
+    Bitmap backImageBitmap;
 
     boolean starred;
     boolean backgroundNeedsDarkIcons;
@@ -330,23 +334,19 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
 
-        if(loyaltyCard.frontImage != null)
-        {
+        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, true);
+        if (frontImageBitmap != null) {
             frontImageView.setVisibility(View.VISIBLE);
-            frontImage.setImageBitmap(loyaltyCard.frontImage);
-        }
-        else
-        {
+            frontImage.setImageBitmap(frontImageBitmap);
+        } else {
             frontImageView.setVisibility(View.GONE);
         }
 
-        if(loyaltyCard.backImage != null)
-        {
+        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, false);
+        if (backImageBitmap != null) {
             backImageView.setVisibility(View.VISIBLE);
-            backImage.setImageBitmap(loyaltyCard.backImage);
-        }
-        else
-        {
+            backImage.setImageBitmap(backImageBitmap);
+        } else {
             backImageView.setVisibility(View.GONE);
         }
 
@@ -687,9 +687,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             Log.d(TAG, "Move into of fullscreen");
 
             if (fullscreenType == FullscreenType.IMAGE_FRONT) {
-                barcodeImage.setImageBitmap(loyaltyCard.frontImage);
+                barcodeImage.setImageBitmap(frontImageBitmap);
             } else if (fullscreenType == FullscreenType.IMAGE_BACK) {
-                barcodeImage.setImageBitmap(loyaltyCard.backImage);
+                barcodeImage.setImageBitmap(backImageBitmap);
             } else {
                 // Prepare redraw after size change
                 redrawBarcodeAfterResize();

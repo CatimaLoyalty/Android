@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased
+## v1.14.1 (2021-06-14)
+
+Changes:
+
+- Add missing barcode ID to export
+- Don't show update barcode dialog if value is the same as card ID
+- Add Finnish translation
+
+## v1.14 (2021-06-07)
 
 Changes:
 
@@ -8,6 +16,7 @@ Changes:
 - Support new PDF417 export from Voucher Vault
 - Support copying multiple barcodes at once
 - Support sharing multiple loyalty cards at once
+- Ask to update barcode value if card ID changes
 
 ## v1.13 (2021-04-10)
 

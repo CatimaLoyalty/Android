@@ -118,6 +118,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ImportURIHelper importUriHelper;
 
     boolean hasChanged = false;
+    String tempStoredOldBarcodeValue = null;
     boolean initDone = false;
     AlertDialog confirmExitDialog = null;
 
@@ -204,12 +205,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         enterButton = findViewById(R.id.enterButton);
 
-        warnOnInvalidBarcodeType = new Runnable() {
-            @Override
-            public void run() {
-                if (!(boolean) barcodeImage.getTag()) {
-                    Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-                }
+        warnOnInvalidBarcodeType = () -> {
+            if (!(boolean) barcodeImage.getTag()) {
+                Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
             }
         };
 
@@ -355,15 +353,30 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         cardIdFieldView.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if (initDone) {
+                    if (tempStoredOldBarcodeValue == null) {
+                        // We changed the card ID, save the current barcode ID in a temp
+                        // variable and make sure to ask the user later if they also want to
+                        // update the barcode ID
+                        if (barcodeIdField.getTag() == null) {
+                            // If it is set to "same as Card ID", temp-save the value before the
+                            // Card ID change
+                            tempStoredOldBarcodeValue = s.toString();
+                        } else {
+                            // Otherwise, set the temp value to the current field value
+                            tempStoredOldBarcodeValue = barcodeIdField.getText().toString();
+                        }
+
+                        barcodeIdField.setText(tempStoredOldBarcodeValue);
+                        barcodeIdField.setTag(tempStoredOldBarcodeValue);
+                    }
+                }
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 hasChanged = true;
-
-                if (!s.toString().isEmpty()) {
-                    generateOrHideBarcode();
-                }
             }
 
             @Override
@@ -383,6 +396,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 hasChanged = true;
 
                 if (s.toString().equals(getString(R.string.sameAsCardId))) {
+                    // If the user manually changes the barcode again make sure we disable the
+                    // request to update it to match the card id (if changed)
+                    tempStoredOldBarcodeValue = null;
+
                     barcodeIdField.setTag(null);
                 } else if (s.toString().equals(getString(R.string.setBarcodeId))) {
                     if (!lastValue.toString().equals(getString(R.string.setBarcodeId))) {
@@ -398,19 +415,15 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     }
                     builder.setView(input);
 
-                    builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            barcodeIdField.setTag(input.getText().toString());
-                            barcodeIdField.setText(input.getText());
-                        }
+                    builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+                        // If the user manually changes the barcode again make sure we disable the
+                        // request to update it to match the card id (if changed)
+                        tempStoredOldBarcodeValue = null;
+
+                        barcodeIdField.setTag(input.getText().toString());
+                        barcodeIdField.setText(input.getText());
                     });
-                    builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
+                    builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
                     AlertDialog dialog = builder.create();
                     dialog.show();
                     dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -684,11 +697,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue));
 
-        if (!initDone) {
-            hasChanged = false;
-            initDone = true;
-        }
-
         // Update from intent
         if (barcodeType != null) {
             try {
@@ -708,6 +716,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             } else {
                 barcodeIdField.setText(getString(R.string.sameAsCardId));
             }
+        }
+
+        if (!initDone) {
+            hasChanged = false;
+            initDone = true;
         }
 
         generateOrHideBarcode();
@@ -772,8 +785,56 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+    private void askBarcodeChange(Runnable callback) {
+        if (tempStoredOldBarcodeValue.equals(cardIdFieldView.getText().toString())) {
+            // They are the same, don't ask
+            barcodeIdField.setText(R.string.sameAsCardId);
+            tempStoredOldBarcodeValue = null;
+
+            if (callback != null) {
+                callback.run();
+            }
+
+            return;
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.updateBarcodeQuestionTitle)
+                .setMessage(R.string.updateBarcodeQuestionText)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    barcodeIdField.setText(R.string.sameAsCardId);
+                    tempStoredOldBarcodeValue = null;
+
+                    if (callback != null) {
+                        callback.run();
+                    }
+                })
+                .setNegativeButton(R.string.no, (dialog, which) -> {
+                    barcodeIdField.setText(tempStoredOldBarcodeValue);
+                    tempStoredOldBarcodeValue = null;
+
+                    if (callback != null) {
+                        callback.run();
+                    }
+                })
+                .setOnDismissListener(dialogInterface -> {
+                    barcodeIdField.setText(tempStoredOldBarcodeValue);
+                    tempStoredOldBarcodeValue = null;
+
+                    if (callback != null) {
+                        callback.run();
+                    }
+                })
+                .show();
+    }
+
     private void askBeforeQuitIfChanged() {
         if (!hasChanged) {
+            if (tempStoredOldBarcodeValue != null) {
+                askBarcodeChange(this::askBeforeQuitIfChanged);
+                return;
+            }
+
             finish();
             return;
         }
@@ -965,6 +1026,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     private void doSave()
     {
+        if (tempStoredOldBarcodeValue != null) {
+            askBarcodeChange(this::doSave);
+            return;
+        }
+
         String store = storeFieldEdit.getText().toString();
         String note = noteFieldEdit.getText().toString();
         Date expiry = (Date) expiryField.getTag();
@@ -1201,6 +1267,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void showPart(String part) {
+        if (tempStoredOldBarcodeValue != null) {
+            askBarcodeChange(() -> showPart(part));
+            return;
+        }
+
         View cardPart = findViewById(R.id.cardPart);
         View barcodePart = findViewById(R.id.barcodePart);
         View picturesPart = findViewById(R.id.picturesPart);

@@ -68,7 +68,7 @@
     <string name="settings_dark_theme">Тёмная</string>
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
-    <string name="intent_import_card_from_url_share_text">Я хочу поделиться картой с вами</string>
+    <string name="intent_import_card_from_url_share_text">Я хочу поделиться с вами картой</string>
     <string name="exportSuccessful">Данные карт успешно экспортированы</string>
     <string name="all">Все</string>
     <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для упорядочивания записей.</string>
@@ -148,4 +148,8 @@
     <string name="card_ids_copied">Скопированные номера карт</string>
     <string name="copy_to_clipboard_multiple_toast">Номера карт скопированы в буфер обмена</string>
     <string name="card_selected">"Выбрано: "</string>
+    <string name="updateBarcodeQuestionText">Вы изменили номер карты. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="updateBarcodeQuestionTitle">Обновить значение штрих-кода\?</string>
 </resources>

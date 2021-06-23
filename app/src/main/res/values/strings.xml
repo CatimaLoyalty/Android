@@ -185,4 +185,8 @@
     <string name="removeImage">Remove image</string>
     <string name="chooseImageFromGallery">Choose image from gallery</string>
     <string name="takePhoto">Take a photo</string>
+    <string name="updateBarcodeQuestionTitle">Update barcode value?</string>
+    <string name="updateBarcodeQuestionText">You changed the card ID. Do you want to also update the barcode to use the same value?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

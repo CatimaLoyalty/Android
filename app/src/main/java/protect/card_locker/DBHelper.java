@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 
 import com.google.zxing.BarcodeFormat;
 
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -53,9 +54,13 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String groupID = "groupId";
     }
 
+    private Context mContext;
+
     public DBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        mContext = context;
     }
 
     @Override
@@ -427,7 +432,7 @@ public class DBHelper extends SQLiteOpenHelper
         }
     }
 
-    public boolean deleteLoyaltyCard (final int id)
+    public boolean deleteLoyaltyCard(final int id)
     {
         SQLiteDatabase db = getWritableDatabase();
         // Delete card
@@ -439,6 +444,14 @@ public class DBHelper extends SQLiteOpenHelper
         db.delete(LoyaltyCardDbIdsGroups.TABLE,
                 LoyaltyCardDbIdsGroups.cardID + " = ? ",
                 new String[]{String.format("%d", id)});
+
+        // Also wipe card images associated with this card
+        try {
+            Utils.saveCardImage(mContext, null, id, true);
+            Utils.saveCardImage(mContext, null, id, false);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         return (rowsDeleted == 1);
     }

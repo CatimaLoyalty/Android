@@ -1,5 +1,6 @@
 package protect.card_locker.importexport;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.google.zxing.BarcodeFormat;
@@ -28,9 +29,9 @@ import protect.card_locker.FormatException;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class FidmeImporter implements DatabaseImporter
+public class FidmeImporter implements Importer
 {
-    public void importData(DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input);
 
@@ -129,6 +130,8 @@ public class FidmeImporter implements DatabaseImporter
 
         // No favourite data in the export either
         int starStatus = 0;
+
+        // TODO: Front and back image
 
         helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
     }

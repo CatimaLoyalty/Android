@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -56,26 +57,26 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         this.listener = listener;
     }
 
-    private boolean performImport(InputStream stream, DBHelper db)
+    private boolean performImport(Context context, InputStream stream, DBHelper db)
     {
         boolean result = false;
 
 
-        result = MultiFormatImporter.importData(db, stream, format);
+        result = MultiFormatImporter.importData(context, db, stream, format);
 
         Log.i(TAG, "Import result: " + result);
 
         return result;
     }
 
-    private boolean performExport(OutputStream stream, DBHelper db)
+    private boolean performExport(Context context, OutputStream stream, DBHelper db)
     {
         boolean result = false;
 
         try
         {
             OutputStreamWriter writer = new OutputStreamWriter(stream, Charset.forName("UTF-8"));
-            result = MultiFormatExporter.exportData(db, writer, format);
+            result = MultiFormatExporter.exportData(context, db, writer, format);
             writer.close();
         }
         catch (IOException e)
@@ -112,11 +113,11 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
 
         if(doImport)
         {
-            result = performImport(inputStream, db);
+            result = performImport(activity.getApplicationContext(), inputStream, db);
         }
         else
         {
-            result = performExport(outputStream, db);
+            result = performExport(activity.getApplicationContext(), outputStream, db);
         }
 
         return result;

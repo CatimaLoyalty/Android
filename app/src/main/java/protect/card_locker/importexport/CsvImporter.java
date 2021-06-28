@@ -1,6 +1,10 @@
 package protect.card_locker.importexport;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -22,6 +26,7 @@ import java.util.List;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Group;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -30,9 +35,9 @@ import protect.card_locker.Group;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class CsvDatabaseImporter implements DatabaseImporter
+public class CsvImporter implements Importer
 {
-    public void importData(DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException
+    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
@@ -50,10 +55,10 @@ public class CsvDatabaseImporter implements DatabaseImporter
 
         switch (version) {
             case 1:
-                parseV1(db, bufferedReader);
+                parseV1(context, db, bufferedReader);
                 break;
             case 2:
-                parseV2(db, bufferedReader);
+                parseV2(context, db, bufferedReader);
                 break;
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
@@ -62,7 +67,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         bufferedReader.close();
     }
 
-    public void parseV1(DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
+    public void parseV1(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
     {
         final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.withHeader());
 
@@ -73,7 +78,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         {
             for (CSVRecord record : parser)
             {
-                importLoyaltyCard(database, db, record);
+                importLoyaltyCard(context, database, db, record);
 
                 if(Thread.currentThread().isInterrupted())
                 {
@@ -95,7 +100,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
     }
 
-    public void parseV2(DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
+    public void parseV2(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
     {
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
@@ -116,7 +121,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
                             parseV2Groups(db, database, stringPart);
                             break;
                         case 2:
-                            parseV2Cards(db, database, stringPart);
+                            parseV2Cards(context, db, database, stringPart);
                             break;
                         case 3:
                             parseV2CardGroups(db, database, stringPart);
@@ -164,14 +169,14 @@ public class CsvDatabaseImporter implements DatabaseImporter
         }
     }
 
-    public void parseV2Cards(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
+    public void parseV2Cards(Context context, DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
     {
         // Parse cards
         final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
 
         try {
             for (CSVRecord record : cardParser) {
-                importLoyaltyCard(database, db, record);
+                importLoyaltyCard(context, database, db, record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -208,7 +213,7 @@ public class CsvDatabaseImporter implements DatabaseImporter
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(SQLiteDatabase database, DBHelper helper, CSVRecord record)
+    private void importLoyaltyCard(Context context, SQLiteDatabase database, DBHelper helper, CSVRecord record)
             throws IOException, FormatException
     {
         int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record, false);
@@ -270,11 +275,15 @@ public class CsvDatabaseImporter implements DatabaseImporter
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
         } catch (FormatException _e ) {
-            // This field did not exist in versions 0.28 and before
+            // This field did not exist in versions 0.278 and before
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
+
         helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
+
+        Utils.saveCardImage(context, CSVHelpers.extractImage(CSVHelpers.IMAGE_FRONT, record), id, true);
+        Utils.saveCardImage(context, CSVHelpers.extractImage(CSVHelpers.IMAGE_BACK, record), id, false);
     }
 
     /**

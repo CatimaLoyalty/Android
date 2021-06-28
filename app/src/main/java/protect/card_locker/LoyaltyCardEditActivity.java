@@ -1,16 +1,23 @@
 package protect.card_locker;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.LocaleList;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -38,6 +45,9 @@ import com.google.zxing.BarcodeFormat;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -47,21 +57,33 @@ import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.NoSuchElementException;
+import java.util.concurrent.Callable;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.DialogFragment;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
     private static final String TAG = "Catima";
+
     private final String STATE_TAB_INDEX = "savedTab";
+
+    private static final int ID_IMAGE_FRONT = 0;
+    private static final int ID_IMAGE_BACK = 1;
+
+    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
+    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
+
     TabLayout tabs;
 
     ImageView thumbnail;
@@ -77,6 +99,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ImageView barcodeImage;
     View barcodeImageLayout;
     View barcodeCaptureLayout;
+    View cardImageFrontHolder;
+    View cardImageBackHolder;
+    ImageView cardImageFront;
+    ImageView cardImageBack;
+
+    Bitmap frontImageBitmap;
+    Bitmap backImageBitmap;
 
     Button enterButton;
 
@@ -101,6 +130,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     Runnable warnOnInvalidBarcodeType;
 
     HashMap<String, Currency> currencies = new HashMap<>();
+
+    String tempCameraPicturePath;
 
     private void extractIntentFields(Intent intent)
     {
@@ -169,6 +200,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeImage = findViewById(R.id.barcode);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
+        cardImageFrontHolder = findViewById(R.id.frontImageHolder);
+        cardImageBackHolder = findViewById(R.id.backImageHolder);
+        cardImageFrontHolder.setId(ID_IMAGE_FRONT);
+        cardImageBackHolder.setId(ID_IMAGE_BACK);
+        cardImageFront = findViewById(R.id.frontImage);
+        cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
 
@@ -489,6 +526,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         barcodeIdField.setTag(null);
         barcodeIdField.setText("");
         barcodeTypeField.setText("");
+        cardImageFront.setTag(null);
+        cardImageBack.setTag(null);
     }
 
     @SuppressLint("DefaultLocale")
@@ -563,6 +602,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
             }
 
+            if(cardImageFront.getTag() == null)
+            {
+                setCardImage(cardImageFront, Utils.retrieveCardImage(this, loyaltyCard.id, true));
+            }
+
+            if(cardImageBack.getTag() == null)
+            {
+                setCardImage(cardImageBack, Utils.retrieveCardImage(this, loyaltyCard.id, false));
+            }
+
             setTitle(R.string.editCardTitle);
         }
         else if(importLoyaltyCardUri != null)
@@ -601,6 +650,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             balanceCurrencyField.setTag(null);
             formatBalanceCurrencyField(null);
             hideBarcode();
+            setCardImage(cardImageFront, null);
+            setCardImage(cardImageBack, null);
         }
 
         if(groupsChips.getChildCount() == 0)
@@ -679,10 +730,23 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
 
+        cardImageFrontHolder.setOnClickListener(new ChooseCardImage());
+        cardImageBackHolder.setOnClickListener(new ChooseCardImage());
+
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(v -> doSave());
 
         generateIcon(storeFieldEdit.getText().toString());
+    }
+
+    private void setCardImage(ImageView imageView, Bitmap bitmap) {
+        imageView.setTag(bitmap);
+
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+        } else {
+            imageView.setImageResource(R.drawable.ic_camera_white);
+        }
     }
 
     private void formatExpiryField(Date expiry) {
@@ -704,6 +768,23 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         askBeforeQuitIfChanged();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            try {
+                if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
+                } else {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void askBarcodeChange(Runnable callback) {
@@ -782,12 +863,29 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         confirmExitDialog.show();
     }
 
+    private void takePhotoForCard(int type) throws IOException {
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        String imageFileName = "CATIMA_" + new Date().getTime();
+        File image = File.createTempFile(
+                imageFileName,
+                ".jpg",
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        );
+
+        tempCameraPicturePath = image.getAbsolutePath();
+
+        Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, image);
+        i.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+
+        startActivityForResult(i, type);
+    }
+
     class EditCardIdAndBarcode implements View.OnClickListener
     {
         @Override
         public void onClick(View v)
         {
-
             Intent i = new Intent(getApplicationContext(), ScanActivity.class);
             final Bundle b = new Bundle();
             b.putString("cardId", cardIdFieldView.getText().toString());
@@ -796,6 +894,56 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
+    class ChooseCardImage implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View v) throws NoSuchElementException
+        {
+            ImageView targetView = v.getId() == ID_IMAGE_FRONT ? cardImageFront : cardImageBack;
+
+            LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
+            if (targetView.getTag() != null) {
+                cardOptions.put(getString(R.string.removeImage), () -> {
+                    setCardImage(targetView, null);
+                    return null;
+                });
+            }
+
+            cardOptions.put(getString(R.string.takePhoto), () -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, v.getId() == ID_IMAGE_FRONT ? PERMISSION_REQUEST_CAMERA_IMAGE_FRONT : PERMISSION_REQUEST_CAMERA_IMAGE_BACK);
+                } else {
+                    takePhotoForCard(v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_CAMERA_FRONT : Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                }
+                return null;
+            });
+
+            cardOptions.put(getString(R.string.chooseImageFromGallery), () -> {
+                Intent i = new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
+                startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+                return null;
+            });
+
+            new AlertDialog.Builder(LoyaltyCardEditActivity.this)
+                    .setTitle(v.getId() == ID_IMAGE_FRONT ? getString(R.string.setFrontImage) : getString(R.string.setBackImage))
+                    .setItems(cardOptions.keySet().toArray(new CharSequence[cardOptions.size()]), (dialog, which) -> {
+                        Iterator<Callable<Void>> callables = cardOptions.values().iterator();
+                        Callable<Void> callable = callables.next();
+
+                        for (int i = 0; i < which; i++) {
+                            callable = callables.next();
+                        }
+
+                        try {
+                            callable.call();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    })
+                    .show();
+        }
+    }
 
     class ColorSelectListener implements View.OnClickListener
     {
@@ -878,8 +1026,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
-    private void doSave()
-    {
+    private void doSave() {
         if (tempStoredOldBarcodeValue != null) {
             askBarcodeChange(this::doSave);
             return;
@@ -922,11 +1069,23 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue);
+            try {
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         }
         else
         {
             loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0);
+            try {
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
@@ -1002,12 +1161,57 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
+            if (resultCode == RESULT_OK) {
+                Bitmap bitmap = BitmapFactory.decodeFile(tempCameraPicturePath);
 
-        if (resultCode == RESULT_OK) {
-           cardId = barcodeValues.content();
-           barcodeType = barcodeValues.format();
-           barcodeId = "";
+                if (bitmap != null) {
+                    bitmap = Utils.resizeBitmap(bitmap);
+                    try {
+                        bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(tempCameraPicturePath));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT) {
+                        setCardImage(cardImageFront, bitmap);
+                    } else {
+                        setCardImage(cardImageBack, bitmap);
+                    }
+
+                    hasChanged = true;
+                }
+            }
+        } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
+            if (resultCode == RESULT_OK) {
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
+                } catch (IOException e) {
+                    Log.e(TAG, "Error getting data from image file");
+                    e.printStackTrace();
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                }
+
+                if (bitmap != null) {
+                    bitmap = Utils.resizeBitmap(bitmap);
+                    if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+                        setCardImage(cardImageFront, bitmap);
+                    } else {
+                        setCardImage(cardImageBack, bitmap);
+                    }
+
+                    hasChanged = true;
+                }
+            }
+        } else {
+            BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+
+            if (resultCode == RESULT_OK) {
+                cardId = barcodeValues.content();
+                barcodeType = barcodeValues.format();
+                barcodeId = "";
+            }
         }
 
         onResume();
@@ -1081,19 +1285,29 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         View cardPart = findViewById(R.id.cardPart);
         View barcodePart = findViewById(R.id.barcodePart);
+        View picturesPart = findViewById(R.id.picturesPart);
 
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);
             barcodePart.setVisibility(View.GONE);
+            picturesPart.setVisibility(View.GONE);
 
             // Explicitly hide barcode (fixes blurriness on redraw)
             hideBarcode();
         } else if (getString(R.string.barcode).equals(part)) {
             cardPart.setVisibility(View.GONE);
             barcodePart.setVisibility(View.VISIBLE);
+            picturesPart.setVisibility(View.GONE);
 
             // Redraw barcode due to size change (Visibility.GONE sets it to 0)
             generateOrHideBarcode();
+        } else if (getString(R.string.photos).equals(part)) {
+            cardPart.setVisibility(View.GONE);
+            barcodePart.setVisibility(View.GONE);
+            picturesPart.setVisibility(View.VISIBLE);
+
+            // Explicitly hide barcode (fixes blurriness on redraw)
+            hideBarcode();
         } else {
             throw new UnsupportedOperationException();
         }

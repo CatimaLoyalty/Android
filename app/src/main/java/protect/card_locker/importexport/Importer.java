@@ -1,5 +1,7 @@
 package protect.card_locker.importexport;
 
+import android.content.Context;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -13,7 +15,7 @@ import protect.card_locker.FormatException;
  * Interface for a class which can import the contents of a stream
  * into the database.
  */
-public interface DatabaseImporter
+public interface Importer
 {
     /**
      * Import data from the input stream in a given format into
@@ -21,5 +23,5 @@ public interface DatabaseImporter
      * @throws IOException
      * @throws FormatException
      */
-    void importData(DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
+    void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

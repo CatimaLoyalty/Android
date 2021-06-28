@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,6 +21,10 @@ import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -35,8 +43,14 @@ public class Utils {
     public static final int SELECT_BARCODE_REQUEST = 2;
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
+    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 5;
+    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 6;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 7;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 8;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
+
+    static final int BITMAP_SIZE_BIG = 512;
 
     static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor) {
         return generateIcon(context, store, backgroundColor, false);
@@ -207,5 +221,128 @@ public class Utils {
 
         // Parse as BigDecimal
         return new BigDecimal(value);
+    }
+
+    static public byte[] bitmapToByteArray(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+        return bos.toByteArray();
+    }
+
+    static public Bitmap byteArrayToBitmap(byte[] byteArray) {
+        if (byteArray == null) {
+            return null;
+        }
+
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+    }
+
+    static public String bitmapToBase64(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        return Base64.encodeToString(bitmapToByteArray(bitmap), Base64.URL_SAFE);
+    }
+
+    static public Bitmap base64ToBitmap(String base64) {
+        if (base64 == null) {
+            return null;
+        }
+
+        return byteArrayToBitmap(Base64.decode(base64, Base64.URL_SAFE));
+    }
+
+    static public Bitmap resizeBitmap(Bitmap bitmap) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        Integer maxSize = BITMAP_SIZE_BIG;
+
+        Integer width = bitmap.getWidth();
+        Integer height = bitmap.getHeight();
+
+        if (height > width) {
+            Integer scale = height / maxSize;
+            height = maxSize;
+            width = width / scale;
+        } else if (width > height) {
+            Integer scale = width / maxSize;
+            width = maxSize;
+            height = height / scale;
+        } else {
+            height = maxSize;
+            width = maxSize;
+        }
+
+        return Bitmap.createScaledBitmap(bitmap, width, height, true);
+    }
+
+    static public Bitmap rotateBitmap(Bitmap bitmap, ExifInterface exifInterface) {
+        switch (exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED)) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotateBitmap(bitmap, 90f);
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotateBitmap(bitmap, 180f);
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotateBitmap(bitmap, 270f);
+            default:
+                return bitmap;
+        }
+    }
+
+    static public Bitmap rotateBitmap(Bitmap bitmap, float rotation) {
+        if (rotation == 0) {
+            return bitmap;
+        }
+
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotation);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    static private String getCardImageFileName(int loyaltyCardId, boolean front) {
+        StringBuilder cardImageFileNameBuilder = new StringBuilder();
+
+        cardImageFileNameBuilder.append("card_");
+        cardImageFileNameBuilder.append(loyaltyCardId);
+        cardImageFileNameBuilder.append("_");
+        if (front) {
+            cardImageFileNameBuilder.append("front");
+        } else {
+            cardImageFileNameBuilder.append("back");
+        }
+        cardImageFileNameBuilder.append(".png");
+
+        return cardImageFileNameBuilder.toString();
+    }
+
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
+        String fileName = getCardImageFileName(loyaltyCardId, front);
+
+        if (bitmap == null) {
+            context.deleteFile(fileName);
+            return;
+        }
+
+        FileOutputStream out = context.openFileOutput(getCardImageFileName(loyaltyCardId, front), Context.MODE_PRIVATE);
+
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+    }
+
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
+        FileInputStream in;
+        try {
+             in = context.openFileInput(getCardImageFileName(loyaltyCardId, front));
+        } catch (FileNotFoundException e) {
+            return null;
+        }
+
+        return BitmapFactory.decodeStream(in);
     }
 }

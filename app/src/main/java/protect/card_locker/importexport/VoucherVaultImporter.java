@@ -1,6 +1,7 @@
 package protect.card_locker.importexport;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 
@@ -32,9 +33,9 @@ import protect.card_locker.FormatException;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class VoucherVaultImporter implements DatabaseImporter
+public class VoucherVaultImporter implements Importer
 {
-    public void importData(DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         StringBuilder sb = new StringBuilder();
@@ -122,7 +123,7 @@ public class VoucherVaultImporter implements DatabaseImporter
                     headerColor = Color.YELLOW;
                     break;
                 default:
-                    throw new FormatException("Unknown colour type foun: " + colorFromJSON);
+                    throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
             db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0);

@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 
 import com.google.zxing.BarcodeFormat;
 
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -52,9 +54,13 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String groupID = "groupId";
     }
 
+    private Context mContext;
+
     public DBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        mContext = context;
     }
 
     @Override
@@ -78,7 +84,7 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
+                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
 
         // create associative table for cards in groups
         db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -426,7 +432,7 @@ public class DBHelper extends SQLiteOpenHelper
         }
     }
 
-    public boolean deleteLoyaltyCard (final int id)
+    public boolean deleteLoyaltyCard(final int id)
     {
         SQLiteDatabase db = getWritableDatabase();
         // Delete card
@@ -438,6 +444,14 @@ public class DBHelper extends SQLiteOpenHelper
         db.delete(LoyaltyCardDbIdsGroups.TABLE,
                 LoyaltyCardDbIdsGroups.cardID + " = ? ",
                 new String[]{String.format("%d", id)});
+
+        // Also wipe card images associated with this card
+        try {
+            Utils.saveCardImage(mContext, null, id, true);
+            Utils.saveCardImage(mContext, null, id, false);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         return (rowsDeleted == 1);
     }

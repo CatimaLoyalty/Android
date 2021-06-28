@@ -1,6 +1,10 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.sql.Blob;
 
 import com.google.zxing.BarcodeFormat;
 

@@ -1,5 +1,6 @@
 package protect.card_locker.importexport;
 
+import android.content.Context;
 import android.database.Cursor;
 
 import org.apache.commons.csv.CSVFormat;
@@ -11,14 +12,15 @@ import java.io.OutputStreamWriter;
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
 import protect.card_locker.LoyaltyCard;
+import protect.card_locker.Utils;
 
 /**
  * Class for exporting the database into CSV (Comma Separate Values)
  * format.
  */
-public class CsvDatabaseExporter implements DatabaseExporter
+public class CsvExporter implements Exporter
 {
-    public void exportData(DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException
+    public void exportData(Context context, DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException
     {
         CSVPrinter printer = new CSVPrinter(output, CSVFormat.RFC4180);
 
@@ -57,10 +59,12 @@ public class CsvDatabaseExporter implements DatabaseExporter
                 DBHelper.LoyaltyCardDbIds.BALANCE,
                 DBHelper.LoyaltyCardDbIds.BALANCE_TYPE,
                 DBHelper.LoyaltyCardDbIds.CARD_ID,
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
                 DBHelper.LoyaltyCardDbIds.BARCODE_ID,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS);
+                DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS,
+                CSVHelpers.IMAGE_FRONT,
+                CSVHelpers.IMAGE_BACK);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
@@ -75,10 +79,12 @@ public class CsvDatabaseExporter implements DatabaseExporter
                     card.balance,
                     card.balanceType,
                     card.cardId,
-                    card.headerColor,
                     card.barcodeId,
                     card.barcodeType,
-                    card.starStatus);
+                    card.headerColor,
+                    card.starStatus,
+                    Utils.bitmapToBase64(Utils.retrieveCardImage(context, card.id, true)),
+                    Utils.bitmapToBase64(Utils.retrieveCardImage(context, card.id, false)));
 
             if(Thread.currentThread().isInterrupted())
             {

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Support adding a front and back photo to each card
+
 ## v1.14.1 (2021-06-14)
 
 Changes:
@@ -12,7 +18,6 @@ Changes:
 
 Changes:
 
-- Support adding a front and back photo to each card
 - Support new PDF417 export from Voucher Vault
 - Support copying multiple barcodes at once
 - Support sharing multiple loyalty cards at once

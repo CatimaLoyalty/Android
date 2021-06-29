@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -32,6 +33,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -1071,6 +1073,54 @@ public class ImportExportTest
         assertEquals(0, card6.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, true));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, false));
+
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importFidme() {
+        InputStream inputStream = getClass().getResourceAsStream("fidme-export-request-2021-06-29-17-28-20.zip");
+
+        // Import the Fidme data
+        boolean result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Fidme);
+        assertTrue(result);
+        assertEquals(3, db.getLoyaltyCardCount());
+
+        LoyaltyCard card = db.getLoyaltyCard(1);
+
+        assertEquals("Hema", card.store);
+        assertEquals("2021-03-24 18:35:08 UTC", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("82825292629272726", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(null, card.barcodeType);
+        assertEquals(0, card.starStatus);
+
+        card = db.getLoyaltyCard(2);
+
+        assertEquals("test", card.store);
+        assertEquals("Test\n2021-03-24 18:34:19 UTC", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("123456", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(null, card.barcodeType);
+        assertEquals(0, card.starStatus);
+
+        card = db.getLoyaltyCard(3);
+
+        assertEquals("Albert Heijn", card.store);
+        assertEquals("Bonus Kaart\n2021-03-24 16:47:47 UTC\nFirst Last", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("123435363634", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(null, card.barcodeType);
+        assertEquals(0, card.starStatus);
 
         TestHelpers.getEmptyDb(activity);
     }

@@ -103,18 +103,18 @@ public class FidmeImporter implements Importer
         }
 
         // There seems to be no note field in the CSV? So let's combine other fields instead...
-        String program = CSVHelpers.extractString("Program", record, "");
-        String addedAt = CSVHelpers.extractString("Added At", record, "");
-        String firstName = CSVHelpers.extractString("Firstname", record, "");
-        String lastName = CSVHelpers.extractString("Lastname", record, "");
+        String program = CSVHelpers.extractString("Program", record, "").trim();
+        String addedAt = CSVHelpers.extractString("Added At", record, "").trim();
+        String firstName = CSVHelpers.extractString("Firstname", record, "").trim();
+        String lastName = CSVHelpers.extractString("Lastname", record, "").trim();
 
-        String combinedName = String.format("%s %s", firstName, lastName);
+        String combinedName = String.format("%s %s", firstName, lastName).trim();
 
         StringBuilder noteBuilder = new StringBuilder();
         if (!program.isEmpty()) noteBuilder.append(program).append('\n');
         if (!addedAt.isEmpty()) noteBuilder.append(addedAt).append('\n');
         if (!combinedName.isEmpty()) noteBuilder.append(combinedName).append('\n');
-        String note = noteBuilder.toString();
+        String note = noteBuilder.toString().trim();
 
         // The ID is called reference
         String cardId = CSVHelpers.extractString("Reference", record, "");

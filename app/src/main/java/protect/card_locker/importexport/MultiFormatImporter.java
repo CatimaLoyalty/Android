@@ -3,6 +3,8 @@ package protect.card_locker.importexport;
 import android.content.Context;
 import android.util.Log;
 
+import net.lingala.zip4j.exception.ZipException;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -10,7 +12,6 @@ import java.io.InputStream;
 import java.text.ParseException;
 
 import protect.card_locker.DBHelper;
-import protect.card_locker.DataFormat;
 import protect.card_locker.FormatException;
 
 public class MultiFormatImporter
@@ -24,11 +25,11 @@ public class MultiFormatImporter
      * The input stream is not closed, and doing so is the
      * responsibility of the caller.
      *
-     * @return true if the database was successfully imported,
-     * false otherwise. If false, no data was written to
+     * @return ImportExportResult.Success if the database was successfully imported,
+     * or another result otherwise. If no Success, no data was written to
      * the database.
      */
-    public static boolean importData(Context context, DBHelper db, InputStream input, DataFormat format)
+    public static ImportExportResult importData(Context context, DBHelper db, InputStream input, DataFormat format, char[] password)
     {
         Importer importer = null;
 
@@ -40,6 +41,9 @@ public class MultiFormatImporter
             case Fidme:
                 importer = new FidmeImporter();
                 break;
+            case Stocard:
+                importer = new StocardImporter();
+                break;
             case VoucherVault:
                 importer = new VoucherVaultImporter();
                 break;
@@ -49,8 +53,12 @@ public class MultiFormatImporter
         {
             try
             {
-                importer.importData(context, db, input);
-                return true;
+                importer.importData(context, db, input, password);
+                return ImportExportResult.Success;
+            }
+            catch(ZipException e)
+            {
+                return ImportExportResult.BadPassword;
             }
             catch(IOException | FormatException | InterruptedException | JSONException | ParseException e)
             {
@@ -62,6 +70,7 @@ public class MultiFormatImporter
         {
             Log.e(TAG, "Unsupported data format imported: " + format.name());
         }
-        return false;
+
+        return ImportExportResult.GenericFailure;
     }
 }

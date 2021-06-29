@@ -2,6 +2,7 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -13,11 +14,13 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.json.JSONException;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.StringReader;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 
 import protect.card_locker.DBHelper;
@@ -30,9 +33,11 @@ import protect.card_locker.FormatException;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class FidmeImporter implements Importer
+public class StocardImporter implements Importer
 {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+        LocalFileHeader localFileHeader;
+
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
@@ -40,14 +45,19 @@ public class FidmeImporter implements Importer
         byte[] buffer = new byte[1024];
         int read = 0;
 
-        LocalFileHeader localFileHeader;
-
         while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
-            if (localFileHeader.getFileName().equals("loyalty_programs.csv")) {
-                while ((read = zipInputStream.read(buffer, 0, 1024)) >= 0) {
-                    loyaltyCards.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
-                }
-            }
+            Log.w("STO", localFileHeader.getFileName());
+            //File extractedFile = new File(localFileHeader.getFileName());
+            //if (localFileHeader.isDirectory()) {
+            //    localFileHeader = zipInputStream.getNextEntry(localFileHeader);
+            //}
+            //if (!localFileHeader.isDirectory()) {
+            //    File extractedFile = new File(localFileHeader.getFileName());
+            //    OutputStream outputStream = new FileOutputStream(extractedFile);
+            //    while ((read = zipInputStream.read(buffer)) != -1) {
+            //        outputStream.write(buffer, 0, read);
+            //    }
+            //}
         }
 
         if (loyaltyCards.length() == 0) {

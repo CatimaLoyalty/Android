@@ -35,7 +35,7 @@ import protect.card_locker.FormatException;
  */
 public class VoucherVaultImporter implements Importer
 {
-    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         StringBuilder sb = new StringBuilder();

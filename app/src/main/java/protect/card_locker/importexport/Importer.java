@@ -23,5 +23,5 @@ public interface Importer
      * @throws IOException
      * @throws FormatException
      */
-    void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
+    void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

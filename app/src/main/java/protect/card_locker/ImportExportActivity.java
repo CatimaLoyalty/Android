@@ -27,6 +27,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import protect.card_locker.importexport.DataFormat;
+import protect.card_locker.importexport.ImportExportResult;
 
 public class ImportExportActivity extends AppCompatActivity
 {
@@ -162,19 +164,19 @@ public class ImportExportActivity extends AppCompatActivity
         builder.show();
     }
 
-    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat)
+    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success)
+            public void onTaskComplete(ImportExportResult result)
             {
-                onImportComplete(success, targetUri);
+                onImportComplete(result, targetUri);
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                dataFormat, target, listener);
+                dataFormat, target, password, listener);
         importExporter.execute();
     }
 
@@ -183,9 +185,9 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success)
+            public void onTaskComplete(ImportExportResult result)
             {
-                onExportComplete(success, targetUri);
+                onExportComplete(result, targetUri);
             }
         };
 
@@ -245,20 +247,23 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void onImportComplete(boolean success, Uri path)
+    private void onImportComplete(ImportExportResult result, Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        if(success)
+        int messageId;
+
+        if(result == ImportExportResult.Success)
         {
             builder.setTitle(R.string.importSuccessfulTitle);
+            messageId = R.string.importSuccessful;
         }
         else
         {
             builder.setTitle(R.string.importFailedTitle);
+            messageId = R.string.importFailed;
         }
 
-        int messageId = success ? R.string.importSuccessful : R.string.importFailed;
         final String message = getResources().getString(messageId);
 
         builder.setMessage(message);
@@ -274,20 +279,23 @@ public class ImportExportActivity extends AppCompatActivity
         builder.create().show();
     }
 
-    private void onExportComplete(boolean success, final Uri path)
+    private void onExportComplete(ImportExportResult result, final Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        if(success)
+        int messageId;
+
+        if(result == ImportExportResult.Success)
         {
             builder.setTitle(R.string.exportSuccessfulTitle);
+            messageId = R.string.exportSuccessful;
         }
         else
         {
             builder.setTitle(R.string.exportFailedTitle);
+            messageId = R.string.exportFailed;
         }
 
-        int messageId = success ? R.string.exportSuccessful : R.string.exportFailed;
         final String message = getResources().getString(messageId);
 
         builder.setMessage(message);
@@ -300,7 +308,7 @@ public class ImportExportActivity extends AppCompatActivity
             }
         });
 
-        if(success)
+        if(result == ImportExportResult.Success)
         {
             final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
 
@@ -389,7 +397,7 @@ public class ImportExportActivity extends AppCompatActivity
 
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
-                startImport(reader, uri, importDataFormat);
+                startImport(reader, uri, importDataFormat, null);
             }
         }
         catch(FileNotFoundException e)
@@ -397,11 +405,11 @@ public class ImportExportActivity extends AppCompatActivity
             Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
             if (requestCode == CHOOSE_EXPORT_LOCATION)
             {
-                onExportComplete(false, uri);
+                onExportComplete(ImportExportResult.GenericFailure, uri);
             }
             else
             {
-                onImportComplete(false, uri);
+                onImportComplete(ImportExportResult.GenericFailure, uri);
             }
         }
     }

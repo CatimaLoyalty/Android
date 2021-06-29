@@ -37,7 +37,7 @@ import protect.card_locker.Utils;
  */
 public class CsvImporter implements Importer
 {
-    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException
+    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 

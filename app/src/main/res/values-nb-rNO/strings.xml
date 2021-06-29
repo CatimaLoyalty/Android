@@ -150,4 +150,12 @@
     <string name="no">Nei</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionTitle">Oppdater strekkodeverdi\?</string>
+    <string name="takePhoto">Ta et bilde</string>
+    <string name="chooseImageFromGallery">Velg bilde fra galleriet</string>
+    <string name="removeImage">Fjern bilde</string>
+    <string name="setBackImage">Sett bakside</string>
+    <string name="setFrontImage">Sett forside</string>
+    <string name="photos">Bilder</string>
+    <string name="backImageDescription">Kortets bakside</string>
+    <string name="frontImageDescription">Kortets forside</string>
 </resources>

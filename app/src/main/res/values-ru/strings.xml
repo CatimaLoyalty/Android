@@ -152,4 +152,12 @@
     <string name="no">Нет</string>
     <string name="yes">Да</string>
     <string name="updateBarcodeQuestionTitle">Обновить значение штрих-кода\?</string>
+    <string name="setBackImage">Изображение задней стороны</string>
+    <string name="setFrontImage">Изображение лицевой стороны</string>
+    <string name="takePhoto">Сфотографировать</string>
+    <string name="chooseImageFromGallery">Выбрать изображение из галереи</string>
+    <string name="removeImage">Удалить изображение</string>
+    <string name="backImageDescription">Задняя сторона карты</string>
+    <string name="frontImageDescription">Лицевая сторона карты</string>
+    <string name="photos">Фотографии</string>
 </resources>

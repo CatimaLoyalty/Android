@@ -150,4 +150,12 @@
     <string name="yes">Sì</string>
     <string name="updateBarcodeQuestionText">Hai cambiato l\'ID della carta. Vuoi anche aggiornare il codice a barre per usare lo stesso valore\?</string>
     <string name="updateBarcodeQuestionTitle">Aggiornare il valore del codice a barre\?</string>
+    <string name="takePhoto">Scatta una foto</string>
+    <string name="chooseImageFromGallery">Scegli un’immagine dalla galleria</string>
+    <string name="removeImage">Rimuovi l’immagine</string>
+    <string name="setBackImage">Imposta immagine posteriore</string>
+    <string name="setFrontImage">Imposta immagine frontale</string>
+    <string name="photos">Foto</string>
+    <string name="backImageDescription">Immagine posteriore della carta</string>
+    <string name="frontImageDescription">Immagine frontale della carta</string>
 </resources>

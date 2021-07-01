@@ -1,7 +1,23 @@
-Sei stanco di cercare la tua carta fedeltà durante i pagamenti in negozio? Cerchi una soluzione gratuita che non catture le tue informazioni? 
-
-Catima è un'applicazione che memorizzerà sul tuo telefono le tue carte fedeltà basate su codici a barre. L'applicazione è open source e cerca di fare bene una cosa: gestire le tue carte! 
-
-Nuove carte possono essere aggiunte in un attimo. Utilizza la fotocamera per acquisire il codice a barre o digita il numero. Quando il codice a barre viene caricato nel negozio e visualizzato, può essere scansionato con un moderno lettore di codici a barre. (Alcuni negozi utilizzano lettori di codici a barre meno recenti, come scanner piani, invece di scanner di immagini. Questi non possono leggere il display dello smartphone. In questi casi, devi chiedere all'impiegato di digitare il numero manualmente). 
-
-L'applicazione richiede pochissime autorizzazioni e non tenta mai di accedere a Internet. E' possibile eseguire il backup delle carte nella memoria locale. E da lì puoi conservare il backup da qualche parte al sicuro.
+Basta con la ricerca di carte premio di plastica quando esci dal negozio.
+<b>Scannerizza i codici a barre sul tuo dispositivo usando la sua fotocamera, dimentica le carte.</b>
+😺
+Dimentica il tuo portafoglio, o tienilo ultraleggero per gli oggetti di valore.
+😺
+Con questo strumento essenziale per il trasporto quotidiano, puoi sostituire la plastica inutile con i contanti.
+😺
+- Evita di spiare con pochissimi permessi. Nessun accesso a Internet e nessuna pubblicità.
+- Aggiungi carte o codici con nomi e colori personalizzabili.
+- Inserimento manuale del codice se non c'è un codice a barre da memorizzare o non può essere utilizzato.
+- Importa carte e codici da file, Catima, Portachiavi delle carte fedeltà, Voucher Vault e FidMe.
+- Fai un backup di tutte le tue carte e trasferiscile su un nuovo dispositivo se vuoi.
+- Condividi coupon, offerte esclusive, codici promozionali o carte e codici utilizzando qualsiasi app.
+- Tema scuro e opzioni di accessibilità per gli utenti con problemi di vista.
+- Fatto per tutti dalla comunità del software libero.
+- Traduzioni localizzate a mano per 20+ lingue.
+- Gratis, supportato dai contributi della comunità.
+- Usalo, studialo, cambialo e condividilo come vuoi; <i>con tutti</i>.
+- Non solo un software libero. <i>Copylefted</i> software libero (GPLv3+) gestione schede.
+😺
+Semplifica la tua vita e gli acquisti, e non perdere mai più una ricevuta cartacea, una carta regalo con pagamento in negozio o un biglietto aereo.
+Porta con te tutti i tuoi premi e bonus, e risparmia mentre vai.
+😺

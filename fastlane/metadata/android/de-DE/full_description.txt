@@ -1,23 +1,23 @@
 Schluss mit der Suche nach Plastik-Belohnungskarten beim Bezahlen im Geschäft oder Webshop.
-<b>Scannen Sie Strichcodes mit der Kamera Ihres Geräts, vergessen Sie Karten.</b>
+<b>Scanne EAN-Codes mit der Kamera deines Geräts, du brauchst keine Karten mehr.</b>
 😺
-Vergessen Sie Ihren Geldbeutel, oder bewahren Sie ihn ultraleicht für Wertsachen auf.
+Du brauchst keine Geldbörse, oder mach sie federleicht für Wertsachen.
 😺
-Mit diesem unverzichtbaren Werkzeug können Sie nutzloses Plastik durch Bargeld ersetzen.
+Mit diesem unverzichtbaren (EDC)Werkzeug kannst du nutzloses Plastik durch Bargeld ersetzen.
 😺
-- Vermeiden Sie Spionage mit sehr wenigen Berechtigungen. Kein Internetzugang und keine Werbung.
-- Fügen Sie Karten oder Codes mit Namen und anpassbaren Farben hinzu.
-- Manuelle Code-Eingabe, wenn kein Barcode gespeichert ist oder nicht verwendet werden kann.
-- Importieren Sie Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Voucher Vault und FidMe.
-- Erstellen Sie ein Backup aller Karten und übertragen Sie diese auf ein neues Gerät, wenn Sie möchten.
-- Teilen Sie Gutscheine, exklusive Angebote, Promo-Codes oder Karten und Codes mit jeder Anwendung.
-- Dunkles Theme und Zugänglichkeitsoptionen für sehbehinderte Nutzer.
-- Von der Freien-Software-Gemeinschaft für alle gemacht.
-- Lokalisierte, handgefertigte Übersetzungen für mehr als 20 Sprachen.
-- Kostenlos, unterstützt durch Gemeinschaft-Beiträge.
-- Verwenden, studieren, ändern und teilen Sie es, wie Sie wollen; <i>mit allen</i>.
+- Vermeide Spionage mit sehr wenigen Berechtigungen. Kein Internetzugang und keine Werbung.
+- Füge Karten oder Codes mit Namen und anpassbaren Farben hinzu.
+- Manuelle Code-Eingabe, wenn kein Barcode gespeichert ist oder nicht funktioniert.
+- Importiere Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Voucher Vault und FidMe.
+- Erstelle ein Backup aller Karten und übertrage diese auf ein neues Gerät, wenn du möchtest.
+- Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und Codes mit jeder Applikation.
+- Dunkler Modus und Zugänglichkeitsoptionen für sehbehinderte Nutzer.
+- Von der Freien-Software-Gemeinschaft für alle Menschen gemacht.
+- Lokalisierte, eigenhändige Übersetzungen für mehr als 20 Sprachen.
+- Kostenlos, unterstützt durch Gemeinschaftsbeiträge.
+- Verwende, studiere, ändere und teile es, wie du willst; <i>mit Allen</i>.
 - Nicht nur freie und quelloffene Software. <i>Copylefted</i> freie Software (GPLv3+) Kartenverwaltung.
 😺
-Vereinfachen Sie Ihr Leben und Ihre Einkäufe, und verlieren Sie nie wieder einen Papierbeleg, eine Geschenkkarte für die Bezahlung im Geschäft oder ein Flugschein.
-Nehmen Sie alle Ihre Prämien und Boni mit, und sparen Sie unterwegs.
+Vereinfache dein Leben und Einkäufe, und verliere nie wieder eine Papierrechung, eine Geschenkkarte für die Bezahlung im Geschäft oder ein Flugticket.
+Habe deine Prämien und Boni immer bei der Hand, und spare unterwegs.
 😺

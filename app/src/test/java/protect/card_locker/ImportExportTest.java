@@ -7,8 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
+
+import net.lingala.zip4j.io.inputstream.ZipInputStream;
+import net.lingala.zip4j.model.LocalFileHeader;
 
 import org.json.JSONException;
 import org.junit.Before;
@@ -1127,6 +1131,8 @@ public class ImportExportTest
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Stocard, null);
         assertEquals(ImportExportResult.BadPassword, result);
         assertEquals(0, db.getLoyaltyCardCount());
+
+        inputStream = getClass().getResourceAsStream("50e33e49-cfa0-49ad-a297-c1d655f72b01-sync.zip");
 
         result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Stocard, "da811b40a4dac56f0cbb2d99b21bbb9a".toCharArray());
         assertEquals(ImportExportResult.Success, result);

@@ -275,7 +275,7 @@ public class DBHelper extends SQLiteOpenHelper
         return newId;
     }
 
-    public boolean insertLoyaltyCard(final SQLiteDatabase db, final String store,
+    public long insertLoyaltyCard(final SQLiteDatabase db, final String store,
                                      final String note, final Date expiry, final BigDecimal balance,
                                      final Currency balanceType, final String cardId,
                                      final String barcodeId, final BarcodeFormat barcodeType,
@@ -293,10 +293,10 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
-        return (newId != -1);
+        return newId;
     }
 
-    public boolean insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
+    public long insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
                                      final String note, final Date expiry, final BigDecimal balance,
                                      final Currency balanceType, final String cardId,
                                      final String barcodeId, final BarcodeFormat barcodeType,
@@ -315,7 +315,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
         final long newId = db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
-        return (newId != -1);
+        return newId;
     }
 
     public boolean updateLoyaltyCard(final int id, final String store, final String note,

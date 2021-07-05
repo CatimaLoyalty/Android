@@ -2,6 +2,9 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Picture;
 import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
@@ -12,7 +15,9 @@ import net.lingala.zip4j.model.LocalFileHeader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,10 +26,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.LoyaltyCard;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -36,51 +49,136 @@ import protect.card_locker.FormatException;
 public class StocardImporter implements Importer
 {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
-        LocalFileHeader localFileHeader;
+        HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
+        HashMap<String, String> providers = new HashMap<>();
 
-        // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
-        StringBuilder loyaltyCards = new StringBuilder();
-        byte[] buffer = new byte[1024];
-        int read = 0;
-
+        String[] providersFileName = null;
+        String[] cardBaseName = null;
+        String cardName = "";
+        LocalFileHeader localFileHeader;
         while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
-            Log.w("STO", localFileHeader.getFileName());
-            //File extractedFile = new File(localFileHeader.getFileName());
-            //if (localFileHeader.isDirectory()) {
-            //    localFileHeader = zipInputStream.getNextEntry(localFileHeader);
-            //}
-            //if (!localFileHeader.isDirectory()) {
-            //    File extractedFile = new File(localFileHeader.getFileName());
-            //    OutputStream outputStream = new FileOutputStream(extractedFile);
-            //    while ((read = zipInputStream.read(buffer)) != -1) {
-            //        outputStream.write(buffer, 0, read);
-            //    }
-            //}
+            String fileName = localFileHeader.getFileName();
+            String[] nameParts = fileName.split("/");
+
+            if (providersFileName == null) {
+                providersFileName = new String[] {
+                        nameParts[0],
+                        "sync",
+                        "data",
+                        "users",
+                        nameParts[0],
+                        "analytics-properties.json"
+                };
+                cardBaseName = new String[] {
+                        nameParts[0],
+                        "sync",
+                        "data",
+                        "users",
+                        nameParts[0],
+                        "loyalty-cards"
+                };
+            }
+
+            if (startsWith(nameParts, providersFileName, 0) && !localFileHeader.isDirectory()) {
+                providers = parseProviders(zipInputStream);
+            } else if (startsWith(nameParts, cardBaseName, 1)) {
+                // Extract cardName
+                if (localFileHeader.isDirectory()) {
+                    cardName = nameParts[cardBaseName.length];
+                }
+
+                // This is the card itself
+                if (nameParts.length == cardBaseName.length + 1) {
+                    // Ignore the .txt file
+                    if (fileName.endsWith(".json")) {
+                        JSONObject jsonObject = readJSON(zipInputStream);
+
+                        appendToLoyaltyCardHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "cardId",
+                                jsonObject.getString("input_id")
+                        );
+                        appendToLoyaltyCardHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "_providerId",
+                                jsonObject
+                                    .getJSONObject("input_provider_reference")
+                                    .getString("identifier")
+                                    .substring("/loyalty-card-providers/".length())
+                        );
+
+                        try {
+                            appendToLoyaltyCardHashMap(
+                                    loyaltyCardHashMap,
+                                    cardName,
+                                    "barcodeType",
+                                    jsonObject.getString("input_barcode_format")
+                            );
+                        } catch (JSONException ignored) {}
+                    }
+                } else if (fileName.endsWith("notes/default.json")) {
+                    appendToLoyaltyCardHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "note",
+                            readJSON(zipInputStream)
+                                .getString("content")
+                    );
+                } else if (fileName.endsWith("/images/front.png")) {
+                    appendToLoyaltyCardHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "frontImage",
+                            read(zipInputStream)
+                    );
+                } else if (fileName.endsWith("/images/back.png")) {
+                    appendToLoyaltyCardHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "backImage",
+                            read(zipInputStream)
+                    );
+                }
+            }
         }
 
-        if (loyaltyCards.length() == 0) {
-            throw new FormatException("Couldn't find loyalty_programs.csv in zip file or it is empty");
+        if (loyaltyCardHashMap.keySet().size() == 0) {
+            throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
         }
 
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
 
-        final CSVParser fidmeParser = new CSVParser(new StringReader(loyaltyCards.toString()), CSVFormat.RFC4180.withDelimiter(';').withHeader());
+        for(Map.Entry<String, HashMap<String, Object>> entry : loyaltyCardHashMap.entrySet()) {
+            HashMap<String, Object> loyaltyCardData = entry.getValue();
 
-        try {
-            for (CSVRecord record : fidmeParser) {
-                importLoyaltyCard(database, db, record);
-
-                if (Thread.currentThread().isInterrupted()) {
-                    throw new InterruptedException();
+            String store = providers.get(loyaltyCardData.get("_providerId"));
+            String note = (String) loyaltyCardData.getOrDefault("note", "");
+            String cardId = (String) loyaltyCardData.get("cardId");
+            String barcodeTypeString = (String) loyaltyCardData.getOrDefault("barcodeType", null);
+            BarcodeFormat barcodeType = null;
+            if (barcodeTypeString != null) {
+                if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
+                    barcodeType = BarcodeFormat.RSS_EXPANDED;
+                } else {
+                    barcodeType = BarcodeFormat.valueOf(barcodeTypeString);
                 }
             }
-        } catch (IllegalArgumentException | IllegalStateException | InterruptedException e) {
-            throw new FormatException("Issue parsing CSV data", e);
-        } finally {
-            fidmeParser.close();
+
+            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0);
+
+            if (loyaltyCardData.containsKey("frontImage")) {
+                byte[] byteArray = ((String) loyaltyCardData.get("frontImage")).getBytes();
+                Utils.saveCardImage(context, BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length), (int) loyaltyCardInternalId, true);
+            }
+            if (loyaltyCardData.containsKey("backImage")) {
+                byte[] byteArray = ((String) loyaltyCardData.get("backImage")).getBytes();
+                Utils.saveCardImage(context, BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length), (int) loyaltyCardInternalId, false);
+            }
         }
 
         database.setTransactionSuccessful();
@@ -90,60 +188,55 @@ public class StocardImporter implements Importer
         zipInputStream.close();
     }
 
-    /**
-     * Import a single loyalty card into the database using the given
-     * session.
-     */
-    private void importLoyaltyCard(SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException
-    {
-        // A loyalty card export from Fidme contains the following fields:
-        // Retailer (store name)
-        // Program (program name)
-        // Added at (YYYY-MM-DD HH:MM:SS UTC)
-        // Reference (card ID)
-        // Firstname (card holder first name)
-        // Lastname (card holder last name)
-
-        // The store is called Retailer
-        String store = CSVHelpers.extractString("Retailer", record, "");
-
-        if (store.isEmpty())
-        {
-            throw new FormatException("No store listed, but is required");
+    private boolean startsWith(String[] full, String[] start, int minExtraLength) {
+        if (full.length - minExtraLength < start.length) {
+            return false;
         }
 
-        // There seems to be no note field in the CSV? So let's combine other fields instead...
-        String program = CSVHelpers.extractString("Program", record, "").trim();
-        String addedAt = CSVHelpers.extractString("Added At", record, "").trim();
-        String firstName = CSVHelpers.extractString("Firstname", record, "").trim();
-        String lastName = CSVHelpers.extractString("Lastname", record, "").trim();
-
-        String combinedName = String.format("%s %s", firstName, lastName).trim();
-
-        StringBuilder noteBuilder = new StringBuilder();
-        if (!program.isEmpty()) noteBuilder.append(program).append('\n');
-        if (!addedAt.isEmpty()) noteBuilder.append(addedAt).append('\n');
-        if (!combinedName.isEmpty()) noteBuilder.append(combinedName).append('\n');
-        String note = noteBuilder.toString().trim();
-
-        // The ID is called reference
-        String cardId = CSVHelpers.extractString("Reference", record, "");
-        if(cardId.isEmpty())
-        {
-            throw new FormatException("No card ID listed, but is required");
+        for (int i = 0; i < start.length; i++) {
+            if (!start[i].contentEquals(full[i])) {
+                return false;
+            }
         }
 
-        // Sadly, Fidme exports don't contain the card type
-        // I guess they have an online DB of all the different companies and what type they use
-        // TODO: Hook this into our own loyalty card DB if we ever get one
-        BarcodeFormat barcodeType = null;
+        return true;
+    }
 
-        // No favourite data in the export either
-        int starStatus = 0;
+    private String read(ZipInputStream zipInputStream) throws IOException {
+        int read;
+        byte[] buffer = new byte[4096];
 
-        // TODO: Front and back image
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((read = zipInputStream.read(buffer, 0, 4096)) >= 0) {
+            stringBuilder.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
+        }
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
+        return stringBuilder.toString();
+    }
+
+    private JSONObject readJSON(ZipInputStream zipInputStream) throws IOException, JSONException {
+        return new JSONObject(read(zipInputStream));
+    }
+
+    private HashMap<String, HashMap<String, Object>> appendToLoyaltyCardHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
+        HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.getOrDefault(cardID, new HashMap<>());
+
+        loyaltyCardData.put(key, value);
+        loyaltyCardHashMap.put(cardID, loyaltyCardData);
+
+        return loyaltyCardHashMap;
+    }
+
+    private HashMap<String, String> parseProviders(ZipInputStream zipInputStream) throws IOException, JSONException {
+        JSONObject jsonObject = readJSON(zipInputStream);
+
+        HashMap<String, String> providers = new HashMap<>();
+        JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
+        JSONArray providerList = jsonObject.getJSONArray("provider_list");
+        for (int i = 0; i < jsonObject.getInt("number_of_cards"); i++) {
+            providers.put(providerIdList.get(i).toString(), providerList.get(i).toString());
+        }
+
+        return providers;
     }
 }

@@ -8,10 +8,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
@@ -190,9 +192,9 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(ImportExportResult result)
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
-                onImportComplete(result, targetUri);
+                onImportComplete(result, targetUri, dataFormat);
             }
         };
 
@@ -206,7 +208,7 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(ImportExportResult result)
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
                 onExportComplete(result, targetUri);
             }
@@ -233,7 +235,7 @@ public class ImportExportActivity extends AppCompatActivity
                 }
             }
 
-            if(success == false)
+            if(!success)
             {
                 // External storage permission rejected, inform user that
                 // import/export is prevented
@@ -268,13 +270,33 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void onImportComplete(ImportExportResult result, Uri path)
-    {
+    private void retryWithPassword(DataFormat dataFormat, Uri uri) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.passwordRequired);
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            activityResultParser(IMPORT, RESULT_OK, uri, input.getText().toString().toCharArray());
+        });
+        builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
+
+        builder.show();
+    }
+
+    private void onImportComplete(ImportExportResult result, Uri path, DataFormat dataFormat) {
+        if (result == ImportExportResult.BadPassword) {
+            retryWithPassword(dataFormat, path);
+            return;
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         int messageId;
 
-        if(result == ImportExportResult.Success)
+        if (result == ImportExportResult.Success)
         {
             builder.setTitle(R.string.importSuccessfulTitle);
             messageId = R.string.importSuccessful;
@@ -320,36 +342,24 @@ public class ImportExportActivity extends AppCompatActivity
         final String message = getResources().getString(messageId);
 
         builder.setMessage(message);
-        builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
+        builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
 
         if(result == ImportExportResult.Success)
         {
             final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
 
-            builder.setPositiveButton(sendLabel, new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_STREAM, path);
-                    sendIntent.setType("text/csv");
+            builder.setPositiveButton(sendLabel, (dialog, which) -> {
+                Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_STREAM, path);
+                sendIntent.setType("text/csv");
 
-                    // set flag to give temporary permission to external app to use the FileProvider
-                    sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                // set flag to give temporary permission to external app to use the FileProvider
+                sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-                    ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
-                            sendLabel));
+                ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
+                        sendLabel));
 
-                    dialog.dismiss();
-                }
+                dialog.dismiss();
             });
         }
 
@@ -369,18 +379,13 @@ public class ImportExportActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-
+    private void activityResultParser(int requestCode, int resultCode, Uri uri, char[] password) {
         if (resultCode != RESULT_OK)
         {
             Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
             return;
         }
 
-        Uri uri = data.getData();
         if(uri == null)
         {
             Log.e(TAG, "Activity returned a NULL URI");
@@ -418,7 +423,7 @@ public class ImportExportActivity extends AppCompatActivity
 
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
-                startImport(reader, uri, importDataFormat, null);
+                startImport(reader, uri, importDataFormat, password);
             }
         }
         catch(FileNotFoundException e)
@@ -430,8 +435,16 @@ public class ImportExportActivity extends AppCompatActivity
             }
             else
             {
-                onImportComplete(ImportExportResult.GenericFailure, uri);
+                onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        activityResultParser(requestCode, resultCode, data.getData(), null);
     }
 }

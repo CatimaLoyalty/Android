@@ -542,7 +542,7 @@ public class ImportExportTest
     {
         ImportExportResult result;
 
-        public void onTaskComplete(ImportExportResult result)
+        public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
         {
             this.result = result;
         }

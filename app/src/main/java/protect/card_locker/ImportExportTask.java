@@ -126,7 +126,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
 
     protected void onPostExecute(ImportExportResult result)
     {
-        listener.onTaskComplete(result);
+        listener.onTaskComplete(result, format);
 
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
@@ -139,7 +139,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
     }
     interface TaskCompleteListener
     {
-        void onTaskComplete(ImportExportResult result);
+        void onTaskComplete(ImportExportResult result, DataFormat format);
     }
 
 }

@@ -5,6 +5,8 @@
 Changes:
 
 - Support adding a front and back photo to each card
+- Support importing password-protected zip files
+- Support importing from Stocard (Beta)
 
 ## v1.14.1 (2021-06-14)
 

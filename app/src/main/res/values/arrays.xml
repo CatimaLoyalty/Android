@@ -4,6 +4,7 @@
         <item>Catima</item>
         <item>Fidme</item>
         <item>@string/app_loyalty_card_keychain</item>
+        <item>Stocard</item>
         <item>Voucher Vault</item>
     </string-array>
 </resources>

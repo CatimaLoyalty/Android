@@ -20,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -117,9 +119,22 @@ public class ImportExportActivity extends AppCompatActivity
     }
 
     private void chooseImportType(Intent baseIntent) {
+        List<CharSequence> betaImportOptions = new ArrayList<>();
+        betaImportOptions.add("Fidme");
+        betaImportOptions.add("Stocard");
+        List<CharSequence> importOptions = new ArrayList<>();
+
+        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
+            if (betaImportOptions.contains(importOption)) {
+                importOption = importOption + " (BETA)";
+            }
+
+            importOptions.add(importOption);
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.chooseImportType)
-                .setItems(R.array.import_types_array, (dialog, which) -> {
+                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
                     switch (which) {
                         // Catima
                         case 0:
@@ -139,8 +154,14 @@ public class ImportExportActivity extends AppCompatActivity
                             importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
                             importDataFormat = DataFormat.Catima;
                             break;
-                        // Voucher Vault
+                        // Stocard
                         case 3:
+                            importAlertTitle = getString(R.string.importStocard);
+                            importAlertMessage = getString(R.string.importStocardMessage);
+                            importDataFormat = DataFormat.Stocard;
+                            break;
+                        // Voucher Vault
+                        case 4:
                             importAlertTitle = getString(R.string.importVoucherVault);
                             importAlertMessage = getString(R.string.importVoucherVaultMessage);
                             importDataFormat = DataFormat.VoucherVault;

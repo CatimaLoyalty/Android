@@ -150,4 +150,12 @@
     <string name="no">Non</string>
     <string name="yes">Oui</string>
     <string name="updateBarcodeQuestionTitle">Mettre à jour la valeur du code-barres \?</string>
+    <string name="chooseImageFromGallery">Choisir une image dans la galerie</string>
+    <string name="takePhoto">Prendre une photo</string>
+    <string name="removeImage">Retirer l’image</string>
+    <string name="setBackImage">Définir l’image verso</string>
+    <string name="setFrontImage">Définir l’image recto</string>
+    <string name="photos">Photos</string>
+    <string name="backImageDescription">Image verso de la carte</string>
+    <string name="frontImageDescription">Image recto de la carte</string>
 </resources>

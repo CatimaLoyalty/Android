@@ -93,7 +93,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> Karten</item>
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Bonuskartenschlüsselring</string>
     <string name="chooseImportType">Daten importieren aus\?</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
@@ -150,4 +150,12 @@
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Sie haben die Karten-ID geändert. Möchten Sie auch den Strichcode aktualisieren, um denselben Wert zu verwenden\?</string>
     <string name="updateBarcodeQuestionTitle">Strichcodewert aktualisieren\?</string>
+    <string name="chooseImageFromGallery">Bild aus der Galerie auswählen</string>
+    <string name="takePhoto">Foto aufnehmen</string>
+    <string name="removeImage">Bild entfernen</string>
+    <string name="setBackImage">Rückseitenbild einstellen</string>
+    <string name="setFrontImage">Vorderseitenbild einstellen</string>
+    <string name="photos">Fotos</string>
+    <string name="frontImageDescription">Bild der Kartenvorderseite</string>
+    <string name="backImageDescription">Bild der Kartenrückseite</string>
 </resources>

@@ -1,7 +1,23 @@
-Bist du es auch leid, beim Bezahlen an der Kasse im Supermarkt jedes mal nach dieser Bonuskarte aus Plastik zu suchen? Genervt davon, dass die Brieftasche durch die ganzen Plastikkarten gefühlte fünf Meter dick ist? Wäre es nicht toll, eine <i>freie</i> Lösung für das Problem zu haben, die deine Daten nicht noch zusätzlich mit weiteren Anbietern teilt?
-
-<i>Catima</i> ist eine Anwendung, die deine auf Strichcodes basierenden Kundenkarten auf deinem Smartphone verwaltet. <i>Catima</i> ist quelloffen und kann eines richtig gut: Deine Karten verwalten!
-
-Neue Karten können mit Leichtigkeit hinzugefügt werden. Entweder nutzt du die Kamera deines Smartphones, um den Strichcode direkt einzulesen – oder du gibst die unter selbigem befindliche Ziffernfolge von Hand ein. An der Kasse zeigt <i>Catima</i> sodann den Strichcode auf dem Bildschirm deines Mobiltelefones an, sodass er vom Scanner gelesen werden kann. Sollte der Scanner dabei doch einmal streiken (was selten vorkommt – und wenn, dann meist nur bei älteren Scanner-Modellen), kann der Verkäufer die ebenfalls angezeigten Ziffern wiederum auch händisch erfassen.
-
-Die Anwendung benötigt nur wenige Berechtigungen – und greift nie auf das Internet zu. <i>Catima</i> bietet auch die Möglichkeit, deine Kartensammlung zu exportieren sowie zu importieren. Damit kannst du die Daten z. B. auch auf ein anderes Gerät übertragen – oder etwa nach einem Werksreset wieder neu einlesen.
+Schluss mit der Suche nach Plastik-Belohnungskarten beim Bezahlen im Geschäft oder Webshop.
+<b>Scanne EAN-Codes mit der Kamera deines Geräts, du brauchst keine Karten mehr.</b>
+😺
+Du brauchst keine Geldbörse, oder mach sie federleicht für Wertsachen.
+😺
+Mit diesem unverzichtbaren (EDC)Werkzeug kannst du nutzloses Plastik durch Bargeld ersetzen.
+😺
+- Vermeide Spionage mit sehr wenigen Berechtigungen. Kein Internetzugang und keine Werbung.
+- Füge Karten oder Codes mit Namen und anpassbaren Farben hinzu.
+- Manuelle Code-Eingabe, wenn kein Barcode gespeichert ist oder nicht funktioniert.
+- Importiere Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Voucher Vault und FidMe.
+- Erstelle ein Backup aller Karten und übertrage diese auf ein neues Gerät, wenn du möchtest.
+- Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und Codes mit jeder Applikation.
+- Dunkler Modus und Zugänglichkeitsoptionen für sehbehinderte Nutzer.
+- Von der Freien-Software-Gemeinschaft für alle Menschen gemacht.
+- Lokalisierte, eigenhändige Übersetzungen für mehr als 20 Sprachen.
+- Kostenlos, unterstützt durch Gemeinschaftsbeiträge.
+- Verwende, studiere, ändere und teile es, wie du willst; <i>mit Allen</i>.
+- Nicht nur freie und quelloffene Software. <i>Copylefted</i> freie Software (GPLv3+) Kartenverwaltung.
+😺
+Vereinfache dein Leben und Einkäufe, und verliere nie wieder eine Papierrechung, eine Geschenkkarte für die Bezahlung im Geschäft oder ein Flugticket.
+Habe deine Prämien und Boni immer bei der Hand, und spare unterwegs.
+😺

@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.google.zxing.BarcodeFormat;

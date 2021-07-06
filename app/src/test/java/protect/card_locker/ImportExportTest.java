@@ -7,12 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
-
-import net.lingala.zip4j.io.inputstream.ZipInputStream;
-import net.lingala.zip4j.model.LocalFileHeader;
 
 import org.json.JSONException;
 import org.junit.Before;

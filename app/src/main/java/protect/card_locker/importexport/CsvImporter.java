@@ -2,9 +2,6 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 
 import com.google.zxing.BarcodeFormat;
 

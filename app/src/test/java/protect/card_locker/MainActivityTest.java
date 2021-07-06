@@ -3,11 +3,9 @@ package protect.card_locker;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -20,7 +18,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
-import org.w3c.dom.Text;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

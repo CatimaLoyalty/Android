@@ -140,9 +140,9 @@ public class StocardImporter implements Importer
 
         for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
             String store = providers.get(loyaltyCardData.get("_providerId").toString());
-            String note = (String) loyaltyCardData.getOrDefault("note", "");
+            String note = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
-            String barcodeTypeString = (String) loyaltyCardData.getOrDefault("barcodeType", null);
+            String barcodeTypeString = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "barcodeType", null);
             BarcodeFormat barcodeType = null;
             if (barcodeTypeString != null) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
@@ -202,7 +202,10 @@ public class StocardImporter implements Importer
     }
 
     private HashMap<String, HashMap<String, Object>> appendToLoyaltyCardHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
-        HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.getOrDefault(cardID, new HashMap<>());
+        HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.get(cardID);
+        if (loyaltyCardData == null) {
+            loyaltyCardData = new HashMap<>();
+        }
 
         loyaltyCardData.put(key, value);
         loyaltyCardHashMap.put(cardID, loyaltyCardData);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Legg til</string>
-    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importere kort fra ⋮-menyen først-.</string>
+    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importer kort fra «⋮»-menyen først.</string>
     <string name="storeName">Navn</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
@@ -110,7 +110,7 @@
     <string name="balancePoints"><xliff:g>%s</xliff:g> poeng</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Importer data fra\?</string>
-    <string name="app_loyalty_card_keychain">Kundekortsknippe</string>
+    <string name="app_loyalty_card_keychain">Kundekortknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått</string>
     <string name="privacy_policy_popup_text">Mange programbutikker krever at programmer viser personvernspraksisen sin ved første oppstart. Her er vår:

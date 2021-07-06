@@ -1140,19 +1140,7 @@ public class ImportExportTest
 
         LoyaltyCard card = db.getLoyaltyCard(1);
 
-        assertEquals("Air Miles", card.store);
-        assertEquals("", card.note);
-        assertEquals(null, card.expiry);
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals("7649484", card.cardId);
-        assertEquals(null, card.barcodeId);
-        assertEquals(null, card.barcodeType);
-        assertEquals(0, card.starStatus);
-
-        card = db.getLoyaltyCard(2);
-
-        assertEquals("Gamma", card.store);
+        assertEquals("GAMMA", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);
@@ -1162,16 +1150,28 @@ public class ImportExportTest
         assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
 
+        card = db.getLoyaltyCard(2);
+
+        assertEquals("Air Miles", card.store);
+        assertEquals("szjsbs", card.note);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("7649484", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(null, card.barcodeType);
+        assertEquals(0, card.starStatus);
+
         card = db.getLoyaltyCard(3);
 
-        assertEquals("Jö", card.store);
+        assertEquals("jö", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
-        assertEquals("20975646", card.cardId);
-        assertEquals("(01)09010374000019(21)02097564604859211217(10)01231287693", card.barcodeId);
-        assertEquals(null, card.barcodeType);
+        assertEquals("(01)09010374000019(21)02097564604859211217(10)01231287693", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType);
         assertEquals(0, card.starStatus);
 
         TestHelpers.getEmptyDb(activity);

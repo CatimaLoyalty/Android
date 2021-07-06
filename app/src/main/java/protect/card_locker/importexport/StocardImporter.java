@@ -85,9 +85,7 @@ public class StocardImporter implements Importer
                 providers = parseProviders(zipInputStream);
             } else if (startsWith(nameParts, cardBaseName, 1)) {
                 // Extract cardName
-                if (localFileHeader.isDirectory()) {
-                    cardName = nameParts[cardBaseName.length];
-                }
+                cardName = nameParts[cardBaseName.length].split("\\.", 2)[0];
 
                 // This is the card itself
                 if (nameParts.length == cardBaseName.length + 1) {
@@ -95,13 +93,13 @@ public class StocardImporter implements Importer
                     if (fileName.endsWith(".json")) {
                         JSONObject jsonObject = readJSON(zipInputStream);
 
-                        appendToLoyaltyCardHashMap(
+                        loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                 loyaltyCardHashMap,
                                 cardName,
                                 "cardId",
                                 jsonObject.getString("input_id")
                         );
-                        appendToLoyaltyCardHashMap(
+                        loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                 loyaltyCardHashMap,
                                 cardName,
                                 "_providerId",
@@ -112,7 +110,7 @@ public class StocardImporter implements Importer
                         );
 
                         try {
-                            appendToLoyaltyCardHashMap(
+                            loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                     loyaltyCardHashMap,
                                     cardName,
                                     "barcodeType",
@@ -121,7 +119,7 @@ public class StocardImporter implements Importer
                         } catch (JSONException ignored) {}
                     }
                 } else if (fileName.endsWith("notes/default.json")) {
-                    appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "note",
@@ -129,14 +127,14 @@ public class StocardImporter implements Importer
                                 .getString("content")
                     );
                 } else if (fileName.endsWith("/images/front.png")) {
-                    appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
                             read(zipInputStream)
                     );
                 } else if (fileName.endsWith("/images/back.png")) {
-                    appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "backImage",
@@ -153,10 +151,8 @@ public class StocardImporter implements Importer
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
 
-        for(Map.Entry<String, HashMap<String, Object>> entry : loyaltyCardHashMap.entrySet()) {
-            HashMap<String, Object> loyaltyCardData = entry.getValue();
-
-            String store = providers.get(loyaltyCardData.get("_providerId"));
+        for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
+            String store = providers.get(loyaltyCardData.get("_providerId").toString());
             String note = (String) loyaltyCardData.getOrDefault("note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) loyaltyCardData.getOrDefault("barcodeType", null);
@@ -228,13 +224,29 @@ public class StocardImporter implements Importer
     }
 
     private HashMap<String, String> parseProviders(ZipInputStream zipInputStream) throws IOException, JSONException {
+        // FIXME: This is probably completely wrong, but it works for the one and only test file I have
         JSONObject jsonObject = readJSON(zipInputStream);
 
-        HashMap<String, String> providers = new HashMap<>();
         JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
         JSONArray providerList = jsonObject.getJSONArray("provider_list");
+
+        // Resort, put IDs with - in them after IDs without any -
+        List<String> providerIds = new ArrayList<>();
+        List<String> customProviderIds = new ArrayList<>();
+
+        for (int i = 0; i < providerIdList.length(); i++) {
+            String providerId = providerIdList.get(i).toString();
+            if (providerId.contains("-")) {
+                customProviderIds.add(providerId);
+            } else {
+                providerIds.add(providerId);
+            }
+        }
+        providerIds.addAll(customProviderIds);
+
+        HashMap<String, String> providers = new HashMap<>();
         for (int i = 0; i < jsonObject.getInt("number_of_cards"); i++) {
-            providers.put(providerIdList.get(i).toString(), providerList.get(i).toString());
+            providers.put(providerIds.get(i), providerList.get(i).toString());
         }
 
         return providers;

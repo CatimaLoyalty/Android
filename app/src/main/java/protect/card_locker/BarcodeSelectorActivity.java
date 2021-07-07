@@ -58,7 +58,8 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 BarcodeFormat.ITF.name(),
                 BarcodeFormat.PDF_417.name(),
                 BarcodeFormat.QR_CODE.name(),
-                BarcodeFormat.UPC_A.name()
+                BarcodeFormat.UPC_A.name(),
+                BarcodeFormat.UPC_E.name()
         ));
 
     private Map<String, Pair<Integer, Integer>> barcodeViewMap;
@@ -90,6 +91,7 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 .put(BarcodeFormat.PDF_417.name(), new Pair<>(R.id.pdf417Barcode, R.id.pdf417BarcodeText))
                 .put(BarcodeFormat.QR_CODE.name(), new Pair<>(R.id.qrcodeBarcode, R.id.qrcodeBarcodeText))
                 .put(BarcodeFormat.UPC_A.name(), new Pair<>(R.id.upcaBarcode, R.id.upcaBarcodeText))
+                .put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText))
                 .build();
 
         EditText cardId = findViewById(R.id.cardId);

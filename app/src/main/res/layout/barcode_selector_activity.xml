@@ -304,6 +304,27 @@
                     android:textStyle="bold"
                     android:layout_weight="1.0" />
             </LinearLayout>
+            <LinearLayout android:orientation="vertical"
+                android:padding="10.0dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/barcode_disp_height"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/upceBarcode"
+                    android:contentDescription="@string/barcodeImageDescription"
+                    android:layout_weight="1.0"/>
+                <TextView
+                    android:id="@+id/upceBarcodeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10.0dip"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold"
+                    android:layout_weight="1.0" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

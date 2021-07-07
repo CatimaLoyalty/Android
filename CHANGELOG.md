@@ -4,6 +4,7 @@
 
 Changes:
 
+- Add UPC-E support
 - Support adding a front and back photo to each card
 - Fix useless whitespace in notes from Fidme import
 

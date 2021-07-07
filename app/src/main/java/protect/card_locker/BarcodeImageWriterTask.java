@@ -133,6 +133,8 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
                 return "1003";
             case UPC_A:
                 return "123456789012";
+            case UPC_E:
+                return "0123456";
             default:
                 throw new IllegalArgumentException("No fallback known for this barcode type");
         }

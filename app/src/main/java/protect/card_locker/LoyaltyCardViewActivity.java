@@ -89,6 +89,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     boolean starred;
     boolean backgroundNeedsDarkIcons;
     FullscreenType fullscreenType = FullscreenType.NONE;
+    boolean isBarcodeSupported = true;
 
     enum FullscreenType {
         NONE,
@@ -406,7 +407,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         }
         expiryView.setTag(loyaltyCard.expiry);
 
-        if (fullscreenType != FullscreenType.NONE) {
+        if (fullscreenType == FullscreenType.NONE) {
             makeBottomSheetVisibleIfUseful();
         }
 
@@ -458,8 +459,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
-
-        Boolean isBarcodeSupported = true;
 
         if (format != null && !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(format.name())) {
             isBarcodeSupported = false;
@@ -682,14 +681,15 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     private void setFullscreen(FullscreenType fullscreenType)
     {
         ActionBar actionBar = getSupportActionBar();
-        if (fullscreenType != FullscreenType.NONE)
-        {
-            Log.d(TAG, "Move into of fullscreen");
+        if (fullscreenType != FullscreenType.NONE) {
+            Log.d(TAG, "Move into fullscreen");
 
             if (fullscreenType == FullscreenType.IMAGE_FRONT) {
                 barcodeImage.setImageBitmap(frontImageBitmap);
+                barcodeImage.setVisibility(View.VISIBLE);
             } else if (fullscreenType == FullscreenType.IMAGE_BACK) {
                 barcodeImage.setImageBitmap(backImageBitmap);
+                barcodeImage.setVisibility(View.VISIBLE);
             } else {
                 // Prepare redraw after size change
                 redrawBarcodeAfterResize();
@@ -737,10 +737,16 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             barcodeScaler.setProgress(100);
 
             // Prepare redraw after size change
-            redrawBarcodeAfterResize();
+            if (format != null && isBarcodeSupported) {
+                redrawBarcodeAfterResize();
+            } else {
+                barcodeImage.setVisibility(View.GONE);
+            }
 
             // Show maximize and hide minimize button and scaler
-            maximizeButton.setVisibility(View.VISIBLE);
+            if (format != null && isBarcodeSupported) {
+                maximizeButton.setVisibility(View.VISIBLE);
+            }
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);
 

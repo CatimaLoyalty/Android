@@ -2,6 +2,7 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import com.google.zxing.BarcodeFormat;
@@ -13,9 +14,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.math.BigDecimal;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -118,14 +123,14 @@ public class StocardImporter implements Importer
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
-                            read(zipInputStream)
+                            readImage(zipInputStream)
                     );
                 } else if (fileName.endsWith("/images/back.png")) {
                     loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "backImage",
-                            read(zipInputStream)
+                            readImage(zipInputStream)
                     );
                 }
             }
@@ -155,12 +160,10 @@ public class StocardImporter implements Importer
             long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0);
 
             if (loyaltyCardData.containsKey("frontImage")) {
-                byte[] byteArray = ((String) loyaltyCardData.get("frontImage")).getBytes();
-                Utils.saveCardImage(context, BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length), (int) loyaltyCardInternalId, true);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, true);
             }
             if (loyaltyCardData.containsKey("backImage")) {
-                byte[] byteArray = ((String) loyaltyCardData.get("backImage")).getBytes();
-                Utils.saveCardImage(context, BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length), (int) loyaltyCardInternalId, false);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, false);
             }
         }
 
@@ -186,15 +189,17 @@ public class StocardImporter implements Importer
     }
 
     private String read(ZipInputStream zipInputStream) throws IOException {
-        int read;
-        byte[] buffer = new byte[4096];
-
         StringBuilder stringBuilder = new StringBuilder();
-        while ((read = zipInputStream.read(buffer, 0, 4096)) >= 0) {
-            stringBuilder.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
+        Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, Charset.forName(StandardCharsets.UTF_8.name())));
+        int c;
+        while ((c = reader.read()) != -1) {
+            stringBuilder.append((char) c);
         }
-
         return stringBuilder.toString();
+    }
+
+    private Bitmap readImage(ZipInputStream zipInputStream) {
+        return BitmapFactory.decodeStream(zipInputStream);
     }
 
     private JSONObject readJSON(ZipInputStream zipInputStream) throws IOException, JSONException {

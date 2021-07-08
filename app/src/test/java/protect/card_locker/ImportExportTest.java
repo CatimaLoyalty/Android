@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
@@ -1146,6 +1147,9 @@ public class ImportExportTest
         assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
 
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, true));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, false));
+
         card = db.getLoyaltyCard(2);
 
         assertEquals("Air Miles", card.store);
@@ -1158,6 +1162,9 @@ public class ImportExportTest
         assertEquals(null, card.barcodeType);
         assertEquals(0, card.starStatus);
 
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, true)));
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, false)));
+
         card = db.getLoyaltyCard(3);
 
         assertEquals("jö", card.store);
@@ -1169,6 +1176,9 @@ public class ImportExportTest
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType);
         assertEquals(0, card.starStatus);
+
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, true));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, false));
 
         TestHelpers.getEmptyDb(activity);
     }

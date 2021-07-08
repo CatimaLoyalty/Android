@@ -445,6 +445,12 @@ public class ImportExportActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
+        if(data == null)
+        {
+            Log.e(TAG, "Activity returned NULL data");
+            return;
+        }
+
         activityResultParser(requestCode, resultCode, data.getData(), null);
     }
 }

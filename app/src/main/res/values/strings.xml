@@ -72,8 +72,8 @@
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="app_libraries">Third-party libre libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Third-party libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
 
     <string name="selectBarcodeTitle">Select Barcode</string>
     <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
@@ -163,21 +163,20 @@
     <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nNO DATA IS COLLECTED AT ALL, which anyone can confirm since our app is libre software.</string>
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
-    <string name="importCatimaMessage">Find a file likely named <i>Catima.csv</i> to import.\nOr create it from the Import/Export menu of another Catima app by pressing "Export" there first.</string>
+    <string name="importCatimaMessage">Find a file likely named <i>Catima.csv</i> to import.\nOr create it from the "Import/Export" menu of another Catima app by pressing "Export" there first.</string>
     <string name="importFidme">Import from FidMe</string>
-    <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import, and then select the barcode types manually afterwards.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.</string>
+    <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import, and select the barcode types manually afterwards.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Find a file most likely named <i>LoyaltyCardKeychain.csv</i> to import.\nOr create it from the Import/Export menu in Loyalty Card Keychain by pressing "Export" first.</string>
+    <string name="importLoyaltyCardKeychainMessage">Find a file most likely named <i>LoyaltyCardKeychain.csv</i> to import.\nOr create it from the "Import/Export" menu in Loyalty Card Keychain by pressing "Export" there first.</string>
     <string name="importStocard">Import from Stocard</string>
-    <string name="importStocardMessage">Find your Stocard .zip file to import, and then select the barcode types manually afterwards.\nOr get it by emailing support@stocardapp.com and asking for an export of your data first.</string>
+    <string name="importStocardMessage">Find your Stocard.zip file to import, and select the barcode types manually afterwards.\nOr get it by e-mailing support@stocardapp.com asking for an export of your data.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Find a file likely named <i>vouchervault.json</i> to import.\nOr create it by pressing "Export" in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>
-    <string name="sameAsCardId">Same as card ID</string>
     <string name="setBarcodeId">Set barcode value</string>
-    <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a newer version of the app.</string>
+    <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a later version of the app.</string>
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
-    <string name="copy_to_clipboard_multiple_toast">Copied card IDs to clipboard</string>
+    <string name="copy_to_clipboard_multiple_toast">Card IDs copied to clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
     <string name="frontImageDescription">Card\'s front image</string>
     <string name="backImageDescription">Card\'s back image</string>

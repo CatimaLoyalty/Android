@@ -333,7 +333,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -364,7 +364,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -437,7 +437,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -481,7 +481,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -512,7 +512,7 @@ public class ImportExportTest
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outStream, DataFormat.Catima);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
             assertEquals(ImportExportResult.Success, result);
 
             TestHelpers.getEmptyDb(activity);
@@ -887,7 +887,7 @@ public class ImportExportTest
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
 
-        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStreamWriter, DataFormat.Catima);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima);
 
         String outputCsv = "2\r\n" +
                 "\r\n" +
@@ -1074,7 +1074,7 @@ public class ImportExportTest
 
     @Test
     public void importFidme() {
-        InputStream inputStream = getClass().getResourceAsStream("fidme-export-request-2021-06-29-17-28-20.zip");
+        InputStream inputStream = getClass().getResourceAsStream("fidme.zip");
 
         // Import the Fidme data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Fidme, null);
@@ -1122,14 +1122,14 @@ public class ImportExportTest
 
     @Test
     public void importStocard() throws IOException {
-        InputStream inputStream = getClass().getResourceAsStream("50e33e49-cfa0-49ad-a297-c1d655f72b01-sync.zip");
+        InputStream inputStream = getClass().getResourceAsStream("stocard.zip");
 
         // Import the Stocard data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Stocard, null);
         assertEquals(ImportExportResult.BadPassword, result);
         assertEquals(0, db.getLoyaltyCardCount());
 
-        inputStream = getClass().getResourceAsStream("50e33e49-cfa0-49ad-a297-c1d655f72b01-sync.zip");
+        inputStream = getClass().getResourceAsStream("stocard.zip");
 
         result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inputStream, DataFormat.Stocard, "da811b40a4dac56f0cbb2d99b21bbb9a".toCharArray());
         assertEquals(ImportExportResult.Success, result);

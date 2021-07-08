@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 import protect.card_locker.DBHelper;
@@ -22,14 +23,14 @@ public class MultiFormatExporter
      * another ImportExportResult otherwise. If not Success, partial data may have been
      * written to the output stream, and it should be discarded.
      */
-    public static ImportExportResult exportData(Context context, DBHelper db, OutputStreamWriter output, DataFormat format)
+    public static ImportExportResult exportData(Context context, DBHelper db, OutputStream output, DataFormat format)
     {
         Exporter exporter = null;
 
         switch(format)
         {
             case Catima:
-                exporter = new CsvExporter();
+                exporter = new CatimaExporter();
                 break;
             default:
                 Log.e(TAG, "Failed to export data, unknown format " + format.name());

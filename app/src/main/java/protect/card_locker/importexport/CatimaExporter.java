@@ -2,12 +2,25 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.io.outputstream.ZipOutputStream;
+import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.util.InternalZipConstants;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.zip.ZipEntry;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
@@ -18,10 +31,65 @@ import protect.card_locker.Utils;
  * Class for exporting the database into CSV (Comma Separate Values)
  * format.
  */
-public class CsvExporter implements Exporter
+public class CatimaExporter implements Exporter
 {
-    public void exportData(Context context, DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException
+    public void exportData(Context context, DBHelper db, OutputStream output) throws IOException, InterruptedException
     {
+        // Necessary vars
+        int readLen;
+        byte[] readBuffer = new byte[InternalZipConstants.BUFF_SIZE];
+
+        // Create zip output stream
+        ZipOutputStream zipOutputStream = new ZipOutputStream(output);
+
+        // Generate CSV
+        ByteArrayOutputStream catimaOutputStream = new ByteArrayOutputStream();
+        OutputStreamWriter catimaOutputStreamWriter = new OutputStreamWriter(catimaOutputStream);
+        writeCSV(db, catimaOutputStreamWriter);
+
+        // Add CSV to zip file
+        ZipParameters csvZipParameters = new ZipParameters();
+        csvZipParameters.setFileNameInZip("catima.csv");
+        zipOutputStream.putNextEntry(csvZipParameters);
+        InputStream csvInputStream = new ByteArrayInputStream(catimaOutputStream.toByteArray());
+        while ((readLen = csvInputStream.read(readBuffer)) != -1) {
+            zipOutputStream.write(readBuffer, 0, readLen);
+        }
+        zipOutputStream.closeEntry();
+
+        // Loop over all cards again
+        Cursor cardCursor = db.getLoyaltyCardCursor();
+        while(cardCursor.moveToNext())
+        {
+            // For each card
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+
+            // Prepare looping over both front and back image
+            boolean[] frontValues = new boolean[2];
+            frontValues[0] = true;
+            frontValues[1] = false;
+
+            // For each image
+            for (boolean front : frontValues) {
+                // If it exists, add to the .zip file
+                Bitmap image = Utils.retrieveCardImage(context, card.id, front);
+                if (image != null) {
+                    ZipParameters imageZipParameters = new ZipParameters();
+                    imageZipParameters.setFileNameInZip(Utils.getCardImageFileName(card.id, front));
+                    zipOutputStream.putNextEntry(imageZipParameters);
+                    InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
+                    while ((readLen = imageInputStream.read(readBuffer)) != -1) {
+                        zipOutputStream.write(readBuffer, 0, readLen);
+                    }
+                    zipOutputStream.closeEntry();
+                }
+            }
+        }
+
+        zipOutputStream.close();
+    }
+
+    private void writeCSV(DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException {
         CSVPrinter printer = new CSVPrinter(output, CSVFormat.RFC4180);
 
         // Print the version
@@ -62,9 +130,7 @@ public class CsvExporter implements Exporter
                 DBHelper.LoyaltyCardDbIds.BARCODE_ID,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS,
-                CSVHelpers.IMAGE_FRONT,
-                CSVHelpers.IMAGE_BACK);
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
@@ -82,9 +148,7 @@ public class CsvExporter implements Exporter
                     card.barcodeId,
                     card.barcodeType,
                     card.headerColor,
-                    card.starStatus,
-                    Utils.bitmapToBase64(Utils.retrieveCardImage(context, card.id, true)),
-                    Utils.bitmapToBase64(Utils.retrieveCardImage(context, card.id, false)));
+                    card.starStatus);
 
             if(Thread.currentThread().isInterrupted())
             {

@@ -33,6 +33,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -234,30 +235,6 @@ public class Utils {
         return bos.toByteArray();
     }
 
-    static public Bitmap byteArrayToBitmap(byte[] byteArray) {
-        if (byteArray == null) {
-            return null;
-        }
-
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-    }
-
-    static public String bitmapToBase64(Bitmap bitmap) {
-        if (bitmap == null) {
-            return null;
-        }
-
-        return Base64.encodeToString(bitmapToByteArray(bitmap), Base64.URL_SAFE);
-    }
-
-    static public Bitmap base64ToBitmap(String base64) {
-        if (base64 == null) {
-            return null;
-        }
-
-        return byteArrayToBitmap(Base64.decode(base64, Base64.URL_SAFE));
-    }
-
     static public Bitmap resizeBitmap(Bitmap bitmap) {
         if (bitmap == null) {
             return null;
@@ -307,7 +284,7 @@ public class Utils {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    static private String getCardImageFileName(int loyaltyCardId, boolean front) {
+    static public String getCardImageFileName(int loyaltyCardId, boolean front) {
         StringBuilder cardImageFileNameBuilder = new StringBuilder();
 
         cardImageFileNameBuilder.append("card_");
@@ -323,28 +300,35 @@ public class Utils {
         return cardImageFileNameBuilder.toString();
     }
 
-    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
-        String fileName = getCardImageFileName(loyaltyCardId, front);
-
+    static public void saveCardImage(Context context, Bitmap bitmap, String fileName) throws FileNotFoundException {
         if (bitmap == null) {
             context.deleteFile(fileName);
             return;
         }
 
-        FileOutputStream out = context.openFileOutput(getCardImageFileName(loyaltyCardId, front), Context.MODE_PRIVATE);
+        FileOutputStream out = context.openFileOutput(fileName, Context.MODE_PRIVATE);
 
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+
     }
 
-    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
+        saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, front));
+    }
+
+    static public Bitmap retrieveCardImage(Context context, String fileName) {
         FileInputStream in;
         try {
-             in = context.openFileInput(getCardImageFileName(loyaltyCardId, front));
+            in = context.openFileInput(fileName);
         } catch (FileNotFoundException e) {
             return null;
         }
 
         return BitmapFactory.decodeStream(in);
+    }
+
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
+        return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, front));
     }
 
     static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {

@@ -77,7 +77,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
         try
         {
             OutputStreamWriter writer = new OutputStreamWriter(stream, Charset.forName("UTF-8"));
-            result = MultiFormatExporter.exportData(context, db, writer, format);
+            result = MultiFormatExporter.exportData(context, db, stream, format);
             writer.close();
         }
         catch (IOException e)

@@ -78,8 +78,8 @@ public class ImportExportActivity extends AppCompatActivity
         // Check that there is a file manager available
         final Intent intentCreateDocumentAction = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intentCreateDocumentAction.addCategory(Intent.CATEGORY_OPENABLE);
-        intentCreateDocumentAction.setType("text/csv");
-        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "Catima.csv");
+        intentCreateDocumentAction.setType("application/zip");
+        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "Catima.zip");
 
         Button exportButton = findViewById(R.id.exportButton);
         exportButton.setOnClickListener(new View.OnClickListener()

@@ -5,11 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.google.zxing.BarcodeFormat;
 
+import net.lingala.zip4j.io.inputstream.ZipInputStream;
+import net.lingala.zip4j.model.LocalFileHeader;
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,6 +28,7 @@ import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Group;
 import protect.card_locker.Utils;
+import protect.card_locker.ZipUtils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -32,10 +37,33 @@ import protect.card_locker.Utils;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class CsvImporter implements Importer
+public class CatimaImporter implements Importer
 {
-    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException
-    {
+    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+        // First, check if this is a zip file
+        ZipInputStream zipInputStream = new ZipInputStream(input);
+        LocalFileHeader localFileHeader = zipInputStream.getNextEntry();
+
+        if (localFileHeader == null) {
+            // This is not a zip file, try importing as bare CSV
+            input.reset();
+            importCSV(context, db, input);
+            return;
+        }
+
+        importZipFile(context, db, zipInputStream, localFileHeader);
+    }
+
+    public void importZipFile(Context context, DBHelper db, ZipInputStream input, LocalFileHeader localFileHeader) throws IOException, FormatException, InterruptedException {
+        String fileName = localFileHeader.getFileName();
+        if (fileName.equals("catima.csv")) {
+            importCSV(context, db, new ByteArrayInputStream(ZipUtils.read(input).getBytes()));
+        } else {
+            Utils.saveCardImage(context, ZipUtils.readImage(input), fileName);
+        }
+    }
+
+    public void importCSV(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         bufferedReader.mark(100);
@@ -278,9 +306,6 @@ public class CsvImporter implements Importer
         if (starStatus != 1) starStatus = 0;
 
         helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
-
-        Utils.saveCardImage(context, CSVHelpers.extractImage(CSVHelpers.IMAGE_FRONT, record), id, true);
-        Utils.saveCardImage(context, CSVHelpers.extractImage(CSVHelpers.IMAGE_BACK, record), id, false);
     }
 
     /**

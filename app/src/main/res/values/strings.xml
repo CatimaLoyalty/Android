@@ -173,6 +173,7 @@
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Find a file likely named <i>vouchervault.json</i> to import.\nOr create it by pressing "Export" in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>
+    <string name="sameAsCardId">Same as card ID</string>
     <string name="setBarcodeId">Set barcode value</string>
     <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a later version of the app.</string>
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>

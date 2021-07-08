@@ -61,11 +61,13 @@ public class VoucherVaultImporter implements Importer
                 expiry = dateFormat.parse(jsonCard.getString("expires"));
             }
 
-            BigDecimal balance;
-            if (!jsonCard.isNull("balance")) {
+            BigDecimal balance = new BigDecimal("0");
+            if (jsonCard.has("balanceMilliunits")) {
+                if (!jsonCard.isNull("balanceMilliunits")) {
+                    balance = new BigDecimal(String.valueOf(jsonCard.getInt("balanceMilliunits") / 1000.0));
+                }
+            } else if (!jsonCard.isNull("balance")) {
                 balance = new BigDecimal(String.valueOf(jsonCard.getDouble("balance")));
-            } else {
-                balance = new BigDecimal("0");
             }
 
             Currency balanceType = Currency.getInstance("USD");

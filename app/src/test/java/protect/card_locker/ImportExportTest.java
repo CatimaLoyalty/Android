@@ -1194,6 +1194,7 @@ public class ImportExportTest
                 "    \"expires\": null,\n" +
                 "    \"removeOnceExpired\": true,\n" +
                 "    \"balance\": null,\n" +
+                "    \"balanceMilliunits\": null,\n" +
                 "    \"color\": \"GREY\"\n" +
                 "  },\n" +
                 "  {\n" +
@@ -1203,7 +1204,8 @@ public class ImportExportTest
                 "    \"codeType\": \"CODE39\",\n" +
                 "    \"expires\": \"2021-03-26T00:00:00.000\",\n" +
                 "    \"removeOnceExpired\": true,\n" +
-                "    \"balance\": 3.5,\n" +
+                "    \"balance\": null,\n" +
+                "    \"balanceMilliunits\": 3500,\n" +
                 "    \"color\": \"PURPLE\"\n" +
                 "  }\n" +
                 "]";

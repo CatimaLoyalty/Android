@@ -9,6 +9,7 @@ Changes:
 - Support importing password-protected zip files
 - Support importing from Stocard (Beta)
 - Fix useless whitespace in notes from Fidme import
+- Support new Voucher Vault export format
 
 ## v1.14.1 (2021-06-14)
 

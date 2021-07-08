@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.google.zxing.BarcodeFormat;
 
+import net.lingala.zip4j.io.inputstream.ZipInputStream;
+import net.lingala.zip4j.model.LocalFileHeader;
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -16,8 +19,6 @@ import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
@@ -31,18 +32,18 @@ import protect.card_locker.FormatException;
  */
 public class FidmeImporter implements Importer
 {
-    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         // We actually retrieve a .zip file
-        ZipInputStream zipInputStream = new ZipInputStream(input);
+        ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
         StringBuilder loyaltyCards = new StringBuilder();
         byte[] buffer = new byte[1024];
         int read = 0;
 
-        ZipEntry zipEntry;
+        LocalFileHeader localFileHeader;
 
-        while ((zipEntry = zipInputStream.getNextEntry()) != null) {
-            if (zipEntry.getName().equals("loyalty_programs.csv")) {
+        while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
+            if (localFileHeader.getFileName().equals("loyalty_programs.csv")) {
                 while ((read = zipInputStream.read(buffer, 0, 1024)) >= 0) {
                     loyaltyCards.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
                 }

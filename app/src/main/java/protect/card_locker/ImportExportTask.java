@@ -13,10 +13,12 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
+import protect.card_locker.importexport.DataFormat;
+import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
 
-class ImportExportTask extends AsyncTask<Void, Void, Boolean>
+class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
 {
     private static final String TAG = "Catima";
 
@@ -25,6 +27,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     private DataFormat format;
     private OutputStream outputStream;
     private InputStream inputStream;
+    private char[] password;
     private TaskCompleteListener listener;
 
     private ProgressDialog progress;
@@ -46,7 +49,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     /**
      * Constructor which will setup a task for importing from the given InputStream.
      */
-    ImportExportTask(Activity activity, DataFormat format, InputStream input,
+    ImportExportTask(Activity activity, DataFormat format, InputStream input, char[] password,
                             TaskCompleteListener listener)
     {
         super();
@@ -54,24 +57,22 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         this.doImport = true;
         this.format = format;
         this.inputStream = input;
+        this.password = password;
         this.listener = listener;
     }
 
-    private boolean performImport(Context context, InputStream stream, DBHelper db)
+    private ImportExportResult performImport(Context context, InputStream stream, DBHelper db, char[] password)
     {
-        boolean result = false;
+        ImportExportResult importResult = MultiFormatImporter.importData(context, db, stream, format, password);
 
+        Log.i(TAG, "Import result: " + importResult.name());
 
-        result = MultiFormatImporter.importData(context, db, stream, format);
-
-        Log.i(TAG, "Import result: " + result);
-
-        return result;
+        return importResult;
     }
 
-    private boolean performExport(Context context, OutputStream stream, DBHelper db)
+    private ImportExportResult performExport(Context context, OutputStream stream, DBHelper db)
     {
-        boolean result = false;
+        ImportExportResult result = ImportExportResult.GenericFailure;
 
         try
         {
@@ -106,14 +107,14 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         progress.show();
     }
 
-    protected Boolean doInBackground(Void... nothing)
+    protected ImportExportResult doInBackground(Void... nothing)
     {
         final DBHelper db = new DBHelper(activity);
-        boolean result;
+        ImportExportResult result;
 
         if(doImport)
         {
-            result = performImport(activity.getApplicationContext(), inputStream, db);
+            result = performImport(activity.getApplicationContext(), inputStream, db, password);
         }
         else
         {
@@ -123,9 +124,9 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
         return result;
     }
 
-    protected void onPostExecute(Boolean result)
+    protected void onPostExecute(ImportExportResult result)
     {
-        listener.onTaskComplete(result);
+        listener.onTaskComplete(result, format);
 
         progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
@@ -138,7 +139,7 @@ class ImportExportTask extends AsyncTask<Void, Void, Boolean>
     }
     interface TaskCompleteListener
     {
-        void onTaskComplete(boolean success);
+        void onTaskComplete(ImportExportResult result, DataFormat format);
     }
 
 }

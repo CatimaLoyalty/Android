@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 import protect.card_locker.DBHelper;
-import protect.card_locker.DataFormat;
 
 public class MultiFormatExporter
 {
@@ -19,11 +18,11 @@ public class MultiFormatExporter
      *
      * The output stream is closed on success.
      *
-     * @return true if the database was successfully exported,
-     * false otherwise. If false, partial data may have been
+     * @return ImportExportResult.Success if the database was successfully exported,
+     * another ImportExportResult otherwise. If not Success, partial data may have been
      * written to the output stream, and it should be discarded.
      */
-    public static boolean exportData(Context context, DBHelper db, OutputStreamWriter output, DataFormat format)
+    public static ImportExportResult exportData(Context context, DBHelper db, OutputStreamWriter output, DataFormat format)
     {
         Exporter exporter = null;
 
@@ -42,7 +41,7 @@ public class MultiFormatExporter
             try
             {
                 exporter.exportData(context, db, output);
-                return true;
+                return ImportExportResult.Success;
             }
             catch(IOException e)
             {
@@ -53,12 +52,12 @@ public class MultiFormatExporter
                 Log.e(TAG, "Failed to export data", e);
             }
 
-            return false;
+            return ImportExportResult.GenericFailure;
         }
         else
         {
             Log.e(TAG, "Unsupported data format exported: " + format.name());
-            return false;
+            return ImportExportResult.GenericFailure;
         }
     }
 }

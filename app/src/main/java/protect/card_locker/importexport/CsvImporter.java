@@ -2,9 +2,6 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -37,7 +34,7 @@ import protect.card_locker.Utils;
  */
 public class CsvImporter implements Importer
 {
-    public void importData(Context context, DBHelper db, InputStream input) throws IOException, FormatException, InterruptedException
+    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException
     {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 

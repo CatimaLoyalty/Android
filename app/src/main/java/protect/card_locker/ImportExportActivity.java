@@ -8,10 +8,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
@@ -20,6 +22,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -27,6 +31,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import protect.card_locker.importexport.DataFormat;
+import protect.card_locker.importexport.ImportExportResult;
 
 public class ImportExportActivity extends AppCompatActivity
 {
@@ -115,9 +121,22 @@ public class ImportExportActivity extends AppCompatActivity
     }
 
     private void chooseImportType(Intent baseIntent) {
+        List<CharSequence> betaImportOptions = new ArrayList<>();
+        betaImportOptions.add("Fidme");
+        betaImportOptions.add("Stocard");
+        List<CharSequence> importOptions = new ArrayList<>();
+
+        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
+            if (betaImportOptions.contains(importOption)) {
+                importOption = importOption + " (BETA)";
+            }
+
+            importOptions.add(importOption);
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.chooseImportType)
-                .setItems(R.array.import_types_array, (dialog, which) -> {
+                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
                     switch (which) {
                         // Catima
                         case 0:
@@ -137,8 +156,14 @@ public class ImportExportActivity extends AppCompatActivity
                             importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
                             importDataFormat = DataFormat.Catima;
                             break;
-                        // Voucher Vault
+                        // Stocard
                         case 3:
+                            importAlertTitle = getString(R.string.importStocard);
+                            importAlertMessage = getString(R.string.importStocardMessage);
+                            importDataFormat = DataFormat.Stocard;
+                            break;
+                        // Voucher Vault
+                        case 4:
                             importAlertTitle = getString(R.string.importVoucherVault);
                             importAlertMessage = getString(R.string.importVoucherVaultMessage);
                             importDataFormat = DataFormat.VoucherVault;
@@ -162,19 +187,19 @@ public class ImportExportActivity extends AppCompatActivity
         builder.show();
     }
 
-    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat)
+    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success)
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
-                onImportComplete(success, targetUri);
+                onImportComplete(result, targetUri, dataFormat);
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                dataFormat, target, listener);
+                dataFormat, target, password, listener);
         importExporter.execute();
     }
 
@@ -183,9 +208,9 @@ public class ImportExportActivity extends AppCompatActivity
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(boolean success)
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
-                onExportComplete(success, targetUri);
+                onExportComplete(result, targetUri);
             }
         };
 
@@ -210,7 +235,7 @@ public class ImportExportActivity extends AppCompatActivity
                 }
             }
 
-            if(success == false)
+            if(!success)
             {
                 // External storage permission rejected, inform user that
                 // import/export is prevented
@@ -245,20 +270,43 @@ public class ImportExportActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void onImportComplete(boolean success, Uri path)
-    {
+    private void retryWithPassword(DataFormat dataFormat, Uri uri) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.passwordRequired);
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            activityResultParser(IMPORT, RESULT_OK, uri, input.getText().toString().toCharArray());
+        });
+        builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
+
+        builder.show();
+    }
+
+    private void onImportComplete(ImportExportResult result, Uri path, DataFormat dataFormat) {
+        if (result == ImportExportResult.BadPassword) {
+            retryWithPassword(dataFormat, path);
+            return;
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        if(success)
+        int messageId;
+
+        if (result == ImportExportResult.Success)
         {
             builder.setTitle(R.string.importSuccessfulTitle);
+            messageId = R.string.importSuccessful;
         }
         else
         {
             builder.setTitle(R.string.importFailedTitle);
+            messageId = R.string.importFailed;
         }
 
-        int messageId = success ? R.string.importSuccessful : R.string.importFailed;
         final String message = getResources().getString(messageId);
 
         builder.setMessage(message);
@@ -274,53 +322,44 @@ public class ImportExportActivity extends AppCompatActivity
         builder.create().show();
     }
 
-    private void onExportComplete(boolean success, final Uri path)
+    private void onExportComplete(ImportExportResult result, final Uri path)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        if(success)
+        int messageId;
+
+        if(result == ImportExportResult.Success)
         {
             builder.setTitle(R.string.exportSuccessfulTitle);
+            messageId = R.string.exportSuccessful;
         }
         else
         {
             builder.setTitle(R.string.exportFailedTitle);
+            messageId = R.string.exportFailed;
         }
 
-        int messageId = success ? R.string.exportSuccessful : R.string.exportFailed;
         final String message = getResources().getString(messageId);
 
         builder.setMessage(message);
-        builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
+        builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
 
-        if(success)
+        if(result == ImportExportResult.Success)
         {
             final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
 
-            builder.setPositiveButton(sendLabel, new DialogInterface.OnClickListener()
-            {
-                @Override
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_STREAM, path);
-                    sendIntent.setType("text/csv");
+            builder.setPositiveButton(sendLabel, (dialog, which) -> {
+                Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_STREAM, path);
+                sendIntent.setType("text/csv");
 
-                    // set flag to give temporary permission to external app to use the FileProvider
-                    sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                // set flag to give temporary permission to external app to use the FileProvider
+                sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-                    ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
-                            sendLabel));
+                ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
+                        sendLabel));
 
-                    dialog.dismiss();
-                }
+                dialog.dismiss();
             });
         }
 
@@ -340,18 +379,13 @@ public class ImportExportActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-
+    private void activityResultParser(int requestCode, int resultCode, Uri uri, char[] password) {
         if (resultCode != RESULT_OK)
         {
             Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
             return;
         }
 
-        Uri uri = data.getData();
         if(uri == null)
         {
             Log.e(TAG, "Activity returned a NULL URI");
@@ -389,7 +423,7 @@ public class ImportExportActivity extends AppCompatActivity
 
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
-                startImport(reader, uri, importDataFormat);
+                startImport(reader, uri, importDataFormat, password);
             }
         }
         catch(FileNotFoundException e)
@@ -397,12 +431,26 @@ public class ImportExportActivity extends AppCompatActivity
             Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
             if (requestCode == CHOOSE_EXPORT_LOCATION)
             {
-                onExportComplete(false, uri);
+                onExportComplete(ImportExportResult.GenericFailure, uri);
             }
             else
             {
-                onImportComplete(false, uri);
+                onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(data == null)
+        {
+            Log.e(TAG, "Activity returned NULL data");
+            return;
+        }
+
+        activityResultParser(requestCode, resultCode, data.getData(), null);
     }
 }

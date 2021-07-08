@@ -168,6 +168,8 @@
     <string name="importFidmeMessage">Find a file likely named <i>fidme-export-request-xxxxxx.zip</i> to import, and then select the barcode types manually afterwards.\nOr create it from your FidMe profile by choosing "Data Protection" and then pressing "Extract my data" first.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Find a file most likely named <i>LoyaltyCardKeychain.csv</i> to import.\nOr create it from the Import/Export menu in Loyalty Card Keychain by pressing "Export" first.</string>
+    <string name="importStocard">Import from Stocard</string>
+    <string name="importStocardMessage">Find your Stocard .zip file to import, and then select the barcode types manually afterwards.\nOr get it by emailing support@stocardapp.com and asking for an export of your data first.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Find a file likely named <i>vouchervault.json</i> to import.\nOr create it by pressing "Export" in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>
@@ -189,4 +191,5 @@
     <string name="updateBarcodeQuestionText">You changed the card ID. Do you want to also update the barcode to use the same value?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="passwordRequired">Please enter the password</string>
 </resources>

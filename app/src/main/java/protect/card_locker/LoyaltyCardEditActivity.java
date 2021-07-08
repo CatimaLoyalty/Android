@@ -104,9 +104,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     ImageView cardImageFront;
     ImageView cardImageBack;
 
-    Bitmap frontImageBitmap;
-    Bitmap backImageBitmap;
-
     Button enterButton;
 
     int loyaltyCardId;

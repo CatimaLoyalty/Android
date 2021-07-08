@@ -32,6 +32,7 @@ import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -344,5 +345,13 @@ public class Utils {
         }
 
         return BitmapFactory.decodeStream(in);
+    }
+
+    static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
+        Object value = hashMap.get(key);
+        if (value == null) {
+            return defaultValue;
+        }
+        return value;
     }
 }

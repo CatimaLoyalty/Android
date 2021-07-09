@@ -123,7 +123,7 @@
     <string name="importVoucherVaultMessage">Выберите файл для импортирования, обычно именуемый <i>vouchervault.json</i>.
 \nФайл экспорта можно создать в приложении Voucher Vault, нажав кнопку \"Экспорт\".</string>
     <string name="importVoucherVault">Импорт из Voucher Vault</string>
-    <string name="importFidmeMessage">Выберите файл для импортирования, обычно именуемый <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную выберите типы штрих-кодов.
+    <string name="importFidmeMessage">Выберите файл для импортирования, обычно именуемый <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную укажите типы штрих-кодов.
 \nФайл экспорта можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".</string>
     <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта, обычно именуемый <i>LoyaltyCardKeychain.csv</i>.
 \nФайл экспорта можно создать в приложении Loyalty Card Keychain, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
@@ -160,4 +160,8 @@
     <string name="backImageDescription">Задняя сторона карты</string>
     <string name="frontImageDescription">Лицевая сторона карты</string>
     <string name="photos">Фотографии</string>
+    <string name="importStocardMessage">Выберите файл Stocard.zip для импортирования, а затем вручную укажите типы штрих-кодов.
+\nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
+    <string name="passwordRequired">Введите пароль</string>
+    <string name="importStocard">Импорт из Stocard</string>
 </resources>

@@ -57,7 +57,7 @@ public class CatimaImporter implements Importer
     public void importZipFile(Context context, DBHelper db, ZipInputStream input, LocalFileHeader localFileHeader) throws IOException, FormatException, InterruptedException {
         String fileName = localFileHeader.getFileName();
         if (fileName.equals("catima.csv")) {
-            importCSV(context, db, new ByteArrayInputStream(ZipUtils.read(input).getBytes()));
+            importCSV(context, db, new ByteArrayInputStream(ZipUtils.read(input).getBytes(StandardCharsets.UTF_8)));
         } else {
             Utils.saveCardImage(context, ZipUtils.readImage(input), fileName);
         }

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipEntry;
 
 import protect.card_locker.DBHelper;
@@ -44,7 +45,7 @@ public class CatimaExporter implements Exporter
 
         // Generate CSV
         ByteArrayOutputStream catimaOutputStream = new ByteArrayOutputStream();
-        OutputStreamWriter catimaOutputStreamWriter = new OutputStreamWriter(catimaOutputStream);
+        OutputStreamWriter catimaOutputStreamWriter = new OutputStreamWriter(catimaOutputStream, StandardCharsets.UTF_8);
         writeCSV(db, catimaOutputStreamWriter);
 
         // Add CSV to zip file

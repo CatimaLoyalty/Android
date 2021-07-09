@@ -30,6 +30,7 @@ import java.util.List;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Utils;
+import protect.card_locker.ZipUtils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -83,7 +84,7 @@ public class StocardImporter implements Importer
                 if (nameParts.length == cardBaseName.length + 1) {
                     // Ignore the .txt file
                     if (fileName.endsWith(".json")) {
-                        JSONObject jsonObject = readJSON(zipInputStream);
+                        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
 
                         loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                 loyaltyCardHashMap,
@@ -115,7 +116,7 @@ public class StocardImporter implements Importer
                             loyaltyCardHashMap,
                             cardName,
                             "note",
-                            readJSON(zipInputStream)
+                            ZipUtils.readJSON(zipInputStream)
                                 .getString("content")
                     );
                 } else if (fileName.endsWith("/images/front.png")) {
@@ -123,14 +124,14 @@ public class StocardImporter implements Importer
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
-                            readImage(zipInputStream)
+                            ZipUtils.readImage(zipInputStream)
                     );
                 } else if (fileName.endsWith("/images/back.png")) {
                     loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "backImage",
-                            readImage(zipInputStream)
+                            ZipUtils.readImage(zipInputStream)
                     );
                 }
             }
@@ -188,24 +189,6 @@ public class StocardImporter implements Importer
         return true;
     }
 
-    private String read(ZipInputStream zipInputStream) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
-        Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, Charset.forName(StandardCharsets.UTF_8.name())));
-        int c;
-        while ((c = reader.read()) != -1) {
-            stringBuilder.append((char) c);
-        }
-        return stringBuilder.toString();
-    }
-
-    private Bitmap readImage(ZipInputStream zipInputStream) {
-        return BitmapFactory.decodeStream(zipInputStream);
-    }
-
-    private JSONObject readJSON(ZipInputStream zipInputStream) throws IOException, JSONException {
-        return new JSONObject(read(zipInputStream));
-    }
-
     private HashMap<String, HashMap<String, Object>> appendToLoyaltyCardHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
         HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.get(cardID);
         if (loyaltyCardData == null) {
@@ -220,7 +203,7 @@ public class StocardImporter implements Importer
 
     private HashMap<String, String> parseProviders(ZipInputStream zipInputStream) throws IOException, JSONException {
         // FIXME: This is probably completely wrong, but it works for the one and only test file I have
-        JSONObject jsonObject = readJSON(zipInputStream);
+        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
 
         JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
         JSONArray providerList = jsonObject.getJSONArray("provider_list");

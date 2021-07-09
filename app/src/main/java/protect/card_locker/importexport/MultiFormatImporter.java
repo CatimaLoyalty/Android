@@ -36,7 +36,7 @@ public class MultiFormatImporter
         switch(format)
         {
             case Catima:
-                importer = new CsvImporter();
+                importer = new CatimaImporter();
                 break;
             case Fidme:
                 importer = new FidmeImporter();
@@ -60,7 +60,7 @@ public class MultiFormatImporter
             {
                 return ImportExportResult.BadPassword;
             }
-            catch(IOException | FormatException | InterruptedException | JSONException | ParseException e)
+            catch(IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e)
             {
                 Log.e(TAG, "Failed to import data", e);
             }

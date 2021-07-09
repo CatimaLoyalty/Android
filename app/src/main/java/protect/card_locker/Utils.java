@@ -309,7 +309,6 @@ public class Utils {
         FileOutputStream out = context.openFileOutput(fileName, Context.MODE_PRIVATE);
 
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-
     }
 
     static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
@@ -331,11 +330,15 @@ public class Utils {
         return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, front));
     }
 
-    static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
-        Object value = hashMap.get(key);
+    static public Object hashmapGetOrDefault(HashMap hashMap, Object key, Object defaultValue, Class keyType) {
+        Object value = hashMap.get(keyType.cast(key));
         if (value == null) {
             return defaultValue;
         }
         return value;
+    }
+
+    static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
+        return hashmapGetOrDefault(hashMap, key, defaultValue, String.class);
     }
 }

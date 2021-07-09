@@ -29,6 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -38,6 +39,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -867,46 +869,106 @@ public class ImportExportTest
     }
 
     @Test
-    public void exportV2() throws FileNotFoundException
+    public void exportImportV2Zip() throws FileNotFoundException
     {
-        db.insertGroup("Example");
-
+        // Prepare images
         BitmapDrawable launcher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
         BitmapDrawable roundLauncher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher_round, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
 
-        Bitmap frontImage = launcher.getBitmap();
-        Bitmap backImage = roundLauncher.getBitmap();
+        Bitmap launcherBitmap = launcher.getBitmap();
+        Bitmap roundLauncherBitmap = roundLauncher.getBitmap();
 
-        int loyaltyCard = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
+        // Set up cards and groups
+        HashMap<Integer, LoyaltyCard> loyaltyCardHashMap = new HashMap<>();
+        HashMap<Integer, List<Group>> loyaltyCardGroups = new HashMap<>();
+        HashMap<Integer, Bitmap> loyaltyCardFrontImages = new HashMap<>();
+        HashMap<Integer, Bitmap> loyaltyCardBackImages = new HashMap<>();
 
-        Utils.saveCardImage(activity.getApplicationContext(), Utils.resizeBitmap(frontImage), loyaltyCard, true);
-        Utils.saveCardImage(activity.getApplicationContext(), Utils.resizeBitmap(backImage), loyaltyCard, false);
+        // Create card 1
+        int loyaltyCardId = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
+        loyaltyCardHashMap.put(loyaltyCardId, db.getLoyaltyCard(loyaltyCardId));
+        db.insertGroup("One");
+        List<Group> groups = Arrays.asList(db.getGroup("One"));
+        db.setLoyaltyCardGroups(loyaltyCardId, groups);
+        loyaltyCardGroups.put(loyaltyCardId, groups);
+        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, true);
+        Utils.saveCardImage(activity.getApplicationContext(), roundLauncherBitmap, loyaltyCardId, false);
+        loyaltyCardFrontImages.put(loyaltyCardId, launcherBitmap);
+        loyaltyCardBackImages.put(loyaltyCardId, roundLauncherBitmap);
 
-        db.setLoyaltyCardGroups(loyaltyCard, Arrays.asList(db.getGroup("Example")));
+        // Create card 2
+        loyaltyCardId = (int) db.insertLoyaltyCard("Card 2", "", null, new BigDecimal(0), null, "123456", null, null, 2, 1);
+        loyaltyCardHashMap.put(loyaltyCardId, db.getLoyaltyCard(loyaltyCardId));
 
+        // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-
         MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima);
 
-        String outputCsv = "2\r\n" +
-                "\r\n" +
-                "_id\r\n" +
-                "Example\r\n" +
-                "\r\n" +
-                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,barcodetype,headercolor,starstatus,frontimage,backimage\r\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,QR_CODE,1,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
-                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\",\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
-                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\"\r\n" +
-                "\r\n" +
-                "cardId,groupId\r\n" +
-                "1,Example\r\n";
+        // Wipe database
+        TestHelpers.getEmptyDb(activity);
 
-        assertEquals(outputCsv, outputStream.toString());
+        // Import everything
+        MultiFormatImporter.importData(activity.getApplicationContext(), db, new ByteArrayInputStream(outputStream.toByteArray()), DataFormat.Catima, null);
+
+        // Ensure everything is there
+        assertEquals(loyaltyCardHashMap.size(), db.getLoyaltyCardCount());
+
+        for (Integer loyaltyCardID : loyaltyCardHashMap.keySet()) {
+            LoyaltyCard loyaltyCard = loyaltyCardHashMap.get(loyaltyCardID);
+
+            LoyaltyCard dbLoyaltyCard = db.getLoyaltyCard(loyaltyCardID);
+
+            assertEquals(loyaltyCard.id, dbLoyaltyCard.id);
+            assertEquals(loyaltyCard.store, dbLoyaltyCard.store);
+            assertEquals(loyaltyCard.note, dbLoyaltyCard.note);
+            assertEquals(loyaltyCard.expiry, dbLoyaltyCard.expiry);
+            assertEquals(loyaltyCard.balance, dbLoyaltyCard.balance);
+            assertEquals(loyaltyCard.cardId, dbLoyaltyCard.cardId);
+            assertEquals(loyaltyCard.barcodeId, dbLoyaltyCard.barcodeId);
+            assertEquals(loyaltyCard.starStatus, dbLoyaltyCard.starStatus);
+            assertEquals(loyaltyCard.barcodeType, dbLoyaltyCard.barcodeType);
+            assertEquals(loyaltyCard.balanceType, dbLoyaltyCard.balanceType);
+            assertEquals(loyaltyCard.headerColor, dbLoyaltyCard.headerColor);
+
+            List<Group> emptyGroup = new ArrayList<>();
+
+            assertEquals(
+                groupsToGroupNames(
+                    (List<Group>) Utils.hashmapGetOrDefault(
+                        loyaltyCardGroups,
+                        loyaltyCardID,
+                        emptyGroup,
+                        Integer.class
+                    )
+                ),
+                groupsToGroupNames(
+                    db.getLoyaltyCardGroups(
+                        loyaltyCardID
+                    )
+                )
+            );
+
+            Bitmap expectedFrontImage = loyaltyCardFrontImages.get(loyaltyCardID);
+            Bitmap expectedBackImage = loyaltyCardBackImages.get(loyaltyCardID);
+            Bitmap actualFrontImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, true));
+            Bitmap actualBackImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, false));
+
+            if (expectedFrontImage != null) {
+                assertTrue(expectedFrontImage.sameAs(actualFrontImage));
+            } else {
+                assertNull(actualFrontImage);
+            }
+
+            if (expectedBackImage != null) {
+                assertTrue(expectedBackImage.sameAs(actualBackImage));
+            } else {
+                assertNull(actualBackImage);
+            }
+        }
     }
 
     @Test
-    public void importV2()
+    public void importV2CSV()
     {
         String csvText = "2\n" +
                 "\n" +
@@ -915,16 +977,14 @@ public class ImportExportTest
                 "Food\n" +
                 "Fashion\n" +
                 "\n" +
-                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus,frontimage,backimage\n" +
-                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
-                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\",\"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQAAAADcA-lXAAAANklEQVR42u3BAQEAAACCIP-vbkhA\n" +
-                "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC\n\"\r\n" +
-                "8,Clothes Store,Note about store,,0,,a,,-5317,,0,,\n" +
-                "2,Department Store,,1618041729,0,,A,,-9977996,,0,,\n" +
-                "3,Grocery Store,,,150,,dhd,,-9977996,,0,,\n" +
-                "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,1,,\n" +
-                "5,Restaurant,Note about restaurant here,,0,,98765432,23456,-10902850,CODE_128,0,,\n" +
-                "6,Shoe Store,,,12.50,EUR,a,-5317,,AZTEC,0,,\n" +
+                "_id,store,note,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus\n" +
+                "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\r\n" +
+                "8,Clothes Store,Note about store,,0,,a,,-5317,,0,\n" +
+                "2,Department Store,,1618041729,0,,A,,-9977996,,0,\n" +
+                "3,Grocery Store,,,150,,dhd,,-9977996,,0,\n" +
+                "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,1,\n" +
+                "5,Restaurant,Note about restaurant here,,0,,98765432,23456,-10902850,CODE_128,0,\n" +
+                "6,Shoe Store,,,12.50,EUR,a,-5317,,AZTEC,0,\n" +
                 "\n" +
                 "cardId,groupId\n" +
                 "8,Fashion\n" +
@@ -958,12 +1018,6 @@ public class ImportExportTest
         assertEquals(Arrays.asList(8, 6), db.getGroupCardIds("Fashion"));
 
         // Check all cards
-        BitmapDrawable launcher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
-        BitmapDrawable roundLauncher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher_round, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
-
-        Bitmap frontImage = launcher.getBitmap();
-        Bitmap backImage = roundLauncher.getBitmap();
-
         LoyaltyCard card1 = db.getLoyaltyCard(1);
 
         assertEquals("Card 1", card1.store);
@@ -976,8 +1030,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType);
         assertEquals(1, (long) card1.headerColor);
         assertEquals(0, card1.starStatus);
-        assertTrue(Utils.resizeBitmap(frontImage).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, true)));
-        assertTrue(Utils.resizeBitmap(backImage).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, false)));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, true));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, false));
 
         LoyaltyCard card8 = db.getLoyaltyCard(8);
 

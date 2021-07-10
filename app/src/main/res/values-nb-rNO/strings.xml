@@ -113,9 +113,9 @@
     <string name="app_loyalty_card_keychain">Kundekortknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått</string>
-    <string name="privacy_policy_popup_text">Mange programbutikker krever at programmer viser personvernspraksisen sin ved første oppstart. Her er vår:
+    <string name="privacy_policy_popup_text">Personvernspraksis-notis (påkrevd av noen programbutikker):
 \n
-\nVi SAMLER IKKE IN NOEN DATA overhodet, og programmet vårt er fri programvare, så alle kan bekrefte at dette stemmer.</string>
+\nINGEN DATA SAMLES INN, noe alle kan bekreftes siden programmet vårt er fri programvare.</string>
     <string name="accept">Godta</string>
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="importFidme">Importer fra FidMe</string>
@@ -133,7 +133,7 @@
     <string name="importLoyaltyCardKeychainMessage">Finn en fil som antagelig heter <i>LoyaltyCardKeychain.csv</i> å importere.
 \nEller opprett den i Import/eksport-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Finn en fil som antagelig heter <i>fidme.export-request-xxxxx.zip</i> å importere, for så å så velge strekkodetypene manuelt etterpå-
+    <string name="importFidmeMessage">Finn en fil som antagelig heter <i>fidme.export-request-xxxxx.zip</i> å importere, for så å velge strekkodetypene manuelt etterpå-
 \nEller opprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
     <string name="importCatimaMessage">Finn en fil som antagelig heter <i>Catima.csv</i> å importere.
 \nEller opprett den i Import/eksport-menyen i et annet Catima-program ved å trykke «Eksporter» der først.</string>
@@ -158,4 +158,8 @@
     <string name="photos">Bilder</string>
     <string name="backImageDescription">Kortets bakside</string>
     <string name="frontImageDescription">Kortets forside</string>
+    <string name="importStocardMessage">Finn din Stocard.zip-fil å importere, og velg strekkodetypene manuelt etterpå.
+\nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
+    <string name="passwordRequired">Skriv inn passordet</string>
+    <string name="importStocard">Importer fra Stocard</string>
 </resources>

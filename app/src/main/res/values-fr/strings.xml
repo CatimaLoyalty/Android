@@ -158,4 +158,8 @@
     <string name="photos">Photos</string>
     <string name="backImageDescription">Image verso de la carte</string>
     <string name="frontImageDescription">Image recto de la carte</string>
+    <string name="passwordRequired">Veuillez entrer le mot de passe</string>
+    <string name="importStocardMessage">Trouvez votre fichier Stocard .zip à importer, puis sélectionnez manuellement les types de codes-barres par la suite.
+\nOu obtenez-le en envoyant un courriel à support@stocardapp.com et en demandant d’abord une exportation de vos données.</string>
+    <string name="importStocard">Importer depuis Stocard</string>
 </resources>

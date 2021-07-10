@@ -158,4 +158,8 @@
     <string name="photos">Afbeeldingen</string>
     <string name="backImageDescription">Achterzijde van de kaart</string>
     <string name="frontImageDescription">Voorzijde van de kaart</string>
+    <string name="passwordRequired">Voer het wachtwoord in</string>
+    <string name="importStocardMessage">Kies het te importeren Stocard.zip-bestand en kies nadien de soorten barcodes.
+\nOf stuur een e-mail naar support@stocardapp.com waarin je vraagt om een exportbestand.</string>
+    <string name="importStocard">Importeren uit Stocard</string>
 </resources>

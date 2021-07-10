@@ -135,11 +135,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/inputBackground"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:orientation="vertical"
         android:visibility="gone"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="104dp"
+        app:behavior_peekHeight="80dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         tools:visibility="visible">
 
@@ -156,7 +156,7 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/bottomSheetContentWrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"

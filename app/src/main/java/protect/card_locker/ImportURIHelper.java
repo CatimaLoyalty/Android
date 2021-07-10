@@ -7,9 +7,14 @@ import android.net.Uri;
 import com.google.zxing.BarcodeFormat;
 
 import java.io.InvalidObjectException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class ImportURIHelper {
@@ -58,78 +63,114 @@ public class ImportURIHelper {
             Currency balanceType = null;
             Integer headerColor = null;
 
-            String store = uri.getQueryParameter(STORE);
-            String note = uri.getQueryParameter(NOTE);
-            String cardId = uri.getQueryParameter(CARD_ID);
-            String barcodeId = uri.getQueryParameter(BARCODE_ID);
-            if (store == null || note == null || cardId == null) throw new InvalidObjectException("Not a valid import URI");
+            // Store everything in a simple key/value hashmap
+            HashMap<String, String> kv = new HashMap<>();
 
-            String unparsedBarcodeType = uri.getQueryParameter(BARCODE_TYPE);
+            // First, grab all query parameters (backwards compatibility)
+            for (String key : uri.getQueryParameterNames()) {
+                kv.put(key, uri.getQueryParameter(key));
+            }
+
+            // Then, parse the new and more private fragment part
+            // Overriding old format entries if they exist
+            String fragment = uri.getFragment();
+            if (fragment != null) {
+                for (String fragmentPart : fragment.split("&")) {
+                    String[] fragmentData = fragmentPart.split("=", 2);
+                    kv.put(fragmentData[0], URLDecoder.decode(fragmentData[1], StandardCharsets.UTF_8.toString()));
+                }
+            }
+
+            // Then use all values we care about
+            String store = kv.get(STORE);
+            String note = kv.get(NOTE);
+            String cardId = kv.get(CARD_ID);
+            String barcodeId = kv.get(BARCODE_ID);
+            if (store == null || note == null || cardId == null) throw new InvalidObjectException("Not a valid import URI: " + uri.toString());
+
+            String unparsedBarcodeType = kv.get(BARCODE_TYPE);
             if(unparsedBarcodeType != null && !unparsedBarcodeType.equals(""))
             {
                 barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
             }
 
-            String unparsedBalance = uri.getQueryParameter(BALANCE);
+            String unparsedBalance = kv.get(BALANCE);
             if(unparsedBalance != null && !unparsedBalance.equals(""))
             {
                 balance = new BigDecimal(unparsedBalance);
             }
-            String unparsedBalanceType = uri.getQueryParameter(BALANCE_TYPE);
+            String unparsedBalanceType = kv.get(BALANCE_TYPE);
             if (unparsedBalanceType != null && !unparsedBalanceType.equals(""))
             {
                 balanceType = Currency.getInstance(unparsedBalanceType);
             }
-            String unparsedExpiry = uri.getQueryParameter(EXPIRY);
+            String unparsedExpiry = kv.get(EXPIRY);
             if(unparsedExpiry != null && !unparsedExpiry.equals(""))
             {
                 expiry = new Date(Long.parseLong(unparsedExpiry));
             }
 
-            String unparsedHeaderColor = uri.getQueryParameter(HEADER_COLOR);
+            String unparsedHeaderColor = kv.get(HEADER_COLOR);
             if(unparsedHeaderColor != null)
             {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
             return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0);
-        } catch (NullPointerException | NumberFormatException ex) {
+        } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
     }
 
+    private StringBuilder appendFragment(StringBuilder fragment, String key, String value) throws UnsupportedEncodingException {
+        if (fragment.length() > 0) {
+            fragment.append("&");
+        }
+
+        // Double-encode the value to make sure it can't accidentally contain symbols that'll break the parser
+        fragment.append(key).append("=").append(URLEncoder.encode(value, StandardCharsets.UTF_8.toString()));
+
+        return fragment;
+    }
+
     // Protected for usage in tests
-    protected Uri toUri(LoyaltyCard loyaltyCard) {
+    protected Uri toUri(LoyaltyCard loyaltyCard) throws UnsupportedEncodingException {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https");
         uriBuilder.authority(host);
         uriBuilder.path(path);
-        uriBuilder.appendQueryParameter(STORE, loyaltyCard.store);
-        uriBuilder.appendQueryParameter(NOTE, loyaltyCard.note);
-        uriBuilder.appendQueryParameter(BALANCE, loyaltyCard.balance.toString());
+
+        // Use fragment instead of QueryParameter to not leak this data to the server
+        StringBuilder fragment = new StringBuilder();
+
+        fragment = appendFragment(fragment, STORE, loyaltyCard.store);
+        fragment = appendFragment(fragment, NOTE, loyaltyCard.note);
+        fragment = appendFragment(fragment, BALANCE, loyaltyCard.balance.toString());
         if (loyaltyCard.balanceType != null) {
-            uriBuilder.appendQueryParameter(BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
+            fragment = appendFragment(fragment, BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
         }
         if (loyaltyCard.expiry != null) {
-            uriBuilder.appendQueryParameter(EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
+            fragment = appendFragment(fragment, EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
         }
-        uriBuilder.appendQueryParameter(CARD_ID, loyaltyCard.cardId);
+        fragment = appendFragment(fragment, CARD_ID, loyaltyCard.cardId);
         if(loyaltyCard.barcodeId != null) {
-            uriBuilder.appendQueryParameter(BARCODE_ID, loyaltyCard.barcodeId);
+            fragment = appendFragment(fragment, BARCODE_ID, loyaltyCard.barcodeId);
         }
 
         if(loyaltyCard.barcodeType != null) {
-            uriBuilder.appendQueryParameter(BARCODE_TYPE, loyaltyCard.barcodeType.toString());
+            fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.toString());
         }
         if(loyaltyCard.headerColor != null) {
-            uriBuilder.appendQueryParameter(HEADER_COLOR, loyaltyCard.headerColor.toString());
+            fragment = appendFragment(fragment, HEADER_COLOR, loyaltyCard.headerColor.toString());
         }
         // Star status will not be exported
         // Front and back pictures are often too big to fit into a message in base64 nicely, not sharing either...
+
+        uriBuilder.fragment(fragment.toString());
         return uriBuilder.build();
     }
 
-    public void startShareIntent(List<LoyaltyCard> loyaltyCards) {
+    public void startShareIntent(List<LoyaltyCard> loyaltyCards) throws UnsupportedEncodingException {
         int loyaltyCardCount = loyaltyCards.size();
 
         StringBuilder text = new StringBuilder();

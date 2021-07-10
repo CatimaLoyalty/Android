@@ -14,6 +14,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import java.io.InvalidObjectException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
@@ -37,12 +38,11 @@ public class ImportURITest {
     }
 
     @Test
-    public void ensureNoDataLoss() throws InvalidObjectException
-    {
+    public void ensureNoDataLoss() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "note", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), BarcodeFormat.QR_CODE, Color.BLACK, 1);
+        db.insertLoyaltyCard("store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), BarcodeFormat.QR_CODE, Color.BLACK, 1);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -68,8 +68,7 @@ public class ImportURITest {
     }
 
     @Test
-    public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException
-    {
+    public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, BarcodeFormat.QR_CODE, null, 0);
 
@@ -110,35 +109,46 @@ public class ImportURITest {
     @Test
     public void failToParseBadData()
     {
-        try {
-            //"stare" instead of store
-            importURIHelper.parse(Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706"));
-            assertTrue(false); // Shouldn't get here
-        } catch(InvalidObjectException ex) {
-            // Desired behaviour
+        String[] urls = new String[2];
+        urls[0] = "https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706";
+        urls[1] = "https://thelastproject.github.io/Catima/share#stare%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706";
+
+        for (String url : urls) {
+            try {
+                //"stare" instead of store
+                importURIHelper.parse(Uri.parse(url));
+                assertTrue(false); // Shouldn't get here
+            } catch (InvalidObjectException ex) {
+                // Desired behaviour
+            }
         }
     }
 
     @Test
-    public void parseAdditionalUnforeseenData()
-    {
-        LoyaltyCard parsedCard = null;
-        try {
-            parsedCard = importURIHelper.parse(Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706&headertextcolor=-1&notforeseen=no"));
-        } catch (InvalidObjectException e) {
-            e.printStackTrace();
-        }
+    public void parseAdditionalUnforeseenData() {
+        String[] urls = new String[2];
+        urls[0] = "https://brarcher.github.io/loyalty-card-locker/share?store=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706&headertextcolor=-1&notforeseen=no";
+        urls[1] = "https://thelastproject.github.io/Catima/share#store%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706%26notforeseen%3Dno";
 
-        // Compare everything
-        assertEquals("store", parsedCard.store);
-        assertEquals("note", parsedCard.note);
-        assertEquals(null, parsedCard.expiry);
-        assertEquals(new BigDecimal("0"), parsedCard.balance);
-        assertEquals(null, parsedCard.balanceType);
-        assertEquals("12345", parsedCard.cardId);
-        assertEquals(null, parsedCard.barcodeId);
-        assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType);
-        assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
-        assertEquals(0, parsedCard.starStatus);
+        for (String url : urls) {
+            LoyaltyCard parsedCard = null;
+            try {
+                parsedCard = importURIHelper.parse(Uri.parse(url));
+            } catch (InvalidObjectException e) {
+                e.printStackTrace();
+            }
+
+            // Compare everything
+            assertEquals("store", parsedCard.store);
+            assertEquals("note", parsedCard.note);
+            assertEquals(null, parsedCard.expiry);
+            assertEquals(new BigDecimal("0"), parsedCard.balance);
+            assertEquals(null, parsedCard.balanceType);
+            assertEquals("12345", parsedCard.cardId);
+            assertEquals(null, parsedCard.barcodeId);
+            assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType);
+            assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
+            assertEquals(0, parsedCard.starStatus);
+        }
     }
 }

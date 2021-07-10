@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -97,7 +98,12 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             else if (inputItem.getItemId() == R.id.action_share)
             {
                 final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
-                importURIHelper.startShareIntent(mAdapter.getSelectedItems());
+                try {
+                    importURIHelper.startShareIntent(mAdapter.getSelectedItems());
+                } catch (UnsupportedEncodingException e) {
+                    Toast.makeText(MainActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
                 inputMode.finish();
                 return true;
             }

@@ -29,6 +29,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.Arrays;
@@ -562,7 +563,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 break;
 
             case R.id.action_share:
-                importURIHelper.startShareIntent(Arrays.asList(loyaltyCard));
+                try {
+                    importURIHelper.startShareIntent(Arrays.asList(loyaltyCard));
+                } catch (UnsupportedEncodingException e) {
+                    Toast.makeText(LoyaltyCardViewActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
                 return true;
 
             case R.id.action_lock_unlock:

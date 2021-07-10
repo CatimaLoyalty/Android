@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+Breaking changes:
+- The backup format changed, see https://github.com/TheLastProject/Catima/wiki/Export-format
+- The URL sharing format changed, see https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+
 Changes:
 
 - Add UPC-E support

@@ -12,6 +12,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -40,14 +41,17 @@ import protect.card_locker.ZipUtils;
 public class CatimaImporter implements Importer
 {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+        InputStream bufferedInputStream = new BufferedInputStream(input);
+        bufferedInputStream.mark(100);
+
         // First, check if this is a zip file
-        ZipInputStream zipInputStream = new ZipInputStream(input);
+        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream);
         LocalFileHeader localFileHeader = zipInputStream.getNextEntry();
 
         if (localFileHeader == null) {
             // This is not a zip file, try importing as bare CSV
-            input.reset();
-            importCSV(context, db, input);
+            bufferedInputStream.reset();
+            importCSV(context, db, bufferedInputStream);
             return;
         }
 

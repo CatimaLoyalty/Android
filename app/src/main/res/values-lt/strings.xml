@@ -1,10 +1,8 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Pridėti</string>
-
-    <string name="noGiftCards">Šiuo metu neturite nė vienos įvestos lojalumo kortelės. Paspauskite "+" (pliuso) pliuso mygtuką, kad pradėtumėte.\n\nLoyalty Card Locker leidžia Jums visada nešiotis lojalumo kortelių informaciją savo telefone ar planšetėje, taip jos visada pasiekiamos.</string>
-    <string name="storeName">Parduotuvė</string>
+    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + plius arba pirmiausia importuokite kortelę iš ⋮ meniu.</string>
+    <string name="storeName">Pavadinimas</string>
     <string name="note">Užrašas</string>
     <string name="cardId">Kortelės ID</string>
     <string name="cancel">Atšaukti</string>
@@ -13,22 +11,21 @@
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
     <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
-    <string name="deleteConfirmation">Prašome patvirtinti jog Jūs norite panaikinti šią lojalumo kortelę.</string>
+    <string name="deleteConfirmation">Ištrinti šią kortelę\?</string>
     <string name="ok">Gerai</string>
     <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
-    <string name="scanCardBarcode">Nuskanuokite kortelės brūkšninį kodą</string>
+    <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
     <string name="barcodeImageDescription">Kortelės brūkšninio kodo paveikslėlis</string>
-
     <string name="noStoreError">Parduotuvė neįvesta</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
     <string name="importFailed">Nepavyko importuoti</string>
     <string name="exportFailed">Nepavyko eksportuoti</string>
-    <string name="importing">Importuoja&#8230;</string>
-    <string name="exporting">Eksportuoja&#8230;</string>
+    <string name="importing">Importuoja…</string>
+    <string name="exporting">Eksportuoja…</string>
     <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
     <string name="about">Apie</string>
     <string name="app_license">Licenzijuota pagal GPLv3.</string>
@@ -37,5 +34,17 @@
     <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
-
-    </resources>
+    <string name="card_ids_copied">Nukopijuotos kortelės ID</string>
+    <string name="noCardsMessage">Pirmiausia pridėkite kortelę</string>
+    <string name="sendLabel">Siųsti…</string>
+    <string name="unlockScreen">Atblokuoti pasukimą</string>
+    <string name="lockScreen">Blokuoti pasukimą</string>
+    <string name="unstar">Pašalinti iš mėgstamiausių</string>
+    <string name="star">Pridėti prie mėgstamiausių</string>
+    <string name="noBarcode">Nėra brūkšninio kodo</string>
+    <string name="barcodeNoBarcode">Ši kortelė neturi brūkšninio kodo</string>
+    <string name="barcodeType">Brūkšninio kodo tipas</string>
+    <string name="noMatchingGiftCards">Nieko nerasta. Pabandykite pakeisti paiešką.</string>
+    <string name="card_selected">"Pasirinkta: "</string>
+    <string name="action_search">Ieškoti</string>
+</resources>

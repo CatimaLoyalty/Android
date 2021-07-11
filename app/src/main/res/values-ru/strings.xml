@@ -164,4 +164,5 @@
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>
+    <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об ошибке!</string>
 </resources>

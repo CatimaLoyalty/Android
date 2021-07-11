@@ -8,6 +8,7 @@ Breaking changes:
 
 Changes:
 
+- Make it possible to enable or disable the flashlight while scanning
 - Add UPC-E support
 - Support adding a front and back photo to each card
 - Support importing password-protected zip files

@@ -2,9 +2,11 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -34,6 +36,7 @@ public class ScanActivity extends AppCompatActivity {
     private DecoratedBarcodeView barcodeScannerView;
 
     private String cardId;
+    private boolean torch = false;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -115,6 +118,18 @@ public class ScanActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            getMenuInflater().inflate(R.menu.scan_menu, menu);
+        }
+
+        barcodeScannerView.setTorchOff();
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         if (item.getItemId() == android.R.id.home)
@@ -122,6 +137,19 @@ public class ScanActivity extends AppCompatActivity {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;
+        } else if (item.getItemId() == R.id.action_toggle_flashlight)
+        {
+            if (torch) {
+                torch = false;
+                barcodeScannerView.setTorchOff();
+                item.setTitle(R.string.turn_flashlight_on);
+                item.setIcon(R.drawable.ic_flashlight_off_white_24dp);
+            } else {
+                torch = true;
+                barcodeScannerView.setTorchOn();
+                item.setTitle(R.string.turn_flashlight_off);
+                item.setIcon(R.drawable.ic_flashlight_on_white_24dp);
+            }
         }
 
         return super.onOptionsItemSelected(item);

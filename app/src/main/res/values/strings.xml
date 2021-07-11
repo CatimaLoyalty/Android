@@ -195,4 +195,6 @@
     <string name="no">No</string>
     <string name="passwordRequired">Please enter the password</string>
     <string name="failedGeneratingShareURL">Failed generating share URL. Please report this bug!</string>
+    <string name="turn_flashlight_on">Turn flashlight on</string>
+    <string name="turn_flashlight_off">Turn flashlight off</string>
 </resources>

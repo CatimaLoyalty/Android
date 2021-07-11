@@ -162,4 +162,5 @@
 \nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
+    <string name="failedGeneratingShareURL">Klarte ikke å lage delingsnettadresse. Rapporter denne feilen.</string>
 </resources>

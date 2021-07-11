@@ -8,7 +8,7 @@ Naudodami šį būtiną kasdienio naudojimo (EDC) įrankį galite nenaudingą pl
 - Išvenkite šnipinėjimo, programėlė prašo labai nedaug leidimų. Jokios prieigos prie interneto ir jokių reklamų.
 - Pridėkite korteles ar kodus su pavadinimais ir pasirenkamomis spalvomis.
 - Rankiniu būdu įveskite kodą, jei nėra saugotino brūkšninio kodo arba jo negalima naudoti.
-- Importuokite korteles ir kodus iš failų, "Catima", "Loyalty Card Keychain", "Voucher Vault" ir "FidMe".
+- Importuokite korteles ir kodus iš failų, "Catima", "FidMe", "Loyalty Card Keychain", "Stocard", "Voucher Vault".
 - Padarykite atsarginę visų kortelių kopiją ir, jei norite, perkelkite jas į naują įrenginį.
 - Dalinkitės kuponais, išskirtiniais pasiūlymais, reklaminiais kodais arba kortelėmis ir kodais naudodami bet kurią programą.
 - Tamsi tema ir parinktys naudotojams su regos sutrikimais.

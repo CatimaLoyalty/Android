@@ -29,25 +29,31 @@ public class ImportURIHelper {
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
 
     private final Context context;
-    private final String host;
-    private final String path;
-    private final String oldHost;
-    private final String oldPath;
+    private final String[] hosts = new String[3];
+    private final String[] paths = new String[3];
     private final String shareText;
     private final String shareMultipleText;
 
     public ImportURIHelper(Context context) {
         this.context = context;
-        host = context.getResources().getString(R.string.intent_import_card_from_url_host);
-        path = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix);
-        oldHost = "brarcher.github.io";
-        oldPath = "/loyalty-card-locker/share";
+        hosts[0] = context.getResources().getString(R.string.intent_import_card_from_url_host_catima_app);
+        paths[0] = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix_catima_app);
+        hosts[1] = context.getResources().getString(R.string.intent_import_card_from_url_host_thelastproject);
+        paths[1] = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix_thelastproject);
+        hosts[2] = context.getResources().getString(R.string.intent_import_card_from_url_host_brarcher);
+        paths[2] = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix_brarcher);
         shareText = context.getResources().getString(R.string.intent_import_card_from_url_share_text);
         shareMultipleText = context.getResources().getString(R.string.intent_import_card_from_url_share_multiple_text);
     }
 
     private boolean isImportUri(Uri uri) {
-        return (uri.getHost().equals(host) && uri.getPath().equals(path)) || (uri.getHost().equals(oldHost) && uri.getPath().equals(oldPath));
+        for (int i = 0; i < hosts.length; i++) {
+            if (uri.getHost().equals(hosts[i]) && uri.getPath().equals(paths[i])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public LoyaltyCard parse(Uri uri) throws InvalidObjectException {
@@ -137,8 +143,8 @@ public class ImportURIHelper {
     protected Uri toUri(LoyaltyCard loyaltyCard) throws UnsupportedEncodingException {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.scheme("https");
-        uriBuilder.authority(host);
-        uriBuilder.path(path);
+        uriBuilder.authority(hosts[0]);
+        uriBuilder.path(paths[0]);
 
         // Use fragment instead of QueryParameter to not leak this data to the server
         StringBuilder fragment = new StringBuilder();

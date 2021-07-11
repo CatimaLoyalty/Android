@@ -60,13 +60,16 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "https://github.com/brarcher/loyalty-card-locker/” -->
+                <!-- Listen to known card sharing URIs -->
                 <data android:scheme="https"
-                    android:host="@string/intent_import_card_from_url_host"
-                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix" />
+                    android:host="@string/intent_import_card_from_url_host_catima_app"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_catima_app" />
                 <data android:scheme="https"
-                    android:host="@string/intent_import_card_from_url_host_old"
-                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_old" />
+                    android:host="@string/intent_import_card_from_url_host_thelastproject"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_thelastproject" />
+                <data android:scheme="https"
+                    android:host="@string/intent_import_card_from_url_host_brarcher"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_brarcher" />
             </intent-filter>
         </activity>
         <activity

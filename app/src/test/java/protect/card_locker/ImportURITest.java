@@ -109,9 +109,10 @@ public class ImportURITest {
     @Test
     public void failToParseBadData()
     {
-        String[] urls = new String[2];
+        String[] urls = new String[3];
         urls[0] = "https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706";
         urls[1] = "https://thelastproject.github.io/Catima/share#stare%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706";
+        urls[2] = "https://catima.app/share#stare%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706";
 
         for (String url : urls) {
             try {
@@ -126,9 +127,10 @@ public class ImportURITest {
 
     @Test
     public void parseAdditionalUnforeseenData() {
-        String[] urls = new String[2];
+        String[] urls = new String[3];
         urls[0] = "https://brarcher.github.io/loyalty-card-locker/share?store=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706&headertextcolor=-1&notforeseen=no";
         urls[1] = "https://thelastproject.github.io/Catima/share#store%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706%26notforeseen%3Dno";
+        urls[2] = "https://catima.app/share#store%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706%26notforeseen%3Dno";
 
         for (String url : urls) {
             LoyaltyCard parsedCard = null;

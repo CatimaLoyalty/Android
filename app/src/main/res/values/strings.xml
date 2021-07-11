@@ -109,10 +109,12 @@
     <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
 
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
-    <string name="intent_import_card_from_url_host" translatable="false">thelastproject.github.io</string>
-    <string name="intent_import_card_from_url_path_prefix" translatable="false">/Catima/share</string>
-    <string name="intent_import_card_from_url_host_old" translatable="false">brarcher.github.io</string>
-    <string name="intent_import_card_from_url_path_prefix_old" translatable="false">/loyalty-card-locker/share</string>
+    <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
+    <string name="intent_import_card_from_url_path_prefix_catima_app" translatable="false">/share</string>
+    <string name="intent_import_card_from_url_host_thelastproject" translatable="false">thelastproject.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix_thelastproject" translatable="false">/Catima/share</string>
+    <string name="intent_import_card_from_url_host_brarcher" translatable="false">brarcher.github.io</string>
+    <string name="intent_import_card_from_url_path_prefix_brarcher" translatable="false">/loyalty-card-locker/share</string>
     <string name="importSuccessful">Card data imported</string>
     <string name="exportSuccessful">Card data exported</string>
 

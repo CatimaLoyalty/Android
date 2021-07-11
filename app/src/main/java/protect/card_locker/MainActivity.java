@@ -423,7 +423,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     private void openPrivacyPolicy() {
         Intent browserIntent = new Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://thelastproject.github.io/Catima/privacy-policy")
+                Uri.parse("https://catima.app/privacy-policy")
         );
         startActivity(browserIntent);
     }

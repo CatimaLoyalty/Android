@@ -120,15 +120,15 @@
         <item quantity="other"><xliff:g>%d</xliff:g> карт</item>
     </plurals>
     <string name="accept">Принять</string>
-    <string name="importVoucherVaultMessage">Выберите файл для импортирования, обычно именуемый <i>vouchervault.json</i>.
+    <string name="importVoucherVaultMessage">Выберите файл для импортирования, именуемый <i>vouchervault.json</i>.
 \nФайл экспорта можно создать в приложении Voucher Vault, нажав кнопку \"Экспорт\".</string>
     <string name="importVoucherVault">Импорт из Voucher Vault</string>
-    <string name="importFidmeMessage">Выберите файл для импортирования, обычно именуемый <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную укажите типы штрих-кодов.
+    <string name="importFidmeMessage">Выберите файл для импортирования, именуемый <i>fidme-export-request-xxxxxx.zip</i>, а затем вручную укажите типы штрих-кодов.
 \nФайл экспорта можно создать в приложении FidMe, перейдя в свой профиль, выбрав функцию \"Защита данных\", и затем нажав кнопку \"Извлечь мои данные\".</string>
-    <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта, обычно именуемый <i>LoyaltyCardKeychain.csv</i>.
+    <string name="importLoyaltyCardKeychainMessage">Выберите файл экспорта, именуемый <i>LoyaltyCardKeychain.csv</i>.
 \nФайл экспорта можно создать в приложении Loyalty Card Keychain, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importLoyaltyCardKeychain">Импорт из Loyalty Card Keychain</string>
-    <string name="importCatimaMessage">Выберите файл для импортирования, обычно именуемый <i>Catima.csv</i>.
+    <string name="importCatimaMessage">Выберите файл для импортирования, именуемый <i>Catima.zip</i>.
 \nФайл экспорта можно создать в другой копии Catima, перейдя в меню \"Импорт/Экспорт\" и нажав кнопку \"Экспорт\".</string>
     <string name="importFidme">Импорт из FidMe</string>
     <string name="importCatima">Импорт из Catima</string>
@@ -141,8 +141,8 @@
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
-    <string name="app_resources">Сторонние свободные ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Сторонние свободные библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Свободные сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Поделиться картами</string>
     <string name="card_ids_copied">Скопированные номера карт</string>
@@ -160,7 +160,7 @@
     <string name="backImageDescription">Задняя сторона карты</string>
     <string name="frontImageDescription">Лицевая сторона карты</string>
     <string name="photos">Фотографии</string>
-    <string name="importStocardMessage">Выберите файл Stocard.zip для импортирования, а затем вручную укажите типы штрих-кодов.
+    <string name="importStocardMessage">Выберите файл <i>***-sync.zip</i> для импортирования, а затем вручную укажите типы штрих-кодов.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>

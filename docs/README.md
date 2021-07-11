@@ -32,6 +32,7 @@ Supported barcodes:
 - PDF_417
 - QR_CODE
 - UPC_A
+- UPC_E
 
 # Screenshots
 

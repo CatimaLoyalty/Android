@@ -165,4 +165,6 @@
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>
     <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об ошибке!</string>
+    <string name="turn_flashlight_off">Отключить вспышку</string>
+    <string name="turn_flashlight_on">Включить вспышку</string>
 </resources>

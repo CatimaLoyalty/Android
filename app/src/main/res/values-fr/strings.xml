@@ -118,17 +118,17 @@
     <string name="expiryStateSentence">Expire : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
-    <string name="importVoucherVaultMessage">Trouvez un fichier probablement nommé <i>vouchervault.json</i> à importer.
-\nOu créez-le en appuyant d’abord sur Exporter dans Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer.
+\nOu créez-la en appuyant d’abord sur Exporter dans Voucher Vault.</string>
     <string name="importVoucherVault">Importer depuis Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Trouvez un fichier probablement nommé <i>LoyaltyCardKeychain.csv</i> à importer.
-\nOu créez-le à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
+    <string name="importLoyaltyCardKeychainMessage">Sélectionnez votre exportation <i>LoyaltyCardKeychain.csv</i> à partir de Loyalty Card Keychain pour l’importer.
+\nOu créez-la à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
     <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Trouvez un fichier probablement nommé <i>fidme-export-request-xxxxxx.zip</i> pour l’importer, et sélectionnez ensuite manuellement les types de codes-barres.
-\nVous pouvez aussi le créer à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données.</string>
+    <string name="importFidmeMessage">Sélectionnez votre exportation <i>fidme-export-request-xxxxxx.zip</i> de FidMe pour l’importer, puis sélectionnez manuellement les types de codes-barres.
+\nOu créez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
     <string name="importFidme">Importer depuis FidMe</string>
-    <string name="importCatimaMessage">Trouvez un fichier probablement nommé <i>Catima.csv</i> à importer.
-\nOu créez-le à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
+    <string name="importCatimaMessage">Sélectionnez votre exportation <i>catima.zip</i> depuis Catima à importer.
+\nOu créez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
     <string name="errorReadingImage">Impossible de lire l\'image</string>
@@ -137,13 +137,13 @@
     <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="settings_max_font_size_scale">Taille max. de la police</string>
-    <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version plus récente de l\'application.</string>
+    <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
     <string name="wrongValueForBarcodeType">La valeur n\'est pas valide pour le type de code-barres sélectionné</string>
-    <string name="app_resources">Ressources libres tierces : <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Bibliothèques libres tierces : <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
-    <string name="copy_to_clipboard_multiple_toast">Nméros des cartes copiés dans le presse-papier</string>
+    <string name="copy_to_clipboard_multiple_toast">Identifiants des cartes copiés dans le presse-papiers</string>
     <string name="card_ids_copied">Num. de la carte copié(s)</string>
     <string name="card_selected">"Sélectionnée : "</string>
     <string name="updateBarcodeQuestionText">Vous avez changé l\'identifiant de la carte. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
@@ -159,7 +159,10 @@
     <string name="backImageDescription">Image verso de la carte</string>
     <string name="frontImageDescription">Image recto de la carte</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
-    <string name="importStocardMessage">Trouvez votre fichier Stocard .zip à importer, puis sélectionnez manuellement les types de codes-barres par la suite.
-\nOu obtenez-le en envoyant un courriel à support@stocardapp.com et en demandant d’abord une exportation de vos données.</string>
+    <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer, et sélectionnez les types de codes-barres manuellement par la suite.
+\nVous pouvez aussi l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
     <string name="importStocard">Importer depuis Stocard</string>
+    <string name="turn_flashlight_off">Éteindre la lampe de poche</string>
+    <string name="turn_flashlight_on">Allumer la lampe de poche</string>
+    <string name="failedGeneratingShareURL">Échec de la génération de l’URL de partage. Veuillez signaler ce problème !</string>
 </resources>

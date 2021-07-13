@@ -1,2 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
+    <string name="deleteTitle">Forigi karton</string>
+    <string name="barcodeNoBarcode">Strekokodo mankas al karto</string>
+    <string name="delete">Forigi</string>
+    <string name="noBarcode">Sen strekokodo</string>
+    <string name="barcodeType">Tipo de strekokodo</string>
+    <string name="cardId">Identigilo de karto</string>
+    <string name="settings_category_title_ui">Fasado</string>
+    <string name="settings">Agordoj</string>
+    <string name="selectBarcodeTitle">Elekti strekokodon</string>
+    <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt">Pri <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopirajto © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="importOptionFilesystemButton">El dosiersistemo</string>
+    <string name="importOptionFilesystemTitle">Enporti el dosiersistemo</string>
+    <string name="exportFailedTitle">Elportado malsukcesis</string>
+    <string name="exportSuccessfulTitle">Elportado sukcesis</string>
+    <string name="importFailedTitle">Enportado malsukcesis</string>
+    <string name="importSuccessfulTitle">Enportado sukcesis</string>
+    <string name="exporting">Elportante…</string>
+    <string name="importing">Enportante…</string>
+    <string name="exportName">Elporti</string>
+    <string name="importExport">Enporti/elporti</string>
+    <string name="addCardTitle">Aldoni karton</string>
+    <string name="editCardTitle">Redakti karton</string>
+    <string name="sendLabel">Sendi…</string>
+    <string name="takePhoto">Foti</string>
+    <string name="no">Ne</string>
+    <string name="yes">Jes</string>
+    <string name="photos">Fotoj</string>
+    <string name="points">Poentoj</string>
+    <string name="currency">Valuto</string>
+    <string name="editBarcode">Redakti strekokodon</string>
+    <string name="barcode">Strekokodo</string>
+    <string name="card">Karto</string>
+    <string name="never">Neniam</string>
+    <string name="groupsList">Grupoj: <xliff:g>%s</xliff:g></string>
+    <string name="groups">Grupoj</string>
+    <string name="settings_dark_theme">Malhela</string>
+    <string name="settings_light_theme">Hela</string>
+    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_theme">Etoso</string>
+    <string name="about">Pri</string>
+    <string name="note">Noto</string>
+    <string name="storeName">Nomo</string>
+    <string name="confirm">Konfirmi</string>
+    <string name="ok">Bone</string>
+    <string name="edit">Redakti</string>
+    <string name="save">Konservi</string>
+    <string name="cancel">Nuligi</string>
+    <string name="card_selected">"Elektita: "</string>
+    <string name="action_add">Aldoni</string>
+    <string name="action_search">Serĉi</string>
+</resources>

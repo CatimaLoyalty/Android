@@ -137,7 +137,7 @@
     <string name="noBarcodeFound">Kein Strichcode gefunden</string>
     <string name="addFromImage">Bild aus der Galerie auswählen</string>
     <string name="settings_max_font_size_scale">Max. Schriftgröße</string>
-    <string name="unsupportedBarcodeType">Dieser Strichcodetyp kann noch nicht angezeigt werden. Er wird möglicherweise in einer neueren Version der Anwendung unterstützt.</string>
+    <string name="unsupportedBarcodeType">Dieser Strichcodetyp kann noch nicht angezeigt werden. Er wird möglicherweise in einer späteren Version der Anwendung unterstützt.</string>
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Strichcodetyp nicht gültig</string>
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -162,4 +162,7 @@
     <string name="importStocardMessage">Suchen Sie Ihre Stocard-.zip-Datei zum Importieren, und wählen Sie anschließend die Strichcodetypen manuell aus.
 \nOder Sie erhalten sie, indem Sie eine E-Mail an support@stocardapp.com senden und zuerst um einen Export Ihrer Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
+    <string name="turn_flashlight_off">Taschenlampe ausschalten</string>
+    <string name="turn_flashlight_on">Taschenlampe einschalten</string>
+    <string name="failedGeneratingShareURL">Fehler beim Generieren der Freigabe-URL. Bitte melden Sie diesen Fehler!</string>
 </resources>

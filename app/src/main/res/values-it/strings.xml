@@ -137,7 +137,7 @@
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
     <string name="settings_max_font_size_scale">Dimensione mass. caratteri</string>
-    <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione più recente dell\'applicazione.</string>
+    <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
     <string name="app_resources">Risorse libre di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
     <string name="app_libraries">Librerie libre di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
@@ -162,4 +162,7 @@
     <string name="importStocardMessage">Trova il tuo file .zip Stocard da importare e poi seleziona manualmente i tipi di codici a barre in seguito.
 \nO ottenerlo inviando un messaggio a support@stocardapp.com e chiedendo prima un\'esportazione dei tuoi dati.</string>
     <string name="importStocard">Importa da Stocard</string>
+    <string name="turn_flashlight_off">Spegni la torcia</string>
+    <string name="turn_flashlight_on">Accendi la torcia</string>
+    <string name="failedGeneratingShareURL">Impossibile generare l\'URL di condivisione. Si prega di segnalare questo errore!</string>
 </resources>

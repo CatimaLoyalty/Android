@@ -259,7 +259,6 @@
         android:clipToPadding="false"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="24dp"
         android:weightSum="1.0"
         android:fitsSystemWindows="true">
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -305,6 +304,7 @@
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
             app:contentInsetStart="72.0dip"
-            app:layout_collapseMode="pin" />
+            app:layout_collapseMode="pin"
+            android:paddingTop="6dp" />
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

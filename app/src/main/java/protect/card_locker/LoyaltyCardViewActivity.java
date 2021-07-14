@@ -719,7 +719,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             // Or the barcode will be centered instead of on top of the screen
             // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
-            appBarLayout.setPadding(0, 0, 0, 0);
             collapsingToolbarLayout.setVisibility(View.GONE);
             findViewById(R.id.toolbar_landscape).setVisibility(View.GONE);
 
@@ -768,7 +767,6 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             appBarLayout.setVisibility(View.VISIBLE);
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            appBarLayout.setPadding(0, (int) Math.ceil(metrics.density * 24), 0, 0);
             setupOrientation();
 
             // Show other UI elements

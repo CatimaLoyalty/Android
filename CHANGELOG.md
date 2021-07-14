@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.0 (2021-07-14)
 
 Breaking changes:
 - The backup format changed, see https://github.com/TheLastProject/Catima/wiki/Export-format

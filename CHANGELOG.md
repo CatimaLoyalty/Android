@@ -15,6 +15,7 @@ Changes:
 - Support importing from Stocard (Beta)
 - Fix useless whitespace in notes from Fidme import
 - Support new Voucher Vault export format
+- Fix Floating Action Buttons being behind other UI elements on Android 4
 
 ## v1.14.1 (2021-06-14)
 

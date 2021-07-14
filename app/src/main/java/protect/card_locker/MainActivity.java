@@ -275,14 +275,11 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
-        addButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ScanActivity.class);
-                startActivityForResult(i, Utils.BARCODE_SCAN);
-            }
+        addButton.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), ScanActivity.class);
+            startActivityForResult(i, Utils.BARCODE_SCAN);
         });
+        addButton.bringToFront();
     }
 
     @Override

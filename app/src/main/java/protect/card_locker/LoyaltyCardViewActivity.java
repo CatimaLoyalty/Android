@@ -222,6 +222,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         });
+        editButton.bringToFront();
 
         behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {

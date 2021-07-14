@@ -52,12 +52,8 @@ public class ManageGroupsActivity extends AppCompatActivity
         updateGroupList();
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createGroup();
-            }
-        });
+        addButton.setOnClickListener(v -> createGroup());
+        addButton.bringToFront();
     }
 
     @Override

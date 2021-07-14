@@ -732,6 +732,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(v -> doSave());
+        saveButton.bringToFront();
 
         generateIcon(storeFieldEdit.getText().toString());
     }

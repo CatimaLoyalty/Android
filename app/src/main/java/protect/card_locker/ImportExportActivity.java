@@ -79,7 +79,7 @@ public class ImportExportActivity extends AppCompatActivity
         final Intent intentCreateDocumentAction = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intentCreateDocumentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentCreateDocumentAction.setType("application/zip");
-        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "Catima.zip");
+        intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "catima.zip");
 
         Button exportButton = findViewById(R.id.exportButton);
         exportButton.setOnClickListener(new View.OnClickListener()

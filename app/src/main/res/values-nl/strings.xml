@@ -145,7 +145,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Ik wil kaarten met je delen</string>
     <string name="copy_to_clipboard_multiple_toast">De kaart-id\'s zijn gekopieerd naar het klembord</string>
     <string name="card_ids_copied">De kaart-id‘s zijn gekopieerd</string>
-    <string name="card_selected">"Geselecteerd: "</string>
     <string name="no">Nee</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Je hebt de kaart-id aangepast. Wil je dezelfde waarde toekennen aan de barcode\?</string>

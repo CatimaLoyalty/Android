@@ -147,7 +147,6 @@
     <string name="storeName">Nimi</string>
     <string name="noMatchingGiftCards">Ei hakutuloksia, kokeile toisella hakutermillä.</string>
     <string name="noGiftCards">Lisää ensin kortti napsauttamalla + plus-painiketta, tai mene ⋮ valikkoon tuodaksesi varmuuskopiosta.</string>
-    <string name="card_selected">"Valittu: "</string>
     <string name="action_add">Lisää</string>
     <string name="action_search">Hae</string>
     <string name="takePhoto">Ota valokuva</string>

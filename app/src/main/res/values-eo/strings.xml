@@ -50,7 +50,6 @@
     <string name="edit">Redakti</string>
     <string name="save">Konservi</string>
     <string name="cancel">Nuligi</string>
-    <string name="card_selected">"Elektita: "</string>
     <string name="action_add">Aldoni</string>
     <string name="action_search">Serĉi</string>
 </resources>

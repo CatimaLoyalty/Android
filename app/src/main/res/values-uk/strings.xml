@@ -149,7 +149,6 @@
     <string name="note">Замітка</string>
     <string name="storeName">Ім\'я</string>
     <string name="noMatchingGiftCards">Збігів не знайдено. Спробуйте змінити параметри пошуку.</string>
-    <string name="card_selected">"Обрано: "</string>
     <string name="action_add">Додати</string>
     <string name="action_search">Пошук</string>
 </resources>

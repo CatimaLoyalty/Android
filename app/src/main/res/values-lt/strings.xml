@@ -45,6 +45,5 @@
     <string name="barcodeNoBarcode">Ši kortelė neturi brūkšninio kodo</string>
     <string name="barcodeType">Brūkšninio kodo tipas</string>
     <string name="noMatchingGiftCards">Nieko nerasta. Pabandykite pakeisti paiešką.</string>
-    <string name="card_selected">"Pasirinkta: "</string>
     <string name="action_search">Ieškoti</string>
 </resources>

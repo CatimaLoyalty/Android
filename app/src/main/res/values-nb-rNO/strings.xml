@@ -143,7 +143,6 @@
     <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID-er til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="card_selected">"Valgt: "</string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>

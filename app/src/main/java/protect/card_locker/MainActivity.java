@@ -439,14 +439,9 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(false);
 
-            searchView.setOnCloseListener(new SearchView.OnCloseListener()
-            {
-                @Override
-                public boolean onClose()
-                {
-                    invalidateOptionsMenu();
-                    return false;
-                }
+            searchView.setOnCloseListener(() -> {
+                invalidateOptionsMenu();
+                return false;
             });
 
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
@@ -619,7 +614,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         if (count == 0) {
             mCurrentActionMode.finish();
         } else {
-            mCurrentActionMode.setTitle("Selected: " + count + " Cards");
+            mCurrentActionMode.setTitle(getResources().getQuantityString(R.plurals.selectedCardCount, count, count));
 
             MenuItem editItem = mCurrentActionMode.getMenu().findItem(R.id.action_edit);
             if (count == 1) {

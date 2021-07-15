@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Fix selected count not being translated
+
 ## v2.0 (2021-07-14)
 
 Breaking changes:

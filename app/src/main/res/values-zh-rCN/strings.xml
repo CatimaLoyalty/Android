@@ -141,7 +141,6 @@
     <string name="storeName">名称</string>
     <string name="noMatchingGiftCards">没有找到任何东西。尝试改变你的搜索。</string>
     <string name="noGiftCards">点击 \"+\"加号按钮来添加卡片，或者先从⋮菜单中导入一些。</string>
-    <string name="card_selected">"选中： "</string>
     <string name="action_add">添加</string>
     <string name="action_search">搜索</string>
 </resources>

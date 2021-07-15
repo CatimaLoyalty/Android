@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Добавяне</string>
     <string name="action_search">Търсене</string>
+    <string name="leaveWithoutSaveTitle">Изход</string>
+    <string name="confirm">Потвърждаване</string>
+    <string name="delete">Премахване</string>
+    <string name="edit">Редактиране</string>
+    <string name="save">Запазване</string>
+    <string name="cancel">Отказ</string>
+    <string name="unstar">Премахване от любими</string>
+    <string name="star">Добавяне към любими</string>
+    <string name="noBarcode">Без щрихкод</string>
+    <string name="barcodeNoBarcode">Картата няма щрихкод</string>
+    <string name="barcodeType">Вид на щрихкод</string>
+    <string name="cardId">Идентификатор на карта</string>
+    <string name="note">Бележка</string>
+    <string name="storeName">Наименование</string>
+    <string name="noMatchingGiftCards">Няма резултати. Променете критериите за търсене.</string>
+    <string name="noGiftCards">Докоснете бутона +, за да добавите карта или от меню ⋮ внесете.</string>
+    <string name="all">Всички</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> карта</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> карти</item>
+    </plurals>
 </resources>

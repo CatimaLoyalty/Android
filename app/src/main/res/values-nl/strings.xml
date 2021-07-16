@@ -163,4 +163,8 @@
     <string name="failedGeneratingShareURL">De te delen link kan niet worden gegenereerd. Meld deze bug!</string>
     <string name="turn_flashlight_off">Zaklamp uitzetten</string>
     <string name="turn_flashlight_on">Zaklamp aanzetten</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kaart geselecteerd</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kaarten geselecteerd</item>
+    </plurals>
 </resources>

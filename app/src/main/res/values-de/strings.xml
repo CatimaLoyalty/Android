@@ -118,17 +118,17 @@
 \nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Suchen Sie eine Datei, die wahrscheinlich <i>vouchervault.json</i> heißt, um sie zu importieren.
-\nOder erstellen Sie sie, indem Sie zuerst in Voucher Vault auf Export drücken.</string>
+    <string name="importVoucherVaultMessage">Wählen Sie Ihren <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
+\nOder erstellen Sie ihn, indem Sie zuerst auf Export in Voucher Vault drücken.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
-    <string name="importLoyaltyCardKeychainMessage">Suchen Sie eine Datei, die höchstwahrscheinlich <i>LoyaltyCardKeychain.csv</i> heißt, um sie zu importieren.
-\nOder erstellen Sie sie über das Menü Import/Export in Loyalty Card Keychain, indem Sie zuerst auf Export drücken.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wählen Sie Ihren <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
+\nOder erstellen Sie ihn über das Menü Import/Export in Loyalty Card Keychain, indem Sie dort zuerst auf Export drücken.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Suchen Sie eine Datei, die wahrscheinlich <i>fidme-export-request-xxxxxx.zip</i> heißt, um sie zu importieren, und wählen Sie anschließend die Strichcodetypen manuell aus.
-\nOder erstellen Sie sie aus Ihrem FidMe-Profil, indem Sie Datenschutz wählen und dann zuerst auf Extrahiere meine Daten drücken.</string>
+    <string name="importFidmeMessage">Wählen Sie Ihren <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wählen Sie anschließend die Strichcodetypen manuell aus.
+\nOder erstellen Sie ihn aus Ihrem FidMe-Profil, indem Sie Datenschutz wählen und dann zuerst auf Meine Daten extrahieren drücken.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Suchen Sie eine Datei, die wahrscheinlich <i>Catima.csv</i> heißt, um sie zu importieren.
-\nOder erstellen Sie sie aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
+    <string name="importCatimaMessage">Wählen Sie Ihren <i>catima.zip</i>-Export aus Catima zum Importieren aus.
+\nOder erstellen Sie ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Strichcodewert setzen</string>
     <string name="sameAsCardId">Gleich wie Karten-ID</string>
@@ -157,10 +157,14 @@
     <string name="frontImageDescription">Bild der Kartenvorderseite</string>
     <string name="backImageDescription">Bild der Kartenrückseite</string>
     <string name="passwordRequired">Bitte geben Sie das Passwort ein</string>
-    <string name="importStocardMessage">Suchen Sie Ihre Stocard-.zip-Datei zum Importieren, und wählen Sie anschließend die Strichcodetypen manuell aus.
-\nOder Sie erhalten sie, indem Sie eine E-Mail an support@stocardapp.com senden und zuerst um einen Export Ihrer Daten bitten.</string>
+    <string name="importStocardMessage">Wählen Sie Ihren <i>***-sync.zip</i>-Export aus Stocard zum Importieren aus, und wählen Sie anschließend die Strichcodetypen manuell aus.
+\nOder Sie erhalten ihn, indem Sie eine E-Mail an support@stocardapp.com senden und um einen Export Ihrer Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Taschenlampe ausschalten</string>
     <string name="turn_flashlight_on">Taschenlampe einschalten</string>
     <string name="failedGeneratingShareURL">Fehler beim Generieren der Freigabe-URL. Bitte melden Sie diesen Fehler!</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">Ausgewählt: <xliff:g>%d</xliff:g> Karte</item>
+        <item quantity="other">Ausgewählt: <xliff:g>%d</xliff:g> Karten</item>
+    </plurals>
 </resources>

@@ -3,14 +3,14 @@
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>
-    <string name="importLoyaltyCardKeychainMessage">インポートするには <i>LoyaltyCardKeychain.csv</i> のような名前のファイルを選択してください。
-\nまたは、あらかじめ Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
+    <string name="importLoyaltyCardKeychainMessage">インポートするには Loyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i> ファイルを選択してください。
+\nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychain からインポート</string>
-    <string name="importFidmeMessage">インポートするには <i>fidme-export-request-xxxxxx.zip</i> のような名前のファイルを選択してください。そのあと手動でバーコード形式を選択してください。
-\nまたは 、あらかじめFidMeからファイルを作成してください。</string>
+    <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i> ファイルを選択してください。そのあと手動でバーコード形式を選択してください。
+\nファイルがない場合、FidMeでファイルを作成してください。</string>
     <string name="importFidme">FidMe からインポート</string>
-    <string name="importCatimaMessage">インポートするには <i>Catima.csv</i> のような名前のファイルを選択してください。
-\nまたは、あらかじめ他のCatima アプリからファイルをエクスポートしてください。</string>
+    <string name="importCatimaMessage">インポートするにはCatima でエクスポートした<i>Catima.zip</i> ファイルを選択してください。
+\nファイルがない場合、他のCatima アプリでファイルをエクスポートしてください。</string>
     <string name="importCatima">Catima からインポート</string>
     <string name="accept">承認</string>
     <string name="privacy_policy_popup_text">プライバシーポリシーの案内:
@@ -72,7 +72,7 @@
     <string name="copy_to_clipboard_toast">カード番号をクリップボードにコピーしました</string>
     <string name="enterBarcodeInstructions">カード番号を入力し、バーコード形式を選択してください。</string>
     <string name="selectBarcodeTitle">バーコード選択</string>
-    <string name="app_libraries">Third-party libre libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
@@ -80,7 +80,7 @@
     <string name="app_copyright_old">Based on Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer.</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_resources">Third-party libre resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">Catimaについて</string>
     <string name="importOptionApplicationButton">外部のアプリを使う</string>
     <string name="importOptionApplicationExplanation">任意のアプリやお気に入りのファイルマネージャーからファイルを開く。</string>
@@ -97,8 +97,8 @@
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カードの表記と同一</string>
     <string name="barcodeId">バーコード番号</string>
-    <string name="importVoucherVaultMessage">インポートするには <i>vouchervault.json</i> のような名前のファイルを選択してください。
-\nまたは、あらかじめVoucher Vault でファイルを作成してください。</string>
+    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i> ファイルを選択してください。
+\nファイルがない場合、Voucher Vault でファイルをエクスポートしてください。</string>
     <string name="importVoucherVault">Voucher Vault からインポート</string>
     <string name="importFailed">カードをインポートできません</string>
     <string name="importFailedTitle">インポート失敗</string>
@@ -144,4 +144,26 @@
     <string name="intent_import_card_from_url_share_multiple_text">あなたとカードを共有したいです</string>
     <string name="copy_to_clipboard_multiple_toast">カード番号をクリップボードにコピーしました</string>
     <string name="card_ids_copied">コピーしたカード</string>
+    <string name="turn_flashlight_off">ライトをオフにする</string>
+    <string name="turn_flashlight_on">ライトをオンにする</string>
+    <string name="failedGeneratingShareURL">共有URLの生成に失敗しました。バグを報告してください。</string>
+    <string name="passwordRequired">パスワードを入力してください</string>
+    <string name="no">いいえ</string>
+    <string name="yes">はい</string>
+    <string name="updateBarcodeQuestionText">カード番号を変更しました。バーコード番号も同じ値に変更しますか？</string>
+    <string name="updateBarcodeQuestionTitle">バーコードの番号を変更しますか？</string>
+    <string name="takePhoto">写真を撮影する</string>
+    <string name="chooseImageFromGallery">ギャラリーから画像を選択</string>
+    <string name="removeImage">画像を削除</string>
+    <string name="setBackImage">裏面の画像を設定</string>
+    <string name="setFrontImage">表面の画像を設定</string>
+    <string name="photos">フォト</string>
+    <string name="backImageDescription">裏面</string>
+    <string name="frontImageDescription">表面</string>
+    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i> ファイルを選択し、手動でバーコード形式を選択してください。
+\nファイルがない場合、 e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
+    <string name="importStocard">Stocard からインポート</string>
+    <plurals name="selectedCardCount">
+        <item quantity="other">選択済み: <xliff:g>%d</xliff:g> 枚</item>
+    </plurals>
 </resources>

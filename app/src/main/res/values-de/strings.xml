@@ -149,7 +149,6 @@
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Sie haben die Karten-ID geändert. Möchten Sie auch den Strichcode aktualisieren, um denselben Wert zu verwenden\?</string>
     <string name="updateBarcodeQuestionTitle">Strichcodewert aktualisieren\?</string>
-    <string name="chooseImageFromGallery">Bild aus der Galerie auswählen</string>
     <string name="takePhoto">Foto aufnehmen</string>
     <string name="removeImage">Bild entfernen</string>
     <string name="setBackImage">Rückseitenbild einstellen</string>

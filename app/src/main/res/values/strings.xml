@@ -190,7 +190,6 @@
     <string name="setFrontImage">Set front image</string>
     <string name="setBackImage">Set back image</string>
     <string name="removeImage">Remove image</string>
-    <string name="chooseImageFromGallery">Choose image from gallery</string>
     <string name="takePhoto">Take a photo</string>
     <string name="updateBarcodeQuestionTitle">Update barcode value?</string>
     <string name="updateBarcodeQuestionText">You changed the card ID. Do you want to also update the barcode to use the same value?</string>

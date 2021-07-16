@@ -916,7 +916,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 return null;
             });
 
-            cardOptions.put(getString(R.string.chooseImageFromGallery), () -> {
+            cardOptions.put(getString(R.string.addFromImage), () -> {
                 Intent i = new Intent(Intent.ACTION_PICK);
                 i.setType("image/*");
                 startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);

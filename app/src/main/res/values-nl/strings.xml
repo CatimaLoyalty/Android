@@ -150,7 +150,6 @@
     <string name="updateBarcodeQuestionText">Je hebt de kaart-id aangepast. Wil je dezelfde waarde toekennen aan de barcode\?</string>
     <string name="updateBarcodeQuestionTitle">Barcodewaarde bijwerken\?</string>
     <string name="takePhoto">Foto maken</string>
-    <string name="chooseImageFromGallery">Kiezen uit galerij</string>
     <string name="removeImage">Afbeelding verwijderen</string>
     <string name="setFrontImage">Voorzijde kiezen</string>
     <string name="setBackImage">Achterzijde kiezen</string>

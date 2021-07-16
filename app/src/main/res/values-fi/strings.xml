@@ -150,7 +150,6 @@
     <string name="action_add">Lisää</string>
     <string name="action_search">Hae</string>
     <string name="takePhoto">Ota valokuva</string>
-    <string name="chooseImageFromGallery">Valitse kuva galleriasta</string>
     <string name="removeImage">Poista kuva</string>
     <string name="setBackImage">Aseta takakuva</string>
     <string name="setFrontImage">Aseta etukuva</string>

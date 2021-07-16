@@ -31,7 +31,6 @@
     <string name="barcodeImageDescription">Изображение на щрихкода на картата</string>
     <string name="no">Не</string>
     <string name="yes">Да</string>
-    <string name="chooseImageFromGallery">Избор от галерията</string>
     <string name="setBackImage">Снимка на задната страна</string>
     <string name="setFrontImage">Снимка на предната страна</string>
     <string name="photos">Снимки</string>

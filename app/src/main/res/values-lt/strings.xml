@@ -68,7 +68,6 @@
     <string name="updateBarcodeQuestionText">Pakeitėte kortelės ID. Ar norite atnaujinti ir brūkšninį kodą, kad būtų naudojama ta pati reikšmė\?</string>
     <string name="updateBarcodeQuestionTitle">Atnaujinti brūkšninio kodo reikšmę\?</string>
     <string name="takePhoto">Nufotografuoti</string>
-    <string name="chooseImageFromGallery">Pasirinkite vaizdą iš galerijos</string>
     <string name="removeImage">Pašalinti vaizdą</string>
     <string name="setBackImage">Nustatyti galinį vaizdą</string>
     <string name="setFrontImage">Nustatyti priekinį vaizdą</string>

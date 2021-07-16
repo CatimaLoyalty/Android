@@ -153,7 +153,6 @@
     <string name="updateBarcodeQuestionText">カード番号を変更しました。バーコード番号も同じ値に変更しますか？</string>
     <string name="updateBarcodeQuestionTitle">バーコードの番号を変更しますか？</string>
     <string name="takePhoto">写真を撮影する</string>
-    <string name="chooseImageFromGallery">ギャラリーから画像を選択</string>
     <string name="removeImage">画像を削除</string>
     <string name="setBackImage">裏面の画像を設定</string>
     <string name="setFrontImage">表面の画像を設定</string>

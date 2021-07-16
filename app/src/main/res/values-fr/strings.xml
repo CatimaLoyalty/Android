@@ -163,4 +163,8 @@
     <string name="turn_flashlight_off">Éteindre la lampe de poche</string>
     <string name="turn_flashlight_on">Allumer la lampe de poche</string>
     <string name="failedGeneratingShareURL">Échec de la génération de l’URL de partage. Veuillez signaler ce problème !</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">Sélectionnée : <xliff:g>%d</xliff:g> carte</item>
+        <item quantity="other">Sélectionnées : <xliff:g>%d</xliff:g> cartes</item>
+    </plurals>
 </resources>

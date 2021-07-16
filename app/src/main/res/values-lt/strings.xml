@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridėti</string>
     <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + plius arba pirmiausia importuokite kortelę iš ⋮ meniu.</string>
     <string name="storeName">Pavadinimas</string>
@@ -17,21 +17,21 @@
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
-    <string name="barcodeImageDescription">Kortelės brūkšninio kodo paveikslėlis</string>
-    <string name="noStoreError">Parduotuvė neįvesta</string>
+    <string name="barcodeImageDescription">Kortelės brūkšninio kodo vaizdas</string>
+    <string name="noStoreError">Neįvestas pavadinimas</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importFailed">Nepavyko importuoti</string>
-    <string name="exportFailed">Nepavyko eksportuoti</string>
+    <string name="importFailed">Nepavyko importuoti kortelių</string>
+    <string name="exportFailed">Nepavyko eksportuoti kortelių</string>
     <string name="importing">Importuoja…</string>
     <string name="exporting">Eksportuoja…</string>
-    <string name="noExternalStoragePermissionError">Negalima importuoti/eksportuoti kortelių be išorinės atminties leidimo</string>
+    <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>
     <string name="about">Apie</string>
-    <string name="app_license">Licenzijuota pagal GPLv3.</string>
+    <string name="app_license">Copylefted libre programinė įranga, licencijuota GPLv3+.</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revizijos informacija: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revizijos info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
     <string name="card_ids_copied">Nukopijuotos kortelės ID</string>
@@ -46,4 +46,128 @@
     <string name="barcodeType">Brūkšninio kodo tipas</string>
     <string name="noMatchingGiftCards">Nieko nerasta. Pabandykite pakeisti paiešką.</string>
     <string name="action_search">Ieškoti</string>
+    <string name="cardShortcut">Kortelės sparčioji nuoroda</string>
+    <string name="importVoucherVaultMessage">Pasirinkite savo <i>vouchervault.json</i> eksportą iš Voucher Vault, kurį norite importuoti.
+\nArba sukurkite jį pirmiausia paspausdami Eksportuoti Voucher Vault.</string>
+    <string name="importVoucherVault">Importuoti iš Voucher Vault</string>
+    <string name="importLoyaltyCardKeychainMessage">Pasirinkite savo <i> LoyaltyCardKeychain.csv</i> eksportą iš Loyalty Card Keychain, kurį norite importuoti.
+\nArba sukurkite jį iš Loyalty Card Keychain meniu Importas/Eksportas, pirmiausia paspausdami Eksportuoti.</string>
+    <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="parsingBalanceFailed">Panašu, kad <xliff:g> %s </xliff:g> reikšmė nėra tinkama.</string>
+    <string name="moveBarcodeToCenterOfScreen">Centruoti brūkšninį kodą ekrane</string>
+    <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
+    <string name="settings_display_barcode_max_brightness">Šviesinti brūkšninio kodo rodinį</string>
+    <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
+    <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
+    <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
+    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL. Praneškite apie šią klaidą!</string>
+    <string name="passwordRequired">Įveskite slaptažodį</string>
+    <string name="no">Ne</string>
+    <string name="yes">Taip</string>
+    <string name="updateBarcodeQuestionText">Pakeitėte kortelės ID. Ar norite atnaujinti ir brūkšninį kodą, kad būtų naudojama ta pati reikšmė\?</string>
+    <string name="updateBarcodeQuestionTitle">Atnaujinti brūkšninio kodo reikšmę\?</string>
+    <string name="takePhoto">Nufotografuoti</string>
+    <string name="chooseImageFromGallery">Pasirinkite vaizdą iš galerijos</string>
+    <string name="removeImage">Pašalinti vaizdą</string>
+    <string name="setBackImage">Nustatyti galinį vaizdą</string>
+    <string name="setFrontImage">Nustatyti priekinį vaizdą</string>
+    <string name="photos">Nuotraukos</string>
+    <string name="backImageDescription">Kortelės galinis vaizdas</string>
+    <string name="frontImageDescription">Kortelės priekinis vaizdas</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Noriu su jumis pasidalyti keliomis kortelėmis</string>
+    <string name="copy_to_clipboard_multiple_toast">Kortelės ID nukopijuotas į iškarpinę</string>
+    <string name="wrongValueForBarcodeType">Vertė netinkama pasirinktam brūkšninio kodo tipui</string>
+    <string name="unsupportedBarcodeType">Šio brūkšninio kodo tipo dar negalima rodyti. Galbūt jis bus palaikomas vėlesnėje programėlės versijoje.</string>
+    <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
+    <string name="sameAsCardId">Tokia pat kaip kortelės ID</string>
+    <string name="barcodeId">Brūkšninio kodo reikšmė</string>
+    <string name="importStocardMessage">Pasirinkite <i>***-sync.zip</i> eksportą iš Stocard, kad galėtumėte importuoti, o vėliau brūkšninių kodų tipus pasirinkite rankiniu būdu.
+\nArba gaukite susisiekę el. paštu support@stocardapp.com, prašydami eksportuoti jūsų duomenis.</string>
+    <string name="importStocard">Importuoti iš Stocard</string>
+    <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
+\nArba sukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
+    <string name="importFidme">Importuoti iš FidMe</string>
+    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportą iš Catima.
+\nArba sukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia paspausdami Eksportuoti ten.</string>
+    <string name="importCatima">Importuoti iš Catima</string>
+    <string name="accept">Priimti</string>
+    <string name="privacy_policy_popup_text">Privatumo politikos pranešimas (kurio reikalaujama kai kuriose programėlių parduotuvėse):
+\n
+\nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra libre programinė įranga.</string>
+    <string name="privacy_policy">Privatumo politika</string>
+    <string name="chooseImportType">Importuoti duomenis iš\?</string>
+    <string name="points">Taškai</string>
+    <string name="currency">Valiuta</string>
+    <string name="balance">Balansas</string>
+    <string name="errorReadingImage">Nepavyko nuskaityti paveikslėlio</string>
+    <string name="noBarcodeFound">Nerastas joks brūkšninis kodas</string>
+    <string name="chooseExpiryDate">Pasirinkite galiojimo datą</string>
+    <string name="never">Niekada</string>
+    <string name="expiryDate">Galiojimo data</string>
+    <string name="editBarcode">Redaguoti brūkšninį kodą</string>
+    <string name="barcode">Brūkšninis kodas</string>
+    <string name="card">Kortelė</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> taškai</string>
+    <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>
+    <string name="groupsList">Grupės: <xliff:g> %s </xliff:g></string>
+    <string name="addFromImage">Pasirinkti vaizdą iš galerijos</string>
+    <string name="addManually">Rankiniu būdu įvesti kortelės ID</string>
+    <string name="leaveWithoutSaveConfirmation">Išeiti neišsaugojus\?</string>
+    <string name="leaveWithoutSaveTitle">Išeiti</string>
+    <string name="moveDown">Judėti žemyn</string>
+    <string name="moveUp">Judėti aukštyn</string>
+    <string name="failedOpeningFileManager">Pirmiausia įdiekite failų tvarkyklę.</string>
+    <string name="deleteConfirmationGroup">Ištrinti grupę\?</string>
+    <string name="all">Visos</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kortelę</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> kortelės</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kortelių</item>
+    </plurals>
+    <string name="noGroups">Spustelėkite + pliuso mygtuką, kad pirmiausia pridėtumėte grupes kategorizavimui.</string>
+    <string name="groups">Grupės</string>
+    <string name="enter_group_name">Įvesti grupės pavadinimą</string>
+    <string name="exportSuccessful">Kortelės duomenys eksportuoti</string>
+    <string name="importSuccessful">Kortelės duomenys importuoti</string>
+    <string name="intent_import_card_from_url_share_text">Noriu pasidalyti su jumis kortele</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Neleisti užrakinti ekrano</string>
+    <string name="settings_keep_screen_on">Laikyti ekraną įjungtą</string>
+    <string name="settings_lock_barcode_orientation">Užrakinti brūkšninio kodo orientaciją</string>
+    <string name="settings_max_font_size_scale">Didžiausias šrifto dydis</string>
+    <string name="settings_dark_theme">Tamsi</string>
+    <string name="settings_light_theme">Šviesi</string>
+    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_category_title_ui">Vartotojo sąsaja</string>
+    <string name="settings">Nustatymai</string>
+    <string name="starImage">Mėgstamiausia žvaigždė</string>
+    <string name="thumbnailDescription">Kortelės miniatiūra</string>
+    <string name="enterBarcodeInstructions">Įveskite kortelės ID ir toliau pasirinkite jos brūkšninio kodo tipą arba \"Ši kortelė neturi brūkšninio kodo\".</string>
+    <string name="app_resources">Libre trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Libre trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_old">Paremta Loyalty Card Keychain
+\nautorinės teisės © 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="importOptionApplicationButton">Naudoti kitą programą</string>
+    <string name="importOptionApplicationExplanation">Norėdami atidaryti failą, naudokite bet kurią programą arba mėgstamą failų tvarkyklę.</string>
+    <string name="importOptionApplicationTitle">Naudoti kitą programą</string>
+    <string name="importOptionFilesystemButton">Iš failų sistemos</string>
+    <string name="importOptionFilesystemExplanation">Pasirinkite konkretų failą iš failų sistemos.</string>
+    <string name="importOptionFilesystemTitle">Importuoti iš failų sistemos</string>
+    <string name="exportOptionExplanation">Duomenys bus įrašyti į jūsų pasirinktą vietą.</string>
+    <string name="exportFailedTitle">Eksportuoti nepavyko</string>
+    <string name="exportSuccessfulTitle">Eksportuota</string>
+    <string name="importFailedTitle">Importuoti nepavyko</string>
+    <string name="importSuccessfulTitle">Importuota</string>
+    <string name="importExportHelp">Atsarginių kopijų darymas leidžia perkelti korteles į kitą įrenginį.</string>
+    <string name="noCardExistsError">Nepavyko rasti kortelės</string>
+    <string name="share">Dalintis</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">Pasirinkta: <xliff:g>%d</xliff:g> kortelė</item>
+        <item quantity="few">Pasirinktos: <xliff:g>%d</xliff:g> kortelės</item>
+        <item quantity="other">Pasirinkta: <xliff:g>%d</xliff:g> kortelių</item>
+    </plurals>
 </resources>

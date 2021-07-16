@@ -13,5 +13,4 @@
 - 自由ソフトウェアコミュニティによって全ての人のために作られています。
 - 20以上の言語に対応
 - 有志の貢献によって支えられている無料のアプリ
-
-Not only Free Software / Open Source. <i>Copylefted</i> libre software (GPLv3+) card management.
+- Not only Free Software / Open Source. <i>Copylefted</i> libre software (GPLv3+) card management.

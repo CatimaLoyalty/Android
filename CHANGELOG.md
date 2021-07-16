@@ -4,7 +4,7 @@
 
 Changes:
 
-- Fix selected count not being translated
+- Several minor translation and UI fixes
 
 ## v2.0 (2021-07-14)
 

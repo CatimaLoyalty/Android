@@ -100,7 +100,7 @@
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importer les données depuis \?</string>
-    <string name="parsingBalanceFailed">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; ne semble pas être un solde valide.</string>
+    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
     <string name="currency">Monnaie</string>
     <string name="balance">Solde</string>
@@ -112,10 +112,10 @@
     <string name="editBarcode">Modifier le code-barres</string>
     <string name="barcode">Code-barres</string>
     <string name="card">Carte</string>
-    <string name="balancePoints">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt; points</string>
-    <string name="balanceSentence">Solde : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentenceExpired">Expiré : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
-    <string name="expiryStateSentence">Expire : &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;%s&lt;/xliff:g&gt;</string>
+    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> points</string>
+    <string name="balanceSentence">Solde : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Expiré : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="expiryStateSentence">Expire : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
     <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer.

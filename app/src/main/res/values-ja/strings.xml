@@ -3,15 +3,15 @@
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>
-    <string name="importLoyaltyCardKeychainMessage">インポートするには Loyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i> ファイルを選択してください。
+    <string name="importLoyaltyCardKeychainMessage">インポートするにはLoyalty Card Keychainでエクスポートした <i>LoyaltyCardKeychain.csv</i>ファイルを選択してください。
 \nファイルがない場合、 Loyalty Card Keychainアプリからファイルをエクスポートしてください。</string>
-    <string name="importLoyaltyCardKeychain">Loyalty Card Keychain からインポート</string>
-    <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i> ファイルを選択してください。そのあと手動でバーコード形式を選択してください。
+    <string name="importLoyaltyCardKeychain">Loyalty Card Keychainからインポート</string>
+    <string name="importFidmeMessage">インポートするにはFindMeでエクスポートした <i>fidme-export-request-xxxxxx.zip</i>ファイルを選択してください。そのあと手動でバーコード形式を選択してください。
 \nファイルがない場合、FidMeでファイルを作成してください。</string>
-    <string name="importFidme">FidMe からインポート</string>
-    <string name="importCatimaMessage">インポートするにはCatima でエクスポートした<i>Catima.zip</i> ファイルを選択してください。
-\nファイルがない場合、他のCatima アプリでファイルをエクスポートしてください。</string>
-    <string name="importCatima">Catima からインポート</string>
+    <string name="importFidme">FidMeからインポート</string>
+    <string name="importCatimaMessage">インポートするにはCatimaでエクスポートした<i>Catima.zip</i>ファイルを選択してください。
+\nファイルがない場合、他のCatimaアプリでファイルをエクスポートしてください。</string>
+    <string name="importCatima">Catimaからインポート</string>
     <string name="accept">承認</string>
     <string name="privacy_policy_popup_text">プライバシーポリシーの案内:
 \n
@@ -35,7 +35,7 @@
     <string name="card">カード</string>
     <string name="balancePoints"><xliff:g>%s</xliff:g> ポイント</string>
     <string name="balanceSentence">残高: <xliff:g>%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">期限: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">期限切れ: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">期限: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">グループ: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">ギャラリーから画像を選択</string>
@@ -55,7 +55,7 @@
     <string name="enter_group_name">グループ名を入力</string>
     <string name="exportSuccessful">カードのデータがエクスポートされました</string>
     <string name="importSuccessful">カードのデータがインポートされました</string>
-    <string name="intent_import_card_from_url_share_text">あなたとカードを共有したいです</string>
+    <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
     <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中は画面をロックしない</string>
     <string name="settings_keep_screen_on">バーコード表示中は画面を消灯しない</string>
     <string name="settings_lock_barcode_orientation">バーコード表示画面を自動回転しない</string>
@@ -65,7 +65,7 @@
     <string name="settings_light_theme">ライト</string>
     <string name="settings_system_theme">システムに従う</string>
     <string name="settings_theme">テーマ</string>
-    <string name="settings_category_title_ui">ユーザーインターフェイス</string>
+    <string name="settings_category_title_ui">外観</string>
     <string name="settings">設定</string>
     <string name="starImage">お気に入りのスター</string>
     <string name="thumbnailDescription">カードのサムネイル</string>
@@ -93,17 +93,17 @@
     <string name="exporting">エクスポート中…</string>
     <string name="importing">インポート中…</string>
     <string name="exportFailed">カードをエクスポートできませんでした</string>
-    <string name="exportFailedTitle">エクスポート失敗</string>
+    <string name="exportFailedTitle">エクスポートに失敗しました</string>
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カードの表記と同一</string>
     <string name="barcodeId">バーコード番号</string>
-    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i> ファイルを選択してください。
-\nファイルがない場合、Voucher Vault でファイルをエクスポートしてください。</string>
-    <string name="importVoucherVault">Voucher Vault からインポート</string>
+    <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。
+\nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
+    <string name="importVoucherVault">Voucher Vaultからインポート</string>
     <string name="importFailed">カードをインポートできません</string>
-    <string name="importFailedTitle">インポート失敗</string>
+    <string name="importFailedTitle">インポートに失敗しました</string>
     <string name="importSuccessfulTitle">インポートしました</string>
-    <string name="importExportHelp">カードをバックアップすると、カードを他のデバイスに移すことができます。</string>
+    <string name="importExportHelp">カードをバックアップすると、他のデバイスにカードを移すことができます。</string>
     <string name="exportName">エクスポート</string>
     <string name="importExport">インポート/エクスポート</string>
     <string name="failedParsingImportUriError">インポートURIを解析できません</string>
@@ -118,10 +118,10 @@
     <string name="editCardTitle">カードの編集</string>
     <string name="sendLabel">送信先を選択…</string>
     <string name="share">共有</string>
-    <string name="copy_to_clipboard">カード番号をクリップボードにコピー</string>
-    <string name="ok">はい</string>
-    <string name="deleteConfirmation">選択したカードを削除しますか？</string>
-    <string name="deleteTitle">カードを削除</string>
+    <string name="copy_to_clipboard">カード番号をクリップボードにコピーする</string>
+    <string name="ok">確定</string>
+    <string name="deleteConfirmation">このカードを削除しますか？</string>
+    <string name="deleteTitle">カードの削除</string>
     <string name="unlockScreen">自動回転を無効にしない</string>
     <string name="lockScreen">自動回転を無効にする</string>
     <string name="confirm">確認</string>
@@ -133,7 +133,7 @@
     <string name="star">お気に入りに追加</string>
     <string name="noBarcode">バーコードなし</string>
     <string name="barcodeNoBarcode">バーコード指定なし</string>
-    <string name="barcodeType">形式</string>
+    <string name="barcodeType">バーコード形式</string>
     <string name="cardId">カード番号</string>
     <string name="note">メモ</string>
     <string name="storeName">名前</string>
@@ -141,7 +141,7 @@
     <string name="noGiftCards">まず初めに+ボタンを押してカードを追加するか、メニューから以前のカードをインポートしてください。</string>
     <string name="action_add">追加</string>
     <string name="action_search">検索</string>
-    <string name="intent_import_card_from_url_share_multiple_text">あなたとカードを共有したいです</string>
+    <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
     <string name="copy_to_clipboard_multiple_toast">カード番号をクリップボードにコピーしました</string>
     <string name="card_ids_copied">コピーしたカード</string>
     <string name="turn_flashlight_off">ライトをオフにする</string>
@@ -159,9 +159,9 @@
     <string name="photos">フォト</string>
     <string name="backImageDescription">裏面</string>
     <string name="frontImageDescription">表面</string>
-    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i> ファイルを選択し、手動でバーコード形式を選択してください。
-\nファイルがない場合、 e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
-    <string name="importStocard">Stocard からインポート</string>
+    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択し、手動でバーコード形式を選択してください。
+\nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
+    <string name="importStocard">Stocardからインポート</string>
     <plurals name="selectedCardCount">
         <item quantity="other">選択済み: <xliff:g>%d</xliff:g> 枚</item>
     </plurals>

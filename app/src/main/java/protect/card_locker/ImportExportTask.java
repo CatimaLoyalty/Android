@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
@@ -76,7 +77,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
 
         try
         {
-            OutputStreamWriter writer = new OutputStreamWriter(stream, Charset.forName("UTF-8"));
+            OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
             result = MultiFormatExporter.exportData(context, db, stream, format);
             writer.close();
         }

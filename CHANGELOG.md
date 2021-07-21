@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## v2.0.1 (2021-07-21)
 
 Changes:
 
 - Several minor translation and UI fixes
+- Fix crash in import/sharing loyalty card on Android 6
 
 ## v2.0 (2021-07-14)
 

@@ -83,7 +83,7 @@ public class ImportURIHelper {
             if (fragment != null) {
                 for (String fragmentPart : fragment.split("&")) {
                     String[] fragmentData = fragmentPart.split("=", 2);
-                    kv.put(fragmentData[0], URLDecoder.decode(fragmentData[1], StandardCharsets.UTF_8.toString()));
+                    kv.put(fragmentData[0], URLDecoder.decode(fragmentData[1], StandardCharsets.UTF_8.name()));
                 }
             }
 
@@ -134,7 +134,7 @@ public class ImportURIHelper {
         }
 
         // Double-encode the value to make sure it can't accidentally contain symbols that'll break the parser
-        fragment.append(key).append("=").append(URLEncoder.encode(value, StandardCharsets.UTF_8.toString()));
+        fragment.append(key).append("=").append(URLEncoder.encode(value, StandardCharsets.UTF_8.name()));
 
         return fragment;
     }

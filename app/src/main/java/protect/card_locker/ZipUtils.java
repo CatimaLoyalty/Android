@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class ZipUtils {
     static public String read(ZipInputStream zipInputStream) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
-        Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, Charset.forName(StandardCharsets.UTF_8.name())));
+        Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, StandardCharsets.UTF_8));
         int c;
         while ((c = reader.read()) != -1) {
             stringBuilder.append((char) c);

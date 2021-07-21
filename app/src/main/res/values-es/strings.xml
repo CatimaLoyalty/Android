@@ -28,7 +28,7 @@
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>
     <string name="importExport">Importar/exportar</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">La copia de respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
+    <string name="importExportHelp">El respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falló la importación</string>
     <string name="importFailed">No se han podido importar tarjetas</string>
@@ -48,18 +48,18 @@
     <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+.</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
-    <string name="settings">Configuración</string>
+    <string name="settings">Ajustes</string>
     <string name="settings_category_title_ui">Interfaz de usuario</string>
     <string name="settings_display_barcode_max_brightness">Iluminar vista del código de barras</string>
     <string name="exportSuccessful">Datos de las tarjetas exportados</string>
     <string name="importSuccessful">Datos de las tarjetas importados</string>
-    <string name="intent_import_card_from_url_share_text">Quiero compartirle una tarjeta</string>
-    <string name="settings_lock_barcode_orientation">Bloquear orientación del código de barras</string>
+    <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
+    <string name="settings_lock_barcode_orientation">Bloquear giro en el código de barras</string>
     <string name="settings_dark_theme">Oscuro</string>
     <string name="settings_light_theme">Claro</string>
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_theme">Tema</string>
-    <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione la imagen que represente el código de barras que se utilizará, o bien, elija «Esta tarjeta no tiene código de barras» para no utilizar ninguno.</string>
+    <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione el código de barras que se utilizará, o de lo contrario, elija «Esta tarjeta no tiene código de barras».</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain
 \nderechos de autor © 2016-2020 de Branden Archer.</string>
     <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija.</string>
@@ -73,7 +73,7 @@
     <string name="noGroups">Primero pulse en el botón «+» para añadir grupos de categorización.</string>
     <string name="starImage">Favorito</string>
     <string name="thumbnailDescription">Miniatura de la tarjeta</string>
-    <string name="copy_to_clipboard_toast">Se copió el identificador de tarjeta en el portapapeles</string>
+    <string name="copy_to_clipboard_toast">Se copió la id. de tarjeta en el portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
@@ -94,8 +94,8 @@
         <item quantity="other"><xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
     <string name="points">Puntos</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrar el código de barras en la pantalla</string>
-    <string name="moveBarcodeToTopOfScreen">Mover el código de barras a la zona superior de la pantalla</string>
+    <string name="moveBarcodeToCenterOfScreen">Centre el código de barras en la pantalla</string>
+    <string name="moveBarcodeToTopOfScreen">Mueva el código de barras a la zona superior de la pantalla</string>
     <string name="chooseExpiryDate">Elegir fecha de caducidad</string>
     <string name="never">Nunca</string>
     <string name="expiryDate">Fecha de caducidad</string>
@@ -108,4 +108,63 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os.</string>
     <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="settings_max_font_size_scale">Tam. de fuente máximo</string>
+    <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
+\nO créalo primero desde el menú Importar/Exportar de otra app de Catima al presionar Exportar desde allí.</string>
+    <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado desde FidMe para importar, y luego escoja los tipos de códigos de barras manualmente.
+\nO créalo primero desde tu perfil de FidMe eligiendo Protección de datos y pulsa Extraer mis datos.</string>
+    <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
+\nO créalo primero desde el menú Importar/Exportar en Loyalty Card Keychain pulsando Exportar desde allí.</string>
+    <string name="importStocardMessage">Seleccione su <i>*-sync.zip</i> exportado de Stocard para importarla, y selecciona los tipos de códigos de barras manualmente después.
+\nO consígalo enviando un correo electrónico a support@stocardapp.com solicitando una exportación de sus datos.</string>
+    <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
+\nO créalo pulsando primero Exportar en Voucher Vault.</string>
+    <string name="failedGeneratingShareURL">Error al generar la URL compartida. Por favor, ¡reporte este error!</string>
+    <string name="passwordRequired">Por favor, introduzca la contraseña</string>
+    <string name="updateBarcodeQuestionText">Ha cambiado la Id. de la tarjeta. ¿Desea actualizar también el código de barras para usar el mismo valor\?</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Quiero compartirte algunas tarjetas</string>
+    <string name="setBackImage">Establecer imagen anversa</string>
+    <string name="card_ids_copied">Id. de tarjetas copiadas</string>
+    <string name="turn_flashlight_off">Apagar linterna</string>
+    <string name="turn_flashlight_on">Encender linterna</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="updateBarcodeQuestionTitle">¿Actualizar valor de código de barras\?</string>
+    <string name="takePhoto">Tomar una foto</string>
+    <string name="removeImage">Quitar imagen</string>
+    <string name="setFrontImage">Establecer imagen frontal</string>
+    <string name="photos">Fotos</string>
+    <string name="backImageDescription">Imagen del reverso de la tarjeta</string>
+    <string name="frontImageDescription">Imagen frontal de la tarjeta</string>
+    <string name="copy_to_clipboard_multiple_toast">ID de tarjetas copiadas al portapapeles</string>
+    <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
+    <string name="unsupportedBarcodeType">Este tipo de código de barras todavía no se puede visualizar. Es posible que se admita en una futura versión de la aplicación.</string>
+    <string name="setBarcodeId">Establecer valor de código de barra</string>
+    <string name="sameAsCardId">Igual que la ID de tarjeta</string>
+    <string name="barcodeId">Valor de código de barra</string>
+    <string name="importVoucherVault">Importar desde Voucher Vault</string>
+    <string name="importStocard">Importar desde Stocard</string>
+    <string name="importLoyaltyCardKeychain">Importar desde Loyalty Card Keychain</string>
+    <string name="importFidme">Importar desde FidMe</string>
+    <string name="importCatima">Importar desde Catima</string>
+    <string name="accept">Aceptar</string>
+    <string name="privacy_policy_popup_text">Aviso de política de privacidad (requerido por algunas tiendas de apps):
+\n
+\nNINGÚN DATO SE RECOPILA, cualquiera puede confirmar ya que nuestra aplicación es software libre.</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="chooseImportType">¿De dónde importar datos\?</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> no tendría un saldo válido.</string>
+    <string name="currency">Moneda</string>
+    <string name="balance">Saldo</string>
+    <string name="errorReadingImage">No se pudo leer la imagen</string>
+    <string name="noBarcodeFound">No se encontró código de barras</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="addFromImage">Selecciona imagen desde galería</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Evitar bloqueo de pantalla</string>
+    <string name="settings_keep_screen_on">Mantener pantalla encendida</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">Seleccionadas: <xliff:g>%d</xliff:g> tarjeta</item>
+        <item quantity="other">Seleccionadas: <xliff:g>%d</xliff:g> tarjetas</item>
+    </plurals>
 </resources>

@@ -737,7 +737,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         generateIcon(storeFieldEdit.getText().toString());
     }
 
-    private void setCardImage(ImageView imageView, Bitmap bitmap) {
+    protected static void setCardImage(ImageView imageView, Bitmap bitmap) {
         imageView.setTag(bitmap);
 
         if (bitmap != null) {

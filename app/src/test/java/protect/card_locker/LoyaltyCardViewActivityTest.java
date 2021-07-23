@@ -9,7 +9,10 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -298,7 +301,11 @@ public class LoyaltyCardViewActivityTest
             assertEquals(contents, textView.getEditText().getText().toString());
         } else if (fieldType == FieldTypeView.ImageView) {
             ImageView imageView = (ImageView) view;
-            // TODO: implement
+            Bitmap image = null;
+            if (imageView.getTag() != null) {
+                image = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+            }
+            assertEquals(contents, image);
         } else {
             throw new UnsupportedOperationException();
         }
@@ -308,7 +315,8 @@ public class LoyaltyCardViewActivityTest
                                 final String store, final String note, final String expiryString,
                                 final String balanceString, final String balanceTypeString,
                                 final String cardId, final String barcodeId,
-                                final String barcodeType)
+                                final String barcodeType, final Bitmap frontImage,
+                                final Bitmap backImage)
     {
         if(mode == ViewMode.VIEW_CARD)
         {
@@ -326,9 +334,83 @@ public class LoyaltyCardViewActivityTest
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId, FieldTypeView.TextView);
             checkFieldProperties(activity, R.id.barcodeIdField, View.VISIBLE, barcodeId, FieldTypeView.TextView);
             checkFieldProperties(activity, R.id.barcodeTypeField, View.VISIBLE, barcodeType, FieldTypeView.TextView);
-            checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null, FieldTypeView.ImageView);
-            checkFieldProperties(activity, R.id.frontImage, View.VISIBLE, null, FieldTypeView.ImageView);
-            checkFieldProperties(activity, R.id.backImage, View.VISIBLE, null, FieldTypeView.ImageView);
+            //checkFieldProperties(activity, R.id.barcode, View.VISIBLE, null, FieldTypeView.ImageView);
+            checkFieldProperties(activity, R.id.frontImage, View.VISIBLE, frontImage, FieldTypeView.ImageView);
+            checkFieldProperties(activity, R.id.backImage, View.VISIBLE, backImage, FieldTypeView.ImageView);
+        }
+    }
+
+    @Test
+    public void noDataLossOnResume()
+    {
+        registerMediaStoreIntentHandler();
+
+        for(boolean newCard : new boolean[] {false, true}) {
+            ActivityController activityController;
+
+            if (!newCard) {
+                activityController = createActivityWithLoyaltyCard(true);
+            } else {
+                activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
+            }
+
+            Activity activity = (Activity) activityController.get();
+            final Context context = activity.getApplicationContext();
+            DBHelper db = TestHelpers.getEmptyDb(activity);
+
+            if (!newCard) {
+                db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0);
+            }
+
+            activityController.start();
+            activityController.visible();
+            activityController.resume();
+
+            shadowOf(getMainLooper()).idle();
+
+            // Check default settings
+            checkAllFields(activity, ViewMode.ADD_CARD, newCard ? "" : "store", newCard ? "" : "note", context.getString(R.string.never), "0", context.getString(R.string.points), newCard ? "" : EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), newCard ? "" : EAN_BARCODE_TYPE.name(), null, null);
+
+            // Change everything
+            final EditText storeField = activity.findViewById(R.id.storeNameEdit);
+            final EditText noteField = activity.findViewById(R.id.noteEdit);
+            final EditText expiryField = activity.findViewById(R.id.expiryField);
+            final EditText balanceField = activity.findViewById(R.id.balanceField);
+            final EditText balanceTypeField = activity.findViewById(R.id.balanceCurrencyField);
+            final TextInputLayout cardIdField = activity.findViewById(R.id.cardIdField);
+            final EditText barcodeField = activity.findViewById(R.id.barcodeIdField);
+            final EditText barcodeTypeField = activity.findViewById(R.id.barcodeTypeField);
+            final ImageView frontImageView = activity.findViewById(R.id.frontImage);
+            final ImageView backImageView = activity.findViewById(R.id.backImage);
+
+            Date expiryDate = new Date();
+            Bitmap frontBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+            Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.save_24dp);
+
+            storeField.setText("correct store");
+            noteField.setText("correct note");
+            expiryField.setText(expiryDate.toString());
+            balanceField.setText("100");
+            balanceTypeField.setText("EUR");
+            cardIdField.getEditText().setText("12345678");
+            barcodeField.setText("87654321");
+            barcodeTypeField.setText(BarcodeFormat.QR_CODE.name());
+            LoyaltyCardEditActivity.setCardImage(frontImageView, frontBitmap);
+            LoyaltyCardEditActivity.setCardImage(backImageView, backBitmap);
+
+            shadowOf(getMainLooper()).idle();
+
+            // Check if changed
+            checkAllFields(activity, ViewMode.ADD_CARD, "correct store", "correct note", expiryDate.toString(), "100", "EUR", "12345678", "87654321", BarcodeFormat.QR_CODE.name(), frontBitmap, backBitmap);
+
+            // Resume
+            activityController.stop();
+            activityController.resume();
+
+            shadowOf(getMainLooper()).idle();
+
+            // Check if no changes lost
+            checkAllFields(activity, ViewMode.ADD_CARD, "correct store", "correct note", expiryDate.toString(), "100", "EUR", "12345678", "87654321", BarcodeFormat.QR_CODE.name(), frontBitmap, backBitmap);
         }
     }
 
@@ -343,7 +425,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never) , "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"");
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never) , "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"", null, null);
     }
 
     @Test
@@ -403,12 +485,12 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"");
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"", null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         shadowOf(getMainLooper()).idle();
 
@@ -427,12 +509,12 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), "");
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), "", null, null);
 
         // Complete barcode capture in failure
         captureBarcodeWithResult(activity, false);
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"");
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"", null, null);
     }
 
     @Test
@@ -446,12 +528,12 @@ public class LoyaltyCardViewActivityTest
         LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"");
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),"", null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
@@ -507,7 +589,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -526,7 +608,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note", null, "0", context.getString(R.string.points), BARCODE_DATA, null, BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note", null, "0", context.getString(R.string.points), BARCODE_DATA, null, BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -545,12 +627,12 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -569,12 +651,12 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         // Cancel the loyalty card creation
         assertEquals(false, activity.isFinishing());
@@ -607,7 +689,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         // Set date to today
         MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
@@ -621,7 +703,7 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -640,13 +722,13 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         // Set date to never
         MaterialAutoCompleteTextView expiryField = activity.findViewById(R.id.expiryField);
         expiryField.setText(expiryField.getAdapter().getItem(0).toString(), false);
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -665,7 +747,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         // Set balance to 10 points
         EditText balanceField = activity.findViewById(R.id.balanceField);
@@ -694,7 +776,7 @@ public class LoyaltyCardViewActivityTest
 
                 shadowOf(getMainLooper()).idle();
 
-                checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "10.00", "€", EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE.toString());
+                checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "10.00", "€", EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE.toString(), null, null);
 
                 db.close();
             }
@@ -716,7 +798,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "10.00", "$", EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "10.00", "$", EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         shadowOf(getMainLooper()).idle();
 
@@ -738,7 +820,7 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", "₩", EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", "₩", EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.toString(), null, null);
 
         db.close();
     }
@@ -881,13 +963,13 @@ public class LoyaltyCardViewActivityTest
         activityController.resume();
 
         // First check if the card is as expected
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString());
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.toString(), null, null);
 
         // Complete empty barcode selection successfully
         selectBarcodeWithResult(activity, BARCODE_DATA, "", true);
 
         // Check if the barcode type is NO_BARCODE as expected
-        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode));
+        checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
         assertEquals(View.GONE, activity.findViewById(R.id.barcodeLayout).getVisibility());
 
         // Check if the special NO_BARCODE string doesn't get saved
@@ -1127,7 +1209,7 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), "10.00", "$", "123456", context.getString(R.string.sameAsCardId), "AZTEC");
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", DateFormat.getDateInstance(DateFormat.LONG).format(date), "10.00", "$", "123456", context.getString(R.string.sameAsCardId), "AZTEC", null, null);
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 
@@ -1148,7 +1230,7 @@ public class LoyaltyCardViewActivityTest
         Activity activity = (Activity)activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), "AZTEC");
+        checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), "AZTEC", null, null);
         assertEquals(-416706, ((ColorDrawable) activity.findViewById(R.id.thumbnail).getBackground()).getColor());
     }
 }

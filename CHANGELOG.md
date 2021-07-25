@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.3 (2021-07-25)
+
+Changes:
+
+- Fix loading photos when editing existing card
+
 ## v2.0.2 (2021-07-25)
 
 Changes:

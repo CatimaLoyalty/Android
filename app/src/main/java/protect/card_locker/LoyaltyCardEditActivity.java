@@ -567,6 +567,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     return;
                 }
                 setTitle(R.string.editCardTitle);
+                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, true));
+                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
             } else if (importLoyaltyCardUri != null) {
                 try {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
@@ -590,8 +592,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         cardIdFieldView.setText(tempLoyaltyCard.cardId);
         barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
         barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.name() : getString(R.string.noBarcode));
-        setCardImage(cardImageFront, (Bitmap) cardImageFront.getTag());
-        setCardImage(cardImageBack, (Bitmap) cardImageBack.getTag());
 
         if(groupsChips.getChildCount() == 0)
         {

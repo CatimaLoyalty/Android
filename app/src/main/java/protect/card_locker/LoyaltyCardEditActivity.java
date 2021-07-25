@@ -637,7 +637,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             colors.recycle();
         }
 
-        thumbnail.setOnClickListener(new ColorSelectListener(tempLoyaltyCard.headerColor));
+        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
+        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
+        if(tempLoyaltyCard.headerColor != null) {
+            thumbnail.setOnClickListener(new ColorSelectListener(tempLoyaltyCard.headerColor));
+        }
 
         // Update from intent
         if (barcodeType != null) {

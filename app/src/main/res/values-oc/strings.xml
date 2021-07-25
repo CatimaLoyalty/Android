@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="exporting">Exportacion…</string>
+    <string name="importing">Importacion…</string>
+    <string name="exportFailed">Exportacion pas possibla</string>
+    <string name="exportSuccessfulTitle">Exportat</string>
+    <string name="importFailed">Importacion de vòstras cartas impossibla</string>
+    <string name="importFailedTitle">Fracàs de l’importacion</string>
+    <string name="importSuccessfulTitle">Importat</string>
+    <string name="importExportHelp">Exportar vòstras cartas vos permet de las recuperar sus un autre aparelh.</string>
+    <string name="exportName">Exportar</string>
+    <string name="importExport">Importar/Exportar</string>
+    <string name="failedParsingImportUriError">Analisi impossibla l’URI d’importacion</string>
+    <string name="noCardExistsError">Cap de carta pas trobada</string>
+    <string name="noCardIdError">Cap de numèro de carta pas picat</string>
+    <string name="noStoreError">Cap de nom pas picat</string>
+    <string name="barcodeImageDescription">Imatge del còdi de barras</string>
+    <string name="card_ids_copied">Num. de la carta copiada</string>
+    <string name="noCardsMessage">Apondètz d’en primièr una carta</string>
+    <string name="cardShortcut">Acorchi de carta</string>
+    <string name="scanCardBarcode">Numerizar lo còdi de barras</string>
+    <string name="addCardTitle">Apondre una carta</string>
+    <string name="editCardTitle">Modificar la carta</string>
+    <string name="sendLabel">Enviar…</string>
+    <string name="share">Partejar</string>
+    <string name="unlockScreen">Activar la rotacion</string>
+    <string name="lockScreen">Desactivar la rotacion</string>
+    <string name="confirm">Confirmar</string>
+    <string name="delete">Suprimir</string>
+    <string name="edit">Modificar</string>
+    <string name="save">Enregistrar</string>
+    <string name="cancel">Anullar</string>
+    <string name="unstar">Tirar dels favorits</string>
+    <string name="star">Apondre als favorits</string>
+    <string name="barcodeType">Tipe còdi de barras</string>
+    <string name="cardId">Numèro</string>
+    <string name="note">Nòta</string>
+    <string name="storeName">Nom</string>
+    <string name="action_add">Apondre</string>
+    <string name="action_search">Recercar</string>
+</resources>

@@ -7,11 +7,12 @@ import com.google.zxing.BarcodeFormat;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.annotation.Nullable;
 
-public class LoyaltyCard
-{
+public class LoyaltyCard {
     public final int id;
     public final String store;
     public final String note;

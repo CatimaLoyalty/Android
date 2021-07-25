@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -49,6 +50,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InvalidObjectException;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -61,6 +63,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
@@ -121,6 +124,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     boolean hasChanged = false;
     String tempStoredOldBarcodeValue = null;
     boolean initDone = false;
+    boolean onResuming = false;
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
@@ -129,6 +133,43 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     HashMap<String, Currency> currencies = new HashMap<>();
 
     String tempCameraPicturePath;
+
+    LoyaltyCard tempLoyaltyCard;
+
+    private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
+        Map<LoyaltyCardField, Object> cardData = new HashMap<>();
+        for (LoyaltyCardField existingFieldName : LoyaltyCardField.values()) {
+            try {
+                Field field = LoyaltyCard.class.getField(existingFieldName.name());
+                cardData.put(existingFieldName, field.get(loyaltyCard));
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        cardData.put(fieldName, value);
+
+        return new LoyaltyCard(
+                (int) cardData.get(LoyaltyCardField.id),
+                (String) cardData.get(LoyaltyCardField.store),
+                (String) cardData.get(LoyaltyCardField.note),
+                (Date) cardData.get(LoyaltyCardField.expiry),
+                (BigDecimal) cardData.get(LoyaltyCardField.balance),
+                (Currency) cardData.get(LoyaltyCardField.balanceType),
+                (String) cardData.get(LoyaltyCardField.cardId),
+                (String) cardData.get(LoyaltyCardField.barcodeId),
+                (BarcodeFormat) cardData.get(LoyaltyCardField.barcodeType),
+                (Integer) cardData.get(LoyaltyCardField.headerColor),
+                (int) cardData.get(LoyaltyCardField.starStatus)
+        );
+    }
+
+    private void updateTempState(LoyaltyCardField fieldName, Object value) {
+        tempLoyaltyCard = updateTempState(tempLoyaltyCard, fieldName, value);
+
+        hasChanged = true;
+    }
 
     private void extractIntentFields(Intent intent)
     {
@@ -161,8 +202,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.loyalty_card_edit_activity);
@@ -218,9 +258,21 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
+                updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
+        noteFieldEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateTempState(LoyaltyCardField.note, s.toString());
             }
 
             @Override
@@ -237,17 +289,17 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
                 if (s.toString().equals(getString(R.string.never))) {
                     expiryField.setTag(null);
                 } else if (s.toString().equals(getString(R.string.chooseExpiryDate))) {
                     if (!lastValue.toString().equals(getString(R.string.chooseExpiryDate))) {
                         expiryField.setText(lastValue);
-                    };
-                    DialogFragment datePickerFragment = new DatePickerFragment(expiryField);
+                    }
+                    DialogFragment datePickerFragment = new DatePickerFragment(LoyaltyCardEditActivity.this, expiryField);
                     datePickerFragment.show(getSupportFragmentManager(), "datePicker");
                 }
+
+                updateTempState(LoyaltyCardField.expiry, expiryField.getTag());
             }
 
             @Override
@@ -262,7 +314,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol((BigDecimal) balanceField.getTag(), (Currency) balanceCurrencyField.getTag()));
+                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
             }
         });
 
@@ -272,13 +324,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
                 try {
-                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals((Currency) balanceCurrencyField.getTag()));
+                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals(tempLoyaltyCard.balanceType));
+                    updateTempState(LoyaltyCardField.balance, balance);
                     validBalance = true;
 
-                    balanceField.setTag(balance);
                 } catch (NumberFormatException e) {
                     validBalance = false;
                     e.printStackTrace();
@@ -295,8 +345,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
                 Currency currency;
 
                 if (s.toString().equals(getString(R.string.points))) {
@@ -305,12 +353,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     currency = currencies.get(s.toString());
                 }
 
-                balanceCurrencyField.setTag(currency);
+                updateTempState(LoyaltyCardField.balanceType, currency);
 
-                BigDecimal balance = (BigDecimal) balanceField.getTag();
-
-                if (balance != null) {
-                    balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(balance, currency));
+                if (tempLoyaltyCard.balance != null) {
+                    balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, currency));
                 }
             }
 
@@ -355,29 +401,22 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         cardIdFieldView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if (initDone) {
+                if (initDone && !onResuming) {
                     if (tempStoredOldBarcodeValue == null) {
                         // We changed the card ID, save the current barcode ID in a temp
                         // variable and make sure to ask the user later if they also want to
                         // update the barcode ID
-                        if (barcodeIdField.getTag() == null) {
-                            // If it is set to "same as Card ID", temp-save the value before the
-                            // Card ID change
-                            tempStoredOldBarcodeValue = s.toString();
-                        } else {
-                            // Otherwise, set the temp value to the current field value
+                        if (tempLoyaltyCard.barcodeId != null) {
+                            // If it is not set to "same as Card ID", save as tempStoredOldBarcodeValue
                             tempStoredOldBarcodeValue = barcodeIdField.getText().toString();
                         }
-
-                        barcodeIdField.setText(tempStoredOldBarcodeValue);
-                        barcodeIdField.setTag(tempStoredOldBarcodeValue);
                     }
                 }
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
+                updateTempState(LoyaltyCardField.cardId, s.toString());
             }
 
             @Override
@@ -394,14 +433,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
                 if (s.toString().equals(getString(R.string.sameAsCardId))) {
                     // If the user manually changes the barcode again make sure we disable the
                     // request to update it to match the card id (if changed)
                     tempStoredOldBarcodeValue = null;
 
-                    barcodeIdField.setTag(null);
+                    updateTempState(LoyaltyCardField.barcodeId, null);
                 } else if (s.toString().equals(getString(R.string.setBarcodeId))) {
                     if (!lastValue.toString().equals(getString(R.string.setBarcodeId))) {
                         barcodeIdField.setText(lastValue);
@@ -411,8 +448,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     builder.setTitle(R.string.setBarcodeId);
                     final EditText input = new EditText(LoyaltyCardEditActivity.this);
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
-                    if (barcodeIdField.getTag() != null) {
-                        input.setText((String) barcodeIdField.getTag());
+                    if (tempLoyaltyCard.barcodeId != null) {
+                        input.setText(tempLoyaltyCard.barcodeId);
                     }
                     builder.setView(input);
 
@@ -421,7 +458,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         // request to update it to match the card id (if changed)
                         tempStoredOldBarcodeValue = null;
 
-                        barcodeIdField.setTag(input.getText().toString());
                         barcodeIdField.setText(input.getText());
                     });
                     builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
@@ -429,6 +465,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     dialog.show();
                     dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                     input.requestFocus();
+                } else {
+                    updateTempState(LoyaltyCardField.barcodeId, s.toString());
                 }
 
                 generateOrHideBarcode();
@@ -450,16 +488,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hasChanged = true;
-
                 if (!s.toString().isEmpty()) {
                     if (s.toString().equals(getString(R.string.noBarcode))) {
-                        barcodeTypeField.setTag(null);
+                        updateTempState(LoyaltyCardField.barcodeType, null);
                     } else {
                         try {
                             BarcodeFormat barcodeFormat = BarcodeFormat.valueOf(s.toString());
 
-                            barcodeTypeField.setTag(barcodeFormat);
+                            updateTempState(LoyaltyCardField.barcodeType, barcodeFormat);
 
                             if (!BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
                                 Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
@@ -509,22 +545,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
-
-        // Reset these fields, so they are re-populated in onResume().
-        storeFieldEdit.setText("");
-        noteFieldEdit.setText("");
-        expiryField.setTag(null);
-        expiryField.setText("");
-        balanceCurrencyField.setTag(null);
-        balanceCurrencyField.setText("");
-        balanceField.setTag(null);
-        balanceField.setText("");
-        cardIdFieldView.setText("");
-        barcodeIdField.setTag(null);
-        barcodeIdField.setText("");
-        barcodeTypeField.setText("");
-        cardImageFront.setTag(null);
-        cardImageBack.setTag(null);
     }
 
     @SuppressLint("DefaultLocale")
@@ -535,121 +555,43 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
 
-        if(updateLoyaltyCard)
-        {
-            final LoyaltyCard loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
-            if(loyaltyCard == null)
-            {
-                Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
-                Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
+        onResuming = true;
 
-            if(storeFieldEdit.getText().length() == 0)
-            {
-                storeFieldEdit.setText(loyaltyCard.store);
-            }
-
-            if(noteFieldEdit.getText().length() == 0)
-            {
-                noteFieldEdit.setText(loyaltyCard.note);
-            }
-
-            if(expiryField.getText().length() == 0)
-            {
-                expiryField.setTag(loyaltyCard.expiry);
-                formatExpiryField(loyaltyCard.expiry);
-            }
-
-            if(balanceCurrencyField.getText().length() == 0)
-            {
-                balanceCurrencyField.setTag(loyaltyCard.balanceType);
-                formatBalanceCurrencyField(loyaltyCard.balanceType);
-            }
-
-            if(balanceField.getText().length() == 0)
-            {
-                balanceField.setTag(loyaltyCard.balance);
-                balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(loyaltyCard.balance, loyaltyCard.balanceType));
-            }
-
-            if(cardIdFieldView.getText().length() == 0)
-            {
-                cardIdFieldView.setText(loyaltyCard.cardId);
-            }
-
-            if(barcodeIdField.getText().length() == 0)
-            {
-                barcodeIdField.setTag(loyaltyCard.barcodeId);
-                barcodeIdField.setText(loyaltyCard.barcodeId != null ? loyaltyCard.barcodeId : getString(R.string.sameAsCardId));
-            }
-
-            if(barcodeTypeField.getText().length() == 0)
-            {
-                barcodeTypeField.setText(loyaltyCard.barcodeType != null ? loyaltyCard.barcodeType.toString() : getString(R.string.noBarcode));
-            }
-
-            if(headingColorValue == null)
-            {
-                headingColorValue = loyaltyCard.headerColor;
-                if(headingColorValue == null)
-                {
-                    headingColorValue = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
+        if(tempLoyaltyCard == null) {
+            if (updateLoyaltyCard) {
+                tempLoyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+                if (tempLoyaltyCard == null) {
+                    Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
+                    Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
                 }
+                setTitle(R.string.editCardTitle);
+            } else if (importLoyaltyCardUri != null) {
+                try {
+                    tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
+                } catch (InvalidObjectException ex) {
+                    Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
+                }
+                setTitle(R.string.addCardTitle);
+            } else {
+                // New card, use default values
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0);
+                setTitle(R.string.addCardTitle);
             }
-
-            if(cardImageFront.getTag() == null)
-            {
-                setCardImage(cardImageFront, Utils.retrieveCardImage(this, loyaltyCard.id, true));
-            }
-
-            if(cardImageBack.getTag() == null)
-            {
-                setCardImage(cardImageBack, Utils.retrieveCardImage(this, loyaltyCard.id, false));
-            }
-
-            setTitle(R.string.editCardTitle);
         }
-        else if(importLoyaltyCardUri != null)
-        {
-            // Try to parse
-            LoyaltyCard importCard;
-            try {
-                importCard = importUriHelper.parse(importLoyaltyCardUri);
-            } catch (InvalidObjectException ex) {
-                Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
 
-            storeFieldEdit.setText(importCard.store);
-            noteFieldEdit.setText(importCard.note);
-            expiryField.setTag(importCard.expiry);
-            formatExpiryField(importCard.expiry);
-            balanceField.setTag(importCard.balance);
-            balanceCurrencyField.setTag(importCard.balanceType);
-            formatBalanceCurrencyField(importCard.balanceType);
-            cardIdFieldView.setText(importCard.cardId);
-            barcodeIdField.setTag(importCard.barcodeId);
-            barcodeIdField.setText(importCard.barcodeId != null ? importCard.barcodeId : getString(R.string.sameAsCardId));
-            barcodeTypeField.setText(importCard.barcodeType != null ? importCard.barcodeType.toString() : getString(R.string.noBarcode));
-            headingColorValue = importCard.headerColor;
-        }
-        else
-        {
-            setTitle(R.string.addCardTitle);
-            expiryField.setTag(null);
-            expiryField.setText(getString(R.string.never));
-            barcodeIdField.setTag(null);
-            barcodeIdField.setText(getString(R.string.sameAsCardId));
-            balanceField.setTag(new BigDecimal("0"));
-            balanceCurrencyField.setTag(null);
-            formatBalanceCurrencyField(null);
-            hideBarcode();
-            setCardImage(cardImageFront, null);
-            setCardImage(cardImageBack, null);
-        }
+        storeFieldEdit.setText(tempLoyaltyCard.store);
+        noteFieldEdit.setText(tempLoyaltyCard.note);
+        formatExpiryField(this, expiryField, tempLoyaltyCard.expiry);
+        formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
+        cardIdFieldView.setText(tempLoyaltyCard.cardId);
+        barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
+        barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.name() : getString(R.string.noBarcode));
+        setCardImage(cardImageFront, (Bitmap) cardImageFront.getTag());
+        setCardImage(cardImageBack, (Bitmap) cardImageBack.getTag());
 
         if(groupsChips.getChildCount() == 0)
         {
@@ -685,16 +627,17 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         }
 
-        if(headingColorValue == null)
+        // Generate random header color
+        if(tempLoyaltyCard.headerColor == null)
         {
             // Select a random color to start out with.
             TypedArray colors = getResources().obtainTypedArray(R.array.letter_tile_colors);
             final int color = (int)(Math.random() * colors.length());
-            headingColorValue = colors.getColor(color, Color.BLACK);
+            updateTempState(LoyaltyCardField.headerColor, colors.getColor(color, Color.BLACK));
             colors.recycle();
         }
 
-        thumbnail.setOnClickListener(new ColorSelectListener(headingColorValue));
+        thumbnail.setOnClickListener(new ColorSelectListener(tempLoyaltyCard.headerColor));
 
         // Update from intent
         if (barcodeType != null) {
@@ -717,6 +660,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         }
 
+        // Empty intent values
+        barcodeType = null;
+        cardId = null;
+        barcodeId = null;
+
+        // Initialization has finished
         if (!initDone) {
             hasChanged = false;
             initDone = true;
@@ -735,6 +684,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         saveButton.bringToFront();
 
         generateIcon(storeFieldEdit.getText().toString());
+
+        onResuming = false;
     }
 
     protected static void setCardImage(ImageView imageView, Bitmap bitmap) {
@@ -747,9 +698,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
     }
 
-    private void formatExpiryField(Date expiry) {
+    protected static void formatExpiryField(Context context, EditText expiryField, Date expiry) {
+        expiryField.setTag(expiry);
+
         if (expiry == null) {
-            expiryField.setText(getString(R.string.never));
+            expiryField.setText(context.getString(R.string.never));
         } else {
             expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
         }
@@ -803,23 +756,17 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 .setMessage(R.string.updateBarcodeQuestionText)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
                     barcodeIdField.setText(R.string.sameAsCardId);
-                    tempStoredOldBarcodeValue = null;
 
-                    if (callback != null) {
-                        callback.run();
-                    }
+                    dialog.dismiss();
                 })
                 .setNegativeButton(R.string.no, (dialog, which) -> {
-                    barcodeIdField.setText(tempStoredOldBarcodeValue);
-                    tempStoredOldBarcodeValue = null;
-
-                    if (callback != null) {
-                        callback.run();
-                    }
+                    dialog.dismiss();
                 })
                 .setOnDismissListener(dialogInterface -> {
-                    barcodeIdField.setText(tempStoredOldBarcodeValue);
-                    tempStoredOldBarcodeValue = null;
+                    if (tempStoredOldBarcodeValue != null) {
+                        barcodeIdField.setText(tempStoredOldBarcodeValue);
+                        tempStoredOldBarcodeValue = null;
+                    }
 
                     if (callback != null) {
                         callback.run();
@@ -981,9 +928,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
+        final Context context;
         final EditText expiryFieldEdit;
 
-        DatePickerFragment(EditText expiryFieldEdit) {
+        DatePickerFragment(Context context, EditText expiryFieldEdit) {
+            this.context = context;
             this.expiryFieldEdit = expiryFieldEdit;
         }
 
@@ -1019,8 +968,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             Date date = new Date(unixTime);
 
-            expiryFieldEdit.setTag(date);
-            expiryFieldEdit.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
+            formatExpiryField(context, expiryFieldEdit, date);
         }
     }
 
@@ -1030,22 +978,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             return;
         }
 
-        String store = storeFieldEdit.getText().toString();
-        String note = noteFieldEdit.getText().toString();
-        Date expiry = (Date) expiryField.getTag();
-        BigDecimal balance = (BigDecimal) balanceField.getTag();
-        Currency balanceType = balanceCurrencyField.getTag() != null ? ((Currency) balanceCurrencyField.getTag()) : null;
-        String cardId = cardIdFieldView.getText().toString();
-        String barcodeId = (String) barcodeIdField.getTag();
-        BarcodeFormat barcodeType = (BarcodeFormat) barcodeTypeField.getTag();
-
-        if(store.isEmpty())
+        if(tempLoyaltyCard.store.isEmpty())
         {
             Snackbar.make(storeFieldEdit, R.string.noStoreError, Snackbar.LENGTH_LONG).show();
             return;
         }
 
-        if(cardId.isEmpty())
+        if(tempLoyaltyCard.cardId.isEmpty())
         {
             Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
             return;
@@ -1066,7 +1005,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         if(updateLoyaltyCard)
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue);
+            db.updateLoyaltyCard(loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
@@ -1077,7 +1016,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headingColorValue, 0);
+            loyaltyCardId = (int)db.insertLoyaltyCard(tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
@@ -1159,8 +1098,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
-            if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
                 Bitmap bitmap = BitmapFactory.decodeFile(tempCameraPicturePath);
 
                 if (bitmap != null) {
@@ -1179,9 +1118,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                     hasChanged = true;
                 }
-            }
-        } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
-            if (resultCode == RESULT_OK) {
+            } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
                 Bitmap bitmap = null;
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
@@ -1201,11 +1138,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
                     hasChanged = true;
                 }
-            }
-        } else {
-            BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+            } else {
+                BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
-            if (resultCode == RESULT_OK) {
                 cardId = barcodeValues.content();
                 barcodeType = barcodeValues.format();
                 barcodeId = "";
@@ -1224,8 +1159,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void generateOrHideBarcode() {
-        String cardIdString = barcodeIdField.getTag() != null ? barcodeIdField.getTag().toString() : cardIdFieldView.getText().toString();
-        BarcodeFormat barcodeFormat = (BarcodeFormat) barcodeTypeField.getTag();
+        String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
+        BarcodeFormat barcodeFormat = tempLoyaltyCard.barcodeType;
 
         if (barcodeFormat == null || cardIdString.isEmpty() || !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
             hideBarcode();
@@ -1258,13 +1193,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void generateIcon(String store) {
-        if (headingColorValue == null) {
+        if (tempLoyaltyCard.headerColor == null) {
             return;
         }
 
-        thumbnail.setBackgroundColor(headingColorValue);
+        thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
 
-        LetterBitmap letterBitmap = Utils.generateIcon(this, store, headingColorValue);
+        LetterBitmap letterBitmap = Utils.generateIcon(this, store, tempLoyaltyCard.headerColor);
 
         if (letterBitmap != null) {
             thumbnail.setImageBitmap(letterBitmap.getLetterTile());

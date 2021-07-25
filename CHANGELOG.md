@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.2 (2021-07-25)
+
+Changes:
+
+- Fix inability to configure photos in new loyalty card
+
 ## v2.0.1 (2021-07-21)
 
 Changes:

@@ -53,7 +53,7 @@
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
                 android:contentDescription="@string/moveBarcodeToTopOfScreen"
-                android:tint="@android:color/white"
+                app:tint="#ffffff"
                 android:background="@color/colorPrimary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/barcode"
@@ -84,7 +84,7 @@
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
                 android:contentDescription="@string/moveBarcodeToCenterOfScreen"
-                android:tint="@android:color/white"
+                app:tint="#ffffff"
                 android:background="@color/colorPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/barcode"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
             android:layout_gravity="top|start"
             android:background="@color/colorPrimary"
             android:scaleType="fitCenter"
-            android:tint="@android:color/white"
+            app:tint="#ffffff"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
 
         <androidx.core.widget.NestedScrollView

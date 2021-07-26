@@ -220,23 +220,20 @@ public class ImportExportActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults)
-    {
-        if(requestCode == PERMISSIONS_EXTERNAL_STORAGE)
-        {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSIONS_EXTERNAL_STORAGE) {
             // If request is cancelled, the result arrays are empty.
             boolean success = grantResults.length > 0;
 
-            for(int grant : grantResults)
-            {
-                if(grant != PackageManager.PERMISSION_GRANTED)
-                {
+            for (int grant : grantResults) {
+                if (grant != PackageManager.PERMISSION_GRANTED) {
                     success = false;
                 }
             }
 
-            if(!success)
-            {
+            if (!success) {
                 // External storage permission rejected, inform user that
                 // import/export is prevented
                 Toast.makeText(getApplicationContext(), R.string.noExternalStoragePermissionError,

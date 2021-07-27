@@ -6,6 +6,7 @@ Changes:
 
 - Fix shortcut creation
 - Generate card-specific shortcut icon
+- Fix ability to change loyalty card colour
 
 ## v2.0.3 (2021-07-25)
 

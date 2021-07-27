@@ -912,9 +912,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 @Override
                 public void onColorSelected(int dialogId, int color)
                 {
-                    hasChanged = true;
-
-                    headingColorValue = color;
+                    updateTempState(LoyaltyCardField.headerColor, color);
 
                     generateIcon(storeFieldEdit.getText().toString());
                 }

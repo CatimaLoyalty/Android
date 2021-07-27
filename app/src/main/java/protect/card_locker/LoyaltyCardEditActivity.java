@@ -640,7 +640,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         // It can't be null because we set it in updateTempState but SpotBugs insists it can be
         // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
         if(tempLoyaltyCard.headerColor != null) {
-            thumbnail.setOnClickListener(new ColorSelectListener(tempLoyaltyCard.headerColor));
+            thumbnail.setOnClickListener(new ColorSelectListener());
         }
 
         // Update from intent
@@ -896,17 +896,16 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     class ColorSelectListener implements View.OnClickListener
     {
-        final int defaultColor;
-
-        ColorSelectListener(int defaultColor)
-        {
-            this.defaultColor = defaultColor;
-        }
-
         @Override
         public void onClick(View v)
         {
-            ColorPickerDialog dialog = ColorPickerDialog.newBuilder().setColor(defaultColor).create();
+            ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
+
+            if (tempLoyaltyCard.headerColor != null) {
+                dialogBuilder.setColor(tempLoyaltyCard.headerColor);
+            }
+
+            ColorPickerDialog dialog = dialogBuilder.create();
             dialog.setColorPickerDialogListener(new ColorPickerDialogListener()
             {
                 @Override

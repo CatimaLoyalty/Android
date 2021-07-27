@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Fix shortcut creation
+- Generate card-specific shortcut icon
+
 ## v2.0.3 (2021-07-25)
 
 Changes:

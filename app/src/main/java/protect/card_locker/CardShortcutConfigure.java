@@ -2,8 +2,8 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -12,6 +12,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -47,6 +49,11 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         }
 
         final RecyclerView cardList = findViewById(R.id.list);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        cardList.setLayoutManager(mLayoutManager);
+        cardList.setItemAnimator(new DefaultItemAnimator());
+
         cardList.setVisibility(View.VISIBLE);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
@@ -72,11 +79,12 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         bundle.putBoolean("view", true);
         shortcutIntent.putExtras(bundle);
 
-        Parcelable icon = Intent.ShortcutIconResource.fromContext(CardShortcutConfigure.this, R.mipmap.ic_launcher);
+        Bitmap iconBitmap = Utils.generateIcon(CardShortcutConfigure.this, loyaltyCard, true).getLetterTile();
+
         Intent intent = new Intent();
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, loyaltyCard.store);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, iconBitmap);
         setResult(RESULT_OK, intent);
 
         finish();

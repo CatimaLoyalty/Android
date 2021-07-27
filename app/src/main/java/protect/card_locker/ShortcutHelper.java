@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 
@@ -36,6 +37,8 @@ class ShortcutHelper
         {
             ShortcutManager shortcutManager = context.getSystemService(ShortcutManager.class);
             LinkedList<ShortcutInfo> list = new LinkedList<>(shortcutManager.getDynamicShortcuts());
+
+            DBHelper dbHelper = new DBHelper(context);
 
             String shortcutId = Integer.toString(card.id);
 
@@ -105,6 +108,14 @@ class ShortcutHelper
 
                 Intent shortcutIntent = prevShortcut.getIntent();
 
+                Bitmap iconBitmap = Utils.generateIcon(context, dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId())), true).getLetterTile();
+                Icon icon;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    icon = Icon.createWithAdaptiveBitmap(iconBitmap);
+                } else {
+                    icon = Icon.createWithBitmap(iconBitmap);
+                }
+
                 // Prevent instances of the view activity from piling up; if one exists let this
                 // one replace it.
                 shortcutIntent.setFlags(shortcutIntent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -113,7 +124,7 @@ class ShortcutHelper
                         .setShortLabel(prevShortcut.getShortLabel())
                         .setLongLabel(prevShortcut.getLongLabel())
                         .setIntent(shortcutIntent)
-                        .setIcon(Icon.createWithResource(context, R.drawable.circle))
+                        .setIcon(icon)
                         .setRank(index)
                         .build();
 

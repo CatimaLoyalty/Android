@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 
 import protect.card_locker.DBHelper;
 

@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -33,7 +32,6 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.List;
 
 import androidx.core.graphics.ColorUtils;
 
@@ -53,6 +51,10 @@ public class Utils {
     static final double LUMINANCE_MIDPOINT = 0.5;
 
     static final int BITMAP_SIZE_BIG = 512;
+
+    static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
+        return generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, forShortcut);
+    }
 
     static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor) {
         return generateIcon(context, store, backgroundColor, false);

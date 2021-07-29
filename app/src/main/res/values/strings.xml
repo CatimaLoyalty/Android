@@ -5,8 +5,8 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Selected: <xliff:g>%d</xliff:g> card</item>
-        <item quantity="other">Selected: <xliff:g>%d</xliff:g> cards</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> card selected</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cards selected</item>
     </plurals>
 
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
@@ -34,8 +34,8 @@
         <item quantity="other">Delete Cards</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Are you sure you want to permanently delete this card? This cannot be undone.</item>
-        <item quantity="other">Are you sure you want to permanently delete these <xliff:g>%d</xliff:g> cards? This cannot be undone.</item>
+        <item quantity="one">Delete this card permanently?</item>
+        <item quantity="other">Delete these <xliff:g>%d</xliff:g> cards permanently?</item>
     </plurals>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
@@ -202,7 +202,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="passwordRequired">Please enter the password</string>
-    <string name="failedGeneratingShareURL">Failed generating share URL. Please report this bug!</string>
+    <string name="failedGeneratingShareURL">Could not generate sharable URL. Please report this.</string>
     <string name="turn_flashlight_on">Turn flashlight on</string>
     <string name="turn_flashlight_off">Turn flashlight off</string>
 </resources>

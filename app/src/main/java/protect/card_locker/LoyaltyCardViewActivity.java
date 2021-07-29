@@ -92,6 +92,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     FullscreenType fullscreenType = FullscreenType.NONE;
     boolean isBarcodeSupported = true;
 
+    static final String STATE_FULLSCREENTYPE = "fullscreenType";
+
     enum FullscreenType {
         NONE,
         BARCODE,
@@ -127,6 +129,10 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            fullscreenType = FullscreenType.valueOf(savedInstanceState.getString(STATE_FULLSCREENTYPE));
+        }
 
         settings = new Settings(this);
 
@@ -284,6 +290,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         Log.i(TAG, "Received new intent");
         extractIntentFields(intent);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(STATE_FULLSCREENTYPE, String.valueOf(fullscreenType));
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
 
     @Override
     public void onResume()
@@ -468,40 +481,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
         }
 
-        if(format != null && isBarcodeSupported)
-        {
-            if (fullscreenType == FullscreenType.NONE) {
-                maximizeButton.setVisibility(View.VISIBLE);
-            }
-            barcodeImage.setVisibility(View.VISIBLE);
-            if(barcodeImage.getHeight() == 0)
-            {
-                Log.d(TAG, "ImageView size is not known known at start, waiting for load");
-                // The size of the ImageView is not yet available as it has not
-                // yet been drawn. Wait for it to be drawn so the size is available.
-                redrawBarcodeAfterResize();
-            }
-            else
-            {
-                Log.d(TAG, "ImageView size known known, creating barcode");
-                new BarcodeImageWriterTask(
-                    barcodeImage,
-                    barcodeIdString != null ? barcodeIdString : cardIdString,
-                    format,
-                    null,
-                    false,
-                    null)
-                .execute();
-            }
-
-            // Force redraw fullscreen state
-            setFullscreen(fullscreenType);
-        }
-        else
-        {
-            maximizeButton.setVisibility(View.GONE);
-            barcodeImage.setVisibility(View.GONE);
-        }
+        setFullscreen(fullscreenType);
     }
 
     @Override

@@ -7,6 +7,7 @@ Changes:
 - Fix selected colour in colour changing dialog
 - Support for deleting multiple cards at once
 - Fix possible ArithmeticException when resizing image
+- Fix fullscreen is closed when rotating device
 
 ## v2.0.4 (2021-07-27)
 

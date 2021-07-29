@@ -154,9 +154,23 @@
     <string name="photos">Bilder</string>
     <string name="backImageDescription">Kortets bakside</string>
     <string name="frontImageDescription">Kortets forside</string>
-    <string name="importStocardMessage">Finn din Stocard.zip-fil å importere, og velg strekkodetypene manuelt etterpå.
+    <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere, og velg strekkodetypene manuelt etterpå.
 \nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
     <string name="failedGeneratingShareURL">Klarte ikke å lage delingsnettadresse. Rapporter denne feilen.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Slett dette kortet for godt\?</item>
+        <item quantity="other">Slett disse &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; kortene for godt\?</item>
+    </plurals>
+    <string name="turn_flashlight_on">Skru på lommelykten</string>
+    <string name="turn_flashlight_off">Skru av lommelykten</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Slett kort</item>
+        <item quantity="other">Slett kort</item>
+    </plurals>
 </resources>

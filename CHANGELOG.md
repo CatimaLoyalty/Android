@@ -6,6 +6,7 @@ Changes:
 
 - Fix selected colour in colour changing dialog
 - Support for deleting multiple cards at once
+- Fix possible ArithmeticException when resizing image
 
 ## v2.0.4 (2021-07-27)
 

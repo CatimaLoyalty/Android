@@ -242,17 +242,17 @@ public class Utils {
             return null;
         }
 
-        Integer maxSize = BITMAP_SIZE_BIG;
+        double maxSize = BITMAP_SIZE_BIG;
 
-        Integer width = bitmap.getWidth();
-        Integer height = bitmap.getHeight();
+        double width = bitmap.getWidth();
+        double height = bitmap.getHeight();
 
         if (height > width) {
-            Integer scale = height / maxSize;
+            double scale = height / maxSize;
             height = maxSize;
             width = width / scale;
         } else if (width > height) {
-            Integer scale = width / maxSize;
+            double scale = width / maxSize;
             width = maxSize;
             height = height / scale;
         } else {
@@ -260,7 +260,7 @@ public class Utils {
             width = maxSize;
         }
 
-        return Bitmap.createScaledBitmap(bitmap, width, height, true);
+        return Bitmap.createScaledBitmap(bitmap, (int) Math.round(width), (int) Math.round(height), true);
     }
 
     static public Bitmap rotateBitmap(Bitmap bitmap, ExifInterface exifInterface) {

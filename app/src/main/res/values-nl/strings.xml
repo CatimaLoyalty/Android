@@ -165,4 +165,12 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kaart geselecteerd</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kaarten geselecteerd</item>
     </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Weet je zeker dat je deze kaart wilt verwijderen\? Dit kan niet ongedaan worden gemaakt.</item>
+        <item quantity="other">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaarten wilt verwijderen\? Dit kan niet ongedaan worden gemaakt.</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Kaart verwijderen</item>
+        <item quantity="other">Kaarten verwijderen</item>
+    </plurals>
 </resources>

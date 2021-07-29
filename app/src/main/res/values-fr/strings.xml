@@ -12,8 +12,6 @@
     <string name="confirm">Confirmer</string>
     <string name="lockScreen">Désactiver la rotation</string>
     <string name="unlockScreen">Activer la rotation</string>
-    <string name="deleteTitle">Supprimer la carte de fidélité</string>
-    <string name="deleteConfirmation">Supprimer cette carte \?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>

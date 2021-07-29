@@ -15,8 +15,6 @@
     <string name="confirm">Conferma</string>
     <string name="lockScreen">Blocca rotazione</string>
     <string name="unlockScreen">Sblocca rotazione</string>
-    <string name="deleteTitle">Rimuovi carta fedeltà</string>
-    <string name="deleteConfirmation">Eliminare questa carta\?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copia ID negli appunti</string>
     <string name="share">Condividi</string>

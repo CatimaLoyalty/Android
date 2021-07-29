@@ -123,8 +123,6 @@
     <string name="share">分享</string>
     <string name="copy_to_clipboard">复制卡号到剪贴板</string>
     <string name="ok">确定</string>
-    <string name="deleteConfirmation">删除此卡？</string>
-    <string name="deleteTitle">移除卡片</string>
     <string name="unlockScreen">解除旋转锁定</string>
     <string name="lockScreen">锁定旋转</string>
     <string name="confirm">确认</string>

@@ -13,8 +13,6 @@
     <string name="confirm">Bekreft</string>
     <string name="lockScreen">Ingen rotering</string>
     <string name="unlockScreen">Skru på rotering</string>
-    <string name="deleteTitle">Fjern kundekort</string>
-    <string name="deleteConfirmation">Slett dette kortet\?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
     <string name="sendLabel">Send…</string>

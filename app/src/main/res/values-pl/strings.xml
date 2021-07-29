@@ -15,8 +15,6 @@
     <string name="confirm">Potwierdź</string>
     <string name="lockScreen">Zablokuj autoobracanie ekranu</string>
     <string name="unlockScreen">Odblokuj autoobracanie ekranu</string>
-    <string name="deleteTitle">Usuń kartę lojalnościową</string>
-    <string name="deleteConfirmation">Potwierdź, że chcesz usunąć tę kartę.</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>

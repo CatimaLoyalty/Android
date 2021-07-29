@@ -120,8 +120,6 @@
     <string name="share">共有</string>
     <string name="copy_to_clipboard">カード番号をクリップボードにコピーする</string>
     <string name="ok">確定</string>
-    <string name="deleteConfirmation">このカードを削除しますか？</string>
-    <string name="deleteTitle">カードの削除</string>
     <string name="unlockScreen">自動回転を無効にしない</string>
     <string name="lockScreen">自動回転を無効にする</string>
     <string name="confirm">確認</string>

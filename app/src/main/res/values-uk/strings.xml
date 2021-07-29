@@ -134,8 +134,6 @@
     <string name="share">Поділитися</string>
     <string name="copy_to_clipboard">Копіювати ID до буферу обміну</string>
     <string name="ok">ОК</string>
-    <string name="deleteConfirmation">Бажаєте видалити карту\?</string>
-    <string name="deleteTitle">Видалити карту</string>
     <string name="unlockScreen">Розблокувати обертання</string>
     <string name="lockScreen">Блокувати обертання</string>
     <string name="confirm">Підтвердити</string>

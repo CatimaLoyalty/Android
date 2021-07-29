@@ -14,8 +14,6 @@
     <string name="confirm">Potvrdiť</string>
     <string name="lockScreen">Zakázať rotáciu</string>
     <string name="unlockScreen">Povoliť rotáciu</string>
-    <string name="deleteTitle">Odstrániť kartu</string>
-    <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
     <string name="ok">Áno</string>
     <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
     <string name="sendLabel">Odoslať&#8230;</string>

@@ -16,8 +16,6 @@
     <string name="unlockScreen">Rotation zulassen</string>
     <string name="star">Zu den Favoriten hinzufügen</string>
     <string name="unstar">Aus der Favoritenliste entfernen</string>
-    <string name="deleteTitle">Karte entfernen</string>
-    <string name="deleteConfirmation">Diese Karte löschen\?</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Nummer in die Zwischenablage kopieren</string>
     <string name="sendLabel">Senden …</string>

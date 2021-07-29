@@ -29,8 +29,14 @@
     <string name="confirm">Confirm</string>
     <string name="lockScreen">Block Rotation</string>
     <string name="unlockScreen">Unblock Rotation</string>
-    <string name="deleteTitle">Remove Card</string>
-    <string name="deleteConfirmation">Delete this card?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Delete Card</item>
+        <item quantity="other">Delete Cards</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Are you sure you want to permanently delete this card? This cannot be undone.</item>
+        <item quantity="other">Are you sure you want to permanently delete these <xliff:g>%d</xliff:g> cards? This cannot be undone.</item>
+    </plurals>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>

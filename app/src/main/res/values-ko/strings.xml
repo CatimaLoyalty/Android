@@ -31,8 +31,6 @@
     <string name="share">공유</string>
     <string name="copy_to_clipboard">ID를 클립보드에 복사</string>
     <string name="ok">확인</string>
-    <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
-    <string name="deleteTitle">카드 제거</string>
     <string name="unlockScreen">회전 잠금 해제</string>
     <string name="lockScreen">회전 잠금</string>
     <string name="confirm">확인</string>

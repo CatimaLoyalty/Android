@@ -12,8 +12,6 @@
     <string name="confirm">Potrdi</string>
     <string name="lockScreen">Onemogoči obračanje zaslona</string>
     <string name="unlockScreen">Omogoči obračanje zaslona</string>
-    <string name="deleteTitle">Odstrani kartico zvestobe</string>
-    <string name="deleteConfirmation">Prosim potrdite, če želite izbrisati to kartico.</string>
     <string name="ok">Vredu</string>
     <string name="copy_to_clipboard">Kopirajte številko kartice</string>
     <string name="sendLabel">Pošlji…</string>

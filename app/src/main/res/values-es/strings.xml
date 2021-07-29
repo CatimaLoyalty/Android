@@ -12,8 +12,6 @@
     <string name="confirm">Confirmar</string>
     <string name="lockScreen">Bloquear giro</string>
     <string name="unlockScreen">Desbloquear giro</string>
-    <string name="deleteTitle">Eliminar tarjeta</string>
-    <string name="deleteConfirmation">¿Quiere eliminar esta tarjeta\?</string>
     <string name="ok">Aceptar</string>
     <string name="copy_to_clipboard">Copiar id. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>

@@ -122,8 +122,6 @@
     <string name="share">Споделя</string>
     <string name="copy_to_clipboard">Копира идентификатора в междинната памет</string>
     <string name="ok">Добре</string>
-    <string name="deleteConfirmation">Потвърдете премахване на карта</string>
-    <string name="deleteTitle">Премахване на карта</string>
     <string name="importSuccessful">Картите са внесени успешно</string>
     <string name="chooseImportType">От къде ще внесете\?</string>
     <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.

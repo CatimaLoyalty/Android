@@ -128,8 +128,6 @@
     <string name="share">Jaa</string>
     <string name="copy_to_clipboard">Kopioi ID-tunnus leikepöydälle</string>
     <string name="ok">OK</string>
-    <string name="deleteConfirmation">Poista tämä kortti\?</string>
-    <string name="deleteTitle">Poista kortti</string>
     <string name="unlockScreen">Poista kierron esto</string>
     <string name="lockScreen">Estä kierto</string>
     <string name="confirm">Vahvista</string>

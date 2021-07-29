@@ -1059,32 +1059,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             case R.id.action_delete:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.deleteTitle);
-                builder.setMessage(R.string.deleteConfirmation);
-                builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        Log.e(TAG, "Deleting card: " + loyaltyCardId);
+                builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, 1));
+                builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, 1, 1));
+                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
+                    Log.e(TAG, "Deleting card: " + loyaltyCardId);
 
-                        DBHelper db = new DBHelper(LoyaltyCardEditActivity.this);
-                        db.deleteLoyaltyCard(loyaltyCardId);
+                    DBHelper db = new DBHelper(LoyaltyCardEditActivity.this);
+                    db.deleteLoyaltyCard(loyaltyCardId);
 
-                        ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
+                    ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
 
-                        finish();
-                        dialog.dismiss();
-                    }
+                    finish();
+                    dialog.dismiss();
                 });
-                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        dialog.dismiss();
-                    }
-                });
+                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
                 AlertDialog dialog = builder.create();
                 dialog.show();
 

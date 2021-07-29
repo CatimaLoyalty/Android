@@ -12,8 +12,6 @@
     <string name="confirm">Επιβεβαίωση</string>
     <string name="lockScreen">Αποκλεισμός Περιστροφής</string>
     <string name="unlockScreen">Περιστροφή</string>
-    <string name="deleteTitle">Αφαίρεση Κάρτας</string>
-    <string name="deleteConfirmation">Παρακαλώ επιβεβαιώστε ότι θέλετε να διαγράψετε αυτή την κάρτα.</string>
     <string name="ok">Εντάξει</string>
     <string name="copy_to_clipboard">Αντιγραφή κωδικού στο πρόχειρο</string>
     <string name="sendLabel">Αποστολή…</string>

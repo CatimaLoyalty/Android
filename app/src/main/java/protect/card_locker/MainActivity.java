@@ -25,6 +25,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
@@ -50,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
         @Override
-        public boolean onCreateActionMode(ActionMode inputMode, Menu inputMenu)
-        {
+        public boolean onCreateActionMode(ActionMode inputMode, Menu inputMenu) {
             inputMode.getMenuInflater().inflate(R.menu.card_longclick_menu, inputMenu);
             return true;
         }
@@ -63,10 +63,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         }
 
         @Override
-        public boolean onActionItemClicked(ActionMode inputMode, MenuItem inputItem)
-        {
-            if (inputItem.getItemId() == R.id.action_copy_to_clipboard)
-            {
+        public boolean onActionItemClicked(ActionMode inputMode, MenuItem inputItem) {
+            if (inputItem.getItemId() == R.id.action_copy_to_clipboard) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
                 String clipboardData;
@@ -94,9 +92,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 Toast.makeText(MainActivity.this, cardCount > 1 ? R.string.copy_to_clipboard_multiple_toast : R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
                 inputMode.finish();
                 return true;
-            }
-            else if (inputItem.getItemId() == R.id.action_share)
-            {
+            } else if (inputItem.getItemId() == R.id.action_share) {
                 final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
                 try {
                     importURIHelper.startShareIntent(mAdapter.getSelectedItems());
@@ -106,9 +102,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 }
                 inputMode.finish();
                 return true;
-            }
-            else if(inputItem.getItemId() == R.id.action_edit)
-            {
+            } else if(inputItem.getItemId() == R.id.action_edit) {
                 if (mAdapter.getSelectedItemCount() != 1) {
                     throw new IllegalArgumentException("Cannot edit more than 1 card at a time");
                 }
@@ -120,6 +114,32 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 intent.putExtras(bundle);
                 startActivity(intent);
                 inputMode.finish();
+                return true;
+            } else if(inputItem.getItemId() == R.id.action_delete) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount()));
+                builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
+                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
+                    DBHelper db = new DBHelper(MainActivity.this);
+
+                    for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
+                        Log.e(TAG, "Deleting card: " + loyaltyCard.id);
+
+                        db.deleteLoyaltyCard(loyaltyCard.id);
+
+                        ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
+                    }
+
+                    TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+
+                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null);
+
+                    dialog.dismiss();
+                });
+                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
                 return true;
             }
 

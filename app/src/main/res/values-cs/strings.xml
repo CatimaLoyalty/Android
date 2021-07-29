@@ -12,8 +12,6 @@
     <string name="edit">Editovat</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
-    <string name="deleteTitle">Odstzranit věrnostní kartu</string>
-    <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
     <string name="ok">Ano</string>
     <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
     <string name="sendLabel">Odeslat&#8230;</string>

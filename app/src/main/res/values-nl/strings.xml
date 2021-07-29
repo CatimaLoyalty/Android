@@ -16,8 +16,6 @@
     <string name="confirm">Bevestigen</string>
     <string name="lockScreen">Draaien niet toestaan</string>
     <string name="unlockScreen">Draaien toestaan</string>
-    <string name="deleteTitle">Kaart verwijderen</string>
-    <string name="deleteConfirmation">Kaart verwijderen\?</string>
     <string name="ok">Oké</string>
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>

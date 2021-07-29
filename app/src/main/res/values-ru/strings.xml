@@ -16,8 +16,6 @@
     <string name="confirm">Подтвердить</string>
     <string name="lockScreen">Блокировать поворот экрана</string>
     <string name="unlockScreen">Автоповорот экрана</string>
-    <string name="deleteTitle">Удаление карты</string>
-    <string name="deleteConfirmation">Удалить карту\?</string>
     <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Копировать номер карты</string>
     <string name="share">Переслать</string>

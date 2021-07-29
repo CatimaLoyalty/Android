@@ -137,31 +137,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     LoyaltyCard tempLoyaltyCard;
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
-        Map<LoyaltyCardField, Object> cardData = new HashMap<>();
-        for (LoyaltyCardField existingFieldName : LoyaltyCardField.values()) {
-            try {
-                Field field = LoyaltyCard.class.getField(existingFieldName.name());
-                cardData.put(existingFieldName, field.get(loyaltyCard));
-            } catch (NoSuchFieldException | IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        cardData.put(fieldName, value);
-
         return new LoyaltyCard(
-                (int) cardData.get(LoyaltyCardField.id),
-                (String) cardData.get(LoyaltyCardField.store),
-                (String) cardData.get(LoyaltyCardField.note),
-                (Date) cardData.get(LoyaltyCardField.expiry),
-                (BigDecimal) cardData.get(LoyaltyCardField.balance),
-                (Currency) cardData.get(LoyaltyCardField.balanceType),
-                (String) cardData.get(LoyaltyCardField.cardId),
-                (String) cardData.get(LoyaltyCardField.barcodeId),
-                (BarcodeFormat) cardData.get(LoyaltyCardField.barcodeType),
-                (Integer) cardData.get(LoyaltyCardField.headerColor),
-                (int) cardData.get(LoyaltyCardField.starStatus)
+                (int) (fieldName == LoyaltyCardField.id ? value : loyaltyCard.id),
+                (String) (fieldName == LoyaltyCardField.store ? value : loyaltyCard.store),
+                (String) (fieldName == LoyaltyCardField.note ? value : loyaltyCard.note),
+                (Date) (fieldName == LoyaltyCardField.expiry ? value : loyaltyCard.expiry),
+                (BigDecimal) (fieldName == LoyaltyCardField.balance ? value : loyaltyCard.balance),
+                (Currency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
+                (String) (fieldName == LoyaltyCardField.cardId ? value : loyaltyCard.cardId),
+                (String) (fieldName == LoyaltyCardField.barcodeId ? value : loyaltyCard.barcodeId),
+                (BarcodeFormat) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
+                (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
+                (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus)
         );
     }
 

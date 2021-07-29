@@ -151,7 +151,7 @@
     <string name="action_search">Пошук</string>
     <string name="turn_flashlight_off">Вимкнути спалах</string>
     <string name="turn_flashlight_on">Увімкнути спалах</string>
-    <string name="failedGeneratingShareURL">Збій створення URL обміну. Будь ласка повідомте про цю помилку!</string>
+    <string name="failedGeneratingShareURL">Збій створення URL обміну. Будь ласка повідомте про цю помилку.</string>
     <string name="passwordRequired">Будь ласка введіть пароль</string>
     <string name="takePhoto">Зробити фото</string>
     <string name="removeImage">Видалити зображення</string>
@@ -168,5 +168,17 @@
         <item quantity="few">Обрано: <xliff:g>%d</xliff:g> карти</item>
         <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карт</item>
         <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карт</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Видалити карту назавжди\?</item>
+        <item quantity="few">Видалити ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="many">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
+        <item quantity="other">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Видалити карту</item>
+        <item quantity="few">Видалити карти</item>
+        <item quantity="many">Видалити карт</item>
+        <item quantity="other">Видалити карт</item>
     </plurals>
 </resources>

@@ -165,7 +165,7 @@
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Slett dette kortet for godt\?</item>
-        <item quantity="other">Slett disse &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; kortene for godt\?</item>
+        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>

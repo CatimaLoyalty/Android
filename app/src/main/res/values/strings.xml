@@ -29,14 +29,22 @@
     <string name="confirm">Confirm</string>
     <string name="lockScreen">Block Rotation</string>
     <string name="unlockScreen">Unblock Rotation</string>
+    <!-- START NOTE: i18n oddness -->
+    <!-- The following may seem weird, but it is necessary to give translators enough flexibility.
+         For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
+         So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
+         In Catima, we use the plain string when meaning exactly 1, and otherwise use the plural forms -->
+    <string name="deleteTitle">Delete Card</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Delete Card</item>
         <item quantity="other">Delete Cards</item>
     </plurals>
+    <string name="deleteConfirmation">Delete this card permanently?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Delete this card permanently?</item>
+        <item quantity="one">Delete this one card permanently?</item>
         <item quantity="other">Delete these <xliff:g>%d</xliff:g> cards permanently?</item>
     </plurals>
+    <!-- END NOTE: i18n oddness -->
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>

@@ -81,4 +81,6 @@
     <string name="star">Dodaj do ulubionych</string>
     <string name="noBarcode">Brak kodu kreskowego</string>
     <string name="barcodeType">Typ kodu kreskowego</string>
+    <string name="deleteTitle">Usuń kartę lojalnościową</string>
+    <string name="deleteConfirmation">Potwierdź, że chcesz usunąć tę kartę.</string>
 </resources>

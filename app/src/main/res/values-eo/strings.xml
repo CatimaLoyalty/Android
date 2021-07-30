@@ -50,4 +50,6 @@
     <string name="cancel">Nuligi</string>
     <string name="action_add">Aldoni</string>
     <string name="action_search">Serĉi</string>
+    <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
+    <string name="deleteTitle">Forigi karton</string>
 </resources>

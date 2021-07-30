@@ -141,4 +141,6 @@
     <string name="noGiftCards">点击 \"+\"加号按钮来添加卡片，或者先从⋮菜单中导入一些。</string>
     <string name="action_add">添加</string>
     <string name="action_search">搜索</string>
+    <string name="deleteConfirmation">删除此卡？</string>
+    <string name="deleteTitle">移除卡片</string>
 </resources>

@@ -165,12 +165,14 @@
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
     <string name="card_ids_copied">[не превеждай този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
     <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
-    <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Желаете ли картата да бъде премахната\?</item>
-        <item quantity="other">Желаете ли <xliff:g>%d</xliff:g> картати да бъдат премахнати\?</item>
-    </plurals>
+    <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Премахване на карта</item>
         <item quantity="other">Премахване на карти</item>
+    </plurals>
+    <string name="deleteConfirmation">Потвърдете премахване на карта</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Желаете ли картата да бъде премахната\?</item>
+        <item quantity="other">Желаете ли <xliff:g>%d</xliff:g> картати да бъдат премахнати\?</item>
     </plurals>
 </resources>

@@ -167,4 +167,6 @@
         <item quantity="few">Pasirinktos: <xliff:g>%d</xliff:g> kortelės</item>
         <item quantity="other">Pasirinkta: <xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
+    <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
+    <string name="deleteConfirmation">Ištrinti šią kortelę\?</string>
 </resources>

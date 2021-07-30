@@ -1046,8 +1046,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
             case R.id.action_delete:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, 1));
-                builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, 1, 1));
+                builder.setTitle(R.string.deleteTitle);
+                builder.setMessage(R.string.deleteConfirmation);
                 builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
                     Log.e(TAG, "Deleting card: " + loyaltyCardId);
 

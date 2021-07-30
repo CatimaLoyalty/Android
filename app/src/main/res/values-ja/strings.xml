@@ -163,4 +163,6 @@
     <plurals name="selectedCardCount">
         <item quantity="other">選択済み: <xliff:g>%d</xliff:g> 枚</item>
     </plurals>
+    <string name="deleteConfirmation">このカードを削除しますか？</string>
+    <string name="deleteTitle">カードの削除</string>
 </resources>

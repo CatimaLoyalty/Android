@@ -165,4 +165,6 @@
         <item quantity="one">Ausgewählt: <xliff:g>%d</xliff:g> Karte</item>
         <item quantity="other">Ausgewählt: <xliff:g>%d</xliff:g> Karten</item>
     </plurals>
+    <string name="deleteTitle">Karte entfernen</string>
+    <string name="deleteConfirmation">Diese Karte löschen\?</string>
 </resources>

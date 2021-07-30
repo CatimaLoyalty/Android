@@ -76,4 +76,6 @@
     <string name="starImage">즐겨찾기 별</string>
     <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
     <string name="barcode">바코드</string>
+    <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
+    <string name="deleteTitle">카드 제거</string>
 </resources>

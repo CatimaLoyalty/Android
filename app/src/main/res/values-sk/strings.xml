@@ -62,4 +62,6 @@
     <string name="settings_category_title_ui">Používateľské prostredie</string>
     <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
     <string name="settings_lock_barcode_orientation">Uzamkni orientáciu čiarového kódu</string>
-    </resources>
+    <string name="deleteTitle">Odstrániť kartu</string>
+    <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
+</resources>

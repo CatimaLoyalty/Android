@@ -163,12 +163,14 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
     </plurals>
+    <string name="deleteConfirmation">Slett dette kortet\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Slett dette kortet for godt\?</item>
         <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>
+    <string name="deleteTitle">Fjern kundekort</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Slett kort</item>
         <item quantity="other">Slett kort</item>

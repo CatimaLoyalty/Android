@@ -169,16 +169,18 @@
         <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карт</item>
         <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карт</item>
     </plurals>
-    <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Видалити карту назавжди\?</item>
-        <item quantity="few">Видалити ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
-        <item quantity="many">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
-        <item quantity="other">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
-    </plurals>
+    <string name="deleteTitle">Видалити карту</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Видалити карту</item>
         <item quantity="few">Видалити карти</item>
         <item quantity="many">Видалити карт</item>
         <item quantity="other">Видалити карт</item>
+    </plurals>
+    <string name="deleteConfirmation">Бажаєте видалити карту\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Видалити карту назавжди\?</item>
+        <item quantity="few">Видалити ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="many">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
+        <item quantity="other">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
     </plurals>
 </resources>

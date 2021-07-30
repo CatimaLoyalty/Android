@@ -49,4 +49,7 @@
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
     <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
 
+    <string name="deleteTitle">Odstzranit věrnostní kartu</string>
+    <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
+
     </resources>

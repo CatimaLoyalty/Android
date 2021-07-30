@@ -117,8 +117,18 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 return true;
             } else if(inputItem.getItemId() == R.id.action_delete) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount()));
-                builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
+                // The following may seem weird, but it is necessary to give translators enough flexibility.
+                // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
+                // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
+                // In here, we use the plain string when meaning exactly 1, and otherwise use the plural forms
+                if (mAdapter.getSelectedItemCount() == 1) {
+                    builder.setTitle(R.string.deleteTitle);
+                    builder.setMessage(R.string.deleteConfirmation);
+                } else {
+                    builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount()));
+                    builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
+                }
+
                 builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
                     DBHelper db = new DBHelper(MainActivity.this);
 

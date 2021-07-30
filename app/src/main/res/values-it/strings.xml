@@ -165,4 +165,6 @@
         <item quantity="one">Selezionata: <xliff:g>%d</xliff:g> carta</item>
         <item quantity="other">Selezionate: <xliff:g>%d</xliff:g> carte</item>
     </plurals>
+    <string name="deleteTitle">Rimuovi carta fedeltà</string>
+    <string name="deleteConfirmation">Eliminare questa carta\?</string>
 </resources>

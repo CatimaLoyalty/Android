@@ -154,4 +154,6 @@
     <string name="photos">Valokuvat</string>
     <string name="backImageDescription">Kortin takakuva</string>
     <string name="frontImageDescription">Kortin etukuva</string>
+    <string name="deleteConfirmation">Poista tämä kortti\?</string>
+    <string name="deleteTitle">Poista kortti</string>
 </resources>

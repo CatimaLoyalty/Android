@@ -56,4 +56,6 @@
     <string name="settings_light_theme">Φωτεινό</string>
     <string name="settings_system_theme">Σύστημα</string>
     <string name="barcode">Γραμμικός κώδικας</string>
+    <string name="deleteTitle">Αφαίρεση Κάρτας</string>
+    <string name="deleteConfirmation">Παρακαλώ επιβεβαιώστε ότι θέλετε να διαγράψετε αυτή την κάρτα.</string>
 </resources>

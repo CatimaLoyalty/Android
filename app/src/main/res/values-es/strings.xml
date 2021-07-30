@@ -165,4 +165,6 @@
         <item quantity="one">Seleccionadas: <xliff:g>%d</xliff:g> tarjeta</item>
         <item quantity="other">Seleccionadas: <xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
+    <string name="deleteTitle">Eliminar tarjeta</string>
+    <string name="deleteConfirmation">¿Quiere eliminar esta tarjeta\?</string>
 </resources>

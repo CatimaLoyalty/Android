@@ -144,8 +144,8 @@
     <string name="unlockScreen">Разрешава автоматичното завъртане</string>
     <string name="lockScreen">Спира автоматичното завъртане</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Избрана <xliff:g>%d</xliff:g> карта</item>
-        <item quantity="other">Избрани <xliff:g>%d</xliff:g> карти</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> избрана карта</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> избрани карти</item>
     </plurals>
     <string name="deleteConfirmationGroup">Изтриване на група\?</string>
     <string name="moveDown">Преместване надолу</string>
@@ -164,5 +164,13 @@
 \nИли създайте такъв файл от меню Внасяне/изнасяне от друго устройство със Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
     <string name="card_ids_copied">[не превеждай този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
-    <string name="failedGeneratingShareURL">Неуспешно генериране на адрес за споделяне. Докладвайте за тази грешка!</string>
+    <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Желаете ли картата да бъде премахната\?</item>
+        <item quantity="other">Желаете ли <xliff:g>%d</xliff:g> картати да бъдат премахнати\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Премахване на карта</item>
+        <item quantity="other">Премахване на карти</item>
+    </plurals>
 </resources>

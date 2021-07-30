@@ -41,7 +41,7 @@
     </plurals>
     <string name="deleteConfirmation">Delete this card permanently?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Delete this one card permanently?</item>
+        <item quantity="one">Delete this <xliff:g>%d</xliff:g> card permanently?</item>
         <item quantity="other">Delete these <xliff:g>%d</xliff:g> cards permanently?</item>
     </plurals>
     <!-- END NOTE: i18n oddness -->

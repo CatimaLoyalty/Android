@@ -165,7 +165,6 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kaart geselecteerd</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kaarten geselecteerd</item>
     </plurals>
-
     <string name="deleteTitle">Kaart verwijderen</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Kaart verwijderen</item>
@@ -173,7 +172,7 @@
     </plurals>
     <string name="deleteConfirmation">Kaart verwijderen\?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Weet je zeker dat je deze kaart wilt verwijderen\?</item>
+        <item quantity="one">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaart wilt verwijderen\?</item>
         <item quantity="other">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaarten wilt verwijderen\?</item>
     </plurals>
 </resources>

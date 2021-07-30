@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     protected int selectedTab = 0;
     private RecyclerView mCardList;
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
         @Override
@@ -176,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     protected void onCreate(Bundle inputSavedInstanceState)
     {
         super.onCreate(inputSavedInstanceState);
+        setTitle(R.string.app_name);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

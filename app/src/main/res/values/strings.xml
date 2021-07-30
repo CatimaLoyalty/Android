@@ -213,4 +213,7 @@
     <string name="failedGeneratingShareURL">Could not generate sharable URL. Please report this.</string>
     <string name="turn_flashlight_on">Turn flashlight on</string>
     <string name="turn_flashlight_off">Turn flashlight off</string>
+    <string name="settings_locale">Language</string>
+    <string name="settings_key_locale" translatable="false">pref_locale</string>
+    <string name="settings_system_locale">System</string>
 </resources>

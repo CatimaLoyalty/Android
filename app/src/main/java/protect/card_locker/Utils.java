@@ -3,11 +3,15 @@ package protect.card_locker;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.os.Build;
+import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
@@ -32,8 +36,10 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 import androidx.core.graphics.ColorUtils;
+import protect.card_locker.preferences.Settings;
 
 public class Utils {
     private static final String TAG = "Catima";
@@ -342,5 +348,36 @@ public class Utils {
 
     static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
         return hashmapGetOrDefault(hashMap, key, defaultValue, String.class);
+    }
+
+    static public Locale stringToLocale(String localeString) {
+        String[] localeParts = localeString.split("-");
+        if (localeParts.length == 1) {
+            return new Locale(localeParts[0]);
+        }
+
+        if (localeParts[1].startsWith("r")) {
+            localeParts[1] = localeParts[1].substring(1);
+        }
+        return new Locale(localeParts[0], localeParts[1]);
+    }
+
+    static public Context updateBaseContextLocale(Context context) {
+        Settings settings = new Settings(context);
+
+        Locale chosenLocale = settings.getLocale();
+
+        Resources res = context.getResources();
+        Configuration configuration = res.getConfiguration();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
+            res.updateConfiguration(configuration, res.getDisplayMetrics());
+            return context;
+        }
+
+        LocaleList localeList = chosenLocale != null ? new LocaleList(chosenLocale) : LocaleList.getDefault();
+        LocaleList.setDefault(localeList);
+        configuration.setLocales(localeList);
+        return context.createConfigurationContext(configuration);
     }
 }

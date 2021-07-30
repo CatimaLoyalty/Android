@@ -136,6 +136,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     LoyaltyCard tempLoyaltyCard;
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
         return new LoyaltyCard(
                 (int) (fieldName == LoyaltyCardField.id ? value : loyaltyCard.id),

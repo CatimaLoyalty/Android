@@ -1,25 +1,44 @@
 package protect.card_locker.preferences;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+
+import com.journeyapps.barcodescanner.Util;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
+import protect.card_locker.MainActivity;
 import protect.card_locker.R;
+import protect.card_locker.Utils;
 
 public class SettingsActivity extends AppCompatActivity
 {
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.settings);
         setContentView(R.layout.settings_activity);
 
         ActionBar actionBar = getSupportActionBar();
@@ -57,6 +76,21 @@ public class SettingsActivity extends AppCompatActivity
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
 
+            // Show pretty names
+            ListPreference localePreference = findPreference(getResources().getString(R.string.settings_key_locale));
+            CharSequence[] entryValues = localePreference.getEntryValues();
+            List<CharSequence> entries = new ArrayList<>();
+            for (CharSequence entry : entryValues) {
+                if (entry.length() == 0) {
+                    entries.add(getResources().getString(R.string.settings_system_locale));
+                } else {
+                    Locale entryLocale = Utils.stringToLocale(entry.toString());
+                    entries.add(entryLocale.getDisplayName(entryLocale));
+                }
+            }
+
+            localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
+
             Preference themePreference = findPreference(getResources().getString(R.string.settings_key_theme));
             assert themePreference != null;
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
@@ -64,17 +98,14 @@ public class SettingsActivity extends AppCompatActivity
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o)
                 {
-                    if(o.toString().equals(getResources().getString(R.string.settings_key_light_theme)))
-                    {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    }
-                    else if(o.toString().equals(getResources().getString(R.string.settings_key_dark_theme)))
-                    {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    }
-                    else
-                    {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                    if (preference.getKey().equals(getResources().getString(R.string.settings_key_theme))) {
+                        if (o.toString().equals(getResources().getString(R.string.settings_key_light_theme))) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        } else if (o.toString().equals(getResources().getString(R.string.settings_key_dark_theme))) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        } else {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                        }
                     }
 
                     FragmentActivity activity = getActivity();

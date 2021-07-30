@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -49,9 +50,15 @@ public class ImportExportActivity extends AppCompatActivity
     private DataFormat importDataFormat;
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.importExport);
         setContentView(R.layout.import_export_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

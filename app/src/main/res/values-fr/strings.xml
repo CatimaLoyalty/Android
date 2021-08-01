@@ -171,8 +171,4 @@
         <item quantity="one">Supprimer cette <xliff:g>%d</xliff:g> carte définitivement \?</item>
         <item quantity="other">Supprimer ces <xliff:g>%d</xliff:g> cartes définitivement \?</item>
     </plurals>
-    <plurals name="deleteCardsTitle">
-        <item quantity="one">Supprimer la carte</item>
-        <item quantity="other">Supprimer les cartes</item>
-    </plurals>
 </resources>

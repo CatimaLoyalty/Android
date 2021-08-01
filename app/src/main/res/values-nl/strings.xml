@@ -167,8 +167,8 @@
     </plurals>
     <string name="deleteTitle">Kaart verwijderen</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Kaart verwijderen</item>
-        <item quantity="other">Kaarten verwijderen</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> kaart verwijderen</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kaarten verwijderen</item>
     </plurals>
     <string name="deleteConfirmation">Kaart verwijderen\?</string>
     <plurals name="deleteCardsConfirmation">

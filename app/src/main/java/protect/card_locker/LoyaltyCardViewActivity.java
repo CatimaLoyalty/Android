@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -32,6 +33,7 @@ import com.google.zxing.BarcodeFormat;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -380,14 +382,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
 
         if(loyaltyCardGroups.size() > 0) {
-            StringBuilder groupsString = new StringBuilder();
+            List<String> groupNames = new ArrayList<>();
             for (Group group : loyaltyCardGroups) {
-                groupsString.append(group._id);
-                groupsString.append(" ");
+                groupNames.add(group._id);
             }
 
             groupsView.setVisibility(View.VISIBLE);
-            groupsView.setText(getString(R.string.groupsList, groupsString.toString()));
+            groupsView.setText(getString(R.string.groupsList, TextUtils.join(", ", groupNames)));
             groupsView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
         }
         else

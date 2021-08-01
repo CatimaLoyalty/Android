@@ -34,10 +34,10 @@
          For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
          So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
          In Catima, we use the plain string when meaning exactly 1, and otherwise use the plural forms -->
-    <string name="deleteTitle">Delete Card</string>
+    <string name="deleteTitle">Delete card</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Delete Card</item>
-        <item quantity="other">Delete Cards</item>
+        <item quantity="one">Delete <xliff:g>%d</xliff:g> card</item>
+        <item quantity="other">Delete <xliff:g>%d</xliff:g> cards</item>
     </plurals>
     <string name="deleteConfirmation">Delete this card permanently?</string>
     <plurals name="deleteCardsConfirmation">

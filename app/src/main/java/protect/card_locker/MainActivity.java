@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                     builder.setTitle(R.string.deleteTitle);
                     builder.setMessage(R.string.deleteConfirmation);
                 } else {
-                    builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount()));
+                    builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
                     builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
                 }
 

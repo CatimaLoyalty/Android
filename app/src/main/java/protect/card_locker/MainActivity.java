@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
 
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("id", mAdapter.getSelectedItems().get(0).id);
-                bundle.putBoolean("update", true);
+                bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ID, mAdapter.getSelectedItems().get(0).id);
+                bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 inputMode.finish();
@@ -306,8 +306,13 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> {
-            Intent i = new Intent(getApplicationContext(), ScanActivity.class);
-            startActivityForResult(i, Utils.BARCODE_SCAN);
+            Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
+            Bundle bundle = new Bundle();
+            if (selectedTab != 0) {
+                bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupsTabLayout.getTabAt(selectedTab).getText().toString());
+            }
+            intent.putExtras(bundle);
+            startActivityForResult(intent, Utils.BARCODE_SCAN);
         });
         addButton.bringToFront();
     }
@@ -335,8 +340,12 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         if(!barcodeValues.isEmpty()) {
             Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle newBundle = new Bundle();
-            newBundle.putString("barcodeType", barcodeValues.format());
-            newBundle.putString("cardId", barcodeValues.content());
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+            Bundle inputBundle = intent.getExtras();
+            if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
+                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
+            }
             newIntent.putExtras(newBundle);
             startActivity(newIntent);
         }

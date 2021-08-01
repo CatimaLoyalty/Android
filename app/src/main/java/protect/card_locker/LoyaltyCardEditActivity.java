@@ -87,6 +87,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
 
+    public static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_UPDATE = "update";
+    public static final String BUNDLE_CARDID = "cardId";
+    public static final String BUNDLE_BARCODEID = "barcodeId";
+    public static final String BUNDLE_BARCODETYPE = "barcodeType";
+    public static final String BUNDLE_ADDGROUP = "addGroup";
+
     TabLayout tabs;
 
     ImageView thumbnail;
@@ -114,9 +121,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     String cardId;
     String barcodeId;
     String barcodeType;
+    String addGroup;
 
     Uri importLoyaltyCardUri = null;
-    Integer headingColorValue = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -161,12 +168,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        loyaltyCardId = b != null ? b.getInt("id") : 0;
-        updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
+        updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
 
-        cardId = b != null ? b.getString("cardId") : null;
-        barcodeId = b != null ? b.getString("barcodeId") : null;
-        barcodeType = b != null ? b.getString("barcodeType") : null;
+        cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
+        barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
+        barcodeType = b != null ? b.getString(BUNDLE_BARCODETYPE) : null;
+        addGroup = b != null ? b.getString(BUNDLE_ADDGROUP) : null;
 
         importLoyaltyCardUri = intent.getData();
 
@@ -597,13 +605,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 chip.setText(group._id);
                 chip.setTag(group);
 
-                chip.setChecked(false);
-                for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                    if (loyaltyCardGroup._id.equals(group._id)) {
-                        chip.setChecked(true);
-                        break;
+                if (group._id.equals(addGroup)) {
+                    chip.setChecked(true);
+                } else {
+                    chip.setChecked(false);
+                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                        if (loyaltyCardGroup._id.equals(group._id)) {
+                            chip.setChecked(true);
+                            break;
+                        }
                     }
                 }
+
                 chip.setOnTouchListener((v, event) -> {
                     hasChanged = true;
 
@@ -824,7 +837,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             Intent i = new Intent(getApplicationContext(), ScanActivity.class);
             final Bundle b = new Bundle();
-            b.putString("cardId", cardIdFieldView.getText().toString());
+            b.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, cardIdFieldView.getText().toString());
             i.putExtras(b);
             startActivityForResult(i, Utils.BARCODE_SCAN);
         }

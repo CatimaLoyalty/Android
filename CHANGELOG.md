@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Make links in notes clickable
+
 ## v2.1.0 (2021-08-01)
 
 Changes:

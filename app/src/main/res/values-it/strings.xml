@@ -160,11 +160,19 @@
     <string name="importStocard">Importa da Stocard</string>
     <string name="turn_flashlight_off">Spegni la torcia</string>
     <string name="turn_flashlight_on">Accendi la torcia</string>
-    <string name="failedGeneratingShareURL">Impossibile generare l\'URL di condivisione. Si prega di segnalare questo errore!</string>
+    <string name="failedGeneratingShareURL">Impossibile generare un URL condivisibile. Si prega di segnalarlo.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Selezionata: <xliff:g>%d</xliff:g> carta</item>
-        <item quantity="other">Selezionate: <xliff:g>%d</xliff:g> carte</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> carta selezionata</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> carte selezionate</item>
     </plurals>
     <string name="deleteTitle">Rimuovi carta fedeltà</string>
     <string name="deleteConfirmation">Eliminare questa carta\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Eliminare definitivamente questa scheda <xliff:g>%d</xliff:g>\?</item>
+        <item quantity="other">Eliminare definitivamente queste schede <xliff:g>%d</xliff:g>\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Elimina la carta</item>
+        <item quantity="other">Elimina le carte</item>
+    </plurals>
 </resources>

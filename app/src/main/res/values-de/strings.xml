@@ -160,11 +160,19 @@
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Taschenlampe ausschalten</string>
     <string name="turn_flashlight_on">Taschenlampe einschalten</string>
-    <string name="failedGeneratingShareURL">Fehler beim Generieren der Freigabe-URL. Bitte melden Sie diesen Fehler!</string>
+    <string name="failedGeneratingShareURL">Keine teilbare URL konnte generiert werden. Bitte melden Sie dies.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Ausgewählt: <xliff:g>%d</xliff:g> Karte</item>
-        <item quantity="other">Ausgewählt: <xliff:g>%d</xliff:g> Karten</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> Karte ausgewählt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> Karten ausgewählt</item>
     </plurals>
     <string name="deleteTitle">Karte entfernen</string>
     <string name="deleteConfirmation">Diese Karte löschen\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Diese <xliff:g>%d</xliff:g> Karte endgültig löschen\?</item>
+        <item quantity="other">Diese <xliff:g>%d</xliff:g> Karten endgültig löschen\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Karte löschen</item>
+        <item quantity="other">Karten löschen</item>
+    </plurals>
 </resources>

@@ -7,6 +7,7 @@ Changes:
 - Make links in notes clickable
 - Pre-select group the user is currently in when creating a new card
 - Comma-separate group names in loyalty card view
+- Fix maximize button appearing on no barcode
 
 ## v2.1.0 (2021-08-01)
 

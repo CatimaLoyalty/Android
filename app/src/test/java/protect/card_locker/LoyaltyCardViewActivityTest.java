@@ -1342,6 +1342,50 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
+    public void checkNoBarcodeFullscreenWorkflow()
+    {
+        ActivityController activityController = createActivityWithLoyaltyCard(false);
+
+        Activity activity = (Activity)activityController.get();
+        DBHelper db = TestHelpers.getEmptyDb(activity);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0);
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        assertEquals(false, activity.isFinishing());
+
+        ImageView barcodeImage = activity.findViewById(R.id.barcode);
+        View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
+        View bottomSheet = activity.findViewById(R.id.bottom_sheet);
+        ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
+        ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
+        FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
+        SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
+
+        // Android should not be in fullscreen mode
+        int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
+        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        // Elements should be visible (except minimize/maximize buttons and barcode and scaler)
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
+        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.GONE, maximizeButton.getVisibility());
+        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, editButton.getVisibility());
+        assertEquals(View.GONE, barcodeScaler.getVisibility());
+
+        // Pressing back when not in full screen should finish activity
+        activity.onBackPressed();
+        shadowOf(getMainLooper()).idle();
+        assertEquals(true, activity.isFinishing());
+
+        db.close();
+    }
+
+    @Test
     public void importCard()
     {
         Date date = new Date();

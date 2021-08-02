@@ -172,7 +172,7 @@
         <item quantity="other">Diese <xliff:g>%d</xliff:g> Karten endgültig löschen\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Karte löschen</item>
-        <item quantity="other">Karten löschen</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> Karte löschen</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> Karten löschen</item>
     </plurals>
 </resources>

@@ -74,9 +74,9 @@ android {
 
 dependencies {
 // AndroidX
-    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.4.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
@@ -95,7 +95,7 @@ dependencies {
 // Testing
     testImplementation 'androidx.test:core:1.4.0'
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'org.robolectric:robolectric:4.6.1'
 }
 
 tasks.withType(SpotBugsTask) {

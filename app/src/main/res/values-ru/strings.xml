@@ -177,4 +177,10 @@
         <item quantity="many">Удалить эти <xliff:g>%d</xliff:g> карт безвозвратно\?</item>
         <item quantity="other">Удалить эти <xliff:g>%d</xliff:g> карт безвозвратно\?</item>
     </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Удаление <xliff:g>%d</xliff:g> карты</item>
+        <item quantity="few">Удаление <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="many">Удаление <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="other">Удаление <xliff:g>%d</xliff:g> карт</item>
+    </plurals>
 </resources>

@@ -60,6 +60,9 @@ public class ScanActivity extends AppCompatActivity {
 
         extractIntentFields(getIntent());
 
+        findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
+        findViewById(R.id.add_manually).setOnClickListener(this::addManually);
+
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
 
         // Even though we do the actual decoding with the barcodeScannerView

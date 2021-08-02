@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:baselineAligned="false"
     android:padding="@dimen/activity_margin">
@@ -44,8 +44,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
             android:contentDescription="@string/moveUp"
-            app:tint="@color/iconColor"
-            android:onClick="moveGroupUp"/>
+            app:tint="@color/iconColor"/>
 
         <ImageButton
             android:id="@+id/moveDown"
@@ -54,8 +53,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
             android:contentDescription="@string/moveDown"
-            app:tint="@color/iconColor"
-            android:onClick="moveGroupDown"/>
+            app:tint="@color/iconColor"/>
 
         <ImageButton
             android:id="@+id/edit"
@@ -64,8 +62,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_mode_edit_white_24dp"
             android:contentDescription="@string/edit"
-            app:tint="@color/iconColor"
-            android:onClick="editGroup" />
+            app:tint="@color/iconColor"/>
 
         <ImageButton
             android:id="@+id/delete"
@@ -74,8 +71,7 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_delete_white_24dp"
             android:contentDescription="@string/delete"
-            app:tint="@color/iconColor"
-            android:onClick="deleteGroup"/>
+            app:tint="@color/iconColor"/>
 
     </LinearLayout>
 

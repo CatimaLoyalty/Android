@@ -111,53 +111,20 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
     {
-        inputHolder.mThumbnailContainer.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View inputView)
-            {
-                mListener.onIconClicked(inputPosition);
-            }
+        inputHolder.mThumbnailContainer.setOnClickListener(inputView -> mListener.onIconClicked(inputPosition));
+        inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
+        inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
+
+        inputHolder.mRow.setOnLongClickListener(inputView -> {
+            mListener.onRowLongClicked(inputPosition);
+            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+            return true;
         });
 
-        inputHolder.mRow.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View inputView)
-            {
-                mListener.onRowClicked(inputPosition);
-            }
-        });
-
-        inputHolder.mInformationContainer.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View inputView)
-            {
-                mListener.onRowClicked(inputPosition);
-            }
-        });
-
-        inputHolder.mRow.setOnLongClickListener(new View.OnLongClickListener()
-        {
-            @Override
-            public boolean onLongClick(View inputView)
-            {
-                mListener.onRowLongClicked(inputPosition);
-                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                return true;
-            }
-        });
-
-        inputHolder.mInformationContainer.setOnLongClickListener(new View.OnLongClickListener()
-        {
-            @Override
-            public boolean onLongClick(View inputView)
-            {
-                mListener.onRowLongClicked(inputPosition);
-                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                return true;
-            }
+        inputHolder.mInformationContainer.setOnLongClickListener(inputView -> {
+            mListener.onRowLongClicked(inputPosition);
+            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+            return true;
         });
     }
 

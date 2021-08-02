@@ -754,6 +754,9 @@ public class DBHelper extends SQLiteOpenHelper
             db.endTransaction();
         }
 
+        // Reorder after delete to ensure no bad order IDs
+        reorderGroups(getGroups());
+
         return success;
     }
 

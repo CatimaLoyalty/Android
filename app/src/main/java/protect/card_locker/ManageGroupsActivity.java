@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,12 +23,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupsActivity extends AppCompatActivity
+public class ManageGroupsActivity extends AppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
 {
     private static final String TAG = "Catima";
 
-    private final DBHelper db = new DBHelper(this);
+    private final DBHelper mDb = new DBHelper(this);
+    GroupCursorAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -63,25 +68,27 @@ public class ManageGroupsActivity extends AppCompatActivity
 
     private void updateGroupList()
     {
-        final ListView groupList = findViewById(R.id.list);
+        final RecyclerView groupList = findViewById(R.id.list);
         final TextView helpText = findViewById(R.id.helpText);
-        final DBHelper db = new DBHelper(this);
 
-        if(db.getGroupCount() > 0)
-        {
-            groupList.setVisibility(View.VISIBLE);
-            helpText.setVisibility(View.GONE);
-        }
-        else
-        {
+        if (mDb.getGroupCount() == 0) {
             groupList.setVisibility(View.GONE);
             helpText.setVisibility(View.VISIBLE);
+
+            return;
         }
 
-        Cursor groupCursor = db.getGroupCursor();
+        groupList.setVisibility(View.VISIBLE);
+        helpText.setVisibility(View.GONE);
 
-        final GroupCursorAdapter adapter = new GroupCursorAdapter(this, groupCursor);
-        groupList.setAdapter(adapter);
+        Cursor groupCursor = mDb.getGroupCursor();
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        groupList.setLayoutManager(mLayoutManager);
+        groupList.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new GroupCursorAdapter(this, groupCursor, this);
+        groupList.setAdapter(mAdapter);
 
         registerForContextMenu(groupList);
     }
@@ -108,69 +115,6 @@ public class ManageGroupsActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public void moveGroupUp(View view) {
-        moveGroup(view, true);
-    }
-
-    public void moveGroupDown(View view) {
-        moveGroup(view, false);
-    }
-
-    public void editGroup(View view) {
-        final String groupName = getGroupname(view);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.enter_group_name);
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setText(groupName);
-        builder.setView(input);
-
-        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                db.updateGroup(groupName, input.getText().toString());
-                updateGroupList();
-            }
-        });
-        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        input.requestFocus();
-    }
-
-    public void deleteGroup(View view) {
-        final String groupName = getGroupname(view);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.deleteConfirmationGroup);
-        builder.setMessage(groupName);
-
-        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                db.deleteGroup(groupName);
-                updateGroupList();
-                // Delete may change ordering, so invalidate
-                invalidateHomescreenActiveTab();
-            }
-        });
-        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
     private void createGroup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
@@ -178,51 +122,28 @@ public class ManageGroupsActivity extends AppCompatActivity
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                db.insertGroup(input.getText().toString());
-                updateGroupList();
-            }
+        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+            mDb.insertGroup(input.getText().toString());
+            updateGroupList();
         });
-        builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
         dialog.show();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         input.requestFocus();
     }
 
-    private String getGroupname(View view) {
-        LinearLayout parentRow = (LinearLayout) view.getParent().getParent();
-        TextView groupNameTextView = parentRow.findViewById(R.id.name);
+    private String getGroupName(View view) {
+        TextView groupNameTextView = view.findViewById(R.id.name);
         return (String) groupNameTextView.getText();
     }
 
     private void moveGroup(View view, boolean up) {
-        final String groupName = getGroupname(view);
+        List<Group> groups = mDb.getGroups();
+        final String groupName = getGroupName(view);
 
-        List<Group> groups = db.getGroups();
-
-        int currentIndex = -1;
-        Integer newIndex;
-
-        // Get current index in group list
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i)._id.equals(groupName)) {
-                currentIndex = i;
-
-                break;
-            }
-        }
-
-        if (currentIndex == -1) {
-            throw new IndexOutOfBoundsException();
-        }
+        int currentIndex = mDb.getGroup(groupName).order;
+        int newIndex;
 
         // Reinsert group in correct position
         if (up) {
@@ -240,12 +161,64 @@ public class ManageGroupsActivity extends AppCompatActivity
         groups.add(newIndex, group);
 
         // Update database
-        db.reorderGroups(groups);
+        mDb.reorderGroups(groups);
 
         // Update UI
-        updateGroupList();
+        mAdapter.notifyItemMoved(currentIndex, newIndex);
 
         // Ordering may have changed, so invalidate
         invalidateHomescreenActiveTab();
+    }
+
+    @Override
+    public void onMoveDownButtonClicked(View view) {
+        moveGroup(view, false);
+    }
+
+    @Override
+    public void onMoveUpButtonClicked(View view) {
+        moveGroup(view, true);
+    }
+
+    @Override
+    public void onEditButtonClicked(View view) {
+        final String groupName = getGroupName(view);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.enter_group_name);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(groupName);
+        builder.setView(input);
+
+        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+            String newGroupName = input.getText().toString();
+            mDb.updateGroup(groupName, newGroupName);
+            updateGroupList();
+        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
+    }
+
+    @Override
+    public void onDeleteButtonClicked(View view) {
+        final String groupName = getGroupName(view);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.deleteConfirmationGroup);
+        builder.setMessage(groupName);
+
+        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+            mDb.deleteGroup(groupName);
+            updateGroupList();
+            // Delete may change ordering, so invalidate
+            invalidateHomescreenActiveTab();
+        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

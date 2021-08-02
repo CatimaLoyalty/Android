@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import androidx.appcompat.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -43,7 +42,6 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
-import org.robolectric.shadows.ShadowAlertDialog;
 import org.robolectric.shadows.ShadowDialog;
 import org.robolectric.shadows.ShadowLog;
 
@@ -54,6 +52,7 @@ import java.text.ParseException;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.widget.TextViewCompat;
 import androidx.preference.PreferenceManager;
 

@@ -1,10 +1,8 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Přidat</string>
-
-    <string name="noGiftCards">ZAtím némáte žádné věrnostní karty. Klikněte na tlačítko "+" (plus) nahoře a začněte.\n\nLoyalty Card Locker umožňuje nosit své věrnostní karty v telefonu, takže jsou vždy na dosah.</string>
-    <string name="storeName">Obchod</string>
+    <string name="noGiftCards">Klepnutím na tlačítko + plus přidáte kartu nebo ji nejprve importujete z nabídky⋮.</string>
+    <string name="storeName">Název</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
     <string name="cancel">Zrušit</string>
@@ -14,42 +12,64 @@
     <string name="confirm">Potvrdit</string>
     <string name="ok">Ano</string>
     <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
-    <string name="sendLabel">Odeslat&#8230;</string>
+    <string name="sendLabel">Odeslat…</string>
     <string name="editCardTitle">Editovat věrnostní kartu</string>
     <string name="addCardTitle">Přidat věrnostní kartu</string>
-    <string name="scanCardBarcode">Oskenujte kód karty</string>
-    <string name="barcodeImageDescription">Obrázek kódu karty</string>
-
-    <string name="noStoreError">Nebyl zadán Obchod</string>
-    <string name="noCardIdError">Nebylo zadáno ID karty</string>
+    <string name="scanCardBarcode">Skenování Čárový Kód Karty</string>
+    <string name="barcodeImageDescription">Obrázek čárového kódu karty</string>
+    <string name="noStoreError">Zadáno žádné jméno</string>
+    <string name="noCardIdError">Žádné ID karty zadáno</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Zálohování dat vám umožní přesunout vaše uložené karty na jiné zařízení.</string>
-    <string name="importSuccessfulTitle">Import proběhl úspěšně</string>
+    <string name="importExportHelp">Zálohování karet vám umožní přesunout je do jiného zařízení.</string>
+    <string name="importSuccessfulTitle">Dovážit</string>
     <string name="importFailedTitle">Import selhal</string>
-    <string name="importFailed">Import selhal</string>
-    <string name="exportSuccessfulTitle">Export proběhl úspěšně</string>
+    <string name="importFailed">Nelze importovat karty</string>
+    <string name="exportSuccessfulTitle">Exportovat</string>
     <string name="exportFailedTitle">Export selhal</string>
-    <string name="exportFailed">Export selhal</string>
-    <string name="importing">Importuji&#8230;</string>
-    <string name="exporting">Exportuji&#8230;</string>
-    <string name="noExternalStoragePermissionError">Nelze importovat nebo exportovat karty bez přístupu k externímu uložišti</string>
+    <string name="exportFailed">Nelze exportovat karty</string>
+    <string name="importing">Importuji…</string>
+    <string name="exporting">Exportuji…</string>
+    <string name="noExternalStoragePermissionError">Udělit povolení externího úložiště pro import nebo export karet jako první</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
-    <string name="importOptionApplicationTitle">Použít externí aplikaci</string>
-    <string name="importOptionApplicationExplanation">K otevření souboru použije externí aplikaci jako Dropbox, Google Drive, nebo vámi preferovaný prohlížeč souborů.</string>
-    <string name="importOptionApplicationButton">Použít externí aplikaci</string>
-
+    <string name="importOptionApplicationTitle">Použijte jinou aplikaci</string>
+    <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
+    <string name="importOptionApplicationButton">Použijte jinou aplikaci</string>
     <string name="about">O aplikaci</string>
-    <string name="app_license">Licensed under the GPLv3.</string>
+    <string name="app_license">Copylefted libre software, licencovaný GPLv3+.</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revizní informace: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
-    <string name="copy_to_clipboard_toast">ID karty zkopírováno do schránky</string>
-
-    <string name="deleteTitle">Odstzranit věrnostní kartu</string>
+    <string name="copy_to_clipboard_toast">ID karty zkopírované do schránky</string>
+    <string name="deleteTitle">Smazat kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
-
-    </resources>
+    <string name="moveBarcodeToCenterOfScreen">Střed čárového kódu na obrazovce</string>
+    <string name="moveBarcodeToTopOfScreen">Přesuňte čárový kód do horní části obrazovky</string>
+    <string name="chooseExpiryDate">Zvolte datum vypršení platnosti</string>
+    <string name="never">Nikdy</string>
+    <string name="expiryDate">Platnost</string>
+    <string name="editBarcode">Upravit čárový kód</string>
+    <string name="barcode">Kód</string>
+    <string name="app_resources">Zdroje třetích stran Libre: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Libre knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_copyright_old">Na základě Loyalty Card Keychain
+\ncopyright © 2016–2020 Branden Archer.</string>
+    <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
+    <string name="failedParsingImportUriError">Nelze analyzovat import URI</string>
+    <string name="noCardExistsError">Nelze najít kartu</string>
+    <string name="noCardsMessage">Nejprve přidejte kartu</string>
+    <string name="cardShortcut">Zástupce Karty</string>
+    <string name="share">Podíl</string>
+    <string name="unlockScreen">Odblokovat Rotaci</string>
+    <string name="lockScreen">Otáčení Bloku</string>
+    <string name="unstar">Odebrat z oblíbených</string>
+    <string name="star">Přidat do oblíbených</string>
+    <string name="noBarcode">Žádný čárový kód</string>
+    <string name="barcodeNoBarcode">Tato karta nemá čárový kód</string>
+    <string name="barcodeType">Typ čárového kódu</string>
+    <string name="noMatchingGiftCards">Nic jsem nenašel. Zkuste změnit vyhledávání.</string>
+    <string name="action_search">Vyhledávání</string>
+</resources>

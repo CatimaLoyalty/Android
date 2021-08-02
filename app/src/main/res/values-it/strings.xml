@@ -165,14 +165,14 @@
         <item quantity="one"><xliff:g>%d</xliff:g> carta selezionata</item>
         <item quantity="other"><xliff:g>%d</xliff:g> carte selezionate</item>
     </plurals>
-    <string name="deleteTitle">Rimuovi carta fedeltà</string>
+    <string name="deleteTitle">Rimuovi la carta</string>
     <string name="deleteConfirmation">Eliminare questa carta\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Eliminare definitivamente questa scheda <xliff:g>%d</xliff:g>\?</item>
         <item quantity="other">Eliminare definitivamente queste schede <xliff:g>%d</xliff:g>\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Elimina la carta</item>
-        <item quantity="other">Elimina le carte</item>
+        <item quantity="one">Elimina <xliff:g>%d</xliff:g> carta</item>
+        <item quantity="other">Elimina <xliff:g>%d</xliff:g> carte</item>
     </plurals>
 </resources>

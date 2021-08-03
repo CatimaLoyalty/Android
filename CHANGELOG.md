@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Improve Stocard importer
+
 ## v2.2.0 (2021-08-02)
 
 Changes:

@@ -188,7 +188,7 @@
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Select your <i>LoyaltyCardKeychain.csv</i> export from Loyalty Card Keychain to import.\nOr create it from the "Import/Export" menu in Loyalty Card Keychain by pressing "Export" there first.</string>
     <string name="importStocard">Import from Stocard</string>
-    <string name="importStocardMessage">Select your <i>***-sync.zip</i> export from Stocard to import, and select the barcode types manually afterwards.\nOr get it by e-mailing support@stocardapp.com asking for an export of your data.</string>
+    <string name="importStocardMessage">Select your <i>***-sync.zip</i> export from Stocard to import.\nOr get it by e-mailing support@stocardapp.com asking for an export of your data.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Select your <i>vouchervault.json</i> export from Voucher Vault to import.\nOr create it by pressing "Export" in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>

@@ -9,20 +9,22 @@ import com.google.zxing.BarcodeFormat;
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
 
-import org.json.JSONArray;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.R;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
 
@@ -37,7 +39,25 @@ public class StocardImporter implements Importer
 {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
-        HashMap<String, String> providers = new HashMap<>();
+        HashMap<String, HashMap<String, String>> providers = new HashMap<>();
+
+        final CSVParser parser = new CSVParser(new InputStreamReader(context.getResources().openRawResource(R.raw.stocard_stores)), CSVFormat.RFC4180.withHeader());
+
+        try
+        {
+            for (CSVRecord record : parser)
+            {
+                HashMap<String, String> recordData = new HashMap<>();
+                recordData.put("name", record.get("name"));
+                recordData.put("barcodeFormat", record.get("barcodeFormat"));
+
+                providers.put(record.get("_id"), recordData);
+            }
+
+            parser.close();
+        } catch(IllegalArgumentException|IllegalStateException e) {
+            throw new FormatException("Issue parsing CSV data", e);
+        }
 
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
@@ -68,9 +88,7 @@ public class StocardImporter implements Importer
                 };
             }
 
-            if (startsWith(nameParts, providersFileName, 0) && !localFileHeader.isDirectory()) {
-                providers = parseProviders(zipInputStream);
-            } else if (startsWith(nameParts, cardBaseName, 1)) {
+            if (startsWith(nameParts, cardBaseName, 1)) {
                 // Extract cardName
                 cardName = nameParts[cardBaseName.length].split("\\.", 2)[0];
 
@@ -139,10 +157,13 @@ public class StocardImporter implements Importer
         database.beginTransaction();
 
         for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
-            String store = providers.get(loyaltyCardData.get("_providerId").toString());
+            String providerId = (String) loyaltyCardData.get("_providerId");
+            HashMap<String, String> providerData = providers.get(providerId);
+
+            String store = providerData != null ? providerData.get("name") : providerId;
             String note = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
-            String barcodeTypeString = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "barcodeType", null);
+            String barcodeTypeString = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
             BarcodeFormat barcodeType = null;
             if (barcodeTypeString != null) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
@@ -193,34 +214,5 @@ public class StocardImporter implements Importer
         loyaltyCardHashMap.put(cardID, loyaltyCardData);
 
         return loyaltyCardHashMap;
-    }
-
-    private HashMap<String, String> parseProviders(ZipInputStream zipInputStream) throws IOException, JSONException {
-        // FIXME: This is probably completely wrong, but it works for the one and only test file I have
-        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
-
-        JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
-        JSONArray providerList = jsonObject.getJSONArray("provider_list");
-
-        // Resort, put IDs with - in them after IDs without any -
-        List<String> providerIds = new ArrayList<>();
-        List<String> customProviderIds = new ArrayList<>();
-
-        for (int i = 0; i < providerIdList.length(); i++) {
-            String providerId = providerIdList.get(i).toString();
-            if (providerId.contains("-")) {
-                customProviderIds.add(providerId);
-            } else {
-                providerIds.add(providerId);
-            }
-        }
-        providerIds.addAll(customProviderIds);
-
-        HashMap<String, String> providers = new HashMap<>();
-        for (int i = 0; i < jsonObject.getInt("number_of_cards"); i++) {
-            providers.put(providerIds.get(i), providerList.get(i).toString());
-        }
-
-        return providers;
     }
 }

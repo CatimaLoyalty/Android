@@ -1197,7 +1197,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("55555", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(null, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, true));
@@ -1212,7 +1212,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("7649484", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(null, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, true)));
@@ -1220,7 +1220,8 @@ public class ImportExportTest
 
         card = db.getLoyaltyCard(3);
 
-        assertEquals("jö", card.store);
+        // I don't think we can know this one, but falling back to an unique store name is at least something
+        assertEquals("63536738-d64b-48ae-aeb8-82761523fa67", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);

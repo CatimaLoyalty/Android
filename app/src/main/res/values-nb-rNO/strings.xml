@@ -154,7 +154,7 @@
     <string name="photos">Bilder</string>
     <string name="backImageDescription">Kortets bakside</string>
     <string name="frontImageDescription">Kortets forside</string>
-    <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere, og velg strekkodetypene manuelt etterpå.
+    <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere.
 \nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
@@ -172,7 +172,7 @@
     <string name="turn_flashlight_off">Skru av lommelykten</string>
     <string name="deleteTitle">Fjern kundekort</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Slett kort</item>
-        <item quantity="other">Slett kort</item>
+        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
+        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
     </plurals>
 </resources>

@@ -156,7 +156,7 @@
     <string name="backImageDescription">Задняя сторона карты</string>
     <string name="frontImageDescription">Лицевая сторона карты</string>
     <string name="photos">Фотографии</string>
-    <string name="importStocardMessage">Выберите файл <i>***-sync.zip</i> для импортирования, а затем вручную укажите типы штрих-кодов.
+    <string name="importStocardMessage">Выберите файл <i>***-sync.zip</i> для импортирования.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>

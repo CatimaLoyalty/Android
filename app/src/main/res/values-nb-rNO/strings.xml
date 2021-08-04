@@ -172,7 +172,7 @@
     <string name="turn_flashlight_off">Skru av lommelykten</string>
     <string name="deleteTitle">Fjern kundekort</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Slett &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; kort</item>
-        <item quantity="other">Slett &lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; kort</item>
+        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
+        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
     </plurals>
 </resources>

@@ -25,6 +25,8 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
@@ -61,8 +63,8 @@ public class LoyaltyCardCursorAdapterTest
     {
         LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity);
 
-        RecyclerView.ViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
-        adapter.bindViewHolder((LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder) viewHolder, cursor.getPosition());
+        LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
+        adapter.bindViewHolder(viewHolder, cursor.getPosition());
 
         return viewHolder.itemView;
     }

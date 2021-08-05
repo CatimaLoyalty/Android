@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -47,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     protected String mFilter = "";
     protected int selectedTab = 0;
     private RecyclerView mCardList;
+    private View mHelpText;
+    private View mNoMatchingCardsText;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
@@ -180,8 +181,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateLoyaltyCardList(mFilter, null);
-
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -218,13 +217,24 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             }
         };
 
-        final View helpText = findViewById(R.id.helpText);
-        final View noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-        final View list = findViewById(R.id.list);
+        mHelpText = findViewById(R.id.helpText);
+        mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
+        mCardList = findViewById(R.id.list);
 
-        helpText.setOnTouchListener(gestureTouchListener);
-        noMatchingCardsText.setOnTouchListener(gestureTouchListener);
-        list.setOnTouchListener(gestureTouchListener);
+        mHelpText.setOnTouchListener(gestureTouchListener);
+        mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
+        mCardList.setOnTouchListener(gestureTouchListener);
+
+        // Init card list
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        mCardList.setLayoutManager(mLayoutManager);
+        mCardList.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
+        mCardList.setAdapter(mAdapter);
+        registerForContextMenu(mCardList);
+
+        updateLoyaltyCardList(mFilter, null);
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -384,20 +394,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             group = (Group) tag;
         }
 
-        mCardList = findViewById(R.id.list);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mCardList.setLayoutManager(mLayoutManager);
-        mCardList.setItemAnimator(new DefaultItemAnimator());
-
-        final TextView helpText = findViewById(R.id.helpText);
-        final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-
-        Cursor cardCursor = mDB.getLoyaltyCardCursor(filterText, group);
-
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
-        mCardList.setAdapter(mAdapter);
-
-        registerForContextMenu(mCardList);
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group));
 
         if(mDB.getLoyaltyCardCount() > 0)
         {
@@ -405,21 +402,21 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
             mCardList.setVisibility(View.VISIBLE);
-            helpText.setVisibility(View.GONE);
+            mHelpText.setVisibility(View.GONE);
             if(mAdapter.getItemCount() > 0)
             {
-                noMatchingCardsText.setVisibility(View.GONE);
+                mNoMatchingCardsText.setVisibility(View.GONE);
             }
             else
             {
-                noMatchingCardsText.setVisibility(View.VISIBLE);
+                mNoMatchingCardsText.setVisibility(View.VISIBLE);
             }
         }
         else
         {
             mCardList.setVisibility(View.GONE);
-            helpText.setVisibility(View.VISIBLE);
-            noMatchingCardsText.setVisibility(View.GONE);
+            mHelpText.setVisibility(View.VISIBLE);
+            mNoMatchingCardsText.setVisibility(View.GONE);
         }
 
         if (mCurrentActionMode != null) {
@@ -682,7 +679,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     @Override
     public void onRowClicked(int inputPosition)
     {
-
         if (mAdapter.getSelectedItemCount() > 0)
         {
             enableActionMode(inputPosition);

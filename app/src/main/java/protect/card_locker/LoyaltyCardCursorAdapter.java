@@ -39,14 +39,22 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener)
     {
         super(inputCursor);
+        setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mCursor = inputCursor;
         mContext = inputContext;
         mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
         mDarkModeEnabled = MainActivity.isDarkModeEnabled(inputContext);
+
+        swapCursor(mCursor);
+    }
+
+    @Override
+    public void swapCursor(Cursor inputCursor) {
+        super.swapCursor(inputCursor);
+        mCursor = inputCursor;
     }
 
     @Override

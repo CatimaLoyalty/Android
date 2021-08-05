@@ -429,6 +429,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getFontSizeMax(settings.getLargeFont()));
+        storeName.setAutoSizeTextTypeUniformWithConfiguration(
+                settings.getFontSizeMin(settings.getLargeFont()),
+                settings.getFontSizeMax(settings.getLargeFont()),
+                1,
+                TypedValue.COMPLEX_UNIT_DIP);
 
         int backgroundHeaderColor;
         if(loyaltyCard.headerColor != null)

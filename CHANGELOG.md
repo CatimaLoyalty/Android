@@ -5,6 +5,7 @@
 Changes:
 
 - Improve Stocard importer
+- Fix importing Catima export with multiline note
 
 ## v2.2.0 (2021-08-02)
 

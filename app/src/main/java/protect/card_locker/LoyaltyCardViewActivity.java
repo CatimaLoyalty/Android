@@ -430,7 +430,8 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getFontSizeMax(settings.getLargeFont()));
-        storeName.setAutoSizeTextTypeUniformWithConfiguration(
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
+                storeName,
                 settings.getFontSizeMin(settings.getLargeFont()),
                 settings.getFontSizeMax(settings.getLargeFont()),
                 1,

@@ -41,6 +41,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -64,7 +65,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView groupsView;
     TextView balanceView;
     TextView expiryView;
-    TextView storeName;
+    AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView barcodeImage;
     ImageButton minimizeButton;

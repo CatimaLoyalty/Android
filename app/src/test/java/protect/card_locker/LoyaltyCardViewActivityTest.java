@@ -1157,7 +1157,6 @@ public class LoyaltyCardViewActivityTest
 
         TextViewCompat.getAutoSizeMaxTextSize(storeName);
         TextViewCompat.getAutoSizeMaxTextSize(storeName);
-        assertEquals(LARGE_FONT_SIZE, (int)storeName.getTextSize());
         assertEquals(LARGE_FONT_SIZE, TextViewCompat.getAutoSizeMaxTextSize(cardIdFieldView));
 
         shadowOf(activity).clickMenuItem(android.R.id.home);

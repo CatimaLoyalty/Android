@@ -155,7 +155,7 @@
     <string name="backImageDescription">Image verso de la carte</string>
     <string name="frontImageDescription">Image recto de la carte</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
-    <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer, et sélectionnez les types de codes-barres manuellement par la suite.
+    <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer.
 \nVous pouvez aussi l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
     <string name="importStocard">Importer depuis Stocard</string>
     <string name="turn_flashlight_off">Éteindre la lampe de poche</string>

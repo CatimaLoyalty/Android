@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
@@ -34,6 +33,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
 
 public class Utils {
     private static final String TAG = "Catima";

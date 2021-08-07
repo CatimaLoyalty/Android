@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Pair;
 import android.view.MenuItem;
@@ -94,14 +92,8 @@ public class BarcodeSelectorActivity extends AppCompatActivity
         barcodeViewMap.put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText));
 
         EditText cardId = findViewById(R.id.cardId);
-        cardId.addTextChangedListener(new TextWatcher()
+        cardId.addTextChangedListener(new SimpleTextWatcher()
         {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
-                // Noting to do
-            }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
@@ -112,12 +104,6 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 View noBarcodeButtonView = findViewById(R.id.noBarcode);
                 setButtonListener(noBarcodeButtonView, s.toString());
                 noBarcodeButtonView.setEnabled(s.length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                // Noting to do
             }
         });
 

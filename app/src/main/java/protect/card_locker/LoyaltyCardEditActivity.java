@@ -21,7 +21,6 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -245,34 +244,22 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         };
 
-        storeFieldEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        noteFieldEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        noteFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.note, s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        expiryField.addTextChangedListener(new TextWatcher() {
+        expiryField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
 
             @Override
@@ -311,10 +298,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        balanceField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        balanceField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
@@ -327,15 +311,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        balanceCurrencyField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        balanceCurrencyField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Currency currency;
@@ -391,7 +369,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        cardIdFieldView.addTextChangedListener(new TextWatcher() {
+        cardIdFieldView.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 if (initDone && !onResuming) {
@@ -411,12 +389,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.cardId, s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        barcodeIdField.addTextChangedListener(new TextWatcher() {
+        barcodeIdField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
 
             @Override
@@ -475,10 +450,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        barcodeTypeField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        barcodeTypeField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.toString().isEmpty()) {

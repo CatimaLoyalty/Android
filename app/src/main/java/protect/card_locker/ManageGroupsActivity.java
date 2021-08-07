@@ -28,6 +28,8 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
     private static final String TAG = "Catima";
 
     private final DBHelper mDb = new DBHelper(this);
+    private TextView mHelpText;
+    private RecyclerView mGroupList;
     GroupCursorAdapter mAdapter;
 
     @Override
@@ -42,19 +44,28 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        updateGroupList();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        updateGroupList();
-
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> createGroup());
         addButton.bringToFront();
+
+        mGroupList = findViewById(R.id.list);
+        mHelpText = findViewById(R.id.helpText);
+
+        // Init group list
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        mGroupList.setLayoutManager(mLayoutManager);
+        mGroupList.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new GroupCursorAdapter(this, null, this);
+        mGroupList.setAdapter(mAdapter);
+
+        updateGroupList();
     }
 
     @Override
@@ -64,29 +75,17 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
 
     private void updateGroupList()
     {
-        final RecyclerView groupList = findViewById(R.id.list);
-        final TextView helpText = findViewById(R.id.helpText);
+        mAdapter.swapCursor(mDb.getGroupCursor());
 
         if (mDb.getGroupCount() == 0) {
-            groupList.setVisibility(View.GONE);
-            helpText.setVisibility(View.VISIBLE);
+            mGroupList.setVisibility(View.GONE);
+            mHelpText.setVisibility(View.VISIBLE);
 
             return;
         }
 
-        groupList.setVisibility(View.VISIBLE);
-        helpText.setVisibility(View.GONE);
-
-        Cursor groupCursor = mDb.getGroupCursor();
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        groupList.setLayoutManager(mLayoutManager);
-        groupList.setItemAnimator(new DefaultItemAnimator());
-
-        mAdapter = new GroupCursorAdapter(this, groupCursor, this);
-        groupList.setAdapter(mAdapter);
-
-        registerForContextMenu(groupList);
+        mGroupList.setVisibility(View.VISIBLE);
+        mHelpText.setVisibility(View.GONE);
     }
 
     private void invalidateHomescreenActiveTab()
@@ -160,7 +159,7 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
         mDb.reorderGroups(groups);
 
         // Update UI
-        mAdapter.notifyItemMoved(currentIndex, newIndex);
+        updateGroupList();
 
         // Ordering may have changed, so invalidate
         invalidateHomescreenActiveTab();

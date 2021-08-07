@@ -7,6 +7,7 @@ Changes:
 - Improve Stocard importer
 - Fix importing Catima export with multiline note
 - Scale card title in acceptable range
+- Animation improvements
 
 ## v2.2.0 (2021-08-02)
 

@@ -15,18 +15,26 @@ import protect.card_locker.preferences.Settings;
 class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder>
 {
     Settings mSettings;
-    private final Cursor mCursor;
+    private Cursor mCursor;
     private final Context mContext;
     private final GroupCursorAdapter.GroupAdapterListener mListener;
     DBHelper mDb;
 
     public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupCursorAdapter.GroupAdapterListener inputListener) {
         super(inputCursor);
+        setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mCursor = inputCursor;
         mContext = inputContext;
         mListener = inputListener;
         mDb = new DBHelper(inputContext);
+
+        swapCursor(mCursor);
+    }
+
+    @Override
+    public void swapCursor(Cursor inputCursor) {
+        super.swapCursor(inputCursor);
+        mCursor = inputCursor;
     }
 
     @NonNull

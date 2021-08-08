@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Fix widget creating different-looking shortcut than app shortcuts
+
 ## v2.2.2 (2021-08-08)
 
 Changes:

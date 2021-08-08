@@ -696,7 +696,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             b.putInt("id", loyaltyCard.id);
             i.putExtras(b);
 
-            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
+            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
             startActivityForResult(i, Utils.MAIN_REQUEST);
         }

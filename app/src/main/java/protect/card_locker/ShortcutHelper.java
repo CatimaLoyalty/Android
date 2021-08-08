@@ -3,15 +3,16 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-
-import androidx.core.content.pm.ShortcutInfoCompat;
-import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.core.graphics.drawable.IconCompat;
+import android.os.Bundle;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 
 class ShortcutHelper
 {
@@ -29,7 +30,7 @@ class ShortcutHelper
      * card exceeds the max number of shortcuts, then the least recently
      * used card shortcut is discarded.
      */
-    static void updateShortcuts(Context context, LoyaltyCard card, Intent intent)
+    static void updateShortcuts(Context context, LoyaltyCard card)
     {
         LinkedList<ShortcutInfoCompat> list = new LinkedList<>(ShortcutManagerCompat.getDynamicShortcuts(context));
 
@@ -71,11 +72,7 @@ class ShortcutHelper
                 list.pollLast();
             }
 
-            ShortcutInfoCompat shortcut = new ShortcutInfoCompat.Builder(context, Integer.toString(card.id))
-                .setShortLabel(card.store)
-                .setLongLabel(card.store)
-                .setIntent(intent)
-                .build();
+            ShortcutInfoCompat shortcut = createShortcutBuilder(context, card).build();
 
             list.addFirst(shortcut);
         }
@@ -87,28 +84,11 @@ class ShortcutHelper
         {
             ShortcutInfoCompat prevShortcut = list.get(index);
 
-            Intent shortcutIntent = prevShortcut.getIntent();
+            LoyaltyCard loyaltyCard = dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId()));
 
-            Bitmap iconBitmap = Utils.generateIcon(context, dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId())), true).getLetterTile();
-
-            IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
-
-            // Prevent instances of the view activity from piling up; if one exists let this
-            // one replace it.
-            shortcutIntent.setFlags(shortcutIntent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-            final CharSequence longLabel = prevShortcut.getLongLabel();
-
-            ShortcutInfoCompat updatedShortcut = null;
-            if (longLabel != null) {
-                updatedShortcut = new ShortcutInfoCompat.Builder(context, prevShortcut.getId())
-                        .setShortLabel(prevShortcut.getShortLabel())
-                        .setLongLabel(longLabel)
-                        .setIntent(shortcutIntent)
-                        .setIcon(icon)
+            ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
                         .setRank(index)
                         .build();
-            }
 
             finalList.addLast(updatedShortcut);
         }
@@ -136,5 +116,27 @@ class ShortcutHelper
         }
 
         ShortcutManagerCompat.setDynamicShortcuts(context, list);
+    }
+
+    static ShortcutInfoCompat.Builder createShortcutBuilder(Context context, LoyaltyCard loyaltyCard) {
+        Intent intent = new Intent(context, LoyaltyCardViewActivity.class);
+        intent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        final Bundle bundle = new Bundle();
+        bundle.putInt("id", loyaltyCard.id);
+        bundle.putBoolean("view", true);
+        intent.putExtras(bundle);
+
+        Bitmap iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
+
+        IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
+
+        return new ShortcutInfoCompat.Builder(context, Integer.toString(loyaltyCard.id))
+                .setShortLabel(loyaltyCard.store)
+                .setLongLabel(loyaltyCard.store)
+                .setIntent(intent)
+                .setIcon(icon);
     }
 }

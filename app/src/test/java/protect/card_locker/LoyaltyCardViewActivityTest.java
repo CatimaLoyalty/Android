@@ -344,7 +344,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void noDataLossOnResume()
+    public void noDataLossOnResumeOrRotate()
     {
         registerMediaStoreIntentHandler();
 
@@ -418,6 +418,22 @@ public class LoyaltyCardViewActivityTest
             activityController.resume();
 
             shadowOf(getMainLooper()).idle();
+
+            // Check if no changes lost
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", BarcodeFormat.QR_CODE.name(), frontBitmap, backBitmap);
+
+            // Rotate to landscape
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            activity.recreate();
+            shadowOf(getMainLooper()).idle();
+
+            // Check if no changes lost
+            checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", BarcodeFormat.QR_CODE.name(), frontBitmap, backBitmap);
+
+            // Rotate to portrait
+            shadowOf(getMainLooper()).idle();
+            activity.recreate();
+            activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
             // Check if no changes lost
             checkAllFields(activity, newCard ? ViewMode.ADD_CARD : ViewMode.UPDATE_CARD, "correct store", "correct note", DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate), "100.00", currency.getSymbol(), "12345678", "87654321", BarcodeFormat.QR_CODE.name(), frontBitmap, backBitmap);

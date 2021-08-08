@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.2.2 (2021-08-08)
+
+Changes:
+
+- Fix crash on rotation in loyalty card edit activity
+
 ## v2.2.1 (2021-08-07)
 
 Changes:

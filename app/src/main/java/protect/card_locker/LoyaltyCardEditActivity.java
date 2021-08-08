@@ -78,6 +78,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final String TAG = "Catima";
 
     private final String STATE_TAB_INDEX = "savedTab";
+    private final String STATE_TEMP_CARD = "tempLoyaltyCard";
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
@@ -185,10 +186,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
+        savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
     }
 
     @Override
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        tempLoyaltyCard = savedInstanceState.getParcelable(STATE_TEMP_CARD);
         super.onRestoreInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));

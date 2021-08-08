@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -340,7 +341,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 MenuItem searchItem = mMenu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
-            recreate();
+            ActivityCompat.recreate(this);
 
             return;
         }

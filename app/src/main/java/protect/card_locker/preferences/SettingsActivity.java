@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.preference.Preference;
@@ -79,7 +80,7 @@ public class SettingsActivity extends AppCompatActivity
 
                     FragmentActivity activity = getActivity();
                     if (activity != null) {
-                        activity.recreate();
+                        ActivityCompat.recreate(activity);
                     }
                     return true;
                 }

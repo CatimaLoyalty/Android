@@ -1,13 +1,12 @@
 package protect.card_locker;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
-import android.os.Build;
+
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,13 +29,9 @@ class ShortcutHelper
      * card exceeds the max number of shortcuts, then the least recently
      * used card shortcut is discarded.
      */
-    @TargetApi(25)
     static void updateShortcuts(Context context, LoyaltyCard card, Intent intent)
     {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1)
-        {
-            ShortcutManager shortcutManager = context.getSystemService(ShortcutManager.class);
-            LinkedList<ShortcutInfo> list = new LinkedList<>(shortcutManager.getDynamicShortcuts());
+            LinkedList<ShortcutInfoCompat> list = new LinkedList<>(ShortcutManagerCompat.getDynamicShortcuts(context));
 
             DBHelper dbHelper = new DBHelper(context);
 
@@ -44,21 +39,7 @@ class ShortcutHelper
 
             // Sort the shortcuts by rank, so working with the relative order will be easier.
             // This sorts so that the lowest rank is first.
-            Collections.sort(list, new Comparator<ShortcutInfo>()
-            {
-                @Override
-                public int compare(ShortcutInfo o1, ShortcutInfo o2)
-                {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1)
-                    {
-                        return o1.getRank() - o2.getRank();
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            });
+            Collections.sort(list, Comparator.comparingInt(ShortcutInfoCompat::getRank));
 
             Integer foundIndex = null;
 
@@ -77,7 +58,7 @@ class ShortcutHelper
                 // If the item is already found, then the list needs to be
                 // reordered, so that the selected item now has the lowest
                 // rank, thus letting it survive longer.
-                ShortcutInfo found = list.remove(foundIndex.intValue());
+                ShortcutInfoCompat found = list.remove(foundIndex.intValue());
                 list.addFirst(found);
             }
             else
@@ -90,7 +71,7 @@ class ShortcutHelper
                     list.pollLast();
                 }
 
-                ShortcutInfo shortcut = new ShortcutInfo.Builder(context, Integer.toString(card.id))
+                ShortcutInfoCompat shortcut = new ShortcutInfoCompat.Builder(context, Integer.toString(card.id))
                     .setShortLabel(card.store)
                     .setLongLabel(card.store)
                     .setIntent(intent)
@@ -99,53 +80,49 @@ class ShortcutHelper
                 list.addFirst(shortcut);
             }
 
-            LinkedList<ShortcutInfo> finalList = new LinkedList<>();
+            LinkedList<ShortcutInfoCompat> finalList = new LinkedList<>();
 
             // The ranks are now updated; the order in the list is the rank.
             for(int index = 0; index < list.size(); index++)
             {
-                ShortcutInfo prevShortcut = list.get(index);
+                ShortcutInfoCompat prevShortcut = list.get(index);
 
                 Intent shortcutIntent = prevShortcut.getIntent();
 
                 Bitmap iconBitmap = Utils.generateIcon(context, dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId())), true).getLetterTile();
-                Icon icon;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    icon = Icon.createWithAdaptiveBitmap(iconBitmap);
-                } else {
-                    icon = Icon.createWithBitmap(iconBitmap);
-                }
+
+                IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
 
                 // Prevent instances of the view activity from piling up; if one exists let this
                 // one replace it.
                 shortcutIntent.setFlags(shortcutIntent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-                ShortcutInfo updatedShortcut = new ShortcutInfo.Builder(context, prevShortcut.getId())
-                        .setShortLabel(prevShortcut.getShortLabel())
-                        .setLongLabel(prevShortcut.getLongLabel())
-                        .setIntent(shortcutIntent)
-                        .setIcon(icon)
-                        .setRank(index)
-                        .build();
+                final CharSequence longLabel = prevShortcut.getLongLabel();
+
+                ShortcutInfoCompat updatedShortcut = null;
+                if (longLabel != null) {
+                    updatedShortcut = new ShortcutInfoCompat.Builder(context, prevShortcut.getId())
+                            .setShortLabel(prevShortcut.getShortLabel())
+                            .setLongLabel(longLabel)
+                            .setIntent(shortcutIntent)
+                            .setIcon(icon)
+                            .setRank(index)
+                            .build();
+                }
 
                 finalList.addLast(updatedShortcut);
             }
 
-            shortcutManager.setDynamicShortcuts(finalList);
-        }
+            ShortcutManagerCompat.setDynamicShortcuts(context, finalList);
     }
 
     /**
      * Remove the given card id from the app shortcuts, if such a
      * shortcut exists.
      */
-    @TargetApi(25)
     static void removeShortcut(Context context, int cardId)
     {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1)
-        {
-            ShortcutManager shortcutManager = context.getSystemService(ShortcutManager.class);
-            List<ShortcutInfo> list = shortcutManager.getDynamicShortcuts();
+        List<ShortcutInfoCompat> list = ShortcutManagerCompat.getDynamicShortcuts(context);
 
             String shortcutId = Integer.toString(cardId);
 
@@ -158,7 +135,6 @@ class ShortcutHelper
                 }
             }
 
-            shortcutManager.setDynamicShortcuts(list);
-        }
+            ShortcutManagerCompat.setDynamicShortcuts(context, list);
     }
 }

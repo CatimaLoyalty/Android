@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="settings_lock_barcode_orientation">Lås streckkodens riktning</string>
+    <string name="settings_display_barcode_max_brightness">Gör streckkodsvyn ljusare</string>
+    <string name="settings_max_font_size_scale">Max. teckenstorlek</string>
+    <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
+    <string name="enterBarcodeInstructions">Ange kortets ID och välj antingen streckkodstyp nedan, eller \"Detta kort har ingen streckkod\".</string>
+    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt,
+\neller skapa en från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
+    <string name="importOptionApplicationExplanation">Använd vilken app som helst eller den filhanterare du föredrar för att öppna en fil.</string>
+    <string name="importOptionApplicationButton">Använd en annan app</string>
+    <string name="intent_import_card_from_url_share_text">Jag vill dela ett kort med dig</string>
+    <string name="noGroups">Klicka på plus(+)-knappen för att lägga till kategorigrupper först.</string>
+    <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
+    <string name="errorReadingImage">Kunde inte läsa bilden</string>
+    <string name="currency">Valuta</string>
+    <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL. Var snäll och rapportera detta.</string>
+    <string name="barcodeImageDescription">Bild av kortets streckkod</string>
+    <string name="card_ids_copied">Kopierade kort ID:n</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kort valt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kort valda</item>
+    </plurals>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera,
+\neller skapa en från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
+    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera,
+\neller skapa en först genom att trycka på Exportera i Voucher Vault.</string>
+    <string name="importStocardMessage">Välj den exporterade <i>***-sync.zip</i> från Stocard som du vill importera,
+\neller skaffa en först genom att skicka e-post till support@stocardapp.com och be om att få dina data exporterade.</string>
+    <string name="enter_group_name">Ange gruppnamn</string>
+    <string name="groups">Grupper</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
+    </plurals>
+    <string name="all">Alla</string>
+    <string name="deleteConfirmationGroup">Ta bort grupp\?</string>
+    <string name="failedOpeningFileManager">Installera en filhanterare först.</string>
+    <string name="moveUp">Flytta uppåt</string>
+    <string name="moveDown">Flytta nedåt</string>
+    <string name="leaveWithoutSaveTitle">Avsluta</string>
+    <string name="leaveWithoutSaveConfirmation">Avsluta utan att spara\?</string>
+    <string name="addManually">Ange kort-ID manuellt</string>
+    <string name="addFromImage">Välj bild från galleriet</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> poäng</string>
+    <string name="card">Kort</string>
+    <string name="barcode">Streckkod</string>
+    <string name="editBarcode">Redigera streckkod</string>
+    <string name="never">Aldrig</string>
+    <string name="moveBarcodeToTopOfScreen">Flytta streckkoden högst upp på skärmen</string>
+    <string name="moveBarcodeToCenterOfScreen">Centrera streckkoden på skärmen</string>
+    <string name="noBarcodeFound">Hittade ingen streckkod</string>
+    <string name="points">Poäng</string>
+    <string name="chooseImportType">Importera data från...\?</string>
+    <string name="accept">Acceptera</string>
+    <string name="importCatima">Importera från Catima</string>
+    <string name="importFidme">Importera från FidMe</string>
+    <string name="importLoyaltyCardKeychain">Importera från Loyalty Card Keychain</string>
+    <string name="importStocard">Importera from Stocard</string>
+    <string name="importVoucherVault">Importera från Voucher Vault</string>
+    <string name="barcodeId">Streckkodsvärde</string>
+    <string name="passwordRequired">Var snäll och ange lösenordet</string>
+    <string name="no">Nej</string>
+    <string name="yes">Ja</string>
+    <string name="updateBarcodeQuestionText">Du ändrade kortets ID. Vill du uppdatera så att streckkoden också använder samma värde\?</string>
+    <string name="updateBarcodeQuestionTitle">Uppdatera streckkodsvärde\?</string>
+    <string name="takePhoto">Ta ett foto</string>
+    <string name="removeImage">Ta bort bild</string>
+    <string name="setBackImage">Ange baksidesbild</string>
+    <string name="setFrontImage">Ange framsidesbild</string>
+    <string name="photos">Foton</string>
+    <string name="backImageDescription">Bild av kortets baksida</string>
+    <string name="frontImageDescription">Bild av kortets framsida</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Jag vill dela några kort med dig</string>
+    <string name="copy_to_clipboard_multiple_toast">Kort-ID:n kopierades till Urklipp</string>
+    <string name="wrongValueForBarcodeType">Värdet är inte giltigt för den valda streckkodstypen</string>
+    <string name="unsupportedBarcodeType">Denna streckkodstyp kan ännu inte visas. Den ka komma att stödjas i en senare version av appen.</string>
+    <string name="setBarcodeId">Ange streckkodsvärde</string>
+    <string name="sameAsCardId">Samma som kort-ID</string>
+    <string name="turn_flashlight_on">Sätt på ficklampa</string>
+    <string name="turn_flashlight_off">Stäng av ficklampa</string>
+    <string name="settings_dark_theme">Mörkt</string>
+    <string name="settings_light_theme">Ljust</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_category_title_ui">Användargränssnitt</string>
+    <string name="settings">Inställningar</string>
+    <string name="thumbnailDescription">Miniatyrbild av kort</string>
+    <string name="copy_to_clipboard_toast">Kort-ID kopierat till Urklipp</string>
+    <string name="selectBarcodeTitle">Välj streckkod</string>
+    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="app_copyright_old">Baserad på Loyalty Card Keychain
+\ncopyright © 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="about">Om</string>
+    <string name="importOptionApplicationTitle">Använd en annan app</string>
+    <string name="importOptionFilesystemButton">Från filsystemet</string>
+    <string name="importOptionFilesystemExplanation">Välj en specifik fil från filsystemet.</string>
+    <string name="importOptionFilesystemTitle">Importera från filsystem</string>
+    <string name="exporting">Exporterar…</string>
+    <string name="importing">Importerar…</string>
+    <string name="exportFailed">Kunde inte exportera kort</string>
+    <string name="importFailed">Kunde inte importera kort</string>
+    <string name="importSuccessfulTitle">Importen lyckades</string>
+    <string name="importFailedTitle">Importen misslyckades</string>
+    <string name="importExportHelp">Säkerhetskopiering av dina kort låter dig flytta dem till en annan enhet.</string>
+    <string name="importExport">Importera/Exportera</string>
+    <string name="noCardExistsError">Kunde inte hitta kort</string>
+    <string name="noCardIdError">Inget kort-ID har angivits</string>
+    <string name="noStoreError">Inget namn har angivits</string>
+    <string name="noCardsMessage">Lägg till ett kort först</string>
+    <string name="cardShortcut">Kort-genväg</string>
+    <string name="addCardTitle">Lägg till kort</string>
+    <string name="editCardTitle">Redigera kort</string>
+    <string name="sendLabel">Skicka…</string>
+    <string name="share">Dela</string>
+    <string name="copy_to_clipboard">Kopiera ID till Urklipp</string>
+    <string name="ok">OK</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Ta bort detta <xliff:g>%d</xliff:g> kort permanent\?</item>
+        <item quantity="other">Ta bort dessa <xliff:g>%d</xliff:g> kort permanent\?</item>
+    </plurals>
+    <string name="deleteConfirmation">Ta bort detta kort permanent\?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Ta bort <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Ta bort <xliff:g>%d</xliff:g> kort</item>
+    </plurals>
+    <string name="deleteTitle">Ta bort kort</string>
+    <string name="confirm">Bekräfta</string>
+    <string name="delete">Ta bort</string>
+    <string name="edit">Redigera</string>
+    <string name="save">Spara</string>
+    <string name="cancel">Avbryt</string>
+    <string name="unstar">Ta bort från favoriter</string>
+    <string name="star">Lägg till i favoriter</string>
+    <string name="noBarcode">Ingen streckkod</string>
+    <string name="barcodeNoBarcode">Detta kort har ingen streckkod</string>
+    <string name="barcodeType">Streckkodstyp</string>
+    <string name="cardId">Kort-ID</string>
+    <string name="storeName">Namn</string>
+    <string name="noMatchingGiftCards">Hittade ingenting. Försök justera din sökning.</string>
+    <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera några från ⋮-menyn först.</string>
+    <string name="action_add">Lägg till</string>
+    <string name="action_search">Sök</string>
+</resources>

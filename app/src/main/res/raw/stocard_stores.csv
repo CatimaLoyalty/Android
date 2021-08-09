@@ -1,0 +1,4249 @@
+_id,name,barcodeFormat
+1,"Accor Le Club",""
+2,AA,CODE_128
+3,"American AAdvantage",CODE_128
+4,ACE,CODE_128
+6,ACS,CODE_128
+7,ADAC,QR_CODE
+8,Adler,QR_CODE
+9,"Aegean Airlines",CODE_128
+10,Aeroplan,CODE_128
+11,"airberlin topbonus",CODE_128
+12,Akakiko,CODE_39
+13,Amavita,EAN_13
+14,"AMC Stubs",CODE_128
+15,Amcal,CODE_128
+16,Anaconda,EAN_13
+17,"AppelrathCüpper",ITF
+18,Applegreen,CODE_128
+19,Arbeiterkammer,ITF
+20,"ARBÖ",EAN_13
+21,ARCD,""
+22,"Asia Miles",CODE_128
+23,Autograph,CODE_39
+24,AvD,""
+25,Aveda,CODE_39
+26,Avios,CODE_128
+27,Avis,CODE_128
+28,AWG,ITF
+29,"Heathrow Rewards",CODE_128
+30,Bahn.bonus,CODE_128
+31,Baltz,CODE_128
+32,Bauking,EAN_13
+33,bauMax,EAN_13
+34,BayWa,ITF
+35,Beldona,EAN_13
+36,bellaflora,EAN_13
+37,Bessmann,ITF
+38,"Best Western",CODE_128
+39,"Betten Reiter",EAN_13
+40,"Betten Rid",ITF
+41,BiBa,ITF
+42,Billa,EAN_13
+43,BIPA,EAN_13
+44,Bittl,CODE_39
+45,Blackwell,GS1_128
+46,Blockbuster,CODE_39
+47,Blutspendekarte,""
+48,"Bödeker",CODE_128
+49,Boecker,EAN_13
+50,"Bonmarché",EAN_13
+51,Boost,CODE_128
+53,"BP Autogas",CODE_128
+54,"BP Bonus Club",EAN_13
+55,brasNthings,EAN_13
+56,Brax,CODE_128
+57,"Brown Thomas",QR_CODE
+58,"BSW Bonusclub",ITF
+59,BUDNI,EAN_8
+60,Transgourmet,""
+61,Centro,EAN_13
+62,"Charles Vögele",DATA_MATRIX
+63,Chatime,CODE_128
+64,"Event Cinemas - Cine Buzz",CODE_128
+65,Citti,QR_CODE
+66,BCF,CODE_128
+67,"Club Carlson",CODE_128
+68,Coiffina,CODE_128
+69,Companys,CODE_39
+70,Conrad,CODE_128
+71,Coop,EAN_13
+72,Costa,QR_CODE
+73,"Cotswold Outdoor",CODE_128
+74,"Country Road",CODE_128
+75,"Cult at Home",""
+76,"Darrell Lea",CODE_128
+77,Debenhams,GS1_128
+78,Decathlon,EAN_13
+79,Delka,ITF
+80,"Delta Skymiles",CODE_128
+81,"denn's",EAN_13
+82,Desigual,CODE_39
+83,DeutschlandCard,EAN_13
+84,Diadoro,ITF
+85,"Diamond Club",""
+86,dm,EAN_13
+87,Dodenhof,QR_CODE
+88,"Dollinger Mode",""
+89,Dorint,""
+90,Douglas,CODE_128
+91,Drewag,""
+92,"Düsseldorf International",EAN_13
+93,Dymocks,CODE_128
+94,Eason,""
+95,"emilio adani",ITF
+96,engbers,ITF
+97,"engelbert strauss",CODE_128
+98,engelhorn,ITF
+99,"Ernsting's Family",ITF
+100,Esprit,ITF
+101,"SAS EuroBonus",""
+102,Europcar,CODE_128
+103,Eurostar,""
+104,"Everyday Rewards",EAN_13
+105,"British Airways",CODE_128
+107,Fahrrad-XXL,EAN_13
+108,"Family Filmclub",CODE_128
+109,Finnair,""
+111,flybuys,EAN_13
+112,"Flying Blue",CODE_128
+113,"Foot Locker",CODE_39
+114,Forstinger,ITF
+116,Frankonia,""
+117,"Fritz Berger",EAN_13
+118,Futterhaus,UPC_A
+119,"Galeries Lafayette",CODE_128
+120,Game,EAN_13
+122,Germanwings,""
+123,"Gerry Weber",CODE_128
+124,GHA,""
+125,Gigasport,EAN_13
+126,Globetrotter,ITF
+127,Globus,EAN_13
+128,"Globus Baumarkt",EAN_13
+129,"Gloria Jean's",CODE_128
+130,GNC,UPC_A
+131,"GO Outdoors",CODE_128
+132,Goldmeister,""
+133,"Golfers Paradise",EAN_13
+134,"Görtz",ITF
+135,"Grain de Malice",EAN_13
+136,"GreenLine Hotels",""
+137,"H10 Hotels",""
+138,Hair-One,CODE_128
+139,Hallhuber,ITF
+140,Harrods,CODE_128
+141,Hartlauer,EAN_13
+142,"Hein Gericke",CODE_128
+143,Heindl,EAN_13
+144,Hellweg,ITF
+145,Hertz,CODE_128
+146,Hervis,EAN_13
+148,"Hilton HHonors",CODE_128
+149,"Höffner",ITF
+150,"Holland & Barrett",EAN_13
+151,"Holland Blumen Mark",ITF
+152,"Honda Riders Club",CODE_128
+153,"House of Fraser",GS1_128
+154,Hoyts,CODE_128
+155,"Hunkemöller",CODE_128
+156,Hyatt,""
+157,Iberia,CODE_128
+158,"Ice Design",EAN_13
+159,Icelandair,""
+160,"IKEA Family",CODE_39
+161,Imaginarium,EAN_13
+162,Interio,EAN_13
+163,Intersport,CODE_128
+164,"Sport Eybl",ITF
+165,"Jacques'",DATA_MATRIX
+166,Jaeger,ITF
+167,JAKO-O,ITF
+168,"Jeans & Co",CODE_39
+169,Jeanswest,EAN_13
+170,Jelmoli,CODE_128
+171,JOH,""
+172,Jost,ITF
+173,"Jurys Inn",""
+174,"Just Jeans",EAN_13
+175,"K&L Ruppert",QR_CODE
+177,Kammann,ITF
+178,Karstadt,ITF
+179,"Kastner & Öhler",EAN_13
+180,Kathmandu,CODE_128
+181,Katies,CODE_39
+182,kika,EAN_13
+183,Klier,ITF
+184,Knauber,EAN_13
+185,Kolm,ITF
+186,Konen,ITF
+187,"Krämer",CODE_128
+188,Kraus,ITF
+189,"Singapore Krisflyer",CODE_128
+190,"Lego VIP",CODE_128
+191,Lehmanns,CODABAR
+192,Leiner,EAN_13
+193,Liberty,ITF
+194,Libro,EAN_13
+195,Lincraft,EAN_13
+196,"Lindner Resorts",""
+197,Loeb,CODE_128
+198,Louis,CODE_128
+199,"Lüthy Balmer Stocker",EAN_13
+200,Lyoness,EAN_13
+201,M.Schneider,ITF
+202,Marionnaud,EAN_13
+203,Marriott,CODE_128
+204,Matalan,PDF_417
+205,Matzen,ITF
+206,"Max Bahr",""
+208,Mayersche,CODE_128
+209,MCard,CODE_128
+210,McTrek,ITF
+211,Mehrwertclub,CODE_128
+212,Merkur,EAN_13
+213,Mexx,CODE_39
+214,"Migros Cumulus",EAN_13
+215,"United MileagePlus",PDF_417
+216,"Miles & More",ITF
+217,Millers,CODE_39
+218,"Möbel Kraft",ITF
+219,"Möbel Rieger",ITF
+220,"Möbelix",ITF
+221,"Modepark Röther",ITF
+222,Modeva,ITF
+223,"mömax",ITF
+224,Monsoon,ITF
+225,Morrisons,GS1_128
+226,"Movie Points",CODE_128
+227,"Muffin Break Club",CODE_39
+228,"Mustang Jeans",""
+229,"Myer One",EAN_13
+230,"Nägele & Strubell",EAN_13
+231,"Natürlich Fühlen",CODE_128
+232,Neckermann,""
+233,Nectar,GS1_128
+234,Nespresso,ITF
+235,Nessler,ITF
+236,"NH World",""
+237,Niebel,ITF
+238,Niedermeyer,EAN_13
+239,Northland,CODE_39
+240,NP,EAN_13
+241,Fetter,CODE_39
+242,OBI,ITF
+243,"Ochsner Sport",CODE_128
+244,Odeon,CODE_128
+245,"ÖAMTC",CODE_128
+246,"Office World",EAN_13
+247,Oil!,""
+248,"OK Plus",""
+249,Countdown,CODE_128
+250,"Orell Füssli",EAN_13
+251,ORSAY,CODE_128
+252,Osiander,CODE_39
+253,OTTO,CODE_128
+254,Oxford,CODE_39
+255,Pagro,EAN_13
+256,Palmers,EAN_13
+257,"Paul & Shark",CODE_39
+258,PAYBACK,EAN_13
+259,"Peek & Cloppenburg",ITF
+260,Penny,EAN_13
+261,"Petit Bateau",CODE_128
+262,"Pieper Saarlouis",EAN_13
+263,"Pluspunkt Apotheke",CODE_39
+264,Pohland,CODE_128
+265,Polo,CODE_39
+266,Praktiker,CODE_128
+267,Priceline,EAN_13
+268,"IHG Rewards",CODE_128
+269,Promod,ITF
+270,purehmv,CODE_128
+271,Qantas,CODE_128
+272,"Qatar Airways",CODE_128
+273,Qualibuyer,EAN_8
+274,Qualipet,EAN_8
+275,Quiksilver,EAN_8
+276,RAC,EAN_13
+277,"Red Roof",""
+278,Reischmann,CODE_39
+279,Rewe,EAN_13
+280,Riu,""
+281,"LEY'S",ITF
+282,Rockmans,EAN_13
+283,"Römer",ITF
+284,"Rose Versand",CODE_128
+285,s.Oliver,CODE_128
+286,Saba,CODE_39
+287,Sagasser,CODE_39
+288,"Schacht und Westerich",""
+289,Schild,EAN_13
+290,"Schuh Schmid",EAN_13
+291,"Schuh Welt",EAN_13
+292,"Shell Clubsmart",EAN_13
+293,"Shell Drivers' Club",GS1_128
+294,Signum,""
+295,SinnLeffers,CODE_128
+296,Sixt,CODE_128
+297,Emirates,PDF_417
+298,Smyths,""
+299,Snipes,EAN_13
+300,"Space NK",CODE_128
+301,"Spiele Max",EAN_13
+302,Spilger,UPC_A
+303,Sportler,EAN_13
+304,SportScheck,CODE_128
+305,Sportscraft,CODE_39
+306,Staples,CODE_128
+307,Starwood,""
+308,Stefanel,EAN_13
+309,Steigenberger,""
+310,"Stiefelkönig",ITF
+311,"Strauss Innovation",""
+312,Street,""
+313,Sunpoint,CODE_39
+314,Superdrug,EAN_13
+315,Sussan,CODE_39
+316,"Sutterlüty",EAN_13
+317,"Swissôtel",CODE_39
+318,Tchibo,EAN_13
+319,Tesco,GS1_128
+320,"Texaco Stars",EAN_13
+321,Thalia,EAN_8
+322,"The Body Shop",CODE_128
+323,"The Coffee Club",""
+324,Co-op,CODE_128
+325,"The Look",QR_CODE
+326,"The Perfume Shop",EAN_13
+327,Tlapa,ITF
+328,"Hairhouse Warehouse",EAN_13
+329,"Tom Tailor",CODE_128
+330,"Tommy Hilfiger",ITF
+331,Toom,EAN_13
+332,"Touring Club Schweiz",CODE_128
+333,"Toys R Us",CODE_128
+334,Transa,""
+335,Trendfabrik,CODE_128
+336,Triumph,EAN_13
+337,"Turkish Airlines",CODE_128
+338,Tyrolia,CODE_39
+339,"Ulla Popken",ITF
+340,Unger,""
+341,Lagerhaus,EAN_13
+342,Urmel,""
+343,"Van Graaf",EAN_13
+344,Vapiano,QR_CODE
+345,Velocity,EAN_13
+346,Veloplus,CODE_39
+347,Vestino,""
+348,Village,CODE_39
+349,"Villeroy und Boch",EAN_13
+350,"Vino Club",EAN_13
+351,Waitrose,CODE_128
+352,"Wallace Bishop",CODE_39
+353,Waterstones,GS1_128
+354,Weiland,ITF
+355,"Wein & Co",EAN_13
+356,Weingarten,ITF
+358,Wickes,""
+359,Wincard,""
+361,Witchery,EAN_13
+362,Wittner,CODE_128
+363,"Wöhrl",CODE_128
+364,"Wyndham Rewards",""
+365,Wyss,""
+366,XXXLutz,ITF
+367,Zapata,ITF
+368,"Zentralbib. Zürich",CODE_39
+369,"ZOO & Co.",EAN_13
+370,"Virgin Atlantic",CODE_128
+371,"IHG Business Club",CODE_128
+372,ABC,CODE_128
+373,Achillea,EAN_13
+374,Adairs,CODE_39
+375,"Air New Zealand",EAN_13
+376,"Amart Sports",CODE_128
+377,"Austin Reed",""
+378,"B&B Hotels",""
+379,Bardot,CODE_128
+380,Bitecard,CODE_128
+381,Boesner,EAN_8
+382,"Civic Video",CODE_39
+383,Colette,CODE_128
+384,Crossroads,CODE_39
+385,Cue,EAN_13
+386,Dropa,EAN_13
+387,Dusk,CODE_128
+388,"EB Games",CODE_128
+389,Farmers,CODE_128
+390,Fasszination,CODE_39
+391,"Femme Connection",EAN_13
+392,Fusion,CODE_128
+393,Fust,""
+394,"Glue Store",CODE_128
+395,Goldmark,CODE_39
+396,"Guzman Y Gomez",CODE_128
+397,"Hugo Boss",CODE_128
+398,Iceland,CODE_128
+399,IGA,EAN_13
+400,JAL,""
+401,Koorong,CODE_39
+402,"Levi's",CODE_39
+403,"Life Pharmacy",EAN_13
+404,Lowes,EAN_13
+405,"Malaysia Airlines Enrich",""
+406,Megazoo,EAN_13
+407,Mothercare,""
+408,Nood,""
+409,"Nosh Food Market",""
+410,Overland,CODE_128
+411,"Parfümerie Pieper",ITF
+412,PETstock,CODE_39
+413,Pharmacy4Less,""
+414,"Price Attack",CODE_39
+415,QBD,CODE_39
+416,RAA,CODE_128
+417,RACV,CODE_128
+418,"Ray's Outdoors",CODE_128
+419,rebel,CODE_128
+420,Rega,""
+421,Rivers,CODE_39
+422,"Robins Kitchen",CODE_39
+423,Spotlight,EAN_13
+424,Strandbags,CODE_128
+425,SumoSalad,""
+426,"Ted's Cameras",CODE_39
+427,"Terry White Chemmart",CODE_128
+428,"Veronika Maine",EAN_13
+429,"Vintage Cellars",EAN_13
+430,Waser,""
+431,Whitcoulls,CODE_128
+432,"Zarraffa's Coffee",""
+433,"Crabtree & Evelyn",CODE_39
+434,"Healthy Life",EAN_8
+435,"The Athlete's Foot",CODE_128
+436,"Jamaica Blue",CODE_39
+437,"Wild Bean Cafe",EAN_13
+438,"Abba Hotels",""
+439,Alitalia,CODE_128
+440,Angelico,CODE_128
+441,A&O,EAN_13
+442,Arcaplanet,EAN_13
+443,"Beauty Star",EAN_13
+444,Bennet,EAN_13
+445,Boggi,EAN_13
+446,Botanic,CODE_39
+447,"Bottega Verde",CODE_128
+448,Bricofer,CODE_39
+449,Bricoio,EAN_13
+450,CAD,EAN_13
+451,Camomilla,EAN_13
+452,"Carpisa Yamamay",EAN_13
+453,Carrefour,EAN_13
+454,"Cisalfa Sport",EAN_13
+455,Coin,ITF
+456,Comet,EAN_13
+457,"Computer Discount",CODE_39
+458,Conad,EAN_13
+459,Conbipel,CODE_128
+460,Crai,EAN_13
+461,DeNstore,EAN_13
+462,Despar,EAN_13
+463,Dimeglio,EAN_13
+464,Dmail,CODE_128
+465,Dok,EAN_13
+466,"Du Pareil Au Même",EAN_13
+467,"Eco Store",CODE_39
+468,Eldo,EAN_13
+469,Emisfero,EAN_13
+470,Esselunga,EAN_13
+471,"Essere Benessere",CODE_39
+472,Giunti,EAN_13
+473,"Histoire d'Or",CODE_128
+474,"Il Gigante",EAN_13
+475,Iper,EAN_13
+476,Jules,EAN_13
+477,"La Feltrinelli",EAN_13
+478,"Leroy Merlin",CODE_128
+479,"Liolà",""
+480,Marcopolo,EAN_13
+481,MediaWorld,EAN_13
+482,Mondadori,EAN_13
+483,Motivi,EAN_13
+484,NaturaSi,EAN_13
+485,Norauto,""
+486,Okaidi,EAN_8
+487,OVS,ITF
+488,Pam,EAN_13
+489,Prink,CODE_39
+490,Roadhouse,EAN_13
+491,"Salmoiraghi & Viganò",EAN_13
+492,Saturn,EAN_13
+493,Sephora,ITF
+494,Sidis,EAN_13
+495,Tigros,EAN_13
+496,Trenitalia,QR_CODE
+497,UCI,EAN_13
+499,RACQ,EAN_13
+500,Apotheke,CODE_128
+501,"Noodle Box",CODE_128
+502,Etihad,CODE_128
+503,Dorotheum,CODE_39
+504,"Noni B",EAN_13
+505,"Safar Flyer",""
+506,NRMA,EAN_13
+507,TotalErg,EAN_13
+508,Esso,EAN_13
+509,Chicco,EAN_13
+510,PittaRosso,EAN_13
+511,Sisa,EAN_13
+512,Thun,CODE_39
+513,Euronics,EAN_13
+514,Adeslas,""
+515,"Aer Lingus",""
+516,"Aigle Azur",""
+517,"Air Algérie",""
+518,"Air Austral Capricorne",""
+519,Alimerka,""
+520,Amiga,""
+521,"Bahía Sur",""
+522,Bodybell,EAN_13
+523,"Bonpreu Esclat",GS1_128
+524,BricoKing,CODE_39
+525,Bricor,""
+526,Caldea,""
+527,Caprabo,EAN_13
+528,CEPSA,GS1_128
+529,Cinesa,QR_CODE
+530,"Club Med",""
+531,Vips,GS1_128
+532,DIA,EAN_13
+534,"Druni Perfumeries",CODE_128
+535,"El Árbol",EAN_13
+536,"El Corte Inglés",CODE_128
+537,Elkar,EAN_13
+538,Etam,EAN_13
+539,Expert,EAN_13
+540,Fly,CODE_128
+541,"Forum Sport",EAN_13
+542,Glories,""
+543,Jardiland,EAN_13
+544,Juguettos,EAN_13
+545,Kiabi,EAN_13
+546,"La Maquinista",""
+547,"la Sirena",EAN_13
+548,Lanidor,""
+549,"Lupa Supermercados",EAN_13
+550,"Seguros Mapfre",""
+551,MAS,EAN_13
+552,Masymas,EAN_13
+553,Mayoral,CODE_128
+554,"Meliá",""
+555,"Neck & Neck",CODE_39
+556,Opticalia,""
+557,"Paco Martinez",""
+558,"Perfumerías If",EAN_13
+559,"Prénatal",EAN_13
+560,"Punt Roma",CODE_128
+561,Repsol,EAN_13
+562,Rocasa,""
+563,"Sergent Major",CODE_128
+564,Simply,EAN_13
+565,"Sorli Discau",EAN_13
+566,"Sport Zone",EAN_13
+567,"Tailor & Co",""
+568,Total,EAN_13
+569,"Travel Club",EAN_13
+570,Trucco,EAN_13
+571,Tugasa,""
+572,"Women'Secret",ITF
+573,"Yelmo Cines",CODE_128
+574,"Kleine Zeitung Vorteilsclub",CODE_39
+575,"Reptile Food",EAN_13
+576,"Mystic Shop",EAN_13
+577,"Government Gateway",CODE_128
+578,Braun,ITF
+579,"Zamel's",""
+580,"Io Bimbo",EAN_13
+581,"Total - Stop & Win",""
+582,Dunnes,CODE_128
+583,SuperValu,GS1_128
+584,Spar,CODE_128
+585,"Löning Lingen",""
+586,Welldro,EAN_13
+587,"Schweizerische Drogistenverband",EAN_13
+588,Superquinn,""
+589,Subway,DATA_MATRIX
+590,Simsol,EAN_13
+591,Isikauf.at,""
+592,Cortefiel,ITF
+593,ALE-HOP,CODE_39
+594,Hiperpas,""
+595,Paradores,""
+596,"Feelgood's",EAN_13
+597,"Havana Browns",CODE_39
+598,"Ecoline Wash Mobile",EAN_13
+599,Etsan,EAN_13
+600,Humanic,ITF
+601,"Beauty Alliance",""
+602,"Addition Elle",CODE_128
+603,"Air Miles",UPC_A
+604,Ardene,CODE_39
+605,"Best Buy",CODE_128
+606,BMR,CODE_128
+607,"Bosley's",CODE_39
+608,"Brooks Brothers",CODE_128
+609,Budget,CODE_128
+610,CAA,""
+611,"Calgary Co-op",UPC_A
+612,"Canada Post",CODE_128
+613,"Canadian Tire",CODE_128
+614,"Change Lingerie",CODE_39
+615,"Cineplex - SCENE",GS1_128
+616,"Denny's",""
+617,DeSerres,CODE_128
+618,Enterprise,CODE_128
+619,Familiprix,CODE_128
+620,"Futura Rewards",""
+621,GAP,CODE_128
+622,"Global Pet Foods",CODE_39
+623,Guess,CODE_128
+624,Hallmark,CODE_128
+625,"Hôtellerie Champêtre",""
+626,"Hudson's Bay",UPC_A
+627,"PC Plus",CODE_128
+628,"Longo's",UPC_A
+629,"M&M Food Market",CODE_128
+630,"Medicine Shoppe",""
+631,"Metro & Moi",CODE_128
+632,Milliplein,CODE_128
+634,Moneygram,CODE_128
+635,"Moores Clothing",CODE_128
+636,"More Rewards",UPC_A
+637,"Mountain Equipment Co-op",ITF
+638,"MTY Rewards",CODE_128
+639,"National Car Rental",CODE_39
+640,NCIX,CODE_39
+641,"Office Depot",CODE_128
+642,Penningtons,CODE_128
+643,Petcetera,""
+644,Petland,UPC_A
+645,Petro-Canada,UPC_A
+646,PetSmart,UPC_A
+647,Pharmaprix,UPC_A
+648,"Pioneer Energy",CODE_128
+649,"Indigo - Plum Rewards",CODE_128
+650,"Red River Co-op",CODE_39
+651,"Ricki's",CODE_128
+652,Safeway,UPC_A
+653,"Shoppers Drug Mart",UPC_A
+654,Sobeys,CODE_128
+655,SPC,CODE_128
+656,"Suzy Shier",CODE_128
+657,Target,EAN_13
+658,"Thrifty Foods",""
+659,"Trade Secret",UPC_A
+660,"West 49",""
+661,"WestJet Rewards",CODE_128
+662,"Würzenbach Drogerie",EAN_13
+664,"American Eagle",ITF
+665,"TJX Style+",CODE_128
+666,Bootlegger,CODE_128
+667,"La Senza",CODE_128
+668,"VIA Rail",CODE_39
+669,Anthropologie,ITF
+670,"Nature First",EAN_13
+671,"Catfight Collections",CODE_128
+672,Velvet-Shop,""
+673,Thrifty,""
+674,"Cathay Pacific",CODE_128
+675,Rydges,""
+676,Petbarn,CODE_128
+677,"Shangri-La Golden Circle",""
+678,"Choice Hotels",CODE_128
+679,JetBlue,""
+680,Fairmont,CODE_128
+681,Famila,EAN_13
+682,"La Gardenia",EAN_13
+683,Limoni,EAN_13
+684,Renfe,DATA_MATRIX
+685,"Thyme Maternity",CODE_128
+687,"Thai - Royal Orchid Plus",PDF_417
+688,SportIT,EAN_13
+689,"Foster Calzature",EAN_13
+690,"Drogerie Moll",EAN_13
+691,"Reischmann Apotheken",CODE_39
+692,Sportsmart,CODE_39
+693,Mountain-Shop,CODE_39
+694,"Supercheap Auto",CODE_128
+695,"Blacktown City Libraries",CODE_128
+696,"Der Grissemann",EAN_13
+697,"Österreichischer Werkzeugmarkt",EAN_13
+698,"Eurogast Grissemann",EAN_13
+699,"Stroili Oro",EAN_13
+700,Trony,EAN_13
+701,"Ali Aliper",EAN_13
+702,Oltre,EAN_13
+703,Bluespirit,EAN_13
+704,"Fiorella Rubino",EAN_13
+705,Sigma,EAN_13
+706,"Scarpe & Scarpe",EAN_13
+707,Golfino,""
+708,"Stash Hotel Rewards",""
+709,"Leaders Club",""
+710,Loews,""
+711,Kimpton,""
+712,"Omni Hotels",""
+713,Southwest,""
+714,"Alaska Airlines",""
+715,"Hawaiian Airlines",""
+716,Spirit,""
+717,"Frontier Airlines",""
+718,"CafèNoir",EAN_13
+719,36.6,EAN_13
+720,585,CODE_128
+721,"1001 Тур",""
+722,Adidas,""
+723,"alessandro frenza",""
+724,Avantage,EAN_13
+725,Baon,EAN_8
+726,"Bon Joli",""
+727,Camelot,EAN_13
+728,"Caterina Leman",EAN_13
+729,"COLIN'S",EAN_13
+730,"Concept Club",CODE_128
+731,e96.ru,""
+732,ECCO,EAN_13
+733,"Gloria Jeans",EAN_13
+734,HENDERSON,EAN_13
+735,INCITY,EAN_13
+736,Kapricci,""
+737,Mascotte,EAN_13
+738,"Melon Fashion Club",EAN_13
+740,Orby,""
+741,"O'STIN",EAN_13
+742,Reebok,CODE_128
+743,Savage,CODE_128
+744,SELA,CODE_128
+745,SvadbaMag,""
+746,Valtera,""
+747,Westland,EAN_13
+748,"АБК",""
+749,"Адамас",EAN_13
+750,"Азбука Вкуса",""
+751,"Академия",""
+752,"Аксон",""
+753,"Алеф",EAN_13
+754,"Алфавит",EAN_13
+755,"Арбор Мунди",""
+756,"Ароматный Мир",CODE_128
+757,"Бахетле",CODE_39
+758,"Бегемот",EAN_13
+759,"Белый Ветер",EAN_13
+760,"Буду мамой",""
+761,"Буквоед",EAN_13
+762,"Бюстье",""
+763,"В городе N",""
+764,"Васаби",""
+765,"Вестер",""
+766,"Виктория",EAN_13
+767,"Газпром АЗС",""
+768,"Гексал",""
+769,"Глобус Гурмэ",""
+770,"Гудвин",""
+771,"Детский мир",CODE_128
+772,"Диана",CODE_128
+773,"Дикая Орхидея",CODE_128
+774,"Дочки Сыночки",""
+775,"Евразия",EAN_13
+776,"ИЛЬ ДЕ БОТЭ",EAN_13
+777,"Кант",EAN_13
+778,"КЕЙ",EAN_13
+779,"Компьютерный Мир",EAN_13
+780,"Комус",EAN_13
+781,"Кофе Хауз",""
+782,"Красный Куб",CODE_128
+783,"Лукойл / Ликард",""
+784,"Л'Этуаль",CODE_128
+785,"М.Видео",EAN_13
+786,"Малина",EAN_13
+787,"Милавица",EAN_13
+788,"Много ru",CODE_128
+789,"Музторг",""
+790,"О’КЕЙ",EAN_13
+791,"Ол!Гуд",""
+792,"Ортека",CODE_39
+793,"Первая Помощь",EAN_13
+794,"Перекрёсток",EAN_13
+795,"Профи Спорт",EAN_13
+796,"Пятёрочка",""
+797,"Рив Гош",CODE_128
+798,"Сакура",""
+799,"Связной",EAN_13
+800,"Сити Обувь",CODE_39
+801,"Ситилинк",CODE_39
+802,"Снежная Королева",CODE_39
+803,"Спортландия",EAN_13
+804,"Спортмастер",EAN_13
+805,"Старик Хоттабыч",""
+806,Stockmann,CODE_128
+807,"Сток-центр",EAN_13
+808,"Сударь",EAN_13
+809,"Терволина",EAN_13
+810,"Техносила",UPC_A
+811,"Триал-Спорт",""
+812,"Унция",EAN_8
+813,"Фамилия",EAN_13
+814,"ФотоПлюс",""
+815,"ЦентрОбувь",EAN_13
+816,"ЭКОНИКА",EAN_13
+817,"Эстель Адони",EAN_13
+818,"Япоша",""
+819,"Marks & Spencer",EAN_8
+820,"Air Miles",EAN_13
+821,"Ajax Amsterdam",ITF
+822,"Albert Heijn",EAN_13
+823,"Ami Kappers",CODE_128
+824,"Anna van Toor",EAN_13
+825,ANWB,CODE_128
+826,"Batavia Stad",EAN_13
+827,Berden,ITF
+828,"Bever Card",EAN_13
+829,Welkoop,CODE_128
+830,"BP - FreeBees",CODE_128
+831,"Claudia Straeter",EAN_13
+832,"Coop Supermarkten",EAN_13
+833,Coppelmans,ITF
+834,Dio,EAN_13
+835,"Douwe Egberts",EAN_13
+836,Duthler,CODE_128
+837,Ekoplaza,EAN_13
+838,Faunaland,CODE_128
+839,"Gall & Gall",EAN_13
+840,"Game Mania",EAN_13
+841,GAMMA,EAN_13
+842,Heuts,CODE_39
+843,Hoogvliet,EAN_13
+844,Houtbrox,EAN_13
+845,KARWEI,EAN_13
+846,Kelly,EAN_13
+847,Kruidvat,EAN_13
+848,"Lake Side",ITF
+849,"Le Ballon",ITF
+850,Mooi,EAN_13
+851,Nijhof,EAN_13
+852,"Piet Zoomers",EAN_13
+853,Q8,EAN_13
+854,Roetgerink,ITF
+855,Schuurman,ITF
+856,Score,EAN_13
+857,Shoeby,GS1_128
+858,"Ter Horst van Geel",EAN_13
+859,"V & D",EAN_13
+860,"50 Style",ITF
+861,"5 à Sec",CODE_128
+862,Alma,EAN_13
+863,"AlmiDécor",EAN_8
+864,Americanos,""
+865,Apart,EAN_13
+866,Arkadia,""
+867,"Big Star",EAN_13
+868,CCC,EAN_13
+869,"Chłopskie Jadło",""
+870,Coccodrillo,EAN_13
+871,"Coffee Club",""
+872,"Dom Zdrowia",""
+873,"Galeria Mokotów",""
+874,"GO Sport",EAN_13
+875,hebe,EAN_13
+876,HiMountain,""
+877,House,""
+878,Jula,CODE_39
+879,KappAhl,""
+880,"Centrum Wina",""
+881,"LOTOS navigator",CODE_39
+882,Molton,""
+883,OCHNIK,""
+884,"Pierre Cardin",""
+885,"Piotr i Paweł",EAN_13
+886,"Premium Club",EAN_13
+887,Rossmann,EAN_13
+888,Sfera,""
+889,Simple,EAN_13
+890,Smyk,EAN_13
+891,Sphinx,""
+892,Statoil,CODE_128
+893,Super-Pharm,EAN_13
+894,"Świat Zdrowia",""
+895,Taranko,EAN_13
+896,Telepizza,""
+897,"The men's world club",""
+898,"TOP SECRET",CODE_39
+899,"Trygon Sport",""
+900,"Twoje Soczewki",""
+901,"VIP COLLECTION",""
+902,"W Biegu Café",""
+903,W.KRUK,CODE_128
+904,"Warszawa Wilenska",""
+905,YES,EAN_13
+906,"ZiKO Klub",EAN_13
+908,Aeroflot,""
+909,Evita,CODE_128
+910,"Fashion Galaxy",EAN_13
+911,"Киномакс ",""
+912,"L'Occitane",EAN_13
+913,"Voila Hotels",""
+914,Pelican,EAN_13
+915,Alba,UPC_A
+916,"Эльдорадо",CODE_128
+917,Monetka,""
+918,"Норман",UPC_A
+919,"Region of Waterloo Library",""
+920,"Drummond Golf",CODE_39
+921,NWZ,EAN_13
+922,"Bevilles Jewellers",CODE_128
+923,"City Chic",CODE_39
+924,"City Farmers",EAN_13
+925,DAdrogist,EAN_13
+926,"David Lawrence",""
+927,"ICI PARIS XL",EAN_13
+928,Mimco,CODE_128
+929,Payless,CODE_128
+930,Rinascente,EAN_13
+931,Sheridan,EAN_13
+932,"Sorelle Ramonda",EAN_13
+933,Springfield,ITF
+934,"Tigotà",EAN_13
+935,Timberland,ITF
+936,"Orlen - Vitay",CODE_128
+937,Wojas,EAN_13
+938,Sizeer,CODE_128
+939,"T2 Tea",CODE_128
+940,"Подружка",EAN_13
+941,Sunlight,CODE_128
+942,4F,CODE_39
+943,"Gino Rossi",CODE_128
+944,Juteco,EAN_13
+945,Lindt,EAN_13
+946,JacquiE,CODE_39
+947,"Lorna Jane",CODE_39
+948,"Paolo Conte",EAN_13
+949,"Finn Flare",EAN_8
+950,"Олант",EAN_13
+951,"Лента",CODE_128
+952,"пан чемодан",""
+953,"Love Republic",EAN_13
+954,Respect,EAN_13
+955,"Очкарик",EAN_13
+956,"Старый лекарь",EAN_8
+957,"ларес",CODE_128
+958,"Максидом",CODE_39
+959,"Kira Plastinina",EAN_13
+960,"Уютерра",CODE_39
+961,"Кораблик",CODE_128
+962,"Монро",EAN_13
+963,"Jeans Symphony",EAN_13
+964,"Спектр",EAN_13
+965,"Кофейная Кантата",EAN_13
+966,"Стильпарк",EAN_13
+967,"Бетховен",""
+968,Rendez-Vous,""
+969,"Читай Город",EAN_13
+970,Zenden,EAN_13
+971,"Московский ювелирный завод",CODE_39
+972,"Карусель",EAN_13
+973,"Посуда Центр",EAN_13
+974,Palmetta,""
+975,re:Store,EAN_13
+976,"Carlo Pazolini",CODE_128
+977,LTB,EAN_13
+978,Columbia,EAN_13
+979,Nike,ITF
+980,"Tom farr",EAN_13
+981,AGM,EAN_13
+982,Feichtinger,CODE_39
+983,Dehner,ITF
+984,Auchan,EAN_13
+985,Swarovski,CODE_39
+986,Panorama,EAN_13
+987,Sonnentor,EAN_13
+988,Gamestop,GS1_128
+989,"Toys Center",EAN_13
+990,"Nando's",CODE_128
+991,Bialetti,EAN_13
+992,Benetton,EAN_13
+993,Fnac,QR_CODE
+994,"Eddie Bauer",CODE_39
+995,Review,CODE_39
+996,"Go Vita",CODE_39
+997,"Улыбка радуги",EAN_13
+998,Metalicus,CODE_39
+999,"House Homewares",CODE_39
+1000,"Chemmart Pharmacy",CODE_128
+1001,"Mountain Designs",CODE_39
+1002,"Tony Bianco",CODE_39
+1003,"Kitchen Warehouse",CODE_128
+1004,"National Pharmacies",UPC_A
+1005,"Calvin Klein",CODE_128
+1006,"Menchie's",CODE_128
+1007,Gymboree,CODE_128
+1008,"Sally Beauty Supply",CODE_128
+1009,"Value Village",UPC_A
+1010,Bytom,EAN_13
+1011,Monnari,EAN_13
+1012,"City Sport",EAN_13
+1013,"Royal Collection",EAN_13
+1014,PKZ,QR_CODE
+1015,Manor,QR_CODE
+1016,"Globus Card",EAN_13
+1017,comma,""
+1018,Bonita,CODE_128
+1019,Diverse,EAN_13
+1020,Wittchen,EAN_13
+1021,"Ex Libris",EAN_13
+1022,Upim,ITF
+1023,"Camomilla italia",EAN_13
+1024,"Ригла",EAN_13
+1025,obuv.com,""
+1026,Glance,EAN_13
+1027,Zarina,EAN_13
+1028,Ziengs,EAN_13
+1029,"Мелодия здоровья",EAN_13
+1030,Primera,EAN_13
+1031,"Четыре лапы",EAN_13
+1032,"красное и белое",EAN_13
+1033,"Леонардо",""
+1034,Domani,EAN_13
+1035,"Vögele Shoes",""
+1036,"Новый книжный",EAN_13
+1037,"золотое яблоко",""
+1038,"Россита",""
+1039,"Francesco Donni",EAN_13
+1040,"5 карманов",EAN_13
+1041,Cats&Dogs,""
+1042,"Магнолия",EAN_13
+1043,"Sport Sperk",ITF
+1044,"Gina Laura",ITF
+1045,Hirmer,QR_CODE
+1046,BabyOne,ITF
+1047,"Casa Moda",ITF
+1048,Ramelow,ITF
+1049,Kressner,ITF
+1050,FrischeParadies,EAN_13
+1051,"МОТО.РУ МОСКВА",EAN_13
+1052,"Adão Imóveis",""
+1053,"Aerolineas Argentinas",""
+1054,"Agua Doce",CODE_128
+1055,Avianca,""
+1056,Azul,PDF_417
+1057,BrasilSul,""
+1058,"Caita Supermercados",""
+1059,"Container Ecology Store",""
+1060,Dotz,CODE_128
+1061,Drogafuji,""
+1062,Drogal,""
+1063,"Drogaria Total",""
+1064,"Drogarias Central",CODE_39
+1065,Drogasil,""
+1066,"Farmacias Farma & Farma",""
+1067,"Farmacias Nissei",""
+1068,"Favorito Supermercados",""
+1069,Forza,""
+1070,Smiles,""
+1071,Grandtour,""
+1072,"Grupo Catatau",""
+1073,"Ipiranga - km de vantagens",""
+1074,Itamarati,""
+1075,Kopenhagen,""
+1076,LANPASS,""
+1077,"Limao Doce",""
+1078,Localiza,""
+1079,"Luigi Bertolli",""
+1080,Miyoshi,""
+1081,Multiplus,""
+1082,"Mundo do Marketing",""
+1083,Naturativa,""
+1084,"O Boticario",""
+1085,AeroMexico,""
+1086,"Pão de Açúcar",""
+1087,Perini,""
+1088,"Stylo Farma",""
+1089,"Superlagoa Supermercados",""
+1090,SuperMuffato,""
+1091,LATAM,CODE_128
+1092,TAP,""
+1093,Travessa,""
+1094,"Wellcome Trips",""
+1095,"YOI! Roll's & Temaki",""
+1096,Zelo,""
+1097,"Zona Sul Atende",""
+1098,Alsuper,""
+1099,Apeiron,""
+1100,Calimax,EAN_13
+1101,"Cristal Joyas",""
+1102,Esquivar,""
+1103,"Farmacias Del Ahorro",EAN_13
+1104,"Julio Cepeda",""
+1105,"Little Caesars",""
+1106,"Liz Minelli",""
+1107,merco,""
+1108,OfficeMax,CODE_128
+1109,Ofix,""
+1110,Potzollcalli,""
+1111,Toks,""
+1112,CFE,""
+1114,"Farmacias Benavides",""
+1115,"Casa Ley",EAN_13
+1116,Chedraui,EAN_13
+1117,Cinemex,EAN_13
+1118,"Cinépolis",CODE_128
+1119,"Círculo Real",""
+1120,Devlyn,""
+1121,Fiestamericana,""
+1123,Soriana,EAN_13
+1124,Steren,""
+1125,Ultrafemme,""
+1126,A&P,UPC_A
+1127,AutoZone,CODE_128
+1128,"Barnes & Noble",CODE_128
+1129,"Bass Pro Shops",CODE_39
+1130,"Big Lots",CODE_128
+1131,BI-LO,UPC_A
+1132,"Commissary Rewards",UPC_A
+1133,CVS,EAN_13
+1134,"Dick's Sporting Goods",UPC_A
+1135,"Giant Eagle",UPC_A
+1136,"Harris Teeter",UPC_A
+1137,H-E-B,""
+1138,Hy-Vee,UPC_A
+1139,Kroger,UPC_A
+1140,"Lowe's",CODE_128
+1141,"O'Reilly",CODE_128
+1142,"Price Chopper",UPC_A
+1143,Publix,UPC_A
+1144,RadioShack,""
+1145,"Raley's",UPC_A
+1146,"Rite Aid",CODE_128
+1147,Ross,""
+1149,"Saks Fifth Avenue",CODE_128
+1150,ShopYourWay,CODE_128
+1151,"Seven Eleven",EAN_13
+1152,Sheetz,CODE_128
+1153,"Sports Authority",CODE_128
+1155,Walgreens,PDF_417
+1156,Wegmans,CODE_128
+1157,"A.C. Moore",CODE_128
+1158,"ABC Fine Wine & Spirits",UPC_A
+1159,"ACE Hardware",UPC_A
+1160,"Aéropostale",""
+1161,Aerosoles,""
+1162,"A'GACI",CODE_128
+1163,"Alamo Rent a Car",""
+1164,"ALCO Stores",""
+1166,Amtrak,""
+1168,"Arden B.",UPC_A
+1169,"Bealls Outlet",UPC_A
+1170,bebe,CODE_128
+1171,BevMo!,UPC_A
+1172,"Big Y World Class Market",UPC_A
+1173,Bi-Mart,""
+1174,"Bliss Spa",""
+1175,"Bloomingdale's",CODE_128
+1176,"Bob's Stores",CODE_39
+1177,"Boot Barn",""
+1178,"Brookshire's",UPC_A
+1179,"Burkes Outlet",UPC_A
+1180,"Cabela's",CODE_128
+1182,"Carmike Cinemas",CODE_128
+1183,"Charming Charlie",""
+1184,"Chico's",CODE_128
+1185,"Chop't Salad",""
+1186,"Christopher & Banks",CODE_39
+1187,"Cold Stone Creamery",""
+1188,"Cub Foods",UPC_A
+1189,"Dollar Rent a Car",CODE_128
+1190,dressbarn,ITF
+1191,"DSW Designer Shoe Warehouse",UPC_A
+1192,"Duane Reade",PDF_417
+1193,"Family Express",UPC_A
+1194,"Famous Footwear",CODE_39
+1195,"Anna's Linens",""
+1196,"Food City",UPC_A
+1197,"Food Lion",UPC_A
+1198,Footaction,ITF
+1199,"Fred Meyer",UPC_A
+1200,"Fry's",UPC_A
+1201,"Giant Food Stores",UPC_A
+1202,"Giant Food",UPC_A
+1203,Godiva,ITF
+1204,"Golf Galaxy",UPC_A
+1205,"Gordon Biersch",CODE_128
+1207,Hmart,UPC_A
+1208,"Hancock Fabrics",CODE_128
+1209,"Harpoon Brewery",""
+1210,"Harry & David",CODE_39
+1211,"Hot Topic",CODE_128
+1212,"HuHot Mongolian Grill",CODE_128
+1213,"Ingles Markets",UPC_A
+1214,Jockey,UPC_A
+1215,"Kinney Drugs",UPC_A
+1216,"Kohl's",CODE_128
+1217,"Love's",CODE_128
+1218,"Martin's Food Market",UPC_A
+1219,"MC Sports",""
+1220,"Modell's",UPC_A
+1222,"Olympia Sports",CODE_128
+1223,"P.F. Chang's",CODE_128
+1224,"Panera Bread",CODE_128
+1225,Pathmark,UPC_A
+1226,Pavillions,""
+1227,"Pep Boys",CODE_128
+1228,Petco,CODE_39
+1229,"Piggly Wiggly",UPC_A
+1230,"Pilot Flying J",CODE_128
+1231,Qdoba,CODE_128
+1232,"Raising Cane's",""
+1234,Ralphs,UPC_A
+1235,Randalls,UPC_A
+1236,"Red Robin",CODE_128
+1237,"Shoe Carnival",UPC_A
+1238,"Sport Chalet",""
+1239,"TGI Fridays",CODE_128
+1240,Talbots,CODE_128
+1241,TCBY,""
+1242,"Things Remembered",CODE_128
+1243,Tops,UPC_A
+1244,"Tuesday Morning",CODE_128
+1245,"Turkey Hill",UPC_A
+1246,"The Vitamin Shoppe",CODE_128
+1247,Vons,CODE_128
+1248,"Weis Markets",UPC_A
+1249,"West Marine",CODE_39
+1250,"Which Wich",CODE_128
+1251,"White House | Black Market",""
+1252,Winn-Dixie,CODE_128
+1253,"World Market",""
+1254,"Smith's",UPC_A
+1255,ShopRite,UPC_A
+1256,"Stop & Shop",EAN_13
+1257,"The Food Emporium",UPC_A
+1258,REI,CODE_128
+1259,Starbucks,PDF_417
+1260,Terranova,QR_CODE
+1261,BM,EAN_13
+1262,"True Value",CODE_128
+1263,"Stein Mart",ITF
+1264,Ritz-Carlton,CODE_128
+1265,ULTA,EAN_13
+1266,AirTran,CODE_39
+1267,"Men's Wearhouse",CODE_128
+1268,AARP,CODE_128
+1269,"Regal Cinemas",QR_CODE
+1270,Bouwmaat,CODE_39
+1271,PanVel,""
+1272,"US Airways",""
+1273,Booths,""
+1274,"MS Mode",EAN_13
+1275,Sanborns,""
+1276,"Bottom Dollar Food",UPC_A
+1277,Torrid,UPC_A
+1278,AAA,CODE_39
+1279,"Fox Rent a Car",""
+1280,"Century 21",CODE_128
+1281,Lumen,""
+1282,"Librerías El Sótano",""
+1283,"Target Pharmacy",CODE_128
+1284,Wynn,""
+1285,"M life",""
+1286,Ghandi,""
+1287,Albertsons,UPC_A
+1288,Belly,QR_CODE
+1289,ACME,UPC_A
+1290,SuperAmerica,UPC_A
+1291,Liverpool,EAN_13
+1292,"Nine West",""
+1293,iPrefer,""
+1294,"Varon Peluqueria",""
+1295,LifeMiles,""
+1296,"Lojas Renner",""
+1297,"Bimbo Store",CODE_39
+1298,"BJ's Restaurant",CODE_39
+1299,"IDEXE'",EAN_13
+1300,IZOD,CODE_128
+1301,"La Quinta Inns",""
+1302,"Pet Supplies Plus",UPC_A
+1303,"Piazza Italia",EAN_13
+1304,"Porrúa",""
+1305,Skechers,CODE_128
+1306,Speedway,UPC_A
+1307,"Van Heusen",CODE_128
+1308,"AMF Bowling",EAN_13
+1309,"Hard Rock",""
+1310,"Finish Line",CODE_128
+1311,LIDS,CODE_39
+1312,Goodwill,CODE_39
+1313,"Lowes Foods",UPC_A
+1314,"King Soopers",UPC_A
+1315,Shopko,UPC_A
+1316,"Jersey Mike's",CODE_128
+1317,"Family Christian",CODE_128
+1318,"Hibbett Sports",CODE_128
+1319,vinazion,CODE_39
+1320,Drautank,""
+1321,B&Q,CODE_128
+1322,Michaels,CODE_128
+1323,Marsh,UPC_A
+1324,Foodtown,UPC_A
+1325,Express,CODE_128
+1326,maurices,ITF
+1327,"Aéroville",EAN_13
+1328,"Alinéa",EAN_13
+1329,Animalis,EAN_13
+1330,Babou,EAN_13
+1331,Bizzbee,QR_CODE
+1332,"Blue Box",CODE_39
+1333,Brice,EAN_13
+1334,Bricoman,GS1_128
+1335,"Brico Marché",GS1_128
+1336,Camaieu,CODE_128
+1337,"Casino Supermarchés",EAN_13
+1338,Castorama,CODE_128
+1339,Chronodrive,CODE_128
+1340,Confluence,EAN_13
+1341,Cora,EAN_13
+1342,Courir,EAN_13
+1343,Darty,CODE_128
+1344,Devred,CODE_128
+1345,"Docks 76",""
+1346,"E. Leclerc",EAN_13
+1347,Euralille,""
+1348,Flunch,EAN_13
+1349,"forum des Halles",""
+1350,"France Loisirs",GS1_128
+1351,"Franck Provost",EAN_13
+1352,Franprix,EAN_13
+1354,"Gaumont Pathé",EAN_13
+1355,"Géant Casino",EAN_13
+1356,Guerlain,""
+1357,Hippopotamus,QR_CODE
+1358,"Intermarché",GS1_128
+1360,"Jean Louis David",EAN_13
+1361,Kinder,""
+1362,Kipling,QR_CODE
+1363,Kookai,EAN_13
+1364,Lacoste,CODE_128
+1365,"La Halle",CODE_128
+1366,"La Mie Caline",EAN_13
+1367,"Le BHV Marais",GS1_128
+1368,"Le Centre V2",EAN_13
+1369,"Leon de Bruxelles",DATA_MATRIX
+1371,"Magasins U",ITF
+1373,"Marc Orian",CODE_128
+1374,"Supermarchés Match",EAN_13
+1375,Micromania,CODE_128
+1376,Mim,CODE_128
+1377,Monoprix,EAN_13
+1378,Morgan,EAN_13
+1379,"Mr. Bricolage",EAN_13
+1380,"Nature et Découvertes",EAN_13
+1381,"Nocibé",CODE_128
+1382,Noreve,""
+1383,Obaibi,EAN_8
+1384,"Optical Center",CODE_128
+1385,Orchestra,CODE_128
+1386,Oxbow,CODE_39
+1387,Oxybul,QR_CODE
+1388,Padd,EAN_13
+1389,Pardon,""
+1390,"Parly 2",""
+1391,Pimkie,CODE_128
+1392,"Princesse Tam Tam",EAN_13
+1393,Quick,EAN_13
+1394,Redskins,EAN_13
+1395,Rivetoile,""
+1396,"Rosny 2",""
+1397,Roxy,EAN_13
+1398,Salomon,CODE_128
+1399,"SO Ouest",""
+1400,"Sport 2000",EAN_13
+1401,"Tape à l'oeil",CODE_128
+1402,UGC,QR_CODE
+1403,"1.2.3 Diva",EAN_13
+1404,"Velizy 2",""
+1405,Vertbaudet,CODE_128
+1406,"Virgin Megastore",CODE_128
+1407,Weldom,EAN_13
+1408,BP,EAN_13
+1409,"David's Tea",EAN_13
+1410,Abacus,ITF
+1411,"Baby Bunting",CODE_128
+1412,Brums,EAN_13
+1413,Gordmans,""
+1414,"Hair Cuttery",UPC_A
+1415,Ishka,CODE_39
+1416,Lovable,EAN_13
+1417,Primigi,EAN_8
+1418,Thorntons,CODE_128
+1419,TomThumb,UPC_A
+1420,"Vitamin World",UPC_A
+1421,Waldbaums,UPC_A
+1422,"City Market",UPC_A
+1423,"Baker's Supermarkets",UPC_A
+1424,"Dillons Food Stores",UPC_A
+1425,"Jay C",UPC_A
+1428,QFC,UPC_A
+1429,Truffaut,CODE_128
+1430,"Gamm vert",EAN_13
+1431,Orcanta,EAN_13
+1432,Bricorama,EAN_13
+1433,Quellogiusto,CODE_128
+1434,Kaiser,""
+1435,CITYPARK,EAN_13
+1436,STARKL,EAN_13
+1437,Befree,""
+1438,Galassia,EAN_13
+1439,Consum,EAN_13
+1440,"General Trader",CODE_39
+1441,Pewex,EAN_13
+1442,"My Chemist",CODE_39
+1443,"John Lewis",CODE_128
+1444,Styleco,EAN_13
+1445,Eurodif,CODE_128
+1446,"Beauty Success",EAN_13
+1447,Zodio,CODE_128
+1448,Nicolas,EAN_13
+1449,Burton,CODE_128
+1450,Peek&Cloppenburg,EAN_13
+1451,"Ollie's Bargain Outlet",CODE_128
+1452,Books-A-Million,CODE_128
+1453,"Stride Rite",CODE_128
+1454,"Pet Supermarket",CODE_39
+1455,Picwic,EAN_13
+1456,Cleor,CODE_128
+1457,Villaverde,EAN_13
+1458,"Feu Vert",EAN_13
+1459,"Toys ""R"" Us",EAN_13
+1460,"Robert Ley City Stores",""
+1461,"Cruse Classics",""
+1462,"Bertram & Frank",""
+1463,"Cube 115",""
+1464,Carrefour,CODE_128
+1465,"Robert Ley Outlet",ITF
+1466,"Gewußt wie",""
+1467,"The Body Shop",CODE_128
+1468,Boulanger,CODE_128
+1469,"Z generation",EAN_13
+1470,Centrakor,CODE_128
+1471,"Armand Thiery",EAN_13
+1472,Autobacs,EAN_13
+1473,Phildar,EAN_13
+1474,KHAAN,CODE_39
+1475,"TrésOr",CODE_128
+1476,GiFi,EAN_13
+1477,EasyCash,EAN_13
+1478,"Bébé 9",CODE_39
+1479,"Une Heure pour Soi",EAN_13
+1480,JCPenney,CODE_128
+1481,Build-A-Bear,CODE_128
+1482,hagebau,EAN_13
+1483,"Yves Rocher",CODE_128
+1484,"Sam's Club",CODE_128
+1485,"Orange Leaf Yogurt",CODE_128
+1486,Uniprix,CODE_128
+1487,Nimis,EAN_13
+1488,Nuvolari,CODE_128
+1489,"DF SportSpecialist",EAN_13
+1490,Basko,EAN_13
+1491,Unes,EAN_13
+1492,"Grande Cinema 3",EAN_13
+1493,Eurobrico,EAN_13
+1494,"Isola dei Tesori",EAN_13
+1495,Cleo,CODE_128
+1496,Fortesan,EAN_13
+1497,Husky,CODE_128
+1498,Wjcon,CODE_128
+1499,Iperal,EAN_13
+1500,"Video Ezy",CODE_39
+1501,Nico,EAN_13
+1502,"Pets at Home",GS1_128
+1503,"Diffusione Tessile",EAN_13
+1504,Erbolario,EAN_13
+1505,"Nencini Sport",CODE_39
+1506,"SAGA Cosmetics",EAN_8
+1507,"Sapore di Mare",EAN_13
+1508,Flannerys,CODE_128
+1509,Bonds,EAN_13
+1510,Adorne,CODE_128
+1511,Matchbox,CODE_128
+1512,"Taking Shape",CODE_128
+1513,Portmans,CODE_39
+1514,"Napoleon Perdis",CODE_128
+1515,Jigsaw,CODE_128
+1516,Freedom,CODE_128
+1517,Snowgum,CODE_39
+1518,"Tim Hortons",CODE_128
+1519,"Northern Reflections",ITF
+1520,Porter,CODE_128
+1521,"Planet Organic",CODE_128
+1522,Yogurtys,CODE_128
+1523,"Pflanzen Kölle",CODE_128
+1524,Chausport,EAN_13
+1525,Valege,EAN_13
+1526,Mistigriff,EAN_13
+1527,Tati,EAN_13
+1528,RougeGorge,EAN_8
+1529,"Dafy Moto",EAN_13
+1530,"Bleu Libellule",EAN_13
+1531,AKI,CODE_128
+1532,Mercadona,EAN_13
+1533,Worten,EAN_13
+1534,Praxis,""
+1535,"Nelson Schoenen",EAN_13
+1536,Open32,EAN_13
+1537,Obelink,CODE_128
+1538,Multimate,EAN_13
+1539,"Jeans Centre",EAN_13
+1540,Livera,CODE_128
+1541,"Chasin'",EAN_13
+1542,Vomar,EAN_13
+1543,Lucardi,EAN_13
+1544,Bata,EAN_13
+1545,"Полушка",EAN_13
+1546,Kari,EAN_13
+1547,"THOMAS MUNZ",UPC_A
+1548,"Фармленд",CODE_128
+1549,"Дикси",CODE_39
+1550,"Метрика",EAN_8
+1551,Kanzler,EAN_13
+1552,Prisma,""
+1553,Golfstream,EAN_13
+1554,"Домовой",EAN_13
+1555,"Nando's",CODE_128
+1556,"Ситимаркет",EAN_13
+1557,"Тофа",CODE_128
+1558,CALIPSO,EAN_13
+1559,"Технопарк",EAN_13
+1560,Hastings,CODE_128
+1561,Mapco,UPC_A
+1562,"Mariano's",UPC_A
+1563,Blick,CODE_39
+1564,Savers,UPC_A
+1565,"Champs Sports",ITF
+1566,Pinkberry,""
+1567,"Hamrick's",ITF
+1568,Ethos,EAN_13
+1569,Migross,EAN_13
+1570,Segue,EAN_13
+1571,"Acqua & Sapone",EAN_13
+1572,Cadoro,EAN_13
+1573,Optissimo,EAN_13
+1574,Bimbus,EAN_13
+1575,Avanzi,EAN_13
+1576,Boots,CODE_128
+1577,"Poli & Regina",EAN_13
+1578,"Sport'85",EAN_13
+1579,Bagatt,EAN_13
+1580,Galbusera,EAN_13
+1581,ADESE,""
+1583,"Aziz Bebe",""
+1584,"Air Asia",""
+1585,"Air India",""
+1586,"Allen Solly",""
+1587,ANA,ITF
+1588,"Apollo Pharmacy",""
+1589,"Aziz Bebe",""
+1590,Burda,""
+1591,Cacharel,""
+1592,Crossword,""
+1593,ebebek,""
+1594,Efor,""
+1595,GoAir,""
+1596,Gratis,""
+1597,"Happy Center",""
+1598,"Hero MotoCorp",""
+1599,HyperCITY,""
+1600,"Indian Oil",""
+1601,"Jet Airways",CODE_128
+1602,"Kamil Koç",""
+1603,Kiler,""
+1604,Kiler,""
+1605,"Kingfisher Airlines",""
+1606,Kipa,""
+1607,"Koçtaş",""
+1608,"Louis Philippe",""
+1609,MACROCENTER,""
+1610,"Nt Kitap",""
+1611,Onur,""
+1612,Opet,""
+1613,"Pehlivanoğlu",""
+1614,"Peter England",""
+1615,"Petrol Ofisi",""
+1616,Sevil,""
+1617,"Shoppers Stop",""
+1618,"Şok",""
+1619,"Spencer's",""
+1620,SpiceJet,""
+1621,"Star Bazaar",CODE_128
+1622,"Taj Hotels",""
+1623,"Tansaş",""
+1624,"Tekin Acar Cosmetics",""
+1625,Teknosa,EAN_13
+1626,"U.S. POLO ASSN.",""
+1627,"Üçler Market",""
+1628,"VATAN BİLGİSAYAR",CODE_128
+1629,Watsons,CODE_128
+1630,Westside,CODE_128
+1631,"Woodland Worldwide",""
+1632,YKM,""
+1633,Migros,""
+1634,Coop,EAN_13
+1635,MIGROS,""
+1636,Zinser,ITF
+1637,"Money Club",""
+1638,"5M Migros",""
+1639,"Pizza Paï",EAN_13
+1640,PAYBACK,CODE_128
+1641,"Sport Schuster",QR_CODE
+1642,Mecca,CODE_128
+1643,DECJUBA,CODE_39
+1644,"Student Edge",ITF
+1645,"Best Friends Pet",CODE_128
+1646,"Mad Mex",""
+1647,"Italo Treno",EAN_13
+1648,"Baby Kingdom",""
+1649,Sisley,EAN_13
+1650,Mercatopoli,ITF
+1651,Oroton,CODE_39
+1652,"Tony Ferguson",CODE_39
+1653,Iana,ITF
+1654,"Mitre 10",""
+1655,Gametraders,""
+1656,"EMTÉ",QR_CODE
+1657,Nostrum,""
+1658,"Blooms The Chemist",EAN_8
+1659,"Decò",EAN_13
+1660,W.Lane,EAN_13
+1661,Jurlique,""
+1662,CIBO,CODE_128
+1663,"Salsa's",CODE_128
+1664,"The Works",GS1_128
+1665,Stratco,CODE_39
+1666,Naturalizer,CODE_39
+1667,Baldinini,ITF
+1668,"Ritmo Shoes",EAN_13
+1669,"Howards Storage World",CODE_128
+1670,Keys,EAN_13
+1671,Henschel,ITF
+1672,Proshop,EAN_13
+1673,Esso,CODE_128
+1674,"Shell - Fuel Rewards",CODE_128
+1675,"Shell ClubSmart",CODE_128
+1676,Boyner,EAN_13
+1677,Mudo,CODE_128
+1678,Mavi,CODE_128
+1679,Pantaloons,CODE_128
+1680,Riot,EAN_13
+1681,"Sonny Bono",EAN_13
+1682,Unika,EAN_13
+1683,"Hudsons Coffee",CODE_128
+1684,"Guardian Pharmacy",EAN_13
+1685,Cinti,CODE_128
+1686,Coccinelle,EAN_13
+1687,"LiveLife Pharmacy",CODE_128
+1688,kletterzentrum.com,EAN_13
+1689,"Leroy Merlin",QR_CODE
+1690,"Kiğılı",""
+1691,"Beğendik",""
+1692,D&R,""
+1693,Joker,EAN_13
+1694,Groseri,""
+1695,Reliance,GS1_128
+1696,"The Inner Circle",CODE_128
+1697,Naturals,""
+1698,Fressnapf,""
+1699,"Juliana Nails",CODE_39
+1700,Mango,EAN_13
+1701,H&M,CODE_128
+1702,Superperfumerias,""
+1703,"Dan Murphy's",EAN_13
+1704,Eroski,EAN_13
+1705,HEMA,""
+1706,"Franco Gioielli",EAN_13
+1707,Freddy,""
+1708,Lively,EAN_13
+1709,"Zebra 21",EAN_13
+1710,Vockeroth,EAN_13
+1711,home&you,EAN_8
+1712,Elite,EAN_13
+1713,Loot,""
+1714,Nucleo,EAN_13
+1715,Promenade,EAN_13
+1716,UniClub,EAN_13
+1717,ACI,CODE_128
+1718,"you & eni",EAN_13
+1719,"Sunoco - APlus",EAN_13
+1720,Wheelup,CODE_39
+1721,BIG4,CODE_128
+1722,"Besson Chaussures",EAN_13
+1723,Cactus,EAN_13
+1724,"Idea Bellezza",CODE_39
+1725,Uyum,""
+1726,Batik,""
+1727,Cinemaximum,""
+1728,CEPA,""
+1729,fabrika,""
+1730,Kentpark,""
+1731,DEMCARD,""
+1732,Aygaz,""
+1733,"Mondial Tissus",EAN_13
+1734,"Furet du nord",EAN_13
+1735,Maxxess,""
+1736,Devianne,EAN_13
+1737,Colruyt,ITF
+1738,Paul,EAN_13
+1739,"JouéClub",EAN_13
+1740,G20,EAN_13
+1741,"Magasin Point Vert",CODE_128
+1742,Cyrillus,ITF
+1743,"Baobab Jardinerie",EAN_13
+1744,Vima,EAN_13
+1745,Damart,ITF
+1746,Aubert,CODE_39
+1747,"Jacqueline RIU",EAN_13
+1748,Sears,CODE_128
+1749,Kmart,CODE_128
+1750,Rutters,UPC_A
+1751,bareMinerals,CODE_128
+1752,"Bottle King",UPC_A
+1753,"Binny's",CODE_128
+1754,"Field & Stream",CODE_128
+1755,"Fresh & Easy",""
+1756,"Bashas'",UPC_A
+1757,Library,""
+1758,"Segmüller",ITF
+1759,WEKO,CODE_39
+1760,"Flower Power",EAN_13
+1761,"Old Wild West",CODE_39
+1762,"L'Isola Verde",EAN_13
+1763,"Шоколадница",""
+1764,Telepass,""
+1765,"Èquì",CODE_39
+1766,"DOC Superstore",EAN_13
+1767,Superconti,EAN_13
+1768,"LA Fitness",CODE_39
+1769,"Pillow Talk",EAN_13
+1770,"Supermercati PIM",EAN_13
+1771,Bosanova,CODE_39
+1772,"Слата",EAN_13
+1773,Vestebene,EAN_13
+1774,"Kaiser's Tengelmann",ITF
+1775,Kanz,""
+1776,Kimlik,""
+1777,Karaca,""
+1778,"Altınyıldız",""
+1779,Beymen,""
+1780,Agora,""
+1781,Atlasjet,""
+1782,ParkBravo,""
+1783,"Şaypa",""
+1784,"Biçen",""
+1785,Tiffany,""
+1786,Anatolium,""
+1787,"Yalı Spor",""
+1788,Ekoroma,""
+1789,MyHouse,CODE_39
+1790,"MY SIZE",CODE_39
+1791,PetO,""
+1792,AVEVE,EAN_13
+1793,BIO-Planet,ITF
+1794,Brico,EAN_13
+1795,Club,CODE_128
+1796,Delhaize,EAN_13
+1797,Di,EAN_13
+1798,Hubo,EAN_13
+1799,iU,EAN_13
+1800,Inno,EAN_13
+1801,JBC,EAN_13
+1802,Kinepolis,CODE_128
+1803,"Libris Agora",""
+1804,"Lunch Garden",EAN_13
+1805,Multipharma,EAN_13
+1806,OKay,ITF
+1807,Panos,UPC_A
+1808,A.S.Adventure,CODE_128
+1809,Bel&Bo,CODE_39
+1810,"Briko Depot",EAN_13
+1811,cora,""
+1812,Cassis,EAN_13
+1813,"DATS 24",EAN_13
+1814,Delitraiteur,GS1_128
+1815,Fun,EAN_13
+1816,Gezinsbond,CODE_128
+1817,KREATOS,CODE_128
+1818,Match,EAN_13
+1819,"Maxi Zoo",EAN_13
+1820,Paprika,EAN_13
+1821,"Pharmacie Servais",CODE_128
+1822,"Planet Parfum",EAN_13
+1823,"Q Team",""
+1824,"Rack Store",EAN_13
+1825,"Red Market",UPC_A
+1826,Safti,EAN_13
+1827,Smatch,EAN_13
+1828,"Standaard Boekhandel",GS1_128
+1829,"Supra Bazar",EAN_13
+1830,Tom&Co,""
+1831,Veritas,EAN_13
+1832,Aussino,""
+1833,BHG,""
+1834,Brotzeit,""
+1835,Caltex,""
+1836,Changi,""
+1837,Capitastar,""
+1838,"Charles & Keith",""
+1839,Courts,""
+1840,"Eu Yan Sang",""
+1841,"Fraser World",""
+1842,"Gain City",""
+1843,Giordano,""
+1844,"ION Orchard",""
+1845,Isetan,""
+1846,"Kiddy Palace",""
+1847,Kinokuniya,EAN_13
+1848,"Marina Bay Sands",""
+1849,"Millennium & Copthorne",""
+1850,MPH,""
+1851,"Mt Sapola",""
+1852,MUJI,""
+1853,OG,""
+1854,"Pet Lovers Centre",""
+1855,Plus!,""
+1856,Popular,""
+1857,"Resorts World Sentosa",""
+1858,Sasa,""
+1859,"T Galleria",""
+1860,TANGS,""
+1861,"The Soup Spoon",""
+1862,Times,""
+1863,ToTT,""
+1864,Wacoal,""
+1865,"Yue Hwa",""
+1866,"Butterfly Silver",""
+1867,"City Moda",EAN_13
+1868,"Delta Hotels",""
+1869,"Hangar 107",EAN_13
+1870,Mazzucchellis,""
+1871,Meggetto,CODE_128
+1872,"Open Games",EAN_13
+1873,Orizzonte,EAN_13
+1874,Paniate,EAN_13
+1875,"Pets Domain",UPC_A
+1876,Pharmasave,CODE_128
+1877,"Rodd & Gunn",CODE_128
+1878,Rossopomodoro,CODE_39
+1879,SABON,EAN_13
+1880,Smoll,EAN_13
+1881,Steinecker,ITF
+1882,Supabarn,EAN_13
+1883,"Sushi Train",CODE_39
+1884,TAB,""
+1885,Topshelf,CODE_128
+1886,Ubik,CODE_39
+1887,"vida e caffé",""
+1888,"ВкусВилл",CODE_128
+1889,Determarket,EAN_13
+1890,Subway,DATA_MATRIX
+1891,BasicCard,EAN_13
+1892,Falconeri,""
+1893,Eni,EAN_13
+1894,totalhealth,CODE_128
+1895,Renmans,EAN_13
+1896,baresso,""
+1897,Bilka,""
+1898,"Bog & idé",""
+1899,BR,EAN_13
+1900,"Café Vivaldi",""
+1901,Cinemaxx,""
+1902,Comwell,""
+1903,"CPH Advantage",""
+1904,"Flügger farver",""
+1905,FBF,""
+1906,Imerco,CODE_128
+1907,"Jensen's",ITF
+1908,KIWI,CODE_39
+1909,loftet,""
+1910,Magasin,EAN_13
+1911,Marcus,""
+1912,matas,EAN_13
+1913,"Nielsen's",""
+1914,"Nordisk Film Biografer",""
+1915,NORDJYSKE,""
+1916,"Norwegian Air",""
+1917,"Saint Tropez",""
+1918,Scandic,""
+1919,Scandlines,""
+1920,Silvan,EAN_13
+1921,SPORTMASTER,""
+1922,swagcard,""
+1923,"Tøjeksperten",""
+1924,Wagner,""
+1925,"A3 Sport",EAN_13
+1926,ACADEMIA,""
+1927,BAMBULE,EAN_13
+1928,BENU,EAN_13
+1929,"Blažek",EAN_13
+1930,"Centrum Chodov",""
+1931,"Cinema City",CODE_128
+1932,CrossCafe,""
+1933,"Dr. Max",EAN_13
+1934,"Dráčik",EAN_13
+1935,"eiffel optic",""
+1936,FAnn,EAN_8
+1937,FOTOLAB,""
+1938,Fruitisimo,""
+1939,Hudy,EAN_13
+1940,iBOD,EAN_13
+1941,JRC,EAN_13
+1942,kanzelsberger,""
+1943,"Klenoty Aurum",EAN_13
+1944,KOSMAS,""
+1945,Multisport,""
+1946,NORDBLANC,EAN_13
+1947,"Pet Center",CODE_128
+1948,"pietro filipi",EAN_13
+1949,RESERVED,EAN_13
+1950,"Rock Point",EAN_13
+1951,Sklizeno,""
+1952,Sphere,EAN_13
+1953,Sportisimo,EAN_13
+1954,"Špuntík",""
+1955,Clicks,CODE_128
+1956,Tescoma,EAN_13
+1957,"שופרסל",""
+1958,TETA,EAN_13
+1959,"The North Face",""
+1960,VITALAND,EAN_8
+1961,"DREAM CARD",CODE_128
+1962,"Zvěrokruh",""
+1963,Bigotti,""
+1964,Bricostore,ITF
+1965,Brithouse,""
+1966,Catena,EAN_13
+1967,Centrofarm,EAN_13
+1968,You,CODE_128
+1969,"Farmaciile Dona",ITF
+1970,"Help Net",CODE_128
+1971,Kenvelo,EAN_13
+1972,"Lee Cooper",""
+1973,"MEDIA GALAXY",""
+1974,MOL,CODE_128
+1975,H&O,""
+1976,Otter,""
+1977,Plafar,EAN_13
+1978,Selgros,CODE_128
+1979,"Farmaciile Sensiblu",EAN_13
+1980,Crocs,""
+1981,Diverta,CODE_128
+1982,"תן ביס",""
+1983,"הוניגמן",""
+1984,"洋服の青山",EAN_13
+1985,"המשביר לצרכן",CODE_128
+1986,"マツモトキヨシ",EAN_13
+1987,"ヨドバシ",EAN_13
+1988,"טִיב טַעַם",""
+1989,CASTRO,EAN_13
+1990,"759阿信屋",CODE_39
+1991,"Air China",""
+1992,"永旺",""
+1993,Ponta,CODABAR
+1994,TNT,""
+1995,"北京华联",""
+1996,"הולמס פלייס",""
+1997,"一茶一坐",""
+1998,"新元素",""
+1999,"Dan Hotels Israel",""
+2000,"五星电器",CODE_39
+2001,nanaco,""
+2002,"久光",""
+2003,"金鹰",""
+2004,"The David Citadel Israel",""
+2005,"国美",""
+2006,"佰草集",""
+2007,"宏图三胞",CODE_128
+2008,"银泰",CODE_128
+2009,"Lane Crawford",CODE_128
+2010,"乐活城",""
+2011,"乐天玛特",CODE_128
+2012,"ビックカメラ",EAN_13
+2013,"Prima Hotels",CODE_128
+2014,"卜蜂莲花",CODE_128
+2015,"ארומה",""
+2016,"萬寧",EAN_13
+2017,"אל על",""
+2018,"易賞錢",EAN_13
+2019,"新世界百货",""
+2020,"Pacific Coffee",""
+2021,"ニトリ",EAN_13
+2022,"天虹",""
+2023,"大润发",EAN_13
+2024,"三福",CODE_39
+2025,"苏宁",CODE_128
+2026,"王府井百货",""
+2027,"华住会",""
+2028,"如家",""
+2029,"尚客优",""
+2030,"开元酒店",""
+2031,"布丁酒店",""
+2032,"7天会",""
+2033,"锦江",""
+2034,AA,""
+2035,Clicks,""
+2036,Dis-Chem,CODE_128
+2037,eBucks,""
+2038,Exklusives,""
+2039,"MySchool MyVillage MyPlanet",""
+2040,"Pick n Pay",""
+2041,Sorbet,""
+2042,"Spur Steak Ranches",""
+2043,"らしんばん",""
+2044,Ster-Kinekor,""
+2045,"セイコーマート",EAN_13
+2046,"The Foschini Group",""
+2047,"thank U",ITF
+2048,"まるき",""
+2049,WRewards,""
+2050,PEP,""
+2051,"HACドラッグ",EAN_13
+2052,"BRIGHTS Hardware",""
+2053,FlySAA,""
+2054,"サカゼン・ゼンモール",""
+2055,"ラブレス",""
+2056,WEGO,EAN_13
+2057,"FRED PERRY",""
+2058,"Titan Encircle",CODE_128
+2059,"Kalyan Silks",""
+2060,"롯데",""
+2061,"Marks & Spencer",CODE_128
+2062,"교보문고",""
+2063,Innisfree,""
+2064,"아모레퍼시픽",""
+2065,"바닐라코",""
+2066,"이자녹스",""
+2067,"에뛰드 하우스",""
+2068,"스킨푸드",""
+2069,"더페이스샵",""
+2070,"세븐일레븐",""
+2071,GS25,CODE_128
+2072,Ministop,""
+2073,Zara,ITF
+2074,CJ,CODE_128
+2075,"이마트",""
+2076,"해피포인트",CODE_128
+2077,"Korean Air",QR_CODE
+2078,"신세계",""
+2079,"홈플러스",CODE_128
+2080,"SKT membership",CODE_128
+2081,"Nature Republic",""
+2082,"OK Cashbag",CODE_128
+2083,"올레",CODE_128
+2084,Hanssem,""
+2085,Billa,EAN_13
+2086,Billa,EAN_13
+2087,BIPA,EAN_13
+2088,Penny,EAN_13
+2089,Penny,EAN_13
+2090,Shoprite,""
+2091,Coop,EAN_13
+2092,Coop,""
+2093,"Chandra Super Store",""
+2094,"Garuda Indonesia",""
+2095,Hypermart,EAN_13
+2096,Matahari,""
+2097,"Ranch Market",""
+2098,SOGO,""
+2099,SK-II,""
+2100,"Gandaria City",""
+2101,"METRO Dept. Store",ITF
+2102,"Åhléns",""
+2103,Blomsterlandet,""
+2104,DjurMagazinet,""
+2105,"Espresso House",""
+2106,"Granngården",""
+2107,Hemglass,""
+2108,Hemtex,""
+2109,KICKS,""
+2110,"Apotek Hjärtat",""
+2111,"Hemköp",""
+2112,Lindex,""
+2113,Twilfit,""
+2114,aClass,""
+2115,"Clas Ohlson",""
+2116,Agrimarket,""
+2117,Starkki,""
+2118,Marimekko,""
+2119,"Scandic Hotels",""
+2120,K-Plussa,CODE_128
+2121,Coop,EAN_13
+2122,"Thon Hotels",""
+2123,OBOS,""
+2124,"Hainan Airlines",""
+2125,"China Eastern",QR_CODE
+2126,"Air Macau",""
+2127,"Philippine Airlines",""
+2128,"Eva Air",""
+2129,ANA,""
+2130,"Shenzhen Airlines",""
+2131,"Air China",""
+2132,"Asiana Airlines",""
+2133,"China Southern Airlines",""
+2134,"China Airlines",""
+2135,"Prahran Grocer",CODE_128
+2136,"factory 54",""
+2137,GANT,""
+2138,"Eden Teva Market",""
+2139,"רב קו",""
+2140,"ורטהיימר",""
+2141,"Burgus Burger Bar",""
+2142,Delta,EAN_13
+2143,S-WEAR,""
+2144,"שילב",""
+2145,"אייס- ACE",""
+2146,"סטימצקי",""
+2147,"台灣中油",CODE_128
+2148,"誠品書店",CODE_128
+2149,"統一時代百貨",""
+2150,"HAPPY GO快樂多",EAN_13
+2151,"特力屋",EAN_13
+2152,"好博家",EAN_13
+2153,"POYA 寶雅",EAN_13
+2154,"京站時尚廣場",CODE_128
+2155,"松青超市",""
+2156,"生活工場",CODE_39
+2157,Dockyard,""
+2158,Multipoint,""
+2159,"黃帽",""
+2160,Coop,GS1_128
+2161,"Bortársaság",""
+2162,"Vision Express",""
+2163,COOP,EAN_13
+2164,Exisport,EAN_13
+2165,BEPON,EAN_8
+2166,Mountfield,EAN_13
+2167,"ALAIN DELON",""
+2168,Pneubox,""
+2169,"Schneider Lekáren",""
+2170,TERNO,EAN_13
+2171,Benu,EAN_13
+2172,SuperShop,CODE_128
+2173,"Hong Kong Airlines",""
+2174,"ריקושט",""
+2175,"Ronen Chen",""
+2176,"PANÇO",""
+2177,"Çağdaş",""
+2178,"POLO GARAGE",""
+2179,"Atlantis AVM",""
+2180,Civil,""
+2181,Sarar,""
+2182,Ulusoy,""
+2183,NetWork,""
+2184,"Dinçmar",""
+2185,Vakko,""
+2186,"גרג קפה מאוד",""
+2187,Westfalika,EAN_13
+2188,"Новэкс",EAN_13
+2189,"ПЕПЛОС",CODE_39
+2190,Laline,""
+2191,"אופטיקה הלפרין",""
+2192,SPRING,""
+2193,ONOT,""
+2194,"קרייזי ליין",""
+2195,Rieker,EAN_13
+2196,"Чемпион",QR_CODE
+2197,Brothers,""
+2198,ICA,""
+2199,"City Gross",""
+2200,Stadium,""
+2201,Avance,CODE_128
+2202,Berca,EAN_13
+2203,Brantano,EAN_13
+2204,Brooklyn,EAN_13
+2205,CAMELEON,CODE_128
+2206,Carmi,CODE_39
+2207,"E5 mode",ITF
+2208,Makro,ITF
+2209,Paradisio,EAN_13
+2210,Qustomer,QR_CODE
+2211,"River Woods",CODE_128
+2212,ZEB,ITF
+2213,"G LEVEL",EAN_13
+2214,"United Brands",CODE_128
+2215,ASN,CODE_128
+2216,COAL,EAN_13
+2217,"ConTé",EAN_13
+2218,PAN,EAN_13
+2219,QVC,""
+2220,Vida,CODE_39
+2221,Tekzen,""
+2222,Pamukkale,""
+2223,"Özhan",""
+2224,Morestore,""
+2225,"全家 FamilyMart",EAN_13
+2226,"华润万家",CODE_128
+2227,"鴻福堂",""
+2228,"携程",""
+2229,"以纯",""
+2230,FOX,""
+2231,"רמי לוי",""
+2232,"S. wear",""
+2233,"Kiwi Collection",""
+2234,"Golf & co",""
+2235,"קולקציה",""
+2236,"ניצת הדובדבן",""
+2237,"ויקטורי",""
+2238,"토니모리",""
+2239,mood,""
+2240,"טיפניס",""
+2241,"הגרה",""
+2242,freefit,""
+2243,"ゲオ",""
+2244,Izumiya,EAN_13
+2245,"פעמית סטור",""
+2246,"דברי שיר",""
+2247,Mica,""
+2248,"Wild Card",""
+2249,"Chicken Stop",""
+2250,Ackermans,""
+2251,Guldfynd,""
+2252,"Ingelsta Kalkon",""
+2253,MQ,""
+2254,"COLIN'S",EAN_13
+2255,"Çağrı",""
+2256,"Çarşı",""
+2257,MAKRO,""
+2258,"Sanko Park",""
+2259,Tefal,""
+2260,"Tuğba",""
+2261,konzen,""
+2262,"アカチャンホンポ",EAN_13
+2263,"Л'Этуаль",EAN_13
+2264,INTERTOP,CODE_39
+2265,"Сільпо",EAN_13
+2266,COMFY,EAN_13
+2267,"Фокстрот",CODE_39
+2268,"Аптека низких цен",CODE_128
+2269,Panorama,""
+2270,NOVUS,EAN_13
+2271,"Брусничка",EAN_13
+2272,"Нова лінія",CODE_128
+2273,EVA,EAN_13
+2274,FISHKA,EAN_13
+2275,"Пакко",EAN_13
+2276,"Вопак",EAN_13
+2277,"Там Там",EAN_13
+2278,ZooBonus,""
+2279,"Полимед",""
+2280,"планета кино",EAN_13
+2281,"Сады Победы",EAN_13
+2282,proStor,EAN_13
+2283,"全聯福利中心",CODE_128
+2284,"G-Star RAW Outlet",CODE_128
+2285,LaTua!Card,EAN_13
+2286,budmil,""
+2287,"Farmaciile Belladonna",EAN_13
+2288,Domo,EAN_13
+2289,"Farmacia Richter",EAN_13
+2290,Amely,""
+2291,Medlife,""
+2292,Zoomania,EAN_13
+2293,PROFI,EAN_13
+2294,Ecofarmacia,""
+2295,"Farmacia Reteta",EAN_13
+2296,"Planeo Elektro",""
+2297,Slovnaft,CODE_128
+2298,MedusaCard,EAN_13
+2299,OMV,EAN_13
+2300,Pompo,EAN_13
+2301,"Alpine Pro",EAN_13
+2302,"Knižní",""
+2303,Bubbleology,""
+2304,CineStar,CODE_39
+2305,Sparkys,EAN_13
+2306,TIMEOUT,EAN_13
+2307,"Alphega Lékárna",""
+2308,"SAM 73",EAN_13
+2309,GECO,CODE_128
+2310,"Бережная аптека",EAN_13
+2311,"Корпорация Центр",CODE_128
+2312,"Дефиле",CODE_128
+2313,Implozia,""
+2314,"Классика",EAN_13
+2315,"Планета Здоровья",EAN_13
+2316,"Ralf Ringer",CODE_128
+2317,"Tuš",EAN_13
+2318,Adria,""
+2319,AMZS,""
+2320,"Baby Center",CODE_128
+2321,Ciciban,""
+2322,Comshop,CODE_39
+2323,"Cona Bomax",""
+2324,Harmonija,""
+2325,Jager,CODE_128
+2326,Rebel,""
+2327,Pikapolonica,CODE_39
+2328,Petrol,EAN_13
+2329,MANA,EAN_13
+2330,Lekarna,EAN_13
+2331,Lassana,""
+2332,Sportina,CODE_128
+2333,Tukano,""
+2334,"TWO WAY",EAN_13
+2335,Urbana,""
+2336,"Apotheke Reumannplatz",""
+2337,AVIA,""
+2338,"康是美",EAN_13
+2339,WIKY,""
+2340,ALBI,ITF
+2341,Stival,""
+2342,"Helia Sport",EAN_13
+2343,"Presénce",""
+2344,Butlers,""
+2345,Fortuna,EAN_13
+2346,"Elektro Spáčil",EAN_13
+2347,OXALIS,""
+2348,"Original Marines",EAN_13
+2349,SeniorWeb,CODE_39
+2350,Formido,CODE_128
+2351,"阿瘦皮鞋",EAN_13
+2352,"摩曼頓",CODE_39
+2353,"杏一",""
+2354,"三商美食卡",""
+2355,"茉莉二手書店",CODE_39
+2356,"日出茶太",""
+2357,"迪卡侬",EAN_13
+2358,"迪卡儂",EAN_13
+2359,"玩具反斗城",""
+2360,"丝芙兰",""
+2361,"赛百味",""
+2362,"星巴克",PDF_417
+2363,"統一星巴克",PDF_417
+2364,"家乐福",CODE_128
+2365,"家樂福",CODE_128
+2366,"山姆会员商店",CODE_39
+2367,"屈臣氏",EAN_13
+2368,"华歌尔",""
+2369,"華歌爾",""
+2370,"万宁",""
+2371,"大潤發",CODE_128
+2372,"欧尚",EAN_13
+2373,"来伊份",""
+2374,"Liberty London",CODE_128
+2375,"齐家",""
+2376,"Shop 'n Save",UPC_A
+2377,"大買家",""
+2378,"达芙妮",CODE_128
+2379,"達芙妮",""
+2380,"美廉社",CODE_128
+2381,"美華泰",EAN_8
+2382,"乐购",EAN_13
+2383,"燦坤",EAN_13
+2384,"Baťa",EAN_13
+2385,Merkur,CODE_128
+2386,"Farmacia Del Prete",""
+2387,BRLOH,EAN_13
+2388,NAY,CODE_128
+2389,LUKOIL,CODE_128
+2390,Fashionality,""
+2391,Martinus,EAN_13
+2392,"Moja Samoška",EAN_13
+2393,Orange,EAN_13
+2394,"购开心",""
+2395,"富驿",""
+2396,"金陵酒店",""
+2397,"君澜",""
+2398,"维也纳酒店",""
+2399,"格林豪泰",CODE_128
+2400,"Spring Airlines",""
+2401,"神州租车",""
+2402,"一嗨租车",""
+2403,"同程旅游",""
+2404,"去哪儿",""
+2405,"艺龙",""
+2406,"龙腾出行",""
+2407,"Juneyao Airlines",""
+2408,"Sichuan Airlines",""
+2409,RAC,EAN_13
+2410,"De Tuinen",EAN_13
+2411,"Фора",EAN_13
+2412,Altroconsumo,CODE_128
+2413,Bunnings,CODE_128
+2414,BROCARD,EAN_13
+2415,Bricocenter,CODE_128
+2416,"PROMO CLUB",EAN_13
+2417,"OÖ Familienkarte",""
+2418,Sirmoney,""
+2419,oodji,""
+2420,"Mutua Madrileña",""
+2421,"Blockbuster Village",""
+2422,"Paris Londres",CODE_39
+2423,"Pet Valu",ITF
+2424,Fruscio,CODE_39
+2425,CAVALCA,EAN_13
+2426,AVA,CODE_39
+2427,Rijnstatekaart,CODE_39
+2428,"A+1 精品百貨",CODE_39
+2429,"コジマ",EAN_13
+2430,"ツルハドラッグ",EAN_13
+2431,TSUTAYA,""
+2432,Joshin,CODE_128
+2433,"東急ハンズ",EAN_13
+2434,CU,CODE_128
+2435,Scoop,""
+2436,"BARIŞ GROSS",""
+2437,Movieplex,""
+2438,Flanco,EAN_13
+2439,Springtime,""
+2440,Libri,""
+2441,"Аптека Доброго Дня",CODE_128
+2442,GroenRijk,ITF
+2443,"Cosmetics Fragrance Direct",EAN_13
+2444,"Караван",""
+2445,"Supermercati Gieffe",EAN_13
+2446,REPCO,EAN_13
+2447,Hobbycraft,CODE_128
+2448,bayard24.ch,CODE_39
+2449,Pharmore,CODE_39
+2450,"Redner's",UPC_A
+2451,Steflor,CODE_128
+2452,"Brewers Fayre",GS1_128
+2453,"New York & Company",CODE_128
+2454,"Nutrition Warehouse",CODE_39
+2455,Pinalli,EAN_13
+2456,Superdi,EAN_13
+2457,IperBimbo,CODE_128
+2458,Freeport,""
+2459,"Eckersley's",CODE_128
+2460,LVb,""
+2461,prokopp,EAN_13
+2462,"九乘九",EAN_13
+2463,alexandra.hu,""
+2464,ALTEX,""
+2465,"Bel & Blanc",""
+2466,"Best for Baby",""
+2467,BLAZE,""
+2468,"ブックオフ",""
+2469,Brendon,""
+2470,"サークル K サンクス",""
+2471,"千色",""
+2472,"一本堂",""
+2473,"三聯書店",""
+2474,Geox,""
+2475,Karmen,""
+2476,"ケーズデンキ",CODABAR
+2477,"LEO EXPRESS",QR_CODE
+2478,"ライフ",EAN_13
+2479,Lottemart,""
+2480,"Mes Avantages Para",EAN_13
+2481,Musette,""
+2482,"NEOPHARM LÉKÁRNY",""
+2483,"Oázis Kertészet",""
+2484,PAPERCLIP,""
+2485,"Pharmacum Plus",""
+2486,"PINKY CLUB",EAN_13
+2487,predeti.sk,EAN_8
+2488,Proximus,CODE_128
+2489,"RS Bútor",""
+2490,"SEIBU PRINCE CLUB",""
+2491,"サミット",EAN_13
+2492,"The PUB",""
+2493,Trumf,EAN_13
+2494,UPSIDE,EAN_13
+2495,"Vet'Affaires",EAN_13
+2496,Playersroom,""
+2497,"Camera House",""
+2498,Billa,EAN_13
+2499,s.Oliver,EAN_13
+2500,s.Oliver,CODE_39
+2501,"Mexican Membercard",""
+2502,Hausammann,""
+2503,Plenti,GS1_128
+2504,"O'STIN",EAN_13
+2505,"オートバックス",CODABAR
+2506,befree,EAN_13
+2507,"Black Pepper",CODE_39
+2508,"Conte Of Florence",EAN_13
+2509,"GÉMO",EAN_13
+2510,Italmark,EAN_13
+2511,"Second Cup",CODE_128
+2512,"Nuna Lie",EAN_13
+2513,Officeworks,""
+2514,Glossip,CODE_128
+2515,"Malouf Pharmacies",EAN_13
+2516,"Петрович",EAN_13
+2517,"新光三越",""
+2518,"金石堂",""
+2519,"佳瑪",EAN_13
+2520,"日藥本舖",EAN_13
+2521,"順發3C",CODE_39
+2522,"威秀影城",EAN_13
+2523,"久大文具",EAN_13
+2524,"IKEA Family",CODE_128
+2525,Acoola,EAN_13
+2526,Aktiesport,CODE_128
+2527,"Henri Boucher",EAN_13
+2528,"Baby Bazar",ITF
+2529,"Pubbli Store",EAN_13
+2530,Blukids,ITF
+2531,"Boscaini Scarpe",EAN_13
+2532,CALIDA,EAN_13
+2533,CHE48,""
+2534,Crescendo,CODE_128
+2535,Cycleband,EAN_13
+2536,Durlinger,CODE_128
+2537,KIKO,QR_CODE
+2538,"La Place",""
+2539,Melluso,EAN_13
+2540,Merrell,CODE_39
+2541,Purdey,EAN_8
+2542,"Seconda Strada",EAN_8
+2543,"Spec's",UPC_A
+2544,SpotOn,QR_CODE
+2545,"スギ薬局",EAN_13
+2546,"サンドラッグ",EAN_13
+2547,Terstal,EAN_13
+2548,Texhages,ITF
+2549,"Żabka",EAN_13
+2550,Deichmann,CODE_128
+2551,"101文具天堂",CODE_39
+2552,"Alice Délice",EAN_13
+2553,Alpina,EAN_13
+2554,Ambient,""
+2555,Arber,EAN_13
+2556,Argo,""
+2557,"Artex Fashion",EAN_13
+2558,Askot,""
+2559,BUTIK,""
+2560,Dayli,EAN_13
+2561,"De Banier",""
+2562,Delcambe,CODE_39
+2563,DIAGNOSTYKA,""
+2564,Dreambaby,ITF
+2565,Dreamland,ITF
+2566,Dynaphar,CODE_128
+2567,eci,ITF
+2568,Eurotuin,ITF
+2569,Edisac,EAN_13
+2570,honto,EAN_13
+2571,Jubitom,""
+2572,Kalia,EAN_13
+2573,KLO,EAN_13
+2574,"Kompas Shop",EAN_13
+2575,LAVARD,""
+2576,"Martes Sport",""
+2577,Miraton,EAN_13
+2578,Mercator,""
+2579,modemakers,EAN_13
+2580,MOYA,CODE_39
+2581,Nama,""
+2582,Noba,CODE_128
+2583,Pabo,ITF
+2584,PLAZA,CODABAR
+2585,Primo,EAN_13
+2586,QUIOSQUE,""
+2587,Right-on,EAN_13
+2588,"Rポイントカード",CODABAR
+2589,"イエローハット",CODABAR
+2590,"Космо",CODE_128
+2591,WORLD,EAN_13
+2592,"Люксоптика",EAN_13
+2593,"ソフマップ",EAN_13
+2594,"エディオン",""
+2595,"ココカラファイン",""
+2596,"トイザらス",CODE_128
+2597,"미샤",""
+2598,"カインズ",EAN_13
+2599,"ローソン",CODABAR
+2600,WOG,""
+2601,zowizoo,CODE_128
+2602,Blocco31,""
+2603,Nucleo,EAN_13
+2604,"永辉",""
+2605,"麦德龙",""
+2606,"物美",""
+2607,"Лайм",EAN_13
+2608,"La Boucherie",EAN_13
+2609,"ЭЛИЗЭ",CODE_128
+2610,"德克士",CODE_128
+2611,"禾绿",""
+2612,"迪亚天天",EAN_13
+2613,beme,EAN_13
+2614,Fabricland,""
+2615,"D'ambros",EAN_13
+2616,"Si con te",EAN_13
+2617,"娇兰佳人",""
+2618,"都市丽人",""
+2619,"易买得",EAN_13
+2620,"人人乐",EAN_13
+2621,"海王星辰",""
+2622,"真维斯",""
+2623,"哈根达斯",""
+2624,"统一银座",""
+2625,"AGL Rewards",""
+2626,"百盛",""
+2627,"美特斯邦威",""
+2628,"良品铺子",""
+2629,"孩子王",""
+2630,"大悦城",""
+2631,"满记甜品",""
+2632,"大参林",""
+2633,"雅漾",""
+2634,"安踏",""
+2635,"万达",""
+2636,"佐丹奴",""
+2637,"苏果",""
+2638,"杰克琼斯",EAN_13
+2639,"壹加壹",""
+2640,"速8",""
+2641,Selected,""
+2642,"百佳",""
+2643,"巴黎贝甜",""
+2644,"新华都",""
+2645,"美丽家",""
+2646,"世纪联华",""
+2647,"老百姓大药房",""
+2648,"豪客来",EAN_13
+2649,"特力和乐",EAN_13
+2650,GXG,""
+2651,"大洋",""
+2652,"丹尼斯",""
+2653,"农工商红利卡",EAN_13
+2654,"Fullife Club",""
+2655,"红旗",""
+2656,"美特好",""
+2657,"步步高",""
+2658,"纪念日",""
+2659,"启路",""
+2660,"益丰大药房",""
+2661,"三江",""
+2662,"大地数字影院",""
+2663,"老妈米线",""
+2664,"国大药房",""
+2665,"悠仙美地",""
+2666,"茂业百货",""
+2667,"太平鸟",""
+2668,"同仁堂",""
+2669,"大众书局",""
+2670,"新华书店",""
+2671,"Xiamen Air",""
+2672,"唐狮",""
+2673,"巴黎春天",""
+2674,"欧莱雅",""
+2675,"康师傅",""
+2676,"爱婴岛",""
+2677,"百联",""
+2678,"宝岛眼镜",""
+2679,"万国奥特莱斯",""
+2680,"德基广场",""
+2681,"寶島眼鏡",""
+2682,KAMA,""
+2683,"一心堂",""
+2684,"周黑鸭",""
+2685,"婴知岛",""
+2686,"中百",""
+2687,"萬象城",""
+2688,"顺丰速运",""
+2689,"森马",""
+2690,ONLY,""
+2691,"健之佳",""
+2692,"京客隆",""
+2693,"好利来",""
+2694,COLLOSEUM,""
+2695,"南城百货",""
+2696,"凡人",""
+2697,G2000,""
+2698,"许留山",""
+2699,"迪欧咖啡",""
+2700,"大众点评",""
+2701,"中影国际影城",""
+2702,"皇冠蛋糕",""
+2703,"百丽",""
+2704,"运动先锋",""
+2705,"金润发",""
+2706,"堂会",""
+2707,"伊势丹",""
+2708,"宜家",QR_CODE
+2709,IKEA,CODE_39
+2710,"Heinen's",UPC_A
+2711,Starbucks,PDF_417
+2712,"哎呀呀",""
+2713,"金逸国际影城",""
+2714,"利群",""
+2715,"新一佳",""
+2716,"自然堂",""
+2717,"巴拉巴拉",""
+2718,"礼阁仕",""
+2719,"座上客",""
+2720,OLAY,""
+2721,"新辣道",""
+2722,"网鱼网咖",""
+2723,"漱玉平民大药房",""
+2724,"乐町",""
+2725,"第一食品",""
+2726,"马克华菲",""
+2727,"百脑汇",""
+2728,"可莎蜜儿",""
+2729,"西西弗书店",""
+2730,"环球蓝联",""
+2731,"眉州东坡",""
+2732,"远东百货",""
+2733,"七欣天",""
+2734,"玩具""反""斗城",""
+2735,Landmarkt,""
+2736,"Guggenbühl",""
+2737,Zelows,EAN_13
+2738,"ヨドバシカメラ",EAN_13
+2739,Unieuro,EAN_13
+2740,Tuunte,ITF
+2741,Telstar,ITF
+2742,Simons,CODE_128
+2743,Ritchies,EAN_13
+2744,"Planet Fitness",CODE_39
+2745,Piggy,QR_CODE
+2746,Flover,CODE_128
+2747,Fixet,CODE_39
+2748,"Blue Illusion",""
+2749,"Soul Pattinson Chemist",""
+2750,"PERLIER KELEMATA",EAN_13
+2751,MOBY,CODE_128
+2752,"Mise au Green",EAN_13
+2753,"Van Tilburg",EAN_8
+2754,"Just Brands",CODE_39
+2755,DekaMarkt,EAN_13
+2756,"Правильные Игрушки",CODE_128
+2757,"夢時代",EAN_13
+2758,"Седьмой",EAN_13
+2759,"Silver Shop",""
+2760,"Самоцветы",EAN_13
+2761,"Рифарм",EAN_13
+2762,NonSoloSport,EAN_13
+2763,"Fitness First",CODE_39
+2764,"El Ganso",EAN_13
+2765,Dobey,CODE_39
+2766,"Дети",""
+2767,"クリエイト",""
+2768,Buyonz,EAN_13
+2769,Beefeater,GS1_128
+2770,Turyocio,EAN_13
+2771,"Bush's Meats",EAN_13
+2772,KFC,PDF_417
+2773,CFadda,EAN_13
+2774,"Bon Prix",ITF
+2775,"Самсон",CODE_128
+2776,Giudici,EAN_13
+2777,Sofia,""
+2778,"Oman Air",""
+2779,"Bangkok Airways",""
+2780,"Ren's Pets",CODE_39
+2781,GolfTec,""
+2782,"Die Putzerei",""
+2783,"메가박스",""
+2784,"LG U+",""
+2785,"반디앤루니스",""
+2786,"커피빈",""
+2787,"카페베네",""
+2788,"피자헛",""
+2789,"할리스커피",""
+2790,"하이마트",""
+2791,"영풍문고",""
+2792,"애슐리",""
+2793,"스무디킹",""
+2794,ARITAUM,""
+2795,"메가마트",""
+2796,"신라면세점",""
+2797,S-OIL,""
+2798,"본죽",""
+2799,CGV,""
+2800,"현대오일뱅크",""
+2801,"too cool for school",""
+2802,"잇츠스킨",EAN_13
+2803,MAC,""
+2804,"GS칼텍스",""
+2805,LUSH,""
+2806,"농협",""
+2807,"МАВТ ВИНОТЕКА",""
+2808,BRIAN&BARRY,EAN_13
+2809,Minimax,""
+2810,Aerie,ITF
+2811,"Far Pavilions",CODE_39
+2812,Dendy,CODE_128
+2813,"Lloyds Farmacia",EAN_13
+2814,Prodega,EAN_13
+2815,"Boux Avenue",CODE_128
+2816,Meijer,""
+2817,"Paleo Cafe",""
+2818,Sportway,CODE_39
+2819,"North Sails",EAN_13
+2820,"Dunkin Donuts",CODE_128
+2821,"99 Bikes",CODE_39
+2822,Sanity,CODE_128
+2823,"ナフコ",EAN_13
+2824,"ヤマダ電機",CODABAR
+2825,"アニメイト",EAN_13
+2826,"トライアル",EAN_13
+2827,Victoria,EAN_13
+2828,WAON,""
+2829,"好日山荘",EAN_13
+2830,"まねきねこ",""
+2831,"快活CLUB",CODE_39
+2832,"Tomod's",EAN_13
+2833,"ジェームス",""
+2834,"シャトレーゼ",""
+2835,"TOWER RECORDS",""
+2836,"自遊空間",""
+2837,AOKI,""
+2838,"古本市場",""
+2839,"コクミン",EAN_13
+2840,"Tポイント",""
+2841,"ユザワヤ",""
+2842,"クスリのアオキ",EAN_13
+2843,"ヤオコー",EAN_13
+2844,"高島屋",""
+2845,"セイムス",EAN_13
+2846,"ビバホーム",EAN_13
+2847,"三洋堂書店",""
+2848,"大丸",""
+2849,"ドスパラ",EAN_13
+2850,"くすりの福太郎",EAN_13
+2851,ORIHICA,""
+2852,"JUN GLOBAL iD",""
+2853,"ファミリーマート",""
+2854,"ロイヤルホームセンター",EAN_13
+2855,"ベルク",EAN_13
+2856,"はるやま",""
+2857,"上州屋",""
+2858,"SUIT SELECT",EAN_13
+2859,REGAL,EAN_13
+2860,"ドンキホーテ",""
+2861,"サツドラ",EAN_13
+2862,"CROSS COLLECTION",EAN_13
+2863,"マックハウス",EAN_13
+2864,"オオゼキ",EAN_13
+2865,"カラオケの鉄人",""
+2866,"アプレシオ",EAN_13
+2867,"オーケー",EAN_13
+2868,"アイシティ",""
+2869,"ニッポンレンタカー",""
+2870,BEAMS,""
+2871,"アストロプロダクツ",""
+2872,"コナカ",EAN_13
+2873,"ニコニコレンタカー",UPC_A
+2874,"キリン堂",""
+2875,EZOCA,EAN_13
+2876,Goodlife,CODE_39
+2877,Tatts,ITF
+2878,"The Lucky Charm",EAN_13
+2879,"Weight Watchers",CODE_128
+2880,Coop,""
+2881,"必勝客",CODE_39
+2882,"仁愛眼鏡",CODE_128
+2883,"台隆手創館",""
+2884,"魚中魚水族館",CODE_39
+2885,"大苑子",CODE_128
+2886,"法雅客",CODE_39
+2887,eTag,CODE_128
+2888,"佑全保健藥妝",""
+2889,"城市綠洲",""
+2890,"三井3C",CODE_39
+2891,"金玉堂",CODE_39
+2892,"車麗屋",""
+2893,"良興",""
+2894,"悠遊卡",CODE_128
+2895,"圓石",CODE_39
+2896,"台糖量販",EAN_13
+2897,Roots,""
+2898,"環球購物中心",EAN_13
+2899,"亞藝影音",CODE_39
+2900,"小林眼鏡",""
+2901,"南紡夢時代",""
+2902,"楓康超市",""
+2903,"義大世界",CODE_39
+2904,"鞋全家福",EAN_13
+2905,"天仁茗茶",""
+2906,"彩遊館",CODE_39
+2907,"棉花田",""
+2908,"三民書局",CODE_39
+2909,"墊腳石",""
+2910,Intradel,CODE_39
+2911,Pelckmans,EAN_13
+2912,"Van Zon",CODE_128
+2913,Schleiper,ITF
+2914,VEJA,ITF
+2915,Alvo,EAN_13
+2916,Trendwalk,CODE_128
+2917,"Lloyds Pharma",EAN_13
+2918,Familia,EAN_13
+2919,Dod,EAN_8
+2920,"Royal Canin",EAN_13
+2921,"Germanie Collard",CODE_39
+2922,"Carré",CODE_39
+2923,Sodexo,EAN_13
+2924,Hanos,CODE_128
+2925,Surplus,EAN_13
+2926,Rommens,EAN_13
+2927,"Paris Londres",CODE_39
+2928,"Belgique Loisirs",ITF
+2929,Touring,""
+2930,"Akpol Baby",EAN_8
+2931,Vistula,CODE_128
+2932,Medicover,""
+2933,Badura,""
+2934,Sony,""
+2935,Topaz,EAN_13
+2936,Organique,""
+2937,"LUX MED",""
+2938,5.10.15,CODE_128
+2939,matras,""
+2940,Lewiatan,""
+2941,Recman,EAN_13
+2942,Tiffi,""
+2943,Pawo,""
+2944,Multikino,""
+2945,INTERSHOE,""
+2946,Makalu,EAN_13
+2947,Majster,EAN_13
+2948,"Таврия В",""
+2949,Megasport,EAN_13
+2950,"Класс",""
+2951,"Поляна",EAN_13
+2952,"Велика Кишеня",CODE_128
+2953,"Нова пошта",CODE_128
+2954,Socar,PDF_417
+2955,"Марафон",CODE_39
+2956,Mafia,""
+2957,"Амстор",EAN_13
+2958,"Копейка",EAN_13
+2959,"Бомонд",EAN_13
+2960,"Еко маркет",CODE_128
+2961,"Аптекарь",EAN_13
+2962,Moyo,CODE_39
+2963,"Козырная Карта",""
+2964,Clarus,""
+2965,Biotopic,""
+2966,"SVET KNJIGE",""
+2967,Vzajemna,""
+2968,XXXLesnina,ITF
+2969,"Mr. Pet",""
+2970,Welfare,EAN_13
+2971,"Обжора",""
+2972,"МегаМаркет",EAN_13
+2973,"Антошка",""
+2974,"Аптека 911",EAN_13
+2975,"Анкор",""
+2976,"KAREN MILLEN",""
+2977,INCANTO,EAN_13
+2978,"MAMA ROMA",""
+2979,"Карапуз",""
+2980,"Парфюм Лидер",EAN_13
+2981,"Суши Wok",""
+2982,Gulliver,""
+2983,"Corse Como",EAN_13
+2984,"Золотой",EAN_13
+2985,Samsung,CODE_128
+2986,"Мегамарт",""
+2987,"Автомаг",EAN_13
+2988,Invitro,EAN_13
+2989,"Мяснов",CODE_128
+2990,"Nutrition House",CODE_128
+2991,Sunterra,EAN_13
+2992,"Pizza Pizza",QR_CODE
+2993,"Quality Foods",UPC_A
+2994,Talize,CODE_128
+2995,Laura,""
+2996,"Lee Valley",""
+2997,Starsky,UPC_A
+2998,TERRA,CODE_39
+2999,Sirens,""
+3000,Kardish,CODE_128
+3001,"Nesters Market",UPC_A
+3002,"Big Al's",CODE_39
+3003,"National Tiles",""
+3004,Libraccio,EAN_13
+3005,s.Oliver,EAN_13
+3006,Mavi,EAN_13
+3007,"Do Space",""
+3008,Eckerle,QR_CODE
+3009,"Hirmer Grosse Grössen",QR_CODE
+3010,IperSoap,EAN_13
+3011,BayWa,EAN_13
+3012,"Harris Farm Markets",""
+3013,Paperchase,CODE_128
+3014,CeX,CODE_128
+3015,Oporto,QR_CODE
+3016,Suzannegrae,""
+3017,"T & T",UPC_A
+3018,Cineworld,CODE_128
+3019,"Key Food",UPC_A
+3020,M&Co,EAN_13
+3021,"Livraria Cultura",""
+3022,Saraiva,""
+3023,"Blackstone Shooting Sports",""
+3024,"Deportes Moya",""
+3025,Fresh,""
+3026,"Fly Buys",EAN_13
+3027,BRAM,""
+3028,ACL,""
+3029,"Bâtiself",""
+3030,Topaz,""
+3031,ARNOTTS,""
+3032,"O'Briens",""
+3033,INSOMNIA,""
+3034,"Paper Plus",CODE_128
+3035,"Living Rewards",EAN_13
+3036,Resene,CODE_128
+3037,PlaceMakers,""
+3038,Palmers,EAN_13
+3039,"Pita Pit",""
+3040,Burnsco,CODE_128
+3041,Animates,CODE_39
+3042,"Moore Wilson's",ITF
+3043,Continente,""
+3044,"Pingo Doce",""
+3045,"Minipreço",""
+3046,Bertrand,""
+3047,SAQ,CODE_128
+3048,"Red Rooster",CODE_128
+3049,Rewardle,QR_CODE
+3050,"Ali Baba",""
+3051,"Rübsamen & Kultstore",""
+3052,tegut...,""
+3053,Woolworths,EAN_13
+3054,MediaMarkt,QR_CODE
+3055,"Brico OK",EAN_13
+3056,"Oxfam Intermón",""
+3057,"Marks & Spencer",CODE_128
+3058,JEBE,""
+3059,Calliope,QR_CODE
+3060,Autogrill,CODE_128
+3061,"Brico Dépôt",CODE_128
+3062,"Mercatò",EAN_13
+3063,Next,""
+3064,Parashop,EAN_13
+3065,Jaycar,""
+3066,"Аптека от склада",EAN_13
+3067,Chemplus,""
+3068,Printemps,QR_CODE
+3069,"The Home Depot",""
+3070,Accessorize,""
+3071,Amway,""
+3072,"Harbor Freight",CODE_128
+3073,"La Marque U",""
+3074,"Whole Foods Market",CODE_128
+3075,"Panta Rhei",""
+3076,"Via Maestra",EAN_13
+3077,REPLAY,""
+3078,"La Pataterie",EAN_13
+3079,Gabes,CODE_128
+3080,"New Look",EAN_13
+3081,"Кукуруза",EAN_13
+3082,Giks,EAN_13
+3083,"Kitty Rose Couture",""
+3084,Takko,""
+3085,Euronics,CODE_128
+3086,"Australian Baby Card",""
+3087,Chatters,CODE_128
+3088,Mondou,CODE_128
+3089,QuikTrip,""
+3090,purehmv,ITF
+3091,"Autobedarf Kastner",""
+3092,PaintRight,""
+3093,Modissa,""
+3094,"金弘笙",""
+3095,"得易Ponta",CODE_128
+3096,"四季精品百貨",""
+3097,"微學館",""
+3098,"聖德科斯",""
+3099,"Much主幼商場",""
+3100,"漢神百貨",""
+3101,"大同3C",""
+3102,"今華電子",""
+3103,"中友百貨",""
+3104,"義美食品",EAN_13
+3105,"维康",""
+3106,"諾貝爾圖書城",""
+3107,"日曜天地",""
+3108,Lonsdale,""
+3109,"Joy Gioielli",EAN_13
+3110,ARTENI,CODE_128
+3111,"Inspirations Paint",""
+3112,Tuodi,EAN_13
+3113,Heinemann,""
+3114,"Good Sam Club",CODE_39
+3115,"Гемотест",""
+3116,Furla,""
+3117,Florarici,CODE_128
+3118,"Fayre & Square",""
+3119,"Фармакопейка",EAN_13
+3120,Familienpass,""
+3121,FACIT,EAN_13
+3122,DXL,""
+3123,DNS,""
+3124,CTS,EAN_13
+3125,"Co-op Bookstore",QR_CODE
+3126,Conforama,GS1_128
+3127,"Club Marine",""
+3128,"Boulangerie Louise",CODE_128
+3129,"Байрам",""
+3130,Alpenverein,""
+3131,Champion,EAN_13
+3132,Helix,""
+3133,Masters,EAN_13
+3134,Maxisconto,EAN_13
+3135,"Profumerie Modus",EAN_13
+3136,Montello,EAN_13
+3137,"Pizza Ranch",""
+3138,Rinascimento,QR_CODE
+3139,"СемьЯ",""
+3140,"Shopping Club",""
+3141,"Re Sole",EAN_13
+3142,"Virgin Active",CODE_39
+3143,"Sud express",EAN_13
+3144,"Sushi Shop",""
+3145,tastecard,""
+3146,"The Stone",ITF
+3147,"United Dairy Farmers",CODE_128
+3148,Vanity,""
+3149,"Victoria's Secret",""
+3150,SSMS,""
+3151,BluNavy,""
+3152,"Fresco Mercato",EAN_13
+3153,Beauty&Co,EAN_13
+3154,Giardineria,EAN_13
+3155,"Del Mare 1911",EAN_13
+3156,DPAM,EAN_13
+3157,WYCON,CODE_128
+3158,Cienne,EAN_13
+3159,"Super Shoes",CODE_39
+3160,"Centro Calzaturiero",EAN_13
+3161,"Fauna Food",EAN_13
+3162,Lakeshore,CODE_39
+3163,Reading,""
+3164,CGR,CODE_128
+3165,Discus,EAN_13
+3166,CIPIR,EAN_13
+3167,"Perry Sport",CODE_128
+3168,"Paddy Pallin",EAN_13
+3169,"D'Amante",CODE_128
+3170,"About Life",""
+3171,Delbard,CODE_39
+3172,Epplejeck,CODE_128
+3173,Monbana,EAN_13
+3174,"Burger King",""
+3175,Karns,UPC_A
+3176,Shampoo,EAN_13
+3177,Maxitracce,CODE_128
+3178,Xetra,CODE_128
+3179,TATA,EAN_13
+3180,"Gold's Gym",CODE_39
+3181,Salamander,""
+3182,Salsaritas,""
+3183,Bofrost,""
+3184,Tommasini,EAN_13
+3185,Gelatissimo,""
+3186,PUPA,""
+3187,Passionata,EAN_13
+3188,"Opals Australia",""
+3189,CosmoProf,CODE_128
+3190,CVG,CODE_128
+3191,"New World",EAN_13
+3192,"Lentini's",EAN_13
+3193,"Tanger Outlets",CODE_39
+3194,HAIRHOUSE,""
+3195,"Kvetináreň",""
+3196,"Top Parks",""
+3197,KlusWijs,CODE_39
+3198,FreeMAX,""
+3199,Navyboot,EAN_13
+3200,"Holt Renfrew",CODE_128
+3201,Etos,EAN_13
+3202,"San Churro",""
+3203,Basic-Fit,""
+3204,"АПТЕКА НЕВИС",EAN_13
+3205,Sogegross,""
+3206,Dagernova,""
+3207,"Альпари",""
+3208,RACT,""
+3209,Gabel,EAN_13
+3210,Hoff,EAN_13
+3211,Vitaminstore,""
+3212,Praskac,""
+3213,"ANOUK Fashion",EAN_13
+3214,AVIA,CODE_128
+3215,AVIA,EAN_13
+3216,"Blumen Berchtenbreiter",EAN_8
+3217,"Александровский сад",CODE_128
+3218,Kerrigans,CODE_128
+3219,"Kitchener Public Library",CODABAR
+3220,RollCall,CODE_39
+3221,Expert,CODE_39
+3222,"Camp Connection",""
+3223,"Vereniging Eigen Huis",CODE_39
+3224,"Fix Price",""
+3225,"Tuincentrum Osdorp‎",ITF
+3226,"Europlanet Casa",EAN_13
+3227,"The Office Centre",""
+3228,CJP,""
+3229,"der Walgauer",QR_CODE
+3230,"NSW Lotteries",""
+3231,"Империя сумок",""
+3232,Eurofleurs,ITF
+3233,avril,CODE_128
+3234,Keurslager,CODE_128
+3235,"Ochsner Shoes",""
+3236,"Котофей",""
+3237,"Aussie Disposals",""
+3238,"Горожанка",""
+3239,"Быстроном",""
+3240,"Старт",""
+3241,"Авто 49",""
+3242,Zoodom,EAN_13
+3243,Run2Day,ITF
+3244,"舞东风",""
+3245,"卡哇伊",""
+3246,"Cache Cache",""
+3247,DFS,""
+3248,Pontmeyer,CODE_39
+3249,Belwest,EAN_13
+3250,"Merkur Versicherung",QR_CODE
+3251,"Катюша",""
+3252,Tuindorado,ITF
+3253,"Rivièra Maison",EAN_13
+3254,Vanilia,ITF
+3255,"Горилка",""
+3256,Biosapori,""
+3257,Bertus,EAN_13
+3258,"Campbell's",ITF
+3259,Personalshop,CODE_39
+3260,"De Boet",ITF
+3261,Noriel,""
+3262,"Nonna Isa",EAN_13
+3263,"dポイント",""
+3264,"BAYCREW'S GROUP",""
+3265,"三省堂書店",""
+3266,ONWARD,""
+3267,"くまざわ書店",""
+3268,"BRICK HOUSE",""
+3269,"トレジャーファクトリー",""
+3270,WonderGOO,""
+3271,TOMORROWLAND,""
+3272,"びっくりドンキー",""
+3273,"石井スポーツ",""
+3274,majica,""
+3275,"UNITED ARROWS",""
+3276,"歌うんだ村",""
+3277,"杏林堂",""
+3278,P.S.FA,""
+3279,"Friends For Life",""
+3280,Borghuis,ITF
+3281,Wyevale,""
+3282,Wyevale,CODE_128
+3283,Sbraccia,""
+3284,"Pie Five",CODE_128
+3285,Leonardelli,EAN_13
+3286,Booker,CODE_128
+3287,Almeerplant,ITF
+3288,Emmezeta,EAN_13
+3289,"Priority Guest Rewards",""
+3290,MD,""
+3291,Kneipp,""
+3292,"Живика",""
+3293,"Croc's Playcentre",""
+3294,"La prealpina",EAN_13
+3295,"Zoos Victoria",""
+3296,Reclame,EAN_13
+3297,Smooke,EAN_13
+3298,Dungelmann,ITF
+3299,"La Piadineria",CODE_128
+3300,"Здоров.ру",""
+3301,"L'isola dei tesori",EAN_13
+3302,"Твой Дом",""
+3303,"Che 48",EAN_13
+3304,"ゴルフパートナー",""
+3305,"グランフロント大阪",""
+3306,"イシバシ楽器",""
+3307,"大垣書店",""
+3308,Welpark,""
+3309,RMK,""
+3310,"アインズ",""
+3311,"Kellyville Pets",""
+3312,"Vic's Meat Market",""
+3313,Pandora,CODE_128
+3314,"Wizard Pharmacy",EAN_13
+3315,"Loyalty Matters",""
+3316,"Discount Drug Stores",CODE_39
+3317,Abreu,""
+3318,"Acção Contínua",""
+3319,"Automóvel Club de Portugal",""
+3320,AEP,""
+3321,Agriloja,""
+3322,Almedina,""
+3323,Balvera,""
+3324,Brinka,""
+3325,"Carnes Meireles",""
+3326,"Espaço Casa",""
+3327,"Castello Lopes Cinemas",""
+3328,Celeiro,""
+3329,DeBorla,""
+3330,"Farmácias Portugesas",""
+3331,"Feira International de Lisboa",""
+3332,Foreva,""
+3333,"Foz Plaza",""
+3334,"Freeport Cartão Estudante",""
+3335,"Giovanni Galli",""
+3336,"Man Truckers World",""
+3337,"Mass Perfumerias",""
+3338,Natura,""
+3339,Recheio,""
+3340,"Companhia das Sandes",""
+3341,Seaside,""
+3342,"Cartão Solidário",""
+3343,Stara,""
+3344,Starfoods,""
+3345,Superdecor,""
+3346,Talhos,""
+3347,Uriage,""
+3348,Zilian,""
+3349,"Exchange VIP",""
+3350,Vistara,""
+3351,Saturn,""
+3352,BCPL,""
+3353,"The Parking Spot",""
+3354,"The Face Shop",CODE_128
+3355,"General Pants Co.",""
+3356,"JB Hi-Fi",""
+3357,"Whack Sports",CODE_39
+3358,Screwfix,""
+3359,"Werkers Welt",EAN_13
+3360,"KaDeWe Berlin",""
+3361,Maggiore,""
+3362,"Sonderpreis Baumarkt",EAN_13
+3363,"Farmacia Igea",""
+3364,"Eredi Pisanò",""
+3365,Manzetti,""
+3366,"CTS Supermercati",EAN_13
+3367,"Rocalè",""
+3368,"Zoilo Rios",CODE_128
+3369,Nordstrom,""
+3370,Semeraro,CODE_128
+3371,"Pat Catan's",CODE_39
+3372,"Ricker's Rewards",""
+3373,"yes Rewards",UPC_A
+3374,Burlington,""
+3375,"99 Ranch Market",""
+3376,"Fresh market",""
+3377,Champion,QR_CODE
+3378,Albi,ITF
+3379,"Travel FREE",""
+3380,"Vita Nova",""
+3381,"Esquires Café",CODE_128
+3382,Totalsports,""
+3383,"John Dory's",""
+3384,"Toy Kingdom",""
+3385,BML,EAN_13
+3386,Postie,CODE_128
+3387,Ballantynes,CODE_128
+3388,"Kings Plant Barn",""
+3389,"Columbus Coffee",QR_CODE
+3390,"Caroline Eve",CODE_39
+3391,"Coffee Culture",""
+3392,"Oderings Garden Centre",""
+3393,Goody,""
+3394,"Health 2000",CODE_39
+3395,LoyalT,""
+3396,"Alliance Pharmacy",""
+3397,"My Beauty Spot",""
+3398,"Apotheke RAETUS",QR_CODE
+3399,"Taxi Jetax",""
+3400,JAG,""
+3401,"Total Tools",""
+3402,"McDonald's",QR_CODE
+3403,"Bayside Library",""
+3404,"grün erleben",EAN_13
+3405,"Paint Spot",""
+3406,BioMarkt,""
+3407,"Air Europa",""
+3408,"Drogerie von Grünigen",""
+3409,"ЦУМ",""
+3410,"Аудиомания",""
+3411,Biedronka,EAN_13
+3412,"Choices Markets",UPC_A
+3413,"DF SportSpecialist",EAN_13
+3414,"Electro World",""
+3415,Eurowings,""
+3416,Foyles,EAN_13
+3417,"IL PASSO",""
+3418,Intimissimi,CODE_39
+3419,joyn,QR_CODE
+3420,Kendra,""
+3421,kilpi,EAN_13
+3422,Macron,CODE_128
+3423,"Mike Davis",""
+3424,"Polisano Farmacii",""
+3425,Ropharma,""
+3426,"Sacoor Brothers",""
+3427,"VAMED Vitality World",""
+3428,Vicinity,CODE_128
+3429,"Ладомед",""
+3430,OLDI,""
+3431,"1000 и одна сумка",""
+3432,"Organic Shop",""
+3433,"аптека Вита",""
+3434,"Бронницкий ювелир",""
+3435,"Линии любви",""
+3436,"Башнефть",""
+3437,"Санги Стиль",""
+3438,"Home Timber and Hardware",""
+3439,"Леонардо",""
+3440,"ОГО!",""
+3441,"БИБЛИО-ГЛОБУС",""
+3442,"Семь дней",""
+3443,"Бауцентр",""
+3444,"Макси",""
+3445,"Наше золото",""
+3446,"Табрис",""
+3447,"Кенгуру",""
+3448,Evona,""
+3449,Jaeger,""
+3450,"ДЕТКИ",""
+3451,ESOTIQ,""
+3452,"Бубль-Гум",""
+3453,Rashays,""
+3454,"Quality Pharmacy",""
+3455,"Oh! green",EAN_8
+3456,"Liquor Legends",""
+3457,"Harbour Town",""
+3458,Eichhorn,""
+3459,Coles,""
+3460,"Moby Dick",EAN_13
+3461,Paagman,CODE_128
+3462,Dorabella,EAN_13
+3463,Milanoptics,""
+3464,Docksteps,""
+3465,Empik,""
+3466,"Leon Market",EAN_13
+3467,"Longoni Sport",""
+3468,"Rossi Profumi",CODE_39
+3469,CYao,EAN_13
+3470,"Deborah Milano",EAN_13
+3471,Dem,""
+3472,Fabiani,""
+3473,"Mc Kenzy",EAN_8
+3474,Mazzucchelli,EAN_13
+3475,Woolworths,EAN_13
+3476,flybuys,EAN_13
+3477,"King Sport & Style",EAN_13
+3478,Giustacchini,EAN_13
+3479,Meta,EAN_13
+3480,Brignoli,EAN_13
+3481,"Air Malta",""
+3482,"Bake Boss",""
+3483,Caliban,""
+3484,Crown,""
+3485,"Emporio 88",""
+3486,"Getaway Outdoors",""
+3487,"Il Castoro Supermercati",EAN_13
+3488,"La Manna",""
+3489,"Rainbow Meats",""
+3490,Stellazeta,""
+3491,Halfords,""
+3492,Gasweld,""
+3493,"Circle K",""
+3494,"New Look",CODE_128
+3495,"Tip Top Butchers",""
+3496,"Family Parks",""
+3497,FB42,""
+3498,"Bäcker Görtz",""
+3499,Best&Less,CODE_128
+3500,"Eurospesa Ideashop",EAN_13
+3501,"Южный двор",""
+3502,Rewardtfc,""
+3503,Snappy,""
+3504,club1614,""
+3505,"Алмаз Холдинг",""
+3506,"Bronkhorst Schoenen",""
+3507,Feyenoord,ITF
+3508,"Vietnam Airlines",""
+3509,"SF Bio",""
+3510,Inglot,CODE_128
+3511,"Polo Market",""
+3512,"Rex supermercati",EAN_13
+3513,"London Drugs",CODE_128
+3514,Bfresh,""
+3515,"Ferguson Plarre Bakehouses",""
+3516,"Lola Liza",CODE_39
+3517,Bridgehead,""
+3518,"Bio C' Bon",EAN_13
+3519,Tatuum,""
+3520,"Пани Аптека",""
+3521,"TAC Аптека",""
+3522,"Librerie Coop",EAN_13
+3523,Sonesta,""
+3524,"Calgary Public Library",CODABAR
+3525,Xtra,QR_CODE
+3526,"Novità",CODE_128
+3527,Handok,""
+3528,"Farmacia Punkt",""
+3529,"Minifarm Farmacii",""
+3530,Leonardo,EAN_13
+3531,"Kitchen Shop",""
+3532,Mondex,""
+3533,"Mr. Price",""
+3534,"Česká pošta",""
+3535,"TOP drogerie",""
+3536,UGO,""
+3537,"Knihy Dobrovsky",""
+3538,"Auto Kelly",""
+3539,Spolem,""
+3540,Gatta,""
+3541,"Pizza Hut",""
+3542,"FotoŠkoda",""
+3543,Szachownica,""
+3544,Sonego,""
+3545,Dirk,EAN_13
+3546,"Big Friends",""
+3547,"La Foir'Fouille",CODE_128
+3548,"Brioche Dorée",QR_CODE
+3549,"Le Jardin des Fleurs",EAN_13
+3550,"Julien d'orcel",EAN_13
+3551,"Shop Coiffure",EAN_13
+3552,"L'eau Vive",CODE_128
+3553,"Top Office",CODE_128
+3554,"Jean Delatour",CODE_128
+3555,"Décor Discount",CODE_128
+3556,"Ambiance & Styles",CODE_39
+3557,Krys,GS1_128
+3558,Autodistribution,CODE_39
+3559,Decitre,EAN_13
+3560,Cabesto,EAN_13
+3561,JAKO-O,ITF
+3562,DPAM,CODE_128
+3563,"Tallink Silja Line",""
+3564,"Big C",""
+3565,"Cinemark Connections",""
+3566,"Auntie Anne's Pretzel Perks",""
+3567,PENNY,""
+3568,Hubo,EAN_13
+3569,COOP,""
+3570,"Earth Fare",""
+3571,"Ocean State Job Lot",""
+3572,"Restaurant Depot",""
+3573,"Circle K",""
+3574,"Royal Farms",""
+3575,rue21,""
+3576,Yogurtland,""
+3577,"Mellow Mushroom",""
+3578,"K & G Fashion Superstore",""
+3579,"Buehler's Fresh Food",""
+3580,"Kona Grill",""
+3581,A-Mode,""
+3582,"Landry's Select Club",""
+3583,Shaws,""
+3584,Dressmann,""
+3585,"Viking Line",""
+3586,Annabella,""
+3587,XXXL,ITF
+3588,Aldo,""
+3589,"Miracolul Plantelor",""
+3590,"Müller Beauty Store",""
+3591,Chemistworks,""
+3592,"Bibliotheksverband Region Luzern",""
+3593,Tarocash,""
+3594,"Passage bleu",""
+3595,"Les Compagnons des saisons",""
+3596,"Bazar Land",""
+3597,"Marché aux Auffaires",""
+3598,Biocoop,""
+3599,Maxiviande,""
+3600,"Médor et Compagnie",""
+3601,"Cofféa",""
+3602,"Espace Emeraude",""
+3603,"Carte Sourire",""
+3604,"Patàpain",""
+3605,LILLA,""
+3606,Spar,EAN_13
+3607,"Spar - Bienvenue",""
+3608,"Galleria Supermarket",""
+3609,BP,""
+3610,BP,""
+3611,BP,""
+3612,Safari,""
+3613,"Farm Boy",""
+3614,"t&t supermarket",""
+3615,"Sport 2000",ITF
+3616,CARP,""
+3617,"The Chopped Leaf",""
+3618,"Yuzu Sushi",""
+3619,"Les 3 Brasseurs",""
+3620,"Ange Boulangerie",""
+3621,"Burger King",QR_CODE
+3622,Bungert,CODE_128
+3623,Alsterhaus,""
+3624,Oberpollinger,""
+3625,"Hudson's Bay",""
+3626,"Гросеров",""
+3627,"YHA Australia",CODE_39
+3628,Suomalainen,""
+3629,"Drogerie Natura",""
+3630,"Frankfurt Airport Rewards",QR_CODE
+3631,C.ex,""
+3632,"Touring Club Italiano",EAN_13
+3633,Helmet,""
+3634,Hesburger,""
+3635,"Hong Kong",""
+3636,Kela,""
+3637,Kirjastot,""
+3638,Kultajousi,""
+3639,Moda,""
+3640,Motonet,""
+3641,"Musti ja Mirri",""
+3642,Plantagen,""
+3643,"Seppälä",""
+3644,Teboil,""
+3645,"Yliopiston Apteekki",""
+3646,Cultura,""
+3647,Promocash,""
+3648,"Świat Książki",""
+3649,"Cash Converters",""
+3650,"Just Brands",""
+3651,"Cosmo Hairstyling",""
+3652,"Memphis Coffee",""
+3653,"Le temps des cerises",""
+3654,bi1,""
+3655,Atac,""
+3656,"cash express",""
+3657,Tridome,""
+3658,"Fabio Salsa",""
+3659,Coiff&Co,""
+3660,"jour de fête",""
+3661,Flunch,""
+3662,"Écomarché",GS1_128
+3663,"Abra Meble",""
+3664,Aperitif,""
+3665,briju,""
+3666,"eSmoking World",""
+3667,"Pacific Pêche",""
+3668,Sucx,""
+3669,Citadium,""
+3670,"Monceau Fleurs",""
+3671,"La Chaise Longue",""
+3672,"Polygene Riviera",""
+3673,Qwartz,""
+3674,Diagonal,""
+3675,"Ziekenhuis Gelderse Vallei",CODE_39
+3676,Greenpoint,""
+3677,Solar,""
+3678,"Un Deux Trois",""
+3679,"Brico Plan-It",""
+3680,Citie,""
+3681,CRU,""
+3682,"Noukie's",""
+3683,Qualiet,""
+3684,"Walter van Gastel",""
+3685,Rituals,""
+3686,"Lucas Creativ",""
+3687,"Ben and Florentine",""
+3688,"Bonus Bucks",""
+3689,"Boomerang kids",""
+3690,"Canada Computers and Electronics",""
+3691,"CF 1 FC",""
+3692,Chico,""
+3693,"Cinemas Guzzo",""
+3694,Colori,""
+3695,celio,""
+3696,"Cool and Simple",""
+3697,"Copper Branch",""
+3698,Dynamite,""
+3699,Fabutan,""
+3700,"Go Auto",""
+3701,"Good Earth",""
+3702,Hachem,""
+3703,"Le Magasin",""
+3704,Naturiste,""
+3705,"Noah's Natural Food",""
+3706,"Odessa Poissonnier",""
+3707,"Park'n Fly",""
+3708,"Potvin and Bouchard",""
+3709,"Quality Greens",""
+3710,"Supplement King",""
+3711,"Turtle Jack's",""
+3712,Ultramar,""
+3713,Bouchara,""
+3714,"Gibert Joseph",""
+3715,"Moto Expert",""
+3716,"Carrément Fleurs",""
+3717,Burton,EAN_13
+3718,"Choice Hotels",""
+3719,"Claire France",""
+3720,Dyno,""
+3721,"La Baie d'Hudson",""
+3722,Eggsquis,""
+3723,Piazzetta,""
+3724,"Fruits and Passion",""
+3725,"H Mart",""
+3726,"Matério",""
+3727,"Yummy Market",""
+3728,"Côté Nature",""
+3729,April,""
+3730,Blackstore,""
+3731,"Saint Algue",""
+3732,"Venta Peio",""
+3733,Defimode,""
+3734,Gedimat,""
+3735,Pharmadys,""
+3736,"100% Voetbal",""
+3737,"Almere Centrum",""
+3738,Amstelveen,""
+3739,"Animal Center",""
+3740,Aralia,""
+3741,Artis,""
+3742,Avonturia,""
+3743,AVRI,""
+3744,"Big L",""
+3745,"Bike Totaal",""
+3746,"Boer Staphorst",""
+3747,"De Bosrand",""
+3748,Bouwhof,""
+3749,"Christine le Duc",""
+3750,Bruna,""
+3751,CIGO,""
+3752,Clous,""
+3753,Daka,""
+3754,"De Kaasspecialist",""
+3755,Speedway,""
+3756,Langham,""
+3757,Palm,""
+3758,Muchoburrito,""
+3759,Smashburger,""
+3760,"Showcase Cinemas",""
+3761,"Salon Centric",""
+3762,JCC,""
+3763,"Hen House",""
+3764,Foodland,""
+3765,"Smokey Bones",""
+3766,"Phantom Fireworks",""
+3767,"Firehouse Subs",""
+3768,"Discount Drug Mart",""
+3769,Kings,""
+3770,"New York Public Library",""
+3771,"The Children's Place",""
+3772,"Silver Sneakers",""
+3773,"Russell Stover",""
+3774,Spinx,""
+3775,"Gordon Food Service",""
+3776,"Busy Beaver",""
+3777,"Sport Öhner",""
+3778,"Così",""
+3779,"Francesca's",""
+3780,"Old Chicago",""
+3781,Stauffers,""
+3782,"Kum & Go",""
+3783,"Uncle Guiseppe's",""
+3784,"The Halal Guys",""
+3785,Pull-A-Part,""
+3786,"California Tortilla",""
+3787,"Graeter's",""
+3788,Meineke,""
+3789,PetPeople,""
+3790,"Music & Arts",""
+3791,NetCost,""
+3792,"Merkal Calzados",""
+3793,Kneaders,""
+3794,"Genghis Grill",""
+3795,"De Driesprong",""
+3796,CountyMarket,""
+3797,"De leukste taarten shop",""
+3798,"Dier all in",""
+3799,"Divoza Horseworld",""
+3800,Duijvestein,""
+3801,Enorm,""
+3802,"Duffy's Sports Grill",""
+3803,Eurofleur,""
+3804,Fiftysix,""
+3805,"Gezondheids Winkel",""
+3806,Harmons,""
+3807,Groenen,""
+3808,"Columbus Metropolitan Library",""
+3809,"Henny's Rits",""
+3810,"Hesselink Mode",""
+3811,"Hizi Hair",""
+3812,Hocras,""
+3813,Hofpas,""
+3814,"Biggby Coffee",""
+3815,"Aroma Kava",""
+3816,Janfleur,""
+3817,Jongerius,""
+3818,Jumper,""
+3819,Kalisvaart,""
+3820,Kater,""
+3821,Leemans,""
+3822,Lelypas,""
+3823,Libelle,""
+3824,"Life and Garden",""
+3825,"Loods 5",""
+3826,"New York Pizza",""
+3827,Omring,""
+3828,"Ouders van nu",""
+3829,Panterhuis,""
+3830,"Pet's Place",""
+3831,Plentyparts,""
+3832,"Pour Vous",""
+3833,Pro-Duo,""
+3834,Provak,""
+3835,Qinn,""
+3836,"Pick 'n Save",UPC_A
+3837,"Los Angeles Public Library",""
+3838,"Aunt Maggies Organics",""
+3839,"Dobbies Garden Centres",""
+3840,Beales,""
+3841,Jollyes,""
+3842,TradePoint,CODE_128
+3843,Notcutts,""
+3844,"Kop og Kande",""
+3845,Femilet,""
+3846,Salling,""
+3847,Stark,""
+3848,Sportigan,""
+3849,Bygma,""
+3850,"Illums Bolighus",EAN_13
+3851,"IDEmœbler",""
+3852,"Harry Rosen",""
+3853,Fisketorvet,CODE_39
+3854,InSmoke,CODE_128
+3855,"American Golf",""
+3856,Fozzy,""
+3857,"Table Table",""
+3858,Basconi,""
+3859,"Епіцентр",""
+3860,ISEI,""
+3861,"К-Раута",""
+3862,"море пива",""
+3863,"Everyone Active",""
+3864,"Showcase Cinemas",""
+3865,"The original factory store",""
+3866,"Natura Siberica",""
+3867,"Grape Tree",""
+3868,"Пятерочка",""
+3869,"Wyevale Garden Centres",""
+3870,"1000 и одна туфелька",""
+3871,Varus,""
+3872,"Sea and Spud",QR_CODE
+3873,"Mc Coll's",""
+3874,JTF,""
+3875,"Krispy Kreme",""
+3876,"Hotel Chocolat",""
+3877,"Cass Art",""
+3878,Selco,""
+3879,RSPB,""
+3880,Bents,CODE_128
+3881,"Loon Fung",CODE_128
+3882,"Salon Services",CODE_128
+3883,"Charles Clinkard",""
+3884,Hillier,""
+3885,"La Tasca",""
+3886,Gabor,""
+3887,"Il fai da te guercio",""
+3888,Natalys,""
+3889,Promise,""
+3890,"Pharmaprivilège",EAN_13
+3891,Picard,""
+3892,"Caddy's",""
+3893,"Primi Anni",""
+3894,Headmasters,CODE_128
+3895,Johnsons,""
+3896,Greggs,""
+3897,WHSmith,""
+3898,Ryman,""
+3899,parkrun,""
+3900,"Club Individual",""
+3901,"Piacere Terra",""
+3902,Miriade,""
+3903,"Kaidor Gioiellerie",""
+3904,Paul,""
+3905,"Etude House",""
+3906,"のエチュードハウス",""
+3907,Adidas,""
+3908,Expert,""
+3909,"Expert Professional",EAN_8
+3910,Rileys,""
+3911,Garsons,""
+3912,"Neal's Yard Remedies",""
+3913,Ringfoto,""
+3914,Robbelien,""
+3915,Roelofsenbloemen,""
+3916,"Meesterbakker Roodenrijs",""
+3917,"Rozemarijn en Thijm",""
+3918,Sahan,""
+3919,"Sake Store",""
+3920,"Shoe Time",""
+3921,Shoerama,""
+3922,Slager,""
+3923,"Smit Mode",""
+3924,Sneakers,""
+3925,Sooco,""
+3926,Spaarkoning,""
+3927,Splinter,""
+3928,"Toys ""R"" Us",CODE_128
+3929,Leekes,""
+3930,"Blue Diamond",""
+3931,Moshulu,""
+3932,klass.,CODE_39
+3933,Tortilla,""
+3934,Curaprox,CODE_128
+3935,"Select Wellness Group",""
+3936,Stoelinga,""
+3937,Tally-Ho,""
+3938,"Team Kappers",""
+3939,Tica,""
+3940,Treckpleister,""
+3941,Tribute,""
+3942,Tuinscala,""
+3943,Tuinwereld,""
+3944,"Van Beek",""
+3945,"Van Dal",""
+3946,"Van de Belt Modewereld",""
+3947,"Van Duinkerken",""
+3948,Vanvuuren,""
+3949,"Tuincentrum Vechtweelde",""
+3950,Verfland,""
+3951,"Veurink Mode",""
+3952,Voncken,""
+3953,Willemse,""
+3954,"Yelloh Village",""
+3955,"Zeeland Pas",""
+3956,Zwerfkei,""
+3957,Pfister,QR_CODE
+3958,Mercatino,CODE_128
+3959,"Chuck E. Cheese's",""
+3960,Allscent,""
+3961,"Baby Bump",""
+3962,Bigstore,""
+3963,Eataly,""
+3964,"Emy Store",""
+3965,Excelsa,""
+3966,"Gioielli di Valenza",""
+3967,ibs,""
+3968,Kisene,""
+3969,"Max Factory",""
+3970,Mille,""
+3971,Navigare,""
+3972,Piccolo,""
+3973,"Pull Love",""
+3974,Quore,""
+3975,Satur,""
+3976,Scalo,""
+3977,"Spacio Alimentare",""
+3978,"Universo Bimbo",""
+3979,Animaliamo,""
+3980,"Benny Giocattoli",""
+3981,"Bergamo Cashback",""
+3982,Berton,""
+3983,Bia,""
+3984,Buffetti,""
+3985,"Campo de Fiori",""
+3986,Carrera,""
+3987,"Cartolaio Amico",""
+3988,"Cioccolati Italiani",""
+3989,"Cotton Factory",""
+3990,"Country Shop",""
+3991,"Dal Ben",""
+3992,"Doppelgänger",""
+3993,"Elena Miro",""
+3994,Exki,""
+3995,Incartare,""
+3996,Legler,""
+3997,Playcity,""
+3998,Quartieri,""
+3999,"Splendidi e Splendenti",""
+4000,Talco,""
+4001,"Sun Store",""
+4002,"I GIGLI",""
+4003,Evergreen,""
+4004,Asport,""
+4005,babycity,""
+4006,baby-walz,""
+4007,"Bâtiself",""
+4008,Biovita,""
+4009,BizRewards,""
+4010,"Body Attack",""
+4011,Breuninger,""
+4012,Calliste,""
+4013,"Columbus Coffee",""
+4014,"Dock Bruxsel",""
+4015,Dufrais,""
+4016,"Farro Fresh Food",""
+4017,"Fashion For Cycling",""
+4018,Formen,""
+4019,Garhammer,""
+4020,Gilmours,""
+4021,Hairdis,""
+4022,"Kress Mode",""
+4023,"La Grande Épicerie Massen",EAN_13
+4024,Liebeskind,""
+4025,"Pferdesporthaus Loesdau",""
+4026,merric,""
+4027,MyMuesli,""
+4028,"National Lotterij",""
+4029,"Oil & Vinegar",""
+4030,"PAK'nSAVE",""
+4031,"Pall Center",""
+4032,Paris8,""
+4033,Pharmacie.be,""
+4034,Seidensticker,""
+4035,Sequoia,""
+4036,"Sichel Home",""
+4037,Silvermoon,""
+4038,skm,""
+4039,"Smart Marine",""
+4040,Stackmann,""
+4041,"The Fashionstore",""
+4042,thomas,""
+4043,Tredy,""
+4044,VAB,""
+4045,"Van Eyck Sport",""
+4046,"Wild South",""
+4047,"Zalando Outlet",""
+4048,Sligro,""
+4049,"Shopping City Süd",""
+4050,moodo,""
+4051,Yups,""
+4052,"La Vantil",""
+4053,adrenaline.pl,""
+4054,Prochnik,""
+4055,Chantelle,""
+4056,Prior,""
+4057,"Premiere Cinemas",""
+4058,Nutrend,""
+4059,GrandOptical,""
+4060,Sevt,""
+4061,CBA,""
+4062,ALLTOYS,""
+4063,decodom,""
+4064,hobbi,""
+4065,Ozeta,""
+4066,"John Garfield",""
+4067,Monday,""
+4068,Wee,""
+4069,"Город Товаров",""
+4070,Funday,""
+4071,"ПАЛАТА",""
+4072,"К-раута",""
+4073,"Порядок",""
+4074,"туфелька",""
+4075,"Аптечная",""
+4076,"Сибирский Гигант",""
+4077,KDL,""
+4078,"Холидей Классик",""
+4079,MAH,""
+4080,"Яшма Золото",""
+4081,"Гулливер",""
+4082,"Fashion House",""
+4083,"Каляев",""
+4084,"Shingle Inn",""
+4085,"Golden Casket",""
+4086,"Pet City",""
+4087,chempro,""
+4088,merlo,""
+4089,"Pharmacy 777",""
+4090,"Boulder Island",""
+4091,"Delikatesy Centrum",""
+4092,"L & Š",""
+4093,"ЭССЕН",""
+4094,"Inter Diskont",""
+4095,"ЛЕГКИЙ ШАГ",""
+4096,TAM,""
+4097,"Primary Dental",""
+4098,"Vita Drogerie",EAN_13
+4099,"Gift Surplus",""
+4100,Regatta,EAN_8
+4101,"Eden Gardens",""
+4102,"Fairfield City Open Libraries",""
+4103,"O'Tacos",""
+4104,Viridea,""
+4105,Aligro,""
+4106,CinemaxX,""
+4107,Depiline,""
+4108,"Azzurra Sport",EAN_13
+4109,"AH CACAO",""
+4110,"Big Box Outlet Store",UPC_A
+4111,"The Good Guys",""
+4112,"Golf Central",CODE_39
+4113,PLUS,""
+4114,"PC Optimum",CODE_128
+4115,"Miller & Monroe",EAN_13
+4116,Newco,EAN_13
+4117,Kernels,CODE_128
+4118,iDo,EAN_13
+4119,"Street Beat",EAN_13
+4120,Picard,EAN_13
+4121,"Bike Center",EAN_13
+4122,"San marina",""
+4123,Metro,""
+4124,"del Arte",""
+4125,Beautyfly,CODE_128
+4126,"Ma Jardinerie",EAN_13
+4127,"Pharmacie Lafayette",CODE_128
+4128,Bricolex,EAN_13
+4129,"Carnet de vol",EAN_13
+4130,"Á la bonne heure",EAN_13
+4131,Moa,EAN_13
+4132,"La Croissanterie",""
+4133,"Pomme de pain",QR_CODE
+4134,Puff,CODE_39
+4135,Altasfera,EAN_13
+4136,Pompea,CODE_128
+4137,Particolari,EAN_13
+4138,"Centro mega",EAN_13
+4139,"Centro Verde",CODE_128
+4140,"DP Store",UPC_A
+4141,"Il Centesimo",""
+4142,SarniOro,""
+4143,"Igi & Co",""
+4144,"Red Cross Blood Service",""
+4145,TuttoCialde,EAN_13
+4146,Casabella,""
+4147,Kandy,CODE_128
+4148,"Zoe confetti",CODE_128
+4149,"Owen's",UPC_A
+4150,"Marc O'Polo",CODE_128
+4151,"Marc O'Polo",ITF
+4152,Gerbes,UPC_A
+4153,me.ca,UPC_A
+4154,Food4Less,UPC_A
+4155,"Foods Co",UPC_A
+4156,"Le Grand Cercle",EAN_13
+4157,Copps,UPC_A
+4158,Degrenne,EAN_13
+4159,Poulaillon,CODE_39
+4160,"Quater Back",""
+4161,"Sprüngli",CODE_128
+4162,"Filou & Friends",EAN_13
+4163,"Van Loock",CODE_39
+4164,"Le Grenier",CODE_39
+4165,Sarabanda,CODE_128
+4166,"Metro Market",UPC_A
+4167,DELETED,""
+4168,Bratchers,""
+4169,DELETED,""
+4170,"Budwey's",""
+4171,"Butera Market",""
+4172,"Cub Foods",""
+4173,"Doug's Supermarket",""
+4174,FoodMaxx,""
+4175,"Fred's Pharmacy",CODE_128
+4176,DELETED,""
+4177,"Mackenthun's",""
+4178,"Toronto Public Library",""
+4179,"Warehouse One",CODE_128
+4180,Hugendubel,QR_CODE
+4181,"Cotton On",CODE_128
+4182,"My Very Best Card",CODE_128
+4183,"L'heure du marché",CODE_39
+4184,"T.K. Maxx",CODE_128
+4185,Coffee#1,QR_CODE
+4186,"Blue Light Card",""
+4187,Countrywide,CODE_39
+4188,"Russell & Bromley",CODE_128
+4189,Swipii,QR_CODE
+4190,"Jamie's Italian",CODE_128
+4191,Tiendanimal,CODE_39
+4192,"Xarxa Farma",UPC_A
+4193,"Gala Bingo",CODE_128
+4194,"Koröshi",CODE_128
+4195,dayaday,""
+4196,"Parque Sur",""
+4197,equivalenza,""
+4198,Splau,""
+4199,"Z eshop",""
+4200,Hiperber,""
+4201,Vueling,QR_CODE
+4202,Scalpers,CODE_128
+4203,"Vidal Tiendas",""
+4204,futbolmania,CODE_39
+4205,"Médical Óptica",""
+4206,Verdecora,CODE_39
+4207,Full,""
+4208,Vallsur,CODE_39
+4209,Rumbo,""
+4210,"Super Amara",""
+4211,"Júlia",""
+4212,Farmapremium,""
+4213,FashionKids,CODE_128
+4214,Gala,""
+4215,River,""
+4216,"Just Save",""
+4217,Lucky,""
+4218,"Save Mart",""
+4219,SuperGold,""
+4220,"Coffee Culture",CODE_128
+4221,"Auckland Council Libraries",CODE_39
+4222,"United Video",CODE_39
+4223,Huckleberry,CODE_128
+4224,"Liquor King",""
+4225,"Ametller Origen",""
+4226,"General Optica",CODE_128
+4227,Ocine,CODE_128
+4228,Correos,CODE_128
+4229,"Gros Mercat",""
+4230,"Toy Planet",""
+4231,Alcampo,""
+4232,Coviran,""
+4233,llaollao,""
+4234,"El Punt",""
+4235,Sanremo,""
+4236,"Navarro Herbolario",EAN_13
+4237,Bonaire,""
+4238,"Montse Interiors",""
+4239,Unide,""
+4240,Ecoceutics,""
+4241,Botticelli,""
+4242,Ilusiona,""
+4243,"Plusfrésc",""
+4244,Hiber,""
+4245,"Voyageur Sncf",""
+4246,"Hiper Usera",UPC_A
+4247,Disa,""
+4248,"La Carte Mode",""
+4249,Galp,""
+4250,"Que +",CODE_128
+4251,"La Maquinista",""
+4252,Aupark,EAN_13
+4253,Nitrazdroj,EAN_13
+4254,Autotechna,EAN_13
+4255,Daffer,CODE_128
+4256,Moloko,EAN_8
+4257,Muziker,""
+4258,Zootic,""
+4259,Mavrica,CODE_39
+4260,"Kalček",""
+4261,"Bakkerij Aernoudt",CODE_39
+4262,"Uni Hobby",EAN_13
+4263,"Bageterie Boulevard",""
+4264,Bandi,CODABAR
+4265,Hecht,EAN_13
+4266,Triola,EAN_13
+4267,Moira,EAN_13
+4268,Edora,CODE_128
+4269,Carturesti,EAN_13
+4270,Hannaford,""
+4271,Kichechef,CODE_39
+4272,DELETED,CODE_128
+4273,"West Liquor",CODE_39
+4274,Profmax,""
+4275,"мегас",EAN_13
+4276,"градусы",EAN_13
+4277,Shoptime,CODE_128
+4278,"Tourism Noosa",EAN_13
+4279,Meier,EAN_13
+4280,Fortis,""
+4281,"Kui Parks",""
+4282,"Harris Scarfe",CODE_128
+4283,LeWrap,""

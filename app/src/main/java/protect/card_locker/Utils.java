@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
@@ -40,6 +39,7 @@ import java.util.Locale;
 
 import androidx.core.graphics.ColorUtils;
 import protect.card_locker.preferences.Settings;
+import androidx.exifinterface.media.ExifInterface;
 
 public class Utils {
     private static final String TAG = "Catima";

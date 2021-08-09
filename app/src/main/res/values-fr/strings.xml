@@ -155,16 +155,24 @@
     <string name="backImageDescription">Image verso de la carte</string>
     <string name="frontImageDescription">Image recto de la carte</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
-    <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer, et sélectionnez les types de codes-barres manuellement par la suite.
+    <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer.
 \nVous pouvez aussi l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
     <string name="importStocard">Importer depuis Stocard</string>
     <string name="turn_flashlight_off">Éteindre la lampe de poche</string>
     <string name="turn_flashlight_on">Allumer la lampe de poche</string>
-    <string name="failedGeneratingShareURL">Échec de la génération de l’URL de partage. Veuillez signaler ce problème !</string>
+    <string name="failedGeneratingShareURL">Impossible de générer une URL partageable. Veuillez signaler ceci.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Sélectionnée : <xliff:g>%d</xliff:g> carte</item>
-        <item quantity="other">Sélectionnées : <xliff:g>%d</xliff:g> cartes</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> carte sélectionnée</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartes sélectionnées</item>
     </plurals>
-    <string name="deleteTitle">Supprimer la carte de fidélité</string>
+    <string name="deleteTitle">Supprimer la carte</string>
     <string name="deleteConfirmation">Supprimer cette carte \?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Supprimer cette <xliff:g>%d</xliff:g> carte définitivement \?</item>
+        <item quantity="other">Supprimer ces <xliff:g>%d</xliff:g> cartes définitivement \?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Supprimer <xliff:g>%d</xliff:g> carte</item>
+        <item quantity="other">Supprimer <xliff:g>%d</xliff:g> cartes</item>
+    </plurals>
 </resources>

@@ -156,11 +156,11 @@
     <string name="backImageDescription">Задняя сторона карты</string>
     <string name="frontImageDescription">Лицевая сторона карты</string>
     <string name="photos">Фотографии</string>
-    <string name="importStocardMessage">Выберите файл <i>***-sync.zip</i> для импортирования, а затем вручную укажите типы штрих-кодов.
+    <string name="importStocardMessage">Выберите файл <i>***-sync.zip</i> для импортирования.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>
-    <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об этом!</string>
+    <string name="failedGeneratingShareURL">Невозможно создать URL для обмена. Пожалуйста, сообщите об этом.</string>
     <string name="turn_flashlight_off">Отключить вспышку</string>
     <string name="turn_flashlight_on">Включить вспышку</string>
     <plurals name="selectedCardCount">
@@ -170,17 +170,17 @@
         <item quantity="other">Выбрано: <xliff:g>%d</xliff:g> карт</item>
     </plurals>
     <string name="deleteTitle">Удаление карты</string>
-    <plurals name="deleteCardsTitle">
-        <item quantity="one">Удалить карту</item>
-        <item quantity="few">Удалить карты</item>
-        <item quantity="many">Удалить карт</item>
-        <item quantity="other">Удалить карт</item>
-    </plurals>
     <string name="deleteConfirmation">Удалить карту\?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Удалить эту карту\? Действие нельзя будет отменить.</item>
-        <item quantity="few">Удалить эти <xliff:g>%d</xliff:g> карты\? Действие нельзя будет отменить.</item>
-        <item quantity="many">Удалить эти <xliff:g>%d</xliff:g> карт\? Действие нельзя будет отменить.</item>
-        <item quantity="other">Удалить эти <xliff:g>%d</xliff:g> карт\? Действие нельзя будет отменить.</item>
+        <item quantity="one">Удалить эту <xliff:g>%d</xliff:g> карту безвозвратно\?</item>
+        <item quantity="few">Удалить эти <xliff:g>%d</xliff:g> карты безвозвратно\?</item>
+        <item quantity="many">Удалить эти <xliff:g>%d</xliff:g> карт безвозвратно\?</item>
+        <item quantity="other">Удалить эти <xliff:g>%d</xliff:g> карт безвозвратно\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Удаление <xliff:g>%d</xliff:g> карты</item>
+        <item quantity="few">Удаление <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="many">Удаление <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="other">Удаление <xliff:g>%d</xliff:g> карт</item>
     </plurals>
 </resources>

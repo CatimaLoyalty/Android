@@ -155,7 +155,7 @@
     <string name="backImageDescription">Achterzijde van de kaart</string>
     <string name="frontImageDescription">Voorzijde van de kaart</string>
     <string name="passwordRequired">Voer het wachtwoord in</string>
-    <string name="importStocardMessage">Kies het te importeren Stocard-exportbestand genaamd <i>***-sync.zip</i> en kies nadien de juiste barcodes.
+    <string name="importStocardMessage">Kies het te importeren Stocard-exportbestand genaamd <i>***-sync.zip</i>.
 \nOf stuur een e-mail naar support@stocardapp.com waarin je vraagt om een exportbestand.</string>
     <string name="importStocard">Importeren uit Stocard</string>
     <string name="failedGeneratingShareURL">De te delen link kan niet worden gegenereerd. Meld deze fout.</string>
@@ -165,15 +165,14 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kaart geselecteerd</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kaarten geselecteerd</item>
     </plurals>
-
     <string name="deleteTitle">Kaart verwijderen</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Kaart verwijderen</item>
-        <item quantity="other">Kaarten verwijderen</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> kaart verwijderen</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kaarten verwijderen</item>
     </plurals>
     <string name="deleteConfirmation">Kaart verwijderen\?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Weet je zeker dat je deze kaart wilt verwijderen\?</item>
+        <item quantity="one">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaart wilt verwijderen\?</item>
         <item quantity="other">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaarten wilt verwijderen\?</item>
     </plurals>
 </resources>

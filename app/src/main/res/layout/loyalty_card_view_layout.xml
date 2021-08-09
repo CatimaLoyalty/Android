@@ -45,6 +45,7 @@
 
             <ImageButton
                 android:id="@+id/maximizeButton"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="15.0dip"
@@ -219,6 +220,7 @@
 
                 <TextView
                     android:id="@+id/noteView"
+                    android:autoLink="all"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -273,7 +275,7 @@
             app:expandedTitleMarginEnd="64dp"
             app:contentScrim="?colorPrimary"
             app:expandedTitleGravity="top">
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/storeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

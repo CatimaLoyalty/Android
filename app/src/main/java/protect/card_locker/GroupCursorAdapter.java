@@ -5,52 +5,94 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
-class GroupCursorAdapter extends CursorAdapter
+class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder>
 {
-    Settings settings;
-    DBHelper db;
+    Settings mSettings;
+    private Cursor mCursor;
+    private final Context mContext;
+    private final GroupCursorAdapter.GroupAdapterListener mListener;
+    DBHelper mDb;
 
-    public GroupCursorAdapter(Context context, Cursor cursor)
-    {
-        super(context, cursor, 0);
-        settings = new Settings(context);
+    public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupCursorAdapter.GroupAdapterListener inputListener) {
+        super(inputCursor);
+        setHasStableIds(true);
+        mSettings = new Settings(inputContext);
+        mContext = inputContext;
+        mListener = inputListener;
+        mDb = new DBHelper(inputContext);
 
-        db = new DBHelper(context);
+        swapCursor(mCursor);
     }
 
-    // The newView method is used to inflate a new view and return it,
-    // you don't bind any data to the view at this point.
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent)
-    {
-        return LayoutInflater.from(context).inflate(R.layout.group_layout, parent, false);
+    public void swapCursor(Cursor inputCursor) {
+        super.swapCursor(inputCursor);
+        mCursor = inputCursor;
     }
 
-    // The bindView method is used to bind all data to a given view
-    // such as setting the text on a TextView.
+    @NonNull
     @Override
-    public void bindView(View view, Context context, Cursor cursor)
+    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
     {
-        // Find fields to populate in inflated template
-        TextView nameField = view.findViewById(R.id.name);
-        TextView countField = view.findViewById(R.id.cardCount);
+        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
+        return new GroupCursorAdapter.GroupListItemViewHolder(itemView);
+    }
 
-        // Extract properties from cursor
-        Group group = Group.toGroup(cursor);
+    public Cursor getCursor()
+    {
+        return mCursor;
+    }
 
-        Integer groupCardCount = db.getGroupCardCount(group._id);
+    public void onBindViewHolder(GroupCursorAdapter.GroupListItemViewHolder inputHolder, Cursor inputCursor) {
+        Group group = Group.toGroup(inputCursor);
 
-        // Populate fields with extracted properties
-        nameField.setText(group._id);
+        inputHolder.mName.setText(group._id);
 
-        countField.setText(context.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
+        int groupCardCount = mDb.getGroupCardCount(group._id);
+        inputHolder.mCardCount.setText(mContext.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
-        nameField.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        countField.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
+        inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
+        inputHolder.mCardCount.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+
+        applyClickEvents(inputHolder);
+    }
+
+    private void applyClickEvents(GroupListItemViewHolder inputHolder)
+    {
+        inputHolder.mMoveDown.setOnClickListener(view -> mListener.onMoveDownButtonClicked(inputHolder.itemView));
+        inputHolder.mMoveUp.setOnClickListener(view -> mListener.onMoveUpButtonClicked(inputHolder.itemView));
+        inputHolder.mEdit.setOnClickListener(view -> mListener.onEditButtonClicked(inputHolder.itemView));
+        inputHolder.mDelete.setOnClickListener(view -> mListener.onDeleteButtonClicked(inputHolder.itemView));
+    }
+
+    public interface GroupAdapterListener
+    {
+        void onMoveDownButtonClicked(View view);
+        void onMoveUpButtonClicked(View view);
+        void onEditButtonClicked(View view);
+        void onDeleteButtonClicked(View view);
+    }
+
+    public class GroupListItemViewHolder extends RecyclerView.ViewHolder
+    {
+        public TextView mName, mCardCount;
+        public AppCompatImageButton mMoveUp, mMoveDown, mEdit, mDelete;
+
+        public GroupListItemViewHolder(View inputView) {
+            super(inputView);
+            mName = inputView.findViewById(R.id.name);
+            mCardCount = inputView.findViewById(R.id.cardCount);
+            mMoveUp = inputView.findViewById(R.id.moveUp);
+            mMoveDown = inputView.findViewById(R.id.moveDown);
+            mEdit = inputView.findViewById(R.id.edit);
+            mDelete = inputView.findViewById(R.id.delete);
+        }
     }
 }

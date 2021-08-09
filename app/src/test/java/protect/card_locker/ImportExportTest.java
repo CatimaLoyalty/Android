@@ -29,7 +29,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -981,7 +980,9 @@ public class ImportExportTest
                 "1,Card 1,Note 1,1618053234,100,USD,1234,5432,1,QR_CODE,0,\r\n" +
                 "8,Clothes Store,Note about store,,0,,a,,-5317,,0,\n" +
                 "2,Department Store,,1618041729,0,,A,,-9977996,,0,\n" +
-                "3,Grocery Store,,,150,,dhd,,-9977996,,0,\n" +
+                "3,Grocery Store,\"Multiline note about grocery store\n" +
+                "\n" +
+                "with blank line\",,150,,dhd,,-9977996,,0,\n" +
                 "4,Pharmacy,,,0,,dhshsvshs,,-10902850,,1,\n" +
                 "5,Restaurant,Note about restaurant here,,0,,98765432,23456,-10902850,CODE_128,0,\n" +
                 "6,Shoe Store,,,12.50,EUR,a,-5317,,AZTEC,0,\n" +
@@ -1066,7 +1067,7 @@ public class ImportExportTest
         LoyaltyCard card3 = db.getLoyaltyCard(3);
 
         assertEquals("Grocery Store", card3.store);
-        assertEquals("", card3.note);
+        assertEquals("Multiline note about grocery store\n\nwith blank line", card3.note);
         assertEquals(null, card3.expiry);
         assertEquals(new BigDecimal("150"), card3.balance);
         assertEquals(null, card3.balanceType);
@@ -1198,7 +1199,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("55555", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(null, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, true));
@@ -1213,7 +1214,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("7649484", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(null, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, true)));
@@ -1221,7 +1222,8 @@ public class ImportExportTest
 
         card = db.getLoyaltyCard(3);
 
-        assertEquals("jö", card.store);
+        // I don't think we can know this one, but falling back to an unique store name is at least something
+        assertEquals("63536738-d64b-48ae-aeb8-82761523fa67", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);

@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -142,18 +143,36 @@ public class CatimaImporter implements Importer
                 String tmp = input.readLine();
 
                 if (tmp == null || tmp.isEmpty()) {
+                    boolean sectionParsed = false;
+
                     switch (part) {
                         case 0:
                             // This is the version info, ignore
+                            sectionParsed = true;
                             break;
                         case 1:
-                            parseV2Groups(db, database, stringPart);
+                            try {
+                                parseV2Groups(db, database, stringPart);
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
                             break;
                         case 2:
-                            parseV2Cards(context, db, database, stringPart);
+                            try {
+                                parseV2Cards(context, db, database, stringPart);
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
                             break;
                         case 3:
-                            parseV2CardGroups(db, database, stringPart);
+                            try {
+                                parseV2CardGroups(db, database, stringPart);
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
                             break;
                         default:
                             throw new FormatException("Issue parsing CSV data, too many parts for v2 parsing");
@@ -163,8 +182,12 @@ public class CatimaImporter implements Importer
                         break;
                     }
 
-                    part += 1;
-                    stringPart = "";
+                    if (sectionParsed) {
+                        part += 1;
+                        stringPart = "";
+                    } else {
+                        stringPart += tmp + "\n";
+                    }
                 } else {
                     stringPart += tmp + "\n";
                 }
@@ -183,9 +206,11 @@ public class CatimaImporter implements Importer
         // Parse groups
         final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
 
+        List<CSVRecord> records = new ArrayList<>();
+
         try {
             for (CSVRecord record : groupParser) {
-                importGroup(database, db, record);
+                records.add(record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -196,6 +221,10 @@ public class CatimaImporter implements Importer
         } finally {
             groupParser.close();
         }
+
+        for (CSVRecord record : records) {
+            importGroup(database, db, record);
+        }
     }
 
     public void parseV2Cards(Context context, DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
@@ -203,9 +232,11 @@ public class CatimaImporter implements Importer
         // Parse cards
         final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
 
+        List<CSVRecord> records = new ArrayList<>();
+
         try {
             for (CSVRecord record : cardParser) {
-                importLoyaltyCard(context, database, db, record);
+                records.add(record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -216,6 +247,10 @@ public class CatimaImporter implements Importer
         } finally {
             cardParser.close();
         }
+
+        for (CSVRecord record : records) {
+            importLoyaltyCard(context, database, db, record);
+        }
     }
 
     public void parseV2CardGroups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
@@ -223,9 +258,11 @@ public class CatimaImporter implements Importer
         // Parse card group mappings
         final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
 
+        List<CSVRecord> records = new ArrayList<>();
+
         try {
             for (CSVRecord record : cardGroupParser) {
-                importCardGroupMapping(database, db, record);
+                records.add(record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -235,6 +272,10 @@ public class CatimaImporter implements Importer
             throw new FormatException("Issue parsing CSV data", e);
         } finally {
             cardGroupParser.close();
+        }
+
+        for (CSVRecord record : records) {
+            importCardGroupMapping(database, db, record);
         }
     }
 

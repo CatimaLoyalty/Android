@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="scanCardBarcode">Scanne kortets stregkode</string>
+    <string name="addCardTitle">Tilføj kort</string>
+    <string name="editCardTitle">Rediger kort</string>
+    <string name="sendLabel">Afsend…</string>
+    <string name="share">Aktie</string>
+    <string name="copy_to_clipboard">Kopier ID til udklipsholder</string>
+    <string name="ok">OK</string>
+    <string name="deleteConfirmation">Slete dette kort permanent\?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Streichen <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Streichen <xliff:g>%d</xliff:g> korts</item>
+    </plurals>
+    <string name="deleteTitle">Karte streichen</string>
+    <string name="unlockScreen">Afbloker rotation</string>
+    <string name="lockScreen">Blokrotation</string>
+    <string name="confirm">Bekræft</string>
+    <string name="delete">Slet</string>
+    <string name="edit">Rediger</string>
+    <string name="save">Gem</string>
+    <string name="cancel">Annuller</string>
+    <string name="unstar">Fjern fra favoritter</string>
+    <string name="star">Føj til favoritter</string>
+    <string name="noBarcode">Ingen stregkode</string>
+    <string name="barcodeNoBarcode">Dette kort har ingen stregkode</string>
+    <string name="barcodeType">Stregkode type</string>
+    <string name="cardId">Kort ID</string>
+    <string name="note">Bemærk</string>
+    <string name="storeName">Navn</string>
+    <string name="noMatchingGiftCards">Jeg fandt ikke noget. Prøv at ændre din søgning.</string>
+    <string name="noGiftCards">Klik på + plus-knappen for at tilføje et kort, eller importer først nogle kort fra ⋮-menuen.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> valgt kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> valgte kort</item>
+    </plurals>
+    <string name="action_add">Tilføj</string>
+    <string name="action_search">Søg</string>
+</resources>

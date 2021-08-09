@@ -16,6 +16,7 @@ import java.util.Locale;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
@@ -110,7 +111,7 @@ public class SettingsActivity extends AppCompatActivity
 
                     FragmentActivity activity = getActivity();
                     if (activity != null) {
-                        activity.recreate();
+                        ActivityCompat.recreate(activity);
                     }
                     return true;
                 }

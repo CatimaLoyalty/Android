@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     protected String mFilter = "";
     protected int selectedTab = 0;
     private RecyclerView mCardList;
+    private View mHelpText;
+    private View mNoMatchingCardsText;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -114,8 +116,8 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
 
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putInt("id", mAdapter.getSelectedItems().get(0).id);
-                bundle.putBoolean("update", true);
+                bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ID, mAdapter.getSelectedItems().get(0).id);
+                bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 inputMode.finish();
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                     builder.setTitle(R.string.deleteTitle);
                     builder.setMessage(R.string.deleteConfirmation);
                 } else {
-                    builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount()));
+                    builder.setTitle(getResources().getQuantityString(R.plurals.deleteCardsTitle, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
                     builder.setMessage(getResources().getQuantityString(R.plurals.deleteCardsConfirmation, mAdapter.getSelectedItemCount(), mAdapter.getSelectedItemCount()));
                 }
 
@@ -186,8 +188,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateLoyaltyCardList(mFilter, null);
-
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -224,13 +224,24 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             }
         };
 
-        final View helpText = findViewById(R.id.helpText);
-        final View noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-        final View list = findViewById(R.id.list);
+        mHelpText = findViewById(R.id.helpText);
+        mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
+        mCardList = findViewById(R.id.list);
 
-        helpText.setOnTouchListener(gestureTouchListener);
-        noMatchingCardsText.setOnTouchListener(gestureTouchListener);
-        list.setOnTouchListener(gestureTouchListener);
+        mHelpText.setOnTouchListener(gestureTouchListener);
+        mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
+        mCardList.setOnTouchListener(gestureTouchListener);
+
+        // Init card list
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        mCardList.setLayoutManager(mLayoutManager);
+        mCardList.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
+        mCardList.setAdapter(mAdapter);
+        registerForContextMenu(mCardList);
+
+        updateLoyaltyCardList(mFilter, null);
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -312,8 +323,13 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> {
-            Intent i = new Intent(getApplicationContext(), ScanActivity.class);
-            startActivityForResult(i, Utils.BARCODE_SCAN);
+            Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
+            Bundle bundle = new Bundle();
+            if (selectedTab != 0) {
+                bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupsTabLayout.getTabAt(selectedTab).getText().toString());
+            }
+            intent.putExtras(bundle);
+            startActivityForResult(intent, Utils.BARCODE_SCAN);
         });
         addButton.bringToFront();
     }
@@ -331,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
                 MenuItem searchItem = mMenu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
-            recreate();
+            ActivityCompat.recreate(this);
 
             return;
         }
@@ -341,8 +357,12 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
         if(!barcodeValues.isEmpty()) {
             Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle newBundle = new Bundle();
-            newBundle.putString("barcodeType", barcodeValues.format());
-            newBundle.putString("cardId", barcodeValues.content());
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+            Bundle inputBundle = intent.getExtras();
+            if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
+                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
+            }
             newIntent.putExtras(newBundle);
             startActivity(newIntent);
         }
@@ -381,20 +401,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             group = (Group) tag;
         }
 
-        mCardList = findViewById(R.id.list);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mCardList.setLayoutManager(mLayoutManager);
-        mCardList.setItemAnimator(new DefaultItemAnimator());
-
-        final TextView helpText = findViewById(R.id.helpText);
-        final TextView noMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-
-        Cursor cardCursor = mDB.getLoyaltyCardCursor(filterText, group);
-
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
-        mCardList.setAdapter(mAdapter);
-
-        registerForContextMenu(mCardList);
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group));
 
         if(mDB.getLoyaltyCardCount() > 0)
         {
@@ -402,21 +409,21 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
             mCardList.setVisibility(View.VISIBLE);
-            helpText.setVisibility(View.GONE);
+            mHelpText.setVisibility(View.GONE);
             if(mAdapter.getItemCount() > 0)
             {
-                noMatchingCardsText.setVisibility(View.GONE);
+                mNoMatchingCardsText.setVisibility(View.GONE);
             }
             else
             {
-                noMatchingCardsText.setVisibility(View.VISIBLE);
+                mNoMatchingCardsText.setVisibility(View.VISIBLE);
             }
         }
         else
         {
             mCardList.setVisibility(View.GONE);
-            helpText.setVisibility(View.VISIBLE);
-            noMatchingCardsText.setVisibility(View.GONE);
+            mHelpText.setVisibility(View.VISIBLE);
+            mNoMatchingCardsText.setVisibility(View.GONE);
         }
 
         if (mCurrentActionMode != null) {
@@ -679,7 +686,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     @Override
     public void onRowClicked(int inputPosition)
     {
-
         if (mAdapter.getSelectedItemCount() > 0)
         {
             enableActionMode(inputPosition);
@@ -696,7 +702,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
             b.putInt("id", loyaltyCard.id);
             i.putExtras(b);
 
-            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard, i);
+            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
             startActivityForResult(i, Utils.MAIN_REQUEST);
         }

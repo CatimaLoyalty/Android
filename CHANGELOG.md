@@ -4,6 +4,36 @@
 
 Changes:
 
+- Fix widget creating different-looking shortcut than app shortcuts
+
+## v2.2.2 (2021-08-08)
+
+Changes:
+
+- Fix crash on rotation in loyalty card edit activity
+
+## v2.2.1 (2021-08-07)
+
+Changes:
+
+- Improve Stocard importer
+- Fix importing Catima export with multiline note
+- Scale card title in acceptable range
+- Animation improvements
+
+## v2.2.0 (2021-08-02)
+
+Changes:
+
+- Make links in notes clickable
+- Pre-select group the user is currently in when creating a new card
+- Comma-separate group names in loyalty card view
+- Fix maximize button appearing on no barcode
+
+## v2.1.0 (2021-08-01)
+
+Changes:
+
 - Fix selected colour in colour changing dialog
 - Support for deleting multiple cards at once
 - Fix possible ArithmeticException when resizing image

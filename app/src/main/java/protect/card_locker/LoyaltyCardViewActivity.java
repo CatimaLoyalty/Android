@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -33,6 +34,7 @@ import com.google.zxing.BarcodeFormat;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +42,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -63,7 +66,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
     TextView groupsView;
     TextView balanceView;
     TextView expiryView;
-    TextView storeName;
+    AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView barcodeImage;
     ImageButton minimizeButton;
@@ -386,14 +389,13 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
 
         if(loyaltyCardGroups.size() > 0) {
-            StringBuilder groupsString = new StringBuilder();
+            List<String> groupNames = new ArrayList<>();
             for (Group group : loyaltyCardGroups) {
-                groupsString.append(group._id);
-                groupsString.append(" ");
+                groupNames.add(group._id);
             }
 
             groupsView.setVisibility(View.VISIBLE);
-            groupsView.setText(getString(R.string.groupsList, groupsString.toString()));
+            groupsView.setText(getString(R.string.groupsList, TextUtils.join(", ", groupNames)));
             groupsView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
         }
         else
@@ -434,6 +436,12 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
 
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getFontSizeMax(settings.getLargeFont()));
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
+                storeName,
+                settings.getFontSizeMin(settings.getLargeFont()),
+                settings.getFontSizeMax(settings.getLargeFont()),
+                1,
+                TypedValue.COMPLEX_UNIT_DIP);
 
         int backgroundHeaderColor;
         if(loyaltyCard.headerColor != null)

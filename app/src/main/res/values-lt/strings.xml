@@ -59,7 +59,7 @@
     <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
     <string name="turn_flashlight_off">Išjunkti žibintuvėlį</string>
     <string name="turn_flashlight_on">Įjunkti žibintuvėlį</string>
-    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL. Praneškite apie šią klaidą!</string>
+    <string name="failedGeneratingShareURL">Nepavyko sugeneruoti bendrinamo URL. Praneškite apie tai.</string>
     <string name="passwordRequired">Įveskite slaptažodį</string>
     <string name="no">Ne</string>
     <string name="yes">Taip</string>
@@ -79,7 +79,7 @@
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
     <string name="sameAsCardId">Tokia pat kaip kortelės ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>
-    <string name="importStocardMessage">Pasirinkite <i>***-sync.zip</i> eksportą iš Stocard, kad galėtumėte importuoti, o vėliau brūkšninių kodų tipus pasirinkite rankiniu būdu.
+    <string name="importStocardMessage">Pasirinkite <i>***-sync.zip</i> eksportą iš Stocard, kad galėtumėte importuoti.
 \nArba gaukite susisiekę el. paštu support@stocardapp.com, prašydami eksportuoti jūsų duomenis.</string>
     <string name="importStocard">Importuoti iš Stocard</string>
     <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
@@ -169,4 +169,14 @@
     </plurals>
     <string name="deleteTitle">Panaikinti lojalumo kortelę</string>
     <string name="deleteConfirmation">Ištrinti šią kortelę\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Ištrinti šią <xliff:g>%d</xliff:g> kortelę visam laikui\?</item>
+        <item quantity="few">Ištrinti šias <xliff:g>%d</xliff:g> korteles visam laikui\?</item>
+        <item quantity="other">Ištrinti šias <xliff:g>%d</xliff:g> kortelių visam laikui\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Ištrinti <xliff:g>%d</xliff:g> kortelę</item>
+        <item quantity="few">Ištrinti <xliff:g>%d</xliff:g> korteles</item>
+        <item quantity="other">Ištrinti <xliff:g>%d</xliff:g> kortelių</item>
+    </plurals>
 </resources>

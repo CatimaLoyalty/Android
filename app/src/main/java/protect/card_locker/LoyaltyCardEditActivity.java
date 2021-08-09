@@ -12,7 +12,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,7 +48,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InvalidObjectException;
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -63,7 +60,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
@@ -73,6 +69,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
@@ -80,12 +77,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private static final String TAG = "Catima";
 
     private final String STATE_TAB_INDEX = "savedTab";
+    private final String STATE_TEMP_CARD = "tempLoyaltyCard";
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
 
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
+
+    public static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_UPDATE = "update";
+    public static final String BUNDLE_CARDID = "cardId";
+    public static final String BUNDLE_BARCODEID = "barcodeId";
+    public static final String BUNDLE_BARCODETYPE = "barcodeType";
+    public static final String BUNDLE_ADDGROUP = "addGroup";
 
     TabLayout tabs;
 
@@ -114,9 +119,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     String cardId;
     String barcodeId;
     String barcodeType;
+    String addGroup;
 
     Uri importLoyaltyCardUri = null;
-    Integer headingColorValue = null;
 
     DBHelper db;
     ImportURIHelper importUriHelper;
@@ -166,12 +171,13 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        loyaltyCardId = b != null ? b.getInt("id") : 0;
-        updateLoyaltyCard = b != null && b.getBoolean("update", false);
+        loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
+        updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
 
-        cardId = b != null ? b.getString("cardId") : null;
-        barcodeId = b != null ? b.getString("barcodeId") : null;
-        barcodeType = b != null ? b.getString("barcodeType") : null;
+        cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
+        barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
+        barcodeType = b != null ? b.getString(BUNDLE_BARCODETYPE) : null;
+        addGroup = b != null ? b.getString(BUNDLE_ADDGROUP) : null;
 
         importLoyaltyCardUri = intent.getData();
 
@@ -184,10 +190,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
+        savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
     }
 
     @Override
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        tempLoyaltyCard = savedInstanceState.getParcelable(STATE_TEMP_CARD);
         super.onRestoreInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
@@ -244,34 +252,22 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         };
 
-        storeFieldEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        noteFieldEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        noteFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.note, s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        expiryField.addTextChangedListener(new TextWatcher() {
+        expiryField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
 
             @Override
@@ -310,10 +306,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        balanceField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        balanceField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
@@ -326,15 +319,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        balanceCurrencyField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        balanceCurrencyField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Currency currency;
@@ -390,7 +377,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        cardIdFieldView.addTextChangedListener(new TextWatcher() {
+        cardIdFieldView.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 if (initDone && !onResuming) {
@@ -410,12 +397,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.cardId, s.toString());
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
 
-        barcodeIdField.addTextChangedListener(new TextWatcher() {
+        barcodeIdField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
 
             @Override
@@ -474,10 +458,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             }
         });
 
-        barcodeTypeField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
+        barcodeTypeField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.toString().isEmpty()) {
@@ -602,13 +583,18 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 chip.setText(group._id);
                 chip.setTag(group);
 
-                chip.setChecked(false);
-                for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                    if (loyaltyCardGroup._id.equals(group._id)) {
-                        chip.setChecked(true);
-                        break;
+                if (group._id.equals(addGroup)) {
+                    chip.setChecked(true);
+                } else {
+                    chip.setChecked(false);
+                    for (Group loyaltyCardGroup : loyaltyCardGroups) {
+                        if (loyaltyCardGroup._id.equals(group._id)) {
+                            chip.setChecked(true);
+                            break;
+                        }
                     }
                 }
+
                 chip.setOnTouchListener((v, event) -> {
                     hasChanged = true;
 
@@ -829,7 +815,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             Intent i = new Intent(getApplicationContext(), ScanActivity.class);
             final Bundle b = new Bundle();
-            b.putString("cardId", cardIdFieldView.getText().toString());
+            b.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, cardIdFieldView.getText().toString());
             i.putExtras(b);
             startActivityForResult(i, Utils.BARCODE_SCAN);
         }

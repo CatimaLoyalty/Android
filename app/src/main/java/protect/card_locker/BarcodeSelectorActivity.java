@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Pair;
 import android.view.MenuItem;
@@ -17,12 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -85,30 +83,23 @@ public class BarcodeSelectorActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        barcodeViewMap = ImmutableMap.<String, Pair<Integer, Integer>>builder()
-                .put(BarcodeFormat.AZTEC.name(), new Pair<>(R.id.aztecBarcode, R.id.aztecBarcodeText))
-                .put(BarcodeFormat.CODE_39.name(), new Pair<>(R.id.code39Barcode, R.id.code39BarcodeText))
-                .put(BarcodeFormat.CODE_128.name(), new Pair<>(R.id.code128Barcode, R.id.code128BarcodeText))
-                .put(BarcodeFormat.CODABAR.name(), new Pair<>(R.id.codabarBarcode, R.id.codabarBarcodeText))
-                .put(BarcodeFormat.DATA_MATRIX.name(), new Pair<>(R.id.datamatrixBarcode, R.id.datamatrixBarcodeText))
-                .put(BarcodeFormat.EAN_8.name(), new Pair<>(R.id.ean8Barcode, R.id.ean8BarcodeText))
-                .put(BarcodeFormat.EAN_13.name(), new Pair<>(R.id.ean13Barcode, R.id.ean13BarcodeText))
-                .put(BarcodeFormat.ITF.name(), new Pair<>(R.id.itfBarcode, R.id.itfBarcodeText))
-                .put(BarcodeFormat.PDF_417.name(), new Pair<>(R.id.pdf417Barcode, R.id.pdf417BarcodeText))
-                .put(BarcodeFormat.QR_CODE.name(), new Pair<>(R.id.qrcodeBarcode, R.id.qrcodeBarcodeText))
-                .put(BarcodeFormat.UPC_A.name(), new Pair<>(R.id.upcaBarcode, R.id.upcaBarcodeText))
-                .put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText))
-                .build();
+        barcodeViewMap = new HashMap<>();
+        barcodeViewMap.put(BarcodeFormat.AZTEC.name(), new Pair<>(R.id.aztecBarcode, R.id.aztecBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.CODE_39.name(), new Pair<>(R.id.code39Barcode, R.id.code39BarcodeText));
+        barcodeViewMap.put(BarcodeFormat.CODE_128.name(), new Pair<>(R.id.code128Barcode, R.id.code128BarcodeText));
+        barcodeViewMap.put(BarcodeFormat.CODABAR.name(), new Pair<>(R.id.codabarBarcode, R.id.codabarBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.DATA_MATRIX.name(), new Pair<>(R.id.datamatrixBarcode, R.id.datamatrixBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.EAN_8.name(), new Pair<>(R.id.ean8Barcode, R.id.ean8BarcodeText));
+        barcodeViewMap.put(BarcodeFormat.EAN_13.name(), new Pair<>(R.id.ean13Barcode, R.id.ean13BarcodeText));
+        barcodeViewMap.put(BarcodeFormat.ITF.name(), new Pair<>(R.id.itfBarcode, R.id.itfBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.PDF_417.name(), new Pair<>(R.id.pdf417Barcode, R.id.pdf417BarcodeText));
+        barcodeViewMap.put(BarcodeFormat.QR_CODE.name(), new Pair<>(R.id.qrcodeBarcode, R.id.qrcodeBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.UPC_A.name(), new Pair<>(R.id.upcaBarcode, R.id.upcaBarcodeText));
+        barcodeViewMap.put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText));
 
         EditText cardId = findViewById(R.id.cardId);
-        cardId.addTextChangedListener(new TextWatcher()
+        cardId.addTextChangedListener(new SimpleTextWatcher()
         {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
-                // Noting to do
-            }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
@@ -119,12 +110,6 @@ public class BarcodeSelectorActivity extends AppCompatActivity
                 View noBarcodeButtonView = findViewById(R.id.noBarcode);
                 setButtonListener(noBarcodeButtonView, s.toString());
                 noBarcodeButtonView.setEnabled(s.length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                // Noting to do
             }
         });
 

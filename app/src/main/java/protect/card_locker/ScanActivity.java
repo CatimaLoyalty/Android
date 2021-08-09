@@ -37,6 +37,7 @@ public class ScanActivity extends AppCompatActivity {
     private DecoratedBarcodeView barcodeScannerView;
 
     private String cardId;
+    private String addGroup;
     private boolean torch = false;
 
     @Override
@@ -46,7 +47,8 @@ public class ScanActivity extends AppCompatActivity {
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
-        cardId = b != null ? b.getString("cardId") : null;
+        cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
+        addGroup = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
         Log.d(TAG, "Scan activity: id=" + cardId);
     }
 
@@ -64,6 +66,9 @@ public class ScanActivity extends AppCompatActivity {
         }
 
         extractIntentFields(getIntent());
+
+        findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
+        findViewById(R.id.add_manually).setOnClickListener(this::addManually);
 
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
 
@@ -83,6 +88,9 @@ public class ScanActivity extends AppCompatActivity {
                 Bundle scanResultBundle = new Bundle();
                 scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, result.getText());
                 scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, result.getBarcodeFormat().toString());
+                if (addGroup != null) {
+                    scanResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+                }
                 scanResult.putExtras(scanResultBundle);
                 ScanActivity.this.setResult(RESULT_OK, scanResult);
                 finish();
@@ -174,6 +182,9 @@ public class ScanActivity extends AppCompatActivity {
             Bundle manualResultBundle = new Bundle();
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
+            if (addGroup != null) {
+                manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+            }
             manualResult.putExtras(manualResultBundle);
             ScanActivity.this.setResult(RESULT_OK, manualResult);
             finish();

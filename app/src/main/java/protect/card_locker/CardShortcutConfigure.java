@@ -1,8 +1,6 @@
 package protect.card_locker;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +10,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,23 +69,9 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
 
         Log.d(TAG, "Creating shortcut for card " + loyaltyCard.store + "," + loyaltyCard.id);
 
-        Intent shortcutIntent = new Intent(CardShortcutConfigure.this, LoyaltyCardViewActivity.class);
-        shortcutIntent.setAction(Intent.ACTION_MAIN);
-        // Prevent instances of the view activity from piling up; if one exists let this
-        // one replace it.
-        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        Bundle bundle = new Bundle();
-        bundle.putInt("id", loyaltyCard.id);
-        bundle.putBoolean("view", true);
-        shortcutIntent.putExtras(bundle);
+        ShortcutInfoCompat shortcut = ShortcutHelper.createShortcutBuilder(CardShortcutConfigure.this, loyaltyCard).build();
 
-        Bitmap iconBitmap = Utils.generateIcon(CardShortcutConfigure.this, loyaltyCard, true).getLetterTile();
-
-        Intent intent = new Intent();
-        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, loyaltyCard.store);
-        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, iconBitmap);
-        setResult(RESULT_OK, intent);
+        setResult(RESULT_OK, ShortcutManagerCompat.createShortcutResultIntent(CardShortcutConfigure.this, shortcut));
 
         finish();
     }

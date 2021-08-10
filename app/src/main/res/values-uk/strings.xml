@@ -41,7 +41,7 @@
     <string name="importCatima">Імпорт з Catima</string>
     <string name="accept">Прийняти</string>
     <string name="privacy_policy">Політика конфіденційності</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Брелок картки лояльності</string>
     <string name="chooseImportType">Імпортувати дані з\?</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
@@ -160,8 +160,8 @@
     <string name="photos">Фотографії</string>
     <string name="backImageDescription">Тильна сторона карти</string>
     <string name="frontImageDescription">Лицьова сторона карти</string>
-    <string name="importStocardMessage">Оберіть Stocard експорт-файл, названий <i>***-sync.zip</i> для імпортування і оберіть типи штрих-кодів вручну пізніше.
-\nЧи отримайте його надіславши електронного листа із запитом на експортування ваших даних до support@stocardapp.com.</string>
+    <string name="importStocardMessage">Виберіть експорт <i> ***-sync.zip </i> зі Stocard для імпорту.
+\nАбо отримайте його, надіславши електронною поштою support@stocardapp.com з проханням експортувати ваші дані.</string>
     <string name="importStocard">Імпорт із Stocard</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Обрано: <xliff:g>%d</xliff:g> карта</item>
@@ -169,6 +169,18 @@
         <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карт</item>
         <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карт</item>
     </plurals>
-    <string name="deleteTitle">Видалити карту</string>
+    <string name="deleteTitle">Видалити картку</string>
     <string name="deleteConfirmation">Бажаєте видалити карту\?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Видалити <xliff:g>%d</xliff:g> картку</item>
+        <item quantity="few">Видалити <xliff:g>%d</xliff:g> картки</item>
+        <item quantity="many">Видалити <xliff:g>%d</xliff:g> картки</item>
+        <item quantity="other">Видалити <xliff:g>%d</xliff:g> картки</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Видаліть цю <xliff:g>%d</xliff:g> карту назавжди\?</item>
+        <item quantity="few">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="many">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="other">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+    </plurals>
 </resources>

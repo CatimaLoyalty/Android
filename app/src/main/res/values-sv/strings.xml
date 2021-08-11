@@ -143,4 +143,9 @@
     <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera några från ⋮-menyn först.</string>
     <string name="action_add">Lägg till</string>
     <string name="action_search">Sök</string>
+    <string name="exportOptionExplanation">Datan kommer att sparas till en plats som du väljer.</string>
+    <string name="exportName">Exportera</string>
+    <string name="exportFailedTitle">Exporten misslyckades</string>
+    <string name="exportSuccessfulTitle">Exporten lyckades</string>
+    <string name="scanCardBarcode">Skanna streckkod på kort</string>
 </resources>

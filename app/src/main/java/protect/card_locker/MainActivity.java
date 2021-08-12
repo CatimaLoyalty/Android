@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     @Override
     protected void onCreate(Bundle inputSavedInstanceState)
     {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(inputSavedInstanceState);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);

@@ -20,3 +20,4 @@ jobs:
           only-labels: 'needs info'
           stale-issue-label: 'needs info'
           stale-pr-label: 'needs info'
+          remove-stale-when-updated: false

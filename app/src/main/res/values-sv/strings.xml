@@ -75,7 +75,7 @@
     <string name="intent_import_card_from_url_share_multiple_text">Jag vill dela några kort med dig</string>
     <string name="copy_to_clipboard_multiple_toast">Kort-ID:n kopierades till Urklipp</string>
     <string name="wrongValueForBarcodeType">Värdet är inte giltigt för den valda streckkodstypen</string>
-    <string name="unsupportedBarcodeType">Denna streckkodstyp kan ännu inte visas. Den ka komma att stödjas i en senare version av appen.</string>
+    <string name="unsupportedBarcodeType">Denna streckkodstyp kan ännu inte visas. Den kan komma att stödjas i en senare version av appen.</string>
     <string name="setBarcodeId">Ange streckkodsvärde</string>
     <string name="sameAsCardId">Samma som kort-ID</string>
     <string name="turn_flashlight_on">Sätt på ficklampa</string>
@@ -148,4 +148,30 @@
     <string name="exportFailedTitle">Exporten misslyckades</string>
     <string name="exportSuccessfulTitle">Exporten lyckades</string>
     <string name="scanCardBarcode">Skanna streckkod på kort</string>
+    <string name="settings_system_theme">Systemtemat</string>
+    <string name="app_revision_fmt">Ändringsinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="privacy_policy_popup_text">Notis rörande integritetspolicy (krävs av vissa appbutiker):
+\n
+\nINGEN DATA ALLS SAMLAS IN, vilket vem som helst kan bekräfta eftersom vår app är fri programvara.</string>
+    <string name="unlockScreen">Tillåt rotation</string>
+    <string name="privacy_policy">Integritetspolicy</string>
+    <string name="expiryStateSentenceExpired">Förföll: <xliff:g>%s</xliff:g></string>
+    <string name="chooseExpiryDate">Välj förfallodatum</string>
+    <string name="expiryDate">Förfallodatum</string>
+    <string name="starImage">Favoritstjärna</string>
+    <string name="app_license">Copyleftad fri programvara, under GPLv3+-licens.</string>
+    <string name="app_resources">Fria tredjepartsresurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Fria tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> verkar inte vara ett giltigt saldo.</string>
+    <string name="balance">Saldo</string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
+    <string name="lockScreen">Förhindra rotation</string>
+    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera,
+\neller skapa en från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
+    <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>
+    <string name="exportSuccessful">Kortdata exporterad</string>
+    <string name="importSuccessful">Kortdata importerad</string>
+    <string name="failedParsingImportUriError">Kunde inte tolka import-URI:n</string>
+    <string name="note">Anteckning</string>
 </resources>

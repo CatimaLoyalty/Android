@@ -6,30 +6,30 @@
     <string name="updateBarcodeQuestionText">Vaihdoit kortin ID-tunnuksen. Haluatko päivittää myös viivakoodin käyttämään samaa arvoa\?</string>
     <string name="updateBarcodeQuestionTitle">Päivitä viivakoodin arvo\?</string>
     <string name="intent_import_card_from_url_share_multiple_text">Haluan jakaa joitain kortteja kanssasi</string>
-    <string name="copy_to_clipboard_multiple_toast">Kopioitiin korttitunnukset leikepöydälle</string>
+    <string name="copy_to_clipboard_multiple_toast">Kortin tunnukset kopioidaan leikepöydälle</string>
     <string name="wrongValueForBarcodeType">Arvo ei ole kelvollinen valitulle viivakoodityypille</string>
-    <string name="unsupportedBarcodeType">Tätä viivakoodityyppiä ei voi vielä näyttää. Sitä saatetaan tukea sovelluksen uudemmassa versiossa.</string>
+    <string name="unsupportedBarcodeType">Tätä viivakoodityyppiä ei voi vielä näyttää. Sitä saatetaan tukea sovelluksen myöhemmässä versiossa.</string>
     <string name="setBarcodeId">Aseta viivakoodin arvo</string>
     <string name="sameAsCardId">Sama kuin kortin ID-tunnus</string>
     <string name="barcodeId">Viivakoodin arvo</string>
-    <string name="importVoucherVaultMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>vouchervault.json</i> tuotavaksi.
-\nTai luo se Vie toiminnolla Voucher Vault sovelluksessa.</string>
+    <string name="importVoucherVaultMessage">Valitse tuotava <i>vouchervault.json</i>-vienti Voucher Vaultista.
+\nTai luo se painamalla ensin Vie Voucher Vaultissa.</string>
     <string name="importVoucherVault">Tuo Voucher Vault varmuuskopiotiedostosta</string>
-    <string name="importLoyaltyCardKeychainMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>LoyaltyCardKeychain.csv</i> tuotavaksi.
-\nTai luo se Tuo/Vie toiminnolla Loyalty Card Keychain sovelluksessa, valitsemalla valikosta Vie.</string>
+    <string name="importLoyaltyCardKeychainMessage">Valitse <i>LoyaltyCardKeychain.csv</i>-vientitietosi Loyalty Card Keychainista tuotavaksi.
+\nTai luo se Loyalty Card Keychainin Import/Export-valikosta painamalla ensin Export (Vie).</string>
     <string name="importLoyaltyCardKeychain">Tuo Loyalty Card Keychain varmuuskopiotiedostosta</string>
-    <string name="importFidmeMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>fidme-export-request-xxxxxx.zip</i> tuotavaksi ja valitse viivakoodityypit manuaalisesti jälkeenpäin.
-\nTai luo se Tuo/Vie toiminnolla FidMe profiilistasi, valitsemalla Tietotosuoja ja sitten valitsemalla Vie tietoni.</string>
+    <string name="importFidmeMessage">Valitse <i>fidme-export-request-xxxxxxxx.zip</i>-vienti FidMe:stä tuotavaksi ja valitse viivakoodityypit manuaalisesti sen jälkeen.
+\nTai luo se FidMe-profiilistasi valitsemalla Tietosuoja ja painamalla ensin Extract my data.</string>
     <string name="importFidme">Tuo FidMe varmuuskopiotiedostosta</string>
-    <string name="importCatimaMessage">Etsi tiedostoa joka on todennäköisesti nimetty nimellä <i>Catima.csv</i> tuotavaksi.
-\nTai luo se Tuo/Vie toiminnolla Catima sovelluksessa, valitsemalla valikosta Vie.</string>
+    <string name="importCatimaMessage">Valitse tuotava <i>catima.zip</i>-vienti Catimasta.
+\nTai luo se jonkin toisen Catima-sovelluksen Tuo/Vie-valikosta painamalla siellä ensin Vie.</string>
     <string name="importCatima">Tuo Catima varmuuskopiotiedostosta</string>
     <string name="accept">Hyväksy</string>
     <string name="privacy_policy_popup_text">Tietosuojaseloste (joidenkin sovelluskauppojen vaatimus):
 \n
 \nMITÄÄN TIETOJA EI KERÄTÄ LAINKAAN, minkä kuka tahansa voi vahvistaa, koska sovelluksemma on vapaa ohjelmisto.</string>
     <string name="privacy_policy">Tietosuojakäytäntö</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Kanta-asiakaskortin avainnippu</string>
     <string name="chooseImportType">Tuo tietoja kohteesta\?</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ei vaikuta olevan kelvollinen saldo.</string>
     <string name="points">Pisteet</string>
@@ -85,8 +85,8 @@
     <string name="copy_to_clipboard_toast">Kortin ID-tunnus kopioitu leikepöydälle</string>
     <string name="enterBarcodeInstructions">Syötä kortin ID-tunnus ja valitse sen viivakoodityyppi, tai valitse \"Tällä kortilla ei ole viivakoodia\".</string>
     <string name="selectBarcodeTitle">Valitse viivakoodi</string>
-    <string name="app_resources">Kolmannen osapuolen vapaat resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Kolmannen osapuolen vapaat kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Vapaat kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Kolmannen osapuolen Libre-kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_revision_fmt">Muutostiedot: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Tietoja <xliff:g id="app_name">%s</xliff:g></string>
@@ -156,4 +156,23 @@
     <string name="frontImageDescription">Kortin etukuva</string>
     <string name="deleteConfirmation">Poista tämä kortti\?</string>
     <string name="deleteTitle">Poista kortti</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Poista tämä <xliff:g>%d</xliff:g> kortti pysyvästi\?</item>
+        <item quantity="other">Poista tämä <xliff:g>%d</xliff:g> kortit pysyvästi\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Poista <xliff:g>%d</xliff:g>kortti</item>
+        <item quantity="other">Poista <xliff:g>%d</xliff:g>kortit</item>
+    </plurals>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> Kortti valittu</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kortit valitut</item>
+    </plurals>
+    <string name="importStocard">Tuo Stocardista</string>
+    <string name="importStocardMessage">Valitse tuotava <i>***-sync.zip</i>-vienti Stocardista.
+\nTai hanki se lähettämällä sähköpostia osoitteeseen support@stocardapp.com ja pyytämällä tietojesi vientiä.</string>
+    <string name="passwordRequired">Ole hyvä ja syötä salasana</string>
+    <string name="failedGeneratingShareURL">Ei pystynyt luomaan jaettavaa URL-osoitetta. Ilmoita tästä.</string>
+    <string name="turn_flashlight_on">Sytytä taskulamppu</string>
+    <string name="turn_flashlight_off">Sammuta salamavalo</string>
 </resources>

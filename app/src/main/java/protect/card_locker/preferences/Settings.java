@@ -3,11 +3,14 @@ package protect.card_locker.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Locale;
+
 import androidx.annotation.IntegerRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 import protect.card_locker.R;
+import protect.card_locker.Utils;
 
 public class Settings
 {
@@ -43,6 +46,17 @@ public class Settings
     private boolean getBoolean(@StringRes int keyId, boolean defaultValue)
     {
         return settings.getBoolean(getResString(keyId), defaultValue);
+    }
+
+    public Locale getLocale()
+    {
+        String value = getString(R.string.settings_key_locale, "");
+
+        if (value.length() == 0) {
+            return null;
+        }
+
+        return Utils.stringToLocale(value);
     }
 
     public int getTheme()

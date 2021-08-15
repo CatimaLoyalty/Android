@@ -32,9 +32,15 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
     GroupCursorAdapter mAdapter;
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.groups);
         setContentView(R.layout.manage_groups_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

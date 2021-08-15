@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -102,6 +103,11 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         BARCODE,
         IMAGE_FRONT,
         IMAGE_BACK
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
     }
 
     private void extractIntentFields(Intent intent)

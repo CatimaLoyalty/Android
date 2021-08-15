@@ -12,6 +12,34 @@
         <item>@string/settings_dark_theme</item>
     </string-array>
 
+    <string-array name="locale_values">
+        <item />
+        <item>bg</item>
+        <item>cs</item>
+        <item>de</item>
+        <item>el-rGR</item>
+        <item>eo</item>
+        <item>es-rAR</item>
+        <item>es</item>
+        <item>fi</item>
+        <item>fr</item>
+        <item>he-rIL</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>lt</item>
+        <item>nb-rNO</item>
+        <item>nl</item>
+        <item>oc</item>
+        <item>pl</item>
+        <item>ro-rRO</item>
+        <item>ru</item>
+        <item>sk</item>
+        <item>sl</item>
+        <item>uk</item>
+        <item>zh-rCN</item>
+    </string-array>
+
     <array name="letter_tile_colors">
         <item>#f16364</item>
         <item>#f58559</item>

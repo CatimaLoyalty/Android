@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -64,10 +65,15 @@ public class BarcodeSelectorActivity extends AppCompatActivity
     private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        setTitle(R.string.selectBarcodeTitle);
         setContentView(R.layout.barcode_selector_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -37,6 +37,12 @@ android {
         }
     }
 
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
     compileOptions {
         encoding "UTF-8"
 

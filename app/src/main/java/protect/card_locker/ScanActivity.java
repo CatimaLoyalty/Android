@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -39,6 +40,11 @@ public class ScanActivity extends AppCompatActivity {
     private String addGroup;
     private boolean torch = false;
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
@@ -49,6 +55,7 @@ public class ScanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.scanCardBarcode);
         setContentView(R.layout.scan_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

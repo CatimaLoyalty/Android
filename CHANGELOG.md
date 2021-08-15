@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+Changes:
+
+- Option to override language
+
 ## v2.2.3 (2021-08-13)
 
 Changes:

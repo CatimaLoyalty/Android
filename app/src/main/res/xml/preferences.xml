@@ -16,6 +16,15 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
+        <ListPreference
+            android:key="@string/settings_key_locale"
+            android:title="@string/settings_locale"
+            android:defaultValue=""
+            android:entries="@array/locale_values"
+            android:entryValues="@array/locale_values"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+
         <nl.invissvenska.numberpickerpreference.NumberDialogPreference
             android:key="@string/settings_key_max_font_size_scale"
             android:title="@string/settings_max_font_size_scale"

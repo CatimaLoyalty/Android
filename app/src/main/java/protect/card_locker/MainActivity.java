@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     private View mHelpText;
     private View mNoMatchingCardsText;
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Utils.updateBaseContextLocale(base));
+    }
+
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
         @Override
@@ -179,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(inputSavedInstanceState);
+        setTitle(R.string.app_name);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

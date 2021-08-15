@@ -1,5 +1,7 @@
 package protect.card_locker.preferences;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -49,8 +51,10 @@ public class SettingsActivity extends AppCompatActivity
         }
 
         // Display the fragment as the main content.
+        SettingsFragment fragment = new SettingsFragment();
+        fragment.setParentReference(this);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.settings_container, new SettingsFragment())
+                .replace(R.id.settings_container, fragment)
                 .commit();
     }
 
@@ -71,9 +75,14 @@ public class SettingsActivity extends AppCompatActivity
     public static class SettingsFragment extends PreferenceFragmentCompat
     {
         private static final String DIALOG_FRAGMENT_TAG = "SettingsFragment";
+        private static SettingsActivity parent;
+
+        public void setParentReference(SettingsActivity settingsActivity) {
+            SettingsFragment.parent = settingsActivity;
+        }
+
         @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-        {
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
 
@@ -94,35 +103,34 @@ public class SettingsActivity extends AppCompatActivity
 
             Preference themePreference = findPreference(getResources().getString(R.string.settings_key_theme));
             assert themePreference != null;
-            themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
-            {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o)
-                {
-                    if (preference.getKey().equals(getResources().getString(R.string.settings_key_theme))) {
-                        if (o.toString().equals(getResources().getString(R.string.settings_key_light_theme))) {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        } else if (o.toString().equals(getResources().getString(R.string.settings_key_dark_theme))) {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        } else {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                        }
-                    }
-
-                    FragmentActivity activity = getActivity();
-                    if (activity != null) {
-                        ActivityCompat.recreate(activity);
-                    }
-                    return true;
+            themePreference.setOnPreferenceChangeListener((preference, o) -> {
+                if (o.toString().equals(getResources().getString(R.string.settings_key_light_theme))) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else if (o.toString().equals(getResources().getString(R.string.settings_key_dark_theme))) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 }
+
+                FragmentActivity activity = getActivity();
+                if (activity != null) {
+                    ActivityCompat.recreate(activity);
+                }
+                return true;
+            });
+
+            localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                // Refresh the activity
+                SettingsFragment.parent.finish();
+                startActivity(parent.getIntent());
+
+                return true;
             });
         }
 
         @Override
-        public void onDisplayPreferenceDialog(Preference preference)
-        {
-            if (preference instanceof NumberDialogPreference)
-            {
+        public void onDisplayPreferenceDialog(Preference preference) {
+            if (preference instanceof NumberDialogPreference) {
                 NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;
                 DialogFragment dialogFragment = NumberPickerPreferenceDialogFragment
                         .newInstance(
@@ -134,9 +142,7 @@ public class SettingsActivity extends AppCompatActivity
                         );
                 dialogFragment.setTargetFragment(this, 0);
                 dialogFragment.show(getParentFragmentManager(), DIALOG_FRAGMENT_TAG);
-            }
-            else
-            {
+            } else {
                 super.onDisplayPreferenceDialog(preference);
             }
         }

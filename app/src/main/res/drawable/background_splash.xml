@@ -1,0 +1,7 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ic_launcher_background"/>
+    <item android:gravity="center"
+        android:width="256dp"
+        android:height="256dp"
+        android:drawable="@drawable/ic_launcher_foreground" />
+</layer-list>

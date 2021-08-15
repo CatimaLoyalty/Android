@@ -4,7 +4,14 @@
 
 Changes:
 
+- Option to override language
+
+## v2.2.3 (2021-08-13)
+
+Changes:
+
 - Fix widget creating different-looking shortcut than app shortcuts
+- Replace default Android black screen with splash screen
 
 ## v2.2.2 (2021-08-08)
 

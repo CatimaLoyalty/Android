@@ -24,16 +24,16 @@
     <string name="setBarcodeId">设置条形码值</string>
     <string name="sameAsCardId">与卡号相同</string>
     <string name="barcodeId">条形码值</string>
-    <string name="importVoucherVaultMessage">找到一个可能名为<i>vouchervault.json</i>的文件进行导入。
+    <string name="importVoucherVaultMessage">选择从Voucher Vault导出的文件：<i>vouchervault.json</i>进行导入。
 \n或者先在Voucher Vault中按下导出键来创建导出。</string>
     <string name="importVoucherVault">从 Voucher Vault 导入</string>
-    <string name="importLoyaltyCardKeychainMessage">找到一个很可能名为<i>LoyaltyCardKeychain.csv</i>的文件来导入。
+    <string name="importLoyaltyCardKeychainMessage">选择从Loyalty Card Keychain导出的文件：<i>LoyaltyCardKeychain.csv</i>来导入。
 \n或者先从Loyalty Card Keychain的Import/Export菜单中选择Export来导出。</string>
     <string name="importLoyaltyCardKeychain">从 Loyalty Card Keychain 导入</string>
-    <string name="importFidmeMessage">找到一个可能名为<i>fidme-export-request-xxxxxx.zip</i>的文件进行导入，之后再手动选择条码类型。
+    <string name="importFidmeMessage">选择从Fidme导出的文件：<i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。
 \n或者从你的FidMe配置文件中选择数据保护，然后按提取我的数据来创建导出。</string>
     <string name="importFidme">从 FidMe 导入</string>
-    <string name="importCatimaMessage">找到一个可能名为<i>Catima.csv</i>的文件来导入。
+    <string name="importCatimaMessage">选择从Catima导出的文件：<i>Catima.zip</i>来导入。
 \n或者先从另一个Catima应用程序的导入/导出菜单中，来创建导出。</string>
     <string name="importCatima">从 Catima 导入</string>
     <string name="accept">接受</string>
@@ -143,4 +143,32 @@
     <string name="action_search">搜索</string>
     <string name="deleteConfirmation">删除此卡？</string>
     <string name="deleteTitle">移除卡片</string>
+    <string name="starImage">最喜欢的星星</string>
+    <string name="importStocardMessage">选择你从Stocard导出的<i>****-sync.zip</i>来导入。
+\n或者发电子邮件给support@stocardapp.com，要求导出你的数据，从而获得此文件。</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="other">确定永久删除 <xliff:g>%d</xliff:g> 这些卡片？</item>
+    </plurals>
+    <plurals name="selectedCardCount">
+        <item quantity="other">已选择 <xliff:g>%d</xliff:g> 张卡片</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="other">删除 <xliff:g>%d</xliff:g> 张卡片</item>
+    </plurals>
+    <string name="turn_flashlight_off">关上手电筒</string>
+    <string name="turn_flashlight_on">开启手电筒</string>
+    <string name="failedGeneratingShareURL">无法生成可分享的URL。请向开发者报告。</string>
+    <string name="passwordRequired">请输入密码</string>
+    <string name="no">否</string>
+    <string name="yes">是</string>
+    <string name="updateBarcodeQuestionText">您改变了卡片的ID。是否需要同时更新条形码，以使用相同的值？</string>
+    <string name="updateBarcodeQuestionTitle">是否要更新条形码的值？</string>
+    <string name="takePhoto">拍照</string>
+    <string name="removeImage">移除图像</string>
+    <string name="setBackImage">设置背面图像</string>
+    <string name="setFrontImage">设置正面图像</string>
+    <string name="photos">照片</string>
+    <string name="backImageDescription">卡片的背面图像</string>
+    <string name="frontImageDescription">卡片的正面图像</string>
+    <string name="importStocard">从Stocard导入</string>
 </resources>

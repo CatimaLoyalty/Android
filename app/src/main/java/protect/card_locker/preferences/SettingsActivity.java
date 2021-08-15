@@ -75,10 +75,10 @@ public class SettingsActivity extends AppCompatActivity
     public static class SettingsFragment extends PreferenceFragmentCompat
     {
         private static final String DIALOG_FRAGMENT_TAG = "SettingsFragment";
-        private static SettingsActivity parent;
+        private SettingsActivity parent;
 
         public void setParentReference(SettingsActivity settingsActivity) {
-            SettingsFragment.parent = settingsActivity;
+            parent = settingsActivity;
         }
 
         @Override
@@ -88,6 +88,7 @@ public class SettingsActivity extends AppCompatActivity
 
             // Show pretty names
             ListPreference localePreference = findPreference(getResources().getString(R.string.settings_key_locale));
+            assert localePreference != null;
             CharSequence[] entryValues = localePreference.getEntryValues();
             List<CharSequence> entries = new ArrayList<>();
             for (CharSequence entry : entryValues) {
@@ -121,7 +122,7 @@ public class SettingsActivity extends AppCompatActivity
 
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 // Refresh the activity
-                SettingsFragment.parent.finish();
+                parent.finish();
                 startActivity(parent.getIntent());
 
                 return true;

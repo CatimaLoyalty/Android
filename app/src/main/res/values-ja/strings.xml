@@ -141,10 +141,10 @@
     <string name="action_search">検索</string>
     <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
     <string name="copy_to_clipboard_multiple_toast">カード番号をクリップボードにコピーしました</string>
-    <string name="card_ids_copied">コピーしたカード</string>
+    <string name="card_ids_copied">カード番号をコピーしました</string>
     <string name="turn_flashlight_off">ライトをオフにする</string>
     <string name="turn_flashlight_on">ライトをオンにする</string>
-    <string name="failedGeneratingShareURL">共有URLの生成に失敗しました。バグを報告してください。</string>
+    <string name="failedGeneratingShareURL">共有URLの生成を生成できませんでした。バグを報告してください。</string>
     <string name="passwordRequired">パスワードを入力してください</string>
     <string name="no">いいえ</string>
     <string name="yes">はい</string>
@@ -157,7 +157,7 @@
     <string name="photos">フォト</string>
     <string name="backImageDescription">裏面</string>
     <string name="frontImageDescription">表面</string>
-    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択し、手動でバーコード形式を選択してください。
+    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択してください。
 \nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
     <string name="importStocard">Stocardからインポート</string>
     <plurals name="selectedCardCount">
@@ -165,4 +165,10 @@
     </plurals>
     <string name="deleteConfirmation">このカードを削除しますか？</string>
     <string name="deleteTitle">カードの削除</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="other"><xliff:g>%d</xliff:g> 枚のカードを削除しますか？</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="other">削除対象 <xliff:g>%d</xliff:g> cards</item>
+    </plurals>
 </resources>

@@ -51,8 +51,10 @@ public class Utils {
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
     public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 5;
     public static final int CARD_IMAGE_FROM_CAMERA_BACK = 6;
-    public static final int CARD_IMAGE_FROM_FILE_FRONT = 7;
-    public static final int CARD_IMAGE_FROM_FILE_BACK = 8;
+    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 7;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
+    public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 

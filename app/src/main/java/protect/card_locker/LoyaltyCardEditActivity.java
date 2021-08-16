@@ -71,6 +71,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
+import androidx.palette.graphics.Palette;
 
 public class LoyaltyCardEditActivity extends AppCompatActivity
 {
@@ -81,9 +82,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
+    private static final int ID_IMAGE_ICON = 2;
 
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
+    private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
 
     public static final String BUNDLE_ID = "id";
     public static final String BUNDLE_UPDATE = "update";
@@ -225,6 +228,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
 
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
+        thumbnail.setId(ID_IMAGE_ICON);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
@@ -540,8 +544,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     return;
                 }
                 setTitle(R.string.editCardTitle);
-                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.front));
-                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.back));
+                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.front), true);
+                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.back), true);
+                setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.icon), false);
             } else if (importLoyaltyCardUri != null) {
                 try {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
@@ -615,11 +620,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             colors.recycle();
         }
 
-        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
-        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
-        if(tempLoyaltyCard.headerColor != null) {
-            thumbnail.setOnClickListener(new ColorSelectListener());
-        }
+        thumbnail.setOnClickListener(new ChooseCardImage());
 
         // Update from intent
         if (barcodeType != null) {
@@ -670,12 +671,12 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         onResuming = false;
     }
 
-    protected static void setCardImage(ImageView imageView, Bitmap bitmap) {
+    protected static void setCardImage(ImageView imageView, Bitmap bitmap, boolean applyFallback) {
         imageView.setTag(bitmap);
 
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
-        } else {
+        } else if (applyFallback) {
             imageView.setImageResource(R.drawable.ic_camera_white);
         }
     }
@@ -711,8 +712,10 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             try {
                 if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
                     takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-                } else {
+                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
                     takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -826,34 +829,122 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         @Override
         public void onClick(View v) throws NoSuchElementException
         {
-            ImageView targetView = v.getId() == ID_IMAGE_FRONT ? cardImageFront : cardImageBack;
+            ImageView targetView;
+
+            if (v.getId() == ID_IMAGE_FRONT) {
+                targetView = cardImageFront;
+            } else if (v.getId() == ID_IMAGE_BACK) {
+                targetView = cardImageBack;
+            } else if (v.getId() == ID_IMAGE_ICON) {
+                targetView = thumbnail;
+            } else {
+                throw new IllegalArgumentException("Invalid IMAGE ID " + v.getId());
+            }
 
             LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
-            if (targetView.getTag() != null) {
+            if (targetView.getTag() != null && v.getId() != ID_IMAGE_ICON) {
                 cardOptions.put(getString(R.string.removeImage), () -> {
-                    setCardImage(targetView, null);
+                    setCardImage(targetView, null, true);
+                    return null;
+                });
+            }
+
+            if (v.getId() == ID_IMAGE_ICON) {
+                cardOptions.put(getString(R.string.selectColor), () -> {
+                    ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
+
+                    if (tempLoyaltyCard.headerColor != null) {
+                        dialogBuilder.setColor(tempLoyaltyCard.headerColor);
+                    }
+
+                    ColorPickerDialog dialog = dialogBuilder.create();
+                    dialog.setColorPickerDialogListener(new ColorPickerDialogListener()
+                    {
+                        @Override
+                        public void onColorSelected(int dialogId, int color)
+                        {
+                            updateTempState(LoyaltyCardField.headerColor, color);
+
+                            generateIcon(storeFieldEdit.getText().toString());
+                        }
+
+                        @Override
+                        public void onDialogDismissed(int dialogId)
+                        {
+                            // Nothing to do, no change made
+                        }
+                    });
+                    dialog.show(getSupportFragmentManager(), "color-picker-dialog");
                     return null;
                 });
             }
 
             cardOptions.put(getString(R.string.takePhoto), () -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, v.getId() == ID_IMAGE_FRONT ? PERMISSION_REQUEST_CAMERA_IMAGE_FRONT : PERMISSION_REQUEST_CAMERA_IMAGE_BACK);
+                    int permissionRequestType;
+
+                    if (v.getId() == ID_IMAGE_FRONT) {
+                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
+                    } else if (v.getId() == ID_IMAGE_BACK) {
+                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
+                    } else if (v.getId() == ID_IMAGE_ICON) {
+                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
+                    } else {
+                        throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                    }
+
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, permissionRequestType);
                 } else {
-                    takePhotoForCard(v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_CAMERA_FRONT : Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                    int cardImageType;
+
+                    if (v.getId() == ID_IMAGE_FRONT) {
+                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_FRONT;
+                    } else if (v.getId() == ID_IMAGE_BACK) {
+                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_BACK;
+                    } else if (v.getId() == ID_IMAGE_ICON) {
+                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_ICON;
+                    } else {
+                        throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                    }
+
+                    takePhotoForCard(cardImageType);
                 }
                 return null;
             });
 
             cardOptions.put(getString(R.string.addFromImage), () -> {
+                int cardImageType;
+
+                if (v.getId() == ID_IMAGE_FRONT) {
+                    cardImageType = Utils.CARD_IMAGE_FROM_FILE_FRONT;
+                } else if (v.getId() == ID_IMAGE_BACK) {
+                    cardImageType = Utils.CARD_IMAGE_FROM_FILE_BACK;
+                } else if (v.getId() == ID_IMAGE_ICON) {
+                    cardImageType = Utils.CARD_IMAGE_FROM_FILE_ICON;
+                } else {
+                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                }
+
                 Intent i = new Intent(Intent.ACTION_PICK);
                 i.setType("image/*");
-                startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+                startActivityForResult(i, cardImageType);
                 return null;
             });
 
+            int titleResource;
+
+            if (v.getId() == ID_IMAGE_FRONT) {
+                titleResource = R.string.setFrontImage;
+            } else if (v.getId() == ID_IMAGE_BACK) {
+                titleResource = R.string.setBackImage;
+            } else if (v.getId() == ID_IMAGE_ICON) {
+                titleResource = R.string.setIcon;
+            } else {
+                throw new IllegalArgumentException("Unknown ID type " + v.getId());
+            }
+
             new AlertDialog.Builder(LoyaltyCardEditActivity.this)
-                    .setTitle(v.getId() == ID_IMAGE_FRONT ? getString(R.string.setFrontImage) : getString(R.string.setBackImage))
+                    .setTitle(getString(titleResource))
                     .setItems(cardOptions.keySet().toArray(new CharSequence[cardOptions.size()]), (dialog, which) -> {
                         Iterator<Callable<Void>> callables = cardOptions.values().iterator();
                         Callable<Void> callable = callables.next();
@@ -869,38 +960,6 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         }
                     })
                     .show();
-        }
-    }
-
-    class ColorSelectListener implements View.OnClickListener
-    {
-        @Override
-        public void onClick(View v)
-        {
-            ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
-
-            if (tempLoyaltyCard.headerColor != null) {
-                dialogBuilder.setColor(tempLoyaltyCard.headerColor);
-            }
-
-            ColorPickerDialog dialog = dialogBuilder.create();
-            dialog.setColorPickerDialogListener(new ColorPickerDialogListener()
-            {
-                @Override
-                public void onColorSelected(int dialogId, int color)
-                {
-                    updateTempState(LoyaltyCardField.headerColor, color);
-
-                    generateIcon(storeFieldEdit.getText().toString());
-                }
-
-                @Override
-                public void onDialogDismissed(int dialogId)
-                {
-                    // Nothing to do, no change made
-                }
-            });
-            dialog.show(getSupportFragmentManager(), "color-picker-dialog");
         }
     }
 
@@ -988,6 +1047,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageType.front);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageType.back);
+                Utils.saveCardImage(this, (Bitmap) thumbnail.getTag(), loyaltyCardId, ImageType.icon);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -999,6 +1059,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageType.front);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageType.back);
+                Utils.saveCardImage(this, (Bitmap) thumbnail.getTag(), loyaltyCardId, ImageType.icon);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -1066,11 +1127,11 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, intent);
 
         if (resultCode == RESULT_OK) {
-            if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
+            if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_ICON) {
                 Bitmap bitmap = BitmapFactory.decodeFile(tempCameraPicturePath);
 
                 if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG);
+                    bitmap = Utils.resizeBitmap(bitmap, requestCode == Utils.CARD_IMAGE_FROM_CAMERA_ICON ? Utils.BITMAP_SIZE_SMALL : Utils.BITMAP_SIZE_BIG);
                     try {
                         bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(tempCameraPicturePath));
                     } catch (IOException e) {
@@ -1078,14 +1139,17 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     }
 
                     if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT) {
-                        setCardImage(cardImageFront, bitmap);
+                        setCardImage(cardImageFront, bitmap, true);
+                    } else if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
+                        setCardImage(cardImageBack, bitmap, true);
                     } else {
-                        setCardImage(cardImageBack, bitmap);
+                        setCardImage(thumbnail, bitmap, false);
+                        updateTempState(LoyaltyCardField.headerColor, Palette.from(bitmap).generate().getDominantColor(Color.BLACK));
                     }
 
                     hasChanged = true;
                 }
-            } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
+            } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK || requestCode == Utils.CARD_IMAGE_FROM_FILE_ICON) {
                 Bitmap bitmap = null;
                 try {
                     bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
@@ -1096,11 +1160,14 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
 
                 if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG);
+                    bitmap = Utils.resizeBitmap(bitmap, requestCode == Utils.CARD_IMAGE_FROM_FILE_ICON ? Utils.BITMAP_SIZE_SMALL : Utils.BITMAP_SIZE_BIG);
                     if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
-                        setCardImage(cardImageFront, bitmap);
+                        setCardImage(cardImageFront, bitmap, true);
+                    } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
+                        setCardImage(cardImageBack, bitmap, true);
                     } else {
-                        setCardImage(cardImageBack, bitmap);
+                        setCardImage(thumbnail, bitmap, false);
+                        updateTempState(LoyaltyCardField.headerColor, Palette.from(bitmap).generate().getDominantColor(Color.BLACK));
                     }
 
                     hasChanged = true;
@@ -1160,7 +1227,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void generateIcon(String store) {
-        if (tempLoyaltyCard.headerColor == null) {
+        if (tempLoyaltyCard.headerColor == null || thumbnail.getTag() != null) {
             return;
         }
 

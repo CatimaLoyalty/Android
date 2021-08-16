@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.util.SparseBooleanArray;
@@ -109,7 +110,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         inputHolder.mStarIcon.setVisibility((loyaltyCard.starStatus != 0) ? View.VISIBLE : View.GONE);
-        inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+
+        Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageType.icon);
+        if (cardIcon != null) {
+            inputHolder.mCardIcon.setImageBitmap(cardIcon);
+        } else {
+            inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+        }
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());

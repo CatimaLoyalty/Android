@@ -129,7 +129,10 @@ class ShortcutHelper
         bundle.putBoolean("view", true);
         intent.putExtras(bundle);
 
-        Bitmap iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
+        Bitmap iconBitmap = Utils.retrieveCardImage(context, loyaltyCard.id, ImageType.icon);
+        if (iconBitmap == null) {
+            iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
+        }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
 

@@ -405,8 +405,8 @@ public class LoyaltyCardViewActivityTest
             cardIdField.setText("12345678");
             barcodeField.setText("87654321");
             barcodeTypeField.setText(BarcodeFormat.QR_CODE.name());
-            LoyaltyCardEditActivity.setCardImage(frontImageView, frontBitmap);
-            LoyaltyCardEditActivity.setCardImage(backImageView, backBitmap);
+            LoyaltyCardEditActivity.setCardImage(frontImageView, frontBitmap, true);
+            LoyaltyCardEditActivity.setCardImage(backImageView, backBitmap, true);
 
             shadowOf(getMainLooper()).idle();
 

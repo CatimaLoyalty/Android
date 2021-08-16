@@ -216,4 +216,6 @@
     <string name="settings_locale">Language</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
+    <string name="selectColor">Select color</string>
+    <string name="setIcon">Set icon</string>
 </resources>

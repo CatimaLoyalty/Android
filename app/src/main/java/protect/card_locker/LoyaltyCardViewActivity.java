@@ -359,7 +359,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
 
-        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, true);
+        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageType.front);
         if (frontImageBitmap != null) {
             frontImageView.setVisibility(View.VISIBLE);
             frontImage.setImageBitmap(frontImageBitmap);
@@ -367,7 +367,7 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
             frontImageView.setVisibility(View.GONE);
         }
 
-        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, false);
+        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageType.back);
         if (backImageBitmap != null) {
             backImageView.setVisibility(View.VISIBLE);
             backImage.setImageBitmap(backImageBitmap);

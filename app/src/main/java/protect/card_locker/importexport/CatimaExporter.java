@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
+import protect.card_locker.ImageType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 
@@ -61,18 +62,13 @@ public class CatimaExporter implements Exporter
             // For each card
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
-            // Prepare looping over both front and back image
-            boolean[] frontValues = new boolean[2];
-            frontValues[0] = true;
-            frontValues[1] = false;
-
             // For each image
-            for (boolean front : frontValues) {
+            for (ImageType imageType : ImageType.values()) {
                 // If it exists, add to the .zip file
-                Bitmap image = Utils.retrieveCardImage(context, card.id, front);
+                Bitmap image = Utils.retrieveCardImage(context, card.id, imageType);
                 if (image != null) {
                     ZipParameters imageZipParameters = new ZipParameters();
-                    imageZipParameters.setFileNameInZip(Utils.getCardImageFileName(card.id, front));
+                    imageZipParameters.setFileNameInZip(Utils.getCardImageFileName(card.id, imageType));
                     zipOutputStream.putNextEntry(imageZipParameters);
                     InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
                     while ((readLen = imageInputStream.read(readBuffer)) != -1) {

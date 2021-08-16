@@ -442,8 +442,8 @@ public class DBHelper extends SQLiteOpenHelper
 
         // Also wipe card images associated with this card
         try {
-            Utils.saveCardImage(mContext, null, id, true);
-            Utils.saveCardImage(mContext, null, id, false);
+            Utils.saveCardImage(mContext, null, id, ImageType.front);
+            Utils.saveCardImage(mContext, null, id, ImageType.back);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -56,6 +56,7 @@ public class Utils {
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
+    static final int BITMAP_SIZE_SMALL = 64;
     static final int BITMAP_SIZE_BIG = 512;
 
     static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
@@ -243,12 +244,10 @@ public class Utils {
         return bos.toByteArray();
     }
 
-    static public Bitmap resizeBitmap(Bitmap bitmap) {
+    static public Bitmap resizeBitmap(Bitmap bitmap, double maxSize) {
         if (bitmap == null) {
             return null;
         }
-
-        double maxSize = BITMAP_SIZE_BIG;
 
         double width = bitmap.getWidth();
         double height = bitmap.getHeight();
@@ -292,16 +291,20 @@ public class Utils {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    static public String getCardImageFileName(int loyaltyCardId, boolean front) {
+    static public String getCardImageFileName(int loyaltyCardId, ImageType type) {
         StringBuilder cardImageFileNameBuilder = new StringBuilder();
 
         cardImageFileNameBuilder.append("card_");
         cardImageFileNameBuilder.append(loyaltyCardId);
         cardImageFileNameBuilder.append("_");
-        if (front) {
+        if (type == ImageType.front) {
             cardImageFileNameBuilder.append("front");
-        } else {
+        } else if (type == ImageType.back) {
             cardImageFileNameBuilder.append("back");
+        } else if (type == ImageType.icon) {
+            cardImageFileNameBuilder.append("icon");
+        } else {
+            throw new IllegalArgumentException("Unknown image type");
         }
         cardImageFileNameBuilder.append(".png");
 
@@ -319,8 +322,8 @@ public class Utils {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
     }
 
-    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
-        saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, front));
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, ImageType type) throws FileNotFoundException {
+        saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, type));
     }
 
     static public Bitmap retrieveCardImage(Context context, String fileName) {
@@ -334,8 +337,8 @@ public class Utils {
         return BitmapFactory.decodeStream(in);
     }
 
-    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
-        return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, front));
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, ImageType type) {
+        return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
     static public Object hashmapGetOrDefault(HashMap hashMap, Object key, Object defaultValue, Class keyType) {

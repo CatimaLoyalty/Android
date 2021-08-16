@@ -540,8 +540,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     return;
                 }
                 setTitle(R.string.editCardTitle);
-                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, true));
-                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
+                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.front));
+                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.back));
             } else if (importLoyaltyCardUri != null) {
                 try {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
@@ -986,8 +986,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             db.updateLoyaltyCard(loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
             try {
-                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
-                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageType.front);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageType.back);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -997,8 +997,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         {
             loyaltyCardId = (int)db.insertLoyaltyCard(tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0);
             try {
-                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
-                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);
+                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageType.front);
+                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageType.back);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -1070,7 +1070,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 Bitmap bitmap = BitmapFactory.decodeFile(tempCameraPicturePath);
 
                 if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap);
+                    bitmap = Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG);
                     try {
                         bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(tempCameraPicturePath));
                     } catch (IOException e) {
@@ -1096,7 +1096,7 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                 }
 
                 if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap);
+                    bitmap = Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG);
                     if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
                         setCardImage(cardImageFront, bitmap);
                     } else {

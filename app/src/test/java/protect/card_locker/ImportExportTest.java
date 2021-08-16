@@ -890,8 +890,8 @@ public class ImportExportTest
         List<Group> groups = Arrays.asList(db.getGroup("One"));
         db.setLoyaltyCardGroups(loyaltyCardId, groups);
         loyaltyCardGroups.put(loyaltyCardId, groups);
-        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, true);
-        Utils.saveCardImage(activity.getApplicationContext(), roundLauncherBitmap, loyaltyCardId, false);
+        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, ImageType.front);
+        Utils.saveCardImage(activity.getApplicationContext(), roundLauncherBitmap, loyaltyCardId, ImageType.back);
         loyaltyCardFrontImages.put(loyaltyCardId, launcherBitmap);
         loyaltyCardBackImages.put(loyaltyCardId, roundLauncherBitmap);
 
@@ -949,8 +949,8 @@ public class ImportExportTest
 
             Bitmap expectedFrontImage = loyaltyCardFrontImages.get(loyaltyCardID);
             Bitmap expectedBackImage = loyaltyCardBackImages.get(loyaltyCardID);
-            Bitmap actualFrontImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, true));
-            Bitmap actualBackImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, false));
+            Bitmap actualFrontImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, ImageType.front));
+            Bitmap actualBackImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, ImageType.back));
 
             if (expectedFrontImage != null) {
                 assertTrue(expectedFrontImage.sameAs(actualFrontImage));
@@ -1031,8 +1031,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType);
         assertEquals(1, (long) card1.headerColor);
         assertEquals(0, card1.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageType.back));
 
         LoyaltyCard card8 = db.getLoyaltyCard(8);
 
@@ -1046,8 +1046,8 @@ public class ImportExportTest
         assertEquals(null, card8.barcodeType);
         assertEquals(-5317, (long) card8.headerColor);
         assertEquals(0, card8.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageType.back));
 
         LoyaltyCard card2 = db.getLoyaltyCard(2);
 
@@ -1061,8 +1061,8 @@ public class ImportExportTest
         assertEquals(null, card2.barcodeType);
         assertEquals(-9977996, (long) card2.headerColor);
         assertEquals(0, card2.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageType.back));
 
         LoyaltyCard card3 = db.getLoyaltyCard(3);
 
@@ -1076,8 +1076,8 @@ public class ImportExportTest
         assertEquals(null, card3.barcodeType);
         assertEquals(-9977996, (long) card3.headerColor);
         assertEquals(0, card3.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageType.back));
 
         LoyaltyCard card4 = db.getLoyaltyCard(4);
 
@@ -1091,8 +1091,8 @@ public class ImportExportTest
         assertEquals(null, card4.barcodeType);
         assertEquals(-10902850, (long) card4.headerColor);
         assertEquals(1, card4.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageType.back));
 
         LoyaltyCard card5 = db.getLoyaltyCard(5);
 
@@ -1106,8 +1106,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.CODE_128, card5.barcodeType);
         assertEquals(-10902850, (long) card5.headerColor);
         assertEquals(0, card5.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageType.back));
 
         LoyaltyCard card6 = db.getLoyaltyCard(6);
 
@@ -1121,8 +1121,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.AZTEC, card6.barcodeType);
         assertEquals(null, card6.headerColor);
         assertEquals(0, card6.starStatus);
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, true));
-        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, false));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageType.front));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageType.back));
 
         TestHelpers.getEmptyDb(activity);
     }
@@ -1202,8 +1202,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, true));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, false));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageType.front));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageType.back));
 
         card = db.getLoyaltyCard(2);
 
@@ -1217,8 +1217,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
         assertEquals(0, card.starStatus);
 
-        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, true)));
-        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, false)));
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageType.front)));
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageType.back)));
 
         card = db.getLoyaltyCard(3);
 
@@ -1233,8 +1233,8 @@ public class ImportExportTest
         assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType);
         assertEquals(0, card.starStatus);
 
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, true));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, false));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageType.front));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageType.back));
 
         TestHelpers.getEmptyDb(activity);
     }

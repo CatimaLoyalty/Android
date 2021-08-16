@@ -865,6 +865,9 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                         {
                             updateTempState(LoyaltyCardField.headerColor, color);
 
+                            // Unset image if set
+                            thumbnail.setTag(null);
+
                             generateIcon(storeFieldEdit.getText().toString());
                         }
 
@@ -1227,18 +1230,20 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
     }
 
     private void generateIcon(String store) {
-        if (tempLoyaltyCard.headerColor == null || thumbnail.getTag() != null) {
+        if (tempLoyaltyCard.headerColor == null) {
             return;
         }
 
         thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
 
-        LetterBitmap letterBitmap = Utils.generateIcon(this, store, tempLoyaltyCard.headerColor);
+        if (thumbnail.getTag() == null) {
+            LetterBitmap letterBitmap = Utils.generateIcon(this, store, tempLoyaltyCard.headerColor);
 
-        if (letterBitmap != null) {
-            thumbnail.setImageBitmap(letterBitmap.getLetterTile());
-        } else {
-            thumbnail.setImageBitmap(null);
+            if (letterBitmap != null) {
+                thumbnail.setImageBitmap(letterBitmap.getLetterTile());
+            } else {
+                thumbnail.setImageBitmap(null);
+            }
         }
 
         thumbnail.setMinimumWidth(thumbnail.getHeight());

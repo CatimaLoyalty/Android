@@ -4,6 +4,7 @@
 
 Changes:
 
+- Fix images not imported from backup
 - Option to override language
 
 ## v2.2.3 (2021-08-13)

@@ -2,6 +2,7 @@ package protect.card_locker.importexport;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -47,24 +48,27 @@ public class CatimaImporter implements Importer
 
         // First, check if this is a zip file
         ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream);
-        LocalFileHeader localFileHeader = zipInputStream.getNextEntry();
 
-        if (localFileHeader == null) {
+        boolean isZipFile = false;
+
+        LocalFileHeader localFileHeader;
+        while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
+            isZipFile = true;
+
+            String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
+            if (fileName.equals("catima.csv")) {
+                importCSV(context, db, new ByteArrayInputStream(ZipUtils.read(zipInputStream).getBytes(StandardCharsets.UTF_8)));
+            } else if (fileName.endsWith(".png")) {
+                Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), fileName);
+            } else {
+                throw new FormatException("Unexpected file in import: " + fileName);
+            }
+        }
+
+        if (!isZipFile) {
             // This is not a zip file, try importing as bare CSV
             bufferedInputStream.reset();
             importCSV(context, db, bufferedInputStream);
-            return;
-        }
-
-        importZipFile(context, db, zipInputStream, localFileHeader);
-    }
-
-    public void importZipFile(Context context, DBHelper db, ZipInputStream input, LocalFileHeader localFileHeader) throws IOException, FormatException, InterruptedException {
-        String fileName = localFileHeader.getFileName();
-        if (fileName.equals("catima.csv")) {
-            importCSV(context, db, new ByteArrayInputStream(ZipUtils.read(input).getBytes(StandardCharsets.UTF_8)));
-        } else {
-            Utils.saveCardImage(context, ZipUtils.readImage(input), fileName);
         }
     }
 

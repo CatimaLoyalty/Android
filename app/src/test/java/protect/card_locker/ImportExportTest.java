@@ -1044,6 +1044,7 @@ public class ImportExportTest
         assertEquals(0, card1.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, ImageType.icon));
 
         LoyaltyCard card8 = db.getLoyaltyCard(8);
 
@@ -1059,6 +1060,7 @@ public class ImportExportTest
         assertEquals(0, card8.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card8.id, ImageType.icon));
 
         LoyaltyCard card2 = db.getLoyaltyCard(2);
 
@@ -1074,6 +1076,7 @@ public class ImportExportTest
         assertEquals(0, card2.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card2.id, ImageType.icon));
 
         LoyaltyCard card3 = db.getLoyaltyCard(3);
 
@@ -1089,6 +1092,7 @@ public class ImportExportTest
         assertEquals(0, card3.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card3.id, ImageType.icon));
 
         LoyaltyCard card4 = db.getLoyaltyCard(4);
 
@@ -1104,6 +1108,7 @@ public class ImportExportTest
         assertEquals(1, card4.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card4.id, ImageType.icon));
 
         LoyaltyCard card5 = db.getLoyaltyCard(5);
 
@@ -1119,6 +1124,7 @@ public class ImportExportTest
         assertEquals(0, card5.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, ImageType.icon));
 
         LoyaltyCard card6 = db.getLoyaltyCard(6);
 
@@ -1134,6 +1140,7 @@ public class ImportExportTest
         assertEquals(0, card6.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageType.front));
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageType.back));
+        assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, ImageType.icon));
 
         TestHelpers.getEmptyDb(activity);
     }
@@ -1215,6 +1222,7 @@ public class ImportExportTest
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageType.back));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageType.icon));
 
         card = db.getLoyaltyCard(2);
 
@@ -1230,6 +1238,7 @@ public class ImportExportTest
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageType.front)));
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageType.back)));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageType.icon));
 
         card = db.getLoyaltyCard(3);
 
@@ -1246,6 +1255,7 @@ public class ImportExportTest
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageType.back));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageType.icon));
 
         TestHelpers.getEmptyDb(activity);
     }

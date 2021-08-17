@@ -16,12 +16,11 @@ public class TestHelpers {
         while (!cursor.isAfterLast()) {
             int cardID = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
 
-            try {
-                Utils.saveCardImage(activity.getApplicationContext(), null, cardID, ImageType.front);
-            } catch (FileNotFoundException ignored) {}
-            try {
-                Utils.saveCardImage(activity.getApplicationContext(), null, cardID, ImageType.back);
-            } catch (FileNotFoundException ignored) {}
+            for (ImageType imageType : ImageType.values()) {
+                try {
+                    Utils.saveCardImage(activity.getApplicationContext(), null, cardID, imageType);
+                } catch (FileNotFoundException ignored) {}
+            }
 
             cursor.moveToNext();
         }

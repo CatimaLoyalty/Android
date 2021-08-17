@@ -25,9 +25,6 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;

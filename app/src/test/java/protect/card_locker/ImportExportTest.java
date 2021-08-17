@@ -882,6 +882,7 @@ public class ImportExportTest
         HashMap<Integer, List<Group>> loyaltyCardGroups = new HashMap<>();
         HashMap<Integer, Bitmap> loyaltyCardFrontImages = new HashMap<>();
         HashMap<Integer, Bitmap> loyaltyCardBackImages = new HashMap<>();
+        HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
         int loyaltyCardId = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
@@ -892,8 +893,10 @@ public class ImportExportTest
         loyaltyCardGroups.put(loyaltyCardId, groups);
         Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, ImageType.front);
         Utils.saveCardImage(activity.getApplicationContext(), roundLauncherBitmap, loyaltyCardId, ImageType.back);
+        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, ImageType.icon);
         loyaltyCardFrontImages.put(loyaltyCardId, launcherBitmap);
         loyaltyCardBackImages.put(loyaltyCardId, roundLauncherBitmap);
+        loyaltyCardIconImages.put(loyaltyCardId, launcherBitmap);
 
         // Create card 2
         loyaltyCardId = (int) db.insertLoyaltyCard("Card 2", "", null, new BigDecimal(0), null, "123456", null, null, 2, 1);
@@ -949,8 +952,10 @@ public class ImportExportTest
 
             Bitmap expectedFrontImage = loyaltyCardFrontImages.get(loyaltyCardID);
             Bitmap expectedBackImage = loyaltyCardBackImages.get(loyaltyCardID);
+            Bitmap expectedIconImage = loyaltyCardIconImages.get(loyaltyCardID);
             Bitmap actualFrontImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, ImageType.front));
             Bitmap actualBackImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, ImageType.back));
+            Bitmap actualIconImage = Utils.retrieveCardImage(activity.getApplicationContext(), Utils.getCardImageFileName(loyaltyCardID, ImageType.icon));
 
             if (expectedFrontImage != null) {
                 assertTrue(expectedFrontImage.sameAs(actualFrontImage));
@@ -962,6 +967,12 @@ public class ImportExportTest
                 assertTrue(expectedBackImage.sameAs(actualBackImage));
             } else {
                 assertNull(actualBackImage);
+            }
+
+            if (expectedIconImage != null) {
+                assertTrue(expectedIconImage.sameAs(actualIconImage));
+            } else {
+                assertNull(actualIconImage);
             }
         }
     }

@@ -544,9 +544,15 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
                     return;
                 }
                 setTitle(R.string.editCardTitle);
-                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.front), true);
-                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.back), true);
-                setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.icon), false);
+                if (initDone) {
+                    setCardImage(cardImageFront, (Bitmap) cardImageFront.getTag(), true);
+                    setCardImage(cardImageBack, (Bitmap) cardImageFront.getTag(), true);
+                    setCardImage(thumbnail, (Bitmap) cardImageFront.getTag(), false);
+                } else {
+                    setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.front), true);
+                    setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.back), true);
+                    setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageType.icon), false);
+                }
             } else if (importLoyaltyCardUri != null) {
                 try {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);

@@ -175,4 +175,6 @@
         <item quantity="one">Supprimer <xliff:g>%d</xliff:g> carte</item>
         <item quantity="other">Supprimer <xliff:g>%d</xliff:g> cartes</item>
     </plurals>
+    <string name="settings_system_locale">Système</string>
+    <string name="settings_locale">Langue</string>
 </resources>

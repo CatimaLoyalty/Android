@@ -72,4 +72,28 @@
     <string name="barcodeType">Typ čárového kódu</string>
     <string name="noMatchingGiftCards">Nic jsem nenašel. Zkuste změnit vyhledávání.</string>
     <string name="action_search">Vyhledávání</string>
+    <string name="thumbnailDescription">Miniatura karty</string>
+    <string name="card_ids_copied">Zkopírované ID karty(karet)</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Opravdu chcete kartu \u0020<xliff:g>%d</xliff:g> trvale odstranit\?</item>
+        <item quantity="few">Opravdu chcete karty \u0020<xliff:g>%d</xliff:g> \u0020trvale odstranit\?</item>
+        <item quantity="other"></item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Odstranit kartu \u0020<xliff:g>%d</xliff:g></item>
+        <item quantity="few">Odstranit karty <xliff:g>%d</xliff:g></item>
+        <item quantity="other"></item>
+    </plurals>
+    <string name="importSuccessful">Data karty importována</string>
+    <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Bránit uzamykání obrazovky</string>
+    <string name="settings_keep_screen_on">Udržovat obrazovku zapnutou</string>
+    <string name="settings_lock_barcode_orientation">Zamknout orientaci čárového kódu</string>
+    <string name="settings_max_font_size_scale">Maximální velikost písma</string>
+    <string name="settings_dark_theme">Tmavý</string>
+    <string name="settings_light_theme">Světlý</string>
+    <string name="settings_system_theme">Systém</string>
+    <string name="settings_theme">Vzhled</string>
+    <string name="settings_category_title_ui">Uživatelské rozhraní</string>
+    <string name="settings">Nastavení</string>
 </resources>

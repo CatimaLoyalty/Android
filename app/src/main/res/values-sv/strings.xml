@@ -174,4 +174,6 @@
     <string name="importSuccessful">Kortdata importerad</string>
     <string name="failedParsingImportUriError">Kunde inte tolka import-URI:n</string>
     <string name="note">Anteckning</string>
+    <string name="settings_system_locale">System</string>
+    <string name="settings_locale">Språk</string>
 </resources>

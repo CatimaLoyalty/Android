@@ -175,4 +175,6 @@
         <item quantity="one">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaart wilt verwijderen\?</item>
         <item quantity="other">Weet je zeker dat je deze <xliff:g>%d</xliff:g> kaarten wilt verwijderen\?</item>
     </plurals>
+    <string name="settings_system_locale">Systeemtaal</string>
+    <string name="settings_locale">Taal</string>
 </resources>

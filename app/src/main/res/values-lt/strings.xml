@@ -179,4 +179,6 @@
         <item quantity="few">Ištrinti <xliff:g>%d</xliff:g> korteles</item>
         <item quantity="other">Ištrinti <xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
+    <string name="settings_system_locale">Sistemos</string>
+    <string name="settings_locale">Kalba</string>
 </resources>

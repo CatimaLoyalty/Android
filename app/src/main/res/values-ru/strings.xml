@@ -183,4 +183,6 @@
         <item quantity="many">Удаление <xliff:g>%d</xliff:g> карт</item>
         <item quantity="other">Удаление <xliff:g>%d</xliff:g> карт</item>
     </plurals>
+    <string name="settings_system_locale">Системный</string>
+    <string name="settings_locale">Язык</string>
 </resources>

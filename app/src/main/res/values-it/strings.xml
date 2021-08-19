@@ -175,4 +175,6 @@
         <item quantity="one">Elimina <xliff:g>%d</xliff:g> carta</item>
         <item quantity="other">Elimina <xliff:g>%d</xliff:g> carte</item>
     </plurals>
+    <string name="settings_system_locale">Sistema</string>
+    <string name="settings_locale">Lingua</string>
 </resources>

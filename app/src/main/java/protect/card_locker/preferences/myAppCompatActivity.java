@@ -13,7 +13,7 @@ import protect.card_locker.R;
 public class myAppCompatActivity extends AppCompatActivity {
 
     SharedPreferences pref;
-
+//
         @Override
     public Resources.Theme getTheme() {
         Resources.Theme theme = super.getTheme();

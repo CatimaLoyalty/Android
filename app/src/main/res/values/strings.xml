@@ -216,4 +216,28 @@
     <string name="settings_locale">Language</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
+
+    <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
+    <string name="settings_theme_color">Theme color</string>
+    <string name="settings_app_theme">App theme</string>
+    <string name="settings_pink_theme">Pink theme</string>
+    <string name="settings_red_theme">Red theme</string>
+    <string name="settings_dark_pink_theme">Dark pink theme</string>
+    <string name="settings_violet_theme">Violet theme</string>
+    <string name="settings_blue_theme">Blue theme</string>
+    <string name="settings_sky_blue_theme">Sky blue theme</string>
+    <string name="settings_green_theme">Green theme</string>
+    <string name="settings_grey_theme">Grey theme</string>
+    <string name="settings_brown_theme">Brown theme</string>
+    <string name="settings_key_app_theme" translatable="false">App theme</string>
+    <string name="settings_key_pink_theme" translatable="false">Pink theme</string>
+    <string name="settings_key_red_theme" translatable="false">Red theme</string>
+    <string name="settings_key_dark_pink_theme" translatable="false">Dark pink theme</string>
+    <string name="settings_key_violet_theme" translatable="false">Violet theme</string>
+    <string name="settings_key_blue_theme" translatable="false">Blue theme</string>
+    <string name="settings_key_sky_blue_theme" translatable="false">Sky blue theme</string>
+    <string name="settings_key_green_theme" translatable="false">Green theme</string>
+    <string name="settings_key_grey_theme" translatable="false">Grey theme</string>
+    <string name="settings_key_brown_theme" translatable="false">Brown theme</string>
+
 </resources>

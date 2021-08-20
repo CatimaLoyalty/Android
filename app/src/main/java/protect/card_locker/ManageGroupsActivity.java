@@ -16,13 +16,14 @@ import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupsActivity extends AppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
+import protect.card_locker.preferences.myAppCompatActivity;
+
+public class ManageGroupsActivity extends myAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
 {
     private static final String TAG = "Catima";
 

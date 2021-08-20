@@ -25,8 +25,9 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import protect.card_locker.preferences.myAppCompatActivity;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -34,7 +35,7 @@ import androidx.appcompat.widget.Toolbar;
  * the data. The user may then select any barcode, where its
  * data and type will be returned to the caller.
  */
-public class BarcodeSelectorActivity extends AppCompatActivity
+public class BarcodeSelectorActivity extends myAppCompatActivity
 {
     private static final String TAG = "Catima";
 

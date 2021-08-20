@@ -14,11 +14,12 @@ import java.util.Calendar;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.text.HtmlCompat;
 
-public class AboutActivity extends AppCompatActivity
+import protect.card_locker.preferences.myAppCompatActivity;
+
+public class AboutActivity extends myAppCompatActivity
 {
     private static final String TAG = "Catima";
 

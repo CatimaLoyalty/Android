@@ -21,8 +21,9 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import protect.card_locker.preferences.myAppCompatActivity;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
@@ -30,7 +31,7 @@ import androidx.appcompat.widget.Toolbar;
  * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java
  * originally licensed under Apache 2.0
  */
-public class ScanActivity extends AppCompatActivity {
+public class ScanActivity extends myAppCompatActivity {
     private static final String TAG = "Catima";
 
     private CaptureManager capture;

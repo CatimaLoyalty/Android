@@ -40,7 +40,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
@@ -48,8 +47,9 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 import protect.card_locker.preferences.Settings;
+import protect.card_locker.preferences.myAppCompatActivity;
 
-public class LoyaltyCardViewActivity extends AppCompatActivity
+public class LoyaltyCardViewActivity extends myAppCompatActivity
 {
     private static final String TAG = "Catima";
 

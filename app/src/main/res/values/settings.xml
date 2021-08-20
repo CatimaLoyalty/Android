@@ -12,6 +12,33 @@
         <item>@string/settings_dark_theme</item>
     </string-array>
 
+    <string-array name="color_values">
+        <item>@string/settings_key_app_theme</item>
+        <item>@string/settings_key_pink_theme</item>
+        <item>@string/settings_key_red_theme</item>
+        <item>@string/settings_key_dark_pink_theme</item>
+        <item>@string/settings_key_violet_theme</item>
+        <item>@string/settings_key_blue_theme</item>
+        <item>@string/settings_key_sky_blue_theme</item>
+        <item>@string/settings_key_green_theme</item>
+        <item>@string/settings_key_grey_theme</item>
+        <item>@string/settings_key_brown_theme</item>
+    </string-array>
+
+    <string-array name="color_value_strings">
+        <item>@string/settings_app_theme</item>
+        <item>@string/settings_pink_theme</item>
+        <item>@string/settings_red_theme</item>
+        <item>@string/settings_dark_pink_theme</item>
+        <item>@string/settings_violet_theme</item>
+        <item>@string/settings_blue_theme</item>
+        <item>@string/settings_sky_blue_theme</item>
+        <item>@string/settings_green_theme</item>
+        <item>@string/settings_grey_theme</item>
+        <item>@string/settings_brown_theme</item>
+
+    </string-array>
+
     <string-array name="locale_values">
         <item />
         <item>bg</item>

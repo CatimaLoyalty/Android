@@ -66,13 +66,14 @@ import java.util.concurrent.Callable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 
-public class LoyaltyCardEditActivity extends AppCompatActivity
+import protect.card_locker.preferences.myAppCompatActivity;
+
+public class LoyaltyCardEditActivity extends myAppCompatActivity
 {
     private static final String TAG = "Catima";
 

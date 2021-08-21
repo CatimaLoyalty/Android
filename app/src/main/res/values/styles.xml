@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,68 +11,60 @@
         <item name="actionModeCloseDrawable">@drawable/ic_close</item>
     </style>
 
-    <style name="AppTheme_pink" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_pink" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/pink_colorPrimary</item>
         <item name="colorPrimaryDark">@color/pink_colorPrimaryDark</item>
         <item name="colorAccent">@color/pink_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_magenta" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_magenta" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/darkpink_colorPrimary</item>
         <item name="colorPrimaryDark">@color/darkpink_colorPrimaryDark</item>
         <item name="colorAccent">@color/darkpink_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_violet" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_violet" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/violet_colorPrimary</item>
         <item name="colorPrimaryDark">@color/violet_colorPrimaryDark</item>
         <item name="colorAccent">@color/violet_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_blue" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_blue" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/blue_colorPrimary</item>
         <item name="colorPrimaryDark">@color/blue_colorPrimaryDark</item>
         <item name="colorAccent">@color/blue_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_sky_blue" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_sky_blue" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/skyblue_colorPrimary</item>
         <item name="colorPrimaryDark">@color/skyblue_colorPrimaryDark</item>
         <item name="colorAccent">@color/skyblue_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_green" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_green" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/green_colorPrimary</item>
         <item name="colorPrimaryDark">@color/green_colorPrimaryDark</item>
         <item name="colorAccent">@color/green_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_grey" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_grey" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/grey_colorPrimary</item>
         <item name="colorPrimaryDark">@color/grey_colorPrimaryDark</item>
         <item name="colorAccent">@color/grey_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_brown" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_brown" parent="AppTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/brown_colorPrimary</item>
         <item name="colorPrimaryDark">@color/brown_colorPrimaryDark</item>
         <item name="colorAccent">@color/brown_colorPrimary</item>
-        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
 

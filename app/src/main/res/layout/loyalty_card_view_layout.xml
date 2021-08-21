@@ -147,7 +147,6 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="top|start"
-            android:background="@color/colorPrimary"
             android:scaleType="fitCenter"
             app:tint="#ffffff"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />

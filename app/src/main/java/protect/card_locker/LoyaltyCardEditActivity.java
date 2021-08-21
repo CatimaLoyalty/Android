@@ -244,6 +244,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
+        cardImageFront.setBackgroundColor(getThemeColor());
+        cardImageBack.setBackgroundColor(getThemeColor());
 
         warnOnInvalidBarcodeType = () -> {
             if (!(boolean) barcodeImage.getTag()) {

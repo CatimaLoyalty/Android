@@ -175,6 +175,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         centerGuideline.setGuidelinePercent(0.5f);
         barcodeScaler = findViewById(R.id.barcodeScaler);
         barcodeScaler.setProgress(100);
+        minimizeButton.setBackgroundColor(getThemeColor());
+        maximizeButton.setBackgroundColor(getThemeColor());
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

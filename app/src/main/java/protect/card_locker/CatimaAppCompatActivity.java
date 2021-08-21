@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.util.TypedValue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -37,5 +38,11 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
             }
         // you could also use a switch if you have many themes that could apply
         return theme;
+    }
+    public int getThemeColor(){
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        return typedValue.data;
     }
 }

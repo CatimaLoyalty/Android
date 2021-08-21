@@ -44,7 +44,7 @@
     <string name="noExternalStoragePermissionError">Verleen het recht ‘externe opslag’ om kaarten te kunnen im- of exporteren</string>
     <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
-    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand vanop het bestandssysteem.</string>
+    <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het bestandssysteem.</string>
     <string name="importOptionFilesystemButton">Van bestandssysteem</string>
     <string name="importOptionApplicationTitle">Andere app gebruiken</string>
     <string name="importOptionApplicationExplanation">Open een bestand middels een app of je favoriete bestandsbeheerder.</string>
@@ -55,7 +55,7 @@
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode druk op “Deze kaart heeft geen barcode”.</string>
+    <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode of druk op “Deze kaart heeft geen barcode”.</string>
     <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
     <string name="settings">Instellingen</string>

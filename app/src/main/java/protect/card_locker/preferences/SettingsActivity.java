@@ -5,10 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
@@ -18,12 +14,18 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
+import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 
-public class SettingsActivity extends myAppCompatActivity
+public class SettingsActivity extends CatimaAppCompatActivity
 {
     @Override
     protected void attachBaseContext(Context base) {

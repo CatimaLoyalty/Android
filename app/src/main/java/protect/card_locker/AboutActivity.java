@@ -9,17 +9,15 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.text.HtmlCompat;
 
-import protect.card_locker.preferences.myAppCompatActivity;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
-public class AboutActivity extends myAppCompatActivity
+public class AboutActivity extends CatimaAppCompatActivity
 {
     private static final String TAG = "Catima";
 

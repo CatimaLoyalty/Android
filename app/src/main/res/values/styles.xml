@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
         <item name="actionModeBackground">@color/colorPrimary</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_close</item>
@@ -15,63 +15,64 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/pink_colorPrimary</item>
         <item name="colorPrimaryDark">@color/pink_colorPrimaryDark</item>
-        <item name="colorAccent">@color/pink_colorAccent</item>
+        <item name="colorAccent">@color/pink_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
-    <style name="AppTheme_red" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/red_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/red_colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorSecondary</item>
-    </style>
-
-    <style name="AppTheme_dark_pink" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme_magenta" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/darkpink_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/darkpink_colorPrimary</item>
-        <item name="colorAccent">@color/darkpink_colorAccent</item>
+        <item name="colorPrimaryDark">@color/darkpink_colorPrimaryDark</item>
+        <item name="colorAccent">@color/darkpink_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_violet" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/violet_colorPrimary</item>
         <item name="colorPrimaryDark">@color/violet_colorPrimaryDark</item>
-        <item name="colorAccent">@color/violet_colorAccent</item>
+        <item name="colorAccent">@color/violet_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_blue" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/blue_colorPrimary</item>
         <item name="colorPrimaryDark">@color/blue_colorPrimaryDark</item>
-        <item name="colorAccent">@color/blue_colorAccent</item>
+        <item name="colorAccent">@color/blue_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_sky_blue" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/skyblue_colorPrimary</item>
         <item name="colorPrimaryDark">@color/skyblue_colorPrimaryDark</item>
-        <item name="colorAccent">@color/skyblue_colorAccent</item>
+        <item name="colorAccent">@color/skyblue_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_green" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/green_colorPrimary</item>
         <item name="colorPrimaryDark">@color/green_colorPrimaryDark</item>
-        <item name="colorAccent">@color/green_colorAccent</item>
+        <item name="colorAccent">@color/green_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_grey" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/grey_colorPrimary</item>
         <item name="colorPrimaryDark">@color/grey_colorPrimaryDark</item>
-        <item name="colorAccent">@color/grey_colorAccent</item>
+        <item name="colorAccent">@color/grey_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
     <style name="AppTheme_brown" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/brown_colorPrimary</item>
         <item name="colorPrimaryDark">@color/brown_colorPrimaryDark</item>
-        <item name="colorAccent">@color/brown_colorAccent</item>
+        <item name="colorAccent">@color/brown_colorPrimary</item>
+        <item name="android:windowBackground">@color/inputBackground</item>
     </style>
 
 
@@ -98,6 +99,19 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:padding">@dimen/no_data_padding</item>
         <item name="android:textSize">@dimen/no_data_textSize</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
     <color name="red_colorPrimary">#ff0000</color>
@@ -138,6 +152,7 @@
     <color name="brown_colorPrimary">#795548</color>
     <color name="brown_colorPrimaryDark">#63453B</color>
     <color name="brown_colorAccent">#e81d62</color>
+
 
 
 </resources>

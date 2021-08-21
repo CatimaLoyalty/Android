@@ -35,6 +35,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.fragment.app.DialogFragment;
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -63,16 +71,7 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
-
-public class LoyaltyCardEditActivity extends AppCompatActivity
+public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 {
     private static final String TAG = "Catima";
 
@@ -245,6 +244,8 @@ public class LoyaltyCardEditActivity extends AppCompatActivity
         cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
+        cardImageFront.setBackgroundColor(getThemeColor());
+        cardImageBack.setBackgroundColor(getThemeColor());
 
         warnOnInvalidBarcodeType = () -> {
             if (!(boolean) barcodeImage.getTag()) {

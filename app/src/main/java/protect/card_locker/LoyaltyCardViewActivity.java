@@ -26,6 +26,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,18 +47,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.Guideline;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.TextViewCompat;
 import protect.card_locker.preferences.Settings;
 
-public class LoyaltyCardViewActivity extends AppCompatActivity
+public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 {
     private static final String TAG = "Catima";
 
@@ -175,6 +175,9 @@ public class LoyaltyCardViewActivity extends AppCompatActivity
         centerGuideline.setGuidelinePercent(0.5f);
         barcodeScaler = findViewById(R.id.barcodeScaler);
         barcodeScaler.setProgress(100);
+        minimizeButton.setBackgroundColor(getThemeColor());
+        maximizeButton.setBackgroundColor(getThemeColor());
+        bottomSheetButton.setBackgroundColor(getThemeColor());
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

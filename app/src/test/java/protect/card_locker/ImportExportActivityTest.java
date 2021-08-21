@@ -1,5 +1,8 @@
 package protect.card_locker;
 
+import static org.junit.Assert.assertEquals;
+import static org.robolectric.Shadows.shadowOf;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -14,9 +17,6 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
-
-import static org.junit.Assert.assertEquals;
-import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)

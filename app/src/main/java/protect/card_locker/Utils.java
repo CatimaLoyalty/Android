@@ -15,6 +15,9 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -37,9 +40,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-import androidx.core.graphics.ColorUtils;
 import protect.card_locker.preferences.Settings;
-import androidx.exifinterface.media.ExifInterface;
 
 public class Utils {
     private static final String TAG = "Catima";

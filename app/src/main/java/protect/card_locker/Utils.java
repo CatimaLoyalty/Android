@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import protect.card_locker.preferences.Settings;
 
@@ -339,16 +340,12 @@ public class Utils {
         return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, front));
     }
 
-    static public Object hashmapGetOrDefault(HashMap hashMap, Object key, Object defaultValue, Class keyType) {
-        Object value = hashMap.get(keyType.cast(key));
+    static public <T,U> U mapGetOrDefault(Map<T,U> map, T key, U defaultValue) {
+        U value = map.get(key);
         if (value == null) {
             return defaultValue;
         }
         return value;
-    }
-
-    static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
-        return hashmapGetOrDefault(hashMap, key, defaultValue, String.class);
     }
 
     static public Locale stringToLocale(String localeString) {

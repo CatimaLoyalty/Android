@@ -1,13 +1,5 @@
 package protect.card_locker;
 
-import static android.os.Looper.getMainLooper;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.robolectric.Shadows.shadowOf;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -34,10 +26,6 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.widget.TextViewCompat;
-import androidx.preference.PreferenceManager;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -63,6 +51,18 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Currency;
 import java.util.Date;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.widget.TextViewCompat;
+import androidx.preference.PreferenceManager;
+
+import static android.os.Looper.getMainLooper;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)

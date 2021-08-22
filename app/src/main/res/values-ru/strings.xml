@@ -194,4 +194,5 @@
     <string name="settings_violet_theme">Фиолетовый</string>
     <string name="settings_magenta_theme">Пурпурный</string>
     <string name="settings_pink_theme">Розовый</string>
+    <string name="settings_theme_color">Цвет темы</string>
 </resources>

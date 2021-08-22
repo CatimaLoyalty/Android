@@ -50,11 +50,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpText;
     private View mNoMatchingCardsText;
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
         @Override

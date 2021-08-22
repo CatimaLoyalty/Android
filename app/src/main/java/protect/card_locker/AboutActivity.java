@@ -22,11 +22,6 @@ public class AboutActivity extends CatimaAppCompatActivity
     private static final String TAG = "Catima";
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

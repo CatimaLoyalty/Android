@@ -105,11 +105,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         IMAGE_BACK
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();

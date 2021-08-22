@@ -50,11 +50,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity
     private DataFormat importDataFormat;
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

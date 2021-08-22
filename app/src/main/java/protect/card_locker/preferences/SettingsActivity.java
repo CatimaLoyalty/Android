@@ -28,11 +28,6 @@ import protect.card_locker.Utils;
 public class SettingsActivity extends CatimaAppCompatActivity
 {
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

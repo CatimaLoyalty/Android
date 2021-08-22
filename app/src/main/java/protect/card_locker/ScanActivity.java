@@ -39,11 +39,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String addGroup;
     private boolean torch = false;
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;

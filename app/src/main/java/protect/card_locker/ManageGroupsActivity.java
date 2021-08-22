@@ -31,11 +31,6 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     GroupCursorAdapter mAdapter;
 
     @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

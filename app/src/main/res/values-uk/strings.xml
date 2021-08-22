@@ -76,7 +76,7 @@
     <string name="enter_group_name">Введіть ім\'я групи</string>
     <string name="exportSuccessful">Дані картки/карток експортовано</string>
     <string name="importSuccessful">Дані картки/карток імпортовано</string>
-    <string name="intent_import_card_from_url_share_text">Я хочу поділитися картою з тобою</string>
+    <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою картою</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
     <string name="settings_lock_barcode_orientation">Заблокувати орієнтацію штрих-коду</string>
@@ -106,7 +106,7 @@
     <string name="importOptionApplicationExplanation">Використайте іншу програму чи ваш улюблений файл-менеджер для відкриття файлу.</string>
     <string name="importOptionApplicationTitle">Використати іншу програму</string>
     <string name="importOptionFilesystemButton">З провідника</string>
-    <string name="importOptionFilesystemExplanation">Оберіть конкретний файл у провіднику.</string>
+    <string name="importOptionFilesystemExplanation">Оберіть файл у провіднику.</string>
     <string name="importOptionFilesystemTitle">Імпорт з провідника</string>
     <string name="exportOptionExplanation">Дані буде записано до локації обраної вами.</string>
     <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту чи експорту карток</string>
@@ -191,4 +191,8 @@
     <string name="settings_theme_color">Колір теми</string>
     <string name="settings_system_locale">Системна</string>
     <string name="settings_locale">Мова</string>
+    <string name="settings_brown_theme">Коричнева</string>
+    <string name="settings_grey_theme">Сіра</string>
+    <string name="settings_green_theme">Зелена</string>
+    <string name="settings_sky_blue_theme">Небесно-синя</string>
 </resources>

@@ -18,14 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -33,9 +26,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
+public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
 
@@ -49,11 +49,6 @@ public class MainActivity extends AppCompatActivity implements LoyaltyCardCursor
     private RecyclerView mCardList;
     private View mHelpText;
     private View mNoMatchingCardsText;
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {

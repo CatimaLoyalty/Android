@@ -175,4 +175,6 @@
         <item quantity="one"><xliff:g>%d</xliff:g> Karte löschen</item>
         <item quantity="other"><xliff:g>%d</xliff:g> Karten löschen</item>
     </plurals>
+    <string name="settings_system_locale">System</string>
+    <string name="settings_locale">Sprache</string>
 </resources>

@@ -175,4 +175,6 @@
         <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
         <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
     </plurals>
+    <string name="settings_system_locale">System</string>
+    <string name="settings_locale">Språk</string>
 </resources>

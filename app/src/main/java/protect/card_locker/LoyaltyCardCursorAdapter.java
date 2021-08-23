@@ -15,13 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import protect.card_locker.preferences.Settings;
 

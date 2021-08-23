@@ -83,7 +83,8 @@
             android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".preferences.SettingsActivity"
-            android:label="@string/settings"/>
+            android:label="@string/settings"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"

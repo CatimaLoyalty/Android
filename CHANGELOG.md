@@ -4,6 +4,13 @@
 
 Changes:
 
+- Add theming colour support (thanks, Subhashish Anand!)
+
+## v2.3.0 (2021-08-19)
+
+Changes:
+
+- Fix images not imported from backup
 - Option to override language
 
 ## v2.2.3 (2021-08-13)

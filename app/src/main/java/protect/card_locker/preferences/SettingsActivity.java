@@ -1,49 +1,40 @@
 package protect.card_locker.preferences;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
+
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
-import com.journeyapps.barcodescanner.Util;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
-import protect.card_locker.MainActivity;
+import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 
-public class SettingsActivity extends AppCompatActivity
+public class SettingsActivity extends CatimaAppCompatActivity
 {
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setTitle(R.string.settings);
         setContentView(R.layout.settings_activity);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
         {
@@ -120,6 +111,15 @@ public class SettingsActivity extends AppCompatActivity
                 return true;
             });
 
+            Preference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
+            assert colorPreference != null;
+            colorPreference.setOnPreferenceChangeListener((preference, o) -> {
+                FragmentActivity activity = getActivity();
+                if (activity != null) {
+                    ActivityCompat.recreate(activity);
+                }
+                return true;
+            });
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 // Refresh the activity
                 parent.finish();

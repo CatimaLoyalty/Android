@@ -163,9 +163,9 @@ public class StocardImporter implements Importer
             HashMap<String, String> providerData = providers.get(providerId);
 
             String store = providerData != null ? providerData.get("name") : providerId;
-            String note = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "note", "");
+            String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
-            String barcodeTypeString = (String) Utils.hashmapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
+            String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
             BarcodeFormat barcodeType = null;
             if (barcodeTypeString != null) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {

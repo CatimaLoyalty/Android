@@ -10,19 +10,18 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupsActivity extends AppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
+
+public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
 {
     private static final String TAG = "Catima";
 
@@ -30,11 +29,6 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
     private TextView mHelpText;
     private RecyclerView mGroupList;
     GroupCursorAdapter mAdapter;
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -116,7 +110,7 @@ public class ManageGroupsActivity extends AppCompatActivity implements GroupCurs
     }
 
     private void createGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);

@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Arrays;
@@ -24,17 +27,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 /**
  * This activity is callable and will allow a user to enter
  * barcode data and generate all barcodes possible for
  * the data. The user may then select any barcode, where its
  * data and type will be returned to the caller.
  */
-public class BarcodeSelectorActivity extends AppCompatActivity
+public class BarcodeSelectorActivity extends CatimaAppCompatActivity
 {
     private static final String TAG = "Catima";
 
@@ -63,11 +62,6 @@ public class BarcodeSelectorActivity extends AppCompatActivity
 
     private Map<String, Pair<Integer, Integer>> barcodeViewMap;
     private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

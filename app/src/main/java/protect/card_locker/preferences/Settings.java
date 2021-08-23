@@ -3,12 +3,13 @@ package protect.card_locker.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.Locale;
-
 import androidx.annotation.IntegerRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
+
+import java.util.Locale;
+
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 

@@ -936,11 +936,10 @@ public class ImportExportTest
 
             assertEquals(
                 groupsToGroupNames(
-                    (List<Group>) Utils.hashmapGetOrDefault(
+                    (List<Group>) Utils.mapGetOrDefault(
                         loyaltyCardGroups,
                         loyaltyCardID,
-                        emptyGroup,
-                        Integer.class
+                        emptyGroup
                     )
                 ),
                 groupsToGroupNames(

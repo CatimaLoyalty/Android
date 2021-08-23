@@ -15,6 +15,9 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -36,10 +39,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
-import androidx.core.graphics.ColorUtils;
 import protect.card_locker.preferences.Settings;
-import androidx.exifinterface.media.ExifInterface;
 
 public class Utils {
     private static final String TAG = "Catima";
@@ -343,16 +345,12 @@ public class Utils {
         return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
-    static public Object hashmapGetOrDefault(HashMap hashMap, Object key, Object defaultValue, Class keyType) {
-        Object value = hashMap.get(keyType.cast(key));
+    static public <T,U> U mapGetOrDefault(Map<T,U> map, T key, U defaultValue) {
+        U value = map.get(key);
         if (value == null) {
             return defaultValue;
         }
         return value;
-    }
-
-    static public Object hashmapGetOrDefault(HashMap hashMap, String key, Object defaultValue) {
-        return hashmapGetOrDefault(hashMap, key, defaultValue, String.class);
     }
 
     static public Locale stringToLocale(String localeString) {

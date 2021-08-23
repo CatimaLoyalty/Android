@@ -9,23 +9,17 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.text.HtmlCompat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.text.HtmlCompat;
-
-public class AboutActivity extends AppCompatActivity
+public class AboutActivity extends CatimaAppCompatActivity
 {
     private static final String TAG = "Catima";
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.updateBaseContextLocale(base));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
@@ -42,6 +41,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
+import androidx.palette.graphics.Palette;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -70,16 +70,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
-import androidx.palette.graphics.Palette;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 {
@@ -427,7 +417,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 } else if (s.toString().equals(getString(R.string.setBarcodeId))) {
                     if (!lastValue.toString().equals(getString(R.string.setBarcodeId))) {
                         barcodeIdField.setText(lastValue);
-                    };
+                    }
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoyaltyCardEditActivity.this);
                     builder.setTitle(R.string.setBarcodeId);
@@ -755,9 +745,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
                     dialog.dismiss();
                 })
-                .setNegativeButton(R.string.no, (dialog, which) -> {
-                    dialog.dismiss();
-                })
+                .setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss())
                 .setOnDismissListener(dialogInterface -> {
                     if (tempStoredOldBarcodeValue != null) {
                         barcodeIdField.setText(tempStoredOldBarcodeValue);
@@ -786,19 +774,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
-            builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                    dialog.dismiss();
-                }
+            builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
+                finish();
+                dialog.dismiss();
             });
-            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
+            builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
             confirmExitDialog = builder.create();
         }
         confirmExitDialog.show();
@@ -988,6 +968,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             this.expiryFieldEdit = expiryFieldEdit;
         }
 
+        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker

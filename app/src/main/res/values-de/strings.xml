@@ -177,4 +177,14 @@
     </plurals>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Sprache</string>
+    <string name="settings_brown_theme">Braun</string>
+    <string name="settings_grey_theme">Grau</string>
+    <string name="settings_green_theme">Grün</string>
+    <string name="settings_sky_blue_theme">Himmelblau</string>
+    <string name="settings_blue_theme">Blau</string>
+    <string name="settings_violet_theme">Violett</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Designfarbe</string>
 </resources>

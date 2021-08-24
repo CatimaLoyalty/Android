@@ -68,7 +68,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
-        capture = new CaptureManager(this, barcodeScannerView);
+        capture = new CatimaCaptureManager(this, barcodeScannerView);
         Intent captureIntent = new Intent();
         Bundle captureIntentBundle = new Bundle();
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
@@ -146,8 +146,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;
-        } else if (item.getItemId() == R.id.action_toggle_flashlight)
-        {
+        } else if (item.getItemId() == R.id.action_toggle_flashlight) {
             if (torch) {
                 torch = false;
                 barcodeScannerView.setTorchOff();

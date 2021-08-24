@@ -5,6 +5,7 @@
 Changes:
 
 - Add theming colour support (thanks, Subhashish Anand!)
+- Don't close scan activity on camera error (so manual entry is still possible)
 
 ## v2.3.0 (2021-08-19)
 

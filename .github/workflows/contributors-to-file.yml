@@ -1,3 +1,7 @@
+on:
+  push:
+    branches: [ master ]
+
 jobs:
   contributors_to_file:
     runs-on: ubuntu-latest
@@ -11,6 +15,3 @@ jobs:
       uses: TheLastProject/contributors-to-file-action@v1
       with:
         file_in_repo: app/src/main/res/raw/contributors.txt
-on:
-  schedule:
-    - cron: '0 0 * * *'

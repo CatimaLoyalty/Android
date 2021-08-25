@@ -188,4 +188,5 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Draktfarge</string>
+    <string name="noGroupCards">Denne gruppen inneholder ikke noen kort</string>
 </resources>

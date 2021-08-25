@@ -222,6 +222,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mHelpText = findViewById(R.id.helpText);
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
+        mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
         mCardList = findViewById(R.id.list);
 
         mHelpText.setOnTouchListener(gestureTouchListener);
@@ -406,13 +407,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // the keyboard
             mCardList.setVisibility(View.VISIBLE);
             mHelpText.setVisibility(View.GONE);
+            mNoGroupCardsText.setVisibility(View.GONE);
             if(mAdapter.getItemCount() > 0)
             {
                 mNoMatchingCardsText.setVisibility(View.GONE);
             }
             else
             {
-                mNoMatchingCardsText.setVisibility(View.VISIBLE);
+                if(!filterText.isEmpty()) {
+                    // Actual Empty Search Result
+                    mNoMatchingCardsText.setVisibility(View.VISIBLE);
+                    mNoGroupCardsText.setVisibility(View.GONE);
+                } else {
+                    // Group Tab with no Group Cards
+                    mNoMatchingCardsText.setVisibility(View.GONE);
+                    mNoGroupCardsText.setVisibility(View.VISIBLE);
+                }
             }
         }
         else
@@ -420,6 +430,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
             mNoMatchingCardsText.setVisibility(View.GONE);
+            mNoGroupCardsText.setVisibility(View.GONE);
         }
 
         if (mCurrentActionMode != null) {

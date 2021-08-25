@@ -82,7 +82,7 @@
     <string name="enter_group_name">Gib einen Gruppennamen ein</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
     <string name="leaveWithoutSaveTitle">Beenden</string>
-    <string name="failedOpeningFileManager">Installieren zuerst einen Dateimanager.</string>
+    <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
     <string name="noBarcode">Kein Barcode</string>
     <string name="addManually">Kartennummer manuell eingeben</string>
     <string name="moveDown">Nach unten verschieben</string>

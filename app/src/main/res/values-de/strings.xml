@@ -77,6 +77,7 @@
     <string name="deleteConfirmationGroup">Gruppe löschen\?</string>
     <string name="all">Alle</string>
     <string name="noGroups">Klicken Sie auf das Pluszeichen +, um zunächst Gruppen zur Kategorisierung hinzuzufügen.</string>
+    <string name="noGroupCards">Diese Gruppe hat noch keine Karten</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Geben Sie den Gruppennamen ein</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>

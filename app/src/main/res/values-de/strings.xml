@@ -3,7 +3,7 @@
     <string name="action_search">Suchen</string>
     <string name="action_add">Hinzufügen</string>
     <string name="noGiftCards">Füge eine Karte mit + hinzu oder importiere welche über das ⋮ Menü.</string>
-    <string name="noMatchingGiftCards">Keine Ergebnisse. Versuche einen anderen Begriff?</string>
+    <string name="noMatchingGiftCards">Nichts gefunden. Versuche, deine Suche zu ändern.</string>
     <string name="storeName">Name</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
@@ -18,7 +18,7 @@
     <string name="unstar">Aus den Favoriten entfernen</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kartennummer in die Zwischenablage kopieren</string>
-    <string name="sendLabel">Datei Teilen</string>
+    <string name="sendLabel">Senden …</string>
     <string name="editCardTitle">Karte bearbeiten</string>
     <string name="addCardTitle">Neue Karte</string>
     <string name="scanCardBarcode">Barcode scannen</string>
@@ -104,7 +104,7 @@
     <string name="never">Nie</string>
     <string name="expiryDate">Ablaufdatum</string>
     <string name="editBarcode">Barcode ändern</string>
-    <string name="barcode">Barcode</string>
+    <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
     <string name="balancePoints"><xliff:g>%s</xliff:g> Punkte</string>
     <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
@@ -188,4 +188,5 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Designfarbe</string>
+    <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
 </resources>

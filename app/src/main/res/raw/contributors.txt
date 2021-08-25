@@ -52,8 +52,6 @@ Simone Dotto
 Subhashish Anand
 Tymofii Lytvynenko
 Tjipke van der Heide
-Weblate (bot)
-dependabot[bot]
 opsik
 psa-jforestier
 Robin

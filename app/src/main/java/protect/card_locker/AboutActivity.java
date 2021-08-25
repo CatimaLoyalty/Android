@@ -47,6 +47,7 @@ public class AboutActivity extends CatimaAppCompatActivity
                 String tmp = reader.readLine();
 
                 if (tmp == null || tmp.isEmpty()) {
+                    reader.close();
                     break;
                 }
 

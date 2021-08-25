@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -13,6 +12,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.text.HtmlCompat;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -35,6 +38,23 @@ public class AboutActivity extends CatimaAppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        StringBuilder contributors = new StringBuilder().append("<br/>");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.contributors), StandardCharsets.UTF_8));
+
+        try {
+            while (true) {
+                String tmp = reader.readLine();
+
+                if (tmp == null || tmp.isEmpty()) {
+                    break;
+                }
+
+                contributors.append("<br/>");
+                contributors.append(tmp);
+            }
+        } catch (IOException ignored) {}
+
         final List<ThirdPartyInfo> USED_LIBRARIES = new ArrayList<>();
         USED_LIBRARIES.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
         USED_LIBRARIES.add(new ThirdPartyInfo("Commons CSV", "https://commons.apache.org/proper/commons-csv/", "Apache 2.0"));
@@ -49,13 +69,13 @@ public class AboutActivity extends CatimaAppCompatActivity
         StringBuilder libs = new StringBuilder().append("<br/>");
         for (ThirdPartyInfo entry : USED_LIBRARIES)
         {
-            libs.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")<br/>");
+            libs.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
         }
 
         StringBuilder resources = new StringBuilder().append("<br/>");
         for (ThirdPartyInfo entry : USED_ASSETS)
         {
-            resources.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")<br/>");
+            resources.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
         }
 
         String appName = getString(R.string.app_name);
@@ -87,6 +107,8 @@ public class AboutActivity extends CatimaAppCompatActivity
                 getString(R.string.app_copyright_old) +
                 "<br/><br/>" +
                 getString(R.string.app_license) +
+                "<br/><br/>" +
+                String.format(getString(R.string.app_contributors), contributors.toString()) +
                 "<br/><br/>" +
                 String.format(getString(R.string.app_libraries), libs.toString()) +
                 "<br/><br/>" +

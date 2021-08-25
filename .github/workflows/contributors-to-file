@@ -1,0 +1,16 @@
+jobs:
+  contributors_to_file:
+    runs-on: ubuntu-latest
+    name: Write contributors to file
+    steps:
+    - name: Checkout repo
+      id: checkout
+      uses: actions/checkout@v2
+    - name: Update contributors
+      id: update_contributors
+      uses: TheLastProject/contributors-to-file-action@v1
+      with:
+        file_in_repo: app/src/main/res/raw/contributors.txt
+on:
+  schedule:
+    - cron: '0 0 * * *'

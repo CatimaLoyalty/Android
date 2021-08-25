@@ -27,3 +27,37 @@ Alessandro Mandelli
 KovalevArtem
 Clonewayx
 D. Domig
+Diego
+Jane Kong
+Lukas Grassauer
+Michalis
+schirinowski
+String E. Fighter
+inesre
+lgasp
+phlostically
+Kevin Sicong Jiang
+Miha Frangež
+Airat
+BMN
+Franciszek Stefan
+Izzy
+Karol Kosek
+bittin
+Mattia
+pbeckmann
+Peer Beckmann
+Rose Liverman
+Simone Dotto
+Subhashish Anand
+Tymofii Lytvynenko
+Tjipke van der Heide
+Weblate (bot)
+dependabot[bot]
+opsik
+psa-jforestier
+Robin
+sergio
+Marcus
+techwebpd
+waffshappen

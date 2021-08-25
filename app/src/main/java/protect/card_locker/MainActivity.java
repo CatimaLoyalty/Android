@@ -49,6 +49,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private RecyclerView mCardList;
     private View mHelpText;
     private View mNoMatchingCardsText;
+    private View mNoGroupCardsText;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {

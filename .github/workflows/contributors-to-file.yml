@@ -12,6 +12,6 @@ jobs:
       uses: actions/checkout@v2
     - name: Update contributors
       id: update_contributors
-      uses: TheLastProject/contributors-to-file-action@v1
+      uses: TheLastProject/contributors-to-file-action@v1.0.1
       with:
         file_in_repo: app/src/main/res/raw/contributors.txt

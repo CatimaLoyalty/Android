@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Přidat</string>
     <string name="noGiftCards">Klepnutím na tlačítko + plus přidáte kartu nebo ji nejprve importujete z nabídky⋮.</string>
     <string name="storeName">Název</string>
@@ -75,14 +75,14 @@
     <string name="thumbnailDescription">Miniatura karty</string>
     <string name="card_ids_copied">Zkopírované ID karty(karet)</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Opravdu chcete kartu \u0020<xliff:g>%d</xliff:g> trvale odstranit\?</item>
-        <item quantity="few">Opravdu chcete karty \u0020<xliff:g>%d</xliff:g> \u0020trvale odstranit\?</item>
-        <item quantity="other"></item>
+        <item quantity="one">Opravdu chcete kartu <xliff:g>%d</xliff:g> trvale odstranit\?</item>
+        <item quantity="few">Opravdu chcete karty <xliff:g>%d</xliff:g> trvale odstranit\?</item>
+        <item quantity="other">Opravdu chcete karty <xliff:g>%d</xliff:g> trvale odstranit\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Odstranit kartu \u0020<xliff:g>%d</xliff:g></item>
+        <item quantity="one">Odstranit kartu <xliff:g>%d</xliff:g></item>
         <item quantity="few">Odstranit karty <xliff:g>%d</xliff:g></item>
-        <item quantity="other"></item>
+        <item quantity="other">Odstranit karty <xliff:g>%d</xliff:g></item>
     </plurals>
     <string name="importSuccessful">Data karty importována</string>
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
@@ -96,4 +96,99 @@
     <string name="settings_theme">Vzhled</string>
     <string name="settings_category_title_ui">Uživatelské rozhraní</string>
     <string name="settings">Nastavení</string>
+    <string name="card">Karta</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> bodů</string>
+    <string name="balanceSentence">Zůstatek: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Platnost vypršela: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
+    <string name="moveDown">Přesunout dolů</string>
+    <string name="moveUp">Přesunout nahoru</string>
+    <string name="enterBarcodeInstructions">Zadejte ID karty a níže vyberte typ čárového kódu nebo \"Tato karta nemá čárový kód\".</string>
+    <string name="settings_brown_theme">Hnědá</string>
+    <string name="settings_grey_theme">Šedá</string>
+    <string name="settings_green_theme">Zelená</string>
+    <string name="settings_sky_blue_theme">Azurová</string>
+    <string name="settings_blue_theme">Modrá</string>
+    <string name="settings_violet_theme">Fialová</string>
+    <string name="settings_magenta_theme">Purpurová</string>
+    <string name="settings_pink_theme">Růžová</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Barva motivu</string>
+    <string name="settings_system_locale">Systém</string>
+    <string name="settings_locale">Jazyk</string>
+    <string name="turn_flashlight_off">Vypnout světlo</string>
+    <string name="turn_flashlight_on">Zapnout světlo</string>
+    <string name="failedGeneratingShareURL">Nepodařilo se vygenerovat sdílenou adresu URL. Nahlaste to prosím.</string>
+    <string name="passwordRequired">Zadejte prosím heslo</string>
+    <string name="no">Ne</string>
+    <string name="yes">Ano</string>
+    <string name="updateBarcodeQuestionText">Změnili jste ID karty. Chcete také aktualizovat čárový kód, aby používal stejnou hodnotu\?</string>
+    <string name="updateBarcodeQuestionTitle">Aktualizovat hodnotu čárového kódu\?</string>
+    <string name="takePhoto">Pořídit fotku</string>
+    <string name="removeImage">Odstranit obrázek</string>
+    <string name="setBackImage">Nastavit obrázek zadní strany</string>
+    <string name="setFrontImage">Nastavit obrázek přední strany</string>
+    <string name="photos">Fotky</string>
+    <string name="backImageDescription">Obrázek zadní strany karty</string>
+    <string name="frontImageDescription">Obrázek přední strany karty</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Chci s Vámi sdílet kartu</string>
+    <string name="copy_to_clipboard_multiple_toast">ID karty zkopírováno do schránky</string>
+    <string name="wrongValueForBarcodeType">Hodnota není platná pro vybraný typ čárového kódu</string>
+    <string name="unsupportedBarcodeType">Tento typ čárového kódu zatím nelze zobrazit. Možná bude podporován v pozdější verzi aplikace.</string>
+    <string name="barcodeId">Hodnota čárového kódu</string>
+    <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
+    <string name="sameAsCardId">Stejné jako ID karty</string>
+    <string name="importVoucherVaultMessage">Vyberte svůj <i>vouchervault.json</i> export z Voucher Vault, který chcete importovat.
+\nNebo jej vytvořte tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
+    <string name="importVoucherVault">Import z Voucher Vault</string>
+    <string name="importStocardMessage">Vyberte svůj <i>***-sync.zip</i> export z aplikace Stocard, který chcete importovat.
+\nNebo jej získáte zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
+    <string name="importStocard">Import ze Stocard</string>
+    <string name="importLoyaltyCardKeychainMessage">Vyberte export <i>LoyaltyCardKeychain.csv</i> z klíčenky věrnostních karet, který chcete importovat.
+\nNebo jej vytvořte z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> export z FidMe k importu a poté vyberte typy čárových kódů ručně. 
+\nNebo jej vytvořte ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extract moje data.</string>
+    <string name="importFidme">Import z FidMe</string>
+    <string name="importCatimaMessage">Vyberte export <i>catima.zip</i> z programu Catima, který chcete importovat.
+\nNebo jej vytvořte z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importCatima">Import z Catima</string>
+    <string name="accept">Přijmout</string>
+    <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):
+\n
+\nNejsou shromažďovány žádné údaje, což může potvrdit každý, protože naše aplikace je libre software.</string>
+    <string name="privacy_policy">Zásady soukromí</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="chooseImportType">Importovat data z\?</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> se nezdá být platným zůstatkem.</string>
+    <string name="points">Body</string>
+    <string name="currency">Měna</string>
+    <string name="balance">Zůstatek</string>
+    <string name="errorReadingImage">Obrázek se nepodařilo přečíst</string>
+    <string name="noBarcodeFound">Čarový kód nenalezen</string>
+    <string name="groupsList">Skupiny: <xliff:g>%s</xliff:g></string>
+    <string name="addFromImage">Výběr obrázku z galerie</string>
+    <string name="addManually">Ruční zadání ID karty</string>
+    <string name="leaveWithoutSaveConfirmation">Ukončit bez uložení\?</string>
+    <string name="leaveWithoutSaveTitle">Ukončit</string>
+    <string name="failedOpeningFileManager">Nejprve si nainstalujte správce souborů.</string>
+    <string name="deleteConfirmationGroup">Smazat skupinu\?</string>
+    <string name="all">Všechny</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> karta</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> karty</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> karet</item>
+    </plurals>
+    <string name="noGroups">Kliknutím na tlačítko + plus nejprve přidejte skupiny pro kategorizaci.</string>
+    <string name="groups">Skupiny</string>
+    <string name="enter_group_name">Zadejte název skupiny</string>
+    <string name="exportSuccessful">Data karty exportována</string>
+    <string name="settings_display_barcode_max_brightness">Rozjasněné zobrazení čárového kódu</string>
+    <string name="starImage">Oblíbená hvězda</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">Vybrána <xliff:g>%d</xliff:g> karta</item>
+        <item quantity="few">Vybrány <xliff:g>%d</xliff:g> karty</item>
+        <item quantity="other">Vybráno <xliff:g>%d</xliff:g> karet</item>
+    </plurals>
 </resources>

@@ -1,0 +1,23 @@
+Přestaňte hledat plastové věrnostní karty při placení v obchodě nebo ve webovém obchodě.
+<b>Naskenujte si čárové kódy do svého zařízení pomocí jeho fotoaparátu a zapomeňte na karty.</b>
+😺
+Zapomeňte na peněženku nebo ji mějte ultralehkou na cennosti.
+😺
+S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradit zbytečné plasty hotovostí.
+😺
+- Vyhněte se špehování s velmi malým počtem oprávnění. Žádný přístup k internetu a žádné reklamy.
+- Přidejte karty nebo kódy se jmény a přizpůsobitelnými barvami.
+- Ruční zadání kódu, pokud není čárový kód k uložení nebo jej nelze použít.
+- Import karet a kódů ze souborů, Catima, FidMe, klíčenky věrnostních karet, Stocard a trezoru voucherů.
+- Vytvořte si zálohu všech karet a v případě potřeby je přeneste do nového zařízení.
+- Sdílejte kupony, exkluzivní nabídky, propagační kódy nebo karty a kódy pomocí libovolné aplikace.
+- Tmavé téma a možnosti přístupnosti pro uživatele se zrakovým postižením.
+- Vytvořeno pro všechny komunitou svobodného softwaru.
+- Lokalizované ruční překlady pro více než 20 jazyků.
+- Zdarma, podporováno příspěvky komunity.
+- Používejte, studujte, měňte a sdílejte dle libosti; <i>se všemi</i>.
+- Nejen svobodný software / open source. <i>Copylefted</i> libre software (GPLv3+) správa karet.
+😺
+Zjednodušte si život a nakupování a už nikdy neztraťte papírovou účtenku, dárkovou kartu pro platbu v obchodě nebo letenku.
+Vezměte si s sebou všechny své odměny a bonusy a šetřete za pochodu.
+😺

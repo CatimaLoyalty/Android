@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="exporting">Exportacion…</string>
     <string name="importing">Importacion…</string>
     <string name="exportFailed">Exportacion pas possibla</string>
@@ -38,4 +38,17 @@
     <string name="storeName">Nom</string>
     <string name="action_add">Apondre</string>
     <string name="action_search">Recercar</string>
+    <string name="ok">D\'acòrdi</string>
+    <string name="deleteConfirmation">Suprimir aquesta carta \?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Suprimir <xliff:g>%d</xliff:g> carta</item>
+        <item quantity="other">Suprimir <xliff:g>%d</xliff:g> cartas</item>
+    </plurals>
+    <string name="deleteTitle">Suprimir la carta</string>
+    <string name="noBarcode">Cap de còdi de barras</string>
+    <string name="barcodeNoBarcode">Aquesta carta a pas cap de còdi de barras</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> carta seleccionada</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartas seleccionadas</item>
+    </plurals>
 </resources>

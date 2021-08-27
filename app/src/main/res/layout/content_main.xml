@@ -38,9 +38,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="@integer/main_view_card_columns"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
 </RelativeLayout>

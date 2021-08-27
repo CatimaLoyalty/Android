@@ -231,8 +231,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setOnTouchListener(gestureTouchListener);
 
         // Init card list
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mCardList.setLayoutManager(mLayoutManager);
         mCardList.setItemAnimator(new DefaultItemAnimator());
 
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);

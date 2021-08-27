@@ -30,7 +30,7 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder>
 {
-    private static int mCurrentSelectedIndex = -1;
+    private int mCurrentSelectedIndex = -1;
     private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
@@ -119,7 +119,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());
-
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
@@ -183,7 +182,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mAnimationItemsIndex.clear();
     }
 
-    @SuppressFBWarnings("ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD")
+
     public void toggleSelection(int inputPosition)
     {
         mCurrentSelectedIndex = inputPosition;
@@ -197,7 +196,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mSelectedItems.put(inputPosition, true);
             mAnimationItemsIndex.put(inputPosition, true);
         }
-        notifyItemChanged(inputPosition);
+        notifyDataSetChanged();
     }
 
     public void clearSelections()

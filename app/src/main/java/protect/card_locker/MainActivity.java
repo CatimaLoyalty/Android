@@ -230,9 +230,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
 
-        // Init card list
-        mCardList.setItemAnimator(new DefaultItemAnimator());
-
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);

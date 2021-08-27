@@ -7,9 +7,9 @@ solokot
 Taco
 mondstern
 Samantaz Fox
+Gediminas Murauskas
 arno-github
 Sergio Paredes
-Gediminas Murauskas
 IllusiveMan196
 Nyatsuki
 StoyanDimitrov
@@ -17,9 +17,9 @@ Joel A
 arshbeerSingh
 huuhaa
 Michael Moroni
+Petr Novák
 betsythefc
 K. Herbert
-Petr Novák
 Quentin PAGÈS
 Yurical
 Adolfo Jayme-Barrientos
@@ -36,6 +36,7 @@ String E. Fighter
 inesre
 lgasp
 phlostically
+waffshappen
 Kevin Sicong Jiang
 Miha Frangež
 Airat
@@ -58,4 +59,3 @@ Robin
 sergio
 Marcus
 techwebpd
-waffshappen

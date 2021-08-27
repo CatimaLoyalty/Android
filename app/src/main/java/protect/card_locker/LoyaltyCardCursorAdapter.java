@@ -74,6 +74,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
+        // Invisible until we want to show something more
+        inputHolder.mDivider.setVisibility(View.GONE);
+
         if (mDarkModeEnabled) {
             inputHolder.mStarIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         }
@@ -86,7 +89,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mNoteField.setVisibility(View.VISIBLE);
             inputHolder.mNoteField.setText(loyaltyCard.note);
             inputHolder.mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mNoteField.setVisibility(View.GONE);
         }
+
         if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
@@ -95,6 +101,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             }
             inputHolder.mBalanceField.setText(Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType));
             inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mBalanceField.setVisibility(View.GONE);
         }
 
         if (loyaltyCard.expiry != null) {
@@ -109,11 +117,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             }
             inputHolder.mExpiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry));
             inputHolder.mExpiryField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+        } else {
+            inputHolder.mExpiryField.setVisibility(View.GONE);
         }
 
-        if (loyaltyCard.starStatus != 0) {
-            inputHolder.mStarIcon.setVisibility(View.VISIBLE);
-        }
+        inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
         inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));

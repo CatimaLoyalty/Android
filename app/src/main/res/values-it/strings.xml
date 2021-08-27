@@ -187,4 +187,6 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Colore del tema</string>
+    <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="noGroupCards">Questo gruppo non contiene carte</string>
 </resources>

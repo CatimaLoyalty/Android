@@ -1,118 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/row"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="0.5dp"
-    android:background="@drawable/list_row"
-    android:clickable="true"
-    android:focusable="true"
-    android:padding="@dimen/activity_margin">
+    android:layout_margin="8dp">
 
     <LinearLayout
-        android:id="@+id/information_container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_margin"
-        android:layout_marginLeft="@dimen/activity_margin"
-        android:layout_toEndOf="@+id/thumbnail_container"
-        android:layout_toRightOf="@+id/thumbnail_container"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/thumbnail_container"
-        app:layout_constraintEnd_toStartOf="@+id/star"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail_container"
-        app:layout_constraintTop_toTopOf="@+id/thumbnail_container">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/store"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/information_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/storeNameTextSize"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textSize="@dimen/noteTextSize" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/balance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textSize="@dimen/noteTextSize" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/thumbnail_container"
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    app:cardCornerRadius="4dp"
+                    android:layout_alignParentStart="true">
 
-        <TextView
-            android:id="@+id/expiry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            android:textSize="@dimen/noteTextSize" />
+                    <RelativeLayout
+                        android:id="@+id/thumbnail_front"
+                        android:layout_width="@dimen/cardThumbnailSize"
+                        android:layout_height="@dimen/cardThumbnailSize">
 
+                        <ImageView
+                            android:id="@+id/thumbnail"
+                            android:layout_width="@dimen/cardThumbnailSize"
+                            android:layout_height="@dimen/cardThumbnailSize"
+                            android:contentDescription="@string/thumbnailDescription"
+                            android:src="@mipmap/ic_launcher" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/thumbnail_back"
+                        android:layout_width="@dimen/cardThumbnailSize"
+                        android:layout_height="@dimen/cardThumbnailSize">
+
+                        <ImageView
+                            android:layout_width="@dimen/cardThumbnailSize"
+                            android:layout_height="@dimen/cardThumbnailSize"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/thumbnailDescription"
+                            app:srcCompat="@drawable/ic_done" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toEndOf="@+id/thumbnail_container">
+
+                    <TextView
+                        android:id="@+id/store"
+                        android:paddingStart="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/star"
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    app:srcCompat="@drawable/ic_starred_white"
+                    android:contentDescription="@string/starImage"
+                    app:tint="?attr/colorControlNormal"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:visibility="gone" />
+
+            <View android:id="@+id/info_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?android:attr/dividerVertical"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:drawableLeftCompat="@drawable/ic_baseline_payments_24"
+                    android:drawablePadding="4dp"
+                    android:layout_alignParentStart="true"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/expiry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:drawableLeftCompat="@drawable/ic_baseline_access_time_24"
+                    android:drawablePadding="4dp"
+                    android:layout_toEndOf="@+id/balance"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/thumbnail_container"
-        android:layout_width="@dimen/cardThumbnailSize"
-        android:layout_height="@dimen/cardThumbnailSize"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:id="@+id/thumbnail_front"
-            android:layout_width="@dimen/cardThumbnailSize"
-            android:layout_height="@dimen/cardThumbnailSize">
-
-            <ImageView
-                android:id="@+id/thumbnail"
-                android:layout_width="@dimen/cardThumbnailSize"
-                android:layout_height="@dimen/cardThumbnailSize"
-                android:contentDescription="@string/thumbnailDescription"
-                android:src="@mipmap/ic_launcher" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/thumbnail_back"
-            android:layout_width="@dimen/cardThumbnailSize"
-            android:layout_height="@dimen/cardThumbnailSize">
-
-            <ImageView
-                android:layout_width="@dimen/cardThumbnailSize"
-                android:layout_height="@dimen/cardThumbnailSize"
-                android:layout_centerHorizontal="true"
-                android:contentDescription="@string/thumbnailDescription"
-                app:srcCompat="@drawable/ic_done" />
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/star"
-        android:layout_width="@dimen/cardThumbnailSize"
-        android:layout_height="@dimen/cardThumbnailSize"
-        android:layout_marginLeft="@dimen/activity_margin"
-        app:srcCompat="@drawable/ic_starred_white"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/activity_margin"
-        android:contentDescription="@string/starImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#000000" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

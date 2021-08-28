@@ -62,7 +62,8 @@
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
-                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:minHeight="@dimen/cardThumbnailSize"
+                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center_vertical"
@@ -73,7 +74,7 @@
                         android:paddingStart="16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:textAppearance="?attr/textAppearanceHeadline6" />
                 </LinearLayout>
 

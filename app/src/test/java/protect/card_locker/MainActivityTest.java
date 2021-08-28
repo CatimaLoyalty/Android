@@ -148,6 +148,11 @@ public class MainActivityTest
         assertEquals(View.VISIBLE, list.getVisibility());
 
         assertEquals(4, list.getAdapter().getItemCount());
+
+        // Make sure there is enough space to render all
+        list.measure(0, 0);
+        list.layout(0, 0, 100, 1000);
+
         assertEquals("storeC", ((TextView) list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.store)).getText());
         assertEquals("storeD", ((TextView) list.findViewHolderForAdapterPosition(1).itemView.findViewById(R.id.store)).getText());
         assertEquals("storeA", ((TextView) list.findViewHolderForAdapterPosition(2).itemView.findViewById(R.id.store)).getText());

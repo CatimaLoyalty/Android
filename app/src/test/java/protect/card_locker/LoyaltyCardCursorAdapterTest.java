@@ -154,7 +154,7 @@ public class LoyaltyCardCursorAdapterTest
     {
         final Context context = activity.getApplicationContext();
         Date expiryDate = new Date();
-        String dateString = context.getString(R.string.expiryStateSentence, DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate));
+        String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate);
 
         db.insertLoyaltyCard("store", "note", expiryDate, new BigDecimal("0"), null, "cardId", null, BarcodeFormat.UPC_A, Color.BLACK, 0);
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -260,7 +260,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "Balance: 100 points",false);
+        checkView(view, card.store, card.note, "", "100 points",false);
 
         cursor.close();
     }
@@ -276,7 +276,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "Balance: $10.00",false);
+        checkView(view, card.store, card.note, "", "$10.00",false);
 
         cursor.close();
     }

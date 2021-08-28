@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -27,7 +30,7 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder>
 {
-    private static int mCurrentSelectedIndex = -1;
+    private int mCurrentSelectedIndex = -1;
     private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
@@ -71,6 +74,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
+        // Invisible until we want to show something more
+        inputHolder.mDivider.setVisibility(View.GONE);
+
         if (mDarkModeEnabled) {
             inputHolder.mStarIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         }
@@ -88,34 +94,39 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+            inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
-            inputHolder.mBalanceField.setText(mContext.getString(R.string.balanceSentence, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType)));
+            if (mDarkModeEnabled) {
+                inputHolder.mBalanceField.getCompoundDrawables()[0].setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+            }
+            inputHolder.mBalanceField.setText(Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType));
             inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
         } else {
             inputHolder.mBalanceField.setVisibility(View.GONE);
         }
 
-        if (loyaltyCard.expiry != null)
-        {
+        if (loyaltyCard.expiry != null) {
+            inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);
-            int expiryString = R.string.expiryStateSentence;
-            if(Utils.hasExpired(loyaltyCard.expiry)) {
-                expiryString = R.string.expiryStateSentenceExpired;
-                inputHolder.mExpiryField.setTextColor(mContext.getResources().getColor(R.color.alert));
+            Drawable expiryIcon = inputHolder.mExpiryField.getCompoundDrawables()[0];
+            if (Utils.hasExpired(loyaltyCard.expiry)) {
+                expiryIcon.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+                inputHolder.mExpiryField.setTextColor(Color.RED);
+            } else if (mDarkModeEnabled) {
+                expiryIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
             }
-            inputHolder.mExpiryField.setText(mContext.getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
+            inputHolder.mExpiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry));
             inputHolder.mExpiryField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
         } else {
             inputHolder.mExpiryField.setVisibility(View.GONE);
         }
 
-        inputHolder.mStarIcon.setVisibility((loyaltyCard.starStatus != 0) ? View.VISIBLE : View.GONE);
+        inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
         inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());
-
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
@@ -179,7 +190,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mAnimationItemsIndex.clear();
     }
 
-    @SuppressFBWarnings("ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD")
+
     public void toggleSelection(int inputPosition)
     {
         mCurrentSelectedIndex = inputPosition;
@@ -193,7 +204,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mSelectedItems.put(inputPosition, true);
             mAnimationItemsIndex.put(inputPosition, true);
         }
-        notifyItemChanged(inputPosition);
+        notifyDataSetChanged();
     }
 
     public void clearSelections()
@@ -242,7 +253,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public LinearLayout mInformationContainer;
         public ImageView mCardIcon, mStarIcon;
         public CardView mThumbnailContainer;
-        public ConstraintLayout mRow;
+        public MaterialCardView mRow;
+        public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
 
         public LoyaltyCardListItemViewHolder(View inputView)
@@ -250,6 +262,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             super(inputView);
             mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
             mRow = inputView.findViewById(R.id.row);
+            mDivider = inputView.findViewById(R.id.info_divider);
             mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
             mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
             mInformationContainer = inputView.findViewById(R.id.information_container);

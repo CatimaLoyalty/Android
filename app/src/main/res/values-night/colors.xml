@@ -19,4 +19,6 @@
     <color name="inputDividerBorder">#666666</color>
 
     <color name="iconColor">#ffffff</color>
+
+    <color name="mainLoyaltyCardBackground">#000000</color>
 </resources>

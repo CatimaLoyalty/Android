@@ -20,4 +20,6 @@
     <color name="iconColor">#000000</color>
 
     <color name="alert">#FF0000</color>
+
+    <color name="mainLoyaltyCardBackground">#F8F8F8</color>
 </resources>

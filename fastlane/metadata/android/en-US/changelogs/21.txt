@@ -1,0 +1,4 @@
+Changes:
+
+- Improved layout for card list. ([pull #188](https://github.com/brarcher/loyalty-card-locker/pull/188))
+- Improved layout when viewing a card. ([pull #190](https://github.com/brarcher/loyalty-card-locker/pull/190))

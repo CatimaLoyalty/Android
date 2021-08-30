@@ -1,0 +1,3 @@
+Changes:
+
+- Changes to Card view to display the note, allow the card ID to take multiple lines, and show the store name. ([pull #197](https://github.com/brarcher/loyalty-card-locker/pull/197))

@@ -1,0 +1,3 @@
+Changes:
+
+- Remember active group tab between screens and sessions

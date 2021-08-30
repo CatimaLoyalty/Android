@@ -1,0 +1,7 @@
+New features/improvements:
+
+- Long-click of a card brings up option to copy card ID to the clipboard. ([pull #49](https://github.com/brarcher/loyalty-card-locker/issues/49))
+
+Bug fixes:
+
+- Back button on Input/Export view now works, moving user to main view

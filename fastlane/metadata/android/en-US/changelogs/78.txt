@@ -1,0 +1,3 @@
+Changes:
+
+- Fix crash on rotation in loyalty card edit activity

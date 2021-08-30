@@ -1,3 +1,4 @@
+name: Write contributors to file
 on:
   push:
     branches: [ master ]

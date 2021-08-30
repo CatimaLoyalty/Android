@@ -1,0 +1,3 @@
+- Italian translations
+- Support for all 1D barcode types. (Originally only product 1D barcodes were supported)
+- Add required camera permission, which was initially missing.

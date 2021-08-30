@@ -1,0 +1,4 @@
+Changes:
+
+- Improved translations
+- Small UI fixes

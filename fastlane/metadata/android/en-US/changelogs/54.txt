@@ -1,0 +1,3 @@
+Changes:
+
+- Fix edit button or more info bottom sheet drawing over barcode ID

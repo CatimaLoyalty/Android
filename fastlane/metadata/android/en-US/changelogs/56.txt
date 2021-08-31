@@ -1,3 +1,1 @@
-Changes:
-
 - Fix crash on switching to barcode tab in edit view if there is no barcode

@@ -2,6 +2,6 @@ The "Locker" part of the name was not intuitive. To help remedy this a new appli
 
 Additional features/improvements:
 
-- Importing/Exporting cards was changed to be more flexible. ([pull #76](https://github.com/brarcher/loyalty-card-locker/pull/76))
-- Translations for Lithuanian added. ([pull #62](https://github.com/brarcher/loyalty-card-locker/pull/62))
-- Translations for French added. ([pull #80](https://github.com/brarcher/loyalty-card-locker/pull/80))
+- Importing/Exporting cards was changed to be more flexible. (pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- Translations for Lithuanian added. (pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- Translations for French added. (pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

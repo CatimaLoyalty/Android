@@ -1,9 +1,4 @@
-New features/improvements:
-
 - Dutch translation
 - Allow name field to be editable after adding loyalty card
 - Add an optional note field
-
-Bug fixes:
-
 - Resolve all issues identified by FindBugs and require all FindBugs issues be resolved prior to pull request acceptance

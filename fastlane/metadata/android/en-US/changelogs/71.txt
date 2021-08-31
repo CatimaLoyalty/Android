@@ -1,4 +1,2 @@
-Changes:
-
 - Several minor translation and UI fixes
 - Fix crash in import/sharing loyalty card on Android 6

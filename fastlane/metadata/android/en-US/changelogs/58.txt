@@ -1,3 +1,1 @@
-Changes:
-
 - Fix Crash on versions before Android 7

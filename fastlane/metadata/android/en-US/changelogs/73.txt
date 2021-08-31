@@ -1,3 +1,1 @@
-Changes:
-
 - Fix loading photos when editing existing card

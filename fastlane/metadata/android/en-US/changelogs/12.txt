@@ -1,3 +1,1 @@
-Changes:
-
 - Prevent a crash when rotation the screen in the first run intro wizard.

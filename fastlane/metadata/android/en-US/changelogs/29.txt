@@ -1,4 +1,2 @@
-Changes:
-
-- Fix Spanish translations ([pull #244](https://github.com/brarcher/loyalty-card-locker/pull/244))
-- Update translations ([pull #244](https://github.com/brarcher/loyalty-card-locker/pull/244))
+- Fix Spanish translations (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+- Update translations (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))

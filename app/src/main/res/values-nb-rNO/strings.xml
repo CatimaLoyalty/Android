@@ -51,7 +51,7 @@
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg dens strekkode nedenfor, eller «Dette kortet har ingen strekkode».</string>
-    <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
+    <string name="copy_to_clipboard_toast">ID-kort kopiert til utklippstavlen</string>
     <string name="thumbnailDescription">Miniatyrbilde for kort</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
@@ -88,7 +88,7 @@
     <string name="moveUp">Flytt oppover</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> korten</item>
     </plurals>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Rediger strekkode</string>
@@ -118,29 +118,29 @@
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="importFidme">Importer fra FidMe</string>
     <string name="importCatima">Importer fra Catima</string>
-    <string name="errorReadingImage">Klarte ikke å lese bildet</string>
+    <string name="errorReadingImage">Kunne ikke lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>
     <string name="addFromImage">Velg bilde fra galleri</string>
-    <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
+    <string name="unsupportedBarcodeType">Denne strekkoden type ennå ikke kan vises. Det kan være støttet i en senere versjon av appen.</string>
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som kort-ID</string>
     <string name="barcodeId">Strekkodeverdi</string>
-    <string name="importVoucherVaultMessage">Finn en fil som antagelig heter <i>voucher.vault.json</i> å importere.
-\nEller opprett den ved å trykke «Eksport» i Voucher Vault først.</string>
+    <string name="importVoucherVaultMessage">Velg din <i>vouchervault.json - </i> eksporter fra Kupong Vault å importere.
+\nEller opprette den ved å trykke på Eksport i Kupong Vault første.</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Finn en fil som antagelig heter <i>LoyaltyCardKeychain.csv</i> å importere.
-\nEller opprett den i Import/eksport-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
+    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv - </i> eksporter fra kundekort Nøkkelring til import.
+\nEller lage det fra Import/Eksport-menyen i lojalitetskort Nøkkelringen ved å trykke på Eksport det første.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Finn en fil som antagelig heter <i>fidme.export-request-xxxxx.zip</i> å importere, for så å velge strekkodetypene manuelt etterpå-
-\nEller opprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
-    <string name="importCatimaMessage">Finn en fil som antagelig heter <i>Catima.csv</i> å importere.
-\nEller opprett den i Import/eksport-menyen i et annet Catima-program ved å trykke «Eksporter» der først.</string>
-    <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
+    <string name="importFidmeMessage">Velg din <i>fidme-eksport-be-xxxxxx.zip</i> eksporter fra FidMe til å importere, og velg strekkode typer manuelt etterpå.
+\nEller lage den fra FidMe profil ved å velge Beskyttelse av Data og deretter trykke Trekke ut dataene mine første.</string>
+    <string name="importCatimaMessage">Velg din <i>catima.zip</i> eksporter fra Catima å importere.
+\nEller lage det fra Import/Eksport menyen på annen Catima app ved å trykke på Eksport det første.</string>
+    <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
-    <string name="intent_import_card_from_url_share_multiple_text">Jeg ønsker å dele noen kort med deg</string>
-    <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID-er til utklippstavle</string>
-    <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
+    <string name="copy_to_clipboard_multiple_toast">Id-kortet, kopieres til utklippstavlen</string>
+    <string name="app_resources">Fri tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Libre tredjeparts biblioteker: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
     <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
@@ -152,8 +152,8 @@
     <string name="setBackImage">Sett bakside</string>
     <string name="setFrontImage">Sett forside</string>
     <string name="photos">Bilder</string>
-    <string name="backImageDescription">Kortets bakside</string>
-    <string name="frontImageDescription">Kortets forside</string>
+    <string name="backImageDescription">Kortet er tilbake bilde</string>
+    <string name="frontImageDescription">Kortet er foran bildet</string>
     <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere.
 \nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
@@ -161,19 +161,19 @@
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> korten valgt</item>
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet\?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Slett dette kortet for godt\?</item>
-        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kortene for godt\?</item>
+        <item quantity="one">Slett dette <xliff:g>%d</xliff:g> kort permanent\?</item>
+        <item quantity="other">Slette disse<xliff:g>%d</xliff:g> korten permanent\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>
-    <string name="deleteTitle">Fjern kundekort</string>
+    <string name="deleteTitle">Slett kort</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
-        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
+        <item quantity="one">Slett <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Slett <xliff:g>%d</xliff:g> korten</item>
     </plurals>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
@@ -188,5 +188,5 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Draktfarge</string>
-    <string name="noGroupCards">Denne gruppen inneholder ikke noen kort</string>
+    <string name="noGroupCards">Denne gruppen inneholder ikke noen korten</string>
 </resources>

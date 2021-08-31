@@ -1,4 +1,2 @@
-Changes:
-
 - Add balance support
 - Reorganize barcode tab of edit view

@@ -1,3 +1,1 @@
-Changes:
-
-- Prevent crash when rendering a barcode exhausts the application's memory. ([pull #219](https://github.com/brarcher/loyalty-card-locker/pull/219))
+- Prevent crash when rendering a barcode exhausts the application's memory. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

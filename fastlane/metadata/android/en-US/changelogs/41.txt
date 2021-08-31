@@ -1,4 +1,2 @@
-Changes:
-
 - Added rounded edges to card icons on main overview
 - Added support for grouping entries

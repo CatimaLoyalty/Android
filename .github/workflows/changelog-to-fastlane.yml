@@ -22,3 +22,4 @@ jobs:
       with:
         title: "Update Fastlane changelogs"
         commit-message: "Update Fastlane changelogs"
+        branch-suffix: timestamp

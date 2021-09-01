@@ -21,3 +21,4 @@ jobs:
       with:
         title: "Update contributors"
         commit-message: "Update contributors"
+        branch-suffix: timestamp

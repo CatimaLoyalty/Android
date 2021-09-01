@@ -118,7 +118,7 @@
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="importFidme">Importer fra FidMe</string>
     <string name="importCatima">Importer fra Catima</string>
-    <string name="errorReadingImage">Klarte ikke å lese bildet</string>
+    <string name="errorReadingImage">Kunne ikke lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>
     <string name="addFromImage">Velg bilde fra galleri</string>
     <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
@@ -128,17 +128,17 @@
     <string name="importVoucherVaultMessage">Finn en fil som antagelig heter <i>voucher.vault.json</i> å importere.
 \nEller opprett den ved å trykke «Eksport» i Voucher Vault først.</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Finn en fil som antagelig heter <i>LoyaltyCardKeychain.csv</i> å importere.
-\nEller opprett den i Import/eksport-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
+    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv - </i> eksporter fra kundekort Nøkkelring til import.
+\nEller lage det fra Import/Eksport-menyen i lojalitetskort Nøkkelringen ved å trykke på Eksport det første.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Finn en fil som antagelig heter <i>fidme.export-request-xxxxx.zip</i> å importere, for så å velge strekkodetypene manuelt etterpå-
-\nEller opprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
+    <string name="importFidmeMessage">Velg din <i>fidme-eksport-be-xxxxxx.zip</i> eksporter fra FidMe til å importere, og velg strekkode typer manuelt etterpå.
+\nEller lage den fra FidMe profil ved å velge Beskyttelse av Data og deretter trykke Trekke ut dataene mine første.</string>
     <string name="importCatimaMessage">Finn en fil som antagelig heter <i>Catima.csv</i> å importere.
 \nEller opprett den i Import/eksport-menyen i et annet Catima-program ved å trykke «Eksporter» der først.</string>
-    <string name="settings_max_font_size_scale">Maksimal skriftstørrelse</string>
+    <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
-    <string name="intent_import_card_from_url_share_multiple_text">Jeg ønsker å dele noen kort med deg</string>
-    <string name="copy_to_clipboard_multiple_toast">Kopierte kort-ID-er til utklippstavle</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
+    <string name="copy_to_clipboard_multiple_toast">Kort-ID-er kopiert til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
@@ -161,19 +161,19 @@
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> korten valgt</item>
     </plurals>
-    <string name="deleteConfirmation">Slett dette kortet\?</string>
+    <string name="deleteConfirmation">Slett dette kortet for godt\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Slett dette kortet for godt\?</item>
-        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kortene for godt\?</item>
+        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>
-    <string name="deleteTitle">Fjern kundekort</string>
+    <string name="deleteTitle">Slett kort</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
-        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> kort</item>
+        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kort</item>
+        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kort</item>
     </plurals>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>

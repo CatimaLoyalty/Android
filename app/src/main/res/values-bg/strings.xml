@@ -175,4 +175,18 @@
         <item quantity="one">Изтриване на тази <xliff:g>%d</xliff:g> карта завинаги\?</item>
         <item quantity="other">Изтриване на тези <xliff:g>%d</xliff:g> карти за постоянно\?</item>
     </plurals>
+    <string name="app_contributors">Осъществено от: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Браун</string>
+    <string name="settings_grey_theme">Сив</string>
+    <string name="settings_green_theme">Зелен</string>
+    <string name="settings_sky_blue_theme">Небесно синьо</string>
+    <string name="settings_blue_theme">Синьо</string>
+    <string name="settings_violet_theme">Виолет</string>
+    <string name="settings_magenta_theme">Магента</string>
+    <string name="settings_pink_theme">Розов</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Цвят на темата</string>
+    <string name="settings_system_locale">Система</string>
+    <string name="settings_locale">Език</string>
+    <string name="noGroupCards">Тази група не съдържа карти</string>
 </resources>

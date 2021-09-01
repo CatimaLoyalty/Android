@@ -32,7 +32,7 @@
     <string name="groups">Grupper</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> korten</item>
     </plurals>
     <string name="all">Alla</string>
     <string name="deleteConfirmationGroup">Ta bort grupp\?</string>
@@ -176,4 +176,17 @@
     <string name="note">Anteckning</string>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
+    <string name="noExternalStoragePermissionError">Bevilja tillstånd för extern lagring för att först importera eller exportera kort</string>
+    <string name="app_contributors">Möjliggjordes av: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Brun</string>
+    <string name="settings_grey_theme">Grått</string>
+    <string name="settings_green_theme">Grön</string>
+    <string name="settings_sky_blue_theme">Himmelblått</string>
+    <string name="settings_blue_theme">Blå</string>
+    <string name="settings_violet_theme">Violett</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Tema färg</string>
+    <string name="noGroupCards">Denna grupp innehåller inga kort</string>
 </resources>

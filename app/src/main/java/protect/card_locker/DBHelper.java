@@ -55,6 +55,15 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String groupID = "groupId";
     }
 
+    public enum LoyaltyCardOrder {
+        AlphaAscending,
+        AlphaDescending,
+        ExpiryAscending,
+        ExpiryDescending,
+        BalanceAscending,
+        BalanceDescending
+    }
+
     private Context mContext;
 
     public DBHelper(Context context)
@@ -477,6 +486,19 @@ public class DBHelper extends SQLiteOpenHelper
      */
     public Cursor getLoyaltyCardCursor(final String filter, Group group)
     {
+        return getLoyaltyCardCursor(filter, group, LoyaltyCardOrder.AlphaAscending);
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store or note in a certain group sorted as requested.
+     *
+     * @param filter
+     * @param group
+     * @param order
+     * @return Cursor
+     */
+    public Cursor getLoyaltyCardCursor(final String filter, Group group, LoyaltyCardOrder order)
+    {
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };
         StringBuilder groupFilter = new StringBuilder();
@@ -507,7 +529,9 @@ public class DBHelper extends SQLiteOpenHelper
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
                 groupFilter.toString() +
-                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC," + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
+                getFieldForOrder(order) + " COLLATE NOCASE " + (isAscending(order) ? " ASC " : " DESC ") + ", " +
+                LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
                 limitString, selectionArgs, null);
     }
 
@@ -738,5 +762,25 @@ public class DBHelper extends SQLiteOpenHelper
         return Arrays.stream(object)
                 .map(String::valueOf)
                 .toArray(String[]::new);
+    }
+
+    private String getFieldForOrder(LoyaltyCardOrder order) {
+        if (order == LoyaltyCardOrder.AlphaAscending || order == LoyaltyCardOrder.AlphaDescending) {
+            return LoyaltyCardDbIds.STORE;
+        }
+
+        if (order == LoyaltyCardOrder.ExpiryAscending || order == LoyaltyCardOrder.ExpiryDescending) {
+            return LoyaltyCardDbIds.EXPIRY;
+        }
+
+        if (order == LoyaltyCardOrder.BalanceAscending || order == LoyaltyCardOrder.BalanceDescending) {
+            return LoyaltyCardDbIds.BALANCE;
+        }
+
+        throw new IllegalArgumentException("Unknown order " + order);
+    }
+
+    private boolean isAscending(LoyaltyCardOrder order) {
+        return order.toString().endsWith("Ascending");
     }
 }

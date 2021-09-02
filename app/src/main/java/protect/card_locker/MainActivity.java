@@ -45,6 +45,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private Menu mMenu;
     private GestureDetector mGestureDetector;
     protected String mFilter = "";
+    protected Object mGroup = null;
+    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.AlphaAscending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -145,7 +147,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                     TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
 
-                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null);
+                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null, mOrder);
 
                     dialog.dismiss();
                 });
@@ -190,7 +192,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 selectedTab = tab.getPosition();
-                updateLoyaltyCardList(mFilter, tab.getTag());
+                updateLoyaltyCardList(mFilter, tab.getTag(), mOrder);
 
                 // Store active tab in Shared Preference to restore next app launch
                 SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
@@ -234,7 +236,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
-        updateLoyaltyCardList(mFilter, null);
+        updateLoyaltyCardList(mFilter, null, mOrder);
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -299,7 +301,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 Context.MODE_PRIVATE);
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
 
-        Object group = null;
+        mGroup = null;
 
         if (groupsTabLayout.getTabCount() != 0) {
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
@@ -309,9 +311,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             groupsTabLayout.selectTab(tab);
             assert tab != null;
-            group = tab.getTag();
+            mGroup = tab.getTag();
         }
-        updateLoyaltyCardList(mFilter, group);
+        updateLoyaltyCardList(mFilter, mGroup, mOrder);
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
@@ -387,14 +389,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void updateLoyaltyCardList(String filterText, Object tag)
+    private void updateLoyaltyCardList(String filterText, Object tag, DBHelper.LoyaltyCardOrder order)
     {
         Group group = null;
         if (tag != null) {
             group = (Group) tag;
         }
 
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group));
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group, order));
 
         if(mDB.getLoyaltyCardCount() > 0)
         {
@@ -508,7 +510,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                     updateLoyaltyCardList(
                         mFilter,
-                        currentTab != null ? currentTab.getTag() : null
+                        currentTab != null ? currentTab.getTag() : null,
+                        mOrder
                     );
 
                     return true;
@@ -522,6 +525,26 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     public boolean onOptionsItemSelected(MenuItem inputItem)
     {
         int id = inputItem.getItemId();
+
+        if (id == R.id.action_sort)
+        {
+            DBHelper.LoyaltyCardOrder[] orderOptions = DBHelper.LoyaltyCardOrder.values();
+
+            for (int i = 0; i < orderOptions.length; i++) {
+                if (orderOptions[i] == mOrder) {
+                    int choiceIndex = i + 1;
+                    if (choiceIndex == orderOptions.length) {
+                        mOrder = orderOptions[0];
+                    } else {
+                        mOrder = orderOptions[choiceIndex];
+                    }
+                    break;
+                }
+            }
+
+            updateLoyaltyCardList(mFilter, mGroup, mOrder);
+            return true;
+        }
 
         if (id == R.id.action_manage_groups)
         {

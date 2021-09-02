@@ -152,7 +152,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 (String) (fieldName == LoyaltyCardField.barcodeId ? value : loyaltyCard.barcodeId),
                 (BarcodeFormat) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
-                (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus)
+                (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
+                Utils.getUnixTime()
         );
     }
 
@@ -549,7 +550,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 setTitle(R.string.addCardTitle);
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime());
                 setTitle(R.string.addCardTitle);
             }
         }
@@ -991,7 +992,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         }
         else
         {
-            loyaltyCardId = (int)db.insertLoyaltyCard(tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0);
+            loyaltyCardId = (int) db.insertLoyaltyCard(tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, true);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, false);

@@ -25,6 +25,7 @@ import java.util.TimeZone;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -128,7 +129,7 @@ public class VoucherVaultImporter implements Importer
                     throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0);
+            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime());
         }
 
         database.setTransactionSuccessful();

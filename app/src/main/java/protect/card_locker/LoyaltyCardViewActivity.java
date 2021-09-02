@@ -494,6 +494,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         }
 
         setFullscreen(fullscreenType);
+
+        db.updateLoyaltyCardLastUsed(loyaltyCard.id);
     }
 
     @Override

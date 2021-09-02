@@ -378,4 +378,8 @@ public class Utils {
         configuration.setLocales(localeList);
         return context.createConfigurationContext(configuration);
     }
+
+    static public long getUnixTime() {
+        return System.currentTimeMillis() / 1000;
+    }
 }

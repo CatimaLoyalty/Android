@@ -542,6 +542,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
+            // FIXME: Remove: Debug
+            Toast.makeText(getApplicationContext(), mOrder.toString(), Toast.LENGTH_SHORT).show();
+
             updateLoyaltyCardList(mFilter, mGroup, mOrder);
             return true;
         }

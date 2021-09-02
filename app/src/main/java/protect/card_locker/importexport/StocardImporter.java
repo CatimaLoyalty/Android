@@ -174,7 +174,7 @@ public class StocardImporter implements Importer
                 }
             }
 
-            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0);
+            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, Utils.getUnixTime());
 
             if (loyaltyCardData.containsKey("frontImage")) {
                 Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, true);

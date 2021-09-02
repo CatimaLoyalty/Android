@@ -31,11 +31,12 @@ public class LoyaltyCard implements Parcelable {
     public final Integer headerColor;
 
     public final int starStatus;
+    public final long lastUsed;
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
-                       @Nullable final String barcodeId, @Nullable final BarcodeFormat barcodeType, @Nullable final Integer headerColor,
-                       final int starStatus)
+                       @Nullable final String barcodeId, @Nullable final BarcodeFormat barcodeType,
+                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed)
     {
         this.id = id;
         this.store = store;
@@ -48,6 +49,7 @@ public class LoyaltyCard implements Parcelable {
         this.barcodeType = barcodeType;
         this.headerColor = headerColor;
         this.starStatus = starStatus;
+        this.lastUsed = lastUsed;
     }
 
     protected LoyaltyCard(Parcel in) {
@@ -65,6 +67,7 @@ public class LoyaltyCard implements Parcelable {
         int tmpHeaderColor = in.readInt();
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
+        lastUsed = in.readLong();
     }
 
     @Override
@@ -80,6 +83,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeString(barcodeType != null ? barcodeType.toString() : "");
         parcel.writeInt(headerColor != null ? headerColor : -1);
         parcel.writeInt(starStatus);
+        parcel.writeLong(lastUsed);
     }
 
     public static LoyaltyCard toLoyaltyCard(Cursor cursor)
@@ -92,6 +96,7 @@ public class LoyaltyCard implements Parcelable {
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
         int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
+        long lastUsed = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.LAST_USED));
 
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
@@ -122,7 +127,7 @@ public class LoyaltyCard implements Parcelable {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred);
+        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed);
     }
 
     @Override

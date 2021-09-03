@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
     <string name="cardShortcut">Skratka</string>
     <string name="noCardsMessage">Nie sú uložené žiadne karty, vložte prvú</string>
-    <string name="barcodeImageDescription">Obrázok čiarového kódu karty</string>
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>

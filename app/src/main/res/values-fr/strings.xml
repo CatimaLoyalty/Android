@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d\'abord une carte</string>
-    <string name="barcodeImageDescription">Image du code-barres</string>
     <string name="noStoreError">Aucun nom saisi</string>
     <string name="noCardIdError">Aucun numéro de carte saisi</string>
     <string name="noCardExistsError">Aucune carte trouvée</string>

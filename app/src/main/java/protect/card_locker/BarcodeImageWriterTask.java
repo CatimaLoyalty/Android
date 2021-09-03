@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -26,6 +27,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private static final String TAG = "Catima";
 
     private static final int IS_VALID = 999;
+    private Context mContext;
     private boolean isSuccesful;
 
     // When drawn in a smaller window 1D barcodes for some reason end up
@@ -42,10 +44,12 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private final boolean showFallback;
     private final Runnable callback;
 
-    BarcodeImageWriterTask(ImageView imageView, String cardIdString,
+    BarcodeImageWriterTask(Context context, ImageView imageView, String cardIdString,
                            BarcodeFormat barcodeFormat, TextView textView,
                            boolean showFallback, Runnable callback)
     {
+        mContext = context;
+
         isSuccesful = true;
         this.callback = callback;
 
@@ -243,9 +247,12 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             return;
         }
 
+        String formatPrettyName = format.name().replace("_", " ");
+
         imageView.setTag(isSuccesful);
 
         imageView.setImageBitmap(result);
+        imageView.setContentDescription(mContext.getString(R.string.barcodeImageDescriptionWithType, formatPrettyName));
         TextView textView = textViewReference.get();
 
         if(result != null)
@@ -261,7 +268,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             if (textView != null) {
                 textView.setVisibility(View.VISIBLE);
-                textView.setText(format.name());
+                textView.setText(formatPrettyName);
             }
         }
         else

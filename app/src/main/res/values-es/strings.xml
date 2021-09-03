@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Escanear código de barras de la tarjeta</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
     <string name="noCardsMessage">Añada una tarjeta primero</string>
-    <string name="barcodeImageDescription">Imagen del código de barras de la tarjeta</string>
     <string name="noStoreError">No se proporcionó ningún nombre</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>

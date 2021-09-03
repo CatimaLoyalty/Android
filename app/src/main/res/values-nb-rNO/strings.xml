@@ -21,7 +21,6 @@
     <string name="scanCardBarcode">Skann kortets strekkode</string>
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
-    <string name="barcodeImageDescription">Bilde av kortets strekkode</string>
     <string name="noStoreError">Navn ikke angitt</string>
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
     <string name="noCardExistsError">Kunne ikke finne kort</string>

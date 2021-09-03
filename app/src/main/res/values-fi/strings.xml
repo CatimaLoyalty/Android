@@ -117,7 +117,6 @@
     <string name="noCardExistsError">Korttia ei löytynyt</string>
     <string name="noCardIdError">Kortin ID-tunnusta ei annettu</string>
     <string name="noStoreError">Nimeä ei annettu</string>
-    <string name="barcodeImageDescription">Kuva kortin viivakoodista</string>
     <string name="card_ids_copied">Kopioidut korttitunnukset</string>
     <string name="noCardsMessage">Lisää ensin kortti</string>
     <string name="cardShortcut">Kortin pikakuvake</string>

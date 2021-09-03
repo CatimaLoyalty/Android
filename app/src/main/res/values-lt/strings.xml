@@ -15,7 +15,6 @@
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
-    <string name="barcodeImageDescription">Kortelės brūkšninio kodo vaizdas</string>
     <string name="noStoreError">Neįvestas pavadinimas</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>

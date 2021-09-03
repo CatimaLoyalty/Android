@@ -25,7 +25,6 @@
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Сначала добавьте карту</string>
-    <string name="barcodeImageDescription">Изображение штрих-кода карты</string>
     <string name="noStoreError">Название не указано</string>
     <string name="noCardIdError">Номер карты не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>

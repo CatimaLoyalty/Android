@@ -72,7 +72,6 @@
     <string name="noCardExistsError">Ne eblis trovi karto</string>
     <string name="noCardIdError">Neniu karto ID eniris</string>
     <string name="noStoreError">Neniu eniris nomo</string>
-    <string name="barcodeImageDescription">Bildo de barcode card</string>
     <string name="noCardsMessage">Aldoni karto unua</string>
     <string name="cardShortcut">Karto Mallongirejo</string>
     <string name="scanCardBarcode">Scintigrafio Barcode Card</string>

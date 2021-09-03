@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Najprej dodajte kartico</string>
-    <string name="barcodeImageDescription">Slika črtne kode na kartici</string>
     <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
     <string name="noCardIdError">Številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>

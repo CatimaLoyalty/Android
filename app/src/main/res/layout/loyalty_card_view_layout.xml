@@ -71,8 +71,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/centerGuideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/maximizeButton"
-                android:contentDescription="@string/barcodeImageDescription"/>
+                app:layout_constraintTop_toBottomOf="@+id/maximizeButton"/>
 
             <ImageButton
                 android:id="@+id/minimizeButton"
@@ -148,6 +147,7 @@
             android:layout_height="80dp"
             android:layout_gravity="top|start"
             android:scaleType="fitCenter"
+            android:contentDescription="@string/toggleMoreInfo"
             app:tint="#ffffff"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
 

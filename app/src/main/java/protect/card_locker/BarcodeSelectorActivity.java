@@ -194,7 +194,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
                         image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                         Log.d(TAG, "Generating barcode for type " + formatType);
-                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
+                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
                         barcodeGeneratorTasks.add(task);
                         task.execute();
                     }
@@ -203,7 +203,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
         else
         {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
+            BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
             barcodeGeneratorTasks.add(task);
             task.execute();
         }

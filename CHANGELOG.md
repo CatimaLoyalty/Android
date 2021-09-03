@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 82 (2021-09-03)
+
+- Improved support for screen readers
+
 ## v2.4.0 - 81 (2021-08-29)
 
 - Improve card list for landscape and tablet display

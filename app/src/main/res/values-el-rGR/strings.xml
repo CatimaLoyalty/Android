@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Σαρώστε τον κωδικό της κάρτας</string>
     <string name="cardShortcut">Συντόμευση Κάρτας</string>
     <string name="noCardsMessage">Δεν υπάρχουν κάρτες. προσθέστε μία πρώτα</string>
-    <string name="barcodeImageDescription">Εικόνα του barcode της κάρτας</string>
     <string name="noStoreError">Δεν δώσατε κατάστημα</string>
     <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>

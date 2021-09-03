@@ -15,7 +15,6 @@
     <string name="errorReadingImage">Kunde inte läsa bilden</string>
     <string name="currency">Valuta</string>
     <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL. Var snäll och rapportera detta.</string>
-    <string name="barcodeImageDescription">Bild av kortets streckkod</string>
     <string name="card_ids_copied">Kopierade kort ID:n</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort valt</item>

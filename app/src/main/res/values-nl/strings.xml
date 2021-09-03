@@ -25,7 +25,6 @@
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
-    <string name="barcodeImageDescription">Afbeelding van barcode</string>
     <string name="noStoreError">Geen naam ingevoerd</string>
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>

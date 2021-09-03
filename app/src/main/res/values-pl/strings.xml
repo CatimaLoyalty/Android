@@ -24,7 +24,6 @@
     <string name="scanCardBarcode">Zeskanuj kod kreskowy karty lojalnościowej</string>
     <string name="cardShortcut">Skrót karty</string>
     <string name="noCardsMessage">Najpierw dodaj kartę</string>
-    <string name="barcodeImageDescription">Obraz kodu kreskowego karty</string>
     <string name="noStoreError">Nie wprowadzono nazwy</string>
     <string name="noCardIdError">Nie wprowadzono identyfikatora karty</string>
     <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>

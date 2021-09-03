@@ -7,7 +7,6 @@
     <string name="settings_display_barcode_max_brightness">Яскравіший штрих-код</string>
     <string name="enterBarcodeInstructions">Введіть ID карти та оберіть тип штрих-коду чи \"Ця карта не має штрих-коду\".</string>
     <string name="selectBarcodeTitle">Оберіть штрих-код</string>
-    <string name="barcodeImageDescription">Зображення штрих-коду карти</string>
     <string name="scanCardBarcode">Відсканувати штрих-код карти</string>
     <string name="noBarcode">Без штрих-коду</string>
     <string name="barcodeNoBarcode">Ця карта не має штрих-коду</string>

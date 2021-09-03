@@ -1144,12 +1144,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
+                            new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
+            new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
         }
 
         showBarcode();

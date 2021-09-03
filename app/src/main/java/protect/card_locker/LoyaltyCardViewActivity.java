@@ -659,6 +659,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
                             Log.d(TAG, "ImageView size now known");
                             new BarcodeImageWriterTask(
+                                getApplicationContext(),
                                 barcodeImage,
                                 barcodeIdString != null ? barcodeIdString : cardIdString,
                                 format,

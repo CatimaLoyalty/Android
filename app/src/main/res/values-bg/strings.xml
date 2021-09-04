@@ -188,4 +188,6 @@
     <string name="settings_system_locale">Система</string>
     <string name="settings_locale">Език</string>
     <string name="noGroupCards">Тази група не съдържа карти</string>
+    <string name="toggleMoreInfo">Превключване на повече информация</string>
+    <string name="barcodeImageDescriptionWithType">Изображение на щрихкод на карта от вида <xliff:g>%s</xliff:g></string>
 </resources>

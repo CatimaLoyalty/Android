@@ -3,6 +3,7 @@
 ## Unreleased - 82 (2021-09-03)
 
 - Improved support for screen readers
+- Don't crash when trying to open a video from gallery
 
 ## v2.4.0 - 81 (2021-08-29)
 

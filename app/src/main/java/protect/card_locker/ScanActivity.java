@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
@@ -168,7 +169,14 @@ public class ScanActivity extends CatimaAppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        BarcodeValues barcodeValues;
+
+        try {
+            barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        } catch (NullPointerException e) {
+            Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            return;
+        }
 
         if (!barcodeValues.isEmpty()) {
             Intent manualResult = new Intent();

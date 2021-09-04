@@ -188,4 +188,6 @@
     <string name="settings_theme_color">Couleur du thème</string>
     <string name="app_contributors">Rendu possible par : <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Ce groupe ne contient pas de cartes</string>
+    <string name="toggleMoreInfo">Activer/désactiver l\'affichage de plus d\'infos</string>
+    <string name="barcodeImageDescriptionWithType">Image du code-barres de la carte de type <xliff:g>%s</xliff:g></string>
 </resources>

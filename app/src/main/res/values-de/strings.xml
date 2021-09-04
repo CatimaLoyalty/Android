@@ -188,4 +188,6 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="toggleMoreInfo">Umschalten, um weitere Informationen anzuzeigen</string>
+    <string name="barcodeImageDescriptionWithType">Bild des Kartenstrichcodes des Typs <xliff:g>%s</xliff:g></string>
 </resources>

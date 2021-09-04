@@ -1,1 +1,2 @@
 - Improved support for screen readers
+- Don't crash when trying to open a video from gallery

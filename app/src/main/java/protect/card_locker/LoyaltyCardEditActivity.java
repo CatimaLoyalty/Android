@@ -1080,6 +1080,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                     }
 
                     hasChanged = true;
+                } else {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
             } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
                 Bitmap bitmap = null;
@@ -1088,7 +1090,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 } catch (IOException e) {
                     Log.e(TAG, "Error getting data from image file");
                     e.printStackTrace();
-                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
 
                 if (bitmap != null) {
@@ -1100,6 +1101,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                     }
 
                     hasChanged = true;
+                } else {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
             } else {
                 BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);

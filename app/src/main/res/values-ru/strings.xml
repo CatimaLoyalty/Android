@@ -196,4 +196,6 @@
     <string name="settings_theme_color">Цвет темы</string>
     <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">В группе нет карт</string>
+    <string name="barcodeImageDescriptionWithType">Изображение штрих-кода карты типа <xliff:g>%s</xliff:g></string>
+    <string name="toggleMoreInfo">Переключение отображения дополнительной информации</string>
 </resources>

@@ -165,8 +165,8 @@
     <plurals name="selectedCardCount">
         <item quantity="one">Обрано: <xliff:g>%d</xliff:g> карта</item>
         <item quantity="few">Обрано: <xliff:g>%d</xliff:g> карти</item>
-        <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карт</item>
-        <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карток</item>
+        <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карток</item>
     </plurals>
     <string name="deleteTitle">Видалити картку</string>
     <string name="deleteConfirmation">Бажаєте видалити карту\?</string>
@@ -182,18 +182,20 @@
         <item quantity="many">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
         <item quantity="other">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
     </plurals>
-    <string name="settings_blue_theme">Синя</string>
-    <string name="settings_violet_theme">Фіолетова</string>
-    <string name="settings_magenta_theme">Пурпурова</string>
-    <string name="settings_pink_theme">Рожева</string>
+    <string name="settings_blue_theme">Синій</string>
+    <string name="settings_violet_theme">Фіолетовий</string>
+    <string name="settings_magenta_theme">Пурпуровий</string>
+    <string name="settings_pink_theme">Рожевий</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Колір теми</string>
     <string name="settings_system_locale">Системна</string>
     <string name="settings_locale">Мова</string>
-    <string name="settings_brown_theme">Коричнева</string>
-    <string name="settings_grey_theme">Сіра</string>
-    <string name="settings_green_theme">Зелена</string>
-    <string name="settings_sky_blue_theme">Небесно-синя</string>
+    <string name="settings_brown_theme">Коричневий</string>
+    <string name="settings_grey_theme">Сірий</string>
+    <string name="settings_green_theme">Зелений</string>
+    <string name="settings_sky_blue_theme">Небесно-синій</string>
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Ця група не містить жодних карток</string>
+    <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
+    <string name="barcodeImageDescriptionWithType">Зображення штрих-коду карти типу <xliff:g>%s</xliff:g></string>
 </resources>

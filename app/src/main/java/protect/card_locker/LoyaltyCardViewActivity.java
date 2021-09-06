@@ -680,10 +680,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
             } else {
                 drawBarcode();
             }
+            mainImage.setBackgroundColor(Color.WHITE);
         } else if (wantedImageType == ImageType.IMAGE_FRONT) {
             mainImage.setImageBitmap(frontImageBitmap);
+            mainImage.setBackgroundColor(Color.TRANSPARENT);
         } else if (wantedImageType == ImageType.IMAGE_BACK) {
             mainImage.setImageBitmap(backImageBitmap);
+            mainImage.setBackgroundColor(Color.TRANSPARENT);
         } else {
             throw new IllegalArgumentException("Unknown image type: " + wantedImageType);
         }
@@ -772,8 +775,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
             // Show maximize and hide minimize button and scaler
             maximizeButton.setVisibility(imageTypes.isEmpty() ? View.GONE : View.VISIBLE);
-            previousImageButton.setVisibility(imageTypes.size() >= 2 ? View.VISIBLE : View.GONE);
-            nextImageButton.setVisibility(imageTypes.size() >= 2 ? View.VISIBLE : View.GONE);
+            previousImageButton.setVisibility(imageTypes.size() >= 2 ? View.VISIBLE : View.INVISIBLE);
+            nextImageButton.setVisibility(imageTypes.size() >= 2 ? View.VISIBLE : View.INVISIBLE);
 
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);

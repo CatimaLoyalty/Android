@@ -47,7 +47,7 @@
                 android:id="@+id/maximizeButton"
                 android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="15.0dip"
                 android:layout_marginEnd="15.0dip"
                 android:layout_marginTop="10dp"
@@ -56,78 +56,67 @@
                 android:contentDescription="@string/moveBarcodeToTopOfScreen"
                 app:tint="#ffffff"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/mainImage"
+                app:layout_constraintBottom_toTopOf="@+id/mainImageHolder"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
-                android:id="@+id/mainImage"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/mainImageHolder"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginStart="15.0dip"
                 android:layout_marginEnd="15.0dip"
-                android:padding="10dp"
-                android:background="#ffffff"
                 app:layout_constraintBottom_toTopOf="@+id/centerGuideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/maximizeButton"/>
+                app:layout_constraintTop_toBottomOf="@+id/maximizeButton">
+                <ImageButton
+                    android:id="@+id/previousImageButton"
+                    android:visibility="invisible"
+                    android:layout_weight="0"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:padding="0dp"
+                    app:srcCompat="@drawable/ic_baseline_arrow_left_24"
+                    app:tint="#ffffff" />
+
+                <ImageView
+                    android:id="@+id/mainImage"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15.0dip"
+                    android:layout_marginEnd="15.0dip"
+                    android:background="#ffffff" />
+
+                <ImageButton
+                    android:id="@+id/nextImageButton"
+                    android:visibility="invisible"
+                    android:layout_weight="0"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:padding="0dp"
+                    app:srcCompat="@drawable/ic_baseline_arrow_right_24"
+                    app:tint="#ffffff" />
+            </LinearLayout>
 
             <ImageButton
                 android:id="@+id/minimizeButton"
                 android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="15.0dip"
                 android:layout_marginEnd="15.0dip"
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
                 android:contentDescription="@string/moveBarcodeToCenterOfScreen"
                 app:tint="#ffffff"
-                app:layout_constraintTop_toBottomOf="@+id/mainImage"
+                app:layout_constraintTop_toBottomOf="@+id/mainImageHolder"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/prevNextButtons"
-                app:layout_constraintTop_toBottomOf="@+id/minimizeButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/previousImageButton"
-                    android:visibility="gone"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15.0dip"
-                    android:layout_marginEnd="15.0dip"
-                    android:padding="0dp"
-                    app:srcCompat="@drawable/ic_baseline_arrow_left_24"
-                    android:contentDescription="@string/moveBarcodeToCenterOfScreen"
-                    app:tint="#ffffff"
-                    app:layout_constraintTop_toBottomOf="@+id/mainImage"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/nextImageButton"
-                    android:visibility="gone"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="15.0dip"
-                    android:layout_marginEnd="15.0dip"
-                    android:padding="0dp"
-                    app:srcCompat="@drawable/ic_baseline_arrow_right_24"
-                    android:contentDescription="@string/moveBarcodeToCenterOfScreen"
-                    app:tint="#ffffff"
-                    app:layout_constraintTop_toBottomOf="@+id/mainImage"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </LinearLayout>
 
             <SeekBar
                 android:id="@+id/barcodeScaler"
@@ -150,7 +139,7 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_marginRight="10.0dip"
                 android:paddingBottom="80dp"
-                app:layout_constraintTop_toBottomOf="@+id/prevNextButtons"
+                app:layout_constraintTop_toBottomOf="@+id/mainImageHolder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

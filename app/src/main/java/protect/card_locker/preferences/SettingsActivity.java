@@ -1,9 +1,12 @@
 package protect.card_locker.preferences;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -14,11 +17,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;

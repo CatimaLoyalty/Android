@@ -18,21 +18,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.ActionMode;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
@@ -214,12 +211,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mGestureDetector = new GestureDetector(this, this);
 
-        View.OnTouchListener gestureTouchListener = new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(final View v, final MotionEvent event){
-                return mGestureDetector.onTouchEvent(event);
-            }
-        };
+        View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
         mHelpText = findViewById(R.id.helpText);
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);

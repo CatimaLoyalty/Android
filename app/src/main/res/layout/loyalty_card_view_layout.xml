@@ -74,23 +74,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/maximizeButton"/>
 
-            <LinearLayout
-                android:id="@+id/dotIndicator"
-                android:visibility="gone"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="15.0dip"
-                android:layout_marginEnd="15.0dip"
-                app:layout_constraintBottom_toTopOf="@+id/cardIdView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainImage"/>
-
             <ImageButton
                 android:id="@+id/minimizeButton"
                 android:visibility="gone"
@@ -106,6 +89,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/mainImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/dotIndicator"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="15.0dip"
+                android:layout_marginEnd="15.0dip"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minimizeButton"/>
 
             <SeekBar
                 android:id="@+id/barcodeScaler"

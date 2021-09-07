@@ -131,27 +131,40 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         Log.d(TAG, "On fling");
 
-        // Don't swipe if we have too much vertical movement
         if (Math.abs(velocityY) > (0.75 * Math.abs(velocityX))) {
-            return false;
-        }
+            // Vertical swipe
+            // Swipe up
+            if (velocityY < -150) {
+                if (!isFullscreen) {
+                    setFullscreen(true);
+                }
+                return true;
+            }
 
-        // Swipe right
-        if (velocityX < -150) {
-            setMainImage(true, false);
+            // Swipe down
+            if (velocityY > 150) {
+                if (isFullscreen) {
+                    setFullscreen(false);
+                }
+                return true;
+            }
+        } else if (Math.abs(velocityX) > (0.75 * Math.abs(velocityY))) {
+            // Horizontal swipe
+            // Swipe right
+            if (velocityX < -150) {
+                setMainImage(true, false);
+                return true;
+            }
 
-            return true;
-        }
+            // Swipe left
+            if (velocityX > 150) {
+                setMainImage(false, false);
+                return true;
+            }
 
-        // Swipe left
-        if (velocityX > 150) {
-            setMainImage(false, false);
-
-            return true;
-        }
-
-        if (imageTypes.size() > 1) {
-            Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+            if (imageTypes.size() > 1) {
+                Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+            }
         }
 
         return false;
@@ -811,7 +824,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
-            dotIndicator.setVisibility(View.GONE);
             minimizeButton.setVisibility(View.VISIBLE);
             barcodeScaler.setVisibility(View.VISIBLE);
 
@@ -854,7 +866,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Show maximize and hide minimize button and scaler
             maximizeButton.setVisibility(imageTypes.isEmpty() ? View.GONE : View.VISIBLE);
-            dotIndicator.setVisibility(View.VISIBLE);
 
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);

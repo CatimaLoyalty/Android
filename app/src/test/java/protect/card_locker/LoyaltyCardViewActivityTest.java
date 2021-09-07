@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -1270,11 +1271,12 @@ public class LoyaltyCardViewActivityTest
 
         assertEquals(false, activity.isFinishing());
 
-        ImageView barcodeImage = activity.findViewById(R.id.barcode);
+        ImageView mainImage = activity.findViewById(R.id.mainImage);
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
         View bottomSheet = activity.findViewById(R.id.bottom_sheet);
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
+        LinearLayout dotIndicator = activity.findViewById(R.id.dotIndicator);
         FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
         SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
@@ -1290,9 +1292,10 @@ public class LoyaltyCardViewActivityTest
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
         assertEquals(View.GONE, barcodeScaler.getVisibility());
+        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
-        // Click barcode to toggle fullscreen
-        barcodeImage.performClick();
+        // Click maximize button to activate fullscreen
+        maximizeButton.performClick();
         shadowOf(getMainLooper()).idle();
 
         // Android should be in fullscreen mode
@@ -1307,9 +1310,10 @@ public class LoyaltyCardViewActivityTest
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
         assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
+        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
-        // Clicking barcode again should deactivate fullscreen mode
-        barcodeImage.performClick();
+        // Clicking minimize button should deactivate fullscreen mode
+        minimizeButton.performClick();
         shadowOf(getMainLooper()).idle();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
@@ -1320,9 +1324,10 @@ public class LoyaltyCardViewActivityTest
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
         assertEquals(View.GONE, barcodeScaler.getVisibility());
+        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Another click back to fullscreen
-        barcodeImage.performClick();
+        maximizeButton.performClick();
         shadowOf(getMainLooper()).idle();
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
@@ -1333,6 +1338,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
         assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
+        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();
@@ -1346,6 +1352,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
         assertEquals(View.GONE, barcodeScaler.getVisibility());
+        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();

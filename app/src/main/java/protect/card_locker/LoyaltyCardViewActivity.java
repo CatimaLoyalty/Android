@@ -185,10 +185,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private Drawable getDotIcon(boolean active) {
-        Drawable icon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
-        icon.setTint(getResources().getColor(R.color.iconColor, getTheme()));
+        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
+        assert unwrappedIcon != null;
+        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        DrawableCompat.setTint(wrappedIcon, getResources().getColor(R.color.iconColor));
 
-        return icon;
+        return wrappedIcon;
     }
 
     private Drawable getIcon(int icon, boolean dark)

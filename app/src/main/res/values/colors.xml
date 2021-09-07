@@ -4,6 +4,7 @@
     <color name="colorPrimary">#B53F3F</color>
     <color name="colorPrimaryLight">#E87575</color>
     <color name="colorPrimaryDark">#840000</color>
+    <color name="colorPrimaryDisabled">#484848</color>
     <color name="colorSecondary">#ffc107</color>
     <color name="colorSecondaryLight">#fff350</color>
     <color name="colorSecondaryDark">#c79100</color>

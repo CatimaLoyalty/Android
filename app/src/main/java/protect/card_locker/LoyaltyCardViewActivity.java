@@ -113,6 +113,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
+        if (imageTypes.size() > 1) {
+            Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+        }
+
         return false;
     }
 
@@ -138,7 +142,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 if (!isFullscreen) {
                     setFullscreen(true);
                 }
-                return true;
+                return false;
             }
 
             // Swipe down
@@ -146,28 +150,28 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 if (isFullscreen) {
                     setFullscreen(false);
                 }
-                return true;
+                return false;
             }
         } else if (Math.abs(velocityX) > (0.75 * Math.abs(velocityY))) {
             // Horizontal swipe
             // Swipe right
             if (velocityX < -150) {
                 setMainImage(true, false);
-                return true;
+                return false;
             }
 
             // Swipe left
             if (velocityX > 150) {
                 setMainImage(false, false);
-                return true;
-            }
-
-            if (imageTypes.size() > 1) {
-                Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+                return false;
             }
         }
 
-        return false;
+        if (imageTypes.size() > 1) {
+            Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
     }
 
     enum ImageType {

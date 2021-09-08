@@ -356,27 +356,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     @Override
     public void onBackPressed()
     {
-        if (mMenu == null)
-        {
-            super.onBackPressed();
-            return;
-        }
+        if (mMenu != null) {
+            SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
 
-        SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
-
-        if (!searchView.isIconified())
-        {
-            searchView.setIconified(true);
-        } else {
-            TabLayout groupsTabLayout = findViewById(R.id.groups);
-
-            if (groupsTabLayout.getVisibility() == View.VISIBLE && selectedTab != 0) {
-                selectedTab = 0;
-                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(0));
-            } else {
-                super.onBackPressed();
+            if (!searchView.isIconified()) {
+                searchView.setIconified(true);
+                return;
             }
         }
+
+        super.onBackPressed();
     }
 
     private void updateLoyaltyCardList(String filterText, Object tag)

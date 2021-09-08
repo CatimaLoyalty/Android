@@ -190,4 +190,5 @@
     <string name="noGroupCards">Questo gruppo non contiene carte</string>
     <string name="toggleMoreInfo">Attiva/disattiva la visualizzazione di altre informazioni</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre della carta del tipo <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Scorri o premi a lungo per cambiare immagine</string>
 </resources>

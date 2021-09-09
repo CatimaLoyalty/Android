@@ -125,7 +125,7 @@
     <string name="delete">削除</string>
     <string name="edit">編集</string>
     <string name="save">保存</string>
-    <string name="cancel">取り消し</string>
+    <string name="cancel">取消</string>
     <string name="unstar">お気に入りから削除</string>
     <string name="star">お気に入りに追加</string>
     <string name="noBarcode">バーコードなし</string>
@@ -186,4 +186,5 @@
     <string name="settings_system_locale">システム</string>
     <string name="settings_locale">言語</string>
     <string name="noGroupCards">このグループにはカードがありません</string>
+    <string name="swipeToSwitchImages">画像を切り替えるには長押し、またはスワイプ</string>
 </resources>

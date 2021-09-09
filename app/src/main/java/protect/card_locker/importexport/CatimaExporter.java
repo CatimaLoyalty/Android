@@ -143,7 +143,7 @@ public class CatimaExporter implements Exporter
                     card.balanceType,
                     card.cardId,
                     card.barcodeId,
-                    card.barcodeType,
+                    card.barcodeType != null ? card.barcodeType.name() : "",
                     card.headerColor,
                     card.starStatus);
 

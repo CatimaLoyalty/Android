@@ -38,14 +38,14 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private final WeakReference<ImageView> imageViewReference;
     private final WeakReference<TextView> textViewReference;
     private String cardId;
-    private final BarcodeFormat format;
+    private final CatimaBarcode format;
     private final int imageHeight;
     private final int imageWidth;
     private final boolean showFallback;
     private final Runnable callback;
 
     BarcodeImageWriterTask(Context context, ImageView imageView, String cardIdString,
-                           BarcodeFormat barcodeFormat, TextView textView,
+                           CatimaBarcode barcodeFormat, TextView textView,
                            boolean showFallback, Runnable callback)
     {
         mContext = context;
@@ -78,9 +78,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         this.showFallback = showFallback;
     }
 
-    private int getMaxWidth(BarcodeFormat format)
+    private int getMaxWidth(CatimaBarcode format)
     {
-        switch(format)
+        switch(format.format())
         {
             // 2D barcodes
             case AZTEC:
@@ -108,9 +108,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
     }
 
-    private String getFallbackString(BarcodeFormat format)
+    private String getFallbackString(CatimaBarcode format)
     {
-        switch(format)
+        switch(format.format())
         {
             // 2D barcodes
             case AZTEC:
@@ -157,7 +157,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         {
             try
             {
-                bitMatrix = writer.encode(cardId, format, imageWidth, imageHeight, null);
+                bitMatrix = writer.encode(cardId, format.format(), imageWidth, imageHeight, null);
             }
             catch(Exception e)
             {
@@ -247,7 +247,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             return;
         }
 
-        String formatPrettyName = format.name().replace("_", " ");
+        String formatPrettyName = format.prettyName();
 
         imageView.setTag(isSuccesful);
 

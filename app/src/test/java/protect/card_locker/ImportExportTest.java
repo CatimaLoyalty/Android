@@ -63,7 +63,7 @@ public class ImportExportTest
     private final int MONTHS_PER_YEAR = 12;
 
     private final String BARCODE_DATA = "428311627547";
-    private final BarcodeFormat BARCODE_TYPE = BarcodeFormat.UPC_A;
+    private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
 
     @Before
     public void setUp()
@@ -138,7 +138,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -154,7 +154,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -171,7 +171,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -189,7 +189,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -234,7 +234,7 @@ public class ImportExportTest
             assertEquals(null, card.balanceType);
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE, card.barcodeType);
+            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(0, card.starStatus);
 
@@ -268,7 +268,7 @@ public class ImportExportTest
             assertEquals(null, card.balanceType);
             assertEquals(BARCODE_DATA, card.cardId);
             assertEquals(null, card.barcodeId);
-            assertEquals(BARCODE_TYPE, card.barcodeType);
+            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(1, card.starStatus);
 
@@ -290,7 +290,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE, card.barcodeType);
+        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
         assertEquals(Integer.valueOf(index), card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -626,7 +626,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -664,7 +664,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
         assertNull(card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -765,7 +765,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
         assertEquals(1, (long) card.headerColor);
         assertEquals(1, card.starStatus);
 
@@ -803,7 +803,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -860,7 +860,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("12345", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card.barcodeType.format());
         assertEquals(1, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -884,7 +884,7 @@ public class ImportExportTest
         HashMap<Integer, Bitmap> loyaltyCardBackImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", BarcodeFormat.QR_CODE, 1, 0);
+        int loyaltyCardId = (int) db.insertLoyaltyCard("Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0);
         loyaltyCardHashMap.put(loyaltyCardId, db.getLoyaltyCard(loyaltyCardId));
         db.insertGroup("One");
         List<Group> groups = Arrays.asList(db.getGroup("One"));
@@ -925,7 +925,7 @@ public class ImportExportTest
             assertEquals(loyaltyCard.cardId, dbLoyaltyCard.cardId);
             assertEquals(loyaltyCard.barcodeId, dbLoyaltyCard.barcodeId);
             assertEquals(loyaltyCard.starStatus, dbLoyaltyCard.starStatus);
-            assertEquals(loyaltyCard.barcodeType, dbLoyaltyCard.barcodeType);
+            assertEquals(loyaltyCard.barcodeType != null ? loyaltyCard.barcodeType.format() : null, dbLoyaltyCard.barcodeType != null? dbLoyaltyCard.barcodeType.format() : null);
             assertEquals(loyaltyCard.balanceType, dbLoyaltyCard.balanceType);
             assertEquals(loyaltyCard.headerColor, dbLoyaltyCard.headerColor);
 
@@ -1027,7 +1027,7 @@ public class ImportExportTest
         assertEquals(Currency.getInstance("USD"), card1.balanceType);
         assertEquals("1234", card1.cardId);
         assertEquals("5432", card1.barcodeId);
-        assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType);
+        assertEquals(BarcodeFormat.QR_CODE, card1.barcodeType.format());
         assertEquals(1, (long) card1.headerColor);
         assertEquals(0, card1.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card1.id, true));
@@ -1102,7 +1102,7 @@ public class ImportExportTest
         assertEquals(null, card5.balanceType);
         assertEquals("98765432", card5.cardId);
         assertEquals("23456", card5.barcodeId);
-        assertEquals(BarcodeFormat.CODE_128, card5.barcodeType);
+        assertEquals(BarcodeFormat.CODE_128, card5.barcodeType.format());
         assertEquals(-10902850, (long) card5.headerColor);
         assertEquals(0, card5.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card5.id, true));
@@ -1117,7 +1117,7 @@ public class ImportExportTest
         assertEquals(Currency.getInstance("EUR"), card6.balanceType);
         assertEquals("a", card6.cardId);
         assertEquals("-5317", card6.barcodeId);
-        assertEquals(BarcodeFormat.AZTEC, card6.barcodeType);
+        assertEquals(BarcodeFormat.AZTEC, card6.barcodeType.format());
         assertEquals(null, card6.headerColor);
         assertEquals(0, card6.starStatus);
         assertEquals(null, Utils.retrieveCardImage(activity.getApplicationContext(), card6.id, true));
@@ -1198,7 +1198,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("55555", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, true));
@@ -1213,7 +1213,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("7649484", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.EAN_13, card.barcodeType);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, true)));
@@ -1229,7 +1229,7 @@ public class ImportExportTest
         assertEquals(null, card.balanceType);
         assertEquals("(01)09010374000019(21)02097564604859211217(10)01231287693", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType);
+        assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType.format());
         assertEquals(0, card.starStatus);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, true));
@@ -1281,7 +1281,7 @@ public class ImportExportTest
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("123456", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.CODE_128, card.barcodeType);
+        assertEquals(BarcodeFormat.CODE_128, card.barcodeType.format());
         assertEquals(Color.GRAY, (long) card.headerColor);
         assertEquals(0, card.starStatus);
 
@@ -1294,7 +1294,7 @@ public class ImportExportTest
         assertEquals(Currency.getInstance("USD"), card.balanceType);
         assertEquals("26846363", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.CODE_39, card.barcodeType);
+        assertEquals(BarcodeFormat.CODE_39, card.barcodeType.format());
         assertEquals(Color.rgb(128, 0, 128), (long) card.headerColor);
         assertEquals(0, card.starStatus);
 

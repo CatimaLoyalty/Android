@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.HashMap;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.R;
@@ -165,12 +166,12 @@ public class StocardImporter implements Importer
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
-            BarcodeFormat barcodeType = null;
+            CatimaBarcode barcodeType = null;
             if (barcodeTypeString != null) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
-                    barcodeType = BarcodeFormat.RSS_EXPANDED;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.RSS_EXPANDED);
                 } else {
-                    barcodeType = BarcodeFormat.valueOf(barcodeTypeString);
+                    barcodeType = CatimaBarcode.fromName(barcodeTypeString);
                 }
             }
 

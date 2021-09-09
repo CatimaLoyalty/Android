@@ -40,25 +40,6 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
     public static final String BARCODE_CONTENTS = "contents";
     public static final String BARCODE_FORMAT = "format";
 
-    // These are all the barcode types that the zxing library
-    // is able to generate a barcode for, and thus should be
-    // the only barcodes which we should attempt to scan.
-    public static final Collection<String> SUPPORTED_BARCODE_TYPES = Collections.unmodifiableList(
-        Arrays.asList(
-                BarcodeFormat.AZTEC.name(),
-                BarcodeFormat.CODE_39.name(),
-                BarcodeFormat.CODE_128.name(),
-                BarcodeFormat.CODABAR.name(),
-                BarcodeFormat.DATA_MATRIX.name(),
-                BarcodeFormat.EAN_8.name(),
-                BarcodeFormat.EAN_13.name(),
-                BarcodeFormat.ITF.name(),
-                BarcodeFormat.PDF_417.name(),
-                BarcodeFormat.QR_CODE.name(),
-                BarcodeFormat.UPC_A.name(),
-                BarcodeFormat.UPC_E.name()
-        ));
-
     private Map<String, Pair<Integer, Integer>> barcodeViewMap;
     private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
 
@@ -151,7 +132,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text)
     {
-        final BarcodeFormat format = BarcodeFormat.valueOf(formatType);
+        final CatimaBarcode format = CatimaBarcode.fromName(formatType);
         if(format == null)
         {
             Log.w(TAG, "Unsupported barcode format: " + formatType);

@@ -25,7 +25,7 @@ public class LoyaltyCard implements Parcelable {
     public final String barcodeId;
 
     @Nullable
-    public final BarcodeFormat barcodeType;
+    public final CatimaBarcode barcodeType;
 
     @Nullable
     public final Integer headerColor;
@@ -34,7 +34,7 @@ public class LoyaltyCard implements Parcelable {
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
-                       @Nullable final String barcodeId, @Nullable final BarcodeFormat barcodeType, @Nullable final Integer headerColor,
+                       @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType, @Nullable final Integer headerColor,
                        final int starStatus)
     {
         this.id = id;
@@ -61,7 +61,7 @@ public class LoyaltyCard implements Parcelable {
         cardId = in.readString();
         barcodeId = in.readString();
         String tmpBarcodeType = in.readString();
-        barcodeType = !tmpBarcodeType.isEmpty() ? BarcodeFormat.valueOf(tmpBarcodeType) : null;
+        barcodeType = !tmpBarcodeType.isEmpty() ? CatimaBarcode.fromName(tmpBarcodeType) : null;
         int tmpHeaderColor = in.readInt();
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
@@ -77,7 +77,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeValue(balanceType);
         parcel.writeString(cardId);
         parcel.writeString(barcodeId);
-        parcel.writeString(barcodeType != null ? barcodeType.toString() : "");
+        parcel.writeString(barcodeType != null ? barcodeType.name() : "");
         parcel.writeInt(headerColor != null ? headerColor : -1);
         parcel.writeInt(starStatus);
     }
@@ -97,14 +97,14 @@ public class LoyaltyCard implements Parcelable {
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
 
-        BarcodeFormat barcodeType = null;
+        CatimaBarcode barcodeType = null;
         Currency balanceType = null;
         Date expiry = null;
         Integer headerColor = null;
 
         if (cursor.isNull(barcodeTypeColumn) == false)
         {
-            barcodeType = BarcodeFormat.valueOf(cursor.getString(barcodeTypeColumn));
+            barcodeType = CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn));
         }
 
         if (cursor.isNull(balanceTypeColumn) == false)

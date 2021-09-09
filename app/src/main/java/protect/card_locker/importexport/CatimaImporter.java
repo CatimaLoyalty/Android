@@ -27,6 +27,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Group;
@@ -331,11 +332,11 @@ public class CatimaImporter implements Importer
             barcodeId = null;
         }
 
-        BarcodeFormat barcodeType = null;
+        CatimaBarcode barcodeType = null;
         String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
         if(!unparsedBarcodeType.isEmpty())
         {
-            barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
+            barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
         }
 
         Integer headerColor = null;

@@ -80,7 +80,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     String cardIdString;
     String barcodeIdString;
-    BarcodeFormat format;
+    CatimaBarcode format;
 
     FloatingActionButton editButton;
 
@@ -538,7 +538,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
 
-        if (format != null && !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(format.name())) {
+        if (format != null && !format.isSupported()) {
             isBarcodeSupported = false;
 
             Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();

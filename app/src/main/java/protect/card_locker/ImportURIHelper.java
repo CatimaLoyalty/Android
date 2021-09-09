@@ -63,7 +63,7 @@ public class ImportURIHelper {
 
         try {
             // These values are allowed to be null
-            BarcodeFormat barcodeType = null;
+            CatimaBarcode barcodeType = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
@@ -97,7 +97,7 @@ public class ImportURIHelper {
             String unparsedBarcodeType = kv.get(BARCODE_TYPE);
             if(unparsedBarcodeType != null && !unparsedBarcodeType.equals(""))
             {
-                barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
+                barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
             }
 
             String unparsedBalance = kv.get(BALANCE);
@@ -164,7 +164,7 @@ public class ImportURIHelper {
         }
 
         if(loyaltyCard.barcodeType != null) {
-            fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.toString());
+            fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.name());
         }
         if(loyaltyCard.headerColor != null) {
             fragment = appendFragment(fragment, HEADER_COLOR, loyaltyCard.headerColor.toString());

@@ -563,6 +563,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             imageTypes.add(ImageType.IMAGE_BACK);
         }
 
+        dotIndicator.removeAllViews();
         if (imageTypes.size() >= 2) {
             dots = new ImageView[imageTypes.size()];
 

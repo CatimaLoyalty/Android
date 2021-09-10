@@ -198,4 +198,5 @@
     <string name="noGroupCards">Ця група не містить жодних карток</string>
     <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду карти типу <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
 </resources>

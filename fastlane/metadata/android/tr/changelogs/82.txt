@@ -1,0 +1,4 @@
+- Ekran okuyucular için destek iyileştirildi
+- Galeriden bir video açmaya çalışırken çökme düzeltildi
+- Sadakat kartı görüntüleme ekranında kaydırma desteği
+- Geri düğmesine basıldığında grubun sıfırlanması düzeltildi

@@ -1,0 +1,4 @@
+- Yatay ve tablet ekranı için kart listesi iyileştirildi
+- Tema rengi desteği eklendi (teşekkürler, Subhashish Anand!)
+- Kamera hatasında tarama etkinliği kapatılmasın (bu nedenle elle giriş hala mümkündür)
+- Hakkında iletişim kutusuna tüm katkıda bulunanlar eklendi

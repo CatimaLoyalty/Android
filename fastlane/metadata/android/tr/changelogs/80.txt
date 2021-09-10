@@ -1,0 +1,2 @@
+- Yedekten içe aktarılmayan resimler düzeltildi
+- Dili değiştirme seçeneği eklendi

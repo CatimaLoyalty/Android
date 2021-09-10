@@ -1,2 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın veya uzun basın</string>
+    <string name="toggleMoreInfo">Daha fazla bilgi göstermeyi aç/kapat</string>
+    <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Kahverengi</string>
+    <string name="settings_grey_theme">Gri</string>
+    <string name="settings_green_theme">Yeşil</string>
+    <string name="settings_sky_blue_theme">Gök mavisi</string>
+    <string name="settings_blue_theme">Mavi</string>
+    <string name="settings_violet_theme">Mor</string>
+    <string name="settings_magenta_theme">Eflatun</string>
+    <string name="settings_pink_theme">Pembe</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Tema rengi</string>
+    <string name="settings_system_locale">Sistem</string>
+    <string name="settings_locale">Dil</string>
+    <string name="turn_flashlight_off">El fenerini kapat</string>
+    <string name="turn_flashlight_on">El fenerini aç</string>
+    <string name="failedGeneratingShareURL">Paylaşılabilir URL oluşturulamadı. Lütfen bunu bildirin.</string>
+    <string name="passwordRequired">Lütfen parolayı girin</string>
+    <string name="no">Hayır</string>
+    <string name="yes">Evet</string>
+    <string name="updateBarcodeQuestionText">Kart numarasını değiştirdiniz. Aynı değeri kullanmak için barkodu da güncellemek ister misiniz\?</string>
+    <string name="updateBarcodeQuestionTitle">Barkod değeri güncellensin mi\?</string>
+    <string name="takePhoto">Fotoğraf çek</string>
+    <string name="backImageDescription">Kartın arka resmi</string>
+    <string name="frontImageDescription">Kartın ön resmi</string>
+    <string name="removeImage">Resmi kaldır</string>
+    <string name="setBackImage">Arka resmi ayarla</string>
+    <string name="setFrontImage">Ön resmi ayarla</string>
+    <string name="photos">Fotoğraflar</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Seninle birkaç kart paylaşmak istiyorum</string>
+    <string name="copy_to_clipboard_multiple_toast">Kart numaraları panoya kopyalandı</string>
+    <string name="wrongValueForBarcodeType">Değer, seçilen barkod türü için geçerli değil</string>
+    <string name="unsupportedBarcodeType">Bu barkod türü henüz görüntülenemiyor. Uygulamanın sonraki bir sürümünde desteklenebilir.</string>
+    <string name="setBarcodeId">Barkod değerini ayarla</string>
+    <string name="sameAsCardId">Kart numarasıyla aynı</string>
+    <string name="barcodeId">Barkod değeri</string>
+    <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin.
+\nVeya önce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importVoucherVault">Voucher Vault\'tan içe aktar</string>
+    <string name="importStocardMessage">İçe aktarmak için Stocard\'dan dışa aktardığınız <i>***-sync.zip</i> dosyasını seçin.
+\nVeya support@stocardapp.com adresine e-posta göndererek verilerinizin dışa aktarılmasını isteyerek edinin.</string>
+    <string name="importStocard">Stocard\'dan içe aktar</string>
+    <string name="importLoyaltyCardKeychainMessage">İçe aktarmak için Loyalty Card Keychain\'den dışa aktardığınız <i>LoyaltyCardKeychain.csv</i> dosyasını seçin.
+\nVeya Loyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importLoyaltyCardKeychain">Loyalty Card Keychain\'den içe aktar</string>
+    <string name="importFidmeMessage">FidMe\'den içe aktarmak için dışa aktardığınız <i>fidme-export-request-xxxxxx.zip</i> dosyasını seçin ve ardından barkod türlerini elle seçin.
+\nVeya FidMe profilinizden Veri Koruma seçeneğini seçip ardından \"Verilerimi çıkar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importFidme">FidMe\'den içe aktar</string>
+    <string name="importCatimaMessage">İçe aktarmak için Catima\'dan dışa aktardığınız <i>catima.zip</i> dosyasını seçin.
+\nVeya başka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+    <string name="importCatima">Catima\'dan içe aktar</string>
+    <string name="accept">Kabul et</string>
+    <string name="privacy_policy_popup_text">Gizlilik politikası bildirimi (bazı uygulama mağazaları için gerekli):
+\n
+\nHİÇBİR VERİ TOPLANMAMAKTADIR ve uygulamamız özgür yazılım olduğu için bunu herkes doğrulayabilir.</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="chooseImportType">Veriler nereden içe aktarılsın\?</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> geçerli bir bakiye gibi görünmüyor.</string>
+    <string name="points">Puan</string>
+    <string name="currency">Para birimi</string>
+    <string name="balance">Bakiye</string>
+    <string name="errorReadingImage">Resim okunamadı</string>
+    <string name="noBarcodeFound">Barkod bulunamadı</string>
+    <string name="moveBarcodeToCenterOfScreen">Barkodu ekranda ortala</string>
+    <string name="moveBarcodeToTopOfScreen">Barkodu ekranın en üstüne taşı</string>
+    <string name="chooseExpiryDate">Son kullanma tarihi seç</string>
+    <string name="never">Hiçbir zaman</string>
+    <string name="expiryDate">Son kullanma tarihi</string>
+    <string name="editBarcode">Barkodu düzenle</string>
+    <string name="barcode">Barkod</string>
+    <string name="card">Kart</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> puan</string>
+    <string name="balanceSentence">Bakiye: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Süresi doldu: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Son kullanma tarihi: <xliff:g>%s</xliff:g></string>
+    <string name="groupsList">Gruplar: <xliff:g>%s</xliff:g></string>
+    <string name="addFromImage">Galeriden resim seç</string>
+    <string name="addManually">Kart numarasını elle gir</string>
+    <string name="leaveWithoutSaveConfirmation">Kaydetmeden çıkılsın mı\?</string>
+    <string name="leaveWithoutSaveTitle">Çıkış</string>
+    <string name="moveDown">Aşağı git</string>
+    <string name="moveUp">Yukarı git</string>
+    <string name="failedOpeningFileManager">Önce bir dosya yöneticisi kurun.</string>
+    <string name="deleteConfirmationGroup">Grup silinsin mi\?</string>
+    <string name="all">Tümü</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kart</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kart</item>
+    </plurals>
+    <string name="noGroupCards">Bu grup hiç kart içermiyor</string>
+    <string name="noGroups">Önce kategorilere ayırmak üzere gruplar eklemek için + artı düğmesine tıklayın.</string>
+    <string name="groups">Gruplar</string>
+    <string name="enter_group_name">Grup adını girin</string>
+    <string name="exportSuccessful">Kart verileri dışa aktarıldı</string>
+    <string name="importSuccessful">Kart verileri içe aktarıldı</string>
+    <string name="intent_import_card_from_url_share_text">Seninle bir kart paylaşmak istiyorum</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
+    <string name="settings_keep_screen_on">Ekranı açık tut</string>
+    <string name="settings_lock_barcode_orientation">Barkod yönünü kilitle</string>
+    <string name="settings_display_barcode_max_brightness">Barkod görünümünü aydınlat</string>
+    <string name="settings_max_font_size_scale">Azami yazı tipi boyutu</string>
+    <string name="settings_dark_theme">Koyu</string>
+    <string name="settings_light_theme">Açık</string>
+    <string name="settings_system_theme">Sistem</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_category_title_ui">Kullanıcı arayüzü</string>
+    <string name="settings">Ayarlar</string>
+    <string name="starImage">Sık kullanılan yıldız</string>
+    <string name="thumbnailDescription">Kart için küçük resim</string>
+    <string name="copy_to_clipboard_toast">Kart numarası panoya kopyalandı</string>
+    <string name="enterBarcodeInstructions">Kart numarasını girin ve aşağıdan barkod türünü veya “Bu kartın barkodu yok” seçeneğini seçin.</string>
+    <string name="selectBarcodeTitle">Barkod Seç</string>
+    <string name="app_resources">Özgür üçüncü taraf kaynakları: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Özgür üçüncü taraf kütüphaneleri: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_revision_fmt">Değişiklik Bilgileri: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="debug_version_fmt">Sürüm: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> hakkında</string>
+    <string name="app_license">GPLv3+ altında lisanslanan copyleft özgür yazılım.</string>
+    <string name="app_copyright_old">Loyalty Card Keychain temel alınmıştır
+\nTelif Hakkı © 2016–2020 Branden Archer.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="about">Hakkında</string>
+    <string name="importOptionApplicationButton">Başka bir uygulama kullan</string>
+    <string name="importOptionApplicationExplanation">Bir dosyayı açmak için herhangi bir uygulamayı veya en sevdiğiniz dosya yöneticisini kullanın.</string>
+    <string name="importOptionApplicationTitle">Başka bir uygulama kullan</string>
+    <string name="importOptionFilesystemButton">Dosya sisteminden</string>
+    <string name="importOptionFilesystemExplanation">Dosya sisteminden belirli bir dosya seçin.</string>
+    <string name="importOptionFilesystemTitle">Dosya sisteminden içe aktar</string>
+    <string name="exportOptionExplanation">Veriler seçtiğiniz bir konuma yazılacak.</string>
+    <string name="noExternalStoragePermissionError">Kartları içe veya dışa aktarmak için önce harici depolama izni verin</string>
+    <string name="exporting">Dışa aktarılıyor…</string>
+    <string name="importing">İçe aktarılıyor…</string>
+    <string name="exportFailed">Kartlar dışa aktarılamadı</string>
+    <string name="exportFailedTitle">Dışa aktarılamadı</string>
+    <string name="exportSuccessfulTitle">Dışa aktarıldı</string>
+    <string name="importFailed">Kartlar içe aktarılamadı</string>
+    <string name="importFailedTitle">İçe aktarılamadı</string>
+    <string name="importSuccessfulTitle">İçe aktarıldı</string>
+    <string name="importExportHelp">Kartlarınızı yedeklemek, onları başka bir aygıta taşımanıza olanak tanır.</string>
+    <string name="exportName">Dışa aktar</string>
+    <string name="importExport">İçe/Dışa aktar</string>
+    <string name="failedParsingImportUriError">İçe aktarma URI\'si ayrıştırılamadı</string>
+    <string name="noCardExistsError">Kart bulunamadı</string>
+    <string name="noCardIdError">Kart numarası girilmedi</string>
+    <string name="noStoreError">Ad girilmedi</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> türündeki kart barkodunun görüntüsü</string>
+    <string name="card_ids_copied">Kart numara(lar)ı kopyalandı</string>
+    <string name="copy_to_clipboard">Numarayı panoya kopyala</string>
+    <string name="cardId">Kart numarası</string>
+    <string name="noCardsMessage">Önce bir kart ekleyin</string>
+    <string name="cardShortcut">Kart Kısayolu</string>
+    <string name="scanCardBarcode">Kart Barkodunu Tara</string>
+    <string name="addCardTitle">Kart Ekle</string>
+    <string name="editCardTitle">Kartı Düzenle</string>
+    <string name="sendLabel">Gönder…</string>
+    <string name="share">Paylaş</string>
+    <string name="ok">Tamam</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Bu <xliff:g>%d</xliff:g> kart kalıcı olarak silinsin mi\?</item>
+        <item quantity="other">Bu <xliff:g>%d</xliff:g> kart kalıcı olarak silinsin mi\?</item>
+    </plurals>
+    <string name="deleteConfirmation">Bu kart kalıcı olarak silinsin mi\?</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> kartı sil</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartı sil</item>
+    </plurals>
+    <string name="deleteTitle">Kartı sil</string>
+    <string name="unlockScreen">Döndürme Engelini Kaldır</string>
+    <string name="lockScreen">Döndürmeyi Engelle</string>
+    <string name="confirm">Doğrula</string>
+    <string name="delete">Sil</string>
+    <string name="edit">Düzenle</string>
+    <string name="save">Kaydet</string>
+    <string name="cancel">İptal</string>
+    <string name="unstar">Sık kullanılanlardan kaldır</string>
+    <string name="star">Sık kullanılanlara ekle</string>
+    <string name="noBarcode">Barkod yok</string>
+    <string name="barcodeNoBarcode">Bu kartın barkodu yok</string>
+    <string name="barcodeType">Barkod türü</string>
+    <string name="note">Not</string>
+    <string name="storeName">Ad</string>
+    <string name="noMatchingGiftCards">Hiçbir şey bulunamadı. Aramanızı değiştirmeyi deneyin.</string>
+    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya önce ⋮ menüsünden birkaçını içe aktarın.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kart seçildi</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kart seçildi</item>
+    </plurals>
+    <string name="action_add">Ekle</string>
+    <string name="action_search">Ara</string>
+</resources>

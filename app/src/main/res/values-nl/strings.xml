@@ -190,4 +190,5 @@
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="toggleMoreInfo">Meer informatie tonen/verbergen</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van de barcode, type <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
 </resources>

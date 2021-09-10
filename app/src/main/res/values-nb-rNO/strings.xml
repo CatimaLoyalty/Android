@@ -190,4 +190,5 @@
     <string name="noGroupCards">Denne gruppen inneholder ikke noen kort</string>
     <string name="toggleMoreInfo">Veksle visning av mer info</string>
     <string name="barcodeImageDescriptionWithType">Bilde av kortstrekkode av typen <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Dra eller hold lenge for å bygge bilder</string>
 </resources>

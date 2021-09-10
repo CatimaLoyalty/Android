@@ -3,10 +3,11 @@ package protect.card_locker;
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CatimaBarcode {
-    public static final List<BarcodeFormat> barcodeFormats = Arrays.asList(
+    public static final List<BarcodeFormat> barcodeFormats = Collections.unmodifiableList(Arrays.asList(
         BarcodeFormat.AZTEC,
         BarcodeFormat.CODE_39,
         BarcodeFormat.CODE_128,
@@ -19,9 +20,9 @@ public class CatimaBarcode {
         BarcodeFormat.QR_CODE,
         BarcodeFormat.UPC_A,
         BarcodeFormat.UPC_E
-    );
+    ));
 
-    public static final List<String> barcodePrettyNames = Arrays.asList(
+    public static final List<String> barcodePrettyNames = Collections.unmodifiableList(Arrays.asList(
         "Aztec",
         "Code 39",
         "Code 128",
@@ -34,7 +35,7 @@ public class CatimaBarcode {
         "QR Code",
         "UPC A",
         "UPC E"
-    );
+    ));
 
     private final BarcodeFormat mBarcodeFormat;
 

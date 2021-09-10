@@ -117,47 +117,34 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
 
     private void setButtonListener(final View button, final String cardId)
     {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "Selected no barcode");
-                Intent result = new Intent();
-                result.putExtra(BARCODE_FORMAT, "");
-                result.putExtra(BARCODE_CONTENTS, cardId);
-                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-                finish();
-            }
+        button.setOnClickListener(view -> {
+            Log.d(TAG, "Selected no barcode");
+            Intent result = new Intent();
+            result.putExtra(BARCODE_FORMAT, "");
+            result.putExtra(BARCODE_CONTENTS, cardId);
+            BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+            finish();
         });
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text)
     {
         final CatimaBarcode format = CatimaBarcode.fromName(formatType);
-        if(format == null)
-        {
-            Log.w(TAG, "Unsupported barcode format: " + formatType);
-            return;
-        }
 
         image.setImageBitmap(null);
-        image.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Log.d(TAG, "Selected barcode type " + formatType);
+        image.setOnClickListener(v -> {
+            Log.d(TAG, "Selected barcode type " + formatType);
 
-                if (!((boolean) image.getTag())) {
-                    Toast.makeText(BarcodeSelectorActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                Intent result = new Intent();
-                result.putExtra(BARCODE_FORMAT, formatType);
-                result.putExtra(BARCODE_CONTENTS, cardId);
-                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-                finish();
+            if (!((boolean) image.getTag())) {
+                Toast.makeText(BarcodeSelectorActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+                return;
             }
+
+            Intent result = new Intent();
+            result.putExtra(BARCODE_FORMAT, formatType);
+            result.putExtra(BARCODE_CONTENTS, cardId);
+            BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+            finish();
         });
 
         if(image.getHeight() == 0)

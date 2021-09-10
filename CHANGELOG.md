@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 82 (2021-09-03)
+## v2.5.0 - 82 (2021-09-10)
 
 - Improved support for screen readers
 - Don't crash when trying to open a video from gallery

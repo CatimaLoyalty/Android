@@ -7,8 +7,8 @@ solokot
 mondstern
 Taco
 Gediminas Murauskas
-Samantaz Fox
 IllusiveMan196
+Samantaz Fox
 arno-github
 Sergio Paredes
 Joel A
@@ -20,6 +20,7 @@ Michael Moroni
 Petr Novák
 betsythefc
 K. Herbert
+Oğuz Ersen
 Quentin PAGÈS
 Yurical
 Adolfo Jayme-Barrientos
@@ -47,7 +48,6 @@ Karol Kosek
 bittin
 Maciej Błędkowski
 Mattia
-Oğuz Ersen
 pbeckmann
 Peer Beckmann
 Rose Liverman

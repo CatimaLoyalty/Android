@@ -275,7 +275,7 @@ public class DBHelper extends SQLiteOpenHelper
                                   final BigDecimal balance, final Currency balanceType,
                                   final String cardId, final String barcodeId,
                                   final CatimaBarcode barcodeType, final Integer headerColor,
-                                  final int starStatus, final long lastUsed)
+                                  final int starStatus, final Long lastUsed)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -289,7 +289,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
-        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 
@@ -298,7 +298,7 @@ public class DBHelper extends SQLiteOpenHelper
                                   final Currency balanceType, final String cardId,
                                   final String barcodeId, final CatimaBarcode barcodeType,
                                   final Integer headerColor, final int starStatus,
-                                  final long lastUsed)
+                                  final Long lastUsed)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
@@ -311,7 +311,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
-        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 
@@ -320,7 +320,7 @@ public class DBHelper extends SQLiteOpenHelper
                                   final Currency balanceType, final String cardId,
                                   final String barcodeId, final CatimaBarcode barcodeType,
                                   final Integer headerColor, final int starStatus,
-                                  final long lastUsed)
+                                  final Long lastUsed)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -334,7 +334,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
-        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 

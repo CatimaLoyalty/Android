@@ -59,8 +59,9 @@ public class MainActivityTest
         assertNotNull(menu);
 
         // The settings, import/export, groups, search and add button should be present
-        assertEquals(menu.size(), 6);
+        assertEquals(menu.size(), 7);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
+        assertEquals("Sort", menu.findItem(R.id.action_sort).getTitle().toString());
         assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("Privacy Policy", menu.findItem(R.id.action_privacy_policy).getTitle().toString());
@@ -95,7 +96,7 @@ public class MainActivityTest
         assertEquals(0, list.getAdapter().getItemCount());
 
         DBHelper db = TestHelpers.getEmptyDb(mainActivity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -130,10 +131,10 @@ public class MainActivityTest
         assertEquals(0, list.getAdapter().getItemCount());
 
         DBHelper db = TestHelpers.getEmptyDb(mainActivity);
-        db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0);
-        db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0);
-        db.insertLoyaltyCard("storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1);
-        db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1);
+        db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
+        db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
+        db.insertLoyaltyCard("storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null);
+        db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -226,8 +227,8 @@ public class MainActivityTest
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
 
         DBHelper db = TestHelpers.getEmptyDb(mainActivity);
-        db.insertLoyaltyCard("The First Store", "Initial note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0);
-        db.insertLoyaltyCard("The Second Store", "Secondary note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0);
+        db.insertLoyaltyCard("The First Store", "Initial note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
+        db.insertLoyaltyCard("The Second Store", "Secondary note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
 
         db.insertGroup("Group one");
         List<Group> groups = new ArrayList<>();

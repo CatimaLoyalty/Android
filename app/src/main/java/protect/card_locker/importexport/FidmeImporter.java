@@ -136,6 +136,6 @@ public class FidmeImporter implements Importer
 
         // TODO: Front and back image
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, Utils.getUnixTime());
+        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
     }
 }

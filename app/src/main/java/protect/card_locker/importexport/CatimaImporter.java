@@ -355,9 +355,9 @@ public class CatimaImporter implements Importer
         }
         if (starStatus != 1) starStatus = 0;
 
-        int lastUsed = 0;
+        Long lastUsed = 0L;
         try {
-            lastUsed = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
+            lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
         } catch (FormatException _e) {
             // This field did not exist in versions 2.4.0 and before
             // We catch this exception so we can still import old backups

@@ -15,7 +15,6 @@
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
-    <string name="barcodeImageDescription">Kortelės brūkšninio kodo vaizdas</string>
     <string name="noStoreError">Neįvestas pavadinimas</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
@@ -193,4 +192,7 @@
     <string name="settings_theme_color">Temos spalva</string>
     <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Šioje grupėje nėra jokių kortelių</string>
+    <string name="toggleMoreInfo">Perjungti išsamios informacijos rodymą</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> tipo kortelės brūkšninio kodo vaizdas</string>
+    <string name="swipeToSwitchImages">Perbraukite arba ilgai palaikykite paspaudę, kad perjungtumėte vaizdus</string>
 </resources>

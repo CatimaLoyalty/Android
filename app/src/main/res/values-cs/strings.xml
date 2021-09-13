@@ -16,7 +16,6 @@
     <string name="editCardTitle">Editovat věrnostní kartu</string>
     <string name="addCardTitle">Přidat věrnostní kartu</string>
     <string name="scanCardBarcode">Skenování Čárový Kód Karty</string>
-    <string name="barcodeImageDescription">Obrázek čárového kódu karty</string>
     <string name="noStoreError">Zadáno žádné jméno</string>
     <string name="noCardIdError">Žádné ID karty zadáno</string>
     <string name="importExport">Import/Export</string>

@@ -82,7 +82,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/aztecBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/aztecBarcodeText"
@@ -103,7 +102,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/code39Barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/code39BarcodeText"
@@ -124,7 +122,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/code128Barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/code128BarcodeText"
@@ -145,7 +142,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/codabarBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/codabarBarcodeText"
@@ -166,7 +162,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/datamatrixBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/datamatrixBarcodeText"
@@ -187,7 +182,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/ean8Barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/ean8BarcodeText"
@@ -208,7 +202,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/ean13Barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/ean13BarcodeText"
@@ -229,7 +222,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/itfBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/itfBarcodeText"
@@ -250,7 +242,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/pdf417Barcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/pdf417BarcodeText"
@@ -271,7 +262,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/qrcodeBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/qrcodeBarcodeText"
@@ -292,7 +282,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/upcaBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/upcaBarcodeText"
@@ -313,7 +302,6 @@
                     android:layout_height="@dimen/barcode_disp_height"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/upceBarcode"
-                    android:contentDescription="@string/barcodeImageDescription"
                     android:layout_weight="1.0"/>
                 <TextView
                     android:id="@+id/upceBarcodeText"

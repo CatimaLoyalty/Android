@@ -1,9 +1,9 @@
-How to Submit Patches to the Loyalty Card Keychain Project
+How to Submit Patches to the Catima Project
 ===============================================================================
-https://github.com/brarcher/budget-watch
+https://github.com/TheLastProject/Catima
 
 This document is intended to act as a guide to help you contribute to the
-Loyalty Card Keychain project.  It is not perfect, and there will always be exceptions
+Catima project.  It is not perfect, and there will always be exceptions
 to the rules described here, but by following the instructions below you
 should have a much easier time getting your work merged with the upstream
 project.
@@ -21,16 +21,16 @@ These are the Android lint checker, run using:
 
     # ./gradlew lintRelease
 
-and FindBugs, run using:
+and SpotBugs, run using:
 
-    # ./gradlew findbugs
+    # ./gradlew spotbugsRelease
 
 The final check is by testing the application on a live device and verifying
 the basic functionality works as expected.
 
 ## Make Sure Your Code is Tested
 
-The Loyalty Card Keychain code uses a fair number of unit tests to verify that
+The Catima code uses a fair number of unit tests to verify that
 the basic functionality is working. Submissions which add functionality
 or significantly change the existing code should include additional tests
 to verify the proper operation of the proposed changes.
@@ -85,7 +85,7 @@ your real name, saying:
 ## Submit Patch(es) for Review
 
 Finally, you will need to submit your patches so that they can be reviewed
-and potentially merged into the main Loyalty Card Keychain repository. The preferred
-way to do this is to submit a Pull Request to the Loyalty Card Keychain project.
+and potentially merged into the main Catima repository. The preferred
+way to do this is to submit a Pull Request to the Catima project.
 Changes need to apply cleanly onto the master branch and pass all
 unit tests and produce no errors during static analysis.

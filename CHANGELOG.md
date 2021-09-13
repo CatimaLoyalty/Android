@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.5.0 - 82 (2021-09-10)
+
+- Improved support for screen readers
+- Don't crash when trying to open a video from gallery
+- Swipe support on loyalty card view screen
+- Don't reset group on back button press
+
 ## v2.4.0 - 81 (2021-08-29)
 
 - Improve card list for landscape and tablet display

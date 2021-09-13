@@ -14,7 +14,6 @@
     <string name="noCardExistsError">Cap de carta pas trobada</string>
     <string name="noCardIdError">Cap de numèro de carta pas picat</string>
     <string name="noStoreError">Cap de nom pas picat</string>
-    <string name="barcodeImageDescription">Imatge del còdi de barras</string>
     <string name="card_ids_copied">Num. de la carta copiada</string>
     <string name="noCardsMessage">Apondètz d’en primièr una carta</string>
     <string name="cardShortcut">Acorchi de carta</string>

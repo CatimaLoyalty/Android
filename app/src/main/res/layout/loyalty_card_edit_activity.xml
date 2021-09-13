@@ -313,7 +313,6 @@
                         android:padding="10.0dp"
                         android:background="#ffffff"
                         android:id="@+id/barcode"
-                        android:contentDescription="@string/barcodeImageDescription"
                         android:layout_weight="1.0"/>
                 </LinearLayout>
 

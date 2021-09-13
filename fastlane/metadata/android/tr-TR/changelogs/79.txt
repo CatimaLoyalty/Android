@@ -1,0 +1,2 @@
+- Widget'ın uygulama kısayollarından farklı görünen bir kısayol oluşturması düzeltildi
+- Öntanımlı Android siyah ekranı açılış ekranıyla değiştirildi

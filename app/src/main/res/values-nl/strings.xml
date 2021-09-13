@@ -25,7 +25,6 @@
     <string name="scanCardBarcode">Scan de barcode van de kaart</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
-    <string name="barcodeImageDescription">Afbeelding van barcode</string>
     <string name="noStoreError">Geen naam ingevoerd</string>
     <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
@@ -189,4 +188,7 @@
     <string name="settings_theme_color">Themakleur</string>
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
+    <string name="toggleMoreInfo">Meer informatie tonen/verbergen</string>
+    <string name="barcodeImageDescriptionWithType">Afbeelding van de barcode, type <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
 </resources>

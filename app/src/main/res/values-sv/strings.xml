@@ -15,7 +15,6 @@
     <string name="errorReadingImage">Kunde inte läsa bilden</string>
     <string name="currency">Valuta</string>
     <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL. Var snäll och rapportera detta.</string>
-    <string name="barcodeImageDescription">Bild av kortets streckkod</string>
     <string name="card_ids_copied">Kopierade kort ID:n</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort valt</item>
@@ -32,7 +31,7 @@
     <string name="groups">Grupper</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> korten</item>
     </plurals>
     <string name="all">Alla</string>
     <string name="deleteConfirmationGroup">Ta bort grupp\?</string>
@@ -176,4 +175,19 @@
     <string name="note">Anteckning</string>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
+    <string name="noExternalStoragePermissionError">Bevilja tillstånd för extern lagring för att först importera eller exportera kort</string>
+    <string name="app_contributors">Möjliggjordes av: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Brunt</string>
+    <string name="settings_grey_theme">Grått</string>
+    <string name="settings_green_theme">Grönt</string>
+    <string name="settings_sky_blue_theme">Himmelblått</string>
+    <string name="settings_blue_theme">Blått</string>
+    <string name="settings_violet_theme">Violett</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Temafärg</string>
+    <string name="noGroupCards">Denna grupp innehåller inga kort</string>
+    <string name="toggleMoreInfo">Växla mellan att visa mer info</string>
+    <string name="barcodeImageDescriptionWithType">Bild av kortstreckkod av typen <xliff:g>%s</xliff:g></string>
 </resources>

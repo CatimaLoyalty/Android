@@ -35,14 +35,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
-
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -70,6 +62,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.fragment.app.DialogFragment;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 {
@@ -150,7 +150,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 (Currency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
                 (String) (fieldName == LoyaltyCardField.cardId ? value : loyaltyCard.cardId),
                 (String) (fieldName == LoyaltyCardField.barcodeId ? value : loyaltyCard.barcodeId),
-                (BarcodeFormat) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
+                (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
                 Utils.getUnixTime()
@@ -463,11 +463,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                         updateTempState(LoyaltyCardField.barcodeType, null);
                     } else {
                         try {
-                            BarcodeFormat barcodeFormat = BarcodeFormat.valueOf(s.toString());
+                            CatimaBarcode barcodeFormat = CatimaBarcode.fromPrettyName(s.toString());
 
                             updateTempState(LoyaltyCardField.barcodeType, barcodeFormat);
 
-                            if (!BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
+                            if (!barcodeFormat.isSupported()) {
                                 Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
                             }
                         } catch (IllegalArgumentException e) {}
@@ -479,7 +479,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
             @Override
             public void afterTextChanged(Editable s) {
-                ArrayList<String> barcodeList = new ArrayList<>(BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES);
+                ArrayList<String> barcodeList = new ArrayList<>(CatimaBarcode.barcodePrettyNames);
                 barcodeList.add(0, getString(R.string.noBarcode));
                 ArrayAdapter<String> barcodeAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, barcodeList);
                 barcodeTypeField.setAdapter(barcodeAdapter);
@@ -561,7 +561,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
         cardIdFieldView.setText(tempLoyaltyCard.cardId);
         barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
-        barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.name() : getString(R.string.noBarcode));
+        barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.prettyName() : getString(R.string.noBarcode));
 
         if(groupsChips.getChildCount() == 0)
         {
@@ -621,7 +621,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         // Update from intent
         if (barcodeType != null) {
             try {
-                barcodeTypeField.setText(BarcodeFormat.valueOf(barcodeType).name());
+                barcodeTypeField.setText(CatimaBarcode.fromName(barcodeType).prettyName());
             } catch (IllegalArgumentException e) {
                 barcodeTypeField.setText(getString(R.string.noBarcode));
             }
@@ -1081,6 +1081,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                     }
 
                     hasChanged = true;
+                } else {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
             } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
                 Bitmap bitmap = null;
@@ -1089,7 +1091,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 } catch (IOException e) {
                     Log.e(TAG, "Error getting data from image file");
                     e.printStackTrace();
-                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
 
                 if (bitmap != null) {
@@ -1101,6 +1102,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                     }
 
                     hasChanged = true;
+                } else {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
             } else {
                 BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
@@ -1124,16 +1127,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
     private void generateOrHideBarcode() {
         String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
-        BarcodeFormat barcodeFormat = tempLoyaltyCard.barcodeType;
+        CatimaBarcode barcodeFormat = tempLoyaltyCard.barcodeType;
 
-        if (barcodeFormat == null || cardIdString.isEmpty() || !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(barcodeFormat.name())) {
+        if (barcodeFormat == null || cardIdString.isEmpty() || !barcodeFormat.isSupported()) {
             hideBarcode();
         } else {
             generateBarcode(cardIdString, barcodeFormat);
         }
     }
 
-    private void generateBarcode(String cardIdString, BarcodeFormat barcodeFormat) {
+    private void generateBarcode(String cardIdString, CatimaBarcode barcodeFormat) {
         if (barcodeImage.getHeight() == 0) {
             Log.d(TAG, "ImageView size is not known known at start, waiting for load");
             // The size of the ImageView is not yet available as it has not
@@ -1145,12 +1148,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
+                            new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            new BarcodeImageWriterTask(barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
+            new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType).execute();
         }
 
         showBarcode();

@@ -1,8 +1,6 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Pridať</string>
-
     <string name="noGiftCards">Zatiaľ nemáte žiadne vernostné karty. Kliknite na tlačidlo \"+\" (plus) vyššie a začnite.\n\nAplikácia Vernostné karty umožňuje nosiť svoje vernostné karty v telefóne, kde sú vždy na dosah.</string>
     <string name="storeName">Obchod</string>
     <string name="note">Poznámka</string>
@@ -16,15 +14,12 @@
     <string name="unlockScreen">Povoliť rotáciu</string>
     <string name="ok">Áno</string>
     <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
-    <string name="sendLabel">Odoslať&#8230;</string>
+    <string name="sendLabel">Odoslať…</string>
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
     <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
     <string name="cardShortcut">Skratka</string>
     <string name="noCardsMessage">Nie sú uložené žiadne karty, vložte prvú</string>
-
-    <string name="barcodeImageDescription">Obrázok čiarového kódu karty</string>
-
     <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID karty</string>
     <string name="noCardExistsError">Nie je možné vyhľadať vernostnú kartu</string>
@@ -37,8 +32,8 @@
     <string name="exportSuccessfulTitle">Export bol úspešný</string>
     <string name="exportFailedTitle">Export zlyhal</string>
     <string name="exportFailed">Zlyhal export</string>
-    <string name="importing">Importujem&#8230;</string>
-    <string name="exporting">Exportujem&#8230;</string>
+    <string name="importing">Importujem…</string>
+    <string name="exporting">Exportujem…</string>
     <string name="noExternalStoragePermissionError">Nie je možné importovať a exportovať karty bez prístupu k externému úložisku</string>
     <string name="importOptionFilesystemTitle">Import zo súborového systému.</string>
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
@@ -46,22 +41,24 @@
     <string name="importOptionApplicationTitle">Použite externú aplikáciu</string>
     <string name="importOptionApplicationExplanation">Na otvorenie súboru použite externú aplikáciu, ako Dropbox, Disk Google, alebo Vášho obľúbeného správcu súborov.</string>
     <string name="importOptionApplicationButton">Použiť externú aplikáciu</string>
-
     <string name="about">O aplikácii</string>
     <string name="app_license">Licencované GPLv3.</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informácia pri revízii: <xliff:g id="app_revision_url">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="copy_to_clipboard_toast">ID karty skopírované do schránky</string>
-
     <string name="thumbnailDescription">Náhľad karty</string>
-
     <string name="settings">Nastavenia</string>
     <string name="settings_category_title_ui">Používateľské prostredie</string>
     <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
     <string name="settings_lock_barcode_orientation">Uzamkni orientáciu čiarového kódu</string>
     <string name="deleteTitle">Odstrániť kartu</string>
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
+    <string name="star">Pridať k obľúbeným</string>
+    <string name="noBarcode">Žiadny čiarový kód</string>
+    <string name="barcodeNoBarcode">Táto karta nemá čiarový kód</string>
+    <string name="barcodeType">Typ čiarových kódov</string>
+    <string name="noMatchingGiftCards">Nenašiel som nič. Skúste zmeniť vyhľadávanie.</string>
+    <string name="action_search">Vyhľadávanie</string>
 </resources>

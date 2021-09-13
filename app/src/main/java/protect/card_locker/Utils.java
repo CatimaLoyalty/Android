@@ -15,9 +15,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
-
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -37,10 +34,11 @@ import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {

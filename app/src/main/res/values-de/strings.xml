@@ -24,7 +24,6 @@
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
-    <string name="barcodeImageDescription">Bild des Barcodes</string>
     <string name="noStoreError">Kein Name eingegeben</string>
     <string name="noCardIdError">Keine Kartennummer angegeben</string>
     <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
@@ -189,4 +188,7 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="toggleMoreInfo">Umschalten, um weitere Informationen anzuzeigen</string>
+    <string name="barcodeImageDescriptionWithType">Bild des Kartenstrichcodes des Typs <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Wischen oder langes Drücken zum Wechseln der Bilder</string>
 </resources>

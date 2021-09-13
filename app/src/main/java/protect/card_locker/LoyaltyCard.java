@@ -4,8 +4,6 @@ import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.zxing.BarcodeFormat;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;

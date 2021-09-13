@@ -243,4 +243,10 @@
 
     <string name="toggleMoreInfo">Toggle showing more info</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
+    <string name="sort_by_name">Name</string>
+    <string name="sort_by_most_recently_used">Most Recently Used</string>
+    <string name="sort_by_expiry">Expiry</string>
+    <string name="sort_by_balance">Balance</string>
+    <string name="reverse">Reverse</string>
+    <string name="sort_by">Sory by</string>
 </resources>

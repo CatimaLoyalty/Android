@@ -55,14 +55,14 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public enum LoyaltyCardOrder {
-        AlphaAscending,
-        AlphaDescending,
-        LastUsedAscending,
-        LastUsedDescending,
-        ExpiryAscending,
-        ExpiryDescending,
-        BalanceAscending,
-        BalanceDescending
+        Alpha,
+        LastUsed,
+        Expiry
+    }
+
+    public enum LoyaltyCardOrderDirection {
+        Ascending,
+        Descending
     }
 
     private Context mContext;
@@ -509,7 +509,7 @@ public class DBHelper extends SQLiteOpenHelper
      */
     public Cursor getLoyaltyCardCursor(final String filter, Group group)
     {
-        return getLoyaltyCardCursor(filter, group, LoyaltyCardOrder.AlphaAscending);
+        return getLoyaltyCardCursor(filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending);
     }
 
     /**
@@ -520,8 +520,7 @@ public class DBHelper extends SQLiteOpenHelper
      * @param order
      * @return Cursor
      */
-    public Cursor getLoyaltyCardCursor(final String filter, Group group, LoyaltyCardOrder order)
-    {
+    public Cursor getLoyaltyCardCursor(final String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };
         StringBuilder groupFilter = new StringBuilder();
@@ -548,12 +547,15 @@ public class DBHelper extends SQLiteOpenHelper
             }
         }
 
+        String orderField = getFieldForOrder(order);
+
         return db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
                 groupFilter.toString() +
                 " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
-                getFieldForOrder(order) + " COLLATE NOCASE " + (isAscending(order) ? " ASC " : " DESC ") + ", " +
+                " (CASE WHEN " + orderField + " IS NULL THEN 1 ELSE 0 END), " +
+                orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
                 limitString, selectionArgs, null);
     }
@@ -788,26 +790,27 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     private String getFieldForOrder(LoyaltyCardOrder order) {
-        if (order == LoyaltyCardOrder.AlphaAscending || order == LoyaltyCardOrder.AlphaDescending) {
+        if (order == LoyaltyCardOrder.Alpha) {
             return LoyaltyCardDbIds.STORE;
         }
 
-        if (order == LoyaltyCardOrder.LastUsedAscending || order == LoyaltyCardOrder.LastUsedDescending) {
+        if (order == LoyaltyCardOrder.LastUsed) {
             return LoyaltyCardDbIds.LAST_USED;
         }
 
-        if (order == LoyaltyCardOrder.ExpiryAscending || order == LoyaltyCardOrder.ExpiryDescending) {
+        if (order == LoyaltyCardOrder.Expiry) {
             return LoyaltyCardDbIds.EXPIRY;
-        }
-
-        if (order == LoyaltyCardOrder.BalanceAscending || order == LoyaltyCardOrder.BalanceDescending) {
-            return LoyaltyCardDbIds.BALANCE;
         }
 
         throw new IllegalArgumentException("Unknown order " + order);
     }
 
-    private boolean isAscending(LoyaltyCardOrder order) {
-        return order.toString().endsWith("Ascending");
+    private String getDbDirection(LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
+        if (order == LoyaltyCardOrder.LastUsed) {
+            // We want the default sorting to put the most recently used first
+            return direction == LoyaltyCardOrderDirection.Descending ? "ASC" : "DESC";
+        }
+
+        return direction == LoyaltyCardOrderDirection.Ascending ? "ASC" : "DESC";
     }
 }

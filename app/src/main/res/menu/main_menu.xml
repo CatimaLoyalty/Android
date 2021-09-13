@@ -11,7 +11,7 @@
     <item
         android:id="@+id/action_sort"
         android:title="@string/sort"
-        android:icon="@drawable/sort_alpha_ascending_white"
+        android:icon="@drawable/ic_baseline_sort_24"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_manage_groups"

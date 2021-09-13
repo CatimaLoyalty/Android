@@ -22,7 +22,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
@@ -43,7 +45,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private GestureDetector mGestureDetector;
     protected String mFilter = "";
     protected Object mGroup = null;
-    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.AlphaAscending;
+    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
+    protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -144,7 +147,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                     TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
 
-                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null, mOrder);
+                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null, mOrder, mOrderDirection);
 
                     dialog.dismiss();
                 });
@@ -189,7 +192,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 selectedTab = tab.getPosition();
-                updateLoyaltyCardList(mFilter, tab.getTag(), mOrder);
+                updateLoyaltyCardList(mFilter, tab.getTag(), mOrder, mOrderDirection);
 
                 // Store active tab in Shared Preference to restore next app launch
                 SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
@@ -228,7 +231,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
-        updateLoyaltyCardList(mFilter, null, mOrder);
+        updateLoyaltyCardList(mFilter, null, mOrder, mOrderDirection);
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -305,7 +308,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             assert tab != null;
             mGroup = tab.getTag();
         }
-        updateLoyaltyCardList(mFilter, mGroup, mOrder);
+        updateLoyaltyCardList(mFilter, mGroup, mOrder, mOrderDirection);
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
@@ -370,14 +373,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onBackPressed();
     }
 
-    private void updateLoyaltyCardList(String filterText, Object tag, DBHelper.LoyaltyCardOrder order)
+    private void updateLoyaltyCardList(String filterText, Object tag, DBHelper.LoyaltyCardOrder order, DBHelper.LoyaltyCardOrderDirection direction)
     {
         Group group = null;
         if (tag != null) {
             group = (Group) tag;
         }
 
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group, order));
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group, order, direction));
 
         if(mDB.getLoyaltyCardCount() > 0)
         {
@@ -492,7 +495,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     updateLoyaltyCardList(
                         mFilter,
                         currentTab != null ? currentTab.getTag() : null,
-                        mOrder
+                        mOrder,
+                        mOrderDirection
                     );
 
                     return true;
@@ -509,24 +513,42 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_sort)
         {
-            DBHelper.LoyaltyCardOrder[] orderOptions = DBHelper.LoyaltyCardOrder.values();
+            TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+            Object group = tab != null ? tab.getTag() : null;
 
-            for (int i = 0; i < orderOptions.length; i++) {
-                if (orderOptions[i] == mOrder) {
-                    int choiceIndex = i + 1;
-                    if (choiceIndex == orderOptions.length) {
-                        mOrder = orderOptions[0];
-                    } else {
-                        mOrder = orderOptions[choiceIndex];
-                    }
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.sort_by);
+
+            AtomicInteger currentIndex = new AtomicInteger();
+            List<DBHelper.LoyaltyCardOrder> loyaltyCardOrders = Arrays.asList(DBHelper.LoyaltyCardOrder.values());
+            for (int i = 0; i < loyaltyCardOrders.size(); i++) {
+                if (mOrder == loyaltyCardOrders.get(i)) {
+                    currentIndex.set(i);
                     break;
                 }
             }
 
-            // FIXME: Remove: Debug
-            Toast.makeText(getApplicationContext(), mOrder.toString(), Toast.LENGTH_SHORT).show();
+            builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
+            builder.setPositiveButton(R.string.sort, (dialog, which) -> {
+                mOrder = loyaltyCardOrders.get(currentIndex.get());
+                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
 
-            updateLoyaltyCardList(mFilter, mGroup, mOrder);
+                updateLoyaltyCardList(mFilter, group, mOrder, mOrderDirection);
+
+                dialog.dismiss();
+            });
+            builder.setNeutralButton(R.string.reverse, (dialog, which) -> {
+                mOrder = loyaltyCardOrders.get(currentIndex.get());
+                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Descending;
+
+                updateLoyaltyCardList(mFilter, group, mOrder, mOrderDirection);
+
+                dialog.dismiss();
+            });
+            builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
             return true;
         }
 

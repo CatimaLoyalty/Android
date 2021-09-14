@@ -15,7 +15,7 @@ with open('CHANGELOG.md') as changelog:
                 changelogs[version_code] = text
 
             text = []
-            match = re.match("## \S* - (\d*) \(\d{4}-\d{2}-\d{2}\)", line)
+            match = re.match("## \S* - (\d*).*", line)
             if not match:
                 raise ValueError(f"Invalid version line: {line}")
             version_code = match.group(1)

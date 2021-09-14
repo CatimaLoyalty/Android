@@ -303,8 +303,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 Context.MODE_PRIVATE);
         try {
             mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
-        } catch (IllegalArgumentException | NullPointerException ignored) {}
-        try {
             mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
         } catch (IllegalArgumentException | NullPointerException ignored) {}
 
@@ -521,7 +519,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (id == R.id.action_sort)
         {
             TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
-            Object group = tab != null ? tab.getTag() : null;
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle(R.string.sort_by);

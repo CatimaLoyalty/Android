@@ -350,7 +350,7 @@ public class CatimaImporter implements Importer
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
         } catch (FormatException _e) {
-            // This field did not exist in versions 0.278 and before
+            // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
@@ -359,7 +359,7 @@ public class CatimaImporter implements Importer
         try {
             lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
         } catch (FormatException _e) {
-            // This field did not exist in versions 2.4.0 and before
+            // This field did not exist in versions 2.5.0 and before
             // We catch this exception so we can still import old backups
         }
 

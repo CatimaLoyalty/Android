@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 83
+
+- Support for changing the sorting order
+
 ## v2.5.0 - 82 (2021-09-10)
 
 - Improved support for screen readers

@@ -3,6 +3,7 @@
 ## Unreleased - 83
 
 - Support for changing the sorting order
+- Prevent Out Of Memory on scanning large pictures for barcode
 
 ## v2.5.0 - 82 (2021-09-10)
 

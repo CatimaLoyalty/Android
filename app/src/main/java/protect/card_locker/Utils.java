@@ -146,6 +146,21 @@ public class Utils {
     }
 
     static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {
+        // This function is vulnerable to OOM, so we try again with a smaller bitmap is we get OOM
+        for (int i = 0; i < 10; i++) {
+            try {
+                return Utils.getBarcodeFromBitmapReal(bitmap);
+            } catch (OutOfMemoryError e) {
+                Log.w(TAG, "Ran OOM in getBarcodeFromBitmap! Trying again with smaller picture! Retry " + i + " of 10.");
+                bitmap = Bitmap.createScaledBitmap(bitmap, (int) Math.round(0.75 * bitmap.getWidth()), (int) Math.round(0.75 * bitmap.getHeight()), false);
+            }
+        }
+
+        // Give up
+        return new BarcodeValues(null, null);
+    }
+
+    static private BarcodeValues getBarcodeFromBitmapReal(Bitmap bitmap) {
         // In order to decode it, the Bitmap must first be converted into a pixel array...
         int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
         bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());

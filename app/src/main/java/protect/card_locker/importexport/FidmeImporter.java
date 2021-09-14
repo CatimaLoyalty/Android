@@ -23,6 +23,7 @@ import java.text.ParseException;
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -135,6 +136,6 @@ public class FidmeImporter implements Importer
 
         // TODO: Front and back image
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
+        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
     }
 }

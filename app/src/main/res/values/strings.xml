@@ -124,6 +124,9 @@
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
+    <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
+    <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
+    <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
 
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
@@ -239,7 +242,14 @@
     <string name="settings_key_grey_theme" translatable="false">grey_theme</string>
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">Sort</string>
 
     <string name="toggleMoreInfo">Toggle showing more info</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
+    <string name="sort_by_name">Name</string>
+    <string name="sort_by_most_recently_used">Most Recently Used</string>
+    <string name="sort_by_expiry">Expiry</string>
+    <string name="sort_by_balance">Balance</string>
+    <string name="reverse">Reverse</string>
+    <string name="sort_by">Sort by</string>
 </resources>

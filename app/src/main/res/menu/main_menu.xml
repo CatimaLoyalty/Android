@@ -9,10 +9,15 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always|collapseActionView"/>
     <item
+        android:id="@+id/action_sort"
+        android:title="@string/sort"
+        android:icon="@drawable/ic_baseline_sort_24"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_manage_groups"
         android:icon="@drawable/ic_folder_white"
         android:title="@string/groups"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_import_export"
         android:icon="@drawable/ic_import_export_white_24dp"

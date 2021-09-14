@@ -127,7 +127,8 @@ public class CatimaExporter implements Exporter
                 DBHelper.LoyaltyCardDbIds.BARCODE_ID,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS);
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS,
+                DBHelper.LoyaltyCardDbIds.LAST_USED);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
@@ -145,7 +146,8 @@ public class CatimaExporter implements Exporter
                     card.barcodeId,
                     card.barcodeType != null ? card.barcodeType.name() : "",
                     card.headerColor,
-                    card.starStatus);
+                    card.starStatus,
+                    card.lastUsed);
 
             if(Thread.currentThread().isInterrupted())
             {

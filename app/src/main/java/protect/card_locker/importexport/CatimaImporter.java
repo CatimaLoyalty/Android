@@ -349,13 +349,21 @@ public class CatimaImporter implements Importer
         int starStatus = 0;
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
-        } catch (FormatException _e ) {
-            // This field did not exist in versions 0.278 and before
+        } catch (FormatException _e) {
+            // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
 
-        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
+        Long lastUsed = 0L;
+        try {
+            lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
+        } catch (FormatException _e) {
+            // This field did not exist in versions 2.5.0 and before
+            // We catch this exception so we can still import old backups
+        }
+
+        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed);
     }
 
     /**

@@ -581,6 +581,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         setFullscreen(isFullscreen);
+
+        db.updateLoyaltyCardLastUsed(loyaltyCard.id);
     }
 
     @Override

@@ -22,7 +22,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
@@ -42,6 +44,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private Menu mMenu;
     private GestureDetector mGestureDetector;
     protected String mFilter = "";
+    protected Object mGroup = null;
+    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
+    protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -141,8 +146,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     }
 
                     TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+                    mGroup = tab != null ? tab.getTag() : null;
 
-                    updateLoyaltyCardList(mFilter, tab != null ? tab.getTag() : null);
+                    updateLoyaltyCardList();
 
                     dialog.dismiss();
                 });
@@ -187,14 +193,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 selectedTab = tab.getPosition();
-                updateLoyaltyCardList(mFilter, tab.getTag());
+                mGroup = tab.getTag();
+                updateLoyaltyCardList();
 
                 // Store active tab in Shared Preference to restore next app launch
                 SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                         getString(R.string.sharedpreference_active_tab),
                         Context.MODE_PRIVATE);
                 SharedPreferences.Editor activeTabPrefEditor = activeTabPref.edit();
-                activeTabPrefEditor.putInt(getString(R.string.sharedpreference_active_tab), selectedTab);
+                activeTabPrefEditor.putInt(getString(R.string.sharedpreference_active_tab), tab.getPosition());
                 activeTabPrefEditor.apply();
             }
 
@@ -226,7 +233,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
-        updateLoyaltyCardList(mFilter, null);
+        mGroup = null;
+        updateLoyaltyCardList();
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -285,13 +293,20 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         updateTabGroups(groupsTabLayout);
 
-        // Restore active tab from Shared Preference
+        // Restore settings from Shared Preference
         SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_active_tab),
                 Context.MODE_PRIVATE);
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
+        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_sort),
+                Context.MODE_PRIVATE);
+        try {
+            mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
+            mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
+        } catch (IllegalArgumentException | NullPointerException ignored) {}
 
-        Object group = null;
+        mGroup = null;
 
         if (groupsTabLayout.getTabCount() != 0) {
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
@@ -301,9 +316,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             groupsTabLayout.selectTab(tab);
             assert tab != null;
-            group = tab.getTag();
+            mGroup = tab.getTag();
         }
-        updateLoyaltyCardList(mFilter, group);
+        updateLoyaltyCardList();
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
@@ -368,14 +383,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onBackPressed();
     }
 
-    private void updateLoyaltyCardList(String filterText, Object tag)
-    {
+    private void updateLoyaltyCardList() {
         Group group = null;
-        if (tag != null) {
-            group = (Group) tag;
+        if (mGroup != null) {
+            group = (Group) mGroup;
         }
 
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(filterText, group));
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(mFilter, group, mOrder, mOrderDirection));
 
         if(mDB.getLoyaltyCardCount() > 0)
         {
@@ -391,7 +405,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
             else
             {
-                if(!filterText.isEmpty()) {
+                if(!mFilter.isEmpty()) {
                     // Actual Empty Search Result
                     mNoMatchingCardsText.setVisibility(View.VISIBLE);
                     mNoGroupCardsText.setVisibility(View.GONE);
@@ -486,11 +500,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                     TabLayout groupsTabLayout = findViewById(R.id.groups);
                     TabLayout.Tab currentTab = groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition());
+                    mGroup = currentTab != null ? currentTab.getTag() : null;
 
-                    updateLoyaltyCardList(
-                        mFilter,
-                        currentTab != null ? currentTab.getTag() : null
-                    );
+                    updateLoyaltyCardList();
 
                     return true;
                 }
@@ -503,6 +515,40 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     public boolean onOptionsItemSelected(MenuItem inputItem)
     {
         int id = inputItem.getItemId();
+
+        if (id == R.id.action_sort)
+        {
+            TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.sort_by);
+
+            AtomicInteger currentIndex = new AtomicInteger();
+            List<DBHelper.LoyaltyCardOrder> loyaltyCardOrders = Arrays.asList(DBHelper.LoyaltyCardOrder.values());
+            for (int i = 0; i < loyaltyCardOrders.size(); i++) {
+                if (mOrder == loyaltyCardOrders.get(i)) {
+                    currentIndex.set(i);
+                    break;
+                }
+            }
+
+            builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
+            builder.setPositiveButton(R.string.sort, (dialog, which) -> {
+                setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending);
+
+                dialog.dismiss();
+            });
+            builder.setNeutralButton(R.string.reverse, (dialog, which) -> {
+                setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending);
+
+                dialog.dismiss();
+            });
+            builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            return true;
+        }
 
         if (id == R.id.action_manage_groups)
         {
@@ -539,6 +585,24 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         return super.onOptionsItemSelected(inputItem);
+    }
+
+    private void setSort(DBHelper.LoyaltyCardOrder order, DBHelper.LoyaltyCardOrderDirection direction) {
+        // Update values
+        mOrder = order;
+        mOrderDirection = direction;
+
+        // Store in Shared Preference to restore next app launch
+        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                getString(R.string.sharedpreference_sort),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor sortPrefEditor = sortPref.edit();
+        sortPrefEditor.putString(getString(R.string.sharedpreference_sort_order), order.name());
+        sortPrefEditor.putString(getString(R.string.sharedpreference_sort_direction), direction.name());
+        sortPrefEditor.apply();
+
+        // Update card list
+        updateLoyaltyCardList();
     }
 
     protected static boolean isDarkModeEnabled(Context inputContext)

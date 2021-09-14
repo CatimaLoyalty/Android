@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 10;
+    public static final int DATABASE_VERSION = 11;
 
     public static class LoyaltyCardDbGroups
     {
@@ -44,6 +44,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String BARCODE_ID = "barcodeid";
         public static final String BARCODE_TYPE = "barcodetype";
         public static final String STAR_STATUS = "starstatus";
+        public static final String LAST_USED = "lastused";
     }
 
     public static class LoyaltyCardDbIdsGroups
@@ -51,6 +52,17 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String TABLE = "cardsGroups";
         public static final String cardID = "cardId";
         public static final String groupID = "groupId";
+    }
+
+    public enum LoyaltyCardOrder {
+        Alpha,
+        LastUsed,
+        Expiry
+    }
+
+    public enum LoyaltyCardOrderDirection {
+        Ascending,
+        Descending
     }
 
     private Context mContext;
@@ -83,7 +95,8 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
+                LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
+                LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0')");
 
         // create associative table for cards in groups
         db.execSQL("create table " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -250,13 +263,19 @@ public class DBHelper extends SQLiteOpenHelper
             db.setTransactionSuccessful();
             db.endTransaction();
         }
+
+        if(oldVersion < 11 && newVersion >= 11)
+        {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0'");
+        }
     }
 
     public long insertLoyaltyCard(final String store, final String note, final Date expiry,
                                   final BigDecimal balance, final Currency balanceType,
                                   final String cardId, final String barcodeId,
                                   final CatimaBarcode barcodeType, final Integer headerColor,
-                                  final int starStatus)
+                                  final int starStatus, final Long lastUsed)
     {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -270,14 +289,16 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 
     public long insertLoyaltyCard(final SQLiteDatabase db, final String store,
-                                     final String note, final Date expiry, final BigDecimal balance,
-                                     final Currency balanceType, final String cardId,
-                                     final String barcodeId, final CatimaBarcode barcodeType,
-                                     final Integer headerColor, final int starStatus)
+                                  final String note, final Date expiry, final BigDecimal balance,
+                                  final Currency balanceType, final String cardId,
+                                  final String barcodeId, final CatimaBarcode barcodeType,
+                                  final Integer headerColor, final int starStatus,
+                                  final Long lastUsed)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STORE, store);
@@ -289,15 +310,17 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
-        contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 
     public long insertLoyaltyCard(final SQLiteDatabase db, final int id, final String store,
-                                     final String note, final Date expiry, final BigDecimal balance,
-                                     final Currency balanceType, final String cardId,
-                                     final String barcodeId, final CatimaBarcode barcodeType,
-                                     final Integer headerColor, final int starStatus)
+                                  final String note, final Date expiry, final BigDecimal balance,
+                                  final Currency balanceType, final String cardId,
+                                  final String barcodeId, final CatimaBarcode barcodeType,
+                                  final Integer headerColor, final int starStatus,
+                                  final Long lastUsed)
     {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ID, id);
@@ -310,7 +333,8 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
-        contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         return db.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
     }
 
@@ -341,6 +365,16 @@ public class DBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS,starStatus);
+        int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(id));
+        return (rowsUpdated == 1);
+    }
+
+    public boolean updateLoyaltyCardLastUsed(final int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, System.currentTimeMillis() / 1000);
         int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
@@ -475,6 +509,18 @@ public class DBHelper extends SQLiteOpenHelper
      */
     public Cursor getLoyaltyCardCursor(final String filter, Group group)
     {
+        return getLoyaltyCardCursor(filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending);
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store or note in a certain group sorted as requested.
+     *
+     * @param filter
+     * @param group
+     * @param order
+     * @return Cursor
+     */
+    public Cursor getLoyaltyCardCursor(final String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
         String actualFilter = String.format("%%%s%%", filter);
         String[] selectionArgs = { actualFilter, actualFilter };
         StringBuilder groupFilter = new StringBuilder();
@@ -501,11 +547,16 @@ public class DBHelper extends SQLiteOpenHelper
             }
         }
 
+        String orderField = getFieldForOrder(order);
+
         return db.rawQuery("select * from " + LoyaltyCardDbIds.TABLE +
                 " WHERE (" + LoyaltyCardDbIds.STORE + "  LIKE ? " +
                 " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? )" +
                 groupFilter.toString() +
-                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC," + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                " ORDER BY " + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
+                " (CASE WHEN " + orderField + " IS NULL THEN 1 ELSE 0 END), " +
+                orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
+                LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
                 limitString, selectionArgs, null);
     }
 
@@ -736,5 +787,30 @@ public class DBHelper extends SQLiteOpenHelper
         return Arrays.stream(object)
                 .map(String::valueOf)
                 .toArray(String[]::new);
+    }
+
+    private String getFieldForOrder(LoyaltyCardOrder order) {
+        if (order == LoyaltyCardOrder.Alpha) {
+            return LoyaltyCardDbIds.STORE;
+        }
+
+        if (order == LoyaltyCardOrder.LastUsed) {
+            return LoyaltyCardDbIds.LAST_USED;
+        }
+
+        if (order == LoyaltyCardOrder.Expiry) {
+            return LoyaltyCardDbIds.EXPIRY;
+        }
+
+        throw new IllegalArgumentException("Unknown order " + order);
+    }
+
+    private String getDbDirection(LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
+        if (order == LoyaltyCardOrder.LastUsed) {
+            // We want the default sorting to put the most recently used first
+            return direction == LoyaltyCardOrderDirection.Descending ? "ASC" : "DESC";
+        }
+
+        return direction == LoyaltyCardOrderDirection.Ascending ? "ASC" : "DESC";
     }
 }

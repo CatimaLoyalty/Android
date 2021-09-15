@@ -195,4 +195,11 @@
     <string name="toggleMoreInfo">Perjungti išsamios informacijos rodymą</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> tipo kortelės brūkšninio kodo vaizdas</string>
     <string name="swipeToSwitchImages">Perbraukite arba ilgai palaikykite paspaudę, kad perjungtumėte vaizdus</string>
+    <string name="sort_by">Rikiuoti pagal</string>
+    <string name="reverse">Atvirkštinis</string>
+    <string name="sort_by_balance">Balansas</string>
+    <string name="sort_by_expiry">Galiojimo pabaiga</string>
+    <string name="sort_by_most_recently_used">Vėliausiai naudota</string>
+    <string name="sort_by_name">Pavadinimas</string>
+    <string name="sort">Rikiuoti</string>
 </resources>

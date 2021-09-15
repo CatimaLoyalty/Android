@@ -8,20 +8,21 @@ mondstern
 Taco
 Gediminas Murauskas
 IllusiveMan196
-Samantaz Fox
 Joel A
+Samantaz Fox
 arno-github
 Sergio Paredes
 Nyatsuki
 StoyanDimitrov
 arshbeerSingh
+Oğuz Ersen
 huuhaa
 Michael Moroni
 Petr Novák
 betsythefc
 K. Herbert
-Oğuz Ersen
 Quentin PAGÈS
+String E. Fighter
 Yurical
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
@@ -33,7 +34,6 @@ Jane Kong
 Lukas Grassauer
 Michalis
 schirinowski
-String E. Fighter
 inesre
 lgasp
 phlostically
@@ -42,6 +42,7 @@ Kevin Sicong Jiang
 Miha Frangež
 Airat
 BMN
+Flav
 Franciszek Stefan
 Izzy
 Karol Kosek

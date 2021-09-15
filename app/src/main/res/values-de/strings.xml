@@ -191,4 +191,10 @@
     <string name="toggleMoreInfo">Umschalten, um weitere Informationen anzuzeigen</string>
     <string name="barcodeImageDescriptionWithType">Bild des Kartenstrichcodes des Typs <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Wischen oder langes Drücken zum Wechseln der Bilder</string>
+    <string name="sort_by">Sortieren nach</string>
+    <string name="sort_by_balance">Kontostand</string>
+    <string name="sort_by_expiry">Ablaufdatum</string>
+    <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
+    <string name="sort_by_name">Name</string>
+    <string name="sort">Sortieren</string>
 </resources>

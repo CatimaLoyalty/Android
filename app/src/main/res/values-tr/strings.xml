@@ -191,4 +191,11 @@
     </plurals>
     <string name="action_add">Ekle</string>
     <string name="action_search">Ara</string>
+    <string name="sort_by">Sıralama ölçütü</string>
+    <string name="reverse">Ters</string>
+    <string name="sort_by_balance">Bakiye</string>
+    <string name="sort_by_expiry">Son kullanma tarihi</string>
+    <string name="sort_by_most_recently_used">En Son Kullanılan</string>
+    <string name="sort_by_name">Ad</string>
+    <string name="sort">Sırala</string>
 </resources>

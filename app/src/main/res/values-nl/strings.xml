@@ -191,4 +191,11 @@
     <string name="toggleMoreInfo">Meer informatie tonen/verbergen</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van de barcode, type <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
+    <string name="sort_by">Sorteren op</string>
+    <string name="reverse">Omdraaien</string>
+    <string name="sort_by_balance">Op saldo</string>
+    <string name="sort_by_expiry">Op vervaldatum</string>
+    <string name="sort_by_most_recently_used">Op onlangs gebruikt</string>
+    <string name="sort_by_name">Op naam</string>
+    <string name="sort">Sorteren</string>
 </resources>

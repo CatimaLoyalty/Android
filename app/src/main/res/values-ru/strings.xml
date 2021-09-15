@@ -199,4 +199,11 @@
     <string name="barcodeImageDescriptionWithType">Изображение штрих-кода карты типа <xliff:g>%s</xliff:g></string>
     <string name="toggleMoreInfo">Переключение отображения дополнительной информации</string>
     <string name="swipeToSwitchImages">Смахивание или долгое нажатие для переключения изображений</string>
+    <string name="sort_by_expiry">Срок действия</string>
+    <string name="sort_by">Сортировать по</string>
+    <string name="reverse">Обратный порядок</string>
+    <string name="sort_by_balance">Баланс</string>
+    <string name="sort_by_most_recently_used">Частота использования</string>
+    <string name="sort_by_name">Название</string>
+    <string name="sort">Сортировка</string>
 </resources>

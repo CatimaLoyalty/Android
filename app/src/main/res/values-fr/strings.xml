@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Ajouter</string>
-    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez-en d’abord depuis le menu ⋮</string>
+    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez les depuis le menu ⋮</string>
     <string name="storeName">Nom</string>
     <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
@@ -191,4 +191,10 @@
     <string name="toggleMoreInfo">Activer/désactiver l\'affichage de plus d\'infos</string>
     <string name="barcodeImageDescriptionWithType">Image du code-barres de la carte de type <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Balayez ou appuyez longuement pour changer d\'image</string>
+    <string name="sort">Cours</string>
+    <string name="sort_by">Trier par</string>
+    <string name="reverse">Inversé</string>
+    <string name="sort_by_expiry">Expirée</string>
+    <string name="sort_by_most_recently_used">Les plus récents</string>
+    <string name="sort_by_name">Nom</string>
 </resources>

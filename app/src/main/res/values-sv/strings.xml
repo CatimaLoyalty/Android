@@ -191,4 +191,11 @@
     <string name="toggleMoreInfo">Växla mellan att visa mer info</string>
     <string name="barcodeImageDescriptionWithType">Bild av kortstreckkod av typen <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Svep eller tryck länge för att växla bild</string>
+    <string name="reverse">Vänd ordning</string>
+    <string name="sort_by">Sortera efter</string>
+    <string name="sort_by_balance">Saldo</string>
+    <string name="sort_by_expiry">Förfallodag</string>
+    <string name="sort_by_most_recently_used">Senast använda</string>
+    <string name="sort_by_name">Namn</string>
+    <string name="sort">Sortera</string>
 </resources>

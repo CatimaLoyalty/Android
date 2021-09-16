@@ -197,4 +197,5 @@
     <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
     <string name="sort_by_name">Name</string>
     <string name="sort">Sortieren</string>
+    <string name="reverse">Umgekehrt</string>
 </resources>

@@ -191,4 +191,11 @@
     <string name="toggleMoreInfo">Attiva/disattiva la visualizzazione di altre informazioni</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre della carta del tipo <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Scorri o premi a lungo per cambiare immagine</string>
+    <string name="sort_by">Ordina per</string>
+    <string name="reverse">Inverti</string>
+    <string name="sort_by_balance">Saldo</string>
+    <string name="sort_by_expiry">Scadenza</string>
+    <string name="sort_by_most_recently_used">Usate più di recente</string>
+    <string name="sort_by_name">Nome</string>
+    <string name="sort">Ordina</string>
 </resources>

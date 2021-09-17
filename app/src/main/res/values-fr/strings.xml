@@ -191,10 +191,11 @@
     <string name="toggleMoreInfo">Activer/désactiver l\'affichage de plus d\'infos</string>
     <string name="barcodeImageDescriptionWithType">Image du code-barres de la carte de type <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Balayez ou appuyez longuement pour changer d\'image</string>
-    <string name="sort">Cours</string>
+    <string name="sort">Trier</string>
     <string name="sort_by">Trier par</string>
     <string name="reverse">Inversé</string>
-    <string name="sort_by_expiry">Expirée</string>
-    <string name="sort_by_most_recently_used">Les plus récents</string>
+    <string name="sort_by_expiry">Date d\'expiration</string>
+    <string name="sort_by_most_recently_used">Les plus récemment utilisées</string>
     <string name="sort_by_name">Nom</string>
+    <string name="sort_by_balance">Solde</string>
 </resources>

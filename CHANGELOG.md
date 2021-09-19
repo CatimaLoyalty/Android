@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 83
+## v2.6.0 - 83 (2021-09-19)
 
 - Support for changing the sorting order
 - Prevent Out Of Memory on scanning large pictures for barcode

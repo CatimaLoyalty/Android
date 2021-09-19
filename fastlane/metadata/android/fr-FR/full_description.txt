@@ -1,10 +1,10 @@
 Arrêtez de chercher des cartes de fidélité en plastique lors du passage à la caisse des magasins ou des boutiques en ligne.
 <b>Scannez les codes-barres sur votre appareil en utilisant son appareil photo, oubliez les cartes</b>.
-😺
+
 Oubliez votre portefeuille, ou gardez-le ultraléger pour les objets de valeur.
-😺
+
 Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plastique inutile par de l'argent liquide.
-😺
+
 - Évitez l'espionnage avec très peu de permissions. Aucun accès à Internet et aucune publicité.
 - Ajoutez des cartes ou des codes avec des noms et des couleurs personnalisables.
 - Saisie manuelle du code s'il n'y a pas de code-barres à stocker ou s'il ne peut pas être utilisé.
@@ -17,7 +17,7 @@ Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plas
 - Gratis, soutenu par les contributions de la communauté.
 - Utilisez, étudiez, modifiez et partagez comme vous le souhaitez ; <i>avec tous</i>.
 - Pas seulement logiciel libre et à code source ouvert <i>logiciel libre à copyleft</i> (GPLv3+) pour la gestion des cartes.
-😺
+
 Simplifiez votre vie et vos achats, et ne perdez plus jamais un reçu papier, une carte cadeau de paiement en magasin ou un billet d'avion.
 Emportez toutes vos récompenses et primes avec vous, et économisez au fur et à mesure.
-😺
+

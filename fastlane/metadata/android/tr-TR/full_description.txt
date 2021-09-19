@@ -1,10 +1,10 @@
 Mağazada veya internette ödeme sırasında plastik ödül kartlarını aramaya son verin.
 <b>Kamerasını kullanarak barkodları aygıtınıza tarayın, kartları unutun.</b>
-😺
+
 Cüzdanınızı unutun veya değerli eşyalarınız için aşırı hafif tutun.
-😺
+
 Bu temel günlük taşıma aracıyla işe yaramaz plastiği nakitle değiştirebilirsiniz.
-😺
+
 - Çok az izinle casusluktan kaçının. İnternet erişimi ve reklam yok.
 - Adları ve özelleştirilebilir renkleri olan kartlar veya kodlar ekleyin.
 - Kaydedilecek barkod yoksa veya kullanılamıyorsa elle kod girişi.
@@ -17,7 +17,7 @@ Bu temel günlük taşıma aracıyla işe yaramaz plastiği nakitle değiştireb
 - Topluluk katkılarıyla desteklenir ve ücretsizdir.
 - Dilediğiniz gibi kullanın, inceleyin, değiştirin ve <i>herkesle</i> paylaşın.
 - Yalnızca Özgür Yazılım / Açık Kaynaklı değil. <i>Copyleft lisanslı</i> özgür (GPLv3+) kart yönetimi yazılımı.
-😺
+
 Hayatınızı ve alışverişinizi basitleştirin ve bir daha asla kağıt fatura, mağaza içi ödemeli hediye kartı veya uçak bileti kaybetmeyin.
 Tüm ödüllerinizi yanınıza alın ve kaydedin.
-😺
+

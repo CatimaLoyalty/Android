@@ -1,10 +1,10 @@
 Lopeta muovisten palkintokorttien etsiminen kaupan tai verkkokaupan kassalla.
 <b>Skannaa viivakoodit laitteeseesi sen kameran avulla, unohda kortit.</b>
-😺
+
 Unohda lompakko tai pidä se ultrakevyesti arvoesineitä varten.
-😺
+
 Tämän välttämättömän jokapäiväisen kantamisen (EDC) välineen avulla voit korvata turhan muovin käteisellä.
-😺
+
 - Vältä vakoilu hyvin vähillä luvilla. Ei Internet-yhteyttä eikä mainoksia.
 - Lisää kortteja tai koodeja nimillä ja muokattavilla väreillä.
 - Koodin syöttäminen manuaalisesti, jos viivakoodia ei voi tallentaa tai sitä ei voi käyttää.
@@ -17,7 +17,7 @@ Tämän välttämättömän jokapäiväisen kantamisen (EDC) välineen avulla vo
 - Gratis, yhteisön panoksilla tuettu.
 - Käytä, tutki, muuta ja jaa sitä haluamallasi tavalla; <i>kaikkien</i> kanssa.
 - Ei vain vapaat ohjelmistot / avoin lähdekoodi. <i>Copylefted</i> libre-ohjelmisto (GPLv3+) kortinhallinta.
-😺
+
 Yksinkertaista elämääsi ja shoppailuasi, äläkä enää koskaan hukkaa paperikuittia, kaupassa maksettavaa lahjakorttia tai lentolippua.
 Ota kaikki palkintosi ja bonuksesi mukaasi ja säästä matkan aikana.
-😺
+

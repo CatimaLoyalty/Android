@@ -1,10 +1,10 @@
 Přestaňte hledat plastové věrnostní karty při placení v obchodě nebo ve webovém obchodě.
 <b>Naskenujte si čárové kódy do svého zařízení pomocí jeho fotoaparátu a zapomeňte na karty.</b>
-😺
+
 Zapomeňte na peněženku nebo ji mějte ultralehkou na cennosti.
-😺
+
 S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradit zbytečné plasty hotovostí.
-😺
+
 - Vyhněte se špehování s velmi malým počtem oprávnění. Žádný přístup k internetu a žádné reklamy.
 - Přidejte karty nebo kódy se jmény a přizpůsobitelnými barvami.
 - Ruční zadání kódu, pokud není čárový kód k uložení nebo jej nelze použít.
@@ -17,7 +17,7 @@ S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradit
 - Zdarma, podporováno příspěvky komunity.
 - Používejte, studujte, měňte a sdílejte dle libosti; <i>se všemi</i>.
 - Nejen svobodný software / open source. <i>Copylefted</i> libre software (GPLv3+) správa karet.
-😺
+
 Zjednodušte si život a nakupování a už nikdy neztraťte papírovou účtenku, dárkovou kartu pro platbu v obchodě nebo letenku.
 Vezměte si s sebou všechny své odměny a bonusy a šetřete za pochodu.
-😺
+

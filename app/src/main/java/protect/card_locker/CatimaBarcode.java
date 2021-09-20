@@ -72,6 +72,12 @@ public class CatimaBarcode {
     }
 
     public String prettyName() {
-        return barcodePrettyNames.get(barcodeFormats.indexOf(mBarcodeFormat));
+        int index = barcodeFormats.indexOf(mBarcodeFormat);
+
+        if (index == -1 || index >= barcodePrettyNames.size()) {
+            return mBarcodeFormat.name();
+        }
+
+        return barcodePrettyNames.get(index);
     }
 }

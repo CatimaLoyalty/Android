@@ -36,4 +36,15 @@
     </plurals>
     <string name="action_add">Tilføj</string>
     <string name="action_search">Søg</string>
+    <string name="importExport">Import/eksport</string>
+    <string name="exportName">Eksport</string>
+    <string name="importExportHelp">Hvis du sikkerhedskopierer dine kort, kan du flytte dem til en anden enhed.</string>
+    <string name="importSuccessfulTitle">Importeret</string>
+    <string name="importFailedTitle">Import mislykkedes</string>
+    <string name="importFailed">Kunne ikke importere kort</string>
+    <string name="exportSuccessfulTitle">Eksporteret</string>
+    <string name="exportFailedTitle">Eksport mislykkedes</string>
+    <string name="exportFailed">Kunne ikke eksportere kort</string>
+    <string name="importing">Importere…</string>
+    <string name="exporting">Eksportere…</string>
 </resources>

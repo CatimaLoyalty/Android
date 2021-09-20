@@ -190,4 +190,12 @@
     <string name="noGroupCards">Тази група не съдържа карти</string>
     <string name="toggleMoreInfo">Превключване на повече информация</string>
     <string name="barcodeImageDescriptionWithType">Изображение на щрихкод на карта от вида <xliff:g>%s</xliff:g></string>
+    <string name="swipeToSwitchImages">Плъзване или задържане за смяна на изображения</string>
+    <string name="sort_by">Сортиране по</string>
+    <string name="reverse">Наобратно</string>
+    <string name="sort_by_balance">Наличност</string>
+    <string name="sort_by_expiry">Валидност</string>
+    <string name="sort_by_most_recently_used">Последно използване</string>
+    <string name="sort_by_name">Наименование</string>
+    <string name="sort">Сортиране</string>
 </resources>

@@ -12,6 +12,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -1087,7 +1088,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
                 Bitmap bitmap = null;
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
+                    } else {
+                        ImageDecoder.Source image_source = ImageDecoder.createSource(getContentResolver(), intent.getData());
+                        bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                    }
                 } catch (IOException e) {
                     Log.e(TAG, "Error getting data from image file");
                     e.printStackTrace();

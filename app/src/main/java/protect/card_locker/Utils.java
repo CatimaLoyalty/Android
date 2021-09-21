@@ -106,11 +106,11 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
-                } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
                     bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                } else {
+                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
                 }
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");

@@ -1088,11 +1088,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
                 Bitmap bitmap = null;
                 try {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
-                    } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                         ImageDecoder.Source image_source = ImageDecoder.createSource(getContentResolver(), intent.getData());
                         bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                    } else {
+                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Error getting data from image file");

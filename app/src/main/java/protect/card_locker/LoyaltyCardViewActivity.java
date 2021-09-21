@@ -45,6 +45,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 import protect.card_locker.preferences.Settings;
@@ -192,7 +193,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
-        DrawableCompat.setTint(wrappedIcon, getResources().getColor(R.color.iconColor));
+        DrawableCompat.setTint(wrappedIcon, ContextCompat.getColor(getApplicationContext(), R.color.iconColor));
 
         return wrappedIcon;
     }
@@ -468,7 +469,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             int expiryString = R.string.expiryStateSentence;
             if(Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryString = R.string.expiryStateSentenceExpired;
-                expiryView.setTextColor(getResources().getColor(R.color.alert));
+                expiryView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.alert));
             }
             expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
             expiryView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));

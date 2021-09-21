@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.os.Build;
 import android.os.LocaleList;
@@ -105,7 +106,12 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
+                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                } else {
+                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+                }
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
                 e.printStackTrace();

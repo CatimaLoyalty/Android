@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -519,10 +520,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (id == R.id.action_sort)
         {
             TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setTitle(R.string.sort_by);
-
             AtomicInteger currentIndex = new AtomicInteger();
             List<DBHelper.LoyaltyCardOrder> loyaltyCardOrders = Arrays.asList(DBHelper.LoyaltyCardOrder.values());
             for (int i = 0; i < loyaltyCardOrders.size(); i++) {
@@ -532,18 +529,27 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle(R.string.sort_by);
+
+            final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
+            builder.setView(customLayout);
+            CheckBox ch = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
+
             builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
+
             builder.setPositiveButton(R.string.sort, (dialog, which) -> {
-                setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending);
-
+                if(ch.isChecked()) {
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending);
+                }
+                else {
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending);
+                }
                 dialog.dismiss();
             });
-            builder.setNeutralButton(R.string.reverse, (dialog, which) -> {
-                setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending);
 
-                dialog.dismiss();
-            });
             builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+
             AlertDialog dialog = builder.create();
             dialog.show();
 

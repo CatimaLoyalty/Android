@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -534,7 +535,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
             builder.setView(customLayout);
+
             CheckBox ch = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
+            ch.setChecked(getSharedPreferences(getString(R.string.sharedpreference_reverse_state), Context.MODE_PRIVATE).getBoolean("ch", true));
+            ch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    getSharedPreferences(getString(R.string.sharedpreference_reverse_state), Context.MODE_PRIVATE).edit().putBoolean("ch", isChecked).apply();
+
+                }
+            });
 
             builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
 

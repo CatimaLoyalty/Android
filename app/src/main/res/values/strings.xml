@@ -127,7 +127,7 @@
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
-    <string name="sharedpreference_reverse_state" translatable="false">sharedpreference_reverse_state</string>string>
+
 
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>

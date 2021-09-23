@@ -537,14 +537,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             builder.setView(customLayout);
 
             CheckBox ch = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
-            ch.setChecked(getSharedPreferences(getString(R.string.sharedpreference_reverse_state), Context.MODE_PRIVATE).getBoolean("ch", true));
-            ch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    getSharedPreferences(getString(R.string.sharedpreference_reverse_state), Context.MODE_PRIVATE).edit().putBoolean("ch", isChecked).apply();
-
-                }
-            });
+            SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                    getString(R.string.sharedpreference_sort),
+                    Context.MODE_PRIVATE);
+            try {
+            mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
+            } catch (IllegalArgumentException | NullPointerException ignored) {}
+            if (mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending)
+                ch.setChecked(true);
+            else
+                ch.setChecked(false);
 
             builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
 

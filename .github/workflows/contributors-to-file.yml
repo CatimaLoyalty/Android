@@ -1,11 +1,12 @@
 name: Write contributors to file
 on:
-  push:
-    branches: [ master ]
+  schedule:
+    - cron: '3 4 * * 0'
 
 jobs:
   contributors_to_file:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     name: Write contributors to file
     steps:
     - name: Checkout repo

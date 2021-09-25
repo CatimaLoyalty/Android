@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.6.1 - 84 (2021-09-25)
+
+- Minor bugfixes and improvements
+
 ## v2.6.0 - 83 (2021-09-19)
 
 - Support for changing the sorting order

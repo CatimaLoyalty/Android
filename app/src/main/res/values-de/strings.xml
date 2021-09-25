@@ -63,7 +63,7 @@
     <string name="settings_dark_theme">Dunkel</string>
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
-    <string name="settings_theme">Theme</string>
+    <string name="settings_theme">Farbschema</string>
     <string name="enterBarcodeInstructions">Gib die Kartennummer ein und wähle entweder den Barcode-Typ unten oder wähle \"Diese Karte hat keinen Barcode\" aus.</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
 \nCopyright © 2016-2020 Branden Archer.</string>

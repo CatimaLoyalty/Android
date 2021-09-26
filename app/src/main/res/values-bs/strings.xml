@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="save">Snimi</string>
+    <string name="cancel">Odustani</string>
+    <string name="unstar">Ukloni sve omiljene</string>
+    <string name="star">Omiljene</string>
+    <string name="barcodeNoBarcode">Ova kartica nema barkode</string>
+    <string name="barcodeType">Barcode tip</string>
+    <string name="note">Bilježnica</string>
+    <string name="storeName">Ime</string>
+    <string name="noMatchingGiftCards">Nisam našao ništa. Pokušaj promijeniti pretragu.</string>
+    <string name="noGiftCards">Kliknite + Plus dugme da dodate kartu ili uvozite nešto iz menija prvo.</string>
+    <string name="action_add">Dodaj</string>
+</resources>

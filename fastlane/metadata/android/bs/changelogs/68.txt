@@ -1,0 +1,4 @@
+- Podržite novi PDF417 export iz Voucher trezora
+- Podržite za kopiranje više barkodova odjednom.
+- Podržite dijeljenje više kartica odanosti odjednom
+- Pitaj da ažuriraš vrijednost za barcode ako se promijeni ID kartica

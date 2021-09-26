@@ -1,0 +1,4 @@
+- Poboljšaj uvoznika
+- Fix uvoznik Catia export sa više nota
+- Titula skale u prihvatljivom opsegu
+- Poboljšanja u animaciji

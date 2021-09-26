@@ -1,0 +1,4 @@
+- Poboljšana podrška čitaocima ekrana
+- Nemoj da se slupaš dok pokušavaš da otvoriš video iz galerije
+- Provuci podršku na zaslonu sa kartica
+- Ne Resetuj grupu na pritiskom dugmeta

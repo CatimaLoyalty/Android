@@ -1,0 +1,4 @@
+- Poboljšaj listu karata za pejzaž i tablicu
+- Dodaj mi boju za kosu (hvala, Subhashish Anand!)
+- Ne zatvarajte aktivnost na grešci kamere (tako ručni unos je i dalje moguć)
+- Dodaj sve doprinosioce dijalogu s obavještenjima

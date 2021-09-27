@@ -1,0 +1,2 @@
+- Popravi Kratica tastature za biranje grafičkog elementa
+- Zamijeni uobičajeni Android crni ekran prskanjem ekrana

@@ -1,0 +1,4 @@
+- Napravi linkove u bilješkama koje se mogu kliknuti
+- Pre-odaberite grupu u kojoj je korisnik trenutno pri kreiranju nove kartice
+- Zarez-odvojena grupna imena u lojalnost card view
+- Fiksiraj maksimiziraj dugme koje se pojavljuje na barkodeu

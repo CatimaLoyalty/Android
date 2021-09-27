@@ -199,4 +199,11 @@
     <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду карти типу <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
+    <string name="sort_by">Сортувати за</string>
+    <string name="reverse">Зворотній порядок</string>
+    <string name="sort_by_balance">Баланс</string>
+    <string name="sort_by_expiry">Термін дії</string>
+    <string name="sort_by_most_recently_used">Часто використовувані</string>
+    <string name="sort_by_name">Назва</string>
+    <string name="sort">Сортування</string>
 </resources>

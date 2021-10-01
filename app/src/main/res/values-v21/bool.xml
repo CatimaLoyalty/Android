@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="new_splash_screen_enabled">true</bool>
-    <bool name="old_splash_screen_enabled">false</bool>
-</resources>

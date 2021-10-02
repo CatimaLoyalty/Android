@@ -430,7 +430,6 @@
                     android:layout_margin="8dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-
     </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

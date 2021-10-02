@@ -133,6 +133,7 @@ public class AboutActivity extends CatimaAppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
     public void onClickHandler(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW);
         view.setOnClickListener(new View.OnClickListener() {

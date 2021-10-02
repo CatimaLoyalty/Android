@@ -1,11 +1,14 @@
 package protect.card_locker;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -95,26 +98,28 @@ public class AboutActivity extends CatimaAppCompatActivity
 
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
-        TextView aboutTextView = findViewById(R.id.aboutText);
-        aboutTextView.setText(HtmlCompat.fromHtml(String.format(getString(R.string.debug_version_fmt), version) +
-                "<br/><br/>" +
-                String.format(getString(R.string.app_revision_fmt),
-                        "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-                                "GitHub" +
-                                "</a>") +
-                "<br/><br/>" +
-                String.format(getString(R.string.app_copyright_fmt), year) +
-                "<br/><br/>" +
-                getString(R.string.app_copyright_old) +
-                "<br/><br/>" +
-                getString(R.string.app_license) +
-                "<br/><br/>" +
-                String.format(getString(R.string.app_contributors), contributors.toString()) +
-                "<br/><br/>" +
-                String.format(getString(R.string.app_libraries), libs.toString()) +
-                "<br/><br/>" +
-                String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
-        aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+//        TextView aboutTextView = findViewById(R.id.aboutText);
+//        aboutTextView.setText(HtmlCompat.fromHtml(String.format(getString(R.string.debug_version_fmt), version) +
+//                "<br/><br/>" +
+//                String.format(getString(R.string.app_revision_fmt),
+//                        "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
+//                                "GitHub" +
+//                                "</a>") +
+//                "<br/><br/>" +
+//                String.format(getString(R.string.app_copyright_fmt), year) +
+//                "<br/><br/>" +
+//                getString(R.string.app_copyright_old) +
+//                "<br/><br/>" +
+//                getString(R.string.app_license) +
+//                "<br/><br/>" +
+//                String.format(getString(R.string.app_contributors), contributors.toString()) +
+//                "<br/><br/>" +
+//                String.format(getString(R.string.app_libraries), libs.toString()) +
+//                "<br/><br/>" +
+//                String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+//        aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
@@ -127,5 +132,45 @@ public class AboutActivity extends CatimaAppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void onClickHandler(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch(view.getId()){
+                    case R.id.version_history:
+                        String url = "https://catima.app/changelog/";
+                        intent.setData(Uri.parse(url));
+                        startActivity(intent);
+                        break;
+                    case R.id.donate:
+                        String donateUrl = "https://github.com/sponsors/TheLastProject";
+                        intent.setData(Uri.parse(donateUrl));
+                        startActivity(intent);
+                        break;
+                    case R.id.translate:
+                        String translateUrl = "https://hosted.weblate.org/engage/catima/";
+                        intent.setData(Uri.parse(translateUrl));
+                        startActivity(intent);
+                        break;
+                    case R.id.License:
+                        String licenseUrl = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
+                        intent.setData(Uri.parse(licenseUrl));
+                        startActivity(intent);
+                        break;
+                    case R.id.repo:
+                        String repo = "https://github.com/TheLastProject/Catima/";
+                        intent.setData(Uri.parse(repo));
+                        startActivity(intent);
+                        break;
+                    case R.id.privacy:
+                        String privacy = "https://catima.app/privacy-policy/";
+                        intent.setData(Uri.parse(privacy));
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
     }
 }

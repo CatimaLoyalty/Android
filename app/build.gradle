@@ -95,7 +95,7 @@ dependencies {
 // Third-party
     implementation 'com.journeyapps:zxing-android-embedded:4.1.0@aar'
     implementation 'com.google.zxing:core:3.4.1'
-    implementation 'org.apache.commons:commons-csv:1.8'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
     implementation 'com.jaredrummler:colorpicker:1.1.0'
     implementation 'com.github.invissvenska:NumberPickerPreference:1.0.3'
     implementation 'net.lingala.zip4j:zip4j:2.9.0'

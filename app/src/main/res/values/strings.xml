@@ -256,14 +256,10 @@
     <string name="version_history">Version History</string>
     <string name="arrow"><![CDATA[>]]></string>
     <string name="credits">Credits</string>
-    <string name="donate">Donate</string>
-    <string name="show_your_appreciation">Show your appreciation!</string>
     <string name="help_translate_this_app">Help translate this app</string>
-    <string name="english_is_translated_100">English is translated 100%</string>
     <string name="license">License</string>
     <string name="source_repository">Source Repository</string>
     <string name="on_github">on Github</string>
-    <string name="faq">FAQ</string>
     <string name="privacy_statement">Privacy Statement</string>
     <string name="and_data_usage">and data usage</string>
     <string name="rate_this_app">Rate this app</string>

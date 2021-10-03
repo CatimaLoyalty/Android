@@ -46,9 +46,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/version_history"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:padding="2dp"
                     android:text="@string/debug_version_fmt"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv1" />
 
                 <TextView
@@ -67,10 +67,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -87,9 +87,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/credits"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:padding="2dp"
                     android:text="@string/app_copyright_fmt"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv2" />
 
                 <TextView
@@ -108,50 +108,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/donate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/tv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:padding="2dp"
-                    android:text="@string/donate"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/show_your_appreciation"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv3" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/arrow"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -168,9 +128,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/help_translate_this_app"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -179,10 +139,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,9 +159,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/license"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -210,9 +170,9 @@
                     android:padding="2dp"
                     android:text="@string/app_license"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv5"
-                    app:layout_constraintRight_toLeftOf="@id/arrow"/>
+                    app:layout_constraintEnd_toStartOf="@id/arrow"/>
 
                 <TextView
                     android:id="@+id/arrow"
@@ -221,10 +181,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -241,9 +201,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/source_repository"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -252,7 +212,7 @@
                     android:padding="2dp"
                     android:text="@string/on_github"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv6" />
 
                 <TextView
@@ -261,41 +221,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/faq"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <TextView
-                    android:id="@+id/tv7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:padding="2dp"
-                    android:text="@string/faq"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/arrow"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -312,9 +241,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/privacy_statement"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -323,7 +252,7 @@
                     android:padding="2dp"
                     android:text="@string/and_data_usage"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv8" />
 
                 <TextView
@@ -332,10 +261,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -352,9 +281,9 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/rate_this_app"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -363,7 +292,7 @@
                     android:padding="2dp"
                     android:text="@string/on_google_play"
                     android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv9" />
 
                 <TextView
@@ -372,10 +301,10 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -384,36 +313,38 @@
                 android:id="@+id/report_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:textSize="18sp"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@android:color/black"
+                    android:padding="2dp"
                     android:text="@string/report_error"
-                    android:padding="2dp"/>
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tv10"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
                     android:text="@string/on_github"
                     android:padding="2dp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:textSize="20sp"
+                    android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@android:color/black"
                     android:text="@string/arrow"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

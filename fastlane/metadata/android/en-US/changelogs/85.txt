@@ -1,0 +1,2 @@
+- Improved Android 12 support
+- Improved about screen

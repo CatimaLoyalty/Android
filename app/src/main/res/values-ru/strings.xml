@@ -206,4 +206,7 @@
     <string name="sort_by_most_recently_used">Частота использования</string>
     <string name="sort_by_name">Название</string>
     <string name="sort">Сортировка</string>
+    <string name="credits">Благодарности</string>
+    <string name="arrow">&gt;</string>
+    <string name="version_history">История версий</string>
 </resources>

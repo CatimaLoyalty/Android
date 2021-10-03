@@ -21,11 +21,12 @@ import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.text.HtmlCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class AboutActivity extends CatimaAppCompatActivity
+public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener
 {
     private static final String TAG = "Catima";
+    ConstraintLayout version_history, donate, translate, license, repo, privacy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -95,83 +96,61 @@ public class AboutActivity extends CatimaAppCompatActivity
         {
             Log.w(TAG, "Package name not found", e);
         }
-
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
+        version_history = findViewById(R.id.version_history);
+        donate = findViewById(R.id.donate);
+        translate = findViewById(R.id.translate);
+        license = findViewById(R.id.License);
+        repo = findViewById(R.id.repo);
+        privacy = findViewById(R.id.privacy);
 
-
-//        TextView aboutTextView = findViewById(R.id.aboutText);
-//        aboutTextView.setText(HtmlCompat.fromHtml(String.format(getString(R.string.debug_version_fmt), version) +
-//                "<br/><br/>" +
-//                String.format(getString(R.string.app_revision_fmt),
-//                        "<a href=\"" + getString(R.string.app_revision_url) + "\">" +
-//                                "GitHub" +
-//                                "</a>") +
-//                "<br/><br/>" +
-//                String.format(getString(R.string.app_copyright_fmt), year) +
-//                "<br/><br/>" +
-//                getString(R.string.app_copyright_old) +
-//                "<br/><br/>" +
-//                getString(R.string.app_license) +
-//                "<br/><br/>" +
-//                String.format(getString(R.string.app_contributors), contributors.toString()) +
-//                "<br/><br/>" +
-//                String.format(getString(R.string.app_libraries), libs.toString()) +
-//                "<br/><br/>" +
-//                String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
-//        aboutTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        version_history.setOnClickListener(this);
+        donate.setOnClickListener(this);
+        translate.setOnClickListener(this);
+        license.setOnClickListener(this);
+        repo.setOnClickListener(this);
+        privacy.setOnClickListener(this);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
         if (id == android.R.id.home) {
             finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickHandler(View view){
+    @Override
+    public void onClick(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch(view.getId()){
-                    case R.id.version_history:
-                        String url = "https://catima.app/changelog/";
-                        intent.setData(Uri.parse(url));
-                        startActivity(intent);
-                        break;
-                    case R.id.donate:
-                        String donateUrl = "https://github.com/sponsors/TheLastProject";
-                        intent.setData(Uri.parse(donateUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.translate:
-                        String translateUrl = "https://hosted.weblate.org/engage/catima/";
-                        intent.setData(Uri.parse(translateUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.License:
-                        String licenseUrl = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
-                        intent.setData(Uri.parse(licenseUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.repo:
-                        String repo = "https://github.com/TheLastProject/Catima/";
-                        intent.setData(Uri.parse(repo));
-                        startActivity(intent);
-                        break;
-                    case R.id.privacy:
-                        String privacy = "https://catima.app/privacy-policy/";
-                        intent.setData(Uri.parse(privacy));
-                        startActivity(intent);
-                        break;
-                }
-            }
-        });
+        if (R.id.version_history == view.getId()) {
+            String url = "https://catima.app/changelog/";
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        } else if (R.id.donate == view.getId()) {
+            String donateUrl = "https://github.com/sponsors/TheLastProject";
+            intent.setData(Uri.parse(donateUrl));
+            startActivity(intent);
+        } else if (R.id.translate == view.getId()) {
+            String translateUrl = "https://hosted.weblate.org/engage/catima/";
+            intent.setData(Uri.parse(translateUrl));
+            startActivity(intent);
+        } else if (R.id.License == view.getId()) {
+            String licenseUrl = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
+            intent.setData(Uri.parse(licenseUrl));
+            startActivity(intent);
+        } else if (R.id.repo == view.getId()) {
+            String repo = "https://github.com/TheLastProject/Catima/";
+            intent.setData(Uri.parse(repo));
+            startActivity(intent);
+        } else if (R.id.privacy == view.getId()) {
+            String privacy = "https://catima.app/privacy-policy/";
+            intent.setData(Uri.parse(privacy));
+            startActivity(intent);
+        }
     }
+
 }

@@ -764,45 +764,4 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             startActivityForResult(i, Utils.MAIN_REQUEST);
         }
     }
-
-    public void onClickHandler(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch(view.getId()){
-                    case R.id.version_history:
-                        String url = "https://catima.app/changelog/";
-                        intent.setData(Uri.parse(url));
-                        startActivity(intent);
-                        break;
-                    case R.id.donate:
-                        String donateUrl = "https://github.com/sponsors/TheLastProject";
-                        intent.setData(Uri.parse(donateUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.translate:
-                        String translateUrl = "https://hosted.weblate.org/engage/catima/";
-                        intent.setData(Uri.parse(translateUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.License:
-                        String licenseUrl = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
-                        intent.setData(Uri.parse(licenseUrl));
-                        startActivity(intent);
-                        break;
-                    case R.id.repo:
-                        String repo = "https://github.com/TheLastProject/Catima/";
-                        intent.setData(Uri.parse(repo));
-                        startActivity(intent);
-                        break;
-                    case R.id.privacy:
-                        String privacy = "https://catima.app/privacy-policy/";
-                        intent.setData(Uri.parse(privacy));
-                        startActivity(intent);
-                        break;
-                }
-            }
-        });
-    }
 }

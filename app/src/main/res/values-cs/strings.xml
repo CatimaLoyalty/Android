@@ -37,7 +37,7 @@
     <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
     <string name="importOptionApplicationButton">Použijte jinou aplikaci</string>
     <string name="about">O aplikaci</string>
-    <string name="app_license">Copylefted libre software, licencovaný GPLv3+.</string>
+    <string name="app_license">Copylefted libre software, licencovaný GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -55,7 +55,7 @@
     <string name="app_resources">Zdroje třetích stran Libre: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Libre knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Na základě Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
+\ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
     <string name="failedParsingImportUriError">Nelze analyzovat import URI</string>
     <string name="noCardExistsError">Nelze najít kartu</string>
@@ -184,7 +184,7 @@
     <string name="exportSuccessful">Data karty exportována</string>
     <string name="settings_display_barcode_max_brightness">Rozjasněné zobrazení čárového kódu</string>
     <string name="starImage">Oblíbená hvězda</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Vybrána <xliff:g>%d</xliff:g> karta</item>
         <item quantity="few">Vybrány <xliff:g>%d</xliff:g> karty</item>
@@ -204,4 +204,11 @@
     <string name="barcodeImageDescriptionWithType">Obrázek čárového kódu karty typu <xliff:g>%s</xliff:g></string>
     <string name="arrow">&gt;</string>
     <string name="version_history">Historie verzí</string>
+    <string name="rate_this_app">Ohodnoťte tuto aplikaci</string>
+    <string name="and_data_usage">a využití dat</string>
+    <string name="credits">Kredity</string>
+    <string name="on_github">na Githubu</string>
+    <string name="source_repository">Úložiště zdrojů</string>
+    <string name="license">Licence</string>
+    <string name="help_translate_this_app">Pomozte s překladem této aplikace</string>
 </resources>

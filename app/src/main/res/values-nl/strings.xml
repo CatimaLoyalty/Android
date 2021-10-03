@@ -198,4 +198,16 @@
     <string name="sort_by_most_recently_used">Op onlangs gebruikt</string>
     <string name="sort_by_name">Op naam</string>
     <string name="sort">Sorteren</string>
+    <string name="report_error">Fout melden</string>
+    <string name="on_google_play">in Google Play</string>
+    <string name="rate_this_app">Beoordeel deze app</string>
+    <string name="and_data_usage">en gegevensgebruik</string>
+    <string name="privacy_statement">Privacyverklaring</string>
+    <string name="on_github">op GitHub</string>
+    <string name="source_repository">Broncode</string>
+    <string name="license">Licentie</string>
+    <string name="help_translate_this_app">Help deze app te vertalen</string>
+    <string name="credits">Met dank aan</string>
+    <string name="arrow">&gt;</string>
+    <string name="version_history">Versiegeschiedenis</string>
 </resources>

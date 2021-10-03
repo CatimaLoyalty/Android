@@ -1,0 +1,2 @@
+- Přidání podpory zástupců aplikací (Android 7.1+), kdy se jako zástupci zobrazí naposledy použité karty. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Přidání widgetu, který funguje jako připnutý zástupce aplikace, pro podporu zařízení, která běží pod systémem Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

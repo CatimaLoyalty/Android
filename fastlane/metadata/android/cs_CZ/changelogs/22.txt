@@ -1,0 +1,1 @@
+- Změny v zobrazení karty, které zobrazují poznámku, umožňují, aby ID karty zabíralo více řádků, a zobrazují název obchodu. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

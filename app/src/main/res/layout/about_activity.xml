@@ -52,10 +52,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/history"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="@string/current_version_2_6_1"
+                    android:text="@string/debug_version_fmt"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv1" />
@@ -92,10 +93,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/copyright"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="@string/copyright_u00a9_2019_2021_sylvia_van_os"
+                    android:text="@string/app_copyright_fmt"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv2" />
@@ -174,15 +176,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/english_is_translated_100"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv4" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
@@ -212,15 +205,17 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="@string/gnu_gpl_3"
+                    android:text="@string/app_license"
                     android:textSize="16sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv5" />
+                    app:layout_constraintTop_toBottomOf="@id/tv5"
+                    app:layout_constraintRight_toLeftOf="@id/arrow"/>
 
                 <TextView
+                    android:id="@+id/arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"

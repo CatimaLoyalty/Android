@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -96,6 +95,12 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         {
             Log.w(TAG, "Package name not found", e);
         }
+
+        TextView copyright = findViewById(R.id.copyright);
+        copyright.setText(String.format(getString(R.string.app_copyright_fmt), year));
+        TextView vHistory = findViewById(R.id.history);
+        vHistory.setText(String.format(getString(R.string.debug_version_fmt), version));
+
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
         version_history = findViewById(R.id.version_history);

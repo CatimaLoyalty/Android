@@ -1,0 +1,3 @@
+- Přidejte tichou mezeru na začátek/konec čárových kódů. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Přidání možností konfigurace barev použitých pro písmo a pozadí názvu obchodu. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Přidání možností nastavení velikosti písma na stránce s výpisem karet a na stránce s jednotlivými kartami. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

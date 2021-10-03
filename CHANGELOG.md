@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Improved Android 12 support
+- Improved about screen
+
 ## v2.6.1 - 84 (2021-09-25)
 
 - Minor bugfixes and improvements

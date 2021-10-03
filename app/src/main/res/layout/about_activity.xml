@@ -40,7 +40,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv1"
+                    android:id="@+id/version_history_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -52,14 +52,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/history"
+                    android:id="@+id/version_history_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="@string/debug_version_fmt"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv1" />
+                    app:layout_constraintTop_toBottomOf="@id/version_history_main" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,7 +80,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv2"
+                    android:id="@+id/credits_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -93,14 +92,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/copyright"
+                    android:id="@+id/credits_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="@string/app_copyright_fmt"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv2" />
+                    app:layout_constraintTop_toBottomOf="@id/credits_main" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,7 +120,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv4"
+                    android:id="@+id/translate_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -147,13 +145,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/License"
+                android:id="@+id/license"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv5"
+                    android:id="@+id/license_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -165,6 +163,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/license_sub"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
@@ -172,7 +171,7 @@
                     android:layout_marginEnd="20dp"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv5"/>
+                    app:layout_constraintTop_toBottomOf="@id/license_main"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -194,7 +193,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv6"
+                    android:id="@+id/repo_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -206,13 +205,14 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/repo_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:text="@string/on_github"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv6" />
+                    app:layout_constraintTop_toBottomOf="@id/repo_main" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,25 +234,26 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv8"
+                    android:id="@+id/privacy_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
-                    android:text="@string/privacy_statement"
+                    android:text="@string/privacy_policy"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/privacy_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:text="@string/and_data_usage"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv8" />
+                    app:layout_constraintTop_toBottomOf="@id/privacy_main" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -274,7 +275,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/tv9"
+                    android:id="@+id/rate_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -286,13 +287,14 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/rate_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:text="@string/on_google_play"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv9" />
+                    app:layout_constraintTop_toBottomOf="@id/rate_main" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -314,7 +316,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv10"
+                    android:id="@+id/report_error_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -324,10 +326,12 @@
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
+                    android:id="@+id/report_error_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/tv10"
+                    app:layout_constraintTop_toBottomOf="@id/report_error_main"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="16sp"
                     android:text="@string/on_github"
@@ -347,5 +351,4 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

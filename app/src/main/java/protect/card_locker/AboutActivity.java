@@ -98,16 +98,16 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
             Log.w(TAG, "Package name not found", e);
         }
 
-        TextView copyright = findViewById(R.id.copyright);
+        TextView copyright = findViewById(R.id.credits_sub);
         copyright.setText(String.format(getString(R.string.app_copyright_fmt), year));
-        TextView vHistory = findViewById(R.id.history);
+        TextView vHistory = findViewById(R.id.version_history_sub);
         vHistory.setText(String.format(getString(R.string.debug_version_fmt), version));
 
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
         version_history = findViewById(R.id.version_history);
         translate = findViewById(R.id.translate);
-        license = findViewById(R.id.License);
+        license = findViewById(R.id.license);
         repo = findViewById(R.id.repo);
         privacy = findViewById(R.id.privacy);
         error = findViewById(R.id.report_error);
@@ -123,8 +123,14 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         rate.setOnClickListener(this);
 
         StringBuilder contributorInfo = new StringBuilder();
-        contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_contributors), contributors.toString()),
-                HtmlCompat.FROM_HTML_MODE_COMPACT));
+        contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_contributors), contributors.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        contributorInfo.append("\n\n");
+        contributorInfo.append(getString(R.string.app_copyright_old));
+        contributorInfo.append("\n\n");
+        contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_libraries), libs.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        contributorInfo.append("\n\n");
+        contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+
         credits.setOnClickListener(view -> new AlertDialog.Builder(this)
                 .setTitle(R.string.credits)
                 .setMessage(contributorInfo.toString())
@@ -144,36 +150,30 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        if (R.id.version_history == view.getId()) {
-            String url = "https://catima.app/changelog/";
-            intent.setData(Uri.parse(url));
-            startActivity(intent);
-        } else if (R.id.translate == view.getId()) {
-            String translateUrl = "https://hosted.weblate.org/engage/catima/";
-            intent.setData(Uri.parse(translateUrl));
-            startActivity(intent);
-        } else if (R.id.License == view.getId()) {
-            String licenseUrl = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
-            intent.setData(Uri.parse(licenseUrl));
-            startActivity(intent);
-        } else if (R.id.repo == view.getId()) {
-            String repo = "https://github.com/TheLastProject/Catima/";
-            intent.setData(Uri.parse(repo));
-            startActivity(intent);
-        } else if (R.id.privacy == view.getId()) {
-            String privacy = "https://catima.app/privacy-policy/";
-            intent.setData(Uri.parse(privacy));
-            startActivity(intent);
-        } else if (R.id.report_error == view.getId()) {
-            String errorUrl = "https://github.com/TheLastProject/Catima/issues";
-            intent.setData(Uri.parse(errorUrl));
-            startActivity(intent);
-        } else if (R.id.rate == view.getId()) {
-            String rateUrl = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
-            intent.setData(Uri.parse(rateUrl));
-            startActivity(intent);
+        int id = view.getId();
+
+        String url;
+        if (id == R.id.version_history) {
+            url = "https://catima.app/changelog/";
+        } else if (id == R.id.translate) {
+            url = "https://hosted.weblate.org/engage/catima/";
+        } else if (id == R.id.license) {
+            url = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
+        } else if (id == R.id.repo) {
+            url = "https://github.com/TheLastProject/Catima/";
+        } else if (id == R.id.privacy) {
+            url = "https://catima.app/privacy-policy/";
+        } else if (id == R.id.report_error) {
+            url = "https://github.com/TheLastProject/Catima/issues";
+        } else if (id == R.id.rate) {
+            url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
+        } else {
+            return;
         }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 
 }

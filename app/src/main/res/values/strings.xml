@@ -83,9 +83,9 @@
     <string name="importOptionApplicationButton">Use another app</string>
 
     <string name="about">About</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer.</string>
-    <string name="app_license">Copylefted libre software, licensed GPLv3+.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer</string>
+    <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -260,7 +260,6 @@
     <string name="license">License</string>
     <string name="source_repository">Source Repository</string>
     <string name="on_github">on Github</string>
-    <string name="privacy_statement">Privacy Statement</string>
     <string name="and_data_usage">and data usage</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>

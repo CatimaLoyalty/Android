@@ -1,12 +1,10 @@
 package protect.card_locker;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +19,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.text.HtmlCompat;
@@ -28,7 +27,7 @@ import androidx.core.text.HtmlCompat;
 public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener
 {
     private static final String TAG = "Catima";
-    ConstraintLayout version_history, translate, license, repo, privacy, error, credits;
+    ConstraintLayout version_history, translate, license, repo, privacy, error, credits, rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -104,13 +103,6 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         TextView vHistory = findViewById(R.id.history);
         vHistory.setText(String.format(getString(R.string.debug_version_fmt), version));
 
-        Spanned contributorNames = HtmlCompat.fromHtml(String.format(getString(R.string.app_contributors), contributors.toString()),
-                HtmlCompat.FROM_HTML_MODE_COMPACT);
-        SharedPreferences sharedPreferences = getSharedPreferences("contributorPref", MODE_PRIVATE);
-        SharedPreferences.Editor myEdit = sharedPreferences.edit();
-        myEdit.putString("contributors", contributorNames.toString());
-        myEdit.apply();
-
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
         version_history = findViewById(R.id.version_history);
@@ -120,6 +112,7 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         privacy = findViewById(R.id.privacy);
         error = findViewById(R.id.report_error);
         credits = findViewById(R.id.credits);
+        rate = findViewById(R.id.rate);
 
         version_history.setOnClickListener(this);
         translate.setOnClickListener(this);
@@ -127,7 +120,16 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         repo.setOnClickListener(this);
         privacy.setOnClickListener(this);
         error.setOnClickListener(this);
-        credits.setOnClickListener(this);
+        rate.setOnClickListener(this);
+
+        StringBuilder contributorInfo = new StringBuilder();
+        contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_contributors), contributors.toString()),
+                HtmlCompat.FROM_HTML_MODE_COMPACT));
+        credits.setOnClickListener(view -> new AlertDialog.Builder(this)
+                .setTitle(R.string.credits)
+                .setMessage(contributorInfo.toString())
+                .setPositiveButton(R.string.ok, (dialogInterface, i) -> {})
+                .show());
     }
 
     @Override
@@ -167,9 +169,10 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
             String errorUrl = "https://github.com/TheLastProject/Catima/issues";
             intent.setData(Uri.parse(errorUrl));
             startActivity(intent);
-        } else if (R.id.credits == view.getId()) {
-            CreditsDialog dialog = new CreditsDialog();
-            dialog.show(getSupportFragmentManager(), "Credits Dialog");
+        } else if (R.id.rate == view.getId()) {
+            String rateUrl = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
+            intent.setData(Uri.parse(rateUrl));
+            startActivity(intent);
         }
     }
 

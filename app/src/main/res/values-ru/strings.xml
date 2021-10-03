@@ -9,7 +9,7 @@
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
     <string name="barcodeNoBarcode">Эта карта без штрих-кода</string>
-    <string name="cancel">Отменить</string>
+    <string name="cancel">Отмена</string>
     <string name="save">Сохранить</string>
     <string name="edit">Изменить</string>
     <string name="delete">Удалить карту</string>
@@ -49,7 +49,7 @@
     <string name="importOptionApplicationExplanation">Используйте любое приложение или ваш любимый файловый менеджер, чтобы открыть файл.</string>
     <string name="importOptionApplicationButton">Использовать другое приложение</string>
     <string name="about">О приложении</string>
-    <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+.</string>
+    <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+</string>
     <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -74,7 +74,7 @@
     <string name="importSuccessful">Данные карт успешно импортированы</string>
     <string name="starImage">Звезда избранного</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain
-\nавторские права © 2016–2020 Branden Archer.</string>
+\nавторские права © 2016–2020 Branden Archer</string>
     <string name="unstar">Удалить из избранного</string>
     <string name="star">Добавить в избранное</string>
     <string name="noBarcode">Нет штрих-кода</string>
@@ -140,7 +140,7 @@
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
     <string name="app_resources">Свободные сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Поделиться картами</string>
     <string name="card_ids_copied">Скопированные номера карт</string>
     <string name="copy_to_clipboard_multiple_toast">Номера карт скопированы в буфер обмена</string>
@@ -208,4 +208,12 @@
     <string name="sort">Сортировка</string>
     <string name="credits">Благодарности</string>
     <string name="version_history">История версий</string>
+    <string name="on_github">на Github</string>
+    <string name="rate_this_app">Оценить приложение</string>
+    <string name="and_data_usage">и использование данных</string>
+    <string name="report_error">Отчёт об ошибке</string>
+    <string name="on_google_play">в Google Play</string>
+    <string name="source_repository">Исходный код</string>
+    <string name="license">Лицензия</string>
+    <string name="help_translate_this_app">Помощь в переводе приложения</string>
 </resources>

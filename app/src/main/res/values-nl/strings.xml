@@ -49,7 +49,7 @@
     <string name="importOptionApplicationExplanation">Open een bestand middels een app of je favoriete bestandsbeheerder.</string>
     <string name="importOptionApplicationButton">Andere app gebruiken</string>
     <string name="about">Over</string>
-    <string name="app_license">Vrije software, uitgebracht onder de GPLv3-licentie.</string>
+    <string name="app_license">Vrije software, uitgebracht onder de GPLv3+-licentie</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -74,8 +74,8 @@
     <string name="groups">Groepen</string>
     <string name="enter_group_name">Voer een groepsnaam in</string>
     <string name="starImage">Favoriete ster</string>
-    <string name="app_copyright_old">Gebaseerd op Loyalty Card Keychain,
-\ncopyright ©2016–2020 Branden Archer.</string>
+    <string name="app_copyright_old">Gebaseerd op Klantenkaartkluis,
+\ncopyright ©2016–2020 Branden Archer</string>
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
     <string name="addManually">Kaartnummer handmatig invoeren</string>
@@ -138,7 +138,7 @@
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
     <string name="app_resources">Vrije externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vrije externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ik wil kaarten met je delen</string>
     <string name="copy_to_clipboard_multiple_toast">De kaart-id\'s zijn gekopieerd naar het klembord</string>
     <string name="card_ids_copied">De kaart-id‘s zijn gekopieerd</string>
@@ -198,4 +198,16 @@
     <string name="sort_by_most_recently_used">Op onlangs gebruikt</string>
     <string name="sort_by_name">Op naam</string>
     <string name="sort">Sorteren</string>
+    <string name="report_error">Fout melden</string>
+    <string name="on_google_play">in Google Play</string>
+    <string name="rate_this_app">Beoordeel deze app</string>
+    <string name="and_data_usage">en gegevensgebruik</string>
+    <string name="privacy_statement">Privacyverklaring</string>
+    <string name="on_github">op GitHub</string>
+    <string name="source_repository">Broncode</string>
+    <string name="license">Licentie</string>
+    <string name="help_translate_this_app">Help deze app te vertalen</string>
+    <string name="credits">Met dank aan</string>
+    <string name="arrow">&gt;</string>
+    <string name="version_history">Versiegeschiedenis</string>
 </resources>

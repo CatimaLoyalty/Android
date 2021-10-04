@@ -1,0 +1,3 @@
+- Automatické zaostření textového pole při vytváření nebo úpravě skupiny
+- Oprava rozmazaných ikon (všude používejte SVG)
+- Vždy otevřít fotoaparát, ale přidat tlačítko ručního skenování do zobrazení fotoaparátu

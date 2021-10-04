@@ -1,0 +1,1 @@
+- Oprava načítání fotografií při úpravě existující karty

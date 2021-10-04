@@ -206,8 +206,10 @@
     <string name="rate_this_app">Ohodnoťte tuto aplikaci</string>
     <string name="and_data_usage">a využití dat</string>
     <string name="credits">Kredity</string>
-    <string name="on_github">na Githubu</string>
+    <string name="on_github">na GitHubu</string>
     <string name="source_repository">Úložiště zdrojů</string>
     <string name="license">Licence</string>
     <string name="help_translate_this_app">Pomozte s překladem této aplikace</string>
+    <string name="report_error">Nahlásit chybu</string>
+    <string name="on_google_play">na Google Play</string>
 </resources>

@@ -1,0 +1,4 @@
+- Oprava vybrané barvy v dialogu pro změnu barvy
+- Podpora odstraňování více karet najednou
+- Oprava možné výjimky ArithmeticException při změně velikosti obrázku
+- Oprava zavření celé obrazovky při otočení zařízení

@@ -1,0 +1,3 @@
+- Vylepšené uživatelské rozhraní pro úpravy
+- Odstraněna možnost barvy textu záhlaví (nyní se automaticky generuje na základě jasu).
+- Aktualizované překlady

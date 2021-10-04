@@ -1,0 +1,2 @@
+- Zlepšete kontrast tím, že na červených tlačítkách vždy použijete bílý text.
+- Přetahovací spodní list v zobrazení věrnostní karty

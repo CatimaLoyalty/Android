@@ -1,0 +1,4 @@
+- Fiks valgt farge i fargebytte-dialogen
+- Støtte for å slette flere kort samtidig
+- Fiks mulig ArithmeticException når et bilde skaleres
+- Fiks at fullskjerm lukkes når enheten roteres

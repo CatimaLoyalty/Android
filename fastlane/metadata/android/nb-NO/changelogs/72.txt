@@ -1,0 +1,1 @@
+- Gjør det mulig å konfigurere bilde i nye kundekort

@@ -1,0 +1,4 @@
+- Vylepšení seznamu karet pro zobrazení na šířku a pro tablety
+- Přidání podpory barevných témat (díky, Subhashishi Anande!)
+- Nezavírat činnost skenování při chybě fotoaparátu (takže ruční zadávání je stále možné)
+- Přidat všechny přispěvatele do dialogového okna o

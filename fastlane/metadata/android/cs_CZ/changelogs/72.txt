@@ -1,0 +1,1 @@
+- Oprava nemožnosti konfigurovat fotografie v nové věrnostní kartě

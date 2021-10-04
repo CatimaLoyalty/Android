@@ -1,0 +1,4 @@
+- Jas obrazovky se při zobrazení karty zvýší na maximum, aby čtečky čárových kódů úspěšně zachytily čárový kód. (pull #54)
+- Přidání potvrzení o smazání při mazání karty. (pull #55)
+- Přidání překladů pro němčinu (pull #57) a češtinu (pull #58).
+- Upřesňující změna pro italský překlad. (pull #66)

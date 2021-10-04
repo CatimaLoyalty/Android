@@ -1,0 +1,4 @@
+- Podpora nového exportu do PDF417 z Trezoru poukázek
+- Podpora kopírování více čárových kódů najednou
+- Podpora sdílení více věrnostních karet najednou
+- Požádat o aktualizaci hodnoty čárového kódu, pokud se změní ID karty

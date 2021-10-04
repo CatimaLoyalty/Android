@@ -1,0 +1,2 @@
+- Dlouhé kliknutí na kartu vyvolá možnost zkopírovat ID karty do schránky. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Tlačítko Zpět v zobrazení Vstup/Export nyní funguje a přesune uživatele do hlavního zobrazení

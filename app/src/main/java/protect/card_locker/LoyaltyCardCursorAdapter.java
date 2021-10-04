@@ -128,7 +128,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
     {
-        inputHolder.mThumbnailContainer.setOnClickListener(inputView -> mListener.onIconClicked(inputPosition));
         inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
         inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
 
@@ -238,7 +237,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public interface CardAdapterListener
     {
-        void onIconClicked(int inputPosition);
         void onRowClicked(int inputPosition);
         void onRowLongClicked(int inputPosition);
     }
@@ -249,7 +247,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public LinearLayout mInformationContainer;
         public ImageView mCardIcon, mStarIcon;
-        public CardView mThumbnailContainer;
         public MaterialCardView mRow;
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
@@ -257,7 +254,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public LoyaltyCardListItemViewHolder(View inputView)
         {
             super(inputView);
-            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
             mRow = inputView.findViewById(R.id.row);
             mDivider = inputView.findViewById(R.id.info_divider);
             mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);

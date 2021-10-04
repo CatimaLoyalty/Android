@@ -1,27 +1,21 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"
-    xmlns:tools="http://schemas.android.com/tools">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards selected</item>
     </plurals>
-
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
-
     <string name="storeName">Name</string>
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode type</string>
     <string name="barcodeNoBarcode">This card has no barcode</string>
     <string name="noBarcode">No barcode</string>
-
     <string name="star">Add to favorites</string>
     <string name="unstar">Remove from favorites</string>
-
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
@@ -48,16 +42,14 @@
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
-    <string name="sendLabel">Send&#8230;</string>
+    <string name="sendLabel">Send…</string>
     <string name="editCardTitle">Edit Card</string>
     <string name="addCardTitle">Add Card</string>
     <string name="scanCardBarcode">Scan Card Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">Add a card first</string>
     <string name="card_ids_copied">Copied Card ID(s)</string>
-
     <string name="barcodeImageDescriptionWithType">Image of card barcode of type <xliff:g>%s</xliff:g></string>
-
     <string name="noStoreError">No name entered</string>
     <string name="noCardIdError">No card ID entered</string>
     <string name="noCardExistsError">Could not find card</string>
@@ -71,8 +63,8 @@
     <string name="exportSuccessfulTitle">Exported</string>
     <string name="exportFailedTitle">Export failed</string>
     <string name="exportFailed">Could not export cards</string>
-    <string name="importing">Importing&#8230;</string>
-    <string name="exporting">Exporting&#8230;</string>
+    <string name="importing">Importing…</string>
+    <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export cards first</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
@@ -81,7 +73,6 @@
     <string name="importOptionApplicationTitle">Use another app</string>
     <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
     <string name="importOptionApplicationButton">Use another app</string>
-
     <string name="about">About</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer</string>
@@ -91,15 +82,11 @@
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
-
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or &#8220;This card has no barcode&#8221;.</string>
-
+    <string name="enterBarcodeInstructions">Enter the card ID, and either pick its barcode type below, or “This card has no barcode”.</string>
     <string name="copy_to_clipboard_toast">Card ID copied to clipboard</string>
-
     <string name="thumbnailDescription">Thumbnail for card</string>
     <string name="starImage">Favorite star</string>
-
     <string name="settings">Settings</string>
     <string name="settings_category_title_ui">User interface</string>
     <string name="settings_theme">Theme</string>
@@ -112,7 +99,6 @@
     <string name="settings_key_dark_theme" translatable="false">dark</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
     <string name="settings_max_font_size_scale">Max. font size</string>
-
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
@@ -121,14 +107,11 @@
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent lock screen</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
-
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
-
-
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
     <string name="intent_import_card_from_url_path_prefix_catima_app" translatable="false">/share</string>
@@ -138,7 +121,6 @@
     <string name="intent_import_card_from_url_path_prefix_brarcher" translatable="false">/loyalty-card-locker/share</string>
     <string name="importSuccessful">Card data imported</string>
     <string name="exportSuccessful">Card data exported</string>
-
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
     <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
@@ -147,7 +129,6 @@
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
     </plurals>
-
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
@@ -162,7 +143,6 @@
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
     <string name="balancePoints"><xliff:g>%s</xliff:g> points</string>
-
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
     <string name="editBarcode">Edit barcode</string>
@@ -171,18 +151,14 @@
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
     <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
-
     <string name="noBarcodeFound">No barcode was found</string>
     <string name="errorReadingImage">Could not read the image</string>
-
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
     <string name="points">Points</string>
-
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
     <string name="chooseImportType">Import data from?</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nNO DATA IS COLLECTED AT ALL, which anyone can confirm since our app is libre software.</string>
     <string name="accept">Accept</string>
@@ -221,7 +197,6 @@
     <string name="settings_locale">Language</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
-
     <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
     <string name="settings_theme_color">Theme color</string>
     <string name="settings_catima_theme">Catima</string>
@@ -244,7 +219,6 @@
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
-
     <string name="toggleMoreInfo">Toggle showing more info</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
     <string name="sort_by_name">Name</string>
@@ -259,7 +233,7 @@
     <string name="help_translate_this_app">Help translate this app</string>
     <string name="license">License</string>
     <string name="source_repository">Source Repository</string>
-    <string name="on_github">on Github</string>
+    <string name="on_github">on GitHub</string>
     <string name="and_data_usage">and data usage</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>

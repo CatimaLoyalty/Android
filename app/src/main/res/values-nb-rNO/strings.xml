@@ -44,7 +44,7 @@
     <string name="importOptionApplicationExplanation">Bruk en hvilken som helst app, eller din favoritt-filutforsker for å åpne en fil.</string>
     <string name="importOptionApplicationButton">Bruk en annen app</string>
     <string name="about">Om</string>
-    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
+    <string name="app_license">Copyleft fri programvare, lisensiert under GPLv3+.</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>

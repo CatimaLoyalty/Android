@@ -715,16 +715,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    @Override
-    public void onIconClicked(int inputPosition)
-    {
-        if (mCurrentActionMode == null)
-        {
-            mCurrentActionMode = startSupportActionMode(mCurrentActionModeCallback);
-        }
-
-        toggleSelection(inputPosition);
-    }
 
     @Override
     public void onRowClicked(int inputPosition)

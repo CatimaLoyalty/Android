@@ -128,7 +128,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
     {
-        inputHolder.mThumbnailContainer.setOnClickListener(inputView -> mListener.onIconClicked(inputPosition));
+        //inputHolder.mThumbnailContainer.setOnClickListener(inputView -> mListener.onIconClicked(inputPosition));
         inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
         inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
 

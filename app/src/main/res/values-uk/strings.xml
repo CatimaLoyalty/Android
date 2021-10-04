@@ -207,4 +207,13 @@
     <string name="sort_by_name">Назва</string>
     <string name="sort">Сортування</string>
     <string name="version_history">Історія версій</string>
+    <string name="help_translate_this_app">Допомогти з перекладом програми</string>
+    <string name="license">Ліцензія</string>
+    <string name="source_repository">Вихідний код</string>
+    <string name="on_github">на GitHub</string>
+    <string name="and_data_usage">та використання даних</string>
+    <string name="credits">Подяки</string>
+    <string name="rate_this_app">Оцінити програму</string>
+    <string name="on_google_play">у Google Play</string>
+    <string name="report_error">Повідомити про помилку</string>
 </resources>

@@ -1,0 +1,4 @@
+- Forbedre Stokard-importerer
+- Fiks importering av Catima-eksport med en notat over flere linjer
+- Skaler korttittel i et akseptabelt område
+- Forbedring av animasjoner

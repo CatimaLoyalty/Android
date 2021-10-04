@@ -1,0 +1,4 @@
+Android 4.4 er ikke lengre støttet fra og med denne versjonen. Hvis du vil bruke Catima på Android 4.4, bruk versjon 2.6.1.
+
+- Forbedret støtte for Android 12
+- Forbedret om-skjerm

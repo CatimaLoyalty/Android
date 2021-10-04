@@ -42,7 +42,7 @@
     <string name="importOptionApplicationExplanation">Utilisez le gestionnaire de fichiers de votre choix pour importer un fichier.</string>
     <string name="importOptionApplicationButton">Utiliser une autre application</string>
     <string name="about">À propos</string>
-    <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+.</string>
+    <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Notes de version : <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -62,7 +62,7 @@
     <string name="settings_theme">Thème</string>
     <string name="enterBarcodeInstructions">Entrez l’identifiant de la carte et choisissez le type de code-barres ci-dessous, ou « Cette carte n’a pas de code-barres ».</string>
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain
-\ncopyright © 2016-2020 Branden Archer.</string>
+\ncopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Les données seront exportées vers l\'emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
     <string name="share">Partager</string>
@@ -116,16 +116,16 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
     <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer.
-\nOu créez-la en appuyant d’abord sur Exporter dans Voucher Vault.</string>
+\nCréez-la en appuyant d’abord sur Exporter dans Voucher Vault.</string>
     <string name="importVoucherVault">Importer depuis Voucher Vault</string>
     <string name="importLoyaltyCardKeychainMessage">Sélectionnez votre exportation <i>LoyaltyCardKeychain.csv</i> à partir de Loyalty Card Keychain pour l’importer.
-\nOu créez-la à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
+\nCréez-la à partir du menu Importer/Exporter du Loyalty Card Keychain en appuyant d’abord sur Exporter.</string>
     <string name="importLoyaltyCardKeychain">Importer depuis Loyalty Card Keychain</string>
     <string name="importFidmeMessage">Sélectionnez votre exportation <i>fidme-export-request-xxxxxx.zip</i> de FidMe pour l’importer, puis sélectionnez manuellement les types de codes-barres.
-\nOu créez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
+\nCréez-la à partir de votre profil FidMe en choisissant Protection des données, puis en cliquant sur Extraire mes données d’abord.</string>
     <string name="importFidme">Importer depuis FidMe</string>
     <string name="importCatimaMessage">Sélectionnez votre exportation <i>catima.zip</i> depuis Catima à importer.
-\nOu créez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
+\nCréez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
     <string name="errorReadingImage">Impossible de lire l\'image</string>
@@ -138,7 +138,7 @@
     <string name="wrongValueForBarcodeType">La valeur n\'est pas valide pour le type de code-barres sélectionné</string>
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
     <string name="copy_to_clipboard_multiple_toast">Identifiants des cartes copiés dans le presse-papiers</string>
     <string name="card_ids_copied">Num. de la carte copié(s)</string>
@@ -155,7 +155,7 @@
     <string name="frontImageDescription">Image recto de la carte</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
     <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer.
-\nVous pouvez aussi l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
+\nVous pouvez l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
     <string name="importStocard">Importer depuis Stocard</string>
     <string name="turn_flashlight_off">Éteindre la lampe de poche</string>
     <string name="turn_flashlight_on">Allumer la lampe de poche</string>
@@ -198,4 +198,14 @@
     <string name="sort_by_most_recently_used">Les plus récemment utilisées</string>
     <string name="sort_by_name">Nom</string>
     <string name="sort_by_balance">Solde</string>
+    <string name="report_error">Signaler une erreur</string>
+    <string name="on_google_play">sur Google Play</string>
+    <string name="rate_this_app">Notez cette app</string>
+    <string name="and_data_usage">utilisation des données</string>
+    <string name="on_github">sur GitHub</string>
+    <string name="source_repository">Dépôt source</string>
+    <string name="license">Licence</string>
+    <string name="help_translate_this_app">Aidez à traduire cette app</string>
+    <string name="credits">Contributeurs</string>
+    <string name="version_history">Historique des versions</string>
 </resources>

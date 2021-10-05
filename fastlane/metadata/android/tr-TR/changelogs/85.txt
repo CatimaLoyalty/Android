@@ -2,3 +2,4 @@ Bu sürümden başlayarak artık Android 4.4 desteklenmemektedir. Catima'yı And
 
 - Android 12 desteği iyileştirildi
 - Hakkında ekranı iyileştirildi
+- Arama, artık aksanları yok sayıyor

@@ -404,16 +404,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            mCardList.setVisibility(View.VISIBLE);
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
             if(mAdapter.getItemCount() > 0)
             {
+                mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
             }
             else
             {
-                if(!mFilter.isEmpty()) {
+                mCardList.setVisibility(View.GONE);
+                if (!mFilter.isEmpty()) {
                     // Actual Empty Search Result
                     mNoMatchingCardsText.setVisibility(View.VISIBLE);
                     mNoGroupCardsText.setVisibility(View.GONE);

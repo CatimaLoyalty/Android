@@ -360,7 +360,7 @@ public class MainActivityTest
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
-        assertEquals(View.VISIBLE, list.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
 
         assertEquals(0, list.getAdapter().getItemCount());
 
@@ -382,7 +382,7 @@ public class MainActivityTest
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
-        assertEquals(View.VISIBLE, list.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
 
         assertEquals(0, list.getAdapter().getItemCount());
 
@@ -396,7 +396,7 @@ public class MainActivityTest
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
-        assertEquals(View.VISIBLE, list.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
 
         assertEquals(0, list.getAdapter().getItemCount());
 
@@ -405,7 +405,7 @@ public class MainActivityTest
 
         assertEquals(View.GONE, helpText.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
-        assertEquals(View.VISIBLE, list.getVisibility());
+        assertEquals(View.GONE, list.getVisibility());
 
         assertEquals(0, list.getAdapter().getItemCount());
 

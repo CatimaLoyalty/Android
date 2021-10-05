@@ -284,7 +284,8 @@ public class DBHelper extends SQLiteOpenHelper
                     LoyaltyCardDbFTS.STORE + ", " + LoyaltyCardDbFTS.NOTE + ", " +
                     "tokenize=unicode61);");
 
-            Cursor cursor = getLoyaltyCardCursor();
+            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+
             cursor.moveToFirst();
 
             while (cursor.moveToNext()) {
@@ -668,7 +669,7 @@ public class DBHelper extends SQLiteOpenHelper
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
-                limitString, filter.isEmpty() ? null : new String[] { '*' + filter + '*' }, null);
+                limitString, filter.isEmpty() ? null : new String[] { filter + '*' }, null);
     }
 
     public int getLoyaltyCardCount()
@@ -685,12 +686,13 @@ public class DBHelper extends SQLiteOpenHelper
      */
     public int getLoyaltyCardCount(String filter)
     {
-        String actualFilter = String.format("%%%s%%", filter);
+        if (filter.isEmpty()) {
+            return getLoyaltyCardCount();
+        }
 
         SQLiteDatabase db = getReadableDatabase();
-        return (int) DatabaseUtils.queryNumEntries(db, LoyaltyCardDbIds.TABLE,
-                LoyaltyCardDbIds.STORE + " LIKE ? " +
-                " OR " + LoyaltyCardDbIds.NOTE + " LIKE ? ", withArgs(actualFilter, actualFilter));
+        return (int) DatabaseUtils.queryNumEntries(db, LoyaltyCardDbFTS.TABLE,
+                LoyaltyCardDbFTS.TABLE + " MATCH ? ", withArgs(filter + '*'));
     }
 
     /**

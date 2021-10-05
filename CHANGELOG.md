@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 85
+## v2.7.0 - 85 (2021-10-05)
 
 Android 4.4 is no longer supported starting with this release. If you want to use Catima on Android 4.4, please use version 2.6.1.
 

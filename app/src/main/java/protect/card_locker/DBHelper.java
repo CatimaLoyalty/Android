@@ -685,9 +685,13 @@ public class DBHelper extends SQLiteOpenHelper
      */
     public int getLoyaltyCardCount(String filter)
     {
+        if (filter.isEmpty()) {
+            return getLoyaltyCardCount();
+        }
+
         SQLiteDatabase db = getReadableDatabase();
         return (int) DatabaseUtils.queryNumEntries(db, LoyaltyCardDbFTS.TABLE,
-                LoyaltyCardDbIds.TABLE + " MATCH ? ", withArgs(filter + '*'));
+                LoyaltyCardDbFTS.TABLE + " MATCH ? ", withArgs(filter + '*'));
     }
 
     /**

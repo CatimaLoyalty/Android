@@ -646,7 +646,7 @@ public class DBHelper extends SQLiteOpenHelper
                 groupFilter.append("AND (");
 
                 for (int i = 0; i < allowedIds.size(); i++) {
-                    groupFilter.append(LoyaltyCardDbIds.ID + " = ").append(allowedIds.get(i));
+                    groupFilter.append(LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID + " = ").append(allowedIds.get(i));
                     if (i != allowedIds.size() - 1) {
                         groupFilter.append(" OR ");
                     }
@@ -662,7 +662,7 @@ public class DBHelper extends SQLiteOpenHelper
         return db.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
-                (filter.isEmpty() ? "" : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
+                (filter.isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
                 groupFilter.toString() +
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +

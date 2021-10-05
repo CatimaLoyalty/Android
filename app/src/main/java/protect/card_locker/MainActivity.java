@@ -21,10 +21,16 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.guardanis.applock.AppLock;
+import com.guardanis.applock.activities.LockCreationActivity;
+import com.guardanis.applock.activities.UnlockActivity;
+import com.guardanis.applock.dialogs.LockCreationDialogBuilder;
+import com.guardanis.applock.dialogs.UnlockDialogBuilder;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.appcompat.app.AlertDialog;
@@ -34,11 +40,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
+
+import protect.card_locker.preferences.Settings;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
+    Settings settings;
+    boolean appIsLocked = true;
 
     private final DBHelper mDB = new DBHelper(this);
     private LoyaltyCardCursorAdapter mAdapter;
@@ -393,7 +403,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mAdapter.swapCursor(mDB.getLoyaltyCardCursor(mFilter, group, mOrder, mOrderDirection));
 
-        if(mDB.getLoyaltyCardCount() > 0)
+        if(mDB.getLoyaltyCardCount() > 0 && !appIsLocked)
         {
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
@@ -763,5 +773,27 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             startActivityForResult(i, Utils.MAIN_REQUEST);
         }
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        settings = new Settings(this);
+        if(settings.getAppLockStatus()){  // App Lock On
+            new UnlockDialogBuilder(this)
+                    .onUnlocked(() -> {
+                        appIsLocked = false;
+                        updateLoyaltyCardList();
+                        Toast.makeText(this, "Unlocked", Toast.LENGTH_SHORT).show();
+                    })
+                    .onCanceled(() -> { })
+                    .showIfRequiredOrSuccess(TimeUnit.MINUTES.toMillis(0));
+
+        } else{
+            appIsLocked = false;
+            updateLoyaltyCardList();
+        }
+
     }
 }

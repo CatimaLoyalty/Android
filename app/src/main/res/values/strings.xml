@@ -121,6 +121,8 @@
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent lock screen</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
+    <string name="settings_app_lock">App Lock</string>
+    <string name="settings_key_app_lock" translatable="false">pref_lock_app_using_pin_or_fingerprint</string>
 
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>

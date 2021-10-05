@@ -1,8 +1,8 @@
 package protect.card_locker.preferences;
 
-
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
+
+import com.guardanis.applock.dialogs.LockCreationDialogBuilder;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
@@ -74,6 +79,25 @@ public class SettingsActivity extends CatimaAppCompatActivity
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
+
+            SwitchPreferenceCompat appLockSwitch = findPreference(getResources().getString(R.string.settings_key_app_lock));
+            if(appLockSwitch != null){
+                appLockSwitch.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                    @Override
+                    public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                        boolean isSwitchOn = (boolean) newValue;
+                        if(isSwitchOn){
+                            new LockCreationDialogBuilder(getActivity())
+                                    .onCanceled(() -> { })
+                                    .onLockCreated(() -> { Toast.makeText(getActivity(), "Lock Created", Toast.LENGTH_SHORT).show(); })
+                                    .show();
+                        }
+                        return true;
+                    }
+                });
+            }
+
 
             // Show pretty names
             ListPreference localePreference = findPreference(getResources().getString(R.string.settings_key_locale));

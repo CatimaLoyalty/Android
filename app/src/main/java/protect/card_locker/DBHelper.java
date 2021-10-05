@@ -284,7 +284,8 @@ public class DBHelper extends SQLiteOpenHelper
                     LoyaltyCardDbFTS.STORE + ", " + LoyaltyCardDbFTS.NOTE + ", " +
                     "tokenize=unicode61);");
 
-            Cursor cursor = getLoyaltyCardCursor();
+            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+
             cursor.moveToFirst();
 
             while (cursor.moveToNext()) {

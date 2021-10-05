@@ -190,7 +190,7 @@ public class ImportURIHelper {
         for (int i = 0; i < loyaltyCardCount; i++) {
             LoyaltyCard loyaltyCard = loyaltyCards.get(i);
 
-            text.append(loyaltyCard.store + ": " + toUri(loyaltyCard));
+            text.append(loyaltyCard.store).append(": ").append(toUri(loyaltyCard));
 
             if (i < (loyaltyCardCount - 1)) {
                 text.append("\n\n");

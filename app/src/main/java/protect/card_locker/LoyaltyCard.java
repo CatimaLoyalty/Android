@@ -105,12 +105,12 @@ public class LoyaltyCard implements Parcelable {
         Date expiry = null;
         Integer headerColor = null;
 
-        if (cursor.isNull(barcodeTypeColumn) == false)
+        if (!cursor.isNull(barcodeTypeColumn))
         {
             barcodeType = CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn));
         }
 
-        if (cursor.isNull(balanceTypeColumn) == false)
+        if (!cursor.isNull(balanceTypeColumn))
         {
             balanceType = Currency.getInstance(cursor.getString(balanceTypeColumn));
         }
@@ -120,7 +120,7 @@ public class LoyaltyCard implements Parcelable {
             expiry = new Date(expiryLong);
         }
 
-        if(cursor.isNull(headerColorColumn) == false)
+        if(!cursor.isNull(headerColorColumn))
         {
             headerColor = cursor.getInt(headerColorColumn);
         }

@@ -8,4 +8,20 @@
     <string name="noGiftCards">Faceți clic pe butonul + plus pentru a adăuga o carte sau importați mai întâi câteva din meniul ⋮.</string>
     <string name="action_add">Adăugați</string>
     <string name="action_search">Căutare</string>
+    <string name="sendLabel">Trimiteți…</string>
+    <string name="share">Împărtășiți</string>
+    <string name="copy_to_clipboard">Copiați ID-ul în clipboard</string>
+    <string name="deleteConfirmation">Să șterg definitiv acest card\?</string>
+    <string name="deleteTitle">Ștergeți cardul</string>
+    <string name="unlockScreen">Deblocarea rotației</string>
+    <string name="lockScreen">Rotația blocurilor</string>
+    <string name="confirm">Confirmați</string>
+    <string name="delete">Ștergeți</string>
+    <string name="edit">Editați</string>
+    <string name="save">Salvați</string>
+    <string name="cancel">Anulează</string>
+    <string name="unstar">Eliminați din favorite</string>
+    <string name="star">Adaugă la favorite</string>
+    <string name="noBarcode">Fără cod de bare</string>
+    <string name="barcodeNoBarcode">Acest card nu are cod de bare</string>
 </resources>

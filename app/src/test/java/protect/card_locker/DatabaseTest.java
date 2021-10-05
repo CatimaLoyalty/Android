@@ -270,6 +270,7 @@ public class DatabaseTest
         database.execSQL("drop table " + DBHelper.LoyaltyCardDbIds.TABLE);
         database.execSQL("drop table " + DBHelper.LoyaltyCardDbGroups.TABLE);
         database.execSQL("drop table " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
+        database.execSQL("drop table " + DBHelper.LoyaltyCardDbFTS.TABLE);
 
         // Create the table as it existed in revision 1
         database.execSQL("create table " + DBHelper.LoyaltyCardDbIds.TABLE + "(" +

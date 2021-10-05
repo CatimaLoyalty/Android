@@ -1,0 +1,2 @@
+- Oddělení uživatelského rozhraní pro úpravy na kartách, aby bylo prostornější.
+- Přidání podpory polí s vypršením platnosti

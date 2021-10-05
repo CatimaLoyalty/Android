@@ -76,10 +76,6 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         finish();
     }
 
-    @Override
-    public void onIconClicked(int inputPosition) {
-        onClickAction(inputPosition);
-    }
 
     @Override
     public void onRowClicked(int inputPosition) {

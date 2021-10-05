@@ -1,0 +1,3 @@
+- Fiks oppretting av snarveier
+- Generer kort-spesifikke ikoner for snarveier
+- Fiks muligheten til å endre kundekort-farge

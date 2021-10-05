@@ -1,0 +1,4 @@
+- Gjør linker i notater mulig å klikke
+- Forhåndsvelg gruppen brukeren er i når et nytt kort legges til
+- Komma-separerte gruppenavn i kundekort-visning
+- Fiks at maksimerings-knappen ble vist uten en strekkode

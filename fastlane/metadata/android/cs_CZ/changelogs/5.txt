@@ -1,0 +1,2 @@
+- Z hlavní obrazovky lze otevřít dialogové okno o aplikaci, které poskytuje podrobnosti o aplikaci a projektu na GitHubu (issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19)).
+- Umožnění importu informací o věrnostních kartách z/do souboru CSV v externím úložišti (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

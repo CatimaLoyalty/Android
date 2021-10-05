@@ -1,0 +1,4 @@
+- Forbedret støtte for skjermlesere
+- Ikke krasj når man en video åpnes fra galleriet
+- Støtte for sveiping på skjermen for visning av kundekort
+- Ikke reset gruppe når tilbakeknapp trykkes

@@ -1,0 +1,1 @@
+- Oprava pádu při přepnutí na kartu s čárovým kódem v zobrazení úprav, pokud není k dispozici žádný čárový kód

@@ -466,14 +466,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         groupsTabLayout.setVisibility(View.VISIBLE);
     }
 
-    private void openPrivacyPolicy() {
-        Intent browserIntent = new Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://catima.app/privacy-policy")
-        );
-        startActivity(browserIntent);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu)
     {
@@ -583,12 +575,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             mainRequestResultLauncher.launch(i);
-            return true;
-        }
-
-        if(id == R.id.action_privacy_policy)
-        {
-            openPrivacyPolicy();
             return true;
         }
 
@@ -735,16 +721,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    @Override
-    public void onIconClicked(int inputPosition)
-    {
-        if (mCurrentActionMode == null)
-        {
-            mCurrentActionMode = startSupportActionMode(mCurrentActionModeCallback);
-        }
-
-        toggleSelection(inputPosition);
-    }
 
     @Override
     public void onRowClicked(int inputPosition)

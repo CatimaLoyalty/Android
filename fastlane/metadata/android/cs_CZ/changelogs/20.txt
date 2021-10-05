@@ -1,0 +1,1 @@
+- Dočasné řešení pádu při instalaci na některých verzích systému Android (pravděpodobně Android 5 a nižší). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

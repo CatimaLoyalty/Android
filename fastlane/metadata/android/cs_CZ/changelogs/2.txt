@@ -1,0 +1,3 @@
+- Překlad do italštiny.
+- Podpora všech typů čárových kódů 1D. (Původně byly podporovány pouze 1D čárové kódy produktů)
+- Přidání požadovaného oprávnění pro fotoaparát, které původně chybělo.

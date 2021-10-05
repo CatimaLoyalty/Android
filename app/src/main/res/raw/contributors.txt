@@ -10,10 +10,10 @@ Gediminas Murauskas
 IllusiveMan196
 Joel A
 Samantaz Fox
+Nyatsuki
 arno-github
 Sergio Paredes
 StoyanDimitrov
-Nyatsuki
 Oğuz Ersen
 Petr Novák
 arshbeerSingh
@@ -52,6 +52,7 @@ Mattia
 pbeckmann
 Peer Beckmann
 QuangDNguyen2211
+Rohan Babbar 
 Rose Liverman
 Simone Dotto
 Subhashish Anand

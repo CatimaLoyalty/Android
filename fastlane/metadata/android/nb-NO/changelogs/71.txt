@@ -1,0 +1,2 @@
+- Flere mindre oversettelser og forbedringer av brukergrensesnitt
+- Fiks krasj ved importering/deling av kundekort på Android 6

@@ -1,0 +1,4 @@
+Bu sürümden başlayarak artık Android 4.4 desteklenmemektedir. Catima'yı Android 4.4'te kullanmak istiyorsanız, lütfen 2.6.1 sürümünü kullanın.
+
+- Android 12 desteği iyileştirildi
+- Hakkında ekranı iyileştirildi

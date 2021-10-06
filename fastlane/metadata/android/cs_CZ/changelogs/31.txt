@@ -1,0 +1,2 @@
+- Řazení seznamu karet bez ohledu na velikost písmen (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Přidáno nastavení pro uzamčení orientace pro všechny karty (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269))

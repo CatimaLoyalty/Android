@@ -24,7 +24,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> карти</item>
     </plurals>
     <string name="failedOpeningFileManager">Инсталирайте приложение за управление на файлове.</string>
-    <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+.</string>
+    <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+</string>
     <string name="frontImageDescription">Снимка на предната страна на карта</string>
     <string name="backImageDescription">Снимка на задната страна на карта</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не изглежда истинска наличност.</string>
@@ -52,7 +52,7 @@
     <string name="barcodeId">Стойност на щрихкода</string>
     <string name="importLoyaltyCardKeychain">Внасяне от Loyalty Card Keychain</string>
     <string name="importFidmeMessage">Изберете файла <i>fidme-export-request-xxxxxx.zip</i>, предварително изнесен от FidMe и ръчно изберете вида на щрихкодовете.
-\nИли създайте такъв файл от Data Protection в менюто на профила във FidMe и изберете „Extract my data“.</string>
+\nСъздайте такъв файл от Data Protection в менюто на профила във FidMe и изберете „Extract my data“.</string>
     <string name="importFidme">Внасяне от FidMe</string>
     <string name="exportOptionExplanation">Данните ще бъдат запазени на място по ваш избор.</string>
     <string name="accept">Приемане</string>
@@ -116,7 +116,7 @@
     <string name="exportName">Изнасяне</string>
     <string name="importExport">Внасяне/изнасяне</string>
     <string name="sendLabel">Изпращане…</string>
-    <string name="scanCardBarcode">Сканиране на щрихкод от карта</string>
+    <string name="scanCardBarcode">Снемане на щрихкод от карта</string>
     <string name="editCardTitle">Редактиране на карта</string>
     <string name="share">Споделя</string>
     <string name="copy_to_clipboard">Копира идентификатора в междинната памет</string>
@@ -124,7 +124,7 @@
     <string name="importSuccessful">Картите са внесени успешно</string>
     <string name="chooseImportType">От къде ще внесете\?</string>
     <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.
-\nИли създайте такъв файл от меню Внасяне/изнасяне от друго устройство със Catima като изберете Изнасяне.</string>
+\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
     <string name="importOptionApplicationTitle">От друго приложение</string>
     <string name="importOptionFilesystemButton">Избиране от файлова система</string>
     <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
@@ -133,9 +133,9 @@
     <string name="app_revision_fmt">Компилация: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Издание: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Относно <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_copyright_old">На основата на Loyalty Card Keychain
-\nвсички права запазени © 2016–2020 Branden Archer.</string>
+\nвсички права запазени © 2016–2020 Branden Archer</string>
     <string name="about">Относно</string>
     <string name="importOptionFilesystemTitle">Внасяне от файловата система</string>
     <string name="importCatima">Внасяне от Catima</string>
@@ -156,11 +156,11 @@
     <string name="importStocard">Внасяне от Stocard</string>
     <string name="importVoucherVault">Внасяне от Voucher Vault</string>
     <string name="importVoucherVaultMessage">Изберете файла <i>vouchervault.json</i>, предварително изнесен от Voucher Vault.
-\nИли създайте такъв файл от меню Изнасяне от Voucher Vault.</string>
-    <string name="importStocardMessage">Изберете вашия <i>***-sync.zip</i> експорт от Stocard, за да го импортирате.
-\nИли го получете, като изпратите имейл на support@stocardapp.com с искане за експорт на вашите данни.</string>
+\nСъздайте такъв файл от меню „Export“ във Voucher Vault.</string>
+    <string name="importStocardMessage">Изберете файла <i>***-sync.zip</i>, предварително изнесен от Stocard.
+\nПолучете го като изпратите писмо на support@stocardapp.com с искане за изнасяне вашите данни.</string>
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
-\nИли създайте такъв файл от меню Внасяне/изнасяне от друго устройство със Loyalty Card Keychain като изберете Изнасяне.</string>
+\nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
     <string name="card_ids_copied">[не превеждай този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
     <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
@@ -198,4 +198,14 @@
     <string name="sort_by_most_recently_used">Последно използване</string>
     <string name="sort_by_name">Наименование</string>
     <string name="sort">Сортиране</string>
+    <string name="credits">Заслуги</string>
+    <string name="license">Лиценз</string>
+    <string name="source_repository">Хранилище на изходния код</string>
+    <string name="on_github">в GitHub</string>
+    <string name="rate_this_app">Оценете приложението</string>
+    <string name="report_error">Докладване на грешка</string>
+    <string name="version_history">История на изданията</string>
+    <string name="on_google_play">в Google Play</string>
+    <string name="and_data_usage">и използване на данни</string>
+    <string name="help_translate_this_app">Помогнете за превода на приложението</string>
 </resources>

@@ -116,14 +116,14 @@ public class StocardImporter implements Importer
                                     .substring("/loyalty-card-providers/".length())
                         );
 
-                        try {
+                        if (jsonObject.has("input_barcode_format")) {
                             loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                     loyaltyCardHashMap,
                                     cardName,
                                     "barcodeType",
                                     jsonObject.getString("input_barcode_format")
                             );
-                        } catch (JSONException ignored) {}
+                        }
                     }
                 } else if (fileName.endsWith("notes/default.json")) {
                     loyaltyCardHashMap = appendToLoyaltyCardHashMap(

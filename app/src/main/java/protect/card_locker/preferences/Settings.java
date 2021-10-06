@@ -124,4 +124,8 @@ public class Settings
     {
         return getBoolean(R.string.settings_key_disable_lockscreen_while_viewing_card, true);
     }
+
+    public boolean getAppLockStatus(){
+        return getBoolean(R.string.settings_key_app_lock, false);
+    }
 }

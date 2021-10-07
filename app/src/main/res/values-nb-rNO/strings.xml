@@ -44,7 +44,7 @@
     <string name="importOptionApplicationExplanation">Bruk en hvilken som helst app, eller din favoritt-filutforsker for å åpne en fil.</string>
     <string name="importOptionApplicationButton">Bruk en annen app</string>
     <string name="about">Om</string>
-    <string name="app_license">Copyleft fri programvare, lisensiert under GPLv3+.</string>
+    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -64,7 +64,7 @@
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Drakt</string>
     <string name="app_copyright_old">Basert på Kundekortknippe
-\nopphavsrett 2016–2020 Branden Archer.</string>
+\nopphavsrett 2016–2020 Branden Archer</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
@@ -124,14 +124,14 @@
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som kort-ID</string>
     <string name="barcodeId">Strekkodeverdi</string>
-    <string name="importVoucherVaultMessage">Finn en fil som antagelig heter <i>voucher.vault.json</i> å importere.
-\nEller opprett den ved å trykke «Eksport» i Voucher Vault først.</string>
+    <string name="importVoucherVaultMessage">Velg din <i>vouchervault.json</i>-eksport fra Voucher Vault å importere.
+\nOpprett den ved å trykke «Eksport» i Voucher Vault først.</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv - </i> eksporter fra kundekort Nøkkelring til import.
-\nEller lage det fra Import/Eksport-menyen i lojalitetskort Nøkkelringen ved å trykke på Eksport det første.</string>
+    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv</i>-eksport fra Kundekortknippe å importere.
+\nOpprett den i «Import/Eksport»-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Velg din <i>fidme-eksport-be-xxxxxx.zip</i> eksporter fra FidMe til å importere, og velg strekkode typer manuelt etterpå.
-\nEller lage den fra FidMe profil ved å velge Beskyttelse av Data og deretter trykke Trekke ut dataene mine første.</string>
+    <string name="importFidmeMessage">Velg din <i>fidme.export-request-xxxxx.zip</i>-eksport fra FidMe å importere, for så å velge strekkodetypene manuelt etterpå-
+\nOpprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
     <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
@@ -139,7 +139,7 @@
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi?</string>
     <string name="no">Nei</string>
     <string name="yes">Ja</string>
@@ -152,7 +152,7 @@
     <string name="backImageDescription">Kortets bakside</string>
     <string name="frontImageDescription">Kortets forside</string>
     <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere.
-\nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
+\nSkaff den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
@@ -162,8 +162,8 @@
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Slett dette kortet for godt?</item>
-        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kortene for godt?</item>
+        <item quantity="one">Slett dette kortet for godt\?</item>
+        <item quantity="other">Slett disse <xliff:g>%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>
@@ -199,11 +199,13 @@
     <string name="help_translate_this_app">Hjelp med å oversette denne appen</string>
     <string name="license">Lisens</string>
     <string name="version_history">Versjonshistorikk</string>
-    <string name="importCatimaMessage">Velg din <i>catima.zip</i> fra Catima å importere. Eller lag den fra Importer/Eksporter-menyen i en annen Catima-app ved å trykke på \"Eksporter\" der først</string>
+    <string name="importCatimaMessage">Velg din <i>catima.zip</i>-eksport fra Catima å importere.
+\nOpprett den fra «Importer/Eksporter»-menyen i en annen Catima-app ved å trykke på «Eksporter» der først</string>
     <string name="source_repository">Kildekode</string>
     <string name="on_github">på GitHub</string>
     <string name="and_data_usage">og bruk av data</string>
     <string name="rate_this_app">Vurder denne appen</string>
     <string name="on_google_play">på Google Play</string>
     <string name="report_error">Rapporter feil</string>
+    <string name="credits">Bidragsytere</string>
 </resources>

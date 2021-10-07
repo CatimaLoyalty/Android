@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 86
+## v2.7.1 - 86 (2021-10-07)
 
 - Improve search with spaces
 

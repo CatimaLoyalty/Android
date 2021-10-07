@@ -89,8 +89,10 @@ public class SettingsActivity extends CatimaAppCompatActivity
                         boolean isSwitchOn = (boolean) newValue;
                         if(isSwitchOn){
                             new LockCreationDialogBuilder(getActivity())
-                                    .onCanceled(() -> { })
-                                    .onLockCreated(() -> { Toast.makeText(getActivity(), "Lock Created", Toast.LENGTH_SHORT).show(); })
+                                    .onCanceled(() -> {
+                                        appLockSwitch.setChecked(false);
+                                    })
+                                    .onLockCreated(() -> { Toast.makeText(getActivity(), R.string.lock_created, Toast.LENGTH_SHORT).show(); })
                                     .show();
                         }
                         return true;

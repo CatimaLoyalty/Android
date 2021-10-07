@@ -6,9 +6,14 @@ import android.content.res.Resources;
 import android.util.TypedValue;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import com.guardanis.applock.dialogs.UnlockDialogBuilder;
+
+import protect.card_locker.preferences.Settings;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
 
@@ -49,5 +54,35 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         Resources.Theme theme = getTheme();
         theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
         return typedValue.data;
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Settings settings = new Settings(this);
+        if(isActivityLockable()){
+            if(settings.getAppLockStatus()){  // App Lock On
+                unlockDialog();
+            } else{
+                onAppUnlocked();
+            }
+        }
+        else{
+            onAppUnlocked();
+        }
+    }
+
+    public void unlockDialog(){
+        new UnlockDialogBuilder(this)
+                .onUnlocked(this::onAppUnlocked)
+                .onCanceled(this::unlockDialog)
+                .showIfRequiredOrSuccess(TimeUnit.MINUTES.toMillis(10));
+    }
+
+    public void onAppUnlocked(){
+    }
+
+    public boolean isActivityLockable(){
+        return true;
     }
 }

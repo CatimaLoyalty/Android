@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -43,7 +42,6 @@ import protect.card_locker.preferences.SettingsActivity;
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
-    Settings settings;
     boolean appIsLocked = true;
 
     private final DBHelper mDB = new DBHelper(this);
@@ -749,24 +747,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
-
-        settings = new Settings(this);
-        if(settings.getAppLockStatus()){  // App Lock On
-            new UnlockDialogBuilder(this)
-                    .onUnlocked(() -> {
-                        appIsLocked = false;
-                        updateLoyaltyCardList();
-                        Toast.makeText(this, "Unlocked", Toast.LENGTH_SHORT).show();
-                    })
-                    .onCanceled(() -> { })
-                    .showIfRequiredOrSuccess(TimeUnit.MINUTES.toMillis(0));
-
-        } else{
-            appIsLocked = false;
-            updateLoyaltyCardList();
-        }
-
+    public void onAppUnlocked() {
+        super.onAppUnlocked();
+        appIsLocked = false;
+        updateLoyaltyCardList();
     }
 }

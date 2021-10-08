@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -421,6 +422,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity
 
                 Log.e(TAG, "Starting file export with: " + uri.toString());
                 startExport(writer, uri);
+
+                writer.close();
             }
             else
             {
@@ -437,9 +440,11 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
                 startImport(reader, uri, importDataFormat, password);
+
+                reader.close();
             }
         }
-        catch(FileNotFoundException e)
+        catch(IOException e)
         {
             Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
             if (requestCode == CHOOSE_EXPORT_LOCATION)

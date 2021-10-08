@@ -138,19 +138,19 @@
     <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
     <string name="sameAsCardId">Stejné jako ID karty</string>
     <string name="importVoucherVaultMessage">Vyberte svůj <i>vouchervault.json</i> export z Voucher Vault, který chcete importovat.
-\nNebo jej vytvořte tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
+\nVytvořte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
     <string name="importVoucherVault">Import z Voucher Vault</string>
     <string name="importStocardMessage">Vyberte svůj <i>***-sync.zip</i> export z aplikace Stocard, který chcete importovat.
-\nNebo jej získáte zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
+\nZískejte ji zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
     <string name="importStocard">Import ze Stocard</string>
     <string name="importLoyaltyCardKeychainMessage">Vyberte export <i>LoyaltyCardKeychain.csv</i> z klíčenky věrnostních karet, který chcete importovat.
-\nNebo jej vytvořte z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
+\nVytvořte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
     <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> export z FidMe k importu a poté vyberte typy čárových kódů ručně. 
-\nNebo jej vytvořte ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extract moje data.</string>
+    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> export z FidMe k importu a poté vyberte typy čárových kódů ručně.
+\nVytvořte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extract moje data.</string>
     <string name="importFidme">Import z FidMe</string>
     <string name="importCatimaMessage">Vyberte export <i>catima.zip</i> z programu Catima, který chcete importovat.
-\nNebo jej vytvořte z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
+\nVytvořte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
     <string name="importCatima">Import z Catima</string>
     <string name="accept">Přijmout</string>
     <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):

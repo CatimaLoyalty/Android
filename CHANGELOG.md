@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.7.3 - 88 (2021-10-10)
+
+- Fix incorrect migration making first card become invisible
+
 ## v2.7.2 - 87 (2021-10-09)
 
 - Fix regression breaking import/export

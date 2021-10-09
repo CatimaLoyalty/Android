@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 12;
+    public static final int DATABASE_VERSION = 13;
 
     public static class LoyaltyCardDbGroups
     {
@@ -293,6 +293,24 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
                 insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
             }
+        }
+
+        if(oldVersion < 13 && newVersion >= 13)
+        {
+            db.execSQL("DELETE FROM " + LoyaltyCardDbFTS.TABLE + ";");
+
+            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+
+            if (cursor.moveToFirst()) {
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+                insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+
+                while (cursor.moveToNext()) {
+                    loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+                    insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+                }
+            }
+            cursor.close();
         }
     }
 

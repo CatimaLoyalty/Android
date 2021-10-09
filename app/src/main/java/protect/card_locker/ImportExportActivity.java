@@ -188,7 +188,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
         builder.show();
     }
 
-    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password)
+    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password, final boolean closeWhenDone)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
@@ -196,6 +196,13 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
                 onImportComplete(result, targetUri, dataFormat);
+                if (closeWhenDone) {
+                    try {
+                        target.close();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             }
         };
 
@@ -204,14 +211,20 @@ public class ImportExportActivity extends CatimaAppCompatActivity
         importExporter.execute();
     }
 
-    private void startExport(final OutputStream target, final Uri targetUri)
+    private void startExport(final OutputStream target, final Uri targetUri, final boolean closeWhenDone)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
-            {
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat) {
                 onExportComplete(result, targetUri);
+                if (closeWhenDone) {
+                    try {
+                        target.close();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             }
         };
 
@@ -405,9 +418,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 }
 
                 Log.e(TAG, "Starting file export with: " + uri.toString());
-                startExport(writer, uri);
-
-                writer.close();
+                startExport(writer, uri, true);
             }
             else
             {
@@ -423,9 +434,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
 
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
-                startImport(reader, uri, importDataFormat, password);
-
-                reader.close();
+                startImport(reader, uri, importDataFormat, password, true);
             }
         }
         catch(IOException e)

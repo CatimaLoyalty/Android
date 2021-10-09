@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.7.2 - 87 (2021-10-09)
+
+- Fix regression breaking import/export
+
 ## v2.7.1 - 86 (2021-10-07)
 
 - Improve search with spaces

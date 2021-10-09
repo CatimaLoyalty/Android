@@ -20,15 +20,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -50,7 +47,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity
     private String importAlertTitle;
     private String importAlertMessage;
     private DataFormat importDataFormat;
-    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -121,16 +117,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             public void onClick(View v)
             {
                 chooseImportType(intentPickAction);
-            }
-        });
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                if(result.getData() == null)
-                {
-                    Log.e(TAG, "Activity returned NULL data");
-                    return;
-                }
             }
         });
     }
@@ -382,8 +368,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
     {
         try
         {
-            activityResultLauncher.launch(intent);
-            activityResultParser(requestCode, RESULT_OK, intent.getData(), null);
+            startActivityForResult(intent, requestCode);
         }
         catch (ActivityNotFoundException e)
         {
@@ -421,6 +406,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity
 
                 Log.e(TAG, "Starting file export with: " + uri.toString());
                 startExport(writer, uri);
+
+                writer.close();
             }
             else
             {
@@ -437,9 +424,11 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
                 startImport(reader, uri, importDataFormat, password);
+
+                reader.close();
             }
         }
-        catch(FileNotFoundException e)
+        catch(IOException e)
         {
             Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
             if (requestCode == CHOOSE_EXPORT_LOCATION)
@@ -451,5 +440,19 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(data == null)
+        {
+            Log.e(TAG, "Activity returned NULL data");
+            return;
+        }
+
+        activityResultParser(requestCode, resultCode, data.getData(), null);
     }
 }

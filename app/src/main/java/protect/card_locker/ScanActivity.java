@@ -20,15 +20,11 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 /**
- * Custom Scanner Activity extending from Activity to display a custom layout form scanner view.
+ * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
  *
  * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java
  * originally licensed under Apache 2.0
@@ -38,8 +34,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
-    private ActivityResultLauncher<Intent> barcodeManualResultLauncher;
-    private ActivityResultLauncher<Intent> barcodeImageResultLauncher;
 
     private String cardId;
     private String addGroup;
@@ -99,58 +93,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
             @Override
             public void possibleResultPoints(List<ResultPoint> resultPoints) {
 
-            }
-        });
-
-        barcodeManualResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                BarcodeValues barcodeValues;
-                try {
-                    barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData(), ScanActivity.this);
-                } catch (NullPointerException e) {
-                    Toast.makeText(ScanActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                if (!barcodeValues.isEmpty()) {
-                    Intent manualResult = new Intent();
-                    Bundle manualResultBundle = new Bundle();
-                    manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
-                    manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
-                    if (addGroup != null) {
-                        manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
-                    }
-                    manualResult.putExtras(manualResultBundle);
-                    ScanActivity.this.setResult(RESULT_OK, manualResult);
-                    finish();
-                }
-            }
-        });
-
-        barcodeImageResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                BarcodeValues barcodeValues;
-                try {
-                    barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData(), ScanActivity.this);
-                } catch (NullPointerException e) {
-                    Toast.makeText(ScanActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                if (!barcodeValues.isEmpty()) {
-                    Intent manualResult = new Intent();
-                    Bundle manualResultBundle = new Bundle();
-                    manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
-                    manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
-                    if (addGroup != null) {
-                        manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
-                    }
-                    manualResult.putExtras(manualResultBundle);
-                    ScanActivity.this.setResult(RESULT_OK, manualResult);
-                    finish();
-                }
             }
         });
     }
@@ -221,6 +163,34 @@ public class ScanActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent)
+    {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        BarcodeValues barcodeValues;
+
+        try {
+            barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        } catch (NullPointerException e) {
+            Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!barcodeValues.isEmpty()) {
+            Intent manualResult = new Intent();
+            Bundle manualResultBundle = new Bundle();
+            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
+            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
+            if (addGroup != null) {
+                manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+            }
+            manualResult.putExtras(manualResultBundle);
+            ScanActivity.this.setResult(RESULT_OK, manualResult);
+            finish();
+        }
+    }
+
     public void addManually(View view) {
         Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
         if (cardId != null) {
@@ -228,12 +198,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
             b.putString("initialCardId", cardId);
             i.putExtras(b);
         }
-        barcodeManualResultLauncher.launch(i);
+        startActivityForResult(i, Utils.SELECT_BARCODE_REQUEST);
     }
 
     public void addFromImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
-        barcodeImageResultLauncher.launch(photoPickerIntent);
+        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT_FROM_IMAGE_FILE);
     }
 }

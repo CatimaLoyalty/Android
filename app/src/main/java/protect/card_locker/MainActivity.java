@@ -21,17 +21,12 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.journeyapps.barcodescanner.Util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
@@ -59,8 +54,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpText;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
-    private ActivityResultLauncher<Intent> scanActivityResultLauncher;
-    private ActivityResultLauncher<Intent> mainRequestResultLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback()
     {
@@ -245,56 +238,19 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mGroup = null;
         updateLoyaltyCardList();
 
-        scanActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), result.getData(), MainActivity.this);
-                if(!barcodeValues.isEmpty()) {
-                    Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                    Bundle newBundle = new Bundle();
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-                    assert result.getData() != null;
-                    Bundle inputBundle = result.getData().getExtras();
-                    if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
-                        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
-                    }
-                    newIntent.putExtras(newBundle);
-                    startActivity(newIntent);
-                }
-            }
-        });
-
-        mainRequestResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                mFilter = "";
-                if (mMenu != null)
-                {
-                    MenuItem searchItem = mMenu.findItem(R.id.action_search);
-                    searchItem.collapseActionView();
-                }
-                ActivityCompat.recreate(MainActivity.this);
-            }
-        });
-
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
          * Just leaving this commented out if needed for the future idk
          * https://twitter.com/SylvieLorxu/status/1379437902741012483
          *
-
         // Show privacy policy on first run
         SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_privacy_policy_shown),
                 Context.MODE_PRIVATE);
-
-
         if (privacyPolicyShownPref.getInt(getString(R.string.sharedpreference_privacy_policy_shown), 0) == 0) {
             SharedPreferences.Editor privacyPolicyShownPrefEditor = privacyPolicyShownPref.edit();
             privacyPolicyShownPrefEditor.putInt(getString(R.string.sharedpreference_privacy_policy_shown), 1);
             privacyPolicyShownPrefEditor.apply();
-
             new AlertDialog.Builder(this)
                     .setTitle(R.string.privacy_policy)
                     .setMessage(R.string.privacy_policy_popup_text)
@@ -371,9 +327,43 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupsTabLayout.getTabAt(selectedTab).getText().toString());
             }
             intent.putExtras(bundle);
-            scanActivityResultLauncher.launch(intent);
+            startActivityForResult(intent, Utils.BARCODE_SCAN);
         });
         addButton.bringToFront();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == Utils.MAIN_REQUEST) {
+            // We're coming back from another view so clear the search
+            // We only do this now to prevent a flash of all entries right after picking one
+            mFilter = "";
+            if (mMenu != null)
+            {
+                MenuItem searchItem = mMenu.findItem(R.id.action_search);
+                searchItem.collapseActionView();
+            }
+            ActivityCompat.recreate(this);
+
+            return;
+        }
+
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+
+        if(!barcodeValues.isEmpty()) {
+            Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle newBundle = new Bundle();
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+            Bundle inputBundle = intent.getExtras();
+            if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
+                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
+            }
+            newIntent.putExtras(newBundle);
+            startActivity(newIntent);
+        }
     }
 
     @Override
@@ -561,28 +551,28 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (id == R.id.action_manage_groups)
         {
             Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
-            mainRequestResultLauncher.launch(i);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if (id == R.id.action_import_export)
         {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            mainRequestResultLauncher.launch(i);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if (id == R.id.action_settings)
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            mainRequestResultLauncher.launch(i);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
         if (id == R.id.action_about)
         {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-            mainRequestResultLauncher.launch(i);
+            startActivityForResult(i, Utils.MAIN_REQUEST);
             return true;
         }
 
@@ -743,7 +733,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             i.putExtras(b);
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
-            mainRequestResultLauncher.launch(i);
+
+            startActivityForResult(i, Utils.MAIN_REQUEST);
         }
     }
 }

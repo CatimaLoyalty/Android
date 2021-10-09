@@ -252,4 +252,7 @@
     <string name="sort_by_balance">Balance</string>
     <string name="reverse">Reverse</string>
     <string name="sort_by">Sort by</string>
+    <string name="get_notification_before">Get notification before expiry date</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
 </resources>

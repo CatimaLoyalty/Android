@@ -96,8 +96,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/storeNameEdit"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
+                            android:layout_height="wrap_content" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -182,6 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:hint="@string/balance"
+                        android:layout_marginEnd="4dp"
                         android:labelFor="@+id/balanceField">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -201,6 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:hint="@string/currency"
+                        android:layout_marginStart="4dp"
                         android:labelFor="@+id/balanceCurrencyField">
 
                         <AutoCompleteTextView
@@ -237,7 +238,89 @@
                             android:inputType="none"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+
+                <!-- Get notification before expiry date -->
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/inputPadding"
+                android:paddingTop="@dimen/inputPadding"
+                    android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/getNotificationCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/get_notification_before"
+                        android:textColor="@android:color/black"
+                        android:checked="false"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/getNotificationLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingTop="@dimen/inputPadding"
+                    android:layout_marginBottom="100dp"
+                    android:orientation="horizontal">
+
+                    <!-- Notification date -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/notificationDate"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/date"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1.0">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/notificationDateEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- notification time -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/notificationTime"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/time"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1.0">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/notificationTimeEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
             </TableLayout>
+
+
+
+
+
+
+
+
+
+
             <TableLayout
                 android:id="@+id/barcodePart"
                 android:visibility="gone">

@@ -30,6 +30,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,7 +42,6 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
-import com.google.zxing.BarcodeFormat;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 
@@ -93,6 +93,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
     public static final String BUNDLE_ADDGROUP = "addGroup";
 
     TabLayout tabs;
+    View getNotificationLinearLayout;
 
     ImageView thumbnail;
     EditText storeFieldEdit;
@@ -111,6 +112,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
     View cardImageBackHolder;
     ImageView cardImageFront;
     ImageView cardImageBack;
+    EditText notificationDateEdit,notificationTimeEdit;
+    CheckBox getNotificationCheckBox;
 
     Button enterButton;
 
@@ -239,6 +242,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         cardImageBackHolder.setId(ID_IMAGE_BACK);
         cardImageFront = findViewById(R.id.frontImage);
         cardImageBack = findViewById(R.id.backImage);
+        getNotificationCheckBox = findViewById(R.id.getNotificationCheckBox);
+        notificationDateEdit = findViewById(R.id.notificationDateEdit);
+        notificationTimeEdit = findViewById(R.id.notificationTimeEdit);
+        getNotificationLinearLayout = findViewById(R.id.getNotificationLinearLayout);
+
 
         enterButton = findViewById(R.id.enterButton);
         cardImageFront.setBackgroundColor(getThemeColor());
@@ -264,6 +272,47 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 updateTempState(LoyaltyCardField.note, s.toString());
             }
         });
+
+
+        notificationDateEdit.setCursorVisible(false);
+        notificationTimeEdit.setCursorVisible(false);
+        notificationDateEdit.setFocusable(false);
+        notificationTimeEdit.setFocusable(false);
+
+        getNotificationLinearLayout.setVisibility(View.GONE);
+
+
+        getNotificationCheckBox.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+
+            if (isChecked) {
+
+                getNotificationLinearLayout.setVisibility(View.VISIBLE);
+
+            }
+
+            else {
+
+                getNotificationLinearLayout.setVisibility(View.GONE);
+            }
+        });
+
+        notificationDateEdit.setOnClickListener(view -> {
+
+            Log.i(TAG, "onCreate: dateEdit clicked");
+
+           DialogFragment dialogFragment =new DatePickerFragment(this, (EditText) view);
+           dialogFragment.show(getSupportFragmentManager(),"NotificationDatePicker");
+
+        });
+
+        notificationTimeEdit.setOnClickListener(view -> {
+
+            DialogFragment dialogFragment = new TimePickerFragment(this,view);
+            dialogFragment.show(getSupportFragmentManager(),"NotificationTimePicker");
+
+
+        });
+
 
         expiryField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;

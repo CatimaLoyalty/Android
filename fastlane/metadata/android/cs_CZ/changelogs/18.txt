@@ -1,0 +1,2 @@
+- Oprava problému na Android SDK 24+, kdy použití možnosti importu výběru souboru způsobovalo pád. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Nová ikona a barevné schéma. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

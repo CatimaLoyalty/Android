@@ -1,0 +1,5 @@
+- Přidání podpory pro přidávání zástupců na domovskou obrazovku při přidávání nebo úpravách karty. (pull #155)
+- Odstranit widget, protože byl špatnou náhradou za zástupce. (pull #155)
+- Oprava exportu záloh v systému Android 7+. (pull #153)
+- Přesnější hlášení typu mime při exportu zálohovaných dat. (pull #156)
+- Oprava chyby, kdy nebylo možné upravit kartu. (pull #155)

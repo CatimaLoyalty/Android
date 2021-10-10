@@ -1,0 +1,2 @@
+- Zlepšení logiky rozboru vyvážení
+- Oprava zobrazení desetinných míst měny na hlavní obrazovce

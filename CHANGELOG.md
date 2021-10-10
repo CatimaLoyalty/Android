@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.7.3 - 88 (2021-10-10)
+
+- Fix incorrect migration making first card become invisible
+
+## v2.7.2 - 87 (2021-10-09)
+
+- Fix regression breaking import/export
+
+## v2.7.1 - 86 (2021-10-07)
+
+- Improve search with spaces
+
+## v2.7.0 - 85 (2021-10-05)
+
+Android 4.4 is no longer supported starting with this release. If you want to use Catima on Android 4.4, please use version 2.6.1.
+
+- Improved Android 12 support
+- Improved about screen
+- Search now ignores accents
+
 ## v2.6.1 - 84 (2021-09-25)
 
 - Minor bugfixes and improvements

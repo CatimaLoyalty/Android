@@ -1,0 +1,6 @@
+- Přidání možnosti nastavit hodnotu čárového kódu odděleně od ID karty
+- Zjednodušení konfigurace velikosti písma
+- Několik drobných oprav uživatelského rozhraní
+- Použití ikony písmene i pro klávesové zkratky
+- Při ručním zadávání vždy zobrazit všechny typy čárových kódů
+- Odstranit dialogové okno prvního spuštění zásad ochrany osobních údajů

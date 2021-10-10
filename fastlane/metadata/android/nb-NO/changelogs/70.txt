@@ -1,0 +1,11 @@
+- INKOMPATIBEL ENDRING: Backup-formatet har blitt endret. Se https://github.com/TheLastProject/Catima/wiki/Export-format
+- INKOMPATIBEL ENDRING: Formatet for URL-deling har blitt endret. Se see https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Gjør det mulig å skru av eller på blitsen under scanning
+- Legg til støtte for UPC-E
+- Støtte for å legge til et bilde av forside og bakside av hvert kort
+- Støtte for å importere passord-beskyttede zip filer
+- Støtte for importering fra Stocard (Beta)
+- Fiks ubrukelig mellomrom i notater fra Fidme-import
+- Støtt nytt Vaucher Vault eksportformat
+- Fiks at Floating Action Buttons ble skjult bak andre brukergrensesnitt-komponenter på Android 4
+- Fiks topp-margin i appbar ved visning av kundekort.

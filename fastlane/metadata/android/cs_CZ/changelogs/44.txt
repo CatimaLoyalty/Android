@@ -1,0 +1,2 @@
+- Přidání přejetí mezi skupinami na domovské obrazovce
+- Oprava pádu u karet bez barvy záhlaví

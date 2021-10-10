@@ -1,0 +1,4 @@
+- Vylepšení importéru Stocard
+- Oprava importu exportu Catima s víceřádkovou poznámkou
+- Název karty měřítka v přijatelném rozsahu
+- Vylepšení animace

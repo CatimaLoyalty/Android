@@ -1,0 +1,2 @@
+- Podpora změny pořadí řazení
+- Zabránění výpadku paměti při skenování velkých obrázků čárového kódu

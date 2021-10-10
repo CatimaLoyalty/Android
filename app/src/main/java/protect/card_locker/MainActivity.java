@@ -398,16 +398,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            mCardList.setVisibility(View.VISIBLE);
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
             if(mAdapter.getItemCount() > 0)
             {
+                mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
             }
             else
             {
-                if(!mFilter.isEmpty()) {
+                mCardList.setVisibility(View.GONE);
+                if (!mFilter.isEmpty()) {
                     // Actual Empty Search Result
                     mNoMatchingCardsText.setVisibility(View.VISIBLE);
                     mNoGroupCardsText.setVisibility(View.GONE);
@@ -458,14 +459,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         groupsTabLayout.setVisibility(View.VISIBLE);
-    }
-
-    private void openPrivacyPolicy() {
-        Intent browserIntent = new Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://catima.app/privacy-policy")
-        );
-        startActivity(browserIntent);
     }
 
     @Override
@@ -577,12 +570,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivityForResult(i, Utils.MAIN_REQUEST);
-            return true;
-        }
-
-        if(id == R.id.action_privacy_policy)
-        {
-            openPrivacyPolicy();
             return true;
         }
 
@@ -729,16 +716,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    @Override
-    public void onIconClicked(int inputPosition)
-    {
-        if (mCurrentActionMode == null)
-        {
-            mCurrentActionMode = startSupportActionMode(mCurrentActionModeCallback);
-        }
-
-        toggleSelection(inputPosition);
-    }
 
     @Override
     public void onRowClicked(int inputPosition)

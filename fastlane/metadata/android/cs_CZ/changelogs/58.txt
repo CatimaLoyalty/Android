@@ -1,0 +1,1 @@
+- Oprava pádu na verzích před Androidem 7

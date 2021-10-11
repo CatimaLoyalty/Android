@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/thumbnail_container"
                     android:layout_width="@dimen/cardThumbnailSize"
                     android:layout_height="@dimen/cardThumbnailSize"
@@ -59,7 +59,7 @@
                             app:srcCompat="@drawable/ic_done" />
 
                     </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
                     android:minHeight="@dimen/cardThumbnailSize"

@@ -42,7 +42,7 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
     public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
     {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
-        return new GroupCursorAdapter.GroupListItemViewHolder(itemView);
+        return new GroupListItemViewHolder(itemView);
     }
 
     public Cursor getCursor()
@@ -80,7 +80,7 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         void onDeleteButtonClicked(View view);
     }
 
-    public class GroupListItemViewHolder extends RecyclerView.ViewHolder
+    public static class GroupListItemViewHolder extends RecyclerView.ViewHolder
     {
         public TextView mName, mCardCount;
         public AppCompatImageButton mMoveUp, mMoveDown, mEdit, mDelete;

@@ -1,6 +1,7 @@
 package protect.card_locker.preferences;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -41,7 +42,6 @@ public class SettingsActivity extends CatimaAppCompatActivity
 
         // Display the fragment as the main content.
         SettingsFragment fragment = new SettingsFragment();
-        fragment.setParentReference(this);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.settings_container, fragment)
                 .commit();
@@ -64,11 +64,6 @@ public class SettingsActivity extends CatimaAppCompatActivity
     public static class SettingsFragment extends PreferenceFragmentCompat
     {
         private static final String DIALOG_FRAGMENT_TAG = "SettingsFragment";
-        private SettingsActivity parent;
-
-        public void setParentReference(SettingsActivity settingsActivity) {
-            parent = settingsActivity;
-        }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -120,8 +115,9 @@ public class SettingsActivity extends CatimaAppCompatActivity
             });
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 // Refresh the activity
-                parent.finish();
-                startActivity(parent.getIntent());
+                Intent intent = new Intent(getContext(), SettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                getContext().startActivity(intent);
 
                 return true;
             });

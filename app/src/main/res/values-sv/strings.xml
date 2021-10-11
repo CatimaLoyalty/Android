@@ -5,8 +5,8 @@
     <string name="settings_max_font_size_scale">Max. teckenstorlek</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
     <string name="enterBarcodeInstructions">Ange kortets ID och välj antingen streckkodstyp nedan, eller \"Detta kort har ingen streckkod\".</string>
-    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt,
-\neller skapa en från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
+    <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
+\nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
     <string name="importOptionApplicationExplanation">Använd vilken app som helst eller den filhanterare du föredrar för att öppna en fil.</string>
     <string name="importOptionApplicationButton">Använd en annan app</string>
     <string name="intent_import_card_from_url_share_text">Jag vill dela ett kort med dig</string>
@@ -21,12 +21,12 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kort valda</item>
     </plurals>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera,
-\neller skapa en från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
-    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera,
-\neller skapa en först genom att trycka på Exportera i Voucher Vault.</string>
-    <string name="importStocardMessage">Välj den exporterade <i>***-sync.zip</i> från Stocard som du vill importera,
-\neller skaffa en först genom att skicka e-post till support@stocardapp.com och be om att få dina data exporterade.</string>
+    <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera.
+\nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
+    <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera.
+\nSkapa den först genom att trycka på Exportera i Voucher Vault.</string>
+    <string name="importStocardMessage">Välj den exporterade <i>***-sync.zip</i> från Stocard som du vill importera.
+\nSkaffa den först genom att skicka e-post till support@stocardapp.com och be om att få dina data exporterade.</string>
     <string name="enter_group_name">Ange gruppnamn</string>
     <string name="groups">Grupper</string>
     <plurals name="groupCardCount">
@@ -90,8 +90,8 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_copyright_old">Baserad på Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+\ncopyright © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="about">Om</string>
     <string name="importOptionApplicationTitle">Använd en annan app</string>
     <string name="importOptionFilesystemButton">Från filsystemet</string>
@@ -158,7 +158,7 @@
     <string name="chooseExpiryDate">Välj förfallodatum</string>
     <string name="expiryDate">Förfallodatum</string>
     <string name="starImage">Favoritstjärna</string>
-    <string name="app_license">Copyleftad fri programvara, under GPLv3+-licens.</string>
+    <string name="app_license">Copyleftad fri programvara, under GPLv3+-licens</string>
     <string name="app_resources">Fria tredjepartsresurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Fria tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> verkar inte vara ett giltigt saldo.</string>
@@ -166,8 +166,8 @@
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
     <string name="lockScreen">Förhindra rotation</string>
-    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera,
-\neller skapa en från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
+    <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera.
+\nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
     <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessful">Kortdata exporterad</string>
     <string name="importSuccessful">Kortdata importerad</string>
@@ -198,4 +198,12 @@
     <string name="sort_by_most_recently_used">Senast använda</string>
     <string name="sort_by_name">Namn</string>
     <string name="sort">Sortera</string>
+    <string name="license">Licens</string>
+    <string name="and_data_usage">och dataanvändning</string>
+    <string name="rate_this_app">Betygsätt den här appen</string>
+    <string name="on_google_play">på Google Play</string>
+    <string name="report_error">Rapportera ett fel</string>
+    <string name="version_history">Versionshistorik</string>
+    <string name="help_translate_this_app">Hjälp till med översättningen av appen</string>
+    <string name="on_github">på GitHub</string>
 </resources>

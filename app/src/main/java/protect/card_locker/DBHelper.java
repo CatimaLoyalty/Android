@@ -716,20 +716,22 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public List<Group> getGroups() {
-        try(Cursor data = getGroupCursor()) {
-            List<Group> groups = new ArrayList<>();
+        Cursor data = getGroupCursor();
 
-            if (!data.moveToFirst()) {
-                return groups;
-            }
+        List<Group> groups = new ArrayList<>();
 
-            groups.add(Group.toGroup(data));
-            while (data.moveToNext()) {
-                groups.add(Group.toGroup(data));
-            }
-
+        if (!data.moveToFirst()) {
+            data.close();
             return groups;
         }
+
+        groups.add(Group.toGroup(data));
+        while (data.moveToNext()) {
+            groups.add(Group.toGroup(data));
+        }
+
+        data.close();
+        return groups;
     }
 
     public void reorderGroups(final List<Group> groups)

@@ -54,7 +54,7 @@
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода. Или выберите \"Эта карта без штрих-кода\".</string>
+    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода (или выберите \"Эта карта без штрих-кода\").</string>
     <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип карты</string>
     <string name="settings">Настройки</string>

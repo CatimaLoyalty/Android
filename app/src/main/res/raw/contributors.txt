@@ -6,19 +6,20 @@ Heimen Stoffels
 solokot
 mondstern
 Taco
-Gediminas Murauskas
 IllusiveMan196
+Gediminas Murauskas
+Petr Novák
+StoyanDimitrov
 Joel A
 Samantaz Fox
 Nyatsuki
+Oğuz Ersen
 arno-github
 Sergio Paredes
-StoyanDimitrov
-Oğuz Ersen
-Petr Novák
 arshbeerSingh
 huuhaa
 Michael Moroni
+Olivia (Zoe)
 betsythefc
 K. Herbert
 Quentin PAGÈS
@@ -35,13 +36,16 @@ Jane Kong
 Lukas Grassauer
 Michalis
 schirinowski
+Thomas Bertels
 inesre
 lgasp
 phlostically
 Kevin Sicong Jiang
 Miha Frangež
+Aditya Das
 Airat
 BMN
+Biren
 Flav
 Franciszek Stefan
 Izzy
@@ -49,6 +53,7 @@ Karol Kosek
 bittin
 Maciej Błędkowski
 Mattia
+Michael Gangolf
 pbeckmann
 Peer Beckmann
 QuangDNguyen2211

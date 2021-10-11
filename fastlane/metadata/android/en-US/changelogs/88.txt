@@ -1,0 +1,1 @@
+- Fix incorrect migration making first card become invisible

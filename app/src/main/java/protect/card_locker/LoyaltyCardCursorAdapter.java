@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 

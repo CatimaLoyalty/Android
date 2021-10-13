@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 89
+
+- Fix swiping between groups not working on an empty group
+
 ## v2.7.3 - 88 (2021-10-10)
 
 - Fix incorrect migration making first card become invisible

@@ -1,0 +1,1 @@
+- Fix swiping between groups not working on an empty group

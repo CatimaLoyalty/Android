@@ -53,12 +53,7 @@ public class CatimaExporter implements Exporter
         writeCSV(db, catimaOutputStreamWriter);
 
         // Add CSV to zip file
-        ZipParameters csvZipParameters = new ZipParameters();
-        csvZipParameters.setFileNameInZip("catima.csv");
-        if(password!=null && password.length>0){
-            csvZipParameters.setEncryptFiles(true);
-            csvZipParameters.setEncryptionMethod(EncryptionMethod.AES);
-        }
+        ZipParameters csvZipParameters = createZipParameters("catima.csv",password);
         zipOutputStream.putNextEntry(csvZipParameters);
         InputStream csvInputStream = new ByteArrayInputStream(catimaOutputStream.toByteArray());
         while ((readLen = csvInputStream.read(readBuffer)) != -1) {
@@ -83,8 +78,7 @@ public class CatimaExporter implements Exporter
                 // If it exists, add to the .zip file
                 Bitmap image = Utils.retrieveCardImage(context, card.id, front);
                 if (image != null) {
-                    ZipParameters imageZipParameters = new ZipParameters();
-                    imageZipParameters.setFileNameInZip(Utils.getCardImageFileName(card.id, front));
+                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, front),password);
                     zipOutputStream.putNextEntry(imageZipParameters);
                     InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
                     while ((readLen = imageInputStream.read(readBuffer)) != -1) {
@@ -96,6 +90,16 @@ public class CatimaExporter implements Exporter
         }
 
         zipOutputStream.close();
+    }
+
+    private ZipParameters createZipParameters(String fileName, char[] password){
+        ZipParameters zipParameters = new ZipParameters();
+        zipParameters.setFileNameInZip(fileName);
+        if(password!=null && password.length>0){
+            zipParameters.setEncryptFiles(true);
+            zipParameters.setEncryptionMethod(EncryptionMethod.AES);
+        }
+        return zipParameters;
     }
 
     private void writeCSV(DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException {

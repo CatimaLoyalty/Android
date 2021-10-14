@@ -22,7 +22,7 @@ public class MultiFormatExporter
      * another ImportExportResult otherwise. If not Success, partial data may have been
      * written to the output stream, and it should be discarded.
      */
-    public static ImportExportResult exportData(Context context, DBHelper db, OutputStream output, DataFormat format)
+    public static ImportExportResult exportData(Context context, DBHelper db, OutputStream output, DataFormat format,char[] password)
     {
         Exporter exporter = null;
 
@@ -40,7 +40,7 @@ public class MultiFormatExporter
         {
             try
             {
-                exporter.exportData(context, db, output);
+                exporter.exportData(context, db, output,password);
                 return ImportExportResult.Success;
             }
             catch(IOException e)

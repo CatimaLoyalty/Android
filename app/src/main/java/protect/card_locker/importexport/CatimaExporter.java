@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 
 import net.lingala.zip4j.io.outputstream.ZipOutputStream;
 import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.model.enums.EncryptionMethod;
 import net.lingala.zip4j.util.InternalZipConstants;
 
 import org.apache.commons.csv.CSVFormat;
@@ -30,14 +31,21 @@ import protect.card_locker.Utils;
  */
 public class CatimaExporter implements Exporter
 {
-    public void exportData(Context context, DBHelper db, OutputStream output) throws IOException, InterruptedException
+    public void exportData(Context context, DBHelper db, OutputStream output,char[] password) throws IOException, InterruptedException
     {
         // Necessary vars
         int readLen;
         byte[] readBuffer = new byte[InternalZipConstants.BUFF_SIZE];
 
         // Create zip output stream
-        ZipOutputStream zipOutputStream = new ZipOutputStream(output);
+        ZipOutputStream zipOutputStream;
+
+        if(password!=null && password.length>0){
+            zipOutputStream = new ZipOutputStream(output,password);
+        }
+        else{
+            zipOutputStream = new ZipOutputStream(output);
+        }
 
         // Generate CSV
         ByteArrayOutputStream catimaOutputStream = new ByteArrayOutputStream();
@@ -47,6 +55,10 @@ public class CatimaExporter implements Exporter
         // Add CSV to zip file
         ZipParameters csvZipParameters = new ZipParameters();
         csvZipParameters.setFileNameInZip("catima.csv");
+        if(password!=null && password.length>0){
+            csvZipParameters.setEncryptFiles(true);
+            csvZipParameters.setEncryptionMethod(EncryptionMethod.AES);
+        }
         zipOutputStream.putNextEntry(csvZipParameters);
         InputStream csvInputStream = new ByteArrayInputStream(catimaOutputStream.toByteArray());
         while ((readLen = csvInputStream.read(readBuffer)) != -1) {

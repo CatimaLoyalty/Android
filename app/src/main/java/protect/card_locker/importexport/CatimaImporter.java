@@ -48,7 +48,7 @@ public class CatimaImporter implements Importer
         bufferedInputStream.mark(100);
 
         // First, check if this is a zip file
-        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream);
+        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream,password);
 
         boolean isZipFile = false;
 

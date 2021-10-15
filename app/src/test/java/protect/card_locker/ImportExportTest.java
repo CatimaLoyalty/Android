@@ -357,31 +357,34 @@ public class ImportExportTest
     public void multipleCardsExportImportPasswordProtected() throws IOException
     {
         final int NUM_CARDS = 10;
-        final String password = "123456789";
-        addLoyaltyCards(NUM_CARDS);
+        List<char[]> passwords = Arrays.asList(null, "123456789".toCharArray());
+        for(char[] password : passwords){
+            addLoyaltyCards(NUM_CARDS);
 
-        ByteArrayOutputStream outData = new ByteArrayOutputStream();
-        OutputStreamWriter outStream = new OutputStreamWriter(outData);
+            ByteArrayOutputStream outData = new ByteArrayOutputStream();
+            OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
-        // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,password.toCharArray());
-        assertEquals(ImportExportResult.Success, result);
-        outStream.close();
+            // Export data to CSV format
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,password);
+            assertEquals(ImportExportResult.Success, result);
+            outStream.close();
 
-        TestHelpers.getEmptyDb(activity);
+            TestHelpers.getEmptyDb(activity);
 
-        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
-        // Import the CSV data
-        result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima, password.toCharArray());
-        assertEquals(ImportExportResult.Success, result);
+            // Import the CSV data
+            result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima, password);
+            assertEquals(ImportExportResult.Success, result);
 
-        assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
 
-        checkLoyaltyCards();
+            checkLoyaltyCards();
 
-        // Clear the database for the next format under test
-        TestHelpers.getEmptyDb(activity);
+            // Clear the database for the next format under test
+            TestHelpers.getEmptyDb(activity);
+        }
+
     }
 
     @Test

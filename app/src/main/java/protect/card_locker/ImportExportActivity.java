@@ -12,8 +12,10 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.io.File;
@@ -90,14 +92,23 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             public void onClick(View v)
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
-                builder.setTitle(R.string.passwordRequired);
+                builder.setTitle(R.string.exportPasswordRequired);
+
+                FrameLayout container = new FrameLayout(ImportExportActivity.this);
+                FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.leftMargin = 50;
+                params.rightMargin = 50;
 
                 final EditText input = new EditText(ImportExportActivity.this);
                 input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                builder.setView(input);
+                input.setLayoutParams(params);
+                input.setHint("Enter Password");
+
+                container.addView(input);
+                builder.setView(container);
                 builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-                    chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
                     exportPassword = input.getText().toString();
+                    chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
                 });
                 builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
                 builder.show();

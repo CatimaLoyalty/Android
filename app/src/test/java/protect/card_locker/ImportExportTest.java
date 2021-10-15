@@ -590,8 +590,9 @@ public class ImportExportTest
         TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
         // Export to the file
+        final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, listener);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream,password.toCharArray(), listener);
         task.execute();
 
         // Actually run the task to completion

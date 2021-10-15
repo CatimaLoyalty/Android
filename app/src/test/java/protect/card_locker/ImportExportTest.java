@@ -610,7 +610,7 @@ public class ImportExportTest
 
         FileInputStream fileStream = new FileInputStream(exportFile);
 
-        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, null, listener);
+        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, password.toCharArray(), listener);
         task.execute();
 
         // Actually run the task to completion

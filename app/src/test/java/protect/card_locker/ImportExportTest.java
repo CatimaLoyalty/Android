@@ -334,7 +334,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -354,6 +354,39 @@ public class ImportExportTest
         TestHelpers.getEmptyDb(activity);
     }
 
+    public void multipleCardsExportImportPasswordProtected() throws IOException
+    {
+        final int NUM_CARDS = 10;
+        List<char[]> passwords = Arrays.asList(null, "123456789".toCharArray());
+        for(char[] password : passwords){
+            addLoyaltyCards(NUM_CARDS);
+
+            ByteArrayOutputStream outData = new ByteArrayOutputStream();
+            OutputStreamWriter outStream = new OutputStreamWriter(outData);
+
+            // Export data to CSV format
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,password);
+            assertEquals(ImportExportResult.Success, result);
+            outStream.close();
+
+            TestHelpers.getEmptyDb(activity);
+
+            ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+            // Import the CSV data
+            result = MultiFormatImporter.importData(activity.getApplicationContext(), db, inData, DataFormat.Catima, password);
+            assertEquals(ImportExportResult.Success, result);
+
+            assertEquals(NUM_CARDS, db.getLoyaltyCardCount());
+
+            checkLoyaltyCards();
+
+            // Clear the database for the next format under test
+            TestHelpers.getEmptyDb(activity);
+        }
+
+    }
+
     @Test
     public void multipleCardsExportImportSomeStarred() throws IOException
     {
@@ -365,7 +398,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -438,7 +471,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -482,7 +515,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -513,7 +546,7 @@ public class ImportExportTest
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
             assertEquals(ImportExportResult.Success, result);
 
             TestHelpers.getEmptyDb(activity);
@@ -560,8 +593,9 @@ public class ImportExportTest
         TestTaskCompleteListener listener = new TestTaskCompleteListener();
 
         // Export to the file
+        final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, listener);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream,password.toCharArray(), listener);
         task.execute();
 
         // Actually run the task to completion
@@ -579,7 +613,7 @@ public class ImportExportTest
 
         FileInputStream fileStream = new FileInputStream(exportFile);
 
-        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, null, listener);
+        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, password.toCharArray(), listener);
         task.execute();
 
         // Actually run the task to completion
@@ -901,7 +935,7 @@ public class ImportExportTest
 
         // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima,null);
 
         // Wipe database
         TestHelpers.getEmptyDb(activity);

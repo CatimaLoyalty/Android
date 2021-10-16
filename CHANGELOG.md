@@ -3,6 +3,7 @@
 ## Unreleased - 89
 
 - Fix swiping between groups not working on an empty group
+- Allow password-protecting exports
 
 ## v2.7.3 - 88 (2021-10-10)
 

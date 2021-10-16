@@ -196,6 +196,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="passwordRequired">Please enter the password</string>
+    <string name="exportPassword">Set a password to protect your export (optional)</string>
+    <string name="exportPasswordHint">Enter password</string>
     <string name="failedGeneratingShareURL">Could not generate sharable URL. Please report this.</string>
     <string name="turn_flashlight_on">Turn flashlight on</string>
     <string name="turn_flashlight_off">Turn flashlight off</string>

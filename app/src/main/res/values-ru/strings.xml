@@ -216,4 +216,6 @@
     <string name="source_repository">Исходный код</string>
     <string name="license">Лицензия</string>
     <string name="help_translate_this_app">Помощь в переводе приложения</string>
+    <string name="exportPassword">Защитить файл экспорта паролем (необязательно)</string>
+    <string name="exportPasswordHint">Введите пароль</string>
 </resources>

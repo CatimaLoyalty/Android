@@ -1,0 +1,2 @@
+- Fiks at bilder ikke ble importert fra sikkerhetskopiering
+- Innstilling for å overstyre språk

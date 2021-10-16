@@ -1,0 +1,3 @@
+- Napravi kraticu
+- Generiši kraticu kartice
+- Popravi boju kartice

@@ -1,0 +1,2 @@
+- Fiks widget som lager en snarvei som ser annerledes ut enn app-snarveier
+- Erstatt standard svart Android skjerm med en oppstartsskjerm

@@ -1,0 +1,4 @@
+- Zpřístupnění odkazů v poznámkách pro klikání
+- Předběžný výběr skupiny, ve které se uživatel právě nachází, při vytváření nové karty
+- Oddělování názvů skupin čárkou v zobrazení věrnostních karet
+- Oprava tlačítka maximalizace, které se nezobrazuje na žádném čárovém kódu

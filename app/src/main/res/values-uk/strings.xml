@@ -27,20 +27,20 @@
     <string name="sameAsCardId">Таке ж як ID картки</string>
     <string name="barcodeId">Значення штрих-коду</string>
     <string name="importVoucherVaultMessage">Оберіть Voucher Vault експорт-файл названий <i>vouchervault.json</i> для імпортування.
-\nЧи створіть його натиснувши \"Експорт\" у Voucher Vault.</string>
+\nСтворіть його натиснувши \"Експорт\" у Voucher Vault.</string>
     <string name="importVoucherVault">Імпорт з Voucher Vault</string>
     <string name="importLoyaltyCardKeychainMessage">Знайдіть файл названий <i>LoyaltyCardKeychain.csv</i> для імпортування.
-\nЧи створіть його у меню імпорту/експорту Loyalty Card Keychain натиснувши \"Експорт\".</string>
+\nСтворіть його у меню імпорту/експорту Loyalty Card Keychain натиснувши \"Експорт\".</string>
     <string name="importCatimaMessage">Оберіть експорт-файл названий <i>catima.zip</i> для імпортування.
-\nЧи створіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
+\nСтворіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
     <string name="importLoyaltyCardKeychain">Імпорт з Loyalty Card Keychain</string>
     <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів вручну пізніше.
-\nЧи створіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
+\nСтворіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
     <string name="importFidme">Імпорт з FidMe</string>
     <string name="importCatima">Імпорт з Catima</string>
     <string name="accept">Прийняти</string>
     <string name="privacy_policy">Політика конфіденційності</string>
-    <string name="app_loyalty_card_keychain">Брелок картки лояльності</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Імпортувати дані з\?</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
@@ -82,7 +82,7 @@
     <string name="settings_max_font_size_scale">Макс. розмір шрифту</string>
     <string name="settings_dark_theme">Темна</string>
     <string name="settings_light_theme">Світла</string>
-    <string name="settings_system_theme">Система</string>
+    <string name="settings_system_theme">Системна</string>
     <string name="settings_theme">Тема</string>
     <string name="settings_category_title_ui">Інтерфейс користувача</string>
     <string name="settings">Налаштування</string>
@@ -96,17 +96,17 @@
     <string name="app_revision_fmt">Інформація про випуск: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Версія: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Про <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_license">Копілефт вільне програмне забезпечення, ліцензоване під GPLv3+.</string>
+    <string name="app_license">Копілефт вільне програмне забезпечення, ліцензоване під GPLv3+</string>
     <string name="app_copyright_old">Створено на основі Loyalty Card Keychain
-\nавторські права © 2016–2020 Branden Archer.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+\nавторські права © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="about">Про програму</string>
     <string name="importOptionApplicationButton">Використайте іншу програму</string>
     <string name="importOptionApplicationExplanation">Використайте іншу програму чи ваш улюблений файл-менеджер для відкриття файлу.</string>
-    <string name="importOptionApplicationTitle">Використати іншу програму</string>
-    <string name="importOptionFilesystemButton">З провідника</string>
+    <string name="importOptionApplicationTitle">З іншої програми</string>
+    <string name="importOptionFilesystemButton">Обрати файл</string>
     <string name="importOptionFilesystemExplanation">Оберіть файл у провіднику.</string>
-    <string name="importOptionFilesystemTitle">Імпорт з провідника</string>
+    <string name="importOptionFilesystemTitle">Імпорт з файлу</string>
     <string name="exportOptionExplanation">Дані буде записано до локації обраної вами.</string>
     <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту чи експорту карток</string>
     <string name="exporting">Експортуємо…</string>
@@ -156,11 +156,11 @@
     <string name="removeImage">Видалити зображення</string>
     <string name="setBackImage">Встановити зображення тильної сторони</string>
     <string name="setFrontImage">Встановити зображення лицьової сторони</string>
-    <string name="photos">Фотографії</string>
+    <string name="photos">Фото</string>
     <string name="backImageDescription">Тильна сторона карти</string>
     <string name="frontImageDescription">Лицьова сторона карти</string>
     <string name="importStocardMessage">Виберіть експорт <i> ***-sync.zip </i> зі Stocard для імпорту.
-\nАбо отримайте його, надіславши електронною поштою support@stocardapp.com з проханням експортувати ваші дані.</string>
+\nОтримайте його, надіславши електронною поштою support@stocardapp.com з проханням експортувати ваші дані.</string>
     <string name="importStocard">Імпорт із Stocard</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Обрано: <xliff:g>%d</xliff:g> карта</item>
@@ -199,4 +199,21 @@
     <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду карти типу <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
+    <string name="sort_by">Сортувати за</string>
+    <string name="reverse">Зворотній порядок</string>
+    <string name="sort_by_balance">Баланс</string>
+    <string name="sort_by_expiry">Термін дії</string>
+    <string name="sort_by_most_recently_used">Часто використовувані</string>
+    <string name="sort_by_name">Назва</string>
+    <string name="sort">Сортування</string>
+    <string name="version_history">Історія версій</string>
+    <string name="help_translate_this_app">Допомогти з перекладом програми</string>
+    <string name="license">Ліцензія</string>
+    <string name="source_repository">Вихідний код</string>
+    <string name="on_github">на GitHub</string>
+    <string name="and_data_usage">та використання даних</string>
+    <string name="credits">Подяки</string>
+    <string name="rate_this_app">Оцінити програму</string>
+    <string name="on_google_play">у Google Play</string>
+    <string name="report_error">Повідомити про помилку</string>
 </resources>

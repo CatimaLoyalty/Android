@@ -187,4 +187,10 @@
     <string name="settings_locale">言語</string>
     <string name="noGroupCards">このグループにはカードがありません</string>
     <string name="swipeToSwitchImages">画像を切り替えるには長押し、またはスワイプ</string>
+    <string name="sort_by">並び替え</string>
+    <string name="sort_by_balance">残高</string>
+    <string name="sort_by_expiry">期限</string>
+    <string name="sort_by_most_recently_used">最近使用したカード</string>
+    <string name="sort_by_name">名前</string>
+    <string name="sort">ソート</string>
 </resources>

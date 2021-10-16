@@ -1,1 +1,1 @@
-Catima — Den fria kortplånboken
+Catima — Kortplånboken med öppen källkod

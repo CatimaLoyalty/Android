@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
@@ -62,7 +61,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
     {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
-        return new LoyaltyCardListItemViewHolder(itemView);
+        return new LoyaltyCardListItemViewHolder(itemView, mListener);
     }
 
     public Cursor getCursor()
@@ -128,7 +127,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition)
     {
-        inputHolder.mThumbnailContainer.setOnClickListener(inputView -> mListener.onIconClicked(inputPosition));
         inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
         inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
 
@@ -238,26 +236,23 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public interface CardAdapterListener
     {
-        void onIconClicked(int inputPosition);
         void onRowClicked(int inputPosition);
         void onRowLongClicked(int inputPosition);
     }
 
-    public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener
+    public static class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder
     {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public LinearLayout mInformationContainer;
         public ImageView mCardIcon, mStarIcon;
-        public CardView mThumbnailContainer;
         public MaterialCardView mRow;
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
 
-        public LoyaltyCardListItemViewHolder(View inputView)
+        public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener)
         {
             super(inputView);
-            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
             mRow = inputView.findViewById(R.id.row);
             mDivider = inputView.findViewById(R.id.info_divider);
             mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
@@ -269,15 +264,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mExpiryField = inputView.findViewById(R.id.expiry);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
-            inputView.setOnLongClickListener(this);
-        }
-
-        @Override
-        public boolean onLongClick(View inputView)
-        {
-            mListener.onRowLongClicked(getAdapterPosition());
-            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-            return true;
+            inputView.setOnLongClickListener(view -> {
+                inputListener.onRowClicked(getAdapterPosition());
+                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            });
         }
     }
 }

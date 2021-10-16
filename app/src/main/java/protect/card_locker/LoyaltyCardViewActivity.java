@@ -531,10 +531,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         {
             window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
         }
-        if(Build.VERSION.SDK_INT >= 21)
-        {
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
+        window.setStatusBarColor(Color.TRANSPARENT);
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);

@@ -1,0 +1,1 @@
+- Fiks krasj ved rotasjon i kundekortredigeringsaktiviteten

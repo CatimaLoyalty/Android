@@ -1,0 +1,6 @@
+- Změna jména na Catima
+- Odstraněno intro
+- Přidání plovoucích akčních tlačítek
+- Oprava pádu systému Android 5 při otevření obrazovky O systému
+- Přidána podpora oblíbených položek
+- Oprava ignorování zakázaného automatického otáčení

@@ -1,0 +1,4 @@
+- Aktualizace překladů. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Aktualizace vykreslování čárových kódů: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Při otočení obrazovky znovu načtěte aktivitu zobrazení karty, aby měl obrázek čárového kódu správnou velikost.
+  - Vykreslování 1D čárových kódů ve větším prostoru, což umožní lépe vyplnit obrazovku.

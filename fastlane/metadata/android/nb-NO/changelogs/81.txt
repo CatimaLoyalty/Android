@@ -1,0 +1,4 @@
+- Forbedre kortliste for liggende modus, og nettbrett
+- Legg til støtte for fargetemaer (takk, Subhashish Anand!)
+- Ikke lukk scan-aktiviteten ved en kamerafeil (slik at å legge til manuelt fortsatt er mulig)
+- Legg til alle bidragsytere til om-dialogen

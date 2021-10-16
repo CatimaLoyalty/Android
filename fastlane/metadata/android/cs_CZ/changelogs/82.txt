@@ -1,0 +1,4 @@
+- Vylepšená podpora pro čtečky obrazovky
+- Nespadne při pokusu o otevření videa z galerie.
+- Podpora přejetí prstem na obrazovce zobrazení věrnostních karet
+- Neresetovat skupinu při stisknutí tlačítka zpět

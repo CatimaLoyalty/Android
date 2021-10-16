@@ -1,0 +1,2 @@
+- Umožnit uživateli zadat čárový kód ručně. Pokud se uživatel rozhodne zadat čárový kód ručně, zobrazí se seznam všech platných a podporovaných obrázků čárových kódů. Uživatel pak může vybrat obrázek čárového kódu, který odpovídá tomu, co chce. (issue #33, pull #44)
+- Vyřešení problému, kdy byly některé zobrazené čárové kódy rozmazané. (issue #37)

@@ -1,0 +1,1 @@
+- Oprava tlačítka pro úpravu nebo více informací na spodním listu nad ID čárového kódu

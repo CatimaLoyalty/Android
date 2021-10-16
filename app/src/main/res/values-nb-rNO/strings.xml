@@ -11,7 +11,7 @@
     <string name="edit">Rediger</string>
     <string name="delete">Slett</string>
     <string name="confirm">Bekreft</string>
-    <string name="lockScreen">Ingen rotering</string>
+    <string name="lockScreen">Skru av rotering</string>
     <string name="unlockScreen">Skru på rotering</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
@@ -24,7 +24,7 @@
     <string name="noStoreError">Navn ikke angitt</string>
     <string name="noCardIdError">Ingen kort-ID innskrevet</string>
     <string name="noCardExistsError">Kunne ikke finne kort</string>
-    <string name="importExport">Import/eksport</string>
+    <string name="importExport">Importer/eksporter</string>
     <string name="exportName">Eksporter</string>
     <string name="importExportHelp">Sikkerhetskopiering av kort lar deg flytte dem til en annen enhet.</string>
     <string name="importSuccessfulTitle">Importert</string>
@@ -40,11 +40,11 @@
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
     <string name="importOptionFilesystemButton">Fra filsystem</string>
-    <string name="importOptionApplicationTitle">Bruk et annet program</string>
-    <string name="importOptionApplicationExplanation">Bruk hvilket som helst program, eller din favoritt-filutforsker for å åpne en fil.</string>
-    <string name="importOptionApplicationButton">Bruk et annet program</string>
+    <string name="importOptionApplicationTitle">Bruk en annen app</string>
+    <string name="importOptionApplicationExplanation">Bruk en hvilken som helst app, eller din favoritt-filutforsker for å åpne en fil.</string>
+    <string name="importOptionApplicationButton">Bruk en annen app</string>
     <string name="about">Om</string>
-    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+.</string>
+    <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -64,7 +64,7 @@
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Drakt</string>
     <string name="app_copyright_old">Basert på Kundekortknippe
-\nopphavsrett 2016–2020 Branden Archer.</string>
+\nopphavsrett 2016–2020 Branden Archer</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
@@ -74,13 +74,13 @@
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Legg til i favoritter</string>
     <string name="noGroups">Klikk på «+»- (pluss)-tegnet for å legge til grupper for kategorisering først.</string>
-    <string name="deleteConfirmationGroup">Slett gruppe\?</string>
+    <string name="deleteConfirmationGroup">Slett gruppe?</string>
     <string name="all">Alle</string>
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Skriv inn gruppenavn</string>
     <string name="noBarcode">Ingen strekkode</string>
     <string name="failedOpeningFileManager">Installer en filbehandler først.</string>
-    <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre\?</string>
+    <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre?</string>
     <string name="leaveWithoutSaveTitle">Avslutt</string>
     <string name="addManually">Skriv inn kort-ID manuelt</string>
     <string name="moveDown">Flytt nedover</string>
@@ -106,13 +106,13 @@
     <string name="balance">Saldo</string>
     <string name="balancePoints"><xliff:g>%s</xliff:g> poeng</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="chooseImportType">Importer data fra\?</string>
+    <string name="chooseImportType">Importer data fra?</string>
     <string name="app_loyalty_card_keychain">Kundekortknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått</string>
     <string name="privacy_policy_popup_text">Personvernspraksis-notis (påkrevd av noen programbutikker):
 \n
-\nINGEN DATA SAMLES INN, noe alle kan bekreftes siden programmet vårt er fri programvare.</string>
+\nINGEN DATA SAMLES INN I DET HELE TATT, noe alle kan bekreftes siden programmet vårt er fri programvare.</string>
     <string name="accept">Godta</string>
     <string name="privacy_policy">Personvernspraksis</string>
     <string name="importFidme">Importer fra FidMe</string>
@@ -124,16 +124,14 @@
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som kort-ID</string>
     <string name="barcodeId">Strekkodeverdi</string>
-    <string name="importVoucherVaultMessage">Finn en fil som antagelig heter <i>voucher.vault.json</i> å importere.
-\nEller opprett den ved å trykke «Eksport» i Voucher Vault først.</string>
+    <string name="importVoucherVaultMessage">Velg din <i>vouchervault.json</i>-eksport fra Voucher Vault å importere.
+\nOpprett den ved å trykke «Eksport» i Voucher Vault først.</string>
     <string name="importVoucherVault">Importer fra Voucher Vault</string>
-    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv - </i> eksporter fra kundekort Nøkkelring til import.
-\nEller lage det fra Import/Eksport-menyen i lojalitetskort Nøkkelringen ved å trykke på Eksport det første.</string>
+    <string name="importLoyaltyCardKeychainMessage">Velg din <i>LoyaltyCardKeychain.csv</i>-eksport fra Kundekortknippe å importere.
+\nOpprett den i «Import/Eksport»-menyen i Kundekortknippe ved å trykke «Eksporter» der først.</string>
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
-    <string name="importFidmeMessage">Velg din <i>fidme-eksport-be-xxxxxx.zip</i> eksporter fra FidMe til å importere, og velg strekkode typer manuelt etterpå.
-\nEller lage den fra FidMe profil ved å velge Beskyttelse av Data og deretter trykke Trekke ut dataene mine første.</string>
-    <string name="importCatimaMessage">Finn en fil som antagelig heter <i>Catima.csv</i> å importere.
-\nEller opprett den i Import/eksport-menyen i et annet Catima-program ved å trykke «Eksporter» der først.</string>
+    <string name="importFidmeMessage">Velg din <i>fidme.export-request-xxxxx.zip</i>-eksport fra FidMe å importere, for så å velge strekkodetypene manuelt etterpå-
+\nOpprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
     <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
@@ -141,11 +139,11 @@
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte kort-ID(er)</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
-    <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi?</string>
     <string name="no">Nei</string>
     <string name="yes">Ja</string>
-    <string name="updateBarcodeQuestionTitle">Oppdater strekkodeverdi\?</string>
+    <string name="updateBarcodeQuestionTitle">Oppdater strekkodeverdi?</string>
     <string name="takePhoto">Ta et bilde</string>
     <string name="removeImage">Fjern bilde</string>
     <string name="setBackImage">Sett bakside</string>
@@ -154,7 +152,7 @@
     <string name="backImageDescription">Kortets bakside</string>
     <string name="frontImageDescription">Kortets forside</string>
     <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere.
-\nEller få den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
+\nSkaff den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
@@ -162,10 +160,10 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> korten valgt</item>
     </plurals>
-    <string name="deleteConfirmation">Slett dette kortet for godt\?</string>
+    <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Slett dette kortet for godt\?</item>
-        <item quantity="other">Slett disse <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kortene for godt\?</item>
+        <item quantity="other">Slett disse <xliff:g>%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
     <string name="turn_flashlight_off">Skru av lommelykten</string>
@@ -191,4 +189,23 @@
     <string name="toggleMoreInfo">Veksle visning av mer info</string>
     <string name="barcodeImageDescriptionWithType">Bilde av kortstrekkode av typen <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Dra eller hold lenge for å bygge bilder</string>
+    <string name="sort_by">Sorter etter</string>
+    <string name="reverse">Vend</string>
+    <string name="sort_by_balance">Saldo</string>
+    <string name="sort_by_expiry">Utløp</string>
+    <string name="sort_by_most_recently_used">Nyligst brukt</string>
+    <string name="sort_by_name">Navn</string>
+    <string name="sort">Sorter</string>
+    <string name="help_translate_this_app">Hjelp med å oversette denne appen</string>
+    <string name="license">Lisens</string>
+    <string name="version_history">Versjonshistorikk</string>
+    <string name="importCatimaMessage">Velg din <i>catima.zip</i>-eksport fra Catima å importere.
+\nOpprett den fra «Importer/Eksporter»-menyen i en annen Catima-app ved å trykke på «Eksporter» der først</string>
+    <string name="source_repository">Kildekode</string>
+    <string name="on_github">på GitHub</string>
+    <string name="and_data_usage">og bruk av data</string>
+    <string name="rate_this_app">Vurder denne appen</string>
+    <string name="on_google_play">på Google Play</string>
+    <string name="report_error">Rapporter feil</string>
+    <string name="credits">Bidragsytere</string>
 </resources>

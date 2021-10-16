@@ -38,19 +38,19 @@
     <string name="sameAsCardId">Kart numarasıyla aynı</string>
     <string name="barcodeId">Barkod değeri</string>
     <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin.
-\nVeya önce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+\nÖnce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importVoucherVault">Voucher Vault\'tan içe aktar</string>
     <string name="importStocardMessage">İçe aktarmak için Stocard\'dan dışa aktardığınız <i>***-sync.zip</i> dosyasını seçin.
-\nVeya support@stocardapp.com adresine e-posta göndererek verilerinizin dışa aktarılmasını isteyerek edinin.</string>
+\nsupport@stocardapp.com adresine e-posta göndererek verilerinizin dışa aktarılmasını isteyerek edinin.</string>
     <string name="importStocard">Stocard\'dan içe aktar</string>
     <string name="importLoyaltyCardKeychainMessage">İçe aktarmak için Loyalty Card Keychain\'den dışa aktardığınız <i>LoyaltyCardKeychain.csv</i> dosyasını seçin.
-\nVeya Loyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+\nLoyalty Card Keychain uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importLoyaltyCardKeychain">Loyalty Card Keychain\'den içe aktar</string>
     <string name="importFidmeMessage">FidMe\'den içe aktarmak için dışa aktardığınız <i>fidme-export-request-xxxxxx.zip</i> dosyasını seçin ve ardından barkod türlerini elle seçin.
-\nVeya FidMe profilinizden Veri Koruma seçeneğini seçip ardından \"Verilerimi çıkar\" düğmesine basarak bir tane oluşturun.</string>
+\nFidMe profilinizden Veri Koruma seçeneğini seçip ardından \"Verilerimi çıkar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importFidme">FidMe\'den içe aktar</string>
     <string name="importCatimaMessage">İçe aktarmak için Catima\'dan dışa aktardığınız <i>catima.zip</i> dosyasını seçin.
-\nVeya başka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
+\nBaşka bir Catima uygulamasının İçe/Dışa aktar menüsündeki \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
     <string name="importCatima">Catima\'dan içe aktar</string>
     <string name="accept">Kabul et</string>
     <string name="privacy_policy_popup_text">Gizlilik politikası bildirimi (bazı uygulama mağazaları için gerekli):
@@ -119,10 +119,10 @@
     <string name="app_revision_fmt">Değişiklik Bilgileri: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Sürüm: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> hakkında</string>
-    <string name="app_license">GPLv3+ altında lisanslanan copyleft özgür yazılım.</string>
+    <string name="app_license">GPLv3+ altında lisanslanan copyleft özgür yazılım</string>
     <string name="app_copyright_old">Loyalty Card Keychain temel alınmıştır
-\nTelif Hakkı © 2016–2020 Branden Archer.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+\nTelif Hakkı © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="about">Hakkında</string>
     <string name="importOptionApplicationButton">Başka bir uygulama kullan</string>
     <string name="importOptionApplicationExplanation">Bir dosyayı açmak için herhangi bir uygulamayı veya en sevdiğiniz dosya yöneticisini kullanın.</string>
@@ -198,4 +198,14 @@
     <string name="sort_by_most_recently_used">En Son Kullanılan</string>
     <string name="sort_by_name">Ad</string>
     <string name="sort">Sırala</string>
+    <string name="report_error">Hata Bildir</string>
+    <string name="on_google_play">Google Play\'de</string>
+    <string name="rate_this_app">Bu uygulamayı değerlendir</string>
+    <string name="and_data_usage">ve veri kullanımı</string>
+    <string name="on_github">GitHub\'da</string>
+    <string name="source_repository">Kaynak Deposu</string>
+    <string name="license">Lisans</string>
+    <string name="help_translate_this_app">Bu uygulamayı çevirmeye yardımcı olun</string>
+    <string name="credits">Emeği Geçenler</string>
+    <string name="version_history">Sürüm Geçmişi</string>
 </resources>

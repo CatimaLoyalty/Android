@@ -1,0 +1,3 @@
+- Přidání možnosti nabídky zámku otáčení obrazovky při zobrazení karty. Pokud je uzamčeno, obrazovka přejde do své "přirozené" orientace a další otáčení obrazovky bude zablokováno. (pull #128)
+- Pokud je karta vybrána na hlavní obrazovce, ale nelze ji načíst, aplikace elegantně selže a vypíše zprávu. (pull #132)
+- Oprava případu, kdy nebylo možné najít ID rozvržení pro úvodního průvodce. (pull #128)

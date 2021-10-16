@@ -46,7 +46,7 @@
     <string name="importOptionApplicationExplanation">Beliebige Anwendung oder deinen bevorzugten Dateimanager zur Dateiauswahl verwenden.</string>
     <string name="importOptionApplicationButton">Aus anderer Anwendung</string>
     <string name="about">Über</string>
-    <string name="app_license">Freie Software, lizensiert unter der GPLv3+.</string>
+    <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revisionsinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -63,10 +63,10 @@
     <string name="settings_dark_theme">Dunkel</string>
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
-    <string name="settings_theme">Theme</string>
+    <string name="settings_theme">Farbschema</string>
     <string name="enterBarcodeInstructions">Gib die Kartennummer ein und wähle entweder den Barcode-Typ unten oder wähle \"Diese Karte hat keinen Barcode\" aus.</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
-\nCopyright © 2016-2020 Branden Archer.</string>
+\nCopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Die Import-URI konnte nicht verarbeitet werden</string>
     <string name="share">Teilen</string>
@@ -117,16 +117,16 @@
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
     <string name="importVoucherVaultMessage">Wählen Sie Ihren <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
-\nOder erstellen Sie ihn, indem Sie zuerst auf Export in Voucher Vault drücken.</string>
+\nErstellen Sie ihn, indem Sie zuerst auf Export in Voucher Vault drücken.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
     <string name="importLoyaltyCardKeychainMessage">Wählen Sie Ihren <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
-\nOder erstellen Sie ihn über das Menü Import/Export in Loyalty Card Keychain, indem Sie dort zuerst auf Export drücken.</string>
+\nErstellen Sie ihn über das Menü Import/Export in Loyalty Card Keychain, indem Sie dort zuerst auf Export drücken.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
     <string name="importFidmeMessage">Wählen Sie Ihren <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wählen Sie anschließend die Strichcodetypen manuell aus.
 \nOder erstellen Sie ihn aus Ihrem FidMe-Profil, indem Sie Datenschutz wählen und dann zuerst auf Meine Daten extrahieren drücken.</string>
     <string name="importFidme">Aus FidMe importieren</string>
     <string name="importCatimaMessage">Wählen Sie Ihren <i>catima.zip</i>-Export aus Catima zum Importieren aus.
-\nOder erstellen Sie ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
+\nErstellen Sie ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Manuell eingeben</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
@@ -139,7 +139,7 @@
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
     <string name="copy_to_clipboard_multiple_toast">Kartennummern in die Zwischenablage kopiert</string>
     <string name="card_ids_copied">Kartennummer(n) kopiert</string>
@@ -156,7 +156,7 @@
     <string name="backImageDescription">Bild der Kartenrückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
     <string name="importStocardMessage">Wählen Sie Ihren <i>***-sync.zip</i>-Export aus Stocard zum Importieren aus.
-\nOder Sie erhalten ihn, indem Sie eine E-Mail an support@stocardapp.com senden und um einen Export Ihrer Daten bitten.</string>
+\nSie erhalten ihn, indem Sie eine E-Mail an support@stocardapp.com senden und um einen Export Ihrer Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Licht ausschalten</string>
     <string name="turn_flashlight_on">Licht einschalten</string>
@@ -198,4 +198,14 @@
     <string name="sort_by_name">Name</string>
     <string name="sort">Sortieren</string>
     <string name="reverse">Umgekehrt</string>
+    <string name="version_history">Versionshistorie</string>
+    <string name="credits">Dank an</string>
+    <string name="help_translate_this_app">Hilfe bei der Übersetzung</string>
+    <string name="and_data_usage">und Datennutzung</string>
+    <string name="rate_this_app">Bewerte die App</string>
+    <string name="on_google_play">auf Google Play</string>
+    <string name="license">Lizenz</string>
+    <string name="source_repository">Quellcode</string>
+    <string name="on_github">auf GitHub</string>
+    <string name="report_error">Fehler melden</string>
 </resources>

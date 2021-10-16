@@ -208,4 +208,6 @@
     <string name="on_google_play">på Google Play</string>
     <string name="report_error">Rapporter feil</string>
     <string name="credits">Bidragsytere</string>
+    <string name="exportPassword">Sett et passord for å beskytte eksporten din (valgfritt)</string>
+    <string name="exportPasswordHint">Skriv inn passord</string>
 </resources>

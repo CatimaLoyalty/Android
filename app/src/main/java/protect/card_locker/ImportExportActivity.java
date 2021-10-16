@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -92,7 +91,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             public void onClick(View v)
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
-                builder.setTitle(R.string.exportPasswordRequired);
+                builder.setTitle(R.string.exportPassword);
 
                 FrameLayout container = new FrameLayout(ImportExportActivity.this);
                 FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -102,7 +101,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 final EditText input = new EditText(ImportExportActivity.this);
                 input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 input.setLayoutParams(params);
-                input.setHint("Enter Password");
+                input.setHint(R.string.exportPasswordHint);
 
                 container.addView(input);
                 builder.setView(container);

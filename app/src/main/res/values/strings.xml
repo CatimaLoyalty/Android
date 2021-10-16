@@ -255,4 +255,10 @@
     <string name="get_notification_before">Get notification before expiry date</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
+    <string name="sharedPreferenceDateTime">protect.card_locker.dateTime</string>
+    <string name="setValidDate">Set a valid  date</string>
+    <string name="setValidTime">Set a valid time</string>
+    <string name="notificationContentTitle">Reminder</string>
+    <string name="reminder">Reminder</string>
+    <string name="channelDescription">This channel sends reminder before expiry date of card</string>
 </resources>

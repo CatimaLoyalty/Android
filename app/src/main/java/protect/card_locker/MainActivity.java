@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -142,6 +144,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                         db.deleteLoyaltyCard(loyaltyCard.id);
 
+                        deleteAlarm(loyaltyCard.id);
+
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
 
@@ -177,6 +181,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             });
         }
     };
+
+    private void deleteAlarm(int id) {
+
+        Intent intent = new Intent(this,Notification.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+        Log.i(TAG, "deleteAlarm: Alarm deleted for id "+id);
+
+    }
 
     @Override
     protected void onCreate(Bundle inputSavedInstanceState)

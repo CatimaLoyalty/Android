@@ -4,6 +4,7 @@
 
 - Fix swiping between groups not working on an empty group
 - Allow password-protecting exports
+- Improve usage of space for QR codes
 
 ## v2.7.3 - 88 (2021-10-10)
 

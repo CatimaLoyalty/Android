@@ -271,7 +271,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 if(format!=null && format.isSquare())
                     centerGuideline.setGuidelinePercent(0.75f * scale);
                 else
-                    centerGuideline.setGuidelinePercent(0.5f);
+                    centerGuideline.setGuidelinePercent(0.5f * scale);
             }
 
             @Override

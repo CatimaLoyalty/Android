@@ -268,7 +268,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();
                 }
-                centerGuideline.setGuidelinePercent(0.5f * scale);
+                if(format!=null && format.isSquare())
+                    centerGuideline.setGuidelinePercent(0.75f * scale);
+                else
+                    centerGuideline.setGuidelinePercent(0.5f);
             }
 
             @Override
@@ -417,6 +420,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         setupOrientation();
 
         format = loyaltyCard.barcodeType;
+        if(format.isSquare()){
+            centerGuideline.setGuidelinePercent(0.75f);
+        }
+        else{
+            centerGuideline.setGuidelinePercent(0.5f);
+        }
         cardIdString = loyaltyCard.cardId;
         barcodeIdString = loyaltyCard.barcodeId;
 

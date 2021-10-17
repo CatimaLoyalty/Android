@@ -1,0 +1,2 @@
+- Gruplar arasında kaydırmanın boş bir grup üzerinde çalışmaması düzeltildi
+- Parola korumalı dışa aktarmalara izin ver

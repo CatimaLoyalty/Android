@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
@@ -62,7 +61,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
     {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
-        return new LoyaltyCardListItemViewHolder(itemView);
+        return new LoyaltyCardListItemViewHolder(itemView, mListener);
     }
 
     public Cursor getCursor()
@@ -241,7 +240,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         void onRowLongClicked(int inputPosition);
     }
 
-    public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener
+    public static class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder
     {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
@@ -251,7 +250,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
 
-        public LoyaltyCardListItemViewHolder(View inputView)
+        public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener)
         {
             super(inputView);
             mRow = inputView.findViewById(R.id.row);
@@ -265,15 +264,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mExpiryField = inputView.findViewById(R.id.expiry);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
-            inputView.setOnLongClickListener(this);
-        }
-
-        @Override
-        public boolean onLongClick(View inputView)
-        {
-            mListener.onRowLongClicked(getAdapterPosition());
-            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-            return true;
+            inputView.setOnLongClickListener(view -> {
+                inputListener.onRowClicked(getAdapterPosition());
+                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            });
         }
     }
 }

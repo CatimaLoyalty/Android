@@ -208,4 +208,6 @@
     <string name="help_translate_this_app">Bu uygulamayı çevirmeye yardımcı olun</string>
     <string name="credits">Emeği Geçenler</string>
     <string name="version_history">Sürüm Geçmişi</string>
+    <string name="exportPassword">Dışa aktarmanızı korumak için bir parola belirleyin (isteğe bağlı)</string>
+    <string name="exportPasswordHint">Parola girin</string>
 </resources>

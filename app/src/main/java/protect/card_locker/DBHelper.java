@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
@@ -20,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 12;
+    public static final int DATABASE_VERSION = 13;
 
     public static class LoyaltyCardDbGroups
     {
@@ -292,6 +293,24 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
                 insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
             }
+        }
+
+        if(oldVersion < 13 && newVersion >= 13)
+        {
+            db.execSQL("DELETE FROM " + LoyaltyCardDbFTS.TABLE + ";");
+
+            Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
+
+            if (cursor.moveToFirst()) {
+                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+                insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+
+                while (cursor.moveToNext()) {
+                    loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+                    insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+                }
+            }
+            cursor.close();
         }
     }
 
@@ -663,36 +682,24 @@ public class DBHelper extends SQLiteOpenHelper
         return db.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
-                (filter.isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
+                (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
                 groupFilter.toString() +
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
-                limitString, filter.isEmpty() ? null : new String[] { filter + '*' }, null);
+                limitString, filter.trim().isEmpty() ? null : new String[] { TextUtils.join("* ", filter.split(" ")) + '*' }, null);
     }
 
+    /**
+     * Returns the amount of loyalty cards.
+     *
+     * @return Integer
+     */
     public int getLoyaltyCardCount()
     {
         SQLiteDatabase db = getReadableDatabase();
         return (int) DatabaseUtils.queryNumEntries(db, LoyaltyCardDbIds.TABLE);
-    }
-
-    /**
-     * Returns the amount of loyalty cards with the filter text in either the store or note.
-     *
-     * @param filter
-     * @return Integer
-     */
-    public int getLoyaltyCardCount(String filter)
-    {
-        if (filter.isEmpty()) {
-            return getLoyaltyCardCount();
-        }
-
-        SQLiteDatabase db = getReadableDatabase();
-        return (int) DatabaseUtils.queryNumEntries(db, LoyaltyCardDbFTS.TABLE,
-                LoyaltyCardDbFTS.TABLE + " MATCH ? ", withArgs(filter + '*'));
     }
 
     /**
@@ -709,20 +716,22 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     public List<Group> getGroups() {
-        try(Cursor data = getGroupCursor()) {
-            List<Group> groups = new ArrayList<>();
+        Cursor data = getGroupCursor();
 
-            if (!data.moveToFirst()) {
-                return groups;
-            }
+        List<Group> groups = new ArrayList<>();
 
-            groups.add(Group.toGroup(data));
-            while (data.moveToNext()) {
-                groups.add(Group.toGroup(data));
-            }
-
+        if (!data.moveToFirst()) {
+            data.close();
             return groups;
         }
+
+        groups.add(Group.toGroup(data));
+        while (data.moveToNext()) {
+            groups.add(Group.toGroup(data));
+        }
+
+        data.close();
+        return groups;
     }
 
     public void reorderGroups(final List<Group> groups)

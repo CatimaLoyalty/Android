@@ -195,9 +195,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 selectedTab = tab.getPosition();
+                Log.d("onTabSelected","Tab Position "+tab.getPosition());
                 mGroup = tab.getTag();
                 updateLoyaltyCardList();
-
                 // Store active tab in Shared Preference to restore next app launch
                 SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                         getString(R.string.sharedpreference_active_tab),
@@ -230,6 +230,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mHelpText.setOnTouchListener(gestureTouchListener);
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
+        mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
 
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
@@ -634,6 +635,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        mGestureDetector.onTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         Log.d(TAG, "On fling");
 
@@ -648,9 +655,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         Integer currentTab = groupsTabLayout.getSelectedTabPosition();
-
+        Log.d("onFling","Current Tab "+currentTab);
         // Swipe right
         if (velocityX < -150) {
+            Log.d("onFling","Right Swipe detected "+velocityX);
             Integer nextTab = currentTab + 1;
 
             if (nextTab == groupsTabLayout.getTabCount()) {
@@ -664,6 +672,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Swipe left
         if (velocityX > 150) {
+            Log.d("onFling","Left Swipe detected "+velocityX);
             Integer nextTab = currentTab - 1;
 
             if (nextTab < 0) {

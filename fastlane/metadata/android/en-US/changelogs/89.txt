@@ -1,0 +1,3 @@
+- Fix swiping between groups not working on an empty group
+- Allow password-protecting exports
+- Improve usage of space for QR codes

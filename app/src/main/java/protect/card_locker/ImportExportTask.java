@@ -35,7 +35,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
     /**
      * Constructor which will setup a task for exporting to the given file
      */
-    ImportExportTask(Activity activity, DataFormat format, OutputStream output,
+    ImportExportTask(Activity activity, DataFormat format, OutputStream output,char[] password,
             TaskCompleteListener listener)
     {
         super();
@@ -43,6 +43,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
         this.doImport = false;
         this.format = format;
         this.outputStream = output;
+        this.password = password;
         this.listener = listener;
     }
 
@@ -70,14 +71,14 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
         return importResult;
     }
 
-    private ImportExportResult performExport(Context context, OutputStream stream, DBHelper db)
+    private ImportExportResult performExport(Context context, OutputStream stream, DBHelper db,char[] password)
     {
         ImportExportResult result = ImportExportResult.GenericFailure;
 
         try
         {
             OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
-            result = MultiFormatExporter.exportData(context, db, stream, format);
+            result = MultiFormatExporter.exportData(context, db, stream, format,password);
             writer.close();
         }
         catch (IOException e)
@@ -118,7 +119,7 @@ class ImportExportTask extends AsyncTask<Void, Void, ImportExportResult>
         }
         else
         {
-            result = performExport(activity.getApplicationContext(), outputStream, db);
+            result = performExport(activity.getApplicationContext(), outputStream, db,password);
         }
 
         return result;

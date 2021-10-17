@@ -1,0 +1,2 @@
+- Změna ve verzi v0.11 snížila využití paměti při kreslení čárových kódů, ale ovlivnila rozměry čárových kódů. Nyní je tato změna provedena tak, aby byly rozměry čárového kódu zachovány a zároveň se snížilo využití paměti. (pull #126)
+- Aktualizace překladů do němčiny a francouzštiny. (pull #122, pull #124, pull #125))

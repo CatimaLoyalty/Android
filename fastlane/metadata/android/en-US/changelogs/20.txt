@@ -1,0 +1,1 @@
+- Workaround crash during install on some Android versions (likely Android 5 and below). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

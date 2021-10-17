@@ -17,7 +17,7 @@
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
 
-    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android"/>
 
     <application
         android:name=".LoyaltyCardLockerApplication"
@@ -29,13 +29,15 @@
         <activity
             android:name="protect.card_locker.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/Theme.App.Starting"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".AboutActivity"
             android:label="@string/about"
@@ -56,19 +58,28 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"
             android:exported="true">
+            <intent-filter android:autoVerify="true" android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Main card sharing URIs -->
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+
+                <data android:host="@string/intent_import_card_from_url_host_catima_app"
+                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_catima_app" />
+            </intent-filter>
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Listen to known card sharing URIs -->
-                <data android:scheme="https"
-                    android:host="@string/intent_import_card_from_url_host_catima_app"
-                    android:pathPrefix="@string/intent_import_card_from_url_path_prefix_catima_app" />
-                <data android:scheme="https"
-                    android:host="@string/intent_import_card_from_url_host_thelastproject"
+                <!-- Old card sharing URIs -->
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+
+                <data android:host="@string/intent_import_card_from_url_host_thelastproject"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix_thelastproject" />
-                <data android:scheme="https"
-                    android:host="@string/intent_import_card_from_url_host_brarcher"
+                <data android:host="@string/intent_import_card_from_url_host_brarcher"
                     android:pathPrefix="@string/intent_import_card_from_url_path_prefix_brarcher" />
             </intent-filter>
         </activity>
@@ -92,7 +103,8 @@
         <activity
             android:name=".CardShortcutConfigure"
             android:label="@string/cardShortcut"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
                 <category android:name="android.intent.category.DEFAULT"/>

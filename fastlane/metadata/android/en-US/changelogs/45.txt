@@ -1,0 +1,1 @@
+- Fix home screen swiping triggering during vertical swipes too

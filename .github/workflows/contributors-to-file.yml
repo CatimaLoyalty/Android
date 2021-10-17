@@ -1,0 +1,25 @@
+name: Write contributors to file
+on:
+  schedule:
+    - cron: '3 4 * * 0'
+
+jobs:
+  contributors_to_file:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    name: Write contributors to file
+    steps:
+    - name: Checkout repo
+      id: checkout
+      uses: actions/checkout@v2
+    - name: Update contributors
+      id: update_contributors
+      uses: TheLastProject/contributors-to-file-action@v2
+      with:
+        file_in_repo: app/src/main/res/raw/contributors.txt
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: "Update contributors"
+        commit-message: "Update contributors"
+        branch-suffix: timestamp

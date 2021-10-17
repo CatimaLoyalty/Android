@@ -1,0 +1,1 @@
+- Sadakat kartı düzenleme etkinliğinde döndürürken çökme düzeltildi

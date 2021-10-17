@@ -1,10 +1,10 @@
 Deja de buscar tarjetas de recompensa de plástico durante la compra en la tienda o en la web.
 <b>Escanea los códigos de barras en tu dispositivo usando su cámara, olvídate de las tarjetas.</b>
-😺
+
 Olvídate de la cartera, o téngala ultraligera para los objetos de valor.
-😺
+
 Con esta herramienta esencial para llevar a diario (EDC) puedes sustituir el plástico inútil por el dinero en efectivo.
-😺
+
 - Evita el espionaje con muy pocos permisos. Sin acceso a Internet y sin anuncios.
 - Añade tarjetas o códigos con nombres y colores personalizables.
 - Introduce manual de códigos si no hay código de barras que almacenar, o no se puede utilizar.
@@ -17,7 +17,7 @@ Con esta herramienta esencial para llevar a diario (EDC) puedes sustituir el pl�
 - Gratis, apoyado por las contribuciones de la comunidad.
 - Utiliza, estudia, cambia y comparte como quieras; <i>con quien quieras</i>.
 - No sólo Software Libre / Open Source. Es un software de gestión de tarjetas libre y <i>copyleft</i> (GPLv3+).
-😺
+
 Simplifica tu vida y tus compras, y no vuelvas a perder un recibo de papel, una tarjeta regalo de pago en tienda o un billete de avión.
 Lleva contigo todas tus recompensas y bonos, y ahorra sobre la marcha.
-😺
+

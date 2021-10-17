@@ -1,0 +1,3 @@
+- Fix crash when importing certain types of corrupted CSV files. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Fix importing backups directly from the file system. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Fix importing backups from certain types of content providers. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

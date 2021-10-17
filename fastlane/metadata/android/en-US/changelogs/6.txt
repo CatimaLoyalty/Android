@@ -1,0 +1,2 @@
+- Allow user to enter barcode manually. If a user elects to enter a barcode manually, a list of all valid and supported barcode images is displayed. The user then may select the barcode image which matches what the user wants. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- Resolve issue where some displayed barcodes were blurry. (issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

@@ -1,0 +1,3 @@
+- Fix shortcut creation
+- Generate card-specific shortcut icon
+- Fix ability to change loyalty card colour

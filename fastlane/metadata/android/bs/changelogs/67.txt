@@ -1,0 +1,6 @@
+- Dodaj opciju da se postavi posebna barcode vrijednost od ID kartice
+- Pojednostavi konfiguraciju fonta
+- Nekoliko lakših korisničkih funkcija
+- Koristi ikonu slova za prečice
+- Uvijek Prikaži sve barkode vrste u manuelnom ulazu
+- Ukloni Politiku privatnosti prvog početka

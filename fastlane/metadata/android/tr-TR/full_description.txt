@@ -1,0 +1,22 @@
+Mağazada veya internette ödeme sırasında plastik ödül kartlarını aramaya son verin.
+<b>Kamerasını kullanarak barkodları aygıtınıza tarayın, kartları unutun.</b>
+
+Cüzdanınızı unutun veya değerli eşyalarınız için aşırı hafif tutun.
+
+Bu temel günlük taşıma aracıyla işe yaramaz plastiği nakitle değiştirebilirsiniz.
+
+- Çok az izinle casusluktan kaçının. İnternet erişimi ve reklam yok.
+- Adları ve özelleştirilebilir renkleri olan kartlar veya kodlar ekleyin.
+- Kaydedilecek barkod yoksa veya kullanılamıyorsa elle kod girişi.
+- Dosyalardan, Catima, FidMe, Loyalty Card Keychain, Stocard ve Voucher Vault'tan kartları ve kodları içe aktarın.
+- Tüm kartlarınızın yedeğini alın ve isterseniz yeni bir aygıta aktarın.
+- Herhangi bir uygulamayı kullanarak kuponları, özel teklifleri, tanıtım kodlarını veya kartları ve kodları paylaşın.
+- Görme engelli kullanıcılar için koyu tema ve erişilebilirlik seçenekleri.
+- Özgür yazılım topluluğu tarafından herkes için yapıldı.
+- 20'den fazla dil için yerelleştirilen el yapımı çeviriler.
+- Topluluk katkılarıyla desteklenir ve ücretsizdir.
+- Dilediğiniz gibi kullanın, inceleyin, değiştirin ve <i>herkesle</i> paylaşın.
+- Yalnızca Özgür Yazılım / Açık Kaynaklı değil. <i>Copyleft lisanslı</i> özgür (GPLv3+) kart yönetimi yazılımı.
+
+Hayatınızı ve alışverişinizi basitleştirin ve bir daha asla kağıt fatura, mağaza içi ödemeli hediye kartı veya uçak bileti kaybetmeyin.
+Tüm ödüllerinizi yanınıza alın ve kaydedin.

@@ -16,9 +16,9 @@ public class TestHelpers {
         while (!cursor.isAfterLast()) {
             int cardID = cursor.getColumnIndex(DBHelper.LoyaltyCardDbIds.ID);
 
-            for (ImageType imageType : ImageType.values()) {
+            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 try {
-                    Utils.saveCardImage(activity.getApplicationContext(), null, cardID, imageType);
+                    Utils.saveCardImage(activity.getApplicationContext(), null, cardID, imageLocationType);
                 } catch (FileNotFoundException ignored) {}
             }
 

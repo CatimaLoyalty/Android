@@ -1,0 +1,2 @@
+- Improve balance parsing logic
+- Fix currency decimal display on main screen

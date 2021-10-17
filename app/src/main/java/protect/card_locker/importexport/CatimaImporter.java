@@ -27,6 +27,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Group;
@@ -47,7 +48,7 @@ public class CatimaImporter implements Importer
         bufferedInputStream.mark(100);
 
         // First, check if this is a zip file
-        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream);
+        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream,password);
 
         boolean isZipFile = false;
 
@@ -331,11 +332,11 @@ public class CatimaImporter implements Importer
             barcodeId = null;
         }
 
-        BarcodeFormat barcodeType = null;
+        CatimaBarcode barcodeType = null;
         String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
         if(!unparsedBarcodeType.isEmpty())
         {
-            barcodeType = BarcodeFormat.valueOf(unparsedBarcodeType);
+            barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
         }
 
         Integer headerColor = null;
@@ -348,13 +349,21 @@ public class CatimaImporter implements Importer
         int starStatus = 0;
         try {
             starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
-        } catch (FormatException _e ) {
-            // This field did not exist in versions 0.278 and before
+        } catch (FormatException _e) {
+            // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
         }
         if (starStatus != 1) starStatus = 0;
 
-        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus);
+        Long lastUsed = 0L;
+        try {
+            lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
+        } catch (FormatException _e) {
+            // This field did not exist in versions 2.5.0 and before
+            // We catch this exception so we can still import old backups
+        }
+
+        helper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed);
     }
 
     /**

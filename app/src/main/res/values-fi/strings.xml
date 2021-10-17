@@ -117,7 +117,6 @@
     <string name="noCardExistsError">Korttia ei löytynyt</string>
     <string name="noCardIdError">Kortin ID-tunnusta ei annettu</string>
     <string name="noStoreError">Nimeä ei annettu</string>
-    <string name="barcodeImageDescription">Kuva kortin viivakoodista</string>
     <string name="card_ids_copied">Kopioidut korttitunnukset</string>
     <string name="noCardsMessage">Lisää ensin kortti</string>
     <string name="cardShortcut">Kortin pikakuvake</string>
@@ -175,4 +174,18 @@
     <string name="failedGeneratingShareURL">Ei pystynyt luomaan jaettavaa URL-osoitetta. Ilmoita tästä.</string>
     <string name="turn_flashlight_on">Sytytä taskulamppu</string>
     <string name="turn_flashlight_off">Sammuta salamavalo</string>
+    <string name="app_contributors">Mahdollistanut: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Ruskea</string>
+    <string name="settings_grey_theme">Harmaa</string>
+    <string name="settings_green_theme">Vihreä</string>
+    <string name="settings_sky_blue_theme">Taivaan sininen</string>
+    <string name="settings_blue_theme">Siniset</string>
+    <string name="settings_violet_theme">Violetti</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Pinkki</string>
+    <string name="settings_theme_color">Teeman väri</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_system_locale">Järjestelmä</string>
+    <string name="settings_locale">Kieli</string>
+    <string name="noGroupCards">Tämä ryhmä ei sisällä kortteja</string>
 </resources>

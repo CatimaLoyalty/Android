@@ -1,0 +1,4 @@
+- Dutch translation
+- Allow name field to be editable after adding loyalty card
+- Add an optional note field
+- Resolve all issues identified by FindBugs and require all FindBugs issues be resolved prior to pull request acceptance

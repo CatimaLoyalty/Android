@@ -1,0 +1,4 @@
+- Support importing Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme) exports
+- Allow importing a card from a picture stored in the user's Android gallery
+- Fix multiline note cutoff
+- Change "Thank you" text on privacy dialog to "Accept" because Huawei is overly pedantic

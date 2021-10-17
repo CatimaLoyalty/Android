@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -13,8 +12,10 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -25,15 +26,6 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.Guideline;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -47,28 +39,36 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
 import protect.card_locker.preferences.Settings;
 
-public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
+public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements GestureDetector.OnGestureListener
 {
     private static final String TAG = "Catima";
+
+    private GestureDetector mGestureDetector;
 
     TextView cardIdFieldView;
     BottomSheetBehavior behavior;
     View bottomSheet;
     View bottomSheetContentWrapper;
     ImageView bottomSheetButton;
-    View frontImageView;
-    ImageView frontImage;
-    View backImageView;
-    ImageView backImage;
     TextView noteView;
     TextView groupsView;
     TextView balanceView;
     TextView expiryView;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
-    ImageView barcodeImage;
+    ImageView mainImage;
+    LinearLayout dotIndicator;
     ImageButton minimizeButton;
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
@@ -81,7 +81,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
     String cardIdString;
     String barcodeIdString;
-    BarcodeFormat format;
+    CatimaBarcode format;
 
     FloatingActionButton editButton;
 
@@ -93,12 +93,89 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
     boolean starred;
     boolean backgroundNeedsDarkIcons;
-    FullscreenType fullscreenType = FullscreenType.NONE;
+    boolean isFullscreen = false;
+    int mainImageIndex = 0;
+    List<ImageType> imageTypes;
+    private ImageView[] dots;
     boolean isBarcodeSupported = true;
 
-    static final String STATE_FULLSCREENTYPE = "fullscreenType";
+    static final String STATE_IMAGEINDEX = "imageIndex";
+    static final String STATE_FULLSCREEN = "isFullscreen";
 
-    enum FullscreenType {
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        if (imageTypes.size() > 1) {
+            Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        // Also switch on long-press for accessibility
+        setMainImage(true, true);
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Log.d(TAG, "On fling");
+
+        if (Math.abs(velocityY) > (0.75 * Math.abs(velocityX))) {
+            // Vertical swipe
+            // Swipe up
+            if (velocityY < -150) {
+                if (!isFullscreen) {
+                    setFullscreen(true);
+                }
+                return false;
+            }
+
+            // Swipe down
+            if (velocityY > 150) {
+                if (isFullscreen) {
+                    setFullscreen(false);
+                }
+                return false;
+            }
+        } else if (Math.abs(velocityX) > (0.75 * Math.abs(velocityY))) {
+            // Horizontal swipe
+            // Swipe right
+            if (velocityX < -150) {
+                setMainImage(true, false);
+                return false;
+            }
+
+            // Swipe left
+            if (velocityX > 150) {
+                setMainImage(false, false);
+                return false;
+            }
+        }
+
+        if (imageTypes.size() > 1) {
+            Toast.makeText(this, getString(R.string.swipeToSwitchImages), Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
+    }
+
+    enum ImageType {
         NONE,
         BARCODE,
         IMAGE_FRONT,
@@ -110,6 +187,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
+    }
+
+    private Drawable getDotIcon(boolean active) {
+        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
+        assert unwrappedIcon != null;
+        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        DrawableCompat.setTint(wrappedIcon, ContextCompat.getColor(getApplicationContext(), R.color.iconColor));
+
+        return wrappedIcon;
     }
 
     private Drawable getIcon(int icon, boolean dark)
@@ -135,7 +221,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
-            fullscreenType = FullscreenType.valueOf(savedInstanceState.getString(STATE_FULLSCREENTYPE));
+            mainImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX);
+            isFullscreen = savedInstanceState.getBoolean(STATE_FULLSCREEN);
         }
 
         settings = new Settings(this);
@@ -151,17 +238,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         bottomSheet = findViewById(R.id.bottom_sheet);
         bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
         bottomSheetButton = findViewById(R.id.bottomSheetButton);
-        frontImageView = findViewById(R.id.frontImageView);
-        frontImage = findViewById(R.id.frontImage);
-        backImageView = findViewById(R.id.backImageView);
-        backImage = findViewById(R.id.backImage);
         noteView = findViewById(R.id.noteView);
         groupsView = findViewById(R.id.groupsView);
         balanceView = findViewById(R.id.balanceView);
         expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
-        barcodeImage = findViewById(R.id.barcode);
+        mainImage = findViewById(R.id.mainImage);
+        dotIndicator = findViewById(R.id.dotIndicator);
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
@@ -170,8 +254,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         centerGuideline.setGuidelinePercent(0.5f);
         barcodeScaler = findViewById(R.id.barcodeScaler);
         barcodeScaler.setProgress(100);
-        minimizeButton.setBackgroundColor(getThemeColor());
         maximizeButton.setBackgroundColor(getThemeColor());
+        minimizeButton.setBackgroundColor(getThemeColor());
         bottomSheetButton.setBackgroundColor(getThemeColor());
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -181,10 +265,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
-                if (fullscreenType == FullscreenType.BARCODE) {
+                if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();
                 }
-                centerGuideline.setGuidelinePercent(0.5f * scale);
+                if(loyaltyCard!=null && format!=null && format.isSquare())
+                    centerGuideline.setGuidelinePercent(0.75f * scale);
+                else
+                    centerGuideline.setGuidelinePercent(0.5f * scale);
             }
 
             @Override
@@ -201,29 +288,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         rotationEnabled = true;
 
         // Allow making barcode fullscreen on tap
-        maximizeButton.setOnClickListener(v -> setFullscreen(FullscreenType.BARCODE));
-        barcodeImage.setOnClickListener(view -> {
-            if (fullscreenType != FullscreenType.NONE) {
-                setFullscreen(FullscreenType.NONE);
-            } else {
-                setFullscreen(FullscreenType.BARCODE);
-            }
-        });
-        frontImageView.setOnClickListener(view -> {
-            if (fullscreenType != FullscreenType.IMAGE_FRONT) {
-                setFullscreen(FullscreenType.IMAGE_FRONT);
-            } else {
-                setFullscreen(FullscreenType.NONE);
-            }
-        });
-        backImageView.setOnClickListener(view -> {
-            if (fullscreenType != FullscreenType.IMAGE_BACK) {
-                setFullscreen(FullscreenType.IMAGE_BACK);
-            } else {
-                setFullscreen(FullscreenType.NONE);
-            }
-        });
-        minimizeButton.setOnClickListener(v -> setFullscreen(FullscreenType.NONE));
+        maximizeButton.setOnClickListener(v -> setFullscreen(true));
+        minimizeButton.setOnClickListener(v -> setFullscreen(false));
 
         editButton = findViewById(R.id.fabEdit);
         editButton.setOnClickListener(v -> {
@@ -248,7 +314,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
                     editButton.hide();
                 } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
                     bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
-                    if (fullscreenType == FullscreenType.NONE) {
+                    if (!isFullscreen) {
                         editButton.show();
                     }
 
@@ -287,6 +353,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
                 );
             }
         });
+
+        mGestureDetector = new GestureDetector(this, this);
+        View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
+        mainImage.setOnTouchListener(gestureTouchListener);
     }
 
     @Override
@@ -300,7 +370,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString(STATE_FULLSCREENTYPE, String.valueOf(fullscreenType));
+        savedInstanceState.putInt(STATE_IMAGEINDEX, mainImageIndex);
+        savedInstanceState.putBoolean(STATE_FULLSCREEN, isFullscreen);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -349,6 +420,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         setupOrientation();
 
         format = loyaltyCard.barcodeType;
+        if(format != null && format.isSquare()){
+            centerGuideline.setGuidelinePercent(0.75f);
+        }
+        else{
+            centerGuideline.setGuidelinePercent(0.5f);
+        }
+
         cardIdString = loyaltyCard.cardId;
         barcodeIdString = loyaltyCard.barcodeId;
 
@@ -356,22 +434,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
-
-        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageType.front);
-        if (frontImageBitmap != null) {
-            frontImageView.setVisibility(View.VISIBLE);
-            frontImage.setImageBitmap(frontImageBitmap);
-        } else {
-            frontImageView.setVisibility(View.GONE);
-        }
-
-        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageType.back);
-        if (backImageBitmap != null) {
-            backImageView.setVisibility(View.VISIBLE);
-            backImage.setImageBitmap(backImageBitmap);
-        } else {
-            backImageView.setVisibility(View.GONE);
-        }
 
         if(loyaltyCard.note.length() > 0)
         {
@@ -417,7 +479,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
             int expiryString = R.string.expiryStateSentence;
             if(Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryString = R.string.expiryStateSentenceExpired;
-                expiryView.setTextColor(getResources().getColor(R.color.alert));
+                expiryView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.alert));
             }
             expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
             expiryView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
@@ -428,7 +490,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         }
         expiryView.setTag(loyaltyCard.expiry);
 
-        if (fullscreenType == FullscreenType.NONE) {
+        if (!isFullscreen) {
             makeBottomSheetVisibleIfUseful();
         }
 
@@ -479,28 +541,62 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         {
             window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
         }
-        if(Build.VERSION.SDK_INT >= 21)
-        {
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
+        window.setStatusBarColor(Color.TRANSPARENT);
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
 
-        if (format != null && !BarcodeSelectorActivity.SUPPORTED_BARCODE_TYPES.contains(format.name())) {
+        if (format != null && !format.isSupported()) {
             isBarcodeSupported = false;
 
             Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
+        } else if (format == null) {
+            isBarcodeSupported = false;
         }
 
-        setFullscreen(fullscreenType);
+        imageTypes = new ArrayList<>();
+
+        if (isBarcodeSupported) {
+            imageTypes.add(ImageType.BARCODE);
+        }
+
+        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.front);
+        if (frontImageBitmap != null) {
+            imageTypes.add(ImageType.IMAGE_FRONT);
+        }
+
+        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.back);
+        if (backImageBitmap != null) {
+            imageTypes.add(ImageType.IMAGE_BACK);
+        }
+
+        dotIndicator.removeAllViews();
+        if (imageTypes.size() >= 2) {
+            dots = new ImageView[imageTypes.size()];
+
+            for (int i = 0; i < imageTypes.size(); i++) {
+                dots[i] = new ImageView(this);
+                dots[i].setImageDrawable(getDotIcon(false));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(8, 0, 8, 0);
+
+                dotIndicator.addView(dots[i], params);
+            }
+
+            dotIndicator.setVisibility(View.VISIBLE);
+        }
+
+        setFullscreen(isFullscreen);
+
+        db.updateLoyaltyCardLastUsed(loyaltyCard.id);
     }
 
     @Override
     public void onBackPressed() {
-        if (fullscreenType != FullscreenType.NONE)
+        if (isFullscreen)
         {
-            setFullscreen(FullscreenType.NONE);
+            setFullscreen(false);
             return;
         }
 
@@ -620,6 +716,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
+
     private void setOrientatonLock(MenuItem item, boolean lock)
     {
         if(lock)
@@ -639,7 +736,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
 
     private void makeBottomSheetVisibleIfUseful()
     {
-        if (frontImageView.getVisibility() == View.VISIBLE || backImageView.getVisibility() == View.VISIBLE || noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
+        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
             bottomSheet.setVisibility(View.VISIBLE);
         }
         else
@@ -648,27 +745,83 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
         }
     }
 
-    private void redrawBarcodeAfterResize()
-    {
+    private void drawBarcode() {
         if (format != null) {
-            barcodeImage.getViewTreeObserver().addOnGlobalLayoutListener(
+            new BarcodeImageWriterTask(
+                    getApplicationContext(),
+                    mainImage,
+                    barcodeIdString != null ? barcodeIdString : cardIdString,
+                    format,
+                    null,
+                    false,
+                    null)
+                    .execute();
+        }
+    }
+
+    private void redrawBarcodeAfterResize() {
+        if (format != null) {
+            mainImage.getViewTreeObserver().addOnGlobalLayoutListener(
                     new ViewTreeObserver.OnGlobalLayoutListener() {
                         @Override
                         public void onGlobalLayout() {
-                            barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                            mainImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            new BarcodeImageWriterTask(
-                                barcodeImage,
-                                barcodeIdString != null ? barcodeIdString : cardIdString,
-                                format,
-                                null,
-                                false,
-                                null)
-                            .execute();
+                            drawBarcode();
                         }
                     });
         };
+    }
+
+    private void drawMainImage(int index, boolean waitForResize) {
+        if (imageTypes.isEmpty()) {
+            mainImage.setVisibility(View.GONE);
+            return;
+        }
+
+        if (dots != null) {
+            for (int i = 0; i < dots.length; i++) {
+                dots[i].setImageDrawable(getDotIcon(i == index));
+            }
+        }
+
+        ImageType wantedImageType = imageTypes.get(index);
+
+        if (wantedImageType == ImageType.BARCODE) {
+            if (waitForResize) {
+                redrawBarcodeAfterResize();
+            } else {
+                drawBarcode();
+            }
+            mainImage.setBackgroundColor(Color.WHITE);
+        } else if (wantedImageType == ImageType.IMAGE_FRONT) {
+            mainImage.setImageBitmap(frontImageBitmap);
+            mainImage.setBackgroundColor(Color.TRANSPARENT);
+        } else if (wantedImageType == ImageType.IMAGE_BACK) {
+            mainImage.setImageBitmap(backImageBitmap);
+            mainImage.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            throw new IllegalArgumentException("Unknown image type: " + wantedImageType);
+        }
+
+        mainImage.setVisibility(View.VISIBLE);
+    }
+
+    private void setMainImage(boolean next, boolean overflow) {
+        int newIndex = mainImageIndex + (next ? 1 : -1);
+
+        if (newIndex >= imageTypes.size() && overflow) {
+            newIndex = 0;
+        }
+
+        if (newIndex == -1 || newIndex >= imageTypes.size()) {
+            return;
+        }
+
+        mainImageIndex = newIndex;
+
+        drawMainImage(newIndex, false);
     }
 
     /**
@@ -677,22 +830,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
      * The purpose of this function is to make sure the barcode can be scanned from the phone
      * by machines which offer no space to insert the complete device.
      */
-    private void setFullscreen(FullscreenType fullscreenType)
-    {
+    private void setFullscreen(boolean enabled) {
         ActionBar actionBar = getSupportActionBar();
-        if (fullscreenType != FullscreenType.NONE) {
+
+        if (enabled && !imageTypes.isEmpty()) {
             Log.d(TAG, "Move into fullscreen");
 
-            if (fullscreenType == FullscreenType.IMAGE_FRONT) {
-                barcodeImage.setImageBitmap(frontImageBitmap);
-                barcodeImage.setVisibility(View.VISIBLE);
-            } else if (fullscreenType == FullscreenType.IMAGE_BACK) {
-                barcodeImage.setImageBitmap(backImageBitmap);
-                barcodeImage.setVisibility(View.VISIBLE);
-            } else {
-                // Prepare redraw after size change
-                redrawBarcodeAfterResize();
-            }
+            drawMainImage(mainImageIndex, true);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -734,17 +878,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
             // Reset center guideline
             barcodeScaler.setProgress(100);
 
-            // Prepare redraw after size change
-            if (format != null && isBarcodeSupported) {
-                redrawBarcodeAfterResize();
-            } else {
-                barcodeImage.setVisibility(View.GONE);
-            }
+            drawMainImage(mainImageIndex, true);
 
             // Show maximize and hide minimize button and scaler
-            if (format != null && isBarcodeSupported) {
-                maximizeButton.setVisibility(View.VISIBLE);
-            }
+            maximizeButton.setVisibility(imageTypes.isEmpty() ? View.GONE : View.VISIBLE);
+
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);
 
@@ -774,6 +912,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity
             );
         }
 
-        this.fullscreenType = fullscreenType;
+        isFullscreen = enabled;
     }
 }

@@ -23,8 +23,10 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.TimeZone;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -74,24 +76,24 @@ public class VoucherVaultImporter implements Importer
 
             String cardId = jsonCard.getString("code");
 
-            BarcodeFormat barcodeType = null;
+            CatimaBarcode barcodeType = null;
 
             String codeTypeFromJSON = jsonCard.getString("codeType");
             switch (codeTypeFromJSON) {
                 case "CODE128":
-                    barcodeType = BarcodeFormat.CODE_128;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.CODE_128);
                     break;
                 case "CODE39":
-                    barcodeType = BarcodeFormat.CODE_39;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.CODE_39);
                     break;
                 case "EAN13":
-                    barcodeType = BarcodeFormat.EAN_13;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.EAN_13);
                     break;
                 case "PDF417":
-                    barcodeType = BarcodeFormat.PDF_417;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.PDF_417);
                     break;
                 case "QR":
-                    barcodeType = BarcodeFormat.QR_CODE;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE);
                     break;
                 case "TEXT":
                     break;
@@ -128,7 +130,7 @@ public class VoucherVaultImporter implements Importer
                     throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0);
+            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime());
         }
 
         database.setTransactionSuccessful();

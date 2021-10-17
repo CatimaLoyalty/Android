@@ -1,0 +1,1 @@
+- Fix inability to configure photos in new loyalty card

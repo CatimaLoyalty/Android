@@ -1,0 +1,2 @@
+- Improve contrast by always using white text on red buttons
+- Draggable bottom sheet in loyalty card view

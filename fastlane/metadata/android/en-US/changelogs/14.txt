@@ -1,0 +1,3 @@
+- Add screen rotation lock menu option when displaying a card. If locked, the screen will transition to its "natural" orientation and further screen rotation will be blocked. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- If a card is selected from the main screen but cannot be loaded, the application fails gracefully and posts a message. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Fix case where layout IDs for intro wizard could not be found. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

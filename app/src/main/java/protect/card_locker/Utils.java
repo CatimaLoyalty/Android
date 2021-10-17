@@ -8,15 +8,13 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
 
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
@@ -37,10 +35,11 @@ import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -110,7 +109,12 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
+                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                } else {
+                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+                }
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
                 e.printStackTrace();
@@ -151,6 +155,21 @@ public class Utils {
     }
 
     static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {
+        // This function is vulnerable to OOM, so we try again with a smaller bitmap is we get OOM
+        for (int i = 0; i < 10; i++) {
+            try {
+                return Utils.getBarcodeFromBitmapReal(bitmap);
+            } catch (OutOfMemoryError e) {
+                Log.w(TAG, "Ran OOM in getBarcodeFromBitmap! Trying again with smaller picture! Retry " + i + " of 10.");
+                bitmap = Bitmap.createScaledBitmap(bitmap, (int) Math.round(0.75 * bitmap.getWidth()), (int) Math.round(0.75 * bitmap.getHeight()), false);
+            }
+        }
+
+        // Give up
+        return new BarcodeValues(null, null);
+    }
+
+    static private BarcodeValues getBarcodeFromBitmapReal(Bitmap bitmap) {
         // In order to decode it, the Bitmap must first be converted into a pixel array...
         int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
         bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
@@ -295,17 +314,17 @@ public class Utils {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    static public String getCardImageFileName(int loyaltyCardId, ImageType type) {
+    static public String getCardImageFileName(int loyaltyCardId, ImageLocationType type) {
         StringBuilder cardImageFileNameBuilder = new StringBuilder();
 
         cardImageFileNameBuilder.append("card_");
         cardImageFileNameBuilder.append(loyaltyCardId);
         cardImageFileNameBuilder.append("_");
-        if (type == ImageType.front) {
+        if (type == ImageLocationType.front) {
             cardImageFileNameBuilder.append("front");
-        } else if (type == ImageType.back) {
+        } else if (type == ImageLocationType.back) {
             cardImageFileNameBuilder.append("back");
-        } else if (type == ImageType.icon) {
+        } else if (type == ImageLocationType.icon) {
             cardImageFileNameBuilder.append("icon");
         } else {
             throw new IllegalArgumentException("Unknown image type");
@@ -326,7 +345,7 @@ public class Utils {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
     }
 
-    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, ImageType type) throws FileNotFoundException {
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, ImageLocationType type) throws FileNotFoundException {
         saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, type));
     }
 
@@ -341,7 +360,7 @@ public class Utils {
         return BitmapFactory.decodeStream(in);
     }
 
-    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, ImageType type) {
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, ImageLocationType type) {
         return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
@@ -382,5 +401,9 @@ public class Utils {
         LocaleList.setDefault(localeList);
         configuration.setLocales(localeList);
         return context.createConfigurationContext(configuration);
+    }
+
+    static public long getUnixTime() {
+        return System.currentTimeMillis() / 1000;
     }
 }

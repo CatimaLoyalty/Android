@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -10,9 +9,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
+import android.widget.Toast;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -22,6 +19,9 @@ import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
@@ -68,7 +68,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
-        capture = new CaptureManager(this, barcodeScannerView);
+        capture = new CatimaCaptureManager(this, barcodeScannerView);
         Intent captureIntent = new Intent();
         Bundle captureIntentBundle = new Bundle();
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
@@ -81,7 +81,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
                 Intent scanResult = new Intent();
                 Bundle scanResultBundle = new Bundle();
                 scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, result.getText());
-                scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, result.getBarcodeFormat().toString());
+                scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, result.getBarcodeFormat().name());
                 if (addGroup != null) {
                     scanResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
                 }
@@ -146,8 +146,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;
-        } else if (item.getItemId() == R.id.action_toggle_flashlight)
-        {
+        } else if (item.getItemId() == R.id.action_toggle_flashlight) {
             if (torch) {
                 torch = false;
                 barcodeScannerView.setTorchOff();
@@ -169,7 +168,14 @@ public class ScanActivity extends CatimaAppCompatActivity {
     {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        BarcodeValues barcodeValues;
+
+        try {
+            barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        } catch (NullPointerException e) {
+            Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            return;
+        }
 
         if (!barcodeValues.isEmpty()) {
             Intent manualResult = new Intent();

@@ -20,8 +20,10 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -127,13 +129,13 @@ public class FidmeImporter implements Importer
         // Sadly, Fidme exports don't contain the card type
         // I guess they have an online DB of all the different companies and what type they use
         // TODO: Hook this into our own loyalty card DB if we ever get one
-        BarcodeFormat barcodeType = null;
+        CatimaBarcode barcodeType = null;
 
         // No favourite data in the export either
         int starStatus = 0;
 
         // TODO: Front and back image
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus);
+        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
     }
 }

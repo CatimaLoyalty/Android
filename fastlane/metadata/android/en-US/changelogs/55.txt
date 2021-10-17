@@ -1,0 +1,2 @@
+- Separate edit UI in tabs to make it feel more spacious
+- Add expiry field support

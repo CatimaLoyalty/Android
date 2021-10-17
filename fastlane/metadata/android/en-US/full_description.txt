@@ -1,10 +1,10 @@
 Stop the search for plastic reward cards during store or webshop checkout.
 <b>Scan barcodes to your device using its camera, forget about cards.</b>
-😺
+
 Forget your wallet, or keep it ultralight for valuables.
-😺
+
 With this essential everyday carry (EDC) tool you can replace useless plastic with cash.
-😺
+
 - Avoid spying with very few permissions. No Internet access and no ads.
 - Add cards or codes with names and customizable colours.
 - Manual code entry if there is no barcode to store, or it can't be used.
@@ -17,7 +17,6 @@ With this essential everyday carry (EDC) tool you can replace useless plastic wi
 - Gratis, supported by community contributions.
 - Use, study, change and share it as you wish; <i>with all</i>.
 - Not only Free Software / Open Source. <i>Copylefted</i> libre software (GPLv3+) card management.
-😺
+
 Simplify your life and shopping, and never lose a paper receipt, in-store payment gift card or airplane ticket again.
 Take all your rewards and bonuses with you, and save as you go.
-😺

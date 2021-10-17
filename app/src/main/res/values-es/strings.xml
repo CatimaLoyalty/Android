@@ -20,7 +20,6 @@
     <string name="scanCardBarcode">Escanear código de barras de la tarjeta</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
     <string name="noCardsMessage">Añada una tarjeta primero</string>
-    <string name="barcodeImageDescription">Imagen del código de barras de la tarjeta</string>
     <string name="noStoreError">No se proporcionó ningún nombre</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>
@@ -113,7 +112,7 @@
 \nO créalo primero desde tu perfil de FidMe eligiendo Protección de datos y pulsa Extraer mis datos.</string>
     <string name="importLoyaltyCardKeychainMessage">Seleccione su <i>LoyaltyCardKeychain.csv</i> exportado desde Loyalty Card Keychain para importarlo.
 \nO créalo primero desde el menú Importar/Exportar en Loyalty Card Keychain pulsando Exportar desde allí.</string>
-    <string name="importStocardMessage">Seleccione su <i>*-sync.zip</i> exportado de Stocard para importarla, y selecciona los tipos de códigos de barras manualmente después.
+    <string name="importStocardMessage">Seleccione su exportación <i>*-sync.zip</i> de Stocard para importarla.
 \nO consígalo enviando un correo electrónico a support@stocardapp.com solicitando una exportación de sus datos.</string>
     <string name="importVoucherVaultMessage">Seleccione su <i>vouchervault.json</i> exportado desde Voucher Vault para importarlo.
 \nO créalo pulsando primero Exportar en Voucher Vault.</string>
@@ -175,4 +174,18 @@
         <item quantity="one">Borrar <xliff:g>%d</xliff:g> tarjeta</item>
         <item quantity="other">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
+    <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Marrón</string>
+    <string name="settings_grey_theme">Gris</string>
+    <string name="settings_green_theme">Verde</string>
+    <string name="settings_sky_blue_theme">Azul cielo</string>
+    <string name="settings_blue_theme">Azul</string>
+    <string name="settings_violet_theme">Violeta</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="settings_theme_color">Color del tema</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_system_locale">Sistema</string>
+    <string name="settings_locale">Lengua</string>
+    <string name="noGroupCards">Este grupo no contiene ninguna tarjeta</string>
 </resources>

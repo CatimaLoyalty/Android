@@ -1,0 +1,3 @@
+- Fix barcode centering when exiting full screen (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Allow backup export location to be selected (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Update translations (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

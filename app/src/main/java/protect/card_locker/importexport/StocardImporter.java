@@ -23,9 +23,10 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.HashMap;
 
+import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
-import protect.card_locker.ImageType;
+import protect.card_locker.ImageLocationType;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
@@ -116,14 +117,14 @@ public class StocardImporter implements Importer
                                     .substring("/loyalty-card-providers/".length())
                         );
 
-                        try {
+                        if (jsonObject.has("input_barcode_format")) {
                             loyaltyCardHashMap = appendToLoyaltyCardHashMap(
                                     loyaltyCardHashMap,
                                     cardName,
                                     "barcodeType",
                                     jsonObject.getString("input_barcode_format")
                             );
-                        } catch (JSONException ignored) {}
+                        }
                     }
                 } else if (fileName.endsWith("notes/default.json")) {
                     loyaltyCardHashMap = appendToLoyaltyCardHashMap(
@@ -166,22 +167,22 @@ public class StocardImporter implements Importer
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
-            BarcodeFormat barcodeType = null;
+            CatimaBarcode barcodeType = null;
             if (barcodeTypeString != null) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
-                    barcodeType = BarcodeFormat.RSS_EXPANDED;
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.RSS_EXPANDED);
                 } else {
-                    barcodeType = BarcodeFormat.valueOf(barcodeTypeString);
+                    barcodeType = CatimaBarcode.fromName(barcodeTypeString);
                 }
             }
 
-            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0);
+            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
 
             if (loyaltyCardData.containsKey("frontImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageType.front);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
             }
             if (loyaltyCardData.containsKey("backImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageType.back);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageLocationType.back);
             }
         }
 

@@ -4,6 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:disabledAlpha">1.5</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="actionModeBackground">@color/colorPrimary</item>
@@ -81,8 +82,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="SplashTheme" parent="@style/AppTheme">
-        <item name="android:windowBackground">@drawable/background_splash</item>
+    <!--    Splash Screen Theme-->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
@@ -145,7 +152,4 @@
     <color name="brown_colorPrimary">#795548</color>
     <color name="brown_colorPrimaryDark">#63453B</color>
     <color name="brown_colorAccent">#e81d62</color>
-
-
-
 </resources>

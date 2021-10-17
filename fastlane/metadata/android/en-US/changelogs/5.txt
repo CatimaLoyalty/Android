@@ -1,0 +1,2 @@
+- An about dialog can be opened from the main screen, which gives details about the application and project on GitHub (issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Allow loyalty card information to be imported from/exported to a CSV file in external storage (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

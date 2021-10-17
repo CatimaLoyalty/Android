@@ -1,0 +1,2 @@
+- Sort card list case insensitive (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Add setting to lock orientation for all cards (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

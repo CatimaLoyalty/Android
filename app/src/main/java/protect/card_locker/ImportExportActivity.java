@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,25 +12,26 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 
@@ -48,6 +48,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
     private String importAlertTitle;
     private String importAlertMessage;
     private DataFormat importDataFormat;
+    private String exportPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -89,7 +90,28 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             @Override
             public void onClick(View v)
             {
-                chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
+                builder.setTitle(R.string.exportPassword);
+
+                FrameLayout container = new FrameLayout(ImportExportActivity.this);
+                FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.leftMargin = 50;
+                params.rightMargin = 50;
+
+                final EditText input = new EditText(ImportExportActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                input.setLayoutParams(params);
+                input.setHint(R.string.exportPasswordHint);
+
+                container.addView(input);
+                builder.setView(container);
+                builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                    exportPassword = input.getText().toString();
+                    chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
+                });
+                builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
+                builder.show();
+
             }
         });
 
@@ -189,7 +211,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
         builder.show();
     }
 
-    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password)
+    private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password, final boolean closeWhenDone)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
@@ -197,6 +219,13 @@ public class ImportExportActivity extends CatimaAppCompatActivity
             public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
             {
                 onImportComplete(result, targetUri, dataFormat);
+                if (closeWhenDone) {
+                    try {
+                        target.close();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             }
         };
 
@@ -205,19 +234,25 @@ public class ImportExportActivity extends CatimaAppCompatActivity
         importExporter.execute();
     }
 
-    private void startExport(final OutputStream target, final Uri targetUri)
+    private void startExport(final OutputStream target, final Uri targetUri,char[] password, final boolean closeWhenDone)
     {
         ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener()
         {
             @Override
-            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
-            {
+            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat) {
                 onExportComplete(result, targetUri);
+                if (closeWhenDone) {
+                    try {
+                        target.close();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
-                DataFormat.Catima, target, listener);
+                DataFormat.Catima, target,password, listener);
         importExporter.execute();
     }
 
@@ -395,6 +430,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity
         {
             if (requestCode == CHOOSE_EXPORT_LOCATION)
             {
+
                 OutputStream writer;
                 if (uri.getScheme() != null)
                 {
@@ -404,9 +440,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity
                 {
                     writer = new FileOutputStream(new File(uri.toString()));
                 }
-
                 Log.e(TAG, "Starting file export with: " + uri.toString());
-                startExport(writer, uri);
+                startExport(writer, uri,exportPassword.toCharArray(),true);
             }
             else
             {
@@ -422,10 +457,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity
 
                 Log.e(TAG, "Starting file import with: " + uri.toString());
 
-                startImport(reader, uri, importDataFormat, password);
+                startImport(reader, uri, importDataFormat, password, true);
             }
         }
-        catch(FileNotFoundException e)
+        catch(IOException e)
         {
             Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
             if (requestCode == CHOOSE_EXPORT_LOCATION)

@@ -42,7 +42,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), BarcodeFormat.QR_CODE, Color.BLACK, 1);
+        db.insertLoyaltyCard("store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -61,7 +61,7 @@ public class ImportURITest {
         assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
-        assertEquals(card.barcodeType, parsedCard.barcodeType);
+        assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
         assertEquals(card.headerColor, parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -70,7 +70,7 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, BarcodeFormat.QR_CODE, null, 0);
+        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null);
 
         // Get card
         LoyaltyCard card = db.getLoyaltyCard(1);
@@ -89,7 +89,7 @@ public class ImportURITest {
         assertEquals(card.balanceType, parsedCard.balanceType);
         assertEquals(card.cardId, parsedCard.cardId);
         assertEquals(card.barcodeId, parsedCard.barcodeId);
-        assertEquals(card.barcodeType, parsedCard.barcodeType);
+        assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
         assertNull(parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
@@ -148,7 +148,7 @@ public class ImportURITest {
             assertEquals(null, parsedCard.balanceType);
             assertEquals("12345", parsedCard.cardId);
             assertEquals(null, parsedCard.barcodeId);
-            assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType);
+            assertEquals(BarcodeFormat.ITF, parsedCard.barcodeType.format());
             assertEquals(Integer.valueOf(-416706), parsedCard.headerColor);
             assertEquals(0, parsedCard.starStatus);
         }

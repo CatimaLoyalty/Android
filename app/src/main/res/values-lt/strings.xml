@@ -15,7 +15,6 @@
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
-    <string name="barcodeImageDescription">Kortelės brūkšninio kodo vaizdas</string>
     <string name="noStoreError">Neįvestas pavadinimas</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
@@ -26,7 +25,7 @@
     <string name="exporting">Eksportuoja…</string>
     <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>
     <string name="about">Apie</string>
-    <string name="app_license">Copylefted libre programinė įranga, licencijuota GPLv3+.</string>
+    <string name="app_license">Copylefted libre programinė įranga, licencijuota GPLv3+</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizijos info: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -46,10 +45,10 @@
     <string name="action_search">Ieškoti</string>
     <string name="cardShortcut">Kortelės sparčioji nuoroda</string>
     <string name="importVoucherVaultMessage">Pasirinkite savo <i>vouchervault.json</i> eksportą iš Voucher Vault, kurį norite importuoti.
-\nArba sukurkite jį pirmiausia paspausdami Eksportuoti Voucher Vault.</string>
+\nSukurkite jį pirmiausia paspausdami Eksportuoti Voucher Vault.</string>
     <string name="importVoucherVault">Importuoti iš Voucher Vault</string>
     <string name="importLoyaltyCardKeychainMessage">Pasirinkite savo <i> LoyaltyCardKeychain.csv</i> eksportą iš Loyalty Card Keychain, kurį norite importuoti.
-\nArba sukurkite jį iš Loyalty Card Keychain meniu Importas/Eksportas, pirmiausia paspausdami Eksportuoti.</string>
+\nSukurkite jį iš Loyalty Card Keychain meniu Importavimas/Eksportavimas, pirmiausia paspausdami Eksportuoti.</string>
     <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="parsingBalanceFailed">Panašu, kad <xliff:g> %s </xliff:g> reikšmė nėra tinkama.</string>
@@ -80,13 +79,13 @@
     <string name="sameAsCardId">Tokia pat kaip kortelės ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>
     <string name="importStocardMessage">Pasirinkite <i>***-sync.zip</i> eksportą iš Stocard, kad galėtumėte importuoti.
-\nArba gaukite susisiekę el. paštu support@stocardapp.com, prašydami eksportuoti jūsų duomenis.</string>
+\nGaukite susisiekę el. paštu support@stocardapp.com, prašydami eksportuoti jūsų duomenis.</string>
     <string name="importStocard">Importuoti iš Stocard</string>
     <string name="importFidmeMessage">Pasirinkite <i>fidme-export-request-xxxxxx.zip</i> eksportą iš FidMe, kurį norite importuoti, ir po to brūkšninių kodų tipus pasirinkite rankiniu būdu.
-\nArba sukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
+\nSukurkite jį iš savo FidMe profilio, pasirinkę Duomenų apsauga ir pirmiausia paspaudę Išgauti mano duomenis.</string>
     <string name="importFidme">Importuoti iš FidMe</string>
-    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportą iš Catima.
-\nArba sukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia paspausdami Eksportuoti ten.</string>
+    <string name="importCatimaMessage">Norėdami importuoti, pasirinkite savo <i> catima.zip </i> eksportavimą iš Catima.
+\nSukurkite ją iš kitos Catima programos importavimo / eksportavimo meniu, pirmiausia ten paspausdami Eksportuoti.</string>
     <string name="importCatima">Importuoti iš Catima</string>
     <string name="accept">Priimti</string>
     <string name="privacy_policy_popup_text">Privatumo politikos pranešimas (kurio reikalaujama kai kuriose programėlių parduotuvėse):
@@ -146,8 +145,8 @@
     <string name="app_resources">Libre trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Libre trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Paremta Loyalty Card Keychain
-\nautorinės teisės © 2016–2020 Branden Archer.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+\nautorinės teisės © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importOptionApplicationButton">Naudoti kitą programą</string>
     <string name="importOptionApplicationExplanation">Norėdami atidaryti failą, naudokite bet kurią programą arba mėgstamą failų tvarkyklę.</string>
     <string name="importOptionApplicationTitle">Naudoti kitą programą</string>
@@ -181,4 +180,36 @@
     </plurals>
     <string name="settings_system_locale">Sistemos</string>
     <string name="settings_locale">Kalba</string>
+    <string name="settings_brown_theme">Ruda</string>
+    <string name="settings_grey_theme">Pilka</string>
+    <string name="settings_green_theme">Žalia</string>
+    <string name="settings_sky_blue_theme">Dangaus mėlynumo</string>
+    <string name="settings_blue_theme">Mėlyna</string>
+    <string name="settings_violet_theme">Violetinė</string>
+    <string name="settings_magenta_theme">Rausvai raudona</string>
+    <string name="settings_pink_theme">Rožinė</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">Temos spalva</string>
+    <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="noGroupCards">Šioje grupėje nėra jokių kortelių</string>
+    <string name="toggleMoreInfo">Perjungti išsamios informacijos rodymą</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> tipo kortelės brūkšninio kodo vaizdas</string>
+    <string name="swipeToSwitchImages">Perbraukite arba ilgai palaikykite paspaudę, kad perjungtumėte vaizdus</string>
+    <string name="sort_by">Rikiuoti pagal</string>
+    <string name="reverse">Atvirkštinis</string>
+    <string name="sort_by_balance">Balansas</string>
+    <string name="sort_by_expiry">Galiojimo pabaiga</string>
+    <string name="sort_by_most_recently_used">Vėliausiai naudota</string>
+    <string name="sort_by_name">Pavadinimas</string>
+    <string name="sort">Rikiuoti</string>
+    <string name="credits">Padėkos</string>
+    <string name="source_repository">Šaltinio repozitorija</string>
+    <string name="and_data_usage">ir duomenų naudojimas</string>
+    <string name="rate_this_app">Įvertinkite šią programėlę</string>
+    <string name="version_history">Versijų istorija</string>
+    <string name="license">Licencija</string>
+    <string name="on_github">GitHub</string>
+    <string name="on_google_play">Google Play</string>
+    <string name="help_translate_this_app">Padėkite išversti šią programėlę</string>
+    <string name="report_error">Pranešti apie klaidą</string>
 </resources>

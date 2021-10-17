@@ -110,7 +110,6 @@
     <string name="noCardExistsError">カードが見つかりません</string>
     <string name="noCardIdError">カード番号が入力されていません</string>
     <string name="noStoreError">名前が入力されていません</string>
-    <string name="barcodeImageDescription">バーコードの画像</string>
     <string name="noCardsMessage">カードを追加</string>
     <string name="cardShortcut">カードのショートカット</string>
     <string name="scanCardBarcode">カードのバーコードをスキャン</string>
@@ -126,7 +125,7 @@
     <string name="delete">削除</string>
     <string name="edit">編集</string>
     <string name="save">保存</string>
-    <string name="cancel">取り消し</string>
+    <string name="cancel">取消</string>
     <string name="unstar">お気に入りから削除</string>
     <string name="star">お気に入りに追加</string>
     <string name="noBarcode">バーコードなし</string>
@@ -169,6 +168,29 @@
         <item quantity="other"><xliff:g>%d</xliff:g> 枚のカードを削除しますか？</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="other">削除対象 <xliff:g>%d</xliff:g> cards</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> 枚のカードの削除</item>
     </plurals>
+    <string name="barcodeImageDescriptionWithType">バーコード形式の画像 <xliff:g>%s</xliff:g></string>
+    <string name="toggleMoreInfo">詳細を表示する</string>
+    <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_brown_theme">Brown</string>
+    <string name="settings_grey_theme">Gray</string>
+    <string name="settings_green_theme">Green</string>
+    <string name="settings_sky_blue_theme">Sky Blue</string>
+    <string name="settings_blue_theme">Blue</string>
+    <string name="settings_violet_theme">Violet</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_pink_theme">Pink</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_theme_color">テーマカラー</string>
+    <string name="settings_system_locale">システム</string>
+    <string name="settings_locale">言語</string>
+    <string name="noGroupCards">このグループにはカードがありません</string>
+    <string name="swipeToSwitchImages">画像を切り替えるには長押し、またはスワイプ</string>
+    <string name="sort_by">並び替え</string>
+    <string name="sort_by_balance">残高</string>
+    <string name="sort_by_expiry">期限</string>
+    <string name="sort_by_most_recently_used">最近使用したカード</string>
+    <string name="sort_by_name">名前</string>
+    <string name="sort">ソート</string>
 </resources>

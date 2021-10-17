@@ -1,0 +1,3 @@
+- Improved edit UI
+- Removed header text colour option (now automatically generated based on brightness)
+- Updated translations

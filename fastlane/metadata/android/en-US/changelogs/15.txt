@@ -1,0 +1,2 @@
+- Add support for app shortcuts (Android 7.1+), where the most recently used cards will appear as shortcuts. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Add a widget which works like a pinned app shortcut, to support devices which run below Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

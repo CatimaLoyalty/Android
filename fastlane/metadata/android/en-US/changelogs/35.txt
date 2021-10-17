@@ -1,0 +1,2 @@
+- Enable app backups
+- Update French and Slovenian translations

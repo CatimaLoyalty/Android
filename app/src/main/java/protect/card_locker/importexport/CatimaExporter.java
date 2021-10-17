@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 
 import net.lingala.zip4j.io.outputstream.ZipOutputStream;
 import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.model.enums.EncryptionMethod;
 import net.lingala.zip4j.util.InternalZipConstants;
 
 import org.apache.commons.csv.CSVFormat;
@@ -21,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
-import protect.card_locker.ImageType;
+import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 
@@ -31,14 +32,21 @@ import protect.card_locker.Utils;
  */
 public class CatimaExporter implements Exporter
 {
-    public void exportData(Context context, DBHelper db, OutputStream output) throws IOException, InterruptedException
+    public void exportData(Context context, DBHelper db, OutputStream output,char[] password) throws IOException, InterruptedException
     {
         // Necessary vars
         int readLen;
         byte[] readBuffer = new byte[InternalZipConstants.BUFF_SIZE];
 
         // Create zip output stream
-        ZipOutputStream zipOutputStream = new ZipOutputStream(output);
+        ZipOutputStream zipOutputStream;
+
+        if(password!=null && password.length>0){
+            zipOutputStream = new ZipOutputStream(output,password);
+        }
+        else{
+            zipOutputStream = new ZipOutputStream(output);
+        }
 
         // Generate CSV
         ByteArrayOutputStream catimaOutputStream = new ByteArrayOutputStream();
@@ -46,8 +54,7 @@ public class CatimaExporter implements Exporter
         writeCSV(db, catimaOutputStreamWriter);
 
         // Add CSV to zip file
-        ZipParameters csvZipParameters = new ZipParameters();
-        csvZipParameters.setFileNameInZip("catima.csv");
+        ZipParameters csvZipParameters = createZipParameters("catima.csv",password);
         zipOutputStream.putNextEntry(csvZipParameters);
         InputStream csvInputStream = new ByteArrayInputStream(catimaOutputStream.toByteArray());
         while ((readLen = csvInputStream.read(readBuffer)) != -1) {
@@ -63,12 +70,11 @@ public class CatimaExporter implements Exporter
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
             // For each image
-            for (ImageType imageType : ImageType.values()) {
+            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 // If it exists, add to the .zip file
-                Bitmap image = Utils.retrieveCardImage(context, card.id, imageType);
+                Bitmap image = Utils.retrieveCardImage(context, card.id, imageLocationType);
                 if (image != null) {
-                    ZipParameters imageZipParameters = new ZipParameters();
-                    imageZipParameters.setFileNameInZip(Utils.getCardImageFileName(card.id, imageType));
+                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType) ,password);
                     zipOutputStream.putNextEntry(imageZipParameters);
                     InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
                     while ((readLen = imageInputStream.read(readBuffer)) != -1) {
@@ -80,6 +86,16 @@ public class CatimaExporter implements Exporter
         }
 
         zipOutputStream.close();
+    }
+
+    private ZipParameters createZipParameters(String fileName, char[] password){
+        ZipParameters zipParameters = new ZipParameters();
+        zipParameters.setFileNameInZip(fileName);
+        if(password!=null && password.length>0){
+            zipParameters.setEncryptFiles(true);
+            zipParameters.setEncryptionMethod(EncryptionMethod.AES);
+        }
+        return zipParameters;
     }
 
     private void writeCSV(DBHelper db, OutputStreamWriter output) throws IOException, InterruptedException {
@@ -123,7 +139,8 @@ public class CatimaExporter implements Exporter
                 DBHelper.LoyaltyCardDbIds.BARCODE_ID,
                 DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
                 DBHelper.LoyaltyCardDbIds.HEADER_COLOR,
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS);
+                DBHelper.LoyaltyCardDbIds.STAR_STATUS,
+                DBHelper.LoyaltyCardDbIds.LAST_USED);
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
@@ -139,9 +156,10 @@ public class CatimaExporter implements Exporter
                     card.balanceType,
                     card.cardId,
                     card.barcodeId,
-                    card.barcodeType,
+                    card.barcodeType != null ? card.barcodeType.name() : "",
                     card.headerColor,
-                    card.starStatus);
+                    card.starStatus,
+                    card.lastUsed);
 
             if(Thread.currentThread().isInterrupted())
             {

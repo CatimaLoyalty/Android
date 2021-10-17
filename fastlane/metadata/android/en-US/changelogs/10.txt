@@ -1,0 +1,3 @@
+- Changed the default import/export filename. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Correct string on the import/export page. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Improve layout of card view page. The text should be easier to read, and is selectable with a long click. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

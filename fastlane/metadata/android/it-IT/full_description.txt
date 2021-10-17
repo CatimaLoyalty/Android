@@ -1,10 +1,10 @@
 Basta con la ricerca di carte premio di plastica quando esci dal negozio.
 <b>Scannerizza i codici a barre sul tuo dispositivo usando la sua fotocamera, dimentica le carte.</b>
-😺
+
 Dimentica il tuo portafoglio, o tienilo ultraleggero per gli oggetti di valore.
-😺
+
 Con questo strumento essenziale per il trasporto quotidiano, puoi sostituire la plastica inutile con i contanti.
-😺
+
 - Evita di spiare con pochissimi permessi. Nessun accesso a Internet e nessuna pubblicità.
 - Aggiungi carte o codici con nomi e colori personalizzabili.
 - Inserimento manuale del codice se non c'è un codice a barre da memorizzare o non può essere utilizzato.
@@ -17,7 +17,7 @@ Con questo strumento essenziale per il trasporto quotidiano, puoi sostituire la 
 - Gratis, supportato dai contributi della comunità.
 - Usalo, studialo, cambialo e condividilo come vuoi; <i>con tutti</i>.
 - Non solo un software libero. <i>Copylefted</i> software libero (GPLv3+) gestione schede.
-😺
+
 Semplifica la tua vita e gli acquisti, e non perdere mai più una ricevuta cartacea, una carta regalo con pagamento in negozio o un biglietto aereo.
 Porta con te tutti i tuoi premi e bonus, e risparmia mentre vai.
-😺
+

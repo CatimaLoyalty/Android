@@ -1,0 +1,1 @@
+- Popravi učitavanje slika pri uređivanju postojeće kartice

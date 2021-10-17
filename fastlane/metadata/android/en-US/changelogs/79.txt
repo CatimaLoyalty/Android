@@ -1,0 +1,2 @@
+- Fix widget creating different-looking shortcut than app shortcuts
+- Replace default Android black screen with splash screen

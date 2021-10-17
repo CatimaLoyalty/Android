@@ -1,0 +1,2 @@
+- Long-click of a card donosi opciju da kopira ID karticu u clipboard. (vuci broj 49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Back button na ulaz/izvoz pogled sada radi, prebacujem korisnika Na main view

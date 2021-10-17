@@ -1,0 +1,2 @@
+- Fix issue on Android SDK 24+ where using the file chooser import option would cause a crash. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- New icon and color scheme. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

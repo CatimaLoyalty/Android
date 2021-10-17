@@ -52,4 +52,31 @@
     <string name="action_search">Serĉi</string>
     <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
     <string name="deleteTitle">Forigi karton</string>
+    <string name="settings_lock_barcode_orientation">Seruro barcode orientiĝo</string>
+    <string name="settings_display_barcode_max_brightness">Heligi barcode vido</string>
+    <string name="settings_max_font_size_scale">Max. tiparo grandeco</string>
+    <string name="starImage">Preferata stelo</string>
+    <string name="thumbnailDescription">Bildeto por karto</string>
+    <string name="app_copyright_old">Bazita sur Lojaleco Karto Keychain
+\nkopirajto © 2016-2020 Branden Archer.</string>
+    <string name="importOptionApplicationButton">Uzi alian app</string>
+    <string name="importOptionApplicationExplanation">Uzi ajna app aŭ via preferata dosiera # mana\? ero por malfermi dosieron.</string>
+    <string name="importOptionApplicationTitle">Uzi alian app</string>
+    <string name="importOptionFilesystemExplanation">Elektu specifa dosiero de la dosiersistemo.</string>
+    <string name="exportOptionExplanation">La datumoj estos skribita al loko de via elekto.</string>
+    <string name="noExternalStoragePermissionError">Grant ekstera stokado permeso de importado aŭ eksportado kartoj unua</string>
+    <string name="exportFailed">Ne povis eksporti kartoj</string>
+    <string name="importFailed">Ne povis importi kartoj</string>
+    <string name="importExportHelp">Subtenanta supre vian kartoj permesas vin movi ilin al alia aparato.</string>
+    <string name="failedParsingImportUriError">Ne eblis analizi la importado URI</string>
+    <string name="noCardExistsError">Ne eblis trovi karto</string>
+    <string name="noCardIdError">Neniu karto ID eniris</string>
+    <string name="noStoreError">Neniu eniris nomo</string>
+    <string name="noCardsMessage">Aldoni karto unua</string>
+    <string name="cardShortcut">Karto Mallongirejo</string>
+    <string name="scanCardBarcode">Scintigrafio Barcode Card</string>
+    <string name="share">Interŝanĝado</string>
+    <string name="unlockScreen">Malbloki Rotacio</string>
+    <string name="lockScreen">Bloko Rotacio</string>
+    <string name="star">Aldoni al miaj plej ŝatataj</string>
 </resources>

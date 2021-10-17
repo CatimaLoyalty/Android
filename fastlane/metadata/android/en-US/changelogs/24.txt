@@ -1,0 +1,4 @@
+- Update translations. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Barcode rendering updates: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Reload card view activity when screen is rotated, so barcode image is correct size.
+  - Render 1D barcodes in a larger space, allowing them to better fill the screen.

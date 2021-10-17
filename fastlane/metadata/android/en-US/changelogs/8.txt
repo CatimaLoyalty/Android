@@ -1,0 +1,4 @@
+- Screen brightness increased to its maximum when displaying a card, to help barcode scanners successfully capture the barcode. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Add a delete confirmation when deleting a card. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Add translations for German (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) and Czech (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
+- Clarification change for Italian translation. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

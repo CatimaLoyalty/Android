@@ -1,0 +1,2 @@
+- Podrška za mijenjanje redoslijeda sortiranja
+- Sprecite da ne gledate velike slike za barkodeom

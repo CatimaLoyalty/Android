@@ -1,0 +1,3 @@
+- Add missing barcode ID to export
+- Don't show update barcode dialog if value is the same as card ID
+- Add Finnish translation

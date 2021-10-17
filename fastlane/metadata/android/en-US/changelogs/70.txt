@@ -1,0 +1,11 @@
+- BREAKING CHANGE: The backup format changed, see https://github.com/TheLastProject/Catima/wiki/Export-format
+- BREAKING CHANGE: The URL sharing format changed, see https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Make it possible to enable or disable the flashlight while scanning
+- Add UPC-E support
+- Support adding a front and back photo to each card
+- Support importing password-protected zip files
+- Support importing from Stocard (Beta)
+- Fix useless whitespace in notes from Fidme import
+- Support new Voucher Vault export format
+- Fix Floating Action Buttons being behind other UI elements on Android 4
+- Fix loyalty card viewer appbar top margin

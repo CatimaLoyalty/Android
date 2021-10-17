@@ -1,0 +1,3 @@
+- Dodaj nestali barkod za izvoz
+- Nemoj prikazati dijalog o barcodeu ako je vrijednost kao ID kartice
+- Dodaj Finski prevod

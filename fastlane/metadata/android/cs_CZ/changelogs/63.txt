@@ -1,0 +1,3 @@
+- Podpora importu exportů z Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Možnost ponechat obrazovku zapnutou při prohlížení věrnostní karty
+- Možnost pozastavit uzamčenou obrazovku při prohlížení věrnostní karty

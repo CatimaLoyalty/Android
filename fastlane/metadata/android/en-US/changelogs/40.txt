@@ -1,0 +1,6 @@
+- Rebrand to Catima
+- Removed intro
+- Add floating action buttons
+- Fix Android 5 crash when opening About screen
+- Add favourites support
+- Fix disabled auto-rotate being ignored

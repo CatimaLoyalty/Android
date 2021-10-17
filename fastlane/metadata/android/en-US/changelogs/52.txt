@@ -1,0 +1,3 @@
+- Automatically focus text field when creating or editing a group
+- Fix blurry icons (use SVG everywhere)
+- Always open camera but add manual scan button to camera view

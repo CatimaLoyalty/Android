@@ -1,0 +1,3 @@
+- Add quiet space at the start/end of barcodes. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Add options to configure the colors used for the store name font and background. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Add options to adjust font sizes on the card listing page and single card page. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

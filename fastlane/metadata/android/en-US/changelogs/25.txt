@@ -1,0 +1,2 @@
+- Reduce space in header when viewing a card. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Disable beep when scanning a barcode. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

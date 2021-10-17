@@ -68,7 +68,7 @@
                     android:paddingTop="@dimen/inputPadding"
                     android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="@dimen/cardThumbnailSize"
                         android:layout_height="@dimen/cardThumbnailSize"
                         android:layout_marginEnd="@dimen/activity_margin"
@@ -84,7 +84,7 @@
                             android:contentDescription="@string/thumbnailDescription"
                             android:src="@mipmap/ic_launcher"/>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/storeNameField"
@@ -313,7 +313,6 @@
                         android:padding="10.0dp"
                         android:background="#ffffff"
                         android:id="@+id/barcode"
-                        android:contentDescription="@string/barcodeImageDescription"
                         android:layout_weight="1.0"/>
                 </LinearLayout>
 
@@ -348,7 +347,7 @@
                     android:paddingTop="@dimen/inputPadding">
 
                     <!-- Front image -->
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -370,7 +369,7 @@
                             android:scaleType="fitCenter"
                             app:srcCompat="@drawable/ic_camera_white" />
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
                 <!-- Back image -->
@@ -383,7 +382,7 @@
                     android:paddingTop="@dimen/inputPadding">
 
                     <!-- Back image -->
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -405,7 +404,7 @@
                             android:scaleType="fitCenter"
                             app:srcCompat="@drawable/ic_camera_white" />
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </TableLayout>
         </TableLayout>

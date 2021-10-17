@@ -1,0 +1,1 @@
+- İçe/dışa aktarmayı bozan sorun düzeltildi

@@ -1,0 +1,2 @@
+- Několik drobných oprav překladů a uživatelského rozhraní
+- Oprava pádu při importu/sdílení věrnostní karty v systému Android 6

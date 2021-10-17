@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
-
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Arrays;
@@ -26,6 +22,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -40,25 +39,6 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
     // Result this activity will return
     public static final String BARCODE_CONTENTS = "contents";
     public static final String BARCODE_FORMAT = "format";
-
-    // These are all the barcode types that the zxing library
-    // is able to generate a barcode for, and thus should be
-    // the only barcodes which we should attempt to scan.
-    public static final Collection<String> SUPPORTED_BARCODE_TYPES = Collections.unmodifiableList(
-        Arrays.asList(
-                BarcodeFormat.AZTEC.name(),
-                BarcodeFormat.CODE_39.name(),
-                BarcodeFormat.CODE_128.name(),
-                BarcodeFormat.CODABAR.name(),
-                BarcodeFormat.DATA_MATRIX.name(),
-                BarcodeFormat.EAN_8.name(),
-                BarcodeFormat.EAN_13.name(),
-                BarcodeFormat.ITF.name(),
-                BarcodeFormat.PDF_417.name(),
-                BarcodeFormat.QR_CODE.name(),
-                BarcodeFormat.UPC_A.name(),
-                BarcodeFormat.UPC_E.name()
-        ));
 
     private Map<String, Pair<Integer, Integer>> barcodeViewMap;
     private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
@@ -137,47 +117,34 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
 
     private void setButtonListener(final View button, final String cardId)
     {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "Selected no barcode");
-                Intent result = new Intent();
-                result.putExtra(BARCODE_FORMAT, "");
-                result.putExtra(BARCODE_CONTENTS, cardId);
-                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-                finish();
-            }
+        button.setOnClickListener(view -> {
+            Log.d(TAG, "Selected no barcode");
+            Intent result = new Intent();
+            result.putExtra(BARCODE_FORMAT, "");
+            result.putExtra(BARCODE_CONTENTS, cardId);
+            BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+            finish();
         });
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text)
     {
-        final BarcodeFormat format = BarcodeFormat.valueOf(formatType);
-        if(format == null)
-        {
-            Log.w(TAG, "Unsupported barcode format: " + formatType);
-            return;
-        }
+        final CatimaBarcode format = CatimaBarcode.fromName(formatType);
 
         image.setImageBitmap(null);
-        image.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Log.d(TAG, "Selected barcode type " + formatType);
+        image.setOnClickListener(v -> {
+            Log.d(TAG, "Selected barcode type " + formatType);
 
-                if (!((boolean) image.getTag())) {
-                    Toast.makeText(BarcodeSelectorActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                Intent result = new Intent();
-                result.putExtra(BARCODE_FORMAT, formatType);
-                result.putExtra(BARCODE_CONTENTS, cardId);
-                BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-                finish();
+            if (!((boolean) image.getTag())) {
+                Toast.makeText(BarcodeSelectorActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+                return;
             }
+
+            Intent result = new Intent();
+            result.putExtra(BARCODE_FORMAT, formatType);
+            result.putExtra(BARCODE_CONTENTS, cardId);
+            BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
+            finish();
         });
 
         if(image.getHeight() == 0)
@@ -194,7 +161,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
                         image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                         Log.d(TAG, "Generating barcode for type " + formatType);
-                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
+                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
                         barcodeGeneratorTasks.add(task);
                         task.execute();
                     }
@@ -203,7 +170,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
         else
         {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask task = new BarcodeImageWriterTask(image, cardId, format, text, true, null);
+            BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
             barcodeGeneratorTasks.add(task);
             task.execute();
         }

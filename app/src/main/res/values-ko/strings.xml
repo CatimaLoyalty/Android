@@ -63,7 +63,6 @@
     <string name="importFailedTitle">가져오기 실패</string>
     <string name="importSuccessfulTitle">가져오기 완료</string>
     <string name="noCardIdError">카드 ID를 입력하지 않음</string>
-    <string name="barcodeImageDescription">카드 바코드 이미지</string>
     <string name="storeName">매장</string>
     <string name="thumbnailDescription">카드 섬네일</string>
     <string name="importOptionApplicationButton">외부 앱 사용</string>

@@ -208,4 +208,6 @@
     <string name="help_translate_this_app">Help deze app te vertalen</string>
     <string name="credits">Met dank aan</string>
     <string name="version_history">Versiegeschiedenis</string>
+    <string name="exportPasswordHint">Voer een wachtwoord in</string>
+    <string name="exportPassword">Stel een wachtwoord in om je exportbestand te beveiligen (optioneel)</string>
 </resources>

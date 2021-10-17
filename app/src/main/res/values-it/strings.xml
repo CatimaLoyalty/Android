@@ -47,7 +47,7 @@
     <string name="importOptionApplicationExplanation">Usa qualsiasi app o il tuo gestore di file preferito per aprire un file.</string>
     <string name="importOptionApplicationButton">Usa un’altra app</string>
     <string name="about">Informazioni</string>
-    <string name="app_license">Software libero con copyleft, licenza GPLv3+.</string>
+    <string name="app_license">Software libero con copyleft, licenza GPLv3+</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g id="app_revision_url"> %s </xliff:g></string>
@@ -67,7 +67,7 @@
     <string name="exportSuccessful">Dati della carta importati</string>
     <string name="importSuccessful">Dati della carta importati</string>
     <string name="app_copyright_old">Basato su Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
+\ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
     <string name="barcodeType">Tipo di codice a barre</string>
     <string name="unstar">Rimuovi dai preferiti</string>
@@ -116,16 +116,16 @@
 \nNESSUN DATO VIENE RACCOLTO, cosa che chiunque può confermare dato che la nostra applicazione è un software libero.</string>
     <string name="privacy_policy">Informativa sulla riservatezza</string>
     <string name="importVoucherVaultMessage">Seleziona la tua esportazione <i>vouchervault.json</i> da Voucher Vault da importare.
-\nOppure crealo premendo prima Esporta in Voucher Vault.</string>
+\nCrealo premendo prima Esporta in Voucher Vault.</string>
     <string name="importVoucherVault">Importa da Voucher Vault</string>
     <string name="importLoyaltyCardKeychainMessage">Seleziona la tua esportazione <i>LoyaltyCardKeychain.csv</i> da Loyalty Card Keychain per importarla.
-\nOppure createlo dal menù Importazione/Esportazione in Loyalty Card Keychain premendo prima su Esporta.</string>
+\nCreatelo dal menù Importazione/Esportazione in Loyalty Card Keychain premendo prima su Esporta.</string>
     <string name="importLoyaltyCardKeychain">Importa da Loyalty Card Keychain</string>
     <string name="importFidmeMessage">Seleziona la tua esportazione <i>fidme-export-request-xxxxxx.zip</i> da FidMe per importare, e seleziona i tipi di codice a barre manualmente dopo.
-\nOppure crearlo dal tuo profilo FidMe scegliendo Protezione Dati e poi premendo Estrai i miei dati prima.</string>
+\nCrearlo dal tuo profilo FidMe scegliendo Protezione Dati e poi premendo Estrai i miei dati prima.</string>
     <string name="importFidme">Importa da FidMe</string>
     <string name="importCatimaMessage">Seleziona la tua esportazione <i>catima.zip</i> da Catima per importarla.
-\nOppure crealo dal menù Importazione/Esportazione di un\'altra applicazione Catima premendo prima Esporta.</string>
+\nCrealo dal menù Importazione/Esportazione di un\'altra applicazione Catima premendo prima Esporta.</string>
     <string name="importCatima">Importa da Catima</string>
     <string name="setBarcodeId">Imposta il valore del codice a barre</string>
     <string name="sameAsCardId">Uguale all\'ID della carta</string>
@@ -138,7 +138,7 @@
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
     <string name="app_resources">Risorse libre di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
     <string name="app_libraries">Librerie libre di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Voglio condividere alcune carte con te</string>
     <string name="copy_to_clipboard_multiple_toast">Numeri delle carte copiati negli appunti</string>
     <string name="card_ids_copied">Numero/i della carta copiato/i</string>
@@ -155,7 +155,7 @@
     <string name="frontImageDescription">Immagine frontale della carta</string>
     <string name="passwordRequired">Si prega di inserire la password</string>
     <string name="importStocardMessage">Seleziona la tua esportazione <i>***-sync.zip</i> da Stocard per importare.
-\nOppure ottenerlo inviando un\'e-mail a support@stocardapp.com chiedendo un\'esportazione dei tuoi dati.</string>
+\nOttienilo inviando un\'e-mail a support@stocardapp.com chiedendo un\'esportazione dei tuoi dati.</string>
     <string name="importStocard">Importa da Stocard</string>
     <string name="turn_flashlight_off">Spegni la torcia</string>
     <string name="turn_flashlight_on">Accendi la torcia</string>
@@ -198,4 +198,16 @@
     <string name="sort_by_most_recently_used">Usate più di recente</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort">Ordina</string>
+    <string name="license">Licenza</string>
+    <string name="source_repository">Repository fonti</string>
+    <string name="on_github">su GitHub</string>
+    <string name="exportPasswordHint">Inserisci la password</string>
+    <string name="on_google_play">su Google Play</string>
+    <string name="exportPassword">Imposta una password per proteggere la tua esportazione (opzionale)</string>
+    <string name="version_history">Cronologia delle versioni</string>
+    <string name="credits">Crediti</string>
+    <string name="help_translate_this_app">Aiuta a tradurre questa app</string>
+    <string name="and_data_usage">e utilizzo dei dati</string>
+    <string name="rate_this_app">Valuta questa applicazione</string>
+    <string name="report_error">Segnala un errore</string>
 </resources>

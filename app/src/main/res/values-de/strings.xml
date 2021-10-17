@@ -202,10 +202,12 @@
     <string name="credits">Dank an</string>
     <string name="help_translate_this_app">Hilfe bei der Übersetzung</string>
     <string name="and_data_usage">und Datennutzung</string>
-    <string name="rate_this_app">Bewerte die App</string>
+    <string name="rate_this_app">Bewerte die Anwendung</string>
     <string name="on_google_play">auf Google Play</string>
     <string name="license">Lizenz</string>
     <string name="source_repository">Quellcode</string>
     <string name="on_github">auf GitHub</string>
     <string name="report_error">Fehler melden</string>
+    <string name="exportPassword">Legen Sie ein Passwort fest, um Ihren Export zu schützen (optional)</string>
+    <string name="exportPasswordHint">Passwort eingeben</string>
 </resources>

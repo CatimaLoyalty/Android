@@ -200,12 +200,14 @@
     <string name="sort_by_balance">Solde</string>
     <string name="report_error">Signaler une erreur</string>
     <string name="on_google_play">sur Google Play</string>
-    <string name="rate_this_app">Notez cette app</string>
+    <string name="rate_this_app">Notez cette appli</string>
     <string name="and_data_usage">utilisation des données</string>
     <string name="on_github">sur GitHub</string>
     <string name="source_repository">Dépôt source</string>
     <string name="license">Licence</string>
-    <string name="help_translate_this_app">Aidez à traduire cette app</string>
+    <string name="help_translate_this_app">Aidez à traduire cette appli</string>
     <string name="credits">Contributeurs</string>
     <string name="version_history">Historique des versions</string>
+    <string name="exportPassword">Définissez un mot de passe pour protéger vos exportations (facultatif)</string>
+    <string name="exportPasswordHint">Entrez le mot de passe</string>
 </resources>

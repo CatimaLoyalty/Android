@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper
 {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 13;
+    public static final int DATABASE_VERSION = 14;
 
     public static class LoyaltyCardDbGroups
     {
@@ -330,6 +330,11 @@ public class DBHelper extends SQLiteOpenHelper
                 }
             }
             cursor.close();
+        }
+
+        if(oldVersion < 14 && newVersion >= 14){
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' ");
         }
     }
 

@@ -46,6 +46,7 @@ public class DBHelper extends SQLiteOpenHelper
         public static final String BARCODE_TYPE = "barcodetype";
         public static final String STAR_STATUS = "starstatus";
         public static final String LAST_USED = "lastused";
+        public static final String ZOOM_LEVEL = "zoomlevel";
     }
 
     public static class LoyaltyCardDbIdsGroups
@@ -105,6 +106,7 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
+                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100', "+
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0')");
 
         // create associative table for cards in groups
@@ -117,6 +119,23 @@ public class DBHelper extends SQLiteOpenHelper
         db.execSQL("CREATE VIRTUAL TABLE " + LoyaltyCardDbFTS.TABLE + " USING fts4(" +
                 LoyaltyCardDbFTS.STORE + ", " + LoyaltyCardDbFTS.NOTE + ", " +
                 "tokenize=unicode61);");
+    }
+
+    public int getLoyaltyCardZoomLevel(int loyaltyCardID){
+        final SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT "+LoyaltyCardDbIds.ZOOM_LEVEL+" FROM "+LoyaltyCardDbIds.TABLE+" WHERE "+LoyaltyCardDbIds.CARD_ID+" = "+loyaltyCardID,null);
+        if(result.moveToFirst()){
+            return result.getInt(0);
+        }
+        return 100;
+    }
+    public void setLoyaltyCardZoomLevel(int loyaltyCardId,int zoomLevel){
+        final SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL,zoomLevel);
+
+        db.update(LoyaltyCardDbIds.TABLE,contentValues,whereAttrs(LoyaltyCardDbIds.CARD_ID),new String[]{String.valueOf(loyaltyCardId)});
     }
 
     @Override

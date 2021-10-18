@@ -265,6 +265,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
+                db.setLoyaltyCardZoomLevel(loyaltyCardId,progress);
+
                 if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();
                 }
@@ -876,7 +878,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             Log.d(TAG, "Move out of fullscreen");
 
             // Reset center guideline
-            barcodeScaler.setProgress(100);
+            barcodeScaler.setProgress(db.getLoyaltyCardZoomLevel(loyaltyCardId));
 
             drawMainImage(mainImageIndex, true);
 

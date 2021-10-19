@@ -878,7 +878,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             Log.d(TAG, "Move out of fullscreen");
 
             // Reset center guideline
-            barcodeScaler.setProgress(db.getLoyaltyCardZoomLevel(loyaltyCardId));
+            barcodeScaler.setProgress(loyaltyCard.zoomLevel);
 
             drawMainImage(mainImageIndex, true);
 

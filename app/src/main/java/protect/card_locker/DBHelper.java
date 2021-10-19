@@ -121,14 +121,6 @@ public class DBHelper extends SQLiteOpenHelper
                 "tokenize=unicode61);");
     }
 
-    public int getLoyaltyCardZoomLevel(int loyaltyCardID){
-        final SQLiteDatabase db = this.getReadableDatabase();
-        Cursor result = db.rawQuery("SELECT "+LoyaltyCardDbIds.ZOOM_LEVEL+" FROM "+LoyaltyCardDbIds.TABLE+" WHERE "+LoyaltyCardDbIds.CARD_ID+" = "+loyaltyCardID,null);
-        if(result.moveToFirst()){
-            return result.getInt(0);
-        }
-        return 100;
-    }
     public void setLoyaltyCardZoomLevel(int loyaltyCardId,int zoomLevel){
         final SQLiteDatabase db = this.getWritableDatabase();
 

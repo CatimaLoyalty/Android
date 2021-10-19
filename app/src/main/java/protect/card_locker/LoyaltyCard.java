@@ -30,11 +30,12 @@ public class LoyaltyCard implements Parcelable {
 
     public final int starStatus;
     public final long lastUsed;
+    public final int zoomLevel;
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
                        @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed)
+                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed,final int zoomLevel)
     {
         this.id = id;
         this.store = store;
@@ -48,6 +49,7 @@ public class LoyaltyCard implements Parcelable {
         this.headerColor = headerColor;
         this.starStatus = starStatus;
         this.lastUsed = lastUsed;
+        this.zoomLevel = zoomLevel;
     }
 
     protected LoyaltyCard(Parcel in) {
@@ -66,6 +68,7 @@ public class LoyaltyCard implements Parcelable {
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
         lastUsed = in.readLong();
+        this.zoomLevel = 100;
     }
 
     @Override
@@ -95,6 +98,7 @@ public class LoyaltyCard implements Parcelable {
         String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
         int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
         long lastUsed = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.LAST_USED));
+        int zoomLevel = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL));
 
         int barcodeTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE);
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
@@ -125,7 +129,7 @@ public class LoyaltyCard implements Parcelable {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed);
+        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed,zoomLevel);
     }
 
     @Override

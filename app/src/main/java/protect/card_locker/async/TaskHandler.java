@@ -86,9 +86,8 @@ public class TaskHandler {
                 uiHandler.post(() -> {
                     callable.onPostExecute(result);
                 });
-            } catch (Exception ignored) {
-                // @TheLastProject up to you if you want it logged
-                // e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         };
 

@@ -154,7 +154,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
-                Utils.getUnixTime()
+                Utils.getUnixTime(),100
         );
     }
 
@@ -551,7 +551,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 setTitle(R.string.addCardTitle);
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime());
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(),100);
                 setTitle(R.string.addCardTitle);
             }
         }

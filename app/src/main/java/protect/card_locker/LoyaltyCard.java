@@ -68,7 +68,7 @@ public class LoyaltyCard implements Parcelable {
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
         lastUsed = in.readLong();
-        this.zoomLevel = 100;
+        zoomLevel = in.readInt();
     }
 
     @Override
@@ -85,6 +85,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(headerColor != null ? headerColor : -1);
         parcel.writeInt(starStatus);
         parcel.writeLong(lastUsed);
+        parcel.writeInt(zoomLevel);
     }
 
     public static LoyaltyCard toLoyaltyCard(Cursor cursor)

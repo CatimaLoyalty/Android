@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
@@ -106,8 +107,8 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
-                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100', "+
-                LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0')");
+                LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', "+
+                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' )");
 
         // create associative table for cards in groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -121,14 +122,6 @@ public class DBHelper extends SQLiteOpenHelper
                 "tokenize=unicode61);");
     }
 
-    public void setLoyaltyCardZoomLevel(int loyaltyCardId,int zoomLevel){
-        final SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL,zoomLevel);
-
-        db.update(LoyaltyCardDbIds.TABLE,contentValues,whereAttrs(LoyaltyCardDbIds.CARD_ID),new String[]{String.valueOf(loyaltyCardId)});
-    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
@@ -521,6 +514,18 @@ public class DBHelper extends SQLiteOpenHelper
         int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
+        return (rowsUpdated == 1);
+    }
+
+    public boolean updateLoyaltyCardZoomLevel(int loyaltyCardId, int zoomLevel){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL,zoomLevel);
+        Log.d("updateLoyaltyCardZLevel","Card Id = "+loyaltyCardId+" Zoom level= "+zoomLevel);
+        int rowsUpdated = db.update(LoyaltyCardDbIds.TABLE,contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(loyaltyCardId));
+        Log.d("updateLoyaltyCardZLevel","Rows changed = "+rowsUpdated);
         return (rowsUpdated == 1);
     }
 

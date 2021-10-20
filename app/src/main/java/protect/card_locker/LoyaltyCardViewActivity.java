@@ -30,7 +30,6 @@ import android.widget.Toast;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.zxing.BarcodeFormat;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -265,7 +264,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
-                db.setLoyaltyCardZoomLevel(loyaltyCardId,progress);
+                boolean result = db. updateLoyaltyCardZoomLevel(loyaltyCardId,progress);
+                Log.d("on progress changed","Progress = "+progress+" Database Updated? "+result);
 
                 if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();

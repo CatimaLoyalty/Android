@@ -104,7 +104,7 @@ public class CatimaImporter implements Importer
 
     public void parseV1(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
     {
-        final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.withHeader());
+        final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
 
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
@@ -209,7 +209,7 @@ public class CatimaImporter implements Importer
     public void parseV2Groups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
     {
         // Parse groups
-        final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 
@@ -235,7 +235,7 @@ public class CatimaImporter implements Importer
     public void parseV2Cards(Context context, DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
     {
         // Parse cards
-        final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 
@@ -261,7 +261,7 @@ public class CatimaImporter implements Importer
     public void parseV2CardGroups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
     {
         // Parse card group mappings
-        final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 

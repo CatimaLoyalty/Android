@@ -294,8 +294,10 @@ public class DBHelper extends SQLiteOpenHelper
             cursor.moveToFirst();
 
             while (cursor.moveToNext()) {
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-                insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
+                String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+                insertFTS(db, id, store, note);
             }
         }
 
@@ -306,12 +308,16 @@ public class DBHelper extends SQLiteOpenHelper
             Cursor cursor = db.rawQuery("SELECT * FROM " + LoyaltyCardDbIds.TABLE + ";", null, null);
 
             if (cursor.moveToFirst()) {
-                LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-                insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
+                String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+                insertFTS(db, id, store, note);
 
                 while (cursor.moveToNext()) {
-                    loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-                    insertFTS(db, loyaltyCard.id, loyaltyCard.store, loyaltyCard.note);
+                    id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
+                    store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
+                    note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+                    insertFTS(db, id, store, note);
                 }
             }
             cursor.close();

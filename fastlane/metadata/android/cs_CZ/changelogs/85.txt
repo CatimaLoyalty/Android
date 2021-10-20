@@ -1,4 +1,5 @@
 Počínaje touto verzí již není systém Android 4.4 podporován. Pokud chcete používat Catimu v systému Android 4.4, použijte verzi 2.6.1.
 
 - Vylepšená podpora systému Android 12
-- Vylepšená obrazovka o aplikaci
+- Vylepšená obrazovka s informacemi
+- Vyhledávání nyní ignoruje diakritiku

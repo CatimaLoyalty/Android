@@ -30,7 +30,7 @@ public class LoyaltyCard implements Parcelable {
 
     public final int starStatus;
     public final long lastUsed;
-    public final int zoomLevel;
+    public int zoomLevel;
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,

@@ -86,4 +86,11 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Forebyg låseskærm</string>
     <string name="settings_keep_screen_on">LHold skærm tændt</string>
     <string name="settings_lock_barcode_orientation">Lås stregkode-orientering</string>
+    <string name="moveUp">Bevæg dig opad</string>
+    <string name="leaveWithoutSaveConfirmation">Forlade uden at gemme\?</string>
+    <string name="settings_display_barcode_max_brightness">Lysere stregkodevisning</string>
+    <string name="failedOpeningFileManager">Installer først en filhåndteringsprogram.</string>
+    <string name="moveDown">Bevæger sig nedad</string>
+    <string name="leaveWithoutSaveTitle">Afslut</string>
+    <string name="addManually">Indtast kort-ID manuelt</string>
 </resources>

@@ -1,0 +1,3 @@
+- Oprava nefunkčního přecházení mezi skupinami v prázdné skupině
+- Povolení exportu chráněného heslem
+- Zlepšení využití prostoru pro kódy QR

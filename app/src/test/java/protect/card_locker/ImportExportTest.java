@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 
 import com.google.zxing.BarcodeFormat;
@@ -20,6 +21,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowLog;
+import org.robolectric.shadows.ShadowLooper;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -33,6 +35,7 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -42,6 +45,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import androidx.core.content.res.ResourcesCompat;
+
+import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.MultiFormatExporter;
@@ -51,11 +56,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class ImportExportTest
-{
+public class ImportExportTest {
     private Activity activity;
     private DBHelper db;
     private long nowMs;
@@ -66,8 +71,7 @@ public class ImportExportTest
     private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         ShadowLog.stream = System.out;
 
         activity = Robolectric.setupActivity(MainActivity.class);
@@ -75,20 +79,19 @@ public class ImportExportTest
         nowMs = System.currentTimeMillis();
 
         Calendar lastYear = Calendar.getInstance();
-        lastYear.set(Calendar.YEAR, lastYear.get(Calendar.YEAR)-1);
+        lastYear.set(Calendar.YEAR, lastYear.get(Calendar.YEAR) - 1);
         lastYearMs = lastYear.getTimeInMillis();
     }
 
     /**
      * Add the given number of cards, each with
      * an index in the store name.
+     *
      * @param cardsToAdd
      */
-    private void addLoyaltyCards(int cardsToAdd)
-    {
+    private void addLoyaltyCards(int cardsToAdd) {
         // Add in reverse order to test sorting
-        for(int index = cardsToAdd; index > 0; index--)
-        {
+        for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null);
@@ -99,20 +102,17 @@ public class ImportExportTest
         assertEquals(cardsToAdd, db.getLoyaltyCardCount());
     }
 
-    private void addLoyaltyCardsFiveStarred()
-    {
+    private void addLoyaltyCardsFiveStarred() {
         int cardsToAdd = 9;
         // Add in reverse order to test sorting
-        for(int index = cardsToAdd; index > 4; index--)
-        {
+        for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             long id = db.insertLoyaltyCard(storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null);
             boolean result = (id != -1);
             assertTrue(result);
         }
-        for(int index = cardsToAdd-5; index > 0; index--)
-        {
+        for (int index = cardsToAdd - 5; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
@@ -124,8 +124,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void addLoyaltyCardsWithExpiryNeverPastTodayFuture()
-    {
+    public void addLoyaltyCardsWithExpiryNeverPastTodayFuture() {
         long id = db.insertLoyaltyCard("No Expiry", "", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
@@ -165,8 +164,8 @@ public class ImportExportTest
         card = db.getLoyaltyCard((int) id);
         assertEquals("Today", card.store);
         assertEquals("", card.note);
-        assertTrue(card.expiry.before(new Date(new Date().getTime()+86400)));
-        assertTrue(card.expiry.after(new Date(new Date().getTime()-86400)));
+        assertTrue(card.expiry.before(new Date(new Date().getTime() + 86400)));
+        assertTrue(card.expiry.after(new Date(new Date().getTime() - 86400)));
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
@@ -184,7 +183,7 @@ public class ImportExportTest
         card = db.getLoyaltyCard((int) id);
         assertEquals("Future", card.store);
         assertEquals("", card.note);
-        assertTrue(card.expiry.after(new Date(new Date().getTime()+86400)));
+        assertTrue(card.expiry.after(new Date(new Date().getTime() + 86400)));
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
         assertEquals(BARCODE_DATA, card.cardId);
@@ -196,11 +195,9 @@ public class ImportExportTest
         assertEquals(4, db.getLoyaltyCardCount());
     }
 
-    private void addGroups(int groupsToAdd)
-    {
+    private void addGroups(int groupsToAdd) {
         // Add in reverse order to test sorting
-        for(int index = groupsToAdd; index > 0; index--)
-        {
+        for (int index = groupsToAdd; index > 0; index--) {
             String groupName = String.format("group, \"%4d", index);
             long id = db.insertGroup(groupName);
             boolean result = (id != -1);
@@ -215,13 +212,11 @@ public class ImportExportTest
      * specified in addLoyaltyCards(), and are in sequential order
      * where the smallest card's index is 1
      */
-    private void checkLoyaltyCards()
-    {
+    private void checkLoyaltyCards() {
         Cursor cursor = db.getLoyaltyCardCursor();
         int index = 1;
 
-        while(cursor.moveToNext())
-        {
+        while (cursor.moveToNext()) {
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
 
             String expectedStore = String.format("store, \"%4d", index);
@@ -248,13 +243,11 @@ public class ImportExportTest
      * specified in addLoyaltyCardsSomeStarred(), and are in sequential order
      * with starred ones first
      */
-    private void checkLoyaltyCardsFiveStarred()
-        {
-            Cursor cursor = db.getLoyaltyCardCursor();
-            int index = 5;
+    private void checkLoyaltyCardsFiveStarred() {
+        Cursor cursor = db.getLoyaltyCardCursor();
+        int index = 5;
 
-            while(index<10)
-        {
+        while (index < 10) {
             cursor.moveToNext();
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
 
@@ -276,26 +269,25 @@ public class ImportExportTest
         }
 
         index = 1;
-        while(cursor.moveToNext() && index<5)
-    {
-        LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+        while (cursor.moveToNext() && index < 5) {
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
 
-        String expectedStore = String.format("store, \"%4d", index);
-        String expectedNote = String.format("note, \"%4d", index);
+            String expectedStore = String.format("store, \"%4d", index);
+            String expectedNote = String.format("note, \"%4d", index);
 
-        assertEquals(expectedStore, card.store);
-        assertEquals(expectedNote, card.note);
-        assertEquals(null, card.expiry);
-        assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals(BARCODE_DATA, card.cardId);
-        assertEquals(null, card.barcodeId);
-        assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
-        assertEquals(Integer.valueOf(index), card.headerColor);
-        assertEquals(0, card.starStatus);
+            assertEquals(expectedStore, card.store);
+            assertEquals(expectedNote, card.note);
+            assertEquals(null, card.expiry);
+            assertEquals(new BigDecimal(String.valueOf(index)), card.balance);
+            assertEquals(null, card.balanceType);
+            assertEquals(BARCODE_DATA, card.cardId);
+            assertEquals(null, card.barcodeId);
+            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(Integer.valueOf(index), card.headerColor);
+            assertEquals(0, card.starStatus);
 
-        index++;
-    }
+            index++;
+        }
 
         cursor.close();
     }
@@ -305,13 +297,11 @@ public class ImportExportTest
      * specified in addGroups(), and are in sequential order
      * where the smallest group's index is 1
      */
-    private void checkGroups()
-    {
+    private void checkGroups() {
         Cursor cursor = db.getGroupCursor();
         int index = db.getGroupCount();
 
-        while(cursor.moveToNext())
-        {
+        while (cursor.moveToNext()) {
             Group group = Group.toGroup(cursor);
 
             String expectedGroupName = String.format("group, \"%4d", index);
@@ -324,8 +314,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void multipleCardsExportImport() throws IOException
-    {
+    public void multipleCardsExportImport() throws IOException {
         final int NUM_CARDS = 10;
 
         addLoyaltyCards(NUM_CARDS);
@@ -334,7 +323,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -354,18 +343,17 @@ public class ImportExportTest
         TestHelpers.getEmptyDb(activity);
     }
 
-    public void multipleCardsExportImportPasswordProtected() throws IOException
-    {
+    public void multipleCardsExportImportPasswordProtected() throws IOException {
         final int NUM_CARDS = 10;
         List<char[]> passwords = Arrays.asList(null, "123456789".toCharArray());
-        for(char[] password : passwords){
+        for (char[] password : passwords) {
             addLoyaltyCards(NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,password);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, password);
             assertEquals(ImportExportResult.Success, result);
             outStream.close();
 
@@ -388,8 +376,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void multipleCardsExportImportSomeStarred() throws IOException
-    {
+    public void multipleCardsExportImportSomeStarred() throws IOException {
         final int NUM_CARDS = 9;
 
         addLoyaltyCardsFiveStarred();
@@ -398,7 +385,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -418,8 +405,7 @@ public class ImportExportTest
         TestHelpers.getEmptyDb(activity);
     }
 
-    private List<String> groupsToGroupNames(List<Group> groups)
-    {
+    private List<String> groupsToGroupNames(List<Group> groups) {
         List<String> groupNames = new ArrayList<>();
 
         for (Group group : groups) {
@@ -430,8 +416,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void multipleCardsExportImportWithGroups() throws IOException
-    {
+    public void multipleCardsExportImportWithGroups() throws IOException {
         final int NUM_CARDS = 10;
         final int NUM_GROUPS = 3;
 
@@ -471,7 +456,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export data to CSV format
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -505,8 +490,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importExistingCardsNotReplace() throws IOException
-    {
+    public void importExistingCardsNotReplace() throws IOException {
         final int NUM_CARDS = 10;
 
         addLoyaltyCards(NUM_CARDS);
@@ -515,7 +499,7 @@ public class ImportExportTest
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
         // Export into CSV data
-        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, null);
         assertEquals(ImportExportResult.Success, result);
         outStream.close();
 
@@ -534,19 +518,17 @@ public class ImportExportTest
     }
 
     @Test
-    public void corruptedImportNothingSaved() throws IOException
-    {
+    public void corruptedImportNothingSaved() throws IOException {
         final int NUM_CARDS = 10;
 
-        for(DataFormat format : DataFormat.values())
-        {
+        for (DataFormat format : DataFormat.values()) {
             addLoyaltyCards(NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
 
             // Export data to CSV format
-            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima,null);
+            ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), db, outData, DataFormat.Catima, null);
             assertEquals(ImportExportResult.Success, result);
 
             TestHelpers.getEmptyDb(activity);
@@ -569,20 +551,17 @@ public class ImportExportTest
         }
     }
 
-    class TestTaskCompleteListener implements ImportExportTask.TaskCompleteListener
-    {
+    class TestTaskCompleteListener implements ImportExportTask.TaskCompleteListener {
         ImportExportResult result;
 
-        public void onTaskComplete(ImportExportResult result, DataFormat dataFormat)
-        {
+        public void onTaskComplete(ImportExportResult result, DataFormat dataFormat) {
             this.result = result;
         }
     }
 
     @Test
-    @LooperMode(LooperMode.Mode.LEGACY)
-    public void useImportExportTask() throws FileNotFoundException
-    {
+    @LooperMode(LooperMode.Mode.PAUSED)
+    public void useImportExportTask() throws FileNotFoundException {
         final int NUM_CARDS = 10;
 
         final File sdcardDir = Environment.getExternalStorageDirectory();
@@ -595,11 +574,15 @@ public class ImportExportTest
         // Export to the file
         final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream,password.toCharArray(), listener);
-        task.execute();
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), listener);
+        TaskHandler mTasks = new TaskHandler();
+        mTasks.executeTask(TaskHandler.TYPE.EXPORT, task);
 
         // Actually run the task to completion
-        Robolectric.flushBackgroundThreadScheduler();
+        mTasks.flushTaskList(TaskHandler.TYPE.EXPORT, false, false, true);
+        shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(5000));
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
+
 
         // Check that the listener was executed
         assertNotNull(listener.result);
@@ -614,10 +597,13 @@ public class ImportExportTest
         FileInputStream fileStream = new FileInputStream(exportFile);
 
         task = new ImportExportTask(activity, DataFormat.Catima, fileStream, password.toCharArray(), listener);
-        task.execute();
+        mTasks.executeTask(TaskHandler.TYPE.IMPORT, task);
 
         // Actually run the task to completion
-        Robolectric.flushBackgroundThreadScheduler();
+        // I am CONVINCED there must be a better way than to wait on this Queue with a flush.
+        mTasks.flushTaskList(TaskHandler.TYPE.IMPORT, false, false, true);
+        shadowOf(Looper.getMainLooper()).idleFor(Duration.ofMillis(5000));
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
 
         // Check that the listener was executed
         assertNotNull(listener.result);
@@ -632,8 +618,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutColorsV1() throws IOException
-    {
+    public void importWithoutColorsV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -668,8 +653,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutNullColorsV1() throws IOException
-    {
+    public void importWithoutNullColorsV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -706,8 +690,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithoutInvalidColorsV1() throws IOException
-    {
+    public void importWithoutInvalidColorsV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -731,8 +714,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithNoBarcodeTypeV1() throws IOException
-    {
+    public void importWithNoBarcodeTypeV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -769,8 +751,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithStarredFieldV1() throws IOException
-    {
+    public void importWithStarredFieldV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -807,8 +788,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithNoStarredFieldV1() throws IOException
-    {
+    public void importWithNoStarredFieldV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -845,8 +825,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importWithInvalidStarFieldV1() throws IOException
-    {
+    public void importWithInvalidStarFieldV1() throws IOException {
         String csvText = "";
         csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
                 DBHelper.LoyaltyCardDbIds.STORE + "," +
@@ -902,8 +881,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void exportImportV2Zip() throws FileNotFoundException
-    {
+    public void exportImportV2Zip() throws FileNotFoundException {
         // Prepare images
         BitmapDrawable launcher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
         BitmapDrawable roundLauncher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher_round, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
@@ -935,7 +913,7 @@ public class ImportExportTest
 
         // Export everything
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima,null);
+        MultiFormatExporter.exportData(activity.getApplicationContext(), db, outputStream, DataFormat.Catima, null);
 
         // Wipe database
         TestHelpers.getEmptyDb(activity);
@@ -959,25 +937,25 @@ public class ImportExportTest
             assertEquals(loyaltyCard.cardId, dbLoyaltyCard.cardId);
             assertEquals(loyaltyCard.barcodeId, dbLoyaltyCard.barcodeId);
             assertEquals(loyaltyCard.starStatus, dbLoyaltyCard.starStatus);
-            assertEquals(loyaltyCard.barcodeType != null ? loyaltyCard.barcodeType.format() : null, dbLoyaltyCard.barcodeType != null? dbLoyaltyCard.barcodeType.format() : null);
+            assertEquals(loyaltyCard.barcodeType != null ? loyaltyCard.barcodeType.format() : null, dbLoyaltyCard.barcodeType != null ? dbLoyaltyCard.barcodeType.format() : null);
             assertEquals(loyaltyCard.balanceType, dbLoyaltyCard.balanceType);
             assertEquals(loyaltyCard.headerColor, dbLoyaltyCard.headerColor);
 
             List<Group> emptyGroup = new ArrayList<>();
 
             assertEquals(
-                groupsToGroupNames(
-                    (List<Group>) Utils.mapGetOrDefault(
-                        loyaltyCardGroups,
-                        loyaltyCardID,
-                        emptyGroup
+                    groupsToGroupNames(
+                            (List<Group>) Utils.mapGetOrDefault(
+                                    loyaltyCardGroups,
+                                    loyaltyCardID,
+                                    emptyGroup
+                            )
+                    ),
+                    groupsToGroupNames(
+                            db.getLoyaltyCardGroups(
+                                    loyaltyCardID
+                            )
                     )
-                ),
-                groupsToGroupNames(
-                    db.getLoyaltyCardGroups(
-                        loyaltyCardID
-                    )
-                )
             );
 
             Bitmap expectedFrontImage = loyaltyCardFrontImages.get(loyaltyCardID);
@@ -1000,8 +978,7 @@ public class ImportExportTest
     }
 
     @Test
-    public void importV2CSV()
-    {
+    public void importV2CSV() {
         String csvText = "2\n" +
                 "\n" +
                 "_id\n" +

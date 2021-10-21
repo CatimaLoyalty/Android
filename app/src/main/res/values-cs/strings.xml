@@ -212,4 +212,6 @@
     <string name="help_translate_this_app">Pomozte s překladem této aplikace</string>
     <string name="report_error">Nahlásit chybu</string>
     <string name="on_google_play">na Google Play</string>
+    <string name="exportPassword">Nastavení hesla pro ochranu exportu (volitelné)</string>
+    <string name="exportPasswordHint">Zadejte heslo</string>
 </resources>

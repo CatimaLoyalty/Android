@@ -212,4 +212,6 @@
     <string name="on_google_play">Google Play</string>
     <string name="help_translate_this_app">Padėkite išversti šią programėlę</string>
     <string name="report_error">Pranešti apie klaidą</string>
+    <string name="exportPasswordHint">Įveskite slaptažodį</string>
+    <string name="exportPassword">Nustatykite slaptažodį, kad apsaugotumėte eksportavimą (neprivaloma)</string>
 </resources>

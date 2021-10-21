@@ -4,30 +4,29 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
 import java.lang.ref.WeakReference;
 
+import protect.card_locker.async.CompatCallable;
+
 /**
  * This task will generate a barcode and load it into an ImageView.
  * Only a weak reference of the ImageView is kept, so this class will not
  * prevent the ImageView from being garbage collected.
  */
-class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
-{
+public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private static final String TAG = "Catima";
 
     private static final int IS_VALID = 999;
-    private Context mContext;
+    private final Context mContext;
     private boolean isSuccesful;
 
     // When drawn in a smaller window 1D barcodes for some reason end up
@@ -44,10 +43,11 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
     private final boolean showFallback;
     private final Runnable callback;
 
-    BarcodeImageWriterTask(Context context, ImageView imageView, String cardIdString,
-                           CatimaBarcode barcodeFormat, TextView textView,
-                           boolean showFallback, Runnable callback)
-    {
+    BarcodeImageWriterTask(
+            Context context, ImageView imageView, String cardIdString,
+            CatimaBarcode barcodeFormat, TextView textView,
+            boolean showFallback, Runnable callback
+    ) {
         mContext = context;
 
         isSuccesful = true;
@@ -62,26 +62,21 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
         final int MAX_WIDTH = getMaxWidth(format);
 
-        if(imageView.getWidth() < MAX_WIDTH)
-        {
+        if (imageView.getWidth() < MAX_WIDTH) {
             imageHeight = imageView.getHeight();
             imageWidth = imageView.getWidth();
-        }
-        else
-        {
+        } else {
             // Scale down the image to reduce the memory needed to produce it
             imageWidth = MAX_WIDTH;
-            double ratio = (double)MAX_WIDTH / (double)imageView.getWidth();
-            imageHeight = (int)(imageView.getHeight() * ratio);
+            double ratio = (double) MAX_WIDTH / (double) imageView.getWidth();
+            imageHeight = (int) (imageView.getHeight() * ratio);
         }
 
         this.showFallback = showFallback;
     }
 
-    private int getMaxWidth(CatimaBarcode format)
-    {
-        switch(format.format())
-        {
+    private int getMaxWidth(CatimaBarcode format) {
+        switch (format.format()) {
             // 2D barcodes
             case AZTEC:
             case DATA_MATRIX:
@@ -108,10 +103,8 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
     }
 
-    private String getFallbackString(CatimaBarcode format)
-    {
-        switch(format.format())
-        {
+    private String getFallbackString(CatimaBarcode format) {
+        switch (format.format()) {
             // 2D barcodes
             case AZTEC:
                 return "AZTEC";
@@ -144,23 +137,17 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         }
     }
 
-    private Bitmap generate()
-    {
-        if (cardId.isEmpty())
-        {
+    private Bitmap generate() {
+        if (cardId.isEmpty()) {
             return null;
         }
 
         MultiFormatWriter writer = new MultiFormatWriter();
         BitMatrix bitMatrix;
-        try
-        {
-            try
-            {
+        try {
+            try {
                 bitMatrix = writer.encode(cardId, format.format(), imageWidth, imageHeight, null);
-            }
-            catch(Exception e)
-            {
+            } catch (Exception e) {
                 // Cast a wider net here and catch any exception, as there are some
                 // cases where an encoder may fail if the data is invalid for the
                 // barcode type. If this happens, we want to fail gracefully.
@@ -175,11 +162,9 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
 
             int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
 
-            for (int y = 0; y < bitMatrixHeight; y++)
-            {
+            for (int y = 0; y < bitMatrixHeight; y++) {
                 int offset = y * bitMatrixWidth;
-                for (int x = 0; x < bitMatrixWidth; x++)
-                {
+                for (int x = 0; x < bitMatrixWidth; x++) {
                     int color = bitMatrix.get(x, y) ? BLACK : WHITE;
                     pixels[offset + x] = color;
                 }
@@ -199,19 +184,14 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
             int widthScale = imageWidth / bitMatrixHeight;
             int scalingFactor = Math.min(heightScale, widthScale);
 
-            if(scalingFactor > 1)
-            {
+            if (scalingFactor > 1) {
                 bitmap = Bitmap.createScaledBitmap(bitmap, bitMatrixWidth * scalingFactor, bitMatrixHeight * scalingFactor, false);
             }
 
             return bitmap;
-        }
-        catch (WriterException e)
-        {
+        } catch (WriterException e) {
             Log.e(TAG, "Failed to generate barcode of type " + format + ": " + cardId, e);
-        }
-        catch(OutOfMemoryError e)
-        {
+        } catch (OutOfMemoryError e) {
             Log.w(TAG, "Insufficient memory to render barcode, "
                     + imageWidth + "x" + imageHeight + ", " + format.name()
                     + ", length=" + cardId.length(), e);
@@ -220,29 +200,36 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         return null;
     }
 
-    public Bitmap doInBackground(Void... params)
-    {
-        Bitmap bitmap = generate();
+    public Bitmap doInBackground(Void... params) {
+        // Only do the hard tasks if we've not already been cancelled
+        if (!Thread.currentThread().isInterrupted()) {
+            Bitmap bitmap = generate();
 
-        if (bitmap == null) {
-            isSuccesful = false;
+            if (bitmap == null) {
+                isSuccesful = false;
 
-            if (showFallback) {
-                Log.i(TAG, "Barcode generation failed, generating fallback...");
-                cardId = getFallbackString(format);
-                bitmap = generate();
+                if (showFallback && !Thread.currentThread().isInterrupted()) {
+                    Log.i(TAG, "Barcode generation failed, generating fallback...");
+                    cardId = getFallbackString(format);
+                    bitmap = generate();
+                    return bitmap;
+                }
+            } else {
+                return bitmap;
             }
         }
 
-        return bitmap;
+        // We've been interrupted - create a empty fallback
+        Bitmap.Config config = Bitmap.Config.ARGB_8888;
+        return Bitmap.createBitmap(imageWidth, imageHeight, config);
     }
 
-    protected void onPostExecute(Bitmap result)
-    {
+    public void onPostExecute(Object castResult) {
+        Bitmap result = (Bitmap) castResult;
+
         Log.i(TAG, "Finished generating barcode image of type " + format + ": " + cardId);
         ImageView imageView = imageViewReference.get();
-        if(imageView == null)
-        {
+        if (imageView == null) {
             // The ImageView no longer exists, nothing to do
             return;
         }
@@ -255,8 +242,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         imageView.setContentDescription(mContext.getString(R.string.barcodeImageDescriptionWithType, formatPrettyName));
         TextView textView = textViewReference.get();
 
-        if(result != null)
-        {
+        if (result != null) {
             Log.i(TAG, "Displaying barcode");
             imageView.setVisibility(View.VISIBLE);
 
@@ -270,9 +256,7 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
                 textView.setVisibility(View.VISIBLE);
                 textView.setText(formatPrettyName);
             }
-        }
-        else
-        {
+        } else {
             Log.i(TAG, "Barcode generation failed, removing image from display");
             imageView.setVisibility(View.GONE);
             if (textView != null) {
@@ -283,5 +267,20 @@ class BarcodeImageWriterTask extends AsyncTask<Void, Void, Bitmap>
         if (callback != null) {
             callback.run();
         }
+    }
+
+    @Override
+    public void onPreExecute() {
+        // No Action
+    }
+
+    /**
+     * Provided to comply with Callable while keeping the original Syntax of AsyncTask
+     *
+     * @return generated Bitmap
+     */
+    @Override
+    public Bitmap call() {
+        return doInBackground();
     }
 }

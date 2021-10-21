@@ -79,4 +79,13 @@
     <string name="unlockScreen">Malbloki Rotacio</string>
     <string name="lockScreen">Bloko Rotacio</string>
     <string name="star">Aldoni al miaj plej ŝatataj</string>
+    <string name="copy_to_clipboard_toast">Card ID kopiita al la tondujo</string>
+    <string name="settings_keep_screen_on">Teni sur ekrano</string>
+    <string name="importSuccessful">Karto datumo importitaj</string>
+    <string name="enter_group_name">Eniri nomo de la grupo</string>
+    <string name="noGroups">Klaki la + plus butonon por aldoni grupoj por categorization unua.</string>
+    <string name="all">Ĉiuj</string>
+    <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>
+    <string name="exportSuccessful">Karto datumo eksportita</string>
+    <string name="noGroupCards">Ĉi tiu grupo ne enhavas ajnan kartoj</string>
 </resources>

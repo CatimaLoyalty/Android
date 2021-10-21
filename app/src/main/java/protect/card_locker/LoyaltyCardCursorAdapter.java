@@ -117,6 +117,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
         inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+        int imageSize = mSettings.getFontSizeMax(mSettings.getSmallFont());
+        inputHolder.mCardIcon.getLayoutParams().height = imageSize*6;
+        inputHolder.mCardIcon.getLayoutParams().width = imageSize*6;
+        inputHolder.mStarIcon.getLayoutParams().height = imageSize*6;
+        inputHolder.mStarIcon.getLayoutParams().width = imageSize*6;
+        inputHolder.mTickIcon.getLayoutParams().height = imageSize*6;
+        inputHolder.mTickIcon.getLayoutParams().width = imageSize*6;
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -223,7 +230,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public LinearLayout mInformationContainer;
-        public ImageView mCardIcon, mStarIcon;
+        public ImageView mCardIcon, mStarIcon, mTickIcon;
         public MaterialCardView mRow;
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
@@ -241,6 +248,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mExpiryField = inputView.findViewById(R.id.expiry);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
+            mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

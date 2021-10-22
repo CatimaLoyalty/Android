@@ -263,7 +263,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Log.d(TAG, "Max is " + barcodeScaler.getMax());
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
-                loyaltyCard.zoomLevel = progress;
+                if(isFullscreen){
+                    loyaltyCard.zoomLevel = progress;
+                }
+
                 if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();
                 }
@@ -832,6 +835,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
      * by machines which offer no space to insert the complete device.
      */
     private void setFullscreen(boolean enabled) {
+        isFullscreen = enabled;
         ActionBar actionBar = getSupportActionBar();
 
         if (enabled && !imageTypes.isEmpty()) {
@@ -916,6 +920,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
 
-        isFullscreen = enabled;
+        Log.d("setFullScreen","Is full screen enabled? "+enabled+" Zoom Level = "+barcodeScaler.getProgress());
     }
 }

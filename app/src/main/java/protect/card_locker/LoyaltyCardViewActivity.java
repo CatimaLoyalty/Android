@@ -247,9 +247,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         appBarLayout = findViewById(R.id.app_bar_layout);
 
         centerGuideline = findViewById(R.id.centerGuideline);
-        centerGuideline.setGuidelinePercent(0.5f);
         barcodeScaler = findViewById(R.id.barcodeScaler);
-        barcodeScaler.setProgress(100);
         maximizeButton.setBackgroundColor(getThemeColor());
         minimizeButton.setBackgroundColor(getThemeColor());
         bottomSheetButton.setBackgroundColor(getThemeColor());
@@ -260,17 +258,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Log.d(TAG, "Max is " + barcodeScaler.getMax());
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
+
                 if(isFullscreen){
                     loyaltyCard.zoomLevel = progress;
+                    db.updateLoyaltyCardZoomLevel(loyaltyCardId, loyaltyCard.zoomLevel);
                 }
 
-                if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
-                    redrawBarcodeAfterResize();
-                }
                 if (format != null && format.isSquare()) {
                     centerGuideline.setGuidelinePercent(0.75f * scale);
                 } else {
                     centerGuideline.setGuidelinePercent(0.5f * scale);
+                }
+
+                if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
+                    redrawBarcodeAfterResize();
                 }
             }
 
@@ -416,11 +417,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         setupOrientation();
 
         format = loyaltyCard.barcodeType;
-        if (format != null && format.isSquare()) {
-            centerGuideline.setGuidelinePercent(0.75f);
-        } else {
-            centerGuideline.setGuidelinePercent(0.5f);
-        }
         cardIdString = loyaltyCard.cardId;
         barcodeIdString = loyaltyCard.barcodeId;
 
@@ -836,7 +832,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else {
             Log.d(TAG, "Move out of fullscreen");
 
-            db.updateLoyaltyCardZoomLevel(loyaltyCardId,loyaltyCard.zoomLevel);
             // Reset center guideline
             barcodeScaler.setProgress(100);
 

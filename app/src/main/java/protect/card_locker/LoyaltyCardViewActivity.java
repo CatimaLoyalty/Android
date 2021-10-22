@@ -260,11 +260,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Log.d(TAG, "Max is " + barcodeScaler.getMax());
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
+                if(isFullscreen){
+                    loyaltyCard.zoomLevel = progress;
+                }
 
                 if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
                     redrawBarcodeAfterResize();
                 }
-                if (loyaltyCard != null && format != null && format.isSquare()) {
+                if (format != null && format.isSquare()) {
                     centerGuideline.setGuidelinePercent(0.75f * scale);
                 } else {
                     centerGuideline.setGuidelinePercent(0.5f * scale);
@@ -789,12 +792,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
      * by machines which offer no space to insert the complete device.
      */
     private void setFullscreen(boolean enabled) {
+        isFullscreen = enabled;
         ActionBar actionBar = getSupportActionBar();
 
         if (enabled && !imageTypes.isEmpty()) {
             Log.d(TAG, "Move into fullscreen");
 
             drawMainImage(mainImageIndex, true);
+
+            barcodeScaler.setProgress(loyaltyCard.zoomLevel);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -830,6 +836,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else {
             Log.d(TAG, "Move out of fullscreen");
 
+            db.updateLoyaltyCardZoomLevel(loyaltyCardId,loyaltyCard.zoomLevel);
             // Reset center guideline
             barcodeScaler.setProgress(100);
 
@@ -866,6 +873,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
 
-        isFullscreen = enabled;
+        Log.d("setFullScreen","Is full screen enabled? "+enabled+" Zoom Level = "+barcodeScaler.getProgress());
     }
 }

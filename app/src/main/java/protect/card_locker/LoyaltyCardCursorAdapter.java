@@ -125,6 +125,25 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mTickIcon.getLayoutParams().height = imageSize*6;
         inputHolder.mTickIcon.getLayoutParams().width = imageSize*6;
 
+        /* Changing Padding and Mragin of different views according to font size
+        * Views Included:
+        * a) InformationContainer padding
+        * b) Store left padding
+        * c) Divider Margin
+        * d) note top margin
+        * */
+        int marginPaddingSize = (imageSize*16)/14;
+        inputHolder.mInformationContainer.setPadding(marginPaddingSize, marginPaddingSize, marginPaddingSize, marginPaddingSize);
+        inputHolder.mStoreField.setPadding(marginPaddingSize, 0, 0, 0);
+        LinearLayout.LayoutParams lpDivider = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        lpDivider.setMargins(0, marginPaddingSize, 0, marginPaddingSize);
+        inputHolder.mDivider.setLayoutParams(lpDivider);
+        LinearLayout.LayoutParams lpNoteField = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        lpNoteField.setMargins(0, marginPaddingSize/2, 0, 0);
+        inputHolder.mNoteField.setLayoutParams(lpNoteField);
+
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());

@@ -270,9 +270,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     centerGuideline.setGuidelinePercent(0.5f * scale);
                 }
 
-                if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
-                    redrawBarcodeAfterResize();
-                }
+                drawMainImage(mainImageIndex, true);
             }
 
             @Override

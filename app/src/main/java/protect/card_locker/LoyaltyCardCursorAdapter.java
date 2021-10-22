@@ -88,10 +88,14 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+            int drawableSize = mSettings.getFontSizeMax(mSettings.getSmallFont())*4;
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
+            Drawable balanceIcon = inputHolder.mBalanceField.getCompoundDrawables()[0];
+            balanceIcon.setBounds(0,0,drawableSize,drawableSize);
+            inputHolder.mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
             if (mDarkModeEnabled) {
-                inputHolder.mBalanceField.getCompoundDrawables()[0].setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
             }
             inputHolder.mBalanceField.setText(Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType));
             inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
@@ -100,9 +104,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (loyaltyCard.expiry != null) {
+            int drawableSize = mSettings.getFontSizeMax(mSettings.getSmallFont())*4;
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);
             Drawable expiryIcon = inputHolder.mExpiryField.getCompoundDrawables()[0];
+            expiryIcon.setBounds(0,0,drawableSize,drawableSize);
+            inputHolder.mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
             if (Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
                 inputHolder.mExpiryField.setTextColor(Color.RED);

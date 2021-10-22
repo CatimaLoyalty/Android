@@ -50,7 +50,7 @@
     <string name="noBarcodeFound">Жодного штрих-коду не знайдено</string>
     <string name="moveBarcodeToCenterOfScreen">Відцентрувати штрих-код на екрані</string>
     <string name="moveBarcodeToTopOfScreen">Посунути штрих-код наверх екрану</string>
-    <string name="chooseExpiryDate">Оберіть дату закінчення терміну дії</string>
+    <string name="chooseExpiryDate">Оберіть дату</string>
     <string name="never">Ніколи</string>
     <string name="expiryDate">Дата закінчення терміну дії</string>
     <string name="editBarcode">Редагувати штрих-код</string>
@@ -101,7 +101,7 @@
 \nавторські права © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="about">Про програму</string>
-    <string name="importOptionApplicationButton">Використайте іншу програму</string>
+    <string name="importOptionApplicationButton">Вибір програми</string>
     <string name="importOptionApplicationExplanation">Використайте іншу програму чи ваш улюблений файл-менеджер для відкриття файлу.</string>
     <string name="importOptionApplicationTitle">З іншої програми</string>
     <string name="importOptionFilesystemButton">Обрати файл</string>
@@ -216,4 +216,6 @@
     <string name="rate_this_app">Оцінити програму</string>
     <string name="on_google_play">у Google Play</string>
     <string name="report_error">Повідомити про помилку</string>
+    <string name="exportPassword">Встановіть пароль для захисту експорту (необов\'язково)</string>
+    <string name="exportPasswordHint">Введіть пароль</string>
 </resources>

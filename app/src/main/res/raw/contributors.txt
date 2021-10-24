@@ -8,25 +8,26 @@ mondstern
 Taco
 IllusiveMan196
 Petr Novák
+Oğuz Ersen
 Gediminas Murauskas
 Joel A
-Oğuz Ersen
 StoyanDimitrov
 Samantaz Fox
 Nyatsuki
 arno-github
-Sergio Paredes
 Ankit Tiwari
+Sergio Paredes
 arshbeerSingh
 huuhaa
 Michael Moroni
 Olivia (Zoe)
 betsythefc
+waffshappen
+Miha Frangež
 K. Herbert
 Quentin PAGÈS
 String E. Fighter
 Yurical
-waffshappen
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
@@ -41,9 +42,8 @@ Thomas Bertels
 inesre
 lgasp
 phlostically
-Kevin Sicong Jiang
-Miha Frangež
 Aditya Das
+Kevin Sicong Jiang
 Airat
 BMN
 Biren
@@ -61,6 +61,7 @@ QuangDNguyen2211
 Rohan Babbar 
 Rose Liverman
 Simone Dotto
+Still Hsu
 Subhashish Anand
 Tymofii Lytvynenko
 Tjipke van der Heide

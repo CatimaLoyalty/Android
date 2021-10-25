@@ -76,10 +76,10 @@
     <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_license">Copylefted libre software, licensed GPLv3+.</string>
+    <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="app_copyright_old">Based on Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">Catimaについて</string>
     <string name="importOptionApplicationButton">外部のアプリを使う</string>
@@ -95,7 +95,7 @@
     <string name="exportFailed">カードをエクスポートできませんでした</string>
     <string name="exportFailedTitle">エクスポートに失敗しました</string>
     <string name="exportSuccessfulTitle">エクスポートしました</string>
-    <string name="sameAsCardId">カードの表記と同一</string>
+    <string name="sameAsCardId">カード番号に合わせる</string>
     <string name="barcodeId">バーコード番号</string>
     <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。
 \nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
@@ -152,10 +152,10 @@
     <string name="takePhoto">写真を撮影する</string>
     <string name="removeImage">画像を削除</string>
     <string name="setBackImage">裏面の画像を設定</string>
-    <string name="setFrontImage">表面の画像を設定</string>
+    <string name="setFrontImage">オモテ面の画像を設定</string>
     <string name="photos">フォト</string>
-    <string name="backImageDescription">裏面</string>
-    <string name="frontImageDescription">表面</string>
+    <string name="backImageDescription">カードの裏面</string>
+    <string name="frontImageDescription">カードのオモテ面</string>
     <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択してください。
 \nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
     <string name="importStocard">Stocardからインポート</string>
@@ -183,7 +183,7 @@
     <string name="settings_pink_theme">Pink</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">テーマカラー</string>
-    <string name="settings_system_locale">システム</string>
+    <string name="settings_system_locale">システムに従う</string>
     <string name="settings_locale">言語</string>
     <string name="noGroupCards">このグループにはカードがありません</string>
     <string name="swipeToSwitchImages">画像を切り替えるには長押し、またはスワイプ</string>
@@ -192,5 +192,18 @@
     <string name="sort_by_expiry">期限</string>
     <string name="sort_by_most_recently_used">最近使用したカード</string>
     <string name="sort_by_name">名前</string>
-    <string name="sort">ソート</string>
+    <string name="sort">並び替え</string>
+    <string name="rate_this_app">このアプリを評価する</string>
+    <string name="on_github">GitHub</string>
+    <string name="source_repository">ソースリポジトリ</string>
+    <string name="exportPassword">パスワードを設定してエクスポートしたファイルを保護する(任意)</string>
+    <string name="exportPasswordHint">パスワードを入力してください</string>
+    <string name="version_history">更新履歴</string>
+    <string name="credits">貢献者</string>
+    <string name="help_translate_this_app">このアプリの翻訳を手伝う</string>
+    <string name="license">ライセンス</string>
+    <string name="on_google_play">Google Play</string>
+    <string name="report_error">エラーを報告する</string>
+    <string name="reverse">逆順</string>
+    <string name="and_data_usage">and data usage</string>
 </resources>

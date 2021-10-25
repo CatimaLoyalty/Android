@@ -1,10 +1,12 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
+import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,6 +73,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         // Invisible until we want to show something more
         inputHolder.mDivider.setVisibility(View.GONE);
 
+        int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
+
         if (mDarkModeEnabled) {
             inputHolder.mStarIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
         }
@@ -82,27 +86,34 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         if (!loyaltyCard.note.isEmpty()) {
             inputHolder.mNoteField.setVisibility(View.VISIBLE);
             inputHolder.mNoteField.setText(loyaltyCard.note);
-            inputHolder.mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+            inputHolder.mNoteField.setTextSize(size);
         } else {
             inputHolder.mNoteField.setVisibility(View.GONE);
         }
 
         if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+            int drawableSize = dpToPx((size*24)/14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
+            Drawable balanceIcon = inputHolder.mBalanceField.getCompoundDrawables()[0];
+            balanceIcon.setBounds(0,0,drawableSize,drawableSize);
+            inputHolder.mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
             if (mDarkModeEnabled) {
-                inputHolder.mBalanceField.getCompoundDrawables()[0].setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
             }
             inputHolder.mBalanceField.setText(Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType));
-            inputHolder.mBalanceField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+            inputHolder.mBalanceField.setTextSize(size);
         } else {
             inputHolder.mBalanceField.setVisibility(View.GONE);
         }
 
         if (loyaltyCard.expiry != null) {
+            int drawableSize = dpToPx((size*24)/14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);
             Drawable expiryIcon = inputHolder.mExpiryField.getCompoundDrawables()[0];
+            expiryIcon.setBounds(0,0, drawableSize, drawableSize);
+            inputHolder.mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
             if (Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
                 inputHolder.mExpiryField.setTextColor(Color.RED);
@@ -110,13 +121,44 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
             }
             inputHolder.mExpiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry));
-            inputHolder.mExpiryField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
+            inputHolder.mExpiryField.setTextSize(size);
         } else {
             inputHolder.mExpiryField.setVisibility(View.GONE);
         }
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
         inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+        int imageSize = dpToPx( (size*46)/14, mContext);
+        inputHolder.mCardIcon.getLayoutParams().height = imageSize;
+        inputHolder.mCardIcon.getLayoutParams().width = imageSize;
+        inputHolder.mStarIcon.getLayoutParams().height = imageSize;
+        inputHolder.mStarIcon.getLayoutParams().width = imageSize;
+        inputHolder.mTickIcon.getLayoutParams().height = imageSize;
+        inputHolder.mTickIcon.getLayoutParams().width = imageSize;
+
+        /* Changing Padding and Mragin of different views according to font size
+        * Views Included:
+        * a) InformationContainer padding
+        * b) Store left padding
+        * c) Divider Margin
+        * d) note top margin
+        * e) row margin
+        * */
+        int marginPaddingSize = dpToPx((size*16)/14, mContext );
+        inputHolder.mInformationContainer.setPadding(marginPaddingSize, marginPaddingSize, marginPaddingSize, marginPaddingSize);
+        inputHolder.mStoreField.setPadding(marginPaddingSize, 0, 0, 0);
+        LinearLayout.LayoutParams lpDivider = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        lpDivider.setMargins(0, marginPaddingSize, 0, marginPaddingSize);
+        inputHolder.mDivider.setLayoutParams(lpDivider);
+        LinearLayout.LayoutParams lpNoteField = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        lpNoteField.setMargins(0, marginPaddingSize/2, 0, 0);
+        inputHolder.mNoteField.setLayoutParams(lpNoteField);
+        LinearLayout.LayoutParams lpRow = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        lpRow.setMargins(marginPaddingSize/2, marginPaddingSize/2, marginPaddingSize/2, marginPaddingSize/2);
+        inputHolder.mRow.setLayoutParams(lpRow);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -223,7 +265,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public LinearLayout mInformationContainer;
-        public ImageView mCardIcon, mStarIcon;
+        public ImageView mCardIcon, mStarIcon, mTickIcon;
         public MaterialCardView mRow;
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
@@ -241,11 +283,18 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mExpiryField = inputView.findViewById(R.id.expiry);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
+            mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             });
         }
+    }
+
+    public int dpToPx(int dp, Context mContext){
+        Resources r = mContext.getResources();
+        int px = (int)TypedValue.applyDimension( TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
+        return px;
     }
 }

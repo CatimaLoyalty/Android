@@ -32,8 +32,7 @@ import protect.card_locker.Utils;
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class FidmeImporter implements Importer
-{
+public class FidmeImporter implements Importer {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
@@ -59,7 +58,7 @@ public class FidmeImporter implements Importer
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
 
-        final CSVParser fidmeParser = new CSVParser(new StringReader(loyaltyCards.toString()), CSVFormat.RFC4180.withDelimiter(';').withHeader());
+        final CSVParser fidmeParser = new CSVParser(new StringReader(loyaltyCards.toString()), CSVFormat.RFC4180.builder().setDelimiter(';').setHeader().build());
 
         try {
             for (CSVRecord record : fidmeParser) {
@@ -87,8 +86,7 @@ public class FidmeImporter implements Importer
      * session.
      */
     private void importLoyaltyCard(SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException
-    {
+            throws IOException, FormatException {
         // A loyalty card export from Fidme contains the following fields:
         // Retailer (store name)
         // Program (program name)
@@ -100,8 +98,7 @@ public class FidmeImporter implements Importer
         // The store is called Retailer
         String store = CSVHelpers.extractString("Retailer", record, "");
 
-        if (store.isEmpty())
-        {
+        if (store.isEmpty()) {
             throw new FormatException("No store listed, but is required");
         }
 
@@ -121,8 +118,7 @@ public class FidmeImporter implements Importer
 
         // The ID is called reference
         String cardId = CSVHelpers.extractString("Reference", record, "");
-        if(cardId.isEmpty())
-        {
+        if (cardId.isEmpty()) {
             throw new FormatException("No card ID listed, but is required");
         }
 

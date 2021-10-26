@@ -1,10 +1,14 @@
 # Changelog
 
-## Unreleased - 89
+## Unreleased - 90
+
+## v2.8.0 - 89 (2021-10-25)
 
 - Fix swiping between groups not working on an empty group
 - Allow password-protecting exports
 - Improve usage of space for QR codes
+- Save the last used zoom level per card
+- Fix a crash when swiping right after a tap
 
 ## v2.7.3 - 88 (2021-10-10)
 

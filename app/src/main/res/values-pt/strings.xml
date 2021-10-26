@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_add">Acrescentar</string>
+    <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico a partir do sistema de ficheiros.</string>
+    <string name="action_search">Pesquisa</string>
+    <string name="star">Adicionar aos favoritos</string>
+    <string name="noMatchingGiftCards">Não encontrei nada. Tente alterar a sua pesquisa.</string>
+    <string name="storeName">Nome</string>
+    <string name="note">Nota</string>
+    <string name="barcodeType">Tipo de código de barras</string>
+    <string name="barcodeNoBarcode">Este cartão não tem código de barras</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="edit">Edição</string>
+    <string name="noGiftCards">Clique no botão + + para adicionar um cartão, ou importe algum do menu ⋮ primeiro.</string>
+    <string name="noBarcode">Não há código de barras</string>
+    <string name="unstar">Retirar dos favoritos</string>
+    <string name="importOptionFilesystemButton">Do sistema de arquivo</string>
+    <string name="importOptionApplicationTitle">Use outro aplicativo</string>
+    <string name="importOptionApplicationExplanation">Utilize qualquer aplicação ou o seu gestor de ficheiros favorito para abrir um ficheiro.</string>
+    <string name="importOptionApplicationButton">Utilize outro aplicativo</string>
+    <string name="about">Sobre</string>
+    <string name="app_license">Copylefted software livre, licenciado GPLv3+</string>
+</resources>

@@ -208,5 +208,6 @@
     <string name="on_google_play">в Google Play</string>
     <string name="and_data_usage">и използване на данни</string>
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
+    <string name="exportPasswordHint">Въведете парола</string>
+    <string name="exportPassword">Задаване на парола за защита на изнесеното (по избор)</string>
 </resources>
-

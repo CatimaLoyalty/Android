@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.Cursor;
-import android.net.Uri;
+import android.database.CursorIndexOutOfBoundsException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -737,7 +737,21 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         {
             Cursor selected = mAdapter.getCursor();
             selected.moveToPosition(inputPosition);
-            LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+            // FIXME
+            //
+            // There is a really nasty edge case that can happen when someone taps a card but right
+            // after it swipes (very small window, hard to reproduce). The cursor gets replaced and
+            // may not have a card at the ID number that is returned from onRowClicked.
+            //
+            // The proper fix, obviously, would involve makes sure an onFling can't happen while a
+            // click is being processed. Sadly, I have not yet found a way to make that possible.
+            LoyaltyCard loyaltyCard;
+            try {
+                loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+            } catch (CursorIndexOutOfBoundsException e) {
+                Log.w(TAG, "Prevented crash from tap + swipe on ID " + inputPosition + ": " + e);
+                return;
+            }
 
             Intent i = new Intent(this, LoyaltyCardViewActivity.class);
             i.setAction("");

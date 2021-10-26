@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_add">Bæta</string>
+    <string name="noBarcode">Nei strikamerkið</string>
+    <string name="action_search">Leita að</string>
+    <string name="delete">Eyða</string>
+    <string name="unlockScreen">Opna Snúningur</string>
+    <string name="noGiftCards">Smelltu á + plús takka til að bæta kort, eða að flytja inn sumir frá ⋮ matseðill fyrst.</string>
+    <string name="note">Athugið</string>
+    <string name="barcodeType">Strikamerkið tegund</string>
+    <string name="cancel">Hætta</string>
+    <string name="noMatchingGiftCards">Vissi ekki að finna neitt. Reyna að breyta leita.</string>
+    <string name="storeName">Nafnið</string>
+    <string name="barcodeNoBarcode">Þetta kort hefur ekki strikamerkið</string>
+    <string name="star">Bæta við eftirlæti</string>
+    <string name="unstar">Fjarlægja frá eftirlæti</string>
+    <string name="save">Sparaðu</string>
+    <string name="edit">Breyta</string>
+    <string name="confirm">Staðfesta</string>
+    <string name="lockScreen">Blokk Snúningur</string>
+    <string name="ok">OK</string>
+    <string name="sendLabel">Sendu…</string>
+    <string name="deleteConfirmation">Eyða þetta kort til frambúðar\?</string>
+    <string name="share">Deila</string>
+    <string name="editCardTitle">Breyta Kort</string>
+    <string name="addCardTitle">Bæta Kort</string>
+    <string name="scanCardBarcode">Skanna Kort Strikamerkið</string>
+    <string name="noCardsMessage">Bæta kort fyrstu</string>
+    <string name="exportFailedTitle">Flytja mistókst</string>
+    <string name="exportSuccessfulTitle">Flutt</string>
+    <string name="noStoreError">Ekkert nafn slegið</string>
+    <string name="noCardExistsError">Gæti ekki fundið kort</string>
+    <string name="failedParsingImportUriError">Get ekki lesið inn URI</string>
+    <string name="exportName">Flytja</string>
+    <string name="importExportHelp">Stuðningur upp spil gerir þér kleift að færa þá til annar tæki.</string>
+    <string name="importSuccessfulTitle">Flutt</string>
+    <string name="importFailedTitle">Innflutningur mistókst</string>
+    <string name="noExternalStoragePermissionError">Grant ytri geymslu leyfi til að flytja eða flytja spil fyrstu</string>
+    <string name="exportOptionExplanation">Gögnum verður skrifað á stað af eigin vali.</string>
+    <string name="importOptionFilesystemTitle">Innflutningur frá möppuna</string>
+    <string name="importOptionFilesystemExplanation">Velja ákveðna skrá frá möppuna.</string>
+</resources>

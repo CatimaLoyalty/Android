@@ -18,8 +18,8 @@ android {
         applicationId "me.hackerchick.catima"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 88
-        versionName "2.7.3"
+        versionCode 89
+        versionName "2.8.0"
 
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
@@ -91,7 +91,7 @@ dependencies {
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
 
 // Third-party
-    implementation 'com.journeyapps:zxing-android-embedded:4.2.0@aar'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0@aar'
     implementation 'com.google.zxing:core:3.4.1'
     implementation 'org.apache.commons:commons-csv:1.9.0'
     implementation 'com.jaredrummler:colorpicker:1.1.0'

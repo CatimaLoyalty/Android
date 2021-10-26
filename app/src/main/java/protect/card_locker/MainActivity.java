@@ -602,13 +602,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateLoyaltyCardList();
     }
 
-    protected static boolean isDarkModeEnabled(Context inputContext)
-    {
-        Configuration config = inputContext.getResources().getConfiguration();
-        int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
-    }
-
     @Override
     public boolean onDown(MotionEvent e) {
         return false;

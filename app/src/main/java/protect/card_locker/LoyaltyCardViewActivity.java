@@ -190,11 +190,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
-    private Drawable getDotIcon(boolean active) {
+    private Drawable getDotIcon(boolean active, boolean darkMode) {
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
-        DrawableCompat.setTint(wrappedIcon, ContextCompat.getColor(getApplicationContext(), R.color.iconColor));
+        if (darkMode){
+            DrawableCompat.setTint(wrappedIcon, Color.WHITE);
+        }else{
+            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
+        }
 
         return wrappedIcon;
     }
@@ -552,10 +556,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         dotIndicator.removeAllViews();
         if (imageTypes.size() >= 2) {
             dots = new ImageView[imageTypes.size()];
+            boolean darkMode = Utils.isDarkModeEnabled(getApplicationContext());
 
             for (int i = 0; i < imageTypes.size(); i++) {
                 dots[i] = new ImageView(this);
-                dots[i].setImageDrawable(getDotIcon(false));
+                dots[i].setImageDrawable(getDotIcon(false, darkMode));
 
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(8, 0, 8, 0);
@@ -743,8 +748,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         if (dots != null) {
+            boolean darkMode = Utils.isDarkModeEnabled(getApplicationContext());
             for (int i = 0; i < dots.length; i++) {
-                dots[i].setImageDrawable(getDotIcon(i == index));
+                dots[i].setImageDrawable(getDotIcon(i == index, darkMode));
             }
         }
 

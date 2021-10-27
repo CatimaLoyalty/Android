@@ -5,6 +5,7 @@
 - Fix dots in card view having the wrong colour when changing theme manually
 - Fix crash in card view on rotation/theme change
 - Fix flashing of cards list
+- Fix text overlaying star icon
 
 ## v2.8.0 - 89 (2021-10-25)
 

@@ -2,6 +2,10 @@
 
 ## Unreleased - 90
 
+- Fix dots in card view having the wrong colour when changing team manually
+- Fix crash in card view on rotation/theme change
+- Fix flashing of cards list
+
 ## v2.8.0 - 89 (2021-10-25)
 
 - Fix swiping between groups not working on an empty group

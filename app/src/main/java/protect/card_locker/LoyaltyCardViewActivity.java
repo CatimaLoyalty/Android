@@ -269,6 +269,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser){
+                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                    return;
+                }
                 Log.d(TAG, "Progress is " + progress);
                 Log.d(TAG, "Max is " + barcodeScaler.getMax());
                 float scale = (float) progress / (float) barcodeScaler.getMax();

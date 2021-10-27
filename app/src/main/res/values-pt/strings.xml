@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">Acrescentar</string>
     <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico a partir do sistema de ficheiros.</string>
     <string name="action_search">Pesquisa</string>
@@ -21,4 +21,28 @@
     <string name="importOptionApplicationButton">Utilize outro aplicativo</string>
     <string name="about">Sobre</string>
     <string name="app_license">Copylefted software livre, licenciado GPLv3+</string>
+    <string name="addCardTitle">Adicionar Cartão</string>
+    <string name="lockScreen">Rotação de blocos</string>
+    <string name="editCardTitle">Editar Cartão</string>
+    <string name="unlockScreen">Desbloquear a rotação</string>
+    <string name="deleteTitle">Apagar cartão</string>
+    <string name="copy_to_clipboard">Copiar ID para prancheta</string>
+    <string name="sendLabel">Enviar…</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> cartão escolhido</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartões seleccionados</item>
+    </plurals>
+    <string name="deleteConfirmation">Eliminar este cartão permanentemente\?</string>
+    <string name="share">Partilhar</string>
+    <string name="scanCardBarcode">Código de barras do cartão de leitura</string>
+    <string name="confirm">Confirme</string>
+    <string name="delete">Eliminar</string>
+    <string name="cardId">Cartão de identificação</string>
+    <string name="cardShortcut">Atalho do cartão</string>
+    <string name="noCardsMessage">Adicione primeiro um cartão</string>
+    <string name="noStoreError">Nenhum nome inserido</string>
+    <string name="noCardExistsError">Não foi encontrado cartão</string>
+    <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
+    <string name="importExport">Importação/Exportação</string>
+    <string name="exportName">Exportação</string>
 </resources>

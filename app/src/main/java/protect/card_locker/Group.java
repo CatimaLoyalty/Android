@@ -1,8 +1,10 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Group
+public class Group implements Parcelable
 {
     public final String _id;
     public final int order;
@@ -12,6 +14,25 @@ public class Group
         this.order = order;
     }
 
+    protected Group(Parcel in){
+        this._id = in.readString();
+        this.order = in.readInt();
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i){
+        parcel.writeString(_id);
+        parcel.writeInt(order);
+    }
+
+
+    @Override
+    public int describeContents() {
+        // group table does not have an integer ID
+        return 0;
+    }
+
     public static Group toGroup(Cursor cursor)
     {
         String _id = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ID));
@@ -19,4 +40,16 @@ public class Group
 
         return new Group(_id, order);
     }
+
+    public static final Creator<Group> CREATOR = new Creator<Group>() {
+        @Override
+        public Group createFromParcel(Parcel in) {
+            return new Group(in);
+        }
+
+        @Override
+        public Group[] newArray(int size) {
+            return new Group[size];
+        }
+    };
 }

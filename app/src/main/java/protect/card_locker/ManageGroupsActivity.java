@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
@@ -176,7 +177,12 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
 
     @Override
     public void onEditButtonClicked(View view) {
-        final String groupName = getGroupName(view);
+        Group group = mDb.getGroup(getGroupName(view));
+        Intent intent = new Intent(this, ManageGroupActivity.class);
+        intent.putExtra("group", group);
+        startActivity(intent);
+        /*
+        final String groupName = c;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
@@ -195,6 +201,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         dialog.show();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         input.requestFocus();
+        */
     }
 
     @Override

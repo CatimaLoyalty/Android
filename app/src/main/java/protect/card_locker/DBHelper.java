@@ -613,6 +613,21 @@ public class DBHelper extends SQLiteOpenHelper
         }
     }
 
+    public void addLoyaltyCardToGroup(int cardId, String groupId){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIdsGroups.cardID, cardId);
+        contentValues.put(LoyaltyCardDbIdsGroups.groupID, groupId);
+        db.insert(LoyaltyCardDbIdsGroups.TABLE, null, contentValues);
+    }
+
+    public void removeLoyaltyCardFromGroup(int cardId, String groupId){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(LoyaltyCardDbIdsGroups.TABLE,
+                whereAttrs(LoyaltyCardDbIdsGroups.cardID, LoyaltyCardDbIdsGroups.groupID),
+                withArgs(cardId, groupId));
+    }
+
     public boolean deleteLoyaltyCard(final int id)
     {
         SQLiteDatabase db = getWritableDatabase();
@@ -716,6 +731,45 @@ public class DBHelper extends SQLiteOpenHelper
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
                 limitString, filter.trim().isEmpty() ? null : new String[] { TextUtils.join("* ", filter.split(" ")) + '*' }, null);
+    }
+
+    /**
+     * Returns a cursor to all loyalty cards with the filter text in either the store and whether card is in the provided group
+     *
+     * @param filter
+     * @param group
+     * @param order
+     * @return Cursor
+     */
+    public Cursor getIfLoyaltyCardsAreInGroupCursor(String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        if (group == null) {
+            throw new IllegalArgumentException("group cannot be null");
+        }
+        String orderField = getFieldForOrder(order);
+        String[] selectionArgs;
+        if(filter.trim().isEmpty()) {
+            selectionArgs = new String[]{
+                    group._id
+            };
+        }else{
+            selectionArgs = new String[]{
+                    group._id,
+                    TextUtils.join("* ", filter.split(" ")) + '*'
+            };
+        }
+        return db.rawQuery("SELECT " + "*" +
+                " FROM " + LoyaltyCardDbIds.TABLE + " LEFT OUTER JOIN " +
+                    " (SELECT " + LoyaltyCardDbIdsGroups.TABLE + ".*" +
+                        " FROM " + LoyaltyCardDbIdsGroups.TABLE +
+                            " WHERE " + LoyaltyCardDbIdsGroups.groupID + " = ? " +
+                    " ) " + " AS " + LoyaltyCardDbIdsGroups.TABLE +
+                " ON " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID + " = " + LoyaltyCardDbIdsGroups.TABLE + "." + LoyaltyCardDbIdsGroups.cardID +
+                (filter.trim().isEmpty() ? "" : " WHERE " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " MATCH ? ") +
+                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + orderField,
+                selectionArgs,
+                null);
     }
 
     /**

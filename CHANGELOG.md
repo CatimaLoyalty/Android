@@ -2,7 +2,7 @@
 
 ## Unreleased - 90
 
-- Fix dots in card view having the wrong colour when changing team manually
+- Fix dots in card view having the wrong colour when changing theme manually
 - Fix crash in card view on rotation/theme change
 - Fix flashing of cards list
 

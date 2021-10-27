@@ -514,6 +514,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
         appBarLayout.setBackgroundColor(backgroundHeaderColor);
+        maximizeButton.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
         if(Utils.needsDarkForeground(backgroundHeaderColor))
@@ -525,6 +526,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             textColor = Color.WHITE;
         }
         storeName.setTextColor(textColor);
+        maximizeButton.getDrawable().setTint(textColor);
         ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
 
         // If the background is very bright, we should use dark icons

@@ -97,7 +97,7 @@
                             android:id="@+id/storeNameEdit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            />
+                            android:singleLine="true" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -121,7 +121,7 @@
                             android:id="@+id/cardIdView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            />
+                            android:singleLine="true" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

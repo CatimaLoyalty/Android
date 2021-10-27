@@ -212,6 +212,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return wrappedIcon;
     }
 
+    private void setCenterGuideline(int zoomLevel) {
+        float scale = zoomLevel / 100f;
+
+        if (format != null && format.isSquare()) {
+            centerGuideline.setGuidelinePercent(0.75f * scale);
+        } else {
+            centerGuideline.setGuidelinePercent(0.5f * scale);
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -259,15 +270,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
-                if(isFullscreen){
+                if (isFullscreen){
                     loyaltyCard.zoomLevel = progress;
                     db.updateLoyaltyCardZoomLevel(loyaltyCardId, loyaltyCard.zoomLevel);
-                }
 
-                if (format != null && format.isSquare()) {
-                    centerGuideline.setGuidelinePercent(0.75f * scale);
-                } else {
-                    centerGuideline.setGuidelinePercent(0.5f * scale);
+                    setCenterGuideline(loyaltyCard.zoomLevel);
                 }
 
                 drawMainImage(mainImageIndex, true);
@@ -795,6 +802,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             drawMainImage(mainImageIndex, true);
 
             barcodeScaler.setProgress(loyaltyCard.zoomLevel);
+            setCenterGuideline(loyaltyCard.zoomLevel);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -831,7 +839,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             Log.d(TAG, "Move out of fullscreen");
 
             // Reset center guideline
-            barcodeScaler.setProgress(100);
+            setCenterGuideline(100);
 
             drawMainImage(mainImageIndex, true);
 

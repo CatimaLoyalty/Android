@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_search">Meklēšana</string>
+    <string name="action_add">Pievienot</string>
+    <string name="noGiftCards">Noklikšķiniet uz pogas + plus, lai pievienotu karti, vai vispirms importējiet dažus no ⋮ izvēlnes.</string>
+    <string name="noMatchingGiftCards">Neko neatradu. Mēģiniet mainīt meklēšanu.</string>
+    <string name="storeName">Nosaukums</string>
+    <string name="note">Piezīme</string>
+    <string name="barcodeType">Svītrkoda Tips</string>
+    <string name="barcodeNoBarcode">Šai kartei nav svītrkoda</string>
+    <string name="noBarcode">Nav svītrkoda</string>
+    <string name="star">Pievienot izlasei</string>
+    <string name="unstar">Noņemt no izlases</string>
+    <string name="cancel">Atcelt</string>
+    <string name="save">Saglabāt</string>
+    <string name="edit">Rediģēt</string>
+    <string name="delete">Dzēst</string>
+</resources>

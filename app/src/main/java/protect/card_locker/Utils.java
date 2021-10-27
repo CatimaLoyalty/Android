@@ -38,6 +38,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import protect.card_locker.preferences.Settings;
@@ -400,5 +401,19 @@ public class Utils {
 
     static public long getUnixTime() {
         return System.currentTimeMillis() / 1000;
+    }
+
+    static public boolean isDarkModeEnabled(Context inputContext)
+    {
+        int nightModeSetting = new Settings(inputContext).getTheme();
+        if (nightModeSetting == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
+            Configuration config = inputContext.getResources().getConfiguration();
+            int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
+        }else if (nightModeSetting == AppCompatDelegate.MODE_NIGHT_YES){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

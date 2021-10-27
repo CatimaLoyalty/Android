@@ -190,11 +190,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
-    private Drawable getDotIcon(boolean active) {
+    private Drawable getDotIcon(boolean active, boolean darkMode) {
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
-        DrawableCompat.setTint(wrappedIcon, ContextCompat.getColor(getApplicationContext(), R.color.iconColor));
+        if (darkMode){
+            DrawableCompat.setTint(wrappedIcon, Color.WHITE);
+        }else{
+            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
+        }
 
         return wrappedIcon;
     }
@@ -210,6 +214,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         return wrappedIcon;
+    }
+
+    private void setCenterGuideline(int zoomLevel) {
+        float scale = zoomLevel / 100f;
+
+        if (format != null && format.isSquare()) {
+            centerGuideline.setGuidelinePercent(0.75f * scale);
+        } else {
+            centerGuideline.setGuidelinePercent(0.5f * scale);
+        }
+
     }
 
     @Override
@@ -254,21 +269,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser){
+                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                    return;
+                }
                 Log.d(TAG, "Progress is " + progress);
                 Log.d(TAG, "Max is " + barcodeScaler.getMax());
                 float scale = (float) progress / (float) barcodeScaler.getMax();
                 Log.d(TAG, "Scaling to " + scale);
 
-                if(isFullscreen){
-                    loyaltyCard.zoomLevel = progress;
-                    db.updateLoyaltyCardZoomLevel(loyaltyCardId, loyaltyCard.zoomLevel);
-                }
+                loyaltyCard.zoomLevel = progress;
+                db.updateLoyaltyCardZoomLevel(loyaltyCardId, loyaltyCard.zoomLevel);
 
-                if (format != null && format.isSquare()) {
-                    centerGuideline.setGuidelinePercent(0.75f * scale);
-                } else {
-                    centerGuideline.setGuidelinePercent(0.5f * scale);
-                }
+                setCenterGuideline(loyaltyCard.zoomLevel);
 
                 drawMainImage(mainImageIndex, true);
             }
@@ -545,10 +558,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         dotIndicator.removeAllViews();
         if (imageTypes.size() >= 2) {
             dots = new ImageView[imageTypes.size()];
+            boolean darkMode = Utils.isDarkModeEnabled(getApplicationContext());
 
             for (int i = 0; i < imageTypes.size(); i++) {
                 dots[i] = new ImageView(this);
-                dots[i].setImageDrawable(getDotIcon(false));
+                dots[i].setImageDrawable(getDotIcon(false, darkMode));
 
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 params.setMargins(8, 0, 8, 0);
@@ -736,8 +750,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         if (dots != null) {
+            boolean darkMode = Utils.isDarkModeEnabled(getApplicationContext());
             for (int i = 0; i < dots.length; i++) {
-                dots[i].setImageDrawable(getDotIcon(i == index));
+                dots[i].setImageDrawable(getDotIcon(i == index, darkMode));
             }
         }
 
@@ -795,6 +810,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             drawMainImage(mainImageIndex, true);
 
             barcodeScaler.setProgress(loyaltyCard.zoomLevel);
+            setCenterGuideline(loyaltyCard.zoomLevel);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -831,7 +847,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             Log.d(TAG, "Move out of fullscreen");
 
             // Reset center guideline
-            barcodeScaler.setProgress(100);
+            setCenterGuideline(100);
 
             drawMainImage(mainImageIndex, true);
 

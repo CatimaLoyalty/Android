@@ -350,7 +350,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 MenuItem searchItem = mMenu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
-            ActivityCompat.recreate(this);
+            updateLoyaltyCardList();
 
             return;
         }

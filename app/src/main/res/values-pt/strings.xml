@@ -45,4 +45,47 @@
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
     <string name="importExport">Importação/Exportação</string>
     <string name="exportName">Exportação</string>
+    <string name="importSuccessful">Dados do cartão importados</string>
+    <string name="noGroups">Clique no botão ++ para adicionar grupos para categorização em primeiro lugar.</string>
+    <string name="noGroupCards">Este grupo não contém cartões</string>
+    <string name="intent_import_card_from_url_share_text">Quero partilhar convosco um cartão</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar o código de barras</string>
+    <string name="settings_keep_screen_on">Manter ecrã em</string>
+    <string name="enter_group_name">Introduzir o nome do grupo</string>
+    <string name="groups">Grupos</string>
+    <plurals name="groupCardCount">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;</item>
+        <item quantity="other"></item>
+    </plurals>
+    <string name="settings_lock_barcode_orientation">Orientação do código de barras de bloqueio</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Prevenir ecrã de bloqueio</string>
+    <string name="exportSuccessful">Dados do cartão exportado</string>
+    <string name="all">Todos</string>
+    <string name="deleteConfirmationGroup">Eliminar grupo\?</string>
+    <string name="settings">Definições</string>
+    <string name="settings_category_title_ui">Interface do utilizador</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_light_theme">Luz</string>
+    <string name="settings_dark_theme">Escuro</string>
+    <string name="settings_max_font_size_scale">Tamanho máximo de letra</string>
+    <string name="selectBarcodeTitle">Seleccionar código de barras</string>
+    <string name="enterBarcodeInstructions">Introduza o ID do cartão, e escolha o seu tipo de código de barras abaixo, ou \"Este cartão não tem código de barras\".</string>
+    <string name="copy_to_clipboard_toast">ID do cartão copiado para a prancheta</string>
+    <string name="thumbnailDescription">Miniatura para cartão</string>
+    <string name="starImage">Estrela favorita</string>
+    <string name="failedOpeningFileManager">Instalar primeiro um gestor de ficheiros.</string>
+    <string name="moveUp">Avançar para cima</string>
+    <string name="moveDown">Avançar para baixo</string>
+    <string name="leaveWithoutSaveTitle">Sair</string>
+    <string name="noExternalStoragePermissionError">Conceder autorização de armazenamento externo para importar ou exportar cartões primeiro</string>
+    <string name="importExportHelp">A cópia de segurança dos seus cartões permite-lhe movê-los para outro dispositivo.</string>
+    <string name="importSuccessfulTitle">Importado</string>
+    <string name="importFailedTitle">Importação falhou</string>
+    <string name="importFailed">Não poderia importar cartões</string>
+    <string name="exportSuccessfulTitle">Exportado</string>
+    <string name="exportFailedTitle">Exportação falhada</string>
+    <string name="exportFailed">Não podia exportar cartões</string>
+    <string name="importing">Importar…</string>
+    <string name="exporting">Exportar…</string>
 </resources>

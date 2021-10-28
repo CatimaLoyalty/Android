@@ -53,10 +53,6 @@
     <string name="settings_keep_screen_on">Manter ecrã em</string>
     <string name="enter_group_name">Introduzir o nome do grupo</string>
     <string name="groups">Grupos</string>
-    <plurals name="groupCardCount">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;</item>
-        <item quantity="other"></item>
-    </plurals>
     <string name="settings_lock_barcode_orientation">Orientação do código de barras de bloqueio</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevenir ecrã de bloqueio</string>
     <string name="exportSuccessful">Dados do cartão exportado</string>

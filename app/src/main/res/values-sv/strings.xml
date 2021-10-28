@@ -206,4 +206,6 @@
     <string name="version_history">Versionshistorik</string>
     <string name="help_translate_this_app">Hjälp till med översättningen av appen</string>
     <string name="on_github">på GitHub</string>
+    <string name="exportPassword">Sätt ett lösenord för att skydda din exporterade data (valfritt)</string>
+    <string name="exportPasswordHint">Ange lösenord</string>
 </resources>

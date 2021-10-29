@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -12,7 +13,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -43,6 +43,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -63,6 +64,10 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -141,6 +146,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     LoyaltyCard tempLoyaltyCard;
 
+    ActivityResultLauncher<Intent> mCropperLauncher;
+    int mRequestedImage;
+    UCrop.Options mCropperOptions;
+    // FIX ME: for until everything is switched to activity launcher callbacks
+    private boolean skipOnce = false;
+
     final private TaskHandler mTasks = new TaskHandler();
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
@@ -188,6 +199,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         tabs = findViewById(R.id.tabs);
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
+        savedInstanceState.putInt("skipOnce", skipOnce? 1: 0);
     }
 
     @Override
@@ -509,6 +521,56 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         });
 
         tabs.selectTab(tabs.getTabAt(0));
+
+        mCropperLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        Intent intent = result.getData();
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Uri debugUri = UCrop.getOutput(intent);
+                            String cropOutputPath = debugUri.getPath();
+                            Log.d("cropper", "cropper thinks it has produced image at " + cropOutputPath + " " + debugUri.toString());
+                            Bitmap bitmap = BitmapFactory.decodeFile(cropOutputPath);
+
+
+                            if (bitmap != null) {
+                                bitmap = Utils.resizeBitmap(bitmap);
+                                try {
+                                    bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(cropOutputPath));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+                                    setCardImage(cardImageFront, bitmap);
+                                } else {
+                                    setCardImage(cardImageBack, bitmap);
+                                }
+
+                                hasChanged = true;
+                            } else {
+                                Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                            }
+                        }else if(result.getResultCode() == UCrop.RESULT_ERROR){
+                            Log.e("cropper error", UCrop.getError(intent).toString());
+                        }
+                    }
+                });
+
+        if (savedInstanceState != null) {
+            skipOnce = savedInstanceState.getInt("skipOnce") == 1 ? true : false;
+        }
+        mCropperOptions = new UCrop.Options();
+        mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        setCropperTheme();
+    }
+
+    private void setCropperTheme(){
+        mCropperOptions.setToolbarColor(getResources().getColor(R.color.colorPrimary));
+        mCropperOptions.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+        mCropperOptions.setToolbarWidgetColor(Color.WHITE);
+        mCropperOptions.setActiveControlsWidgetColor(getResources().getColor(R.color.colorPrimary));
     }
 
     @Override
@@ -786,15 +848,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         confirmExitDialog.show();
     }
 
+    private File createTempFile(String prefix, String suffix) throws IOException{
+        String imageFileName = prefix + new Date().getTime();
+        File file = File.createTempFile(
+                imageFileName,
+                suffix,
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        );
+        return file;
+    }
+
     private void takePhotoForCard(int type) throws IOException {
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
+        File image = createTempFile("CATIMA_", ".jpg");
         String imageFileName = "CATIMA_" + new Date().getTime();
-        File image = File.createTempFile(
-                imageFileName,
-                ".jpg",
-                getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        );
 
         tempCameraPicturePath = image.getAbsolutePath();
 
@@ -1035,58 +1103,45 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public boolean startCropper(String sourceImagePath){
+        return startCropperUri(Uri.parse("file://" + sourceImagePath));
+    }
+    public boolean startCropperUri(Uri sourceUri){
+        Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
+        File cropOutput;
+        try {
+            cropOutput = createTempFile("UCROP_", ".jpg");
+        }catch(java.io.IOException e){
+            Log.e("image cropping", "failed creating temporarily file");
+            return false;
+        }
+        Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
+        Log.d("cropper", "asking cropper to output to " + destUri.toString());
+        skipOnce = true;
+        mCropperLauncher.launch(
+                UCrop.of(
+                        sourceUri,
+                        destUri
+                ).withOptions(mCropperOptions).getIntent(this)
+        );
+        return true;
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-
+        if(skipOnce){
+            skipOnce = false;
+            return;
+        }
         if (resultCode == RESULT_OK) {
             if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
-                Bitmap bitmap = BitmapFactory.decodeFile(tempCameraPicturePath);
-
-                if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap);
-                    try {
-                        bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(tempCameraPicturePath));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT) {
-                        setCardImage(cardImageFront, bitmap);
-                    } else {
-                        setCardImage(cardImageBack, bitmap);
-                    }
-
-                    hasChanged = true;
-                } else {
-                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                }
+                mRequestedImage = requestCode;
+                startCropper(tempCameraPicturePath);
             } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
-                Bitmap bitmap = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        ImageDecoder.Source image_source = ImageDecoder.createSource(getContentResolver(), intent.getData());
-                        bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
-                    } else {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), intent.getData());
-                    }
-                } catch (IOException e) {
-                    Log.e(TAG, "Error getting data from image file");
-                    e.printStackTrace();
-                }
-
-                if (bitmap != null) {
-                    bitmap = Utils.resizeBitmap(bitmap);
-                    if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
-                        setCardImage(cardImageFront, bitmap);
-                    } else {
-                        setCardImage(cardImageBack, bitmap);
-                    }
-
-                    hasChanged = true;
-                } else {
-                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                }
+                mRequestedImage = requestCode;
+                Uri uri = intent.getData();
+                startCropperUri(uri);
             } else {
                 BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 

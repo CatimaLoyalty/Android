@@ -112,10 +112,11 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
 
         mActionBar = getSupportActionBar();
-
+        if (mActionBar == null){
+            throw(new RuntimeException("mActionBar is not expected to be null here"));
+        }
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setDisplayShowHomeEnabled(true);
-
     }
 
     private void resetGroupNameTextColor() {
@@ -349,7 +350,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     @Override
     public void onRowClicked(int inputPosition)
     {
-        Cursor selected = mAdapter.getCursor();
         mAdapter.toggleSelection(inputPosition);
     }
 }

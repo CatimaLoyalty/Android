@@ -528,7 +528,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         Intent intent = result.getData();
                         if (intent == null){
-                            throw(new RuntimeException("ucrop returned a null intent"));
+                            Log.d("cropper", "ucrop returned a null intent");
+                            return;
                         }
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Uri debugUri = UCrop.getOutput(intent);
@@ -578,7 +579,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private void setCropperOptions(){
         mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
-        mCropperOptions.setFreeStyleCropEnabled(false);
+        mCropperOptions.setFreeStyleCropEnabled(true);
     }
 
     private void setCropperTheme(){

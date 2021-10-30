@@ -71,13 +71,14 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private EditText mGroupNameText;
     private TextView mGroupNameLabel;
     private ActionBar mActionBar;
+    private FloatingActionButton mSaveButton;
 
     private HashMap<Integer, Boolean> mAdapterState;
     private String mCurrentGroupName;
 
     private boolean mGroupNameNotInUse;
 
-    private boolean mDarkMode;
+    private int mGroupNameInputTextColor;
 
     @Override
     protected void onCreate(Bundle inputSavedInstanceState)
@@ -91,9 +92,10 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
         mCardList = findViewById(R.id.list);
+        mSaveButton = findViewById(R.id.fabSave);
 
         mGroupNameText = findViewById(R.id.editTextGroupName);
-        mGroupNameLabel = findViewById(R.id.textViewEditGroupName);
+        mGroupNameInputTextColor = mGroupNameText.getCurrentTextColor();
 
         Intent intent = getIntent();
         String groupId = intent.getStringExtra("group");
@@ -109,8 +111,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
-        mDarkMode = Utils.isDarkModeEnabled(getApplicationContext());
-
         if (inputSavedInstanceState != null) {
             ManageGroupActivityInGroupState adapterState = inputSavedInstanceState.getParcelable("mAdapterState");
             if (adapterState != null) {
@@ -125,14 +125,37 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setDisplayShowHomeEnabled(true);
+
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentGroupName = mGroupNameText.getText().toString();
+                if(!currentGroupName.trim().equals(mGroup._id)){
+                    if(!mGroupNameNotInUse) {
+                        Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT);
+                        toast.show();
+                        return;
+                    }
+                    if(currentGroupName.trim().length() == 0){
+                        Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT);
+                        toast.show();
+                        return;
+                    }
+                }
+
+                mAdapter.commitToDatabase(getApplicationContext());
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT);
+                if(!currentGroupName.trim().equals(mGroup._id)){
+                    mDB.updateGroup(mGroup._id, currentGroupName.trim());
+                }
+                toast.show();
+                finish();
+            }
+        });
     }
 
     private void resetGroupNameTextColor() {
-        if (mDarkMode) {
-            mGroupNameText.setTextColor(Color.WHITE);
-        } else{
-            mGroupNameText.setTextColor(Color.BLACK);
-        }
+        mGroupNameText.setTextColor(mGroupNameInputTextColor);
     }
 
     private void checkIfGroupNameIsInUse(){
@@ -246,26 +269,11 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu inputMenu)
-    {
-        this.mMenu = inputMenu;
-
-        getMenuInflater().inflate(R.menu.manage_group_menu, inputMenu);
-
-        MenuItem confirmButton = inputMenu.findItem(R.id.action_confirm);
-        Drawable icon = confirmButton.getIcon();
-        icon.mutate();
-        icon.setTint(Color.WHITE);
-        confirmButton.setIcon(icon);
-        return super.onCreateOptionsMenu(inputMenu);
-    }
-
     private void leaveWithoutSaving(){
         if (hasChanged()){
             AlertDialog.Builder builder = new AlertDialog.Builder(ManageGroupActivity.this);
-            builder.setTitle(R.string.discard_changes);
-            builder.setMessage(R.string.discard_changes_confirm);
+            builder.setTitle(R.string.leaveWithoutSaveTitle);
+            builder.setMessage(R.string.leaveWithoutSaveConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> finish());
             builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
@@ -275,39 +283,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem inputItem)
-    {
-        int id = inputItem.getItemId();
-
-        if (id == R.id.action_confirm)
-        {
-            String currentGroupName = mGroupNameText.getText().toString();
-            if(!currentGroupName.trim().equals(mGroup._id)){
-                if(!mGroupNameNotInUse) {
-                    Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT);
-                    toast.show();
-                    return true;
-                }
-                if(currentGroupName.trim().length() == 0){
-                    Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT);
-                    toast.show();
-                    return true;
-                }
-            }
-
-            mAdapter.commitToDatabase(getApplicationContext());
-            Toast toast = Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT);
-            if(!currentGroupName.trim().equals(mGroup._id)){
-                mDB.updateGroup(mGroup._id, currentGroupName.trim());
-            }
-            toast.show();
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(inputItem);
-    }
     @Override
     public void onBackPressed()
     {

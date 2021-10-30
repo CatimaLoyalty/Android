@@ -130,9 +130,9 @@
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
     </plurals>
-    <string name="group_name_already_in_use">Group name already in use!</string>
-    <string name="group_name_is_empty">Group name cannot be empty!</string>
-    <string name="group_updated">Group updated!</string>
+    <string name="group_name_already_in_use">Group name already in use</string>
+    <string name="group_name_is_empty">Group name cannot be empty</string>
+    <string name="group_updated">Group updated</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
@@ -249,6 +249,4 @@
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>
     <string name="report_error">Report Error</string>
-    <string name="discard_changes">Discard Changes</string>
-    <string name="discard_changes_confirm">There are unsaved changes that were made, do you wish to leave without saving?</string>
 </resources>

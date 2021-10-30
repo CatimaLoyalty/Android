@@ -7,7 +7,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="protect.card_locker.ManageGroupActivity">
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:srcCompat="@drawable/save_24dp"
+        android:contentDescription="@string/save"
+        android:layout_margin="16dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,18 +41,20 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:id="@+id/textViewEditGroupName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_group_name" />
 
-        <EditText
-            android:id="@+id/editTextGroupName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/storeNameField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="@string/storeName">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextGroupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <include
             android:id="@+id/include"

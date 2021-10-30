@@ -24,10 +24,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ManageGroupActivity"
-            android:exported="true"
-            android:theme="@style/Theme.App.Starting"/>
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -46,6 +42,10 @@
             android:name=".ManageGroupsActivity"
             android:label="@string/groups"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ManageGroupActivity"
+            android:label="@string/group_edit"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:exported="true"

@@ -123,6 +123,7 @@
     <string name="exportSuccessful">Card data exported</string>
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
+    <string name="group_edit">Edit Group</string>
     <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
     <string name="noGroupCards">This group does not contain any cards</string>
     <plurals name="groupCardCount">

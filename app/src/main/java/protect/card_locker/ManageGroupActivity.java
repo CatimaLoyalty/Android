@@ -299,24 +299,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         return mAdapter.hasChanged() || !mGroup._id.equals(mGroupNameText.getText().toString().trim());
     }
 
-    private void setSort(DBHelper.LoyaltyCardOrder order, DBHelper.LoyaltyCardOrderDirection direction) {
-        // Update values
-        mOrder = order;
-        mOrderDirection = direction;
-
-        // Store in Shared Preference to restore next app launch
-        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_sort),
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor sortPrefEditor = sortPref.edit();
-        sortPrefEditor.putString(getString(R.string.sharedpreference_sort_order), order.name());
-        sortPrefEditor.putString(getString(R.string.sharedpreference_sort_direction), direction.name());
-        sortPrefEditor.apply();
-
-        // Update card list
-        updateLoyaltyCardList();
-    }
-
     @Override
     public void onRowLongClicked(int inputPosition)
     {

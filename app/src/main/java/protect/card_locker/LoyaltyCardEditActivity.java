@@ -527,6 +527,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         Intent intent = result.getData();
+                        if (intent == null){
+                            throw(new RuntimeException("ucrop returned a null intent"));
+                        }
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Uri debugUri = UCrop.getOutput(intent);
                             if (debugUri == null){
@@ -566,7 +569,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 });
 
         if (savedInstanceState != null) {
-            skipOnce = savedInstanceState.getInt("skipOnce") == 1 ? true : false;
+            skipOnce = savedInstanceState.getInt("skipOnce") == 1;
         }
         mCropperOptions = new UCrop.Options();
         setCropperOptions();
@@ -862,12 +865,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private File createTempFile(String prefix, String suffix) throws IOException{
         String imageFileName = prefix + new Date().getTime();
-        File file = File.createTempFile(
+        return File.createTempFile(
                 imageFileName,
                 suffix,
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         );
-        return file;
     }
 
     private void takePhotoForCard(int type) throws IOException {
@@ -1114,17 +1116,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean startCropper(String sourceImagePath){
-        return startCropperUri(Uri.parse("file://" + sourceImagePath));
+    public void startCropper(String sourceImagePath){
+        startCropperUri(Uri.parse("file://" + sourceImagePath));
     }
-    public boolean startCropperUri(Uri sourceUri){
+    public void startCropperUri(Uri sourceUri){
         Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
         File cropOutput;
         try {
             cropOutput = createTempFile("UCROP_", ".jpg");
         }catch(java.io.IOException e){
             Log.e("image cropping", "failed creating temporarily file");
-            return false;
+            return;
         }
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
@@ -1135,7 +1137,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         destUri
                 ).withOptions(mCropperOptions).getIntent(this)
         );
-        return true;
+        return;
     }
 
     @Override

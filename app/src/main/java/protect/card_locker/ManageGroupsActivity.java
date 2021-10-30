@@ -177,9 +177,8 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
 
     @Override
     public void onEditButtonClicked(View view) {
-        Group group = mDb.getGroup(getGroupName(view));
         Intent intent = new Intent(this, ManageGroupActivity.class);
-        intent.putExtra("group", group);
+        intent.putExtra("group", getGroupName(view));
         startActivity(intent);
         /*
         final String groupName = c;

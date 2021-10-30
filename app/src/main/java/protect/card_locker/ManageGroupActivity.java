@@ -95,11 +95,19 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         mGroupNameText = findViewById(R.id.editTextGroupName);
         mGroupNameLabel = findViewById(R.id.textViewEditGroupName);
 
-        mAdapter = new ManageGroupCursorAdapter(this, null, this);
+        Intent intent = getIntent();
+        String groupId = intent.getStringExtra("group");
+        if (groupId == null){
+            throw(new IllegalArgumentException("this activity expects a group loaded into it's intent"));
+        }
+        Log.d("groupId", "gropuId: " + groupId);
+        mGroup = mDB.getGroup(groupId);
+        if (mGroup == null){
+            throw(new IllegalArgumentException("cannot load group " + groupId + " from database"));
+        }
+        mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
-
-        mGroup = null;
 
         mDarkMode = Utils.isDarkModeEnabled(getApplicationContext());
 
@@ -145,12 +153,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     protected void onResume()
     {
         super.onResume();
-
-        Intent intent = getIntent();
-        mGroup = intent.getParcelableExtra("group");
-        if (mGroup == null){
-            throw(new IllegalArgumentException("this activity expects a group loaded into it's intent"));
-        }
 
         setTitle(getString(R.string.edit) + ": " + mGroup._id);
 
@@ -207,7 +209,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     private void updateLoyaltyCardList() {
-        mAdapter.swapCursor(mDB.getIfLoyaltyCardsAreInGroupCursor(mFilter, mGroup, mOrder, mOrderDirection));
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(mFilter, null, mOrder, mOrderDirection));
 
         if(mAdapter.getCountFromCursor() > 0)
         {
@@ -294,7 +296,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
                 }
             }
 
-            mAdapter.commitToDatabase(getApplicationContext(), mGroup._id);
+            mAdapter.commitToDatabase(getApplicationContext());
             Toast toast = Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT);
             if(!currentGroupName.trim().equals(mGroup._id)){
                 mDB.updateGroup(mGroup._id, currentGroupName.trim());
@@ -351,5 +353,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     public void onRowClicked(int inputPosition)
     {
         mAdapter.toggleSelection(inputPosition);
+
     }
 }

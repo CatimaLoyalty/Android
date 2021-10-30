@@ -49,7 +49,7 @@
 
         <include
             android:id="@+id/include"
-            layout="@layout/content_manage_group" />
+            layout="@layout/content_main" />
 
     </LinearLayout>
 

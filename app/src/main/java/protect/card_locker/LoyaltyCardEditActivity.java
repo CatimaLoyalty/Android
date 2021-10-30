@@ -529,8 +529,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         Intent intent = result.getData();
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Uri debugUri = UCrop.getOutput(intent);
+                            if (debugUri == null){
+                                throw new RuntimeException("ucrop returned success but not destination uri!");
+                            }
                             String cropOutputPath = debugUri.getPath();
-                            Log.d("cropper", "cropper thinks it has produced image at " + cropOutputPath + " " + debugUri.toString());
+                            Log.d("cropper", "cropper has produced image at " + debugUri.toString());
                             Bitmap bitmap = BitmapFactory.decodeFile(cropOutputPath);
 
 
@@ -553,7 +556,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                                 Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                             }
                         }else if(result.getResultCode() == UCrop.RESULT_ERROR){
-                            Log.e("cropper error", UCrop.getError(intent).toString());
+                            Throwable e = UCrop.getError(intent);
+                            if (e == null){
+                                throw new RuntimeException("ucrop returned error state but not and error!");
+                            }
+                            Log.e("cropper error", e.toString());
                         }
                     }
                 });
@@ -562,8 +569,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             skipOnce = savedInstanceState.getInt("skipOnce") == 1 ? true : false;
         }
         mCropperOptions = new UCrop.Options();
-        mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        setCropperOptions();
         setCropperTheme();
+    }
+
+    private void setCropperOptions(){
+        mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        mCropperOptions.setFreeStyleCropEnabled(false);
     }
 
     private void setCropperTheme(){
@@ -862,7 +874,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         File image = createTempFile("CATIMA_", ".jpg");
-        String imageFileName = "CATIMA_" + new Date().getTime();
 
         tempCameraPicturePath = image.getAbsolutePath();
 

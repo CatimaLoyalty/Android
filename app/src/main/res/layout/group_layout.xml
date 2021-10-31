@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/moveUp"
             android:layout_width="@dimen/cardThumbnailSize"
             android:layout_height="@dimen/cardThumbnailSize"
@@ -46,7 +46,7 @@
             android:contentDescription="@string/moveUp"
             app:tint="@color/iconColor"/>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/moveDown"
             android:layout_width="@dimen/cardThumbnailSize"
             android:layout_height="@dimen/cardThumbnailSize"
@@ -55,7 +55,7 @@
             android:contentDescription="@string/moveDown"
             app:tint="@color/iconColor"/>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/edit"
             android:layout_width="@dimen/cardThumbnailSize"
             android:layout_height="@dimen/cardThumbnailSize"
@@ -64,7 +64,7 @@
             android:contentDescription="@string/edit"
             app:tint="@color/iconColor"/>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/delete"
             android:layout_width="@dimen/cardThumbnailSize"
             android:layout_height="@dimen/cardThumbnailSize"

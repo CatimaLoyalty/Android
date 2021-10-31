@@ -49,9 +49,11 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements GestureDetector.OnGestureListener {
+    private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
 
     private GestureDetector mGestureDetector;
@@ -230,6 +232,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
 
         if (savedInstanceState != null) {
             mainImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX);
@@ -240,29 +243,29 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         extractIntentFields(getIntent());
 
-        setContentView(R.layout.loyalty_card_view_layout);
+        setContentView(binding.getRoot());
 
         db = new DBHelper(this);
         importURIHelper = new ImportURIHelper(this);
 
-        cardIdFieldView = findViewById(R.id.cardIdView);
-        bottomSheet = findViewById(R.id.bottom_sheet);
-        bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
-        bottomSheetButton = findViewById(R.id.bottomSheetButton);
-        noteView = findViewById(R.id.noteView);
-        groupsView = findViewById(R.id.groupsView);
-        balanceView = findViewById(R.id.balanceView);
-        expiryView = findViewById(R.id.expiryView);
-        storeName = findViewById(R.id.storeName);
-        maximizeButton = findViewById(R.id.maximizeButton);
-        mainImage = findViewById(R.id.mainImage);
-        dotIndicator = findViewById(R.id.dotIndicator);
-        minimizeButton = findViewById(R.id.minimizeButton);
-        collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
-        appBarLayout = findViewById(R.id.app_bar_layout);
+        cardIdFieldView = binding.cardIdView;
+        bottomSheet = binding.bottomSheet;
+        bottomSheetContentWrapper = binding.bottomSheetContentWrapper;
+        bottomSheetButton = binding.bottomSheetButton;
+        noteView = binding.noteView;
+        groupsView = binding.groupsView;
+        balanceView = binding.balanceView;
+        expiryView = binding.expiryView;
+        storeName = binding.storeName;
+        maximizeButton = binding.maximizeButton;
+        mainImage = binding.mainImage;
+        dotIndicator = binding.dotIndicator;
+        minimizeButton = binding.minimizeButton;
+        collapsingToolbarLayout = binding.collapsingToolbarLayout;
+        appBarLayout = binding.appBarLayout;
 
-        centerGuideline = findViewById(R.id.centerGuideline);
-        barcodeScaler = findViewById(R.id.barcodeScaler);
+        centerGuideline = binding.centerGuideline;
+        barcodeScaler = binding.barcodeScaler;
         maximizeButton.setBackgroundColor(getThemeColor());
         minimizeButton.setBackgroundColor(getThemeColor());
         bottomSheetButton.setBackgroundColor(getThemeColor());
@@ -303,7 +306,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         maximizeButton.setOnClickListener(v -> setFullscreen(true));
         minimizeButton.setOnClickListener(v -> setFullscreen(false));
 
-        editButton = findViewById(R.id.fabEdit);
+        editButton = binding.fabEdit;
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();
@@ -512,7 +515,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             textColor = Color.WHITE;
         }
         storeName.setTextColor(textColor);
-        ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
+        binding.toolbarLandscape.setTitleTextColor(textColor);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
@@ -660,8 +663,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setupOrientation() {
-        Toolbar portraitToolbar = findViewById(R.id.toolbar);
-        Toolbar landscapeToolbar = findViewById(R.id.toolbar_landscape);
+        Toolbar portraitToolbar = binding.toolbar;
+        Toolbar landscapeToolbar = binding.toolbarLandscape;
 
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -829,7 +832,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
             collapsingToolbarLayout.setVisibility(View.GONE);
-            findViewById(R.id.toolbar_landscape).setVisibility(View.GONE);
+            binding.toolbarLandscape.setVisibility(View.GONE);
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);

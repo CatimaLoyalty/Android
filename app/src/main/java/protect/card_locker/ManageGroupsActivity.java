@@ -21,8 +21,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.ManageGroupsActivityBinding;
+
 public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
 {
+    private ManageGroupsActivityBinding binding;
     private static final String TAG = "Catima";
 
     private final DBHelper mDb = new DBHelper(this);
@@ -34,9 +37,10 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        binding = ManageGroupsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.groups);
-        setContentView(R.layout.manage_groups_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
@@ -49,12 +53,12 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     protected void onResume() {
         super.onResume();
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        FloatingActionButton addButton = binding.fabAdd;
         addButton.setOnClickListener(v -> createGroup());
         addButton.bringToFront();
 
-        mGroupList = findViewById(R.id.list);
-        mHelpText = findViewById(R.id.helpText);
+        mGroupList = binding.groupMainLayout.list;
+        mHelpText = binding.groupMainLayout.helpText;
 
         // Init group list
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -127,14 +131,9 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         input.requestFocus();
     }
 
-    private String getGroupName(View view) {
-        TextView groupNameTextView = view.findViewById(R.id.name);
-        return (String) groupNameTextView.getText();
-    }
-
-    private void moveGroup(View view, boolean up) {
+    private void moveGroup(TextView name, boolean up) {
         List<Group> groups = mDb.getGroups();
-        final String groupName = getGroupName(view);
+        final String groupName = (String) name.getText();
 
         int currentIndex = mDb.getGroup(groupName).order;
         int newIndex;
@@ -165,18 +164,18 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     @Override
-    public void onMoveDownButtonClicked(View view) {
-        moveGroup(view, false);
+    public void onMoveDownButtonClicked(View view, TextView name) {
+        moveGroup(name, false);
     }
 
     @Override
-    public void onMoveUpButtonClicked(View view) {
-        moveGroup(view, true);
+    public void onMoveUpButtonClicked(View view, TextView name) {
+        moveGroup(name, true);
     }
 
     @Override
-    public void onEditButtonClicked(View view) {
-        final String groupName = getGroupName(view);
+    public void onEditButtonClicked(View view, TextView name) {
+        final String groupName = (String) name.getText();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
@@ -198,8 +197,8 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     @Override
-    public void onDeleteButtonClicked(View view) {
-        final String groupName = getGroupName(view);
+    public void onDeleteButtonClicked(View view, TextView name) {
+        final String groupName = (String) name.getText();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);

@@ -72,8 +72,10 @@ import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
+    private LoyaltyCardEditActivityBinding binding;
     private static final String TAG = "Catima";
 
     private final String STATE_TAB_INDEX = "savedTab";
@@ -185,7 +187,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        tabs = findViewById(R.id.tabs);
+        tabs = binding.tabs;
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
     }
@@ -194,16 +196,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         tempLoyaltyCard = savedInstanceState.getParcelable(STATE_TEMP_CARD);
         super.onRestoreInstanceState(savedInstanceState);
-        tabs = findViewById(R.id.tabs);
+        tabs = binding.tabs;
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = LoyaltyCardEditActivityBinding.inflate(getLayoutInflater());
 
-        setContentView(R.layout.loyalty_card_edit_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -219,28 +222,28 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             currencies.put(currency.getSymbol(), currency);
         }
 
-        tabs = findViewById(R.id.tabs);
-        thumbnail = findViewById(R.id.thumbnail);
-        storeFieldEdit = findViewById(R.id.storeNameEdit);
-        noteFieldEdit = findViewById(R.id.noteEdit);
-        groupsChips = findViewById(R.id.groupChips);
-        expiryField = findViewById(R.id.expiryField);
-        balanceField = findViewById(R.id.balanceField);
-        balanceCurrencyField = findViewById(R.id.balanceCurrencyField);
-        cardIdFieldView = findViewById(R.id.cardIdView);
-        barcodeIdField = findViewById(R.id.barcodeIdField);
-        barcodeTypeField = findViewById(R.id.barcodeTypeField);
-        barcodeImage = findViewById(R.id.barcode);
-        barcodeImageLayout = findViewById(R.id.barcodeLayout);
-        barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
-        cardImageFrontHolder = findViewById(R.id.frontImageHolder);
-        cardImageBackHolder = findViewById(R.id.backImageHolder);
+        tabs = binding.tabs;
+        thumbnail = binding.thumbnail;
+        storeFieldEdit = binding.storeNameEdit;
+        noteFieldEdit = binding.noteEdit;
+        groupsChips = binding.groupChips;
+        expiryField = binding.expiryField;
+        balanceField = binding.balanceField;
+        balanceCurrencyField = binding.balanceCurrencyField;
+        cardIdFieldView = binding.cardIdView;
+        barcodeIdField = binding.barcodeIdField;
+        barcodeTypeField = binding.barcodeTypeField;
+        barcodeImage = binding.barcode;
+        barcodeImageLayout = binding.barcodeLayout;
+        barcodeCaptureLayout = binding.barcodeCaptureLayout;
+        cardImageFrontHolder = binding.frontImageHolder;
+        cardImageBackHolder = binding.backImageHolder;
         cardImageFrontHolder.setId(ID_IMAGE_FRONT);
         cardImageBackHolder.setId(ID_IMAGE_BACK);
-        cardImageFront = findViewById(R.id.frontImage);
-        cardImageBack = findViewById(R.id.backImage);
+        cardImageFront = binding.frontImage;
+        cardImageBack = binding.backImage;
 
-        enterButton = findViewById(R.id.enterButton);
+        enterButton = binding.enterButton;
         cardImageFront.setBackgroundColor(getThemeColor());
         cardImageBack.setBackgroundColor(getThemeColor());
 
@@ -657,7 +660,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageFrontHolder.setOnClickListener(new ChooseCardImage());
         cardImageBackHolder.setOnClickListener(new ChooseCardImage());
 
-        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        FloatingActionButton saveButton = binding.fabSave;
         saveButton.setOnClickListener(v -> doSave());
         saveButton.bringToFront();
 
@@ -1169,9 +1172,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        View cardPart = findViewById(R.id.cardPart);
-        View barcodePart = findViewById(R.id.barcodePart);
-        View picturesPart = findViewById(R.id.picturesPart);
+        View cardPart = binding.cardPart;
+        View barcodePart = binding.barcodePart;
+        View picturesPart = binding.picturesPart;
 
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);

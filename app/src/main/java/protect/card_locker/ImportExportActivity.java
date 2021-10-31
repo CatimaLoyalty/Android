@@ -33,10 +33,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.ImportExportActivityBinding;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
+    private ImportExportActivityBinding binding;
     private static final String TAG = "Catima";
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
@@ -55,9 +57,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ImportExportActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.importExport);
-        setContentView(R.layout.import_export_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -83,7 +86,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         intentCreateDocumentAction.setType("application/zip");
         intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "catima.zip");
 
-        Button exportButton = findViewById(R.id.exportButton);
+        Button exportButton = binding.exportButton;
         exportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +120,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         intentGetContentAction.addCategory(Intent.CATEGORY_OPENABLE);
         intentGetContentAction.setType("*/*");
 
-        Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
+        Button importFilesystem = binding.importOptionFilesystemButton;
         importFilesystem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +131,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         // Check that there is an app that data can be imported from
         final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
 
-        Button importApplication = findViewById(R.id.importOptionApplicationButton);
+        Button importApplication = binding.importOptionApplicationButton;
         importApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,6 +24,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -32,6 +33,7 @@ import protect.card_locker.async.TaskHandler;
  * data and type will be returned to the caller.
  */
 public class BarcodeSelectorActivity extends CatimaAppCompatActivity {
+    private BarcodeSelectorActivityBinding binding;
     private static final String TAG = "Catima";
 
     // Result this activity will return
@@ -48,9 +50,10 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = BarcodeSelectorActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.selectBarcodeTitle);
-        setContentView(R.layout.barcode_selector_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -71,7 +74,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity {
         barcodeViewMap.put(BarcodeFormat.UPC_A.name(), new Pair<>(R.id.upcaBarcode, R.id.upcaBarcodeText));
         barcodeViewMap.put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText));
 
-        EditText cardId = findViewById(R.id.cardId);
+        EditText cardId = binding.cardId;
 
         cardId.addTextChangedListener(new SimpleTextWatcher() {
             @Override
@@ -85,7 +88,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity {
                     runOnUiThread(() -> {
                         generateBarcodes(s.toString());
 
-                        View noBarcodeButtonView = findViewById(R.id.noBarcode);
+                        View noBarcodeButtonView = binding.noBarcode;
                         setButtonListener(noBarcodeButtonView, s.toString());
                         noBarcodeButtonView.setEnabled(s.length() > 0);
                     });

@@ -23,16 +23,20 @@ import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragme
 import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
+import protect.card_locker.databinding.SettingsActivityBinding;
 
 public class SettingsActivity extends CatimaAppCompatActivity
 {
+    private SettingsActivityBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        binding = SettingsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.settings);
-        setContentView(R.layout.settings_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)

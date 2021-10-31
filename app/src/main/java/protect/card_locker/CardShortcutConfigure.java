@@ -16,28 +16,32 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.MainActivityBinding;
+
 /**
  * The configuration screen for creating a shortcut.
  */
 public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener
 {
+    private MainActivityBinding binding;
     static final String TAG = "Catima";
     final DBHelper mDb = new DBHelper(this);
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        binding = MainActivityBinding.inflate(getLayoutInflater());
 
         // Set the result to CANCELED.  This will cause nothing to happen if the
         // aback button is pressed.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.main_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         toolbar.setVisibility(View.GONE);
 
         // Hide new button because it won't work here anyway
-        FloatingActionButton newFab = findViewById(R.id.fabAdd);
+        FloatingActionButton newFab = binding.fabAdd;
         newFab.setVisibility(View.GONE);
 
         final DBHelper db = new DBHelper(this);
@@ -48,7 +52,7 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
             finish();
         }
 
-        final RecyclerView cardList = findViewById(R.id.list);
+        final RecyclerView cardList = binding.contentMainLayout.list;
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         cardList.setLayoutManager(mLayoutManager);

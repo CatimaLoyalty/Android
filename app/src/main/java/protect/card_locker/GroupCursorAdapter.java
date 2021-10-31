@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
+
+import protect.card_locker.databinding.GroupLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder>
@@ -39,10 +41,10 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
 
     @NonNull
     @Override
-    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
+    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(@NonNull ViewGroup inputParent, int inputViewType)
     {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
-        return new GroupListItemViewHolder(itemView);
+        GroupLayoutBinding binding = GroupLayoutBinding.inflate(LayoutInflater.from(inputParent.getContext()), inputParent, false);
+        return new GroupListItemViewHolder(binding);
     }
 
     public Cursor getCursor()
@@ -66,18 +68,18 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
 
     private void applyClickEvents(GroupListItemViewHolder inputHolder)
     {
-        inputHolder.mMoveDown.setOnClickListener(view -> mListener.onMoveDownButtonClicked(inputHolder.itemView));
-        inputHolder.mMoveUp.setOnClickListener(view -> mListener.onMoveUpButtonClicked(inputHolder.itemView));
-        inputHolder.mEdit.setOnClickListener(view -> mListener.onEditButtonClicked(inputHolder.itemView));
-        inputHolder.mDelete.setOnClickListener(view -> mListener.onDeleteButtonClicked(inputHolder.itemView));
+        inputHolder.mMoveDown.setOnClickListener(view -> mListener.onMoveDownButtonClicked(inputHolder.itemView, inputHolder.mName));
+        inputHolder.mMoveUp.setOnClickListener(view -> mListener.onMoveUpButtonClicked(inputHolder.itemView, inputHolder.mName));
+        inputHolder.mEdit.setOnClickListener(view -> mListener.onEditButtonClicked(inputHolder.itemView, inputHolder.mName));
+        inputHolder.mDelete.setOnClickListener(view -> mListener.onDeleteButtonClicked(inputHolder.itemView, inputHolder.mName));
     }
 
     public interface GroupAdapterListener
     {
-        void onMoveDownButtonClicked(View view);
-        void onMoveUpButtonClicked(View view);
-        void onEditButtonClicked(View view);
-        void onDeleteButtonClicked(View view);
+        void onMoveDownButtonClicked(View view, TextView name);
+        void onMoveUpButtonClicked(View view, TextView name);
+        void onEditButtonClicked(View view, TextView name);
+        void onDeleteButtonClicked(View view, TextView name);
     }
 
     public static class GroupListItemViewHolder extends RecyclerView.ViewHolder
@@ -85,14 +87,14 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         public TextView mName, mCardCount;
         public AppCompatImageButton mMoveUp, mMoveDown, mEdit, mDelete;
 
-        public GroupListItemViewHolder(View inputView) {
-            super(inputView);
-            mName = inputView.findViewById(R.id.name);
-            mCardCount = inputView.findViewById(R.id.cardCount);
-            mMoveUp = inputView.findViewById(R.id.moveUp);
-            mMoveDown = inputView.findViewById(R.id.moveDown);
-            mEdit = inputView.findViewById(R.id.edit);
-            mDelete = inputView.findViewById(R.id.delete);
+        public GroupListItemViewHolder(GroupLayoutBinding binding) {
+            super(binding.getRoot());
+            mName = binding.name;
+            mCardCount = binding.cardCount;
+            mMoveUp = binding.moveUp;
+            mMoveDown = binding.moveDown;
+            mEdit = binding.edit;
+            mDelete = binding.delete;
         }
     }
 }

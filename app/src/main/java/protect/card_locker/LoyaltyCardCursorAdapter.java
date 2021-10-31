@@ -22,10 +22,12 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.LoyaltyCardLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
@@ -59,10 +61,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mCursor = inputCursor;
     }
 
+    @NonNull
     @Override
-    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
-        return new LoyaltyCardListItemViewHolder(itemView, mListener);
+    public LoyaltyCardListItemViewHolder onCreateViewHolder(@NonNull ViewGroup inputParent, int inputViewType) {
+        LoyaltyCardLayoutBinding binding = LoyaltyCardLayoutBinding.inflate(LayoutInflater.from(inputParent.getContext()), inputParent, false);
+        return new LoyaltyCardListItemViewHolder(binding, mListener);
     }
 
     public Cursor getCursor() {
@@ -270,23 +273,23 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
 
-        public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
-            super(inputView);
-            mRow = inputView.findViewById(R.id.row);
-            mDivider = inputView.findViewById(R.id.info_divider);
-            mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
-            mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
-            mInformationContainer = inputView.findViewById(R.id.information_container);
-            mStoreField = inputView.findViewById(R.id.store);
-            mNoteField = inputView.findViewById(R.id.note);
-            mBalanceField = inputView.findViewById(R.id.balance);
-            mExpiryField = inputView.findViewById(R.id.expiry);
-            mCardIcon = inputView.findViewById(R.id.thumbnail);
-            mStarIcon = inputView.findViewById(R.id.star);
-            mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
-            inputView.setOnLongClickListener(view -> {
+        public LoyaltyCardListItemViewHolder(LoyaltyCardLayoutBinding binding, CardAdapterListener inputListener) {
+            super(binding.getRoot());
+            mRow = binding.row;
+            mDivider = binding.infoDivider;
+            mThumbnailFrontContainer = binding.thumbnailFront;
+            mThumbnailBackContainer = binding.thumbnailBack;
+            mInformationContainer = binding.informationContainer;
+            mStoreField = binding.store;
+            mNoteField = binding.note;
+            mBalanceField = binding.balance;
+            mExpiryField = binding.expiry;
+            mCardIcon = binding.thumbnail;
+            mStarIcon = binding.star;
+            mTickIcon = binding.selectedThumbnail;
+            binding.row.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
-                inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                binding.row.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             });
         }

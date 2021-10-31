@@ -79,3 +79,4 @@ Help translate the app to your language from [our Hosted Weblate page](https://h
 # Developer Note
 
 This app is based on the great (but no longer developed) [Loyalty Card Keychain](https://github.com/brarcher/loyalty-card-locker) by [Branden Archer](https://github.com/brarcher).
+Thanks.

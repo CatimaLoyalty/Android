@@ -146,11 +146,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     LoyaltyCard tempLoyaltyCard;
 
+    ActivityResultLauncher<Intent> mPhotoTakerLauncher;
+    ActivityResultLauncher<Intent> mPhotoPickerLauncher;
+    ActivityResultLauncher<Intent> mCardIdAndBardCodeEditorLauncher;
+
     ActivityResultLauncher<Intent> mCropperLauncher;
     int mRequestedImage;
     UCrop.Options mCropperOptions;
-    // FIX ME: for until everything is switched to activity launcher callbacks
-    private boolean skipOnce = false;
+
+
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -199,7 +203,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         tabs = findViewById(R.id.tabs);
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
-        savedInstanceState.putInt("skipOnce", skipOnce? 1: 0);
     }
 
     @Override
@@ -522,56 +525,84 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs.selectTab(tabs.getTabAt(0));
 
-        mCropperLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        Intent intent = result.getData();
-                        if (intent == null){
-                            Log.d("cropper", "ucrop returned a null intent");
-                            return;
-                        }
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Uri debugUri = UCrop.getOutput(intent);
-                            if (debugUri == null){
-                                throw new RuntimeException("ucrop returned success but not destination uri!");
-                            }
-                            String cropOutputPath = debugUri.getPath();
-                            Log.d("cropper", "cropper has produced image at " + debugUri.toString());
-                            Bitmap bitmap = BitmapFactory.decodeFile(cropOutputPath);
+        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK) {
+                    startCropper(tempCameraPicturePath);
+            }
 
+        });
 
-                            if (bitmap != null) {
-                                bitmap = Utils.resizeBitmap(bitmap);
-                                try {
-                                    bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(cropOutputPath));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
-                                    setCardImage(cardImageFront, bitmap);
-                                } else {
-                                    setCardImage(cardImageBack, bitmap);
-                                }
-
-                                hasChanged = true;
-                            } else {
-                                Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                            }
-                        }else if(result.getResultCode() == UCrop.RESULT_ERROR){
-                            Throwable e = UCrop.getError(intent);
-                            if (e == null){
-                                throw new RuntimeException("ucrop returned error state but not and error!");
-                            }
-                            Log.e("cropper error", e.toString());
-                        }
+        mPhotoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent == null){
+                        Log.d("photo picker", "photo picker returned without an intent");
+                        return;
                     }
-                });
+                    Uri uri = intent.getData();
+                    startCropperUri(uri);
+            }
 
-        if (savedInstanceState != null) {
-            skipOnce = savedInstanceState.getInt("skipOnce") == 1;
-        }
+        });
+
+        mCardIdAndBardCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK) {
+                Intent intent = result.getData();
+                if (intent == null){
+                    Log.d("barcode card id editor", "barcode and card id editor picker returned without an intent");
+                    return;
+                }
+                BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
+
+                cardId = barcodeValues.content();
+                barcodeType = barcodeValues.format();
+                barcodeId = "";
+            }
+        });
+
+        mCropperLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            Intent intent = result.getData();
+            if (intent == null){
+                Log.d("cropper", "ucrop returned a null intent");
+                return;
+            }
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Uri debugUri = UCrop.getOutput(intent);
+                if (debugUri == null){
+                    throw new RuntimeException("ucrop returned success but not destination uri!");
+                }
+                String cropOutputPath = debugUri.getPath();
+                Log.d("cropper", "cropper has produced image at " + debugUri.toString());
+                Bitmap bitmap = BitmapFactory.decodeFile(cropOutputPath);
+
+
+                if (bitmap != null) {
+                    bitmap = Utils.resizeBitmap(bitmap);
+                    try {
+                        bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(cropOutputPath));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+                        setCardImage(cardImageFront, bitmap);
+                    } else {
+                        setCardImage(cardImageBack, bitmap);
+                    }
+
+                    hasChanged = true;
+                } else {
+                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                }
+            }else if(result.getResultCode() == UCrop.RESULT_ERROR){
+                Throwable e = UCrop.getError(intent);
+                if (e == null){
+                    throw new RuntimeException("ucrop returned error state but not and error!");
+                }
+                Log.e("cropper error", e.toString());
+            }
+        });
+
         mCropperOptions = new UCrop.Options();
         setCropperOptions();
         setCropperTheme();
@@ -579,7 +610,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private void setCropperOptions(){
         mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
-        mCropperOptions.setFreeStyleCropEnabled(true);
+        mCropperOptions.setFreeStyleCropEnabled(false);
     }
 
     private void setCropperTheme(){
@@ -882,8 +913,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, image);
         i.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-
-        startActivityForResult(i, type);
+        mRequestedImage = type;
+        mPhotoTakerLauncher.launch(i);
     }
 
     class EditCardIdAndBarcode implements View.OnClickListener {
@@ -893,7 +924,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             final Bundle b = new Bundle();
             b.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, cardIdFieldView.getText().toString());
             i.putExtras(b);
-            startActivityForResult(i, Utils.BARCODE_SCAN);
+            mCardIdAndBardCodeEditorLauncher.launch(i);
         }
     }
 
@@ -922,7 +953,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             cardOptions.put(getString(R.string.addFromImage), () -> {
                 Intent i = new Intent(Intent.ACTION_PICK);
                 i.setType("image/*");
-                startActivityForResult(i, v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK);
+                mRequestedImage = v.getId() == ID_IMAGE_FRONT ? Utils.CARD_IMAGE_FROM_FILE_FRONT : Utils.CARD_IMAGE_FROM_FILE_BACK;
+                mPhotoPickerLauncher.launch(i);
                 return null;
             });
 
@@ -1131,7 +1163,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
-        skipOnce = true;
         mCropperLauncher.launch(
                 UCrop.of(
                         sourceUri,
@@ -1139,33 +1170,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 ).withOptions(mCropperOptions).getIntent(this)
         );
         return;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-        if(skipOnce){
-            skipOnce = false;
-            return;
-        }
-        if (resultCode == RESULT_OK) {
-            if (requestCode == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || requestCode == Utils.CARD_IMAGE_FROM_CAMERA_BACK) {
-                mRequestedImage = requestCode;
-                startCropper(tempCameraPicturePath);
-            } else if (requestCode == Utils.CARD_IMAGE_FROM_FILE_FRONT || requestCode == Utils.CARD_IMAGE_FROM_FILE_BACK) {
-                mRequestedImage = requestCode;
-                Uri uri = intent.getData();
-                startCropperUri(uri);
-            } else {
-                BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
-
-                cardId = barcodeValues.content();
-                barcodeType = barcodeValues.format();
-                barcodeId = "";
-            }
-        }
-
-        onResume();
     }
 
     private void showBarcode() {

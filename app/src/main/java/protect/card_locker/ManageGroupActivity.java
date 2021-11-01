@@ -35,9 +35,6 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private TextView mHelpText;
     private EditText mGroupNameText;
 
-    private HashMap<Integer, Boolean> mAdapterState;
-    private String mCurrentGroupName;
-
     private boolean mGroupNameNotInUse;
 
     @Override
@@ -54,6 +51,36 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
         mGroupNameText = findViewById(R.id.editTextGroupName);
 
+        mGroupNameText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mGroupNameNotInUse = true;
+                mGroupNameText.setError(null);
+                String currentGroupName = mGroupNameText.getText().toString();
+                if(currentGroupName.trim().length() == 0){
+                    mGroupNameText.setError(getResources().getText(R.string.group_name_is_empty));
+                    return;
+                }
+                if (!mGroup._id.equals(currentGroupName.trim())) {
+                    Group group = mDB.getGroup(currentGroupName.trim());
+                    if (group != null) {
+                        mGroupNameNotInUse = false;
+                        mGroupNameText.setError(getResources().getText(R.string.group_name_already_in_use));
+                    } else {
+                        mGroupNameNotInUse = true;
+                    }
+                }
+            }
+        });
+
         Intent intent = getIntent();
         String groupId = intent.getStringExtra("group");
         if (groupId == null){
@@ -64,16 +91,15 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         if (mGroup == null){
             throw(new IllegalArgumentException("cannot load group " + groupId + " from database"));
         }
+        mGroupNameText.setText(mGroup._id);
+        setTitle(getString(R.string.editGroup, mGroup._id));
         mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
         if (inputSavedInstanceState != null) {
-            ArrayList<Integer> adapterState = inputSavedInstanceState.getIntegerArrayList("mAdapterState");
-            if (adapterState != null) {
-                integerArrayToAdapterState(adapterState);
-            }
-            mCurrentGroupName = inputSavedInstanceState.getString("mCurrentGroupName");
+            mAdapter.importInGroupState(integerArrayToAdapterState(inputSavedInstanceState.getIntegerArrayList("adapterState")));
+            mGroupNameText.setText(inputSavedInstanceState.getString("currentGroupName"));
         }
 
         ActionBar actionBar = getSupportActionBar();
@@ -86,128 +112,58 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         saveButton.setOnClickListener(v -> {
             String currentGroupName = mGroupNameText.getText().toString();
             if(!currentGroupName.trim().equals(mGroup._id)){
-                if(!mGroupNameNotInUse) {
-                    Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT);
-                    toast.show();
+                if(currentGroupName.trim().length() == 0){
+                    Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(currentGroupName.trim().length() == 0){
-                    Toast toast = Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT);
-                    toast.show();
+                if(!mGroupNameNotInUse) {
+                    Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
 
             mAdapter.commitToDatabase();
-            Toast toast = Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT);
             if(!currentGroupName.trim().equals(mGroup._id)){
                 mDB.updateGroup(mGroup._id, currentGroupName.trim());
             }
-            toast.show();
+            Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
             finish();
         });
         mHelpText.setText(getResources().getText(R.string.noGiftCardsGroup));
-    }
-
-    private void checkIfGroupNameIsInUse(){
-        mGroupNameNotInUse = false;
-        String currentGroupName = mGroupNameText.getText().toString();
-        if (!mGroup._id.equals(currentGroupName.trim())) {
-            Group group = mDB.getGroup(currentGroupName.trim());
-            if (group != null) {
-                mGroupNameNotInUse = false;
-                mGroupNameText.setError(getResources().getText(R.string.group_name_already_in_use));
-            } else {
-                mGroupNameNotInUse = true;
-            }
-        }
-    }
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-
-        setTitle(getString(R.string.editGroup, mGroup._id));
-
-        if (mCurrentGroupName == null){
-            mGroupNameText.setText(mGroup._id);
-        }else{
-            mGroupNameText.setText(mCurrentGroupName);
-            checkIfGroupNameIsInUse();
-        }
-
-        mGroupNameText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                mGroupNameText.setError(null);
-                checkIfGroupNameIsInUse();
-            }
-        });
-
-        if (mAdapterState != null){
-            mAdapter.importInGroupState(mAdapterState);
-        }
         updateLoyaltyCardList();
     }
 
-    private ArrayList<Integer> adapterStateToIntegerArray(){
-        ArrayList<Integer> ret = new ArrayList<>(mAdapterState.size() * 2);
-        for (Map.Entry<Integer, Boolean> entry : mAdapterState.entrySet()) {
+    private ArrayList<Integer> adapterStateToIntegerArray(HashMap<Integer, Boolean> adapterState){
+        ArrayList<Integer> ret = new ArrayList<>(adapterState.size() * 2);
+        for (Map.Entry<Integer, Boolean> entry : adapterState.entrySet()) {
             ret.add(entry.getKey());
             ret.add(entry.getValue()?1:0);
         }
         return ret;
     }
 
-    private void integerArrayToAdapterState(ArrayList<Integer> in) {
-        boolean isKey = true;
-        int cardId = 0;
-        mAdapterState = new HashMap<>();
-        for (int value : in) {
-            if (isKey) {
-                cardId = value;
-            } else {
-                mAdapterState.put(cardId, value == 1);
-            }
-            isKey = !isKey;
+    private HashMap<Integer, Boolean> integerArrayToAdapterState(ArrayList<Integer> in) {
+        HashMap<Integer, Boolean> ret = new HashMap<>();
+        if (in.size() % 2 != 0){
+            throw(new RuntimeException("failed restoring adapterState from integer array list"));
         }
-        if(!isKey){
-            throw(new RuntimeException("failed restoring mAdapterState from integer array list"));
+        for(int i = 0;i < in.size(); i += 2){
+            ret.put(in.get(i), in.get(i+1) == 1);
         }
+        return ret;
     }
 
 
     @Override
     protected void onSaveInstanceState (@NonNull Bundle outState){
         super.onSaveInstanceState(outState);
-        if(mAdapterState != null){
-            outState.putIntegerArrayList("mAdapterState", adapterStateToIntegerArray());
-        }
-        if(mCurrentGroupName != null){
-            outState.putString("mCurrentGroupName", mCurrentGroupName);
-        }
 
-    }
-
-    @Override
-    protected void onPause(){
-        super.onPause();
-
-        mAdapterState = mAdapter.exportInGroupState();
-        mCurrentGroupName = mGroupNameText.getText().toString();
+        outState.putIntegerArrayList("adapterState", adapterStateToIntegerArray(mAdapter.exportInGroupState()));
+        outState.putString("currentGroupName", mGroupNameText.getText().toString());
     }
 
     private void updateLoyaltyCardList() {
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor("", null, DBHelper.LoyaltyCardOrder.Alpha, DBHelper.LoyaltyCardOrderDirection.Ascending));
+        mAdapter.swapCursor(mDB.getLoyaltyCardCursor());
 
         if(mAdapter.getCountFromCursor() == 0)
         {

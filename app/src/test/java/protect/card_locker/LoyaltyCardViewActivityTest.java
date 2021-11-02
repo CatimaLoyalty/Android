@@ -263,15 +263,6 @@ public class LoyaltyCardViewActivityTest
         assertNotNull(intent);
         assertEquals(intent.getComponent().getClassName(), ScanActivity.class.getCanonicalName());
 
-        // this confuses the test suit, a activity result with request type 2 gets sent to the activity being tested
-        /*
-        Activity newActivity = Robolectric.buildActivity(ScanActivity.class, intent).create().get();
-
-        final Button manualButton = newActivity.findViewById(R.id.add_manually);
-        manualButton.performClick();
-
-        */
-
         intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
 

@@ -67,7 +67,6 @@ import java.util.concurrent.Callable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -545,7 +544,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         });
 
         mCardIdAndBarCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            Log.d("requestCode", "result arriving at mCardIdAndBarCodeEditorLauncher");
             if (result.getResultCode() == RESULT_OK) {
                 Intent intent = result.getData();
                 if (intent == null){
@@ -1270,12 +1268,5 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         } else {
             throw new UnsupportedOperationException();
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("requestCode: " + requestCode);
-        Log.d("requestCode", "requestCode: " + requestCode);
     }
 }

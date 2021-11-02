@@ -98,18 +98,11 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     }
 
     public void importInGroupState(HashMap<Integer, Boolean> cardIdInGroupMap) {
-        mInGroupOverlay = new HashMap<>();
-        for (Map.Entry<Integer, Boolean> entry: cardIdInGroupMap.entrySet()){
-            mInGroupOverlay.put(entry.getKey(), entry.getValue());
-        }
+        mInGroupOverlay = new HashMap<>(cardIdInGroupMap);
     }
 
     public HashMap<Integer, Boolean> exportInGroupState(){
-        HashMap<Integer, Boolean> ret = new HashMap<>();
-        for (Map.Entry<Integer, Boolean> entry: mInGroupOverlay.entrySet()){
-            ret.put(entry.getKey(), entry.getValue());
-        }
-        return ret;
+        return new HashMap<>(mInGroupOverlay);
     }
 
     public int getCountFromCursor() {

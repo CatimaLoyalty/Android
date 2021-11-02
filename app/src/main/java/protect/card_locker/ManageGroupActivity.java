@@ -129,6 +129,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
             finish();
         });
+        // this setText is here because content_main.xml is reused from main activity
         mHelpText.setText(getResources().getText(R.string.noGiftCardsGroup));
         updateLoyaltyCardList();
     }

@@ -44,6 +44,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop.UCropActivity;
+import com.yalantis.ucrop.model.AspectRatio;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -81,6 +83,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private final String STATE_TAB_INDEX = "savedTab";
     private final String STATE_TEMP_CARD = "tempLoyaltyCard";
+    private final String STATE_REQUESTED_IMAGE = "requestedImage";
+    private final String STATE_TEMP_CAMERA_PICTURE_PATH = "tempCameraPicturePath";
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
@@ -201,6 +205,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         tabs = findViewById(R.id.tabs);
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
+        savedInstanceState.putInt(STATE_REQUESTED_IMAGE, mRequestedImage);
+        savedInstanceState.putString(STATE_TEMP_CAMERA_PICTURE_PATH, tempCameraPicturePath);
     }
 
     @Override
@@ -209,6 +215,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         tabs = findViewById(R.id.tabs);
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
+        mRequestedImage = savedInstanceState.getInt(STATE_REQUESTED_IMAGE);
+        tempCameraPicturePath = savedInstanceState.getString(STATE_TEMP_CAMERA_PICTURE_PATH);
     }
 
     @Override
@@ -608,12 +616,19 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private void setCropperOptions(){
         mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
-        mCropperOptions.setFreeStyleCropEnabled(false);
+        mCropperOptions.setFreeStyleCropEnabled(true);
+        mCropperOptions.setHideBottomControls(false);
+        // needed when bottom controls are hidden
+        //mCropperOptions.setAllowedGestures(UCropActivity.ALL, UCropActivity.ALL, UCropActivity.ALL);
+        mCropperOptions.setAspectRatioOptions(0,
+                new AspectRatio(null, 1, 1),
+                new AspectRatio(getResources().getString(R.string.card),(float)85.6,(float)53.98 )
+        );
     }
 
     private void setCropperTheme(){
         mCropperOptions.setToolbarColor(getResources().getColor(R.color.colorPrimary));
-        mCropperOptions.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+        mCropperOptions.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         mCropperOptions.setToolbarWidgetColor(Color.WHITE);
         mCropperOptions.setActiveControlsWidgetColor(getResources().getColor(R.color.colorPrimary));
     }
@@ -1161,6 +1176,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
+
+        if(mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT){
+            mCropperOptions.setToolbarTitle(getResources().getString(R.string.setFrontImage));
+        }else{
+            mCropperOptions.setToolbarTitle(getResources().getString(R.string.setBackImage));
+        }
+
         mCropperLauncher.launch(
                 UCrop.of(
                         sourceUri,

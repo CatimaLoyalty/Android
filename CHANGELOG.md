@@ -2,6 +2,8 @@
 
 ## Unreleased - 91
 
+- Improved group management support
+
 ## v2.8.1 - 90 (2021-10-27)
 
 - Fix dots in card view having the wrong colour when changing theme manually

@@ -634,7 +634,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
         }
 
-        if(db.getLoyaltyCard(loyaltyCardId) != null) {
+        if(db.getLoyaltyCard(loyaltyCardId).expiry != null) {
 
             Date date2 = db.getLoyaltyCard(loyaltyCardId).expiry;
 

@@ -257,4 +257,8 @@
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>
     <string name="report_error">Report Error</string>
+    <string name="add_reminder">Add reminder</string>
+    <string name="days_before_expiry">Days before expiry :</string>
+    <string name="edit_reminder">Edit Reminder</string>
+
 </resources>

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -25,8 +26,8 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.format.Time;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,10 +36,11 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -46,6 +48,7 @@ import android.widget.Toast;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
@@ -56,7 +59,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
-import java.nio.file.ClosedFileSystemException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -69,7 +71,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
-import java.util.TimeZone;
 import java.util.concurrent.Callable;
 
 import androidx.annotation.NonNull;
@@ -77,6 +78,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
@@ -102,7 +104,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
     public static final String BUNDLE_ADDGROUP = "addGroup";
 
     TabLayout tabs;
-    View getNotificationLinearLayout;
+     View showRemindersLayout;
 
     ImageView thumbnail;
     EditText storeFieldEdit;
@@ -121,14 +123,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
     View cardImageBackHolder;
     ImageView cardImageFront;
     ImageView cardImageBack;
-    EditText notificationDateEdit,notificationTimeEdit;
-    CheckBox getNotificationCheckBox;
     SharedPreferences sharedPreferences;
+    TextView daysTextView,dateReminderView,timeReminderTextView;
 
     Button enterButton;
-    static int hour,minute;
+    Button addReminderBtn;
+    static int hour,minute ,days =1 ;
     static Calendar delay;
-    static long timeInMillis;
+    static long expiryInMillis , reminderDateInMillis ;
+    CardView reminderCardView;
+    ImageButton cancelReminderBtn;
+    static String formattedDate;
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
@@ -156,6 +161,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
     String tempCameraPicturePath;
 
     LoyaltyCard tempLoyaltyCard;
+    private static boolean hasReminderChanged = false;
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
         return new LoyaltyCard(
@@ -221,6 +227,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
+
         if(actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -255,15 +262,20 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         cardImageBackHolder.setId(ID_IMAGE_BACK);
         cardImageFront = findViewById(R.id.frontImage);
         cardImageBack = findViewById(R.id.backImage);
-        getNotificationCheckBox = findViewById(R.id.getNotificationCheckBox);
-        notificationDateEdit = findViewById(R.id.notificationDateEdit);
-        notificationTimeEdit = findViewById(R.id.notificationTimeEdit);
-        getNotificationLinearLayout = findViewById(R.id.getNotificationLinearLayout);
+        addReminderBtn = findViewById(R.id.addReminderBtn);
+        showRemindersLayout = findViewById(R.id.showRemindersLayout);
+        reminderCardView = findViewById(R.id.reminderCardView);
+        daysTextView = findViewById(R.id.daysTextView);
+        dateReminderView = findViewById(R.id.dateReminderView);
+        timeReminderTextView = findViewById(R.id.timeReminderTextView);
+        cancelReminderBtn = findViewById(R.id.cancelReminderBtn);
 
 
         enterButton = findViewById(R.id.enterButton);
         cardImageFront.setBackgroundColor(getThemeColor());
         cardImageBack.setBackgroundColor(getThemeColor());
+
+        showRemindersLayout.setVisibility(View.GONE);
 
         delay = Calendar.getInstance();
         sharedPreferences = getSharedPreferences(getString(R.string.sharedPreferenceDateTime),MODE_PRIVATE);
@@ -289,71 +301,37 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             }
         });
 
-
-        notificationDateEdit.setCursorVisible(false);
-        notificationTimeEdit.setCursorVisible(false);
-        notificationDateEdit.setFocusable(false);
-        notificationTimeEdit.setFocusable(false);
-
-        getNotificationLinearLayout.setVisibility(View.GONE);
-
-        if ( sharedPreferences.getBoolean(loyaltyCardId+"isChecked",false)) {
-
-            getNotificationCheckBox.setChecked(true);
-            getNotificationLinearLayout.setVisibility(View.VISIBLE);
+        addReminderBtn.setOnClickListener(view -> {
 
             Calendar c = Calendar.getInstance();
 
-            long dateInMillis = sharedPreferences.getLong(loyaltyCardId+"DateInMillis",c.getTimeInMillis());
-            int rawHour = sharedPreferences.getInt(loyaltyCardId+"Hour",12);
-            int rawMinute = sharedPreferences.getInt(loyaltyCardId+"Minute",0);
-            String time = formatTime(rawHour,rawMinute);
+            Log.i(TAG, "onCreate: addReminderBtn clicked");
 
-            Date dateTime = new Date(c.getTimeInMillis());
-            Date date = new Date(dateInMillis);
+            if (expiryField.getText().toString().equals("Never")) {
 
-            c.set(Calendar.HOUR_OF_DAY, rawHour);
-            c.set(Calendar.MINUTE, rawMinute);
+                Snackbar.make(getCurrentFocus(),"Set a expiry date!", BaseTransientBottomBar.LENGTH_LONG).show();
 
-          String  formattedDate =DateFormat.getDateInstance(DateFormat.LONG).format(date);
-
-            notificationTimeEdit.setTag(dateTime);
-            notificationTimeEdit.setText(time);
-
-            notificationDateEdit.setTag(date);
-            notificationDateEdit.setText(formattedDate);
-
-        }
-
-        getNotificationCheckBox.setOnCheckedChangeListener((compoundButton, isChecked) -> {
-
-            if (isChecked) {
-                getNotificationLinearLayout.setVisibility(View.VISIBLE);
             }
-            else {
-                getNotificationLinearLayout.setVisibility(View.GONE);
+             else if(expiryInMillis - (24*3600*1000) <= c.getTimeInMillis()) {
+
+                Log.i(TAG, "onCreate: expiryInMillis = "+expiryInMillis);
+                Log.i(TAG, "onCreate: Card Is expired");
+
+                 Snackbar.make(getCurrentFocus(),"Card is expired!",BaseTransientBottomBar.LENGTH_LONG).show();
+            }
+
+             else {
+                NumberPickerFragment pickerFragment = new NumberPickerFragment(showRemindersLayout,loyaltyCardId,addReminderBtn);
+                pickerFragment.show(getSupportFragmentManager(), "NumberPicker");
             }
         });
 
-        notificationDateEdit.setOnClickListener(view -> {
+        cancelReminderBtn.setOnClickListener(view -> {
 
-            Log.i(TAG, "onCreate: dateEdit clicked");
-            Log.i(TAG, "onCreate: tag notify "+notificationDateEdit.getTag());
-
-
-            DialogFragment dialogDateFragment =new DatePickerFragment2(this, (EditText) view);
-
-            dialogDateFragment.show(getSupportFragmentManager(),"NotificationDatePicker");
-
+            showRemindersLayout.setVisibility(View.GONE);
+            addReminderBtn.setText(R.string.add_reminder);
         });
 
-        notificationTimeEdit.setOnClickListener(view -> {
-
-            DialogFragment dialogFragment = new TimePickerFragment(this, (EditText) view);
-            dialogFragment.show(getSupportFragmentManager(),"NotificationTimePicker");
-
-
-        });
 
         expiryField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
@@ -361,9 +339,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                Log.i(TAG, "beforeTextChanged: dateTag +" +notificationDateEdit.getTag());
+
                 Log.i(TAG, "beforeTextChanged: ExpiryTag "+expiryField.getTag());
                 lastValue = s;
+
             }
 
             @Override
@@ -392,6 +371,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
                 expiryField.setAdapter(expiryAdapter);
             }
         });
+
+
 
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
@@ -621,6 +602,46 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
+
+        Log.i(TAG, "onResume : expiryInMillis is set to zero and days to 1 "+expiryInMillis + days);
+        expiryInMillis=0;
+        days =1;
+
+
+        if ( sharedPreferences.getInt(loyaltyCardId+"noOfDays",0) != 0) {
+
+            showRemindersLayout.setVisibility(View.VISIBLE);
+            addReminderBtn.setText(R.string.edit_reminder);
+
+            Calendar c = Calendar.getInstance();
+
+            int noOfDays = sharedPreferences.getInt(loyaltyCardId+"noOfDays",0);
+            formattedDate = sharedPreferences.getString(loyaltyCardId+"formattedDate","January 1,2000");
+            int rawHour = sharedPreferences.getInt(loyaltyCardId+"Hour",12);
+            int rawMinute = sharedPreferences.getInt(loyaltyCardId+"Minute",0);
+            String time = formatTime(rawHour,rawMinute);
+
+            Log.i(TAG, "onCreate: getting values from shared pref " );
+            daysTextView.setText(String.valueOf(noOfDays));
+            dateReminderView.setText(formattedDate);
+            timeReminderTextView.setText(time);
+            days=noOfDays;
+
+            c.set(Calendar.HOUR_OF_DAY, rawHour);
+            c.set(Calendar.MINUTE, rawMinute);
+            Date date = new Date(c.getTimeInMillis());
+            timeReminderTextView.setTag(date);
+
+        }
+
+        if(db.getLoyaltyCard(loyaltyCardId) != null) {
+
+            Date date2 = db.getLoyaltyCard(loyaltyCardId).expiry;
+
+            expiryInMillis = date2.getTime();
+            Log.i(TAG, "onResume: expiryMills " + expiryInMillis);
+
+        }
 
         onResuming = true;
 
@@ -1046,74 +1067,118 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             Date date = new Date(unixTime);
 
             formatExpiryField(context, expiryFieldEdit, date);
+
+            expiryInMillis = unixTime;
         }
     }
 
-    public static class DatePickerFragment2 extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
 
-        final Context context;
-        final EditText DateEdit;
+    public static class  NumberPickerFragment extends DialogFragment  {
+    NumberPicker numberPicker;
+    TextView dateDialogTextView;
+    View showRemindersLayout;
+    int id;
+    Button addReminderBtn;
 
-        DatePickerFragment2(Context context, EditText DateEdit) {
-            this.context = context;
-            this.DateEdit = DateEdit;
+
+        public NumberPickerFragment(View showRemindersLayout , int loyaltyCardId , Button addReminderBtn) {
+            this.showRemindersLayout = showRemindersLayout;
+            id = loyaltyCardId;
+            this.addReminderBtn = addReminderBtn;
         }
 
         @NonNull
         @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
-           Date date = (Date) DateEdit.getTag();
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.number_picker_dialog_layout,null);
 
-            Log.i(TAG, "onCreateDialog: dateObject is "+date);
+            dateDialogTextView = view.findViewById(R.id.dateTextView);
+            numberPicker = view.findViewById(R.id.numberPicker);
 
-            if (date != null) {
-                c.setTime(date);
+            Calendar calendar = Calendar.getInstance();
+            long differenceInMillis = expiryInMillis - calendar.getTimeInMillis();
+
+            int noOfDaysDifference = (int) (differenceInMillis/(1000*3600*24));
+
+            Log.i(TAG, "onCreateDialog: noOfDaysDiff"+noOfDaysDifference);
+
+
+            if(noOfDaysDifference > 365) {
+                noOfDaysDifference = 365;
             }
 
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
+            Log.i(TAG, "onCreateDialog: noOfDaysDifference "+noOfDaysDifference);
+            Log.i(TAG, "onCreateDialog: days = " +days);
 
-           DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+            Log.i(TAG, "onCreateDialog: Number picker dialog created");
 
-           datePickerDialog.getDatePicker().setMinDate(c.getTimeInMillis());
 
-            return datePickerDialog;
-        }
 
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            Calendar c = Calendar.getInstance();
-            c.set(Calendar.YEAR, year);
-            c.set(Calendar.MONTH, month);
-            c.set(Calendar.DAY_OF_MONTH, day);
+            numberPicker.setMaxValue( noOfDaysDifference);
+            numberPicker.setMinValue(1);
+            numberPicker.setValue(days);
 
-            timeInMillis = c.getTimeInMillis();
+            reminderDateInMillis = expiryInMillis  - (1000*3600*24)*(long)days;
 
-            Date date = new Date(timeInMillis);
-            DateEdit.setTag(date);
-            String  formattedDate =DateFormat.getDateInstance(DateFormat.LONG).format(date);
-            DateEdit.setText(formattedDate);
+            Date date = new Date(reminderDateInMillis);
+            formattedDate =DateFormat.getDateInstance(DateFormat.LONG).format(date);
+            dateDialogTextView.setText(formattedDate);
 
-            delay.set(Calendar.YEAR,year);
-            delay.set(Calendar.MONTH,month);
-            delay.set(Calendar.DAY_OF_MONTH,day);
+            numberPicker.setOnValueChangedListener((numberPicker, i, i1) -> {
 
+                days =i1;
+                long cal  = (1000*3600*24)*(long)days;
+                reminderDateInMillis = expiryInMillis - cal;
+
+                Date date1 = new Date(reminderDateInMillis);
+                formattedDate =DateFormat.getDateInstance(DateFormat.LONG).format(date1);
+                dateDialogTextView.setText(formattedDate);
+            });
+
+            delay.setTimeInMillis(reminderDateInMillis);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                builder.setView(view)
+                                        .setTitle(R.string.add_reminder)
+                                        .setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                                Log.i(TAG, "onClick: Set clicked");
+                                                DialogFragment dialogFragment = new TimePickerFragment(getContext(),showRemindersLayout,addReminderBtn);
+                                                dialogFragment.show(getActivity().getSupportFragmentManager(), "TimePicker");
+                                            }
+                                        })
+                                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                Log.i(TAG, "onClick: Cancel clicked");
+                                            }
+                                        });
+                                return builder.create();
         }
     }
 
     public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
         Calendar calendar;
         Context context;
-        EditText timeEdit;
+        View showRemindersLayout;
+        TextView daysTextView,dateReminderView,timeReminderTextView;
+        Button addReminderBtn;
 
-        public TimePickerFragment(Context context, EditText timeEdit) {
+
+        public TimePickerFragment(Context context, View showRemindersLayout, Button addReminderBtn) {
 
             this.context = context;
-            this.timeEdit = timeEdit;
+            this.showRemindersLayout = showRemindersLayout;
+            this.addReminderBtn = addReminderBtn;
+
+            daysTextView = showRemindersLayout.findViewById(R.id.daysTextView);
+            dateReminderView =showRemindersLayout.findViewById(R.id.dateReminderView);
+            timeReminderTextView =showRemindersLayout.findViewById(R.id.timeReminderTextView);
+
         }
 
         @NonNull
@@ -1121,12 +1186,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
             calendar = Calendar.getInstance();
-          Date  dateTime = (Date) timeEdit.getTag();
 
+            Date date = (Date) timeReminderTextView.getTag();
 
-            if (dateTime != null) {
-                calendar.setTime(dateTime);
+            if (date != null) {
+                calendar.setTime(date);
             }
+
 
             hour = calendar.get(Calendar.HOUR_OF_DAY);
             minute = calendar.get(Calendar.MINUTE);
@@ -1140,19 +1206,39 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             calendar.set(Calendar.HOUR_OF_DAY, mhour);
             calendar.set(Calendar.MINUTE, mminute);
 
-            Date date = new Date(calendar.getTimeInMillis());
-            timeEdit.setTag(date);
-            timeEdit.setText( formatTime(mhour, mminute));
             hour = mhour;
             minute = mminute;
+
+            Date date = new Date(calendar.getTimeInMillis());
+            timeReminderTextView.setTag(date);
 
             delay.set(Calendar.HOUR_OF_DAY,mhour);
             delay.set(Calendar.MINUTE,mminute);
 
             Log.i(TAG, "onTimeSet: timeInMillis "+delay.getTimeInMillis());
 
+            showReminders(addReminderBtn);
+            hasReminderChanged = true;
+
         }
+
+        private void showReminders(Button addReminderBtn) {
+
+
+
+            Log.i(TAG, "showReminders: days ="+days);
+
+            daysTextView.setText(String.valueOf(days));
+            dateReminderView.setText(formattedDate);
+            timeReminderTextView.setText(formatTime(hour,minute));
+
+            showRemindersLayout.setVisibility(View.VISIBLE);
+            addReminderBtn.setText(R.string.edit_reminder);
+
+        }
+
     }
+
 
         private static String formatTime(int mhour, int mminute) {
             String sHour,sMinute;
@@ -1182,7 +1268,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
             else {
                 sMinute = String.valueOf(mminute);
             }
-            sHour = mhour+" : ";
+            sHour = mhour+":";
             sMinute +=" "+am_pm;
             sTime = sHour+sMinute;
 
@@ -1202,18 +1288,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
         if (tempLoyaltyCard.cardId.isEmpty()) {
             Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
-            return;
-        }
-
-        String sDate = notificationDateEdit.getText().toString().trim();
-        String sTime = notificationTimeEdit.getText().toString().trim();
-
-        if (getNotificationCheckBox.isChecked()&&sDate.equals("")) {
-            Snackbar.make(notificationDateEdit, R.string.setValidDate, Snackbar.LENGTH_LONG).show();
-            return;
-        }
-        if (getNotificationCheckBox.isChecked()&&sTime.equals("")) {
-            Snackbar.make(notificationTimeEdit,R.string.setValidTime, Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -1252,32 +1326,43 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
         SharedPreferences sharedPreferences = getSharedPreferences("protect.card_locker.dateTime", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(loyaltyCardId +"isChecked",getNotificationCheckBox.isChecked());
 
-        if(getNotificationCheckBox.isChecked()) {
+        if (showRemindersLayout.getVisibility()==View.VISIBLE && hasReminderChanged ) {
 
-            editor.putLong(loyaltyCardId+"DateInMillis",timeInMillis);
+            Log.i(TAG, "doSave: noOfDays " + days);
+            Log.i(TAG, "doSave: hour " + hour);
+            Log.i(TAG, "doSave: minute " + minute);
+            Log.i(TAG, "doSave: formattedDate " + formattedDate);
+
+            editor.putInt(loyaltyCardId + "noOfDays", days);
+            editor.putString(loyaltyCardId + "formattedDate", formattedDate);
             editor.putInt(loyaltyCardId + "Hour", hour);
-            editor.putInt(loyaltyCardId + "Minute",minute);
+            editor.putInt(loyaltyCardId + "Minute", minute);
             scheduleNotification();
+
         }
-        else {
+        if(showRemindersLayout.getVisibility() != View.VISIBLE) {
+            
+            editor.putInt(loyaltyCardId+"noOfDays",0);
+            Log.i(TAG, "doSave: Alarm not saved");
             deleteAlarm();
-            Log.i(TAG, "doSave: Alarm deleted ");
         }
+
         editor.apply();
         finish();
+        hasReminderChanged = false;
     }
 
     private  void scheduleNotification( ) {
 
         Intent intent = new Intent(this,Notification.class);
         intent.putExtra("cardName",storeFieldEdit.getText().toString());
+        intent.putExtra("loyaltyCardId",loyaltyCardId);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this,loyaltyCardId,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP,delay.getTimeInMillis(),pendingIntent);
 
-        Log.i(TAG, "scheduleNotification: getTimeInMillis " +delay.getTimeInMillis());
+        Log.i(TAG, "scheduleNotification: getDelayTimeInMillis " +delay.getTimeInMillis());
     }
 
     @Override
@@ -1340,6 +1425,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         alarmManager.cancel(pendingIntent);
 
         Log.i(TAG, "deleteAlarm: Alarm cancelled for id "+loyaltyCardId);
+        
     }
 
     @Override

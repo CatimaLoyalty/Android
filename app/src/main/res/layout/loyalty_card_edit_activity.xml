@@ -246,66 +246,129 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/inputPadding"
                 android:paddingTop="@dimen/inputPadding"
-                    android:layout_marginTop="23dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="23dp"
+                android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/getNotificationCheckBox"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/get_notification_before"
-                        android:textColor="@android:color/black"
-                        android:checked="false"
-                        android:textSize="18sp"/>
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Reminders"
+                        android:textSize="22sp" />
 
                 </LinearLayout>
 
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?android:attr/listDivider" />
+
                 <LinearLayout
-                    android:id="@+id/getNotificationLinearLayout"
+                    android:id="@+id/showRemindersLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="@dimen/inputPadding"
                     android:paddingTop="@dimen/inputPadding"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
-                    <!-- Notification date -->
+                    <!-- Show reminders -->
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/notificationDate"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/reminderCardView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/date"
-                        android:layout_marginEnd="4dp"
-                        android:layout_weight="1.0">
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp"
+                        android:padding="5dp"
+                        android:layout_weight="70"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginEnd="15dp"
+                        android:visibility="visible">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/notificationDateEdit"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <TextView
+                                android:id="@+id/daysTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp" />
 
-                    <!-- notification time -->
+                            <TextView
+                                android:id="@+id/daysBeforeTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textColor="@android:color/black"
+                                android:layout_marginTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text=" days before expiry date"
+                                android:layout_toEndOf="@id/daysTextView"/>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/notificationTime"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
+                            <TextView
+                                android:id="@+id/dateReminderView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="October 24th, 2021"
+                                android:textSize="14sp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_below="@id/daysBeforeTextView"/>
+
+                            <TextView
+                                android:id="@+id/timeReminderTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12:45 PM"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                android:paddingStart="5dp"
+                                android:textAlignment="center"
+                                android:layout_marginTop="15dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@id/daysBeforeTextView"/>
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageButton
+                        android:id="@+id/cancelReminderBtn"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/time"
-                        android:layout_marginStart="4dp"
-                        android:layout_weight="1.0">
+                        app:srcCompat="@drawable/ic_cancel"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0"
+                        android:background="@android:color/transparent"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/notificationTimeEdit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
+                </LinearLayout>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingTop="@dimen/inputPadding"
+                    android:layout_marginTop="3dp"
+                    android:orientation="vertical">
 
+
+                <Button
+                    android:id="@+id/addReminderBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_reminder"
+                    style="?attr/materialButtonOutlinedStyle"/>
 
                 </LinearLayout>
 
@@ -492,5 +555,7 @@
             </TableLayout>
         </TableLayout>
     </ScrollView>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

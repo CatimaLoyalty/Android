@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
@@ -64,6 +65,7 @@ public class Notification extends BroadcastReceiver {
 
         this.context = context;
         cardName = intent.getStringExtra("cardName");
+        int loyaltyCardId = intent.getIntExtra("loyaltyCardId",-1);
 
         Log.i("Notifications ", "onReceive: broadcast received ");
 
@@ -73,6 +75,10 @@ public class Notification extends BroadcastReceiver {
             createNotificationChannel();
         }
         showNotification();
+
+        SharedPreferences sp = context.getSharedPreferences("protect.card_locker.dateTime",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit() ;
+        editor.putInt(loyaltyCardId + "noOfDays", 0);
 
     }
 }

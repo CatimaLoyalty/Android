@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -117,7 +119,16 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         builder.setView(input);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            mDb.insertGroup(input.getText().toString());
+            String inputString = input.getText().toString().trim();
+            if(inputString.length() == 0){
+                Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (mDb.getGroup(inputString) != null) {
+                Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            mDb.insertGroup(inputString);
             updateGroupList();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
@@ -176,25 +187,9 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
 
     @Override
     public void onEditButtonClicked(View view) {
-        final String groupName = getGroupName(view);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.enter_group_name);
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setText(groupName);
-        builder.setView(input);
-
-        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            String newGroupName = input.getText().toString();
-            mDb.updateGroup(groupName, newGroupName);
-            updateGroupList();
-        });
-        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
-        AlertDialog dialog = builder.create();
-        dialog.show();
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        input.requestFocus();
+        Intent intent = new Intent(this, ManageGroupActivity.class);
+        intent.putExtra("group", getGroupName(view));
+        startActivity(intent);
     }
 
     @Override

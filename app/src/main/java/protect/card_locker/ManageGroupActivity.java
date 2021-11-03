@@ -30,6 +30,9 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private final DBHelper mDB = new DBHelper(this);
     private ManageGroupCursorAdapter mAdapter;
 
+    private final String SAVE_INSTANCE_ADAPTER_STATE = "adapterState";
+    private final String SAVE_INSTANCE_CURRENT_GROUP_NAME = "currentGroupName";
+
     protected Group mGroup = null;
     private RecyclerView mCardList;
     private TextView mHelpText;
@@ -64,14 +67,13 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             public void afterTextChanged(Editable s) {
                 mGroupNameNotInUse = true;
                 mGroupNameText.setError(null);
-                String currentGroupName = mGroupNameText.getText().toString();
-                if(currentGroupName.trim().length() == 0){
+                String currentGroupName = mGroupNameText.getText().toString().trim();
+                if(currentGroupName.length() == 0){
                     mGroupNameText.setError(getResources().getText(R.string.group_name_is_empty));
                     return;
                 }
-                if (!mGroup._id.equals(currentGroupName.trim())) {
-                    Group group = mDB.getGroup(currentGroupName.trim());
-                    if (group != null) {
+                if (!mGroup._id.equals(currentGroupName)) {
+                    if (mDB.getGroup(currentGroupName) != null) {
                         mGroupNameNotInUse = false;
                         mGroupNameText.setError(getResources().getText(R.string.group_name_already_in_use));
                     } else {
@@ -98,8 +100,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         registerForContextMenu(mCardList);
 
         if (inputSavedInstanceState != null) {
-            mAdapter.importInGroupState(integerArrayToAdapterState(inputSavedInstanceState.getIntegerArrayList("adapterState")));
-            mGroupNameText.setText(inputSavedInstanceState.getString("currentGroupName"));
+            mAdapter.importInGroupState(integerArrayToAdapterState(inputSavedInstanceState.getIntegerArrayList(SAVE_INSTANCE_ADAPTER_STATE)));
+            mGroupNameText.setText(inputSavedInstanceState.getString(SAVE_INSTANCE_CURRENT_GROUP_NAME));
         }
 
         ActionBar actionBar = getSupportActionBar();
@@ -110,9 +112,9 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         actionBar.setDisplayShowHomeEnabled(true);
 
         saveButton.setOnClickListener(v -> {
-            String currentGroupName = mGroupNameText.getText().toString();
-            if(!currentGroupName.trim().equals(mGroup._id)){
-                if(currentGroupName.trim().length() == 0){
+            String currentGroupName = mGroupNameText.getText().toString().trim();
+            if(!currentGroupName.equals(mGroup._id)){
+                if(currentGroupName.length() == 0){
                     Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -123,8 +125,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             }
 
             mAdapter.commitToDatabase();
-            if(!currentGroupName.trim().equals(mGroup._id)){
-                mDB.updateGroup(mGroup._id, currentGroupName.trim());
+            if(!currentGroupName.equals(mGroup._id)){
+                mDB.updateGroup(mGroup._id, currentGroupName);
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
             finish();
@@ -159,8 +161,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     protected void onSaveInstanceState (@NonNull Bundle outState){
         super.onSaveInstanceState(outState);
 
-        outState.putIntegerArrayList("adapterState", adapterStateToIntegerArray(mAdapter.exportInGroupState()));
-        outState.putString("currentGroupName", mGroupNameText.getText().toString());
+        outState.putIntegerArrayList(SAVE_INSTANCE_ADAPTER_STATE, adapterStateToIntegerArray(mAdapter.exportInGroupState()));
+        outState.putString(SAVE_INSTANCE_CURRENT_GROUP_NAME, mGroupNameText.getText().toString());
     }
 
     private void updateLoyaltyCardList() {

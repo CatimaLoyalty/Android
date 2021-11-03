@@ -16,9 +16,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.LocaleList;
-import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
 import android.util.Log;
@@ -36,6 +34,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.DialogFragment;
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,7 +51,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 import com.yalantis.ucrop.UCrop;
-import com.yalantis.ucrop.UCropActivity;
 import com.yalantis.ucrop.model.AspectRatio;
 
 import java.io.File;
@@ -66,16 +72,6 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
-
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -84,7 +80,18 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private final String STATE_TAB_INDEX = "savedTab";
     private final String STATE_TEMP_CARD = "tempLoyaltyCard";
     private final String STATE_REQUESTED_IMAGE = "requestedImage";
-    private final String STATE_TEMP_CAMERA_PICTURE_PATH = "tempCameraPicturePath";
+    private final String STATE_FRONT_IMAGE_UNSAVED = "frontImageUnsaved";
+    private final String STATE_BACK_IMAGE_UNSAVED = "backImageUnsaved";
+    private final String STATE_UPDATE_LOYALTY_CARD = "updateLoyaltyCard";
+    private final String STATE_HAS_CHANGED = "hasChange";
+
+    private final String TEMP_CAMERA_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_camera_image.jpg";
+    private final String TEMP_CROP_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_crop_image.png";
+    private final Bitmap.CompressFormat TEMP_CROP_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
+
+    private final String TEMP_UNSAVED_FRONT_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_front_image.png";
+    private final String TEMP_UNSAVED_BACK_IMAGE_NAME= LoyaltyCardEditActivity.class.getSimpleName() + "_back_image.png";
+    private final Bitmap.CompressFormat TEMP_UNSAVED_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
 
     private static final int ID_IMAGE_FRONT = 0;
     private static final int ID_IMAGE_BACK = 1;
@@ -144,19 +151,19 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     HashMap<String, Currency> currencies = new HashMap<>();
 
-    String tempCameraPicturePath;
-
     LoyaltyCard tempLoyaltyCard;
 
-    ActivityResultLauncher<Intent> mPhotoTakerLauncher;
+    ActivityResultLauncher<Uri> mPhotoTakerLauncher;
     ActivityResultLauncher<Intent> mPhotoPickerLauncher;
     ActivityResultLauncher<Intent> mCardIdAndBarCodeEditorLauncher;
 
     ActivityResultLauncher<Intent> mCropperLauncher;
-    int mRequestedImage;
+    int mRequestedImage = 0;
+    int mCropperFinishedType = 0;
     UCrop.Options mCropperOptions;
 
-
+    boolean mFrontImageUnsaved = false;
+    boolean mBackImageUnsaved = false;
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -199,6 +206,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
     }
 
+
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -206,7 +215,20 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
         savedInstanceState.putInt(STATE_REQUESTED_IMAGE, mRequestedImage);
-        savedInstanceState.putString(STATE_TEMP_CAMERA_PICTURE_PATH, tempCameraPicturePath);
+        Object cardImageFrontObj = cardImageFront.getTag();
+        if (mFrontImageUnsaved && (cardImageFrontObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap)cardImageFrontObj, TEMP_UNSAVED_FRONT_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null){
+            savedInstanceState.putInt(STATE_FRONT_IMAGE_UNSAVED, 1);
+        }else{
+            savedInstanceState.putInt(STATE_FRONT_IMAGE_UNSAVED, 0);
+        }
+        Object cardImageBackObj = cardImageBack.getTag();
+        if (mBackImageUnsaved && (cardImageBackObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap)cardImageBackObj, TEMP_UNSAVED_BACK_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null){
+            savedInstanceState.putInt(STATE_BACK_IMAGE_UNSAVED, 1);
+        }else{
+            savedInstanceState.putInt(STATE_BACK_IMAGE_UNSAVED, 0);
+        }
+        savedInstanceState.putInt(STATE_UPDATE_LOYALTY_CARD, updateLoyaltyCard ? 1 : 0);
+        savedInstanceState.putInt(STATE_HAS_CHANGED, hasChanged? 1:0);
     }
 
     @Override
@@ -216,7 +238,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         tabs = findViewById(R.id.tabs);
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
         mRequestedImage = savedInstanceState.getInt(STATE_REQUESTED_IMAGE);
-        tempCameraPicturePath = savedInstanceState.getString(STATE_TEMP_CAMERA_PICTURE_PATH);
+        mFrontImageUnsaved = savedInstanceState.getInt(STATE_FRONT_IMAGE_UNSAVED) == 1;
+        mBackImageUnsaved = savedInstanceState.getInt(STATE_BACK_IMAGE_UNSAVED) == 1;
+        updateLoyaltyCard = savedInstanceState.getInt(STATE_UPDATE_LOYALTY_CARD) == 1;
+        hasChanged = savedInstanceState.getInt(STATE_HAS_CHANGED) == 1;
     }
 
     @Override
@@ -438,7 +463,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     if (!lastValue.toString().equals(getString(R.string.setBarcodeId))) {
                         barcodeIdField.setText(lastValue);
                     }
-                    ;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoyaltyCardEditActivity.this);
                     builder.setTitle(R.string.setBarcodeId);
@@ -531,13 +555,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs.selectTab(tabs.getTabAt(0));
 
-        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getResultCode() == RESULT_OK) {
-                    startCropper(tempCameraPicturePath);
-            }
 
+        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), result->{
+            if (result) {
+                startCropper(getCacheDir() + "/" + TEMP_CAMERA_IMAGE_NAME);
+            }
         });
 
+        // android 11: wanted to swap it to ActivityResultContracts.GetContent but then it shows a file browsers that shows image mime types, offering gallery in the file browser
         mPhotoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
                     Intent intent = result.getData();
@@ -548,7 +573,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     Uri uri = intent.getData();
                     startCropperUri(uri);
             }
-
         });
 
         mCardIdAndBarCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -577,25 +601,20 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (debugUri == null){
                     throw new RuntimeException("ucrop returned success but not destination uri!");
                 }
-                String cropOutputPath = debugUri.getPath();
-                Log.d("cropper", "cropper has produced image at " + debugUri.toString());
-                Bitmap bitmap = BitmapFactory.decodeFile(cropOutputPath);
-
+                Log.d("cropper", "ucrop produced image at " + debugUri);
+                Bitmap bitmap = BitmapFactory.decodeFile(getCacheDir() + "/" + TEMP_CROP_IMAGE_NAME);
 
                 if (bitmap != null) {
                     bitmap = Utils.resizeBitmap(bitmap);
-                    try {
-                        bitmap = Utils.rotateBitmap(bitmap, new ExifInterface(cropOutputPath));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+                    if (requestedFrontImage()) {
+                        mFrontImageUnsaved = true;
                         setCardImage(cardImageFront, bitmap);
                     } else {
+                        mBackImageUnsaved = true;
                         setCardImage(cardImageBack, bitmap);
                     }
-
+                    Log.d("cropper", "mRequestedImage: " + mRequestedImage);
+                    mCropperFinishedType = mRequestedImage;
                     hasChanged = true;
                 } else {
                     Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
@@ -615,7 +634,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     private void setCropperOptions(){
-        mCropperOptions.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
         mCropperOptions.setFreeStyleCropEnabled(true);
         mCropperOptions.setHideBottomControls(false);
         // needed when bottom controls are hidden
@@ -641,6 +660,18 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         extractIntentFields(intent);
     }
 
+    private boolean requestedFrontImage(){
+        return mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT;
+    }
+
+    private boolean croppedFrontImage(){
+        return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_FRONT;
+    }
+
+    private boolean croppedBackImage(){
+        return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_BACK || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_BACK;
+    }
+
     @SuppressLint("DefaultLocale")
     @Override
     public void onResume() {
@@ -649,6 +680,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         Log.i(TAG, "To view card: " + loyaltyCardId);
 
         onResuming = true;
+
 
         if (tempLoyaltyCard == null) {
             if (updateLoyaltyCard) {
@@ -659,9 +691,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     finish();
                     return;
                 }
-                setTitle(R.string.editCardTitle);
-                setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, true));
-                setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
             } else if (importLoyaltyCardUri != null) {
                 try {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
@@ -670,13 +699,36 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     finish();
                     return;
                 }
-                setTitle(R.string.addCardTitle);
             } else {
                 // New card, use default values
                 tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(),100);
-                setTitle(R.string.addCardTitle);
+
             }
         }
+
+        if(!initDone) {
+            if (updateLoyaltyCard) {
+                setTitle(R.string.editCardTitle);
+                if (!mFrontImageUnsaved && !croppedFrontImage()) {
+                    setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, true));
+                }
+                if (!mBackImageUnsaved && !croppedBackImage()) {
+                    setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
+                }
+            }else{
+                setTitle(R.string.addCardTitle);
+            }
+            if(mFrontImageUnsaved && !croppedFrontImage()){
+                setCardImage(cardImageFront, Utils.loadTempImage(this, TEMP_UNSAVED_FRONT_IMAGE_NAME));
+            }
+            if(mBackImageUnsaved && !croppedBackImage()){
+                setCardImage(cardImageBack, Utils.loadTempImage(this, TEMP_UNSAVED_BACK_IMAGE_NAME));
+            }
+        }
+
+        mCropperFinishedType = 0;
+
+        boolean hadChanges = hasChanged;
 
         storeFieldEdit.setText(tempLoyaltyCard.store);
         noteFieldEdit.setText(tempLoyaltyCard.note);
@@ -767,8 +819,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         // Initialization has finished
         if (!initDone) {
-            hasChanged = false;
             initDone = true;
+            hasChanged = hadChanges;
         }
 
         generateOrHideBarcode();
@@ -908,26 +960,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         confirmExitDialog.show();
     }
 
-    private File createTempFile(String prefix, String suffix) throws IOException{
-        String imageFileName = prefix + new Date().getTime();
-        return File.createTempFile(
-                imageFileName,
-                suffix,
-                getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        );
-    }
+
 
     private void takePhotoForCard(int type) throws IOException {
-        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        File image = createTempFile("CATIMA_", ".jpg");
-
-        tempCameraPicturePath = image.getAbsolutePath();
-
-        Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, image);
-        i.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+        Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME));
         mRequestedImage = type;
-        mPhotoTakerLauncher.launch(i);
+
+        mPhotoTakerLauncher.launch(photoURI);
     }
 
     class EditCardIdAndBarcode implements View.OnClickListener {
@@ -1168,12 +1207,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public void startCropperUri(Uri sourceUri){
         Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
         File cropOutput;
-        try {
-            cropOutput = createTempFile("UCROP_", ".jpg");
-        }catch(java.io.IOException e){
-            Log.e("image cropping", "failed creating temporarily file");
-            return;
-        }
+        cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME);
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
 

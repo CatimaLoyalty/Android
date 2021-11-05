@@ -210,4 +210,10 @@
     <string name="ok">OK</string>
     <string name="card_ids_copied">Identificadores dos cartões copiados</string>
     <string name="barcodeImageDescriptionWithType">Imagem do código de barras do cartão do tipo <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Editar grupo</string>
+    <string name="group_name_already_in_use">O nome do grupo já está a ser usado</string>
+    <string name="group_name_is_empty">O nome do grupo não pode estar vazio</string>
+    <string name="group_updated">Grupo atualizado</string>
+    <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
+    <string name="noGiftCardsGroup">Ainda não tem nenhum cartão de fidelidade. Assim que tenha adicionado alguns, pode atribuí-los ao grupo aqui.</string>
 </resources>

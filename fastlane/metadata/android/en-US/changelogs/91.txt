@@ -1,1 +1,3 @@
 - Improved group management support
+- Support cropping images
+- Fix image data loss when saving after rotating in edit view

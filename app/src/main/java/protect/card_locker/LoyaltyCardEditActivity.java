@@ -41,6 +41,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.chip.Chip;
@@ -84,6 +85,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private final String STATE_BACK_IMAGE_UNSAVED = "backImageUnsaved";
     private final String STATE_UPDATE_LOYALTY_CARD = "updateLoyaltyCard";
     private final String STATE_HAS_CHANGED = "hasChange";
+    private final String STATE_FRONT_IMAGE_REMOVED = "frontImageRemoved";
+    private final String STATE_BACK_IMAGE_REMOVED = "backImageRemoved";
 
     private final String TEMP_CAMERA_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_camera_image.jpg";
     private final String TEMP_CROP_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_crop_image.png";
@@ -165,6 +168,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean mFrontImageUnsaved = false;
     boolean mBackImageUnsaved = false;
 
+    boolean mFrontImageRemoved = false;
+    boolean mBackImageRemoved = false;
+
     final private TaskHandler mTasks = new TaskHandler();
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
@@ -228,7 +234,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             savedInstanceState.putInt(STATE_BACK_IMAGE_UNSAVED, 0);
         }
         savedInstanceState.putInt(STATE_UPDATE_LOYALTY_CARD, updateLoyaltyCard ? 1 : 0);
-        savedInstanceState.putInt(STATE_HAS_CHANGED, hasChanged? 1:0);
+        savedInstanceState.putInt(STATE_HAS_CHANGED, hasChanged ? 1 : 0);
+        savedInstanceState.putInt(STATE_FRONT_IMAGE_REMOVED, mFrontImageRemoved ? 1 : 0);
+        savedInstanceState.putInt(STATE_BACK_IMAGE_REMOVED, mBackImageRemoved ? 1 : 0);
     }
 
     @Override
@@ -242,6 +250,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         mBackImageUnsaved = savedInstanceState.getInt(STATE_BACK_IMAGE_UNSAVED) == 1;
         updateLoyaltyCard = savedInstanceState.getInt(STATE_UPDATE_LOYALTY_CARD) == 1;
         hasChanged = savedInstanceState.getInt(STATE_HAS_CHANGED) == 1;
+        mFrontImageRemoved = savedInstanceState.getInt(STATE_FRONT_IMAGE_REMOVED) == 1;
+        mBackImageRemoved = savedInstanceState.getInt(STATE_BACK_IMAGE_REMOVED) == 1;
     }
 
     @Override
@@ -622,26 +632,32 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }else if(result.getResultCode() == UCrop.RESULT_ERROR){
                 Throwable e = UCrop.getError(intent);
                 if (e == null){
-                    throw new RuntimeException("ucrop returned error state but not and error!");
+                    throw new RuntimeException("ucrop returned error state but not an error!");
                 }
                 Log.e("cropper error", e.toString());
             }
         });
 
         mCropperOptions = new UCrop.Options();
-        setCropperOptions();
         setCropperTheme();
     }
 
-    private void setCropperOptions(){
+    // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
+    // https://github.com/Yalantis/uCrop/blob/281c8e6438d81f464d836fc6b500517144af264a/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java#L264
+    // so source width height has to be provided for now, depending on whether future versions of ucrop will support 0x0 as the default option
+    private void setCropperOptions(float sourceWidth, float sourceHeight){
         mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
         mCropperOptions.setFreeStyleCropEnabled(true);
         mCropperOptions.setHideBottomControls(false);
-        // needed when bottom controls are hidden
-        //mCropperOptions.setAllowedGestures(UCropActivity.ALL, UCropActivity.ALL, UCropActivity.ALL);
-        mCropperOptions.setAspectRatioOptions(0,
+        // default aspect ratio workaround
+        int selectedByDefault = 1;
+        if (sourceWidth == 0f && sourceHeight == 0f){
+            selectedByDefault = 0;
+        }
+        mCropperOptions.setAspectRatioOptions(selectedByDefault,
                 new AspectRatio(null, 1, 1),
-                new AspectRatio(getResources().getString(R.string.card),(float)85.6,(float)53.98 )
+                new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
+                new AspectRatio(getResources().getString(R.string.card),85.6f,53.98f )
         );
     }
 
@@ -709,10 +725,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         if(!initDone) {
             if (updateLoyaltyCard) {
                 setTitle(R.string.editCardTitle);
-                if (!mFrontImageUnsaved && !croppedFrontImage()) {
+                if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
                     setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, true));
                 }
-                if (!mBackImageUnsaved && !croppedBackImage()) {
+                if (!mBackImageUnsaved && !croppedBackImage() && !mBackImageRemoved) {
                     setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
                 }
             }else{
@@ -989,6 +1005,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             if (targetView.getTag() != null) {
                 cardOptions.put(getString(R.string.removeImage), () -> {
                     setCardImage(targetView, null);
+                    if (targetView == cardImageFront){
+                        mFrontImageRemoved = true;
+                        mFrontImageUnsaved = false;
+                    }else{
+                        mBackImageRemoved = true;
+                        mBackImageUnsaved = false;
+                    }
                     return null;
                 });
             }
@@ -1206,8 +1229,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
     public void startCropperUri(Uri sourceUri){
         Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
-        File cropOutput;
-        cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME);
+        File cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME);
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
 
@@ -1217,11 +1239,38 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setBackImage));
         }
 
+        // sniff the input image for width and height to work around a ucrop bug
+        Bitmap image = null;
+        try {
+            image = BitmapFactory.decodeStream(getContentResolver().openInputStream(sourceUri));
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+            Log.d("cropper", "failed opening bitmap for initial width and height for ucrop " + sourceUri.toString());
+        }
+        if (image == null){
+            Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
+            setCropperOptions(0f, 0f);
+        }else{
+            try {
+                Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));
+                setCropperOptions(imageRotated.getWidth(), imageRotated.getHeight());
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+                Log.d("cropper", "failed opening image for exif reading before setting initial width and height for ucrop");
+                setCropperOptions(image.getWidth(), image.getHeight());
+            }catch(IOException e){
+                e.printStackTrace();
+                Log.d("cropper", "exif reading failed before setting initial width and height for ucrop");
+                setCropperOptions(image.getWidth(), image.getHeight());
+            }
+        }
+
         mCropperLauncher.launch(
                 UCrop.of(
                         sourceUri,
                         destUri
-                ).withOptions(mCropperOptions).getIntent(this)
+                ).withOptions(mCropperOptions)
+                .getIntent(this)
         );
         return;
     }

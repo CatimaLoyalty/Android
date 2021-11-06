@@ -3,6 +3,8 @@
 ## Unreleased - 91
 
 - Improved group management support
+- Support cropping images
+- Fix image data loss when saving after rotating in edit view
 
 ## v2.8.1 - 90 (2021-10-27)
 

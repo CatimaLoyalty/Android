@@ -25,6 +25,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -410,10 +411,37 @@ public class Utils {
             Configuration config = inputContext.getResources().getConfiguration();
             int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
             return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
-        }else if (nightModeSetting == AppCompatDelegate.MODE_NIGHT_YES){
-            return true;
-        }else{
-            return false;
+        }else {
+            return nightModeSetting == AppCompatDelegate.MODE_NIGHT_YES;
         }
     }
+
+    public static File createTempFile(Context context, String name){
+        return new File(context.getCacheDir() + "/" + name);
+    }
+
+    public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format){
+        File image = createTempFile(context, name);
+        try (FileOutputStream out = new FileOutputStream(image)){
+            in.compress(format, 100, out);
+            return image.getAbsolutePath();
+        }catch(IOException e){
+            Log.d("store temp image", "failed writing temp file for temporary image, name: " + name);
+            return null;
+        }
+    }
+
+    public static Bitmap loadImage(String path){
+        try{
+            return BitmapFactory.decodeStream(new FileInputStream(path));
+        }catch(IOException e){
+            Log.d("load image", "failed loading image from " + path);
+            return null;
+        }
+    }
+
+    public static Bitmap loadTempImage(Context context, String name){
+        return loadImage(context.getCacheDir() + "/" + name);
+    }
+
 }

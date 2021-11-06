@@ -263,11 +263,6 @@ public class LoyaltyCardViewActivityTest
         assertNotNull(intent);
         assertEquals(intent.getComponent().getClassName(), ScanActivity.class.getCanonicalName());
 
-        Activity newActivity = Robolectric.buildActivity(ScanActivity.class, intent).create().get();
-
-        final Button manualButton = newActivity.findViewById(R.id.add_manually);
-        manualButton.performClick();
-
         intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
 
@@ -516,6 +511,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -540,6 +536,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture in failure
         captureBarcodeWithResult(activity, false);
+        activityController.resume();
 
         shadowOf(getMainLooper()).idle();
 
@@ -561,6 +558,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -660,6 +658,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -684,6 +683,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -1136,6 +1136,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete empty barcode selection successfully
         selectBarcodeWithResult(activity, BARCODE_DATA, "", true);
+        activityController.resume();
 
         // Check if the barcode type is NO_BARCODE as expected
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);

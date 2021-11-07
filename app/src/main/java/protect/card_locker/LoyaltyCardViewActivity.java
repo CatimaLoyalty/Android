@@ -47,7 +47,6 @@ import androidx.constraintlayout.widget.Guideline;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
-
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
 
@@ -194,9 +193,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, active ? R.drawable.active_dot : R.drawable.inactive_dot);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
-        if (darkMode){
+        if (darkMode) {
             DrawableCompat.setTint(wrappedIcon, Color.WHITE);
-        }else{
+        } else {
             DrawableCompat.setTint(wrappedIcon, Color.BLACK);
         }
 
@@ -269,7 +268,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser){
+                if (!fromUser) {
                     Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
                     return;
                 }
@@ -796,7 +795,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     /**
      * When enabled, hides the status bar and moves the barcode to the top of the screen.
-     *
+     * <p>
      * The purpose of this function is to make sure the barcode can be scanned from the phone
      * by machines which offer no space to insert the complete device.
      */
@@ -882,6 +881,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             );
         }
 
-        Log.d("setFullScreen","Is full screen enabled? "+enabled+" Zoom Level = "+barcodeScaler.getProgress());
+        Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress());
     }
 }

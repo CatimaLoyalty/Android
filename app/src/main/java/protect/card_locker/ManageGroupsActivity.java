@@ -23,8 +23,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener
-{
+public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
     private static final String TAG = "Catima";
 
     private final DBHelper mDb = new DBHelper(this);
@@ -33,16 +32,14 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     GroupCursorAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.groups);
         setContentView(R.layout.manage_groups_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
@@ -74,8 +71,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         super.onBackPressed();
     }
 
-    private void updateGroupList()
-    {
+    private void updateGroupList() {
         mAdapter.swapCursor(mDb.getGroupCursor());
 
         if (mDb.getGroupCount() == 0) {
@@ -89,8 +85,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         mHelpText.setVisibility(View.GONE);
     }
 
-    private void invalidateHomescreenActiveTab()
-    {
+    private void invalidateHomescreenActiveTab() {
         SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_active_tab),
                 Context.MODE_PRIVATE);
@@ -100,8 +95,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
@@ -112,7 +106,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void createGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -120,7 +114,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
             String inputString = input.getText().toString().trim();
-            if(inputString.length() == 0){
+            if (inputString.length() == 0) {
                 Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                 return;
             }

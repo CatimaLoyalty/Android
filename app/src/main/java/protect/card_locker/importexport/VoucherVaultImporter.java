@@ -31,12 +31,11 @@ import protect.card_locker.Utils;
 /**
  * Class for importing a database from CSV (Comma Separate Values)
  * formatted data.
- *
+ * <p>
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class VoucherVaultImporter implements Importer
-{
+public class VoucherVaultImporter implements Importer {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 

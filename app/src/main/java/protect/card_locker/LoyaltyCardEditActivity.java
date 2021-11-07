@@ -34,16 +34,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
-
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -73,6 +63,15 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.fragment.app.DialogFragment;
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -93,7 +92,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private final Bitmap.CompressFormat TEMP_CROP_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
 
     private final String TEMP_UNSAVED_FRONT_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_front_image.png";
-    private final String TEMP_UNSAVED_BACK_IMAGE_NAME= LoyaltyCardEditActivity.class.getSimpleName() + "_back_image.png";
+    private final String TEMP_UNSAVED_BACK_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_back_image.png";
     private final Bitmap.CompressFormat TEMP_UNSAVED_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
 
     private static final int ID_IMAGE_FRONT = 0;
@@ -186,7 +185,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
-                Utils.getUnixTime(),100
+                Utils.getUnixTime(), 100
         );
     }
 
@@ -213,7 +212,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
 
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -222,15 +220,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
         savedInstanceState.putInt(STATE_REQUESTED_IMAGE, mRequestedImage);
         Object cardImageFrontObj = cardImageFront.getTag();
-        if (mFrontImageUnsaved && (cardImageFrontObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap)cardImageFrontObj, TEMP_UNSAVED_FRONT_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null){
+        if (mFrontImageUnsaved && (cardImageFrontObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap) cardImageFrontObj, TEMP_UNSAVED_FRONT_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null) {
             savedInstanceState.putInt(STATE_FRONT_IMAGE_UNSAVED, 1);
-        }else{
+        } else {
             savedInstanceState.putInt(STATE_FRONT_IMAGE_UNSAVED, 0);
         }
         Object cardImageBackObj = cardImageBack.getTag();
-        if (mBackImageUnsaved && (cardImageBackObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap)cardImageBackObj, TEMP_UNSAVED_BACK_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null){
+        if (mBackImageUnsaved && (cardImageBackObj instanceof Bitmap) && Utils.saveTempImage(this, (Bitmap) cardImageBackObj, TEMP_UNSAVED_BACK_IMAGE_NAME, TEMP_UNSAVED_IMAGE_FORMAT) != null) {
             savedInstanceState.putInt(STATE_BACK_IMAGE_UNSAVED, 1);
-        }else{
+        } else {
             savedInstanceState.putInt(STATE_BACK_IMAGE_UNSAVED, 0);
         }
         savedInstanceState.putInt(STATE_UPDATE_LOYALTY_CARD, updateLoyaltyCard ? 1 : 0);
@@ -566,7 +564,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         tabs.selectTab(tabs.getTabAt(0));
 
 
-        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), result->{
+        mPhotoTakerLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), result -> {
             if (result) {
                 startCropper(getCacheDir() + "/" + TEMP_CAMERA_IMAGE_NAME);
             }
@@ -575,20 +573,20 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         // android 11: wanted to swap it to ActivityResultContracts.GetContent but then it shows a file browsers that shows image mime types, offering gallery in the file browser
         mPhotoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
-                    Intent intent = result.getData();
-                    if (intent == null){
-                        Log.d("photo picker", "photo picker returned without an intent");
-                        return;
-                    }
-                    Uri uri = intent.getData();
-                    startCropperUri(uri);
+                Intent intent = result.getData();
+                if (intent == null) {
+                    Log.d("photo picker", "photo picker returned without an intent");
+                    return;
+                }
+                Uri uri = intent.getData();
+                startCropperUri(uri);
             }
         });
 
         mCardIdAndBarCodeEditorLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
                 Intent intent = result.getData();
-                if (intent == null){
+                if (intent == null) {
                     Log.d("barcode card id editor", "barcode and card id editor picker returned without an intent");
                     return;
                 }
@@ -602,13 +600,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         mCropperLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             Intent intent = result.getData();
-            if (intent == null){
+            if (intent == null) {
                 Log.d("cropper", "ucrop returned a null intent");
                 return;
             }
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Uri debugUri = UCrop.getOutput(intent);
-                if (debugUri == null){
+                if (debugUri == null) {
                     throw new RuntimeException("ucrop returned success but not destination uri!");
                 }
                 Log.d("cropper", "ucrop produced image at " + debugUri);
@@ -629,9 +627,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 } else {
                     Toast.makeText(LoyaltyCardEditActivity.this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                 }
-            }else if(result.getResultCode() == UCrop.RESULT_ERROR){
+            } else if (result.getResultCode() == UCrop.RESULT_ERROR) {
                 Throwable e = UCrop.getError(intent);
-                if (e == null){
+                if (e == null) {
                     throw new RuntimeException("ucrop returned error state but not an error!");
                 }
                 Log.e("cropper error", e.toString());
@@ -645,23 +643,23 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
     // https://github.com/Yalantis/uCrop/blob/281c8e6438d81f464d836fc6b500517144af264a/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java#L264
     // so source width height has to be provided for now, depending on whether future versions of ucrop will support 0x0 as the default option
-    private void setCropperOptions(float sourceWidth, float sourceHeight){
+    private void setCropperOptions(float sourceWidth, float sourceHeight) {
         mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
         mCropperOptions.setFreeStyleCropEnabled(true);
         mCropperOptions.setHideBottomControls(false);
         // default aspect ratio workaround
         int selectedByDefault = 1;
-        if (sourceWidth == 0f && sourceHeight == 0f){
+        if (sourceWidth == 0f && sourceHeight == 0f) {
             selectedByDefault = 0;
         }
         mCropperOptions.setAspectRatioOptions(selectedByDefault,
                 new AspectRatio(null, 1, 1),
                 new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
-                new AspectRatio(getResources().getString(R.string.card),85.6f,53.98f )
+                new AspectRatio(getResources().getString(R.string.card), 85.6f, 53.98f)
         );
     }
 
-    private void setCropperTheme(){
+    private void setCropperTheme() {
         mCropperOptions.setToolbarColor(getResources().getColor(R.color.colorPrimary));
         mCropperOptions.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         mCropperOptions.setToolbarWidgetColor(Color.WHITE);
@@ -676,15 +674,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         extractIntentFields(intent);
     }
 
-    private boolean requestedFrontImage(){
+    private boolean requestedFrontImage() {
         return mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT;
     }
 
-    private boolean croppedFrontImage(){
+    private boolean croppedFrontImage() {
         return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_FRONT;
     }
 
-    private boolean croppedBackImage(){
+    private boolean croppedBackImage() {
         return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_BACK || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_BACK;
     }
 
@@ -717,12 +715,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(),100);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100);
 
             }
         }
 
-        if(!initDone) {
+        if (!initDone) {
             if (updateLoyaltyCard) {
                 setTitle(R.string.editCardTitle);
                 if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
@@ -731,13 +729,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (!mBackImageUnsaved && !croppedBackImage() && !mBackImageRemoved) {
                     setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, false));
                 }
-            }else{
+            } else {
                 setTitle(R.string.addCardTitle);
             }
-            if(mFrontImageUnsaved && !croppedFrontImage()){
+            if (mFrontImageUnsaved && !croppedFrontImage()) {
                 setCardImage(cardImageFront, Utils.loadTempImage(this, TEMP_UNSAVED_FRONT_IMAGE_NAME));
             }
-            if(mBackImageUnsaved && !croppedBackImage()){
+            if (mBackImageUnsaved && !croppedBackImage()) {
                 setCardImage(cardImageBack, Utils.loadTempImage(this, TEMP_UNSAVED_BACK_IMAGE_NAME));
             }
         }
@@ -977,7 +975,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
 
-
     private void takePhotoForCard(int type) throws IOException {
         Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME));
         mRequestedImage = type;
@@ -1005,10 +1002,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             if (targetView.getTag() != null) {
                 cardOptions.put(getString(R.string.removeImage), () -> {
                     setCardImage(targetView, null);
-                    if (targetView == cardImageFront){
+                    if (targetView == cardImageFront) {
                         mFrontImageRemoved = true;
                         mFrontImageUnsaved = false;
-                    }else{
+                    } else {
                         mBackImageRemoved = true;
                         mBackImageUnsaved = false;
                     }
@@ -1224,18 +1221,19 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startCropper(String sourceImagePath){
+    public void startCropper(String sourceImagePath) {
         startCropperUri(Uri.parse("file://" + sourceImagePath));
     }
-    public void startCropperUri(Uri sourceUri){
+
+    public void startCropperUri(Uri sourceUri) {
         Log.d("cropper", "launching cropper with image " + sourceUri.getPath());
         File cropOutput = Utils.createTempFile(this, TEMP_CROP_IMAGE_NAME);
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
 
-        if(mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT){
+        if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setFrontImage));
-        }else{
+        } else {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setBackImage));
         }
 
@@ -1243,22 +1241,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         Bitmap image = null;
         try {
             image = BitmapFactory.decodeStream(getContentResolver().openInputStream(sourceUri));
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.d("cropper", "failed opening bitmap for initial width and height for ucrop " + sourceUri.toString());
         }
-        if (image == null){
+        if (image == null) {
             Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
             setCropperOptions(0f, 0f);
-        }else{
+        } else {
             try {
                 Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));
                 setCropperOptions(imageRotated.getWidth(), imageRotated.getHeight());
-            }catch(FileNotFoundException e){
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 Log.d("cropper", "failed opening image for exif reading before setting initial width and height for ucrop");
                 setCropperOptions(image.getWidth(), image.getHeight());
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
                 Log.d("cropper", "exif reading failed before setting initial width and height for ucrop");
                 setCropperOptions(image.getWidth(), image.getHeight());
@@ -1270,7 +1268,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         sourceUri,
                         destUri
                 ).withOptions(mCropperOptions)
-                .getIntent(this)
+                        .getIntent(this)
         );
         return;
     }
@@ -1296,7 +1294,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     private void generateBarcode(String cardIdString, CatimaBarcode barcodeFormat) {
         mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
-        
+
         if (barcodeImage.getHeight() == 0) {
             Log.d(TAG, "ImageView size is not known known at start, waiting for load");
             // The size of the ImageView is not yet available as it has not

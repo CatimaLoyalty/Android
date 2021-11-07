@@ -12,18 +12,13 @@ public class CSVHelpers {
      * if it is not null. Otherwise, a FormatException is thrown.
      */
     static String extractString(String key, CSVRecord record, String defaultValue)
-            throws FormatException
-    {
+            throws FormatException {
         String toReturn = defaultValue;
 
-        if(record.isMapped(key))
-        {
+        if (record.isMapped(key)) {
             toReturn = record.get(key);
-        }
-        else
-        {
-            if(defaultValue == null)
-            {
+        } else {
+            if (defaultValue == null) {
                 throw new FormatException("Field not used but expected: " + key);
             }
         }
@@ -38,25 +33,19 @@ public class CSVHelpers {
      * int, a FormatException is thrown.
      */
     static Integer extractInt(String key, CSVRecord record, boolean nullIsOk)
-            throws FormatException
-    {
-        if(record.isMapped(key) == false)
-        {
+            throws FormatException {
+        if (record.isMapped(key) == false) {
             throw new FormatException("Field not used but expected: " + key);
         }
 
         String value = record.get(key);
-        if(value.isEmpty() && nullIsOk)
-        {
+        if (value.isEmpty() && nullIsOk) {
             return null;
         }
 
-        try
-        {
+        try {
             return Integer.parseInt(record.get(key));
-        }
-        catch(NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             throw new FormatException("Failed to parse field: " + key, e);
         }
     }
@@ -68,25 +57,19 @@ public class CSVHelpers {
      * int, a FormatException is thrown.
      */
     static Long extractLong(String key, CSVRecord record, boolean nullIsOk)
-            throws FormatException
-    {
-        if(record.isMapped(key) == false)
-        {
+            throws FormatException {
+        if (record.isMapped(key) == false) {
             throw new FormatException("Field not used but expected: " + key);
         }
 
         String value = record.get(key);
-        if(value.isEmpty() && nullIsOk)
-        {
+        if (value.isEmpty() && nullIsOk) {
             return null;
         }
 
-        try
-        {
+        try {
             return Long.parseLong(record.get(key));
-        }
-        catch(NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             throw new FormatException("Failed to parse field: " + key, e);
         }
     }

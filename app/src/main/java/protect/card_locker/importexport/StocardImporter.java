@@ -33,22 +33,19 @@ import protect.card_locker.ZipUtils;
 /**
  * Class for importing a database from CSV (Comma Separate Values)
  * formatted data.
- *
+ * <p>
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class StocardImporter implements Importer
-{
+public class StocardImporter implements Importer {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, String>> providers = new HashMap<>();
 
         final CSVParser parser = new CSVParser(new InputStreamReader(context.getResources().openRawResource(R.raw.stocard_stores), StandardCharsets.UTF_8), CSVFormat.RFC4180.builder().setHeader().build());
 
-        try
-        {
-            for (CSVRecord record : parser)
-            {
+        try {
+            for (CSVRecord record : parser) {
                 HashMap<String, String> recordData = new HashMap<>();
                 recordData.put("name", record.get("name"));
                 recordData.put("barcodeFormat", record.get("barcodeFormat"));
@@ -57,7 +54,7 @@ public class StocardImporter implements Importer
             }
 
             parser.close();
-        } catch(IllegalArgumentException|IllegalStateException e) {
+        } catch (IllegalArgumentException | IllegalStateException e) {
             throw new FormatException("Issue parsing CSV data", e);
         }
 
@@ -72,7 +69,7 @@ public class StocardImporter implements Importer
             String[] nameParts = fileName.split("/");
 
             if (providersFileName == null) {
-                providersFileName = new String[] {
+                providersFileName = new String[]{
                         nameParts[0],
                         "sync",
                         "data",
@@ -80,7 +77,7 @@ public class StocardImporter implements Importer
                         nameParts[0],
                         "analytics-properties.json"
                 };
-                cardBaseName = new String[] {
+                cardBaseName = new String[]{
                         nameParts[0],
                         "sync",
                         "data",
@@ -111,9 +108,9 @@ public class StocardImporter implements Importer
                                 cardName,
                                 "_providerId",
                                 jsonObject
-                                    .getJSONObject("input_provider_reference")
-                                    .getString("identifier")
-                                    .substring("/loyalty-card-providers/".length())
+                                        .getJSONObject("input_provider_reference")
+                                        .getString("identifier")
+                                        .substring("/loyalty-card-providers/".length())
                         );
 
                         if (jsonObject.has("input_barcode_format")) {
@@ -131,7 +128,7 @@ public class StocardImporter implements Importer
                             cardName,
                             "note",
                             ZipUtils.readJSON(zipInputStream)
-                                .getString("content")
+                                    .getString("content")
                     );
                 } else if (fileName.endsWith("/images/front.png")) {
                     loyaltyCardHashMap = appendToLoyaltyCardHashMap(

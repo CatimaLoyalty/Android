@@ -35,8 +35,7 @@ public class LoyaltyCard implements Parcelable {
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
                        @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed,final int zoomLevel)
-    {
+                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed, final int zoomLevel) {
         this.id = id;
         this.store = store;
         this.note = note;
@@ -88,8 +87,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(zoomLevel);
     }
 
-    public static LoyaltyCard toLoyaltyCard(Cursor cursor)
-    {
+    public static LoyaltyCard toLoyaltyCard(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
         String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
@@ -110,27 +108,23 @@ public class LoyaltyCard implements Parcelable {
         Date expiry = null;
         Integer headerColor = null;
 
-        if (cursor.isNull(barcodeTypeColumn) == false)
-        {
+        if (cursor.isNull(barcodeTypeColumn) == false) {
             barcodeType = CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn));
         }
 
-        if (cursor.isNull(balanceTypeColumn) == false)
-        {
+        if (cursor.isNull(balanceTypeColumn) == false) {
             balanceType = Currency.getInstance(cursor.getString(balanceTypeColumn));
         }
 
-        if(expiryLong > 0)
-        {
+        if (expiryLong > 0) {
             expiry = new Date(expiryLong);
         }
 
-        if(cursor.isNull(headerColorColumn) == false)
-        {
+        if (cursor.isNull(headerColorColumn) == false) {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed,zoomLevel);
+        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel);
     }
 
     @Override

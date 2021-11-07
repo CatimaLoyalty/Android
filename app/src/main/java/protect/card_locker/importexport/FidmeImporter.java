@@ -3,8 +3,6 @@ package protect.card_locker.importexport;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.google.zxing.BarcodeFormat;
-
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
 
@@ -23,12 +21,11 @@ import java.text.ParseException;
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
-import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
  * formatted data.
- *
+ * <p>
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */

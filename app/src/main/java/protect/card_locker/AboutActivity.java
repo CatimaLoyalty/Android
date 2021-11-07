@@ -24,22 +24,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.text.HtmlCompat;
 
-public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener
-{
+public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener {
     private static final String TAG = "Catima";
     ConstraintLayout version_history, translate, license, repo, privacy, error, credits, rate;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.about);
         setContentView(R.layout.about_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -59,7 +56,8 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
                 contributors.append("<br/>");
                 contributors.append(tmp);
             }
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+        }
 
         final List<ThirdPartyInfo> USED_LIBRARIES = new ArrayList<>();
         USED_LIBRARIES.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
@@ -73,14 +71,12 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         USED_ASSETS.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
 
         StringBuilder libs = new StringBuilder().append("<br/>");
-        for (ThirdPartyInfo entry : USED_LIBRARIES)
-        {
+        for (ThirdPartyInfo entry : USED_LIBRARIES) {
             libs.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
         }
 
         StringBuilder resources = new StringBuilder().append("<br/>");
-        for (ThirdPartyInfo entry : USED_ASSETS)
-        {
+        for (ThirdPartyInfo entry : USED_ASSETS) {
             resources.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
         }
 
@@ -88,13 +84,10 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         int year = Calendar.getInstance().get(Calendar.YEAR);
 
         String version = "?";
-        try
-        {
+        try {
             PackageInfo pi = getPackageManager().getPackageInfo(getPackageName(), 0);
             version = pi.versionName;
-        }
-        catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             Log.w(TAG, "Package name not found", e);
         }
 
@@ -134,13 +127,13 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         credits.setOnClickListener(view -> new AlertDialog.Builder(this)
                 .setTitle(R.string.credits)
                 .setMessage(contributorInfo.toString())
-                .setPositiveButton(R.string.ok, (dialogInterface, i) -> {})
+                .setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                })
                 .show());
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
             finish();

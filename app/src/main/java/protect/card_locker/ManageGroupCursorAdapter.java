@@ -14,7 +14,8 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     private HashMap<Integer, List<Group>> mGetGroupCache;
     final private Group mGroup;
     final private DBHelper mDb;
-    public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group){
+
+    public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group) {
         super(inputContext, inputCursor, inputListener);
         mGroup = new Group(group._id, group.order);
         mInGroupOverlay = new HashMap<>();
@@ -30,10 +31,10 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     }
 
     @Override
-    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor){
+    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
         Boolean overlayValue = mInGroupOverlay.get(loyaltyCard.id);
-        if((overlayValue != null? overlayValue: isLoyaltyCardInGroup(loyaltyCard.id))) {
+        if ((overlayValue != null ? overlayValue : isLoyaltyCardInGroup(loyaltyCard.id))) {
             mAnimationItemsIndex.put(inputCursor.getPosition(), true);
             mSelectedItems.put(inputCursor.getPosition(), true);
         }
@@ -41,9 +42,9 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         super.onBindViewHolder(inputHolder, inputCursor);
     }
 
-    private List<Group> getGroups(int cardId){
+    private List<Group> getGroups(int cardId) {
         List<Group> cache = mGetGroupCache.get(cardId);
-        if(cache != null){
+        if (cache != null) {
             return cache;
         }
         List<Group> groups = mDb.getLoyaltyCardGroups(cardId);
@@ -51,13 +52,13 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         return groups;
     }
 
-    private boolean isLoyaltyCardInGroup(int cardId){
+    private boolean isLoyaltyCardInGroup(int cardId) {
         Boolean cache = mIsLoyaltyCardInGroupCache.get(cardId);
-        if(cache != null){
+        if (cache != null) {
             return cache;
         }
         List<Group> groups = getGroups(cardId);
-        if (groups.contains(mGroup)){
+        if (groups.contains(mGroup)) {
             mIsLoyaltyCardInGroupCache.put(cardId, true);
             return true;
         }
@@ -66,16 +67,16 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     }
 
     @Override
-    public void toggleSelection(int inputPosition){
+    public void toggleSelection(int inputPosition) {
         super.toggleSelection(inputPosition);
         Integer cardId = mIndexCardMap.get(inputPosition);
-        if (cardId == null){
-            throw(new RuntimeException("cardId should not be null here"));
+        if (cardId == null) {
+            throw (new RuntimeException("cardId should not be null here"));
         }
         Boolean overlayValue = mInGroupOverlay.get(cardId);
-        if (overlayValue == null){
+        if (overlayValue == null) {
             mInGroupOverlay.put(cardId, !isLoyaltyCardInGroup(cardId));
-        }else{
+        } else {
             mInGroupOverlay.remove(cardId);
         }
     }
@@ -84,13 +85,13 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         return mInGroupOverlay.size() > 0;
     }
 
-    public void commitToDatabase(){
-        for(Map.Entry<Integer, Boolean> entry: mInGroupOverlay.entrySet()){
+    public void commitToDatabase() {
+        for (Map.Entry<Integer, Boolean> entry : mInGroupOverlay.entrySet()) {
             int cardId = entry.getKey();
             List<Group> groups = getGroups(cardId);
-            if(entry.getValue()){
+            if (entry.getValue()) {
                 groups.add(mGroup);
-            }else{
+            } else {
                 groups.remove(mGroup);
             }
             mDb.setLoyaltyCardGroups(cardId, groups);
@@ -101,7 +102,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         mInGroupOverlay = new HashMap<>(cardIdInGroupMap);
     }
 
-    public HashMap<Integer, Boolean> exportInGroupState(){
+    public HashMap<Integer, Boolean> exportInGroupState() {
         return new HashMap<>(mInGroupOverlay);
     }
 

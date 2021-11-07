@@ -905,7 +905,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             imageView.setImageBitmap(bitmap);
             new Palette.Builder(bitmap).generate(palette -> {
                 if (palette != null) {
-                    updateTempState(LoyaltyCardField.headerColor, palette.getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.color.colorPrimary));
+                    updateTempState(LoyaltyCardField.headerColor, palette.getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
                 }
             });
         } else if (applyFallback) {

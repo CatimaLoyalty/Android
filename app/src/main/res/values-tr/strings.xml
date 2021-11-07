@@ -216,4 +216,6 @@
     <string name="group_edit">Grubu Düzenle</string>
     <string name="group_name_is_empty">Grup adı boş olamaz</string>
     <string name="group_updated">Grup güncellendi</string>
+    <string name="selectColor">Renk seç</string>
+    <string name="setIcon">Simge ayarla</string>
 </resources>

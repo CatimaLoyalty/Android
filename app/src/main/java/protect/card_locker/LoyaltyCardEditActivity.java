@@ -637,6 +637,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     } else {
                         mIconUnsaved = true;
                         setCardImage(thumbnail, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_SMALL), false);
+                        thumbnail.setBackgroundColor(Color.TRANSPARENT);
                     }
                     Log.d("cropper", "mRequestedImage: " + mRequestedImage);
                     mCropperFinishedType = mRequestedImage;
@@ -1016,7 +1017,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
 
-    private void takePhotoForCard(int type) throws IOException {
+    private void takePhotoForCard(int type) {
         Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME));
         mRequestedImage = type;
 
@@ -1384,7 +1385,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 ).withOptions(mCropperOptions)
                         .getIntent(this)
         );
-        return;
     }
 
     private void showBarcode() {

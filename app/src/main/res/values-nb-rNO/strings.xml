@@ -162,7 +162,7 @@
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Slett dette kortet for godt\?</item>
+        <item quantity="one">Slett dette <xliff:g>%d</xliff:g> kortet for godt\?</item>
         <item quantity="other">Slett disse <xliff:g>%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
@@ -210,4 +210,10 @@
     <string name="credits">Bidragsytere</string>
     <string name="exportPassword">Sett et passord for å beskytte eksporten din (valgfritt)</string>
     <string name="exportPasswordHint">Skriv inn passord</string>
+    <string name="group_edit">Rediger gruppe</string>
+    <string name="group_name_already_in_use">Gruppenavn allerede i bruk</string>
+    <string name="group_updated">Gruppe oppdatert</string>
+    <string name="group_name_is_empty">Gruppenavn kan ikke være tomt</string>
+    <string name="editGroup">Redigerer gruppe: <xliff:g>%s</xliff:g></string>
+    <string name="noGiftCardsGroup">Du har ingen lojalitetskort enda. Når du først har det kan du legge dem til i en gruppe her.</string>
 </resources>

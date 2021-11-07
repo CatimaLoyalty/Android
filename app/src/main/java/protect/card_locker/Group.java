@@ -4,8 +4,7 @@ import android.database.Cursor;
 
 import androidx.annotation.Nullable;
 
-public class Group
-{
+public class Group {
     public final String _id;
     public final int order;
 
@@ -14,8 +13,7 @@ public class Group
         this.order = order;
     }
 
-    public static Group toGroup(Cursor cursor)
-    {
+    public static Group toGroup(Cursor cursor) {
         String _id = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ID));
         int order = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ORDER));
 
@@ -24,18 +22,18 @@ public class Group
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        if (obj == null){
+        if (obj == null) {
             return false;
         }
-        if (!(obj instanceof Group)){
+        if (!(obj instanceof Group)) {
             return false;
         }
-        Group anotherGroup = (Group)obj;
+        Group anotherGroup = (Group) obj;
         return _id.equals(anotherGroup._id) && order == anotherGroup.order;
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         String combined = _id + "_" + order;
         return combined.hashCode();
     }

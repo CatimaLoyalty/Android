@@ -24,19 +24,16 @@ import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 
-public class SettingsActivity extends CatimaAppCompatActivity
-{
+public class SettingsActivity extends CatimaAppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.settings);
         setContentView(R.layout.settings_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -48,12 +45,10 @@ public class SettingsActivity extends CatimaAppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == android.R.id.home)
-        {
+        if (id == android.R.id.home) {
             finish();
             return true;
         }
@@ -61,8 +56,7 @@ public class SettingsActivity extends CatimaAppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat
-    {
+    public static class SettingsFragment extends PreferenceFragmentCompat {
         private static final String DIALOG_FRAGMENT_TAG = "SettingsFragment";
 
         @Override

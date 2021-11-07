@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
@@ -93,11 +92,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
-            int drawableSize = dpToPx((size*24)/14, mContext);
+            int drawableSize = dpToPx((size * 24) / 14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
             Drawable balanceIcon = inputHolder.mBalanceField.getCompoundDrawables()[0];
-            balanceIcon.setBounds(0,0,drawableSize,drawableSize);
+            balanceIcon.setBounds(0, 0, drawableSize, drawableSize);
             inputHolder.mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
             if (mDarkModeEnabled) {
                 balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
@@ -109,11 +108,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (loyaltyCard.expiry != null) {
-            int drawableSize = dpToPx((size*24)/14, mContext);
+            int drawableSize = dpToPx((size * 24) / 14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);
             Drawable expiryIcon = inputHolder.mExpiryField.getCompoundDrawables()[0];
-            expiryIcon.setBounds(0,0, drawableSize, drawableSize);
+            expiryIcon.setBounds(0, 0, drawableSize, drawableSize);
             inputHolder.mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
             if (Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
@@ -136,8 +135,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mCardIcon.setBackgroundColor(loyaltyCard.headerColor);
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
-
-        int imageSize = dpToPx( (size*46)/14, mContext);
+        int imageSize = dpToPx((size * 46) / 14, mContext);
         inputHolder.mCardIcon.getLayoutParams().height = imageSize;
         inputHolder.mCardIcon.getLayoutParams().width = imageSize;
         inputHolder.mStarIcon.getLayoutParams().height = imageSize;
@@ -146,27 +144,27 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mTickIcon.getLayoutParams().width = imageSize;
 
         /* Changing Padding and Mragin of different views according to font size
-        * Views Included:
-        * a) InformationContainer padding
-        * b) Store left padding
-        * c) Divider Margin
-        * d) note top margin
-        * e) row margin
-        * */
-        int marginPaddingSize = dpToPx((size*16)/14, mContext );
+         * Views Included:
+         * a) InformationContainer padding
+         * b) Store left padding
+         * c) Divider Margin
+         * d) note top margin
+         * e) row margin
+         * */
+        int marginPaddingSize = dpToPx((size * 16) / 14, mContext);
         inputHolder.mInformationContainer.setPadding(marginPaddingSize, marginPaddingSize, marginPaddingSize, marginPaddingSize);
         inputHolder.mStoreField.setPadding(marginPaddingSize, 0, 0, 0);
-        LinearLayout.LayoutParams lpDivider = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT );
+        LinearLayout.LayoutParams lpDivider = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
         lpDivider.setMargins(0, marginPaddingSize, 0, marginPaddingSize);
         inputHolder.mDivider.setLayoutParams(lpDivider);
-        LinearLayout.LayoutParams lpNoteField = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT );
-        lpNoteField.setMargins(0, marginPaddingSize/2, 0, 0);
+        LinearLayout.LayoutParams lpNoteField = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        lpNoteField.setMargins(0, marginPaddingSize / 2, 0, 0);
         inputHolder.mNoteField.setLayoutParams(lpNoteField);
-        LinearLayout.LayoutParams lpRow = new LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT );
-        lpRow.setMargins(marginPaddingSize/2, marginPaddingSize/2, marginPaddingSize/2, marginPaddingSize/2);
+        LinearLayout.LayoutParams lpRow = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        lpRow.setMargins(marginPaddingSize / 2, marginPaddingSize / 2, marginPaddingSize / 2, marginPaddingSize / 2);
         inputHolder.mRow.setLayoutParams(lpRow);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
@@ -301,9 +299,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
     }
 
-    public int dpToPx(int dp, Context mContext){
+    public int dpToPx(int dp, Context mContext) {
         Resources r = mContext.getResources();
-        int px = (int)TypedValue.applyDimension( TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
         return px;
     }
 }

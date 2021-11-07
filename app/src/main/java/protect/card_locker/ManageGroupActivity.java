@@ -2,7 +2,6 @@ package protect.card_locker;
 
 
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,8 +23,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener
-{
+public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
 
     private final DBHelper mDB = new DBHelper(this);
     private ManageGroupCursorAdapter mAdapter;
@@ -41,8 +39,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private boolean mGroupNameNotInUse;
 
     @Override
-    protected void onCreate(Bundle inputSavedInstanceState)
-    {
+    protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
         setContentView(R.layout.activity_manage_group);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -68,7 +65,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
                 mGroupNameNotInUse = true;
                 mGroupNameText.setError(null);
                 String currentGroupName = mGroupNameText.getText().toString().trim();
-                if(currentGroupName.length() == 0){
+                if (currentGroupName.length() == 0) {
                     mGroupNameText.setError(getResources().getText(R.string.group_name_is_empty));
                     return;
                 }
@@ -85,13 +82,13 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
         Intent intent = getIntent();
         String groupId = intent.getStringExtra("group");
-        if (groupId == null){
-            throw(new IllegalArgumentException("this activity expects a group loaded into it's intent"));
+        if (groupId == null) {
+            throw (new IllegalArgumentException("this activity expects a group loaded into it's intent"));
         }
         Log.d("groupId", "groupId: " + groupId);
         mGroup = mDB.getGroup(groupId);
-        if (mGroup == null){
-            throw(new IllegalArgumentException("cannot load group " + groupId + " from database"));
+        if (mGroup == null) {
+            throw (new IllegalArgumentException("cannot load group " + groupId + " from database"));
         }
         mGroupNameText.setText(mGroup._id);
         setTitle(getString(R.string.editGroup, mGroup._id));
@@ -105,27 +102,27 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
 
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null){
-            throw(new RuntimeException("mActionBar is not expected to be null here"));
+        if (actionBar == null) {
+            throw (new RuntimeException("mActionBar is not expected to be null here"));
         }
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
         saveButton.setOnClickListener(v -> {
             String currentGroupName = mGroupNameText.getText().toString().trim();
-            if(!currentGroupName.equals(mGroup._id)){
-                if(currentGroupName.length() == 0){
+            if (!currentGroupName.equals(mGroup._id)) {
+                if (currentGroupName.length() == 0) {
                     Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!mGroupNameNotInUse) {
+                if (!mGroupNameNotInUse) {
                     Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
 
             mAdapter.commitToDatabase();
-            if(!currentGroupName.equals(mGroup._id)){
+            if (!currentGroupName.equals(mGroup._id)) {
                 mDB.updateGroup(mGroup._id, currentGroupName);
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
@@ -136,29 +133,29 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         updateLoyaltyCardList();
     }
 
-    private ArrayList<Integer> adapterStateToIntegerArray(HashMap<Integer, Boolean> adapterState){
+    private ArrayList<Integer> adapterStateToIntegerArray(HashMap<Integer, Boolean> adapterState) {
         ArrayList<Integer> ret = new ArrayList<>(adapterState.size() * 2);
         for (Map.Entry<Integer, Boolean> entry : adapterState.entrySet()) {
             ret.add(entry.getKey());
-            ret.add(entry.getValue()?1:0);
+            ret.add(entry.getValue() ? 1 : 0);
         }
         return ret;
     }
 
     private HashMap<Integer, Boolean> integerArrayToAdapterState(ArrayList<Integer> in) {
         HashMap<Integer, Boolean> ret = new HashMap<>();
-        if (in.size() % 2 != 0){
-            throw(new RuntimeException("failed restoring adapterState from integer array list"));
+        if (in.size() % 2 != 0) {
+            throw (new RuntimeException("failed restoring adapterState from integer array list"));
         }
-        for(int i = 0;i < in.size(); i += 2){
-            ret.put(in.get(i), in.get(i+1) == 1);
+        for (int i = 0; i < in.size(); i += 2) {
+            ret.put(in.get(i), in.get(i + 1) == 1);
         }
         return ret;
     }
 
 
     @Override
-    protected void onSaveInstanceState (@NonNull Bundle outState){
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putIntegerArrayList(SAVE_INSTANCE_ADAPTER_STATE, adapterStateToIntegerArray(mAdapter.exportInGroupState()));
@@ -168,18 +165,17 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private void updateLoyaltyCardList() {
         mAdapter.swapCursor(mDB.getLoyaltyCardCursor());
 
-        if(mAdapter.getCountFromCursor() == 0)
-        {
+        if (mAdapter.getCountFromCursor() == 0) {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             mCardList.setVisibility(View.VISIBLE);
             mHelpText.setVisibility(View.GONE);
         }
     }
 
-    private void leaveWithoutSaving(){
-        if (hasChanged()){
+    private void leaveWithoutSaving() {
+        if (hasChanged()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ManageGroupActivity.this);
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
@@ -187,36 +183,33 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
-        }else{
+        } else {
             finish();
         }
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         leaveWithoutSaving();
     }
-    
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
-    private boolean hasChanged(){
+    private boolean hasChanged() {
         return mAdapter.hasChanged() || !mGroup._id.equals(mGroupNameText.getText().toString().trim());
     }
 
     @Override
-    public void onRowLongClicked(int inputPosition)
-    {
+    public void onRowLongClicked(int inputPosition) {
         // do nothing for now
     }
 
     @Override
-    public void onRowClicked(int inputPosition)
-    {
+    public void onRowClicked(int inputPosition) {
         mAdapter.toggleSelection(inputPosition);
 
     }

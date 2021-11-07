@@ -22,7 +22,6 @@ import java.util.Map;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-
 import protect.card_locker.async.TaskHandler;
 
 /**

@@ -13,11 +13,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * AsyncTask has been deprecated so this provides very rudimentary compatibility without
  * needing to redo too many Parts.
- *
+ * <p>
  * However this is a much, much more cooperative Behaviour than before so
  * the callers need to ensure we do NOT rely on forced cancellation and feed less into the
  * ThreadPools so we don't OOM/Overload the Users device
- *
+ * <p>
  * This assumes single-threaded callers.
  */
 public class TaskHandler {
@@ -44,9 +44,10 @@ public class TaskHandler {
 
     /**
      * Replaces (or initializes) an Executor with a clean (new) one
+     *
      * @param executors Map Reference
-     * @param type Which Queue
-     * @param flushOld attempt shutdown
+     * @param type      Which Queue
+     * @param flushOld  attempt shutdown
      * @param waitOnOld wait for Termination
      */
     private void replaceExecutor(HashMap<TYPE, ThreadPoolExecutor> executors, TYPE type, Boolean flushOld, Boolean waitOnOld) {

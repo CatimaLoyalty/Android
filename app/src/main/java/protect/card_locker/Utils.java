@@ -366,7 +366,7 @@ public class Utils {
         return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
-    static public <T,U> U mapGetOrDefault(Map<T,U> map, T key, U defaultValue) {
+    static public <T, U> U mapGetOrDefault(Map<T, U> map, T key, U defaultValue) {
         U value = map.get(key);
         if (value == null) {
             return defaultValue;
@@ -409,43 +409,42 @@ public class Utils {
         return System.currentTimeMillis() / 1000;
     }
 
-    static public boolean isDarkModeEnabled(Context inputContext)
-    {
+    static public boolean isDarkModeEnabled(Context inputContext) {
         int nightModeSetting = new Settings(inputContext).getTheme();
         if (nightModeSetting == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
             Configuration config = inputContext.getResources().getConfiguration();
             int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
             return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
-        }else {
+        } else {
             return nightModeSetting == AppCompatDelegate.MODE_NIGHT_YES;
         }
     }
 
-    public static File createTempFile(Context context, String name){
+    public static File createTempFile(Context context, String name) {
         return new File(context.getCacheDir() + "/" + name);
     }
 
-    public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format){
+    public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format) {
         File image = createTempFile(context, name);
-        try (FileOutputStream out = new FileOutputStream(image)){
+        try (FileOutputStream out = new FileOutputStream(image)) {
             in.compress(format, 100, out);
             return image.getAbsolutePath();
-        }catch(IOException e){
+        } catch (IOException e) {
             Log.d("store temp image", "failed writing temp file for temporary image, name: " + name);
             return null;
         }
     }
 
-    public static Bitmap loadImage(String path){
-        try{
+    public static Bitmap loadImage(String path) {
+        try {
             return BitmapFactory.decodeStream(new FileInputStream(path));
-        }catch(IOException e){
+        } catch (IOException e) {
             Log.d("load image", "failed loading image from " + path);
             return null;
         }
     }
 
-    public static Bitmap loadTempImage(Context context, String name){
+    public static Bitmap loadTempImage(Context context, String name) {
         return loadImage(context.getCacheDir() + "/" + name);
     }
 

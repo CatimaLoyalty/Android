@@ -1,0 +1,5 @@
+- Swipen tussen groepen werkt weer met lege groepen;
+- Exports kunnen met een wachtwoord beveiligd worden;
+- QR codes gebruiken de bechikbare schermruimte beter;
+- Onthoud de uitvergroting per kaart;
+- Tikken na rechts swipen veroorzaakt geen crash meer.

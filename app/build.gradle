@@ -18,8 +18,8 @@ android {
         applicationId "me.hackerchick.catima"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 89
-        versionName "2.8.0"
+        versionCode 90
+        versionName "2.8.1"
 
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
@@ -86,6 +86,7 @@ dependencies {
     implementation 'androidx.palette:palette:1.0.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.github.yalantis:ucrop:2.2.6'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
 // Splash Screen

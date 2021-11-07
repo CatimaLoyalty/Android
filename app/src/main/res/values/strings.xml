@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
     <plurals name="selectedCardCount">
@@ -7,6 +7,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> cards selected</item>
     </plurals>
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
+    <string name="noGiftCardsGroup">You don\'t have any loyalty cards yet. Once you\'ve added some you can add them to the group here.</string>
     <string name="noMatchingGiftCards">Didn\'t find anything. Try changing your search.</string>
     <string name="storeName">Name</string>
     <string name="note">Note</string>
@@ -123,12 +124,16 @@
     <string name="exportSuccessful">Card data exported</string>
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
+    <string name="group_edit">Edit Group</string>
     <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
     <string name="noGroupCards">This group does not contain any cards</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
     </plurals>
+    <string name="group_name_already_in_use">Group name already in use</string>
+    <string name="group_name_is_empty">Group name cannot be empty</string>
+    <string name="group_updated">Group updated</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
     <string name="failedOpeningFileManager">Install a file manager first.</string>
@@ -139,6 +144,7 @@
     <string name="addManually">Manually enter card ID</string>
     <string name="addFromImage">Select image from gallery</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Editing Group: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>

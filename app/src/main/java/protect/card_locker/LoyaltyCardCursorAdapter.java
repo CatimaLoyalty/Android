@@ -36,8 +36,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     boolean mDarkModeEnabled;
     private Context mContext;
     private CardAdapterListener mListener;
-    private SparseBooleanArray mSelectedItems;
-    private SparseBooleanArray mAnimationItemsIndex;
+    protected SparseBooleanArray mSelectedItems;
+    protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
@@ -49,7 +49,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
-        mDarkModeEnabled = MainActivity.isDarkModeEnabled(inputContext);
+        mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
         swapCursor(mCursor);
     }

@@ -12,7 +12,7 @@
     <string name="card">卡片</string>
     <string name="addManually">手动输入卡号</string>
     <string name="settings_system_theme">系统设置</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">版权所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importOptionApplicationButton">使用其他应用</string>
     <string name="importOptionFilesystemButton">从文件系统</string>
     <string name="unstar">从收藏中删除</string>
@@ -87,9 +87,9 @@
     <string name="enterBarcodeInstructions">输入卡号，并从下面选择其条码类型，或选择\"此卡片没有条码\"。</string>
     <string name="selectBarcodeTitle">选择条码</string>
     <string name="app_resources">第三方自由资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可.</string>
+    <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可证</string>
     <string name="app_copyright_old">基于 Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
+\n版权所有 © 2016–2020 Branden Archer</string>
     <string name="about">关于</string>
     <string name="importOptionApplicationExplanation">使用任何应用程序或您喜欢的文件管理器打开文件。</string>
     <string name="importOptionApplicationTitle">使用其他应用</string>

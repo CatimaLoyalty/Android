@@ -350,7 +350,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 MenuItem searchItem = mMenu.findItem(R.id.action_search);
                 searchItem.collapseActionView();
             }
-            ActivityCompat.recreate(this);
+            updateLoyaltyCardList();
 
             return;
         }
@@ -600,13 +600,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Update card list
         updateLoyaltyCardList();
-    }
-
-    protected static boolean isDarkModeEnabled(Context inputContext)
-    {
-        Configuration config = inputContext.getResources().getConfiguration();
-        int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
     }
 
     @Override

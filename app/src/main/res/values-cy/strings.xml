@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noGiftCards">Cliciwch y + plws botwm i ychwanegu cerdyn, neu mewnforio rhai o\'r ⋮ ddewislen cyntaf.</string>
+    <string name="action_add">Ychwanegu</string>
+    <string name="action_search">Chwilio</string>
+    <string name="noMatchingGiftCards">Nid oedd hyd i unrhyw beth. Ceisiwch newid eich chwiliad.</string>
+</resources>

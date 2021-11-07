@@ -1,0 +1,6 @@
+A parte "Bloqueador" do nome não era intuitiva. Para ajudar a remediar isso, foi criado por betsythefc um novo ícone da aplicação que representa melhor o propósito da aplicação: armazenar cartões de fidelização que utilizam códigos de barras. Junto com este novo ícone o nome da aplicação foi alterado para "Loyalty Card Keychain".
+
+Recursos adicionais/melhorias:
+
+- A importação/exportação de cartões foi alterada para ser mais flexível.
+- Adicionada tradução para lituano e francês.

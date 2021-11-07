@@ -75,7 +75,9 @@
                         android:layout_gravity="center_vertical"
                         app:cardCornerRadius="4dp"
                         android:paddingHorizontal="@dimen/inputPadding"
-                        app:cardElevation="0dp">
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:outlineProvider="none">
 
                         <ImageView
                             android:id="@+id/thumbnail"

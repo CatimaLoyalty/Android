@@ -129,10 +129,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
+            inputHolder.mCardIcon.setBackgroundColor(Color.TRANSPARENT);
         } else {
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+            if (loyaltyCard.headerColor != null) {
+                inputHolder.mCardIcon.setBackgroundColor(loyaltyCard.headerColor);
+            }
         }
-        inputHolder.mCardIcon.setBackgroundColor(loyaltyCard.headerColor);
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
         int imageSize = dpToPx((size * 46) / 14, mContext);

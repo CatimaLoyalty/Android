@@ -65,12 +65,14 @@ import java.util.concurrent.Callable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
+import androidx.palette.graphics.Palette;
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -896,11 +898,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         onResuming = false;
     }
 
-    protected static void setCardImage(ImageView imageView, Bitmap bitmap, boolean applyFallback) {
+    protected void setCardImage(ImageView imageView, Bitmap bitmap, boolean applyFallback) {
         imageView.setTag(bitmap);
 
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
+            new Palette.Builder(bitmap).generate(palette -> {
+                if (palette != null) {
+                    updateTempState(LoyaltyCardField.headerColor, palette.getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.color.colorPrimary));
+                }
+            });
         } else if (applyFallback) {
             imageView.setImageResource(R.drawable.ic_camera_white);
         }
@@ -1431,8 +1438,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
-
         if (thumbnail.getTag() == null) {
             LetterBitmap letterBitmap = Utils.generateIcon(this, store, tempLoyaltyCard.headerColor);
 
@@ -1441,6 +1446,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             } else {
                 thumbnail.setImageBitmap(null);
             }
+
+            thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
         }
 
         thumbnail.setMinimumWidth(thumbnail.getHeight());

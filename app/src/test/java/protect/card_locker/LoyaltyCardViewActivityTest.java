@@ -359,7 +359,7 @@ public class LoyaltyCardViewActivityTest
                 activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
             }
 
-            Activity activity = (Activity) activityController.get();
+            LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
             final Context context = activity.getApplicationContext();
             DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -401,8 +401,8 @@ public class LoyaltyCardViewActivityTest
             cardIdField.setText("12345678");
             barcodeField.setText("87654321");
             barcodeTypeField.setText(CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName());
-            LoyaltyCardEditActivity.setCardImage(frontImageView, frontBitmap, true);
-            LoyaltyCardEditActivity.setCardImage(backImageView, backBitmap, true);
+            activity.setCardImage(frontImageView, frontBitmap, true);
+            activity.setCardImage(backImageView, backBitmap, true);
 
             shadowOf(getMainLooper()).idle();
 

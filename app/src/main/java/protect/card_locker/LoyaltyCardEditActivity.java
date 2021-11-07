@@ -1439,6 +1439,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (thumbnail.getTag() == null) {
+            thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
+
             LetterBitmap letterBitmap = Utils.generateIcon(this, store, tempLoyaltyCard.headerColor);
 
             if (letterBitmap != null) {
@@ -1446,8 +1448,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             } else {
                 thumbnail.setImageBitmap(null);
             }
-
-            thumbnail.setBackgroundColor(tempLoyaltyCard.headerColor);
         }
 
         thumbnail.setMinimumWidth(thumbnail.getHeight());

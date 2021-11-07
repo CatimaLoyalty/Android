@@ -210,6 +210,8 @@
     <string name="settings_locale">Language</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
+    <string name="selectColor">Select color</string>
+    <string name="setIcon">Set icon</string>
     <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
     <string name="settings_theme_color">Theme color</string>
     <string name="settings_catima_theme">Catima</string>

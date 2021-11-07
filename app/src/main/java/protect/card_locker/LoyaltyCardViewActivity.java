@@ -543,13 +543,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             imageTypes.add(ImageType.BARCODE);
         }
 
-        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, true);
-        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, false);
-
+        frontImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.front);
         if (frontImageBitmap != null) {
             imageTypes.add(ImageType.IMAGE_FRONT);
         }
 
+        backImageBitmap = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.back);
         if (backImageBitmap != null) {
             imageTypes.add(ImageType.IMAGE_BACK);
         }

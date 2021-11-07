@@ -32,7 +32,8 @@
                     app:cardCornerRadius="4dp"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    >
+                    app:cardBackgroundColor="@android:color/transparent"
+                    android:outlineProvider="none">
 
                     <RelativeLayout
                         android:id="@+id/thumbnail_front"
@@ -44,7 +45,7 @@
 
                         <ImageView
                             android:id="@+id/thumbnail"
-                            android:scaleType="centerCrop"
+                            android:scaleType="fitCenter"
                             android:layout_width="@dimen/cardThumbnailSize"
                             android:layout_height="@dimen/cardThumbnailSize"
                             android:layout_centerVertical="true"
@@ -80,7 +81,6 @@
                     android:layout_toRightOf="@+id/thumbnail_container"
                     android:layout_toLeftOf="@+id/star"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
-
 
                 <ImageView
                     android:id="@+id/star"

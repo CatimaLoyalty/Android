@@ -26,6 +26,7 @@ import java.util.HashMap;
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.ImageLocationType;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
@@ -175,10 +176,10 @@ public class StocardImporter implements Importer {
             long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
 
             if (loyaltyCardData.containsKey("frontImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, true);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
             }
             if (loyaltyCardData.containsKey("backImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, false);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageLocationType.back);
             }
         }
 

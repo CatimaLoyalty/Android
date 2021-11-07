@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
@@ -125,8 +126,18 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mExpiryField.setVisibility(View.GONE);
         }
 
+        Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+        if (cardIcon != null) {
+            inputHolder.mCardIcon.setImageBitmap(cardIcon);
+            inputHolder.mCardIcon.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+            if (loyaltyCard.headerColor != null) {
+                inputHolder.mCardIcon.setBackgroundColor(loyaltyCard.headerColor);
+            }
+        }
+
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
-        inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
         int imageSize = dpToPx((size * 46) / 14, mContext);
         inputHolder.mCardIcon.getLayoutParams().height = imageSize;
         inputHolder.mCardIcon.getLayoutParams().width = imageSize;

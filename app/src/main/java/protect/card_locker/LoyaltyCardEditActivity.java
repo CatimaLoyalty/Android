@@ -97,10 +97,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private final String TEMP_UNSAVED_ICON_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_icon.png";
     private final Bitmap.CompressFormat TEMP_UNSAVED_IMAGE_FORMAT = Bitmap.CompressFormat.PNG;
 
-    private static final int ID_IMAGE_FRONT = 0;
-    private static final int ID_IMAGE_BACK = 1;
-    private static final int ID_IMAGE_ICON = 2;
-
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
@@ -294,7 +290,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
-        thumbnail.setId(ID_IMAGE_ICON);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
@@ -309,8 +304,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
         cardImageFrontHolder = findViewById(R.id.frontImageHolder);
         cardImageBackHolder = findViewById(R.id.backImageHolder);
-        cardImageFrontHolder.setId(ID_IMAGE_FRONT);
-        cardImageBackHolder.setId(ID_IMAGE_BACK);
         cardImageFront = findViewById(R.id.frontImage);
         cardImageBack = findViewById(R.id.backImage);
 
@@ -1040,18 +1033,18 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         {
             ImageView targetView;
 
-            if (v.getId() == ID_IMAGE_FRONT) {
+            if (v.getId() == R.id.frontImageHolder) {
                 targetView = cardImageFront;
-            } else if (v.getId() == ID_IMAGE_BACK) {
+            } else if (v.getId() == R.id.backImageHolder) {
                 targetView = cardImageBack;
-            } else if (v.getId() == ID_IMAGE_ICON) {
+            } else if (v.getId() == R.id.thumbnail) {
                 targetView = thumbnail;
             } else {
                 throw new IllegalArgumentException("Invalid IMAGE ID " + v.getId());
             }
 
             LinkedHashMap<String, Callable<Void>> cardOptions = new LinkedHashMap<>();
-            if (targetView.getTag() != null && v.getId() != ID_IMAGE_ICON) {
+            if (targetView.getTag() != null && v.getId() != R.id.thumbnail) {
                 cardOptions.put(getString(R.string.removeImage), () -> {
                     if (targetView == cardImageFront) {
                         mFrontImageRemoved = true;
@@ -1066,7 +1059,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 });
             }
 
-            if (v.getId() == ID_IMAGE_ICON) {
+            if (v.getId() == R.id.thumbnail) {
                 cardOptions.put(getString(R.string.selectColor), () -> {
                     ColorPickerDialog.Builder dialogBuilder = ColorPickerDialog.newBuilder();
 
@@ -1108,11 +1101,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     int permissionRequestType;
 
-                    if (v.getId() == ID_IMAGE_FRONT) {
+                    if (v.getId() == R.id.frontImageHolder) {
                         permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
-                    } else if (v.getId() == ID_IMAGE_BACK) {
+                    } else if (v.getId() == R.id.backImageHolder) {
                         permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
-                    } else if (v.getId() == ID_IMAGE_ICON) {
+                    } else if (v.getId() == R.id.thumbnail) {
                         permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
                     } else {
                         throw new IllegalArgumentException("Unknown ID type " + v.getId());
@@ -1122,11 +1115,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 } else {
                     int cardImageType;
 
-                    if (v.getId() == ID_IMAGE_FRONT) {
+                    if (v.getId() == R.id.frontImageHolder) {
                         cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_FRONT;
-                    } else if (v.getId() == ID_IMAGE_BACK) {
+                    } else if (v.getId() == R.id.backImageHolder) {
                         cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_BACK;
-                    } else if (v.getId() == ID_IMAGE_ICON) {
+                    } else if (v.getId() == R.id.thumbnail) {
                         cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_ICON;
                     } else {
                         throw new IllegalArgumentException("Unknown ID type " + v.getId());
@@ -1138,11 +1131,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             });
 
             cardOptions.put(getString(R.string.addFromImage), () -> {
-                if (v.getId() == ID_IMAGE_FRONT) {
+                if (v.getId() == R.id.frontImageHolder) {
                     mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_FRONT;
-                } else if (v.getId() == ID_IMAGE_BACK) {
+                } else if (v.getId() == R.id.backImageHolder) {
                     mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_BACK;
-                } else if (v.getId() == ID_IMAGE_ICON) {
+                } else if (v.getId() == R.id.thumbnail) {
                     mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_ICON;
                 } else {
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
@@ -1156,11 +1149,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             int titleResource;
 
-            if (v.getId() == ID_IMAGE_FRONT) {
+            if (v.getId() == R.id.frontImageHolder) {
                 titleResource = R.string.setFrontImage;
-            } else if (v.getId() == ID_IMAGE_BACK) {
+            } else if (v.getId() == R.id.backImageHolder) {
                 titleResource = R.string.setBackImage;
-            } else if (v.getId() == ID_IMAGE_ICON) {
+            } else if (v.getId() == R.id.thumbnail) {
                 titleResource = R.string.setIcon;
             } else {
                 throw new IllegalArgumentException("Unknown ID type " + v.getId());

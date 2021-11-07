@@ -1,0 +1,3 @@
+- Grup yönetimi desteği iyileştirildi
+- Resimleri kırpma desteği eklendi
+- Düzenleme görünümünde döndürdükten sonra kaydederken resim veri kaybı düzeltildi

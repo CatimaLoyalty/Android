@@ -673,7 +673,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         mCropperOptions.setAspectRatioOptions(selectedByDefault,
                 new AspectRatio(null, 1, 1),
                 new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
-                new AspectRatio(getResources().getString(R.string.card), 85.6f, 53.98f)
+                new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
         );
     }
 

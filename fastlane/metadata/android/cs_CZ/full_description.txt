@@ -16,7 +16,7 @@ S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradit
 - Lokalizované ruční překlady pro více než 20 jazyků.
 - Zdarma, podporováno příspěvky komunity.
 - Používejte, studujte, měňte a sdílejte dle libosti; <i>se všemi</i>.
-- Nejen svobodný software / open source. <i>Copylefted</i> libre software (GPLv3+) správa karet.
+- Nejen svobodný software / open source. <i>Copylefted</i> svobodný software (GPLv3+) na správu karet.
 
 Zjednodušte si život a nakupování a už nikdy neztraťte papírovou účtenku, dárkovou kartu pro platbu v obchodě nebo letenku.
 Vezměte si s sebou všechny své odměny a bonusy a šetřete za pochodu.

@@ -638,6 +638,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         mIconUnsaved = true;
                         setCardImage(thumbnail, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_SMALL), false);
                         thumbnail.setBackgroundColor(Color.TRANSPARENT);
+                        setColorFromIcon();
                     }
                     Log.d("cropper", "mRequestedImage: " + mRequestedImage);
                     mCropperFinishedType = mRequestedImage;
@@ -661,13 +662,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
     // https://github.com/Yalantis/uCrop/blob/281c8e6438d81f464d836fc6b500517144af264a/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java#L264
     // so source width height has to be provided for now, depending on whether future versions of ucrop will support 0x0 as the default option
-    private void setCropperOptions(float sourceWidth, float sourceHeight) {
+    private void setCropperOptions(boolean oneByOneDefault, float sourceWidth, float sourceHeight) {
         mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
         mCropperOptions.setFreeStyleCropEnabled(true);
         mCropperOptions.setHideBottomControls(false);
         // default aspect ratio workaround
         int selectedByDefault = 1;
-        if (sourceWidth == 0f && sourceHeight == 0f) {
+        if (oneByOneDefault) {
             selectedByDefault = 0;
         }
         mCropperOptions.setAspectRatioOptions(selectedByDefault,
@@ -708,6 +709,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_BACK || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_BACK;
     }
 
+    private boolean requestedIcon() {
+        return mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_ICON || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_ICON;
+    }
+
     private boolean croppedIcon() {
         return mCropperFinishedType == Utils.CARD_IMAGE_FROM_CAMERA_ICON || mCropperFinishedType == Utils.CARD_IMAGE_FROM_FILE_ICON;
     }
@@ -730,17 +735,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
                     finish();
                     return;
-                }
-
-                setTitle(R.string.editCardTitle);
-                if (initDone) {
-                    setCardImage(cardImageFront, (Bitmap) cardImageFront.getTag(), true);
-                    setCardImage(cardImageBack, (Bitmap) cardImageBack.getTag(), true);
-                    setCardImage(thumbnail, (Bitmap) thumbnail.getTag(), false);
-                } else {
-                    setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.front), true);
-                    setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.back), true);
-                    setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.icon), false);
                 }
             } else if (importLoyaltyCardUri != null) {
                 try {
@@ -899,16 +893,20 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         onResuming = false;
     }
 
+    protected void setColorFromIcon(){
+        Object icon = thumbnail.getTag();
+        if(icon != null && (icon instanceof Bitmap)){
+            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap)icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
+        }else{
+            Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
+        }
+    }
+
     protected void setCardImage(ImageView imageView, Bitmap bitmap, boolean applyFallback) {
         imageView.setTag(bitmap);
 
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);
-            new Palette.Builder(bitmap).generate(palette -> {
-                if (palette != null) {
-                    updateTempState(LoyaltyCardField.headerColor, palette.getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
-                }
-            });
         } else if (applyFallback) {
             imageView.setImageResource(R.drawable.ic_camera_white);
         }
@@ -1344,40 +1342,43 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         Uri destUri = Uri.parse("file://" + cropOutput.getAbsolutePath());
         Log.d("cropper", "asking cropper to output to " + destUri.toString());
 
-        if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_FRONT || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_FRONT) {
+        if (requestedFrontImage()) {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setFrontImage));
-        } else if (mRequestedImage == Utils.CARD_IMAGE_FROM_CAMERA_BACK || mRequestedImage == Utils.CARD_IMAGE_FROM_FILE_BACK) {
+        } else if (requestedBackImage()) {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setBackImage));
-        } else {
+        } else if (requestedIcon()) {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setIcon));
         }
 
-        // sniff the input image for width and height to work around a ucrop bug
-        Bitmap image = null;
-        try {
-            image = BitmapFactory.decodeStream(getContentResolver().openInputStream(sourceUri));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Log.d("cropper", "failed opening bitmap for initial width and height for ucrop " + sourceUri.toString());
-        }
-        if (image == null) {
-            Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
-            setCropperOptions(0f, 0f);
-        } else {
+        if(requestedIcon()) {
+            setCropperOptions(true,0f, 0f);
+        }else{
+            // sniff the input image for width and height to work around a ucrop bug
+            Bitmap image = null;
             try {
-                Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));
-                setCropperOptions(imageRotated.getWidth(), imageRotated.getHeight());
+                image = BitmapFactory.decodeStream(getContentResolver().openInputStream(sourceUri));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                Log.d("cropper", "failed opening image for exif reading before setting initial width and height for ucrop");
-                setCropperOptions(image.getWidth(), image.getHeight());
-            } catch (IOException e) {
-                e.printStackTrace();
-                Log.d("cropper", "exif reading failed before setting initial width and height for ucrop");
-                setCropperOptions(image.getWidth(), image.getHeight());
+                Log.d("cropper", "failed opening bitmap for initial width and height for ucrop " + sourceUri.toString());
+            }
+            if (image == null) {
+                Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
+                setCropperOptions(true,0f, 0f);
+            } else {
+                try {
+                    Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));
+                    setCropperOptions(false, imageRotated.getWidth(), imageRotated.getHeight());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    Log.d("cropper", "failed opening image for exif reading before setting initial width and height for ucrop");
+                    setCropperOptions(false, image.getWidth(), image.getHeight());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.d("cropper", "exif reading failed before setting initial width and height for ucrop");
+                    setCropperOptions(false, image.getWidth(), image.getHeight());
+                }
             }
         }
-
         mCropperLauncher.launch(
                 UCrop.of(
                         sourceUri,

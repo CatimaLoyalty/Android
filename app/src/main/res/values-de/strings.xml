@@ -216,4 +216,6 @@
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
     <string name="noGiftCardsGroup">Sie haben noch keine Kundenkarten. Sobald Sie welche hinzugefügt haben, können Sie sie hier der Gruppe zuordnen.</string>
+    <string name="setIcon">Symbol einstellen</string>
+    <string name="selectColor">Farbe auswählen</string>
 </resources>

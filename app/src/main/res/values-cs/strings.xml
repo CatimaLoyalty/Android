@@ -21,7 +21,7 @@
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování karet vám umožní přesunout je do jiného zařízení.</string>
-    <string name="importSuccessfulTitle">Dovážit</string>
+    <string name="importSuccessfulTitle">Importováno</string>
     <string name="importFailedTitle">Import selhal</string>
     <string name="importFailed">Nelze importovat karty</string>
     <string name="exportSuccessfulTitle">Exportovat</string>
@@ -37,7 +37,7 @@
     <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
     <string name="importOptionApplicationButton">Použijte jinou aplikaci</string>
     <string name="about">O aplikaci</string>
-    <string name="app_license">Copylefted libre software, licencovaný GPLv3+</string>
+    <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -52,8 +52,8 @@
     <string name="expiryDate">Platnost</string>
     <string name="editBarcode">Upravit čárový kód</string>
     <string name="barcode">Kód</string>
-    <string name="app_resources">Zdroje třetích stran Libre: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Libre knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Svobodné zdroje třetích stran: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Svobodné knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Na základě Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
@@ -155,7 +155,7 @@
     <string name="accept">Přijmout</string>
     <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):
 \n
-\nNejsou shromažďovány žádné údaje, což může potvrdit každý, protože naše aplikace je libre software.</string>
+\nNejsou shromažďovány žádné údaje, což může potvrdit každý, protože naše aplikace je svobodný software.</string>
     <string name="privacy_policy">Zásady soukromí</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importovat data z\?</string>
@@ -214,4 +214,12 @@
     <string name="on_google_play">na Google Play</string>
     <string name="exportPassword">Nastavení hesla pro ochranu exportu (volitelné)</string>
     <string name="exportPasswordHint">Zadejte heslo</string>
+    <string name="selectColor">Vyberte barvu</string>
+    <string name="setIcon">Nastavit ikonu</string>
+    <string name="group_edit">Upravit skupinu</string>
+    <string name="group_name_already_in_use">Již použitý název skupiny</string>
+    <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
+    <string name="group_updated">Skupina aktualizována</string>
+    <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
+    <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je přiřadit do skupiny zde.</string>
 </resources>

@@ -1,0 +1,4 @@
+- Vylepšená podpora správy skupin
+- Podpora ořezávání obrázků
+- Oprava ztráty dat obrázku při ukládání po otočení v zobrazení úprav
+- Možnost nastavit vlastní obrázek jako ikonu karty

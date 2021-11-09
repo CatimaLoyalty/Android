@@ -25,7 +25,7 @@
     <string name="exporting">Eksportuoja…</string>
     <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>
     <string name="about">Apie</string>
-    <string name="app_license">Copylefted libre programinė įranga, licencijuota GPLv3+</string>
+    <string name="app_license">Copylefted laisvoji programinė įranga, licencijuota GPLv3+</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revizijos info: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -90,7 +90,7 @@
     <string name="accept">Priimti</string>
     <string name="privacy_policy_popup_text">Privatumo politikos pranešimas (kurio reikalaujama kai kuriose programėlių parduotuvėse):
 \n
-\nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra libre programinė įranga.</string>
+\nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra laisvoji programinė įranga.</string>
     <string name="privacy_policy">Privatumo politika</string>
     <string name="chooseImportType">Importuoti duomenis iš\?</string>
     <string name="points">Taškai</string>
@@ -142,8 +142,8 @@
     <string name="starImage">Mėgstamiausia žvaigždė</string>
     <string name="thumbnailDescription">Kortelės miniatiūra</string>
     <string name="enterBarcodeInstructions">Įveskite kortelės ID ir toliau pasirinkite jos brūkšninio kodo tipą arba \"Ši kortelė neturi brūkšninio kodo\".</string>
-    <string name="app_resources">Libre trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Libre trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Laisvosios trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Laisvosios trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Paremta Loyalty Card Keychain
 \nautorinės teisės © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorinės teisės © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
@@ -220,4 +220,6 @@
     <string name="group_updated">Grupė atnaujinta</string>
     <string name="group_edit">Redaguoti grupę</string>
     <string name="noGiftCardsGroup">Dar neturite jokių lojalumo kortelių. Kai kelias pridėsite, galėsite jas priskirti grupei čia.</string>
+    <string name="setIcon">Nustatyti piktogramą</string>
+    <string name="selectColor">Pasirinkti spalvą</string>
 </resources>

@@ -216,4 +216,6 @@
     <string name="editGroup">Groep bewerken: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Je hebt nog geen klantenkaarten toegevoegd. Voeg kaarten toe om ze hier te kunnen groeperen.</string>
     <string name="group_edit">Groep bewerken</string>
+    <string name="setIcon">Kies een pictogram</string>
+    <string name="selectColor">Kies een kleur</string>
 </resources>

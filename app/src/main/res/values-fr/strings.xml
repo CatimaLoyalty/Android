@@ -216,4 +216,6 @@
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
     <string name="group_updated">Groupe mis à jour</string>
     <string name="group_name_is_empty">Le nom du groupe ne peut pas être vide</string>
+    <string name="setIcon">Définir l\'icône</string>
+    <string name="selectColor">Sélectionnez la couleur</string>
 </resources>

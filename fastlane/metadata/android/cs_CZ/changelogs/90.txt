@@ -1,0 +1,4 @@
+- Oprava špatné barvy teček v zobrazení karet při ruční změně motivu
+- Oprava pádu v zobrazení karet při otočení/změně motivu
+- Oprava blikání seznamu karet
+- Oprava překrývání textu přes ikonu hvězdy

@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
@@ -12,6 +13,7 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -72,6 +74,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
         // Invisible until we want to show something more
         inputHolder.mDivider.setVisibility(View.GONE);
+
+        // remove outline shadow
+        inputHolder.mThumbnailContainer.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                ViewOutlineProvider.BACKGROUND.getOutline(view, outline);
+                outline.setAlpha(0f);
+            }
+        });
 
         int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
 
@@ -279,11 +290,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public MaterialCardView mRow;
         public View mDivider;
         public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
+        public MaterialCardView mThumbnailContainer;
 
         public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
             mRow = inputView.findViewById(R.id.row);
             mDivider = inputView.findViewById(R.id.info_divider);
+            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
             mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
             mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
             mInformationContainer = inputView.findViewById(R.id.information_container);

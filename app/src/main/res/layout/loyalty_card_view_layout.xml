@@ -237,6 +237,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
+        android:transitionName="cardIcon"
         android:background="@android:color/transparent"
         android:clipChildren="false"
         android:clipToPadding="false"

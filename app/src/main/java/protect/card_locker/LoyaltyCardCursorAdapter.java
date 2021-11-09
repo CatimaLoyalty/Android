@@ -176,8 +176,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
-        inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
-        inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
+        inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition, inputView));
+        inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition, inputView));
 
         inputHolder.mRow.setOnLongClickListener(inputView -> {
             mListener.onRowLongClicked(inputPosition);
@@ -266,7 +266,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     public interface CardAdapterListener {
-        void onRowClicked(int inputPosition);
+        void onRowClicked(int inputPosition, View view);
 
         void onRowLongClicked(int inputPosition);
     }
@@ -295,7 +295,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mStarIcon = inputView.findViewById(R.id.star);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
-                inputListener.onRowClicked(getAdapterPosition());
+                inputListener.onRowClicked(getAdapterPosition(), view);
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             });

@@ -209,8 +209,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     @Override
-    public void onRowClicked(int inputPosition) {
+    public void onRowClicked(int inputPosition, View view) {
         mAdapter.toggleSelection(inputPosition);
-
     }
 }

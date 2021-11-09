@@ -81,6 +81,7 @@
 
                         <ImageView
                             android:id="@+id/thumbnail"
+                            android:transitionName="cardIcon"
                             android:layout_width="@dimen/cardThumbnailSize"
                             android:layout_height="@dimen/cardThumbnailSize"
                             android:contentDescription="@string/thumbnailDescription"

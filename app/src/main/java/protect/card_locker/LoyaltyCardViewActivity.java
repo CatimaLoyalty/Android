@@ -44,8 +44,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.util.Pair;
 import androidx.core.widget.TextViewCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
@@ -309,8 +311,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bundle.putInt("id", loyaltyCardId);
             bundle.putBoolean("update", true);
             intent.putExtras(bundle);
-            startActivity(intent);
-            finish();
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    this,
+                    Pair.create(collapsingToolbarLayout, "cardIcon")
+            );
+
+            startActivity(intent, options.toBundle());
+            finishAfterTransition();
         });
         editButton.bringToFront();
 
@@ -626,7 +634,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         switch (id) {
             case android.R.id.home:
-                finish();
+                finishAfterTransition();
                 break;
 
             case R.id.action_share:

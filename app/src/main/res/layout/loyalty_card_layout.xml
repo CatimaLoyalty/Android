@@ -45,6 +45,7 @@
 
                         <ImageView
                             android:id="@+id/thumbnail"
+                            android:transitionName="cardIcon"
                             android:scaleType="fitCenter"
                             android:layout_width="@dimen/cardThumbnailSize"
                             android:layout_height="@dimen/cardThumbnailSize"

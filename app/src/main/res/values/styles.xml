@@ -10,6 +10,7 @@
         <item name="actionModeBackground">@color/colorPrimary</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_close</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="AppTheme_pink" parent="AppTheme">

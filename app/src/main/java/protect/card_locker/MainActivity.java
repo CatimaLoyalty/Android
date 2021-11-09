@@ -30,7 +30,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.SettingsActivity;
 
@@ -683,7 +685,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
 
     @Override
-    public void onRowClicked(int inputPosition) {
+    public void onRowClicked(int inputPosition, View view) {
         if (mAdapter.getSelectedItemCount() > 0) {
             enableActionMode(inputPosition);
         } else {
@@ -707,13 +709,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             Intent i = new Intent(this, LoyaltyCardViewActivity.class);
             i.setAction("");
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    this,
+                    Pair.create(view.findViewById(R.id.thumbnail), "cardIcon")
+            );
             final Bundle b = new Bundle();
             b.putInt("id", loyaltyCard.id);
             i.putExtras(b);
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
-            startActivityForResult(i, Utils.MAIN_REQUEST);
+            startActivityForResult(i, Utils.MAIN_REQUEST, options.toBundle());
         }
     }
 }

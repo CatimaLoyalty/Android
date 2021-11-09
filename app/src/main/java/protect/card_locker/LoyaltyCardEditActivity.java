@@ -634,15 +634,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
 
         }
 
-        if(db.getLoyaltyCard(loyaltyCardId).expiry != null) {
-
-            Date date2 = db.getLoyaltyCard(loyaltyCardId).expiry;
-
-            expiryInMillis = date2.getTime();
-            Log.i(TAG, "onResume: expiryMills " + expiryInMillis);
-
-        }
-
         onResuming = true;
 
         if(tempLoyaltyCard == null) {
@@ -803,6 +794,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity
         } else {
 
             expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
+            expiryInMillis = expiry.getTime();
 
         }
     }

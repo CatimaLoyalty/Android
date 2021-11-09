@@ -3,29 +3,32 @@ Branden Archer
 J. Lavoie
 Allan Nordhøy
 Heimen Stoffels
-solokot
 mondstern
+solokot
+Katharine Chui
+Oğuz Ersen
 Taco
 IllusiveMan196
-Gediminas Murauskas
 Petr Novák
-StoyanDimitrov
+Gediminas Murauskas
 Joel A
-Samantaz Fox
+StoyanDimitrov
 Nyatsuki
-Oğuz Ersen
+Samantaz Fox
 arno-github
+Ankit Tiwari
 Sergio Paredes
 arshbeerSingh
 huuhaa
+Miha Frangež
 Michael Moroni
 Olivia (Zoe)
 betsythefc
+waffshappen
 K. Herbert
 Quentin PAGÈS
 String E. Fighter
 Yurical
-waffshappen
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
@@ -35,21 +38,24 @@ Diego
 Jane Kong
 Lukas Grassauer
 Michalis
+Rosdyana Kusuma
+laralem
 schirinowski
 Thomas Bertels
 inesre
 lgasp
 phlostically
-Kevin Sicong Jiang
-Miha Frangež
 Aditya Das
+Kevin Sicong Jiang
 Airat
 BMN
 Biren
+Kasina Dheeraj
+sr093906
 Flav
 Franciszek Stefan
 Izzy
-Karol Kosek
+krkk
 bittin
 Maciej Błędkowski
 Mattia
@@ -57,12 +63,16 @@ Michael Gangolf
 pbeckmann
 Peer Beckmann
 QuangDNguyen2211
+Reza
 Rohan Babbar 
+Ronak Upadhyay
 Rose Liverman
 Simone Dotto
+Still Hsu
 Subhashish Anand
 Tymofii Lytvynenko
 Tjipke van der Heide
+avikkundu
 opsik
 psa-jforestier
 Robin

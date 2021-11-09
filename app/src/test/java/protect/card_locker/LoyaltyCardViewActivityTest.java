@@ -263,11 +263,6 @@ public class LoyaltyCardViewActivityTest
         assertNotNull(intent);
         assertEquals(intent.getComponent().getClassName(), ScanActivity.class.getCanonicalName());
 
-        Activity newActivity = Robolectric.buildActivity(ScanActivity.class, intent).create().get();
-
-        final Button manualButton = newActivity.findViewById(R.id.add_manually);
-        manualButton.performClick();
-
         intentForResult = shadowOf(activity).peekNextStartedActivityForResult();
         assertNotNull(intentForResult);
 
@@ -364,7 +359,7 @@ public class LoyaltyCardViewActivityTest
                 activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
             }
 
-            Activity activity = (Activity) activityController.get();
+            LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
             final Context context = activity.getApplicationContext();
             DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -406,8 +401,8 @@ public class LoyaltyCardViewActivityTest
             cardIdField.setText("12345678");
             barcodeField.setText("87654321");
             barcodeTypeField.setText(CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE).prettyName());
-            LoyaltyCardEditActivity.setCardImage(frontImageView, frontBitmap);
-            LoyaltyCardEditActivity.setCardImage(backImageView, backBitmap);
+            activity.setCardImage(frontImageView, frontBitmap, true);
+            activity.setCardImage(backImageView, backBitmap, true);
 
             shadowOf(getMainLooper()).idle();
 
@@ -516,6 +511,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -540,6 +536,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture in failure
         captureBarcodeWithResult(activity, false);
+        activityController.resume();
 
         shadowOf(getMainLooper()).idle();
 
@@ -561,6 +558,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -660,6 +658,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -684,6 +683,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
+        activityController.resume();
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
@@ -1136,6 +1136,7 @@ public class LoyaltyCardViewActivityTest
 
         // Complete empty barcode selection successfully
         selectBarcodeWithResult(activity, BARCODE_DATA, "", true);
+        activityController.resume();
 
         // Check if the barcode type is NO_BARCODE as expected
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
@@ -1411,7 +1412,7 @@ public class LoyaltyCardViewActivityTest
     {
         Date date = new Date();
 
-        Uri importUri = Uri.parse("https://thelastproject.github.io/Catima/share?store=Example%20Store&note=&expiry=" + date.getTime() + "&balance=10&balancetype=USD&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
+        Uri importUri = Uri.parse("https://catima.app/share#store%3DExample%2BStore%26note%3D%26expiry%3D" + date.getTime() + "%26balance%3D10.00%26balancetype%3DUSD%26cardid%3D123456%26barcodetype%3DAZTEC%26headercolor%3D-416706");
 
         Intent intent = new Intent();
         intent.setData(importUri);
@@ -1432,7 +1433,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void importCardOldURL()
+    public void importCardOldFormat()
     {
         Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 

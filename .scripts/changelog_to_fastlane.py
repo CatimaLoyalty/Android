@@ -24,5 +24,10 @@ with open('CHANGELOG.md') as changelog:
             text.append(re.sub(r'\[(.*?)\]\((.*?)\)', r'\1 (\2)', line))
 
 for version, description in changelogs.items():
+    description = "".join(description).strip()
+
+    if not description:
+        continue
+
     with open(os.path.join("fastlane", "metadata", "android", "en-US", "changelogs", f"{version}.txt"), "w") as fastlane_file:
-        fastlane_file.write("".join(description).strip())
+        fastlane_file.write(description)

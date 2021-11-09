@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_revision_url">https://github.com/TheLastProject/Catima/releases</string>
+    <string name="storeName">Nama</string>
+    <string name="note">Keterangan</string>
+    <string name="delete">Hapus</string>
+    <string name="edit">Ubah</string>
+    <string name="save">Simpan</string>
+    <string name="deleteTitle">Hapus kartu</string>
+    <string name="cardId">Kartu ID</string>
+    <string name="barcodeType">Tipe barcode</string>
+    <string name="star">Tambahkan ke favorit</string>
+    <string name="unstar">Hapus dari favorit</string>
+    <string name="action_add">Tambah</string>
+    <string name="action_search">Cari</string>
+    <string name="sort_by_name">Nama</string>
+    <string name="sort_by_balance">Saldo</string>
+    <string name="sort_by">Sortir dengan</string>
+    <string name="sort">Sortir</string>
+    <string name="credits">Kredit</string>
+    <string name="license">Lisensi</string>
+    <string name="settings">Pengaturan</string>
+    <string name="settings_system_theme">Sistem</string>
+    <string name="selectBarcodeTitle">Pilih Barcode</string>
+    <string name="deleteConfirmation">Hapus kartu ini secara permanen?</string>
+    <string name="ok">OK</string>
+    <string name="share">Bagikan</string>
+    <string name="editCardTitle">Ubah Kartu</string>
+    <string name="addCardTitle">Tambah Kartu</string>
+    <string name="scanCardBarcode">Pindai Kartu Barcode</string>
+    <string name="barcodeNoBarcode">Kartu ini tidak memiliki barcode</string>
+    <string name="cancel">Batalkan</string>
+    <string name="importExport">Import/Ekspor</string>
+    <string name="settings_category_title_ui">Tampilan Pengguna</string>
+    <string name="settings_theme">Tema</string>
+    <string name="all">Semua</string>
+    <string name="leaveWithoutSaveTitle">Keluar</string>
+    <string name="card">Kartu</string>
+    <string name="barcode">Barcode</string>
+    <string name="chooseExpiryDate">Pilih masa berlaku</string>
+    <string name="noBarcodeFound">Barcode tidak ditemukan</string>
+    <string name="errorReadingImage">TIdak dapat membaca gambar</string>
+    <string name="balance">Saldo</string>
+    <string name="currency">Mata uang</string>
+    <string name="chooseImportType">Impor data dari?</string>
+    <string name="accept">Terima</string>
+    <string name="importCatima">Impor dari Catima</string>
+    <string name="importFidme">Impor dari FidMe</string>
+    <string name="barcodeId">Nilai barcode</string>
+    <string name="sameAsCardId">Sama denga kartu ID</string>
+    <string name="setBarcodeId">Tentukan nilai barcode</string>
+    <string name="photos">Foto</string>
+    <string name="setFrontImage">Atur gambar bagian depan</string>
+    <string name="report_error">Lapor Kesalahan</string>
+    <string name="rate_this_app">Beri nilai pada aplikasi ini</string>
+    <string name="sort_by_expiry">Masa berlaku</string>
+    <string name="sort_by_most_recently_used">Paling banyak digunakan</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Merah Muda</string>
+    <string name="settings_blue_theme">Biru</string>
+    <string name="settings_green_theme">Hijau</string>
+    <string name="settings_sky_blue_theme">Biru Langit</string>
+    <string name="settings_grey_theme">Abu-abu</string>
+    <string name="settings_brown_theme">Cokelat</string>
+    <string name="settings_violet_theme">Ungu</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_theme_color">Warna tema</string>
+    <string name="settings_system_locale">Sistem</string>
+    <string name="settings_locale">Bahasa</string>
+    <string name="turn_flashlight_on">Hidupkan lampu flash</string>
+    <string name="turn_flashlight_off">Matikan lampu flash</string>
+    <string name="exportPasswordHint">Masukan kata sandi</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="takePhoto">Ambil foto</string>
+    <string name="removeImage">Hapus gambar</string>
+    <string name="setBackImage">Atur gambar bagian belakang</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan anda</string>
+    <string name="noGiftCards">Klik tanda + tombol tambah untuk menambahkan kartu, atau mengimpor beberapa kartu melalui menu ⋮ terlebih dahulu.</string>
+    <string name="noMatchingGiftCards">Tidak menemukan apapun. Coba untuk mengubah pencarian anda.</string>
+    <string name="noBarcode">Bukan barcode</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="copy_to_clipboard">Salin ID</string>
+    <string name="sendLabel">Kirim…</string>
+    <string name="noCardsMessage">Tambah kartu terlebih dahulu</string>
+    <string name="noStoreError">Nama masih kosong</string>
+    <string name="noCardIdError">Kartu ID masih kosong</string>
+    <string name="noCardExistsError">Tidak dapat menemukan kartu</string>
+    <string name="failedParsingImportUriError">Tidak dapat menguraikan alamat impor situs web</string>
+    <string name="exportName">Ekspor</string>
+    <string name="importSuccessfulTitle">Sudah diimpor</string>
+    <string name="importFailedTitle">Impor gagal</string>
+    <string name="importFailed">Tidak dapat mengimpor kartu</string>
+    <string name="exportSuccessfulTitle">Sudah diekspor</string>
+    <string name="exportFailedTitle">Ekspor gagal</string>
+    <string name="exportFailed">Tidak dapat mengekspor kartu</string>
+    <string name="importing">Mengimpor…</string>
+    <string name="exporting">Mengekspor…</string>
+    <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor kartu terlebih dahulu</string>
+    <string name="exportOptionExplanation">Data akan ditulis ke lokasi pilihan Anda.</string>
+    <string name="importOptionFilesystemTitle">Impor dari sistem</string>
+    <string name="importOptionFilesystemExplanation">Pilih file dari sistem.</string>
+    <string name="importOptionFilesystemButton">Dari sistem</string>
+    <string name="importOptionApplicationTitle">Gunakan aplikasi lain</string>
+    <string name="importOptionApplicationExplanation">Gunakan aplikasi lain atau pengelola file favorit anda untuk membuka file.</string>
+    <string name="importOptionApplicationButton">Gunakan aplikasi lain</string>
+    <string name="about">Tentang</string>
+    <string name="app_copyright_fmt">Hak Cipta © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_old">Berdasarkan Loyalty Card Keychain 
+\nhak cipta © 2016–2020 Branden Archer</string>
+    <string name="app_license">Perangkat lunak bebas copyleft, berlisensi GPLv3+</string>
+    <string name="about_title_fmt">Tentang <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versi: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Info Revisi: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_libraries">Pustaka pihak ketiga gratis: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Sumber daya pihak ketiga gratis: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="enterBarcodeInstructions">Masukkan ID kartu, dan pilih jenis barcodenya di bawah atau \"Kartu ini tidak memiliki barcode\".</string>
+    <string name="copy_to_clipboard_toast">ID kartu telah disalin</string>
+    <string name="thumbnailDescription">Gambar tampilan untuk kartu</string>
+    <string name="starImage">Favorit</string>
+    <string name="settings_light_theme">Terang</string>
+    <string name="settings_dark_theme">Gelap</string>
+    <string name="settings_max_font_size_scale">Ukuran maksimal huruf</string>
+    <string name="settings_display_barcode_max_brightness">Terangkan tampilan barcode</string>
+    <string name="settings_lock_barcode_orientation">Kunci orientasi barcode</string>
+    <string name="settings_keep_screen_on">Biarkan layar menyala</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Mencegah layar menyala</string>
+    <string name="intent_import_card_from_url_share_text">Saya ingin berbagi kartu dengan anda</string>
+    <string name="importSuccessful">Data kartu terimpor</string>
+    <string name="exportSuccessful">Data kartu terekspor</string>
+    <string name="enter_group_name">Masukan nama grup</string>
+    <string name="groups">Grup</string>
+    <string name="noGroups">Klik pada tombol tambah + untuk menambahkan grup atau kategori terlebih dahulu.</string>
+    <string name="noGroupCards">Grup ini tidak memilik kartu</string>
+    <string name="deleteConfirmationGroup">Hapus grup?</string>
+    <string name="failedOpeningFileManager">Instal aplikasi pengelola file terlebih dahulu.</string>
+    <string name="moveUp">Pindah ke atas</string>
+    <string name="moveDown">Pindah ke bawah</string>
+    <string name="leaveWithoutSaveConfirmation">Keluar tanpa menyimpan?</string>
+    <string name="addManually">Masukan ID kartu</string>
+    <string name="addFromImage">Pilih gambar dari galeri</string>
+    <string name="groupsList">Grup: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Masa ber: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Kadaluwarsa: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> poin</string>
+    <string name="editBarcode">Ubah barcode</string>
+    <string name="expiryDate">Tanggal masa berlaku</string>
+    <string name="never">Tidak pernah</string>
+    <string name="moveBarcodeToTopOfScreen">Pindah barcode ke bagian paling depan</string>
+    <string name="moveBarcodeToCenterOfScreen">Pusatkan barcode pada layar</string>
+    <string name="points">Poin</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sepertinya bukan saldo yang valid.</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 
+\n
+\nTIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah libre software.</string>
+    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor. 
+\nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
+    <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya. 
+\nBuat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
+    <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor. 
+\nBuat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
+    <string name="importStocard">Impor dari Stocard</string>
+    <string name="importStocardMessage">Pilih ekspor <i>***-sync.zip</i> Anda dari Stocard untuk diimpor. 
+\nDapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
+    <string name="importVoucherVault">Impor dari Voucher Vault</string>
+    <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Vault Voucher untuk diimpor. 
+\nBuat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
+    <string name="unsupportedBarcodeType">Jenis barcode ini belum dapat ditampilkan. Ini mungkin didukung di versi aplikasi yang lebih baru.</string>
+    <string name="wrongValueForBarcodeType">Nilai tidak berlaku untuk jenis barcode yang dipilih</string>
+    <string name="copy_to_clipboard_multiple_toast">ID kartu telah disalin</string>
+    <string name="frontImageDescription">Gambar depan kartu</string>
+    <string name="backImageDescription">Gambar belakang kartu</string>
+    <string name="updateBarcodeQuestionTitle">Perbarui barcode?</string>
+    <string name="updateBarcodeQuestionText">Anda mengubah ID kartu. Apakah Anda juga ingin memperbarui barcode untuk menggunakan nilai yang sama?</string>
+    <string name="passwordRequired">Silahkan masukan kata sandi</string>
+    <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
+    <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
+    <string name="app_contributors">Pengembangan dibantu oleh: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="toggleMoreInfo">Tampilkan info selengkapnya</string>
+    <string name="swipeToSwitchImages">Geser atau tekan yang lama untuk mengganti gambar</string>
+    <string name="reverse">Ubah urutan</string>
+    <string name="version_history">Riwayat Versi</string>
+    <string name="help_translate_this_app">Bantu terjemahkan aplikasi ini</string>
+    <string name="source_repository">Sumber Repositori</string>
+    <string name="on_github">di GitHub</string>
+    <string name="and_data_usage">dan penggunaan data</string>
+    <string name="on_google_play">di Google Play</string>
+    <string name="lockScreen">Blokir rotasi</string>
+    <string name="unlockScreen">Buka blokir rotasi</string>
+    <string name="cardShortcut">Pintasan kartu</string>
+    <string name="card_ids_copied">ID kartu yang tersalin</string>
+    <string name="barcodeImageDescriptionWithType">Gambar dari jenis barcode <xliff:g>%s</xliff:g></string>
+    <string name="importExportHelp">Mencadangkan kartu memungkinkan anda memindahkannya ke perangkat lain.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> kartu dipilih</item>
+    </plurals>
+    <plurals name="groupCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> kartu</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="other">Hapus kartu <xliff:g>%d</xliff:g> ini secara permanen\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="other">Hapus <xliff:g>%d</xliff:g> kartu</item>
+    </plurals>
+</resources>

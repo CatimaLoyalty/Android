@@ -162,7 +162,7 @@
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Slett dette kortet for godt\?</item>
+        <item quantity="one">Slett dette <xliff:g>%d</xliff:g> kortet for godt\?</item>
         <item quantity="other">Slett disse <xliff:g>%d</xliff:g> kortene for godt\?</item>
     </plurals>
     <string name="turn_flashlight_on">Skru på lommelykten</string>
@@ -196,7 +196,7 @@
     <string name="sort_by_most_recently_used">Nyligst brukt</string>
     <string name="sort_by_name">Navn</string>
     <string name="sort">Sorter</string>
-    <string name="help_translate_this_app">Hjelp med å oversette denne appen</string>
+    <string name="help_translate_this_app">Bistå oversettelsen av programmet</string>
     <string name="license">Lisens</string>
     <string name="version_history">Versjonshistorikk</string>
     <string name="importCatimaMessage">Velg din <i>catima.zip</i>-eksport fra Catima å importere.
@@ -204,8 +204,16 @@
     <string name="source_repository">Kildekode</string>
     <string name="on_github">på GitHub</string>
     <string name="and_data_usage">og bruk av data</string>
-    <string name="rate_this_app">Vurder denne appen</string>
+    <string name="rate_this_app">Vurder dette programmet</string>
     <string name="on_google_play">på Google Play</string>
     <string name="report_error">Rapporter feil</string>
     <string name="credits">Bidragsytere</string>
+    <string name="exportPassword">Sett et passord for å beskytte eksporten din (valgfritt)</string>
+    <string name="exportPasswordHint">Skriv inn passord</string>
+    <string name="group_edit">Rediger gruppe</string>
+    <string name="group_name_already_in_use">Gruppenavn allerede i bruk</string>
+    <string name="group_updated">Gruppe oppdatert</string>
+    <string name="group_name_is_empty">Gruppenavn kan ikke være tomt</string>
+    <string name="editGroup">Redigerer gruppe: <xliff:g>%s</xliff:g></string>
+    <string name="noGiftCardsGroup">Du har ingen lojalitetskort enda. Når du først har det kan du legge dem til i en gruppe her.</string>
 </resources>

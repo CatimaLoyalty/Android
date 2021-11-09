@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-import com.google.zxing.BarcodeFormat;
-
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
 
@@ -37,18 +35,17 @@ import protect.card_locker.ZipUtils;
 /**
  * Class for importing a database from CSV (Comma Separate Values)
  * formatted data.
- *
+ * <p>
  * The database's loyalty cards are expected to appear in the CSV data.
  * A header is expected for the each table showing the names of the columns.
  */
-public class CatimaImporter implements Importer
-{
+public class CatimaImporter implements Importer {
     public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
         InputStream bufferedInputStream = new BufferedInputStream(input);
         bufferedInputStream.mark(100);
 
         // First, check if this is a zip file
-        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream,password);
+        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream, password);
 
         boolean isZipFile = false;
 
@@ -102,41 +99,32 @@ public class CatimaImporter implements Importer
         bufferedReader.close();
     }
 
-    public void parseV1(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
-    {
-        final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.withHeader());
+    public void parseV1(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException {
+        final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
 
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
 
-        try
-        {
-            for (CSVRecord record : parser)
-            {
+        try {
+            for (CSVRecord record : parser) {
                 importLoyaltyCard(context, database, db, record);
 
-                if(Thread.currentThread().isInterrupted())
-                {
+                if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
                 }
             }
 
             parser.close();
             database.setTransactionSuccessful();
-        }
-        catch(IllegalArgumentException|IllegalStateException e)
-        {
+        } catch (IllegalArgumentException | IllegalStateException e) {
             throw new FormatException("Issue parsing CSV data", e);
-        }
-        finally
-        {
+        } finally {
             database.endTransaction();
             database.close();
         }
     }
 
-    public void parseV2(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException
-    {
+    public void parseV2(Context context, DBHelper db, BufferedReader input) throws IOException, FormatException, InterruptedException {
         SQLiteDatabase database = db.getWritableDatabase();
         database.beginTransaction();
 
@@ -206,10 +194,9 @@ public class CatimaImporter implements Importer
         }
     }
 
-    public void parseV2Groups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
-    {
+    public void parseV2Groups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
         // Parse groups
-        final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 
@@ -232,10 +219,9 @@ public class CatimaImporter implements Importer
         }
     }
 
-    public void parseV2Cards(Context context, DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
-    {
+    public void parseV2Cards(Context context, DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
         // Parse cards
-        final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 
@@ -258,10 +244,9 @@ public class CatimaImporter implements Importer
         }
     }
 
-    public void parseV2CardGroups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException
-    {
+    public void parseV2CardGroups(DBHelper db, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
         // Parse card group mappings
-        final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.withHeader());
+        final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
         List<CSVRecord> records = new ArrayList<>();
 
@@ -289,13 +274,11 @@ public class CatimaImporter implements Importer
      * session.
      */
     private void importLoyaltyCard(Context context, SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException
-    {
+            throws IOException, FormatException {
         int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record, false);
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
-        if(store.isEmpty())
-        {
+        if (store.isEmpty()) {
             throw new FormatException("No store listed, but is required");
         }
 
@@ -303,12 +286,13 @@ public class CatimaImporter implements Importer
         Date expiry = null;
         try {
             expiry = new Date(CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record, true));
-        } catch (NullPointerException | FormatException e) { }
+        } catch (NullPointerException | FormatException e) {
+        }
 
         BigDecimal balance;
         try {
             balance = new BigDecimal(CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null));
-        } catch (FormatException _e ) {
+        } catch (FormatException _e) {
             // These fields did not exist in versions 1.8.1 and before
             // We catch this exception so we can still import old backups
             balance = new BigDecimal("0");
@@ -316,33 +300,29 @@ public class CatimaImporter implements Importer
 
         Currency balanceType = null;
         String unparsedBalanceType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE, record, "");
-        if(!unparsedBalanceType.isEmpty()) {
+        if (!unparsedBalanceType.isEmpty()) {
             balanceType = Currency.getInstance(unparsedBalanceType);
         }
 
         String cardId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.CARD_ID, record, "");
-        if(cardId.isEmpty())
-        {
+        if (cardId.isEmpty()) {
             throw new FormatException("No card ID listed, but is required");
         }
 
         String barcodeId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_ID, record, "");
-        if(barcodeId.isEmpty())
-        {
+        if (barcodeId.isEmpty()) {
             barcodeId = null;
         }
 
         CatimaBarcode barcodeType = null;
         String unparsedBarcodeType = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE, record, "");
-        if(!unparsedBarcodeType.isEmpty())
-        {
+        if (!unparsedBarcodeType.isEmpty()) {
             barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
         }
 
         Integer headerColor = null;
 
-        if(record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR))
-        {
+        if (record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)) {
             headerColor = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record, true);
         }
 
@@ -371,8 +351,7 @@ public class CatimaImporter implements Importer
      * session.
      */
     private void importGroup(SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException
-    {
+            throws IOException, FormatException {
         String id = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
 
         helper.insertGroup(database, id);
@@ -383,8 +362,7 @@ public class CatimaImporter implements Importer
      * session.
      */
     private void importCardGroupMapping(SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException
-    {
+            throws IOException, FormatException {
         Integer cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record, false);
         String groupId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
 

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="action_add">Acrescentar</string>
+    <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico a partir do sistema de ficheiros.</string>
+    <string name="action_search">Pesquisa</string>
+    <string name="star">Adicionar aos favoritos</string>
+    <string name="noMatchingGiftCards">Não foi encontrado nada. Tente alterar a sua pesquisa.</string>
+    <string name="storeName">Nome</string>
+    <string name="note">Nota</string>
+    <string name="barcodeType">Tipo de código de barras</string>
+    <string name="barcodeNoBarcode">Este cartão não tem código de barras</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="edit">Editar</string>
+    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe um no botão do menu ⋮</string>
+    <string name="noBarcode">Sem código de barras</string>
+    <string name="unstar">Retirar dos favoritos</string>
+    <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
+    <string name="importOptionApplicationTitle">Usar outra aplicação</string>
+    <string name="importOptionApplicationExplanation">Utilize qualquer aplicação ou o seu gestor de ficheiros favorito para abrir um ficheiro.</string>
+    <string name="importOptionApplicationButton">Utilizar outra aplicação</string>
+    <string name="about">Sobre</string>
+    <string name="app_license">Software livre de partilha sob a mesma licença e segundo a licença GPLv3+</string>
+    <string name="addCardTitle">Adicionar cartão</string>
+    <string name="lockScreen">Bloquear rotação</string>
+    <string name="editCardTitle">Editar cartão</string>
+    <string name="unlockScreen">Desbloquear rotação</string>
+    <string name="deleteTitle">Eliminar cartão</string>
+    <string name="copy_to_clipboard">Copiar identificador para a área de transferência</string>
+    <string name="sendLabel">Enviar…</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> cartão selecionado</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartões selecionados</item>
+    </plurals>
+    <string name="deleteConfirmation">Eliminar este cartão permanentemente\?</string>
+    <string name="share">Partilhar</string>
+    <string name="scanCardBarcode">Digitalizar código de barras</string>
+    <string name="confirm">Confirmar</string>
+    <string name="delete">Eliminar</string>
+    <string name="cardId">Identificador do cartão</string>
+    <string name="cardShortcut">Atalho do cartão</string>
+    <string name="noCardsMessage">Adicione primeiro um cartão</string>
+    <string name="noStoreError">Nenhum nome inserido</string>
+    <string name="noCardExistsError">Não foi possível encontrar o cartão</string>
+    <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
+    <string name="importExport">Importar / exportar</string>
+    <string name="exportName">Exportar</string>
+    <string name="importSuccessful">Dados do cartão importados</string>
+    <string name="noGroups">Primeiro clique no botão + para adicionar grupos para categorização.</string>
+    <string name="noGroupCards">Este grupo não contém cartões</string>
+    <string name="intent_import_card_from_url_share_text">Quero partilhar um cartão</string>
+    <string name="settings_display_barcode_max_brightness">Iluminar o código de barras</string>
+    <string name="settings_keep_screen_on">Manter ecrã ligado</string>
+    <string name="enter_group_name">Introduza o nome do grupo</string>
+    <string name="groups">Grupos</string>
+    <string name="settings_lock_barcode_orientation">Bloquear orientação do código de barras</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Desativar bloqueio do ecrã</string>
+    <string name="exportSuccessful">Dados do cartão exportados</string>
+    <string name="all">Todos</string>
+    <string name="deleteConfirmationGroup">Eliminar o grupo\?</string>
+    <string name="settings">Configurações</string>
+    <string name="settings_category_title_ui">Interface do utilizador</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_light_theme">Claro</string>
+    <string name="settings_dark_theme">Escuro</string>
+    <string name="settings_max_font_size_scale">Tamanho máximo da fonte</string>
+    <string name="selectBarcodeTitle">Selecionar código de barras</string>
+    <string name="enterBarcodeInstructions">Introduza o identificador do cartão e depois escolha o tipo de código de barras abaixo ou \"Este cartão não tem código de barras\".</string>
+    <string name="copy_to_clipboard_toast">Identificador do cartão copiado para a área de transferência</string>
+    <string name="thumbnailDescription">Miniatura do cartão</string>
+    <string name="starImage">Favorito</string>
+    <string name="failedOpeningFileManager">Instalar primeiro um gestor de ficheiros.</string>
+    <string name="moveUp">Subir</string>
+    <string name="moveDown">Descer</string>
+    <string name="leaveWithoutSaveTitle">Sair</string>
+    <string name="noExternalStoragePermissionError">Conceda primeiro a autorização de acesso ao armazenamento externo para importar ou exportar cartões</string>
+    <string name="importExportHelp">A cópia de segurança dos seus cartões permite-lhe movê-los para outro dispositivo.</string>
+    <string name="importSuccessfulTitle">Importado</string>
+    <string name="importFailedTitle">A importação falhou</string>
+    <string name="importFailed">Não foi possível importar os cartões</string>
+    <string name="exportSuccessfulTitle">Exportado</string>
+    <string name="exportFailedTitle">A exportação falhou</string>
+    <string name="exportFailed">Não foi possível exportar os cartões</string>
+    <string name="importing">A importar…</string>
+    <string name="exporting">A exportar…</string>
+    <string name="settings_sky_blue_theme">Azul céu</string>
+    <string name="report_error">Reportar erro</string>
+    <string name="balancePoints"><xliff:g>%s</xliff:g> pontos</string>
+    <string name="barcode">Código de barras</string>
+    <string name="chooseImportType">De onde importar os dados\?</string>
+    <string name="card">Cartão</string>
+    <string name="expiryStateSentence">Expiram: <xliff:g>%s</xliff:g></string>
+    <string name="app_resources">Recursos livres de terceiros: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Bibliotecas livres de terceiros: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="takePhoto">Tirar uma fotografia</string>
+    <string name="yes">Sim</string>
+    <string name="exportPassword">Defina uma palavra-passe para proteger a exportação (opcional)</string>
+    <string name="exportPasswordHint">Digite a palavra-passe</string>
+    <string name="setBarcodeId">Definir o valor do código de barras</string>
+    <string name="sameAsCardId">Igual ao identificador do cartão</string>
+    <string name="importFidmeMessage">Selecione a exportação <i>fidme-export-request-xxxxxx.zip</i> do FidMe para importar e depois selecione os tipos de código de barras manualmente.
+\nPrimeiro crie a exportação no seu perfil do FidMe escolhendo a opção \"Proteção de dados\" e em seguida pressionando \"Extrair os meus dados\".</string>
+    <string name="importStocardMessage">Selecione a exportação <i>***-sync.zip</i> do Stocard para importar.
+\nObtenha-o através do e-mail support@stocardapp.com solicitando uma exportação dos seus dados.</string>
+    <string name="barcodeId">Valor do código de barras</string>
+    <string name="wrongValueForBarcodeType">O valor não é válido para o tipo de código de barras selecionado</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Quero partilhar alguns cartões</string>
+    <string name="removeImage">Remover imagem</string>
+    <string name="backImageDescription">Imagem de trás do cartão</string>
+    <string name="frontImageDescription">Imagem frontal do cartão</string>
+    <string name="photos">Fotografias</string>
+    <string name="passwordRequired">Introduza a palavra-passe</string>
+    <string name="settings_green_theme">Verde</string>
+    <string name="settings_grey_theme">Cinza</string>
+    <string name="settings_brown_theme">Castanho</string>
+    <string name="updateBarcodeQuestionTitle">Atualizar o valor do código de barras\?</string>
+    <string name="updateBarcodeQuestionText">Alterou a identificação do cartão. Também quer atualizar o código de barras para usar o mesmo valor\?</string>
+    <string name="no">Não</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> cartão</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> cartões</item>
+    </plurals>
+    <string name="importOptionFilesystemTitle">Importar do sistema de ficheiros</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Direitos de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_old">Baseado no Loyalty Card Keychain
+\ndireitos de autor © 2016–2020 Branden Archer</string>
+    <string name="about_title_fmt">Sobre o <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informação da revisão: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Expirados: <xliff:g>%s</xliff:g></string>
+    <string name="leaveWithoutSaveConfirmation">Sair sem guardar\?</string>
+    <string name="addManually">Introduzir manualmente o identificador do cartão</string>
+    <string name="addFromImage">Selecionar imagem da galeria</string>
+    <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="editBarcode">Editar código de barras</string>
+    <string name="expiryDate">Validade</string>
+    <string name="never">Nunca</string>
+    <string name="chooseExpiryDate">Escolher validade</string>
+    <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo do ecrã</string>
+    <string name="moveBarcodeToCenterOfScreen">Centrar o código de barras no ecrã</string>
+    <string name="noBarcodeFound">Não foi encontrado nenhum código de barras</string>
+    <string name="errorReadingImage">Não foi possível ler a imagem</string>
+    <string name="balance">Saldo</string>
+    <string name="currency">Moeda</string>
+    <string name="points">Pontos</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> não parece ser um saldo válido.</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="privacy_policy">Política de privacidade</string>
+    <string name="privacy_policy_popup_text">Aviso de política de privacidade (exigido por algumas lojas de aplicações):
+\n
+\nNENHUM DADO É RECOLHIDO DE FORMA ALGUMA, o que qualquer pessoa pode confirmar, já que a nossa aplicação é um software livre de código-fonte aberto.</string>
+    <string name="accept">Aceitar</string>
+    <string name="importCatima">Importar do Catima</string>
+    <string name="importCatimaMessage">Selecione a exportação <i>catima.zip</i> do Catima a importar.
+\nPrimeiro crie a exportação no menu \"Importar / exportar\" de outra aplicação Catima pressionando \"Exportar\" nesse menu.</string>
+    <string name="importFidme">Importar do FidMe</string>
+    <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Selecione a exportação <i>LoyaltyCardKeychain.csv</i> do Loyalty Card Keychain para importar.
+\nPrimeiro crie a exportação no menu \"Importar / exportar\" no Loyalty Card Keychain pressionando \"Exportar\".</string>
+    <string name="importStocard">Importar do Stocard</string>
+    <string name="importVoucherVault">Importar do Voucher Vault</string>
+    <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar.
+\nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>
+    <string name="unsupportedBarcodeType">Este tipo de código de barras ainda não pode ser mostrado. Pode vir a ser suportado numa versão posterior da aplicação.</string>
+    <string name="copy_to_clipboard_multiple_toast">Identificação do cartão copiado para a área de transferência</string>
+    <string name="setFrontImage">Definir imagem frontal</string>
+    <string name="setBackImage">Definir imagem de trás</string>
+    <string name="failedGeneratingShareURL">Não foi possível gerar uma URL partilhável. Por favor reporte isto aos programadores.</string>
+    <string name="turn_flashlight_on">Ligar lanterna</string>
+    <string name="turn_flashlight_off">Desligar lanterna</string>
+    <string name="settings_locale">Idioma</string>
+    <string name="settings_system_locale">Sistema</string>
+    <string name="settings_theme_color">Cor do tema</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_violet_theme">Violeta</string>
+    <string name="settings_blue_theme">Azul</string>
+    <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">Ordenar</string>
+    <string name="toggleMoreInfo">Alternar mostrar mais informação</string>
+    <string name="swipeToSwitchImages">Deslize ou pressione prolongadamente para mudar as imagens</string>
+    <string name="sort_by_name">Nome</string>
+    <string name="sort_by_most_recently_used">Mais usados recentemente</string>
+    <string name="sort_by_expiry">Validade</string>
+    <string name="sort_by_balance">Saldo</string>
+    <string name="reverse">Inverter</string>
+    <string name="sort_by">Ordenar por</string>
+    <string name="version_history">Histórico de versões</string>
+    <string name="credits">Créditos</string>
+    <string name="help_translate_this_app">Ajude a traduzir esta aplicação</string>
+    <string name="license">Licença</string>
+    <string name="source_repository">Repositório do código-fonte</string>
+    <string name="on_github">no GitHub</string>
+    <string name="and_data_usage">e utilização de dados</string>
+    <string name="rate_this_app">Avalie esta aplicação</string>
+    <string name="on_google_play">no Google Play</string>
+    <string name="exportOptionExplanation">Os dados serão guardados num local à sua escolha.</string>
+    <string name="noCardIdError">Nenhum identificador inserido</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Eliminar <xliff:g>%d</xliff:g> cartão</item>
+        <item quantity="other">Eliminar <xliff:g>%d</xliff:g> cartões</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Eliminar o cartão <xliff:g>%d</xliff:g> permanentemente\?</item>
+        <item quantity="other">Eliminar os cartões <xliff:g>%d</xliff:g> permanentemente\?</item>
+    </plurals>
+    <string name="ok">OK</string>
+    <string name="card_ids_copied">Identificadores dos cartões copiados</string>
+    <string name="barcodeImageDescriptionWithType">Imagem do código de barras do cartão do tipo <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Editar grupo</string>
+    <string name="group_name_already_in_use">O nome do grupo já está a ser usado</string>
+    <string name="group_name_is_empty">O nome do grupo não pode estar vazio</string>
+    <string name="group_updated">Grupo atualizado</string>
+    <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
+    <string name="noGiftCardsGroup">Ainda não tem nenhum cartão de fidelidade. Assim que tenha adicionado alguns, pode atribuí-los ao grupo aqui.</string>
+</resources>

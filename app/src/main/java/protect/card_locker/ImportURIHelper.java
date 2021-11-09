@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.google.zxing.BarcodeFormat;
-
 import java.io.InvalidObjectException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -57,7 +55,7 @@ public class ImportURIHelper {
     }
 
     public LoyaltyCard parse(Uri uri) throws InvalidObjectException {
-        if(!isImportUri(uri)) {
+        if (!isImportUri(uri)) {
             throw new InvalidObjectException("Not an import URI");
         }
 
@@ -92,37 +90,33 @@ public class ImportURIHelper {
             String note = kv.get(NOTE);
             String cardId = kv.get(CARD_ID);
             String barcodeId = kv.get(BARCODE_ID);
-            if (store == null || note == null || cardId == null) throw new InvalidObjectException("Not a valid import URI: " + uri.toString());
+            if (store == null || note == null || cardId == null)
+                throw new InvalidObjectException("Not a valid import URI: " + uri.toString());
 
             String unparsedBarcodeType = kv.get(BARCODE_TYPE);
-            if(unparsedBarcodeType != null && !unparsedBarcodeType.equals(""))
-            {
+            if (unparsedBarcodeType != null && !unparsedBarcodeType.equals("")) {
                 barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
             }
 
             String unparsedBalance = kv.get(BALANCE);
-            if(unparsedBalance != null && !unparsedBalance.equals(""))
-            {
+            if (unparsedBalance != null && !unparsedBalance.equals("")) {
                 balance = new BigDecimal(unparsedBalance);
             }
             String unparsedBalanceType = kv.get(BALANCE_TYPE);
-            if (unparsedBalanceType != null && !unparsedBalanceType.equals(""))
-            {
+            if (unparsedBalanceType != null && !unparsedBalanceType.equals("")) {
                 balanceType = Currency.getInstance(unparsedBalanceType);
             }
             String unparsedExpiry = kv.get(EXPIRY);
-            if(unparsedExpiry != null && !unparsedExpiry.equals(""))
-            {
+            if (unparsedExpiry != null && !unparsedExpiry.equals("")) {
                 expiry = new Date(Long.parseLong(unparsedExpiry));
             }
 
             String unparsedHeaderColor = kv.get(HEADER_COLOR);
-            if(unparsedHeaderColor != null)
-            {
+            if (unparsedHeaderColor != null) {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime());
+            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100);
         } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -159,14 +153,14 @@ public class ImportURIHelper {
             fragment = appendFragment(fragment, EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));
         }
         fragment = appendFragment(fragment, CARD_ID, loyaltyCard.cardId);
-        if(loyaltyCard.barcodeId != null) {
+        if (loyaltyCard.barcodeId != null) {
             fragment = appendFragment(fragment, BARCODE_ID, loyaltyCard.barcodeId);
         }
 
-        if(loyaltyCard.barcodeType != null) {
+        if (loyaltyCard.barcodeType != null) {
             fragment = appendFragment(fragment, BARCODE_TYPE, loyaltyCard.barcodeType.name());
         }
-        if(loyaltyCard.headerColor != null) {
+        if (loyaltyCard.headerColor != null) {
             fragment = appendFragment(fragment, HEADER_COLOR, loyaltyCard.headerColor.toString());
         }
         // Star status will not be exported

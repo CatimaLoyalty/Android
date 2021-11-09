@@ -19,8 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener
-{
+public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     static final String TAG = "Catima";
     final DBHelper mDb = new DBHelper(this);
 

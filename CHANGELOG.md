@@ -1,9 +1,26 @@
 # Changelog
 
-## Unreleased - 89
+## Unreleased - 91
+
+- Improved group management support
+- Support cropping images
+- Fix image data loss when saving after rotating in edit view
+- Ability to set a custom image as card icon
+
+## v2.8.1 - 90 (2021-10-27)
+
+- Fix dots in card view having the wrong colour when changing theme manually
+- Fix crash in card view on rotation/theme change
+- Fix flashing of cards list
+- Fix text overlaying star icon
+
+## v2.8.0 - 89 (2021-10-25)
 
 - Fix swiping between groups not working on an empty group
 - Allow password-protecting exports
+- Improve usage of space for QR codes
+- Save the last used zoom level per card
+- Fix a crash when swiping right after a tap
 
 ## v2.7.3 - 88 (2021-10-10)
 

@@ -1,1 +1,5 @@
 - Gruplar arasında kaydırmanın boş bir grup üzerinde çalışmaması düzeltildi
+- Parola korumalı dışa aktarmalara izin ver
+- QR kodları için boşluk kullanımını iyileştir
+- Kart başına en son kullanılan yakınlaştırma seviyesini kaydet
+- Dokunduktan sonra sağa kaydırmada çökmeyi düzelt

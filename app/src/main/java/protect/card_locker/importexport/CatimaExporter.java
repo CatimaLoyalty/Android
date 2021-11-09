@@ -22,6 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 import protect.card_locker.DBHelper;
 import protect.card_locker.Group;
+import protect.card_locker.ImageLocationType;
 import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 
@@ -29,10 +30,8 @@ import protect.card_locker.Utils;
  * Class for exporting the database into CSV (Comma Separate Values)
  * format.
  */
-public class CatimaExporter implements Exporter
-{
-    public void exportData(Context context, DBHelper db, OutputStream output,char[] password) throws IOException, InterruptedException
-    {
+public class CatimaExporter implements Exporter {
+    public void exportData(Context context, DBHelper db, OutputStream output, char[] password) throws IOException, InterruptedException {
         // Necessary vars
         int readLen;
         byte[] readBuffer = new byte[InternalZipConstants.BUFF_SIZE];
@@ -40,10 +39,9 @@ public class CatimaExporter implements Exporter
         // Create zip output stream
         ZipOutputStream zipOutputStream;
 
-        if(password!=null && password.length>0){
-            zipOutputStream = new ZipOutputStream(output,password);
-        }
-        else{
+        if (password != null && password.length > 0) {
+            zipOutputStream = new ZipOutputStream(output, password);
+        } else {
             zipOutputStream = new ZipOutputStream(output);
         }
 
@@ -53,7 +51,7 @@ public class CatimaExporter implements Exporter
         writeCSV(db, catimaOutputStreamWriter);
 
         // Add CSV to zip file
-        ZipParameters csvZipParameters = createZipParameters("catima.csv",password);
+        ZipParameters csvZipParameters = createZipParameters("catima.csv", password);
         zipOutputStream.putNextEntry(csvZipParameters);
         InputStream csvInputStream = new ByteArrayInputStream(catimaOutputStream.toByteArray());
         while ((readLen = csvInputStream.read(readBuffer)) != -1) {
@@ -63,22 +61,16 @@ public class CatimaExporter implements Exporter
 
         // Loop over all cards again
         Cursor cardCursor = db.getLoyaltyCardCursor();
-        while(cardCursor.moveToNext())
-        {
+        while (cardCursor.moveToNext()) {
             // For each card
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
-            // Prepare looping over both front and back image
-            boolean[] frontValues = new boolean[2];
-            frontValues[0] = true;
-            frontValues[1] = false;
-
             // For each image
-            for (boolean front : frontValues) {
+            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 // If it exists, add to the .zip file
-                Bitmap image = Utils.retrieveCardImage(context, card.id, front);
+                Bitmap image = Utils.retrieveCardImage(context, card.id, imageLocationType);
                 if (image != null) {
-                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, front),password);
+                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType) ,password);
                     zipOutputStream.putNextEntry(imageZipParameters);
                     InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
                     while ((readLen = imageInputStream.read(readBuffer)) != -1) {
@@ -92,10 +84,10 @@ public class CatimaExporter implements Exporter
         zipOutputStream.close();
     }
 
-    private ZipParameters createZipParameters(String fileName, char[] password){
+    private ZipParameters createZipParameters(String fileName, char[] password) {
         ZipParameters zipParameters = new ZipParameters();
         zipParameters.setFileNameInZip(fileName);
-        if(password!=null && password.length>0){
+        if (password != null && password.length > 0) {
             zipParameters.setEncryptFiles(true);
             zipParameters.setEncryptionMethod(EncryptionMethod.AES);
         }
@@ -115,14 +107,12 @@ public class CatimaExporter implements Exporter
 
         Cursor groupCursor = db.getGroupCursor();
 
-        while(groupCursor.moveToNext())
-        {
+        while (groupCursor.moveToNext()) {
             Group group = Group.toGroup(groupCursor);
 
             printer.printRecord(group._id);
 
-            if(Thread.currentThread().isInterrupted())
-            {
+            if (Thread.currentThread().isInterrupted()) {
                 throw new InterruptedException();
             }
         }
@@ -148,8 +138,7 @@ public class CatimaExporter implements Exporter
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
 
-        while(cardCursor.moveToNext())
-        {
+        while (cardCursor.moveToNext()) {
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
 
             printer.printRecord(card.id,
@@ -165,8 +154,7 @@ public class CatimaExporter implements Exporter
                     card.starStatus,
                     card.lastUsed);
 
-            if(Thread.currentThread().isInterrupted())
-            {
+            if (Thread.currentThread().isInterrupted()) {
                 throw new InterruptedException();
             }
         }
@@ -182,16 +170,14 @@ public class CatimaExporter implements Exporter
 
         Cursor cardCursor2 = db.getLoyaltyCardCursor();
 
-        while(cardCursor2.moveToNext())
-        {
+        while (cardCursor2.moveToNext()) {
             LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor2);
 
             for (Group group : db.getLoyaltyCardGroups(card.id)) {
                 printer.printRecord(card.id, group._id);
             }
 
-            if(Thread.currentThread().isInterrupted())
-            {
+            if (Thread.currentThread().isInterrupted()) {
                 throw new InterruptedException();
             }
         }

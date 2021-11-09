@@ -503,6 +503,8 @@ public class DatabaseTest
         assertEquals(BarcodeFormat.UPC_A, card.barcodeType.format());
         assertEquals(null, card.headerColor);
         assertEquals(0, card.starStatus);
+        assertEquals(0,card.lastUsed);
+        assertEquals(100,card.zoomLevel);
 
         // Determine that the entries are queryable and the fields are correct
         LoyaltyCard card2 = db.getLoyaltyCard(newCardId2);
@@ -516,6 +518,8 @@ public class DatabaseTest
         assertEquals(null, card2.barcodeType); // Empty string should've become null
         assertEquals(null, card2.headerColor);
         assertEquals(0, card2.starStatus);
+        assertEquals(0,card2.lastUsed);
+        assertEquals(100,card2.zoomLevel);
 
         database.close();
     }

@@ -11,4 +11,4 @@
   - QR_CODE
   - UPC_A
 
-- Vygenerované čárové kódy jsou větší, snadněji se skenují ze skenovacího zařízení.
+- Vygenerované čárové kódy jsou větší, snadněji se skenují ze skenovacího zařízení

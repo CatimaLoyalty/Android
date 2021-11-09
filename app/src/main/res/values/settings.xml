@@ -40,28 +40,39 @@
     <string-array name="locale_values">
         <item />
         <item>bg</item>
+        <item>bn-rIN</item>
+        <item>bs</item>
         <item>cs</item>
+        <item>cy</item>
+        <item>da</item>
         <item>de</item>
         <item>el-rGR</item>
         <item>eo</item>
-        <item>es-rAR</item>
         <item>es</item>
+        <item>es-rAR</item>
         <item>fi</item>
         <item>fr</item>
         <item>he-rIL</item>
+        <item>hr</item>
+        <item>in-rID</item>
         <item>it</item>
         <item>ja</item>
         <item>ko</item>
         <item>lt</item>
+        <item>lv</item>
         <item>nb-rNO</item>
         <item>nl</item>
         <item>oc</item>
         <item>pl</item>
+        <item>pt</item>
         <item>ro-rRO</item>
         <item>ru</item>
         <item>sk</item>
         <item>sl</item>
+        <item>sv</item>
+        <item>tr</item>
         <item>uk</item>
+        <item>zh-TW</item>
         <item>zh-rCN</item>
     </string-array>
 

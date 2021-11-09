@@ -1,2 +1,5 @@
 - Fix swiping between groups not working on an empty group
 - Allow password-protecting exports
+- Improve usage of space for QR codes
+- Save the last used zoom level per card
+- Fix a crash when swiping right after a tap

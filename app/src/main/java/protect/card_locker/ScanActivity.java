@@ -24,8 +24,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 /**
+
  * Custom Scanner Activity extending from Activity to display a custom layout form scanner view.
  *
+
+ * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
+ * <p>
+
  * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java
  * originally licensed under Apache 2.0
  */
@@ -54,8 +59,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -127,8 +131,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
             getMenuInflater().inflate(R.menu.scan_menu, menu);
         }
@@ -139,10 +142,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;
@@ -164,8 +165,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
         BarcodeValues barcodeValues;

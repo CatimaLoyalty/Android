@@ -88,7 +88,7 @@
     <string name="enter_group_name">Въведете име на списък</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
     <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
-    <string name="settings_lock_barcode_orientation">Спиране на завъртането на щрихкода</string>
+    <string name="settings_lock_barcode_orientation">Без на завъртане на щрихкода</string>
     <string name="settings_keep_screen_on">Поддържане на екрана включен</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Предотвратяване на заключване на екрана</string>
     <string name="settings_max_font_size_scale">Максимален размер на шрифта</string>
@@ -164,30 +164,30 @@
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
     <string name="card_ids_copied">[не превеждай този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
     <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
-    <string name="deleteTitle">Изтрийте картата</string>
+    <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
         <item quantity="other">Изтриване на <xliff:g>%d</xliff:g> карти</item>
     </plurals>
-    <string name="deleteConfirmation">Потвърдете премахване на карта\?</string>
+    <string name="deleteConfirmation">Потвърдете премахване на картата.</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Изтриване на тази <xliff:g>%d</xliff:g> карта завинаги\?</item>
-        <item quantity="other">Изтриване на тези <xliff:g>%d</xliff:g> карти за постоянно\?</item>
+        <item quantity="one">Желаете ли <xliff:g>%d</xliff:g> карта да бъде премахната\?</item>
+        <item quantity="other">Желаете ли тези <xliff:g>%d</xliff:g> карти да бъдат премахнати\?</item>
     </plurals>
     <string name="app_contributors">Осъществено от: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Браун</string>
-    <string name="settings_grey_theme">Сив</string>
-    <string name="settings_green_theme">Зелен</string>
-    <string name="settings_sky_blue_theme">Небесно синьо</string>
+    <string name="settings_brown_theme">Кафяво</string>
+    <string name="settings_grey_theme">Сиво</string>
+    <string name="settings_green_theme">Зелено</string>
+    <string name="settings_sky_blue_theme">Небесносиньо</string>
     <string name="settings_blue_theme">Синьо</string>
-    <string name="settings_violet_theme">Виолет</string>
-    <string name="settings_magenta_theme">Магента</string>
-    <string name="settings_pink_theme">Розов</string>
+    <string name="settings_violet_theme">Виолетово</string>
+    <string name="settings_magenta_theme">Цикламено</string>
+    <string name="settings_pink_theme">Розово</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Цвят на темата</string>
     <string name="settings_system_locale">Система</string>
     <string name="settings_locale">Език</string>
-    <string name="noGroupCards">Тази група не съдържа карти</string>
+    <string name="noGroupCards">Групата не съдържа карти</string>
     <string name="toggleMoreInfo">Превключване на повече информация</string>
     <string name="barcodeImageDescriptionWithType">Изображение на щрихкод на карта от вида <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Плъзване или задържане за смяна на изображения</string>
@@ -208,5 +208,6 @@
     <string name="on_google_play">в Google Play</string>
     <string name="and_data_usage">и използване на данни</string>
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
+    <string name="exportPasswordHint">Въведете парола</string>
+    <string name="exportPassword">Задаване на парола за защита на изнесеното (по избор)</string>
 </resources>
-

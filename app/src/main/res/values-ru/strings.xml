@@ -216,4 +216,12 @@
     <string name="source_repository">Исходный код</string>
     <string name="license">Лицензия</string>
     <string name="help_translate_this_app">Помощь в переводе приложения</string>
+    <string name="exportPassword">Защитить файл экспорта паролем (необязательно)</string>
+    <string name="exportPasswordHint">Введите пароль</string>
+    <string name="group_name_is_empty">Название группы не может быть пустым</string>
+    <string name="group_updated">Группа обновлена</string>
+    <string name="editGroup">Редактирование группы: <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Изменить группу</string>
+    <string name="group_name_already_in_use">Такое название группы уже существует</string>
+    <string name="noGiftCardsGroup">У вас ещё нет ни одной карты. Как только появится несколько карт, вы сможете добавить их в группу здесь.</string>
 </resources>

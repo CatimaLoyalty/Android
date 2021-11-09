@@ -18,8 +18,7 @@ import android.text.TextPaint;
  * alphabet or digit, if there is no letter or digit available, a default image
  * is shown instead.
  */
-class LetterBitmap
-{
+class LetterBitmap {
 
     /**
      * The number of available tile colors
@@ -37,39 +36,32 @@ class LetterBitmap
     /**
      * Constructor for <code>LetterTileProvider</code>
      *
-     * @param context The {@link Context} to use
-     * @param displayName The name used to create the letter for the tile
-     * @param key         The key used to generate the background color for the tile
+     * @param context            The {@link Context} to use
+     * @param displayName        The name used to create the letter for the tile
+     * @param key                The key used to generate the background color for the tile
      * @param tileLetterFontSize The font size used to display the letter
-     * @param width       The desired width of the tile
-     * @param height      The desired height of the tile
-     * @param backgroundColor  (optional) color to use for background.
-     * @param textColor  (optional) color to use for text.
+     * @param width              The desired width of the tile
+     * @param height             The desired height of the tile
+     * @param backgroundColor    (optional) color to use for background.
+     * @param textColor          (optional) color to use for text.
      */
     public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize,
-                        int width, int height, Integer backgroundColor, Integer textColor)
-    {
+                        int width, int height, Integer backgroundColor, Integer textColor) {
         TextPaint paint = new TextPaint();
         paint.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
 
-        if(textColor != null)
-        {
+        if (textColor != null) {
             paint.setColor(textColor);
-        }
-        else
-        {
+        } else {
             paint.setColor(Color.WHITE);
         }
 
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setAntiAlias(true);
 
-        if(backgroundColor == null)
-        {
+        if (backgroundColor == null) {
             mColor = getDefaultColor(context, key);
-        }
-        else
-        {
+        } else {
             mColor = backgroundColor;
         }
 
@@ -80,7 +72,7 @@ class LetterBitmap
         c.setBitmap(mBitmap);
         c.drawColor(mColor);
 
-        char [] firstCharArray = new char[1];
+        char[] firstCharArray = new char[1];
         firstCharArray[0] = firstChar.toUpperCase().charAt(0);
         paint.setTextSize(tileLetterFontSize);
 
@@ -97,16 +89,14 @@ class LetterBitmap
      * alphabet or digit, if there is no letter or digit available, a
      * default image is shown instead
      */
-    public Bitmap getLetterTile()
-    {
+    public Bitmap getLetterTile() {
         return mBitmap;
     }
 
     /**
      * @return background color used for letter title.
      */
-    public int getBackgroundColor()
-    {
+    public int getBackgroundColor() {
         return mColor;
     }
 
@@ -115,8 +105,7 @@ class LetterBitmap
      * @return A new or previously chosen color for <code>key</code> used as the
      * tile background color
      */
-    private static int pickColor(String key, TypedArray colors)
-    {
+    private static int pickColor(String key, TypedArray colors) {
         // String.hashCode() is not supposed to change across java versions, so
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
@@ -127,8 +116,7 @@ class LetterBitmap
      * Determine the color which the letter tile will use if no default
      * color is provided.
      */
-    public static int getDefaultColor(Context context, String key)
-    {
+    public static int getDefaultColor(Context context, String key) {
         final Resources res = context.getResources();
 
         TypedArray colors = res.obtainTypedArray(R.array.letter_tile_colors);

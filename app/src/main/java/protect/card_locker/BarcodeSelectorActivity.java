@@ -2,8 +2,9 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.util.Pair;
 import android.view.MenuItem;
@@ -16,15 +17,12 @@ import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+import protect.card_locker.async.TaskHandler;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -32,8 +30,7 @@ import androidx.appcompat.widget.Toolbar;
  * the data. The user may then select any barcode, where its
  * data and type will be returned to the caller.
  */
-public class BarcodeSelectorActivity extends CatimaAppCompatActivity
-{
+public class BarcodeSelectorActivity extends CatimaAppCompatActivity {
     private static final String TAG = "Catima";
 
     // Result this activity will return
@@ -41,19 +38,21 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
     public static final String BARCODE_FORMAT = "format";
 
     private Map<String, Pair<Integer, Integer>> barcodeViewMap;
-    private LinkedList<AsyncTask> barcodeGeneratorTasks = new LinkedList<>();
+
+    final private TaskHandler mTasks = new TaskHandler();
+
+    private final Handler typingDelayHandler = new Handler(Looper.getMainLooper());
+    public static final Integer INPUT_DELAY = 250;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.selectBarcodeTitle);
         setContentView(R.layout.barcode_selector_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -72,26 +71,31 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
         barcodeViewMap.put(BarcodeFormat.UPC_E.name(), new Pair<>(R.id.upceBarcode, R.id.upceBarcodeText));
 
         EditText cardId = findViewById(R.id.cardId);
-        cardId.addTextChangedListener(new SimpleTextWatcher()
-        {
+
+        cardId.addTextChangedListener(new SimpleTextWatcher() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                Log.d(TAG, "Entered text: " + s);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Delay the input processing so we avoid overload
+                typingDelayHandler.removeCallbacksAndMessages(null);
 
-                generateBarcodes(s.toString());
+                typingDelayHandler.postDelayed(() -> {
+                    Log.d(TAG, "Entered text: " + s);
 
-                View noBarcodeButtonView = findViewById(R.id.noBarcode);
-                setButtonListener(noBarcodeButtonView, s.toString());
-                noBarcodeButtonView.setEnabled(s.length() > 0);
+                    runOnUiThread(() -> {
+                        generateBarcodes(s.toString());
+
+                        View noBarcodeButtonView = findViewById(R.id.noBarcode);
+                        setButtonListener(noBarcodeButtonView, s.toString());
+                        noBarcodeButtonView.setEnabled(s.length() > 0);
+                    });
+                }, INPUT_DELAY);
             }
         });
 
         final Bundle b = getIntent().getExtras();
         final String initialCardId = b != null ? b.getString("initialCardId") : null;
 
-        if(initialCardId != null)
-        {
+        if (initialCardId != null) {
             cardId.setText(initialCardId);
         } else {
             generateBarcodes("");
@@ -99,24 +103,19 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
     }
 
     private void generateBarcodes(String value) {
-        // Stop any async tasks which may not have been started yet
-        for(AsyncTask task : barcodeGeneratorTasks)
-        {
-            task.cancel(false);
-        }
-        barcodeGeneratorTasks.clear();
+        // Attempt to stop any async tasks which may not have been started yet
+        // TODO this can be very much optimized by only generating Barcodes visible to the User
+        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
 
         // Update barcodes
-        for(Map.Entry<String, Pair<Integer, Integer>> entry : barcodeViewMap.entrySet())
-        {
+        for (Map.Entry<String, Pair<Integer, Integer>> entry : barcodeViewMap.entrySet()) {
             ImageView image = findViewById(entry.getValue().first);
             TextView text = findViewById(entry.getValue().second);
             createBarcodeOption(image, entry.getKey(), value, text);
         }
     }
 
-    private void setButtonListener(final View button, final String cardId)
-    {
+    private void setButtonListener(final View button, final String cardId) {
         button.setOnClickListener(view -> {
             Log.d(TAG, "Selected no barcode");
             Intent result = new Intent();
@@ -127,8 +126,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
         });
     }
 
-    private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text)
-    {
+    private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text) {
         final CatimaBarcode format = CatimaBarcode.fromName(formatType);
 
         image.setImageBitmap(null);
@@ -147,40 +145,32 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity
             finish();
         });
 
-        if(image.getHeight() == 0)
-        {
+        if (image.getHeight() == 0) {
             // The size of the ImageView is not yet available as it has not
             // yet been drawn. Wait for it to be drawn so the size is available.
             image.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener()
-                {
-                    @Override
-                    public void onGlobalLayout()
-                    {
-                        Log.d(TAG, "Global layout finished, type: + " + formatType + ", width: " + image.getWidth());
-                        image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    new ViewTreeObserver.OnGlobalLayoutListener() {
+                        @Override
+                        public void onGlobalLayout() {
+                            Log.d(TAG, "Global layout finished, type: + " + formatType + ", width: " + image.getWidth());
+                            image.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
-                        Log.d(TAG, "Generating barcode for type " + formatType);
-                        BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
-                        barcodeGeneratorTasks.add(task);
-                        task.execute();
-                    }
-                });
-        }
-        else
-        {
+                            Log.d(TAG, "Generating barcode for type " + formatType);
+
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
+                            mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
+                        }
+                    });
+        } else {
             Log.d(TAG, "Generating barcode for type " + formatType);
-            BarcodeImageWriterTask task = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
-            barcodeGeneratorTasks.add(task);
-            task.execute();
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), image, cardId, format, text, true, null);
+            mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;

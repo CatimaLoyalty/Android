@@ -122,6 +122,10 @@
 
             <TextView
                 android:id="@+id/cardIdView"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="10.0dip"
@@ -181,6 +185,10 @@
 
                 <TextView
                     android:id="@+id/noteView"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"
                     android:autoLink="all"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -190,6 +198,10 @@
 
                 <TextView
                     android:id="@+id/groupsView"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -198,6 +210,10 @@
 
                 <TextView
                     android:id="@+id/balanceView"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -206,6 +222,10 @@
 
                 <TextView
                     android:id="@+id/expiryView"
+                    android:enabled="true"
+                    android:textIsSelectable="true"
+                    android:focusable="true"
+                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

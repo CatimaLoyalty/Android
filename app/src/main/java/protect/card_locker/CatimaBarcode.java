@@ -8,33 +8,33 @@ import java.util.List;
 
 public class CatimaBarcode {
     public static final List<BarcodeFormat> barcodeFormats = Collections.unmodifiableList(Arrays.asList(
-        BarcodeFormat.AZTEC,
-        BarcodeFormat.CODE_39,
-        BarcodeFormat.CODE_128,
-        BarcodeFormat.CODABAR,
-        BarcodeFormat.DATA_MATRIX,
-        BarcodeFormat.EAN_8,
-        BarcodeFormat.EAN_13,
-        BarcodeFormat.ITF,
-        BarcodeFormat.PDF_417,
-        BarcodeFormat.QR_CODE,
-        BarcodeFormat.UPC_A,
-        BarcodeFormat.UPC_E
+            BarcodeFormat.AZTEC,
+            BarcodeFormat.CODE_39,
+            BarcodeFormat.CODE_128,
+            BarcodeFormat.CODABAR,
+            BarcodeFormat.DATA_MATRIX,
+            BarcodeFormat.EAN_8,
+            BarcodeFormat.EAN_13,
+            BarcodeFormat.ITF,
+            BarcodeFormat.PDF_417,
+            BarcodeFormat.QR_CODE,
+            BarcodeFormat.UPC_A,
+            BarcodeFormat.UPC_E
     ));
 
     public static final List<String> barcodePrettyNames = Collections.unmodifiableList(Arrays.asList(
-        "Aztec",
-        "Code 39",
-        "Code 128",
-        "Codabar",
-        "Data Matrix",
-        "EAN 8",
-        "EAN 13",
-        "ITF",
-        "PDF 417",
-        "QR Code",
-        "UPC A",
-        "UPC E"
+            "Aztec",
+            "Code 39",
+            "Code 128",
+            "Codabar",
+            "Data Matrix",
+            "EAN 8",
+            "EAN 13",
+            "ITF",
+            "PDF 417",
+            "QR Code",
+            "UPC A",
+            "UPC E"
     ));
 
     private final BarcodeFormat mBarcodeFormat;
@@ -61,6 +61,13 @@ public class CatimaBarcode {
 
     public boolean isSupported() {
         return barcodeFormats.contains(mBarcodeFormat);
+    }
+
+    public boolean isSquare() {
+        return mBarcodeFormat == BarcodeFormat.AZTEC
+                || mBarcodeFormat == BarcodeFormat.DATA_MATRIX
+                || mBarcodeFormat == BarcodeFormat.MAXICODE
+                || mBarcodeFormat == BarcodeFormat.QR_CODE;
     }
 
     public BarcodeFormat format() {

@@ -61,8 +61,8 @@ public class Utils {
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
-    static final int BITMAP_SIZE_SMALL = 64;
-    static final int BITMAP_SIZE_BIG = 512;
+    static final int BITMAP_SIZE_SMALL = 512;
+    static final int BITMAP_SIZE_BIG = 2045;
 
     static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
         return generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, forShortcut);

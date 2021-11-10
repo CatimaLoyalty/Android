@@ -1,5 +1,8 @@
 package protect.card_locker;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -23,6 +26,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +77,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton minimizeButton;
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
+    ImageView iconImage;
+    RelativeLayout relativeLayout;
+    Toolbar landscapeToolbar;
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
@@ -261,6 +268,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
+        iconImage = findViewById(R.id.icon_image);
+        relativeLayout = findViewById(R.id.relative_layout);
+        landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
@@ -316,9 +326,28 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     this,
                     Pair.create(collapsingToolbarLayout, "cardIcon")
             );
+            playToolbarAnimation(false, new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
 
-            startActivity(intent, options.toBundle());
-            finishAfterTransition();
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    startActivity(intent, options.toBundle());
+                    finishAfterTransition();
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
         });
         editButton.bringToFront();
 
@@ -377,6 +406,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
         mainImage.setOnTouchListener(gestureTouchListener);
+
+        playToolbarAnimation(true, null);
+
     }
 
     @Override
@@ -509,7 +541,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
         }
 
-        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
         appBarLayout.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
@@ -520,6 +551,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
         storeName.setTextColor(textColor);
         ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
+
+        Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
+        if (icon != null){
+            iconImage.setImageBitmap(icon);
+            int backgroundWithAlpha = Color.argb(127, Color.red(backgroundHeaderColor), Color.green(backgroundHeaderColor), Color.blue(backgroundHeaderColor));
+            collapsingToolbarLayout.setBackgroundColor(backgroundWithAlpha);
+            landscapeToolbar.setBackgroundColor(backgroundWithAlpha);
+        }else{
+            Bitmap plain = Bitmap.createBitmap(new int[]{backgroundHeaderColor}, 1, 1, Bitmap.Config.ARGB_8888);
+            iconImage.setImageBitmap(plain);
+        }
+        // these all stop respecting the xml when setImageBitmap is called, setting it here
+        iconImage.setAdjustViewBounds(true);
+        int height = relativeLayout.getHeight();
+        iconImage.setMaxHeight(height);
+        iconImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
@@ -584,14 +631,27 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         db.updateLoyaltyCardLastUsed(loyaltyCard.id);
     }
 
+    private void playToolbarAnimation(boolean fadeIn, Animator.AnimatorListener animatorListener){
+        int animationId = fadeIn ? R.animator.fade_in : R.animator.fade_out;
+        AnimatorSet fadeInPortrait = (AnimatorSet) AnimatorInflater.loadAnimator(this, animationId);
+        AnimatorSet fadeInLandscape = (AnimatorSet) AnimatorInflater.loadAnimator(this, animationId);
+        fadeInPortrait.setTarget(collapsingToolbarLayout);
+        fadeInLandscape.setTarget(landscapeToolbar);
+        AnimatorSet fadeInToolbars = new AnimatorSet();
+        fadeInToolbars.playTogether(fadeInPortrait, fadeInLandscape);
+        if (animatorListener != null){
+            fadeInToolbars.addListener(animatorListener);
+        }
+        fadeInToolbars.start();
+    }
+
     @Override
     public void onBackPressed() {
         if (isFullscreen) {
             setFullscreen(false);
             return;
         }
-
-        super.onBackPressed();
+        finishWithAnimation();
     }
 
     @Override
@@ -628,13 +688,37 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return true;
     }
 
+    private void finishWithAnimation(){
+        playToolbarAnimation(false, new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                finishAfterTransition();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         switch (id) {
             case android.R.id.home:
-                finishAfterTransition();
+                finishWithAnimation();
                 break;
 
             case R.id.action_share:
@@ -667,7 +751,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void setupOrientation() {
         Toolbar portraitToolbar = findViewById(R.id.toolbar);
-        Toolbar landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -823,6 +906,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             minimizeButton.setVisibility(View.VISIBLE);
             barcodeScaler.setVisibility(View.VISIBLE);
 
+            iconImage.setVisibility(View.GONE);
+
             // Hide actionbar
             if (actionBar != null) {
                 actionBar.hide();
@@ -862,6 +947,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);
+
+            iconImage.setVisibility(View.VISIBLE);
 
             // Show actionbar
             if (actionBar != null) {

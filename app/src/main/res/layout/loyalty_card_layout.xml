@@ -32,8 +32,7 @@
                     app:cardCornerRadius="4dp"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    android:outlineProvider="none">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <RelativeLayout
                         android:id="@+id/thumbnail_front"

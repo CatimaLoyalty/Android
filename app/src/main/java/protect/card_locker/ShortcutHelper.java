@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -120,18 +121,11 @@ class ShortcutHelper {
     }
 
     static @NotNull Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor){
-        int[] basePixels = new int[ADAPTIVE_BITMAP_SIZE * ADAPTIVE_BITMAP_SIZE];
-        paddingColor = ColorUtils.compositeColors(PADDING_COLOR_OVERLAY, paddingColor);
-        Arrays.fill(basePixels, paddingColor);
         Bitmap ret = Bitmap.createBitmap(ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE, Bitmap.Config.ARGB_8888);
-        ret.setPixels(basePixels, 0, ADAPTIVE_BITMAP_SIZE, 0, 0, ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE);
+        Canvas output = new Canvas(ret);
+        output.drawColor(ColorUtils.compositeColors(PADDING_COLOR_OVERLAY, paddingColor));
         Bitmap resized = Utils.resizeBitmap(in, ADAPTIVE_BITMAP_IMAGE_SIZE);
-        int[] inputPixels = new int[resized.getHeight() * resized.getWidth()];
-        resized.getPixels(inputPixels, 0, resized.getWidth(), 0, 0, resized.getWidth(), resized.getHeight());
-        for(int i = 0;i < inputPixels.length; i++) {
-            inputPixels[i] = ColorUtils.compositeColors(inputPixels[i], paddingColor);
-        }
-        ret.setPixels(inputPixels, 0, resized.getWidth(), (ADAPTIVE_BITMAP_SIZE - resized.getWidth()) / 2, (ADAPTIVE_BITMAP_SIZE - resized.getHeight()) / 2, resized.getWidth(), resized.getHeight());
+        output.drawBitmap(resized, (ADAPTIVE_BITMAP_SIZE - resized.getWidth()) / 2f, (ADAPTIVE_BITMAP_SIZE - resized.getHeight()) / 2f, null);
         return ret;
     }
 

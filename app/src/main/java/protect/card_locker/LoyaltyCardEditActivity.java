@@ -1284,6 +1284,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
 
+        ShortcutHelper.updateShortcuts(this, db.getLoyaltyCard(loyaltyCardId));
+
         finish();
     }
 

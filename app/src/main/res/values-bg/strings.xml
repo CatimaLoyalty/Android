@@ -85,7 +85,7 @@
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
     <string name="noStoreError">Не е въведено наименование</string>
     <string name="groups">Списъци</string>
-    <string name="enter_group_name">Въведете име на списък</string>
+    <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
     <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
     <string name="settings_lock_barcode_orientation">Без на завъртане на щрихкода</string>
@@ -210,4 +210,11 @@
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
     <string name="exportPasswordHint">Въведете парола</string>
     <string name="exportPassword">Задаване на парола за защита на изнесеното (по избор)</string>
+    <string name="setIcon">Задаване на пиктограма</string>
+    <string name="editGroup">Променяне на списъка: <xliff:g>%s</xliff:g></string>
+    <string name="group_name_already_in_use">Има списък с това име</string>
+    <string name="group_updated">Промените са запазени</string>
+    <string name="selectColor">Избиране на цвят</string>
+    <string name="group_name_is_empty">Името на списъка не може да е празно</string>
+    <string name="group_edit">Редактиране на списък</string>
 </resources>

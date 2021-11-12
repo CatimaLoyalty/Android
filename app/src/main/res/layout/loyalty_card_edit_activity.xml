@@ -261,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Reminders"
+                        android:text="@string/reminders"
                         android:textSize="22sp" />
 
                 </LinearLayout>
@@ -306,7 +306,6 @@
                                 android:id="@+id/daysTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp"
                                 android:layout_marginStart="10dp"
@@ -319,15 +318,16 @@
                                 android:textSize="16sp"
                                 android:textColor="@android:color/black"
                                 android:layout_marginTop="5dp"
+                                android:paddingStart="3.5dp"
+                                android:paddingEnd="1dp"
                                 android:paddingBottom="5dp"
-                                android:text=" days before expiry date"
+                                android:text="@string/days_before_expiry_date"
                                 android:layout_toEndOf="@id/daysTextView"/>
 
                             <TextView
                                 android:id="@+id/dateReminderView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="October 24th, 2021"
                                 android:textSize="14sp"
                                 android:layout_centerVertical="true"
                                 android:layout_marginStart="10dp"
@@ -338,10 +338,10 @@
                                 android:id="@+id/timeReminderTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12:45 PM"
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp"
                                 android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
                                 android:textAlignment="center"
                                 android:layout_marginTop="15dp"
                                 android:layout_alignParentEnd="true"

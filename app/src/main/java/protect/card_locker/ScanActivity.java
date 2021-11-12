@@ -27,8 +27,6 @@ import androidx.appcompat.widget.Toolbar;
 
  * Custom Scanner Activity extending from Activity to display a custom layout form scanner view.
  *
-
- * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
  * <p>
 
  * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java

@@ -1,6 +1,10 @@
 package protect.card_locker;
 
+import static android.content.Context.ALARM_SERVICE;
+
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -448,5 +452,17 @@ public class Utils {
     public static Bitmap loadTempImage(Context context, String name) {
         return loadImage(context.getCacheDir() + "/" + name);
     }
+
+    public void deleteAlarm(int loyaltyCardId , Context context) {
+
+        Intent intent = new Intent(context, Notification.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, loyaltyCardId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+
+        Log.i("Utils", "deleteAlarm: Alarm cancelled for id " + loyaltyCardId);
+
+    }
+
 
 }

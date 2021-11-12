@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.os.Bundle;
+import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -141,7 +142,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                         db.deleteLoyaltyCard(loyaltyCard.id);
 
-                        deleteAlarm(loyaltyCard.id);
+                        Utils utils = new Utils();
+                        utils.deleteAlarm(loyaltyCard.id,getApplicationContext());
 
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
@@ -176,15 +178,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     };
 
-    private void deleteAlarm(int id) {
 
-        Intent intent = new Intent(this,Notification.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.cancel(pendingIntent);
-        Log.i(TAG, "deleteAlarm: Alarm deleted for id "+id);
-
-    }
 
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {

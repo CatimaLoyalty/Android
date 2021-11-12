@@ -269,6 +269,12 @@
     <string name="add_reminder">Add reminder</string>
     <string name="days_before_expiry">Days before expiry :</string>
     <string name="edit_reminder">Edit Reminder</string>
+    <string name="reminders">Reminders</string>
+    <string name="days_before_expiry_date"> days before expiry date</string>
+    <string name="set_expiry_date">Set a expiry date!</string>
+    <string name="card_expired">Card is expired!</string>
+    <string name="card_text">Card </string>
+    <string name="is_about_to_expire"> is about to expire!</string>
 
 </resources>
 

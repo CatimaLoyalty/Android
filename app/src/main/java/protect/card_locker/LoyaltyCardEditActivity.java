@@ -1599,6 +1599,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
 
+
         SharedPreferences sharedPreferences = getSharedPreferences("protect.card_locker.dateTime", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -1626,6 +1627,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         editor.apply();
+
+        ShortcutHelper.updateShortcuts(this, db.getLoyaltyCard(loyaltyCardId));
+
+
         finish();
         hasReminderChanged = false;
     }

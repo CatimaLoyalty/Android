@@ -224,4 +224,6 @@
     <string name="group_edit">Змінити групу</string>
     <string name="group_name_already_in_use">Група з такою назвою вже існує</string>
     <string name="noGiftCardsGroup">У вас ще немає жодної картки. Коли ви додасте кілька, то зможете призначити їх до групи.</string>
+    <string name="selectColor">Вибір кольору</string>
+    <string name="setIcon">Вибір іконки</string>
 </resources>

@@ -3,8 +3,11 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -12,7 +15,10 @@ import java.util.List;
 
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.IconCompat;
+
+import org.jetbrains.annotations.NotNull;
 
 class ShortcutHelper {
     // Android documentation says that no more than 5 shortcuts
@@ -21,6 +27,14 @@ class ShortcutHelper {
     // to 3 here, so that the most recent shortcut has a good
     // chance of being shown.
     private static final int MAX_SHORTCUTS = 3;
+
+    // https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable.html
+    private static final int ADAPTIVE_BITMAP_SCALE = 1;
+    private static final int ADAPTIVE_BITMAP_SIZE = 108 * ADAPTIVE_BITMAP_SCALE;
+    private static final int ADAPTIVE_BITMAP_VISIBLE_SIZE = 72 * ADAPTIVE_BITMAP_SCALE;
+    private static final int ADAPTIVE_BITMAP_IMAGE_SIZE = ADAPTIVE_BITMAP_VISIBLE_SIZE + 5 * ADAPTIVE_BITMAP_SCALE;
+    private static final int PADDING_COLOR = Color.argb(255, 255, 255, 255);
+    private static final int PADDING_COLOR_OVERLAY = Color.argb(127, 0, 0, 0);
 
     /**
      * Add a card to the app shortcuts, and maintain a list of the most
@@ -106,6 +120,15 @@ class ShortcutHelper {
         ShortcutManagerCompat.setDynamicShortcuts(context, list);
     }
 
+    static @NotNull Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor){
+        Bitmap ret = Bitmap.createBitmap(ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE, Bitmap.Config.ARGB_8888);
+        Canvas output = new Canvas(ret);
+        output.drawColor(ColorUtils.compositeColors(PADDING_COLOR_OVERLAY, paddingColor));
+        Bitmap resized = Utils.resizeBitmap(in, ADAPTIVE_BITMAP_IMAGE_SIZE);
+        output.drawBitmap(resized, (ADAPTIVE_BITMAP_SIZE - resized.getWidth()) / 2f, (ADAPTIVE_BITMAP_SIZE - resized.getHeight()) / 2f, null);
+        return ret;
+    }
+
     static ShortcutInfoCompat.Builder createShortcutBuilder(Context context, LoyaltyCard loyaltyCard) {
         Intent intent = new Intent(context, LoyaltyCardViewActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
@@ -120,6 +143,8 @@ class ShortcutHelper {
         Bitmap iconBitmap = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
+        }else{
+            iconBitmap = createAdaptiveBitmap(iconBitmap, loyaltyCard.headerColor == null ? PADDING_COLOR : loyaltyCard.headerColor);
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);

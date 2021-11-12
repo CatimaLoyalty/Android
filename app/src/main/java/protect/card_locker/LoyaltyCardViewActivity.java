@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,6 +72,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton minimizeButton;
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
+    ImageView iconImage;
+    RelativeLayout relativeLayout;
+    Toolbar landscapeToolbar;
+
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
@@ -100,6 +105,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
+
+    private final int HEADER_FILTER_ALPHA = 70;
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -259,6 +266,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
+        iconImage = findViewById(R.id.icon_image);
+        relativeLayout = findViewById(R.id.relative_layout);
+        landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
@@ -363,6 +373,34 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                                 maxHeight
                         )
                 );
+            }
+        });
+
+        // synchronizing iconImage size with it's layer above
+        collapsingToolbarLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                Log.d("onLayoutChange", "collapsing toolbar change, height: " + v.getHeight());
+                // on android 11, setAdjustViewBounds on the imageView triggers this callback again to my horror, so adding an if to block it
+                if(iconImage.getHeight() != v.getHeight()) {
+                    // setAdjustViewBounds and scale type breaks when an image is set, then the following has to be execute in this order
+                    iconImage.setAdjustViewBounds(true);
+                    iconImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    iconImage.setMaxHeight(v.getHeight());
+                    iconImage.setMaxWidth(v.getWidth());
+                }
+            }
+        });
+        landscapeToolbar.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                Log.d("onLayoutChange", "landscape toolbar change, height: " + v.getHeight());
+                if(iconImage.getHeight() != v.getHeight()) {
+                    iconImage.setAdjustViewBounds(true);
+                    iconImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    iconImage.setMaxHeight(v.getHeight());
+                    iconImage.setMaxWidth(v.getWidth());
+                }
             }
         });
 
@@ -501,7 +539,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
         }
 
-        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
         appBarLayout.setBackgroundColor(backgroundHeaderColor);
 
         int textColor;
@@ -512,6 +549,24 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
         storeName.setTextColor(textColor);
         ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
+
+        Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
+        if (icon != null){
+            int backgroundAlphaColor = Utils.needsDarkForeground(backgroundHeaderColor) ? Color.WHITE : Color.BLACK;
+            Log.d("onResume", "setting icon image");
+            iconImage.setImageBitmap(icon);
+            int backgroundWithAlpha = Color.argb(HEADER_FILTER_ALPHA, Color.red(backgroundAlphaColor), Color.green(backgroundAlphaColor), Color.blue(backgroundAlphaColor));
+            collapsingToolbarLayout.setBackgroundColor(backgroundWithAlpha);
+            landscapeToolbar.setBackgroundColor(backgroundWithAlpha);
+            // for images that has alpha
+            iconImage.setBackgroundColor(backgroundWithAlpha);
+        }else{
+            Bitmap plain = Bitmap.createBitmap(new int[]{backgroundHeaderColor}, 1, 1, Bitmap.Config.ARGB_8888);
+            iconImage.setImageBitmap(plain);
+            collapsingToolbarLayout.setBackgroundColor(Color.TRANSPARENT);
+            landscapeToolbar.setBackgroundColor(Color.TRANSPARENT);
+            iconImage.setBackgroundColor(Color.TRANSPARENT);
+        }
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
@@ -820,6 +875,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 actionBar.hide();
             }
 
+            iconImage.setVisibility(View.GONE);
+
             // Hide toolbars
             //
             // Appbar needs to be invisible and have padding removed
@@ -859,6 +916,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             if (actionBar != null) {
                 actionBar.show();
             }
+
+            iconImage.setVisibility(View.VISIBLE);
 
             // Show appropriate toolbar
             // And restore 24dp paddingTop for appBarLayout

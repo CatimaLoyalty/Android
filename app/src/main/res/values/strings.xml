@@ -270,11 +270,15 @@
     <string name="days_before_expiry">Days before expiry :</string>
     <string name="edit_reminder">Edit Reminder</string>
     <string name="reminders">Reminders</string>
-    <string name="days_before_expiry_date"> days before expiry date</string>
     <string name="set_expiry_date">Set a expiry date!</string>
     <string name="card_expired">Card is expired!</string>
-    <string name="card_text">Card </string>
-    <string name="is_about_to_expire"> is about to expire!</string>
+    <string name="card_is_about_to_expire">Card <xliff:g>%s</xliff:g> is about to expire!</string>
+    <string name="set">Set</string>
+    <string name="set_valid_time">Please set a valid time!</string>
+    <plurals name="days_before_expiry_date">
+        <item quantity="one"><xliff:g>%s</xliff:g> day before expiry date</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> days before expiry date</item>
+    </plurals>
 
 </resources>
 

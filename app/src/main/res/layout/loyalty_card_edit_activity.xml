@@ -302,27 +302,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                            <TextView
-                                android:id="@+id/daysTextView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="5dp" />
 
                             <TextView
                                 android:id="@+id/daysBeforeTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="16sp"
-                                android:textColor="@android:color/black"
+                                android:textColor="?android:attr/textColorPrimary"
                                 android:layout_marginTop="5dp"
-                                android:paddingStart="4dp"
-                                android:paddingEnd="1dp"
-                                android:paddingBottom="5dp"
-                                android:text="@string/days_before_expiry_date"
-                                android:layout_toEndOf="@id/daysTextView"/>
+                                android:layout_marginStart="10dp"
+                                android:paddingBottom="5dp" />
 
                             <TextView
                                 android:id="@+id/dateReminderView"
@@ -338,7 +327,7 @@
                                 android:id="@+id/timeReminderTextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@android:color/black"
+                                android:textColor="?android:attr/textColorPrimary"
                                 android:textSize="15sp"
                                 android:paddingStart="5dp"
                                 android:paddingEnd="5dp"

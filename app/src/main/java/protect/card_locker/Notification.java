@@ -48,7 +48,7 @@ public class Notification extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications)
                 .setContentTitle(context.getString(R.string.notificationContentTitle))
-                .setContentText(context.getString(R.string.card_text)+ cardName+context.getString(R.string.is_about_to_expire))
+                .setContentText(context.getString(R.string.card_is_about_to_expire,cardName))
                 .setCategory(NotificationCompat.CATEGORY_REMINDER)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent)

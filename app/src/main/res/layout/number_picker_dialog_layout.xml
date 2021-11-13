@@ -19,7 +19,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="85dp"
         android:text="@string/days_before_expiry"
-        android:textColor="@android:color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="20sp" />
 
     <TextView

@@ -76,6 +76,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -148,7 +149,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     ImageView cardImageFront;
     ImageView cardImageBack;
     SharedPreferences sharedPreferences;
-    TextView daysTextView, dateReminderView, timeReminderTextView;
+    TextView daysBeforeTextView, dateReminderView, timeReminderTextView;
 
     Button enterButton;
     Button addReminderBtn;
@@ -343,7 +344,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         addReminderBtn = findViewById(R.id.addReminderBtn);
         showRemindersLayout = findViewById(R.id.showRemindersLayout);
         reminderCardView = findViewById(R.id.reminderCardView);
-        daysTextView = findViewById(R.id.daysTextView);
+        daysBeforeTextView = findViewById(R.id.daysBeforeTextView);
         dateReminderView = findViewById(R.id.dateReminderView);
         timeReminderTextView = findViewById(R.id.timeReminderTextView);
         cancelReminderBtn = findViewById(R.id.cancelReminderBtn);
@@ -392,7 +393,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                 Snackbar.make(getCurrentFocus(), R.string.set_expiry_date, BaseTransientBottomBar.LENGTH_LONG).show();
 
-            } else if (expiryInMillis - (24 * 3600 * 1000) <= c.getTimeInMillis()) {
+            } else if (expiryInMillis  <= c.getTimeInMillis()) {
 
                 Log.i(TAG, "onCreate: expiryInMillis = " + expiryInMillis);
                 Log.i(TAG, "onCreate: Card Is expired");
@@ -825,10 +826,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             formattedDate = sharedPreferences.getString(loyaltyCardId + "formattedDate",DateFormat.getDateInstance(DateFormat.LONG).format(defaultDate));
             int rawHour = sharedPreferences.getInt(loyaltyCardId + "Hour", 12);
             int rawMinute = sharedPreferences.getInt(loyaltyCardId + "Minute", 0);
-            String time = formatTime(rawHour, rawMinute);
+            String time = formatTime(rawHour, rawMinute,getApplicationContext());
 
             Log.i(TAG, "onCreate: getting values from shared pref ");
-            daysTextView.setText(String.valueOf(noOfDays));
+            daysBeforeTextView.setText(getResources().getQuantityString(R.plurals.days_before_expiry_date, noOfDays,noOfDays));
             dateReminderView.setText(formattedDate);
             timeReminderTextView.setText(time);
             days = noOfDays;
@@ -1387,21 +1388,19 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             Log.i(TAG, "onCreateDialog: noOfDaysDiff" + noOfDaysDifference);
 
-
+            if (noOfDaysDifference < 1) {
+                noOfDaysDifference=1;
+            }
             if (noOfDaysDifference > 365) {
                 noOfDaysDifference = 365;
             }
             if(days > noOfDaysDifference) {
-
                 days =1;
-
             }
 
             Log.i(TAG, "onCreateDialog: noOfDaysDifference " + noOfDaysDifference);
             Log.i(TAG, "onCreateDialog: days = " + days);
-
             Log.i(TAG, "onCreateDialog: Number picker dialog created");
-
 
             numberPicker.setMaxValue(noOfDaysDifference);
             numberPicker.setMinValue(1);
@@ -1429,7 +1428,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setView(view)
                     .setTitle(R.string.add_reminder)
-                    .setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -1438,7 +1437,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             dialogFragment.show(getActivity().getSupportFragmentManager(), "TimePicker");
                         }
                     })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Log.i(TAG, "onClick: Cancel clicked");
@@ -1452,7 +1451,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         Calendar calendar;
         Context context;
         View showRemindersLayout;
-        TextView daysTextView, dateReminderView, timeReminderTextView;
+        TextView daysBeforeTextView, dateReminderView, timeReminderTextView;
         Button addReminderBtn;
 
 
@@ -1462,7 +1461,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             this.showRemindersLayout = showRemindersLayout;
             this.addReminderBtn = addReminderBtn;
 
-            daysTextView = showRemindersLayout.findViewById(R.id.daysTextView);
+            daysBeforeTextView = showRemindersLayout.findViewById(R.id.daysBeforeTextView);
             dateReminderView = showRemindersLayout.findViewById(R.id.dateReminderView);
             timeReminderTextView = showRemindersLayout.findViewById(R.id.timeReminderTextView);
 
@@ -1480,69 +1479,79 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 calendar.setTime(date);
             }
 
-
             hour = calendar.get(Calendar.HOUR_OF_DAY);
             minute = calendar.get(Calendar.MINUTE);
 
-            return new TimePickerDialog(getActivity(), this, hour, minute, false);
+            return new TimePickerDialog(getActivity(), this, hour, minute, true);
         }
 
         @Override
         public void onTimeSet(TimePicker timePicker, int mhour, int mminute) {
 
+            calendar = Calendar.getInstance();
+
+            long currentTime = calendar.getTimeInMillis();
+
             calendar.set(Calendar.HOUR_OF_DAY, mhour);
             calendar.set(Calendar.MINUTE, mminute);
 
-            hour = mhour;
-            minute = mminute;
+            if (calendar.getTimeInMillis() >= currentTime) {
 
-            Date date = new Date(calendar.getTimeInMillis());
-            timeReminderTextView.setTag(date);
+                hour = mhour;
+                minute = mminute;
 
-            delay.set(Calendar.HOUR_OF_DAY, mhour);
-            delay.set(Calendar.MINUTE, mminute);
+                Date date = new Date(calendar.getTimeInMillis());
+                timeReminderTextView.setTag(date);
 
-            Log.i(TAG, "onTimeSet: timeInMillis " + delay.getTimeInMillis());
+                delay.set(Calendar.HOUR_OF_DAY, mhour);
+                delay.set(Calendar.MINUTE, mminute);
 
-            showReminders(addReminderBtn);
-            hasReminderChanged = true;
+                Log.i(TAG, "onTimeSet: timeInMillis " + delay.getTimeInMillis());
 
+                showReminders(addReminderBtn);
+                hasReminderChanged = true;
+
+            }
+            else {
+                Toast.makeText(timePicker.getContext(), R.string.set_valid_time, Toast.LENGTH_LONG).show();
+
+                DialogFragment dialogFragment = new TimePickerFragment(getContext(), showRemindersLayout, addReminderBtn);
+                dialogFragment.show(getActivity().getSupportFragmentManager(), "TimePicker");
+            }
         }
 
         private void showReminders(Button addReminderBtn) {
 
-
             Log.i(TAG, "showReminders: days =" + days);
 
-            daysTextView.setText(String.valueOf(days));
+            daysBeforeTextView.setText(getResources().getQuantityString(R.plurals.days_before_expiry_date, days,days));
             dateReminderView.setText(formattedDate);
-            timeReminderTextView.setText(formatTime(hour, minute));
+            timeReminderTextView.setText(formatTime(hour, minute,getContext()));
 
             showRemindersLayout.setVisibility(View.VISIBLE);
             addReminderBtn.setText(R.string.edit_reminder);
-
         }
-
     }
 
+    private static String formatTime(int mhour, int mminute,Context context) {
 
-    private static String formatTime(int mhour, int mminute) {
-        String time24;
-        String sTime="";
+       String sTime="";
 
-        time24 = mhour+":"+mminute;
+       Calendar calendar = Calendar.getInstance();
 
-        try {
+       calendar.set(Calendar.HOUR_OF_DAY, mhour);
+       calendar.set(Calendar.MINUTE, mminute);
+       Date time = new Date(calendar.getTimeInMillis());
 
+       Boolean is24HourFormat = android.text.format.DateFormat.is24HourFormat(context);
+
+        if (is24HourFormat) {
             SimpleDateFormat time24Format = new SimpleDateFormat("HH:mm");
+            sTime = time24Format.format(time);
+
+        } else {
             SimpleDateFormat time12Format = new SimpleDateFormat("hh:mm a");
-            Date date24 = time24Format.parse(time24);
-
-            assert date24 != null;
-            sTime = time12Format.format(date24);
-
-        } catch (ParseException e) {
-            e.printStackTrace();
+             sTime = time12Format.format( time);
         }
 
         return sTime;

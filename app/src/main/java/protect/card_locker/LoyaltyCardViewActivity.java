@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -362,17 +363,23 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                bottomSheet.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                Log.d("onGlobalLayout", "checking if bottom sheet size has to be changed");
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 int height = displayMetrics.heightPixels;
                 int maxHeight = height - appBarLayout.getHeight() - bottomSheetButton.getHeight();
                 Log.d(TAG, "Button sheet should be " + maxHeight + " pixels high");
-                bottomSheetContentWrapper.setLayoutParams(
-                        new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                maxHeight
-                        )
-                );
+                // setting it to the same value triggers this callback again on android 11, but it has to stay for when the activity starts fullscreen
+                // so check for if changes are needed instead of throwing the callback away
+                ViewGroup.LayoutParams params = bottomSheetContentWrapper.getLayoutParams();
+                if (params.height != maxHeight || params.width != LinearLayout.LayoutParams.MATCH_PARENT) {
+                    Log.d("onGlobalLayout", "setting max height: " + maxHeight);
+                    bottomSheetContentWrapper.setLayoutParams(
+                            new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    maxHeight
+                            )
+                    );
+                }
             }
         });
 
@@ -875,16 +882,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 actionBar.hide();
             }
 
-            iconImage.setVisibility(View.GONE);
-
             // Hide toolbars
             //
             // Appbar needs to be invisible and have padding removed
             // Or the barcode will be centered instead of on top of the screen
             // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
-            collapsingToolbarLayout.setVisibility(View.GONE);
-            findViewById(R.id.toolbar_landscape).setVisibility(View.GONE);
+            relativeLayout.setVisibility(View.GONE);
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);
@@ -917,14 +921,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 actionBar.show();
             }
 
-            iconImage.setVisibility(View.VISIBLE);
-
             // Show appropriate toolbar
             // And restore 24dp paddingTop for appBarLayout
             appBarLayout.setVisibility(View.VISIBLE);
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            setupOrientation();
+            relativeLayout.setVisibility(View.VISIBLE);
 
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);

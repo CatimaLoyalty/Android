@@ -266,7 +266,7 @@
                 android:layout_height="?actionBarSize"
                 android:layout_alignParentTop="true"
                 android:background="@android:color/transparent"
-                android:paddingTop="6dp"
+                android:paddingTop="0dp"
                 android:theme="@style/CardView.ActionBarTheme"
                 android:visibility="gone"
                 app:contentInsetStart="72.0dip"

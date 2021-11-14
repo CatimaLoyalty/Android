@@ -20,10 +20,8 @@ import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class ImportExportActivityTest
-{
-    private void registerIntentHandler(String handler)
-    {
+public class ImportExportActivityTest {
+    private void registerIntentHandler(String handler) {
         // Add something that will 'handle' the given intent type
         PackageManager packageManager = RuntimeEnvironment.application.getPackageManager();
 
@@ -39,8 +37,7 @@ public class ImportExportActivityTest
 
         Intent intent = new Intent(handler);
 
-        if(handler.equals(Intent.ACTION_GET_CONTENT))
-        {
+        if (handler.equals(Intent.ACTION_GET_CONTENT)) {
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.setType("*/*");
         }
@@ -48,8 +45,7 @@ public class ImportExportActivityTest
         shadowOf(packageManager).addResolveInfoForIntent(intent, info);
     }
 
-    private void checkVisibility(Activity activity, int state, int divider, int title, int message, int button)
-    {
+    private void checkVisibility(Activity activity, int state, int divider, int title, int message, int button) {
         View dividerView = activity.findViewById(divider);
         View titleView = activity.findViewById(title);
         View messageView = activity.findViewById(message);
@@ -62,8 +58,7 @@ public class ImportExportActivityTest
     }
 
     @Test
-    public void testAllOptionsAvailable()
-    {
+    public void testAllOptionsAvailable() {
         registerIntentHandler(Intent.ACTION_PICK);
         registerIntentHandler(Intent.ACTION_GET_CONTENT);
 

@@ -30,8 +30,7 @@ public class ImportURITest {
     private DBHelper db;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         importURIHelper = new ImportURIHelper(activity);
         db = TestHelpers.getEmptyDb(activity);
@@ -96,19 +95,17 @@ public class ImportURITest {
     }
 
     @Test
-    public void failToParseInvalidUri()
-    {
+    public void failToParseInvalidUri() {
         try {
             importURIHelper.parse(Uri.parse("https://example.com/test"));
             assertTrue(false); // Shouldn't get here
-        } catch(InvalidObjectException ex) {
+        } catch (InvalidObjectException ex) {
             // Desired behaviour
         }
     }
 
     @Test
-    public void failToParseBadData()
-    {
+    public void failToParseBadData() {
         String[] urls = new String[3];
         urls[0] = "https://brarcher.github.io/loyalty-card-locker/share?stare=store&note=note&cardid=12345&barcodetype=ITF&headercolor=-416706";
         urls[1] = "https://thelastproject.github.io/Catima/share#stare%3Dstore%26note%3Dnote%26balance%3D0%26cardid%3D12345%26barcodetype%3DITF%26headercolor%3D-416706";

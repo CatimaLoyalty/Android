@@ -67,32 +67,28 @@ import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class LoyaltyCardViewActivityTest
-{
+public class LoyaltyCardViewActivityTest {
     private final String BARCODE_DATA = "428311627547";
     private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
 
     private final String EAN_BARCODE_DATA = "4763705295336";
     private final CatimaBarcode EAN_BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.EAN_13);
 
-    enum ViewMode
-    {
+    enum ViewMode {
         ADD_CARD,
         VIEW_CARD,
         UPDATE_CARD,
         ;
     }
 
-    enum FieldTypeView
-    {
+    enum FieldTypeView {
         TextView,
         TextInputLayout,
         ImageView
     }
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         // Output logs emitted during tests so they may be accessed
         ShadowLog.stream = System.out;
     }
@@ -100,8 +96,7 @@ public class LoyaltyCardViewActivityTest
     /**
      * Register a handler in the package manager for a image capture intent
      */
-    private void registerMediaStoreIntentHandler()
-    {
+    private void registerMediaStoreIntentHandler() {
         // Add something that will 'handle' the media capture intent
         PackageManager packageManager = RuntimeEnvironment.application.getPackageManager();
 
@@ -133,12 +128,9 @@ public class LoyaltyCardViewActivityTest
                                               final String barcodeType,
                                               boolean creatingNewCard) throws ParseException {
         DBHelper db = new DBHelper(activity);
-        if(creatingNewCard)
-        {
+        if (creatingNewCard) {
             assertEquals(0, db.getLoyaltyCardCount());
-        }
-        else
-        {
+        } else {
             assertEquals(1, db.getLoyaltyCardCount());
         }
 
@@ -172,43 +164,31 @@ public class LoyaltyCardViewActivityTest
         assertEquals(balance, card.balance);
 
         // The special "Never" string shouldn't actually be written to the loyalty card
-        if(expiry.equals(activity.getApplicationContext().getString(R.string.never)))
-        {
+        if (expiry.equals(activity.getApplicationContext().getString(R.string.never))) {
             assertEquals(null, card.expiry);
-        }
-        else
-        {
+        } else {
             assertEquals(DateFormat.getDateInstance().parse(expiry), card.expiry);
         }
 
         // The special "Points" string shouldn't actually be written to the loyalty card
-        if(balanceType.equals(activity.getApplicationContext().getString(R.string.points)))
-        {
+        if (balanceType.equals(activity.getApplicationContext().getString(R.string.points))) {
             assertEquals(null, card.balanceType);
-        }
-        else
-        {
+        } else {
             assertEquals(Currency.getInstance(balanceType), card.balanceType);
         }
         assertEquals(cardId, card.cardId);
 
         // The special "Same as barcode ID" string shouldn't actually be written to the loyalty card
-        if(barcodeId.equals(activity.getApplicationContext().getString(R.string.sameAsCardId)))
-        {
+        if (barcodeId.equals(activity.getApplicationContext().getString(R.string.sameAsCardId))) {
             assertEquals(null, card.barcodeId);
-        }
-        else
-        {
+        } else {
             assertEquals(barcodeId, card.barcodeId);
         }
 
         // The special "No barcode" string shouldn't actually be written to the loyalty card
-        if(barcodeType.equals(activity.getApplicationContext().getString(R.string.noBarcode)))
-        {
+        if (barcodeType.equals(activity.getApplicationContext().getString(R.string.noBarcode))) {
             assertEquals(null, card.barcodeType);
-        }
-        else
-        {
+        } else {
             assertEquals(CatimaBarcode.fromName(barcodeType).format(), card.barcodeType.format());
         }
         assertNotNull(card.headerColor);
@@ -220,8 +200,7 @@ public class LoyaltyCardViewActivityTest
      * Initiate and complete a barcode capture, either in success
      * or in failure
      */
-    private void captureBarcodeWithResult(final Activity activity, final boolean success) throws IOException
-    {
+    private void captureBarcodeWithResult(final Activity activity, final boolean success) throws IOException {
         // Start image capture
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
@@ -252,8 +231,7 @@ public class LoyaltyCardViewActivityTest
      * Initiate and complete a barcode selection, either in success
      * or in failure
      */
-    private void selectBarcodeWithResult(final Activity activity, final String barcodeData, final String barcodeType, final boolean success) throws IOException
-    {
+    private void selectBarcodeWithResult(final Activity activity, final String barcodeData, final String barcodeType, final boolean success) throws IOException {
         // Start barcode selector
         final Button startButton = activity.findViewById(R.id.enterButton);
         startButton.performClick();
@@ -286,8 +264,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     private void checkFieldProperties(final Activity activity, final int id, final int visibility,
-                                      final Object contents, final FieldTypeView fieldType)
-    {
+                                      final Object contents, final FieldTypeView fieldType) {
         final View view = activity.findViewById(id);
         assertNotNull(view);
         assertEquals(visibility, view.getVisibility());
@@ -315,14 +292,10 @@ public class LoyaltyCardViewActivityTest
                                 final String balanceString, final String balanceTypeString,
                                 final String cardId, final String barcodeId,
                                 final String barcodeType, final Bitmap frontImage,
-                                final Bitmap backImage)
-    {
-        if(mode == ViewMode.VIEW_CARD)
-        {
+                                final Bitmap backImage) {
+        if (mode == ViewMode.VIEW_CARD) {
             checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId, FieldTypeView.TextView);
-        }
-        else
-        {
+        } else {
             int editVisibility = View.VISIBLE;
 
             checkFieldProperties(activity, R.id.storeNameEdit, editVisibility, store, FieldTypeView.TextView);
@@ -340,11 +313,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void noDataLossOnResumeOrRotate()
-    {
+    public void noDataLossOnResumeOrRotate() {
         registerMediaStoreIntentHandler();
 
-        for(boolean newCard : new boolean[] {false, true}) {
+        for (boolean newCard : new boolean[]{false, true}) {
             System.out.println();
             System.out.println("=====");
             System.out.println("New card? " + newCard);
@@ -437,29 +409,27 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersCheckFieldsAvailable()
-    {
+    public void startWithoutParametersCheckFieldsAvailable() {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never) , "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),context.getString(R.string.noBarcode), null, null);
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
     }
 
     @Test
-    public void startWithoutParametersCannotCreateLoyaltyCard()
-    {
+    public void startWithoutParametersCannotCreateLoyaltyCard() {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
-        
+        Activity activity = (Activity) activityController.get();
+
         DBHelper db = TestHelpers.getEmptyDb(activity);
         assertEquals(0, db.getLoyaltyCardCount());
 
@@ -481,14 +451,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersBack()
-    {
+    public void startWithoutParametersBack() {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
 
         assertEquals(false, activity.isFinishing());
         shadowOf(activity).clickMenuItem(android.R.id.home);
@@ -504,10 +473,10 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),context.getString(R.string.noBarcode), null, null);
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
@@ -522,14 +491,13 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersCaptureBarcodeFailure() throws IOException
-    {
+    public void startWithoutParametersCaptureBarcodeFailure() throws IOException {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
@@ -540,12 +508,11 @@ public class LoyaltyCardViewActivityTest
 
         shadowOf(getMainLooper()).idle();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),context.getString(R.string.noBarcode), null, null);
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
     }
 
     @Test
-    public void startWithoutParametersCaptureBarcodeCancel() throws IOException
-    {
+    public void startWithoutParametersCaptureBarcodeCancel() throws IOException {
         ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
         activityController.start();
         activityController.visible();
@@ -554,7 +521,7 @@ public class LoyaltyCardViewActivityTest
         LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId),context.getString(R.string.noBarcode), null, null);
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
@@ -578,21 +545,17 @@ public class LoyaltyCardViewActivityTest
         assertEquals(true, activity.isFinishing());
     }
 
-    private ActivityController createActivityWithLoyaltyCard(boolean editMode)
-    {
+    private ActivityController createActivityWithLoyaltyCard(boolean editMode) {
         Intent intent = new Intent();
         final Bundle bundle = new Bundle();
         bundle.putInt("id", 1);
 
         Class clazz;
 
-        if(editMode)
-        {
+        if (editMode) {
             bundle.putBoolean("update", true);
             clazz = LoyaltyCardEditActivity.class;
-        }
-        else
-        {
+        } else {
             bundle.putBoolean("view", true);
             clazz = LoyaltyCardViewActivity.class;
         }
@@ -603,10 +566,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardEditModeCheckDisplay() throws IOException
-    {
+    public void startWithLoyaltyCardEditModeCheckDisplay() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -622,10 +584,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardViewModeCheckDisplay() throws IOException
-    {
+    public void startWithLoyaltyCardViewModeCheckDisplay() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -641,10 +602,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardWithBarcodeUpdateBarcode() throws IOException
-    {
+    public void startWithLoyaltyCardWithBarcodeUpdateBarcode() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -666,8 +626,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException
-    {
+    public void startWithLoyaltyCardWithReceiptUpdateReceiptCancel() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
         final Context context = activity.getApplicationContext();
@@ -705,10 +664,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardNoExpirySetExpiry() throws IOException
-    {
+    public void startWithLoyaltyCardNoExpirySetExpiry() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -738,10 +696,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardExpirySetNoExpiry() throws IOException
-    {
+    public void startWithLoyaltyCardExpirySetNoExpiry() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -763,10 +720,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardNoBalanceSetBalance() throws IOException
-    {
+    public void startWithLoyaltyCardNoBalanceSetBalance() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -814,10 +770,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardBalanceSetNoBalance() throws IOException
-    {
+    public void startWithLoyaltyCardBalanceSetNoBalance() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -855,10 +810,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardSameAsCardIDUpdateBarcodeID()
-    {
+    public void startWithLoyaltyCardSameAsCardIDUpdateBarcodeID() {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -887,10 +841,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardSameAsCardIDUpdateCardID()
-    {
+    public void startWithLoyaltyCardSameAsCardIDUpdateCardID() {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -921,10 +874,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardDifferentFromCardIDUpdateCardIDUpdate()
-    {
+    public void startWithLoyaltyCardDifferentFromCardIDUpdateCardIDUpdate() {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -958,10 +910,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithLoyaltyCardDifferentFromCardIDUpdateCardIDDoNotUpdate()
-    {
+    public void startWithLoyaltyCardDifferentFromCardIDUpdateCardIDDoNotUpdate() {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -995,10 +946,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkMenu() throws IOException
-    {
+    public void checkMenu() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
@@ -1023,10 +973,9 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithMissingLoyaltyCard() throws IOException
-    {
+    public void startWithMissingLoyaltyCard() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
 
         activityController.start();
         activityController.visible();
@@ -1043,11 +992,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutParametersViewBack()
-    {
+    public void startWithoutParametersViewBack() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
@@ -1063,11 +1011,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startWithoutColors()
-    {
+    public void startWithoutColors() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
 
@@ -1086,7 +1033,7 @@ public class LoyaltyCardViewActivityTest
     public void startLoyaltyCardWithoutColorsSave() throws IOException, ParseException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
 
@@ -1104,7 +1051,7 @@ public class LoyaltyCardViewActivityTest
     public void startLoyaltyCardWithExplicitNoBarcodeSave() throws IOException, ParseException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
 
@@ -1121,7 +1068,7 @@ public class LoyaltyCardViewActivityTest
     @Test
     public void removeBarcodeFromLoyaltyCard() throws IOException, ParseException {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
         DBHelper db = TestHelpers.getEmptyDb(activity);
 
@@ -1149,11 +1096,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void startCheckFontSizes()
-    {
+    public void startCheckFontSizes() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
@@ -1161,8 +1107,8 @@ public class LoyaltyCardViewActivityTest
 
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
         settings.edit()
-            .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), 100)
-            .apply();
+                .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), 100)
+                .apply();
 
         activityController.start();
         activityController.visible();
@@ -1184,13 +1130,11 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkScreenOrientationLockSetting()
-    {
-        for(boolean locked : new boolean[] {false, true})
-        {
+    public void checkScreenOrientationLockSetting() {
+        for (boolean locked : new boolean[]{false, true}) {
             ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-            Activity activity = (Activity)activityController.get();
+            Activity activity = (Activity) activityController.get();
             DBHelper db = new DBHelper(activity);
             db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
@@ -1207,12 +1151,9 @@ public class LoyaltyCardViewActivityTest
 
             MenuItem item = shadowOf(activity).getOptionsMenu().findItem(R.id.action_lock_unlock);
 
-            if(locked)
-            {
+            if (locked) {
                 assertEquals(item.isVisible(), false);
-            }
-            else
-            {
+            } else {
                 assertEquals(item.isVisible(), true);
                 String title = item.getTitle().toString();
                 assertEquals(title, activity.getString(R.string.lockScreen));
@@ -1223,8 +1164,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkPushStarIcon()
-    {
+    public void checkPushStarIcon() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
@@ -1258,11 +1198,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkBarcodeFullscreenWorkflow()
-    {
+    public void checkBarcodeFullscreenWorkflow() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
@@ -1364,11 +1303,10 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void checkNoBarcodeFullscreenWorkflow()
-    {
+    public void checkNoBarcodeFullscreenWorkflow() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         DBHelper db = TestHelpers.getEmptyDb(activity);
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
 
@@ -1408,8 +1346,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void importCard()
-    {
+    public void importCard() {
         Date date = new Date();
 
         Uri importUri = Uri.parse("https://catima.app/share#store%3DExample%2BStore%26note%3D%26expiry%3D" + date.getTime() + "%26balance%3D10.00%26balancetype%3DUSD%26cardid%3D123456%26barcodetype%3DAZTEC%26headercolor%3D-416706");
@@ -1423,7 +1360,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
         shadowOf(getMainLooper()).idle();
@@ -1433,8 +1370,7 @@ public class LoyaltyCardViewActivityTest
     }
 
     @Test
-    public void importCardOldFormat()
-    {
+    public void importCardOldFormat() {
         Uri importUri = Uri.parse("https://brarcher.github.io/loyalty-card-locker/share?store=Example%20Store&note=&cardid=123456&barcodetype=AZTEC&headercolor=-416706&headertextcolor=-1");
 
         Intent intent = new Intent();
@@ -1446,7 +1382,7 @@ public class LoyaltyCardViewActivityTest
         activityController.visible();
         activityController.resume();
 
-        Activity activity = (Activity)activityController.get();
+        Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
         checkAllFields(activity, ViewMode.ADD_CARD, "Example Store", "", context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), "Aztec", null, null);

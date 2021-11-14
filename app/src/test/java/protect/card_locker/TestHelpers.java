@@ -19,7 +19,8 @@ public class TestHelpers {
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 try {
                     Utils.saveCardImage(activity.getApplicationContext(), null, cardID, imageLocationType);
-                } catch (FileNotFoundException ignored) {}
+                } catch (FileNotFoundException ignored) {
+                }
             }
 
             cursor.moveToNext();

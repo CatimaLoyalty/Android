@@ -70,7 +70,7 @@ public class CatimaExporter implements Exporter {
                 // If it exists, add to the .zip file
                 Bitmap image = Utils.retrieveCardImage(context, card.id, imageLocationType);
                 if (image != null) {
-                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType) ,password);
+                    ZipParameters imageZipParameters = createZipParameters(Utils.getCardImageFileName(card.id, imageLocationType), password);
                     zipOutputStream.putNextEntry(imageZipParameters);
                     InputStream imageInputStream = new ByteArrayInputStream(Utils.bitmapToByteArray(image));
                     while ((readLen = imageInputStream.read(readBuffer)) != -1) {

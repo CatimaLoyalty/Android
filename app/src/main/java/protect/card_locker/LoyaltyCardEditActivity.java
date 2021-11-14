@@ -65,7 +65,6 @@ import java.util.concurrent.Callable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -893,11 +892,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         onResuming = false;
     }
 
-    protected void setColorFromIcon(){
+    protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
-        if(icon != null && (icon instanceof Bitmap)){
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap)icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
-        }else{
+        if (icon != null && (icon instanceof Bitmap)) {
+            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
+        } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
     }
@@ -1035,8 +1034,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     class ChooseCardImage implements View.OnClickListener {
         @Override
-        public void onClick(View v) throws NoSuchElementException
-        {
+        public void onClick(View v) throws NoSuchElementException {
             ImageView targetView;
 
             if (v.getId() == R.id.frontImageHolder) {
@@ -1074,11 +1072,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     }
 
                     ColorPickerDialog dialog = dialogBuilder.create();
-                    dialog.setColorPickerDialogListener(new ColorPickerDialogListener()
-                    {
+                    dialog.setColorPickerDialogListener(new ColorPickerDialogListener() {
                         @Override
-                        public void onColorSelected(int dialogId, int color)
-                        {
+                        public void onColorSelected(int dialogId, int color) {
                             updateTempState(LoyaltyCardField.headerColor, color);
 
                             // Unset image if set
@@ -1088,8 +1084,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         }
 
                         @Override
-                        public void onDialogDismissed(int dialogId)
-                        {
+                        public void onDialogDismissed(int dialogId) {
                             // Nothing to do, no change made
                         }
                     });
@@ -1352,9 +1347,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             mCropperOptions.setToolbarTitle(getResources().getString(R.string.setIcon));
         }
 
-        if(requestedIcon()) {
-            setCropperOptions(true,0f, 0f);
-        }else{
+        if (requestedIcon()) {
+            setCropperOptions(true, 0f, 0f);
+        } else {
             // sniff the input image for width and height to work around a ucrop bug
             Bitmap image = null;
             try {
@@ -1365,7 +1360,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
             if (image == null) {
                 Log.d("cropper", "failed loading bitmap for initial width and height for ucrop " + sourceUri.toString());
-                setCropperOptions(true,0f, 0f);
+                setCropperOptions(true, 0f, 0f);
             } else {
                 try {
                     Bitmap imageRotated = Utils.rotateBitmap(image, new ExifInterface(getContentResolver().openInputStream(sourceUri)));

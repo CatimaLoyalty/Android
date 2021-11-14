@@ -369,7 +369,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         mainImage.setOnTouchListener(gestureTouchListener);
     }
 
-    private void changeUiToBottomSheetState(int newState){
+    private void changeUiToBottomSheetState(int newState) {
         if (newState == BottomSheetBehavior.STATE_DRAGGING) {
             editButton.hide();
         } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
@@ -387,9 +387,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomSheetState = newState;
     }
 
-    private void adjustLayoutHeights(){
+    private void adjustLayoutHeights() {
         // use getLayoutParams instead of getHeight when heights are pre-determined in xml! getHeight could return 0 if a View is not inflated
-        if(iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
+        if (iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
             Log.d("adjustLayoutHeights", "setting imageIcon height from: " + iconImage.getLayoutParams().height + " to: " + appBarLayout.getHeight());
             iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
                     CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
@@ -406,7 +406,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             //     bottomSheetContentWrapper.getChildAt(i).invalidate();
             // }
             // since it's basically allergic to getting enlarged then shrunk again, and setting it at all when fullscreen makes no sense
-            if(!isFullscreen){
+            if (!isFullscreen) {
                 Log.d("adjustLayoutHeights", "setting bottomSheet height from: " + params.height + " to: " + bottomSheetHeight);
                 bottomSheetContentWrapper.setLayoutParams(
                         new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetHeight)
@@ -561,14 +561,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         landscapeToolbar.setTitleTextColor(textColor);
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
-        if (icon != null){
+        if (icon != null) {
             int backgroundAlphaColor = Utils.needsDarkForeground(backgroundHeaderColor) ? Color.WHITE : Color.BLACK;
             Log.d("onResume", "setting icon image");
             iconImage.setImageBitmap(icon);
             int backgroundWithAlpha = Color.argb(HEADER_FILTER_ALPHA, Color.red(backgroundAlphaColor), Color.green(backgroundAlphaColor), Color.blue(backgroundAlphaColor));
             // for images that has alpha
             appBarLayout.setBackgroundColor(backgroundWithAlpha);
-        }else{
+        } else {
             Bitmap plain = Bitmap.createBitmap(new int[]{backgroundHeaderColor}, 1, 1, Bitmap.Config.ARGB_8888);
             iconImage.setImageBitmap(plain);
             appBarLayout.setBackgroundColor(Color.TRANSPARENT);

@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import androidx.core.content.res.ResourcesCompat;
-
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;

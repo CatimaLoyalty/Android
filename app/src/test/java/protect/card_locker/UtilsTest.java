@@ -12,11 +12,9 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class UtilsTest
-{
+public class UtilsTest {
     @Test
-    public void parseBalances()
-    {
+    public void parseBalances() {
         assertEquals("1", Utils.parseCurrency("1", false).toPlainString());
 
         assertEquals("1", Utils.parseCurrency("1", true).toPlainString());
@@ -67,8 +65,7 @@ public class UtilsTest
     }
 
     @Test
-    public void formatBalances()
-    {
+    public void formatBalances() {
         Currency euro = Currency.getInstance("EUR");
 
         assertEquals("1", Utils.formatBalanceWithoutCurrencySymbol(new BigDecimal("1"), null));

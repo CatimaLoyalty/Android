@@ -7,7 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -17,8 +18,6 @@ import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.IconCompat;
-
-import org.jetbrains.annotations.NotNull;
 
 class ShortcutHelper {
     // Android documentation says that no more than 5 shortcuts
@@ -120,7 +119,8 @@ class ShortcutHelper {
         ShortcutManagerCompat.setDynamicShortcuts(context, list);
     }
 
-    static @NotNull Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor){
+    static @NotNull
+    Bitmap createAdaptiveBitmap(@NotNull Bitmap in, int paddingColor) {
         Bitmap ret = Bitmap.createBitmap(ADAPTIVE_BITMAP_SIZE, ADAPTIVE_BITMAP_SIZE, Bitmap.Config.ARGB_8888);
         Canvas output = new Canvas(ret);
         output.drawColor(ColorUtils.compositeColors(PADDING_COLOR_OVERLAY, paddingColor));
@@ -143,7 +143,7 @@ class ShortcutHelper {
         Bitmap iconBitmap = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
-        }else{
+        } else {
             iconBitmap = createAdaptiveBitmap(iconBitmap, loyaltyCard.headerColor == null ? PADDING_COLOR : loyaltyCard.headerColor);
         }
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 91
+## v2.9.0 - 91 (2021-11-14)
 
 - Improved group management support
 - Support cropping images

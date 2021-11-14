@@ -7,12 +7,12 @@ mondstern
 solokot
 Katharine Chui
 Oğuz Ersen
-Taco
 IllusiveMan196
 Petr Novák
+Taco
 Gediminas Murauskas
-Joel A
 StoyanDimitrov
+Joel A
 Nyatsuki
 Samantaz Fox
 arno-github
@@ -23,6 +23,7 @@ huuhaa
 Miha Frangež
 Michael Moroni
 Olivia (Zoe)
+laralem
 betsythefc
 waffshappen
 K. Herbert
@@ -35,11 +36,12 @@ KovalevArtem
 Clonewayx
 D. Domig
 Diego
+sr093906
 Jane Kong
 Lukas Grassauer
+Marnick L'Eau
 Michalis
 Rosdyana Kusuma
-laralem
 schirinowski
 Thomas Bertels
 inesre
@@ -51,7 +53,6 @@ Airat
 BMN
 Biren
 Kasina Dheeraj
-sr093906
 Flav
 Franciszek Stefan
 Izzy

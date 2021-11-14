@@ -155,8 +155,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/inputBackground"
-        android:fitsSystemWindows="false"
         android:orientation="vertical"
+        android:paddingTop="0px"
         android:visibility="gone"
         app:behavior_hideable="false"
         app:behavior_peekHeight="80dp"
@@ -168,10 +168,10 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="top|start"
-            android:scaleType="fitCenter"
             android:contentDescription="@string/toggleMoreInfo"
-            app:tint="#ffffff"
-            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
+            app:tint="#ffffff" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/bottomSheetContentWrapper"
@@ -185,132 +185,127 @@
 
                 <TextView
                     android:id="@+id/noteView"
-                    android:enabled="true"
-                    android:textIsSelectable="true"
-                    android:focusable="true"
-                    android:longClickable="true"
-                    android:autoLink="all"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:enabled="true"
+                    android:focusable="true"
                     android:gravity="center"
+                    android:longClickable="true"
                     android:padding="20dp"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
                 <TextView
                     android:id="@+id/groupsView"
-                    android:enabled="true"
-                    android:textIsSelectable="true"
-                    android:focusable="true"
-                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:focusable="true"
                     android:gravity="center"
+                    android:longClickable="true"
                     android:padding="20dp"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
                 <TextView
                     android:id="@+id/balanceView"
-                    android:enabled="true"
-                    android:textIsSelectable="true"
-                    android:focusable="true"
-                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:focusable="true"
                     android:gravity="center"
+                    android:longClickable="true"
                     android:padding="20dp"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/singleCardNoteTextSizeMin" />
 
                 <TextView
                     android:id="@+id/expiryView"
-                    android:enabled="true"
-                    android:textIsSelectable="true"
-                    android:focusable="true"
-                    android:longClickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:focusable="true"
                     android:gravity="center"
+                    android:longClickable="true"
                     android:padding="20dp"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/singleCardNoteTextSizeMin" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         android:weightSum="1.0"
-        android:fitsSystemWindows="true">
+        >
 
-        <RelativeLayout
-            android:id="@+id/relative_layout"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_landscape"
+            android:layout_width="fill_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="false"
+            android:paddingTop="0dp"
+            android:theme="@style/CardView.ActionBarTheme"
+            android:visibility="gone"
+            app:contentInsetStart="72.0dip"
+            app:layout_collapseMode="pin" />
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.0">
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:minHeight="56.0dip"
+            app:contentScrim="?colorPrimary"
+            app:expandedTitleGravity="top"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp">
 
-            <ImageView
-                android:id="@+id/icon_image"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/storeName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_launcher_foreground"
-                tools:ignore="ContentDescription" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="?actionBarSize"
+                android:layout_marginBottom="?actionBarSize"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_landscape"
+                android:id="@id/toolbar"
                 android:layout_width="fill_parent"
                 android:layout_height="?actionBarSize"
-                android:layout_alignParentTop="true"
                 android:background="@android:color/transparent"
-                android:paddingTop="0dp"
                 android:theme="@style/CardView.ActionBarTheme"
-                android:visibility="gone"
                 app:contentInsetStart="72.0dip"
                 app:layout_collapseMode="pin" />
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsingToolbarLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:minHeight="56.0dip"
-                app:contentScrim="?colorPrimary"
-                app:expandedTitleGravity="top"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/storeName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="?actionBarSize"
-                    android:layout_marginBottom="?actionBarSize"
-                    android:ellipsize="end"
-                    android:fitsSystemWindows="true"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="40sp"
-                    app:layout_collapseMode="parallax" />
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@id/toolbar"
-                    android:layout_width="fill_parent"
-                    android:layout_height="?actionBarSize"
-                    android:background="@android:color/transparent"
-                    android:theme="@style/CardView.ActionBarTheme"
-                    app:contentInsetStart="72.0dip"
-                    app:layout_collapseMode="pin" />
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </RelativeLayout>
-
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/icon_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        tools:ignore="ContentDescription" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

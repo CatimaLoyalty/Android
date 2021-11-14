@@ -1274,7 +1274,6 @@ public class LoyaltyCardViewActivityTest
 
         ImageView mainImage = activity.findViewById(R.id.mainImage);
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
-        View relativeLayout = activity.findViewById(R.id.relative_layout);
         View bottomSheet = activity.findViewById(R.id.bottom_sheet);
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
@@ -1306,7 +1305,7 @@ public class LoyaltyCardViewActivityTest
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
 
         // Elements should not be visible (except minimize button and scaler)
-        assertEquals(View.GONE, relativeLayout.getVisibility());
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.GONE, bottomSheet.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
@@ -1320,7 +1319,7 @@ public class LoyaltyCardViewActivityTest
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
-        assertEquals(View.VISIBLE, relativeLayout.getVisibility());
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomSheet.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());
@@ -1334,7 +1333,7 @@ public class LoyaltyCardViewActivityTest
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
-        assertEquals(View.GONE, relativeLayout.getVisibility());
+        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.GONE, bottomSheet.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
@@ -1348,7 +1347,7 @@ public class LoyaltyCardViewActivityTest
         uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
-        assertEquals(View.VISIBLE, relativeLayout.getVisibility());
+        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomSheet.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());

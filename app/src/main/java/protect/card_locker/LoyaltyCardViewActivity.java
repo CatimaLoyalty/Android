@@ -5,11 +5,11 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
@@ -44,8 +46,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.core.widget.TextViewCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
@@ -57,8 +61,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     TextView cardIdFieldView;
     BottomSheetBehavior behavior;
-    View bottomSheet;
-    View bottomSheetContentWrapper;
+    LinearLayout bottomSheet;
+    NestedScrollView bottomSheetContentWrapper;
     ImageView bottomSheetButton;
     TextView noteView;
     TextView groupsView;
@@ -71,6 +75,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton minimizeButton;
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
+    ImageView iconImage;
+    Toolbar landscapeToolbar;
+
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
@@ -98,8 +105,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private ImageView[] dots;
     boolean isBarcodeSupported = true;
 
+    int bottomSheetState;
+
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
+    static final String STATE_BOTTOMSHEET = "bottomSheetState";
+
+    private final int HEADER_FILTER_ALPHA = 127;
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -233,6 +245,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (savedInstanceState != null) {
             mainImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX);
             isFullscreen = savedInstanceState.getBoolean(STATE_FULLSCREEN);
+            bottomSheetState = savedInstanceState.getInt(STATE_BOTTOMSHEET);
         }
 
         settings = new Settings(this);
@@ -259,6 +272,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
+        iconImage = findViewById(R.id.icon_image);
+        landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
@@ -318,20 +333,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    editButton.hide();
-                } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
-                    editButton.hide();
-                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
-                    if (!isFullscreen) {
-                        editButton.show();
-                    }
-
-                    // Scroll bottomsheet content back to top
-                    bottomSheetContentWrapper.setScrollY(0);
-                }
+                changeUiToBottomSheetState(newState);
             }
 
             @Override
@@ -347,22 +349,18 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
-        // Fix bottom sheet content sizing
-        ViewTreeObserver viewTreeObserver = bottomSheet.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        appBarLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
-            public void onGlobalLayout() {
-                bottomSheet.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                int height = displayMetrics.heightPixels;
-                int maxHeight = height - appBarLayout.getHeight() - bottomSheetButton.getHeight();
-                Log.d(TAG, "Button sheet should be " + maxHeight + " pixels high");
-                bottomSheetContentWrapper.setLayoutParams(
-                        new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                maxHeight
-                        )
-                );
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                adjustLayoutHeights();
+            }
+        });
+
+        appBarLayout.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                ViewOutlineProvider.BACKGROUND.getOutline(view, outline);
+                outline.setAlpha(0f);
             }
         });
 
@@ -370,6 +368,57 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
         mainImage.setOnTouchListener(gestureTouchListener);
     }
+
+    private void changeUiToBottomSheetState(int newState){
+        if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+            editButton.hide();
+        } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
+            editButton.hide();
+        } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+            bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+            if (!isFullscreen) {
+                editButton.show();
+            }
+
+            // Scroll bottomsheet content back to top
+            bottomSheetContentWrapper.setScrollY(0);
+        }
+        bottomSheetState = newState;
+    }
+
+    private void adjustLayoutHeights(){
+        // use getLayoutParams instead of getHeight when heights are pre-determined in xml! getHeight could return 0 if a View is not inflated
+        if(iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
+            Log.d("adjustLayoutHeights", "setting imageIcon height from: " + iconImage.getLayoutParams().height + " to: " + appBarLayout.getHeight());
+            iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
+                    CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
+            );
+        }
+        int bottomSheetHeight = getResources().getDisplayMetrics().heightPixels - appBarLayout.getHeight() - bottomSheetButton.getLayoutParams().height;
+        ViewGroup.LayoutParams params = bottomSheetContentWrapper.getLayoutParams();
+        if (params.height != bottomSheetHeight || params.width != LinearLayout.LayoutParams.MATCH_PARENT) {
+            // XXX android 5 - 9 has so much quirks with setting bottomSheetContent height
+            // just invalidate the wrapper works on 10 onward
+            // bottomSheetContentWrapper.invalidate();
+            // The below worked on android 5 but not 6, reloading the card then it breaks again on 6, entirely random :(
+            // for (int i = 0; i < bottomSheetContentWrapper.getChildCount(); i++) {
+            //     bottomSheetContentWrapper.getChildAt(i).invalidate();
+            // }
+            // since it's basically allergic to getting enlarged then shrunk again, and setting it at all when fullscreen makes no sense
+            if(!isFullscreen){
+                Log.d("adjustLayoutHeights", "setting bottomSheet height from: " + params.height + " to: " + bottomSheetHeight);
+                bottomSheetContentWrapper.setLayoutParams(
+                        new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetHeight)
+                );
+            }
+        }
+        // XXX
+        // from android 5 - 9 a padding magically grows on top of bottomSheet after leaving fullscreen
+        // I suspect that it's a bug with going into immersive mode then out, along with coordinator layout bottom sheet
+        Log.d("adjustLayoutHeights", "padding top: " + bottomSheet.getPaddingTop() + " padding bottom: " + bottomSheet.getPaddingBottom());
+    }
+
 
     @Override
     public void onNewIntent(Intent intent) {
@@ -383,6 +432,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt(STATE_IMAGEINDEX, mainImageIndex);
         savedInstanceState.putBoolean(STATE_FULLSCREEN, isFullscreen);
+        savedInstanceState.putInt(STATE_BOTTOMSHEET, bottomSheetState);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -501,9 +551,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
         }
 
-        collapsingToolbarLayout.setBackgroundColor(backgroundHeaderColor);
-        appBarLayout.setBackgroundColor(backgroundHeaderColor);
-
         int textColor;
         if (Utils.needsDarkForeground(backgroundHeaderColor)) {
             textColor = Color.BLACK;
@@ -511,7 +558,21 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             textColor = Color.WHITE;
         }
         storeName.setTextColor(textColor);
-        ((Toolbar) findViewById(R.id.toolbar_landscape)).setTitleTextColor(textColor);
+        landscapeToolbar.setTitleTextColor(textColor);
+
+        Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
+        if (icon != null){
+            int backgroundAlphaColor = Utils.needsDarkForeground(backgroundHeaderColor) ? Color.WHITE : Color.BLACK;
+            Log.d("onResume", "setting icon image");
+            iconImage.setImageBitmap(icon);
+            int backgroundWithAlpha = Color.argb(HEADER_FILTER_ALPHA, Color.red(backgroundAlphaColor), Color.green(backgroundAlphaColor), Color.blue(backgroundAlphaColor));
+            // for images that has alpha
+            appBarLayout.setBackgroundColor(backgroundWithAlpha);
+        }else{
+            Bitmap plain = Bitmap.createBitmap(new int[]{backgroundHeaderColor}, 1, 1, Bitmap.Config.ARGB_8888);
+            iconImage.setImageBitmap(plain);
+            appBarLayout.setBackgroundColor(Color.TRANSPARENT);
+        }
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
@@ -572,6 +633,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         setFullscreen(isFullscreen);
+
+        // restore bottomSheet UI states from changing orientation
+        changeUiToBottomSheetState(bottomSheetState);
 
         db.updateLoyaltyCardLastUsed(loyaltyCard.id);
     }
@@ -659,7 +723,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void setupOrientation() {
         Toolbar portraitToolbar = findViewById(R.id.toolbar);
-        Toolbar landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -827,13 +890,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
             collapsingToolbarLayout.setVisibility(View.GONE);
-            findViewById(R.id.toolbar_landscape).setVisibility(View.GONE);
+            landscapeToolbar.setVisibility(View.GONE);
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);
             bottomSheet.setVisibility(View.GONE);
             behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             editButton.hide();
+
 
             // Set Android to fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
@@ -863,8 +927,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Show appropriate toolbar
             // And restore 24dp paddingTop for appBarLayout
             appBarLayout.setVisibility(View.VISIBLE);
-            DisplayMetrics metrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(metrics);
             setupOrientation();
 
             // Show other UI elements

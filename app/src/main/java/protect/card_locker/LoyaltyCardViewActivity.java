@@ -51,6 +51,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.core.widget.TextViewCompat;
+
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
 
@@ -59,6 +60,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private GestureDetector mGestureDetector;
 
+    CoordinatorLayout coordinatorLayout;
     TextView cardIdFieldView;
     BottomSheetBehavior behavior;
     LinearLayout bottomSheet;
@@ -257,6 +259,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         db = new DBHelper(this);
         importURIHelper = new ImportURIHelper(this);
 
+        coordinatorLayout = findViewById(R.id.coordinator_layout);
         cardIdFieldView = findViewById(R.id.cardIdView);
         bottomSheet = findViewById(R.id.bottom_sheet);
         bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
@@ -413,10 +416,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 );
             }
         }
-        // XXX
-        // from android 5 - 9 a padding magically grows on top of bottomSheet after leaving fullscreen
-        // I suspect that it's a bug with going into immersive mode then out, along with coordinator layout bottom sheet
-        Log.d("adjustLayoutHeights", "padding top: " + bottomSheet.getPaddingTop() + " padding bottom: " + bottomSheet.getPaddingBottom());
     }
 
 
@@ -898,6 +897,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             editButton.hide();
 
+            // android 5-9, avoid padding growing on top of bottomSheet
+            coordinatorLayout.removeView(bottomSheet);
 
             // Set Android to fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
@@ -940,6 +941,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             & ~View.SYSTEM_UI_FLAG_FULLSCREEN
             );
+
+            // android 5-9, avoid padding growing on top of bottomSheet
+            if (bottomSheet.getParent() != coordinatorLayout) {
+                coordinatorLayout.addView(bottomSheet);
+            }
         }
 
         Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress());

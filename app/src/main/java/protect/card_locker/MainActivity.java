@@ -681,7 +681,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-
     @Override
     public void onRowClicked(int inputPosition) {
         if (mAdapter.getSelectedItemCount() > 0) {

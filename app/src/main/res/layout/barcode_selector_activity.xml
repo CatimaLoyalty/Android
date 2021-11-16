@@ -1,318 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                     android:layout_width="match_parent"
-                                                     android:layout_height="match_parent"
-                                                     android:fitsSystemWindows="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/scrollView">
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/explanationText"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="20.0dip"
+            android:paddingEnd="20.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/barcodeIdLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/enterBarcodeInstructions" />
+        <LinearLayout
+            android:id="@+id/barcodeIdLayout"
+            android:orientation="horizontal"
+            android:padding="10.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/explanationText"
+            app:layout_constraintBottom_toTopOf="@+id/noBarcode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <TextView android:textSize="16.0sp"
+                      android:textStyle="bold"
+                      android:layout_gravity="center_vertical"
+                      android:paddingStart="20.0dip"
+                      android:paddingEnd="20.0dip"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:labelFor="@+id/cardId"
+                      android:text="@string/cardId" />
 
-        <LinearLayout android:orientation="vertical"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content">
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10.0dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <TextView android:textSize="20sp"
-                          android:layout_gravity="center_vertical"
-                          android:paddingStart="20.0dip"
-                          android:paddingEnd="20.0dip"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="@string/enterBarcodeInstructions" />
-            </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                          android:padding="10.0dip"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/barcodeIdLayout">
-                <TextView android:textSize="16.0sp"
-                          android:textStyle="bold"
-                          android:layout_gravity="center_vertical"
-                          android:paddingStart="20.0dip"
-                          android:paddingEnd="20.0dip"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:labelFor="@+id/cardId"
-                          android:text="@string/cardId" />
-                <EditText android:id="@+id/cardId"
-                          android:hint="AB1234"
-                          android:importantForAutofill="no"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content"
-                          android:inputType="text"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
+            <EditText
+                android:id="@+id/cardId"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/barcodesLayout"/>
-            <Button
-                android:id="@+id/noBarcode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/barcodeNoBarcode"
-                android:textColor="#FFFFFF"
-                android:enabled="false" />
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/aztecBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/aztecBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/code39Barcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/code39BarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/code128Barcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/code128BarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/codabarBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/codabarBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/datamatrixBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/datamatrixBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/ean8Barcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/ean8BarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/ean13Barcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/ean13BarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/itfBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/itfBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/pdf417Barcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/pdf417BarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/qrcodeBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/qrcodeBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                          android:padding="10.0dp"
-                          android:layout_width="fill_parent"
-                          android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/upcaBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/upcaBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical"
-                android:padding="10.0dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/barcode_disp_height"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/upceBarcode"
-                    android:layout_weight="1.0"/>
-                <TextView
-                    android:id="@+id/upceBarcodeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10.0dip"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1.0" />
-            </LinearLayout>
+                android:hint="AB1234"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp" />
         </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/noBarcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/barcodeIdLayout"
+            app:layout_constraintBottom_toTopOf="@+id/barcodes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/barcodeNoBarcode"
+            android:textColor="#FFFFFF"
+            android:enabled="false" />
+        <ListView
+            android:id="@+id/barcodes"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            app:layout_constraintTop_toBottomOf="@+id/noBarcode"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scrollbars="vertical" />
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

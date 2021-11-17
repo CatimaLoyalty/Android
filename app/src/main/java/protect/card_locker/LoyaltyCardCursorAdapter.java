@@ -35,8 +35,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
-    private Context mContext;
-    private CardAdapterListener mListener;
+    private final Context mContext;
+    private final CardAdapterListener mListener;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
@@ -74,15 +74,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
         // Invisible until we want to show something more
         inputHolder.mDivider.setVisibility(View.GONE);
-
-        // remove outline shadow
-        inputHolder.mThumbnailContainer.setOutlineProvider(new ViewOutlineProvider() {
-            @Override
-            public void getOutline(View view, Outline outline) {
-                ViewOutlineProvider.BACKGROUND.getOutline(view, outline);
-                outline.setAlpha(0f);
-            }
-        });
 
         int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
 
@@ -143,60 +134,25 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mCardIcon.setBackgroundColor(Color.TRANSPARENT);
         } else {
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
-            if (loyaltyCard.headerColor != null) {
-                inputHolder.mCardIcon.setBackgroundColor(loyaltyCard.headerColor);
-            }
+        }
+        if (loyaltyCard.headerColor != null) {
+            inputHolder.mIconLayout.setBackgroundColor(loyaltyCard.headerColor);
         }
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
-        int imageSize = dpToPx((size * 46) / 14, mContext);
-        inputHolder.mCardIcon.getLayoutParams().height = imageSize;
-        inputHolder.mCardIcon.getLayoutParams().width = imageSize;
-        inputHolder.mStarIcon.getLayoutParams().height = imageSize;
-        inputHolder.mStarIcon.getLayoutParams().width = imageSize;
-        inputHolder.mTickIcon.getLayoutParams().height = imageSize;
-        inputHolder.mTickIcon.getLayoutParams().width = imageSize;
-
-        /* Changing Padding and Mragin of different views according to font size
-         * Views Included:
-         * a) InformationContainer padding
-         * b) Store left padding
-         * c) Divider Margin
-         * d) note top margin
-         * e) row margin
-         * */
-        int marginPaddingSize = dpToPx((size * 16) / 14, mContext);
-        inputHolder.mInformationContainer.setPadding(marginPaddingSize, marginPaddingSize, marginPaddingSize, marginPaddingSize);
-        inputHolder.mStoreField.setPadding(marginPaddingSize, 0, 0, 0);
-        LinearLayout.LayoutParams lpDivider = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        lpDivider.setMargins(0, marginPaddingSize, 0, marginPaddingSize);
-        inputHolder.mDivider.setLayoutParams(lpDivider);
-        LinearLayout.LayoutParams lpNoteField = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        lpNoteField.setMargins(0, marginPaddingSize / 2, 0, 0);
-        inputHolder.mNoteField.setLayoutParams(lpNoteField);
-        LinearLayout.LayoutParams lpRow = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        lpRow.setMargins(marginPaddingSize / 2, marginPaddingSize / 2, marginPaddingSize / 2, marginPaddingSize / 2);
-        inputHolder.mRow.setLayoutParams(lpRow);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());
+
+        // Force redraw to fix size not shrinking after data change
+        inputHolder.mRow.requestLayout();
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
         inputHolder.mRow.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
-        inputHolder.mInformationContainer.setOnClickListener(inputView -> mListener.onRowClicked(inputPosition));
 
         inputHolder.mRow.setOnLongClickListener(inputView -> {
-            mListener.onRowLongClicked(inputPosition);
-            inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-            return true;
-        });
-
-        inputHolder.mInformationContainer.setOnLongClickListener(inputView -> {
             mListener.onRowLongClicked(inputPosition);
             inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             return true;
@@ -205,21 +161,19 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition) {
         if (mSelectedItems.get(inputPosition, false)) {
-            inputHolder.mThumbnailFrontContainer.setVisibility(View.GONE);
-            resetIconYAxis(inputHolder.mThumbnailBackContainer);
-            inputHolder.mThumbnailBackContainer.setVisibility(View.VISIBLE);
-            inputHolder.mThumbnailBackContainer.setAlpha(1);
+            inputHolder.mCardIcon.setVisibility(View.GONE);
+            resetIconYAxis(inputHolder.mTickIcon);
+            inputHolder.mTickIcon.setVisibility(View.VISIBLE);
             if (mCurrentSelectedIndex == inputPosition) {
-                LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, true);
+                LoyaltyCardAnimator.flipView(mContext, inputHolder.mTickIcon, inputHolder.mCardIcon, true);
                 resetCurrentIndex();
             }
         } else {
-            inputHolder.mThumbnailBackContainer.setVisibility(View.GONE);
-            resetIconYAxis(inputHolder.mThumbnailFrontContainer);
-            inputHolder.mThumbnailFrontContainer.setVisibility(View.VISIBLE);
-            inputHolder.mThumbnailFrontContainer.setAlpha(1);
+            inputHolder.mTickIcon.setVisibility(View.GONE);
+            resetIconYAxis(inputHolder.mCardIcon);
+            inputHolder.mCardIcon.setVisibility(View.VISIBLE);
             if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition) {
-                LoyaltyCardAnimator.flipView(mContext, inputHolder.mThumbnailBackContainer, inputHolder.mThumbnailFrontContainer, false);
+                LoyaltyCardAnimator.flipView(mContext, inputHolder.mTickIcon, inputHolder.mCardIcon, false);
                 resetCurrentIndex();
             }
         }
@@ -285,25 +239,20 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public static class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
-        public LinearLayout mInformationContainer;
         public ImageView mCardIcon, mStarIcon, mTickIcon;
-        public MaterialCardView mRow;
+        public MaterialCardView mIconLayout, mRow;
         public View mDivider;
-        public RelativeLayout mThumbnailFrontContainer, mThumbnailBackContainer;
-        public MaterialCardView mThumbnailContainer;
 
         public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
             mRow = inputView.findViewById(R.id.row);
+            mIconLayout = inputView.findViewById(R.id.icon_layout);
             mDivider = inputView.findViewById(R.id.info_divider);
-            mThumbnailContainer = inputView.findViewById(R.id.thumbnail_container);
-            mThumbnailFrontContainer = inputView.findViewById(R.id.thumbnail_front);
-            mThumbnailBackContainer = inputView.findViewById(R.id.thumbnail_back);
-            mInformationContainer = inputView.findViewById(R.id.information_container);
             mStoreField = inputView.findViewById(R.id.store);
             mNoteField = inputView.findViewById(R.id.note);
             mBalanceField = inputView.findViewById(R.id.balance);
             mExpiryField = inputView.findViewById(R.id.expiry);
+
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);

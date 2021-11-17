@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
-import protect.card_locker.async.TaskHandler;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -33,12 +32,9 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
     public static final String BARCODE_CONTENTS = "contents";
     public static final String BARCODE_FORMAT = "format";
 
-    final private TaskHandler mTasks = new TaskHandler();
-
     private final Handler typingDelayHandler = new Handler(Looper.getMainLooper());
     public static final Integer INPUT_DELAY = 250;
 
-    private ListView mBarcodeList;
     private BarcodeSelectorAdapter mAdapter;
 
     @Override
@@ -54,7 +50,9 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
         }
 
         EditText cardId = findViewById(R.id.cardId);
-        mBarcodeList = findViewById(R.id.barcodes);
+        ListView mBarcodeList = findViewById(R.id.barcodes);
+        mAdapter = new BarcodeSelectorAdapter(this, new ArrayList<>(), this);
+        mBarcodeList.setAdapter(mAdapter);
 
         cardId.addTextChangedListener(new SimpleTextWatcher() {
             @Override
@@ -87,18 +85,13 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
     }
 
     private void generateBarcodes(String value) {
-        // Attempt to stop any async tasks which may not have been started yet
-        // TODO this can be very much optimized by only generating Barcodes visible to the User
-        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
-
         // Update barcodes
-        ArrayList<CatimaBarcodeWithValue> catimaBarcodeWithValues = new ArrayList<>();
-        mAdapter = new BarcodeSelectorAdapter(this, catimaBarcodeWithValues, mTasks, this);
+        ArrayList<CatimaBarcodeWithValue> barcodes = new ArrayList<>();
         for (BarcodeFormat barcodeFormat : CatimaBarcode.barcodeFormats) {
             CatimaBarcode catimaBarcode = CatimaBarcode.fromBarcode(barcodeFormat);
-            mAdapter.add(new CatimaBarcodeWithValue(catimaBarcode, value));
+            barcodes.add(new CatimaBarcodeWithValue(catimaBarcode, value));
         }
-        mBarcodeList.setAdapter(mAdapter);
+        mAdapter.setBarcodes(barcodes);
     }
 
     private void setButtonListener(final View button, final String cardId) {

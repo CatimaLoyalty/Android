@@ -17,7 +17,7 @@ import protect.card_locker.async.TaskHandler;
 public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue> {
     private static final String TAG = "Catima";
 
-    private final TaskHandler mTasks;
+    private final TaskHandler mTasks = new TaskHandler();
     private final BarcodeSelectorListener mListener;
 
     private static class ViewHolder {
@@ -29,10 +29,16 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
         void onRowClicked(int inputPosition, View view);
     }
 
-    public BarcodeSelectorAdapter(Context context, ArrayList<CatimaBarcodeWithValue> barcodes, TaskHandler taskHandler, BarcodeSelectorListener barcodeSelectorListener) {
+    public BarcodeSelectorAdapter(Context context, ArrayList<CatimaBarcodeWithValue> barcodes, BarcodeSelectorListener barcodeSelectorListener) {
         super(context, 0, barcodes);
-        mTasks = taskHandler;
         mListener = barcodeSelectorListener;
+    }
+
+    public void setBarcodes(ArrayList<CatimaBarcodeWithValue> barcodes) {
+        clear();
+        addAll(barcodes);
+        notifyDataSetChanged();
+        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
     }
 
     @Override

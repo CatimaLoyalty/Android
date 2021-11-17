@@ -35,8 +35,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
-    private Context mContext;
-    private CardAdapterListener mListener;
+    private final Context mContext;
+    private final CardAdapterListener mListener;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
@@ -144,6 +144,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());
+
+        // Force redraw to fix size not shrinking after data change
+        inputHolder.mRow.requestLayout();
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {

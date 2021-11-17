@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 92
+
+- New main screen layout
+- Fix bottomsheet sizing issues when switching in and out of fullscreen
+
 ## v2.9.0 - 91 (2021-11-14)
 
 - Improved group management support

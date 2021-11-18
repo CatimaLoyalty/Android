@@ -218,4 +218,6 @@
     <string name="group_updated">Grup güncellendi</string>
     <string name="selectColor">Renk seç</string>
     <string name="setIcon">Simge ayarla</string>
+    <string name="action_show_details">Ayrıntıları göster</string>
+    <string name="action_hide_details">Ayrıntıları gizle</string>
 </resources>

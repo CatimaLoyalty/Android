@@ -58,9 +58,10 @@ public class MainActivityTest {
         assertNotNull(menu);
 
         // The settings, import/export, groups, search and add button should be present
-        assertEquals(menu.size(), 6);
+        assertEquals(menu.size(), 7);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
         assertEquals("Sort", menu.findItem(R.id.action_sort).getTitle().toString());
+        assertEquals("Hide details", menu.findItem(R.id.action_unfold).getTitle().toString());
         assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());

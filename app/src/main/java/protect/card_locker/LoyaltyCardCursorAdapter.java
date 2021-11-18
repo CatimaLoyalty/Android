@@ -38,6 +38,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
+    private boolean mShowDetails = true;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor);
@@ -57,6 +58,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public void swapCursor(Cursor inputCursor) {
         super.swapCursor(inputCursor);
         mCursor = inputCursor;
+    }
+
+    public void showDetails(boolean show) {
+        mShowDetails = show;
+        notifyDataSetChanged();
+    }
+
+    public boolean showingDetails() {
+        return mShowDetails;
     }
 
     @Override
@@ -83,7 +93,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         inputHolder.mStoreField.setText(loyaltyCard.store);
         inputHolder.mStoreField.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
-        if (!loyaltyCard.note.isEmpty()) {
+        if (mShowDetails && !loyaltyCard.note.isEmpty()) {
             inputHolder.mNoteField.setVisibility(View.VISIBLE);
             inputHolder.mNoteField.setText(loyaltyCard.note);
             inputHolder.mNoteField.setTextSize(size);
@@ -91,7 +101,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mNoteField.setVisibility(View.GONE);
         }
 
-        if (!loyaltyCard.balance.equals(new BigDecimal("0"))) {
+        if (mShowDetails && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
             int drawableSize = dpToPx((size * 24) / 14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mBalanceField.setVisibility(View.VISIBLE);
@@ -107,7 +117,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mBalanceField.setVisibility(View.GONE);
         }
 
-        if (loyaltyCard.expiry != null) {
+        if (mShowDetails && loyaltyCard.expiry != null) {
             int drawableSize = dpToPx((size * 24) / 14, mContext);
             inputHolder.mDivider.setVisibility(View.VISIBLE);
             inputHolder.mExpiryField.setVisibility(View.VISIBLE);

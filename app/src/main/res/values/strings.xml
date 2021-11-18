@@ -253,4 +253,6 @@
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>
     <string name="report_error">Report Error</string>
+    <string name="action_show_details">Show details</string>
+    <string name="action_hide_details">Hide details</string>
 </resources>

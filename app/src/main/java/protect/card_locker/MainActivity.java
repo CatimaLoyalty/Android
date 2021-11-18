@@ -485,6 +485,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
 
+        if (id == R.id.action_unfold) {
+            boolean shouldShow = !mAdapter.showingDetails();
+
+            if (shouldShow) {
+                inputItem.setIcon(R.drawable.ic_baseline_unfold_less_24);
+                inputItem.setTitle(R.string.action_hide_details);
+            } else {
+                inputItem.setIcon(R.drawable.ic_baseline_unfold_more_24);
+                inputItem.setTitle(R.string.action_show_details);
+            }
+
+            mAdapter.showDetails(shouldShow);
+
+            return true;
+        }
+
         if (id == R.id.action_sort) {
             TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
             AtomicInteger currentIndex = new AtomicInteger();

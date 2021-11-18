@@ -9,6 +9,11 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always|collapseActionView"/>
     <item
+        android:id="@+id/action_unfold"
+        android:title="@string/action_hide_details"
+        android:icon="@drawable/ic_baseline_unfold_less_24"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_sort"
         android:title="@string/sort"
         android:icon="@drawable/ic_baseline_sort_24"

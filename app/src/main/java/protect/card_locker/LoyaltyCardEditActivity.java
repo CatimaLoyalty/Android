@@ -661,14 +661,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
     // https://github.com/Yalantis/uCrop/blob/281c8e6438d81f464d836fc6b500517144af264a/ucrop/src/main/java/com/yalantis/ucrop/UCropActivity.java#L264
     // so source width height has to be provided for now, depending on whether future versions of ucrop will support 0x0 as the default option
-    private void setCropperOptions(boolean oneByOneDefault, float sourceWidth, float sourceHeight) {
+    private void setCropperOptions(boolean cardShapeDefault, float sourceWidth, float sourceHeight) {
         mCropperOptions.setCompressionFormat(TEMP_CROP_IMAGE_FORMAT);
         mCropperOptions.setFreeStyleCropEnabled(true);
         mCropperOptions.setHideBottomControls(false);
         // default aspect ratio workaround
         int selectedByDefault = 1;
-        if (oneByOneDefault) {
-            selectedByDefault = 0;
+        if (cardShapeDefault) {
+            selectedByDefault = 2;
         }
         mCropperOptions.setAspectRatioOptions(selectedByDefault,
                 new AspectRatio(null, 1, 1),

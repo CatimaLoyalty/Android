@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
@@ -13,11 +12,13 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.BlendModeColorFilterCompat;
+import androidx.core.graphics.BlendModeCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -25,9 +26,6 @@ import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
-import androidx.core.graphics.BlendModeColorFilterCompat;
-import androidx.core.graphics.BlendModeCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
@@ -131,13 +129,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
-            inputHolder.mCardIcon.setBackgroundColor(Color.TRANSPARENT);
+            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
         } else {
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
-        if (loyaltyCard.headerColor != null) {
-            inputHolder.mIconLayout.setBackgroundColor(loyaltyCard.headerColor);
-        }
+        inputHolder.mIconLayout.setBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
 
         inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
 

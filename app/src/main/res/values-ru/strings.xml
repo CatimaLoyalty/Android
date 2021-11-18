@@ -154,7 +154,7 @@
     <string name="removeImage">Удалить изображение</string>
     <string name="backImageDescription">Задняя сторона карты</string>
     <string name="frontImageDescription">Лицевая сторона карты</string>
-    <string name="photos">Фотографии</string>
+    <string name="photos">Фото</string>
     <string name="importStocardMessage">Выберите для импортирования файл <i>***-sync.zip</i>.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>

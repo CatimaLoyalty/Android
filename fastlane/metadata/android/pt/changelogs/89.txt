@@ -1,5 +1,0 @@
-- Corrigir deslizar entre grupos que não trabalham num grupo vazio
-- Permitir proteção por palavra-passe de exportações
-- Melhorar o uso do espaço para códigos QR
-- Memorizar o último nível de ampliação usado por cartão
-- Corrigir uma falha de sistema ao deslizar logo após um toque

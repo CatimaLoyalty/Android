@@ -98,7 +98,7 @@ dependencies {
     implementation 'org.apache.commons:commons-csv:1.9.0'
     implementation 'com.jaredrummler:colorpicker:1.1.0'
     implementation 'com.github.invissvenska:NumberPickerPreference:1.0.3'
-    implementation 'net.lingala.zip4j:zip4j:2.9.0'
+    implementation 'net.lingala.zip4j:zip4j:2.9.1'
 
 // SpotBugs
     implementation 'io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0'

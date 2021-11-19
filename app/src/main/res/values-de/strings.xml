@@ -218,4 +218,6 @@
     <string name="noGiftCardsGroup">Sie haben noch keine Kundenkarten. Sobald Sie welche hinzugefügt haben, können Sie sie hier der Gruppe zuordnen.</string>
     <string name="setIcon">Symbol einstellen</string>
     <string name="selectColor">Farbe auswählen</string>
+    <string name="action_show_details">Details anzeigen</string>
+    <string name="action_hide_details">Details ausblenden</string>
 </resources>

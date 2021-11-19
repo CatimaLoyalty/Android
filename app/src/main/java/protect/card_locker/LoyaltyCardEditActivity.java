@@ -68,6 +68,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
@@ -678,10 +679,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     private void setCropperTheme() {
-        mCropperOptions.setToolbarColor(getResources().getColor(R.color.colorPrimary));
-        mCropperOptions.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        mCropperOptions.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        mCropperOptions.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         mCropperOptions.setToolbarWidgetColor(Color.WHITE);
-        mCropperOptions.setActiveControlsWidgetColor(getResources().getColor(R.color.colorPrimary));
+        mCropperOptions.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
     @Override
@@ -895,7 +896,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : getResources().getColor(R.color.colorPrimary)));
+            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : ContextCompat.getColor(this, R.color.colorPrimary)));
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }

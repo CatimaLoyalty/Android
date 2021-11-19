@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 92
+## v2.10.0 - 92 (2021-11-20)
 
 - New main screen layout
 - Fix bottomsheet sizing issues when switching in and out of fullscreen

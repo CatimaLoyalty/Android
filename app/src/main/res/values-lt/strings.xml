@@ -222,4 +222,6 @@
     <string name="noGiftCardsGroup">Dar neturite jokių lojalumo kortelių. Kai kelias pridėsite, galėsite jas priskirti grupei čia.</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
+    <string name="action_hide_details">Paslėpti informaciją</string>
+    <string name="action_show_details">Rodyti išsamią informaciją</string>
 </resources>

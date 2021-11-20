@@ -218,4 +218,6 @@
     <string name="group_updated">Gruppo aggiornato</string>
     <string name="selectColor">Seleziona il colore</string>
     <string name="setIcon">Imposta l\'icona</string>
+    <string name="action_show_details">Mostra i dettagli</string>
+    <string name="action_hide_details">Nascondi i dettagli</string>
 </resources>

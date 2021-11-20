@@ -226,4 +226,6 @@
     <string name="noGiftCardsGroup">У вас ещё нет ни одной карты. Как только появится несколько карт, вы сможете добавить их в группу здесь.</string>
     <string name="setIcon">Выбор значка</string>
     <string name="selectColor">Выбрать цвет</string>
+    <string name="action_hide_details">Скрыть детали</string>
+    <string name="action_show_details">Показать детали</string>
 </resources>

@@ -218,4 +218,6 @@
     <string name="group_edit">Groep bewerken</string>
     <string name="setIcon">Kies een pictogram</string>
     <string name="selectColor">Kies een kleur</string>
+    <string name="action_show_details">Details tonen</string>
+    <string name="action_hide_details">Details verbergen</string>
 </resources>

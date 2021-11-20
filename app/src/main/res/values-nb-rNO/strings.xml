@@ -216,4 +216,8 @@
     <string name="group_name_is_empty">Gruppenavn kan ikke være tomt</string>
     <string name="editGroup">Redigerer gruppe: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Du har ingen lojalitetskort enda. Når du først har det kan du legge dem til i en gruppe her.</string>
+    <string name="action_show_details">Vis detaljer</string>
+    <string name="action_hide_details">Skjul detaljer</string>
+    <string name="selectColor">Velg farge</string>
+    <string name="setIcon">Sett ikon</string>
 </resources>

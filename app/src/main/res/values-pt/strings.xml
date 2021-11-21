@@ -218,4 +218,6 @@
     <string name="noGiftCardsGroup">Ainda não tem nenhum cartão de fidelidade. Assim que tenha adicionado alguns, pode atribuí-los ao grupo aqui.</string>
     <string name="selectColor">Selecionar cor</string>
     <string name="setIcon">Definir ícone</string>
+    <string name="action_show_details">Mostrar detalhes</string>
+    <string name="action_hide_details">Ocultar detalhes</string>
 </resources>

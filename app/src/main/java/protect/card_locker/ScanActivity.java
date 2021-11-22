@@ -20,6 +20,8 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
@@ -38,6 +40,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String cardId;
     private String addGroup;
     private boolean torch = false;
+
+    private ActivityResultLauncher manualAddLauncher;
+    // can't use the pre-made contract because that launches the file manager for image type instead of gallery
+    private ActivityResultLauncher photoPickerLauncher;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -60,6 +66,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         extractIntentFields(getIntent());
 
+        manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData());
+        });
+        photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData());
+        });
         findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
         findViewById(R.id.add_manually).setOnClickListener(this::addManually);
 
@@ -159,8 +171,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
         BarcodeValues barcodeValues;
@@ -193,12 +204,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
             b.putString("initialCardId", cardId);
             i.putExtras(b);
         }
-        startActivityForResult(i, Utils.SELECT_BARCODE_REQUEST);
+        manualAddLauncher.launch(i);
     }
 
     public void addFromImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT_FROM_IMAGE_FILE);
+        photoPickerLauncher.launch(photoPickerIntent);
     }
 }

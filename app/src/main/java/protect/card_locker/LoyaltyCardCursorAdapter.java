@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
@@ -25,6 +26,7 @@ import com.google.android.material.card.MaterialCardView;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import protect.card_locker.preferences.Settings;
 
@@ -39,6 +41,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
     private boolean mShowDetails = true;
+    private HashMap<Integer, LoyaltyCardListItemViewHolder> mPositionHolderMap;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor);
@@ -58,6 +61,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public void swapCursor(Cursor inputCursor) {
         super.swapCursor(inputCursor);
         mCursor = inputCursor;
+        mPositionHolderMap = new HashMap<>();
     }
 
     public void showDetails(boolean show) {
@@ -140,9 +144,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            inputHolder.mCardIcon.setTag(cardIcon);
         } else {
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            inputHolder.mCardIcon.setTag(loyaltyCard.headerColor);
+            inputHolder.mCurtain.setImageBitmap(Bitmap.createBitmap(new int[]{loyaltyCard.headerColor}, 1, 1, Bitmap.Config.ARGB_8888));
         }
         inputHolder.mIconLayout.setBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
 
@@ -154,6 +161,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();
+
+        mPositionHolderMap.put(inputCursor.getPosition(), inputHolder);
+    }
+
+    public LoyaltyCardListItemViewHolder getHolderByPosition(int position) {
+        return mPositionHolderMap.get(position);
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
@@ -246,7 +259,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public static class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
-        public ImageView mCardIcon, mStarIcon, mTickIcon;
+        public ImageView mCardIcon, mStarIcon, mTickIcon, mCurtain;
         public MaterialCardView mIconLayout, mRow;
         public View mDivider;
 
@@ -263,6 +276,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStarIcon = inputView.findViewById(R.id.star);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
+            mCurtain = inputView.findViewById(R.id.thumbnail_curtain);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

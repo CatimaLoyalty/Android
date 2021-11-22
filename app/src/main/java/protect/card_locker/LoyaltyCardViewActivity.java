@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -10,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.transition.Transition;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -22,6 +25,7 @@ import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,6 +61,8 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements GestureDetector.OnGestureListener {
     private static final String TAG = "Catima";
+    private static final int APP_BAR_FADE_IN_DURATION_MS = 500;
+    private static final int APP_BAR_FADE_OUT_DURATION_MS = 250;
 
     private GestureDetector mGestureDetector;
 
@@ -108,6 +114,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     boolean isBarcodeSupported = true;
 
     int bottomSheetState;
+
+    Animator lastAppBarAnimator;
+    boolean transitioning = false;
 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
@@ -254,6 +263,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         extractIntentFields(getIntent());
 
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+
         setContentView(R.layout.loyalty_card_view_layout);
 
         db = new DBHelper(this);
@@ -322,13 +333,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         editButton = findViewById(R.id.fabEdit);
         editButton.setOnClickListener(v -> {
+            if (transitioning) {
+                return;
+            }
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("id", loyaltyCardId);
             bundle.putBoolean("update", true);
             intent.putExtras(bundle);
             startActivity(intent);
-            finish();
         });
         editButton.bringToFront();
 
@@ -370,6 +383,55 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
         mainImage.setOnTouchListener(gestureTouchListener);
+
+        // transitions
+        iconImage.setTransitionName(MainActivity.CARD_ICON_TRANSITION_NAME);
+        if (savedInstanceState == null) {
+            // this has to be done before onTransitionStart
+            appBarLayout.setAlpha(0);
+        }
+        getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+
+            }
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                animateAppBar(true, null);
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {
+
+            }
+
+            @Override
+            public void onTransitionPause(Transition transition) {
+
+            }
+
+            @Override
+            public void onTransitionResume(Transition transition) {
+
+            }
+        });
+    }
+
+    private void animateAppBar(boolean fadeIn, Animator.AnimatorListener listener) {
+        float startAlpha = appBarLayout.getAlpha();
+        float endAlpha = fadeIn ? 1f : 0f;
+        Animator animator = ObjectAnimator.ofFloat(appBarLayout, View.ALPHA, startAlpha, endAlpha);
+        animator.setDuration(fadeIn ? APP_BAR_FADE_IN_DURATION_MS : APP_BAR_FADE_OUT_DURATION_MS);
+        animator.setInterpolator(new LinearInterpolator());
+        if (lastAppBarAnimator != null) {
+            lastAppBarAnimator.cancel();
+        }
+        if (listener != null) {
+            animator.addListener(listener);
+        }
+        animator.start();
+        lastAppBarAnimator = animator;
     }
 
     private void changeUiToBottomSheetState(int newState) {
@@ -398,6 +460,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
             );
         }
+        /* alternatively, no it does not help with the broken image view matrix transition on android 11 and up
+        if(iconImage.getHeight() != appBarLayout.getHeight()){
+            iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.WRAP_CONTENT));
+            iconImage.setAdjustViewBounds(true);
+            iconImage.setMaxHeight(appBarLayout.getHeight());
+            iconImage.setMinimumHeight(appBarLayout.getHeight());
+            iconImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            iconImage.invalidate();
+        }
+        */
+
         int bottomSheetHeight = getResources().getDisplayMetrics().heightPixels - appBarLayout.getHeight() - bottomSheetButton.getLayoutParams().height;
         ViewGroup.LayoutParams params = bottomSheetContentWrapper.getLayoutParams();
         if (params.height != bottomSheetHeight || params.width != LinearLayout.LayoutParams.MATCH_PARENT) {
@@ -469,7 +542,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (loyaltyCard == null) {
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
             Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
-            finish();
+            finishAfterTransition();
             return;
         }
 
@@ -645,8 +718,36 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             setFullscreen(false);
             return;
         }
+        finishAfterAnimation();
+    }
 
-        super.onBackPressed();
+    private void finishAfterAnimation() {
+        if (transitioning) {
+            return;
+        }
+        transitioning = true;
+        animateAppBar(false, new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                finishAfterTransition();
+                transitioning = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
     @Override
@@ -689,7 +790,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         switch (id) {
             case android.R.id.home:
-                finish();
+                finishAfterAnimation();
                 break;
 
             case R.id.action_share:

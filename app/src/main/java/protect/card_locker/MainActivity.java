@@ -1,5 +1,7 @@
 package protect.card_locker;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,12 +33,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
+
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
     private static final String TAG = "Catima";
+    private static final int CARD_ICON_CURTAIN_FADE_DURATION_MS = 250;
+    public static final String CARD_ICON_TRANSITION_NAME = "cardIcon";
 
     private final DBHelper mDB = new DBHelper(this);
     private LoyaltyCardCursorAdapter mAdapter;
@@ -52,6 +59,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
+    private Animator mLastCurtainAnimator;
+    private ImageView mLastCurtain;
+    private boolean mTransitioning = false;
+
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
         @Override
         public boolean onCreateActionMode(ActionMode inputMode, Menu inputMenu) {
@@ -66,6 +77,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         @Override
         public boolean onActionItemClicked(ActionMode inputMode, MenuItem inputItem) {
+            if (mTransitioning) {
+                return true;
+            }
             if (inputItem.getItemId() == R.id.action_copy_to_clipboard) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
@@ -314,6 +328,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> {
+            if (mTransitioning) {
+                return;
+            }
             Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
             Bundle bundle = new Bundle();
             if (selectedTab != 0) {
@@ -323,6 +340,35 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             startActivityForResult(intent, Utils.BARCODE_SCAN);
         });
         addButton.bringToFront();
+
+        // animator last curtain away
+        if (mLastCurtain != null) {
+            Animator animator = ObjectAnimator.ofFloat(mLastCurtain, View.ALPHA, 1f, 0f);
+            animator.setDuration(CARD_ICON_CURTAIN_FADE_DURATION_MS);
+            animator.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mLastCurtain.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            mLastCurtainAnimator = animator;
+            animator.start();
+        }
     }
 
     @Override
@@ -483,6 +529,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onOptionsItemSelected(MenuItem inputItem) {
+        if (mTransitioning) {
+            return true;
+        }
         int id = inputItem.getItemId();
 
         if (id == R.id.action_unfold) {
@@ -699,6 +748,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onRowClicked(int inputPosition) {
+        if (mTransitioning) {
+            return;
+        }
         if (mAdapter.getSelectedItemCount() > 0) {
             enableActionMode(inputPosition);
         } else {
@@ -725,10 +777,49 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             final Bundle b = new Bundle();
             b.putInt("id", loyaltyCard.id);
             i.putExtras(b);
+            ActivityOptionsCompat options;
+            LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder holder = mAdapter.getHolderByPosition(inputPosition);
+            if (holder.mCardIcon.getTag() instanceof Integer) {
+                holder.mCurtain.setTransitionName(CARD_ICON_TRANSITION_NAME);
+                options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, holder.mCurtain, CARD_ICON_TRANSITION_NAME);
+                Animator animator = ObjectAnimator.ofFloat(holder.mCurtain, View.ALPHA, 0f, 1f);
+                animator.setDuration(CARD_ICON_CURTAIN_FADE_DURATION_MS);
+                mTransitioning = true;
+                mLastCurtain = holder.mCurtain;
+                if (mLastCurtainAnimator != null && mLastCurtainAnimator.isRunning()) {
+                    mLastCurtainAnimator.end();
+                }
+                holder.mCurtain.setVisibility(View.VISIBLE);
+                animator.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        startActivityForResult(i, Utils.MAIN_REQUEST, options.toBundle());
+                        mTransitioning = false;
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+                animator.start();
+            } else {
+                holder.mCardIcon.setTransitionName(CARD_ICON_TRANSITION_NAME);
+                options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, holder.mCardIcon, CARD_ICON_TRANSITION_NAME);
+                startActivityForResult(i, Utils.MAIN_REQUEST, options.toBundle());
+            }
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
-
-            startActivityForResult(i, Utils.MAIN_REQUEST);
         }
     }
 }

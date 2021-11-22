@@ -73,6 +73,7 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import androidx.palette.graphics.Palette;
+
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -733,7 +734,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (tempLoyaltyCard == null) {
                     Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
                     Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
-                    finish();
+                    finishToCardList();
                     return;
                 }
             } else if (importLoyaltyCardUri != null) {
@@ -741,7 +742,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     tempLoyaltyCard = importUriHelper.parse(importLoyaltyCardUri);
                 } catch (InvalidObjectException ex) {
                     Toast.makeText(this, R.string.failedParsingImportUriError, Toast.LENGTH_LONG).show();
-                    finish();
+                    finishToCardList();
                     return;
                 }
             } else {
@@ -996,7 +997,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 return;
             }
 
-            finish();
+            finishToCardList();
             return;
         }
 
@@ -1005,7 +1006,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                finish();
+                finishToCardList();
                 dialog.dismiss();
             });
             builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
@@ -1282,7 +1283,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         ShortcutHelper.updateShortcuts(this, db.getLoyaltyCard(loyaltyCardId));
 
-        finish();
+        finishToCardList();
     }
 
     @Override
@@ -1317,7 +1318,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                     ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
 
-                    finish();
+                    finishToCardList();
                     dialog.dismiss();
                 });
                 builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
@@ -1486,5 +1487,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         } else {
             throw new UnsupportedOperationException();
         }
+    }
+
+    private void finishToCardList() {
+        Intent i = new Intent(this, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
     }
 }

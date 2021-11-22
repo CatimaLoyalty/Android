@@ -41,9 +41,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String addGroup;
     private boolean torch = false;
 
-    private ActivityResultLauncher manualAddLauncher;
+    private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
-    private ActivityResultLauncher photoPickerLauncher;
+    private ActivityResultLauncher<Intent> photoPickerLauncher;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -66,12 +66,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         extractIntentFields(getIntent());
 
-        manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData());
-        });
-        photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData());
-        });
+        manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
+        photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
         findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
         findViewById(R.id.add_manually).setOnClickListener(this::addManually);
 

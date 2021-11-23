@@ -92,12 +92,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 return;
             }
             try {
-                OutputStream writer;
-                if (uri.getScheme() != null) {
-                    writer = getContentResolver().openOutputStream(uri);
-                } else {
-                    writer = new FileOutputStream(result.toString());
-                }
+                OutputStream writer = getContentResolver().openOutputStream(uri);
                 Log.e(TAG, "Starting file export with: " + result.toString());
                 startExport(writer, uri, exportPassword.toCharArray(), true);
             } catch (IOException e) {
@@ -174,28 +169,12 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void openFileForImport(Uri uri, char[] password) {
-        InputStream reader = null;
         try {
-            if (uri.getScheme() != null) {
-                reader = getContentResolver().openInputStream(uri);
-            } else {
-                reader = new FileInputStream(uri.toString());
-            }
-
+            InputStream reader = getContentResolver().openInputStream(uri);
             Log.e(TAG, "Starting file import with: " + uri.toString());
-
             startImport(reader, uri, importDataFormat, password, true);
         } catch (IOException e) {
             Log.e(TAG, "Failed to import file: " + uri.toString(), e);
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException ee) {
-                    Log.e(TAG, "failed closing reader after opening exception");
-                    ee.printStackTrace();
-                    throw new RuntimeException("SpotBug :<");
-                }
-            }
             onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
         }
     }

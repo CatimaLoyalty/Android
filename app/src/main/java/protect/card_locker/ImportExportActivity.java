@@ -10,14 +10,20 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import java.io.File;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,11 +32,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
@@ -39,8 +40,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private static final String TAG = "Catima";
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
-    private static final int CHOOSE_EXPORT_LOCATION = 2;
-    private static final int IMPORT = 3;
 
     private ImportExportTask importExporter;
 
@@ -48,6 +47,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private String importAlertMessage;
     private DataFormat importDataFormat;
     private String exportPassword;
+
+    private ActivityResultLauncher<Intent> fileCreateLauncher;
+    private ActivityResultLauncher<String> fileOpenLauncher;
+    private ActivityResultLauncher<Intent> filePickerLauncher;
 
     final private TaskHandler mTasks = new TaskHandler();
 
@@ -76,6 +79,49 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                     PERMISSIONS_EXTERNAL_STORAGE);
         }
 
+        // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
+        fileCreateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            Intent intent = result.getData();
+            if (intent == null) {
+                Log.e(TAG, "Activity returned NULL data");
+                return;
+            }
+            Uri uri = intent.getData();
+            if (uri == null) {
+                Log.e(TAG, "Activity returned NULL uri");
+                return;
+            }
+            try {
+                OutputStream writer = getContentResolver().openOutputStream(uri);
+                Log.e(TAG, "Starting file export with: " + result.toString());
+                startExport(writer, uri, exportPassword.toCharArray(), true);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to export file: " + result.toString(), e);
+                onExportComplete(ImportExportResult.GenericFailure, uri);
+            }
+
+        });
+        fileOpenLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
+            if (result == null) {
+                Log.e(TAG, "Activity returned NULL data");
+                return;
+            }
+            openFileForImport(result, null);
+        });
+        filePickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            Intent intent = result.getData();
+            if (intent == null) {
+                Log.e(TAG, "Activity returned NULL data");
+                return;
+            }
+            Uri uri = intent.getData();
+            if (uri == null) {
+                Log.e(TAG, "Activity returned NULL uri");
+                return;
+            }
+            openFileForImport(intent.getData(), null);
+        });
+
         // Check that there is a file manager available
         final Intent intentCreateDocumentAction = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intentCreateDocumentAction.addCategory(Intent.CATEGORY_OPENABLE);
@@ -83,60 +129,57 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "catima.zip");
 
         Button exportButton = findViewById(R.id.exportButton);
-        exportButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
-                builder.setTitle(R.string.exportPassword);
+        exportButton.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
+            builder.setTitle(R.string.exportPassword);
 
-                FrameLayout container = new FrameLayout(ImportExportActivity.this);
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                params.leftMargin = 50;
-                params.rightMargin = 50;
+            FrameLayout container = new FrameLayout(ImportExportActivity.this);
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = 50;
+            params.rightMargin = 50;
 
-                final EditText input = new EditText(ImportExportActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                input.setLayoutParams(params);
-                input.setHint(R.string.exportPasswordHint);
+            final EditText input = new EditText(ImportExportActivity.this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            input.setLayoutParams(params);
+            input.setHint(R.string.exportPasswordHint);
 
-                container.addView(input);
-                builder.setView(container);
-                builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-                    exportPassword = input.getText().toString();
-                    chooseFileWithIntent(intentCreateDocumentAction, CHOOSE_EXPORT_LOCATION);
-                });
-                builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
-                builder.show();
+            container.addView(input);
+            builder.setView(container);
+            builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                exportPassword = input.getText().toString();
+                try {
+                    fileCreateLauncher.launch(intentCreateDocumentAction);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "No activity found to handle intent", e);
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
+            builder.show();
 
-            }
         });
 
         // Check that there is a file manager available
-        final Intent intentGetContentAction = new Intent(Intent.ACTION_GET_CONTENT);
-        intentGetContentAction.addCategory(Intent.CATEGORY_OPENABLE);
-        intentGetContentAction.setType("*/*");
-
         Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
-        importFilesystem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseImportType(intentGetContentAction);
-            }
-        });
+        importFilesystem.setOnClickListener(v -> chooseImportType(false));
 
         // Check that there is an app that data can be imported from
-        final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-
         Button importApplication = findViewById(R.id.importOptionApplicationButton);
-        importApplication.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseImportType(intentPickAction);
-            }
-        });
+        importApplication.setOnClickListener(v -> chooseImportType(true));
     }
 
-    private void chooseImportType(Intent baseIntent) {
+    private void openFileForImport(Uri uri, char[] password) {
+        try {
+            InputStream reader = getContentResolver().openInputStream(uri);
+            Log.e(TAG, "Starting file import with: " + uri.toString());
+            startImport(reader, uri, importDataFormat, password, true);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to import file: " + uri.toString(), e);
+            onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
+        }
+    }
+
+    private void chooseImportType(boolean choosePicker) {
         List<CharSequence> betaImportOptions = new ArrayList<>();
         betaImportOptions.add("Fidme");
         betaImportOptions.add("Stocard");
@@ -194,7 +237,17 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    chooseFileWithIntent(baseIntent, IMPORT);
+                                    try {
+                                        if (choosePicker) {
+                                            final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
+                                            filePickerLauncher.launch(intentPickAction);
+                                        } else {
+                                            fileOpenLauncher.launch("*/*");
+                                        }
+                                    } catch (ActivityNotFoundException e) {
+                                        Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                                        Log.e(TAG, "No activity found to handle intent", e);
+                                    }
                                 }
                             })
                             .setNegativeButton(R.string.cancel, null)
@@ -297,7 +350,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         builder.setView(input);
 
         builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-            activityResultParser(IMPORT, RESULT_OK, uri, input.getText().toString().toCharArray());
+            openFileForImport(uri, input.getText().toString().toCharArray());
         });
         builder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel());
 
@@ -372,70 +425,5 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
-    }
-
-    private void chooseFileWithIntent(Intent intent, int requestCode) {
-        try {
-            startActivityForResult(intent, requestCode);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
-        }
-    }
-
-    private void activityResultParser(int requestCode, int resultCode, Uri uri, char[] password) {
-        if (resultCode != RESULT_OK) {
-            Log.w(TAG, "Failed onActivityResult(), result=" + resultCode);
-            return;
-        }
-
-        if (uri == null) {
-            Log.e(TAG, "Activity returned a NULL URI");
-            return;
-        }
-
-        try {
-            if (requestCode == CHOOSE_EXPORT_LOCATION) {
-
-                OutputStream writer;
-                if (uri.getScheme() != null) {
-                    writer = getContentResolver().openOutputStream(uri);
-                } else {
-                    writer = new FileOutputStream(new File(uri.toString()));
-                }
-                Log.e(TAG, "Starting file export with: " + uri.toString());
-                startExport(writer, uri, exportPassword.toCharArray(), true);
-            } else {
-                InputStream reader;
-                if (uri.getScheme() != null) {
-                    reader = getContentResolver().openInputStream(uri);
-                } else {
-                    reader = new FileInputStream(new File(uri.toString()));
-                }
-
-                Log.e(TAG, "Starting file import with: " + uri.toString());
-
-                startImport(reader, uri, importDataFormat, password, true);
-            }
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to import/export file: " + uri.toString(), e);
-            if (requestCode == CHOOSE_EXPORT_LOCATION) {
-                onExportComplete(ImportExportResult.GenericFailure, uri);
-            } else {
-                onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
-            }
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (data == null) {
-            Log.e(TAG, "Activity returned NULL data");
-            return;
-        }
-
-        activityResultParser(requestCode, resultCode, data.getData(), null);
     }
 }

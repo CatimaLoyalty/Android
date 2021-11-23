@@ -111,6 +111,15 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
     @Override
     public void performControlAction(@NonNull String controlId, @NonNull ControlAction action, @NonNull Consumer<Integer> consumer) {
         consumer.accept(ControlAction.RESPONSE_OK);
+        Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra("id", controlIdToCardId(controlId));
+        startActivity(openIntent);
+
+        // Android 12 will auto-close the power screen, but earlier versions won't
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+            sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+        }
     }
 
     /**

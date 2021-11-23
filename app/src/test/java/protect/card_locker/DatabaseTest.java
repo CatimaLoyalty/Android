@@ -29,25 +29,26 @@ import static org.junit.Assert.assertTrue;
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
 public class DatabaseTest {
-    private DBHelper db;
+    private DBHelper mDb;
+    private Activity mActivity;
 
     private static final Integer DEFAULT_HEADER_COLOR = Color.BLACK;
 
     @Before
     public void setUp() {
-        Activity activity = Robolectric.setupActivity(MainActivity.class);
-        db = TestHelpers.getEmptyDb(activity);
+        mActivity = Robolectric.setupActivity(MainActivity.class);
+        mDb = TestHelpers.getEmptyDb(mActivity);
     }
 
     @Test
     public void addRemoveOneGiftCard() {
-        assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
+        assertEquals(0, mDb.getLoyaltyCardCount());
+        long id = mDb.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        LoyaltyCard loyaltyCard = db.getLoyaltyCard(1);
+        LoyaltyCard loyaltyCard = mDb.getLoyaltyCard(1);
         assertNotNull(loyaltyCard);
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
@@ -60,24 +61,24 @@ public class DatabaseTest {
         assertEquals(DEFAULT_HEADER_COLOR, loyaltyCard.headerColor);
         assertEquals(0, loyaltyCard.starStatus);
 
-        result = db.deleteLoyaltyCard(1);
+        result = mDb.deleteLoyaltyCard(mActivity, 1);
         assertTrue(result);
-        assertEquals(0, db.getLoyaltyCardCount());
-        assertNull(db.getLoyaltyCard(1));
+        assertEquals(0, mDb.getLoyaltyCardCount());
+        assertNull(mDb.getLoyaltyCard(1));
     }
 
     @Test
     public void updateGiftCard() {
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
+        long id = mDb.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        result = db.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR);
+        result = mDb.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        LoyaltyCard loyaltyCard = db.getLoyaltyCard(1);
+        LoyaltyCard loyaltyCard = mDb.getLoyaltyCard(1);
         assertNotNull(loyaltyCard);
         assertEquals("store1", loyaltyCard.store);
         assertEquals("note1", loyaltyCard.note);
@@ -93,16 +94,16 @@ public class DatabaseTest {
 
     @Test
     public void updateGiftCardOnlyStar() {
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
+        long id = mDb.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        result = db.updateLoyaltyCardStarStatus(1, 1);
+        result = mDb.updateLoyaltyCardStarStatus(1, 1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        LoyaltyCard loyaltyCard = db.getLoyaltyCard(1);
+        LoyaltyCard loyaltyCard = mDb.getLoyaltyCard(1);
         assertNotNull(loyaltyCard);
         assertEquals("store", loyaltyCard.store);
         assertEquals("note", loyaltyCard.note);
@@ -118,22 +119,22 @@ public class DatabaseTest {
 
     @Test
     public void updateMissingGiftCard() {
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, mDb.getLoyaltyCardCount());
 
-        boolean result = db.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("0"), null, "cardId1",
+        boolean result = mDb.updateLoyaltyCard(1, "store1", "note1", null, new BigDecimal("0"), null, "cardId1",
                 null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR);
         assertEquals(false, result);
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, mDb.getLoyaltyCardCount());
     }
 
     @Test
     public void emptyGiftCardValues() {
-        long id = db.insertLoyaltyCard("", "", null, new BigDecimal("0"), null, "", null, null, null, 0, null);
+        long id = mDb.insertLoyaltyCard("", "", null, new BigDecimal("0"), null, "", null, null, null, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
-        LoyaltyCard loyaltyCard = db.getLoyaltyCard(1);
+        LoyaltyCard loyaltyCard = mDb.getLoyaltyCard(1);
         assertNotNull(loyaltyCard);
         assertEquals("", loyaltyCard.store);
         assertEquals("", loyaltyCard.note);
@@ -154,15 +155,15 @@ public class DatabaseTest {
         // Add the gift cards in reverse order, to ensure
         // that they are sorted
         for (int index = CARDS_TO_ADD - 1; index >= 0; index--) {
-            long id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
+            long id = mDb.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
                     null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 0, null);
             boolean result = (id != -1);
             assertTrue(result);
         }
 
-        assertEquals(CARDS_TO_ADD, db.getLoyaltyCardCount());
+        assertEquals(CARDS_TO_ADD, mDb.getLoyaltyCardCount());
 
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cursor = mDb.getLoyaltyCardCursor();
         assertNotNull(cursor);
 
         assertEquals(CARDS_TO_ADD, cursor.getCount());
@@ -198,19 +199,19 @@ public class DatabaseTest {
         // that they are sorted
         for (int index = CARDS_TO_ADD - 1; index >= 0; index--) {
             if (index == CARDS_TO_ADD - 1) {
-                id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
+                id = mDb.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
                         null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 1, null);
             } else {
-                id = db.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
+                id = mDb.insertLoyaltyCard("store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
                         null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 0, null);
             }
             boolean result = (id != -1);
             assertTrue(result);
         }
 
-        assertEquals(CARDS_TO_ADD, db.getLoyaltyCardCount());
+        assertEquals(CARDS_TO_ADD, mDb.getLoyaltyCardCount());
 
-        Cursor cursor = db.getLoyaltyCardCursor();
+        Cursor cursor = mDb.getLoyaltyCardCursor();
         assertNotNull(cursor);
 
         assertEquals(CARDS_TO_ADD, cursor.getCount());
@@ -279,130 +280,130 @@ public class DatabaseTest {
 
     @Test
     public void addRemoveOneGroup() {
-        assertEquals(0, db.getGroupCount());
-        long id = db.insertGroup("group one");
+        assertEquals(0, mDb.getGroupCount());
+        long id = mDb.insertGroup("group one");
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
 
-        Group group = db.getGroup("group one");
+        Group group = mDb.getGroup("group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
-        result = db.deleteGroup("group one");
+        result = mDb.deleteGroup("group one");
         assertTrue(result);
-        assertEquals(0, db.getGroupCount());
-        assertNull(db.getGroup("group one"));
+        assertEquals(0, mDb.getGroupCount());
+        assertNull(mDb.getGroup("group one"));
     }
 
     @Test
     public void updateGroup() {
         // Create card
-        assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
+        assertEquals(0, mDb.getLoyaltyCardCount());
+        long id = mDb.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
         // Create group
-        long groupId = db.insertGroup("group one");
+        long groupId = mDb.insertGroup("group one");
         result = (groupId != -1);
         assertTrue(result);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
 
         // Add card to group
-        Group group = db.getGroup("group one");
+        Group group = mDb.getGroup("group one");
         List<Group> groupList1 = new ArrayList<>();
         groupList1.add(group);
-        db.setLoyaltyCardGroups(1, groupList1);
+        mDb.setLoyaltyCardGroups(1, groupList1);
 
         // Ensure the card has one group and the group has one card
-        List<Group> cardGroups = db.getLoyaltyCardGroups((int) id);
+        List<Group> cardGroups = mDb.getLoyaltyCardGroups((int) id);
         assertEquals(1, cardGroups.size());
         assertEquals("group one", cardGroups.get(0)._id);
-        assertEquals(1, db.getGroupCardCount("group one"));
+        assertEquals(1, mDb.getGroupCardCount("group one"));
 
         // Rename group
-        result = db.updateGroup("group one", "group one renamed");
+        result = mDb.updateGroup("group one", "group one renamed");
         assertTrue(result);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
 
         // Group one no longer exists
-        group = db.getGroup("group one");
+        group = mDb.getGroup("group one");
         assertNull(group);
 
         // But group one renamed does
-        Group group2 = db.getGroup("group one renamed");
+        Group group2 = mDb.getGroup("group one renamed");
         assertNotNull(group2);
         assertEquals("group one renamed", group2._id);
 
         // And card is in "group one renamed"
         // Ensure the card has one group and the group has one card
-        cardGroups = db.getLoyaltyCardGroups((int) id);
+        cardGroups = mDb.getLoyaltyCardGroups((int) id);
         assertEquals(1, cardGroups.size());
         assertEquals("group one renamed", cardGroups.get(0)._id);
-        assertEquals(1, db.getGroupCardCount("group one renamed"));
+        assertEquals(1, mDb.getGroupCardCount("group one renamed"));
     }
 
     @Test
     public void updateMissingGroup() {
-        assertEquals(0, db.getGroupCount());
+        assertEquals(0, mDb.getGroupCount());
 
-        boolean result = db.updateGroup("group one", "new name");
+        boolean result = mDb.updateGroup("group one", "new name");
         assertEquals(false, result);
-        assertEquals(0, db.getGroupCount());
+        assertEquals(0, mDb.getGroupCount());
     }
 
     @Test
     public void emptyGroupValues() {
-        long id = db.insertGroup("");
+        long id = mDb.insertGroup("");
         boolean result = (id != -1);
         assertFalse(result);
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, mDb.getLoyaltyCardCount());
     }
 
     @Test
     public void duplicateGroupName() {
-        assertEquals(0, db.getGroupCount());
-        long id = db.insertGroup("group one");
+        assertEquals(0, mDb.getGroupCount());
+        long id = mDb.insertGroup("group one");
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
 
-        Group group = db.getGroup("group one");
+        Group group = mDb.getGroup("group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
         // Should fail on duplicate
-        long id2 = db.insertGroup("group one");
+        long id2 = mDb.insertGroup("group one");
         boolean result2 = (id2 != -1);
         assertFalse(result2);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
     }
 
     @Test
     public void updateGroupDuplicate() {
-        long id = db.insertGroup("group one");
+        long id = mDb.insertGroup("group one");
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getGroupCount());
+        assertEquals(1, mDb.getGroupCount());
 
-        long id2 = db.insertGroup("group two");
+        long id2 = mDb.insertGroup("group two");
         boolean result2 = (id2 != -1);
         assertTrue(result2);
-        assertEquals(2, db.getGroupCount());
+        assertEquals(2, mDb.getGroupCount());
 
         // Should fail when trying to rename group two to one
-        boolean result3 = db.updateGroup("group two", "group one");
+        boolean result3 = mDb.updateGroup("group two", "group one");
         assertFalse(result3);
-        assertEquals(2, db.getGroupCount());
+        assertEquals(2, mDb.getGroupCount());
 
         // Rename failed so both should still be the same
-        Group group = db.getGroup("group one");
+        Group group = mDb.getGroup("group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
-        Group group2 = db.getGroup("group two");
+        Group group2 = mDb.getGroup("group two");
         assertNotNull(group2);
         assertEquals("group two", group2._id);
     }
@@ -410,52 +411,52 @@ public class DatabaseTest {
     @Test
     public void cardAddAndRemoveGroups() {
         // Create card
-        assertEquals(0, db.getLoyaltyCardCount());
-        long id = db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
+        assertEquals(0, mDb.getLoyaltyCardCount());
+        long id = mDb.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null);
         boolean result = (id != -1);
         assertTrue(result);
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, mDb.getLoyaltyCardCount());
 
         // Create two groups to only one card
-        assertEquals(0, db.getGroupCount());
-        long gid = db.insertGroup("one");
+        assertEquals(0, mDb.getGroupCount());
+        long gid = mDb.insertGroup("one");
         boolean gresult = (gid != -1);
         assertTrue(gresult);
 
-        long gid2 = db.insertGroup("two");
+        long gid2 = mDb.insertGroup("two");
         boolean gresult2 = (gid2 != -1);
         assertTrue(gresult2);
 
-        assertEquals(2, db.getGroupCount());
+        assertEquals(2, mDb.getGroupCount());
 
-        Group group1 = db.getGroup("one");
+        Group group1 = mDb.getGroup("one");
 
         // Card has no groups by default
-        List<Group> cardGroups = db.getLoyaltyCardGroups(1);
+        List<Group> cardGroups = mDb.getLoyaltyCardGroups(1);
         assertEquals(0, cardGroups.size());
 
         // Add one groups to card
         List<Group> groupList1 = new ArrayList<>();
         groupList1.add(group1);
-        db.setLoyaltyCardGroups(1, groupList1);
+        mDb.setLoyaltyCardGroups(1, groupList1);
 
-        List<Group> cardGroups1 = db.getLoyaltyCardGroups(1);
+        List<Group> cardGroups1 = mDb.getLoyaltyCardGroups(1);
         assertEquals(1, cardGroups1.size());
         assertEquals(cardGroups1.get(0)._id, group1._id);
-        assertEquals(1, db.getGroupCardCount("one"));
-        assertEquals(0, db.getGroupCardCount("two"));
+        assertEquals(1, mDb.getGroupCardCount("one"));
+        assertEquals(0, mDb.getGroupCardCount("two"));
 
         // Remove groups
-        db.setLoyaltyCardGroups(1, new ArrayList<Group>());
-        List<Group> cardGroups2 = db.getLoyaltyCardGroups(1);
+        mDb.setLoyaltyCardGroups(1, new ArrayList<Group>());
+        List<Group> cardGroups2 = mDb.getLoyaltyCardGroups(1);
         assertEquals(0, cardGroups2.size());
-        assertEquals(0, db.getGroupCardCount("one"));
-        assertEquals(0, db.getGroupCardCount("two"));
+        assertEquals(0, mDb.getGroupCardCount("one"));
+        assertEquals(0, mDb.getGroupCardCount("two"));
     }
 
     @Test
     public void databaseUpgradeFromVersion1() {
-        SQLiteDatabase database = db.getWritableDatabase();
+        SQLiteDatabase database = mDb.getWritableDatabase();
 
         // Setup the database as it appeared in revision 1
         setupDatabaseVersion1(database);
@@ -465,10 +466,10 @@ public class DatabaseTest {
         int newCardId2 = insertCardVersion1(database, "store", "cardId", "");
 
         // Upgrade database
-        db.onUpgrade(database, DBHelper.ORIGINAL_DATABASE_VERSION, DBHelper.DATABASE_VERSION);
+        mDb.onUpgrade(database, DBHelper.ORIGINAL_DATABASE_VERSION, DBHelper.DATABASE_VERSION);
 
         // Determine that the entries are queryable and the fields are correct
-        LoyaltyCard card = db.getLoyaltyCard(newCardId);
+        LoyaltyCard card = mDb.getLoyaltyCard(newCardId);
         assertEquals("store", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.expiry);
@@ -483,7 +484,7 @@ public class DatabaseTest {
         assertEquals(100, card.zoomLevel);
 
         // Determine that the entries are queryable and the fields are correct
-        LoyaltyCard card2 = db.getLoyaltyCard(newCardId2);
+        LoyaltyCard card2 = mDb.getLoyaltyCard(newCardId2);
         assertEquals("store", card2.store);
         assertEquals("", card2.note);
         assertEquals(null, card2.expiry);

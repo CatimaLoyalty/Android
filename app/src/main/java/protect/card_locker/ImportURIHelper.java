@@ -33,7 +33,7 @@ public class ImportURIHelper {
     private final String shareMultipleText;
 
     public ImportURIHelper(Context context) {
-        this.context = context;
+        this.context = context.getApplicationContext();
         hosts[0] = context.getResources().getString(R.string.intent_import_card_from_url_host_catima_app);
         paths[0] = context.getResources().getString(R.string.intent_import_card_from_url_path_prefix_catima_app);
         hosts[1] = context.getResources().getString(R.string.intent_import_card_from_url_host_thelastproject);

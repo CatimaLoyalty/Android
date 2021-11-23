@@ -43,7 +43,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private final DBHelper mDB = new DBHelper(this);
     private LoyaltyCardCursorAdapter mAdapter;
     private ActionMode mCurrentActionMode;
-    private Menu mMenu;
+    private SearchView mSearchView;
     private GestureDetector mGestureDetector;
     protected String mFilter = "";
     protected Object mGroup = null;
@@ -55,7 +55,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
-    private ActivityResultLauncher<Intent> mMainRequestLauncher;
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
@@ -143,7 +142,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                         Log.e(TAG, "Deleting card: " + loyaltyCard.id);
 
-                        db.deleteLoyaltyCard(loyaltyCard.id);
+                        db.deleteLoyaltyCard(MainActivity.this, loyaltyCard.id);
 
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
@@ -267,16 +266,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
          */
 
-        mMainRequestLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            // We're coming back from another view so clear the search
-            // We only do this now to prevent a flash of all entries right after picking one
-            mFilter = "";
-            if (mMenu != null) {
-                MenuItem searchItem = mMenu.findItem(R.id.action_search);
-                searchItem.collapseActionView();
-            }
-        });
-
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
@@ -305,12 +294,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mCurrentActionMode.finish();
         }
 
-        if (mMenu != null) {
-            SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
-
-            if (!searchView.isIconified()) {
-                mFilter = searchView.getQuery().toString();
-            }
+        if (mSearchView != null && !mSearchView.isIconified()) {
+            mFilter = mSearchView.getQuery().toString();
         }
 
         // Start of active tab logic
@@ -361,13 +346,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onBackPressed() {
-        if (mMenu != null) {
-            SearchView searchView = (SearchView) mMenu.findItem(R.id.action_search).getActionView();
-
-            if (!searchView.isIconified()) {
-                searchView.setIconified(true);
-                return;
-            }
+        if (!mSearchView.isIconified()) {
+            mSearchView.setIconified(true);
+            return;
         }
 
         super.onBackPressed();
@@ -444,22 +425,20 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
-        this.mMenu = inputMenu;
-
         getMenuInflater().inflate(R.menu.main_menu, inputMenu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
-            SearchView searchView = (SearchView) inputMenu.findItem(R.id.action_search).getActionView();
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-            searchView.setSubmitButtonEnabled(false);
+            mSearchView = (SearchView) inputMenu.findItem(R.id.action_search).getActionView();
+            mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            mSearchView.setSubmitButtonEnabled(false);
 
-            searchView.setOnCloseListener(() -> {
+            mSearchView.setOnCloseListener(() -> {
                 invalidateOptionsMenu();
                 return false;
             });
 
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     return false;
@@ -543,25 +522,25 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_manage_groups) {
             Intent i = new Intent(getApplicationContext(), ManageGroupsActivity.class);
-            mMainRequestLauncher.launch(i);
+            startActivity(i);
             return true;
         }
 
         if (id == R.id.action_import_export) {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            mMainRequestLauncher.launch(i);
+            startActivity(i);
             return true;
         }
 
         if (id == R.id.action_settings) {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            mMainRequestLauncher.launch(i);
+            startActivity(i);
             return true;
         }
 
         if (id == R.id.action_about) {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-            mMainRequestLauncher.launch(i);
+            startActivity(i);
             return true;
         }
 
@@ -703,8 +682,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (mAdapter.getSelectedItemCount() > 0) {
             enableActionMode(inputPosition);
         } else {
-            Cursor selected = mAdapter.getCursor();
-            selected.moveToPosition(inputPosition);
             // FIXME
             //
             // There is a really nasty edge case that can happen when someone taps a card but right
@@ -715,7 +692,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // click is being processed. Sadly, I have not yet found a way to make that possible.
             LoyaltyCard loyaltyCard;
             try {
-                loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
+                loyaltyCard = mAdapter.getCard(inputPosition);
             } catch (CursorIndexOutOfBoundsException e) {
                 Log.w(TAG, "Prevented crash from tap + swipe on ID " + inputPosition + ": " + e);
                 return;
@@ -729,7 +706,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
-            mMainRequestLauncher.launch(i);
+            startActivity(i);
         }
     }
 }

@@ -1313,7 +1313,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     Log.e(TAG, "Deleting card: " + loyaltyCardId);
 
                     DBHelper db = new DBHelper(LoyaltyCardEditActivity.this);
-                    db.deleteLoyaltyCard(loyaltyCardId);
+                    db.deleteLoyaltyCard(LoyaltyCardEditActivity.this, loyaltyCardId);
 
                     ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
 

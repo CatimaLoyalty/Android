@@ -30,7 +30,6 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
     private int mCurrentSelectedIndex = -1;
-    private Cursor mCursor;
     Settings mSettings;
     boolean mDarkModeEnabled;
     private final Context mContext;
@@ -44,20 +43,14 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         super(inputCursor);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext;
+        mContext = inputContext.getApplicationContext();
         mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
         mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
-        swapCursor(mCursor);
-    }
-
-    @Override
-    public void swapCursor(Cursor inputCursor) {
-        super.swapCursor(inputCursor);
-        mCursor = inputCursor;
+        swapCursor(inputCursor);
     }
 
     public void showDetails(boolean show) {
@@ -75,8 +68,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return new LoyaltyCardListItemViewHolder(itemView, mListener);
     }
 
-    public Cursor getCursor() {
-        return mCursor;
+    public LoyaltyCard getCard(int position) {
+        mCursor.moveToPosition(position);
+        return LoyaltyCard.toLoyaltyCard(mCursor);
     }
 
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {

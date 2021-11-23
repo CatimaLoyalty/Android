@@ -13,32 +13,32 @@ import protect.card_locker.R;
 import protect.card_locker.Utils;
 
 public class Settings {
-    private Context context;
-    private SharedPreferences settings;
+    private final Context mContext;
+    private SharedPreferences mSettings;
 
     public Settings(Context context) {
-        this.context = context;
-        this.settings = PreferenceManager.getDefaultSharedPreferences(context);
+        mContext = context.getApplicationContext();
+        mSettings = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     private String getResString(@StringRes int resId) {
-        return context.getString(resId);
+        return mContext.getString(resId);
     }
 
     private int getResInt(@IntegerRes int resId) {
-        return context.getResources().getInteger(resId);
+        return mContext.getResources().getInteger(resId);
     }
 
     private String getString(@StringRes int keyId, String defaultValue) {
-        return settings.getString(getResString(keyId), defaultValue);
+        return mSettings.getString(getResString(keyId), defaultValue);
     }
 
     private int getInt(@StringRes int keyId, @IntegerRes int defaultId) {
-        return settings.getInt(getResString(keyId), getResInt(defaultId));
+        return mSettings.getInt(getResString(keyId), getResInt(defaultId));
     }
 
     private boolean getBoolean(@StringRes int keyId, boolean defaultValue) {
-        return settings.getBoolean(getResString(keyId), defaultValue);
+        return mSettings.getBoolean(getResString(keyId), defaultValue);
     }
 
     public Locale getLocale() {

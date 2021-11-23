@@ -1,8 +1,10 @@
 package protect.card_locker;
 
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.service.controls.Control;
@@ -43,7 +45,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
                                 .setTitle(card.store)
                                 .setDeviceType(DeviceTypes.TYPE_GENERIC_OPEN_CLOSE)
                                 .setSubtitle(card.note)
-                                .setCustomIcon(Icon.createWithBitmap(Utils.generateIcon(this, card.store, card.headerColor).getLetterTile()))
+                                .setCustomIcon(Icon.createWithBitmap(getIcon(this, card)))
                                 .build()
                 );
             }
@@ -71,13 +73,23 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
                         .setSubtitle(card.note)
                         .setStatus(Control.STATUS_OK)
                         .setControlTemplate(new StatelessTemplate(controlId))
-                        .setCustomIcon(Icon.createWithBitmap(Utils.generateIcon(this, card.store, card.headerColor).getLetterTile()))
+                        .setCustomIcon(Icon.createWithBitmap(getIcon(this, card)))
                         .build();
                 Log.d(TAG, "Dispatching widget " + controlId);
                 subscriber.onNext(ret);
             }
             subscriber.onComplete();
         };
+    }
+
+    private Bitmap getIcon(Context context, LoyaltyCard loyaltyCard) {
+        Bitmap cardIcon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+
+        if (cardIcon != null) {
+            return cardIcon;
+        }
+
+        return Utils.generateIcon(this, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile();
     }
 
     private Integer controlIdToCardId(String controlId) {

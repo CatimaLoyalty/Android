@@ -1,0 +1,4 @@
+- Na wijzigen van het kleurenthema, hebben de pagina-indicators in het kaartscherm ook een passende kleur;
+- Kleurenthema wijzigen of je toestel draaien doet het kaartscherm niet meer crashen;
+- Het kaartenoverzicht flikkert niet meer;
+- De Ster-knop wordt niet meer verborgen achter tekst.

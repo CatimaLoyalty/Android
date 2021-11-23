@@ -210,4 +210,14 @@
     <string name="and_data_usage">e utilizzo dei dati</string>
     <string name="rate_this_app">Valuta questa applicazione</string>
     <string name="report_error">Segnala un errore</string>
+    <string name="editGroup">Gruppo di modifica: <xliff:g>%s</xliff:g></string>
+    <string name="group_name_is_empty">Il nome del gruppo non può essere vuoto</string>
+    <string name="noGiftCardsGroup">Non hai ancora nessuna carta fedeltà. Una volta che ne hai aggiunte, puoi assegnarle al gruppo qui.</string>
+    <string name="group_edit">Modifica il gruppo</string>
+    <string name="group_name_already_in_use">Nome del gruppo già in uso</string>
+    <string name="group_updated">Gruppo aggiornato</string>
+    <string name="selectColor">Seleziona il colore</string>
+    <string name="setIcon">Imposta l\'icona</string>
+    <string name="action_show_details">Mostra i dettagli</string>
+    <string name="action_hide_details">Nascondi i dettagli</string>
 </resources>

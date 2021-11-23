@@ -1,6 +1,23 @@
 # Changelog
 
-## Unreleased - 90
+## v2.10.0 - 92 (2021-11-20)
+
+- New main screen layout
+- Fix bottomsheet sizing issues when switching in and out of fullscreen
+
+## v2.9.0 - 91 (2021-11-14)
+
+- Improved group management support
+- Support cropping images
+- Fix image data loss when saving after rotating in edit view
+- Ability to set a custom image as card icon
+
+## v2.8.1 - 90 (2021-10-27)
+
+- Fix dots in card view having the wrong colour when changing theme manually
+- Fix crash in card view on rotation/theme change
+- Fix flashing of cards list
+- Fix text overlaying star icon
 
 ## v2.8.0 - 89 (2021-10-25)
 

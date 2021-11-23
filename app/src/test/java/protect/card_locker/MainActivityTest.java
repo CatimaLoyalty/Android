@@ -32,8 +32,7 @@ import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class MainActivityTest
-{
+public class MainActivityTest {
     private SharedPreferences prefs;
 
     @Test
@@ -59,9 +58,10 @@ public class MainActivityTest
         assertNotNull(menu);
 
         // The settings, import/export, groups, search and add button should be present
-        assertEquals(menu.size(), 6);
+        assertEquals(menu.size(), 7);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
         assertEquals("Sort", menu.findItem(R.id.action_sort).getTitle().toString());
+        assertEquals("Hide details", menu.findItem(R.id.action_unfold).getTitle().toString());
         assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
@@ -69,8 +69,7 @@ public class MainActivityTest
     }
 
     @Test
-    public void clickAddStartsScan()
-    {
+    public void clickAddStartsScan() {
         final MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 
         activity.findViewById(R.id.fabAdd).performClick();
@@ -80,11 +79,10 @@ public class MainActivityTest
     }
 
     @Test
-    public void addOneLoyaltyCard()
-    {
+    public void addOneLoyaltyCard() {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
-        Activity mainActivity = (Activity)activityController.get();
+        Activity mainActivity = (Activity) activityController.get();
         activityController.start();
         activityController.resume();
 
@@ -118,7 +116,7 @@ public class MainActivityTest
     {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
-        Activity mainActivity = (Activity)activityController.get();
+        Activity mainActivity = (Activity) activityController.get();
         activityController.start();
         activityController.resume();
         activityController.visible();
@@ -162,11 +160,10 @@ public class MainActivityTest
     }
 
     @Test
-    public void testGroups()
-    {
+    public void testGroups() {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
-        Activity mainActivity = (Activity)activityController.get();
+        Activity mainActivity = (Activity) activityController.get();
         activityController.start();
         activityController.resume();
 
@@ -212,11 +209,10 @@ public class MainActivityTest
     }
 
     @Test
-    public void testFiltering()
-    {
+    public void testFiltering() {
         ActivityController activityController = Robolectric.buildActivity(MainActivity.class).create();
 
-        MainActivity mainActivity = (MainActivity)activityController.get();
+        MainActivity mainActivity = (MainActivity) activityController.get();
         activityController.start();
         activityController.resume();
 

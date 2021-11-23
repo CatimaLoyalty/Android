@@ -1,0 +1,2 @@
+- Сортування списку карток ігнорує регістр (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Додано налаштування для блокування орієнтації усіх карток (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

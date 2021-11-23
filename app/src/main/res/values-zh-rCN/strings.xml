@@ -12,7 +12,7 @@
     <string name="card">卡片</string>
     <string name="addManually">手动输入卡号</string>
     <string name="settings_system_theme">系统设置</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">版权所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importOptionApplicationButton">使用其他应用</string>
     <string name="importOptionFilesystemButton">从文件系统</string>
     <string name="unstar">从收藏中删除</string>
@@ -23,17 +23,17 @@
     <string name="setBarcodeId">设置条形码值</string>
     <string name="sameAsCardId">与卡号相同</string>
     <string name="barcodeId">条形码值</string>
-    <string name="importVoucherVaultMessage">选择从Voucher Vault导出的文件：<i>vouchervault.json</i>进行导入。
-\n或者先在Voucher Vault中按下导出键来创建导出。</string>
+    <string name="importVoucherVaultMessage">选择 Voucher Vault 导出文件 <i>vouchervault.json</i> 进行导入。
+\n先在 Voucher Vault 中按下“导出”来创建此文件。</string>
     <string name="importVoucherVault">从 Voucher Vault 导入</string>
-    <string name="importLoyaltyCardKeychainMessage">选择从Loyalty Card Keychain导出的文件：<i>LoyaltyCardKeychain.csv</i>来导入。
-\n或者先从Loyalty Card Keychain的Import/Export菜单中选择Export来导出。</string>
+    <string name="importLoyaltyCardKeychainMessage">选择 Loyalty Card Keychain 导出文件 <i>LoyaltyCardKeychain.csv</i>来导入。
+\n先在 Loyalty Card Keychain 的 “导入/导出” 菜单中按“导出”。</string>
     <string name="importLoyaltyCardKeychain">从 Loyalty Card Keychain 导入</string>
-    <string name="importFidmeMessage">选择从Fidme导出的文件：<i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。
-\n或者从你的FidMe配置文件中选择数据保护，然后按提取我的数据来创建导出。</string>
+    <string name="importFidmeMessage">选择 Fidme 导出文件 <i>fidme-export-request-xxxxxx.zip</i>进行导入，之后再手动选择条码类型。
+\n创建 Fidme 配置的导出文件，方法是选择“数据保护”，然后按“提取我的数据”。</string>
     <string name="importFidme">从 FidMe 导入</string>
-    <string name="importCatimaMessage">选择从Catima导出的文件：<i>Catima.zip</i>来导入。
-\n或者先从另一个Catima应用程序的导入/导出菜单中，来创建导出。</string>
+    <string name="importCatimaMessage">选择 Catima 导出文件 <i>Catima.zip</i>来导入。
+\n先按另一个 Catima 应用程序导入/导出菜单中“导出”创建文件。</string>
     <string name="importCatima">从 Catima 导入</string>
     <string name="accept">接受</string>
     <string name="privacy_policy_popup_text">隐私政策通知（一些应用程序商店要求）。
@@ -87,9 +87,9 @@
     <string name="enterBarcodeInstructions">输入卡号，并从下面选择其条码类型，或选择\"此卡片没有条码\"。</string>
     <string name="selectBarcodeTitle">选择条码</string>
     <string name="app_resources">第三方自由资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可.</string>
+    <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可证</string>
     <string name="app_copyright_old">基于 Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
+\n版权所有 © 2016–2020 Branden Archer</string>
     <string name="about">关于</string>
     <string name="importOptionApplicationExplanation">使用任何应用程序或您喜欢的文件管理器打开文件。</string>
     <string name="importOptionApplicationTitle">使用其他应用</string>
@@ -143,8 +143,8 @@
     <string name="deleteConfirmation">删除此卡？</string>
     <string name="deleteTitle">移除卡片</string>
     <string name="starImage">最喜欢的星星</string>
-    <string name="importStocardMessage">选择你从Stocard导出的<i>****-sync.zip</i>来导入。
-\n或者发电子邮件给support@stocardapp.com，要求导出你的数据，从而获得此文件。</string>
+    <string name="importStocardMessage">选择 Stocard 导出文件 <i>****-sync.zip</i>来导入。
+\n发电子邮件给 support@stocardapp.com 请求获得数据导出文件。</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="other">确定永久删除 <xliff:g>%d</xliff:g> 这些卡片？</item>
     </plurals>
@@ -170,4 +170,7 @@
     <string name="backImageDescription">卡片的背面图像</string>
     <string name="frontImageDescription">卡片的正面图像</string>
     <string name="importStocard">从Stocard导入</string>
+    <string name="noGiftCardsGroup">你还没有会员卡。一旦添加了一些卡，你可以将它们分配到这里的组。</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g>型卡片条码图像</string>
+    <string name="group_edit">编辑组</string>
 </resources>

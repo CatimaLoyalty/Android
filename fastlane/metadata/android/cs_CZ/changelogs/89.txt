@@ -1,3 +1,5 @@
 - Oprava nefunkčního přecházení mezi skupinami v prázdné skupině
 - Povolení exportu chráněného heslem
 - Zlepšení využití prostoru pro kódy QR
+- Uložení poslední použité úrovně přiblížení na kartu
+- Oprava pádu při přejetí prstem doprava po klepnutí

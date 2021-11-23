@@ -1,9 +1,7 @@
 package protect.card_locker.importexport;
 
-public enum ImportExportResult
-{
+public enum ImportExportResult {
     Success,
     GenericFailure,
-    BadPassword
-    ;
+    BadPassword;
 }

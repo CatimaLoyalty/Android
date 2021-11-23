@@ -210,4 +210,14 @@
     <string name="version_history">Historique des versions</string>
     <string name="exportPassword">Définissez un mot de passe pour protéger vos exportations (facultatif)</string>
     <string name="exportPasswordHint">Entrez le mot de passe</string>
+    <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
+    <string name="noGiftCardsGroup">Vous n\'avez pas encore de cartes de fidélité. Une fois que vous en aurez ajouté, vous pourrez les affecter au groupe ici.</string>
+    <string name="group_edit">Modifier le groupe</string>
+    <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
+    <string name="group_updated">Groupe mis à jour</string>
+    <string name="group_name_is_empty">Le nom du groupe ne peut pas être vide</string>
+    <string name="setIcon">Définir l\'icône</string>
+    <string name="selectColor">Sélectionnez la couleur</string>
+    <string name="action_show_details">Afficher les détails</string>
+    <string name="action_hide_details">Masquer les détails</string>
 </resources>

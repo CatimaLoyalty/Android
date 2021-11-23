@@ -25,6 +25,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -38,6 +39,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import protect.card_locker.preferences.Settings;
@@ -52,12 +54,15 @@ public class Utils {
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
     public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 5;
     public static final int CARD_IMAGE_FROM_CAMERA_BACK = 6;
-    public static final int CARD_IMAGE_FROM_FILE_FRONT = 7;
-    public static final int CARD_IMAGE_FROM_FILE_BACK = 8;
+    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 7;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
+    public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
-    static final int BITMAP_SIZE_BIG = 512;
+    static final int BITMAP_SIZE_SMALL = 512;
+    static final int BITMAP_SIZE_BIG = 2048;
 
     static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
         return generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, forShortcut);
@@ -264,12 +269,10 @@ public class Utils {
         return bos.toByteArray();
     }
 
-    static public Bitmap resizeBitmap(Bitmap bitmap) {
+    static public Bitmap resizeBitmap(Bitmap bitmap, double maxSize) {
         if (bitmap == null) {
             return null;
         }
-
-        double maxSize = BITMAP_SIZE_BIG;
 
         double width = bitmap.getWidth();
         double height = bitmap.getHeight();
@@ -313,16 +316,20 @@ public class Utils {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    static public String getCardImageFileName(int loyaltyCardId, boolean front) {
+    static public String getCardImageFileName(int loyaltyCardId, ImageLocationType type) {
         StringBuilder cardImageFileNameBuilder = new StringBuilder();
 
         cardImageFileNameBuilder.append("card_");
         cardImageFileNameBuilder.append(loyaltyCardId);
         cardImageFileNameBuilder.append("_");
-        if (front) {
+        if (type == ImageLocationType.front) {
             cardImageFileNameBuilder.append("front");
-        } else {
+        } else if (type == ImageLocationType.back) {
             cardImageFileNameBuilder.append("back");
+        } else if (type == ImageLocationType.icon) {
+            cardImageFileNameBuilder.append("icon");
+        } else {
+            throw new IllegalArgumentException("Unknown image type");
         }
         cardImageFileNameBuilder.append(".png");
 
@@ -340,8 +347,8 @@ public class Utils {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
     }
 
-    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, boolean front) throws FileNotFoundException {
-        saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, front));
+    static public void saveCardImage(Context context, Bitmap bitmap, int loyaltyCardId, ImageLocationType type) throws FileNotFoundException {
+        saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, type));
     }
 
     static public Bitmap retrieveCardImage(Context context, String fileName) {
@@ -355,11 +362,11 @@ public class Utils {
         return BitmapFactory.decodeStream(in);
     }
 
-    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, boolean front) {
-        return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, front));
+    static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, ImageLocationType type) {
+        return retrieveCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
-    static public <T,U> U mapGetOrDefault(Map<T,U> map, T key, U defaultValue) {
+    static public <T, U> U mapGetOrDefault(Map<T, U> map, T key, U defaultValue) {
         U value = map.get(key);
         if (value == null) {
             return defaultValue;
@@ -401,4 +408,44 @@ public class Utils {
     static public long getUnixTime() {
         return System.currentTimeMillis() / 1000;
     }
+
+    static public boolean isDarkModeEnabled(Context inputContext) {
+        int nightModeSetting = new Settings(inputContext).getTheme();
+        if (nightModeSetting == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
+            Configuration config = inputContext.getResources().getConfiguration();
+            int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            return (currentNightMode == Configuration.UI_MODE_NIGHT_YES);
+        } else {
+            return nightModeSetting == AppCompatDelegate.MODE_NIGHT_YES;
+        }
+    }
+
+    public static File createTempFile(Context context, String name) {
+        return new File(context.getCacheDir() + "/" + name);
+    }
+
+    public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format) {
+        File image = createTempFile(context, name);
+        try (FileOutputStream out = new FileOutputStream(image)) {
+            in.compress(format, 100, out);
+            return image.getAbsolutePath();
+        } catch (IOException e) {
+            Log.d("store temp image", "failed writing temp file for temporary image, name: " + name);
+            return null;
+        }
+    }
+
+    public static Bitmap loadImage(String path) {
+        try {
+            return BitmapFactory.decodeStream(new FileInputStream(path));
+        } catch (IOException e) {
+            Log.d("load image", "failed loading image from " + path);
+            return null;
+        }
+    }
+
+    public static Bitmap loadTempImage(Context context, String name) {
+        return loadImage(context.getCacheDir() + "/" + name);
+    }
+
 }

@@ -218,4 +218,14 @@
     <string name="report_error">Повідомити про помилку</string>
     <string name="exportPassword">Встановіть пароль для захисту експорту (необов\'язково)</string>
     <string name="exportPasswordHint">Введіть пароль</string>
+    <string name="group_name_is_empty">Назва групи не може бути пустою</string>
+    <string name="group_updated">Групу оновлено</string>
+    <string name="editGroup">Редагування групи: <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Змінити групу</string>
+    <string name="group_name_already_in_use">Група з такою назвою вже існує</string>
+    <string name="noGiftCardsGroup">У вас ще немає жодної картки. Коли ви додасте кілька, то зможете призначити їх до групи.</string>
+    <string name="selectColor">Вибір кольору</string>
+    <string name="setIcon">Вибір іконки</string>
+    <string name="action_show_details">Показати деталі</string>
+    <string name="action_hide_details">Сховати деталі</string>
 </resources>

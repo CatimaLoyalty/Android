@@ -14,14 +14,13 @@ import java.text.ParseException;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 
-public class MultiFormatImporter
-{
+public class MultiFormatImporter {
     private static final String TAG = "Catima";
 
     /**
      * Attempts to import data from the input stream of the
      * given format into the database.
-     *
+     * <p>
      * The input stream is not closed, and doing so is the
      * responsibility of the caller.
      *
@@ -29,12 +28,10 @@ public class MultiFormatImporter
      * or another result otherwise. If no Success, no data was written to
      * the database.
      */
-    public static ImportExportResult importData(Context context, DBHelper db, InputStream input, DataFormat format, char[] password)
-    {
+    public static ImportExportResult importData(Context context, DBHelper db, InputStream input, DataFormat format, char[] password) {
         Importer importer = null;
 
-        switch(format)
-        {
+        switch (format) {
             case Catima:
                 importer = new CatimaImporter();
                 break;
@@ -49,25 +46,17 @@ public class MultiFormatImporter
                 break;
         }
 
-        if (importer != null)
-        {
-            try
-            {
+        if (importer != null) {
+            try {
                 importer.importData(context, db, input, password);
                 return ImportExportResult.Success;
-            }
-            catch(ZipException e)
-            {
+            } catch (ZipException e) {
                 return ImportExportResult.BadPassword;
-            }
-            catch(IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e)
-            {
+            } catch (IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e) {
                 Log.e(TAG, "Failed to import data", e);
             }
 
-        }
-        else
-        {
+        } else {
             Log.e(TAG, "Unsupported data format imported: " + format.name());
         }
 

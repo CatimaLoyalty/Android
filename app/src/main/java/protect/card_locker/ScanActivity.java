@@ -20,12 +20,14 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
- *
+ * <p>
  * Based on https://github.com/journeyapps/zxing-android-embedded/blob/0fdfbce9fb3285e985bad9971c5f7c0a7a334e7b/sample/src/main/java/example/zxing/CustomScannerActivity.java
  * originally licensed under Apache 2.0
  */
@@ -38,6 +40,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String cardId;
     private String addGroup;
     private boolean torch = false;
+
+    private ActivityResultLauncher<Intent> manualAddLauncher;
+    // can't use the pre-made contract because that launches the file manager for image type instead of gallery
+    private ActivityResultLauncher<Intent> photoPickerLauncher;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -54,13 +60,14 @@ public class ScanActivity extends CatimaAppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         extractIntentFields(getIntent());
 
+        manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
+        photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
         findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
         findViewById(R.id.add_manually).setOnClickListener(this::addManually);
 
@@ -127,8 +134,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
             getMenuInflater().inflate(R.menu.scan_menu, menu);
         }
@@ -139,10 +145,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
             setResult(Activity.RESULT_CANCELED);
             finish();
             return true;
@@ -163,9 +167,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent)
-    {
+    private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
         BarcodeValues barcodeValues;
@@ -198,12 +200,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
             b.putString("initialCardId", cardId);
             i.putExtras(b);
         }
-        startActivityForResult(i, Utils.SELECT_BARCODE_REQUEST);
+        manualAddLauncher.launch(i);
     }
 
     public void addFromImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
-        startActivityForResult(photoPickerIntent, Utils.BARCODE_IMPORT_FROM_IMAGE_FILE);
+        photoPickerLauncher.launch(photoPickerIntent);
     }
 }

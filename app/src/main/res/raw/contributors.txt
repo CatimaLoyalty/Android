@@ -5,25 +5,27 @@ Allan Nordhøy
 Heimen Stoffels
 solokot
 mondstern
-Taco
+Katharine Chui
+Oğuz Ersen
 IllusiveMan196
 Petr Novák
-Oğuz Ersen
+Taco
 Gediminas Murauskas
 Joel A
 StoyanDimitrov
-Samantaz Fox
 Nyatsuki
+Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
 arshbeerSingh
+laralem
 huuhaa
+Miha Frangež
 Michael Moroni
 Olivia (Zoe)
 betsythefc
 waffshappen
-Miha Frangež
 K. Herbert
 Quentin PAGÈS
 String E. Fighter
@@ -34,9 +36,12 @@ KovalevArtem
 Clonewayx
 D. Domig
 Diego
+sr093906
 Jane Kong
 Lukas Grassauer
+Marnick L'Eau
 Michalis
+Rosdyana Kusuma
 schirinowski
 Thomas Bertels
 inesre
@@ -47,10 +52,11 @@ Kevin Sicong Jiang
 Airat
 BMN
 Biren
+Kasina Dheeraj
 Flav
 Franciszek Stefan
 Izzy
-Karol Kosek
+krkk
 bittin
 Maciej Błędkowski
 Mattia
@@ -58,7 +64,9 @@ Michael Gangolf
 pbeckmann
 Peer Beckmann
 QuangDNguyen2211
+Reza
 Rohan Babbar 
+Ronak Upadhyay
 Rose Liverman
 Simone Dotto
 Still Hsu

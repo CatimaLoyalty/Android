@@ -210,4 +210,14 @@
     <string name="version_history">Sürüm Geçmişi</string>
     <string name="exportPassword">Dışa aktarmanızı korumak için bir parola belirleyin (isteğe bağlı)</string>
     <string name="exportPasswordHint">Parola girin</string>
+    <string name="noGiftCardsGroup">Henüz sadakat kartınız yok. Birkaç tane ekledikten sonra, onları burada gruba atayabilirsiniz.</string>
+    <string name="group_name_already_in_use">Grup adı zaten kullanılıyor</string>
+    <string name="editGroup">Grup Düzenleniyor: <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Grubu Düzenle</string>
+    <string name="group_name_is_empty">Grup adı boş olamaz</string>
+    <string name="group_updated">Grup güncellendi</string>
+    <string name="selectColor">Renk seç</string>
+    <string name="setIcon">Simge ayarla</string>
+    <string name="action_show_details">Ayrıntıları göster</string>
+    <string name="action_hide_details">Ayrıntıları gizle</string>
 </resources>

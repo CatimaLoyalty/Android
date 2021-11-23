@@ -1,0 +1,4 @@
+- Grup yönetimi desteği iyileştirildi
+- Resimleri kırpma desteği eklendi
+- Düzenleme görünümünde döndürdükten sonra kaydederken resim veri kaybı düzeltildi
+- Kart simgesi olarak özel bir resim ayarlama özelliği

@@ -1,0 +1,3 @@
+- Groepsbeheer verbeterd;
+- Foto's kunnen bijgesneden worden;
+- Foto's gaan niet meer verloren bij het draaien van het scherm.

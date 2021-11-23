@@ -33,15 +33,13 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
-public class LoyaltyCardCursorAdapterTest
-{
+public class LoyaltyCardCursorAdapterTest {
     private Activity activity;
     private DBHelper db;
     private SharedPreferences settings;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         ShadowLog.stream = System.out;
 
         activity = Robolectric.setupActivity(MainActivity.class);
@@ -49,15 +47,13 @@ public class LoyaltyCardCursorAdapterTest
         settings = PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
-    private void setFontScale(int fontSizeScale)
-    {
+    private void setFontScale(int fontSizeScale) {
         settings.edit()
-            .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), fontSizeScale)
-            .apply();
+                .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), fontSizeScale)
+                .apply();
     }
 
-    private View createView(Cursor cursor)
-    {
+    private View createView(Cursor cursor) {
         LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity);
 
         LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
@@ -66,60 +62,48 @@ public class LoyaltyCardCursorAdapterTest
         return viewHolder.itemView;
     }
 
-    private void checkView(final View view, final String store, final String note, final String expiry, final String balance, boolean checkFontSizes)
-    {
+    private void checkView(final View view, final String store, final String note, final String expiry, final String balance, boolean checkFontSizes) {
         final TextView storeField = view.findViewById(R.id.store);
         final TextView noteField = view.findViewById(R.id.note);
         final TextView expiryField = view.findViewById(R.id.expiry);
         final TextView balanceField = view.findViewById(R.id.balance);
 
-        if(checkFontSizes)
-        {
+        if (checkFontSizes) {
             Settings preferences = new Settings(activity.getApplicationContext());
             int mediumFontSize = preferences.getFontSizeMax(preferences.getMediumFont());
             int smallFontSize = preferences.getFontSizeMax(preferences.getSmallFont());
 
-            assertEquals(mediumFontSize, (int)storeField.getTextSize());
-            assertEquals(smallFontSize, (int)noteField.getTextSize());
-            assertEquals(smallFontSize, (int)expiryField.getTextSize());
+            assertEquals(mediumFontSize, (int) storeField.getTextSize());
+            assertEquals(smallFontSize, (int) noteField.getTextSize());
+            assertEquals(smallFontSize, (int) expiryField.getTextSize());
         }
 
         assertEquals(store, storeField.getText().toString());
-        if(!note.isEmpty())
-        {
+        if (!note.isEmpty()) {
             assertEquals(View.VISIBLE, noteField.getVisibility());
             assertEquals(note, noteField.getText().toString());
-        }
-        else
-        {
+        } else {
             assertEquals(View.GONE, noteField.getVisibility());
         }
 
-        if(!expiry.isEmpty())
-        {
+        if (!expiry.isEmpty()) {
             assertEquals(View.VISIBLE, expiryField.getVisibility());
             assertEquals(expiry, expiryField.getText().toString());
-        }
-        else
-        {
+        } else {
             assertEquals(View.GONE, expiryField.getVisibility());
         }
 
-        if(!balance.isEmpty())
-        {
+        if (!balance.isEmpty()) {
             assertEquals(View.VISIBLE, balanceField.getVisibility());
             assertEquals(balance, balanceField.getText().toString());
-        }
-        else
-        {
+        } else {
             assertEquals(View.GONE, balanceField.getVisibility());
         }
     }
 
 
     @Test
-    public void TestCursorAdapterEmptyNote()
-    {
+    public void TestCursorAdapterEmptyNote() {
         db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -128,14 +112,13 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "",false);
+        checkView(view, card.store, card.note, "", "", false);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapterWithNote()
-    {
+    public void TestCursorAdapterWithNote() {
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -144,14 +127,13 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "",false);
+        checkView(view, card.store, card.note, "", "", false);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapterFontSizes()
-    {
+    public void TestCursorAdapterFontSizes() {
         final Context context = activity.getApplicationContext();
         Date expiryDate = new Date();
         String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate);
@@ -169,14 +151,13 @@ public class LoyaltyCardCursorAdapterTest
 
         setFontScale(200);
         view = createView(cursor);
-        checkView(view, card.store, card.note, dateString, "",true);
+        checkView(view, card.store, card.note, dateString, "", true);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapterStarring()
-    {
+    public void TestCursorAdapterStarring() {
         assertNotEquals(-1, db.insertLoyaltyCard("storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null));
         assertNotEquals(-1, db.insertLoyaltyCard("storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null));
         assertNotEquals(-1, db.insertLoyaltyCard("storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null));
@@ -218,8 +199,7 @@ public class LoyaltyCardCursorAdapterTest
     }
 
     @Test
-    public void TestCursorAdapter0Points()
-    {
+    public void TestCursorAdapter0Points() {
         db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -228,14 +208,13 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "",false);
+        checkView(view, card.store, card.note, "", "", false);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapter0EUR()
-    {
+    public void TestCursorAdapter0EUR() {
         db.insertLoyaltyCard("store", "", null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -244,14 +223,13 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "",false);
+        checkView(view, card.store, card.note, "", "", false);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapter100Points()
-    {
+    public void TestCursorAdapter100Points() {
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -260,14 +238,13 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "100 points",false);
+        checkView(view, card.store, card.note, "", "100 points", false);
 
         cursor.close();
     }
 
     @Test
-    public void TestCursorAdapter10USD()
-    {
+    public void TestCursorAdapter10USD() {
         db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null);
         LoyaltyCard card = db.getLoyaltyCard(1);
 
@@ -276,7 +253,7 @@ public class LoyaltyCardCursorAdapterTest
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "$10.00",false);
+        checkView(view, card.store, card.note, "", "$10.00", false);
 
         cursor.close();
     }

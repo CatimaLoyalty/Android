@@ -97,16 +97,17 @@
     <string name="importing">Mengimpor…</string>
     <string name="exporting">Mengekspor…</string>
     <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor kartu terlebih dahulu</string>
-    <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
+    <string name="exportOptionExplanation">Data akan ditulis ke lokasi pilihan Anda.</string>
     <string name="importOptionFilesystemTitle">Impor dari sistem</string>
-    <string name="importOptionFilesystemExplanation">Pilih file dari sistem</string>
+    <string name="importOptionFilesystemExplanation">Pilih file dari sistem.</string>
     <string name="importOptionFilesystemButton">Dari sistem</string>
     <string name="importOptionApplicationTitle">Gunakan aplikasi lain</string>
     <string name="importOptionApplicationExplanation">Gunakan aplikasi lain atau pengelola file favorit anda untuk membuka file.</string>
     <string name="importOptionApplicationButton">Gunakan aplikasi lain</string>
     <string name="about">Tentang</string>
     <string name="app_copyright_fmt">Hak Cipta © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
-    <string name="app_copyright_old">Berdasarkan Loyalty Card Keychain hak cipta © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_old">Berdasarkan Loyalty Card Keychain 
+\nhak cipta © 2016–2020 Branden Archer</string>
     <string name="app_license">Perangkat lunak bebas copyleft, berlisensi GPLv3+</string>
     <string name="about_title_fmt">Tentang <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versi: <xliff:g id="version">%s</xliff:g></string>
@@ -152,15 +153,22 @@
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sepertinya bukan saldo yang valid.</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Kebijakan Privasi</string>
-    <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): TIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah perangkat lunak gratis.</string>
-    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor. Buat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
-    <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya. Buat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
+    <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 
+\n
+\nTIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah libre software.</string>
+    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor. 
+\nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
+    <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya. 
+\nBuat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
     <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor. Buat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
+    <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor. 
+\nBuat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
     <string name="importStocard">Impor dari Stocard</string>
-    <string name="importStocardMessage">Pilih ekspor <i>***-sync.zip</i> Anda dari Stocard untuk diimpor. Dapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
+    <string name="importStocardMessage">Pilih ekspor <i>***-sync.zip</i> Anda dari Stocard untuk diimpor. 
+\nDapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
     <string name="importVoucherVault">Impor dari Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Vault Voucher untuk diimpor. Buat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
+    <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Vault Voucher untuk diimpor. 
+\nBuat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
     <string name="unsupportedBarcodeType">Jenis barcode ini belum dapat ditampilkan. Ini mungkin didukung di versi aplikasi yang lebih baru.</string>
     <string name="wrongValueForBarcodeType">Nilai tidak berlaku untuk jenis barcode yang dipilih</string>
     <string name="copy_to_clipboard_multiple_toast">ID kartu telah disalin</string>
@@ -187,4 +195,16 @@
     <string name="card_ids_copied">ID kartu yang tersalin</string>
     <string name="barcodeImageDescriptionWithType">Gambar dari jenis barcode <xliff:g>%s</xliff:g></string>
     <string name="importExportHelp">Mencadangkan kartu memungkinkan anda memindahkannya ke perangkat lain.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> kartu dipilih</item>
+    </plurals>
+    <plurals name="groupCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> kartu</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="other">Hapus kartu <xliff:g>%d</xliff:g> ini secara permanen\?</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="other">Hapus <xliff:g>%d</xliff:g> kartu</item>
+    </plurals>
 </resources>

@@ -210,4 +210,14 @@
     <string name="report_error">Fehler melden</string>
     <string name="exportPassword">Legen Sie ein Passwort fest, um Ihren Export zu schützen (optional)</string>
     <string name="exportPasswordHint">Passwort eingeben</string>
+    <string name="group_name_already_in_use">Der Gruppenname wird bereits verwendet</string>
+    <string name="group_name_is_empty">Gruppenname darf nicht leer sein</string>
+    <string name="group_updated">Gruppe aktualisiert</string>
+    <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
+    <string name="group_edit">Gruppe bearbeiten</string>
+    <string name="noGiftCardsGroup">Sie haben noch keine Kundenkarten. Sobald Sie welche hinzugefügt haben, können Sie sie hier der Gruppe zuordnen.</string>
+    <string name="setIcon">Symbol einstellen</string>
+    <string name="selectColor">Farbe auswählen</string>
+    <string name="action_show_details">Details anzeigen</string>
+    <string name="action_hide_details">Details ausblenden</string>
 </resources>

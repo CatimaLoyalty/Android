@@ -12,8 +12,7 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
-class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder>
-{
+class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
     Settings mSettings;
     private Cursor mCursor;
     private final Context mContext;
@@ -39,14 +38,12 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
 
     @NonNull
     @Override
-    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType)
-    {
+    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
         return new GroupListItemViewHolder(itemView);
     }
 
-    public Cursor getCursor()
-    {
+    public Cursor getCursor() {
         return mCursor;
     }
 
@@ -64,24 +61,24 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         applyClickEvents(inputHolder);
     }
 
-    private void applyClickEvents(GroupListItemViewHolder inputHolder)
-    {
+    private void applyClickEvents(GroupListItemViewHolder inputHolder) {
         inputHolder.mMoveDown.setOnClickListener(view -> mListener.onMoveDownButtonClicked(inputHolder.itemView));
         inputHolder.mMoveUp.setOnClickListener(view -> mListener.onMoveUpButtonClicked(inputHolder.itemView));
         inputHolder.mEdit.setOnClickListener(view -> mListener.onEditButtonClicked(inputHolder.itemView));
         inputHolder.mDelete.setOnClickListener(view -> mListener.onDeleteButtonClicked(inputHolder.itemView));
     }
 
-    public interface GroupAdapterListener
-    {
+    public interface GroupAdapterListener {
         void onMoveDownButtonClicked(View view);
+
         void onMoveUpButtonClicked(View view);
+
         void onEditButtonClicked(View view);
+
         void onDeleteButtonClicked(View view);
     }
 
-    public static class GroupListItemViewHolder extends RecyclerView.ViewHolder
-    {
+    public static class GroupListItemViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mCardCount;
         public AppCompatImageButton mMoveUp, mMoveDown, mEdit, mDelete;
 

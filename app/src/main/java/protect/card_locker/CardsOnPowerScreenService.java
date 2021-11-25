@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -116,7 +117,14 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
                 .putExtra("id", controlIdToCardId(controlId));
         startActivity(openIntent);
 
+        closePowerScreenOnAndroid11();
+    }
+
+    @SuppressLint({"MissingPermission", "deprecation"})
+    private void closePowerScreenOnAndroid11() {
         // Android 12 will auto-close the power screen, but earlier versions won't
+        // Lint complains about this but on Android 11 the permission is not needed
+        // On Android 12, we don't need it, and Google will probably get angry if we ask for it
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
             sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
         }

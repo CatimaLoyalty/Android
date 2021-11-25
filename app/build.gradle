@@ -97,7 +97,7 @@ dependencies {
     implementation 'com.google.zxing:core:3.4.1'
     implementation 'org.apache.commons:commons-csv:1.9.0'
     implementation 'com.jaredrummler:colorpicker:1.1.0'
-    implementation 'com.github.invissvenska:NumberPickerPreference:1.0.3'
+    implementation 'com.github.invissvenska:NumberPickerPreference:1.0.4'
     implementation 'net.lingala.zip4j:zip4j:2.9.1'
 
 // SpotBugs

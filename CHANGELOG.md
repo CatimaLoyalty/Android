@@ -1,8 +1,8 @@
 # Changelog
 
-## Unreleased
+## Unreleased - 93
 
-- Add Catima to Quick Access Device Controls (https://developer.android.com/guide/topics/ui/device-control)
+- Add Catima to [Quick Access Device Controls](https://developer.android.com/guide/topics/ui/device-control)
 
 ## v2.10.0 - 92 (2021-11-20)
 

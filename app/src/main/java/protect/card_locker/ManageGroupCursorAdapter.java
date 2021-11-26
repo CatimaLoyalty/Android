@@ -105,8 +105,4 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     public HashMap<Integer, Boolean> exportInGroupState() {
         return new HashMap<>(mInGroupOverlay);
     }
-
-    public int getCountFromCursor() {
-        return super.getCursor().getCount();
-    }
 }

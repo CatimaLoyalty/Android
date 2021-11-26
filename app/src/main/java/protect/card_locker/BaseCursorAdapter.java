@@ -5,7 +5,7 @@ import android.database.Cursor;
 import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class BaseCursorAdapter<V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
-    private Cursor mCursor;
+    public Cursor mCursor;
     private boolean mDataValid;
     private int mRowIDColumn;
 

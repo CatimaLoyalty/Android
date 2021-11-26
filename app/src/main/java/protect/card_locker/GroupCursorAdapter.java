@@ -14,7 +14,6 @@ import protect.card_locker.preferences.Settings;
 
 class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
     Settings mSettings;
-    private Cursor mCursor;
     private final Context mContext;
     private final GroupCursorAdapter.GroupAdapterListener mListener;
     DBHelper mDb;
@@ -27,13 +26,7 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         mListener = inputListener;
         mDb = new DBHelper(inputContext);
 
-        swapCursor(mCursor);
-    }
-
-    @Override
-    public void swapCursor(Cursor inputCursor) {
-        super.swapCursor(inputCursor);
-        mCursor = inputCursor;
+        swapCursor(inputCursor);
     }
 
     @NonNull
@@ -41,10 +34,6 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
     public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
         View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
         return new GroupListItemViewHolder(itemView);
-    }
-
-    public Cursor getCursor() {
-        return mCursor;
     }
 
     public void onBindViewHolder(GroupCursorAdapter.GroupListItemViewHolder inputHolder, Cursor inputCursor) {

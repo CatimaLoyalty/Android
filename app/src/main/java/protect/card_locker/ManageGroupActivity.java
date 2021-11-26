@@ -165,7 +165,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private void updateLoyaltyCardList() {
         mAdapter.swapCursor(mDB.getLoyaltyCardCursor());
 
-        if (mAdapter.getCountFromCursor() == 0) {
+        if (mAdapter.getItemCount() == 0) {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
         } else {

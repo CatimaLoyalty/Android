@@ -71,12 +71,8 @@ public class DBHelper extends SQLiteOpenHelper {
         Descending
     }
 
-    private Context mContext;
-
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-        mContext = context;
     }
 
     @Override
@@ -583,7 +579,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteLoyaltyCard(final int id) {
+    public boolean deleteLoyaltyCard(Context context, final int id) {
         SQLiteDatabase db = getWritableDatabase();
         // Delete card
         int rowsDeleted = db.delete(LoyaltyCardDbIds.TABLE,
@@ -603,7 +599,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // Also wipe card images associated with this card
         for (ImageLocationType imageLocationType : ImageLocationType.values()) {
             try {
-                Utils.saveCardImage(mContext, null, id, imageLocationType);
+                Utils.saveCardImage(context, null, id, imageLocationType);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

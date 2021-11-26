@@ -60,24 +60,33 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
         return subscriber -> {
             subscriber.onSubscribe(new NoOpSubscription());
             for (String controlId : controlIds) {
-                Integer cardId = this.controlIdToCardId(controlId);
-                if (cardId == null)
-                    continue;
-                LoyaltyCard card = dbHelper.getLoyaltyCard(cardId);
-                Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra("id", card.id);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), card.id, openIntent, PendingIntent.FLAG_IMMUTABLE);
-                var ret = new Control.StatefulBuilder(controlId, pendingIntent)
-                        .setTitle(card.store)
-                        .setDeviceType(DeviceTypes.TYPE_GENERIC_OPEN_CLOSE)
-                        .setSubtitle(card.note)
-                        .setStatus(Control.STATUS_OK)
-                        .setControlTemplate(new StatelessTemplate(controlId))
-                        .setCustomIcon(Icon.createWithBitmap(getIcon(this, card)))
-                        .build();
+                Control control;
+
+                try {
+                    Integer cardId = this.controlIdToCardId(controlId);
+                    LoyaltyCard card = dbHelper.getLoyaltyCard(cardId);
+                    Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .putExtra("id", card.id);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), card.id, openIntent, PendingIntent.FLAG_IMMUTABLE);
+                    control = new Control.StatefulBuilder(controlId, pendingIntent)
+                            .setTitle(card.store)
+                            .setDeviceType(DeviceTypes.TYPE_GENERIC_OPEN_CLOSE)
+                            .setSubtitle(card.note)
+                            .setStatus(Control.STATUS_OK)
+                            .setControlTemplate(new StatelessTemplate(controlId))
+                            .setCustomIcon(Icon.createWithBitmap(getIcon(this, card)))
+                            .build();
+                } catch (NullPointerException ignored) {
+                    Intent mainScreenIntent = new Intent(this, MainActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), -1, mainScreenIntent, PendingIntent.FLAG_IMMUTABLE);
+                    control = new Control.StatefulBuilder(controlId, pendingIntent)
+                            .setStatus(Control.STATUS_NOT_FOUND)
+                            .build();
+                }
                 Log.d(TAG, "Dispatching widget " + controlId);
-                subscriber.onNext(ret);
+                subscriber.onNext(control);
             }
             subscriber.onComplete();
         };

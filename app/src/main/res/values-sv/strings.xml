@@ -215,4 +215,9 @@
     <string name="editGroup">Redigerar grupp: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Välj färg</string>
     <string name="setIcon">Välj ikon</string>
+    <string name="action_show_details">Visa detaljer</string>
+    <string name="action_hide_details">Dölj detaljer</string>
+    <string name="credits">Bidragsgivare</string>
+    <string name="source_repository">Källkodslager</string>
+    <string name="noGiftCardsGroup">Du har inga kundkort än. När du senare lägger till några kan du placera dem i den här gruppen.</string>
 </resources>

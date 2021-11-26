@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add Catima to Quick Access Device Controls (https://developer.android.com/guide/topics/ui/device-control)
+
 ## v2.10.0 - 92 (2021-11-20)
 
 - New main screen layout

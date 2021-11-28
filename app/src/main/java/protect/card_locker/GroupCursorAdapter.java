@@ -22,7 +22,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext;
+        mContext = inputContext.getApplicationContext();
         mListener = inputListener;
         mDb = new DBHelper(inputContext);
 

@@ -679,10 +679,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     private void setCropperTheme() {
-        mCropperOptions.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary));
-        mCropperOptions.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        mCropperOptions.setToolbarColor(getThemeColor());
+        mCropperOptions.setStatusBarColor(getThemeColor());
         mCropperOptions.setToolbarWidgetColor(Color.WHITE);
-        mCropperOptions.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        mCropperOptions.setActiveControlsWidgetColor(getThemeColor());
     }
 
     @Override

@@ -18,8 +18,8 @@ Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
-arshbeerSingh
 laralem
+arshbeerSingh
 huuhaa
 Miha Frangež
 Michael Moroni
@@ -30,6 +30,7 @@ K. Herbert
 Quentin PAGÈS
 String E. Fighter
 Yurical
+/usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
@@ -56,7 +57,7 @@ Kasina Dheeraj
 Flav
 Franciszek Stefan
 Izzy
-krkk
+Karol Kosek
 bittin
 Maciej Błędkowski
 Mattia

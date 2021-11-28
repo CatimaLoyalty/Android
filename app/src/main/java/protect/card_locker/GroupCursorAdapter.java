@@ -12,14 +12,14 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
-class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
+public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
     Settings mSettings;
     private final Context mContext;
-    private final GroupCursorAdapter.GroupAdapterListener mListener;
+    private final GroupAdapterListener mListener;
     DBHelper mDb;
 
-    public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupCursorAdapter.GroupAdapterListener inputListener) {
-        super(inputCursor);
+    public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupAdapterListener inputListener) {
+        super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
         mContext = inputContext;
@@ -36,7 +36,7 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         return new GroupListItemViewHolder(itemView);
     }
 
-    public void onBindViewHolder(GroupCursorAdapter.GroupListItemViewHolder inputHolder, Cursor inputCursor) {
+    public void onBindViewHolder(GroupListItemViewHolder inputHolder, Cursor inputCursor) {
         Group group = Group.toGroup(inputCursor);
 
         inputHolder.mName.setText(group._id);

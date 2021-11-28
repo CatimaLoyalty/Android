@@ -40,7 +40,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private boolean mShowDetails = true;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
-        super(inputCursor);
+        super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
         mContext = inputContext.getApplicationContext();

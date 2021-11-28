@@ -3,6 +3,7 @@
 ## Unreleased - 93
 
 - Add Catima to [Quick Access Device Controls](https://developer.android.com/guide/topics/ui/device-control)
+- Fix some groups not showing up correctly in group management screen
 
 ## v2.10.0 - 92 (2021-11-20)
 

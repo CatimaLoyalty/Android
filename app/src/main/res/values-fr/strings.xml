@@ -28,10 +28,10 @@
     <string name="importExportHelp">Exporter vos cartes vous permet de les récupérer sur un autre appareil.</string>
     <string name="importSuccessfulTitle">Importé</string>
     <string name="importFailedTitle">Échec de l\'import</string>
-    <string name="importFailed">Impossible d\'importer les cartes</string>
+    <string name="importFailed">Impossible d\'importer les cartes: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exporté</string>
     <string name="exportFailedTitle">Échec de l\'export</string>
-    <string name="exportFailed">Impossible d\'exporter les cartes</string>
+    <string name="exportFailed">Impossible d\'exporter les cartes: <xliff:g>%s</xliff:g></string>
     <string name="importing">Import …</string>
     <string name="exporting">Export …</string>
     <string name="noExternalStoragePermissionError">Veuillez autoriser l\'accès au stockage externe avant d\'importer/exporter les données</string>

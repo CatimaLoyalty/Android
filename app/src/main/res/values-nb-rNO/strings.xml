@@ -29,10 +29,10 @@
     <string name="importExportHelp">Sikkerhetskopiering av kort lar deg flytte dem til en annen enhet.</string>
     <string name="importSuccessfulTitle">Importert</string>
     <string name="importFailedTitle">Kunne ikke importere</string>
-    <string name="importFailed">Klarte ikke å importere kort</string>
+    <string name="importFailed">Klarte ikke å importere kort: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Eksportert</string>
     <string name="exportFailedTitle">Kunne ikke eksportere</string>
-    <string name="exportFailed">Kunne ikke eksportere kort</string>
+    <string name="exportFailed">Kunne ikke eksportere kort: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importerer…</string>
     <string name="exporting">Exporterer…</string>
     <string name="noExternalStoragePermissionError">Innvilg lagringstilgang til eksternlager for å importere eller eksportere kort først</string>

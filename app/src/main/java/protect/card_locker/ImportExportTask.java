@@ -1,9 +1,8 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.app.NotificationManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 
 import java.io.IOException;
@@ -12,6 +11,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
+import androidx.core.app.NotificationCompat;
 import protect.card_locker.async.CompatCallable;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
@@ -21,15 +21,13 @@ import protect.card_locker.importexport.MultiFormatImporter;
 public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private static final String TAG = "Catima";
 
-    private Activity activity;
-    private boolean doImport;
-    private DataFormat format;
+    private final Activity activity;
+    private final boolean doImport;
+    private final DataFormat format;
     private OutputStream outputStream;
     private InputStream inputStream;
-    private char[] password;
-    private TaskCompleteListener listener;
-
-    private ProgressDialog progress;
+    private final char[] password;
+    private final TaskCompleteListener listener;
 
     /**
      * Constructor which will setup a task for exporting to the given file
@@ -60,11 +58,11 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     }
 
     private ImportExportResult performImport(Context context, InputStream stream, DBHelper db, char[] password) {
-        ImportExportResult importResult = MultiFormatImporter.importData(context, db, stream, format, password);
+        ImportExportResult result = MultiFormatImporter.importData(context, db, stream, format, password);
 
-        Log.i(TAG, "Import result: " + importResult.name());
+        Log.i(TAG, "Import result: " + result.name());
 
-        return importResult;
+        return result;
     }
 
     private ImportExportResult performExport(Context context, OutputStream stream, DBHelper db, char[] password) {
@@ -83,20 +81,6 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         return result;
     }
 
-    public void onPreExecute() {
-        progress = new ProgressDialog(activity);
-        progress.setTitle(doImport ? R.string.importing : R.string.exporting);
-
-        progress.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                ImportExportTask.this.stop();
-            }
-        });
-
-        progress.show();
-    }
-
     protected ImportExportResult doInBackground(Void... nothing) {
         final DBHelper db = new DBHelper(activity);
         ImportExportResult result;
@@ -111,15 +95,15 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     }
 
     public void onPostExecute(Object castResult) {
-        listener.onTaskComplete((ImportExportResult) castResult, format);
+        ImportExportResult result = (ImportExportResult) castResult;
 
-        progress.dismiss();
+        listener.onTaskComplete(result, format);
+
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
     }
 
-    protected void onCancelled() {
-        progress.dismiss();
-        Log.i(TAG, (doImport ? "Import" : "Export") + " Cancelled");
+    @Override
+    public void onPreExecute() {
     }
 
     protected void stop() {

@@ -33,10 +33,10 @@
     <string name="importExportHelp">Zarchiwizowane dane umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
     <string name="importFailedTitle">Import nie powiódł się</string>
-    <string name="importFailed">Nie udało się zaimportować</string>
+    <string name="importFailed">Nie udało się zaimportować: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Wyeksportowano</string>
     <string name="exportFailedTitle">Eksport nie powiódł się</string>
-    <string name="exportFailed">Nie udało się wyeksportować</string>
+    <string name="exportFailed">Nie udało się wyeksportować: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importowanie…</string>
     <string name="exporting">Eksportowanie…</string>
     <string name="noExternalStoragePermissionError">Najpierw przyznaj uprawnienia pamięci zewnętrznej do importowania lub eksportowania kart</string>

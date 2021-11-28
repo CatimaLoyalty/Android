@@ -23,10 +23,10 @@
     <string name="importExportHelp">Zálohování karet vám umožní přesunout je do jiného zařízení.</string>
     <string name="importSuccessfulTitle">Importováno</string>
     <string name="importFailedTitle">Import selhal</string>
-    <string name="importFailed">Nelze importovat karty</string>
+    <string name="importFailed">Nelze importovat karty: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exportovat</string>
     <string name="exportFailedTitle">Export selhal</string>
-    <string name="exportFailed">Nelze exportovat karty</string>
+    <string name="exportFailed">Nelze exportovat karty: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
     <string name="noExternalStoragePermissionError">Udělit povolení externího úložiště pro import nebo export karet jako první</string>

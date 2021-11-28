@@ -28,10 +28,10 @@
     <string name="importExportHelp">Varnostna kopija omogoča varen prenos kartic na druge naprave.</string>
     <string name="importSuccessfulTitle">Uvoz je bil uspešen</string>
     <string name="importFailedTitle">Uvoz ni uspel</string>
-    <string name="importFailed">Napaka pri uvozu</string>
+    <string name="importFailed">Napaka pri uvozu: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Izvoz je uspel</string>
     <string name="exportFailedTitle">Izvoz ni uspel</string>
-    <string name="exportFailed">Napaka pri izvozu</string>
+    <string name="exportFailed">Napaka pri izvozu: <xliff:g>%s</xliff:g></string>
     <string name="importing">Uvažanje…</string>
     <string name="exporting">Izvažanje…</string>
     <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>

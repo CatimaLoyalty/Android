@@ -41,10 +41,10 @@
     <string name="importExportHelp">Hvis du sikkerhedskopierer dine kort, kan du flytte dem til en anden enhed.</string>
     <string name="importSuccessfulTitle">Importeret</string>
     <string name="importFailedTitle">Import mislykkedes</string>
-    <string name="importFailed">Kunne ikke importere kort</string>
+    <string name="importFailed">Kunne ikke importere kort: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Eksporteret</string>
     <string name="exportFailedTitle">Eksport mislykkedes</string>
-    <string name="exportFailed">Kunne ikke eksportere kort</string>
+    <string name="exportFailed">Kunne ikke eksportere kort: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importere…</string>
     <string name="exporting">Eksportere…</string>
     <string name="settings_dark_theme">Mørk</string>

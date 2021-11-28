@@ -78,10 +78,10 @@
     <string name="importExportHelp">A cópia de segurança dos seus cartões permite-lhe movê-los para outro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">A importação falhou</string>
-    <string name="importFailed">Não foi possível importar os cartões</string>
+    <string name="importFailed">Não foi possível importar os cartões: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exportado</string>
     <string name="exportFailedTitle">A exportação falhou</string>
-    <string name="exportFailed">Não foi possível exportar os cartões</string>
+    <string name="exportFailed">Não foi possível exportar os cartões: <xliff:g>%s</xliff:g></string>
     <string name="importing">A importar…</string>
     <string name="exporting">A exportar…</string>
     <string name="settings_sky_blue_theme">Azul céu</string>

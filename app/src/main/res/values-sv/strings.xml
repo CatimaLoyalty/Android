@@ -99,8 +99,8 @@
     <string name="importOptionFilesystemTitle">Importera från filsystem</string>
     <string name="exporting">Exporterar…</string>
     <string name="importing">Importerar…</string>
-    <string name="exportFailed">Kunde inte exportera kort</string>
-    <string name="importFailed">Kunde inte importera kort</string>
+    <string name="exportFailed">Kunde inte exportera kort: <xliff:g>%s</xliff:g></string>
+    <string name="importFailed">Kunde inte importera kort: <xliff:g>%s</xliff:g></string>
     <string name="importSuccessfulTitle">Importen lyckades</string>
     <string name="importFailedTitle">Importen misslyckades</string>
     <string name="importExportHelp">Säkerhetskopiering av dina kort låter dig flytta dem till en annan enhet.</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Meklēšana</string>
     <string name="action_add">Pievienot</string>
     <string name="noGiftCards">Noklikšķiniet uz pogas + plus, lai pievienotu karti, vai vispirms importējiet dažus no ⋮ izvēlnes.</string>
@@ -44,10 +44,10 @@
     <string name="importExportHelp">Jūsu Karšu dublēšana ļauj pārvietot tās uz citu ierīci.</string>
     <string name="importSuccessfulTitle">Importēts</string>
     <string name="importFailedTitle">Neizdevās importēt</string>
-    <string name="importFailed">Nevarēja importēt kartes</string>
+    <string name="importFailed">Nevarēja importēt kartes: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Eksports</string>
     <string name="exportFailedTitle">Eksports neizdevās</string>
-    <string name="exportFailed">Nevarēja eksportēt kartes</string>
+    <string name="exportFailed">Nevarēja eksportēt kartes: <xliff:g>%s</xliff:g></string>
     <string name="importing">Imports…</string>
     <string name="exporting">Eksports…</string>
     <string name="noExternalStoragePermissionError">Piešķiriet ārējai atmiņai atļauju vispirms importēt vai eksportēt kartes</string>

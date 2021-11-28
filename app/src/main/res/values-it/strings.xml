@@ -33,10 +33,10 @@
     <string name="importExportHelp">Il backup delle carte ti consente di spostarle su un altro dispositivo.</string>
     <string name="importSuccessfulTitle">Importato</string>
     <string name="importFailedTitle">Importazione fallita</string>
-    <string name="importFailed">Impossibile importare le carte</string>
+    <string name="importFailed">Impossibile importare le carte: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Esportato</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
-    <string name="exportFailed">Impossibile esportare le carte</string>
+    <string name="exportFailed">Impossibile esportare le carte: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importazione in corso…</string>
     <string name="exporting">Esportazione in corso…</string>
     <string name="noExternalStoragePermissionError">Concedi l\'autorizzazione all\'archiviazione esterna per importare o esportare prima le carte</string>

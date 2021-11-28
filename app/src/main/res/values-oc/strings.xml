@@ -2,9 +2,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="exporting">Exportacion…</string>
     <string name="importing">Importacion…</string>
-    <string name="exportFailed">Exportacion pas possibla</string>
+    <string name="exportFailed">Exportacion pas possibla: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exportat</string>
-    <string name="importFailed">Importacion de vòstras cartas impossibla</string>
+    <string name="importFailed">Importacion de vòstras cartas impossibla: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">Fracàs de l’importacion</string>
     <string name="importSuccessfulTitle">Importat</string>
     <string name="importExportHelp">Exportar vòstras cartas vos permet de las recuperar sus un autre aparelh.</string>

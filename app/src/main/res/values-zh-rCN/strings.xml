@@ -99,10 +99,10 @@
     <string name="noExternalStoragePermissionError">在导入导出前需要获得外部储存权限</string>
     <string name="exporting">导出中…</string>
     <string name="importing">导入中…</string>
-    <string name="exportFailed">无法导出卡片</string>
+    <string name="exportFailed">无法导出卡片: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">导出失败</string>
     <string name="exportSuccessfulTitle">导出成功</string>
-    <string name="importFailed">无法导入卡片</string>
+    <string name="importFailed">无法导入卡片: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">导入失败</string>
     <string name="importSuccessfulTitle">导入成功</string>
     <string name="importExportHelp">备份卡片后你可以让你将它们转移到其他设备。</string>

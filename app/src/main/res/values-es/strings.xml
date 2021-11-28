@@ -28,10 +28,10 @@
     <string name="importExportHelp">El respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falló la importación</string>
-    <string name="importFailed">No se han podido importar tarjetas</string>
+    <string name="importFailed">No se han podido importar tarjetas: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exportado</string>
     <string name="exportFailedTitle">Falló la exportación</string>
-    <string name="exportFailed">No se han podido exportar las tarjetas</string>
+    <string name="exportFailed">No se han podido exportar las tarjetas: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
     <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar tarjetas</string>

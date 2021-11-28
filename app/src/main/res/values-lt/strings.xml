@@ -19,8 +19,8 @@
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importFailed">Nepavyko importuoti kortelių</string>
-    <string name="exportFailed">Nepavyko eksportuoti kortelių</string>
+    <string name="importFailed">Nepavyko importuoti kortelių: <xliff:g>%s</xliff:g></string>
+    <string name="exportFailed">Nepavyko eksportuoti kortelių: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importuoja…</string>
     <string name="exporting">Eksportuoja…</string>
     <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>

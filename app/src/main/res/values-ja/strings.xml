@@ -92,7 +92,7 @@
     <string name="noExternalStoragePermissionError">カードをインポート/エクスポートするために外部ストレージへのアクセスを許可してください</string>
     <string name="exporting">エクスポート中…</string>
     <string name="importing">インポート中…</string>
-    <string name="exportFailed">カードをエクスポートできませんでした</string>
+    <string name="exportFailed">カードをエクスポートできませんでした: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">エクスポートに失敗しました</string>
     <string name="exportSuccessfulTitle">エクスポートしました</string>
     <string name="sameAsCardId">カード番号に合わせる</string>
@@ -100,7 +100,7 @@
     <string name="importVoucherVaultMessage">Voucher Vaultでエクスポートした <i>vouchervault.json</i>ファイルを選択してください。
 \nファイルがない場合、Voucher Vaultでファイルをエクスポートしてください。</string>
     <string name="importVoucherVault">Voucher Vaultからインポート</string>
-    <string name="importFailed">カードをインポートできません</string>
+    <string name="importFailed">カードをインポートできません: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">インポートに失敗しました</string>
     <string name="importSuccessfulTitle">インポートしました</string>
     <string name="importExportHelp">カードをバックアップすると、他のデバイスにカードを移すことができます。</string>

@@ -104,10 +104,10 @@
     <string name="exportOptionExplanation">Tiedot kirjoitetaan valitsemaasi sijaintiin.</string>
     <string name="exporting">Viedään…</string>
     <string name="importing">Tuodaan…</string>
-    <string name="exportFailed">Kortteja ei voitu viedä</string>
+    <string name="exportFailed">Kortteja ei voitu viedä: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">Vienti epäonnistui</string>
     <string name="exportSuccessfulTitle">Vienti valmis</string>
-    <string name="importFailed">Kortteja ei voitu tuoda</string>
+    <string name="importFailed">Kortteja ei voitu tuoda: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">Tuonti epäonnistui</string>
     <string name="importSuccessfulTitle">Tuonti valmis</string>
     <string name="importExportHelp">Varmuuskopioimalla korttisi, voit siirtää ne toiseen laitteeseen.</string>

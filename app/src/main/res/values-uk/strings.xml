@@ -111,10 +111,10 @@
     <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту чи експорту карток</string>
     <string name="exporting">Експортуємо…</string>
     <string name="importing">Імпортуємо…</string>
-    <string name="exportFailed">Неможливо експортувати картки</string>
+    <string name="exportFailed">Неможливо експортувати картки: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">Помилка експорту</string>
     <string name="exportSuccessfulTitle">Експортовано</string>
-    <string name="importFailed">Неможливо імпортувати картки</string>
+    <string name="importFailed">Неможливо імпортувати картки: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">Помилка імпорту</string>
     <string name="importSuccessfulTitle">Імпортовано</string>
     <string name="importExportHelp">Створення резервної копії ваших карток дозволяє перемістити їх до іншого пристрою.</string>

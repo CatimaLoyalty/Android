@@ -65,8 +65,8 @@
     <string name="importOptionFilesystemExplanation">Elektu specifa dosiero de la dosiersistemo.</string>
     <string name="exportOptionExplanation">La datumoj estos skribita al loko de via elekto.</string>
     <string name="noExternalStoragePermissionError">Grant ekstera stokado permeso de importado aŭ eksportado kartoj unua</string>
-    <string name="exportFailed">Ne povis eksporti kartoj</string>
-    <string name="importFailed">Ne povis importi kartoj</string>
+    <string name="exportFailed">Ne povis eksporti kartoj: <xliff:g>%s</xliff:g></string>
+    <string name="importFailed">Ne povis importi kartoj: <xliff:g>%s</xliff:g></string>
     <string name="importExportHelp">Subtenanta supre vian kartoj permesas vin movi ilin al alia aparato.</string>
     <string name="failedParsingImportUriError">Ne eblis analizi la importado URI</string>
     <string name="noCardExistsError">Ne eblis trovi karto</string>

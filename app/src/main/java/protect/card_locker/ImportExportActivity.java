@@ -1,7 +1,10 @@
 package protect.card_locker;
 
 import android.Manifest;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +25,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.FileInputStream;
@@ -53,6 +57,12 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private ActivityResultLauncher<Intent> filePickerLauncher;
 
     final private TaskHandler mTasks = new TaskHandler();
+
+    private NotificationManager mNotifyManager;
+    private NotificationCompat.Builder mBuilder;
+
+    private static final int NOTIFICATION_IMPORT = 1;
+    private static final int NOTIFICATION_EXPORT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +104,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             try {
                 OutputStream writer = getContentResolver().openOutputStream(uri);
                 Log.e(TAG, "Starting file export with: " + result.toString());
-                startExport(writer, uri, exportPassword.toCharArray(), true);
+                startExport(writer, uri, exportPassword != null ? exportPassword.toCharArray() : null, true);
             } catch (IOException e) {
                 Log.e(TAG, "Failed to export file: " + result.toString(), e);
                 onExportComplete(ImportExportResult.GenericFailure, uri);
@@ -256,45 +266,80 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         builder.show();
     }
 
+    private void startProgressNotification(boolean importing) {
+        mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mBuilder = new NotificationCompat.Builder(this, NotificationType.getImportExportChannel(this));
+        mBuilder.setContentTitle(getString(importing ? R.string.importing : R.string.exporting))
+                .setContentText(null)
+                .setSmallIcon(R.drawable.ic_import_export_white_24dp)
+                .setColor(getThemeColor())
+                .setProgress(0, 0, true);
+        mNotifyManager.notify(importing ? NOTIFICATION_IMPORT : NOTIFICATION_EXPORT, mBuilder.build());
+    }
+
+    private void endProgressNotification(boolean importing, ImportExportResult result, PendingIntent sendIntent) {
+        String notificationTitle;
+        String notificationMessage;
+
+        if (result.equals(ImportExportResult.Success)) {
+            notificationTitle = getString(importing ? R.string.importSuccessfulTitle : R.string.exportSuccessfulTitle);
+            notificationMessage = getString(importing ? R.string.importSuccessful : R.string.exportSuccessful);
+        } else {
+            int reason = R.string.unknown_failure;
+            if (result.equals(ImportExportResult.BadPassword)) {
+                reason = R.string.incorrect_password;
+            }
+
+            notificationTitle = getString(importing ? R.string.importFailedTitle : R.string.exportFailedTitle);
+            notificationMessage = String.format(getString(importing ? R.string.importFailed : R.string.exportFailed), getString(reason));
+        }
+
+        mBuilder.setContentTitle(notificationTitle)
+                .setContentText(notificationMessage)
+                .setProgress(0,0, false);
+
+        if (sendIntent != null) {
+            mBuilder.addAction(R.drawable.ic_share, getString(R.string.sendLabel), sendIntent);
+        }
+
+        mNotifyManager.notify(importing ? NOTIFICATION_IMPORT : NOTIFICATION_EXPORT, mBuilder.build());
+    }
+
     private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password, final boolean closeWhenDone) {
         mTasks.flushTaskList(TaskHandler.TYPE.IMPORT, true, false, false);
-        ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener() {
-            @Override
-            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat) {
-                onImportComplete(result, targetUri, dataFormat);
-                if (closeWhenDone) {
-                    try {
-                        target.close();
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+        ImportExportTask.TaskCompleteListener listener = (result, dataFormat1) -> {
+            onImportComplete(result, targetUri, dataFormat1);
+            if (closeWhenDone) {
+                try {
+                    target.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
                 dataFormat, target, password, listener);
+        startProgressNotification(true);
         mTasks.executeTask(TaskHandler.TYPE.IMPORT, importExporter);
     }
 
     private void startExport(final OutputStream target, final Uri targetUri, char[] password, final boolean closeWhenDone) {
         mTasks.flushTaskList(TaskHandler.TYPE.EXPORT, true, false, false);
-        ImportExportTask.TaskCompleteListener listener = new ImportExportTask.TaskCompleteListener() {
-            @Override
-            public void onTaskComplete(ImportExportResult result, DataFormat dataFormat) {
-                onExportComplete(result, targetUri);
-                if (closeWhenDone) {
-                    try {
-                        target.close();
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+        ImportExportTask.TaskCompleteListener listener = (result, dataFormat) -> {
+            onExportComplete(result, targetUri);
+            if (closeWhenDone) {
+                try {
+                    target.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
             }
         };
 
         importExporter = new ImportExportTask(ImportExportActivity.this,
                 DataFormat.Catima, target, password, listener);
+        startProgressNotification(false);
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, importExporter);
     }
 
@@ -358,72 +403,27 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void onImportComplete(ImportExportResult result, Uri path, DataFormat dataFormat) {
+        endProgressNotification(true, result, null);
+
         if (result == ImportExportResult.BadPassword) {
             retryWithPassword(dataFormat, path);
-            return;
         }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        int messageId;
-
-        if (result == ImportExportResult.Success) {
-            builder.setTitle(R.string.importSuccessfulTitle);
-            messageId = R.string.importSuccessful;
-        } else {
-            builder.setTitle(R.string.importFailedTitle);
-            messageId = R.string.importFailed;
-        }
-
-        final String message = getResources().getString(messageId);
-
-        builder.setMessage(message);
-        builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.create().show();
     }
 
     private void onExportComplete(ImportExportResult result, final Uri path) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        int messageId;
+        PendingIntent pendingIntent = null;
 
         if (result == ImportExportResult.Success) {
-            builder.setTitle(R.string.exportSuccessfulTitle);
-            messageId = R.string.exportSuccessful;
-        } else {
-            builder.setTitle(R.string.exportFailedTitle);
-            messageId = R.string.exportFailed;
+            Intent sendIntent = new Intent(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_STREAM, path);
+            sendIntent.setType("text/csv");
+
+            // set flag to give temporary permission to external app to use the FileProvider
+            sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            pendingIntent = PendingIntent.getActivity(this, NOTIFICATION_EXPORT, sendIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         }
 
-        final String message = getResources().getString(messageId);
-
-        builder.setMessage(message);
-        builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
-
-        if (result == ImportExportResult.Success) {
-            final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
-
-            builder.setPositiveButton(sendLabel, (dialog, which) -> {
-                Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_STREAM, path);
-                sendIntent.setType("text/csv");
-
-                // set flag to give temporary permission to external app to use the FileProvider
-                sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                ImportExportActivity.this.startActivity(Intent.createChooser(sendIntent,
-                        sendLabel));
-
-                dialog.dismiss();
-            });
-        }
-
-        builder.create().show();
+        endProgressNotification(false, result, pendingIntent);
     }
 }

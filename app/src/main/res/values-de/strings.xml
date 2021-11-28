@@ -32,10 +32,10 @@
     <string name="importExportHelp">Durch das Sichern deiner Karten kannst du sie auf ein anderes Gerät übertragen.</string>
     <string name="importSuccessfulTitle">Importiert</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
-    <string name="importFailed">Karten konnten nicht importiert werden</string>
+    <string name="importFailed">Karten konnten nicht importiert werden: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exportiert</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportFailed">Karten konnten nicht exportiert werden</string>
+    <string name="exportFailed">Karten konnten nicht exportiert werden: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
     <string name="noExternalStoragePermissionError">Erlaube Speicherzugriff um Karten zu importieren oder exportieren</string>

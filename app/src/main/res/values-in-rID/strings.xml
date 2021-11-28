@@ -90,10 +90,10 @@
     <string name="exportName">Ekspor</string>
     <string name="importSuccessfulTitle">Sudah diimpor</string>
     <string name="importFailedTitle">Impor gagal</string>
-    <string name="importFailed">Tidak dapat mengimpor kartu</string>
+    <string name="importFailed">Tidak dapat mengimpor kartu: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Sudah diekspor</string>
     <string name="exportFailedTitle">Ekspor gagal</string>
-    <string name="exportFailed">Tidak dapat mengekspor kartu</string>
+    <string name="exportFailed">Tidak dapat mengekspor kartu: <xliff:g>%s</xliff:g></string>
     <string name="importing">Mengimpor…</string>
     <string name="exporting">Mengekspor…</string>
     <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor kartu terlebih dahulu</string>

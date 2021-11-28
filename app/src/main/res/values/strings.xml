@@ -60,10 +60,10 @@
     <string name="importExportHelp">Backing up your cards allows you to move them to another device.</string>
     <string name="importSuccessfulTitle">Imported</string>
     <string name="importFailedTitle">Import failed</string>
-    <string name="importFailed">Could not import cards</string>
+    <string name="importFailed">Could not import cards: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exported</string>
     <string name="exportFailedTitle">Export failed</string>
-    <string name="exportFailed">Could not export cards</string>
+    <string name="exportFailed">Could not export cards: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export cards first</string>
@@ -255,4 +255,7 @@
     <string name="report_error">Report Error</string>
     <string name="action_show_details">Show details</string>
     <string name="action_hide_details">Hide details</string>
+    <string name="unknown_failure">Unknown failure</string>
+    <string name="incorrect_password">Incorrect password</string>
+    <string name="importExportDescription">Notifications about importing or exporting card data</string>
 </resources>

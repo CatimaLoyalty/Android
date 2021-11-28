@@ -34,10 +34,10 @@
     <string name="importExportHelp">Door je kaarten te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
-    <string name="importFailed">Het importeren is mislukt</string>
+    <string name="importFailed">Het importeren is mislukt: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Exporteren voltooid</string>
     <string name="exportFailedTitle">Exporteren mislukt</string>
-    <string name="exportFailed">Het exporteren is mislukt</string>
+    <string name="exportFailed">Het exporteren is mislukt: <xliff:g>%s</xliff:g></string>
     <string name="importing">Bezig met importeren…</string>
     <string name="exporting">Bezig met exporteren…</string>
     <string name="noExternalStoragePermissionError">Verleen het recht ‘externe opslag’ om kaarten te kunnen im- of exporteren</string>

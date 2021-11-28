@@ -34,10 +34,10 @@
     <string name="importExportHelp">Резервное копирование карт позволяет перенести их на другое устройство.</string>
     <string name="importSuccessfulTitle">Импортировано</string>
     <string name="importFailedTitle">Импорт не выполнен</string>
-    <string name="importFailed">Невозможно импортировать карты</string>
+    <string name="importFailed">Невозможно импортировать карты: <xliff:g>%s</xliff:g></string>
     <string name="exportSuccessfulTitle">Экспортировано</string>
     <string name="exportFailedTitle">Экспорт не выполнен</string>
-    <string name="exportFailed">Невозможно экспортировать карты</string>
+    <string name="exportFailed">Невозможно экспортировать карты: <xliff:g>%s</xliff:g></string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
     <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>

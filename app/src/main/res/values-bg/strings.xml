@@ -106,9 +106,9 @@
     <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>
     <string name="exporting">Изнасяне…</string>
-    <string name="exportFailed">Картите не могат да бъдат изнесени</string>
+    <string name="exportFailed">Картите не могат да бъдат изнесени: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">Грешка при изнасяне</string>
-    <string name="importFailed">Картите не могат да бъдат внесени</string>
+    <string name="importFailed">Картите не могат да бъдат внесени: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">Грешка при внасяне</string>
     <string name="exportSuccessfulTitle">Резултат от изнасяне</string>
     <string name="importSuccessfulTitle">Резултат от внасяне</string>

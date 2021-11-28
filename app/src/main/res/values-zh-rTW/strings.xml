@@ -56,7 +56,7 @@
     <string name="expiryDate">逾期日期</string>
     <string name="expiryStateSentence">逾期於：<xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">已逾期：<xliff:g>%s</xliff:g></string>
-    <string name="exportFailed">無法匯出卡片</string>
+    <string name="exportFailed">無法匯出卡片: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">匯出失敗</string>
     <string name="exporting">匯出中…</string>
     <string name="exportName">匯出</string>
@@ -73,7 +73,7 @@
     <string name="help_translate_this_app">幫助翻譯本程式</string>
     <string name="importExport">匯入/匯出</string>
     <string name="importFailedTitle">匯入失敗</string>
-    <string name="importFailed">無法匯入卡片</string>
+    <string name="importFailed">無法匯入卡片: <xliff:g>%s</xliff:g></string>
     <string name="importing">匯入中…</string>
     <string name="importSuccessfulTitle">已匯入</string>
     <string name="intent_import_card_from_url_share_multiple_text">我想要分享些卡片給你</string>

@@ -134,10 +134,10 @@
     <string name="noExternalStoragePermissionError">Kartları içe veya dışa aktarmak için önce harici depolama izni verin</string>
     <string name="exporting">Dışa aktarılıyor…</string>
     <string name="importing">İçe aktarılıyor…</string>
-    <string name="exportFailed">Kartlar dışa aktarılamadı</string>
+    <string name="exportFailed">Kartlar dışa aktarılamadı: <xliff:g>%s</xliff:g></string>
     <string name="exportFailedTitle">Dışa aktarılamadı</string>
     <string name="exportSuccessfulTitle">Dışa aktarıldı</string>
-    <string name="importFailed">Kartlar içe aktarılamadı</string>
+    <string name="importFailed">Kartlar içe aktarılamadı: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">İçe aktarılamadı</string>
     <string name="importSuccessfulTitle">İçe aktarıldı</string>
     <string name="importExportHelp">Kartlarınızı yedeklemek, onları başka bir aygıta taşımanıza olanak tanır.</string>

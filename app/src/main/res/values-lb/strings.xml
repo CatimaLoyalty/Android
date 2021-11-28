@@ -22,7 +22,7 @@
     <string name="cardShortcut">Kaart Bréck</string>
     <string name="exportSuccessfulTitle">Exportéieren</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportFailed">Kaarten konnten net exportéiert ginn</string>
+    <string name="exportFailed">Kaarten konnten net exportéiert ginn: <xliff:g>%s</xliff:g></string>
     <string name="importing">Importéieren…</string>
     <string name="importOptionFilesystemTitle">Import aus dem Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wielt eng bestëmmte Datei aus dem Dateisystem.</string>
@@ -59,7 +59,7 @@
     <string name="unsupportedBarcodeType">Dee barcode-Typ kann net ugewise ginn. Et kann zu enger spéiderer Versioun vun der App ënnerstëtzt ginn.</string>
     <string name="yes">Jo</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
-    <string name="importFailed">Kaarten konnten net anere sproochen ginn</string>
+    <string name="importFailed">Kaarten konnten net anere sproochen ginn: <xliff:g>%s</xliff:g></string>
     <string name="exporting">Ausführende…</string>
     <string name="exportOptionExplanation">D \' Donnéeë ginn op eng Plaz vun Hirer Wal geschriwwen.</string>
     <string name="importOptionApplicationExplanation">Benotzen Se eng beliebige App oder Hire bevorzugten Dateimanager, fir eng Datei ze opmaachen.</string>

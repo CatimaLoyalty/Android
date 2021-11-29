@@ -33,7 +33,8 @@
     <dimen name="activity_margin">16dp</dimen>
 
     <!-- The default letter tile text size -->
-    <dimen name="tileLetterFontSize">33sp</dimen>
-    <dimen name="tileLetterFontSizeForShortcut">24dp</dimen>
+    <dimen name="tileLetterFontSize">66sp</dimen>
+    <dimen name="tileLetterFontSizeForShortcut">48dp</dimen>
+    <dimen name="tileLetterImageSize">92dp</dimen>
     <dimen name="cardViewLetterFontSize">100sp</dimen>
 </resources>

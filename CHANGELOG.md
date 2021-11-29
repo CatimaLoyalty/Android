@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 94
+
+- Fix blurriness of main screen letter icons
+
 ## v2.11.0 - 93 (2021-11-28)
 
 - Add Catima to [Quick Access Device Controls](https://developer.android.com/guide/topics/ui/device-control)

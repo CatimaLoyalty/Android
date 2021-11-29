@@ -84,7 +84,7 @@ public class Utils {
             tileLetterFontSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterFontSize);
         }
 
-        int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.cardThumbnailSize);
+        int pixelSize = context.getResources().getDimensionPixelSize(R.dimen.tileLetterImageSize);
 
         if (backgroundColor == null) {
             backgroundColor = LetterBitmap.getDefaultColor(context, store);

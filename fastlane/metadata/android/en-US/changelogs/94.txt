@@ -1,0 +1,1 @@
+- Fix blurriness of main screen letter icons

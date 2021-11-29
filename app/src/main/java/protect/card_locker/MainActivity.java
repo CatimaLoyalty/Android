@@ -168,12 +168,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         public void onDestroyActionMode(ActionMode inputMode) {
             mAdapter.clearSelections();
             mCurrentActionMode = null;
-            mCardList.post(new Runnable() {
-                @Override
-                public void run() {
-                    mAdapter.resetAnimationIndex();
-                }
-            });
         }
     };
 

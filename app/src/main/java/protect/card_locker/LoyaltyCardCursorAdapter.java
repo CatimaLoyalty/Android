@@ -163,34 +163,18 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition) {
         if (mSelectedItems.get(inputPosition, false)) {
             inputHolder.mCardIcon.setVisibility(View.GONE);
-            resetIconYAxis(inputHolder.mTickIcon);
             inputHolder.mTickIcon.setVisibility(View.VISIBLE);
             if (mCurrentSelectedIndex == inputPosition) {
-                LoyaltyCardAnimator.flipView(mContext, inputHolder.mTickIcon, inputHolder.mCardIcon, true);
                 resetCurrentIndex();
             }
         } else {
             inputHolder.mTickIcon.setVisibility(View.GONE);
-            resetIconYAxis(inputHolder.mCardIcon);
             inputHolder.mCardIcon.setVisibility(View.VISIBLE);
             if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition) {
-                LoyaltyCardAnimator.flipView(mContext, inputHolder.mTickIcon, inputHolder.mCardIcon, false);
                 resetCurrentIndex();
             }
         }
     }
-
-    private void resetIconYAxis(View inputView) {
-        if (inputView.getRotationY() != 0) {
-            inputView.setRotationY(0);
-        }
-    }
-
-    public void resetAnimationIndex() {
-        mReverseAllAnimations = false;
-        mAnimationItemsIndex.clear();
-    }
-
 
     public void toggleSelection(int inputPosition) {
         mCurrentSelectedIndex = inputPosition;

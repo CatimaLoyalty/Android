@@ -1,0 +1,2 @@
+- Catima lagt til i hurtigtilgang til kontroller for enheter (https://developer.android.com/guide/topics/ui/device-control)
+- Grupper vises nå riktig i gruppehåndtering

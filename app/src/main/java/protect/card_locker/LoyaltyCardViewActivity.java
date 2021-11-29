@@ -48,6 +48,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.core.widget.TextViewCompat;
@@ -583,8 +584,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Make notification area light if dark icons are needed
         if (Build.VERSION.SDK_INT >= 23) {
             window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        } else {
+            // Darken statusbar if icons won't be visible otherwise
+            window.setStatusBarColor(backgroundNeedsDarkIcons ? ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.15f) : Color.TRANSPARENT);
         }
-        window.setStatusBarColor(Color.TRANSPARENT);
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);

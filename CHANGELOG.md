@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 94
+## v2.11.1 - 94 (2021-11-30)
 
 - Fix blurriness of main screen letter icons
 - Fix icons sometimes disappearing after selection

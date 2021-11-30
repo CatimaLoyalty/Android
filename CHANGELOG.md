@@ -3,6 +3,8 @@
 ## Unreleased - 94
 
 - Fix blurriness of main screen letter icons
+- Fix icons sometimes disappearing after selection
+- Fix status bar icons possibly being invisible on Android 5
 
 ## v2.11.0 - 93 (2021-11-28)
 

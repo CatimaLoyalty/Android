@@ -1,0 +1,3 @@
+- Belirli türdeki bozuk CSV dosyalarını içe aktarırken oluşan çökme düzeltildi. (https://github.com/brarcher/loyalty-card-locker/pull/177)
+- Yedekleri doğrudan dosya sisteminden içe aktarma düzeltildi. (https://github.com/brarcher/loyalty-card-locker/pull/180)
+- Belirli içerik sağlayıcı türlerinden yedekleri içe aktarma düzeltildi. (https://github.com/brarcher/loyalty-card-locker/pull/179)

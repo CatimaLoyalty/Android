@@ -1,0 +1,3 @@
+- Öntanımlı içe/dışa aktarma dosya adı değiştirildi. (https://github.com/brarcher/loyalty-card-locker/pull/84)
+- İçe/dışa aktarma sayfasındaki dizge düzeltildi. (https://github.com/brarcher/loyalty-card-locker/pull/87)
+- Kart görünümü sayfasının düzeni iyileştirildi. Metnin okunması daha kolay olmalı ve uzun bir tıklama ile seçilebilir olmalıdır. https://github.com/brarcher/loyalty-card-locker/pull/91)

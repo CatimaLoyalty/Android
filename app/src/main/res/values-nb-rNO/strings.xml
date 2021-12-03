@@ -158,7 +158,7 @@
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> korten valgt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">

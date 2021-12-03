@@ -3,8 +3,8 @@
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> card selected</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> cards selected</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
     <string name="noGiftCardsGroup">You don\'t have any loyalty cards yet. Once you\'ve added some you can assign them to the group here.</string>

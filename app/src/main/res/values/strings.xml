@@ -7,7 +7,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
     <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
-    <string name="noGiftCardsGroup">If you add some cards you can assign them to this group afterwards.</string>
+    <string name="noGiftCardsGroup">Create some cards first, and then assign them to the group here.</string>
     <string name="noMatchingGiftCards">No results. Try changing your search.</string>
     <string name="storeName">Name</string>
     <string name="note">Note</string>
@@ -29,12 +29,12 @@
          For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
          So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
          In Catima, we use the plain string when meaning exactly 1, and otherwise use the plural forms -->
-    <string name="deleteTitle">Deletion</string>
+    <string name="deleteTitle">Delete card</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Delete <xliff:g>%d</xliff:g> card</item>
         <item quantity="other">Delete <xliff:g>%d</xliff:g> cards</item>
     </plurals>
-    <string name="deleteConfirmation">Delete this permanently?</string>
+    <string name="deleteConfirmation">Delete this card permanently?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Delete this <xliff:g>%d</xliff:g> card permanently?</item>
         <item quantity="other">Delete these <xliff:g>%d</xliff:g> cards permanently?</item>
@@ -67,7 +67,7 @@
     <string name="exportFailed">Could not perform export</string>
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
-    <string name="noExternalStoragePermissionError">Grant external storage permission to import or export first</string>
+    <string name="noExternalStoragePermissionError">Grant external storage permission to import or export cards first</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>

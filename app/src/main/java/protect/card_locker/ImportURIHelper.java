@@ -197,6 +197,7 @@ public class ImportURIHelper {
         sendIntent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);
+        shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(shareIntent);
     }
 }

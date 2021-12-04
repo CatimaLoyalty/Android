@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.11.2 - 95 (2021-12-04)
+
+- Fix crash on sharing card
+
 ## v2.11.1 - 94 (2021-11-30)
 
 - Fix blurriness of main screen letter icons

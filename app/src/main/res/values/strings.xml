@@ -6,8 +6,8 @@
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
-    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu first.</string>
-    <string name="noGiftCardsGroup">Create some cards first, and then assign them to the group here.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu.</string>
+    <string name="noGiftCardsGroup">Create some cards, and then assign them to the group here.</string>
     <string name="noMatchingGiftCards">No results. Try changing your search.</string>
     <string name="storeName">Name</string>
     <string name="note">Note</string>
@@ -67,7 +67,7 @@
     <string name="exportFailed">Could not perform export</string>
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
-    <string name="noExternalStoragePermissionError">Grant external storage permission to import or export cards first</string>
+    <string name="noExternalStoragePermissionError">Grant external storage permission to import or export data</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
@@ -126,7 +126,7 @@
     <string name="enter_group_name">Enter group name</string>
     <string name="groups">Groups</string>
     <string name="group_edit">Edit Group</string>
-    <string name="noGroups">Click the + plus button to add groups for categorization first.</string>
+    <string name="noGroups">Click the + plus button to add groups for categorization.</string>
     <string name="noGroupCards">This group is empty</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> card</item>
@@ -191,8 +191,8 @@
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
     <string name="copy_to_clipboard_multiple_toast">IDs copied to clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
-    <string name="frontImageDescription">Frontside picture</string>
-    <string name="backImageDescription">Backside picture</string>
+    <string name="frontImageDescription">Front-side image</string>
+    <string name="backImageDescription">Reverse-side image</string>
     <string name="photos">Photos</string>
     <string name="setFrontImage">Set front image</string>
     <string name="setBackImage">Set reverse side image</string>
@@ -241,7 +241,7 @@
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>
     <string name="sort_by_balance">Balance</string>
-    <string name="reverse">Reverse</string>
+    <string name="reverse">Reversed order</string>
     <string name="sort_by">Sort by</string>
     <string name="version_history">Version History</string>
     <string name="arrow" translatable="false"><![CDATA[>]]></string>

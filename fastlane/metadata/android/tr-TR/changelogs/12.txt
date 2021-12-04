@@ -1,0 +1,1 @@
+- İlk çalıştırma giriş sihirbazında ekranı döndürürken oluşan çökmeyi önle.

@@ -196,7 +196,7 @@
     <string name="rate_this_app">このアプリを評価する</string>
     <string name="on_github">GitHub</string>
     <string name="source_repository">ソースリポジトリ</string>
-    <string name="exportPassword">パスワードを設定してエクスポートしたファイルを保護する(任意)</string>
+    <string name="exportPassword">パスワードを設定する(不要なら空欄)</string>
     <string name="exportPasswordHint">パスワードを入力してください</string>
     <string name="version_history">更新履歴</string>
     <string name="credits">貢献者</string>
@@ -206,4 +206,13 @@
     <string name="report_error">エラーを報告する</string>
     <string name="reverse">逆順</string>
     <string name="and_data_usage">and data usage</string>
+    <string name="group_updated">グループを更新しました</string>
+    <string name="editGroup">グループ編集: <xliff:g>%s</xliff:g></string>
+    <string name="action_show_details">詳細を表示</string>
+    <string name="action_hide_details">詳細を非表示</string>
+    <string name="selectColor">色を選択</string>
+    <string name="setIcon">アイコン設定</string>
+    <string name="group_edit">グループ編集</string>
+    <string name="group_name_already_in_use">このグループ名は既に使用されています</string>
+    <string name="group_name_is_empty">グループ名を入力してください</string>
 </resources>

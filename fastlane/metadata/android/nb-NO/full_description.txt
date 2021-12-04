@@ -8,7 +8,7 @@ Med dette essensielle verktøyet kan du erstatte unyttig plast med kontanter.
 - Unngå spionasje med veldig få tilganger. Ingen tilgang til Internett, og ingen reklame.
 - Legg til kort eller koder med navn og egne farger.
 - Manuell kodeinnskriving hvis det ikke er noen strekkode å lagre, eller den ikke kan brukes.
-- Importer kort og koder fra filer ,Catima, FidMe, Kundekortknippe, Stocard og Voucher Vault.
+- Importer kort og koder fra filer, Catima, FidMe, Kundekortknippe, Stocard og Voucher Vault.
 - Lag en sikkerhetskopi av alle kortene dine og overfør dem til en ny enhet hvis du ønsker det.
 - Del kupponger, eksklusive tilbud, promokoder eller kort og koder ved bruk av ethvert program.
 - Mørk drakt og tilgjengelighetsvalg for synshemmede brukere.

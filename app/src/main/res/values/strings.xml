@@ -192,10 +192,10 @@
     <string name="copy_to_clipboard_multiple_toast">IDs copied to clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
     <string name="frontImageDescription">Front-side image</string>
-    <string name="backImageDescription">Reverse-side image</string>
+    <string name="backImageDescription">Back-side image</string>
     <string name="photos">Photos</string>
     <string name="setFrontImage">Set front image</string>
-    <string name="setBackImage">Set reverse-side image</string>
+    <string name="setBackImage">Set back-side image</string>
     <string name="removeImage">Remove image</string>
     <string name="takePhoto">Take a photo</string>
     <string name="updateBarcodeQuestionTitle">Update barcode value?</string>

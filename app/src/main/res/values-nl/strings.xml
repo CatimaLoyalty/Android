@@ -161,8 +161,8 @@
     <string name="turn_flashlight_off">Zaklamp uitzetten</string>
     <string name="turn_flashlight_on">Zaklamp aanzetten</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> kaart geselecteerd</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kaarten geselecteerd</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> geselecteerd</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> geselecteerd</item>
     </plurals>
     <string name="deleteTitle">Kaart verwijderen</string>
     <plurals name="deleteCardsTitle">

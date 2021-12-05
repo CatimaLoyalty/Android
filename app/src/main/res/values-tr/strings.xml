@@ -186,8 +186,8 @@
     <string name="noMatchingGiftCards">Hiçbir şey bulunamadı. Aramanızı değiştirmeyi deneyin.</string>
     <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya önce ⋮ menüsünden birkaçını içe aktarın.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> kart seçildi</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kart seçildi</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> seçildi</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> seçildi</item>
     </plurals>
     <string name="action_add">Ekle</string>
     <string name="action_search">Ara</string>

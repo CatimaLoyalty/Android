@@ -161,8 +161,8 @@
     <string name="turn_flashlight_on">Allumer la lampe de poche</string>
     <string name="failedGeneratingShareURL">Impossible de générer une URL partageable. Veuillez signaler ceci.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> carte sélectionnée</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> cartes sélectionnées</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> sélectionnée</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> sélectionnées</item>
     </plurals>
     <string name="deleteTitle">Supprimer la carte</string>
     <string name="deleteConfirmation">Supprimer cette carte \?</string>

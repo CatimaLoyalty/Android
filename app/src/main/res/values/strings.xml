@@ -241,7 +241,8 @@
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>
     <string name="sort_by_balance">Balance</string>
-    <string name="reverse">Reversed order</string>
+    <!-- \"Reversed order\" is also OK. This is an option in the card sorting list -->
+    <string name="reverse">…in reversed order</string>
     <string name="sort_by">Sort by</string>
     <string name="version_history">Version History</string>
     <string name="arrow" translatable="false"><![CDATA[>]]></string>

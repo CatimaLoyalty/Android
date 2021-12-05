@@ -195,7 +195,7 @@
     <string name="backImageDescription">Reverse-side image</string>
     <string name="photos">Photos</string>
     <string name="setFrontImage">Set front image</string>
-    <string name="setBackImage">Set reverse side image</string>
+    <string name="setBackImage">Set reverse-side image</string>
     <string name="removeImage">Remove image</string>
     <string name="takePhoto">Take a photo</string>
     <string name="updateBarcodeQuestionTitle">Update barcode value?</string>

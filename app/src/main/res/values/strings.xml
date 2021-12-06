@@ -257,4 +257,5 @@
     <string name="report_error">Report Error</string>
     <string name="action_show_details">Show details</string>
     <string name="action_hide_details">Hide details</string>
+    <string name="translate_platform">on hosted Weblate</string>
 </resources>

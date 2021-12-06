@@ -163,10 +163,10 @@
     <string name="turn_flashlight_off">Отключить вспышку</string>
     <string name="turn_flashlight_on">Включить вспышку</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Выбрано: <xliff:g>%d</xliff:g> карта</item>
-        <item quantity="few">Выбрано: <xliff:g>%d</xliff:g> карты</item>
-        <item quantity="many">Выбрано: <xliff:g>%d</xliff:g> карт</item>
-        <item quantity="other">Выбрано: <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; выбрана</item>
+        <item quantity="few">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; выбраны</item>
+        <item quantity="many">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; выбрано</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; выбрано</item>
     </plurals>
     <string name="deleteTitle">Удаление карты</string>
     <string name="deleteConfirmation">Удалить карту\?</string>

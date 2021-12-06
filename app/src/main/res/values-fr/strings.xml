@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Ajouter</string>
-    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez les depuis le menu ⋮</string>
+    <string name="noGiftCards">Cliquez sur le bouton + plus pour ajouter une carte, ou importez les depuis le menu ⋮.</string>
     <string name="storeName">Nom</string>
     <string name="note">Notes</string>
     <string name="cardId">Numéro</string>
@@ -66,7 +66,7 @@
     <string name="exportOptionExplanation">Les données seront exportées vers l\'emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
     <string name="share">Partager</string>
-    <string name="barcodeNoBarcode">Cette carte n\'a pas de code-barres</string>
+    <string name="barcodeNoBarcode">Il n\'y a pas de code-barres</string>
     <string name="barcodeType">Type de code-barres</string>
     <string name="noMatchingGiftCards">Aucun résultat. Essayez de modifier votre recherche.</string>
     <string name="action_search">Rechercher</string>
@@ -211,7 +211,7 @@
     <string name="exportPassword">Définissez un mot de passe pour protéger vos exportations (facultatif)</string>
     <string name="exportPasswordHint">Entrez le mot de passe</string>
     <string name="editGroup">Modification du groupe : <xliff:g> %s </xliff:g></string>
-    <string name="noGiftCardsGroup">Vous n\'avez pas encore de cartes de fidélité. Une fois que vous en aurez ajouté, vous pourrez les affecter au groupe ici.</string>
+    <string name="noGiftCardsGroup">Créez des cartes, puis affectez-les au groupe ici.</string>
     <string name="group_edit">Modifier le groupe</string>
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
     <string name="group_updated">Groupe mis à jour</string>

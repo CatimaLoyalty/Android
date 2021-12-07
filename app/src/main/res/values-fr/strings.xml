@@ -220,4 +220,5 @@
     <string name="selectColor">Sélectionnez la couleur</string>
     <string name="action_show_details">Afficher les détails</string>
     <string name="action_hide_details">Masquer les détails</string>
+    <string name="translate_platform">sur Weblate</string>
 </resources>

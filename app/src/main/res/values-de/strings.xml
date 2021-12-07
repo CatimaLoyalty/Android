@@ -3,7 +3,7 @@
     <string name="action_search">Suchen</string>
     <string name="action_add">Hinzufügen</string>
     <string name="noGiftCards">Füge eine Karte mit + hinzu oder importiere welche über das ⋮ Menü.</string>
-    <string name="noMatchingGiftCards">Nichts gefunden. Versuche, deine Suche zu ändern.</string>
+    <string name="noMatchingGiftCards">Keine Ergebnisse. Versuche, deine Suche zu ändern.</string>
     <string name="storeName">Name</string>
     <string name="note">Notiz</string>
     <string name="cardId">Kartennummer</string>
@@ -70,7 +70,7 @@
     <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Die Import-URI konnte nicht verarbeitet werden</string>
     <string name="share">Teilen</string>
-    <string name="barcodeNoBarcode">Diese Karte hat keinen Barcode</string>
+    <string name="barcodeNoBarcode">Es gibt keinen Barcode</string>
     <string name="barcodeType">Barcodetyp</string>
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Gruppe löschen?</string>
@@ -142,7 +142,7 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
     <string name="copy_to_clipboard_multiple_toast">Kartennummern in die Zwischenablage kopiert</string>
-    <string name="card_ids_copied">Kartennummer(n) kopiert</string>
+    <string name="card_ids_copied">ID(s) kopiert</string>
     <string name="no">Nein</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Kartennummer geändert. Möchtest du auch den Barcode auf den gleichen Wert ändern\?</string>
@@ -162,8 +162,8 @@
     <string name="turn_flashlight_on">Licht einschalten</string>
     <string name="failedGeneratingShareURL">URL konnte nicht erstellt werden. Bitte melde das an uns.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> Karte ausgewählt</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> Karten ausgewählt</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> ausgewählt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> ausgewählt</item>
     </plurals>
     <string name="deleteTitle">Karte löschen</string>
     <string name="deleteConfirmation">Diese Karte wirklich löschen?</string>
@@ -215,9 +215,10 @@
     <string name="group_updated">Gruppe aktualisiert</string>
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
-    <string name="noGiftCardsGroup">Sie haben noch keine Kundenkarten. Sobald Sie welche hinzugefügt haben, können Sie sie hier der Gruppe zuordnen.</string>
+    <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
     <string name="setIcon">Symbol einstellen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="action_show_details">Details anzeigen</string>
     <string name="action_hide_details">Details ausblenden</string>
+    <string name="translate_platform">auf Weblate</string>
 </resources>

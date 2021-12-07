@@ -8,7 +8,7 @@
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
     <string name="barcodeType">Soort barcode</string>
-    <string name="barcodeNoBarcode">Deze kaart heeft geen barcode</string>
+    <string name="barcodeNoBarcode">Er is geen barcode</string>
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
     <string name="edit">Bewerken</string>
@@ -22,16 +22,16 @@
     <string name="sendLabel">Versturen…</string>
     <string name="editCardTitle">Kaart bewerken</string>
     <string name="addCardTitle">Kaart toevoegen</string>
-    <string name="scanCardBarcode">Scan de barcode van de kaart</string>
+    <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
     <string name="noStoreError">Geen naam ingevoerd</string>
-    <string name="noCardIdError">Geen kaartnummer ingevoerd</string>
+    <string name="noCardIdError">Geen id ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
     <string name="importExport">Importeren/Exporteren</string>
     <string name="exportName">Exporteren</string>
-    <string name="importExportHelp">Door je kaarten te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
+    <string name="importExportHelp">Door je gegevens te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
     <string name="importFailed">Het importeren is mislukt</string>
@@ -40,7 +40,7 @@
     <string name="exportFailed">Het exporteren is mislukt</string>
     <string name="importing">Bezig met importeren…</string>
     <string name="exporting">Bezig met exporteren…</string>
-    <string name="noExternalStoragePermissionError">Verleen het recht ‘externe opslag’ om kaarten te kunnen im- of exporteren</string>
+    <string name="noExternalStoragePermissionError">Verleen het recht ‘externe opslag’ om gegevens te kunnen im- of exporteren</string>
     <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het bestandssysteem.</string>
@@ -56,7 +56,7 @@
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
     <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode of druk op “Deze kaart heeft geen barcode”.</string>
     <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
-    <string name="thumbnailDescription">Miniatuurvoorbeeld van kaart</string>
+    <string name="thumbnailDescription">Miniatuurvoorbeeld</string>
     <string name="settings">Instellingen</string>
     <string name="settings_category_title_ui">Vormgeving</string>
     <string name="settings_theme">Thema</string>
@@ -67,10 +67,10 @@
     <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
-    <string name="importSuccessful">De kaartgegevens zijn geïmporteerd</string>
+    <string name="importSuccessful">De gegevens zijn geïmporteerd</string>
     <string name="deleteConfirmationGroup">Groep verwijderen\?</string>
     <string name="noGroups">Druk op de plusknop (‘+’) om een groep toe te voegen.</string>
-    <string name="exportSuccessful">De kaartgegevens zijn geëxporteerd</string>
+    <string name="exportSuccessful">De gegevens zijn geëxporteerd</string>
     <string name="groups">Groepen</string>
     <string name="enter_group_name">Voer een groepsnaam in</string>
     <string name="starImage">Favoriete ster</string>
@@ -78,7 +78,7 @@
 \ncopyright ©2016–2020 Branden Archer</string>
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
-    <string name="addManually">Kaartnummer handmatig invoeren</string>
+    <string name="addManually">ID handmatig invoeren</string>
     <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je niet wilt opslaan\?</string>
     <string name="leaveWithoutSaveTitle">Afsluiten</string>
     <string name="moveDown">Omlaag verplaatsen</string>
@@ -151,8 +151,8 @@
     <string name="setFrontImage">Voorzijde kiezen</string>
     <string name="setBackImage">Achterzijde kiezen</string>
     <string name="photos">Afbeeldingen</string>
-    <string name="backImageDescription">Achterzijde van de kaart</string>
-    <string name="frontImageDescription">Voorzijde van de kaart</string>
+    <string name="backImageDescription">Achterzijde van kaart</string>
+    <string name="frontImageDescription">Voorzijde van kaart</string>
     <string name="passwordRequired">Voer het wachtwoord in</string>
     <string name="importStocardMessage">Kies het te importeren Stocard-exportbestand genaamd <i>***-sync.zip</i>.
 \nStuur een e-mail naar support@stocardapp.com waarin je vraagt om een exportbestand.</string>
@@ -189,10 +189,10 @@
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="toggleMoreInfo">Meer informatie tonen/verbergen</string>
-    <string name="barcodeImageDescriptionWithType">Afbeelding van de barcode, type <xliff:g>%s</xliff:g></string>
+    <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
     <string name="sort_by">Sorteren op</string>
-    <string name="reverse">Omdraaien</string>
+    <string name="reverse">…in omgekeerde volgorde</string>
     <string name="sort_by_balance">Op saldo</string>
     <string name="sort_by_expiry">Op vervaldatum</string>
     <string name="sort_by_most_recently_used">Op onlangs gebruikt</string>
@@ -214,7 +214,7 @@
     <string name="group_updated">De groep is bijgewerkt</string>
     <string name="group_name_is_empty">Voer een groepsnaam in</string>
     <string name="editGroup">Groep bewerken: <xliff:g>%s</xliff:g></string>
-    <string name="noGiftCardsGroup">Je hebt nog geen klantenkaarten toegevoegd. Voeg kaarten toe om ze hier te kunnen groeperen.</string>
+    <string name="noGiftCardsGroup">Voeg kaarten toe om ze hier te kunnen groeperen.</string>
     <string name="group_edit">Groep bewerken</string>
     <string name="setIcon">Kies een pictogram</string>
     <string name="selectColor">Kies een kleur</string>

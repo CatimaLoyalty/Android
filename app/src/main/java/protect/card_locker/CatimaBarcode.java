@@ -10,6 +10,7 @@ public class CatimaBarcode {
     public static final List<BarcodeFormat> barcodeFormats = Collections.unmodifiableList(Arrays.asList(
             BarcodeFormat.AZTEC,
             BarcodeFormat.CODE_39,
+            BarcodeFormat.CODE_93,
             BarcodeFormat.CODE_128,
             BarcodeFormat.CODABAR,
             BarcodeFormat.DATA_MATRIX,
@@ -25,6 +26,7 @@ public class CatimaBarcode {
     public static final List<String> barcodePrettyNames = Collections.unmodifiableList(Arrays.asList(
             "Aztec",
             "Code 39",
+            "Code 93",
             "Code 128",
             "Codabar",
             "Data Matrix",

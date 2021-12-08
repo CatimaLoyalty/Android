@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 96
+
+- Add CODE 93 support
+
 ## v2.11.2 - 95 (2021-12-04)
 
 - Fix crash on sharing card

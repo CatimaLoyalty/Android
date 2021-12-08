@@ -1,0 +1,1 @@
+- Add CODE 93 support

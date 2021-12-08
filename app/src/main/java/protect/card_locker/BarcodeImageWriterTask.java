@@ -120,6 +120,8 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
                 return "C0C";
             case CODE_39:
                 return "CODE_39";
+            case CODE_93:
+                return "CODE_93";
             case CODE_128:
                 return "CODE_128";
             case EAN_8:

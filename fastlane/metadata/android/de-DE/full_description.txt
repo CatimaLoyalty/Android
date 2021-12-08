@@ -3,13 +3,13 @@ Schluss mit der Suche nach Plastik-Belohnungskarten beim Bezahlen im Geschäft o
 
 Du brauchst keine Geldbörse, oder mach sie federleicht für Wertsachen.
 
-Mit diesem unverzichtbaren (EDC)Werkzeug kannst du nutzloses Plastik durch Bargeld ersetzen.
+Mit diesem unverzichtbaren (EDC) Werkzeug kannst du nutzloses Plastik durch Bargeld ersetzen.
 
 - Vermeide Spionage mit sehr wenigen Berechtigungen. Kein Internetzugang und keine Werbung.
 - Füge Karten oder Codes mit Namen und anpassbaren Farben hinzu.
 - Manuelle Code-Eingabe, wenn kein Barcode gespeichert ist oder nicht funktioniert.
-- Importiere Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Voucher Vault und FidMe.
-- Erstelle ein Backup aller Karten und übertrage diese auf ein neues Gerät, wenn du möchtest.
+- Importiere Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Stocard, Voucher Vault und FidMe.
+- Erstelle ein Backup aller Karten und übertrage diese auf ein neues Gerät.
 - Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und Codes mit jeder Applikation.
 - Dunkler Modus und Zugänglichkeitsoptionen für sehbehinderte Nutzer.
 - Von der Freien-Software-Gemeinschaft für alle Menschen gemacht.
@@ -20,4 +20,3 @@ Mit diesem unverzichtbaren (EDC)Werkzeug kannst du nutzloses Plastik durch Barge
 
 Vereinfache dein Leben und Einkäufe, und verliere nie wieder eine Papierrechung, eine Geschenkkarte für die Bezahlung im Geschäft oder ein Flugticket.
 Habe deine Prämien und Boni immer bei der Hand, und spare unterwegs.
-

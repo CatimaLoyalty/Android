@@ -25,20 +25,20 @@
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
     <string name="noStoreError">Kein Name eingegeben</string>
-    <string name="noCardIdError">Keine Kartennummer angegeben</string>
-    <string name="noCardExistsError">Karte konnte nicht gefunden werden</string>
+    <string name="noCardIdError">Keine ID eingegeben</string>
+    <string name="noCardExistsError">Diese Karte konnte nicht gefunden werden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
-    <string name="importExportHelp">Durch das Sichern deiner Karten kannst du sie auf ein anderes Gerät übertragen.</string>
+    <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen.</string>
     <string name="importSuccessfulTitle">Importiert</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
-    <string name="importFailed">Karten konnten nicht importiert werden</string>
+    <string name="importFailed">Import konnte nicht durchgeführt werden</string>
     <string name="exportSuccessfulTitle">Exportiert</string>
     <string name="exportFailedTitle">Export fehlgeschlagen</string>
-    <string name="exportFailed">Karten konnten nicht exportiert werden</string>
+    <string name="exportFailed">Export konnte nicht durchgeführt werden</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
-    <string name="noExternalStoragePermissionError">Erlaube Speicherzugriff um Karten zu importieren oder exportieren</string>
+    <string name="noExternalStoragePermissionError">Berechtigung für den externen Speicher zum Importieren oder Exportieren von Daten erteilen</string>
     <string name="importOptionFilesystemTitle">Importiere aus dem Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei vom Dateisystem aus.</string>
     <string name="importOptionFilesystemButton">Wähle vom Dateisystem</string>
@@ -51,20 +51,20 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Revisionsinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode auswählen</string>
-    <string name="copy_to_clipboard_toast">Kartennummer in die Zwischenablage kopiert</string>
-    <string name="thumbnailDescription">Vorschaubild für die Karte</string>
+    <string name="copy_to_clipboard_toast">ID in die Zwischenablage kopiert</string>
+    <string name="thumbnailDescription">Vorschaubild</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_display_barcode_max_brightness">Barcodeansicht aufhellen</string>
     <string name="settings_lock_barcode_orientation">Barcoderotation sperren</string>
-    <string name="exportSuccessful">Kartendaten exportiert</string>
-    <string name="importSuccessful">Kartendaten importiert</string>
+    <string name="exportSuccessful">Daten exportiert</string>
+    <string name="importSuccessful">Daten importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>
     <string name="settings_dark_theme">Dunkel</string>
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Farbschema</string>
-    <string name="enterBarcodeInstructions">Gib die Kartennummer ein und wähle entweder den Barcode-Typ unten oder wähle \"Diese Karte hat keinen Barcode\" aus.</string>
+    <string name="enterBarcodeInstructions">Gib die ID ein und wähle unten entweder einen Barcodetyp oder „Es gibt keinen Barcode“.</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
 \nCopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
@@ -75,15 +75,15 @@
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Gruppe löschen?</string>
     <string name="all">Alle</string>
-    <string name="noGroups">Klicke auf das Pluszeichen + um eine Gruppe hinzuzufügen.</string>
-    <string name="noGroupCards">Diese Gruppe hat noch keine Karten</string>
+    <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen.</string>
+    <string name="noGroupCards">Diese Gruppe ist leer</string>
     <string name="groups">Gruppen</string>
     <string name="enter_group_name">Gib einen Gruppennamen ein</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
     <string name="leaveWithoutSaveTitle">Beenden</string>
     <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
     <string name="noBarcode">Kein Barcode</string>
-    <string name="addManually">Kartennummer manuell eingeben</string>
+    <string name="addManually">ID manuell eingeben</string>
     <string name="moveDown">Nach unten verschieben</string>
     <string name="moveUp">Nach oben verschieben</string>
     <plurals name="groupCardCount">
@@ -116,17 +116,17 @@
 \nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
     <string name="privacy_policy">Datenschutzrichtlinie</string>
-    <string name="importVoucherVaultMessage">Wählen Sie Ihren <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
-\nErstellen Sie ihn, indem Sie zuerst auf Export in Voucher Vault drücken.</string>
+    <string name="importVoucherVaultMessage">Wähle deinen <i>vouchervault.json</i>-Export aus Voucher Vault zum Importieren aus.
+\nErstellen Sie ihn, indem du zuerst auf Export in Voucher Vault drückst.</string>
     <string name="importVoucherVault">Aus Voucher Vault importieren</string>
-    <string name="importLoyaltyCardKeychainMessage">Wählen Sie Ihren <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
-\nErstellen Sie ihn über das Menü Import/Export in Loyalty Card Keychain, indem Sie dort zuerst auf Export drücken.</string>
+    <string name="importLoyaltyCardKeychainMessage">Wählen du deinen <i>LoyaltyCardKeychain.csv</i>-Export aus Loyalty Card Keychain zum Importieren aus.
+\nErstelle ihn über das Menü Import/Export in Loyalty Card Keychain, indem du dort zuerst auf Export drückst.</string>
     <string name="importLoyaltyCardKeychain">Aus Loyalty Card Keychain importieren</string>
-    <string name="importFidmeMessage">Wählen Sie Ihren <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wählen Sie anschließend die Strichcodetypen manuell aus.
-\nOder erstellen Sie ihn aus Ihrem FidMe-Profil, indem Sie Datenschutz wählen und dann zuerst auf Meine Daten extrahieren drücken.</string>
+    <string name="importFidmeMessage">Wähle deinen <i>fidme-export-request-xxxxxx.zip</i>-Export aus FidMe zum Importieren aus und wähle anschließend die Strichcodetypen manuell aus.
+\nOder erstelle ihn aus deinem FidMe-Profil, indem du Datenschutz wählst und dann zuerst auf Meine Daten extrahieren drückst.</string>
     <string name="importFidme">Aus FidMe importieren</string>
-    <string name="importCatimaMessage">Wählen Sie Ihren <i>catima.zip</i>-Export aus Catima zum Importieren aus.
-\nErstellen Sie ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem Sie dort zuerst Export drücken.</string>
+    <string name="importCatimaMessage">Wähle deinen <i>catima.zip</i>-Export aus Catima zum Importieren aus.
+\nErstelle ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort zuerst Export drückst.</string>
     <string name="importCatima">Aus Catima importieren</string>
     <string name="setBarcodeId">Manuell eingeben</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
@@ -145,18 +145,18 @@
     <string name="card_ids_copied">Kartennummer(n) kopiert</string>
     <string name="no">Nein</string>
     <string name="yes">Ja</string>
-    <string name="updateBarcodeQuestionText">Kartennummer geändert. Möchtest du auch den Barcode auf den gleichen Wert ändern?</string>
+    <string name="updateBarcodeQuestionText">Kartennummer geändert. Möchtest du auch den Barcode auf den gleichen Wert ändern\?</string>
     <string name="updateBarcodeQuestionTitle">Barcodewert aktualisieren?</string>
     <string name="takePhoto">Foto aufnehmen</string>
     <string name="removeImage">Bild entfernen</string>
     <string name="setBackImage">Kartenrückseite</string>
     <string name="setFrontImage">Kartenvorderseite</string>
     <string name="photos">Fotos</string>
-    <string name="frontImageDescription">Bild der Kartenvorderseite</string>
-    <string name="backImageDescription">Bild der Kartenrückseite</string>
+    <string name="frontImageDescription">Bild auf der Vorseite</string>
+    <string name="backImageDescription">Bild auf der Rückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
-    <string name="importStocardMessage">Wählen Sie Ihren <i>***-sync.zip</i>-Export aus Stocard zum Importieren aus.
-\nSie erhalten ihn, indem Sie eine E-Mail an support@stocardapp.com senden und um einen Export Ihrer Daten bitten.</string>
+    <string name="importStocardMessage">Wähle deinen <i>***-sync.zip</i>-Export aus Stocard zum Importieren aus.
+\nSie erhalten ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Licht ausschalten</string>
     <string name="turn_flashlight_on">Licht einschalten</string>
@@ -189,7 +189,7 @@
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="toggleMoreInfo">Umschalten, um weitere Informationen anzuzeigen</string>
-    <string name="barcodeImageDescriptionWithType">Bild des Kartenstrichcodes des Typs <xliff:g>%s</xliff:g></string>
+    <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
     <string name="swipeToSwitchImages">Wischen oder langes Drücken zum Wechseln der Bilder</string>
     <string name="sort_by">Sortieren nach</string>
     <string name="sort_by_balance">Kontostand</string>
@@ -197,7 +197,7 @@
     <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
     <string name="sort_by_name">Name</string>
     <string name="sort">Sortieren</string>
-    <string name="reverse">Umgekehrt</string>
+    <string name="reverse">… in umgekehrter Reihenfolge</string>
     <string name="version_history">Versionshistorie</string>
     <string name="credits">Dank an</string>
     <string name="help_translate_this_app">Hilfe bei der Übersetzung</string>
@@ -208,7 +208,7 @@
     <string name="source_repository">Quellcode</string>
     <string name="on_github">auf GitHub</string>
     <string name="report_error">Fehler melden</string>
-    <string name="exportPassword">Legen Sie ein Passwort fest, um Ihren Export zu schützen (optional)</string>
+    <string name="exportPassword">Lege ein Passwort fest, um deinen Export zu schützen (optional)</string>
     <string name="exportPasswordHint">Passwort eingeben</string>
     <string name="group_name_already_in_use">Der Gruppenname wird bereits verwendet</string>
     <string name="group_name_is_empty">Gruppenname darf nicht leer sein</string>

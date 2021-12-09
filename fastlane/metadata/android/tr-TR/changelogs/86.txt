@@ -1,1 +1,1 @@
-- Boşluklu aramaları iyileştir
+- Boşluklu aramalar iyileştirildi

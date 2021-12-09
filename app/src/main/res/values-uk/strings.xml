@@ -3,13 +3,13 @@
     <string name="privacy_policy_popup_text">Політика конфіденційності (вимагається деякими магазинами):
 \n
 \nЖОДНОЇ ІНФОРМАЦІЇ НЕ ЗБИРАЄТЬСЯ, що може підтвердити будь-хто, адже наша програма це вільне програмне забезпечення.</string>
-    <string name="noGiftCards">Натисніть + щоб додати карту чи спочатку імпортуйте з ⋮ меню.</string>
+    <string name="noGiftCards">Натисніть + щоб додати карту чи імпортуйте з ⋮ меню.</string>
     <string name="settings_display_barcode_max_brightness">Яскравіший штрих-код</string>
-    <string name="enterBarcodeInstructions">Введіть ID карти та оберіть тип штрих-коду чи \"Ця карта не має штрих-коду\".</string>
+    <string name="enterBarcodeInstructions">Введіть ID та оберіть тип штрих-коду чи \"Не має штрих-коду\".</string>
     <string name="selectBarcodeTitle">Оберіть штрих-код</string>
-    <string name="scanCardBarcode">Відсканувати штрих-код карти</string>
+    <string name="scanCardBarcode">Відсканувати штрих-код</string>
     <string name="noBarcode">Без штрих-коду</string>
-    <string name="barcodeNoBarcode">Ця карта не має штрих-коду</string>
+    <string name="barcodeNoBarcode">Штрих-код відсутній</string>
     <string name="barcodeType">Тип штрих-коду</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> картка</item>
@@ -19,12 +19,12 @@
     </plurals>
     <string name="no">НІ</string>
     <string name="yes">Так</string>
-    <string name="updateBarcodeQuestionText">Ви змінили ID картки. Чи ви бажаєте оновити штрих-код для використання цього ж значення\?</string>
+    <string name="updateBarcodeQuestionText">Ви змінили ID. Чи ви бажаєте оновити штрих-код для використання цього ж значення\?</string>
     <string name="updateBarcodeQuestionTitle">Оновити значення штрих-коду\?</string>
     <string name="wrongValueForBarcodeType">Значення не дійсне для обраного типу штрих-коду</string>
     <string name="unsupportedBarcodeType">Цей тип штрих-коду поки що не відображається. Підтримку може бути додано в подальших версіях програми.</string>
     <string name="setBarcodeId">Встановіть значення штрих-коду</string>
-    <string name="sameAsCardId">Таке ж як ID картки</string>
+    <string name="sameAsCardId">Таке ж як ID</string>
     <string name="barcodeId">Значення штрих-коду</string>
     <string name="importVoucherVaultMessage">Оберіть Voucher Vault експорт-файл названий <i>vouchervault.json</i> для імпортування.
 \nСтворіть його натиснувши \"Експорт\" у Voucher Vault.</string>
@@ -34,7 +34,7 @@
     <string name="importCatimaMessage">Оберіть експорт-файл названий <i>catima.zip</i> для імпортування.
 \nСтворіть його з меню імпорту/експорту у іншій Catima, натиснувши \"Експорт\".</string>
     <string name="importLoyaltyCardKeychain">Імпорт з Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів вручну пізніше.
+    <string name="importFidmeMessage">Оберіть FidMe експорт-файл названий <i>fidme-export-request-xxxxxx.zip</i> для імпортування і оберіть типи штрих-кодів.
 \nСтворіть його у вашому FidMe профілі обравши \"Захист даних -&gt; Витяг даних\".</string>
     <string name="importFidme">Імпорт з FidMe</string>
     <string name="importCatima">Імпорт з Catima</string>
@@ -62,7 +62,7 @@
     <string name="expiryStateSentence">Термін дії закінчується: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Групи: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Оберіть зображення з галереї</string>
-    <string name="addManually">Ввести ID карти вручну</string>
+    <string name="addManually">Ввести ID вручну</string>
     <string name="leaveWithoutSaveConfirmation">Вийти без збереження\?</string>
     <string name="leaveWithoutSaveTitle">Вихід</string>
     <string name="moveDown">Посунути донизу</string>
@@ -70,11 +70,11 @@
     <string name="failedOpeningFileManager">Спочатку встановіть файловий менеджер.</string>
     <string name="deleteConfirmationGroup">Видалити групу\?</string>
     <string name="all">Усі</string>
-    <string name="noGroups">Спочатку натисніть + щоб додати групи для категоризації.</string>
+    <string name="noGroups">Натисніть + щоб додати групи для категоризації.</string>
     <string name="groups">Групи</string>
     <string name="enter_group_name">Введіть ім\'я групи</string>
-    <string name="exportSuccessful">Дані картки/карток експортовано</string>
-    <string name="importSuccessful">Дані картки/карток імпортовано</string>
+    <string name="exportSuccessful">Дані експортовано</string>
+    <string name="importSuccessful">Дані імпортовано</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою картою</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
@@ -87,10 +87,10 @@
     <string name="settings_category_title_ui">Інтерфейс користувача</string>
     <string name="settings">Налаштування</string>
     <string name="starImage">Улюблена зірка</string>
-    <string name="thumbnailDescription">Ескіз для карти</string>
+    <string name="thumbnailDescription">Ескіз</string>
     <string name="intent_import_card_from_url_share_multiple_text">Я хочу поділитися деякими картами з тобою</string>
-    <string name="copy_to_clipboard_multiple_toast">ID карток скопійовано до буферу обміну</string>
-    <string name="copy_to_clipboard_toast">ID карти скопійовано до буферу обміну</string>
+    <string name="copy_to_clipboard_multiple_toast">ID скопійовано до буферу обміну</string>
+    <string name="copy_to_clipboard_toast">ID скопійовано до буферу обміну</string>
     <string name="app_resources">Вільні ресурси третіх сторін: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Вільні бібліотеки третіх сторін: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_revision_fmt">Інформація про випуск: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -108,23 +108,23 @@
     <string name="importOptionFilesystemExplanation">Оберіть файл у провіднику.</string>
     <string name="importOptionFilesystemTitle">Імпорт з файлу</string>
     <string name="exportOptionExplanation">Дані буде записано до локації обраної вами.</string>
-    <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту чи експорту карток</string>
+    <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту/експорту даних</string>
     <string name="exporting">Експортуємо…</string>
     <string name="importing">Імпортуємо…</string>
-    <string name="exportFailed">Неможливо експортувати картки</string>
+    <string name="exportFailed">Неможливо здійснити експорт</string>
     <string name="exportFailedTitle">Помилка експорту</string>
     <string name="exportSuccessfulTitle">Експортовано</string>
-    <string name="importFailed">Неможливо імпортувати картки</string>
+    <string name="importFailed">Неможливо здійснити імпорт</string>
     <string name="importFailedTitle">Помилка імпорту</string>
     <string name="importSuccessfulTitle">Імпортовано</string>
-    <string name="importExportHelp">Створення резервної копії ваших карток дозволяє перемістити їх до іншого пристрою.</string>
+    <string name="importExportHelp">Резервна копія даних дозволяє перемістити їх до іншого пристрою.</string>
     <string name="exportName">Експорт</string>
     <string name="importExport">Імпорт/Експорт</string>
     <string name="failedParsingImportUriError">Неможливо опрацювати імпорт-URI</string>
     <string name="noCardExistsError">Карту не знайдено</string>
-    <string name="noCardIdError">ID карти не введено</string>
+    <string name="noCardIdError">ID не введено</string>
     <string name="noStoreError">Ім\'я не введено</string>
-    <string name="card_ids_copied">ID карти скопійовано</string>
+    <string name="card_ids_copied">ID скопійовано</string>
     <string name="noCardsMessage">Спочатку додайте карту</string>
     <string name="cardShortcut">Швидкий виклик карти</string>
     <string name="addCardTitle">Додати карту</string>
@@ -157,30 +157,30 @@
     <string name="setBackImage">Встановити зображення тильної сторони</string>
     <string name="setFrontImage">Встановити зображення лицьової сторони</string>
     <string name="photos">Фото</string>
-    <string name="backImageDescription">Тильна сторона карти</string>
-    <string name="frontImageDescription">Лицьова сторона карти</string>
+    <string name="backImageDescription">Тильна сторона</string>
+    <string name="frontImageDescription">Лицьова сторона</string>
     <string name="importStocardMessage">Виберіть експорт <i> ***-sync.zip </i> зі Stocard для імпорту.
-\nОтримайте його, надіславши електронною поштою support@stocardapp.com з проханням експортувати ваші дані.</string>
+\nОтримайте його, надіславши електронного листа support@stocardapp.com з проханням експортувати ваші дані.</string>
     <string name="importStocard">Імпорт із Stocard</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Обрано: <xliff:g>%d</xliff:g> карта</item>
-        <item quantity="few">Обрано: <xliff:g>%d</xliff:g> карти</item>
-        <item quantity="many">Обрано: <xliff:g>%d</xliff:g> карток</item>
-        <item quantity="other">Обрано: <xliff:g>%d</xliff:g> карток</item>
+        <item quantity="one">Обрано: <xliff:g>%d</xliff:g></item>
+        <item quantity="few">Обрано: <xliff:g>%d</xliff:g></item>
+        <item quantity="many">Обрано: <xliff:g>%d</xliff:g></item>
+        <item quantity="other">Обрано: <xliff:g>%d</xliff:g></item>
     </plurals>
     <string name="deleteTitle">Видалити картку</string>
     <string name="deleteConfirmation">Бажаєте видалити карту\?</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Видалити <xliff:g>%d</xliff:g> картку</item>
         <item quantity="few">Видалити <xliff:g>%d</xliff:g> картки</item>
-        <item quantity="many">Видалити <xliff:g>%d</xliff:g> картки</item>
-        <item quantity="other">Видалити <xliff:g>%d</xliff:g> картки</item>
+        <item quantity="many">Видалити <xliff:g>%d</xliff:g> карток</item>
+        <item quantity="other">Видалити <xliff:g>%d</xliff:g> карток</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Видаліть цю <xliff:g>%d</xliff:g> карту назавжди\?</item>
-        <item quantity="few">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
-        <item quantity="many">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
-        <item quantity="other">Видаліть ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="one">Видалити цю <xliff:g>%d</xliff:g> карту назавжди\?</item>
+        <item quantity="few">Видалити ці <xliff:g>%d</xliff:g> карти назавжди\?</item>
+        <item quantity="many">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
+        <item quantity="other">Видалити ці <xliff:g>%d</xliff:g> карт назавжди\?</item>
     </plurals>
     <string name="settings_blue_theme">Синій</string>
     <string name="settings_violet_theme">Фіолетовий</string>
@@ -195,12 +195,12 @@
     <string name="settings_green_theme">Зелений</string>
     <string name="settings_sky_blue_theme">Небесно-синій</string>
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="noGroupCards">Ця група не містить жодних карток</string>
+    <string name="noGroupCards">Пуста група</string>
     <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
-    <string name="barcodeImageDescriptionWithType">Зображення штрих-коду карти типу <xliff:g>%s</xliff:g></string>
+    <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
     <string name="sort_by">Сортувати за</string>
-    <string name="reverse">Зворотній порядок</string>
+    <string name="reverse">… у зворотному порядку</string>
     <string name="sort_by_balance">Баланс</string>
     <string name="sort_by_expiry">Термін дії</string>
     <string name="sort_by_most_recently_used">Часто використовувані</string>
@@ -223,9 +223,10 @@
     <string name="editGroup">Редагування групи: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Змінити групу</string>
     <string name="group_name_already_in_use">Група з такою назвою вже існує</string>
-    <string name="noGiftCardsGroup">У вас ще немає жодної картки. Коли ви додасте кілька, то зможете призначити їх до групи.</string>
+    <string name="noGiftCardsGroup">Створите кілька карток, та призначте їх до групи тут.</string>
     <string name="selectColor">Вибір кольору</string>
     <string name="setIcon">Вибір іконки</string>
     <string name="action_show_details">Показати деталі</string>
     <string name="action_hide_details">Сховати деталі</string>
+    <string name="translate_platform">на Weblate</string>
 </resources>

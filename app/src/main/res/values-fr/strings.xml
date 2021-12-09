@@ -19,22 +19,22 @@
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
-    <string name="noCardsMessage">Ajoutez d\'abord une carte</string>
+    <string name="noCardsMessage">Ajoutez d’abord une carte</string>
     <string name="noStoreError">Aucun nom saisi</string>
-    <string name="noCardIdError">Aucun numéro de carte saisi</string>
-    <string name="noCardExistsError">Aucune carte trouvée</string>
+    <string name="noCardIdError">Aucun identifiant saisi</string>
+    <string name="noCardExistsError">Impossible de trouver cette carte</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
-    <string name="importExportHelp">Exporter vos cartes vous permet de les récupérer sur un autre appareil.</string>
+    <string name="importExportHelp">La sauvegarde de vos données permet de les déplacer sur un autre appareil.</string>
     <string name="importSuccessfulTitle">Importé</string>
-    <string name="importFailedTitle">Échec de l\'import</string>
-    <string name="importFailed">Impossible d\'importer les cartes</string>
+    <string name="importFailedTitle">Échec de l’import</string>
+    <string name="importFailed">Impossible d’effectuer l’importation</string>
     <string name="exportSuccessfulTitle">Exporté</string>
-    <string name="exportFailedTitle">Échec de l\'export</string>
-    <string name="exportFailed">Impossible d\'exporter les cartes</string>
+    <string name="exportFailedTitle">Échec de l’export</string>
+    <string name="exportFailed">Impossible d’effectuer l’exportation</string>
     <string name="importing">Import …</string>
     <string name="exporting">Export …</string>
-    <string name="noExternalStoragePermissionError">Veuillez autoriser l\'accès au stockage externe avant d\'importer/exporter les données</string>
+    <string name="noExternalStoragePermissionError">Accorder au stockage externe l’autorisation d’importer ou d’exporter des données</string>
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
@@ -47,26 +47,26 @@
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Notes de version : <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
-    <string name="copy_to_clipboard_toast">Numéro de carte copié dans le presse-papier</string>
-    <string name="thumbnailDescription">Miniature de la carte</string>
+    <string name="copy_to_clipboard_toast">Identifiant copié dans le presse-papiers</string>
+    <string name="thumbnailDescription">Miniature</string>
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
-    <string name="settings_lock_barcode_orientation">Verrouiller l\'orientation du code-barres</string>
-    <string name="exportSuccessful">Carte exportée avec succès</string>
-    <string name="importSuccessful">Carte de fidélité importée</string>
+    <string name="settings_lock_barcode_orientation">Verrouiller l’orientation du code-barres</string>
+    <string name="exportSuccessful">Données exportées</string>
+    <string name="importSuccessful">Données importées</string>
     <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
     <string name="settings_dark_theme">Sombre</string>
     <string name="settings_light_theme">Clair</string>
     <string name="settings_system_theme">Système</string>
     <string name="settings_theme">Thème</string>
-    <string name="enterBarcodeInstructions">Entrez l’identifiant de la carte et choisissez le type de code-barres ci-dessous, ou « Cette carte n’a pas de code-barres ».</string>
+    <string name="enterBarcodeInstructions">Entrez l’identifiant, et choisissez un type de code-barres ci-dessous, ou « Il n’y a pas de code-barres ».</string>
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer</string>
-    <string name="exportOptionExplanation">Les données seront exportées vers l\'emplacement de votre choix.</string>
-    <string name="failedParsingImportUriError">Impossible d\'analyser l\'URI d\'importation</string>
+    <string name="exportOptionExplanation">Les données seront exportées vers l’emplacement de votre choix.</string>
+    <string name="failedParsingImportUriError">Impossible d’analyser l’URI d’importation</string>
     <string name="share">Partager</string>
-    <string name="barcodeNoBarcode">Il n\'y a pas de code-barres</string>
+    <string name="barcodeNoBarcode">Il n’y a pas de code-barres</string>
     <string name="barcodeType">Type de code-barres</string>
     <string name="noMatchingGiftCards">Aucun résultat. Essayez de modifier votre recherche.</string>
     <string name="action_search">Rechercher</string>
@@ -82,7 +82,7 @@
     <string name="leaveWithoutSaveConfirmation">Quitter sans enregistrer \?</string>
     <string name="leaveWithoutSaveTitle">Quitter</string>
     <string name="failedOpeningFileManager">Installez d’abord un gestionnaire de fichiers.</string>
-    <string name="addManually">Entrer manuellement l\'identifiant de la carte</string>
+    <string name="addManually">Entrer manuellement l’identifiant</string>
     <string name="moveDown">Descendre</string>
     <string name="moveUp">Monter</string>
     <plurals name="groupCardCount">
@@ -91,7 +91,7 @@
     </plurals>
     <string name="groupsList">Groupes : <xliff:g>%s</xliff:g></string>
     <string name="accept">Accepter</string>
-    <string name="privacy_policy_popup_text">Avis sur la politique de confidentialité (exigé par certains magasins d\'applications) :
+    <string name="privacy_policy_popup_text">Avis sur la politique de confidentialité (exigé par certains magasins d’applications) :
 \n
 \nAUCUNE DONNÉE N’EST COLLECTÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
@@ -101,11 +101,11 @@
     <string name="points">Points</string>
     <string name="currency">Monnaie</string>
     <string name="balance">Solde</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrer le code-barres sur l\'écran</string>
-    <string name="moveBarcodeToTopOfScreen">Déplacez le code-barres vers le haut de l\'écran</string>
-    <string name="chooseExpiryDate">Choisissez la date d\'expiration</string>
+    <string name="moveBarcodeToCenterOfScreen">Centrer le code-barres sur l’écran</string>
+    <string name="moveBarcodeToTopOfScreen">Déplacez le code-barres vers le haut de l’écran</string>
+    <string name="chooseExpiryDate">Choisissez la date d’expiration</string>
     <string name="never">Jamais</string>
-    <string name="expiryDate">Date d\'expiration</string>
+    <string name="expiryDate">Date d’expiration</string>
     <string name="editBarcode">Modifier le code-barres</string>
     <string name="barcode">Code-barres</string>
     <string name="card">Carte</string>
@@ -128,21 +128,21 @@
 \nCréez-la à partir du menu Importer/Exporter d’une autre application Catima en appuyant d’abord sur Exporter.</string>
     <string name="importCatima">Importer depuis Catima</string>
     <string name="addFromImage">Sélectionner dans la galerie</string>
-    <string name="errorReadingImage">Impossible de lire l\'image</string>
-    <string name="noBarcodeFound">Aucun code-barres n\'a été trouvé</string>
+    <string name="errorReadingImage">Impossible de lire l’image</string>
+    <string name="noBarcodeFound">Aucun code-barres n’a été trouvé</string>
     <string name="setBarcodeId">Définir la valeur du code-barres</string>
-    <string name="sameAsCardId">Identique à l’identifiant de la carte</string>
+    <string name="sameAsCardId">Identique à l’identifiant</string>
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="settings_max_font_size_scale">Taille max. de la police</string>
     <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
-    <string name="wrongValueForBarcodeType">La valeur n\'est pas valide pour le type de code-barres sélectionné</string>
+    <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
-    <string name="copy_to_clipboard_multiple_toast">Identifiants des cartes copiés dans le presse-papiers</string>
-    <string name="card_ids_copied">Num. de la carte copié(s)</string>
-    <string name="updateBarcodeQuestionText">Vous avez changé l\'identifiant de la carte. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
+    <string name="copy_to_clipboard_multiple_toast">Identifiants copiés dans le presse-papiers</string>
+    <string name="card_ids_copied">Numéro(s) copié(s)</string>
+    <string name="updateBarcodeQuestionText">Vous avez changé l’identifiant. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
     <string name="no">Non</string>
     <string name="yes">Oui</string>
     <string name="updateBarcodeQuestionTitle">Mettre à jour la valeur du code-barres \?</string>
@@ -151,8 +151,8 @@
     <string name="setBackImage">Définir l’image verso</string>
     <string name="setFrontImage">Définir l’image recto</string>
     <string name="photos">Photos</string>
-    <string name="backImageDescription">Image verso de la carte</string>
-    <string name="frontImageDescription">Image recto de la carte</string>
+    <string name="backImageDescription">Image du verso</string>
+    <string name="frontImageDescription">Image du recto</string>
     <string name="passwordRequired">Veuillez entrer le mot de passe</string>
     <string name="importStocardMessage">Sélectionnez votre exportation <i>***-sync.zip</i> de Stocard pour l’importer.
 \nVous pouvez l’obtenir en envoyant un courriel à support@stocardapp.com pour demander une exportation de vos données.</string>
@@ -187,14 +187,14 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Couleur du thème</string>
     <string name="app_contributors">Rendu possible par : <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="noGroupCards">Ce groupe ne contient pas de cartes</string>
-    <string name="toggleMoreInfo">Activer/désactiver l\'affichage de plus d\'infos</string>
-    <string name="barcodeImageDescriptionWithType">Image du code-barres de la carte de type <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Balayez ou appuyez longuement pour changer d\'image</string>
+    <string name="noGroupCards">Ce groupe est vide</string>
+    <string name="toggleMoreInfo">Activer/désactiver l’affichage de plus d’infos</string>
+    <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> code-barres</string>
+    <string name="swipeToSwitchImages">Balayez ou appuyez longuement pour changer d’image</string>
     <string name="sort">Trier</string>
     <string name="sort_by">Trier par</string>
-    <string name="reverse">Inversé</string>
-    <string name="sort_by_expiry">Date d\'expiration</string>
+    <string name="reverse">… dans l’ordre inverse</string>
+    <string name="sort_by_expiry">Date d’expiration</string>
     <string name="sort_by_most_recently_used">Les plus récemment utilisées</string>
     <string name="sort_by_name">Nom</string>
     <string name="sort_by_balance">Solde</string>
@@ -216,8 +216,9 @@
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
     <string name="group_updated">Groupe mis à jour</string>
     <string name="group_name_is_empty">Le nom du groupe ne peut pas être vide</string>
-    <string name="setIcon">Définir l\'icône</string>
+    <string name="setIcon">Définir l’icône</string>
     <string name="selectColor">Sélectionnez la couleur</string>
     <string name="action_show_details">Afficher les détails</string>
     <string name="action_hide_details">Masquer les détails</string>
+    <string name="translate_platform">sur Weblate</string>
 </resources>

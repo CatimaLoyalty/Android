@@ -7,7 +7,7 @@
     <string name="storeName">Nome</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
-    <string name="barcodeNoBarcode">Questa carta non ha un codice a barre</string>
+    <string name="barcodeNoBarcode">Non c’è un codice a barre</string>
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="edit">Modifica</string>
@@ -21,25 +21,25 @@
     <string name="sendLabel">Invia…</string>
     <string name="editCardTitle">Modifica carta</string>
     <string name="addCardTitle">Aggiungi carta</string>
-    <string name="scanCardBarcode">Scansiona il codice carta</string>
+    <string name="scanCardBarcode">Scansiona il codice</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
     <string name="noCardsMessage">Aggiungi prima una carta</string>
     <string name="noStoreError">Nessun nome inserito</string>
-    <string name="noCardIdError">Nessun codice carta inserito</string>
-    <string name="noCardExistsError">Impossibile trovare la carta</string>
+    <string name="noCardIdError">Nessun codice inserito</string>
+    <string name="noCardExistsError">Impossibile trovare quella carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI</string>
     <string name="importExport">Importa/Esporta</string>
     <string name="exportName">Esporta</string>
-    <string name="importExportHelp">Il backup delle carte ti consente di spostarle su un altro dispositivo.</string>
+    <string name="importExportHelp">Il backup dei dati permette di spostarli su un altro dispositivo.</string>
     <string name="importSuccessfulTitle">Importato</string>
     <string name="importFailedTitle">Importazione fallita</string>
-    <string name="importFailed">Impossibile importare le carte</string>
+    <string name="importFailed">Impossibile eseguire l’importazione</string>
     <string name="exportSuccessfulTitle">Esportato</string>
     <string name="exportFailedTitle">Esportazione fallita</string>
-    <string name="exportFailed">Impossibile esportare le carte</string>
+    <string name="exportFailed">Impossibile eseguire l’esportazione</string>
     <string name="importing">Importazione in corso…</string>
     <string name="exporting">Esportazione in corso…</string>
-    <string name="noExternalStoragePermissionError">Concedi l\'autorizzazione all\'archiviazione esterna per importare o esportare prima le carte</string>
+    <string name="noExternalStoragePermissionError">Concedi il permesso di archiviazione esterna per importare o esportare dati</string>
     <string name="importOptionFilesystemTitle">Importa dall\'archivio</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dall\'archivio.</string>
     <string name="importOptionFilesystemButton">Dall\'archivio</string>
@@ -52,9 +52,9 @@
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g id="app_revision_url"> %s </xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
-    <string name="enterBarcodeInstructions">Inserisci l’ID della carta, e scegli il suo tipo di codice a barre qui sotto, oppure «Questa carta non ha codice a barre».</string>
-    <string name="copy_to_clipboard_toast">Numero della carta copiato negli appunti</string>
-    <string name="thumbnailDescription">Miniatura carta</string>
+    <string name="enterBarcodeInstructions">Inserisci il numero, e scegli un tipo di codice a barre sotto, oppure «Non c\'è un codice a barre».</string>
+    <string name="copy_to_clipboard_toast">Numero copiato negli appunti</string>
+    <string name="thumbnailDescription">Miniatura</string>
     <string name="settings">Impostazioni</string>
     <string name="settings_category_title_ui">Interfaccia utente</string>
     <string name="settings_theme">Tema</string>
@@ -65,7 +65,7 @@
     <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     <string name="exportSuccessful">Dati della carta esportati</string>
-    <string name="importSuccessful">Dati della carta importati</string>
+    <string name="importSuccessful">Dati importati</string>
     <string name="app_copyright_old">Basato su Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">I dati verranno scritti in una posizione a tua scelta.</string>
@@ -75,11 +75,11 @@
     <string name="starImage">Stella preferita</string>
     <string name="deleteConfirmationGroup">Eliminare il gruppo\?</string>
     <string name="all">Tutti</string>
-    <string name="noGroups">Clicca sul pulsante + più per aggiungere prima i gruppi per la categorizzazione.</string>
+    <string name="noGroups">Clicca sul pulsante + più per aggiungere i gruppi per la categorizzazione.</string>
     <string name="groups">Gruppi</string>
     <string name="enter_group_name">Inserisci il nome del gruppo</string>
     <string name="groupsList">Gruppi: <xliff:g>%s</xliff:g></string>
-    <string name="addManually">Inserisci manualmente l\'ID della carta</string>
+    <string name="addManually">Inserisci manualmente il numero</string>
     <string name="leaveWithoutSaveConfirmation">Uscire senza salvare\?</string>
     <string name="leaveWithoutSaveTitle">Esci</string>
     <string name="moveDown">Sposta in basso</string>
@@ -128,7 +128,7 @@
 \nCrealo dal menù Importazione/Esportazione di un\'altra applicazione Catima premendo prima Esporta.</string>
     <string name="importCatima">Importa da Catima</string>
     <string name="setBarcodeId">Imposta il valore del codice a barre</string>
-    <string name="sameAsCardId">Uguale all\'ID della carta</string>
+    <string name="sameAsCardId">Uguale al numero</string>
     <string name="barcodeId">Valore del codice a barre</string>
     <string name="errorReadingImage">Impossibile leggere l\'immagine</string>
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
@@ -140,19 +140,19 @@
     <string name="app_libraries">Librerie libre di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Voglio condividere alcune carte con te</string>
-    <string name="copy_to_clipboard_multiple_toast">Numeri delle carte copiati negli appunti</string>
-    <string name="card_ids_copied">Numero/i della carta copiato/i</string>
+    <string name="copy_to_clipboard_multiple_toast">Numeri copiati negli appunti</string>
+    <string name="card_ids_copied">Numero/i copiato/i</string>
     <string name="no">No</string>
     <string name="yes">Sì</string>
-    <string name="updateBarcodeQuestionText">Hai cambiato l\'ID della carta. Vuoi anche aggiornare il codice a barre per usare lo stesso valore\?</string>
+    <string name="updateBarcodeQuestionText">Hai cambiato il numero. Vuoi anche aggiornare il codice a barre per usare lo stesso valore\?</string>
     <string name="updateBarcodeQuestionTitle">Aggiornare il valore del codice a barre\?</string>
     <string name="takePhoto">Scatta una foto</string>
     <string name="removeImage">Rimuovi l’immagine</string>
     <string name="setBackImage">Imposta immagine posteriore</string>
     <string name="setFrontImage">Imposta immagine frontale</string>
     <string name="photos">Foto</string>
-    <string name="backImageDescription">Immagine posteriore della carta</string>
-    <string name="frontImageDescription">Immagine frontale della carta</string>
+    <string name="backImageDescription">Immagine posteriore</string>
+    <string name="frontImageDescription">Immagine frontale</string>
     <string name="passwordRequired">Si prega di inserire la password</string>
     <string name="importStocardMessage">Seleziona la tua esportazione <i>***-sync.zip</i> da Stocard per importare.
 \nOttienilo inviando un\'e-mail a support@stocardapp.com chiedendo un\'esportazione dei tuoi dati.</string>
@@ -161,8 +161,8 @@
     <string name="turn_flashlight_on">Accendi la torcia</string>
     <string name="failedGeneratingShareURL">Impossibile generare un URL condivisibile. Si prega di segnalarlo.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> carta selezionata</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> carte selezionate</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> selezionata</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> selezionate</item>
     </plurals>
     <string name="deleteTitle">Rimuovi la carta</string>
     <string name="deleteConfirmation">Eliminare questa carta\?</string>
@@ -187,12 +187,12 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Colore del tema</string>
     <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="noGroupCards">Questo gruppo non contiene carte</string>
+    <string name="noGroupCards">Questo gruppo è vuoto</string>
     <string name="toggleMoreInfo">Attiva/disattiva la visualizzazione di altre informazioni</string>
-    <string name="barcodeImageDescriptionWithType">Immagine del codice a barre della carta del tipo <xliff:g>%s</xliff:g></string>
+    <string name="barcodeImageDescriptionWithType">Immagine <xliff:g>%s</xliff:g> codice a barre</string>
     <string name="swipeToSwitchImages">Scorri o premi a lungo per cambiare immagine</string>
     <string name="sort_by">Ordina per</string>
-    <string name="reverse">Inverti</string>
+    <string name="reverse">… in ordine inverso</string>
     <string name="sort_by_balance">Saldo</string>
     <string name="sort_by_expiry">Scadenza</string>
     <string name="sort_by_most_recently_used">Usate più di recente</string>
@@ -212,7 +212,7 @@
     <string name="report_error">Segnala un errore</string>
     <string name="editGroup">Gruppo di modifica: <xliff:g>%s</xliff:g></string>
     <string name="group_name_is_empty">Il nome del gruppo non può essere vuoto</string>
-    <string name="noGiftCardsGroup">Non hai ancora nessuna carta fedeltà. Una volta che ne hai aggiunte, puoi assegnarle al gruppo qui.</string>
+    <string name="noGiftCardsGroup">Crea alcune carte e poi assegnale al gruppo qui.</string>
     <string name="group_edit">Modifica il gruppo</string>
     <string name="group_name_already_in_use">Nome del gruppo già in uso</string>
     <string name="group_updated">Gruppo aggiornato</string>
@@ -220,4 +220,5 @@
     <string name="setIcon">Imposta l\'icona</string>
     <string name="action_show_details">Mostra i dettagli</string>
     <string name="action_hide_details">Nascondi i dettagli</string>
+    <string name="translate_platform">su Weblate</string>
 </resources>

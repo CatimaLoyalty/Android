@@ -48,7 +48,7 @@ public class GroupShortcutConfigure extends AppCompatActivity implements Loyalty
         }
 
 
-        final RecyclerView groupList = findViewById(R.id.groups);
+        final RecyclerView groupList = findViewById(R.id.list);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         groupList.setLayoutManager(mLayoutManager);

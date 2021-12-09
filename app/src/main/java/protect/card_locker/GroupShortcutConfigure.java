@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class GroupShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
+public class GroupShortcutConfigure extends AppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
     static final String TAG = "Catima";
     final DBHelper mDb = new DBHelper(this);
 
@@ -58,7 +58,7 @@ public class GroupShortcutConfigure extends AppCompatActivity implements Loyalty
 
         Cursor groupCursor = db.getGroupCursor();
 
-        final GroupCursorAdapter adapter = new GroupCursorAdapter(this, groupCursor, (GroupCursorAdapter.GroupAdapterListener) this);
+        final GroupCursorAdapter adapter = new GroupCursorAdapter(this, groupCursor,this);
         groupList.setAdapter(adapter);
     }
 
@@ -76,14 +76,23 @@ public class GroupShortcutConfigure extends AppCompatActivity implements Loyalty
         finish();
     }
 
-
     @Override
-    public void onRowClicked(int inputPosition) {
-        onClickAction(inputPosition);
+    public void onMoveDownButtonClicked(View view) {
+        // do nothing
     }
 
     @Override
-    public void onRowLongClicked(int inputPosition) {
+    public void onMoveUpButtonClicked(View view) {
+        // do nothing
+    }
+
+    @Override
+    public void onEditButtonClicked(View view) {
+        // do nothing
+    }
+
+    @Override
+    public void onDeleteButtonClicked(View view) {
         // do nothing
     }
 }

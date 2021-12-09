@@ -56,14 +56,15 @@ public class GroupShortcutConfigure extends AppCompatActivity implements Loyalty
 
         groupList.setVisibility(View.VISIBLE);
 
-        Cursor groupCursor = db.getLoyaltyCardCursor();
+        Cursor groupCursor = db.getGroupCursor();
 
-        final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, groupCursor, this);
-        groupList.setAdapter(adapter);
+        // Test to comment these lines out
+        // final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, groupCursor, this);
+        // groupList.setAdapter(adapter);
     }
 
     private void onClickAction(int position) {
-        Cursor selected = mDb.getLoyaltyCardCursor();
+        Cursor selected = mDb.getGroupCursor();
         selected.moveToPosition(position);
         Group group = Group.toGroup(selected);
 

@@ -205,7 +205,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
     @Override
     public void onRowLongClicked(int inputPosition) {
-        // do nothing for now
+        mAdapter.toggleSelection(inputPosition);
     }
 
     @Override

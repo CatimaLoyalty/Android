@@ -58,9 +58,8 @@ public class GroupShortcutConfigure extends AppCompatActivity implements Loyalty
 
         Cursor groupCursor = db.getGroupCursor();
 
-        // Test to comment these lines out
-        // final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, groupCursor, this);
-        // groupList.setAdapter(adapter);
+        final GroupCursorAdapter adapter = new GroupCursorAdapter(this, groupCursor, (GroupCursorAdapter.GroupAdapterListener) this);
+        groupList.setAdapter(adapter);
     }
 
     private void onClickAction(int position) {

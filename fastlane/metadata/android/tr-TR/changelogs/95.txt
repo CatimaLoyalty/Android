@@ -1,1 +1,1 @@
-- Kart paylaşırken oluşan çökmeyi düzelt
+- Kart paylaşırken oluşan çökme düzeltildi

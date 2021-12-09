@@ -67,6 +67,10 @@ public class Utils {
     static public LetterBitmap generateIcon(Context context, LoyaltyCard loyaltyCard, boolean forShortcut) {
         return generateIcon(context, loyaltyCard.store, loyaltyCard.headerColor, forShortcut);
     }
+    static public LetterBitmap generateIcon(Context context, Group group, boolean forShortcut) {
+        // Temporary color for group
+        return generateIcon(context, group._id, 0, forShortcut);
+    }
 
     static public LetterBitmap generateIcon(Context context, String store, Integer backgroundColor) {
         return generateIcon(context, store, backgroundColor, false);

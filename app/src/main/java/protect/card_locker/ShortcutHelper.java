@@ -155,4 +155,26 @@ class ShortcutHelper {
                 .setIntent(intent)
                 .setIcon(icon);
     }
+    static ShortcutInfoCompat.Builder createGroupShortcutBuilder(Context context, Group group) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        final Bundle bundle = new Bundle();
+        // Done like with the cards but with group._id (a string)
+        bundle.putString("id", group._id);
+        bundle.putBoolean("view", true);
+        intent.putExtras(bundle);
+
+        Bitmap iconBitmap = Utils.generateIcon(context, group, true).getLetterTile();
+
+        IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
+
+        return new ShortcutInfoCompat.Builder(context, group._id)
+                .setShortLabel(group._id)
+                .setLongLabel(group._id)
+                .setIntent(intent)
+                .setIcon(icon);
+    }
 }

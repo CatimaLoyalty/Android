@@ -6,7 +6,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,6 +53,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpText;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
+
+    String groupId;
 
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
 
@@ -171,9 +172,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     };
 
+    private void extractIntentFields(Intent intent)
+    {
+        final Bundle b = intent.getExtras();
+        groupId = b != null ? b.getString("id") : "";
+        Log.d(TAG, "View activity: id=" + groupId);
+    }
+
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
+        extractIntentFields(getIntent());
         SplashScreen.installSplashScreen(this);
         setTitle(R.string.app_name);
         setContentView(R.layout.main_activity);
@@ -702,5 +711,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             startActivity(i);
         }
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        Log.i(TAG, "Received new intent");
+        extractIntentFields(intent);
     }
 }

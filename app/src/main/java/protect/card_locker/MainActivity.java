@@ -54,6 +54,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
+    private String groupWidget = null;
+
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
@@ -173,10 +175,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        String groupName = b != null ? b.getString("id") : "";
-        Log.d(TAG, "View activity: id=" + groupName);
-        // Group group = mDB.getGroup(groupName);
-        // selectedTab =  group.order;
+        groupWidget = b != null ? b.getString("id") : "";
+        Log.d(TAG, "View activity: id=" + groupWidget);
     }
 
     @Override
@@ -306,32 +306,41 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateTabGroups(groupsTabLayout);
 
         // Restore settings from Shared Preference
-        SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_active_tab),
-                Context.MODE_PRIVATE);
-        selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
-        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_sort),
-                Context.MODE_PRIVATE);
-        try {
-            mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
-            mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
-        } catch (IllegalArgumentException | NullPointerException ignored) {
-        }
-
-        mGroup = null;
-
-        if (groupsTabLayout.getTabCount() != 0) {
+        if (groupWidget != null){
+            selectedTab =  mDB.getGroup(groupWidget).order;
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
-            if (tab == null) {
-                tab = groupsTabLayout.getTabAt(0);
+            groupsTabLayout.selectTab(tab);
+            updateLoyaltyCardList();
+        }
+        else {
+            SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
+                    getString(R.string.sharedpreference_active_tab),
+                    Context.MODE_PRIVATE);
+            selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
+            SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                    getString(R.string.sharedpreference_sort),
+                    Context.MODE_PRIVATE);
+            try {
+                mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
+                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
+            } catch (IllegalArgumentException | NullPointerException ignored) {
             }
 
-            groupsTabLayout.selectTab(tab);
-            assert tab != null;
-            mGroup = tab.getTag();
+            mGroup = null;
+
+            if (groupsTabLayout.getTabCount() != 0) {
+                TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
+                if (tab == null) {
+                    tab = groupsTabLayout.getTabAt(0);
+                }
+
+                groupsTabLayout.selectTab(tab);
+                assert tab != null;
+                mGroup = tab.getTag();
+            }
+            updateLoyaltyCardList();
         }
-        updateLoyaltyCardList();
+
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);

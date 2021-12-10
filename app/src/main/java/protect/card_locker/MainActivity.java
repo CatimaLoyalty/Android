@@ -175,6 +175,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         final Bundle b = intent.getExtras();
         mGroup = b != null ? b.getString("id") : "";
         Log.d(TAG, "View activity: id=" + mGroup);
+        updateLoyaltyCardList();
     }
 
     @Override
@@ -289,8 +290,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     @Override
     protected void onResume() {
         super.onResume();
-
-        extractIntentFields(getIntent());
 
         if (mCurrentActionMode != null) {
             mAdapter.clearSelections();

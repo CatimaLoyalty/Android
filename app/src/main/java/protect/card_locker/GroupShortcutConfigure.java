@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,10 +63,21 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupCu
         groupList.setAdapter(adapter);
     }
 
-    private void onClickAction(int position) {
-        Cursor selected = mDb.getGroupCursor();
-        selected.moveToPosition(position);
-        Group group = Group.toGroup(selected);
+    private String getGroupName(View view) {
+        TextView groupNameTextView = view.findViewById(R.id.name);
+        return (String) groupNameTextView.getText();
+    }
+
+    private void onClickAction(View view) {
+        String groupId = getGroupName(view);
+        if (groupId == null) {
+            throw (new IllegalArgumentException("The widget expects a group"));
+        }
+        Log.d("groupId", "groupId: " + groupId);
+        Group group = mDb.getGroup(groupId);
+        if (group == null) {
+            throw (new IllegalArgumentException("cannot load group " + groupId + " from database"));
+        }
 
         Log.d(TAG, "Creating shortcut for group " + group._id + "," + group._id);
 
@@ -93,6 +105,6 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupCu
 
     @Override
     public void onDeleteButtonClicked(View view) {
-        // do nothing
+        onClickAction(view);
     }
 }

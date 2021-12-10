@@ -126,6 +126,9 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
                 mDB.updateGroup(mGroup._id, currentGroupName);
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
+
+            ShortcutHelper.updateShortcuts(this, mGroup);
+
             finish();
         });
         // this setText is here because content_main.xml is reused from main activity

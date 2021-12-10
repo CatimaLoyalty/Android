@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,7 +62,7 @@ public class GroupSelectCursorAdapter extends BaseCursorAdapter<GroupSelectCurso
 
     public static class GroupListItemViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mCardCount;
-        public AppCompatImageButton mSelect;
+        public AppCompatButton mSelect;
 
         public GroupListItemViewHolder(View inputView) {
             super(inputView);

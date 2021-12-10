@@ -174,10 +174,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     {
         final Bundle b = intent.getExtras();
         String groupName = b != null ? b.getString("id") : "";
-        Log.d(TAG, "View activity: id=" + mGroup);
-        TabLayout groupTabs = findViewById(R.id.groups);
+        Log.d(TAG, "View activity: id=" + groupName);
         Group group = mDB.getGroup(groupName);
-        groupTabs.selectTab(groupTabs.getTabAt(group.order));
+        selectedTab =  group.order;
     }
 
     @Override

@@ -290,6 +290,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onResume() {
         super.onResume();
 
+        extractIntentFields(getIntent());
+
         if (mCurrentActionMode != null) {
             mAdapter.clearSelections();
             mCurrentActionMode.finish();

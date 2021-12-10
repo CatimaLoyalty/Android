@@ -173,9 +173,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        mGroup = b != null ? b.getString("id") : "";
+        String groupName = b != null ? b.getString("id") : "";
         Log.d(TAG, "View activity: id=" + mGroup);
-        updateLoyaltyCardList();
+        TabLayout groupTabs = findViewById(R.id.groups);
+        Group group = mDB.getGroup(groupName);
+        groupTabs.selectTab(groupTabs.getTabAt(group.order));
     }
 
     @Override

@@ -145,9 +145,9 @@ class ShortcutHelper {
         for (int index = 0; index < list.size(); index++) {
             ShortcutInfoCompat prevShortcut = list.get(index);
 
-            LoyaltyCard loyaltyCard = dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId()));
+            Group group1 = dbHelper.getGroup(prevShortcut.getId());
 
-            ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
+            ShortcutInfoCompat updatedShortcut = createGroupShortcutBuilder(context, group1)
                     .setRank(index)
                     .build();
 

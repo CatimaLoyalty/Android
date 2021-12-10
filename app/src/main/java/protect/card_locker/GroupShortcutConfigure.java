@@ -20,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class GroupShortcutConfigure extends AppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
+public class GroupShortcutConfigure extends AppCompatActivity implements GroupSelectCursorAdapter.GroupAdapterListener {
     static final String TAG = "Catima";
     final DBHelper mDb = new DBHelper(this);
 
@@ -59,7 +59,7 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupCu
 
         Cursor groupCursor = db.getGroupCursor();
 
-        final GroupCursorAdapter adapter = new GroupCursorAdapter(this, groupCursor,this);
+        final GroupSelectCursorAdapter adapter = new GroupSelectCursorAdapter(this, groupCursor,this);
         groupList.setAdapter(adapter);
     }
 
@@ -89,22 +89,8 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupCu
     }
 
     @Override
-    public void onMoveDownButtonClicked(View view) {
-        // do nothing
-    }
-
-    @Override
-    public void onMoveUpButtonClicked(View view) {
-        // do nothing
-    }
-
-    @Override
-    public void onEditButtonClicked(View view) {
-        // do nothing
-    }
-
-    @Override
-    public void onDeleteButtonClicked(View view) {
+    public void onSelectButtonClicked(View view) {
         onClickAction(view);
     }
+
 }

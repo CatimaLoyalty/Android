@@ -306,6 +306,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateTabGroups(groupsTabLayout);
 
         // Restore settings from Shared Preference
+        mGroup = null;
+
         if (groupWidget != null){
             selectedTab =  mDB.getGroup(groupWidget).order;
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
@@ -313,6 +315,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             assert tab != null;
             mGroup = tab.getTag();
             updateLoyaltyCardList();
+            groupWidget = null;
         }
         else {
             SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
@@ -327,8 +330,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
             } catch (IllegalArgumentException | NullPointerException ignored) {
             }
-
-            mGroup = null;
 
             if (groupsTabLayout.getTabCount() != 0) {
                 TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);

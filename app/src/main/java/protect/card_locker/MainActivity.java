@@ -175,7 +175,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        groupWidget = b != null ? b.getString("id") : "";
+        groupWidget = b != null ? b.getString("id") : null;
         Log.d(TAG, "View activity: id=" + groupWidget);
     }
 
@@ -309,7 +309,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mGroup = null;
 
         if (groupWidget != null){
-            selectedTab =  mDB.getGroup(groupWidget).order;
+            selectedTab =  mDB.getGroup(groupWidget).order+1;
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
             groupsTabLayout.selectTab(tab);
             assert tab != null;

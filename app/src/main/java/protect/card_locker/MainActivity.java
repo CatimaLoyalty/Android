@@ -310,6 +310,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (groupWidget != null){
             selectedTab =  mDB.getGroup(groupWidget).order+1;
+
+            SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                    getString(R.string.sharedpreference_sort),
+                    Context.MODE_PRIVATE);
+            try {
+                mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
+                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
+            } catch (IllegalArgumentException | NullPointerException ignored) {
+            }
+
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
             groupsTabLayout.selectTab(tab);
             assert tab != null;

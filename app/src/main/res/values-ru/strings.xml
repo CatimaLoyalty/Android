@@ -228,4 +228,5 @@
     <string name="selectColor">Выбрать цвет</string>
     <string name="action_hide_details">Скрыть детали</string>
     <string name="action_show_details">Показать детали</string>
+    <string name="translate_platform">на Weblate</string>
 </resources>

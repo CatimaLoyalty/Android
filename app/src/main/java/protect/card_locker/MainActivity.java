@@ -54,8 +54,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
-    String groupId;
-
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
@@ -175,8 +173,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private void extractIntentFields(Intent intent)
     {
         final Bundle b = intent.getExtras();
-        groupId = b != null ? b.getString("id") : "";
-        Log.d(TAG, "View activity: id=" + groupId);
+        mGroup = b != null ? b.getString("id") : "";
+        Log.d(TAG, "View activity: id=" + mGroup);
     }
 
     @Override

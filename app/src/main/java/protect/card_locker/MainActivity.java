@@ -310,6 +310,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             selectedTab =  mDB.getGroup(groupWidget).order;
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
             groupsTabLayout.selectTab(tab);
+            assert tab != null;
+            mGroup = tab.getTag();
             updateLoyaltyCardList();
         }
         else {

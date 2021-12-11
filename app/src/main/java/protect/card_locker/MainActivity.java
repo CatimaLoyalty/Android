@@ -309,23 +309,32 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mGroup = null;
 
         if (groupWidget != null){
-            selectedTab =  mDB.getGroup(groupWidget).order+1;
-
-            SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                    getString(R.string.sharedpreference_sort),
-                    Context.MODE_PRIVATE);
-            try {
-                mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
-                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
-            } catch (IllegalArgumentException | NullPointerException ignored) {
+            Group groupSelected = mDB.getGroup(groupWidget);
+            if (groupSelected == null) {
+                Log.w(TAG, "Could not lookup group " + groupWidget);
+                Toast.makeText(this, R.string.noGroupExistsError, Toast.LENGTH_LONG).show();
+                finish();
+                return;
             }
+            else{
+                selectedTab = groupSelected.order+1;
 
-            TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
-            groupsTabLayout.selectTab(tab);
-            assert tab != null;
-            mGroup = tab.getTag();
-            updateLoyaltyCardList();
-            groupWidget = null;
+                SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
+                        getString(R.string.sharedpreference_sort),
+                        Context.MODE_PRIVATE);
+                try {
+                    mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
+                    mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
+                } catch (IllegalArgumentException | NullPointerException ignored) {
+                }
+
+                TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
+                groupsTabLayout.selectTab(tab);
+                assert tab != null;
+                mGroup = tab.getTag();
+                updateLoyaltyCardList();
+                groupWidget = null;
+            }
         }
         else {
             SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(

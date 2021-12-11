@@ -199,7 +199,6 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();
-            ShortcutHelper.removeShortcut(this, groupName);
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();

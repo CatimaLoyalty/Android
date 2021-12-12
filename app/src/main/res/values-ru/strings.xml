@@ -229,4 +229,5 @@
     <string name="action_hide_details">Скрыть детали</string>
     <string name="action_show_details">Показать детали</string>
     <string name="translate_platform">на Weblate</string>
+    <string name="shortcutSelectCard">Выбор карты</string>
 </resources>

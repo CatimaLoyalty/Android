@@ -41,7 +41,9 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
 
         final RecyclerView cardList = findViewById(R.id.list);
         GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
-        layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
+        if (layoutManager != null) {
+            layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
+        }
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);

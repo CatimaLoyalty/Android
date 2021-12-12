@@ -182,8 +182,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
-        extractIntentFields(getIntent());
+        
         SplashScreen.installSplashScreen(this);
+        
+        extractIntentFields(getIntent());
         setTitle(R.string.app_name);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);

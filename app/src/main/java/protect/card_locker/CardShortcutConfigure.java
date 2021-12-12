@@ -3,17 +3,13 @@ package protect.card_locker;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -31,13 +27,9 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         // aback button is pressed.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.simple_toolbar_list_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.GONE);
-
-        // Hide new button because it won't work here anyway
-        FloatingActionButton newFab = findViewById(R.id.fabAdd);
-        newFab.setVisibility(View.GONE);
+        toolbar.setTitle(R.string.shortcutSelectCard);
 
         final DBHelper db = new DBHelper(this);
 
@@ -48,15 +40,12 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         }
 
         final RecyclerView cardList = findViewById(R.id.list);
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        cardList.setLayoutManager(mLayoutManager);
-        cardList.setItemAnimator(new DefaultItemAnimator());
-
-        cardList.setVisibility(View.VISIBLE);
+        GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
+        if (layoutManager != null) {
+            layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
+        }
 
         Cursor cardCursor = db.getLoyaltyCardCursor();
-
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
         cardList.setAdapter(adapter);
     }

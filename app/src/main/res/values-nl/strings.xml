@@ -108,7 +108,7 @@
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Gegevens importeren uit…\?</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Vergrendelscherm uitschakelen</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Schermvergrendeling uitschakelen</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
     <string name="privacy_policy_popup_text">Privacybeleid (vereist door sommige appwinkels):
 \n

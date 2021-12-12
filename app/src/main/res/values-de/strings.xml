@@ -221,4 +221,5 @@
     <string name="action_show_details">Details anzeigen</string>
     <string name="action_hide_details">Details ausblenden</string>
     <string name="translate_platform">auf Weblate</string>
+    <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
 </resources>

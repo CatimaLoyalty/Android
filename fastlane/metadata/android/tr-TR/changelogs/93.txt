@@ -1,2 +1,2 @@
-- Catima'yı Hızlı Erişim Aygıt Denetimlerine ekle (https://developer.android.com/guide/topics/ui/device-control)
-- Grup yönetimi ekranında bazı grupların doğru görünmemesini düzelt
+- Catima Hızlı Erişim Aygıt Denetimlerine eklendi (https://developer.android.com/guide/topics/ui/device-control)
+- Grup yönetimi ekranında bazı grupların doğru görünmemesi düzeltildi

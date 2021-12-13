@@ -24,7 +24,11 @@ import java.text.DateFormat;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.preference.PreferenceManager;
+
 import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;
@@ -178,7 +182,7 @@ public class LoyaltyCardCursorAdapterTest {
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
         assertEquals("storeB", loyaltyCard.store);
         View view = createView(cursor);
-        ImageView star = view.findViewById(R.id.star);
+        ConstraintLayout star = view.findViewById(R.id.star);
         assertEquals(View.VISIBLE, star.getVisibility());
 
         assertTrue(cursor.moveToNext());

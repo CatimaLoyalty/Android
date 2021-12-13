@@ -220,4 +220,5 @@
     <string name="setIcon">Simge ayarla</string>
     <string name="action_show_details">Ayrıntıları göster</string>
     <string name="action_hide_details">Ayrıntıları gizle</string>
+    <string name="translate_platform">Weblate\'de</string>
 </resources>

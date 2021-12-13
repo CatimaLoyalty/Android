@@ -45,19 +45,42 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/star"
-                android:layout_width="@dimen/cardThumbnailSize"
-                android:layout_height="@dimen/cardThumbnailSize"
-                android:layout_gravity="end"
-                app:srcCompat="@drawable/ic_starred_white"
-                android:contentDescription="@string/starImage"
-                app:tint="?attr/colorControlNormal"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:elevation="4dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end">
+
+                <ImageView
+                    android:id="@+id/star_background"
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:layout_gravity="end"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/starImage"
+                    android:elevation="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_starred_white"
+                    tools:ignore="ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/star_border"
+                    android:layout_width="@dimen/cardThumbnailSize"
+                    android:layout_height="@dimen/cardThumbnailSize"
+                    android:layout_gravity="end"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/starImage"
+                    android:elevation="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_unstarred_white"
+                    tools:ignore="ImageContrastCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </com.google.android.material.card.MaterialCardView>
 
         <TextView

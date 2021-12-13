@@ -18,13 +18,16 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
+import protect.card_locker.MainActivity;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 
 public class SettingsActivity extends CatimaAppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +112,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             });
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 // Refresh the activity
-                Intent intent = new Intent(getContext(), SettingsActivity.class);
+                Intent intent = new Intent(getContext(), MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getContext().startActivity(intent);
 

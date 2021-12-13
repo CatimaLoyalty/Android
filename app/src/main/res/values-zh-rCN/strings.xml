@@ -72,7 +72,7 @@
     <string name="exportSuccessful">已导出数据</string>
     <string name="importSuccessful">已导入数据</string>
     <string name="intent_import_card_from_url_share_text">我想和你分享一张卡</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">禁用锁屏</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">防止锁屏</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
     <string name="settings_lock_barcode_orientation">锁定条码方向</string>
     <string name="settings_display_barcode_max_brightness">提高条码界面亮度</string>

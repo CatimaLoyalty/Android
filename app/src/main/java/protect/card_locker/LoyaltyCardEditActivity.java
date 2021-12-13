@@ -73,6 +73,7 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import androidx.palette.graphics.Palette;
+
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -426,14 +427,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     LocaleList locales = getApplicationContext().getResources().getConfiguration().getLocales();
 
-                    for (int i = locales.size() - 1; i > 0; i--) {
+                    for (int i = locales.size() - 1; i >= 0; i--) {
                         Locale locale = locales.get(i);
                         String currencySymbol = Currency.getInstance(locale).getSymbol();
                         currencyList.remove(currencySymbol);
                         currencyList.add(0, currencySymbol);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(getApplicationContext().getResources().getConfiguration().locale).getSymbol();
+                    String currencySymbol = Currency.getInstance(SYSTEM_LOCALE).getSymbol();
                     currencyList.remove(currencySymbol);
                     currencyList.add(0, currencySymbol);
                 }

@@ -196,16 +196,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
-        public MaterialCardView mIconLayout, mRow;
+        public MaterialCardView mRow;
         public ConstraintLayout mStar;
         public View mDivider;
 
         private int mIconBackgroundColor;
 
-        public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
+        protected LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
             mRow = inputView.findViewById(R.id.row);
-            mIconLayout = inputView.findViewById(R.id.icon_layout);
             mDivider = inputView.findViewById(R.id.info_divider);
             mStoreField = inputView.findViewById(R.id.store);
             mNoteField = inputView.findViewById(R.id.note);

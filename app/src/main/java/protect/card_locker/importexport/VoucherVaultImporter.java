@@ -97,6 +97,8 @@ public class VoucherVaultImporter implements Importer {
                 case "TEXT":
                     break;
                 default:
+                    database.endTransaction();
+                    database.close();
                     throw new FormatException("Unknown barcode type found: " + codeTypeFromJSON);
             }
 

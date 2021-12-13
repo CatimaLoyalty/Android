@@ -66,6 +66,8 @@ public class FidmeImporter implements Importer {
                 }
             }
         } catch (IllegalArgumentException | IllegalStateException | InterruptedException e) {
+            database.endTransaction();
+            database.close();
             throw new FormatException("Issue parsing CSV data", e);
         } finally {
             fidmeParser.close();

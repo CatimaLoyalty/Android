@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
@@ -79,10 +80,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         // Invisible until we want to show something more
         inputHolder.mDivider.setVisibility(View.GONE);
 
-        if (mDarkModeEnabled) {
-            inputHolder.mStarIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
-        }
-
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
 
         inputHolder.setStoreField(loyaltyCard.store);
@@ -112,9 +109,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
-        inputHolder.mIconLayout.setBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
+        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
 
-        inputHolder.mStarIcon.setVisibility(loyaltyCard.starStatus != 0 ? View.VISIBLE : View.GONE);
+        inputHolder.toggleStar(loyaltyCard.starStatus != 0);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -198,9 +195,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
-        public ImageView mCardIcon, mStarIcon, mTickIcon;
+        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
         public MaterialCardView mIconLayout, mRow;
+        public ConstraintLayout mStar;
         public View mDivider;
+
+        private int mIconBackgroundColor;
 
         public LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
@@ -213,7 +213,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mExpiryField = inputView.findViewById(R.id.expiry);
 
             mCardIcon = inputView.findViewById(R.id.thumbnail);
-            mStarIcon = inputView.findViewById(R.id.star);
+            mStar = inputView.findViewById(R.id.star);
+            mStarBackground = inputView.findViewById(R.id.star_background);
+            mStarBorder = inputView.findViewById(R.id.star_border);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
@@ -280,6 +282,37 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 mExpiryField.setTextSize(size);
             }
             mExpiryField.requestLayout();
+        }
+
+        public void toggleStar(boolean enable) {
+            /* the below code does not work in android 5! hence the change of drawable instead
+            boolean needDarkForeground = Utils.needsDarkForeground(mIconBackgroundColor);
+            Drawable borderDrawable = mStarBorder.getDrawable().mutate();
+            Drawable backgroundDrawable = mStarBackground.getDrawable().mutate();
+            DrawableCompat.setTint(borderDrawable, needsDarkForeground ? Color.BLACK : Color.WHITE);
+            DrawableCompat.setTint(backgroundDrawable, needsDarkForeground ? Color.BLACK : Color.WHITE);
+            mStarBorder.setImageDrawable(borderDrawable);
+            mStarBackground.setImageDrawable(backgroundDrawable);
+            */
+            if (Utils.needsDarkForeground(mIconBackgroundColor)) {
+                mStarBorder.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_unstarred_black));
+                mStarBackground.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_starred_black));
+            } else {
+                mStarBorder.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_unstarred_white));
+                mStarBackground.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.ic_starred_white));
+            }
+            if (enable) {
+                mStar.setVisibility(View.VISIBLE);
+            } else {
+                mStar.setVisibility(View.GONE);
+            }
+            mStarBorder.invalidate();
+            mStarBackground.invalidate();
+        }
+
+        public void setIconBackgroundColor(int color) {
+            mIconBackgroundColor = color;
+            mCardIcon.setBackgroundColor(color);
         }
     }
 

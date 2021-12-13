@@ -163,17 +163,16 @@ class ShortcutHelper {
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         final Bundle bundle = new Bundle();
         // Done like with the cards but with group._id (a string)
-        bundle.putString("id", group._id);
-        bundle.putBoolean("view", true);
+        bundle.putString("groupId", group._id);
         intent.putExtras(bundle);
 
         Bitmap iconBitmap = Utils.generateIcon(context, group, true).getLetterTile();
-
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
+        String GROUP_groupName = group._id;
 
-        return new ShortcutInfoCompat.Builder(context, group._id)
-                .setShortLabel(group._id)
-                .setLongLabel(group._id)
+        return new ShortcutInfoCompat.Builder(context, GROUP_groupName)
+                .setShortLabel(GROUP_groupName)
+                .setLongLabel(GROUP_groupName)
                 .setIntent(intent)
                 .setIcon(icon);
     }

@@ -11,11 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * The configuration screen for creating a shortcut.
@@ -32,13 +29,9 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupSe
         // aback button is pressed.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.simple_toolbar_list_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.GONE);
-
-        // Hide new button because it won't work here anyway
-        FloatingActionButton newFab = findViewById(R.id.fabAdd);
-        newFab.setVisibility(View.GONE);
+        toolbar.setTitle(R.string.shortcutSelectGroup);
 
         final DBHelper db = new DBHelper(this);
 
@@ -48,17 +41,9 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupSe
             finish();
         }
 
-
         final RecyclerView groupList = findViewById(R.id.list);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        groupList.setLayoutManager(mLayoutManager);
-        groupList.setItemAnimator(new DefaultItemAnimator());
-
-        groupList.setVisibility(View.VISIBLE);
-
         Cursor groupCursor = db.getGroupCursor();
-
         final GroupSelectCursorAdapter adapter = new GroupSelectCursorAdapter(this, groupCursor,this);
         groupList.setAdapter(adapter);
     }

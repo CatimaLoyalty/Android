@@ -1,12 +1,12 @@
 package protect.card_locker;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,14 +18,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
@@ -35,10 +27,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
     private static final String TAG = "Catima";
+    public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
     private final DBHelper mDB = new DBHelper(this);
     private LoyaltyCardCursorAdapter mAdapter;
@@ -56,6 +57,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoGroupCardsText;
 
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
+    private ActivityResultLauncher<Intent> mSettingsLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
         @Override
@@ -275,6 +277,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
                 newIntent.putExtras(newBundle);
                 startActivity(newIntent);
+            }
+        });
+
+        mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                Intent intent = result.getData();
+                if (intent != null && intent.getBooleanExtra(RESTART_ACTIVITY_INTENT, false)) {
+                    recreate();
+                }
             }
         });
     }
@@ -528,7 +539,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_settings) {
             Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(i);
+            mSettingsLauncher.launch(i);
             return true;
         }
 

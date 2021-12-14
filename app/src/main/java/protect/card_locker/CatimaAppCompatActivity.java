@@ -5,24 +5,19 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.util.TypedValue;
 
-import java.util.HashMap;
-import java.util.Locale;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import java.util.HashMap;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     HashMap<String, Integer> supportedThemes;
 
-    // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
-    protected Locale SYSTEM_LOCALE;
-
     @Override
     protected void attachBaseContext(Context base) {
         // Apply chosen language
-        SYSTEM_LOCALE = Locale.getDefault();
         super.attachBaseContext(Utils.updateBaseContextLocale(base));
     }
 

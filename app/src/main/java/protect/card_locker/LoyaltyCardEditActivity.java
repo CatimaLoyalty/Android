@@ -177,6 +177,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     final private TaskHandler mTasks = new TaskHandler();
 
+    // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+    private Locale mSystemLocale;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        // store system locale
+        mSystemLocale = Locale.getDefault();
+        super.attachBaseContext(base);
+    }
+
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
         return new LoyaltyCard(
                 (int) (fieldName == LoyaltyCardField.id ? value : loyaltyCard.id),
@@ -434,7 +444,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         currencyList.add(0, currencySymbol);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(SYSTEM_LOCALE).getSymbol();
+                    String currencySymbol = Currency.getInstance(mSystemLocale).getSymbol();
                     currencyList.remove(currencySymbol);
                     currencyList.add(0, currencySymbol);
                 }

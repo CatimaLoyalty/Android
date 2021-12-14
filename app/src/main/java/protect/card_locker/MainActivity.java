@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -41,7 +42,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
-    private final DBHelper mDB = new DBHelper(this);
+    private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
     private ActionMode mCurrentActionMode;
     private SearchView mSearchView;
@@ -144,7 +145,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                         Log.e(TAG, "Deleting card: " + loyaltyCard.id);
 
-                        db.deleteLoyaltyCard(MainActivity.this, loyaltyCard.id);
+                        DBHelper.deleteLoyaltyCard(mDatabase, MainActivity.this, loyaltyCard.id);
 
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
@@ -181,6 +182,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDatabase = new DBHelper(this).getWritableDatabase();
 
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -365,9 +368,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             group = (Group) mGroup;
         }
 
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor(mFilter, group, mOrder, mOrderDirection));
+        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection));
 
-        if (mDB.getLoyaltyCardCount() > 0) {
+        if (DBHelper.getLoyaltyCardCount(mDatabase) > 0) {
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
@@ -401,9 +404,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout) {
-        final DBHelper db = new DBHelper(this);
-
-        List<Group> newGroups = db.getGroups();
+        List<Group> newGroups = DBHelper.getGroups(mDatabase);
 
         if (newGroups.size() == 0) {
             groupsTabLayout.removeAllTabs();

@@ -39,7 +39,7 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class StocardImporter implements Importer {
-    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, String>> providers = new HashMap<>();
 
@@ -153,9 +153,6 @@ public class StocardImporter implements Importer {
             throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
         }
 
-        SQLiteDatabase database = db.getWritableDatabase();
-        database.beginTransaction();
-
         for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
             String providerId = (String) loyaltyCardData.get("_providerId");
             HashMap<String, String> providerData = providers.get(providerId);
@@ -173,7 +170,7 @@ public class StocardImporter implements Importer {
                 }
             }
 
-            long loyaltyCardInternalId = db.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
+            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
 
             if (loyaltyCardData.containsKey("frontImage")) {
                 Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
@@ -182,10 +179,6 @@ public class StocardImporter implements Importer {
                 Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageLocationType.back);
             }
         }
-
-        database.setTransactionSuccessful();
-        database.endTransaction();
-        database.close();
 
         zipInputStream.close();
     }

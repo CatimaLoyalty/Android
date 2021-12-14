@@ -1,6 +1,7 @@
 package protect.card_locker.importexport;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class MultiFormatExporter {
      * another ImportExportResult otherwise. If not Success, partial data may have been
      * written to the output stream, and it should be discarded.
      */
-    public static ImportExportResult exportData(Context context, DBHelper db, OutputStream output, DataFormat format, char[] password) {
+    public static ImportExportResult exportData(Context context, SQLiteDatabase database, OutputStream output, DataFormat format, char[] password) {
         Exporter exporter = null;
 
         switch (format) {
@@ -35,7 +36,7 @@ public class MultiFormatExporter {
 
         if (exporter != null) {
             try {
-                exporter.exportData(context, db, output, password);
+                exporter.exportData(context, database, output, password);
                 return ImportExportResult.Success;
             } catch (IOException e) {
                 Log.e(TAG, "Failed to export data", e);

@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.net.Uri;
 
@@ -27,13 +28,13 @@ import static org.junit.Assert.assertTrue;
 @Config(sdk = 23)
 public class ImportURITest {
     private ImportURIHelper importURIHelper;
-    private DBHelper db;
+    private SQLiteDatabase mDatabase;
 
     @Before
     public void setUp() {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         importURIHelper = new ImportURIHelper(activity);
-        db = TestHelpers.getEmptyDb(activity);
+        mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
     }
 
     @Test
@@ -41,10 +42,10 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        db.insertLoyaltyCard("store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null);
 
         // Get card
-        LoyaltyCard card = db.getLoyaltyCard(1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         // Card to URI
         Uri cardUri = importURIHelper.toUri(card);
@@ -69,10 +70,10 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null);
 
         // Get card
-        LoyaltyCard card = db.getLoyaltyCard(1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         // Card to URI
         Uri cardUri = importURIHelper.toUri(card);

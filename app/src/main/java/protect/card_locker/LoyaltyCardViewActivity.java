@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Outline;
@@ -84,7 +85,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     int loyaltyCardId;
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
-    DBHelper db;
+    SQLiteDatabase database;
     ImportURIHelper importURIHelper;
     Settings settings;
 
@@ -257,7 +258,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         setContentView(R.layout.loyalty_card_view_layout);
 
-        db = new DBHelper(this);
+        database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
 
         coordinatorLayout = findViewById(R.id.coordinator_layout);
@@ -297,7 +298,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Log.d(TAG, "Scaling to " + scale);
 
                 loyaltyCard.zoomLevel = progress;
-                db.updateLoyaltyCardZoomLevel(loyaltyCardId, loyaltyCard.zoomLevel);
+                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
 
                 setCenterGuideline(loyaltyCard.zoomLevel);
 
@@ -466,7 +467,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             window.setAttributes(attributes);
         }
 
-        loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+        loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         if (loyaltyCard == null) {
             Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
             Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
@@ -493,7 +494,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             noteView.setVisibility(View.GONE);
         }
 
-        List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
+        List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
 
         if (loyaltyCardGroups.size() > 0) {
             List<String> groupNames = new ArrayList<>();
@@ -640,7 +641,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // restore bottomSheet UI states from changing orientation
         changeUiToBottomSheetState(bottomSheetState);
 
-        db.updateLoyaltyCardLastUsed(loyaltyCard.id);
+        DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
     }
 
     @Override
@@ -665,7 +666,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             item.setVisible(false);
         }
 
-        loyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+        loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
@@ -716,7 +717,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             case R.id.action_star_unstar:
                 starred = !starred;
-                db.updateLoyaltyCardStarStatus(loyaltyCardId, starred ? 1 : 0);
+                DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, starred ? 1 : 0);
                 invalidateOptionsMenu();
                 return true;
         }

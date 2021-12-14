@@ -168,9 +168,12 @@ class ShortcutHelper {
 
         String shortcutId = "GROUP_" + group._id;
 
+        IconCompat shortcutIcon= IconCompat.createWithResource(context, R.mipmap.ic_launcher);
+
         return new ShortcutInfoCompat.Builder(context, shortcutId)
                 .setShortLabel(group._id)
                 .setLongLabel(group._id)
-                .setIntent(intent);
+                .setIntent(intent)
+                .setIcon(shortcutIcon);
     }
 }

@@ -134,7 +134,11 @@ class ShortcutHelper {
         intent.setAction(Intent.ACTION_MAIN);
         // Prevent instances of the view activity from piling up; if one exists let this
         // one replace it.
-        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         final Bundle bundle = new Bundle();
         bundle.putInt("id", loyaltyCard.id);
         bundle.putBoolean("view", true);
@@ -148,7 +152,6 @@ class ShortcutHelper {
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
-
         return new ShortcutInfoCompat.Builder(context, Integer.toString(loyaltyCard.id))
                 .setShortLabel(loyaltyCard.store)
                 .setLongLabel(loyaltyCard.store)
@@ -160,7 +163,10 @@ class ShortcutHelper {
         intent.setAction(Intent.ACTION_MAIN);
         // Prevent instances of the view activity from piling up; if one exists let this
         // one replace it.
-        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         final Bundle bundle = new Bundle();
         // Done like with the cards but with group._id (a string)
         bundle.putString("groupId", group._id);

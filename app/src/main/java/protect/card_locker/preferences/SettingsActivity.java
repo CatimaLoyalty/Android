@@ -1,23 +1,23 @@
 package protect.card_locker.preferences;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
@@ -27,6 +27,9 @@ import protect.card_locker.R;
 import protect.card_locker.Utils;
 
 public class SettingsActivity extends CatimaAppCompatActivity {
+
+    private boolean mReloadMain = false;
+    public final static String RELOAD_MAIN_INTENT_VALUE = "mReloadMain";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,21 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.settings_container, fragment)
                 .commit();
+
+        // restore reload main state
+        Intent intent = getIntent();
+        if (intent != null) {
+            mReloadMain = intent.getBooleanExtra(RELOAD_MAIN_INTENT_VALUE, false);
+        }
+        if (savedInstanceState != null) {
+            mReloadMain = savedInstanceState.getBoolean(RELOAD_MAIN_INTENT_VALUE);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(RELOAD_MAIN_INTENT_VALUE, mReloadMain);
     }
 
     @Override
@@ -52,11 +70,26 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            finish();
+            finishSettingsActivity();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishSettingsActivity();
+    }
+
+    private void finishSettingsActivity() {
+        if (mReloadMain) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else {
+            finish();
+        }
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -94,30 +127,32 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 }
 
-                FragmentActivity activity = getActivity();
-                if (activity != null) {
-                    ActivityCompat.recreate(activity);
-                }
+                refreshActivity(true);
                 return true;
             });
 
             Preference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
             assert colorPreference != null;
             colorPreference.setOnPreferenceChangeListener((preference, o) -> {
-                FragmentActivity activity = getActivity();
-                if (activity != null) {
-                    ActivityCompat.recreate(activity);
-                }
+                refreshActivity(true);
                 return true;
             });
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                // Refresh the activity
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                getContext().startActivity(intent);
-
+                refreshActivity(true);
                 return true;
             });
+        }
+
+        private void refreshActivity(boolean reloadMain) {
+            Intent intent = new Intent(getContext(), SettingsActivity.class);
+            if (reloadMain) {
+                intent.putExtra(RELOAD_MAIN_INTENT_VALUE, true);
+            }
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Context context = getContext();
+            if (context != null) {
+                context.startActivity(intent);
+            }
         }
 
         @Override

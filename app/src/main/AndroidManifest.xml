@@ -117,6 +117,7 @@
         <activity
             android:name=".GroupShortcutConfigure"
             android:exported="true"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/groupShortcut"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

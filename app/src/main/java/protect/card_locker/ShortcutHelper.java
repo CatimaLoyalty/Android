@@ -166,14 +166,11 @@ class ShortcutHelper {
         bundle.putString("groupId", group._id);
         intent.putExtras(bundle);
 
-        Bitmap iconBitmap = Utils.generateIcon(context, group, true).getLetterTile();
-        IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
-        String GROUP_groupName = group._id;
+        String shortcutId = "GROUP_" + group._id;
 
-        return new ShortcutInfoCompat.Builder(context, GROUP_groupName)
-                .setShortLabel(GROUP_groupName)
-                .setLongLabel(GROUP_groupName)
-                .setIntent(intent)
-                .setIcon(icon);
+        return new ShortcutInfoCompat.Builder(context, shortcutId)
+                .setShortLabel(group._id)
+                .setLongLabel(group._id)
+                .setIntent(intent);
     }
 }

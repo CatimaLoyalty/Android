@@ -221,4 +221,5 @@
     <string name="source_repository">Källkodslager</string>
     <string name="noGiftCardsGroup">Skapa några kort och placera dem sedan i den här gruppen.</string>
     <string name="translate_platform">på Weblate</string>
+    <string name="shortcutSelectCard">Välj ett kort</string>
 </resources>

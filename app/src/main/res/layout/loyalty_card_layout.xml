@@ -16,34 +16,35 @@
             android:id="@+id/icon_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="85.6f:53.98f"
+            android:outlineProvider="none"
             app:cardCornerRadius="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/store">
+            app:layout_constraintBottom_toTopOf="@+id/store"
+            app:layout_constraintDimensionRatio="85.6f:53.98f"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:scaleType="fitCenter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/thumbnailDescription"
+                android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcher"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/selected_thumbnail"
-                android:scaleType="fitCenter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/thumbnailDescription"
-                app:srcCompat="@drawable/ic_done"
-                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_done" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/star"

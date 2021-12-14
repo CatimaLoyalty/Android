@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.util.TypedValue;
 
-import java.util.HashMap;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import java.util.HashMap;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
 

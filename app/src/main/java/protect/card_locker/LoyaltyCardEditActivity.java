@@ -73,6 +73,7 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import androidx.palette.graphics.Palette;
+
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -175,6 +176,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean mIconRemoved = false;
 
     final private TaskHandler mTasks = new TaskHandler();
+
+    // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+    private Locale mSystemLocale;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        // store system locale
+        mSystemLocale = Locale.getDefault();
+        super.attachBaseContext(base);
+    }
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
         return new LoyaltyCard(
@@ -426,14 +437,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     LocaleList locales = getApplicationContext().getResources().getConfiguration().getLocales();
 
-                    for (int i = locales.size() - 1; i > 0; i--) {
+                    for (int i = locales.size() - 1; i >= 0; i--) {
                         Locale locale = locales.get(i);
                         String currencySymbol = Currency.getInstance(locale).getSymbol();
                         currencyList.remove(currencySymbol);
                         currencyList.add(0, currencySymbol);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(getApplicationContext().getResources().getConfiguration().locale).getSymbol();
+                    String currencySymbol = Currency.getInstance(mSystemLocale).getSymbol();
                     currencyList.remove(currencySymbol);
                     currencyList.add(0, currencySymbol);
                 }

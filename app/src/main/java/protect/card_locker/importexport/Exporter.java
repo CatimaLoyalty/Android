@@ -1,6 +1,7 @@
 package protect.card_locker.importexport;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -17,5 +18,5 @@ public interface Exporter {
      *
      * @throws IOException
      */
-    void exportData(Context context, DBHelper db, OutputStream output, char[] password) throws IOException, InterruptedException;
+    void exportData(Context context, SQLiteDatabase database, OutputStream output, char[] password) throws IOException, InterruptedException;
 }

@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;
@@ -26,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
     private static final String TAG = "Catima";
 
-    private final DBHelper mDb = new DBHelper(this);
+    private SQLiteDatabase mDatabase;
     private TextView mHelpText;
     private RecyclerView mGroupList;
     GroupCursorAdapter mAdapter;
@@ -42,6 +43,8 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        mDatabase = new DBHelper(this).getWritableDatabase();
     }
 
     @Override
@@ -72,9 +75,9 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void updateGroupList() {
-        mAdapter.swapCursor(mDb.getGroupCursor());
+        mAdapter.swapCursor(DBHelper.getGroupCursor(mDatabase));
 
-        if (mDb.getGroupCount() == 0) {
+        if (DBHelper.getGroupCount(mDatabase) == 0) {
             mGroupList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
 
@@ -118,11 +121,11 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
                 Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (mDb.getGroup(inputString) != null) {
+            if (DBHelper.getGroup(mDatabase, inputString) != null) {
                 Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
                 return;
             }
-            mDb.insertGroup(inputString);
+            DBHelper.insertGroup(mDatabase, inputString);
             updateGroupList();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
@@ -138,10 +141,10 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void moveGroup(View view, boolean up) {
-        List<Group> groups = mDb.getGroups();
+        List<Group> groups = DBHelper.getGroups(mDatabase);
         final String groupName = getGroupName(view);
 
-        int currentIndex = mDb.getGroup(groupName).order;
+        int currentIndex = DBHelper.getGroup(mDatabase, groupName).order;
         int newIndex;
 
         // Reinsert group in correct position
@@ -160,7 +163,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         groups.add(newIndex, group);
 
         // Update database
-        mDb.reorderGroups(groups);
+        DBHelper.reorderGroups(mDatabase, groups);
 
         // Update UI
         updateGroupList();
@@ -195,7 +198,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         builder.setMessage(groupName);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            mDb.deleteGroup(groupName);
+            DBHelper.deleteGroup(mDatabase, groupName);
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();

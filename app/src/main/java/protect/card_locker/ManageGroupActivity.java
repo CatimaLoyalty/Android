@@ -2,6 +2,7 @@ package protect.card_locker;
 
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
 
-    private final DBHelper mDB = new DBHelper(this);
+    private SQLiteDatabase mDatabase;
     private ManageGroupCursorAdapter mAdapter;
 
     private final String SAVE_INSTANCE_ADAPTER_STATE = "adapterState";
@@ -44,6 +45,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         setContentView(R.layout.activity_manage_group);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDatabase = new DBHelper(this).getWritableDatabase();
 
         mHelpText = findViewById(R.id.helpText);
         mCardList = findViewById(R.id.list);
@@ -70,7 +73,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
                     return;
                 }
                 if (!mGroup._id.equals(currentGroupName)) {
-                    if (mDB.getGroup(currentGroupName) != null) {
+                    if (DBHelper.getGroup(mDatabase, currentGroupName) != null) {
                         mGroupNameNotInUse = false;
                         mGroupNameText.setError(getResources().getText(R.string.group_name_already_in_use));
                     } else {
@@ -86,7 +89,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             throw (new IllegalArgumentException("this activity expects a group loaded into it's intent"));
         }
         Log.d("groupId", "groupId: " + groupId);
-        mGroup = mDB.getGroup(groupId);
+        mGroup = DBHelper.getGroup(mDatabase, groupId);
         if (mGroup == null) {
             throw (new IllegalArgumentException("cannot load group " + groupId + " from database"));
         }
@@ -123,7 +126,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
             mAdapter.commitToDatabase();
             if (!currentGroupName.equals(mGroup._id)) {
-                mDB.updateGroup(mGroup._id, currentGroupName);
+                DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName);
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
             finish();
@@ -163,7 +166,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     private void updateLoyaltyCardList() {
-        mAdapter.swapCursor(mDB.getLoyaltyCardCursor());
+        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase));
 
         if (mAdapter.getItemCount() == 0) {
             mCardList.setVisibility(View.GONE);

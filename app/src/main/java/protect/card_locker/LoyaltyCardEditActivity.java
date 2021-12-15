@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -74,6 +75,7 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import androidx.palette.graphics.Palette;
+
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -142,7 +144,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     Uri importLoyaltyCardUri = null;
 
-    DBHelper db;
+    SQLiteDatabase mDatabase;
     ImportURIHelper importUriHelper;
 
     boolean hasChanged = false;
@@ -176,6 +178,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean mIconRemoved = false;
 
     final private TaskHandler mTasks = new TaskHandler();
+
+    // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+    private Locale mSystemLocale;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        // store system locale
+        mSystemLocale = Locale.getDefault();
+        super.attachBaseContext(base);
+    }
 
     private static LoyaltyCard updateTempState(LoyaltyCard loyaltyCard, LoyaltyCardField fieldName, Object value) {
         return new LoyaltyCard(
@@ -282,9 +294,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        mDatabase = new DBHelper(this).getWritableDatabase();
+
         extractIntentFields(getIntent());
 
-        db = new DBHelper(this);
         importUriHelper = new ImportURIHelper(this);
 
         for (Currency currency : Currency.getAvailableCurrencies()) {
@@ -427,14 +440,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     LocaleList locales = getApplicationContext().getResources().getConfiguration().getLocales();
 
-                    for (int i = locales.size() - 1; i > 0; i--) {
+                    for (int i = locales.size() - 1; i >= 0; i--) {
                         Locale locale = locales.get(i);
                         String currencySymbol = Currency.getInstance(locale).getSymbol();
                         currencyList.remove(currencySymbol);
                         currencyList.add(0, currencySymbol);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(getApplicationContext().getResources().getConfiguration().locale).getSymbol();
+                    String currencySymbol = Currency.getInstance(mSystemLocale).getSymbol();
                     currencyList.remove(currencySymbol);
                     currencyList.add(0, currencySymbol);
                 }
@@ -730,7 +743,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         if (tempLoyaltyCard == null) {
             if (updateLoyaltyCard) {
-                tempLoyaltyCard = db.getLoyaltyCard(loyaltyCardId);
+                tempLoyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
                 if (tempLoyaltyCard == null) {
                     Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
                     Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
@@ -793,9 +806,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.prettyName() : getString(R.string.noBarcode));
 
         if (groupsChips.getChildCount() == 0) {
-            List<Group> existingGroups = db.getGroups();
+            List<Group> existingGroups = DBHelper.getGroups(mDatabase);
 
-            List<Group> loyaltyCardGroups = db.getLoyaltyCardGroups(loyaltyCardId);
+            List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, loyaltyCardId);
 
             if (existingGroups.isEmpty()) {
                 groupsChips.setVisibility(View.GONE);
@@ -803,7 +816,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 groupsChips.setVisibility(View.VISIBLE);
             }
 
-            for (Group group : db.getGroups()) {
+            for (Group group : DBHelper.getGroups(mDatabase)) {
                 Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
                 chip.setText(group._id);
                 chip.setTag(group);
@@ -1259,7 +1272,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (updateLoyaltyCard) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            db.updateLoyaltyCard(loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
+            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
@@ -1269,7 +1282,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         } else {
-            loyaltyCardId = (int) db.insertLoyaltyCard(tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed);
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
@@ -1279,9 +1292,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
         }
 
-        db.setLoyaltyCardGroups(loyaltyCardId, selectedGroups);
+        DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, selectedGroups);
 
-        ShortcutHelper.updateShortcuts(this, db.getLoyaltyCard(loyaltyCardId));
+        ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
         finish();
     }
@@ -1313,8 +1326,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
                     Log.e(TAG, "Deleting card: " + loyaltyCardId);
 
-                    DBHelper db = new DBHelper(LoyaltyCardEditActivity.this);
-                    db.deleteLoyaltyCard(LoyaltyCardEditActivity.this, loyaltyCardId);
+                    DBHelper.deleteLoyaltyCard(mDatabase, LoyaltyCardEditActivity.this, loyaltyCardId);
 
                     ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
 

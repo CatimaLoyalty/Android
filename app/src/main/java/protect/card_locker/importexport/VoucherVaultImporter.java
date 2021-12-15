@@ -36,7 +36,7 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class VoucherVaultImporter implements Importer {
-    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         StringBuilder sb = new StringBuilder();
@@ -45,9 +45,6 @@ public class VoucherVaultImporter implements Importer {
             sb.append(line);
         }
         JSONArray jsonArray = new JSONArray(sb.toString());
-
-        SQLiteDatabase database = db.getWritableDatabase();
-        database.beginTransaction();
 
         // See https://github.com/tim-smart/vouchervault/issues/4#issuecomment-788226503 for more info
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -129,12 +126,8 @@ public class VoucherVaultImporter implements Importer {
                     throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            db.insertLoyaltyCard(store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime());
+            DBHelper.insertLoyaltyCard(database, store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime());
         }
-
-        database.setTransactionSuccessful();
-        database.endTransaction();
-        database.close();
 
         bufferedReader.close();
     }

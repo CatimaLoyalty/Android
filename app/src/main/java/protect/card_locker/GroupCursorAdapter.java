@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
     Settings mSettings;
     private final Context mContext;
     private final GroupAdapterListener mListener;
-    DBHelper mDb;
+    SQLiteDatabase mDatabase;
 
     public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
@@ -24,7 +25,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         mSettings = new Settings(inputContext);
         mContext = inputContext.getApplicationContext();
         mListener = inputListener;
-        mDb = new DBHelper(inputContext);
+        mDatabase = new DBHelper(inputContext).getReadableDatabase();
 
         swapCursor(inputCursor);
     }
@@ -41,7 +42,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
 
         inputHolder.mName.setText(group._id);
 
-        int groupCardCount = mDb.getGroupCardCount(group._id);
+        int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
         inputHolder.mCardCount.setText(mContext.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
         inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));

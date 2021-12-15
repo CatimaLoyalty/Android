@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -45,7 +46,7 @@ class ShortcutHelper {
     static void updateShortcuts(Context context, LoyaltyCard card) {
         LinkedList<ShortcutInfoCompat> list = new LinkedList<>(ShortcutManagerCompat.getDynamicShortcuts(context));
 
-        DBHelper dbHelper = new DBHelper(context);
+        SQLiteDatabase database = new DBHelper(context).getReadableDatabase();
 
         String shortcutId = Integer.toString(card.id);
 
@@ -88,7 +89,7 @@ class ShortcutHelper {
         for (int index = 0; index < list.size(); index++) {
             ShortcutInfoCompat prevShortcut = list.get(index);
 
-            LoyaltyCard loyaltyCard = dbHelper.getLoyaltyCard(Integer.parseInt(prevShortcut.getId()));
+            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(database, Integer.parseInt(prevShortcut.getId()));
 
             ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
                     .setRank(index)

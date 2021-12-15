@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     static final String TAG = "Catima";
-    final DBHelper mDb = new DBHelper(this);
+    final SQLiteDatabase mDatabase = new DBHelper(this).getReadableDatabase();
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -31,10 +32,8 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.shortcutSelectCard);
 
-        final DBHelper db = new DBHelper(this);
-
         // If there are no cards, bail
-        if (db.getLoyaltyCardCount() == 0) {
+        if (DBHelper.getLoyaltyCardCount(mDatabase) == 0) {
             Toast.makeText(this, R.string.noCardsMessage, Toast.LENGTH_LONG).show();
             finish();
         }
@@ -45,13 +44,13 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
             layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
         }
 
-        Cursor cardCursor = db.getLoyaltyCardCursor();
+        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
         cardList.setAdapter(adapter);
     }
 
     private void onClickAction(int position) {
-        Cursor selected = mDb.getLoyaltyCardCursor();
+        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase);
         selected.moveToPosition(position);
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 

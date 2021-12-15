@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class GroupShortcutConfigure extends AppCompatActivity implements GroupSelectCursorAdapter.GroupAdapterListener {
     static final String TAG = "Catima";
-    final DBHelper mDb = new DBHelper(this);
+    final SQLiteDatabase mDatabase = new DBHelper(this).getReadableDatabase();
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -36,14 +36,14 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupSe
         final DBHelper db = new DBHelper(this);
 
         // If there are no groups, bail
-        if (db.getGroupCount() == 0) {
+        if (DBHelper.getGroupCount(mDatabase) == 0) {
             Toast.makeText(this, R.string.noGroups, Toast.LENGTH_LONG).show();
             finish();
         }
 
         final RecyclerView groupList = findViewById(R.id.list);
 
-        Cursor groupCursor = db.getGroupCursor();
+        Cursor groupCursor = DBHelper.getGroupCursor(mDatabase);
         final GroupSelectCursorAdapter adapter = new GroupSelectCursorAdapter(this, groupCursor,this);
         groupList.setAdapter(adapter);
     }
@@ -59,7 +59,7 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupSe
             throw (new IllegalArgumentException("The widget expects a group"));
         }
         Log.d("groupId", "groupId: " + groupId);
-        Group group = mDb.getGroup(groupId);
+        Group group = DBHelper.getGroup(mDatabase, groupId);
         if (group == null) {
             throw (new IllegalArgumentException("cannot load group " + groupId + " from database"));
         }

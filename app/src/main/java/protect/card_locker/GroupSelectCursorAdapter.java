@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import protect.card_locker.preferences.Settings;
@@ -18,7 +18,7 @@ public class GroupSelectCursorAdapter extends BaseCursorAdapter<GroupSelectCurso
     Settings mSettings;
     private final Context mContext;
     private final GroupAdapterListener mListener;
-    DBHelper mDb;
+    SQLiteDatabase mDatabase;
 
     public GroupSelectCursorAdapter(Context inputContext, Cursor inputCursor, GroupAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
@@ -26,7 +26,7 @@ public class GroupSelectCursorAdapter extends BaseCursorAdapter<GroupSelectCurso
         mSettings = new Settings(inputContext);
         mContext = inputContext.getApplicationContext();
         mListener = inputListener;
-        mDb = new DBHelper(inputContext);
+        mDatabase = new DBHelper(inputContext).getReadableDatabase();
 
         swapCursor(inputCursor);
     }
@@ -43,7 +43,7 @@ public class GroupSelectCursorAdapter extends BaseCursorAdapter<GroupSelectCurso
 
         inputHolder.mName.setText(group._id);
 
-        int groupCardCount = mDb.getGroupCardCount(group._id);
+        int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
         inputHolder.mCardCount.setText(mContext.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
         inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));

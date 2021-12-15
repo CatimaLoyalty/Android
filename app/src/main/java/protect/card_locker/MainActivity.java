@@ -324,7 +324,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Restore settings from Shared Preference
         if (groupWidget != null){
-            Group groupSelected = mDB.getGroup(groupWidget);
+            Group groupSelected = DBHelper.getGroup(mDatabase, groupWidget);
             if (groupSelected == null) {
                 Log.w(TAG, "Could not lookup group " + groupWidget);
                 Toast.makeText(this, R.string.noGroupExistsError, Toast.LENGTH_LONG).show();

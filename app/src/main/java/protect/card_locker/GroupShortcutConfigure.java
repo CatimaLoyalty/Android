@@ -33,8 +33,6 @@ public class GroupShortcutConfigure extends AppCompatActivity implements GroupSe
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.shortcutSelectGroup);
 
-        final DBHelper db = new DBHelper(this);
-
         // If there are no groups, bail
         if (DBHelper.getGroupCount(mDatabase) == 0) {
             Toast.makeText(this, R.string.noGroups, Toast.LENGTH_LONG).show();

@@ -18,11 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     static final String TAG = "Catima";
-    final SQLiteDatabase mDatabase = new DBHelper(this).getReadableDatabase();
+    private SQLiteDatabase mDatabase;
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+        mDatabase = new DBHelper(this).getReadableDatabase();
 
         // Set the result to CANCELED.  This will cause nothing to happen if the
         // aback button is pressed.

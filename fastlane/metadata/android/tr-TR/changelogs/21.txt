@@ -1,0 +1,2 @@
+- Kart listesi düzeni iyileştirildi. (https://github.com/brarcher/loyalty-card-locker/pull/188)
+- Kartı görüntüleme düzeni iyileştirildi. (https://github.com/brarcher/loyalty-card-locker/pull/190)

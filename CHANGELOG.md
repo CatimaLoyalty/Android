@@ -1,8 +1,23 @@
 # Changelog
 
-## Unreleased - 93
+## Unreleased - 96
+
+- Add CODE 93 support
+
+## v2.11.2 - 95 (2021-12-04)
+
+- Fix crash on sharing card
+
+## v2.11.1 - 94 (2021-11-30)
+
+- Fix blurriness of main screen letter icons
+- Fix icons sometimes disappearing after selection
+- Fix status bar icons possibly being invisible on Android 5
+
+## v2.11.0 - 93 (2021-11-28)
 
 - Add Catima to [Quick Access Device Controls](https://developer.android.com/guide/topics/ui/device-control)
+- Fix some groups not showing up correctly in group management screen
 
 ## v2.10.0 - 92 (2021-11-20)
 

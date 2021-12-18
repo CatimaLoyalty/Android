@@ -29,6 +29,7 @@ Supported barcodes:
 - AZTEC
 - CODABAR
 - CODE_39
+- CODE_93
 - CODE_128
 - DATA_MATRIX
 - EAN_8

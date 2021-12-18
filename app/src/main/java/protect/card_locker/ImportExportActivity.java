@@ -318,9 +318,9 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             }
         };
 
+        startProgressNotification(true);
         importExporter = new ImportExportTask(ImportExportActivity.this,
                 dataFormat, target, password, listener);
-        startProgressNotification(true);
         mTasks.executeTask(TaskHandler.TYPE.IMPORT, importExporter);
     }
 
@@ -337,9 +337,9 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             }
         };
 
+        startProgressNotification(false);
         importExporter = new ImportExportTask(ImportExportActivity.this,
                 DataFormat.Catima, target, password, listener);
-        startProgressNotification(false);
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, importExporter);
     }
 
@@ -421,7 +421,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             // set flag to give temporary permission to external app to use the FileProvider
             sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-            pendingIntent = PendingIntent.getActivity(this, NOTIFICATION_EXPORT, sendIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+            pendingIntent = PendingIntent.getActivity(this, NOTIFICATION_EXPORT, sendIntent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         }
 
         endProgressNotification(false, result, pendingIntent);

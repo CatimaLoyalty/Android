@@ -1,0 +1,3 @@
+- Fix blurriness of main screen letter icons
+- Fix icons sometimes disappearing after selection
+- Fix status bar icons possibly being invisible on Android 5

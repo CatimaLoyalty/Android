@@ -53,8 +53,8 @@
     <string name="noGroups">+ボタンを押してグループを追加してください。</string>
     <string name="groups">グループ</string>
     <string name="enter_group_name">グループ名を入力</string>
-    <string name="exportSuccessful">カードのデータがエクスポートされました</string>
-    <string name="importSuccessful">カードのデータがインポートされました</string>
+    <string name="exportSuccessful">データがエクスポートされました</string>
+    <string name="importSuccessful">データがインポートされました</string>
     <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
     <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中は画面をロックしない</string>
     <string name="settings_keep_screen_on">バーコード表示中は画面を消灯しない</string>
@@ -68,7 +68,7 @@
     <string name="settings_category_title_ui">外観</string>
     <string name="settings">設定</string>
     <string name="starImage">お気に入りのスター</string>
-    <string name="thumbnailDescription">カードのサムネイル</string>
+    <string name="thumbnailDescription">サムネイル</string>
     <string name="copy_to_clipboard_toast">カード番号をクリップボードにコピーしました</string>
     <string name="enterBarcodeInstructions">カード番号を入力し、バーコード形式を選択してください。</string>
     <string name="selectBarcodeTitle">バーコード選択</string>
@@ -89,7 +89,7 @@
     <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください。</string>
     <string name="importOptionFilesystemTitle">ストレージからインポート</string>
     <string name="exportOptionExplanation">選択した場所にデータを出力します。</string>
-    <string name="noExternalStoragePermissionError">カードをインポート/エクスポートするために外部ストレージへのアクセスを許可してください</string>
+    <string name="noExternalStoragePermissionError">データをインポート/エクスポートするために外部ストレージへのアクセスを許可してください</string>
     <string name="exporting">エクスポート中…</string>
     <string name="importing">インポート中…</string>
     <string name="exportFailed">カードをエクスポートできませんでした: <xliff:g>%s</xliff:g></string>
@@ -103,7 +103,7 @@
     <string name="importFailed">カードをインポートできません: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">インポートに失敗しました</string>
     <string name="importSuccessfulTitle">インポートしました</string>
-    <string name="importExportHelp">カードをバックアップすると、他のデバイスにカードを移すことができます。</string>
+    <string name="importExportHelp">データをバックアップすると、他のデバイスにカードを移すことができます。</string>
     <string name="exportName">エクスポート</string>
     <string name="importExport">インポート/エクスポート</string>
     <string name="failedParsingImportUriError">インポートURIを解析できません</string>
@@ -112,7 +112,7 @@
     <string name="noStoreError">名前が入力されていません</string>
     <string name="noCardsMessage">カードを追加</string>
     <string name="cardShortcut">カードのショートカット</string>
-    <string name="scanCardBarcode">カードのバーコードをスキャン</string>
+    <string name="scanCardBarcode">バーコードをスキャン</string>
     <string name="addCardTitle">カードの追加</string>
     <string name="editCardTitle">カードの編集</string>
     <string name="sendLabel">送信先を選択…</string>
@@ -129,7 +129,7 @@
     <string name="unstar">お気に入りから削除</string>
     <string name="star">お気に入りに追加</string>
     <string name="noBarcode">バーコードなし</string>
-    <string name="barcodeNoBarcode">バーコード指定なし</string>
+    <string name="barcodeNoBarcode">バーコードなし</string>
     <string name="barcodeType">バーコード形式</string>
     <string name="cardId">カード番号</string>
     <string name="note">メモ</string>
@@ -154,8 +154,8 @@
     <string name="setBackImage">裏面の画像を設定</string>
     <string name="setFrontImage">オモテ面の画像を設定</string>
     <string name="photos">フォト</string>
-    <string name="backImageDescription">カードの裏面</string>
-    <string name="frontImageDescription">カードのオモテ面</string>
+    <string name="backImageDescription">裏</string>
+    <string name="frontImageDescription">表</string>
     <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択してください。
 \nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
     <string name="importStocard">Stocardからインポート</string>
@@ -196,7 +196,7 @@
     <string name="rate_this_app">このアプリを評価する</string>
     <string name="on_github">GitHub</string>
     <string name="source_repository">ソースリポジトリ</string>
-    <string name="exportPassword">パスワードを設定してエクスポートしたファイルを保護する(任意)</string>
+    <string name="exportPassword">パスワードを設定する(不要なら空欄)</string>
     <string name="exportPasswordHint">パスワードを入力してください</string>
     <string name="version_history">更新履歴</string>
     <string name="credits">貢献者</string>
@@ -206,4 +206,15 @@
     <string name="report_error">エラーを報告する</string>
     <string name="reverse">逆順</string>
     <string name="and_data_usage">and data usage</string>
+    <string name="group_updated">グループを更新しました</string>
+    <string name="editGroup">グループ編集: <xliff:g>%s</xliff:g></string>
+    <string name="action_show_details">詳細を表示</string>
+    <string name="action_hide_details">詳細を非表示</string>
+    <string name="selectColor">色を選択</string>
+    <string name="setIcon">アイコン設定</string>
+    <string name="group_edit">グループ編集</string>
+    <string name="group_name_already_in_use">このグループ名は既に使用されています</string>
+    <string name="group_name_is_empty">グループ名を入力してください</string>
+    <string name="shortcutSelectCard">カードを選択してください</string>
+    <string name="translate_platform">on Weblate</string>
 </resources>

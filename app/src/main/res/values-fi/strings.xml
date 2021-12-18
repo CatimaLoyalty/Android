@@ -143,7 +143,7 @@
     <string name="note">Lisätieto</string>
     <string name="storeName">Nimi</string>
     <string name="noMatchingGiftCards">Ei hakutuloksia, kokeile toisella hakutermillä.</string>
-    <string name="noGiftCards">Lisää ensin kortti napsauttamalla + plus-painiketta, tai mene ⋮ valikkoon tuodaksesi varmuuskopiosta.</string>
+    <string name="noGiftCards">Lisää kortti napsauttamalla + plus-painiketta, tai mene ⋮ valikkoon tuodaksesi varmuuskopiosta.</string>
     <string name="action_add">Lisää</string>
     <string name="action_search">Hae</string>
     <string name="takePhoto">Ota valokuva</string>
@@ -164,8 +164,8 @@
         <item quantity="other">Poista <xliff:g>%d</xliff:g>kortit</item>
     </plurals>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> Kortti valittu</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kortit valitut</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> valittu</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> valitut</item>
     </plurals>
     <string name="importStocard">Tuo Stocardista</string>
     <string name="importStocardMessage">Valitse tuotava <i>***-sync.zip</i>-vienti Stocardista.

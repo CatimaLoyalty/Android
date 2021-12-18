@@ -1,0 +1,3 @@
+- Ana ekran harf simgelerinin bulanıklığı düzeltildi
+- Simgelerin seçtikten sonra bazen kaybolması düzeltildi
+- Android 5'te bazen görünmez olan durum çubuğu simgeleri düzeltildi

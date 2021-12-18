@@ -1,0 +1,1 @@
+- Kart paylaşırken oluşan çökme düzeltildi

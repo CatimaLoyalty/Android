@@ -1,19 +1,16 @@
 package protect.card_locker;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -21,48 +18,41 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     static final String TAG = "Catima";
-    final DBHelper mDb = new DBHelper(this);
+    private SQLiteDatabase mDatabase;
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
+        mDatabase = new DBHelper(this).getReadableDatabase();
+
         // Set the result to CANCELED.  This will cause nothing to happen if the
         // aback button is pressed.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.simple_toolbar_list_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.GONE);
-
-        // Hide new button because it won't work here anyway
-        FloatingActionButton newFab = findViewById(R.id.fabAdd);
-        newFab.setVisibility(View.GONE);
-
-        final DBHelper db = new DBHelper(this);
+        toolbar.setTitle(R.string.shortcutSelectCard);
 
         // If there are no cards, bail
-        if (db.getLoyaltyCardCount() == 0) {
+        if (DBHelper.getLoyaltyCardCount(mDatabase) == 0) {
             Toast.makeText(this, R.string.noCardsMessage, Toast.LENGTH_LONG).show();
             finish();
         }
 
         final RecyclerView cardList = findViewById(R.id.list);
+        GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
+        if (layoutManager != null) {
+            layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
+        }
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        cardList.setLayoutManager(mLayoutManager);
-        cardList.setItemAnimator(new DefaultItemAnimator());
-
-        cardList.setVisibility(View.VISIBLE);
-
-        Cursor cardCursor = db.getLoyaltyCardCursor();
-
+        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
         cardList.setAdapter(adapter);
     }
 
     private void onClickAction(int position) {
-        Cursor selected = mDb.getLoyaltyCardCursor();
+        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase);
         selected.moveToPosition(position);
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 

@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,19 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
-class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
+public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
     Settings mSettings;
     private final Context mContext;
-    private final GroupCursorAdapter.GroupAdapterListener mListener;
-    DBHelper mDb;
+    private final GroupAdapterListener mListener;
+    SQLiteDatabase mDatabase;
 
-    public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupCursorAdapter.GroupAdapterListener inputListener) {
-        super(inputCursor);
+    public GroupCursorAdapter(Context inputContext, Cursor inputCursor, GroupAdapterListener inputListener) {
+        super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext;
+        mContext = inputContext.getApplicationContext();
         mListener = inputListener;
-        mDb = new DBHelper(inputContext);
+        mDatabase = new DBHelper(inputContext).getReadableDatabase();
 
         swapCursor(inputCursor);
     }
@@ -36,12 +37,12 @@ class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListI
         return new GroupListItemViewHolder(itemView);
     }
 
-    public void onBindViewHolder(GroupCursorAdapter.GroupListItemViewHolder inputHolder, Cursor inputCursor) {
+    public void onBindViewHolder(GroupListItemViewHolder inputHolder, Cursor inputCursor) {
         Group group = Group.toGroup(inputCursor);
 
         inputHolder.mName.setText(group._id);
 
-        int groupCardCount = mDb.getGroupCardCount(group._id);
+        int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
         inputHolder.mCardCount.setText(mContext.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
 
         inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));

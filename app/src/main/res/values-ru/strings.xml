@@ -8,7 +8,7 @@
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
-    <string name="barcodeNoBarcode">Эта карта без штрих-кода</string>
+    <string name="barcodeNoBarcode">Нет штрих-кода</string>
     <string name="cancel">Отмена</string>
     <string name="save">Сохранить</string>
     <string name="edit">Изменить</string>
@@ -26,12 +26,12 @@
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Сначала добавьте карту</string>
     <string name="noStoreError">Название не указано</string>
-    <string name="noCardIdError">Номер карты не указан</string>
+    <string name="noCardIdError">Номер не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Невозможно разобрать импортируемый URI</string>
     <string name="importExport">Импорт/Экспорт</string>
     <string name="exportName">Экспорт</string>
-    <string name="importExportHelp">Резервное копирование карт позволяет перенести их на другое устройство.</string>
+    <string name="importExportHelp">Резервное копирование данных позволяет перенести их на другое устройство.</string>
     <string name="importSuccessfulTitle">Импортировано</string>
     <string name="importFailedTitle">Импорт не выполнен</string>
     <string name="importFailed">Невозможно импортировать карты: <xliff:g>%s</xliff:g></string>
@@ -40,7 +40,7 @@
     <string name="exportFailed">Невозможно экспортировать карты: <xliff:g>%s</xliff:g></string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
-    <string name="noExternalStoragePermissionError">Импорт или экспорт невозможен без разрешения на доступ к хранилищу</string>
+    <string name="noExternalStoragePermissionError">Импорт или экспорт данных невозможен без разрешения на доступ к хранилищу</string>
     <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
@@ -54,9 +54,9 @@
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер карты и выберите тип штрих-кода (или выберите \"Эта карта без штрих-кода\").</string>
-    <string name="copy_to_clipboard_toast">Номер карты скопирован в буфер обмена</string>
-    <string name="thumbnailDescription">Логотип карты</string>
+    <string name="enterBarcodeInstructions">Введите номер и выберите тип штрих-кода (или выберите \"Нет штрих-кода\").</string>
+    <string name="copy_to_clipboard_toast">Номер скопирован в буфер обмена</string>
+    <string name="thumbnailDescription">Логотип</string>
     <string name="settings">Настройки</string>
     <string name="settings_category_title_ui">Внешний вид</string>
     <string name="settings_theme">Тема</string>
@@ -66,12 +66,12 @@
     <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
     <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться с вами картой</string>
-    <string name="exportSuccessful">Данные карт успешно экспортированы</string>
+    <string name="exportSuccessful">Данные успешно экспортированы</string>
     <string name="all">Все</string>
-    <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для упорядочивания записей.</string>
+    <string name="noGroups">Нажмите кнопку \"+\", чтобы добавить группы для распределения записей.</string>
     <string name="groups">Группы</string>
     <string name="enter_group_name">Введите название группы</string>
-    <string name="importSuccessful">Данные карт успешно импортированы</string>
+    <string name="importSuccessful">Данные успешно импортированы</string>
     <string name="starImage">Звезда избранного</string>
     <string name="app_copyright_old">На основе Loyalty Card Keychain
 \nавторские права © 2016–2020 Branden Archer</string>
@@ -88,7 +88,7 @@
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
     <string name="points">Баллы</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не похож на правильный баланс.</string>
-    <string name="addManually">Ручной ввод номера карты</string>
+    <string name="addManually">Ручной ввод номера</string>
     <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
 \n
 \nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
@@ -133,7 +133,7 @@
     <string name="noBarcodeFound">Штрих-код не найден</string>
     <string name="addFromImage">Выбрать изображение из галереи</string>
     <string name="setBarcodeId">Указать значение</string>
-    <string name="sameAsCardId">Как номер карты</string>
+    <string name="sameAsCardId">Как номер</string>
     <string name="barcodeId">Значение штрих-кода</string>
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
@@ -142,9 +142,9 @@
     <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Поделиться картами</string>
-    <string name="card_ids_copied">Скопированные номера карт</string>
-    <string name="copy_to_clipboard_multiple_toast">Номера карт скопированы в буфер обмена</string>
-    <string name="updateBarcodeQuestionText">Вы изменили номер карты. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
+    <string name="card_ids_copied">Скопированные номера</string>
+    <string name="copy_to_clipboard_multiple_toast">Номера скопированы в буфер обмена</string>
+    <string name="updateBarcodeQuestionText">Вы изменили номер. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
     <string name="no">Нет</string>
     <string name="yes">Да</string>
     <string name="updateBarcodeQuestionTitle">Обновить значение штрих-кода\?</string>
@@ -152,8 +152,8 @@
     <string name="setFrontImage">Изображение лицевой стороны</string>
     <string name="takePhoto">Сфотографировать</string>
     <string name="removeImage">Удалить изображение</string>
-    <string name="backImageDescription">Задняя сторона карты</string>
-    <string name="frontImageDescription">Лицевая сторона карты</string>
+    <string name="backImageDescription">Задняя сторона</string>
+    <string name="frontImageDescription">Лицевая сторона</string>
     <string name="photos">Фото</string>
     <string name="importStocardMessage">Выберите для импортирования файл <i>***-sync.zip</i>.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
@@ -163,10 +163,10 @@
     <string name="turn_flashlight_off">Отключить вспышку</string>
     <string name="turn_flashlight_on">Включить вспышку</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">Выбрано: <xliff:g>%d</xliff:g> карта</item>
-        <item quantity="few">Выбрано: <xliff:g>%d</xliff:g> карты</item>
-        <item quantity="many">Выбрано: <xliff:g>%d</xliff:g> карт</item>
-        <item quantity="other">Выбрано: <xliff:g>%d</xliff:g> карт</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> выбрана</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> выбраны</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> выбрано</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> выбрано</item>
     </plurals>
     <string name="deleteTitle">Удаление карты</string>
     <string name="deleteConfirmation">Удалить карту\?</string>
@@ -195,13 +195,13 @@
     <string name="settings_pink_theme">Розовый</string>
     <string name="settings_theme_color">Цвет темы</string>
     <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="noGroupCards">В группе нет карт</string>
-    <string name="barcodeImageDescriptionWithType">Изображение штрих-кода карты типа <xliff:g>%s</xliff:g></string>
+    <string name="noGroupCards">Группа пуста</string>
+    <string name="barcodeImageDescriptionWithType">Изображение штрих-кода <xliff:g>%s</xliff:g></string>
     <string name="toggleMoreInfo">Переключение отображения дополнительной информации</string>
     <string name="swipeToSwitchImages">Смахивание или долгое нажатие для переключения изображений</string>
     <string name="sort_by_expiry">Срок действия</string>
     <string name="sort_by">Сортировать по</string>
-    <string name="reverse">Обратный порядок</string>
+    <string name="reverse">…в обратном порядке</string>
     <string name="sort_by_balance">Баланс</string>
     <string name="sort_by_most_recently_used">Частота использования</string>
     <string name="sort_by_name">Название</string>
@@ -223,9 +223,11 @@
     <string name="editGroup">Редактирование группы: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Изменить группу</string>
     <string name="group_name_already_in_use">Такое название группы уже существует</string>
-    <string name="noGiftCardsGroup">У вас ещё нет ни одной карты. Как только появится несколько карт, вы сможете добавить их в группу здесь.</string>
+    <string name="noGiftCardsGroup">Создайте несколько карт, а затем распределите их по группам здесь.</string>
     <string name="setIcon">Выбор значка</string>
     <string name="selectColor">Выбрать цвет</string>
     <string name="action_hide_details">Скрыть детали</string>
     <string name="action_show_details">Показать детали</string>
+    <string name="translate_platform">на Weblate</string>
+    <string name="shortcutSelectCard">Выбор карты</string>
 </resources>

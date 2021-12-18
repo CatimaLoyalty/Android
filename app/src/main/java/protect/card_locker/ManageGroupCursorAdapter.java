@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,13 +14,13 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     private HashMap<Integer, Boolean> mIsLoyaltyCardInGroupCache;
     private HashMap<Integer, List<Group>> mGetGroupCache;
     final private Group mGroup;
-    final private DBHelper mDb;
+    final private SQLiteDatabase mDatabase;
 
     public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group) {
         super(inputContext, inputCursor, inputListener);
         mGroup = new Group(group._id, group.order);
         mInGroupOverlay = new HashMap<>();
-        mDb = new DBHelper(inputContext);
+        mDatabase = new DBHelper(inputContext).getWritableDatabase();
     }
 
     @Override
@@ -47,7 +48,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
         if (cache != null) {
             return cache;
         }
-        List<Group> groups = mDb.getLoyaltyCardGroups(cardId);
+        List<Group> groups = DBHelper.getLoyaltyCardGroups(mDatabase, cardId);
         mGetGroupCache.put(cardId, groups);
         return groups;
     }
@@ -94,7 +95,7 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
             } else {
                 groups.remove(mGroup);
             }
-            mDb.setLoyaltyCardGroups(cardId, groups);
+            DBHelper.setLoyaltyCardGroups(mDatabase, cardId, groups);
         }
     }
 

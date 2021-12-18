@@ -1,0 +1,3 @@
+- İtalyanca çeviri
+- Tüm 1B barkod türleri için destek. (Başlangıçta yalnızca ürün 1B barkodları destekleniyordu)
+- Başlangıçta eksik olan gerekli kamera izni eklendi.

@@ -1,6 +1,7 @@
 package protect.card_locker.importexport;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import net.lingala.zip4j.exception.ZipException;
@@ -28,7 +29,7 @@ public class MultiFormatImporter {
      * or another result otherwise. If no Success, no data was written to
      * the database.
      */
-    public static ImportExportResult importData(Context context, DBHelper db, InputStream input, DataFormat format, char[] password) {
+    public static ImportExportResult importData(Context context, SQLiteDatabase database, InputStream input, DataFormat format, char[] password) {
         Importer importer = null;
 
         switch (format) {
@@ -47,15 +48,18 @@ public class MultiFormatImporter {
         }
 
         if (importer != null) {
+            database.beginTransaction();
             try {
-                importer.importData(context, db, input, password);
+                importer.importData(context, database, input, password);
+                database.setTransactionSuccessful();
                 return ImportExportResult.Success;
             } catch (ZipException e) {
                 return ImportExportResult.BadPassword;
             } catch (IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e) {
                 Log.e(TAG, "Failed to import data", e);
+            } finally {
+                database.endTransaction();
             }
-
         } else {
             Log.e(TAG, "Unsupported data format imported: " + format.name());
         }

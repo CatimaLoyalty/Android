@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.os.Build;
@@ -27,12 +28,19 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
 
     public static final String PREFIX = "catima-";
     static final String TAG = "Catima";
-    private final DBHelper dbHelper = new DBHelper(this);
+    private SQLiteDatabase mDatabase;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mDatabase = new DBHelper(this).getReadableDatabase();
+    }
 
     @NonNull
     @Override
     public Flow.Publisher<Control> createPublisherForAllAvailable() {
-        Cursor loyaltyCardCursor = dbHelper.getLoyaltyCardCursor();
+        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
         return subscriber -> {
             while (loyaltyCardCursor.moveToNext()) {
                 LoyaltyCard card = LoyaltyCard.toLoyaltyCard(loyaltyCardCursor);
@@ -64,7 +72,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
 
                 try {
                     Integer cardId = this.controlIdToCardId(controlId);
-                    LoyaltyCard card = dbHelper.getLoyaltyCard(cardId);
+                    LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, cardId);
                     Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             .putExtra("id", card.id);

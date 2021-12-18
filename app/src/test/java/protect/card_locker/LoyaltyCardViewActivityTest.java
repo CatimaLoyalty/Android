@@ -9,6 +9,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -127,11 +128,11 @@ public class LoyaltyCardViewActivityTest {
                                               final String barcodeId,
                                               final String barcodeType,
                                               boolean creatingNewCard) throws ParseException {
-        DBHelper db = new DBHelper(activity);
+        SQLiteDatabase database = new DBHelper(activity).getWritableDatabase();
         if (creatingNewCard) {
-            assertEquals(0, db.getLoyaltyCardCount());
+            assertEquals(0, DBHelper.getLoyaltyCardCount(database));
         } else {
-            assertEquals(1, db.getLoyaltyCardCount());
+            assertEquals(1, DBHelper.getLoyaltyCardCount(database));
         }
 
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
@@ -156,9 +157,9 @@ public class LoyaltyCardViewActivityTest {
         activity.findViewById(R.id.fabSave).performClick();
         assertEquals(true, activity.isFinishing());
 
-        assertEquals(1, db.getLoyaltyCardCount());
+        assertEquals(1, DBHelper.getLoyaltyCardCount(database));
 
-        LoyaltyCard card = db.getLoyaltyCard(1);
+        LoyaltyCard card = DBHelper.getLoyaltyCard(database, 1);
         assertEquals(store, card.store);
         assertEquals(note, card.note);
         assertEquals(balance, card.balance);
@@ -193,7 +194,7 @@ public class LoyaltyCardViewActivityTest {
         }
         assertNotNull(card.headerColor);
 
-        db.close();
+        database.close();
     }
 
     /**
@@ -333,10 +334,10 @@ public class LoyaltyCardViewActivityTest {
 
             LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
             final Context context = activity.getApplicationContext();
-            DBHelper db = TestHelpers.getEmptyDb(activity);
+            SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
             if (!newCard) {
-                db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+                DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
             }
 
             activityController.start();
@@ -430,24 +431,24 @@ public class LoyaltyCardViewActivityTest {
 
         Activity activity = (Activity) activityController.get();
 
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        assertEquals(0, db.getLoyaltyCardCount());
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        assertEquals(0, DBHelper.getLoyaltyCardCount(database));
 
         final EditText storeField = activity.findViewById(R.id.storeNameEdit);
         final EditText noteField = activity.findViewById(R.id.noteEdit);
 
         activity.findViewById(R.id.fabSave).performClick();
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, DBHelper.getLoyaltyCardCount(database));
 
         storeField.setText("store");
         activity.findViewById(R.id.fabSave).performClick();
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, DBHelper.getLoyaltyCardCount(database));
 
         noteField.setText("note");
         activity.findViewById(R.id.fabSave).performClick();
-        assertEquals(0, db.getLoyaltyCardCount());
+        assertEquals(0, DBHelper.getLoyaltyCardCount(database));
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -570,9 +571,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -580,7 +581,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -588,9 +589,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -598,7 +599,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.VIEW_CARD, "store", "note", null, "0", context.getString(R.string.points), BARCODE_DATA, null, BARCODE_TYPE.toString(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -606,9 +607,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -622,7 +623,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -630,9 +631,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -660,7 +661,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(false, activity.hasChanged);
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -668,9 +669,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -692,7 +693,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -700,9 +701,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", new Date(), new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", new Date(), new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -716,7 +717,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -724,9 +725,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -763,7 +764,7 @@ public class LoyaltyCardViewActivityTest {
 
                 checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", DateFormat.getDateInstance(DateFormat.LONG).format(new Date()), "10.00", "€", EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE.toString(), null, null);
 
-                db.close();
+                database.close();
             }
         });
         balanceField.clearFocus();
@@ -774,9 +775,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -806,7 +807,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", "₩", EAN_BARCODE_DATA, context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -814,9 +815,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -837,7 +838,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), EAN_BARCODE_DATA, "123456", EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -845,9 +846,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -870,7 +871,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), "123456", context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -878,9 +879,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, "123456", EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, "123456", EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -906,7 +907,7 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), "654321", context.getString(R.string.sameAsCardId), EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -914,9 +915,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, "123456", EAN_BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, EAN_BARCODE_DATA, "123456", EAN_BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -942,16 +943,16 @@ public class LoyaltyCardViewActivityTest {
 
         checkAllFields(activity, ViewMode.UPDATE_CARD, "store", "note", context.getString(R.string.never), "0", context.getString(R.string.points), "654321", "123456", EAN_BARCODE_TYPE.prettyName(), null, null);
 
-        db.close();
+        database.close();
     }
 
     @Test
     public void checkMenu() throws IOException {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -969,7 +970,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -996,8 +997,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1007,7 +1008,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1015,8 +1016,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1026,7 +1027,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1034,8 +1035,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, null, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1044,7 +1045,7 @@ public class LoyaltyCardViewActivityTest {
         // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", activity.getApplicationContext().getString(R.string.never), new BigDecimal("0"), activity.getApplicationContext().getString(R.string.points), BARCODE_DATA, activity.getApplicationContext().getString(R.string.sameAsCardId), BARCODE_TYPE.name(), false);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1052,8 +1053,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1062,7 +1063,7 @@ public class LoyaltyCardViewActivityTest {
         // Save and check the loyalty card
         saveLoyaltyCardWithArguments(activity, "store", "note", activity.getApplicationContext().getString(R.string.never), new BigDecimal("0"), activity.getApplicationContext().getString(R.string.points), BARCODE_DATA, activity.getApplicationContext().getString(R.string.sameAsCardId), activity.getApplicationContext().getString(R.string.noBarcode), false);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1070,9 +1071,9 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(true);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1092,7 +1093,7 @@ public class LoyaltyCardViewActivityTest {
         // Check if the special NO_BARCODE string doesn't get saved
         saveLoyaltyCardWithArguments(activity, "store", "note", context.getString(R.string.never), new BigDecimal("0"), context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), false);
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1100,8 +1101,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         final int LARGE_FONT_SIZE = 40;
 
@@ -1126,7 +1127,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(activity).clickMenuItem(android.R.id.home);
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1135,8 +1136,8 @@ public class LoyaltyCardViewActivityTest {
             ActivityController activityController = createActivityWithLoyaltyCard(false);
 
             Activity activity = (Activity) activityController.get();
-            DBHelper db = new DBHelper(activity);
-            db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+            SQLiteDatabase database = new DBHelper(activity).getWritableDatabase();
+            DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
             settings.edit()
@@ -1159,7 +1160,7 @@ public class LoyaltyCardViewActivityTest {
                 assertEquals(title, activity.getString(R.string.lockScreen));
             }
 
-            db.close();
+            database.close();
         }
     }
 
@@ -1168,8 +1169,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
         activityController.start();
         activityController.visible();
         activityController.resume();
@@ -1194,7 +1195,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(getMainLooper()).idle();
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1202,8 +1203,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1299,7 +1300,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(getMainLooper()).idle();
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test
@@ -1307,8 +1308,8 @@ public class LoyaltyCardViewActivityTest {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
         Activity activity = (Activity) activityController.get();
-        DBHelper db = TestHelpers.getEmptyDb(activity);
-        db.insertLoyaltyCard("store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
+        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null);
 
         activityController.start();
         activityController.visible();
@@ -1342,7 +1343,7 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(getMainLooper()).idle();
         assertEquals(true, activity.isFinishing());
 
-        db.close();
+        database.close();
     }
 
     @Test

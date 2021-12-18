@@ -18,8 +18,8 @@ android {
         applicationId "me.hackerchick.catima"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 92
-        versionName "2.10.0"
+        versionCode 95
+        versionName "2.11.2"
 
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
@@ -106,7 +106,7 @@ dependencies {
 // Testing
     testImplementation 'androidx.test:core:1.4.0'
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.7.2'
+    testImplementation 'org.robolectric:robolectric:4.7.3'
 }
 
 tasks.withType(SpotBugsTask) {

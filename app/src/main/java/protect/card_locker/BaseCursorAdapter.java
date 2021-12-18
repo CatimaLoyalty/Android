@@ -9,8 +9,13 @@ public abstract class BaseCursorAdapter<V extends RecyclerView.ViewHolder> exten
     private boolean mDataValid;
     private int mRowIDColumn;
 
-    public BaseCursorAdapter(Cursor inputCursor) {
+    private String mRowIDColumnName;
+
+    public BaseCursorAdapter(Cursor inputCursor, String rowIDColumnName) {
         setHasStableIds(true);
+
+        mRowIDColumnName = rowIDColumnName;
+
         swapCursor(inputCursor);
     }
 
@@ -58,6 +63,7 @@ public abstract class BaseCursorAdapter<V extends RecyclerView.ViewHolder> exten
 
         if (inputCursor != null) {
             mCursor = inputCursor;
+            mRowIDColumn = mCursor.getColumnIndex(mRowIDColumnName);
             mDataValid = true;
             notifyDataSetChanged();
         } else {

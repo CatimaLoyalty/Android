@@ -1,0 +1,3 @@
+- Cambiato il nome del file predefinito per l'importazione/esportazione. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Corretta la stringa nella pagina dell'importazione/esportazione. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Migliorato il layout della pagina di visualizzazione della carta. Il testo è ora più facile da leggere ed è selezionabile tenendo premuto a lungo. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

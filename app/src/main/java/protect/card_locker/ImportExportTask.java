@@ -3,6 +3,8 @@ package protect.card_locker;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.io.IOException;
@@ -57,20 +59,20 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         this.listener = listener;
     }
 
-    private ImportExportResult performImport(Context context, InputStream stream, DBHelper db, char[] password) {
-        ImportExportResult result = MultiFormatImporter.importData(context, db, stream, format, password);
+    private ImportExportResult performImport(Context context, InputStream stream, SQLiteDatabase database, char[] password) {
+        ImportExportResult result = MultiFormatImporter.importData(context, database, stream, format, password);
 
         Log.i(TAG, "Import result: " + result.name());
 
         return result;
     }
 
-    private ImportExportResult performExport(Context context, OutputStream stream, DBHelper db, char[] password) {
+    private ImportExportResult performExport(Context context, OutputStream stream, SQLiteDatabase database, char[] password) {
         ImportExportResult result = ImportExportResult.GenericFailure;
 
         try {
             OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
-            result = MultiFormatExporter.exportData(context, db, stream, format, password);
+            result = MultiFormatExporter.exportData(context, database, stream, format, password);
             writer.close();
         } catch (IOException e) {
             Log.e(TAG, "Unable to export file", e);
@@ -82,14 +84,16 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     }
 
     protected ImportExportResult doInBackground(Void... nothing) {
-        final DBHelper db = new DBHelper(activity);
+        final SQLiteDatabase database = new DBHelper(activity).getWritableDatabase();
         ImportExportResult result;
 
         if (doImport) {
-            result = performImport(activity.getApplicationContext(), inputStream, db, password);
+            result = performImport(activity.getApplicationContext(), inputStream, database, password);
         } else {
-            result = performExport(activity.getApplicationContext(), outputStream, db, password);
+            result = performExport(activity.getApplicationContext(), outputStream, database, password);
         }
+
+        database.close();
 
         return result;
     }

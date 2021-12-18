@@ -21,21 +21,21 @@
     <string name="passwordRequired">Lütfen parolayı girin</string>
     <string name="no">Hayır</string>
     <string name="yes">Evet</string>
-    <string name="updateBarcodeQuestionText">Kart numarasını değiştirdiniz. Aynı değeri kullanmak için barkodu da güncellemek ister misiniz\?</string>
+    <string name="updateBarcodeQuestionText">Numarayı değiştirdiniz. Aynı değeri kullanmak için barkodu da güncellemek ister misiniz\?</string>
     <string name="updateBarcodeQuestionTitle">Barkod değeri güncellensin mi\?</string>
     <string name="takePhoto">Fotoğraf çek</string>
-    <string name="backImageDescription">Kartın arka resmi</string>
-    <string name="frontImageDescription">Kartın ön resmi</string>
+    <string name="backImageDescription">Arka resmi</string>
+    <string name="frontImageDescription">Ön resmi</string>
     <string name="removeImage">Resmi kaldır</string>
     <string name="setBackImage">Arka resmi ayarla</string>
     <string name="setFrontImage">Ön resmi ayarla</string>
     <string name="photos">Fotoğraflar</string>
     <string name="intent_import_card_from_url_share_multiple_text">Seninle birkaç kart paylaşmak istiyorum</string>
-    <string name="copy_to_clipboard_multiple_toast">Kart numaraları panoya kopyalandı</string>
+    <string name="copy_to_clipboard_multiple_toast">Numaralar panoya kopyalandı</string>
     <string name="wrongValueForBarcodeType">Değer, seçilen barkod türü için geçerli değil</string>
     <string name="unsupportedBarcodeType">Bu barkod türü henüz görüntülenemiyor. Uygulamanın sonraki bir sürümünde desteklenebilir.</string>
     <string name="setBarcodeId">Barkod değerini ayarla</string>
-    <string name="sameAsCardId">Kart numarasıyla aynı</string>
+    <string name="sameAsCardId">Numarayla aynı</string>
     <string name="barcodeId">Barkod değeri</string>
     <string name="importVoucherVaultMessage">İçe aktarmak için Voucher Vault\'tan dışa aktardığınız <i>vouchervault.json</i> dosyasını seçin.
 \nÖnce Voucher Vault\'ta \"Dışa aktar\" düğmesine basarak bir tane oluşturun.</string>
@@ -79,7 +79,7 @@
     <string name="expiryStateSentence">Son kullanma tarihi: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Gruplar: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Galeriden resim seç</string>
-    <string name="addManually">Kart numarasını elle gir</string>
+    <string name="addManually">Numarayı elle gir</string>
     <string name="leaveWithoutSaveConfirmation">Kaydetmeden çıkılsın mı\?</string>
     <string name="leaveWithoutSaveTitle">Çıkış</string>
     <string name="moveDown">Aşağı git</string>
@@ -91,12 +91,12 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kart</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kart</item>
     </plurals>
-    <string name="noGroupCards">Bu grup hiç kart içermiyor</string>
-    <string name="noGroups">Önce kategorilere ayırmak üzere gruplar eklemek için + artı düğmesine tıklayın.</string>
+    <string name="noGroupCards">Bu grup boş</string>
+    <string name="noGroups">Kategorilere ayırmak üzere gruplar eklemek için + artı düğmesine tıklayın.</string>
     <string name="groups">Gruplar</string>
     <string name="enter_group_name">Grup adını girin</string>
-    <string name="exportSuccessful">Kart verileri dışa aktarıldı</string>
-    <string name="importSuccessful">Kart verileri içe aktarıldı</string>
+    <string name="exportSuccessful">Veriler dışa aktarıldı</string>
+    <string name="importSuccessful">Veriler içe aktarıldı</string>
     <string name="intent_import_card_from_url_share_text">Seninle bir kart paylaşmak istiyorum</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
     <string name="settings_keep_screen_on">Ekranı açık tut</string>
@@ -110,9 +110,9 @@
     <string name="settings_category_title_ui">Kullanıcı arayüzü</string>
     <string name="settings">Ayarlar</string>
     <string name="starImage">Sık kullanılan yıldız</string>
-    <string name="thumbnailDescription">Kart için küçük resim</string>
-    <string name="copy_to_clipboard_toast">Kart numarası panoya kopyalandı</string>
-    <string name="enterBarcodeInstructions">Kart numarasını girin ve aşağıdan barkod türünü veya “Bu kartın barkodu yok” seçeneğini seçin.</string>
+    <string name="thumbnailDescription">Küçük resim</string>
+    <string name="copy_to_clipboard_toast">Numara panoya kopyalandı</string>
+    <string name="enterBarcodeInstructions">Numarasını girin ve aşağıdan barkod türünü veya “Barkod yok” seçeneğini seçin.</string>
     <string name="selectBarcodeTitle">Barkod Seç</string>
     <string name="app_resources">Özgür üçüncü taraf kaynakları: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Özgür üçüncü taraf kütüphaneleri: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -131,7 +131,7 @@
     <string name="importOptionFilesystemExplanation">Dosya sisteminden belirli bir dosya seçin.</string>
     <string name="importOptionFilesystemTitle">Dosya sisteminden içe aktar</string>
     <string name="exportOptionExplanation">Veriler seçtiğiniz bir konuma yazılacak.</string>
-    <string name="noExternalStoragePermissionError">Kartları içe veya dışa aktarmak için önce harici depolama izni verin</string>
+    <string name="noExternalStoragePermissionError">Verileri içeri veya dışarı aktarmak için harici depolama izni verin</string>
     <string name="exporting">Dışa aktarılıyor…</string>
     <string name="importing">İçe aktarılıyor…</string>
     <string name="exportFailed">Kartlar dışa aktarılamadı: <xliff:g>%s</xliff:g></string>
@@ -140,20 +140,20 @@
     <string name="importFailed">Kartlar içe aktarılamadı: <xliff:g>%s</xliff:g></string>
     <string name="importFailedTitle">İçe aktarılamadı</string>
     <string name="importSuccessfulTitle">İçe aktarıldı</string>
-    <string name="importExportHelp">Kartlarınızı yedeklemek, onları başka bir aygıta taşımanıza olanak tanır.</string>
+    <string name="importExportHelp">Verilerinizi yedeklemek, onları başka bir aygıta taşımanıza olanak tanır.</string>
     <string name="exportName">Dışa aktar</string>
     <string name="importExport">İçe/Dışa aktar</string>
     <string name="failedParsingImportUriError">İçe aktarma URI\'si ayrıştırılamadı</string>
-    <string name="noCardExistsError">Kart bulunamadı</string>
-    <string name="noCardIdError">Kart numarası girilmedi</string>
+    <string name="noCardExistsError">Bu kart bulunamadı</string>
+    <string name="noCardIdError">Numara girilmedi</string>
     <string name="noStoreError">Ad girilmedi</string>
-    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> türündeki kart barkodunun görüntüsü</string>
-    <string name="card_ids_copied">Kart numara(lar)ı kopyalandı</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> barkod görüntüsü</string>
+    <string name="card_ids_copied">Numara(lar) kopyalandı</string>
     <string name="copy_to_clipboard">Numarayı panoya kopyala</string>
     <string name="cardId">Kart numarası</string>
     <string name="noCardsMessage">Önce bir kart ekleyin</string>
     <string name="cardShortcut">Kart Kısayolu</string>
-    <string name="scanCardBarcode">Kart Barkodunu Tara</string>
+    <string name="scanCardBarcode">Barkod Tara</string>
     <string name="addCardTitle">Kart Ekle</string>
     <string name="editCardTitle">Kartı Düzenle</string>
     <string name="sendLabel">Gönder…</string>
@@ -179,20 +179,20 @@
     <string name="unstar">Sık kullanılanlardan kaldır</string>
     <string name="star">Sık kullanılanlara ekle</string>
     <string name="noBarcode">Barkod yok</string>
-    <string name="barcodeNoBarcode">Bu kartın barkodu yok</string>
+    <string name="barcodeNoBarcode">Barkod yok</string>
     <string name="barcodeType">Barkod türü</string>
     <string name="note">Not</string>
     <string name="storeName">Ad</string>
-    <string name="noMatchingGiftCards">Hiçbir şey bulunamadı. Aramanızı değiştirmeyi deneyin.</string>
-    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya önce ⋮ menüsünden birkaçını içe aktarın.</string>
+    <string name="noMatchingGiftCards">Sonuç yok. Aramanızı değiştirmeyi deneyin.</string>
+    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya ⋮ menüsünden birkaçını içe aktarın.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> kart seçildi</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kart seçildi</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> seçildi</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> seçildi</item>
     </plurals>
     <string name="action_add">Ekle</string>
     <string name="action_search">Ara</string>
     <string name="sort_by">Sıralama ölçütü</string>
-    <string name="reverse">Ters</string>
+    <string name="reverse">…ters sırada</string>
     <string name="sort_by_balance">Bakiye</string>
     <string name="sort_by_expiry">Son kullanma tarihi</string>
     <string name="sort_by_most_recently_used">En Son Kullanılan</string>
@@ -210,7 +210,7 @@
     <string name="version_history">Sürüm Geçmişi</string>
     <string name="exportPassword">Dışa aktarmanızı korumak için bir parola belirleyin (isteğe bağlı)</string>
     <string name="exportPasswordHint">Parola girin</string>
-    <string name="noGiftCardsGroup">Henüz sadakat kartınız yok. Birkaç tane ekledikten sonra, onları burada gruba atayabilirsiniz.</string>
+    <string name="noGiftCardsGroup">Birkaç kart oluşturun ve ardından onları burada gruba atayın.</string>
     <string name="group_name_already_in_use">Grup adı zaten kullanılıyor</string>
     <string name="editGroup">Grup Düzenleniyor: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Grubu Düzenle</string>
@@ -220,4 +220,6 @@
     <string name="setIcon">Simge ayarla</string>
     <string name="action_show_details">Ayrıntıları göster</string>
     <string name="action_hide_details">Ayrıntıları gizle</string>
+    <string name="translate_platform">Weblate\'de</string>
+    <string name="shortcutSelectCard">Kart seç</string>
 </resources>

@@ -30,7 +30,7 @@ import protect.card_locker.FormatException;
  * A header is expected for the each table showing the names of the columns.
  */
 public class FidmeImporter implements Importer {
-    public void importData(Context context, DBHelper db, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
@@ -52,14 +52,11 @@ public class FidmeImporter implements Importer {
             throw new FormatException("Couldn't find loyalty_programs.csv in zip file or it is empty");
         }
 
-        SQLiteDatabase database = db.getWritableDatabase();
-        database.beginTransaction();
-
         final CSVParser fidmeParser = new CSVParser(new StringReader(loyaltyCards.toString()), CSVFormat.RFC4180.builder().setDelimiter(';').setHeader().build());
 
         try {
             for (CSVRecord record : fidmeParser) {
-                importLoyaltyCard(database, db, record);
+                importLoyaltyCard(database, record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -71,10 +68,6 @@ public class FidmeImporter implements Importer {
             fidmeParser.close();
         }
 
-        database.setTransactionSuccessful();
-        database.endTransaction();
-        database.close();
-
         zipInputStream.close();
     }
 
@@ -82,8 +75,8 @@ public class FidmeImporter implements Importer {
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(SQLiteDatabase database, DBHelper helper, CSVRecord record)
-            throws IOException, FormatException {
+    private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record)
+            throws FormatException {
         // A loyalty card export from Fidme contains the following fields:
         // Retailer (store name)
         // Program (program name)
@@ -129,6 +122,6 @@ public class FidmeImporter implements Importer {
 
         // TODO: Front and back image
 
-        helper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
+        DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
     }
 }

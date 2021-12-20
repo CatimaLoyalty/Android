@@ -1,9 +1,56 @@
-<resources
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_add">הוספה</string>
-
     <string name="cardId">מזהה כרטיס</string>
     <string name="cancel">ביטול</string>
     <string name="save">שמור</string>
+    <string name="ok">אישור</string>
+    <string name="action_search">חיפוש</string>
+    <string name="noGiftCards">לחץ על לחצן ה + להוספת כרטיס, או ייבא מספר כרטיסים באמצעות התפריט ⋮.</string>
+    <string name="lockScreen">סיבוב</string>
+    <string name="share">שיתוף</string>
+    <string name="copy_to_clipboard">העתקת מזהה ללוח</string>
+    <string name="addCardTitle">הוספת כרטיס</string>
+    <string name="noCardIdError">אין מזהה כרטיס</string>
+    <string name="star">הוספה למועדפים</string>
+    <string name="unstar">הסרה ממועדפים</string>
+    <string name="note">הערות</string>
+    <string name="barcodeType">סוג ברקוד</string>
+    <string name="noBarcode">אין ברקוד</string>
+    <string name="edit">עריכה</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">אחד</item>
+        <item quantity="two">שניים</item>
+        <item quantity="many">מעט</item>
+        <item quantity="other">אחר</item>
+    </plurals>
+    <string name="exportFailed">לא ניתן לייצא</string>
+    <string name="noGiftCardsGroup">צור מספר כרטיסים, ואז שייך אותם לקבוצה פה.</string>
+    <string name="failedParsingImportUriError">נתיב לא נמצא</string>
+    <string name="noMatchingGiftCards">אין תוצאות. נסה חיפוש אחר.</string>
+    <string name="storeName">שם חנות</string>
+    <string name="barcodeNoBarcode">אין ברקוד</string>
+    <string name="delete">מחיקה</string>
+    <string name="confirm">אישור</string>
+    <string name="deleteTitle">מחק כרטיס</string>
+    <string name="deleteConfirmation">האם למחוק כרטיס זה\?</string>
+    <string name="sendLabel">שליחה…</string>
+    <string name="editCardTitle">עריכת כרטיס</string>
+    <string name="scanCardBarcode">סריקת ברקוד</string>
+    <string name="cardShortcut">קיצור דרך</string>
+    <string name="noCardsMessage">תחילה הוסף כרטיס</string>
+    <string name="card_ids_copied">מזהי כרטיס הועתקו</string>
+    <string name="barcodeImageDescriptionWithType"></string>
+    <string name="noStoreError">לא הוכנס שם חנות</string>
+    <string name="noCardExistsError">כרטיס לא נמצא</string>
+    <string name="importExport">ייבוא/ייצוא</string>
+    <string name="exportName">ייצוא</string>
+    <string name="importExportHelp">גיבוי המידע שלך מאפשר העברתו למכשיר אחר.</string>
+    <string name="importSuccessfulTitle">הייבוא הצליח</string>
+    <string name="importFailedTitle">הייבוא נכשל</string>
+    <string name="importFailed">לא ניתן לייבא</string>
+    <string name="exportSuccessfulTitle">הייצוא הצליח</string>
+    <string name="exportFailedTitle">הייצוא נכשל</string>
+    <string name="importing">מייבא…</string>
+    <string name="exporting">ייצוא…</string>
 </resources>

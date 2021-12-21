@@ -3,6 +3,7 @@
 ## Unreleased - 96
 
 - Add CODE 93 support
+- Various minor bugfixes and improvements
 
 ## v2.11.2 - 95 (2021-12-04)
 

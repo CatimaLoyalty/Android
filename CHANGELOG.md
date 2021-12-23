@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 96
+## v2.12.0 - 96 (2021-12-23)
 
 - Add CODE 93 support
 - Various minor bugfixes and improvements

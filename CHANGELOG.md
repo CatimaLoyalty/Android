@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 97
+
+- Fixed pressing the save button multiple times creating multiple entries
+
 ## v2.12.0 - 96 (2021-12-23)
 
 - Add CODE 93 support

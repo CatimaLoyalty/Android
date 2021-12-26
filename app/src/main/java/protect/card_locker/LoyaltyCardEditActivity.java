@@ -1243,6 +1243,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     private void doSave() {
+        if (isFinishing()) {
+            // If we are done saving, ignore any queued up save button presses
+            return;
+        }
+
         if (tempStoredOldBarcodeValue != null) {
             askBarcodeChange(this::doSave);
             return;

@@ -1,0 +1,1 @@
+- Fixed pressing the save button multiple times creating multiple entries

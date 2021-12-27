@@ -1,0 +1,1 @@
+- Kaydet düğmesine birden çok basmanın yeni girdiler oluşturması düzeltildi

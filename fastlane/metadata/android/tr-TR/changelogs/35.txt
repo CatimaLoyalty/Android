@@ -1,0 +1,2 @@
+- Uygulama yedeklemeleri etkinleştirildi
+- Fransızca ve Slovence çeviriler güncellendi

@@ -222,4 +222,8 @@
     <string name="group_updated">Skupina aktualizována</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je přiřadit do skupiny zde.</string>
+    <string name="shortcutSelectCard">Vybrat kartu</string>
+    <string name="action_show_details">Zobrazit detaily</string>
+    <string name="action_hide_details">Skrýt detaily</string>
+    <string name="translate_platform">na Weblate</string>
 </resources>

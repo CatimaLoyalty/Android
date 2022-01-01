@@ -101,6 +101,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExpiryField(null);
         }
 
+        setHeaderHeight(inputHolder, mShowDetails);
         Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
@@ -119,6 +120,19 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();
+    }
+
+    private void setHeaderHeight(LoyaltyCardListItemViewHolder inputHolder, boolean expanded) {
+        int iconHeight;
+        if (expanded) {
+            iconHeight = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else {
+            iconHeight = (int) mContext.getResources().getDimension(R.dimen.cardThumbnailSize);
+        }
+
+        inputHolder.mIconLayout.getLayoutParams().height = expanded ? 0 : iconHeight;
+        inputHolder.mCardIcon.getLayoutParams().height = iconHeight;
+        inputHolder.mTickIcon.getLayoutParams().height = iconHeight;
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
@@ -200,7 +214,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
-        public MaterialCardView mRow;
+        public MaterialCardView mRow, mIconLayout;
         public ConstraintLayout mStar;
         public View mDivider;
 
@@ -215,6 +229,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mBalanceField = inputView.findViewById(R.id.balance);
             mExpiryField = inputView.findViewById(R.id.expiry);
 
+            mIconLayout = inputView.findViewById(R.id.icon_layout);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStar = inputView.findViewById(R.id.star);
             mStarBackground = inputView.findViewById(R.id.star_background);

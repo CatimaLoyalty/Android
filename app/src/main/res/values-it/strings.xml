@@ -221,4 +221,5 @@
     <string name="action_show_details">Mostra i dettagli</string>
     <string name="action_hide_details">Nascondi i dettagli</string>
     <string name="translate_platform">su Weblate</string>
+    <string name="shortcutSelectCard">Seleziona una tessera</string>
 </resources>

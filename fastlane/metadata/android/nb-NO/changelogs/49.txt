@@ -1,0 +1,2 @@
+- Forbedrede oversettelser
+- Små grensesnittsfikser

@@ -1,0 +1,14 @@
+- Artık aşağıdaki 1B ve 2B barkodlar resmi olarak destekleniyor:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Oluşturulan barkodlar daha büyük, bir tarama aygıtından taranması daha kolay

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Legg til</string>
-    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importer kort fra «⋮»-menyen først.</string>
+    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importer kort fra «⋮»-menyen</string>
     <string name="storeName">Navn</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
@@ -18,24 +18,24 @@
     <string name="sendLabel">Send…</string>
     <string name="editCardTitle">Rediger kundekort</string>
     <string name="addCardTitle">Legg til kundekort</string>
-    <string name="scanCardBarcode">Skann kortets strekkode</string>
+    <string name="scanCardBarcode">Skann strekkoden</string>
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
     <string name="noStoreError">Navn ikke angitt</string>
-    <string name="noCardIdError">Ingen kort-ID innskrevet</string>
-    <string name="noCardExistsError">Kunne ikke finne kort</string>
+    <string name="noCardIdError">Ingen ID innskrevet</string>
+    <string name="noCardExistsError">Fant ikke det kortet</string>
     <string name="importExport">Importer/eksporter</string>
     <string name="exportName">Eksporter</string>
-    <string name="importExportHelp">Sikkerhetskopiering av kort lar deg flytte dem til en annen enhet.</string>
+    <string name="importExportHelp">Sikkerhetskopiering av data lar deg flytte dem til en annen enhet.</string>
     <string name="importSuccessfulTitle">Importert</string>
     <string name="importFailedTitle">Kunne ikke importere</string>
-    <string name="importFailed">Klarte ikke å importere kort</string>
+    <string name="importFailed">Kunne ikke utføre import</string>
     <string name="exportSuccessfulTitle">Eksportert</string>
     <string name="exportFailedTitle">Kunne ikke eksportere</string>
-    <string name="exportFailed">Kunne ikke eksportere kort</string>
+    <string name="exportFailed">Kunne ikke utføre eksport</string>
     <string name="importing">Importerer…</string>
     <string name="exporting">Exporterer…</string>
-    <string name="noExternalStoragePermissionError">Innvilg lagringstilgang til eksternlager for å importere eller eksportere kort først</string>
+    <string name="noExternalStoragePermissionError">Innvilg lagringstilgang til eksternlager for å importere eller eksportere data</string>
     <string name="exportOptionExplanation">Data skrives dit du ønsker det.</string>
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>
@@ -49,15 +49,15 @@
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
-    <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg dens strekkode nedenfor, eller «Dette kortet har ingen strekkode».</string>
-    <string name="copy_to_clipboard_toast">Kort-ID kopiert til utklippstavle</string>
-    <string name="thumbnailDescription">Miniatyrbilde for kort</string>
+    <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg strekkodetypen nedenfor, eller «Det er ingen strekkode».</string>
+    <string name="copy_to_clipboard_toast">ID kopiert til utklippstavle</string>
+    <string name="thumbnailDescription">Miniatyrbilde</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_category_title_ui">Brukergrensesnitt</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
     <string name="settings_lock_barcode_orientation">Lås strekkodesideretning</string>
-    <string name="exportSuccessful">Kortdata eksportert</string>
-    <string name="importSuccessful">Kortdata importert</string>
+    <string name="exportSuccessful">Data eksportert</string>
+    <string name="importSuccessful">Data importert</string>
     <string name="intent_import_card_from_url_share_text">Jeg ønsker å dele et kort med deg</string>
     <string name="settings_dark_theme">Mørk</string>
     <string name="settings_light_theme">Lys</string>
@@ -67,8 +67,8 @@
 \nopphavsrett 2016–2020 Branden Archer</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
-    <string name="barcodeNoBarcode">Dette kortet har ingen strekkode</string>
-    <string name="noMatchingGiftCards">Fant ikke noe. Prøv å endre søket.</string>
+    <string name="barcodeNoBarcode">Det er ingen strekkode</string>
+    <string name="noMatchingGiftCards">Resultatløst. Prøv å endre søket.</string>
     <string name="action_search">Søk</string>
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
@@ -82,7 +82,7 @@
     <string name="failedOpeningFileManager">Installer en filbehandler først.</string>
     <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre?</string>
     <string name="leaveWithoutSaveTitle">Avslutt</string>
-    <string name="addManually">Skriv inn kort-ID manuelt</string>
+    <string name="addManually">Skriv inn ID manuelt</string>
     <string name="moveDown">Flytt nedover</string>
     <string name="moveUp">Flytt oppover</string>
     <plurals name="groupCardCount">
@@ -122,7 +122,7 @@
     <string name="addFromImage">Velg bilde fra galleri</string>
     <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
     <string name="setBarcodeId">Sett strekkodeverdi</string>
-    <string name="sameAsCardId">Samme som kort-ID</string>
+    <string name="sameAsCardId">Samme som ID</string>
     <string name="barcodeId">Strekkodeverdi</string>
     <string name="importVoucherVaultMessage">Velg din <i>vouchervault.json</i>-eksport fra Voucher Vault å importere.
 \nOpprett den ved å trykke «Eksport» i Voucher Vault først.</string>
@@ -135,12 +135,12 @@
     <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
-    <string name="copy_to_clipboard_multiple_toast">Kort-ID-er kopiert til utklippstavle</string>
+    <string name="copy_to_clipboard_multiple_toast">ID-er ble kopiert til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="card_ids_copied">Kopierte kort-ID(er)</string>
+    <string name="card_ids_copied">Kopierte ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
-    <string name="updateBarcodeQuestionText">Du har endret kortets ID. Ønsker du å også oppdatere strekkoden til samme verdi?</string>
+    <string name="updateBarcodeQuestionText">Du har endret ID-en. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
     <string name="no">Nei</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionTitle">Oppdater strekkodeverdi?</string>
@@ -149,16 +149,16 @@
     <string name="setBackImage">Sett bakside</string>
     <string name="setFrontImage">Sett forside</string>
     <string name="photos">Bilder</string>
-    <string name="backImageDescription">Kortets bakside</string>
-    <string name="frontImageDescription">Kortets forside</string>
+    <string name="backImageDescription">Baksidebilde</string>
+    <string name="frontImageDescription">Forsidebilde</string>
     <string name="importStocardMessage">Velg din <i>***-sync.zip</i>-eksport fra Stocard å importere.
 \nSkaff den ved å sende e-post til support@stocardapp.com der du etterspør eksport av dataen din.</string>
     <string name="passwordRequired">Skriv inn passordet</string>
     <string name="importStocard">Importer fra Stocard</string>
     <string name="failedGeneratingShareURL">Klarte ikke å lage delbar nettadresse. Rapporter denne feilen.</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> kort valgt</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kort valgt</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> valgt</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> valgt</item>
     </plurals>
     <string name="deleteConfirmation">Slett dette kortet for godt?</string>
     <plurals name="deleteCardsConfirmation">
@@ -185,12 +185,12 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Draktfarge</string>
-    <string name="noGroupCards">Denne gruppen inneholder ikke noen kort</string>
+    <string name="noGroupCards">Denne gruppen er tom</string>
     <string name="toggleMoreInfo">Veksle visning av mer info</string>
-    <string name="barcodeImageDescriptionWithType">Bilde av kortstrekkode av typen <xliff:g>%s</xliff:g></string>
+    <string name="barcodeImageDescriptionWithType">Bilde av <xliff:g>%s</xliff:g>-strekkode</string>
     <string name="swipeToSwitchImages">Dra eller hold lenge for å bygge bilder</string>
     <string name="sort_by">Sorter etter</string>
-    <string name="reverse">Vend</string>
+    <string name="reverse">…i omvendt rekkefølge</string>
     <string name="sort_by_balance">Saldo</string>
     <string name="sort_by_expiry">Utløp</string>
     <string name="sort_by_most_recently_used">Nyligst brukt</string>
@@ -215,9 +215,11 @@
     <string name="group_updated">Gruppe oppdatert</string>
     <string name="group_name_is_empty">Gruppenavn kan ikke være tomt</string>
     <string name="editGroup">Redigerer gruppe: <xliff:g>%s</xliff:g></string>
-    <string name="noGiftCardsGroup">Du har ingen lojalitetskort enda. Når du først har det kan du legge dem til i en gruppe her.</string>
+    <string name="noGiftCardsGroup">Lag noen kort, og legg dem til i en gruppe her.</string>
     <string name="action_show_details">Vis detaljer</string>
     <string name="action_hide_details">Skjul detaljer</string>
     <string name="selectColor">Velg farge</string>
     <string name="setIcon">Sett ikon</string>
+    <string name="shortcutSelectCard">velg et kort</string>
+    <string name="translate_platform">på Weblate</string>
 </resources>

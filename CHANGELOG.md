@@ -4,6 +4,7 @@
 
 - Fixed pressing the save button multiple times creating multiple entries
 - Lower card header size when hiding details to fit even more cards
+- Restructure edit dialog
 
 ## v2.12.0 - 96 (2021-12-23)
 

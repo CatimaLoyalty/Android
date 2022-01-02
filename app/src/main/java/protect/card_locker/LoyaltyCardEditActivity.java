@@ -153,7 +153,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
-    Runnable warnOnInvalidBarcodeType;
+    Runnable barcodeImageGenerationFinishedCallback;
 
     HashMap<String, Currency> currencies = new HashMap<>();
 
@@ -208,6 +208,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private void updateTempState(LoyaltyCardField fieldName, Object value) {
         tempLoyaltyCard = updateTempState(tempLoyaltyCard, fieldName, value);
 
+        if (initDone && (fieldName == LoyaltyCardField.cardId || fieldName == LoyaltyCardField.barcodeId || fieldName == LoyaltyCardField.barcodeType)) {
+            generateBarcode();
+        }
+
         hasChanged = true;
     }
 
@@ -223,7 +227,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         importLoyaltyCardUri = intent.getData();
 
-        Log.d(TAG, "View activity: id=" + loyaltyCardId
+        Log.d(TAG, "Edit activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
     }
 
@@ -326,8 +330,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageFront.setBackgroundColor(getThemeColor());
         cardImageBack.setBackgroundColor(getThemeColor());
 
-        warnOnInvalidBarcodeType = () -> {
+        barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) barcodeImage.getTag()) {
+                barcodeImageLayout.setVisibility(View.GONE);
                 Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
             }
         };
@@ -524,8 +529,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 } else {
                     updateTempState(LoyaltyCardField.barcodeId, s.toString());
                 }
-
-                generateOrHideBarcode();
             }
 
             @Override
@@ -556,8 +559,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         } catch (IllegalArgumentException e) {
                         }
                     }
-
-                    generateOrHideBarcode();
                 }
             }
 
@@ -889,7 +890,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             hasChanged = hadChanges;
         }
 
-        generateOrHideBarcode();
+        generateBarcode();
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
@@ -1403,27 +1404,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         );
     }
 
-    private void showBarcode() {
-        barcodeImageLayout.setVisibility(View.VISIBLE);
-    }
+    private void generateBarcode() {
+        if (tempLoyaltyCard == null) {
+            return;
+        }
 
-    private void hideBarcode() {
-        barcodeImageLayout.setVisibility(View.GONE);
-    }
+        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
 
-    private void generateOrHideBarcode() {
         String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
         CatimaBarcode barcodeFormat = tempLoyaltyCard.barcodeType;
 
-        if (barcodeFormat == null || cardIdString.isEmpty() || !barcodeFormat.isSupported()) {
-            hideBarcode();
-        } else {
-            generateBarcode(cardIdString, barcodeFormat);
+        if (cardIdString == null || barcodeFormat == null) {
+            barcodeImageLayout.setVisibility(View.GONE);
+            return;
         }
-    }
 
-    private void generateBarcode(String cardIdString, CatimaBarcode barcodeFormat) {
-        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
+        barcodeImageLayout.setVisibility(View.VISIBLE);
 
         if (barcodeImage.getHeight() == 0) {
             Log.d(TAG, "ImageView size is not known known at start, waiting for load");
@@ -1436,17 +1432,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
-
-        showBarcode();
     }
 
     private void generateIcon(String store) {
@@ -1476,30 +1470,24 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         View cardPart = findViewById(R.id.cardPart);
-        View barcodePart = findViewById(R.id.barcodePart);
+        View optionsPart = findViewById(R.id.optionsPart);
         View picturesPart = findViewById(R.id.picturesPart);
 
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);
-            barcodePart.setVisibility(View.GONE);
-            picturesPart.setVisibility(View.GONE);
-
-            // Explicitly hide barcode (fixes blurriness on redraw)
-            hideBarcode();
-        } else if (getString(R.string.barcode).equals(part)) {
-            cardPart.setVisibility(View.GONE);
-            barcodePart.setVisibility(View.VISIBLE);
+            optionsPart.setVisibility(View.GONE);
             picturesPart.setVisibility(View.GONE);
 
             // Redraw barcode due to size change (Visibility.GONE sets it to 0)
-            generateOrHideBarcode();
+            generateBarcode();
+        } else if (getString(R.string.options).equals(part)) {
+            cardPart.setVisibility(View.GONE);
+            optionsPart.setVisibility(View.VISIBLE);
+            picturesPart.setVisibility(View.GONE);
         } else if (getString(R.string.photos).equals(part)) {
             cardPart.setVisibility(View.GONE);
-            barcodePart.setVisibility(View.GONE);
+            optionsPart.setVisibility(View.GONE);
             picturesPart.setVisibility(View.VISIBLE);
-
-            // Explicitly hide barcode (fixes blurriness on redraw)
-            hideBarcode();
         } else {
             throw new UnsupportedOperationException();
         }

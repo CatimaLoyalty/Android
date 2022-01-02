@@ -1,0 +1,1 @@
+- Arka plan rengi olmayan kartları paylaşma sorunu düzeltildi (https://github.com/brarcher/loyalty-card-locker/pull/343)

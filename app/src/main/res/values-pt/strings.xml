@@ -112,7 +112,7 @@
     <string name="photos">Fotografias</string>
     <string name="passwordRequired">Introduza a palavra-passe</string>
     <string name="settings_green_theme">Verde</string>
-    <string name="settings_grey_theme">Cinza</string>
+    <string name="settings_grey_theme">Cinzento</string>
     <string name="settings_brown_theme">Castanho</string>
     <string name="updateBarcodeQuestionTitle">Atualizar o valor do código de barras\?</string>
     <string name="updateBarcodeQuestionText">Alterou a identificação do cartão. Também quer atualizar o código de barras para usar o mesmo valor\?</string>
@@ -220,4 +220,6 @@
     <string name="setIcon">Definir ícone</string>
     <string name="action_show_details">Mostrar detalhes</string>
     <string name="action_hide_details">Ocultar detalhes</string>
+    <string name="shortcutSelectCard">Selecione um cartão</string>
+    <string name="translate_platform">no Weblate</string>
 </resources>

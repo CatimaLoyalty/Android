@@ -1,0 +1,3 @@
+- Düzenleme arayüzü iyileştirildi
+- Başlık metni rengi seçeneği kaldırıldı (artık parlaklığa göre otomatik olarak oluşturuluyor)
+- Çeviriler güncellendi

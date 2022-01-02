@@ -317,10 +317,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 dark = !mDarkModeEnabled;
             }
             if (dark) {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
                 mStarBackground.setImageResource(R.drawable.ic_starred_black);
             } else {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
                 mStarBackground.setImageResource(R.drawable.ic_starred_white);
             }
             if (enable) {

@@ -1,0 +1,1 @@
+- Bazı Android sürümlerinde (muhtemelen Android 5 ve altı) kurulum sırasında çökmeye geçici çözüm. (https://github.com/brarcher/loyalty-card-locker/pull/184)

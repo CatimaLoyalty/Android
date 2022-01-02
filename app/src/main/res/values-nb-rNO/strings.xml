@@ -222,4 +222,5 @@
     <string name="setIcon">Sett ikon</string>
     <string name="shortcutSelectCard">velg et kort</string>
     <string name="translate_platform">på Weblate</string>
+    <string name="options">Alternativer</string>
 </resources>

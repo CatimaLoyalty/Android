@@ -1,0 +1,1 @@
+- Ayırıcı olarak boşluk kullanan ülkeler için bakiye ayrıştırma düzeltildi

@@ -1,2 +1,0 @@
-- Uma alteração na v0.11 reduziu o uso de memória do desenho do código de barras, mas afetou as dimensões do código de barras. Isto agora é alterado para manter as dimensões do código de barras enquanto reduz o uso de memória. (pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
-- Atualização das traduções em alemão e francês. (pull #122, pull #124, pull #125)

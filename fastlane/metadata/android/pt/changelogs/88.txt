@@ -1,1 +1,0 @@
-- Corrigir migração incorreta fazendo com que o primeiro cartão se torne invisível

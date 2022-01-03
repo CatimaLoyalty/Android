@@ -1,4 +1,0 @@
-- Corrigir pontos na visualização do cartão tendo a cor errada ao mudar o tema manualmente
-- Corrigir falha na visualização do cartão na mudança de rotação/tema
-- Corrigir piscar da lista de cartões
-- Corrigir o ícone de favorito sobreposto ao texto

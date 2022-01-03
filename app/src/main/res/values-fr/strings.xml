@@ -222,4 +222,5 @@
     <string name="action_hide_details">Masquer les détails</string>
     <string name="translate_platform">sur Weblate</string>
     <string name="shortcutSelectCard">Sélectionnez une carte</string>
+    <string name="options">Options</string>
 </resources>

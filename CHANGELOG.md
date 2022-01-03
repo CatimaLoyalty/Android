@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 97
+## v2.13.0 - 97 (2022-01-03)
 
 - Fixed pressing the save button multiple times creating multiple entries
 - Lower card header size when hiding details to fit even more cards

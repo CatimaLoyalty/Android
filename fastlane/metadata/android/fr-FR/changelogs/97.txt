@@ -1,0 +1,4 @@
+- Correction de l'appui répété sur le bouton d'enregistrement créant des entrées multiples
+- Diminution de la taille de l'en-tête de la carte lorsque les détails sont masqués, afin de pouvoir afficher encore plus de cartes
+- Restructuration de l'écran d'édition
+- Amélioration du contraste de l'icône étoile dans la vue principale

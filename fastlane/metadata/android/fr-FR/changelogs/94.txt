@@ -1,0 +1,3 @@
+- Correction du flou des lettres sur les icônes de l'écran principal
+- Correction des icônes disparaissant parfois après sélection
+- Correction des icônes de la barre d'état pouvant être invisibles sous Android 5

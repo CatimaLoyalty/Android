@@ -229,4 +229,5 @@
     <string name="editGroup">Edytowanie Grupy: <xliff:g>%s</xliff:g></string>
     <string name="exportPassword">Ustaw hasło, aby zabezpieczyć twoje wyeksportowane dane (opcjonalne)</string>
     <string name="exportPasswordHint">Wpisz hasło</string>
+    <string name="options">Opcje</string>
 </resources>

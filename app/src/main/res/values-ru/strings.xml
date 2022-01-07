@@ -230,4 +230,8 @@
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Выбор карты</string>
     <string name="options">Параметры</string>
+    <string name="set_scale">Выбор масштаба</string>
+    <string name="hideMoreInfo">Скрыть данные</string>
+    <string name="showMoreInfo">Показать данные</string>
+    <string name="starred">Избранное</string>
 </resources>

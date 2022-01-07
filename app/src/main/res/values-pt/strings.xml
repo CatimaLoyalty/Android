@@ -180,7 +180,6 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
-    <string name="toggleMoreInfo">Alternar mostrar mais informação</string>
     <string name="swipeToSwitchImages">Deslize ou pressione prolongadamente para mudar as imagens</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>

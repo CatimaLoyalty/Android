@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 98
+
+- Fix various TalkBack-related bugs
+
 ## v2.13.0 - 97 (2022-01-03)
 
 - Fixed pressing the save button multiple times creating multiple entries

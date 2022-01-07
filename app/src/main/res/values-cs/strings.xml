@@ -199,7 +199,6 @@
     <string name="sort_by_most_recently_used">Naposledy použité</string>
     <string name="sort_by_name">Název</string>
     <string name="swipeToSwitchImages">Přejetím nebo dlouhým stisknutím přepínáte obrázky</string>
-    <string name="toggleMoreInfo">Přepnout zobrazení dalších informací</string>
     <string name="sort">Seřadit</string>
     <string name="barcodeImageDescriptionWithType">Obrázek čárového kódu karty typu <xliff:g>%s</xliff:g></string>
     <string name="version_history">Historie verzí</string>

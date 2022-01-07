@@ -180,7 +180,6 @@
     <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
     <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
     <string name="app_contributors">Pengembangan dibantu oleh: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="toggleMoreInfo">Tampilkan info selengkapnya</string>
     <string name="swipeToSwitchImages">Geser atau tekan yang lama untuk mengganti gambar</string>
     <string name="reverse">Ubah urutan</string>
     <string name="version_history">Riwayat Versi</string>

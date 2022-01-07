@@ -188,6 +188,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/barcodeLayout">
                     <ImageView
+                        android:importantForAccessibility="no"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/barcode_disp_height"
                         android:layout_gravity="center_horizontal"
@@ -249,6 +250,7 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.chip.ChipGroup
+                        android:contentDescription="@string/groups"
                         android:id="@+id/groupChips"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"

@@ -235,7 +235,8 @@
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
-    <string name="toggleMoreInfo">Toggle showing more info</string>
+    <string name="showMoreInfo">Show more info</string>
+    <string name="hideMoreInfo">Hide more info</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
@@ -260,4 +261,6 @@
     <string name="translate_platform">on Weblate</string>
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
+    <string name="starred">Starred</string>
+    <string name="set_scale">Set scale</string>
 </resources>

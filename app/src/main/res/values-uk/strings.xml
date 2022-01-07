@@ -196,7 +196,6 @@
     <string name="settings_sky_blue_theme">Небесно-синій</string>
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Пуста група</string>
-    <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
     <string name="sort_by">Сортувати за</string>

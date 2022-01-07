@@ -186,7 +186,6 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Draktfarge</string>
     <string name="noGroupCards">Denne gruppen er tom</string>
-    <string name="toggleMoreInfo">Veksle visning av mer info</string>
     <string name="barcodeImageDescriptionWithType">Bilde av <xliff:g>%s</xliff:g>-strekkode</string>
     <string name="swipeToSwitchImages">Dra eller hold lenge for å bygge bilder</string>
     <string name="sort_by">Sorter etter</string>

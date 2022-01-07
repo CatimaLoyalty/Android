@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
@@ -62,7 +63,8 @@
                 android:hint="AB1234"
                 android:importantForAutofill="no"
                 android:inputType="text"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
         <Button
             android:id="@+id/noBarcode"

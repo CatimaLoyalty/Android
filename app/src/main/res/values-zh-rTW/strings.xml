@@ -201,7 +201,6 @@
     <string name="backImageDescription">卡片 (背面)</string>
     <string name="updateBarcodeQuestionText">您已更新了條碼 ID，是否要更新條碼內容以匹配此 ID？</string>
     <string name="failedGeneratingShareURL">無法建立可分享的 URL，請回報此錯誤。</string>
-    <string name="toggleMoreInfo">切換顯示更多內容</string>
     <string name="swipeToSwitchImages">滑動或長按以切換圖片</string>
     <string name="starImage">收藏標示</string>
 </resources>

@@ -196,7 +196,6 @@
         <item quantity="many"><xliff:g>%d</xliff:g> zaznaczonych</item>
         <item quantity="other"><xliff:g>%d</xliff:g> zaznaczonych</item>
     </plurals>
-    <string name="toggleMoreInfo">Przełącz wyświetlanie większej ilości informacji</string>
     <string name="shortcutSelectCard">Wybierz kartę</string>
     <string name="action_show_details">Pokaż szczegóły</string>
     <string name="action_hide_details">Ukryj szczegóły</string>

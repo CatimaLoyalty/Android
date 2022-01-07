@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın veya uzun basın</string>
-    <string name="toggleMoreInfo">Daha fazla bilgi göstermeyi aç/kapat</string>
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Kahverengi</string>
     <string name="settings_grey_theme">Gri</string>

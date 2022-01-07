@@ -46,6 +46,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
@@ -63,6 +64,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private GestureDetector mGestureDetector;
 
     CoordinatorLayout coordinatorLayout;
+    ConstraintLayout mainLayout;
     TextView cardIdFieldView;
     BottomSheetBehavior behavior;
     LinearLayout bottomSheet;
@@ -262,6 +264,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         importURIHelper = new ImportURIHelper(this);
 
         coordinatorLayout = findViewById(R.id.coordinator_layout);
+        mainLayout = findViewById(R.id.mainLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
         bottomSheet = findViewById(R.id.bottom_sheet);
         bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
@@ -379,9 +382,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             editButton.hide();
         } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
             bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
+            bottomSheetButton.setContentDescription(getString(R.string.hideMoreInfo));
+            mainLayout.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
             editButton.hide();
         } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
             bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
+            bottomSheetButton.setContentDescription(getString(R.string.showMoreInfo));
+            mainLayout.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
             if (!isFullscreen) {
                 editButton.show();
             }
@@ -830,12 +837,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 drawBarcode();
             }
             mainImage.setBackgroundColor(Color.WHITE);
+            mainImage.setContentDescription(getString(R.string.barcodeImageDescriptionWithType, format.prettyName()));
         } else if (wantedImageType == ImageType.IMAGE_FRONT) {
             mainImage.setImageBitmap(frontImageBitmap);
             mainImage.setBackgroundColor(Color.TRANSPARENT);
+            mainImage.setContentDescription(getString(R.string.frontImageDescription));
         } else if (wantedImageType == ImageType.IMAGE_BACK) {
             mainImage.setImageBitmap(backImageBitmap);
             mainImage.setBackgroundColor(Color.TRANSPARENT);
+            mainImage.setContentDescription(getString(R.string.backImageDescription));
         } else {
             throw new IllegalArgumentException("Unknown image type: " + wantedImageType);
         }

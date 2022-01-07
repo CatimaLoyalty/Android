@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:importantForAccessibility="no"
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -35,6 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:importantForAccessibility="no"
                 android:id="@+id/selected_thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,7 +60,7 @@
                     android:layout_height="@dimen/cardThumbnailSize"
                     android:layout_gravity="end"
                     android:alpha="0.5"
-                    android:contentDescription="@string/starImage"
+                    android:contentDescription="@string/starred"
                     android:elevation="4dp"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +69,7 @@
                     tools:ignore="ImageContrastCheck" />
 
                 <ImageView
+                    android:importantForAccessibility="no"
                     android:id="@+id/star_border"
                     android:layout_width="@dimen/cardThumbnailSize"
                     android:layout_height="@dimen/cardThumbnailSize"
@@ -85,6 +88,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
+            android:accessibilityPaneTitle="@string/storeName"
             android:id="@+id/store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
             tools:text="Example store"/>
 
         <TextView
+            android:accessibilityPaneTitle="@string/note"
             android:id="@+id/note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,6 +136,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
+            android:accessibilityPaneTitle="@string/balance"
             android:id="@+id/balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,6 +156,7 @@
             tools:text="525 points"/>
 
         <TextView
+            android:accessibilityPaneTitle="@string/expiryDate"
             android:id="@+id/expiry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

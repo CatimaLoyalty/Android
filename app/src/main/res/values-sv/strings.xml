@@ -188,7 +188,6 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Temafärg</string>
     <string name="noGroupCards">Denna grupp är tom</string>
-    <string name="toggleMoreInfo">Växla mellan att visa mer info</string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> streckkod</string>
     <string name="swipeToSwitchImages">Svep eller tryck länge för att växla bild</string>
     <string name="reverse">...i omvänd ordning</string>

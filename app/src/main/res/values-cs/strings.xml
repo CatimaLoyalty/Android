@@ -225,4 +225,6 @@
     <string name="action_show_details">Zobrazit detaily</string>
     <string name="action_hide_details">Skrýt detaily</string>
     <string name="translate_platform">na Weblate</string>
+    <string name="showMoreInfo">Zobrazit podrobnosti</string>
+    <string name="hideMoreInfo">Skrýt podrobnosti</string>
 </resources>

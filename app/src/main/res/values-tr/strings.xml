@@ -222,4 +222,8 @@
     <string name="translate_platform">Weblate\'de</string>
     <string name="shortcutSelectCard">Kart seç</string>
     <string name="options">Seçenekler</string>
+    <string name="showMoreInfo">Bilgileri göster</string>
+    <string name="hideMoreInfo">Bilgileri gizle</string>
+    <string name="starred">Yıldızlı</string>
+    <string name="set_scale">Ölçeği ayarla</string>
 </resources>

@@ -222,4 +222,7 @@
     <string name="translate_platform">auf Weblate</string>
     <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
     <string name="options">Optionen</string>
+    <string name="hideMoreInfo">Infos ausblenden</string>
+    <string name="set_scale">Größe festlegen</string>
+    <string name="showMoreInfo">Infos anzeigen</string>
 </resources>

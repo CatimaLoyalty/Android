@@ -222,4 +222,8 @@
     <string name="translate_platform">op Weblate</string>
     <string name="shortcutSelectCard">Kies een kaart</string>
     <string name="options">Opties</string>
+    <string name="showMoreInfo">Informatie tonen</string>
+    <string name="starred">Favoriet</string>
+    <string name="hideMoreInfo">Informatie verbergen</string>
+    <string name="set_scale">Schaal instellen</string>
 </resources>

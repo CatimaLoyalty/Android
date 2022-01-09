@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import protect.card_locker.DBHelper;
-
 /**
  * Interface for a class which can export the contents of the database
  * in a given format.

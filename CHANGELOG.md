@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 98
+## v2.13.1 - 98 (2022-01-09)
 
 - Fix various TalkBack-related bugs
 

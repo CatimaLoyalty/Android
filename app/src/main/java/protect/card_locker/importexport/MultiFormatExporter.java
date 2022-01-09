@@ -7,8 +7,6 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import protect.card_locker.DBHelper;
-
 public class MultiFormatExporter {
     private static final String TAG = "Catima";
 

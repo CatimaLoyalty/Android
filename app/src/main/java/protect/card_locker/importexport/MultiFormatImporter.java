@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 
-import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 
 public class MultiFormatImporter {

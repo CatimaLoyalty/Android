@@ -1,0 +1,4 @@
+- Opraveno vícenásobné stisknutí tlačítka pro uložení, které vytvořilo více záznamů.
+- Zmenšení velikosti záhlaví karty při skrývání detailů, aby se na kartu vešlo ještě více karet
+- Restrukturalizace obrazovky úprav
+- Zlepšení kontrastu ikony hvězdy v hlavním zobrazení

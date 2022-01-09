@@ -222,4 +222,8 @@
     <string name="shortcutSelectCard">velg et kort</string>
     <string name="translate_platform">på Weblate</string>
     <string name="options">Alternativer</string>
+    <string name="starred">Stjernemerket</string>
+    <string name="set_scale">Sett skalering</string>
+    <string name="showMoreInfo">Vis mer info</string>
+    <string name="hideMoreInfo">Skjul mer info</string>
 </resources>

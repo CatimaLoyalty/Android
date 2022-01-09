@@ -7,7 +7,7 @@
     <string name="storeName">Nazwa</string>
     <string name="note">Notatka</string>
     <string name="cardId">Identyfikator karty</string>
-    <string name="barcodeNoBarcode">Nie ma kodu kreskowego</string>
+    <string name="barcodeNoBarcode">Bez kodu kreskowego</string>
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
     <string name="edit">Edytuj</string>
@@ -52,7 +52,7 @@
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Info o wydaniu: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
-    <string name="enterBarcodeInstructions">Wprowadź ID, a następnie wybierz typ kodu kreskowego, którego chcesz użyć lub wybierz „Nie ma kodu kreskowego”.</string>
+    <string name="enterBarcodeInstructions">Wprowadź ID, a następnie wybierz typ kodu kreskowego, którego chcesz użyć lub wybierz „Bez kodu kreskowego”.</string>
     <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
     <string name="thumbnailDescription">Miniaturka</string>
     <string name="settings">Ustawienia</string>
@@ -91,7 +91,7 @@
     <string name="settings_magenta_theme">Magenta</string>
     <string name="settings_pink_theme">Różowy</string>
     <string name="settings_catima_theme">Catima</string>
-    <string name="settings_theme_color">Kolor motywu</string>
+    <string name="settings_theme_color">Kolor akcentowy motywu</string>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Język</string>
     <string name="turn_flashlight_off">Wyłącz latarkę</string>
@@ -146,7 +146,7 @@
     <string name="noBarcodeFound">Nie znaleziono kodu kreskowego</string>
     <string name="moveBarcodeToCenterOfScreen">Wyśrodkuj kod kreskowy na ekranie</string>
     <string name="moveBarcodeToTopOfScreen">Przenieś kod kreskowy na górę ekranu</string>
-    <string name="chooseExpiryDate">Wybierz datę ważności</string>
+    <string name="chooseExpiryDate">Wybierz datę wygaśnięcia</string>
     <string name="never">Nigdy</string>
     <string name="expiryDate">Data wygaśnięcia</string>
     <string name="editBarcode">Edytuj kod kreskowy</string>
@@ -171,8 +171,8 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kart</item>
     </plurals>
     <string name="noGroupCards">Ta grupa jest pusta</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Zapobiegaj wygasaniu ekranu</string>
-    <string name="settings_keep_screen_on">Pozostaw ekran włączony</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Zapobiegaj wyłączeniu ekranu</string>
+    <string name="settings_keep_screen_on">Nie wygaszaj ekranu</string>
     <string name="settings_max_font_size_scale">Maks. rozmiar czcionki</string>
     <string name="app_resources">Otwarte zewnętrzne zasoby: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Otwarte zewnętrzne biblioteki: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -200,8 +200,8 @@
     <string name="action_show_details">Pokaż szczegóły</string>
     <string name="action_hide_details">Ukryj szczegóły</string>
     <string name="sort_by_name">Nazwa</string>
-    <string name="sort_by_most_recently_used">Ostatnio Użyte</string>
-    <string name="sort_by_expiry">Wygaśnięcie</string>
+    <string name="sort_by_most_recently_used">Ostatnio użyte</string>
+    <string name="sort_by_expiry">Data wygaśnięcia</string>
     <string name="sort_by_balance">Balans</string>
     <string name="sort_by">Sortuj według</string>
     <string name="credits">Podziękowania</string>
@@ -218,7 +218,7 @@
     <string name="license">Licencja</string>
     <string name="on_google_play">w Google Play</string>
     <string name="noGiftCardsGroup">Stwórz karty i przypisz je do grupy w tym miejscu.</string>
-    <string name="reverse">...w odwróconej kolejności</string>
+    <string name="reverse">...w odwrotnej kolejności</string>
     <string name="translate_platform">na Weblate</string>
     <string name="sort">Sortuj</string>
     <string name="barcodeImageDescriptionWithType">Obraz kodu kreskowego typu <xliff:g>%s</xliff:g></string>
@@ -226,7 +226,7 @@
     <string name="group_name_already_in_use">Ta nazwa jest już użyta</string>
     <string name="group_name_is_empty">Nazwa grupy nie może być pusta</string>
     <string name="group_updated">Zaktualizowano grupę</string>
-    <string name="editGroup">Edytowanie Grupy: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Edytowanie grupy: <xliff:g>%s</xliff:g></string>
     <string name="exportPassword">Ustaw hasło, aby zabezpieczyć twoje wyeksportowane dane (opcjonalne)</string>
     <string name="exportPasswordHint">Wpisz hasło</string>
     <string name="options">Opcje</string>

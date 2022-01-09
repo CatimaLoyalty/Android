@@ -88,7 +88,6 @@
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:accessibilityPaneTitle="@string/storeName"
             android:id="@+id/store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +102,6 @@
             tools:text="Example store"/>
 
         <TextView
-            android:accessibilityPaneTitle="@string/note"
             android:id="@+id/note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,7 +134,6 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:accessibilityPaneTitle="@string/balance"
             android:id="@+id/balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,7 +153,6 @@
             tools:text="525 points"/>
 
         <TextView
-            android:accessibilityPaneTitle="@string/expiryDate"
             android:id="@+id/expiry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

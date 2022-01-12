@@ -1,0 +1,1 @@
+-Empêche un plantage lors de la rotation de l'écran.

@@ -90,7 +90,7 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
 // Splash Screen
-    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
 
 // Third-party
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0@aar'

@@ -18,15 +18,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -50,7 +48,6 @@
 
     <ScrollView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/inputContrastBackground"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <TableLayout
             android:layout_width="match_parent"
@@ -209,7 +206,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="@string/editBarcode"
-                        android:textColor="#FFFFFF"
                         android:layout_weight="1.0"/>
                 </LinearLayout>
             </TableLayout>
@@ -366,7 +362,8 @@
                             android:minHeight="50dp"
                             android:contentDescription="@string/frontImageDescription"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white" />
+                            app:srcCompat="@drawable/ic_camera_white"
+                            android:background="?attr/colorPrimary" />
 
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
@@ -401,7 +398,8 @@
                             android:minHeight="50dp"
                             android:contentDescription="@string/backImageDescription"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white" />
+                            app:srcCompat="@drawable/ic_camera_white"
+                            android:background="?attr/colorPrimary" />
 
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>

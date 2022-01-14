@@ -285,9 +285,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
-        maximizeButton.setBackgroundColor(getThemeColor());
-        minimizeButton.setBackgroundColor(getThemeColor());
-        bottomSheetButton.setBackgroundColor(getThemeColor());
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -530,7 +527,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             int expiryString = R.string.expiryStateSentence;
             if (Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryString = R.string.expiryStateSentenceExpired;
-                expiryView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.alert));
+                expiryView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.attr.errorTextColor));
             }
             expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
             expiryView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));

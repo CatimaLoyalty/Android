@@ -4,6 +4,6 @@
     android:layout_height="wrap_content"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    style="@style/Widget.MaterialComponents.Chip.Choice"
+    style="@style/Widget.MaterialComponents.Chip.Filter"
     app:checkedIconVisible="true"
     android:textAppearance="?android:attr/textAppearance" />

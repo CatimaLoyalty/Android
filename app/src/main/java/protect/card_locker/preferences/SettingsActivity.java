@@ -128,12 +128,6 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            Preference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
-            assert colorPreference != null;
-            colorPreference.setOnPreferenceChangeListener((preference, o) -> {
-                refreshActivity(true);
-                return true;
-            });
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 refreshActivity(true);
                 return true;

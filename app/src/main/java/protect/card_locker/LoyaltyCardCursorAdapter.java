@@ -110,7 +110,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
-        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
+        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 
         inputHolder.toggleStar(loyaltyCard.starStatus != 0, itemSelected(inputCursor.getPosition()));
 

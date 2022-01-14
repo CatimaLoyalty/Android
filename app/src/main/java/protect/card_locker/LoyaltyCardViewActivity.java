@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -564,6 +565,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
         storeName.setTextColor(textColor);
         landscapeToolbar.setTitleTextColor(textColor);
+
+        // Also apply colours to buttons
+        int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
+        maximizeButton.setBackgroundColor(darkenedColor);
+        minimizeButton.setBackgroundColor(darkenedColor);
+        bottomSheetButton.setBackgroundColor(darkenedColor);
+        maximizeButton.setColorFilter(textColor);
+        minimizeButton.setColorFilter(textColor);
+        bottomSheetButton.setColorFilter(textColor);
+        editButton.setBackgroundTintList(ColorStateList.valueOf(Utils.getComplementaryColor(darkenedColor)));
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
         if (icon != null) {

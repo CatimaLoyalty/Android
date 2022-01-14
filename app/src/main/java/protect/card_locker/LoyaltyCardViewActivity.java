@@ -565,8 +565,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         storeName.setTextColor(textColor);
         landscapeToolbar.setTitleTextColor(textColor);
 
-        // Also apply colours to buttons
+        // Also apply colours to UI elements
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
+        barcodeScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
+        barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
         maximizeButton.setBackgroundColor(darkenedColor);
         minimizeButton.setBackgroundColor(darkenedColor);
         bottomSheetButton.setBackgroundColor(darkenedColor);

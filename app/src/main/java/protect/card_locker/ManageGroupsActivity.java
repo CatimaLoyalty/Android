@@ -109,7 +109,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void createGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);

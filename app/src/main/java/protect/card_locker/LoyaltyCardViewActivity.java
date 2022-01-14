@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -49,7 +50,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
@@ -285,9 +285,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
-        maximizeButton.setBackgroundColor(getThemeColor());
-        minimizeButton.setBackgroundColor(getThemeColor());
-        bottomSheetButton.setBackgroundColor(getThemeColor());
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -530,7 +527,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             int expiryString = R.string.expiryStateSentence;
             if (Utils.hasExpired(loyaltyCard.expiry)) {
                 expiryString = R.string.expiryStateSentenceExpired;
-                expiryView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.alert));
+                expiryView.setTextColor(Color.RED);
             }
             expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
             expiryView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
@@ -567,6 +564,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
         storeName.setTextColor(textColor);
         landscapeToolbar.setTitleTextColor(textColor);
+
+        // Also apply colours to buttons
+        int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
+        maximizeButton.setBackgroundColor(darkenedColor);
+        minimizeButton.setBackgroundColor(darkenedColor);
+        bottomSheetButton.setBackgroundColor(darkenedColor);
+        maximizeButton.setColorFilter(textColor);
+        minimizeButton.setColorFilter(textColor);
+        bottomSheetButton.setColorFilter(textColor);
+        editButton.setBackgroundTintList(ColorStateList.valueOf(Utils.getComplementaryColor(darkenedColor)));
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
         if (icon != null) {

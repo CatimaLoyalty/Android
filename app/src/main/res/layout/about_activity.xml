@@ -10,15 +10,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,7 +44,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/version_history"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +64,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +83,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/credits"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -108,7 +103,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +122,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/help_translate_this_app"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -151,7 +144,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -171,7 +163,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/license"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -194,7 +185,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -214,7 +204,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/source_repository"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -236,7 +225,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -256,7 +244,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/privacy_policy"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -278,7 +265,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -298,7 +284,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/rate_this_app"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -320,7 +305,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -340,7 +324,6 @@
                     android:fontFamily="sans-serif-medium"
                     android:padding="2dp"
                     android:text="@string/report_error"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -362,7 +345,6 @@
                     android:layout_margin="8dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/arrow"
-                    android:textColor="@color/colorSecondaryText"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

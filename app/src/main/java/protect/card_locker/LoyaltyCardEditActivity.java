@@ -327,8 +327,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
-        cardImageFront.setBackgroundColor(getThemeColor());
-        cardImageBack.setBackgroundColor(getThemeColor());
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) barcodeImage.getTag()) {
@@ -670,7 +668,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         });
 
         mCropperOptions = new UCrop.Options();
-        setCropperTheme();
     }
 
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
@@ -690,13 +687,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
                 new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
         );
-    }
-
-    private void setCropperTheme() {
-        mCropperOptions.setToolbarColor(getThemeColor());
-        mCropperOptions.setStatusBarColor(getThemeColor());
-        mCropperOptions.setToolbarWidgetColor(Color.WHITE);
-        mCropperOptions.setActiveControlsWidgetColor(getThemeColor());
     }
 
     @Override
@@ -910,7 +900,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : ContextCompat.getColor(this, R.color.colorPrimary)));
+            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor :  R.attr.colorPrimary));
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }

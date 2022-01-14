@@ -448,4 +448,15 @@ public class Utils {
         return loadImage(context.getCacheDir() + "/" + name);
     }
 
+    // https://stackoverflow.com/a/59324801/8378787
+    public static int getComplementaryColor(int color) {
+        int R = color & 255;
+        int G = (color >> 8) & 255;
+        int B = (color >> 16) & 255;
+        int A = (color >> 24) & 255;
+        R = 255 - R;
+        G = 255 - G;
+        B = 255 - B;
+        return R + (G << 8) + ( B << 16) + ( A << 24);
+    }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.14.0 - 99 (2022-01-14)
+
+- Material You redesign
+
 ## v2.13.1 - 98 (2022-01-09)
 
 - Fix various TalkBack-related bugs

@@ -162,7 +162,6 @@
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
-    <string name="card_ids_copied">[не превеждайте този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
     <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
     <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">

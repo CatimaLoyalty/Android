@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_revision_url">https://github.com/TheLastProject/Catima/releases</string>
+    <string name="app_revision_url">https://github.com/CatimaLoyalty/Android/releases</string>
     <string name="storeName">Nama</string>
     <string name="note">Keterangan</string>
     <string name="delete">Hapus</string>

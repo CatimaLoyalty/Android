@@ -24,7 +24,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+            style="?attr/toolbarStyle" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"

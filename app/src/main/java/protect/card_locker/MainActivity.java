@@ -367,7 +367,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         View folder = findViewById(R.id.action_unfold);
         View sort = findViewById(R.id.action_sort);
 
-        if (search != null) {
+        if (search != null && mSearchView.isIconified()) {
             search.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
         }
         if (folder != null) {

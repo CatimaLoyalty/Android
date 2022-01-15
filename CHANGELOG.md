@@ -3,6 +3,7 @@
 ## Unreleased - 100
 
 - Hide search, expand and sort icons until there is at least 1 card
+- Various theming fixes
 
 ## v2.14.0 - 99 (2022-01-14)
 

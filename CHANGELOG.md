@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 100
+## v2.14.1 - 100 (2022-01-15)
 
 - Hide search, expand and sort icons until there is at least 1 card
 - Various theming fixes

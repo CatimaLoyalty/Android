@@ -362,6 +362,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onBackPressed();
     }
 
+    private void displayCardSetupOptions(boolean shouldShow) {
+        View search = findViewById(R.id.action_search);
+        View folder = findViewById(R.id.action_unfold);
+        View sort = findViewById(R.id.action_sort);
+
+        if (search != null) {
+            search.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+        }
+        if (folder != null) {
+            folder.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+        }
+        if (sort != null) {
+            sort.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+        }
+    }
+
     private void updateLoyaltyCardList() {
         Group group = null;
         if (mGroup != null) {
@@ -376,6 +392,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // the keyboard
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
+            displayCardSetupOptions(true);
+
             if (mAdapter.getItemCount() > 0) {
                 mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
@@ -394,6 +412,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         } else {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
+            displayCardSetupOptions(false);
+
             mNoMatchingCardsText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
         }

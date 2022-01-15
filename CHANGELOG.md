@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 100
+
+- Hide search, expand and sort icons until there is at least 1 card
+
 ## v2.14.0 - 99 (2022-01-14)
 
 - Material You redesign

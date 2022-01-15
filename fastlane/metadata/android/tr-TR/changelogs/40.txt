@@ -1,0 +1,6 @@
+- Uygulama adı Catima olarak yenilendi
+- Giriş bölümü kaldırıldı
+- Kayan eylem düğmeleri eklendi
+- Android 5'te Hakkında ekranını açarken çökme düzeltildi
+- Sık kullanılanlar desteği eklendi
+- Devre dışı bırakılan otomatik döndürmenin yok sayılması düzeltildi

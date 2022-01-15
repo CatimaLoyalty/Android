@@ -1,0 +1,1 @@
+- Yeni sadakat kartındaki fotoğrafları yapılandıramama sorunu düzeltildi

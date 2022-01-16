@@ -1,0 +1,2 @@
+- Nascondi la ricerca, espandi e ordina icone finché c'è solo una tessera
+- Varie correzioni sul tema

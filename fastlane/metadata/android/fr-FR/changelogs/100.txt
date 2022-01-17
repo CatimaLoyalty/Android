@@ -1,0 +1,2 @@
+- Masquage des icônes de recherche, d'expansion et de tri jusqu'à ce qu'il y ait au moins 1 fiche
+- Diverses corrections concernant les thèmes

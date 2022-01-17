@@ -1,0 +1,2 @@
+- Ana genel bakışta kart simgelerine yuvarlatılmış kenarlar eklendi
+- Girdileri gruplandırmak için destek eklendi

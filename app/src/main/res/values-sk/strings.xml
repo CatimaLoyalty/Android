@@ -101,4 +101,34 @@
     <string name="exportOptionExplanation">Údaje sa zapíšu na vami zvolené miesto.</string>
     <string name="failedParsingImportUriError">Nepodarilo sa analyzovať import URI</string>
     <string name="share">Zdieľať</string>
+    <string name="barcodeImageDescriptionWithType">Obrázok čiarového kódu <xliff:g>%s</xliff:g></string>
+    <string name="groupsList">Skupiny: <xliff:g>%s</xliff:g></string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Odstrániť <xliff:g>%d</xliff:g> kartu</item>
+        <item quantity="few">Odstrániť <xliff:g>%d</xliff:g> karty</item>
+        <item quantity="other">Odstrániť <xliff:g>%d</xliff:g> kariet</item>
+    </plurals>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> vybraná karta</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> vybrané karty</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> vybraných kariet</item>
+    </plurals>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> karta</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> karty</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kariet</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Naozaj chcete natrvalo odstrániť <xliff:g>%d</xliff:g> vybranú kartu\?</item>
+        <item quantity="few">Naozaj chcete natrvalo odstrániť <xliff:g>%d</xliff:g> vybrané karty\?</item>
+        <item quantity="other">Naozaj chcete natrvalo odstrániť <xliff:g>%d</xliff:g> vybraných kariet\?</item>
+    </plurals>
+    <string name="group_edit">Upraviť skupinu</string>
+    <string name="group_name_already_in_use">Tento názov skupiny sa už používa</string>
+    <string name="group_name_is_empty">Názov skupiny nemôže byť prázdny</string>
+    <string name="group_updated">Skupina bola aktualizovaná</string>
+    <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Platnosť vypršala: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Zostatok: <xliff:g>%s</xliff:g></string>
 </resources>

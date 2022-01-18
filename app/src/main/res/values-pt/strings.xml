@@ -220,4 +220,9 @@
     <string name="action_hide_details">Ocultar detalhes</string>
     <string name="shortcutSelectCard">Selecione um cartão</string>
     <string name="translate_platform">no Weblate</string>
+    <string name="starred">Estrela</string>
+    <string name="set_scale">Escala de set</string>
+    <string name="showMoreInfo">Mostrar info</string>
+    <string name="hideMoreInfo">Ocultar informação</string>
+    <string name="options">Opções</string>
 </resources>

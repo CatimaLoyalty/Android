@@ -1,0 +1,3 @@
+- Зміна стандартної назви імпорт/експорт файлу. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Правильний текст на сторінці імпорту/експорту. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Покращено інтерфейс перегляду карток. Легший для читання текст і тепер його можна обрати довгим кліком. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

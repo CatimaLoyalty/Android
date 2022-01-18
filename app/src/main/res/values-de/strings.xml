@@ -105,7 +105,6 @@
     <string name="editBarcode">Barcode ändern</string>
     <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> Punkte</string>
     <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>

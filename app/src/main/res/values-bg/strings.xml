@@ -80,7 +80,6 @@
     <string name="groupsList">Списъци: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Валидност: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> точки</string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
     <string name="noStoreError">Не е въведено наименование</string>

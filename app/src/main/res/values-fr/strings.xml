@@ -109,7 +109,6 @@
     <string name="editBarcode">Modifier le code-barres</string>
     <string name="barcode">Code-barres</string>
     <string name="card">Carte</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> points</string>
     <string name="balanceSentence">Solde : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expiré : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentence">Expire : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>

@@ -129,7 +129,6 @@
     <string name="balance">Stanje na računu</string>
     <string name="errorReadingImage">Slike ni bilo mogoče prebrati</string>
     <string name="noBarcodeFound">Črtna koda ni bila najdena</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> točk</string>
     <string name="balanceSentence">Stanje: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Uvoz iz?</string>
     <string name="importCatima">Izvoz iz aplikacije Catima</string>

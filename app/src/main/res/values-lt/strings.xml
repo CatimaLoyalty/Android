@@ -104,7 +104,6 @@
     <string name="editBarcode">Redaguoti brūkšninį kodą</string>
     <string name="barcode">Brūkšninis kodas</string>
     <string name="card">Kortelė</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> taškai</string>
     <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>

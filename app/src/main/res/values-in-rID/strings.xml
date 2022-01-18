@@ -143,7 +143,6 @@
     <string name="expiryStateSentence">Masa ber: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Kadaluwarsa: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> poin</string>
     <string name="editBarcode">Ubah barcode</string>
     <string name="expiryDate">Tanggal masa berlaku</string>
     <string name="never">Tidak pernah</string>

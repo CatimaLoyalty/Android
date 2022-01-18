@@ -72,7 +72,6 @@
     <string name="editBarcode">Barkodu düzenle</string>
     <string name="barcode">Barkod</string>
     <string name="card">Kart</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> puan</string>
     <string name="balanceSentence">Bakiye: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Süresi doldu: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Son kullanma tarihi: <xliff:g>%s</xliff:g></string>

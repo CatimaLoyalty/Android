@@ -64,7 +64,6 @@
     <string name="expiryStateSentence">Expiram: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expirados: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> pontos</string>
     <string name="card">Cartão</string>
     <string name="barcode">Código de barras</string>
     <string name="editBarcode">Editar código de barras</string>

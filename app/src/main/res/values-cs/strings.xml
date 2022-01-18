@@ -96,7 +96,6 @@
     <string name="settings_category_title_ui">Uživatelské rozhraní</string>
     <string name="settings">Nastavení</string>
     <string name="card">Karta</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> bodů</string>
     <string name="balanceSentence">Zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Platnost vypršela: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>

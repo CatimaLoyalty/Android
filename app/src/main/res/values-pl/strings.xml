@@ -152,7 +152,6 @@
     <string name="editBarcode">Edytuj kod kreskowy</string>
     <string name="barcode">Kod kreskowy</string>
     <string name="card">Karta</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> punkty</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Wygasło: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Wygasa: <xliff:g>%s</xliff:g></string>

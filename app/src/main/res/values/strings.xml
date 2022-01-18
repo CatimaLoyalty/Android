@@ -149,7 +149,10 @@
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> points</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> point</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> points</item>
+    </plurals>
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
     <string name="editBarcode">Edit barcode</string>

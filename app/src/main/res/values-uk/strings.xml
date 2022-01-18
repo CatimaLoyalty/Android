@@ -56,7 +56,6 @@
     <string name="editBarcode">Редагувати штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Картка</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> балів</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Термін дії закінчився: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Термін дії закінчується: <xliff:g>%s</xliff:g></string>

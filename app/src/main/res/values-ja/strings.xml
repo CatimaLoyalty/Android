@@ -33,7 +33,6 @@
     <string name="editBarcode">バーコードの編集</string>
     <string name="barcode">バーコード</string>
     <string name="card">カード</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> ポイント</string>
     <string name="balanceSentence">残高: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">期限切れ: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">期限: <xliff:g>%s</xliff:g></string>

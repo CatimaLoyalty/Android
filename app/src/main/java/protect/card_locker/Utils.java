@@ -206,7 +206,7 @@ public class Utils {
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
-            return context.getString(R.string.balancePoints, numberFormat.format(value));
+            return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
         }
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();

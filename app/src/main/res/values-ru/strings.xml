@@ -82,7 +82,6 @@
     <string name="leaveWithoutSaveConfirmation">Выйти без сохранения\?</string>
     <string name="leaveWithoutSaveTitle">Выход</string>
     <string name="failedOpeningFileManager">Требуется файловый менеджер.</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> баллов</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Срок действия истёк: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>

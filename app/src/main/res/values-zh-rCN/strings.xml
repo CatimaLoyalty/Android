@@ -54,7 +54,6 @@
     <string name="never">从不</string>
     <string name="expiryDate">过期时间</string>
     <string name="editBarcode">编辑条形码</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g>分</string>
     <string name="balanceSentence">余额：<xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">过期：<xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">过期: <xliff:g>%s</xliff:g></string>

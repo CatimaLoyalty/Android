@@ -45,7 +45,6 @@
     <string name="editBarcode">Muokkaa viivakoodia</string>
     <string name="barcode">Viivakoodi</string>
     <string name="card">Kortti</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> pistettä</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Vanhentunut: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Vanhenee: <xliff:g>%s</xliff:g></string>

@@ -99,7 +99,6 @@
     <string name="editBarcode">Editar el código de barras</string>
     <string name="barcode">Código de barras</string>
     <string name="card">Tarjeta</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> puntos</string>
     <string name="expiryStateSentenceExpired">Expirado: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os.</string>

@@ -86,7 +86,6 @@
     <string name="exporting">A exportar…</string>
     <string name="settings_sky_blue_theme">Azul céu</string>
     <string name="report_error">Reportar erro</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> pontos</string>
     <string name="barcode">Código de barras</string>
     <string name="chooseImportType">De onde importar os dados\?</string>
     <string name="card">Cartão</string>

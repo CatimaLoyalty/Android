@@ -42,7 +42,6 @@
     <string name="leaveWithoutSaveConfirmation">Avsluta utan att spara\?</string>
     <string name="addManually">Ange ID manuellt</string>
     <string name="addFromImage">Välj bild från galleriet</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> poäng</string>
     <string name="card">Kort</string>
     <string name="barcode">Streckkod</string>
     <string name="editBarcode">Redigera streckkod</string>

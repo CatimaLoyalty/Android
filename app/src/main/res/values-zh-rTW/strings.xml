@@ -29,7 +29,6 @@
     <string name="all">全部</string>
     <string name="balance">餘額</string>
     <string name="balanceSentence">餘額: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> 點</string>
     <string name="app_copyright_old">基於 Loyalty Card Keychain\n著作權所有 © 2016–2020 Branden Archer</string>
     <string name="barcode">條碼</string>
     <string name="barcodeId">條碼內容</string>

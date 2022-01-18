@@ -104,7 +104,6 @@
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> punten</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="chooseImportType">Gegevens importeren uit…\?</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>

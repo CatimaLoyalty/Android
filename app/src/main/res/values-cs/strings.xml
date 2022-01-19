@@ -24,7 +24,7 @@
     <string name="importSuccessfulTitle">Importováno</string>
     <string name="importFailedTitle">Import selhal</string>
     <string name="importFailed">Nelze provést import</string>
-    <string name="exportSuccessfulTitle">Exportovat</string>
+    <string name="exportSuccessfulTitle">Exportováno</string>
     <string name="exportFailedTitle">Export selhal</string>
     <string name="exportFailed">Nelze provést export</string>
     <string name="importing">Importuji…</string>
@@ -192,7 +192,7 @@
     <string name="app_contributors">Přispěli: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Tato skupina je prázdná</string>
     <string name="sort_by">Seřadit podle</string>
-    <string name="reverse">...v obráceném pořadí</string>
+    <string name="reverse">…v obráceném pořadí</string>
     <string name="sort_by_balance">Zůstatek</string>
     <string name="sort_by_expiry">Vypršení</string>
     <string name="sort_by_most_recently_used">Naposledy použité</string>

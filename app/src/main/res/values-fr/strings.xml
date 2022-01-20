@@ -96,7 +96,7 @@
 \nAUCUNE DONNÉE N’EST COLLECTÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importer les données depuis \?</string>
+    <string name="chooseImportType">Importer les données depuis</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
     <string name="currency">Monnaie</string>
@@ -225,4 +225,8 @@
     <string name="set_scale">Définir une échelle</string>
     <string name="showMoreInfo">Afficher les infos</string>
     <string name="hideMoreInfo">Masquer les infos</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> point</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> points</item>
+    </plurals>
 </resources>

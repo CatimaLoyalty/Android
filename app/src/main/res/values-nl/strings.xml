@@ -105,7 +105,7 @@
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="chooseImportType">Gegevens importeren uit…\?</string>
+    <string name="chooseImportType">Gegevens importeren uit</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Schermvergrendeling uitschakelen</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
@@ -225,4 +225,8 @@
     <string name="starred">Favoriet</string>
     <string name="hideMoreInfo">Informatie verbergen</string>
     <string name="set_scale">Schaal instellen</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punten</item>
+    </plurals>
 </resources>

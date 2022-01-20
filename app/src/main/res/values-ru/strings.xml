@@ -93,7 +93,7 @@
 \nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Откуда импортировать данные\?</string>
+    <string name="chooseImportType">Откуда импортировать данные</string>
     <string name="balance">Баланс</string>
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
     <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
@@ -233,4 +233,10 @@
     <string name="hideMoreInfo">Скрыть данные</string>
     <string name="showMoreInfo">Показать данные</string>
     <string name="starred">Избранное</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> балл</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> балла</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> баллов</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> баллов</item>
+    </plurals>
 </resources>

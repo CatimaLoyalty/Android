@@ -225,4 +225,8 @@
     <string name="hideMoreInfo">Bilgileri gizle</string>
     <string name="starred">Yıldızlı</string>
     <string name="set_scale">Ölçeği ayarla</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> puan</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> puan</item>
+    </plurals>
 </resources>

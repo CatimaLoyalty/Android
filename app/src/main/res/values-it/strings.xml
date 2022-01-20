@@ -225,4 +225,8 @@
     <string name="set_scale">Imposta la scala</string>
     <string name="showMoreInfo">Mostra info</string>
     <string name="hideMoreInfo">Nascondi info</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punti</item>
+    </plurals>
 </resources>

@@ -41,7 +41,7 @@
 \n本应用没有收集任何数据，任何人都可以查阅源码来确认，因为本软件是自由软件。</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">导入数据？</string>
+    <string name="chooseImportType">数据导入源</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g>似乎不是有效的余额。</string>
     <string name="points">积分</string>
     <string name="currency">货币</string>
@@ -172,4 +172,7 @@
     <string name="noGiftCardsGroup">创建一些卡片，然后分配给这里的小组。</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g>型条码图像</string>
     <string name="group_edit">编辑组</string>
+    <plurals name="balancePoints">
+        <item quantity="other"><xliff:g>%s</xliff:g> 点</item>
+    </plurals>
 </resources>

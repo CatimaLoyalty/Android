@@ -33,7 +33,7 @@
     <string name="setBackImage">Снимка на задната страна</string>
     <string name="setFrontImage">Снимка на предната страна</string>
     <string name="photos">Снимки</string>
-    <string name="importOptionApplicationExplanation">Изберете файл чрез друго приложение.</string>
+    <string name="importOptionApplicationExplanation">Изберете файл на друго приложение.</string>
     <string name="noExternalStoragePermissionError">Разрешете достъп до хранилището, за да работи внасянето и изнасянето</string>
     <string name="noCardExistsError">Картата не е намерена</string>
     <string name="updateBarcodeQuestionText">Идентификаторът е променен. Желаете ли с неговата стойност да бъде променен и щрихкодът\?</string>
@@ -121,10 +121,10 @@
     <string name="copy_to_clipboard">Копира идентификатора в междинната памет</string>
     <string name="ok">Добре</string>
     <string name="importSuccessful">Данните са внесени</string>
-    <string name="chooseImportType">От къде ще внесете\?</string>
+    <string name="chooseImportType">Внасяне на данни на</string>
     <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
-    <string name="importOptionApplicationTitle">От друго приложение</string>
+    <string name="importOptionApplicationTitle">Чрез друго приложение</string>
     <string name="importOptionFilesystemButton">Избиране от файлова система</string>
     <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
     <string name="app_resources">Свободни ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -167,7 +167,7 @@
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
         <item quantity="other">Изтриване на <xliff:g>%d</xliff:g> карти</item>
     </plurals>
-    <string name="deleteConfirmation">Потвърдете премахване на картата.</string>
+    <string name="deleteConfirmation">Потвърждавате ли премахване на картата\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Желаете ли <xliff:g>%d</xliff:g> карта да бъде премахната\?</item>
         <item quantity="other">Желаете ли тези <xliff:g>%d</xliff:g> карти да бъдат премахнати\?</item>
@@ -224,4 +224,9 @@
     <string name="showMoreInfo">Показване на информация</string>
     <string name="hideMoreInfo">Скриване на информация</string>
     <string name="options">Настройки</string>
+    <string name="card_ids_copied">Идентификаторите са копирани</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> точка</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> точки</item>
+    </plurals>
 </resources>

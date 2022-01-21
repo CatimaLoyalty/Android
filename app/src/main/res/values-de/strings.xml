@@ -92,7 +92,7 @@
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Daten importieren aus?</string>
+    <string name="chooseImportType">Daten importieren aus</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
@@ -225,4 +225,8 @@
     <string name="set_scale">Größe festlegen</string>
     <string name="showMoreInfo">Infos anzeigen</string>
     <string name="starred">als Favorit</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> Punkt</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> Punkte</item>
+    </plurals>
 </resources>

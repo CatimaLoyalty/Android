@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="noGiftCards">Nyomja meg a + jelet a kártya hozzáadásához, vagy importáljon a ⋮ menüvel.</string>
+    <string name="action_add">Hozzáadás</string>
+    <string name="action_search">Keresés</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kiválasztva</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kiválasztva</item>
+    </plurals>
+    <string name="noCardsMessage">Először adjon hozzá egy kártyát</string>
+    <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz.</string>
+    <string name="noMatchingGiftCards">Nincs eredmény. Próbálja módosítani a keresést.</string>
+    <string name="storeName">Név</string>
+    <string name="note">Feljegyzés</string>
+    <string name="cardId">Kártya azonosító</string>
+    <string name="barcodeType">Vonalkód típus</string>
+    <string name="barcodeNoBarcode">Nincs vonalkód</string>
+    <string name="noBarcode">Nincs vonalkód</string>
+    <string name="star">Kedvencekhez adás</string>
+    <string name="unstar">Kivétel a kedvencek közül</string>
+    <string name="cancel">Mégse</string>
+    <string name="save">Mentés</string>
+    <string name="edit">Szerkesztés</string>
+    <string name="delete">Törlés</string>
+    <string name="confirm">Alkalmaz</string>
+    <string name="lockScreen">Forgatás blokkolása</string>
+    <string name="unlockScreen">Blokkolás engedélyezése</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> törlése</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> törlése</item>
+    </plurals>
+    <string name="deleteConfirmation">Véglegesen törli a kártyát\?</string>
+    <string name="ok">Rendben</string>
+    <string name="copy_to_clipboard">Azonosító másolása a vágólapra</string>
+    <string name="share">Megosztás</string>
+    <string name="sendLabel">Küldés…</string>
+    <string name="editCardTitle">Kártya szerkesztése</string>
+    <string name="addCardTitle">Kártya hozzáadása</string>
+    <string name="scanCardBarcode">Vonalkód szkennelése</string>
+    <string name="cardShortcut">Kártya parancsikon</string>
+    <string name="noStoreError">Nincs név megadva</string>
+    <string name="failedParsingImportUriError">Nem elemezhető az importált URI</string>
+    <string name="importExport">Import/Export</string>
+    <string name="exportName">Export</string>
+    <string name="importExportHelp">Az adataid mentése lehetővé teszi, hogy egy másik eszközre feltöltsd.</string>
+    <string name="importSuccessfulTitle">Importálva</string>
+    <string name="importFailedTitle">Importálás meghiúsult</string>
+    <string name="importFailed">Importálás nem hajtható végre</string>
+    <string name="exportSuccessfulTitle">Exportálva</string>
+    <string name="exportFailedTitle">Exportálás meghiúsult</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Véglegesen törli a <xliff:g>%d</xliff:g> kártyát\?</item>
+        <item quantity="other">Véglegesen törli a <xliff:g>%d</xliff:g> kártyákat\?</item>
+    </plurals>
+    <string name="deleteTitle">Kártya törlése</string>
+    <string name="card_ids_copied">Azonosító(k) másolása</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> vonalkód képe</string>
+    <string name="noCardIdError">Nincs azonosító megadva</string>
+    <string name="noCardExistsError">Kártya nem található</string>
+</resources>

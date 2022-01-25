@@ -1,0 +1,2 @@
+- 0.11-ben lecsökkentve a memória használat, cserébe csökkent a megjelenített karaktere száma is. (pull #126)
+- Francia és német fordítások frissítése. (pull #122, pull #124, pull #125)

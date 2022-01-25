@@ -1,0 +1,3 @@
+- Az alapértelmezett import/export fájlnév megváltoztatása (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84)) 
+- Megfelelő sor az import/export oldalon. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Javítsa fel a kártya elrendezés nézetet. A szöveg könnyebben olvasható, és kiválasztható egy hosszú lenyomással. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

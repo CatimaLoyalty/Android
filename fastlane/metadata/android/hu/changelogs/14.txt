@@ -1,0 +1,3 @@
+- Képernyő forgatás zárolása opció kártya megjelenítésénél. Zárás esetén az alap orientációban fog megjelenni, és nem lesz további forgatás. (pull #128)
+- Ha egy kártya kiválasztásra kerül, de nem betölthető, akkor egy hibaüzenet jelenik meg. (pull #132)
+- Fixálva a varázslónál fellépő elrendezés azonosító hiba. (pull #128)

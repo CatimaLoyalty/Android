@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -687,6 +688,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
                 new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
         );
+
+        // Fix theming
+        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, R.color.md_theme_light_primary);
+        mCropperOptions.setToolbarColor(colorPrimary);
+        mCropperOptions.setStatusBarColor(colorPrimary);
     }
 
     @Override

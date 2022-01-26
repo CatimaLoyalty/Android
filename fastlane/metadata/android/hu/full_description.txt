@@ -1,0 +1,22 @@
+Ne kotorásszon többé hűségkártyáiért a pénztárnál vagy a webshop fizetésnél.
+<b>Szkennelje be a vonalkódokat a telefonja kamerájával, és felejtse el a kártyákat.</b>
+
+Felejtse el teljesen a pénztárcáját, vagy csak a legfontosabb értékeket tartsa benne innentől.
+
+Ezzel a mindennapi kellékkel felszabadul a pénztárcájában a plasztik kártyák helye.
+
+- A minimális engedélyeknek köszönhetően csökkentheti a kémkedés esélyét. Nem igényel internetet, és nincsenek reklámok.
+- Adjon hozzá kártyákat, vagy sima kódokat, majd szabja személyre színezéssel.
+- Manuálisan is hozzáadhat kódot ha nincs a kártyán vonalkód, vagy nem olvasható be valamiért.
+- Importáljon kártyákat appokból: Catima, FidMe, Loyalty Card Keychain, Stocard és Voucher Vault.
+- Készítsen biztonsági mentést kártyáiról, vagy hordozza át másik eszközre.
+- Osszon meg kuponokat, exkluzív ajánlatokat, promóciós kódokat, vagy kártyákat és kódokat bármely appal.
+- Sötét téma és kisegítő lehetőségek gyengén látó felhasználóinknak.
+- Mindenki számára elérhető a gáttalan szoftver közösség jóvoltából.
+- Több mint 20 kézzel fordított nyelven elérhető.
+- Grátisz, a közösség tagjai járulnak hozzá a fejlesztéshez.
+- Használja, tanulmányozza, változtassa és ossza meg; <i>mindenkivel</i>.
+- Nem csak Ingyenes Szoftver / Nyílt Forráskódú. <i>Copyleft-elt</i> gáttalan szoftver (GPLv3+) kártya menedzser.
+
+Egyszerűsítse le az életét és a vásárlást, ne hagyjon el több hűségkártyát vagy repjegyet.
+Vigye magával a hűségpontjait és bónuszait, és mentse el az útra.

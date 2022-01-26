@@ -1,0 +1,5 @@
+- Rubrikák kitöltése a szerkesztésnél. (pull #94)
+- Generált vonalkód hosszának korlátozása a memória hibák elkerülésére. (pull #103)
+- Ha egy kártya már létezik akkor a "Kártyába lépés" helyett "Kártya szerkesztése" gomb jelenik meg. (pull #104)
+- A színséma lágyabb az ikonnak megfelelően, és kártya nézet tisztítása. (pull #107)
+- Varázsló megjelenítése az első indításnál. (pull #108)

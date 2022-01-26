@@ -690,7 +690,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         );
 
         // Fix theming
-        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, R.color.md_theme_light_primary);
+        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
         mCropperOptions.setToolbarColor(colorPrimary);
         mCropperOptions.setStatusBarColor(colorPrimary);
     }

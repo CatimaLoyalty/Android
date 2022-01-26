@@ -1,0 +1,1 @@
+- Fix cropper not using theme colour

@@ -1,0 +1,1 @@
+- El ile barkod girişinin kaydedilmemesine neden olan gerileme düzeltildi

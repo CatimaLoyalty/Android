@@ -157,7 +157,7 @@
 \nNejsou shromažďovány žádné údaje, což může potvrdit každý, protože naše aplikace je svobodný software.</string>
     <string name="privacy_policy">Zásady soukromí</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importovat data z\?</string>
+    <string name="chooseImportType">Importovat data z</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> se nezdá být platným zůstatkem.</string>
     <string name="points">Body</string>
     <string name="currency">Měna</string>
@@ -229,4 +229,9 @@
     <string name="starred">S hvězdičkou</string>
     <string name="set_scale">Nastavení měřítka</string>
     <string name="options">Volby</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> bod</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> body</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> bodů</item>
+    </plurals>
 </resources>

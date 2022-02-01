@@ -11,6 +11,7 @@ import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.color.DynamicColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -178,8 +180,18 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
         SplashScreen.installSplashScreen(this);
+
+        // onPreCreate can't tell this activity uses a material theme due to splash screen, force color application here
+        DynamicColors.applyIfAvailable(this);
         setTitle(R.string.app_name);
+
         setContentView(R.layout.main_activity);
+
+        // XXX more dynamic color fixing due to splash screen
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(android.R.attr.windowBackground, typedValue, true);
+        findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

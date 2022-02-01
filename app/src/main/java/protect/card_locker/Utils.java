@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.Toast;
 
 import com.google.zxing.BinaryBitmap;
@@ -39,9 +40,11 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
+
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -457,6 +460,25 @@ public class Utils {
         R = 255 - R;
         G = 255 - G;
         B = 255 - B;
-        return R + (G << 8) + ( B << 16) + ( A << 24);
+        return R + (G << 8) + (B << 16) + (A << 24);
+    }
+
+    // replace colors in the current theme
+    // use before views are inflated, after dynamic color
+    public static void patchOledDarkTheme(AppCompatActivity activity) {
+        if (isDarkModeEnabled(activity) && new Settings(activity).getOledDark()) {
+            activity.getTheme().applyStyle(R.style.DarkBackground, true);
+        }
+    }
+
+    // XXX android 9 and below has issues with patched theme where the background becomes a
+    // rendering mess
+    // use after views are inflated
+    public static void postPatchOledDarkTheme(AppCompatActivity activity) {
+        if (isDarkModeEnabled(activity) && new Settings(activity).getOledDark()) {
+            TypedValue typedValue = new TypedValue();
+            activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
+            activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+        }
     }
 }

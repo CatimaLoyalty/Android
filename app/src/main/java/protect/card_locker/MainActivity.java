@@ -183,13 +183,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // onPreCreate can't tell this activity uses a material theme due to splash screen, force color application here
         DynamicColors.applyIfAvailable(this);
+        Utils.patchOledDarkTheme(this);
         setTitle(R.string.app_name);
 
         setContentView(R.layout.main_activity);
 
         // XXX more dynamic color fixing due to splash screen
+        // without this the background color will get stuck with the old color before dynamic color
         TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(android.R.attr.windowBackground, typedValue, true);
+        getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
         findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

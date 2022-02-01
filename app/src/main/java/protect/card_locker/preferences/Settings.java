@@ -9,6 +9,7 @@ import androidx.annotation.IntegerRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
+
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 
@@ -101,5 +102,9 @@ public class Settings {
 
     public boolean getDisableLockscreenWhileViewingCard() {
         return getBoolean(R.string.settings_key_disable_lockscreen_while_viewing_card, true);
+    }
+
+    public boolean getOledDark() {
+        return getBoolean(R.string.settings_key_oled_dark, false);
     }
 }

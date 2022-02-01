@@ -1,0 +1,1 @@
+- Oprava ořezávače nepoužívajícího barvu motivu

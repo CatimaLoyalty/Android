@@ -3,6 +3,8 @@
 ## Unreleased - 101
 
 - Fix cropper not using theme colour
+- Fix minor theming issues
+- Add pure black dark theme for OLED screens
 
 ## v2.14.1 - 100 (2022-01-15)
 

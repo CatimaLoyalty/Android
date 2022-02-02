@@ -19,10 +19,9 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // XXX on the splash screen activity, aka the main activity, this has to be executed after applying dynamic colors, not before
-        // so running this only on non main for now
-        if (!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
-            Utils.patchOledDarkTheme(this);
+        // XXX splash screen activity has to do this after installing splash screen before view inflate
+        if(!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
+            Utils.patchColors(this);
         }
     }
 
@@ -39,9 +38,6 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(Utils.isDarkModeEnabled(this) ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));
         }
         // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
-        // the splash screen activity needs the fix regardless to solve a dynamic color api issue
-        if (!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
-            Utils.postPatchOledDarkTheme(this);
-        }
+        Utils.postPatchColors(this);
     }
 }

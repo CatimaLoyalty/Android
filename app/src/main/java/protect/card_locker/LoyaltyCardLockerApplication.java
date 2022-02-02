@@ -16,6 +16,5 @@ public class LoyaltyCardLockerApplication extends Application {
 
         Settings settings = new Settings(this);
         AppCompatDelegate.setDefaultNightMode(settings.getTheme());
-        DynamicColors.applyToActivitiesIfAvailable(this);
     }
 }

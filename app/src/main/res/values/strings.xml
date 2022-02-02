@@ -221,6 +221,7 @@
     <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
     <string name="settings_theme_color">Theme color</string>
     <string name="settings_catima_theme">Catima</string>
+    <string name="settings_red_theme">Red</string>
     <string name="settings_pink_theme">Pink</string>
     <string name="settings_magenta_theme">Magenta</string>
     <string name="settings_violet_theme">Violet</string>
@@ -230,6 +231,7 @@
     <string name="settings_grey_theme">Grey</string>
     <string name="settings_brown_theme">Brown</string>
     <string name="settings_key_catima_theme" translatable="false">catima_theme</string>
+    <string name="settings_key_red_theme" translatable="false">red_theme</string>
     <string name="settings_key_pink_theme" translatable="false">pink_theme</string>
     <string name="settings_key_magenta_theme" translatable="false">magenta_theme</string>
     <string name="settings_key_violet_theme" translatable="false">violet_theme</string>

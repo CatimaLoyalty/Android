@@ -23,6 +23,15 @@
             app:singleLineTitle="false" />
 
         <ListPreference
+            android:key="@string/setting_key_theme_color"
+            android:title="@string/settings_theme_color"
+            android:defaultValue="@string/settings_key_system_theme"
+            android:entries="@array/color_value_strings"
+            android:entryValues="@array/color_values"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+
+        <ListPreference
             android:defaultValue=""
             android:entries="@array/locale_values"
             android:entryValues="@array/locale_values"

@@ -20,7 +20,7 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // XXX splash screen activity has to do this after installing splash screen before view inflate
-        if(!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
+        if (!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
             Utils.patchColors(this);
         }
     }
@@ -30,12 +30,13 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         // material 3 designer does not consider status bar colors
         // XXX changing this in onCreate causes issues with the splash screen activity, so doing this here
+        boolean darkMode = Utils.isDarkModeEnabled(this);
         if (Build.VERSION.SDK_INT >= 23) {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-            getWindow().getDecorView().setSystemUiVisibility(Utils.isDarkModeEnabled(this) ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            getWindow().getDecorView().setSystemUiVisibility(darkMode ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         } else {
             // icons are always white back then
-            getWindow().setStatusBarColor(Utils.isDarkModeEnabled(this) ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));
+            getWindow().setStatusBarColor(darkMode ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));
         }
         // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
         Utils.postPatchColors(this);

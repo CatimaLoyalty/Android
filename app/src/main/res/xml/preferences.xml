@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
@@ -8,20 +7,27 @@
         app:iconSpaceReserved="false">
 
         <ListPreference
-            android:key="@string/settings_key_theme"
-            android:title="@string/settings_theme"
             android:defaultValue="@string/settings_key_system_theme"
             android:entries="@array/theme_value_strings"
             android:entryValues="@array/theme_values"
+            android:key="@string/settings_key_theme"
+            android:title="@string/settings_theme"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/settings_key_oled_dark"
+            android:title="@string/settings_oled_dark"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
         <ListPreference
-            android:key="@string/settings_key_locale"
-            android:title="@string/settings_locale"
             android:defaultValue=""
             android:entries="@array/locale_values"
             android:entryValues="@array/locale_values"
+            android:key="@string/settings_key_locale"
+            android:title="@string/settings_locale"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
@@ -29,11 +35,11 @@
             android:key="@string/settings_key_max_font_size_scale"
             android:title="@string/settings_max_font_size_scale"
             app:defaultValue="@integer/settings_max_font_size_scale_pct"
+            app:iconSpaceReserved="false"
             app:numberPickerPreference_maxValue="@integer/settings_max_font_size_scale_pct_max"
             app:numberPickerPreference_minValue="@integer/settings_max_font_size_scale_pct_min"
             app:numberPickerPreference_stepValue="10"
             app:numberPickerPreference_unitText="%"
-            app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
         <SwitchPreferenceCompat

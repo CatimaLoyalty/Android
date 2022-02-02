@@ -18,6 +18,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
@@ -129,6 +130,13 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             });
 
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                refreshActivity(true);
+                return true;
+            });
+
+            Preference oledDarkPreference = findPreference(getResources().getString(R.string.settings_key_oled_dark));
+            assert oledDarkPreference != null;
+            oledDarkPreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 refreshActivity(true);
                 return true;
             });

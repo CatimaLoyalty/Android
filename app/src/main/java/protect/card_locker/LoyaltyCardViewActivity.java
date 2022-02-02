@@ -50,6 +50,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
@@ -575,7 +576,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         maximizeButton.setColorFilter(textColor);
         minimizeButton.setColorFilter(textColor);
         bottomSheetButton.setColorFilter(textColor);
-        editButton.setBackgroundTintList(ColorStateList.valueOf(Utils.getComplementaryColor(darkenedColor)));
+        int complementaryColor = Utils.getComplementaryColor(darkenedColor);
+        editButton.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
+        Drawable editButtonIcon = editButton.getDrawable();
+        editButtonIcon.mutate();
+        if (Utils.needsDarkForeground(complementaryColor)) {
+            editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_light_onBackground));
+        } else {
+            editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_dark_onBackground));
+        }
+        editButton.setImageDrawable(editButtonIcon);
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
         if (icon != null) {

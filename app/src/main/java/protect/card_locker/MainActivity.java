@@ -30,7 +30,7 @@ import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.color.DynamicColors;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
@@ -353,7 +353,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateLoyaltyCardList();
         // End of active tab logic
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        ExtendedFloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
             Bundle bundle = new Bundle();

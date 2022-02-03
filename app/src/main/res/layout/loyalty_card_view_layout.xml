@@ -8,13 +8,13 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-        android:contentDescription="@string/edit"
+        app:icon="@drawable/ic_mode_edit_white_24dp"
+        android:text="@string/edit_card"
         android:layout_margin="16dp" />
 
     <FrameLayout

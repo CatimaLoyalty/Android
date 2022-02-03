@@ -37,7 +37,7 @@ import android.widget.Toast;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.color.MaterialColors;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
@@ -112,6 +112,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public static final String BUNDLE_BARCODEID = "barcodeId";
     public static final String BUNDLE_BARCODETYPE = "barcodeType";
     public static final String BUNDLE_ADDGROUP = "addGroup";
+
+    ExtendedFloatingActionButton saveButton;
 
     TabLayout tabs;
 
@@ -894,7 +896,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageFrontHolder.setOnClickListener(new ChooseCardImage());
         cardImageBackHolder.setOnClickListener(new ChooseCardImage());
 
-        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        saveButton = findViewById(R.id.fabSave);
         saveButton.setOnClickListener(v -> doSave());
         saveButton.bringToFront();
 
@@ -1264,6 +1266,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
             return;
         }
+
+        // Validation done, save
+        saveButton.setText(R.string.saving);
+        saveButton.setIcon(null);
 
         List<Group> selectedGroups = new ArrayList<>();
 

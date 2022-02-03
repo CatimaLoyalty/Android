@@ -28,7 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -1218,7 +1218,7 @@ public class LoyaltyCardViewActivityTest {
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
         LinearLayout dotIndicator = activity.findViewById(R.id.dotIndicator);
-        FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
+        ExtendedFloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
         SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode
@@ -1322,7 +1322,7 @@ public class LoyaltyCardViewActivityTest {
         View bottomSheet = activity.findViewById(R.id.bottom_sheet);
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
-        FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
+        ExtendedFloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
         SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode

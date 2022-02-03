@@ -33,7 +33,7 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -96,7 +96,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     String barcodeIdString;
     CatimaBarcode format;
 
-    FloatingActionButton editButton;
+    ExtendedFloatingActionButton editButton;
 
     Guideline centerGuideline;
     SeekBar barcodeScaler;
@@ -578,14 +578,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomSheetButton.setColorFilter(textColor);
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         editButton.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
-        Drawable editButtonIcon = editButton.getDrawable();
+        Drawable editButtonIcon = editButton.getIcon();
         editButtonIcon.mutate();
         if (Utils.needsDarkForeground(complementaryColor)) {
             editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_light_onBackground));
         } else {
             editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_dark_onBackground));
         }
-        editButton.setImageDrawable(editButtonIcon);
+        editButton.setIcon(editButtonIcon);
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
         if (icon != null) {

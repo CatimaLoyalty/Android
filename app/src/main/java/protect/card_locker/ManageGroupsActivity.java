@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;
 
@@ -51,7 +51,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     protected void onResume() {
         super.onResume();
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        ExtendedFloatingActionButton addButton = findViewById(R.id.fabAdd);
         addButton.setOnClickListener(v -> createGroup());
         addButton.bringToFront();
 

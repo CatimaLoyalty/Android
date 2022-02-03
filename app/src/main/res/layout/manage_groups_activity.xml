@@ -8,13 +8,13 @@
     android:fitsSystemWindows="true"
     tools:context="protect.card_locker.ManageGroupsActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        app:srcCompat="@drawable/ic_add_white_24dp"
-        android:contentDescription="@string/action_add"
+        app:icon="@drawable/ic_add_white_24dp"
+        android:text="@string/action_add"
         android:layout_margin="16dp" />
 
     <com.google.android.material.appbar.AppBarLayout

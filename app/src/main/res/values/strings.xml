@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Search</string>
-    <string name="action_add">Add</string>
+    <string name="action_add">Add card</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
@@ -18,8 +18,9 @@
     <string name="star">Add to favorites</string>
     <string name="unstar">Remove from favorites</string>
     <string name="cancel">Cancel</string>
-    <string name="save">Save</string>
+    <string name="save">Save changes</string>
     <string name="edit">Edit</string>
+    <string name="edit_card">Edit card</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
     <string name="lockScreen">Block Rotation</string>
@@ -268,4 +269,5 @@
     <string name="options">Options</string>
     <string name="starred">Starred</string>
     <string name="set_scale">Set scale</string>
+    <string name="saving">Saving...</string>
 </resources>

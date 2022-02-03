@@ -1,0 +1,1 @@
+- Korrektur des Zuschneidesystems, das die Farbe des Themas nicht berücksichtigt hat

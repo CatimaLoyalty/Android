@@ -1,0 +1,1 @@
+- Correction du système de recadrage qui ne respectait pas la couleur du thème

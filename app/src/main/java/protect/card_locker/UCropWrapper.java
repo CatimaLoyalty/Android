@@ -1,6 +1,8 @@
 package protect.card_locker;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,9 +16,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
 import com.google.android.material.color.MaterialColors;
+import com.google.android.material.textview.MaterialTextView;
 import com.yalantis.ucrop.UCropActivity;
 
 public class UCropWrapper extends UCropActivity {
+    public static final String UCROP_TOOLBAR_TYPEFACE_STYLE = "ucop_toolbar_typeface_style";
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -57,6 +62,17 @@ public class UCropWrapper extends UCropActivity {
                         break;
                     }
                 }
+            }
+        }
+
+        // change toolbar font
+        check = findViewById(com.yalantis.ucrop.R.id.toolbar_title);
+        if (check instanceof MaterialTextView) {
+            MaterialTextView toolbarTextview = (MaterialTextView) check;
+            Intent intent = getIntent();
+            int style = intent.getIntExtra(UCROP_TOOLBAR_TYPEFACE_STYLE, -1);
+            if (style != -1) {
+                toolbarTextview.setTypeface(Typeface.defaultFromStyle(style));
             }
         }
     }

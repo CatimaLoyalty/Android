@@ -73,7 +73,7 @@
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Legg til i favoritter</string>
-    <string name="noGroups">Klikk på «+»- (pluss)-tegnet for å legge til grupper for kategorisering først.</string>
+    <string name="noGroups">Klikk på «+»- (pluss)-tegnet for å legge til grupper for kategorisering.</string>
     <string name="deleteConfirmationGroup">Slett gruppe?</string>
     <string name="all">Alle</string>
     <string name="groups">Grupper</string>
@@ -223,6 +223,11 @@
     <string name="options">Alternativer</string>
     <string name="starred">Stjernemerket</string>
     <string name="set_scale">Sett skalering</string>
-    <string name="showMoreInfo">Vis mer info</string>
-    <string name="hideMoreInfo">Skjul mer info</string>
+    <string name="showMoreInfo">Vis info</string>
+    <string name="hideMoreInfo">Skjul info</string>
+    <plurals name="balancePoints">
+        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; poeng</item>
+        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; poeng</item>
+    </plurals>
+    <string name="settings_oled_dark">Svart bakgrunn for mørk drakt</string>
 </resources>

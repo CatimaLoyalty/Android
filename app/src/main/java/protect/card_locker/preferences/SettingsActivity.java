@@ -19,6 +19,8 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.google.android.material.color.DynamicColors;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
@@ -141,12 +143,28 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            Preference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
+            ListPreference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
             assert colorPreference != null;
             colorPreference.setOnPreferenceChangeListener((preference, o) -> {
                 refreshActivity(true);
                 return true;
             });
+            if (!DynamicColors.isDynamicColorAvailable()) {
+                // remove catima from list
+                CharSequence[] colorValues = colorPreference.getEntryValues();
+                CharSequence[] colorEntries = colorPreference.getEntries();
+                CharSequence[] newColorValues = new CharSequence[colorValues.length - 1];
+                CharSequence[] newColorEntries = new CharSequence[colorEntries.length - 1];
+                for (int i = 0, j = 0; i < colorValues.length; i++) {
+                    if (!colorValues[i].equals(getResources().getString(R.string.settings_key_catima_theme))) {
+                        newColorValues[j] = colorValues[i];
+                        newColorEntries[j] = colorEntries[i];
+                        j++;
+                    }
+                }
+                colorPreference.setEntries(newColorEntries);
+                colorPreference.setEntryValues(newColorValues);
+            }
         }
 
         private void refreshActivity(boolean reloadMain) {

@@ -40,35 +40,6 @@
     </style>
 
     <!-- color themes -->
-    <style name="red">
-        <item name="colorPrimary">#FFB4A6</item>
-        <item name="colorOnPrimary">#690000</item>
-        <item name="colorPrimaryContainer">#940000</item>
-        <item name="colorOnPrimaryContainer">#FFDAD3</item>
-        <item name="colorSecondary">#E7BDB6</item>
-        <item name="colorOnSecondary">#442925</item>
-        <item name="colorSecondaryContainer">#5D3F3A</item>
-        <item name="colorOnSecondaryContainer">#FFDAD3</item>
-        <item name="colorTertiary">#DEC48C</item>
-        <item name="colorOnTertiary">#3E2E04</item>
-        <item name="colorTertiaryContainer">#564418</item>
-        <item name="colorOnTertiaryContainer">#FBDFA5</item>
-        <item name="colorError">#FFB4A9</item>
-        <item name="colorErrorContainer">#930006</item>
-        <item name="colorOnError">#680003</item>
-        <item name="colorOnErrorContainer">#FFDAD4</item>
-        <item name="android:colorBackground">#201A19</item>
-        <item name="colorOnBackground">#EDE0DE</item>
-        <item name="colorSurface">#201A19</item>
-        <item name="colorOnSurface">#EDE0DE</item>
-        <item name="colorSurfaceVariant">#534341</item>
-        <item name="colorOnSurfaceVariant">#D8C2BE</item>
-        <item name="colorOutline">#A08C89</item>
-        <item name="colorOnSurfaceInverse">#201A19</item>
-        <item name="colorSurfaceInverse">#EDE0DE</item>
-        <item name="colorPrimaryInverse">#C10000</item>
-    </style>
-
     <style name="pink">
         <item name="colorPrimary">#FFB2C0</item>
         <item name="colorOnPrimary">#670024</item>

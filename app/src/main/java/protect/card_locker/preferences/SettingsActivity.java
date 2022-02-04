@@ -150,20 +150,8 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
             if (!DynamicColors.isDynamicColorAvailable()) {
-                // remove catima from list
-                CharSequence[] colorValues = colorPreference.getEntryValues();
-                CharSequence[] colorEntries = colorPreference.getEntries();
-                CharSequence[] newColorValues = new CharSequence[colorValues.length - 1];
-                CharSequence[] newColorEntries = new CharSequence[colorEntries.length - 1];
-                for (int i = 0, j = 0; i < colorValues.length; i++) {
-                    if (!colorValues[i].equals(getResources().getString(R.string.settings_key_catima_theme))) {
-                        newColorValues[j] = colorValues[i];
-                        newColorEntries[j] = colorEntries[i];
-                        j++;
-                    }
-                }
-                colorPreference.setEntries(newColorEntries);
-                colorPreference.setEntryValues(newColorValues);
+                colorPreference.setEntryValues(R.array.color_values_no_dynamic);
+                colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
             }
         }
 

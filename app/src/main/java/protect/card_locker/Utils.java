@@ -468,49 +468,28 @@ public class Utils {
     public static void patchColors(AppCompatActivity activity) {
         Settings settings = new Settings(activity);
         String color = settings.getColor();
-        final String system = activity.getResources().getString(R.string.settings_key_system_theme);
-        final String red = activity.getResources().getString(R.string.settings_key_red_theme);
-        final String pink = activity.getResources().getString(R.string.settings_key_pink_theme);
-        final String magenta = activity.getResources().getString(R.string.settings_key_magenta_theme);
-        final String violet = activity.getResources().getString(R.string.settings_key_violet_theme);
-        final String blue = activity.getResources().getString(R.string.settings_key_blue_theme);
-        final String sky_blue = activity.getResources().getString(R.string.settings_key_sky_blue_theme);
-        final String green = activity.getResources().getString(R.string.settings_key_green_theme);
-        final String brown = activity.getResources().getString(R.string.settings_key_brown_theme);
-        // do nothing if color is catima
-        // final String catima = activity.getResources().getString(R.string.settings_key_catima_theme);
 
         Resources.Theme theme = activity.getTheme();
-
-        if (color.equals(system)) {
+        Resources resources = activity.getResources();
+        if (color.equals(resources.getString(R.string.settings_key_system_theme))) {
             DynamicColors.applyIfAvailable(activity);
-        } else {
-            if (color.equals(red)) {
-                theme.applyStyle(R.style.red, true);
-            }
-            if (color.equals(pink)) {
-                theme.applyStyle(R.style.pink, true);
-            }
-            if (color.equals(magenta)) {
-                theme.applyStyle(R.style.magenta, true);
-            }
-            if (color.equals(violet)) {
-                theme.applyStyle(R.style.violet, true);
-            }
-            if (color.equals(blue)) {
-                theme.applyStyle(R.style.blue, true);
-            }
-            if (color.equals(sky_blue)) {
-                theme.applyStyle(R.style.skyblue, true);
-            }
-            if (color.equals(green)) {
-                theme.applyStyle(R.style.green, true);
-            }
-            if (color.equals(brown)) {
-                theme.applyStyle(R.style.brown, true);
-            }
+        } else if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
+            theme.applyStyle(R.style.pink, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_magenta_theme))) {
+            theme.applyStyle(R.style.magenta, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_violet_theme))) {
+            theme.applyStyle(R.style.violet, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_blue_theme))) {
+            theme.applyStyle(R.style.blue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_sky_blue_theme))) {
+            theme.applyStyle(R.style.skyblue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_green_theme))) {
+            theme.applyStyle(R.style.green, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_brown_theme))) {
+            theme.applyStyle(R.style.brown, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
+            // catima theme is AppTheme itself, no dynamic colors nor applyStyle
         }
-
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {
             theme.applyStyle(R.style.DarkBackground, true);

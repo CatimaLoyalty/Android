@@ -15,34 +15,47 @@
     <string-array name="color_values">
         <item>@string/settings_key_system_theme</item>
         <item>@string/settings_key_catima_theme</item>
-        <item>@string/settings_key_red_theme</item>
         <item>@string/settings_key_pink_theme</item>
         <item>@string/settings_key_magenta_theme</item>
         <item>@string/settings_key_violet_theme</item>
         <item>@string/settings_key_blue_theme</item>
         <item>@string/settings_key_sky_blue_theme</item>
         <item>@string/settings_key_green_theme</item>
-        <!-- can't generate a good grey theme
-        <item>@string/settings_key_grey_theme</item>
-        -->
         <item>@string/settings_key_brown_theme</item>
     </string-array>
 
     <string-array name="color_value_strings">
         <item>@string/settings_system_theme</item>
         <item>@string/settings_catima_theme</item>
-        <item>@string/settings_red_theme</item>
         <item>@string/settings_pink_theme</item>
         <item>@string/settings_magenta_theme</item>
         <item>@string/settings_violet_theme</item>
         <item>@string/settings_blue_theme</item>
         <item>@string/settings_sky_blue_theme</item>
         <item>@string/settings_green_theme</item>
-        <!--
-        <item>@string/settings_grey_theme</item>
-        -->
         <item>@string/settings_brown_theme</item>
+    </string-array>
 
+    <string-array name="color_values_no_dynamic">
+        <item>@string/settings_key_system_theme</item>
+        <item>@string/settings_key_pink_theme</item>
+        <item>@string/settings_key_magenta_theme</item>
+        <item>@string/settings_key_violet_theme</item>
+        <item>@string/settings_key_blue_theme</item>
+        <item>@string/settings_key_sky_blue_theme</item>
+        <item>@string/settings_key_green_theme</item>
+        <item>@string/settings_key_brown_theme</item>
+    </string-array>
+
+    <string-array name="color_value_strings_no_dynamic">
+        <item>@string/settings_catima_theme</item>
+        <item>@string/settings_pink_theme</item>
+        <item>@string/settings_magenta_theme</item>
+        <item>@string/settings_violet_theme</item>
+        <item>@string/settings_blue_theme</item>
+        <item>@string/settings_sky_blue_theme</item>
+        <item>@string/settings_green_theme</item>
+        <item>@string/settings_brown_theme</item>
     </string-array>
 
     <string-array name="locale_values">

@@ -54,35 +54,6 @@
     <style name="DarkBackground" />
 
     <!-- color themes -->
-    <style name="red">
-        <item name="colorPrimary">#C10000</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorPrimaryContainer">#FFDAD3</item>
-        <item name="colorOnPrimaryContainer">#410000</item>
-        <item name="colorSecondary">#775651</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
-        <item name="colorSecondaryContainer">#FFDAD3</item>
-        <item name="colorOnSecondaryContainer">#2C1511</item>
-        <item name="colorTertiary">#705C2E</item>
-        <item name="colorOnTertiary">#FFFFFF</item>
-        <item name="colorTertiaryContainer">#FBDFA5</item>
-        <item name="colorOnTertiaryContainer">#261A00</item>
-        <item name="colorError">#BA1B1B</item>
-        <item name="colorErrorContainer">#FFDAD4</item>
-        <item name="colorOnError">#FFFFFF</item>
-        <item name="colorOnErrorContainer">#410001</item>
-        <item name="android:colorBackground">#FCFCFC</item>
-        <item name="colorOnBackground">#201A19</item>
-        <item name="colorSurface">#FCFCFC</item>
-        <item name="colorOnSurface">#201A19</item>
-        <item name="colorSurfaceVariant">#F5DEDA</item>
-        <item name="colorOnSurfaceVariant">#534341</item>
-        <item name="colorOutline">#867370</item>
-        <item name="colorOnSurfaceInverse">#FBEEEC</item>
-        <item name="colorSurfaceInverse">#362F2E</item>
-        <item name="colorPrimaryInverse">#FFB4A6</item>
-    </style>
-
     <style name="pink">
         <item name="colorPrimary">#BC0049</item>
         <item name="colorOnPrimary">#FFFFFF</item>

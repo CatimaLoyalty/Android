@@ -108,5 +108,7 @@ public class Settings {
         return getBoolean(R.string.settings_key_oled_dark, false);
     }
 
-    public String getColor() { return getString(R.string.setting_key_theme_color, mContext.getResources().getString(R.string.settings_key_system_theme)); }
+    public String getColor() {
+        return getString(R.string.setting_key_theme_color, mContext.getResources().getString(R.string.settings_key_system_theme));
+    }
 }

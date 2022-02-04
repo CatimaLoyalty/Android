@@ -226,8 +226,8 @@
     <string name="showMoreInfo">Vis info</string>
     <string name="hideMoreInfo">Skjul info</string>
     <plurals name="balancePoints">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; poeng</item>
-        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; poeng</item>
+        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> poeng</item>
+        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> poeng</item>
     </plurals>
     <string name="settings_oled_dark">Svart bakgrunn for mørk drakt</string>
 </resources>

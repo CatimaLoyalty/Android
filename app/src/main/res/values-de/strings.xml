@@ -229,4 +229,5 @@
         <item quantity="one"><xliff:g>%s</xliff:g> Punkt</item>
         <item quantity="other"><xliff:g>%s</xliff:g> Punkte</item>
     </plurals>
+    <string name="settings_oled_dark">Rein schwarzer Hintergrund für dunkles Thema</string>
 </resources>

@@ -229,4 +229,5 @@
         <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
         <item quantity="other"><xliff:g>%s</xliff:g> punten</item>
     </plurals>
+    <string name="settings_oled_dark">Zwarte achtergrond gebruiken bij donker thema</string>
 </resources>

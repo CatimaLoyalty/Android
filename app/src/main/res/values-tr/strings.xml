@@ -229,4 +229,5 @@
         <item quantity="one"><xliff:g>%s</xliff:g> puan</item>
         <item quantity="other"><xliff:g>%s</xliff:g> puan</item>
     </plurals>
+    <string name="settings_oled_dark">Koyu tema için saf siyah arka plan</string>
 </resources>

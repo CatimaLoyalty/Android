@@ -46,23 +46,26 @@ public class MultiFormatImporter {
                 break;
         }
 
+        String error = null;
         if (importer != null) {
             database.beginTransaction();
             try {
                 importer.importData(context, database, input, password);
                 database.setTransactionSuccessful();
-                return ImportExportResult.Success;
+                return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
-                return ImportExportResult.BadPassword;
+                return new ImportExportResult(ImportExportResultType.BadPassword);
             } catch (IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e) {
                 Log.e(TAG, "Failed to import data", e);
+                error = e.toString();
             } finally {
                 database.endTransaction();
             }
         } else {
-            Log.e(TAG, "Unsupported data format imported: " + format.name());
+            error = "Unsupported data format imported: " + format.name();
+            Log.e(TAG, error);
         }
 
-        return ImportExportResult.GenericFailure;
+        return new ImportExportResult(ImportExportResultType.GenericFailure, error);
     }
 }

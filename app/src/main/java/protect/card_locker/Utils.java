@@ -487,10 +487,9 @@ public class Utils {
             theme.applyStyle(R.style.brown, true);
         } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
             // catima theme is AppTheme itself, no dynamic colors nor applyStyle
-        } else if (color.equals(resources.getString(R.string.settings_key_system_theme))) {
-            DynamicColors.applyIfAvailable(activity);
         } else {
             // final catch all in case of invalid theme value from older versions
+            // also handles R.string.settings_key_system_theme
             DynamicColors.applyIfAvailable(activity);
         }
 

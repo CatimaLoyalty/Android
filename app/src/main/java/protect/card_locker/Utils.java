@@ -471,9 +471,7 @@ public class Utils {
 
         Resources.Theme theme = activity.getTheme();
         Resources resources = activity.getResources();
-        if (color.equals(resources.getString(R.string.settings_key_system_theme))) {
-            DynamicColors.applyIfAvailable(activity);
-        } else if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
+        if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
             theme.applyStyle(R.style.pink, true);
         } else if (color.equals(resources.getString(R.string.settings_key_magenta_theme))) {
             theme.applyStyle(R.style.magenta, true);
@@ -489,6 +487,11 @@ public class Utils {
             theme.applyStyle(R.style.brown, true);
         } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
             // catima theme is AppTheme itself, no dynamic colors nor applyStyle
+        } else if (color.equals(resources.getString(R.string.settings_key_system_theme))) {
+            DynamicColors.applyIfAvailable(activity);
+        } else {
+            // final catch all in case of invalid theme value from older versions
+            DynamicColors.applyIfAvailable(activity);
         }
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {

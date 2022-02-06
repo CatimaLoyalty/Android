@@ -19,6 +19,8 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.google.android.material.color.DynamicColors;
+
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
@@ -140,6 +142,17 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 refreshActivity(true);
                 return true;
             });
+
+            ListPreference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
+            assert colorPreference != null;
+            colorPreference.setOnPreferenceChangeListener((preference, o) -> {
+                refreshActivity(true);
+                return true;
+            });
+            if (!DynamicColors.isDynamicColorAvailable()) {
+                colorPreference.setEntryValues(R.array.color_values_no_dynamic);
+                colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
+            }
         }
 
         private void refreshActivity(boolean reloadMain) {

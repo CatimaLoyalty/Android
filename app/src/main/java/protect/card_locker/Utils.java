@@ -17,6 +17,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.widget.Toast;
 
+import com.google.android.material.color.DynamicColors;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -464,21 +465,45 @@ public class Utils {
     }
 
     // replace colors in the current theme
-    // use before views are inflated, after dynamic color
-    public static void patchOledDarkTheme(AppCompatActivity activity) {
-        if (isDarkModeEnabled(activity) && new Settings(activity).getOledDark()) {
-            activity.getTheme().applyStyle(R.style.DarkBackground, true);
+    public static void patchColors(AppCompatActivity activity) {
+        Settings settings = new Settings(activity);
+        String color = settings.getColor();
+
+        Resources.Theme theme = activity.getTheme();
+        Resources resources = activity.getResources();
+        if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
+            theme.applyStyle(R.style.pink, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_magenta_theme))) {
+            theme.applyStyle(R.style.magenta, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_violet_theme))) {
+            theme.applyStyle(R.style.violet, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_blue_theme))) {
+            theme.applyStyle(R.style.blue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_sky_blue_theme))) {
+            theme.applyStyle(R.style.skyblue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_green_theme))) {
+            theme.applyStyle(R.style.green, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_brown_theme))) {
+            theme.applyStyle(R.style.brown, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
+            // catima theme is AppTheme itself, no dynamic colors nor applyStyle
+        } else {
+            // final catch all in case of invalid theme value from older versions
+            // also handles R.string.settings_key_system_theme
+            DynamicColors.applyIfAvailable(activity);
+        }
+
+        if (isDarkModeEnabled(activity) && settings.getOledDark()) {
+            theme.applyStyle(R.style.DarkBackground, true);
         }
     }
 
     // XXX android 9 and below has issues with patched theme where the background becomes a
     // rendering mess
     // use after views are inflated
-    public static void postPatchOledDarkTheme(AppCompatActivity activity) {
-        if (isDarkModeEnabled(activity) && new Settings(activity).getOledDark()) {
-            TypedValue typedValue = new TypedValue();
-            activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
-            activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
-        }
+    public static void postPatchColors(AppCompatActivity activity) {
+        TypedValue typedValue = new TypedValue();
+        activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
+        activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
     }
 }

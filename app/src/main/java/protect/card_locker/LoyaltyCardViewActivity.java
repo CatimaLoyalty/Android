@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.UnsupportedEncodingException;
@@ -580,10 +581,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButton.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = editButton.getDrawable();
         editButtonIcon.mutate();
+        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
+        int colorOnPrimary = MaterialColors.getColor(this, R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
+        boolean darkMode = Utils.isDarkModeEnabled(this);
         if (Utils.needsDarkForeground(complementaryColor)) {
-            editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_light_onBackground));
+            editButtonIcon.setTint(darkMode ? colorOnPrimary : colorPrimary);
         } else {
-            editButtonIcon.setTint(ContextCompat.getColor(this, R.color.md_theme_dark_onBackground));
+            editButtonIcon.setTint(darkMode ? colorPrimary : colorOnPrimary);
         }
         editButton.setImageDrawable(editButtonIcon);
 
@@ -647,7 +651,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         dotIndicator.removeAllViews();
         if (imageTypes.size() >= 2) {
             dots = new ImageView[imageTypes.size()];
-            boolean darkMode = Utils.isDarkModeEnabled(getApplicationContext());
 
             for (int i = 0; i < imageTypes.size(); i++) {
                 dots[i] = new ImageView(this);

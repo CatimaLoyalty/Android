@@ -180,20 +180,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
         SplashScreen.installSplashScreen(this);
-
-        // onPreCreate can't tell this activity uses a material theme due to splash screen, force color application here
-        DynamicColors.applyIfAvailable(this);
-        Utils.patchOledDarkTheme(this);
         setTitle(R.string.app_name);
-
+        // XXX color patching has to be done again after setting splash screen
+        Utils.patchColors(this);
         setContentView(R.layout.main_activity);
-
-        // XXX more dynamic color fixing due to splash screen
-        // without this the background color will get stuck with the old color before dynamic color
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
-        findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

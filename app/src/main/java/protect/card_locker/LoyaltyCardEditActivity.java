@@ -69,6 +69,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -134,6 +135,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     ImageView cardImageBack;
 
     Button enterButton;
+
+    Toolbar toolbar;
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
@@ -291,7 +294,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.loyalty_card_edit_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -690,9 +693,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         );
 
         // Fix theming
+
         int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
-        mCropperOptions.setToolbarColor(colorPrimary);
-        mCropperOptions.setStatusBarColor(colorPrimary);
+        int colorOnPrimary = MaterialColors.getColor(this, R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
+        int colorSurface = MaterialColors.getColor(this, R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
+        int colorOnSurface = MaterialColors.getColor(this, R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+        int colorBackground = MaterialColors.getColor(this, android.R.attr.colorBackground, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+        mCropperOptions.setToolbarColor(colorSurface);
+        mCropperOptions.setStatusBarColor(colorSurface);
+        mCropperOptions.setToolbarWidgetColor(colorOnSurface);
+        mCropperOptions.setRootViewBackgroundColor(colorBackground);
+        // set tool tip to be the darker of primary color
+        if (Utils.isDarkModeEnabled(this)) {
+            mCropperOptions.setActiveControlsWidgetColor(colorOnPrimary);
+        } else {
+            mCropperOptions.setActiveControlsWidgetColor(colorPrimary);
+        }
     }
 
     @Override
@@ -906,7 +922,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor :  R.attr.colorPrimary));
+            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
@@ -1391,13 +1407,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             }
         }
-        mCropperLauncher.launch(
-                UCrop.of(
-                        sourceUri,
-                        destUri
-                ).withOptions(mCropperOptions)
-                        .getIntent(this)
-        );
+        Intent ucropIntent = UCrop.of(
+                sourceUri,
+                destUri
+        ).withOptions(mCropperOptions)
+                .getIntent(this);
+        ucropIntent.setClass(this, UCropWrapper.class);
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            // send toolbar font details to ucrop wrapper
+            View child = toolbar.getChildAt(i);
+            if (child instanceof AppCompatTextView) {
+                AppCompatTextView childTextView = (AppCompatTextView) child;
+                ucropIntent.putExtra(UCropWrapper.UCROP_TOOLBAR_TYPEFACE_STYLE, childTextView.getTypeface().getStyle());
+                break;
+            }
+        }
+        mCropperLauncher.launch(ucropIntent);
     }
 
     private void generateBarcode() {

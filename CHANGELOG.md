@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 102
+
+- Various minor fixes
+
 ## v2.15.0 - 101 (2022-02-06)
 
 - Fix cropper not using theme colour

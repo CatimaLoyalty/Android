@@ -7,22 +7,25 @@
         android:title="@string/action_search"
         android:icon="@drawable/ic_search_white"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView"/>
+        app:showAsAction="always|collapseActionView"
+        android:visible="false"/>
     <item
         android:id="@+id/action_unfold"
         android:title="@string/action_hide_details"
         android:icon="@drawable/ic_baseline_unfold_less_24"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        android:visible="false"/>
     <item
         android:id="@+id/action_sort"
         android:title="@string/sort"
         android:icon="@drawable/ic_baseline_sort_24"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        android:visible="false"/>
     <item
         android:id="@+id/action_manage_groups"
         android:icon="@drawable/ic_folder_white"
         android:title="@string/groups"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
     <item
         android:id="@+id/action_import_export"
         android:icon="@drawable/ic_import_export_white_24dp"

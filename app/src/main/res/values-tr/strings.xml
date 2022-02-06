@@ -230,4 +230,5 @@
         <item quantity="other"><xliff:g>%s</xliff:g> puan</item>
     </plurals>
     <string name="settings_oled_dark">Koyu tema için saf siyah arka plan</string>
+    <string name="include_if_asking_support">Destek talep etmek istiyorsanız, aşağıdaki bilgileri ekleyin:</string>
 </resources>

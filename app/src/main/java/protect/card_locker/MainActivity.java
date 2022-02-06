@@ -54,7 +54,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
-    private Menu mMenu;
     private View mHelpText;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
@@ -364,13 +363,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onBackPressed();
     }
 
-    private void displayCardSetupOptions(boolean shouldShow) {
-        if (mMenu == null) {
-            return;
-        }
-
+    private void displayCardSetupOptions(Menu menu, boolean shouldShow) {
         for (int id : new int[]{R.id.action_search, R.id.action_unfold, R.id.action_sort}) {
-            mMenu.findItem(id).setVisible(shouldShow);
+            menu.findItem(id).setVisible(shouldShow);
         }
     }
 
@@ -388,6 +383,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (updateCount) {
             updateLoyaltyCardCount();
+            // Update menu icons if necessary
+            invalidateOptionsMenu();
         }
 
         if (mLoyaltyCardCount > 0) {
@@ -396,7 +393,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // the keyboard
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
-            displayCardSetupOptions(true);
 
             if (mAdapter.getItemCount() > 0) {
                 mCardList.setVisibility(View.VISIBLE);
@@ -416,7 +412,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         } else {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
-            displayCardSetupOptions(false);
 
             mNoMatchingCardsText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
@@ -455,11 +450,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
-        mMenu = inputMenu;
-
         getMenuInflater().inflate(R.menu.main_menu, inputMenu);
 
-        displayCardSetupOptions(mLoyaltyCardCount > 0);
+        displayCardSetupOptions(inputMenu, mLoyaltyCardCount > 0);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {

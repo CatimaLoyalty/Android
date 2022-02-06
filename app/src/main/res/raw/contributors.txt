@@ -8,18 +8,18 @@ mondstern
 Katharine Chui
 Oğuz Ersen
 IllusiveMan196
-Petr Novák
 Altonss
-Taco
+Petr Novák
 Joel A
+Taco
 Gediminas Murauskas
 StoyanDimitrov
 Nyatsuki
+Michael Moroni
 Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
-Michael Moroni
 laralem
 arshbeerSingh
 huuhaa
@@ -74,6 +74,7 @@ Michael Gangolf
 pbeckmann
 Peer Beckmann
 Quang Nguyen
+Ratnesh
 Reza
 Rohan Babbar 
 Ronak Upadhyay

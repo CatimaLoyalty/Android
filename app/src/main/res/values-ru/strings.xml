@@ -240,4 +240,5 @@
         <item quantity="other"><xliff:g>%s</xliff:g> баллов</item>
     </plurals>
     <string name="settings_oled_dark">Чёрный фон для тёмной темы</string>
+    <string name="include_if_asking_support">Если вы хотите запросить поддержку, укажите следующую информацию:</string>
 </resources>

@@ -230,4 +230,5 @@
         <item quantity="other"><xliff:g>%s</xliff:g> punten</item>
     </plurals>
     <string name="settings_oled_dark">Zwarte achtergrond gebruiken bij donker thema</string>
+    <string name="include_if_asking_support">Als je ondersteuning wilt, voorzie je verzoek dan van de volgende informatie:</string>
 </resources>

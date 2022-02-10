@@ -3,6 +3,7 @@
 ## Unreleased - 102
 
 - Various minor fixes
+- Fix crash when using Norwegian translation
 
 ## v2.15.0 - 101 (2022-02-06)
 

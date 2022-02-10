@@ -230,4 +230,5 @@
         <item quantity="other"><xliff:g>%s</xliff:g> точки</item>
     </plurals>
     <string name="settings_oled_dark">Чисто черен фон за тъмната тема</string>
+    <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
 </resources>

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 102
+## v2.15.1 - 102 (2022-02-10)
 
 - Various minor fixes
 - Fix crash when using Norwegian translation

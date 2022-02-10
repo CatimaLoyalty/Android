@@ -1,0 +1,1 @@
+- Fix manual language selection not applying everywhere

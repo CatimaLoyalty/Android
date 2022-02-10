@@ -105,7 +105,7 @@
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="chooseImportType">Importer data fra?</string>
+    <string name="chooseImportType">Importer data fra</string>
     <string name="app_loyalty_card_keychain">Kundekortknippe</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Forhindre skjermlås</string>
     <string name="settings_keep_screen_on">Behold skjerm påslått</string>
@@ -226,8 +226,9 @@
     <string name="showMoreInfo">Vis info</string>
     <string name="hideMoreInfo">Skjul info</string>
     <plurals name="balancePoints">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> poeng</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> poeng</item>
+        <item quantity="one"><xliff:g>%s</xliff:g> poeng</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> poeng</item>
     </plurals>
     <string name="settings_oled_dark">Svart bakgrunn for mørk drakt</string>
+    <string name="include_if_asking_support">Inkluder følgende info hvis du vil ha hjelp:</string>
 </resources>

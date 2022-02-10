@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 103
+
+- Fix manual language selection not applying everywhere
+
 ## v2.15.1 - 102 (2022-02-10)
 
 - Various minor fixes

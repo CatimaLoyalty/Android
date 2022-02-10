@@ -15,7 +15,7 @@ import protect.card_locker.preferences.Settings;
 
 public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
     Settings mSettings;
-    private final Context mContext;
+    public final Context mContext;
     private final GroupAdapterListener mListener;
     SQLiteDatabase mDatabase;
 
@@ -23,7 +23,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         super(inputCursor, DBHelper.LoyaltyCardDbGroups.ORDER);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext.getApplicationContext();
+        mContext = inputContext;
         mListener = inputListener;
         mDatabase = new DBHelper(inputContext).getReadableDatabase();
 

@@ -35,7 +35,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private int mCurrentSelectedIndex = -1;
     Settings mSettings;
     boolean mDarkModeEnabled;
-    private final Context mContext;
+    public final Context mContext;
     private final CardAdapterListener mListener;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
@@ -46,7 +46,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext.getApplicationContext();
+        mContext = inputContext;
         mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 103
+## v2.15.2 - 103 (2022-02-11)
 
 - Fix manual language selection not applying everywhere
 - Fix crash in edit view on regionless locale

@@ -3,6 +3,7 @@
 ## Unreleased - 103
 
 - Fix manual language selection not applying everywhere
+- Fix crash in edit view on regionless locale
 
 ## v2.15.1 - 102 (2022-02-10)
 

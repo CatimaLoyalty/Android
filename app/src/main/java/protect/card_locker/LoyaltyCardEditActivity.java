@@ -448,14 +448,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                     for (int i = locales.size() - 1; i >= 0; i--) {
                         Locale locale = locales.get(i);
-                        String currencySymbol = Currency.getInstance(locale).getSymbol();
-                        currencyList.remove(currencySymbol);
-                        currencyList.add(0, currencySymbol);
+                        currencyPrioritizeLocaleSymbols(currencyList, locale);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(mSystemLocale).getSymbol();
-                    currencyList.remove(currencySymbol);
-                    currencyList.add(0, currencySymbol);
+                    currencyPrioritizeLocaleSymbols(currencyList, mSystemLocale);
                 }
 
                 currencyList.add(0, getString(R.string.points));
@@ -1511,6 +1507,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             picturesPart.setVisibility(View.VISIBLE);
         } else {
             throw new UnsupportedOperationException();
+        }
+    }
+
+    private void currencyPrioritizeLocaleSymbols(ArrayList<String> currencyList, Locale locale) {
+        try {
+            String currencySymbol = Currency.getInstance(locale).getSymbol();
+            currencyList.remove(currencySymbol);
+            currencyList.add(0, currencySymbol);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "Could not get currency data for locale info: " + e);
         }
     }
 }

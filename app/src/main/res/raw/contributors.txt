@@ -4,16 +4,16 @@ J. Lavoie
 Allan Nordhøy
 Heimen Stoffels
 solokot
-mondstern
 Katharine Chui
+mondstern
 Oğuz Ersen
-IllusiveMan196
 Altonss
+IllusiveMan196
 Petr Novák
+StoyanDimitrov
 Joel A
 Taco
 Gediminas Murauskas
-StoyanDimitrov
 Nyatsuki
 Michael Moroni
 Samantaz Fox
@@ -33,6 +33,7 @@ betsythefc
 waffshappen
 ati3
 K. Herbert
+Still Hsu
 String E. Fighter
 Yurical
 Silvério Santos
@@ -80,7 +81,6 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 Simone Dotto
-Still Hsu
 Subhashish Anand
 Tymofii Lytvynenko
 Tjipke van der Heide

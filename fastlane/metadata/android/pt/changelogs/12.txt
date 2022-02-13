@@ -1,0 +1,1 @@
+- Evitar uma falha de sistema ao rodar o ecrã no primeiro assistente de introdução.

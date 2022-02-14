@@ -1,0 +1,22 @@
+Não procure mais os cartões plástico na caixa de pagamento das lojas.
+<b>Digitalize os códigos de barras para o seu dispositivo usando a câmara fotográfica e esqueça os cartões. </b>
+
+Esqueça a sua carteira ou guarde-a para outras coisas mais úteis.
+
+Com esta ferramenta essencial de transporte diário pode substituir o plástico inútil por dinheiro.
+
+- Evite quebra de privacidade, a aplicação usa poucas permissões. Não precisa de acesso à Internet e não tem anúncios.
+- Adicione cartões ou códigos com nomes e cores personalizáveis.
+- Introduza manualmente códigos se não houver um código de barras no cartão físico ou se este estiver danificado.
+- Importe cartões e códigos a partir de ficheiros de outras aplicações como Catima, FidMe, Loyalty Card Keychain, Stocard e Voucher Vault.
+- Faça uma cópia de segurança de todos os seus cartões e transfira-os para um novo dispositivo, se quiser.
+- Partilhe cupões, ofertas exclusivas, códigos promocionais ou cartões e códigos usando qualquer outra aplicação.
+- Com tema escuro e opções de acessibilidade para utilizadores com deficiência visual.
+- Feito para todos pela comunidade do software livre.
+- Traduções localizadas feitas manualmente em mais de 20 idiomas.
+- Aplicação gratuita, suportada por contribuições da comunidade.
+- Use, estude, altere e partilhe o código-fonte da aplicação como quiser; <i>com toda a gente</i>.
+- Não é apenas um Software Livre / Código Aberto. É uma aplicação de gestão de cartões de partilha <i>sob a mesma licença</i> segundo a licença (GPLv3+).
+
+Simplifique a sua vida e as suas compras e nunca mais perca um recibo em papel, um cartão de oferta de pagamento na loja ou um bilhete de avião.
+Leve todas as suas recompensas e bónus consigo e poupe.

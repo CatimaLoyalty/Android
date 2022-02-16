@@ -1,3 +1,0 @@
-- Adicionada a opção de bloqueio da rotação do ecrã ao mostrar um cartão. Se bloqueado, o ecrã passará para a sua orientação "natural" e a rotação posterior do ecrã será bloqueada. (pull #128)
-- Se um cartão for selecionado no ecrã principal mas não puder ser carregado, a aplicação falha graciosamente e lança uma mensagem. (pull #132)
-- Corrigidos casos em que não foi possível encontrar identificadores de layout para o assistente de introdução. (pull #128)

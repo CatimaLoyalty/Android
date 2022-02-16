@@ -1,3 +1,0 @@
-- Foi alterado o nome de ficheiro padrão de importar/exportar. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
-- Corrigida a sequência na página de importação/exportação. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
-- Disposição da página de visualização do cartão melhorada. O texto deve ser mais fácil de ler e selecionável com um toque longo. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

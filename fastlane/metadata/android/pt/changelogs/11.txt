@@ -1,5 +1,0 @@
-- Ao editar um identificador de um cartão, pré-preencher o identificador existente.
-- Limitada a largura dos códigos de barras gerados para reduzir o uso de memória e erros.
-- Alterado o botão "Introduzir cartão" para "Editar cartão" se já existir um identificador.
-- Alterado o esquema de cores para ser mais suave e compatível com o ícone da aplicação e disposição alterada ao visualizar um cartão.
-- Acrescentado um assistente de introdução que será lançado no primeiro lançamento da aplicação

@@ -1,0 +1,1 @@
+- Save card detail expansion state

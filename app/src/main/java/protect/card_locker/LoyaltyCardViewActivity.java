@@ -400,7 +400,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void adjustLayoutHeights() {
         // use getLayoutParams instead of getHeight when heights are pre-determined in xml! getHeight could return 0 if a View is not inflated
-        if (iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
+        if (appBarLayout.getHeight() != 0 && iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
             Log.d("adjustLayoutHeights", "setting imageIcon height from: " + iconImage.getLayoutParams().height + " to: " + appBarLayout.getHeight());
             iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
                     CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
@@ -925,6 +925,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Or the barcode will be centered instead of on top of the screen
             // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
+            iconImage.setVisibility(View.INVISIBLE);
             collapsingToolbarLayout.setVisibility(View.GONE);
             landscapeToolbar.setVisibility(View.GONE);
 
@@ -966,6 +967,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // And restore 24dp paddingTop for appBarLayout
             appBarLayout.setVisibility(View.VISIBLE);
             setupOrientation();
+            iconImage.setVisibility(View.VISIBLE);
 
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);

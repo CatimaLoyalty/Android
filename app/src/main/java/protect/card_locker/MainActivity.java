@@ -298,6 +298,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onResume() {
         super.onResume();
 
+        mAdapter.refreshState();
+
         if (mCurrentActionMode != null) {
             mAdapter.clearSelections();
             mCurrentActionMode.finish();
@@ -452,6 +454,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     public boolean onCreateOptionsMenu(Menu inputMenu) {
         getMenuInflater().inflate(R.menu.main_menu, inputMenu);
 
+        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
         displayCardSetupOptions(inputMenu, mLoyaltyCardCount > 0);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -493,17 +496,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         int id = inputItem.getItemId();
 
         if (id == R.id.action_unfold) {
-            boolean shouldShow = !mAdapter.showingDetails();
-
-            if (shouldShow) {
-                inputItem.setIcon(R.drawable.ic_baseline_unfold_less_24);
-                inputItem.setTitle(R.string.action_hide_details);
-            } else {
-                inputItem.setIcon(R.drawable.ic_baseline_unfold_more_24);
-                inputItem.setTitle(R.string.action_show_details);
-            }
-
-            mAdapter.showDetails(shouldShow);
+            mAdapter.showDetails(!mAdapter.showingDetails());
+            invalidateOptionsMenu();
 
             return true;
         }

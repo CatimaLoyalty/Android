@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -40,7 +41,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
-    private boolean mShowDetails = true;
+    private boolean mShowDetails;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
@@ -53,12 +54,30 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
+        refreshState();
+
         swapCursor(inputCursor);
+    }
+
+    public void refreshState() {
+        // Retrieve user details preference
+        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
+                mContext.getString(R.string.sharedpreference_card_details),
+                Context.MODE_PRIVATE);
+        mShowDetails = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show), true);
     }
 
     public void showDetails(boolean show) {
         mShowDetails = show;
         notifyDataSetChanged();
+
+        // Store in Shared Preference to restore next adapter launch
+        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
+                mContext.getString(R.string.sharedpreference_card_details),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor cardDetailsPrefEditor = cardDetailsPref.edit();
+        cardDetailsPrefEditor.putBoolean(mContext.getString(R.string.sharedpreference_card_details_show), show);
+        cardDetailsPrefEditor.apply();
     }
 
     public boolean showingDetails() {

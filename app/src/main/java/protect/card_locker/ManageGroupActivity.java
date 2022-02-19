@@ -1,12 +1,13 @@
 package protect.card_locker;
 
-
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -156,6 +157,26 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         return ret;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu inputMenu) {
+        getMenuInflater().inflate(R.menu.card_details_menu, inputMenu);
+        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
+        return super.onCreateOptionsMenu(inputMenu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem inputItem) {
+        int id = inputItem.getItemId();
+
+        if (id == R.id.action_unfold) {
+            mAdapter.showDetails(!mAdapter.showingDetails());
+            invalidateOptionsMenu();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(inputItem);
+    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {

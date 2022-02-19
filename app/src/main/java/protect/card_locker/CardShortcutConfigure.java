@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
+    private LoyaltyCardCursorAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -33,6 +36,7 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         setContentView(R.layout.simple_toolbar_list_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.shortcutSelectCard);
+        setSupportActionBar(toolbar);
 
         // If there are no cards, bail
         if (DBHelper.getLoyaltyCardCount(mDatabase) == 0) {
@@ -47,8 +51,8 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         }
 
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
-        final LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
-        cardList.setAdapter(adapter);
+        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
+        cardList.setAdapter(mAdapter);
     }
 
     private void onClickAction(int position) {
@@ -65,6 +69,26 @@ public class CardShortcutConfigure extends AppCompatActivity implements LoyaltyC
         finish();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu inputMenu) {
+        getMenuInflater().inflate(R.menu.card_details_menu, inputMenu);
+        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
+        return super.onCreateOptionsMenu(inputMenu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem inputItem) {
+        int id = inputItem.getItemId();
+
+        if (id == R.id.action_unfold) {
+            mAdapter.showDetails(!mAdapter.showingDetails());
+            invalidateOptionsMenu();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(inputItem);
+    }
 
     @Override
     public void onRowClicked(int inputPosition) {

@@ -15,6 +15,8 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.color.DynamicColors;
@@ -505,5 +507,15 @@ public class Utils {
         TypedValue typedValue = new TypedValue();
         activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
         activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+    }
+
+    public static void updateMenuCardDetailsButtonState(MenuItem item, boolean currentlyExpanded) {
+        if (currentlyExpanded) {
+            item.setIcon(R.drawable.ic_baseline_unfold_less_24);
+            item.setTitle(R.string.action_hide_details);
+        } else {
+            item.setIcon(R.drawable.ic_baseline_unfold_more_24);
+            item.setTitle(R.string.action_show_details);
+        }
     }
 }

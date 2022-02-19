@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 104
+
+- Save card detail expansion state
+
 ## v2.15.2 - 103 (2022-02-11)
 
 - Fix manual language selection not applying everywhere

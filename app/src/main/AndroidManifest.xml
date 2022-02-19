@@ -134,7 +134,5 @@
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
-
     </application>
-
 </manifest>

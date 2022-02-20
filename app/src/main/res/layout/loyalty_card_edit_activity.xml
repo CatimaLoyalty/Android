@@ -73,8 +73,7 @@
                         app:cardCornerRadius="4dp"
                         android:paddingHorizontal="@dimen/inputPadding"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        android:outlineProvider="none">
+                        app:cardBackgroundColor="@android:color/transparent">
 
                         <ImageView
                             android:id="@+id/thumbnail"

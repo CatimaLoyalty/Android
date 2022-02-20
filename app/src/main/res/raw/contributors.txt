@@ -30,13 +30,13 @@ Maciej Błędkowski
 Olivia (Zoe)
 Quentin PAGÈS
 betsythefc
+Silvério Santos
 waffshappen
 ati3
 K. Herbert
 Still Hsu
 String E. Fighter
 Yurical
-Silvério Santos
 rr-vesp
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
@@ -50,7 +50,7 @@ Lukas Grassauer
 Marnick L'Eau
 Michalis
 Rosdyana Kusuma
-schirinowski
+umoenks
 Thomas Bertels
 inesre
 lgasp
@@ -67,7 +67,7 @@ Eric
 Flav
 Franciszek Stefan
 Izzy
-krkk
+Karol Kosek
 bittin
 Marco
 Mattia

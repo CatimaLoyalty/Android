@@ -1,4 +1,4 @@
-Lopeta muovisten palkintokorttien etsiminen kaupan tai verkkokaupan kassalla.
+Lopeta muovisten bonuskorttien etsiminen kaupan tai verkkokaupan kassalla.
 <b>Skannaa viivakoodit laitteeseesi sen kameran avulla, unohda kortit.</b>
 
 Unohda lompakko tai pidä se ultrakevyesti arvoesineitä varten.
@@ -20,4 +20,3 @@ Tämän välttämättömän jokapäiväisen kantamisen (EDC) välineen avulla vo
 
 Yksinkertaista elämääsi ja shoppailuasi, äläkä enää koskaan hukkaa paperikuittia, kaupassa maksettavaa lahjakorttia tai lentolippua.
 Ota kaikki palkintosi ja bonuksesi mukaasi ja säästä matkan aikana.
-

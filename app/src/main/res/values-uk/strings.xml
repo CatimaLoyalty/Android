@@ -41,7 +41,7 @@
     <string name="accept">Прийняти</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Імпортувати дані з\?</string>
+    <string name="chooseImportType">Імпортувати дані з</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
     <string name="currency">Валюта</string>
@@ -233,4 +233,12 @@
     <string name="starred">Обране</string>
     <string name="set_scale">Зміна масштабу</string>
     <string name="hideMoreInfo">Сховати дані</string>
+    <string name="settings_oled_dark">Повністю чорний фон для темної теми</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> бал</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> бали</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> балів</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> балів</item>
+    </plurals>
+    <string name="include_if_asking_support">Якщо ви хочете отримати техпідтримку, додайте цю інформацію:</string>
 </resources>

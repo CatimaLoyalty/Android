@@ -230,4 +230,5 @@
         <item quantity="other"><xliff:g>%s</xliff:g> punti</item>
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
+    <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
 </resources>

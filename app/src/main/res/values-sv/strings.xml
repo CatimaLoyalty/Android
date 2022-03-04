@@ -230,4 +230,5 @@
     </plurals>
     <string name="set_scale">Justera skala</string>
     <string name="include_if_asking_support">Om du vill be om hjälp, inkludera då följande information:</string>
+    <string name="settings_oled_dark">Helsvart bakgrund för mörkt tema</string>
 </resources>

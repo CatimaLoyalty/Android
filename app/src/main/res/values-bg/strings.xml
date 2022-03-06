@@ -60,7 +60,7 @@
 \n
 \nНЕ СЕ СЪБИРАТ ИЗОБЩО НИКАКВИ ДАННИ, което може да бъде потвърдено, защото приложението е със свободен код.</string>
     <string name="privacy_policy">Политика за личните данни</string>
-    <string name="app_loyalty_card_keychain"></string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="turn_flashlight_off">Изключва светкавицата</string>
     <string name="turn_flashlight_on">Включва светкавицата</string>
     <string name="passwordRequired">Въведете паролата</string>

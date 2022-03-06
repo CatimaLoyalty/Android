@@ -10,8 +10,8 @@ Oğuz Ersen
 IllusiveMan196
 Altonss
 Petr Novák
-StoyanDimitrov
 Joel A
+StoyanDimitrov
 Taco
 Gediminas Murauskas
 Nyatsuki
@@ -66,6 +66,7 @@ Kasina Dheeraj
 Eric
 Flav
 Franciszek Stefan
+Giovanni
 Izzy
 Karol Kosek
 bittin

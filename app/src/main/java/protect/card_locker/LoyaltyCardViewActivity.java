@@ -278,6 +278,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
         mainImage = findViewById(R.id.mainImage);
+        mainImage.setClipToOutline(true);
         dotIndicator = findViewById(R.id.dotIndicator);
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -304,7 +305,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
                 setCenterGuideline(loyaltyCard.zoomLevel);
 
-                drawMainImage(mainImageIndex, true);
+                drawMainImage(mainImageIndex, true, isFullscreen);
             }
 
             @Override
@@ -807,7 +808,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
     }
 
-    private void drawBarcode() {
+    private void drawBarcode(boolean addPadding) {
         mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
         if (format != null) {
             BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(
@@ -817,12 +818,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     format,
                     null,
                     false,
-                    null);
+                    null,
+                    addPadding);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }
 
-    private void redrawBarcodeAfterResize() {
+    private void redrawBarcodeAfterResize(boolean addPadding) {
         if (format != null) {
             mainImage.getViewTreeObserver().addOnGlobalLayoutListener(
                     new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -831,13 +833,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             mainImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            drawBarcode();
+                            drawBarcode(addPadding);
                         }
                     });
         }
     }
 
-    private void drawMainImage(int index, boolean waitForResize) {
+    private void drawMainImage(int index, boolean waitForResize, boolean isFullscreen) {
         if (imageTypes.isEmpty()) {
             mainImage.setVisibility(View.GONE);
             return;
@@ -853,12 +855,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         ImageType wantedImageType = imageTypes.get(index);
 
         if (wantedImageType == ImageType.BARCODE) {
-            if (waitForResize) {
-                redrawBarcodeAfterResize();
+            // Use border in non-fullscreen mode
+            if (!isFullscreen) {
+                mainImage.setBackground(AppCompatResources.getDrawable(this, R.drawable.round_outline));
             } else {
-                drawBarcode();
+                mainImage.setBackgroundColor(Color.WHITE);
             }
-            mainImage.setBackgroundColor(Color.WHITE);
+
+            if (waitForResize) {
+                redrawBarcodeAfterResize(!isFullscreen);
+            } else {
+                drawBarcode(!isFullscreen);
+            }
+
             mainImage.setContentDescription(getString(R.string.barcodeImageDescriptionWithType, format.prettyName()));
         } else if (wantedImageType == ImageType.IMAGE_FRONT) {
             mainImage.setImageBitmap(frontImageBitmap);
@@ -888,7 +897,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         mainImageIndex = newIndex;
 
-        drawMainImage(newIndex, false);
+        drawMainImage(newIndex, false, isFullscreen);
     }
 
     /**
@@ -904,7 +913,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (enabled && !imageTypes.isEmpty()) {
             Log.d(TAG, "Move into fullscreen");
 
-            drawMainImage(mainImageIndex, true);
+            drawMainImage(mainImageIndex, true, isFullscreen);
 
             barcodeScaler.setProgress(loyaltyCard.zoomLevel);
             setCenterGuideline(loyaltyCard.zoomLevel);
@@ -950,7 +959,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Reset center guideline
             setCenterGuideline(100);
 
-            drawMainImage(mainImageIndex, true);
+            drawMainImage(mainImageIndex, true, isFullscreen);
 
             // Show maximize and hide minimize button and scaler
             maximizeButton.setVisibility(imageTypes.isEmpty() ? View.GONE : View.VISIBLE);

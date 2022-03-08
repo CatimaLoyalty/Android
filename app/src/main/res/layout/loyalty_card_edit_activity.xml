@@ -179,17 +179,18 @@
 
                 <!-- Barcode -->
                 <LinearLayout android:orientation="horizontal"
-                    android:padding="10.0dip"
+                    android:layout_marginTop="10.0dp"
+                    android:layout_marginStart="10.0dp"
+                    android:layout_marginEnd="10.0dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/barcodeLayout">
                     <ImageView
+                        android:background="@drawable/round_outline"
                         android:importantForAccessibility="no"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/barcode_disp_height"
                         android:layout_gravity="center_horizontal"
-                        android:padding="10.0dp"
-                        android:background="#ffffff"
                         android:id="@+id/barcode"
                         android:layout_weight="1.0"/>
                 </LinearLayout>

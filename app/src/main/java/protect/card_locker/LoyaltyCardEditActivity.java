@@ -323,6 +323,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         barcodeIdField = findViewById(R.id.barcodeIdField);
         barcodeTypeField = findViewById(R.id.barcodeTypeField);
         barcodeImage = findViewById(R.id.barcode);
+        barcodeImage.setClipToOutline(true);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
         cardImageFrontHolder = findViewById(R.id.frontImageHolder);
@@ -1449,13 +1450,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }

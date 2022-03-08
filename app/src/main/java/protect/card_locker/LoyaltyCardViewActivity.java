@@ -278,6 +278,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
         mainImage = findViewById(R.id.mainImage);
+        mainImage.setClipToOutline(true);
         dotIndicator = findViewById(R.id.dotIndicator);
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
@@ -807,7 +808,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
     }
 
-    private void drawBarcode() {
+    private void drawBarcode(boolean addPadding) {
         mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
         if (format != null) {
             BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(
@@ -817,12 +818,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     format,
                     null,
                     false,
-                    null);
+                    null,
+                    addPadding);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }
 
-    private void redrawBarcodeAfterResize() {
+    private void redrawBarcodeAfterResize(boolean addPadding) {
         if (format != null) {
             mainImage.getViewTreeObserver().addOnGlobalLayoutListener(
                     new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -831,7 +833,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             mainImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            drawBarcode();
+                            drawBarcode(addPadding);
                         }
                     });
         }
@@ -852,17 +854,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         ImageType wantedImageType = imageTypes.get(index);
 
-        // Use padding in non-fullscreen mode
-        int px = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics()));
-        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) mainImage.getLayoutParams();
-        layoutParams.topMargin = isFullscreen ? 0 : px;
-        if (!isFullscreen && wantedImageType == ImageType.BARCODE) {
-            mainImage.setPadding(0, px, 0, px);
-        } else {
-            mainImage.setPadding(0, 0, 0, 0);
-        }
-        mainImage.setLayoutParams(layoutParams);
-
         if (wantedImageType == ImageType.BARCODE) {
             // Use border in non-fullscreen mode
             if (!isFullscreen) {
@@ -872,9 +863,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (waitForResize) {
-                redrawBarcodeAfterResize();
+                redrawBarcodeAfterResize(!isFullscreen);
             } else {
-                drawBarcode();
+                drawBarcode(!isFullscreen);
             }
 
             mainImage.setContentDescription(getString(R.string.barcodeImageDescriptionWithType, format.prettyName()));

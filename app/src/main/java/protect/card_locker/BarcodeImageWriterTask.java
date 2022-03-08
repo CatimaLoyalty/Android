@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,7 +47,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
             CatimaBarcode barcodeFormat, TextView textView,
-            boolean showFallback, Runnable callback
+            boolean showFallback, Runnable callback, boolean roundCornerPadding
     ) {
         mContext = context;
 
@@ -60,17 +61,26 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         cardId = cardIdString;
         format = barcodeFormat;
 
+        int padding = roundCornerPadding ? Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics())) : 0;
+
         final int MAX_WIDTH = getMaxWidth(format);
 
+        int tempImageHeight;
+        int tempImageWidth;
+
         if (imageView.getWidth() < MAX_WIDTH) {
-            imageHeight = imageView.getHeight();
-            imageWidth = imageView.getWidth();
+            tempImageHeight = imageView.getHeight();
+            tempImageWidth = imageView.getWidth();
         } else {
             // Scale down the image to reduce the memory needed to produce it
-            imageWidth = MAX_WIDTH;
+            tempImageWidth = MAX_WIDTH;
             double ratio = (double) MAX_WIDTH / (double) imageView.getWidth();
-            imageHeight = (int) (imageView.getHeight() * ratio);
+            tempImageHeight = (int) (imageView.getHeight() * ratio);
         }
+
+        // Ensure space for padding if wanted
+        imageWidth = tempImageWidth;
+        imageHeight = tempImageHeight - padding;
 
         this.showFallback = showFallback;
     }

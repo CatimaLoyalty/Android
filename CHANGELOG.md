@@ -3,6 +3,7 @@
 ## Unreleased - 104
 
 - Save card detail expansion state
+- Minor UI fixes
 
 ## v2.15.2 - 103 (2022-02-11)
 

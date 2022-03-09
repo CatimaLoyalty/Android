@@ -72,6 +72,11 @@ public class CatimaBarcode {
                 || mBarcodeFormat == BarcodeFormat.QR_CODE;
     }
 
+    public boolean hasInternalPadding() {
+        return mBarcodeFormat == BarcodeFormat.PDF_417
+                || mBarcodeFormat == BarcodeFormat.QR_CODE;
+    }
+
     public BarcodeFormat format() {
         return mBarcodeFormat;
     }

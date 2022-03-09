@@ -61,7 +61,12 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         cardId = cardIdString;
         format = barcodeFormat;
 
-        int padding = roundCornerPadding ? Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics())) : 0;
+        int padding = 0;
+        // Some barcodes already have internal whitespace and shouldn't get extra padding
+        // TODO: Get rid of this hack by somehow detecting this extra whitespace
+        if (roundCornerPadding && !barcodeFormat.hasInternalPadding()) {
+            padding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
+        }
 
         final int MAX_WIDTH = getMaxWidth(format);
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 104
+## v2.16.0 - 104 (2022-03-09)
 
 - Save card detail expansion state
 - Minor UI fixes

@@ -1,0 +1,2 @@
+- Vari errori minori sistemati
+- Sistemata la chiusura inaspettata dell'app quando si usa la lingua norvegese

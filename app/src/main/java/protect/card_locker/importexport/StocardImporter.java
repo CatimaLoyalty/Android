@@ -216,10 +216,17 @@ public class StocardImporter implements Importer {
                 }
             }
 
-            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
-
+            int headerColor = Utils.getRandomHeaderColor(context);
+            Bitmap cardIcon = null;
             if (providerData != null && providerData.containsKey("logo")) {
-                Utils.saveCardImage(context, (Bitmap) providerData.get("logo"), (int) loyaltyCardInternalId, ImageLocationType.icon);
+                cardIcon = (Bitmap) providerData.get("logo");
+                headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
+            }
+
+            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, null);
+
+            if (cardIcon != null) {
+                Utils.saveCardImage(context, cardIcon, (int) loyaltyCardInternalId, ImageLocationType.icon);
             }
 
             if (loyaltyCardData.containsKey("frontImage")) {

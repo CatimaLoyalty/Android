@@ -41,13 +41,13 @@ import protect.card_locker.ZipUtils;
 public class StocardImporter implements Importer {
     public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
-        HashMap<String, HashMap<String, String>> providers = new HashMap<>();
+        HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
 
         final CSVParser parser = new CSVParser(new InputStreamReader(context.getResources().openRawResource(R.raw.stocard_stores), StandardCharsets.UTF_8), CSVFormat.RFC4180.builder().setHeader().build());
 
         try {
             for (CSVRecord record : parser) {
-                HashMap<String, String> recordData = new HashMap<>();
+                HashMap<String, Object> recordData = new HashMap<>();
                 recordData.put("name", record.get("name"));
                 recordData.put("barcodeFormat", record.get("barcodeFormat"));
 
@@ -62,6 +62,8 @@ public class StocardImporter implements Importer {
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
         String[] providersFileName = null;
+        String[] customProvidersBaseName = null;
+        String customProviderId = "";
         String[] cardBaseName = null;
         String cardName = "";
         LocalFileHeader localFileHeader;
@@ -78,6 +80,14 @@ public class StocardImporter implements Importer {
                         nameParts[0],
                         "analytics-properties.json"
                 };
+                customProvidersBaseName = new String[]{
+                        nameParts[0],
+                        "sync",
+                        "data",
+                        "users",
+                        nameParts[0],
+                        "loyalty-card-custom-providers"
+                };
                 cardBaseName = new String[]{
                         nameParts[0],
                         "sync",
@@ -86,6 +96,33 @@ public class StocardImporter implements Importer {
                         nameParts[0],
                         "loyalty-cards"
                 };
+            }
+
+            if (startsWith(nameParts, customProvidersBaseName, 1)) {
+                // Extract providerId
+                customProviderId = nameParts[customProvidersBaseName.length].split("\\.", 2)[0];
+
+                // Name file
+                if (nameParts.length == customProvidersBaseName.length + 1) {
+                    // Ignore the .txt file
+                    if (fileName.endsWith(".json")) {
+                        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
+
+                        providers = appendToHashMap(
+                                providers,
+                                customProviderId,
+                                "name",
+                                jsonObject.getString("name")
+                        );
+                    }
+                } else if (fileName.endsWith("logo.png")) {
+                    providers = appendToHashMap(
+                            providers,
+                            customProviderId,
+                            "logo",
+                            ZipUtils.readImage(zipInputStream)
+                    );
+                }
             }
 
             if (startsWith(nameParts, cardBaseName, 1)) {
@@ -98,24 +135,33 @@ public class StocardImporter implements Importer {
                     if (fileName.endsWith(".json")) {
                         JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
 
-                        loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+                        loyaltyCardHashMap = appendToHashMap(
                                 loyaltyCardHashMap,
                                 cardName,
                                 "cardId",
                                 jsonObject.getString("input_id")
                         );
-                        loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+
+                        // Provider ID can be either custom or not, extract whatever version is relevant
+                        String customProviderPrefix = "/users/" + nameParts[0] + "/loyalty-card-custom-providers/";
+                        String providerId = jsonObject
+                                .getJSONObject("input_provider_reference")
+                                .getString("identifier");
+                        if (providerId.startsWith(customProviderPrefix)) {
+                            providerId = providerId.substring(customProviderPrefix.length());
+                        } else {
+                            providerId = providerId.substring("/loyalty-card-providers/".length());
+                        }
+
+                        loyaltyCardHashMap = appendToHashMap(
                                 loyaltyCardHashMap,
                                 cardName,
                                 "_providerId",
-                                jsonObject
-                                        .getJSONObject("input_provider_reference")
-                                        .getString("identifier")
-                                        .substring("/loyalty-card-providers/".length())
+                                providerId
                         );
 
                         if (jsonObject.has("input_barcode_format")) {
-                            loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+                            loyaltyCardHashMap = appendToHashMap(
                                     loyaltyCardHashMap,
                                     cardName,
                                     "barcodeType",
@@ -124,7 +170,7 @@ public class StocardImporter implements Importer {
                         }
                     }
                 } else if (fileName.endsWith("notes/default.json")) {
-                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "note",
@@ -132,14 +178,14 @@ public class StocardImporter implements Importer {
                                     .getString("content")
                     );
                 } else if (fileName.endsWith("/images/front.png")) {
-                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
                             ZipUtils.readImage(zipInputStream)
                     );
                 } else if (fileName.endsWith("/images/back.png")) {
-                    loyaltyCardHashMap = appendToLoyaltyCardHashMap(
+                    loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "backImage",
@@ -155,9 +201,9 @@ public class StocardImporter implements Importer {
 
         for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
             String providerId = (String) loyaltyCardData.get("_providerId");
-            HashMap<String, String> providerData = providers.get(providerId);
+            HashMap<String, Object> providerData = providers.get(providerId);
 
-            String store = providerData != null ? providerData.get("name") : providerId;
+            String store = providerData != null ? providerData.get("name").toString() : providerId;
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
@@ -171,6 +217,10 @@ public class StocardImporter implements Importer {
             }
 
             long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, 0, null);
+
+            if (providerData != null && providerData.containsKey("logo")) {
+                Utils.saveCardImage(context, (Bitmap) providerData.get("logo"), (int) loyaltyCardInternalId, ImageLocationType.icon);
+            }
 
             if (loyaltyCardData.containsKey("frontImage")) {
                 Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
@@ -197,7 +247,7 @@ public class StocardImporter implements Importer {
         return true;
     }
 
-    private HashMap<String, HashMap<String, Object>> appendToLoyaltyCardHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
+    private HashMap<String, HashMap<String, Object>> appendToHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
         HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.get(cardID);
         if (loyaltyCardData == null) {
             loyaltyCardData = new HashMap<>();

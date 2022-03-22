@@ -162,7 +162,7 @@ public class StocardImporter implements Importer {
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
             CatimaBarcode barcodeType = null;
-            if (barcodeTypeString != null) {
+            if (barcodeTypeString != null && !barcodeTypeString.isEmpty()) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
                     barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.RSS_EXPANDED);
                 } else {

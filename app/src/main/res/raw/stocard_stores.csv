@@ -440,7 +440,7 @@ _id,name,barcodeFormat
 450,CAD,EAN_13
 451,Camomilla,EAN_13
 452,"Carpisa Yamamay",EAN_13
-453,Carrefour,EAN_13
+453,Carrefour,CODE_128
 454,"Cisalfa Sport",EAN_13
 455,Coin,ITF
 456,Comet,EAN_13

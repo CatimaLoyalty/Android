@@ -64,9 +64,6 @@ import static org.robolectric.Shadows.shadowOf;
 public class ImportExportTest {
     private Activity activity;
     private SQLiteDatabase mDatabase;
-    private long nowMs;
-    private long lastYearMs;
-    private final int MONTHS_PER_YEAR = 12;
 
     private final String BARCODE_DATA = "428311627547";
     private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
@@ -77,11 +74,6 @@ public class ImportExportTest {
 
         activity = Robolectric.setupActivity(MainActivity.class);
         mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
-        nowMs = System.currentTimeMillis();
-
-        Calendar lastYear = Calendar.getInstance();
-        lastYear.set(Calendar.YEAR, lastYear.get(Calendar.YEAR) - 1);
-        lastYearMs = lastYear.getTimeInMillis();
     }
 
     /**

@@ -855,10 +855,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         // Generate random header color
         if (tempLoyaltyCard.headerColor == null) {
             // Select a random color to start out with.
-            TypedArray colors = getResources().obtainTypedArray(R.array.letter_tile_colors);
-            final int color = (int) (Math.random() * colors.length());
-            updateTempState(LoyaltyCardField.headerColor, colors.getColor(color, Color.BLACK));
-            colors.recycle();
+            updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
         }
 
         // It can't be null because we set it in updateTempState but SpotBugs insists it can be
@@ -919,7 +916,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
+            updateTempState(LoyaltyCardField.headerColor, Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }

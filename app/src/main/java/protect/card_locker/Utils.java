@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -48,6 +49,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 
+import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -517,5 +519,19 @@ public class Utils {
             item.setIcon(R.drawable.ic_baseline_unfold_more_24);
             item.setTitle(R.string.action_show_details);
         }
+    }
+
+    public static int getHeaderColorFromImage(Bitmap image, int fallback) {
+        if (image == null) {
+            return fallback;
+        }
+
+        return new Palette.Builder(image).generate().getDominantColor(R.attr.colorPrimary);
+    }
+
+    public static int getRandomHeaderColor(Context context) {
+        TypedArray colors = context.getResources().obtainTypedArray(R.array.letter_tile_colors);
+        final int color = (int) (Math.random() * colors.length());
+        return colors.getColor(color, Color.BLACK);
     }
 }

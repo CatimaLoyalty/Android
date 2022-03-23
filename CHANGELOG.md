@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 105
+
+- Fix gray block appearing on invalid value for barcode
+- Stocard import fixes
+
 ## v2.16.0 - 104 (2022-03-09)
 
 - Save card detail expansion state

@@ -122,6 +122,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private final int HEADER_FILTER_ALPHA = 127;
 
     final private TaskHandler mTasks = new TaskHandler();
+    Runnable barcodeImageGenerationFinishedCallback;
 
     @Override
     public boolean onDown(MotionEvent e) {
@@ -285,6 +286,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         appBarLayout = findViewById(R.id.app_bar_layout);
         iconImage = findViewById(R.id.icon_image);
         landscapeToolbar = findViewById(R.id.toolbar_landscape);
+
+        barcodeImageGenerationFinishedCallback = () -> {
+            if (!(boolean) mainImage.getTag()) {
+                mainImage.setVisibility(View.GONE);
+                imageTypes.remove(ImageType.BARCODE);
+
+                // Redraw UI
+                setDotIndicator(Utils.isDarkModeEnabled(LoyaltyCardViewActivity.this));
+                setFullscreen(isFullscreen);
+
+                Toast.makeText(LoyaltyCardViewActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+            }
+        };
 
         centerGuideline = findViewById(R.id.centerGuideline);
         barcodeScaler = findViewById(R.id.barcodeScaler);
@@ -649,22 +663,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             imageTypes.add(ImageType.IMAGE_BACK);
         }
 
-        dotIndicator.removeAllViews();
-        if (imageTypes.size() >= 2) {
-            dots = new ImageView[imageTypes.size()];
-
-            for (int i = 0; i < imageTypes.size(); i++) {
-                dots[i] = new ImageView(this);
-                dots[i].setImageDrawable(getDotIcon(false, darkMode));
-
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                params.setMargins(8, 0, 8, 0);
-
-                dotIndicator.addView(dots[i], params);
-            }
-
-            dotIndicator.setVisibility(View.VISIBLE);
-        }
+        setDotIndicator(darkMode);
 
         setFullscreen(isFullscreen);
 
@@ -818,7 +817,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     format,
                     null,
                     false,
-                    null,
+                    barcodeImageGenerationFinishedCallback,
                     addPadding);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
@@ -898,6 +897,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         mainImageIndex = newIndex;
 
         drawMainImage(newIndex, false, isFullscreen);
+    }
+
+    private void setDotIndicator(boolean darkMode) {
+        dotIndicator.removeAllViews();
+        if (imageTypes.size() >= 2) {
+            dots = new ImageView[imageTypes.size()];
+
+            for (int i = 0; i < imageTypes.size(); i++) {
+                dots[i] = new ImageView(this);
+                dots[i].setImageDrawable(getDotIcon(false, darkMode));
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(8, 0, 8, 0);
+
+                dotIndicator.addView(dots[i], params);
+            }
+
+            dotIndicator.setVisibility(View.VISIBLE);
+        }
     }
 
     /**

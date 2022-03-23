@@ -1,0 +1,2 @@
+- Fix gray block appearing on invalid value for barcode
+- Stocard import fixes

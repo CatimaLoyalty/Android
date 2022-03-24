@@ -229,6 +229,6 @@
         <item quantity="one"><xliff:g>%s</xliff:g> point</item>
         <item quantity="other"><xliff:g>%s</xliff:g> points</item>
     </plurals>
-    <string name="settings_oled_dark">Fond noir pur pour le thème sombre</string>
+    <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
     <string name="include_if_asking_support">Si vous voulez demander de l\'aide, incluez les informations suivantes :</string>
 </resources>

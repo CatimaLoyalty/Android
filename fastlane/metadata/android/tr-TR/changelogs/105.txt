@@ -1,0 +1,2 @@
+- Barkod için geçersiz değerde görünen gri blok düzeltildi
+- Stocard içe aktarma düzeltmeleri

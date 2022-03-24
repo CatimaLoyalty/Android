@@ -64,7 +64,7 @@
     <string name="share">Compartir</string>
     <string name="barcodeNoBarcode">Esta tarjeta no tiene código de barras</string>
     <string name="barcodeType">Tipo de código de barras</string>
-    <string name="noMatchingGiftCards">No se ha encontrado nada. Pruebe a modificar su búsqueda.</string>
+    <string name="noMatchingGiftCards">Sin resultados. Pruebe modificando su búsqueda.</string>
     <string name="action_search">Buscar</string>
     <string name="app_revision_fmt">Información de la revisión: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="noGroups">Primero pulse en el botón «+» para añadir grupos de categorización.</string>

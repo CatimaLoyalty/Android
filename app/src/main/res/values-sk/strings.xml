@@ -207,5 +207,5 @@
     <string name="no">Nie</string>
     <string name="passwordRequired">Zadajte prosím heslo</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sa nezdá byť platným zostatkom.</string>
-    <string name="noGiftCardsGroup">Vytvorte niekoľko kariet a potom ich priraďte k tejto skupine.</string>
+    <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
 </resources>

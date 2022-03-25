@@ -1,0 +1,2 @@
+- Grauer Block bei ungültigem Wert für Barcode behoben
+- Korrekturen beim Stocard-Import

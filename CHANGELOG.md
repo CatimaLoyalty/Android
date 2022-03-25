@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 105
+## v2.16.1 - 105 (2022-03-25)
 
 - Fix gray block appearing on invalid value for barcode
 - Stocard import fixes

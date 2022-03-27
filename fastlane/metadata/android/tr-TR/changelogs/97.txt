@@ -1,0 +1,4 @@
+- Kaydet düğmesine birden çok basmanın yeni girdiler oluşturması düzeltildi
+- Ayrıntıları gizlerken daha da fazla kart sığdırmak için daha kart başlığı boyutu azaltıldı
+- Düzenleme ekranı yeniden yapılandırıldı
+- Ana görünümde yıldız simgesi karşıtlığı iyileştirildi

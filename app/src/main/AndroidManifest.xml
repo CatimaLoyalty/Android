@@ -127,7 +127,7 @@
         </activity>
 
         <activity
-            android:name="com.yalantis.ucrop.UCropActivity"
+            android:name=".UCropWrapper"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
@@ -145,7 +145,5 @@
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
-
     </application>
-
 </manifest>

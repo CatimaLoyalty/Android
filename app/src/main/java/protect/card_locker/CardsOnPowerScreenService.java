@@ -28,7 +28,14 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
 
     public static final String PREFIX = "catima-";
     static final String TAG = "Catima";
-    private final SQLiteDatabase mDatabase = new DBHelper(this).getReadableDatabase();
+    private SQLiteDatabase mDatabase;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mDatabase = new DBHelper(this).getReadableDatabase();
+    }
 
     @NonNull
     @Override

@@ -63,8 +63,8 @@
     <string name="settings_system_theme">Системная</string>
     <string name="settings_light_theme">Светлая</string>
     <string name="settings_dark_theme">Тёмная</string>
-    <string name="settings_display_barcode_max_brightness">Максимальная яркость при показе карты</string>
-    <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при показе карты</string>
+    <string name="settings_display_barcode_max_brightness">Максимальная яркость при отображении карты</string>
+    <string name="settings_lock_barcode_orientation">Портретная ориентация экрана при отображении карты</string>
     <string name="intent_import_card_from_url_share_text">Я хочу поделиться с вами картой</string>
     <string name="exportSuccessful">Данные успешно экспортированы</string>
     <string name="all">Все</string>
@@ -82,7 +82,6 @@
     <string name="leaveWithoutSaveConfirmation">Выйти без сохранения\?</string>
     <string name="leaveWithoutSaveTitle">Выход</string>
     <string name="failedOpeningFileManager">Требуется файловый менеджер.</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> баллов</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Срок действия истёк: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
@@ -94,7 +93,7 @@
 \nНИКАКИЕ ДАННЫЕ НЕ СОБИРАЮТСЯ ВООБЩЕ, что может подтвердить любой, так как наше приложение является свободным программным обеспечением.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Откуда импортировать данные\?</string>
+    <string name="chooseImportType">Откуда импортировать данные</string>
     <string name="balance">Баланс</string>
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
     <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
@@ -197,7 +196,6 @@
     <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Группа пуста</string>
     <string name="barcodeImageDescriptionWithType">Изображение штрих-кода <xliff:g>%s</xliff:g></string>
-    <string name="toggleMoreInfo">Переключение отображения дополнительной информации</string>
     <string name="swipeToSwitchImages">Смахивание или долгое нажатие для переключения изображений</string>
     <string name="sort_by_expiry">Срок действия</string>
     <string name="sort_by">Сортировать по</string>
@@ -230,4 +228,17 @@
     <string name="action_show_details">Показать детали</string>
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Выбор карты</string>
+    <string name="options">Параметры</string>
+    <string name="set_scale">Выбор масштаба</string>
+    <string name="hideMoreInfo">Скрыть данные</string>
+    <string name="showMoreInfo">Показать данные</string>
+    <string name="starred">Избранное</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> балл</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> балла</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> баллов</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> баллов</item>
+    </plurals>
+    <string name="settings_oled_dark">Чёрный фон для тёмной темы</string>
+    <string name="include_if_asking_support">Если вы хотите запросить поддержку, укажите следующую информацию:</string>
 </resources>

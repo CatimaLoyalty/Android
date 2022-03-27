@@ -1,20 +1,15 @@
 package protect.card_locker;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.util.TypedValue;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-
-import java.util.HashMap;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
-
-    SharedPreferences pref;
-    HashMap<String, Integer> supportedThemes;
-
     @Override
     protected void attachBaseContext(Context base) {
         // Apply chosen language
@@ -22,32 +17,28 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
     }
 
     @Override
-    public Resources.Theme getTheme() {
-        if (supportedThemes == null) {
-            supportedThemes = new HashMap<>();
-            supportedThemes.put(getString(R.string.settings_key_blue_theme), R.style.AppTheme_blue);
-            supportedThemes.put(getString(R.string.settings_key_brown_theme), R.style.AppTheme_brown);
-            supportedThemes.put(getString(R.string.settings_key_green_theme), R.style.AppTheme_green);
-            supportedThemes.put(getString(R.string.settings_key_grey_theme), R.style.AppTheme_grey);
-            supportedThemes.put(getString(R.string.settings_key_magenta_theme), R.style.AppTheme_magenta);
-            supportedThemes.put(getString(R.string.settings_key_pink_theme), R.style.AppTheme_pink);
-            supportedThemes.put(getString(R.string.settings_key_sky_blue_theme), R.style.AppTheme_sky_blue);
-            supportedThemes.put(getString(R.string.settings_key_violet_theme), R.style.AppTheme_violet);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // XXX splash screen activity has to do this after installing splash screen before view inflate
+        if (!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
+            Utils.patchColors(this);
         }
-
-        Resources.Theme theme = super.getTheme();
-        pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String themeName = pref.getString(getString(R.string.setting_key_theme_color), getString(R.string.settings_key_catima_theme));
-
-        theme.applyStyle(Utils.mapGetOrDefault(supportedThemes, themeName, R.style.AppTheme_NoActionBar), true);
-
-        return theme;
     }
 
-    public int getThemeColor() {
-        TypedValue typedValue = new TypedValue();
-        Resources.Theme theme = getTheme();
-        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        return typedValue.data;
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // material 3 designer does not consider status bar colors
+        // XXX changing this in onCreate causes issues with the splash screen activity, so doing this here
+        boolean darkMode = Utils.isDarkModeEnabled(this);
+        if (Build.VERSION.SDK_INT >= 23) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+            getWindow().getDecorView().setSystemUiVisibility(darkMode ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else {
+            // icons are always white back then
+            getWindow().setStatusBarColor(darkMode ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));
+        }
+        // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
+        Utils.postPatchColors(this);
     }
 }

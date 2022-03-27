@@ -1,0 +1,2 @@
+- Keresés elrejtése, az ikonok kihúzása és rendezése amíg nincs legalább egy kártya
+- Többféle téma fixálás

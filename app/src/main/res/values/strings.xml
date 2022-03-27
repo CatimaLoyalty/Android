@@ -109,11 +109,14 @@
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
+    <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>
     <string name="sharedpreference_active_tab" translatable="false">sharedpreference_active_tab</string>
     <string name="sharedpreference_privacy_policy_shown" translatable="false">sharedpreference_privacy_policy_shown</string>
     <string name="sharedpreference_sort" translatable="false">sharedpreference_sort</string>
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
+    <string name="sharedpreference_card_details" translatable="false">sharedpreference_card_details</string>
+    <string name="sharedpreference_card_details_show" translatable="false">sharedpreference_card_details_show</string>
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
     <string name="intent_import_card_from_url_path_prefix_catima_app" translatable="false">/share</string>
@@ -149,7 +152,10 @@
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expired: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Balance: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> points</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> point</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> points</item>
+    </plurals>
     <string name="card">Card</string>
     <string name="barcode">Barcode</string>
     <string name="editBarcode">Edit barcode</string>
@@ -164,7 +170,7 @@
     <string name="currency">Currency</string>
     <string name="points">Points</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
-    <string name="chooseImportType">Import data from?</string>
+    <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_popup_text">Privacy policy notice (required by some app stores):\n\nNO DATA IS COLLECTED AT ALL, which anyone can confirm since our app is libre software.</string>
@@ -209,6 +215,7 @@
     <string name="turn_flashlight_on">Turn flashlight on</string>
     <string name="turn_flashlight_off">Turn flashlight off</string>
     <string name="settings_locale">Language</string>
+    <string name="settings_oled_dark">Pure black background for dark theme</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
     <string name="selectColor">Select color</string>
@@ -235,7 +242,8 @@
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
-    <string name="toggleMoreInfo">Toggle showing more info</string>
+    <string name="showMoreInfo">Show info</string>
+    <string name="hideMoreInfo">Hide info</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
@@ -262,5 +270,9 @@
     <string name="select">Select</string>
     <string name="noGroupExistsError">Could not find that group (deleted or name changed)</string>
     <string name="shortcutSelectCard">Select a card</string>
+    <string name="options">Options</string>
+    <string name="starred">Starred</string>
+    <string name="set_scale">Set scale</string>
+    <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="shortcutSelectGroup">Select a group</string>
 </resources>

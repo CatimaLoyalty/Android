@@ -96,7 +96,7 @@
 \nAUCUNE DONNÉE N’EST COLLECTÉE, ce que tout le monde peut confirmer puisque notre application est un logiciel libre.</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importer les données depuis \?</string>
+    <string name="chooseImportType">Importer les données depuis</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
     <string name="currency">Monnaie</string>
@@ -109,7 +109,6 @@
     <string name="editBarcode">Modifier le code-barres</string>
     <string name="barcode">Code-barres</string>
     <string name="card">Carte</string>
-    <string name="balancePoints"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> points</string>
     <string name="balanceSentence">Solde : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expiré : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentence">Expire : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
@@ -188,7 +187,6 @@
     <string name="settings_theme_color">Couleur du thème</string>
     <string name="app_contributors">Rendu possible par : <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Ce groupe est vide</string>
-    <string name="toggleMoreInfo">Activer/désactiver l’affichage de plus d’infos</string>
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> code-barres</string>
     <string name="swipeToSwitchImages">Balayez ou appuyez longuement pour changer d’image</string>
     <string name="sort">Trier</string>
@@ -222,4 +220,15 @@
     <string name="action_hide_details">Masquer les détails</string>
     <string name="translate_platform">sur Weblate</string>
     <string name="shortcutSelectCard">Sélectionnez une carte</string>
+    <string name="options">Options</string>
+    <string name="starred">En favori</string>
+    <string name="set_scale">Définir une échelle</string>
+    <string name="showMoreInfo">Afficher les infos</string>
+    <string name="hideMoreInfo">Masquer les infos</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> point</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> points</item>
+    </plurals>
+    <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
+    <string name="include_if_asking_support">Si vous voulez demander de l\'aide, incluez les informations suivantes :</string>
 </resources>

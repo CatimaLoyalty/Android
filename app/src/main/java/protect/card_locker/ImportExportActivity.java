@@ -35,6 +35,7 @@ import java.util.List;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
+import protect.card_locker.importexport.ImportExportResultType;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
     private static final String TAG = "Catima";
@@ -97,7 +98,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 startExport(writer, uri, exportPassword.toCharArray(), true);
             } catch (IOException e) {
                 Log.e(TAG, "Failed to export file: " + result.toString(), e);
-                onExportComplete(ImportExportResult.GenericFailure, uri);
+                onExportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, result.toString()), uri);
             }
 
         });
@@ -175,7 +176,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             startImport(reader, uri, importDataFormat, password, true);
         } catch (IOException e) {
             Log.e(TAG, "Failed to import file: " + uri.toString(), e);
-            onImportComplete(ImportExportResult.GenericFailure, uri, importDataFormat);
+            onImportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, e.toString()), uri, importDataFormat);
         }
     }
 
@@ -357,56 +358,51 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         builder.show();
     }
 
+    private String buildResultDialogMessage(ImportExportResult result, boolean isImport) {
+        int messageId;
+
+        if (result.resultType() == ImportExportResultType.Success) {
+            messageId = isImport ? R.string.importSuccessful : R.string.exportSuccessful;
+        } else {
+            messageId = isImport ? R.string.importFailed : R.string.exportFailed;
+        }
+
+        StringBuilder messageBuilder = new StringBuilder(getResources().getString(messageId));
+        if (result.developerDetails() != null) {
+            messageBuilder.append("\n\n");
+            messageBuilder.append(getResources().getString(R.string.include_if_asking_support));
+            messageBuilder.append("\n\n");
+            messageBuilder.append(result.developerDetails());
+        }
+
+        return messageBuilder.toString();
+    }
+
     private void onImportComplete(ImportExportResult result, Uri path, DataFormat dataFormat) {
-        if (result == ImportExportResult.BadPassword) {
+        ImportExportResultType resultType = result.resultType();
+
+        if (resultType == ImportExportResultType.BadPassword) {
             retryWithPassword(dataFormat, path);
             return;
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        int messageId;
-
-        if (result == ImportExportResult.Success) {
-            builder.setTitle(R.string.importSuccessfulTitle);
-            messageId = R.string.importSuccessful;
-        } else {
-            builder.setTitle(R.string.importFailedTitle);
-            messageId = R.string.importFailed;
-        }
-
-        final String message = getResources().getString(messageId);
-
-        builder.setMessage(message);
-        builder.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        builder.setTitle(resultType == ImportExportResultType.Success ? R.string.importSuccessfulTitle : R.string.importFailedTitle);
+        builder.setMessage(buildResultDialogMessage(result, true));
+        builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
 
         builder.create().show();
     }
 
     private void onExportComplete(ImportExportResult result, final Uri path) {
+        ImportExportResultType resultType = result.resultType();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        int messageId;
-
-        if (result == ImportExportResult.Success) {
-            builder.setTitle(R.string.exportSuccessfulTitle);
-            messageId = R.string.exportSuccessful;
-        } else {
-            builder.setTitle(R.string.exportFailedTitle);
-            messageId = R.string.exportFailed;
-        }
-
-        final String message = getResources().getString(messageId);
-
-        builder.setMessage(message);
+        builder.setTitle(resultType == ImportExportResultType.Success ? R.string.exportSuccessfulTitle : R.string.exportFailedTitle);
+        builder.setMessage(buildResultDialogMessage(result, false));
         builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
 
-        if (result == ImportExportResult.Success) {
+        if (resultType == ImportExportResultType.Success) {
             final CharSequence sendLabel = ImportExportActivity.this.getResources().getText(R.string.sendLabel);
 
             builder.setPositiveButton(sendLabel, (dialog, which) -> {

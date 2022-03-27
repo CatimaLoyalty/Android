@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -69,6 +70,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -135,6 +137,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     Button enterButton;
 
+    Toolbar toolbar;
+
     int loyaltyCardId;
     boolean updateLoyaltyCard;
     String cardId;
@@ -154,7 +158,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
-    Runnable warnOnInvalidBarcodeType;
+    Runnable barcodeImageGenerationFinishedCallback;
 
     HashMap<String, Currency> currencies = new HashMap<>();
 
@@ -209,6 +213,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private void updateTempState(LoyaltyCardField fieldName, Object value) {
         tempLoyaltyCard = updateTempState(tempLoyaltyCard, fieldName, value);
 
+        if (initDone && (fieldName == LoyaltyCardField.cardId || fieldName == LoyaltyCardField.barcodeId || fieldName == LoyaltyCardField.barcodeType)) {
+            generateBarcode();
+        }
+
         hasChanged = true;
     }
 
@@ -224,7 +232,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         importLoyaltyCardUri = intent.getData();
 
-        Log.d(TAG, "View activity: id=" + loyaltyCardId
+        Log.d(TAG, "Edit activity: id=" + loyaltyCardId
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
     }
 
@@ -287,7 +295,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.loyalty_card_edit_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -316,6 +324,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         barcodeIdField = findViewById(R.id.barcodeIdField);
         barcodeTypeField = findViewById(R.id.barcodeTypeField);
         barcodeImage = findViewById(R.id.barcode);
+        barcodeImage.setClipToOutline(true);
         barcodeImageLayout = findViewById(R.id.barcodeLayout);
         barcodeCaptureLayout = findViewById(R.id.barcodeCaptureLayout);
         cardImageFrontHolder = findViewById(R.id.frontImageHolder);
@@ -324,11 +333,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageBack = findViewById(R.id.backImage);
 
         enterButton = findViewById(R.id.enterButton);
-        cardImageFront.setBackgroundColor(getThemeColor());
-        cardImageBack.setBackgroundColor(getThemeColor());
 
-        warnOnInvalidBarcodeType = () -> {
+        barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) barcodeImage.getTag()) {
+                barcodeImageLayout.setVisibility(View.GONE);
                 Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
             }
         };
@@ -442,14 +450,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                     for (int i = locales.size() - 1; i >= 0; i--) {
                         Locale locale = locales.get(i);
-                        String currencySymbol = Currency.getInstance(locale).getSymbol();
-                        currencyList.remove(currencySymbol);
-                        currencyList.add(0, currencySymbol);
+                        currencyPrioritizeLocaleSymbols(currencyList, locale);
                     }
                 } else {
-                    String currencySymbol = Currency.getInstance(mSystemLocale).getSymbol();
-                    currencyList.remove(currencySymbol);
-                    currencyList.add(0, currencySymbol);
+                    currencyPrioritizeLocaleSymbols(currencyList, mSystemLocale);
                 }
 
                 currencyList.add(0, getString(R.string.points));
@@ -525,8 +529,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 } else {
                     updateTempState(LoyaltyCardField.barcodeId, s.toString());
                 }
-
-                generateOrHideBarcode();
             }
 
             @Override
@@ -557,8 +559,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         } catch (IllegalArgumentException e) {
                         }
                     }
-
-                    generateOrHideBarcode();
                 }
             }
 
@@ -670,7 +670,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         });
 
         mCropperOptions = new UCrop.Options();
-        setCropperTheme();
     }
 
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
@@ -690,13 +689,24 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
                 new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
         );
-    }
 
-    private void setCropperTheme() {
-        mCropperOptions.setToolbarColor(getThemeColor());
-        mCropperOptions.setStatusBarColor(getThemeColor());
-        mCropperOptions.setToolbarWidgetColor(Color.WHITE);
-        mCropperOptions.setActiveControlsWidgetColor(getThemeColor());
+        // Fix theming
+
+        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
+        int colorOnPrimary = MaterialColors.getColor(this, R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
+        int colorSurface = MaterialColors.getColor(this, R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
+        int colorOnSurface = MaterialColors.getColor(this, R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+        int colorBackground = MaterialColors.getColor(this, android.R.attr.colorBackground, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+        mCropperOptions.setToolbarColor(colorSurface);
+        mCropperOptions.setStatusBarColor(colorSurface);
+        mCropperOptions.setToolbarWidgetColor(colorOnSurface);
+        mCropperOptions.setRootViewBackgroundColor(colorBackground);
+        // set tool tip to be the darker of primary color
+        if (Utils.isDarkModeEnabled(this)) {
+            mCropperOptions.setActiveControlsWidgetColor(colorOnPrimary);
+        } else {
+            mCropperOptions.setActiveControlsWidgetColor(colorPrimary);
+        }
     }
 
     @Override
@@ -846,10 +856,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         // Generate random header color
         if (tempLoyaltyCard.headerColor == null) {
             // Select a random color to start out with.
-            TypedArray colors = getResources().obtainTypedArray(R.array.letter_tile_colors);
-            final int color = (int) (Math.random() * colors.length());
-            updateTempState(LoyaltyCardField.headerColor, colors.getColor(color, Color.BLACK));
-            colors.recycle();
+            updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
         }
 
         // It can't be null because we set it in updateTempState but SpotBugs insists it can be
@@ -890,7 +897,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             hasChanged = hadChanges;
         }
 
-        generateOrHideBarcode();
+        generateBarcode();
 
         enterButton.setOnClickListener(new EditCardIdAndBarcode());
         barcodeImage.setOnClickListener(new EditCardIdAndBarcode());
@@ -910,7 +917,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, new Palette.Builder((Bitmap) icon).generate().getDominantColor(tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : ContextCompat.getColor(this, R.color.colorPrimary)));
+            updateTempState(LoyaltyCardField.headerColor, Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
@@ -1244,6 +1251,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     private void doSave() {
+        if (isFinishing()) {
+            // If we are done saving, ignore any queued up save button presses
+            return;
+        }
+
         if (tempStoredOldBarcodeValue != null) {
             askBarcodeChange(this::doSave);
             return;
@@ -1390,36 +1402,40 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             }
         }
-        mCropperLauncher.launch(
-                UCrop.of(
-                        sourceUri,
-                        destUri
-                ).withOptions(mCropperOptions)
-                        .getIntent(this)
-        );
+        Intent ucropIntent = UCrop.of(
+                sourceUri,
+                destUri
+        ).withOptions(mCropperOptions)
+                .getIntent(this);
+        ucropIntent.setClass(this, UCropWrapper.class);
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            // send toolbar font details to ucrop wrapper
+            View child = toolbar.getChildAt(i);
+            if (child instanceof AppCompatTextView) {
+                AppCompatTextView childTextView = (AppCompatTextView) child;
+                ucropIntent.putExtra(UCropWrapper.UCROP_TOOLBAR_TYPEFACE_STYLE, childTextView.getTypeface().getStyle());
+                break;
+            }
+        }
+        mCropperLauncher.launch(ucropIntent);
     }
 
-    private void showBarcode() {
-        barcodeImageLayout.setVisibility(View.VISIBLE);
-    }
+    private void generateBarcode() {
+        if (tempLoyaltyCard == null) {
+            return;
+        }
 
-    private void hideBarcode() {
-        barcodeImageLayout.setVisibility(View.GONE);
-    }
+        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
 
-    private void generateOrHideBarcode() {
         String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
         CatimaBarcode barcodeFormat = tempLoyaltyCard.barcodeType;
 
-        if (barcodeFormat == null || cardIdString.isEmpty() || !barcodeFormat.isSupported()) {
-            hideBarcode();
-        } else {
-            generateBarcode(cardIdString, barcodeFormat);
+        if (cardIdString == null || barcodeFormat == null) {
+            barcodeImageLayout.setVisibility(View.GONE);
+            return;
         }
-    }
 
-    private void generateBarcode(String cardIdString, CatimaBarcode barcodeFormat) {
-        mTasks.flushTaskList(TaskHandler.TYPE.BARCODE, true, false, false);
+        barcodeImageLayout.setVisibility(View.VISIBLE);
 
         if (barcodeImage.getHeight() == 0) {
             Log.d(TAG, "ImageView size is not known known at start, waiting for load");
@@ -1432,17 +1448,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, warnOnInvalidBarcodeType);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
-
-        showBarcode();
     }
 
     private void generateIcon(String store) {
@@ -1472,32 +1486,36 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         View cardPart = findViewById(R.id.cardPart);
-        View barcodePart = findViewById(R.id.barcodePart);
+        View optionsPart = findViewById(R.id.optionsPart);
         View picturesPart = findViewById(R.id.picturesPart);
 
         if (getString(R.string.card).equals(part)) {
             cardPart.setVisibility(View.VISIBLE);
-            barcodePart.setVisibility(View.GONE);
-            picturesPart.setVisibility(View.GONE);
-
-            // Explicitly hide barcode (fixes blurriness on redraw)
-            hideBarcode();
-        } else if (getString(R.string.barcode).equals(part)) {
-            cardPart.setVisibility(View.GONE);
-            barcodePart.setVisibility(View.VISIBLE);
+            optionsPart.setVisibility(View.GONE);
             picturesPart.setVisibility(View.GONE);
 
             // Redraw barcode due to size change (Visibility.GONE sets it to 0)
-            generateOrHideBarcode();
+            generateBarcode();
+        } else if (getString(R.string.options).equals(part)) {
+            cardPart.setVisibility(View.GONE);
+            optionsPart.setVisibility(View.VISIBLE);
+            picturesPart.setVisibility(View.GONE);
         } else if (getString(R.string.photos).equals(part)) {
             cardPart.setVisibility(View.GONE);
-            barcodePart.setVisibility(View.GONE);
+            optionsPart.setVisibility(View.GONE);
             picturesPart.setVisibility(View.VISIBLE);
-
-            // Explicitly hide barcode (fixes blurriness on redraw)
-            hideBarcode();
         } else {
             throw new UnsupportedOperationException();
+        }
+    }
+
+    private void currencyPrioritizeLocaleSymbols(ArrayList<String> currencyList, Locale locale) {
+        try {
+            String currencySymbol = Currency.getInstance(locale).getSymbol();
+            currencyList.remove(currencySymbol);
+            currencyList.add(0, currencySymbol);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "Could not get currency data for locale info: " + e);
         }
     }
 }

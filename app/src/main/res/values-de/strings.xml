@@ -92,7 +92,7 @@
     </plurals>
     <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Daten importieren aus?</string>
+    <string name="chooseImportType">Daten importieren aus</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
@@ -105,7 +105,6 @@
     <string name="editBarcode">Barcode ändern</string>
     <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> Punkte</string>
     <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
@@ -188,7 +187,6 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="toggleMoreInfo">Umschalten, um weitere Informationen anzuzeigen</string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
     <string name="swipeToSwitchImages">Wischen oder langes Drücken zum Wechseln der Bilder</string>
     <string name="sort_by">Sortieren nach</string>
@@ -222,4 +220,15 @@
     <string name="action_hide_details">Details ausblenden</string>
     <string name="translate_platform">auf Weblate</string>
     <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
+    <string name="options">Optionen</string>
+    <string name="hideMoreInfo">Infos ausblenden</string>
+    <string name="set_scale">Größe festlegen</string>
+    <string name="showMoreInfo">Infos anzeigen</string>
+    <string name="starred">als Favorit</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> Punkt</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> Punkte</item>
+    </plurals>
+    <string name="settings_oled_dark">Rein schwarzer Hintergrund für dunkles Thema</string>
+    <string name="include_if_asking_support">Wenn Sie Unterstützung anfordern möchten, geben Sie bitte die folgenden Informationen an:</string>
 </resources>

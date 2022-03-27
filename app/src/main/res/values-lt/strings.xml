@@ -104,7 +104,6 @@
     <string name="editBarcode">Redaguoti brūkšninį kodą</string>
     <string name="barcode">Brūkšninis kodas</string>
     <string name="card">Kortelė</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> taškai</string>
     <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>
@@ -192,7 +191,6 @@
     <string name="settings_theme_color">Temos spalva</string>
     <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Šioje grupėje nėra jokių kortelių</string>
-    <string name="toggleMoreInfo">Perjungti išsamios informacijos rodymą</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> tipo kortelės brūkšninio kodo vaizdas</string>
     <string name="swipeToSwitchImages">Perbraukite arba ilgai palaikykite paspaudę, kad perjungtumėte vaizdus</string>
     <string name="sort_by">Rikiuoti pagal</string>

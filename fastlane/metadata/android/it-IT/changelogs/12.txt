@@ -1,0 +1,1 @@
+- Evitato che l'app crashi quando lo schermo si ruota nell'introduzione del primo avvio.

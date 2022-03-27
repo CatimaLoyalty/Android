@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="noGiftCards">Nyomja meg a + jelet a kártya hozzáadásához, vagy importáljon a ⋮ menüvel.</string>
+    <string name="action_add">Hozzáadás</string>
+    <string name="action_search">Keresés</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kiválasztva</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kiválasztva</item>
+    </plurals>
+    <string name="noCardsMessage">Először adjon hozzá egy kártyát</string>
+    <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz.</string>
+    <string name="noMatchingGiftCards">Nincs eredmény. Próbálja módosítani a keresést.</string>
+    <string name="storeName">Név</string>
+    <string name="note">Feljegyzés</string>
+    <string name="cardId">Kártya azonosító</string>
+    <string name="barcodeType">Vonalkód típus</string>
+    <string name="barcodeNoBarcode">Nincs vonalkód</string>
+    <string name="noBarcode">Nincs vonalkód</string>
+    <string name="star">Kedvencekhez adás</string>
+    <string name="unstar">Kivétel a kedvencek közül</string>
+    <string name="cancel">Mégse</string>
+    <string name="save">Mentés</string>
+    <string name="edit">Szerkesztés</string>
+    <string name="delete">Törlés</string>
+    <string name="confirm">Alkalmaz</string>
+    <string name="lockScreen">Forgatás blokkolása</string>
+    <string name="unlockScreen">Blokkolás engedélyezése</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> törlése</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> törlése</item>
+    </plurals>
+    <string name="deleteConfirmation">Véglegesen törli a kártyát\?</string>
+    <string name="ok">Rendben</string>
+    <string name="copy_to_clipboard">Azonosító másolása a vágólapra</string>
+    <string name="share">Megosztás</string>
+    <string name="sendLabel">Küldés…</string>
+    <string name="editCardTitle">Kártya szerkesztése</string>
+    <string name="addCardTitle">Kártya hozzáadása</string>
+    <string name="scanCardBarcode">Vonalkód szkennelése</string>
+    <string name="cardShortcut">Kártya parancsikon</string>
+    <string name="noStoreError">Nincs név megadva</string>
+    <string name="failedParsingImportUriError">Nem elemezhető az importált URI</string>
+    <string name="importExport">Import/Export</string>
+    <string name="exportName">Export</string>
+    <string name="importExportHelp">Az adataid mentése lehetővé teszi, hogy egy másik eszközre feltöltsd.</string>
+    <string name="importSuccessfulTitle">Importálva</string>
+    <string name="importFailedTitle">Importálás meghiúsult</string>
+    <string name="importFailed">Importálás nem hajtható végre</string>
+    <string name="exportSuccessfulTitle">Exportálva</string>
+    <string name="exportFailedTitle">Exportálás meghiúsult</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Véglegesen törli a <xliff:g>%d</xliff:g> kártyát\?</item>
+        <item quantity="other">Véglegesen törli a <xliff:g>%d</xliff:g> kártyákat\?</item>
+    </plurals>
+    <string name="deleteTitle">Kártya törlése</string>
+    <string name="card_ids_copied">Azonosító(k) másolása</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> vonalkód képe</string>
+    <string name="noCardIdError">Nincs azonosító megadva</string>
+    <string name="noCardExistsError">Kártya nem található</string>
+    <string name="importStocardMessage">Válassza ki a <i>***-sync.zip</i> Stocard exportot.
+\nAdatinak exportját kérheti e-mailben a support@stocardapp.com címre írva.</string>
+    <string name="importVoucherVault">Importálás Voucher Vault-ból</string>
+    <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a vonalkód típushoz</string>
+    <string name="settings_green_theme">Zöld</string>
+    <string name="setBackImage">Hátlapi kép beállítása</string>
+    <string name="no">Nem</string>
+    <string name="passwordRequired">Kérem írja be a kódot</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="exportPasswordHint">Kód beírása</string>
+    <string name="failedGeneratingShareURL">Nem lehetett megosztható címet generálni. Kérem jelentse ezt.</string>
+    <string name="settings_theme_color">Téma színe</string>
+    <string name="settings_grey_theme">Szürke</string>
+    <string name="sort">Rendez</string>
+    <string name="on_google_play">Google Play-en</string>
+    <string name="action_show_details">Részletek mutatása</string>
+    <string name="action_hide_details">Részletek elrejtése</string>
+    <string name="and_data_usage">és adat használat</string>
+    <string name="translate_platform">Weblate-en</string>
+    <string name="sort_by_name">Név</string>
+    <string name="sort_by_most_recently_used">Legutóbb használt</string>
+    <string name="sort_by_expiry">Lejárat</string>
+    <string name="rate_this_app">Értékelje az appot</string>
+    <string name="exportFailed">Exportálás sikertelen</string>
+    <string name="importing">Importálás…</string>
+    <string name="exporting">Exportálás…</string>
+    <string name="noExternalStoragePermissionError">Külső háttértárhoz való hozzáférés engedélyezése adat import vagy export miatt</string>
+    <string name="exportOptionExplanation">Az adatokat a kiválasztott helyre fogjuk menteni.</string>
+    <string name="importOptionFilesystemTitle">Importálás fájlrendszerből</string>
+    <string name="importOptionFilesystemButton">A fájlrendszerből</string>
+    <string name="importOptionApplicationTitle">Másik app használata</string>
+    <string name="importOptionApplicationExplanation">Használjon egy tetszőleges appot, vagy kedvenc fájl menedzserét a fájl megnyitásához.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Szerzői Jog © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_license">Copyleft-elt gáttalan szoftver, GPLv3+ licenszelve</string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> névjegye</string>
+    <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt">Revíziós információ: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_resources">Gáttalan külsős források: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="selectBarcodeTitle">Vonalkód kiválasztása</string>
+    <string name="enterBarcodeInstructions">Írja be az azonosítót, majd válasszon egy vonalkódot, vagy a \"Nincs vonalkód\" opciót.</string>
+    <string name="copy_to_clipboard_toast">Azonosító vágólapra másolva</string>
+    <string name="starImage">Kedvencek csillag</string>
+    <string name="settings">Beállítások</string>
+    <string name="settings_category_title_ui">Felhasználói felület</string>
+    <string name="settings_theme">Téma</string>
+    <string name="settings_system_theme">Rendszer</string>
+    <string name="settings_light_theme">Világos</string>
+    <string name="settings_max_font_size_scale">Max. betű méret</string>
+    <string name="settings_display_barcode_max_brightness">Fényes vonalkód nézet</string>
+    <string name="settings_lock_barcode_orientation">Vonalkód tájolás zárolása</string>
+    <string name="settings_keep_screen_on">Képernyő bekapcsolva marad</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Képernyő zárólás megakadályozása</string>
+    <string name="intent_import_card_from_url_share_text">Meg akarok veled osztani egy kártyát</string>
+    <string name="importSuccessful">Adat importálva</string>
+    <string name="exportSuccessful">Adat exportálva</string>
+    <string name="enter_group_name">Adja meg a csoport nevét</string>
+    <string name="groups">Csoportok</string>
+    <string name="group_edit">Csoport szerkesztése</string>
+    <string name="group_name_is_empty">Csoport név nem lehet üres</string>
+    <string name="failedOpeningFileManager">Telepítsen egy fájl menedzsert.</string>
+    <string name="moveUp">Felfelé mozgatás</string>
+    <string name="moveDown">Lefelé mozgatás</string>
+    <string name="leaveWithoutSaveTitle">Kilépés</string>
+    <string name="leaveWithoutSaveConfirmation">Kilépés mentés nélkül\?</string>
+    <string name="addManually">Azonosító manuális beírása</string>
+    <string name="addFromImage">Kép kiválasztása a galériából</string>
+    <string name="editGroup">Csoportok szerkesztése: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Érvényes: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Egyenleg: <xliff:g>%s</xliff:g></string>
+    <string name="card">Kártya</string>
+    <string name="barcode">Vonalkód</string>
+    <string name="editBarcode">Vonalkód szerkesztése</string>
+    <string name="expiryDate">Lejárati dátum</string>
+    <string name="never">Soha</string>
+    <string name="chooseExpiryDate">Lejárati dátum kiválasztása</string>
+    <string name="moveBarcodeToTopOfScreen">Vonalkód feltolása a képernyő tetejére</string>
+    <string name="moveBarcodeToCenterOfScreen">Vonalkód középre igazítása</string>
+    <string name="noBarcodeFound">Nem található vonalkód</string>
+    <string name="errorReadingImage">Nem lehet olvasni a képet</string>
+    <string name="balance">Egyenleg</string>
+    <string name="currency">Valuta</string>
+    <string name="points">Pontok</string>
+    <string name="parsingBalanceFailed">A <xliff:g>%s</xliff:g> nem tűnik valós egyenlegnek.</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="privacy_policy">Adatvédelmi Szabályzat</string>
+    <string name="accept">Elfogad</string>
+    <string name="importCatima">Importálás Catimából</string>
+    <string name="importFidme">Importálás FidMe-ből</string>
+    <string name="importLoyaltyCardKeychain">Importálás a Loyalty Card Keychain-ből</string>
+    <string name="importLoyaltyCardKeychainMessage">Válassza ki a Loyalty Card Keychain-ból importálni kívánt <i>LoyaltyCardKeychain.csv</i> export fájlt.
+\nLétrehozhatja az Import/Export menüből ha a Loyalty Card Keychain-ben rányom az Exportra.</string>
+    <string name="importStocard">Importálás Stocard-ból</string>
+    <string name="importVoucherVaultMessage">Válassza ki a <i>vouchervault.json</i> Voucher Vault exportját.
+\nLétrehozhatja az Export-ra nyomva a Voucher Vault-ban.</string>
+    <string name="barcodeId">Vonalkód érték</string>
+    <string name="sameAsCardId">Ugyanaz, mint az azonosító</string>
+    <string name="setBarcodeId">Vonalkód érték beállítása</string>
+    <string name="unsupportedBarcodeType">Ez a vonalkód típus még nem megjeleníthető. Feltehetően támogatva lesz egy későbbi verzióban.</string>
+    <string name="copy_to_clipboard_multiple_toast">Azonosítók a vágólapra másolva</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Meg akarok veled osztani pár kártyát</string>
+    <string name="frontImageDescription">Előlapi kép</string>
+    <string name="backImageDescription">Hátlapi kép</string>
+    <string name="photos">Fotók</string>
+    <string name="setFrontImage">Előlapi kép beállítása</string>
+    <string name="removeImage">Kép eltávolítása</string>
+    <string name="takePhoto">Fénykép készítése</string>
+    <string name="updateBarcodeQuestionTitle">Vonalkód érték frissítése\?</string>
+    <string name="updateBarcodeQuestionText">Megváltoztatta az azonosító. Meg akarja ennek megfelelően változtatni a vonalkód értéket is\?</string>
+    <string name="yes">Igen</string>
+    <string name="exportPassword">Írjon be egy jelszót az export védelme érdekében (opcionális)</string>
+    <string name="turn_flashlight_on">Zseblámpa bekapcsolása</string>
+    <string name="turn_flashlight_off">Zseblámpa kikapcsolása</string>
+    <string name="settings_locale">Nyelv</string>
+    <string name="settings_system_locale">Rendszer</string>
+    <string name="selectColor">Szín kiválasztása</string>
+    <string name="setIcon">Ikon beállítása</string>
+    <string name="settings_pink_theme">Rózsaszín</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_violet_theme">Ibolyaszínű</string>
+    <string name="settings_blue_theme">Kék</string>
+    <string name="settings_sky_blue_theme">Égszínkék</string>
+    <string name="settings_brown_theme">Barna</string>
+    <string name="app_contributors">Lehetővé tette: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="showMoreInfo">Infó mutatása</string>
+    <string name="hideMoreInfo">Infó elrejtése</string>
+    <string name="swipeToSwitchImages">Húzza oldalra vagy tartsa nyomva a kép megváltoztatásáért</string>
+    <string name="sort_by_balance">Egyenleg</string>
+    <string name="reverse">...fordított sorrendben</string>
+    <string name="sort_by">Rendezés mint</string>
+    <string name="version_history">Verzió történet</string>
+    <string name="credits">Köszönet</string>
+    <string name="help_translate_this_app">Segítsen lefordítani az appot</string>
+    <string name="license">Licensz</string>
+    <string name="source_repository">Forrás repó</string>
+    <string name="on_github">GitBub-on</string>
+    <string name="report_error">Hiba Jelentése</string>
+    <string name="shortcutSelectCard">Válasszon egy kártyát</string>
+    <string name="options">Beállítások</string>
+    <string name="starred">Csillagozva</string>
+    <string name="set_scale">Méret választása</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kártya</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kártyák</item>
+    </plurals>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> pont</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> pont</item>
+    </plurals>
+    <string name="chooseImportType">Adat importálása innen</string>
+    <string name="thumbnailDescription">Előkép</string>
+    <string name="importOptionFilesystemExplanation">Válassza ki a kívánt fájlt a fájlrendszerből.</string>
+    <string name="importOptionApplicationButton">Másik app használata</string>
+    <string name="about">Névjegy</string>
+    <string name="app_copyright_old">Készült a Loyalty Card Keychain alapján
+\nszerzői jog © 2016–2020 Branden Archer</string>
+    <string name="app_libraries">Gáttalan külsős mappák: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="settings_dark_theme">Sötét</string>
+    <string name="deleteConfirmationGroup">Csoport törlése\?</string>
+    <string name="noGroups">Nyomja meg a + gombot a csoportok kategorizálásához.</string>
+    <string name="group_name_already_in_use">Csoport név már létezik</string>
+    <string name="all">Mind</string>
+    <string name="noGroupCards">Ez a csoport üres</string>
+    <string name="group_updated">Csoport frissítve</string>
+    <string name="expiryStateSentenceExpired">Lejárt: <xliff:g>%s</xliff:g></string>
+    <string name="groupsList">Csoportok: <xliff:g>%s</xliff:g></string>
+    <string name="importCatimaMessage">Válassza ki a <i>catima.zip</i>-jét az importáláshoz.
+\nLétrehozhatja az Import/Export menüből az Exportálást megnyomva egy másik Catima appban.</string>
+    <string name="privacy_policy_popup_text">Adatvédelmi szabály értesítő (némely app bolt kéri):
+\n
+\nSEMMILYEN ADATGYŰJTÉS NINCS, amit bárki ellenőrizhet, lévén hogy az app gáttalan szoftver.</string>
+    <string name="importFidmeMessage">Válassza ki a <i>fidme-export-request-xxxxxx.zip</i> nevű FidMe exportot, majd importálja be és válassza a manuális vonalkód opciót utána.
+\nEzt a FidMe-ben megtalálja a profiljában az Adat Védelem résznél ha rányom az Adataim Kivonata linkre.</string>
+</resources>

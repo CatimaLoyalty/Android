@@ -18,15 +18,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            style="?attr/toolbarStyle" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -39,7 +37,7 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/barcode"/>
+                android:text="@string/options"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +48,6 @@
 
     <ScrollView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/inputContrastBackground"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <TableLayout
             android:layout_width="match_parent"
@@ -76,8 +73,7 @@
                         app:cardCornerRadius="4dp"
                         android:paddingHorizontal="@dimen/inputPadding"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        android:outlineProvider="none">
+                        app:cardBackgroundColor="@android:color/transparent">
 
                         <ImageView
                             android:id="@+id/thumbnail"
@@ -128,6 +124,95 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
+                <!-- Barcode ID -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingTop="@dimen/inputPadding"
+                    android:orientation="horizontal">
+
+                    <!-- Barcode ID -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/barcodeIdView"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:hint="@string/barcodeId"
+                        android:labelFor="@+id/barcodeIdView">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/barcodeIdField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- Barcode type -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/inputPadding"
+                    android:paddingTop="@dimen/inputPadding"
+                    android:orientation="horizontal">
+
+                    <!-- Barcode type -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/barcodeTypeView"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:hint="@string/barcodeType"
+                        android:labelFor="@+id/barcodeTypeField">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/barcodeTypeField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <!-- Barcode -->
+                <LinearLayout android:orientation="horizontal"
+                    android:layout_marginTop="10.0dp"
+                    android:layout_marginStart="10.0dp"
+                    android:layout_marginEnd="10.0dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/barcodeLayout">
+                    <ImageView
+                        android:background="@drawable/round_outline"
+                        android:importantForAccessibility="no"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/barcode_disp_height"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/barcode"
+                        android:layout_weight="1.0"/>
+                </LinearLayout>
+
+                <!-- Buttons -->
+                <LinearLayout android:orientation="horizontal"
+                    android:padding="10.0dip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/barcodeCaptureLayout">
+                    <Button android:id="@+id/enterButton"
+                        android:layout_margin="@dimen/inputMargin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/editBarcode"
+                        android:layout_weight="1.0"/>
+                </LinearLayout>
+            </TableLayout>
+            <TableLayout
+                android:id="@+id/optionsPart"
+                android:visibility="gone">
+
                 <!-- Note -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -161,6 +246,7 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.chip.ChipGroup
+                        android:contentDescription="@string/groups"
                         android:id="@+id/groupChips"
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
@@ -240,99 +326,6 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </TableLayout>
-            <TableLayout
-                android:id="@+id/barcodePart"
-                android:visibility="gone">
-
-                <!-- Barcode ID -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/inputPadding"
-                    android:paddingTop="@dimen/inputPadding"
-                    android:orientation="horizontal">
-
-                    <!-- Barcode ID -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/barcodeIdView"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:hint="@string/barcodeId"
-                        android:labelFor="@+id/barcodeIdView">
-
-                        <AutoCompleteTextView
-                            android:id="@+id/barcodeIdField"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"/>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-
-                <!-- Barcode type -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/inputPadding"
-                    android:paddingTop="@dimen/inputPadding"
-                    android:orientation="horizontal">
-
-                    <!-- Barcode type -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/barcodeTypeView"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.0"
-                        android:hint="@string/barcodeType"
-                        android:labelFor="@+id/barcodeTypeField">
-
-                        <AutoCompleteTextView
-                            android:id="@+id/barcodeTypeField"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="none"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-
-                <!-- Barcode -->
-                <View
-                    android:layout_height="@dimen/inputBorderThickness"
-                    android:layout_width="match_parent" />
-
-                <LinearLayout android:orientation="horizontal"
-                              android:padding="10.0dip"
-                              android:layout_width="fill_parent"
-                              android:layout_height="wrap_content"
-                              android:visibility="gone"
-                              android:id="@+id/barcodeLayout">
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/barcode_disp_height"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="10.0dp"
-                        android:background="#ffffff"
-                        android:id="@+id/barcode"
-                        android:layout_weight="1.0"/>
-                </LinearLayout>
-
-                <!-- Buttons -->
-                <LinearLayout android:orientation="horizontal"
-                    android:padding="10.0dip"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/barcodeCaptureLayout">
-                    <Button android:id="@+id/enterButton"
-                        android:layout_margin="@dimen/inputMargin"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/editBarcode"
-                        android:textColor="#FFFFFF"
-                        android:layout_weight="1.0"/>
-                </LinearLayout>
-            </TableLayout>
 
             <TableLayout
                 android:id="@+id/picturesPart"
@@ -369,7 +362,8 @@
                             android:minHeight="50dp"
                             android:contentDescription="@string/frontImageDescription"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white" />
+                            app:srcCompat="@drawable/ic_camera_white"
+                            android:background="?attr/colorPrimary" />
 
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
@@ -404,7 +398,8 @@
                             android:minHeight="50dp"
                             android:contentDescription="@string/backImageDescription"
                             android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white" />
+                            app:srcCompat="@drawable/ic_camera_white"
+                            android:background="?attr/colorPrimary" />
 
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>

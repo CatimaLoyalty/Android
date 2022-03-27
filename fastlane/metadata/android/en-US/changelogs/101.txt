@@ -1,0 +1,3 @@
+- Fix cropper not using theme colour
+- Fix minor theming issues
+- Add pure black dark theme for OLED screens

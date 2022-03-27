@@ -1,0 +1,2 @@
+- Çeşitli küçük düzeltmeler
+- Norveççe çeviri kullanılırken oluşan çökme düzeltildi

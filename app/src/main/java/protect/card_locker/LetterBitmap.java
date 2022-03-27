@@ -10,6 +10,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.text.TextPaint;
+import android.util.Log;
+
+import androidx.core.graphics.PaintCompat;
 
 /**
  * Original from https://github.com/andOTP/andOTP/blob/master/app/src/main/java/org/shadowice/flocke/andotp/Utilities/LetterBitmap.java
@@ -48,7 +51,6 @@ class LetterBitmap {
     public LetterBitmap(Context context, String displayName, String key, int tileLetterFontSize,
                         int width, int height, Integer backgroundColor, Integer textColor) {
         TextPaint paint = new TextPaint();
-        paint.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
 
         if (textColor != null) {
             paint.setColor(textColor);
@@ -58,6 +60,8 @@ class LetterBitmap {
 
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setAntiAlias(true);
+        paint.setTextSize(tileLetterFontSize);
+        paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
         if (backgroundColor == null) {
             mColor = getDefaultColor(context, key);
@@ -66,22 +70,31 @@ class LetterBitmap {
         }
 
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        String firstChar = displayName.substring(0, 1);
+        String firstChar = displayName.substring(0, 1).toUpperCase();
+        int firstCharEnd = 2;
+        while (firstCharEnd <= displayName.length()) {
+            // Test for the longest render-able string
+            // But ignore containing only a-Z0-9 to not render things like ffi as a single character
+            String test = displayName.substring(0, firstCharEnd);
+            if (!isAlphabetical(test) && PaintCompat.hasGlyph(paint, test)) {
+                firstChar = test;
+            }
+            firstCharEnd++;
+        }
+
+        Log.d("LetterBitmap", "using sequence " + firstChar + " to render first char which has length " + firstChar.length());
 
         final Canvas c = new Canvas();
         c.setBitmap(mBitmap);
         c.drawColor(mColor);
 
-        char[] firstCharArray = new char[1];
-        firstCharArray[0] = firstChar.toUpperCase().charAt(0);
-        paint.setTextSize(tileLetterFontSize);
-
-        // The bounds that enclose the letter
         Rect bounds = new Rect();
+        paint.getTextBounds(firstChar, 0, firstChar.length(), bounds);
+        c.drawText(firstChar,
+                0, firstChar.length(),
+                width / 2.0f, (height - (bounds.bottom + bounds.top)) / 2.0f
+                , paint);
 
-        paint.getTextBounds(firstCharArray, 0, 1, bounds);
-        c.drawText(firstCharArray, 0, 1, width / 2.0f, height / 2.0f
-                + (bounds.bottom - bounds.top) / 2.0f, paint);
     }
 
     /**
@@ -110,6 +123,10 @@ class LetterBitmap {
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
         return colors.getColor(color, Color.BLACK);
+    }
+
+    private static boolean isAlphabetical(String string) {
+        return string.matches("[a-zA-Z0-9]*");
     }
 
     /**

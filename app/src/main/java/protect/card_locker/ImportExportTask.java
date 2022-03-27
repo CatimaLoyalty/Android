@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import protect.card_locker.async.CompatCallable;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
+import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
 
@@ -63,19 +64,20 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private ImportExportResult performImport(Context context, InputStream stream, SQLiteDatabase database, char[] password) {
         ImportExportResult importResult = MultiFormatImporter.importData(context, database, stream, format, password);
 
-        Log.i(TAG, "Import result: " + importResult.name());
+        Log.i(TAG, "Import result: " + importResult);
 
         return importResult;
     }
 
     private ImportExportResult performExport(Context context, OutputStream stream, SQLiteDatabase database, char[] password) {
-        ImportExportResult result = ImportExportResult.GenericFailure;
+        ImportExportResult result;
 
         try {
             OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
             result = MultiFormatExporter.exportData(context, database, stream, format, password);
             writer.close();
         } catch (IOException e) {
+            result = new ImportExportResult(ImportExportResultType.GenericFailure, e.toString());
             Log.e(TAG, "Unable to export file", e);
         }
 

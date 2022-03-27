@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın veya uzun basın</string>
-    <string name="toggleMoreInfo">Daha fazla bilgi göstermeyi aç/kapat</string>
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Kahverengi</string>
     <string name="settings_grey_theme">Gri</string>
@@ -58,7 +57,7 @@
 \nHİÇBİR VERİ TOPLANMAMAKTADIR ve uygulamamız özgür yazılım olduğu için bunu herkes doğrulayabilir.</string>
     <string name="privacy_policy">Gizlilik Politikası</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Veriler nereden içe aktarılsın\?</string>
+    <string name="chooseImportType">Verileri şuradan içe aktar</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> geçerli bir bakiye gibi görünmüyor.</string>
     <string name="points">Puan</string>
     <string name="currency">Para birimi</string>
@@ -73,7 +72,6 @@
     <string name="editBarcode">Barkodu düzenle</string>
     <string name="barcode">Barkod</string>
     <string name="card">Kart</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> puan</string>
     <string name="balanceSentence">Bakiye: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Süresi doldu: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Son kullanma tarihi: <xliff:g>%s</xliff:g></string>
@@ -222,4 +220,15 @@
     <string name="action_hide_details">Ayrıntıları gizle</string>
     <string name="translate_platform">Weblate\'de</string>
     <string name="shortcutSelectCard">Kart seç</string>
+    <string name="options">Seçenekler</string>
+    <string name="showMoreInfo">Bilgileri göster</string>
+    <string name="hideMoreInfo">Bilgileri gizle</string>
+    <string name="starred">Yıldızlı</string>
+    <string name="set_scale">Ölçeği ayarla</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> puan</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> puan</item>
+    </plurals>
+    <string name="settings_oled_dark">Koyu tema için saf siyah arka plan</string>
+    <string name="include_if_asking_support">Destek talep etmek istiyorsanız, aşağıdaki bilgileri ekleyin:</string>
 </resources>

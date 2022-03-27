@@ -1,0 +1,2 @@
+- Save card detail expansion state
+- Minor UI fixes

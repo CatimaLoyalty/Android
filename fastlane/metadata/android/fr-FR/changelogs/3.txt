@@ -1,0 +1,14 @@
+- Est désormais officiellement compatible avec les codes-barres à une et deux dimensions suivants :
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Les codes-barres sont maintenant affichés plus grand, afin d'en faciliter la lecture

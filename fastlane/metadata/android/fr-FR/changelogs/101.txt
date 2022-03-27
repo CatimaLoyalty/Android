@@ -1,0 +1,3 @@
+- Correction du système de recadrage qui ne respectait pas la couleur du thème
+- Correction de problèmes mineurs liés aux thèmes
+- Ajout d'un thème noir pur pour les écrans OLED

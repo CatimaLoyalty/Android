@@ -1,0 +1,1 @@
+- Bazı karakter dizilerinin tek karakter olarak gösterilmesi düzeltildi

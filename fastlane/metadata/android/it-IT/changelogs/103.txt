@@ -1,0 +1,2 @@
+- Sistemata la selezione manuale della lingua che non veniva applicata dappertutto
+- Sistemata la chiusura inaspettata dell'app quando si facevano delle modifiche con una lingua priva di differenze regionali

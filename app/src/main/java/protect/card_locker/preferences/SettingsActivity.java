@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -15,9 +19,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import com.google.android.material.color.DynamicColors;
 
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
@@ -129,16 +131,28 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            Preference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
+            localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                refreshActivity(true);
+                return true;
+            });
+
+            Preference oledDarkPreference = findPreference(getResources().getString(R.string.settings_key_oled_dark));
+            assert oledDarkPreference != null;
+            oledDarkPreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                refreshActivity(true);
+                return true;
+            });
+
+            ListPreference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
             assert colorPreference != null;
             colorPreference.setOnPreferenceChangeListener((preference, o) -> {
                 refreshActivity(true);
                 return true;
             });
-            localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                refreshActivity(true);
-                return true;
-            });
+            if (!DynamicColors.isDynamicColorAvailable()) {
+                colorPreference.setEntryValues(R.array.color_values_no_dynamic);
+                colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
+            }
         }
 
         private void refreshActivity(boolean reloadMain) {

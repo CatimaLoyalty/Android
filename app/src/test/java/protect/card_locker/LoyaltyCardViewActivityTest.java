@@ -314,6 +314,24 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
+    @Config(qualifiers="de")
+    public void noCrashOnRegionlessLocale() {
+        ActivityController activityController = Robolectric.buildActivity(LoyaltyCardEditActivity.class).create();
+
+        LoyaltyCardEditActivity activity = (LoyaltyCardEditActivity) activityController.get();
+        final Context context = activity.getApplicationContext();
+
+        activityController.start();
+        activityController.visible();
+        activityController.resume();
+
+        shadowOf(getMainLooper()).idle();
+
+        // Check default settings
+        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
+    }
+
+    @Test
     public void noDataLossOnResumeOrRotate() {
         registerMediaStoreIntentHandler();
 

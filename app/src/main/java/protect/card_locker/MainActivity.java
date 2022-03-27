@@ -47,6 +47,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private ActionMode mCurrentActionMode;
     private SearchView mSearchView;
     private GestureDetector mGestureDetector;
+    private int mLoyaltyCardCount = 0;
     protected String mFilter = "";
     protected Object mGroup = null;
     protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
@@ -142,8 +143,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
 
                 builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                    DBHelper db = new DBHelper(MainActivity.this);
-
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                         Log.e(TAG, "Deleting card: " + loyaltyCard.id);
 
@@ -155,7 +154,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
                     mGroup = tab != null ? tab.getTag() : null;
 
-                    updateLoyaltyCardList();
+                    updateLoyaltyCardList(true);
 
                     dialog.dismiss();
                 });
@@ -186,11 +185,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
-        
+
         SplashScreen.installSplashScreen(this);
-        
+
         extractIntentFields(getIntent());
         setTitle(R.string.app_name);
+        // XXX color patching has to be done again after setting splash screen
+        Utils.patchColors(this);
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -204,7 +205,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 selectedTab = tab.getPosition();
                 Log.d("onTabSelected", "Tab Position " + tab.getPosition());
                 mGroup = tab.getTag();
-                updateLoyaltyCardList();
+                updateLoyaltyCardList(false);
                 // Store active tab in Shared Preference to restore next app launch
                 SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                         getString(R.string.sharedpreference_active_tab),
@@ -244,7 +245,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         registerForContextMenu(mCardList);
 
         mGroup = null;
-        updateLoyaltyCardList();
+        updateLoyaltyCardList(true);
 
         /*
          * This was added for Huawei, but Huawei is just too much of a fucking pain.
@@ -309,6 +310,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onResume() {
         super.onResume();
 
+        mAdapter.refreshState();
+
         if (mCurrentActionMode != null) {
             mAdapter.clearSelections();
             mCurrentActionMode.finish();
@@ -350,19 +353,21 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
         } catch (IllegalArgumentException | NullPointerException ignored) {
         }
+
         mGroup = null;
+
         if (groupsTabLayout.getTabCount() != 0) {
             TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
             if (tab == null) {
                 tab = groupsTabLayout.getTabAt(0);
             }
+
             groupsTabLayout.selectTab(tab);
             assert tab != null;
             mGroup = tab.getTag();
         }
-        updateLoyaltyCardList();
+        updateLoyaltyCardList(true);
         groupWidget = null;
-
         // End of active tab logic
 
         FloatingActionButton addButton = findViewById(R.id.fabAdd);
@@ -388,7 +393,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onBackPressed();
     }
 
-    private void updateLoyaltyCardList() {
+    private void displayCardSetupOptions(Menu menu, boolean shouldShow) {
+        for (int id : new int[]{R.id.action_search, R.id.action_unfold, R.id.action_sort}) {
+            menu.findItem(id).setVisible(shouldShow);
+        }
+    }
+
+    private void updateLoyaltyCardCount() {
+        mLoyaltyCardCount = DBHelper.getLoyaltyCardCount(mDatabase);
+    }
+
+    private void updateLoyaltyCardList(boolean updateCount) {
         Group group = null;
         if (mGroup != null) {
             group = (Group) mGroup;
@@ -396,12 +411,19 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection));
 
-        if (DBHelper.getLoyaltyCardCount(mDatabase) > 0) {
+        if (updateCount) {
+            updateLoyaltyCardCount();
+            // Update menu icons if necessary
+            invalidateOptionsMenu();
+        }
+
+        if (mLoyaltyCardCount > 0) {
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
+
             if (mAdapter.getItemCount() > 0) {
                 mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
@@ -420,6 +442,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         } else {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
+
             mNoMatchingCardsText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
         }
@@ -484,7 +507,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     TabLayout.Tab currentTab = groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition());
                     mGroup = currentTab != null ? currentTab.getTag() : null;
 
-                    updateLoyaltyCardList();
+                    updateLoyaltyCardList(false);
 
                     return true;
                 }
@@ -498,23 +521,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         int id = inputItem.getItemId();
 
         if (id == R.id.action_unfold) {
-            boolean shouldShow = !mAdapter.showingDetails();
-
-            if (shouldShow) {
-                inputItem.setIcon(R.drawable.ic_baseline_unfold_less_24);
-                inputItem.setTitle(R.string.action_hide_details);
-            } else {
-                inputItem.setIcon(R.drawable.ic_baseline_unfold_more_24);
-                inputItem.setTitle(R.string.action_show_details);
-            }
-
-            mAdapter.showDetails(shouldShow);
+            mAdapter.showDetails(!mAdapter.showingDetails());
+            invalidateOptionsMenu();
 
             return true;
         }
 
         if (id == R.id.action_sort) {
-            TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
             AtomicInteger currentIndex = new AtomicInteger();
             List<DBHelper.LoyaltyCardOrder> loyaltyCardOrders = Arrays.asList(DBHelper.LoyaltyCardOrder.values());
             for (int i = 0; i < loyaltyCardOrders.size(); i++) {
@@ -594,7 +607,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         sortPrefEditor.apply();
 
         // Update card list
-        updateLoyaltyCardList();
+        updateLoyaltyCardList(false);
     }
 
     @Override

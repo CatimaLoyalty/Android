@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -35,30 +36,48 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private int mCurrentSelectedIndex = -1;
     Settings mSettings;
     boolean mDarkModeEnabled;
-    private final Context mContext;
+    public final Context mContext;
     private final CardAdapterListener mListener;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
-    private boolean mShowDetails = true;
+    private boolean mShowDetails;
 
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
-        mContext = inputContext.getApplicationContext();
+        mContext = inputContext;
         mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
         mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
+        refreshState();
+
         swapCursor(inputCursor);
+    }
+
+    public void refreshState() {
+        // Retrieve user details preference
+        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
+                mContext.getString(R.string.sharedpreference_card_details),
+                Context.MODE_PRIVATE);
+        mShowDetails = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show), true);
     }
 
     public void showDetails(boolean show) {
         mShowDetails = show;
         notifyDataSetChanged();
+
+        // Store in Shared Preference to restore next adapter launch
+        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
+                mContext.getString(R.string.sharedpreference_card_details),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor cardDetailsPrefEditor = cardDetailsPref.edit();
+        cardDetailsPrefEditor.putBoolean(mContext.getString(R.string.sharedpreference_card_details_show), show);
+        cardDetailsPrefEditor.apply();
     }
 
     public boolean showingDetails() {
@@ -101,6 +120,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExpiryField(null);
         }
 
+        setHeaderHeight(inputHolder, mShowDetails);
         Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
@@ -109,7 +129,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
-        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : ContextCompat.getColor(mContext, R.color.colorPrimary));
+        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 
         inputHolder.toggleStar(loyaltyCard.starStatus != 0, itemSelected(inputCursor.getPosition()));
 
@@ -119,6 +139,19 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();
+    }
+
+    private void setHeaderHeight(LoyaltyCardListItemViewHolder inputHolder, boolean expanded) {
+        int iconHeight;
+        if (expanded) {
+            iconHeight = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else {
+            iconHeight = (int) mContext.getResources().getDimension(R.dimen.cardThumbnailSize);
+        }
+
+        inputHolder.mIconLayout.getLayoutParams().height = expanded ? 0 : iconHeight;
+        inputHolder.mCardIcon.getLayoutParams().height = iconHeight;
+        inputHolder.mTickIcon.getLayoutParams().height = iconHeight;
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
@@ -200,7 +233,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
-        public MaterialCardView mRow;
+        public MaterialCardView mRow, mIconLayout;
         public ConstraintLayout mStar;
         public View mDivider;
 
@@ -215,6 +248,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mBalanceField = inputView.findViewById(R.id.balance);
             mExpiryField = inputView.findViewById(R.id.expiry);
 
+            mIconLayout = inputView.findViewById(R.id.icon_layout);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStar = inputView.findViewById(R.id.star);
             mStarBackground = inputView.findViewById(R.id.star_background);
@@ -302,10 +336,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 dark = !mDarkModeEnabled;
             }
             if (dark) {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
                 mStarBackground.setImageResource(R.drawable.ic_starred_black);
             } else {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
                 mStarBackground.setImageResource(R.drawable.ic_starred_white);
             }
             if (enable) {

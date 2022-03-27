@@ -1,0 +1,2 @@
+- Přidání systému Catima do ovládacích prvků zařízení rychlého přístupu (https://developer.android.com/guide/topics/ui/device-control)
+- Oprava některých skupin, které se nezobrazují správně na obrazovce správy skupin

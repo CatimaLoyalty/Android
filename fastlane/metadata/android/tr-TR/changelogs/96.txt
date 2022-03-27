@@ -1,1 +1,2 @@
 - CODE 93 desteği eklendi
+- Çeşitli küçük hata düzeltmeleri ve iyileştirmeler

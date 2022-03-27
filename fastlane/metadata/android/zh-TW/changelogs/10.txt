@@ -1,0 +1,3 @@
+- 更改了預設的匯入/匯出檔案名稱。（pull#84(https://github.com/brarcher/loyalty-card-locker/pull/84))
+- 修正匯入/匯出頁面上的字串。（pull #87(https://github.com/brarcher/loyalty-card-locker/pull/87))
+- 改進卡片頁面的布局。提高可讀性，並且可以透過長按進行選擇。（pull#91(https://github.com/brarcher/loyalty-card-locker/pull/91))

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_revision_url">https://github.com/TheLastProject/Catima/releases</string>
+    <string name="app_revision_url">https://github.com/CatimaLoyalty/Android/releases</string>
     <string name="storeName">Nama</string>
     <string name="note">Keterangan</string>
     <string name="delete">Hapus</string>
@@ -143,7 +143,6 @@
     <string name="expiryStateSentence">Masa ber: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Kadaluwarsa: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> poin</string>
     <string name="editBarcode">Ubah barcode</string>
     <string name="expiryDate">Tanggal masa berlaku</string>
     <string name="never">Tidak pernah</string>
@@ -180,7 +179,6 @@
     <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
     <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
     <string name="app_contributors">Pengembangan dibantu oleh: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="toggleMoreInfo">Tampilkan info selengkapnya</string>
     <string name="swipeToSwitchImages">Geser atau tekan yang lama untuk mengganti gambar</string>
     <string name="reverse">Ubah urutan</string>
     <string name="version_history">Riwayat Versi</string>

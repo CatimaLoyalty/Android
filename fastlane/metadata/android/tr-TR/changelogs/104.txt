@@ -1,0 +1,2 @@
+- Kart ayrıntısı genişletme durumunu kaydet
+- Küçük kullanıcı arayüzü düzeltmeleri

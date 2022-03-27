@@ -151,13 +151,13 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         } else if (id == R.id.translate) {
             url = "https://hosted.weblate.org/engage/catima/";
         } else if (id == R.id.license) {
-            url = "https://github.com/TheLastProject/Catima/blob/master/LICENSE";
+            url = "https://github.com/CatimaLoyalty/Android/blob/master/LICENSE";
         } else if (id == R.id.repo) {
-            url = "https://github.com/TheLastProject/Catima/";
+            url = "https://github.com/CatimaLoyalty/Android/";
         } else if (id == R.id.privacy) {
             url = "https://catima.app/privacy-policy/";
         } else if (id == R.id.report_error) {
-            url = "https://github.com/TheLastProject/Catima/issues";
+            url = "https://github.com/CatimaLoyalty/Android/issues";
         } else if (id == R.id.rate) {
             url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
         } else {

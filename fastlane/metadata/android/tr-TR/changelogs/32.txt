@@ -1,0 +1,1 @@
+- Barkodu elle girerek yeni kart oluşturma düzeltildi (https://github.com/brarcher/loyalty-card-locker/issues/272)

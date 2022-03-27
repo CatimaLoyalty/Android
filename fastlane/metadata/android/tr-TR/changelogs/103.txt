@@ -1,0 +1,2 @@
+- Elle dil seçiminin her yere uygulanmaması düzeltildi
+- Bölgesiz yerel ayarda düzenleme görünümündeki çökme düzeltildi

@@ -1,0 +1,2 @@
+- Skrýt ikony vyhledávání, rozbalování a třídění, dokud není k dispozici alespoň 1 karta.
+- Různé opravy témat

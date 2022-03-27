@@ -102,12 +102,11 @@
     <string name="editBarcode">Modifica il codice a barre</string>
     <string name="barcode">Codice a barre</string>
     <string name="card">Carta</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> punti</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Scadenza: <xliff:g>%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni lo schermo attivo</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Carte fedeltà</string>
     <string name="chooseImportType">Importa i dati da</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>
@@ -188,7 +187,6 @@
     <string name="settings_theme_color">Colore del tema</string>
     <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Questo gruppo è vuoto</string>
-    <string name="toggleMoreInfo">Attiva/disattiva la visualizzazione di altre informazioni</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre in formato <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Scorri o premi a lungo per cambiare immagine</string>
     <string name="sort_by">Ordina per</string>
@@ -221,4 +219,16 @@
     <string name="action_show_details">Mostra i dettagli</string>
     <string name="action_hide_details">Nascondi i dettagli</string>
     <string name="translate_platform">su Weblate</string>
+    <string name="shortcutSelectCard">Seleziona una tessera</string>
+    <string name="options">Opzioni</string>
+    <string name="starred">Nei preferiti</string>
+    <string name="set_scale">Imposta la scala</string>
+    <string name="showMoreInfo">Mostra info</string>
+    <string name="hideMoreInfo">Nascondi info</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punti</item>
+    </plurals>
+    <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
+    <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
 </resources>

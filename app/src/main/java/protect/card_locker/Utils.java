@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -14,8 +15,12 @@ import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.material.color.DynamicColors;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -39,9 +44,12 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
+
+import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -206,7 +214,7 @@ public class Utils {
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
-            return context.getString(R.string.balancePoints, numberFormat.format(value));
+            return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
         }
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
@@ -448,4 +456,82 @@ public class Utils {
         return loadImage(context.getCacheDir() + "/" + name);
     }
 
+    // https://stackoverflow.com/a/59324801/8378787
+    public static int getComplementaryColor(int color) {
+        int R = color & 255;
+        int G = (color >> 8) & 255;
+        int B = (color >> 16) & 255;
+        int A = (color >> 24) & 255;
+        R = 255 - R;
+        G = 255 - G;
+        B = 255 - B;
+        return R + (G << 8) + (B << 16) + (A << 24);
+    }
+
+    // replace colors in the current theme
+    public static void patchColors(AppCompatActivity activity) {
+        Settings settings = new Settings(activity);
+        String color = settings.getColor();
+
+        Resources.Theme theme = activity.getTheme();
+        Resources resources = activity.getResources();
+        if (color.equals(resources.getString(R.string.settings_key_pink_theme))) {
+            theme.applyStyle(R.style.pink, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_magenta_theme))) {
+            theme.applyStyle(R.style.magenta, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_violet_theme))) {
+            theme.applyStyle(R.style.violet, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_blue_theme))) {
+            theme.applyStyle(R.style.blue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_sky_blue_theme))) {
+            theme.applyStyle(R.style.skyblue, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_green_theme))) {
+            theme.applyStyle(R.style.green, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_brown_theme))) {
+            theme.applyStyle(R.style.brown, true);
+        } else if (color.equals(resources.getString(R.string.settings_key_catima_theme))) {
+            // catima theme is AppTheme itself, no dynamic colors nor applyStyle
+        } else {
+            // final catch all in case of invalid theme value from older versions
+            // also handles R.string.settings_key_system_theme
+            DynamicColors.applyIfAvailable(activity);
+        }
+
+        if (isDarkModeEnabled(activity) && settings.getOledDark()) {
+            theme.applyStyle(R.style.DarkBackground, true);
+        }
+    }
+
+    // XXX android 9 and below has issues with patched theme where the background becomes a
+    // rendering mess
+    // use after views are inflated
+    public static void postPatchColors(AppCompatActivity activity) {
+        TypedValue typedValue = new TypedValue();
+        activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
+        activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+    }
+
+    public static void updateMenuCardDetailsButtonState(MenuItem item, boolean currentlyExpanded) {
+        if (currentlyExpanded) {
+            item.setIcon(R.drawable.ic_baseline_unfold_less_24);
+            item.setTitle(R.string.action_hide_details);
+        } else {
+            item.setIcon(R.drawable.ic_baseline_unfold_more_24);
+            item.setTitle(R.string.action_show_details);
+        }
+    }
+
+    public static int getHeaderColorFromImage(Bitmap image, int fallback) {
+        if (image == null) {
+            return fallback;
+        }
+
+        return new Palette.Builder(image).generate().getDominantColor(R.attr.colorPrimary);
+    }
+
+    public static int getRandomHeaderColor(Context context) {
+        TypedArray colors = context.getResources().obtainTypedArray(R.array.letter_tile_colors);
+        final int color = (int) (Math.random() * colors.length());
+        return colors.getColor(color, Color.BLACK);
+    }
 }

@@ -21,6 +21,7 @@ import java.text.ParseException;
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.Utils;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -56,7 +57,7 @@ public class FidmeImporter implements Importer {
 
         try {
             for (CSVRecord record : fidmeParser) {
-                importLoyaltyCard(database, record);
+                importLoyaltyCard(context, database, record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -75,7 +76,7 @@ public class FidmeImporter implements Importer {
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record)
+    private void importLoyaltyCard(Context context, SQLiteDatabase database, CSVRecord record)
             throws FormatException {
         // A loyalty card export from Fidme contains the following fields:
         // Retailer (store name)
@@ -117,11 +118,12 @@ public class FidmeImporter implements Importer {
         // TODO: Hook this into our own loyalty card DB if we ever get one
         CatimaBarcode barcodeType = null;
 
-        // No favourite data in the export either
+        // No favourite data or colour in the export either
         int starStatus = 0;
+        int headerColor = Utils.getRandomHeaderColor(context);
 
         // TODO: Front and back image
 
-        DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, null, starStatus, null);
+        DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, null);
     }
 }

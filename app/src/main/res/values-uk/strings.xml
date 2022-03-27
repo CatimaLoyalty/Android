@@ -41,7 +41,7 @@
     <string name="accept">Прийняти</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Імпортувати дані з\?</string>
+    <string name="chooseImportType">Імпортувати дані з</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
     <string name="currency">Валюта</string>
@@ -56,7 +56,6 @@
     <string name="editBarcode">Редагувати штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Картка</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> балів</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Термін дії закінчився: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Термін дії закінчується: <xliff:g>%s</xliff:g></string>
@@ -196,7 +195,6 @@
     <string name="settings_sky_blue_theme">Небесно-синій</string>
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Пуста група</string>
-    <string name="toggleMoreInfo">Показувати додаткову інформацію</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
     <string name="sort_by">Сортувати за</string>
@@ -229,4 +227,18 @@
     <string name="action_show_details">Показати деталі</string>
     <string name="action_hide_details">Сховати деталі</string>
     <string name="translate_platform">на Weblate</string>
+    <string name="shortcutSelectCard">Оберіть карту</string>
+    <string name="options">Параметри</string>
+    <string name="showMoreInfo">Відобразити дані</string>
+    <string name="starred">Обране</string>
+    <string name="set_scale">Зміна масштабу</string>
+    <string name="hideMoreInfo">Сховати дані</string>
+    <string name="settings_oled_dark">Повністю чорний фон для темної теми</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> бал</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> бали</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> балів</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> балів</item>
+    </plurals>
+    <string name="include_if_asking_support">Якщо ви хочете отримати техпідтримку, додайте цю інформацію:</string>
 </resources>

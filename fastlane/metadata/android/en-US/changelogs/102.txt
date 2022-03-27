@@ -1,0 +1,2 @@
+- Various minor fixes
+- Fix crash when using Norwegian translation

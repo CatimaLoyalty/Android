@@ -42,8 +42,9 @@
         app:spanCount="@integer/main_view_card_columns"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
         android:scrollbars="vertical"
-        android:background="@color/mainLoyaltyCardBackground"
         android:visibility="gone"/>
 
 </RelativeLayout>

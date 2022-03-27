@@ -25,6 +25,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLayout"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -54,11 +55,12 @@
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
                 android:contentDescription="@string/moveBarcodeToTopOfScreen"
-                app:tint="#ffffff"
+                app:tint="?attr/colorOnPrimary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/mainImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="?attr/colorPrimary" />
 
             <ImageView
                 android:id="@+id/mainImage"
@@ -85,10 +87,11 @@
                 android:padding="0dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
                 android:contentDescription="@string/moveBarcodeToCenterOfScreen"
-                app:tint="#ffffff"
+                app:tint="?attr/colorOnPrimary"
                 app:layout_constraintTop_toBottomOf="@+id/mainImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="?attr/colorPrimary" />
 
             <LinearLayout
                 android:id="@+id/dotIndicator"
@@ -107,6 +110,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/minimizeButton"/>
 
             <SeekBar
+                android:contentDescription="@string/set_scale"
                 android:id="@+id/barcodeScaler"
                 android:visibility="gone"
                 android:max="100"
@@ -154,7 +158,7 @@
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/inputBackground"
+        android:background="?android:colorBackground"
         android:orientation="vertical"
         android:paddingTop="0px"
         android:visibility="gone"
@@ -168,10 +172,11 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="top|start"
-            android:contentDescription="@string/toggleMoreInfo"
+            android:contentDescription="@string/showMoreInfo"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
-            app:tint="#ffffff" />
+            app:tint="?attr/colorOnPrimary"
+            android:background="?attr/colorPrimary" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/bottomSheetContentWrapper"
@@ -247,14 +252,13 @@
         android:weightSum="1.0"
         >
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_landscape"
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
             android:background="@android:color/transparent"
             android:fitsSystemWindows="false"
             android:paddingTop="0dp"
-            android:theme="@style/CardView.ActionBarTheme"
             android:visibility="gone"
             app:contentInsetStart="72.0dip"
             app:layout_collapseMode="pin" />
@@ -290,7 +294,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="?actionBarSize"
                 android:background="@android:color/transparent"
-                android:theme="@style/CardView.ActionBarTheme"
                 app:contentInsetStart="72.0dip"
                 app:layout_collapseMode="pin" />
 

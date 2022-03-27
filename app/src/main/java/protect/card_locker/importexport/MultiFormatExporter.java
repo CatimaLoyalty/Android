@@ -7,8 +7,6 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import protect.card_locker.DBHelper;
-
 public class MultiFormatExporter {
     private static final String TAG = "Catima";
 
@@ -34,20 +32,20 @@ public class MultiFormatExporter {
                 break;
         }
 
+        String error;
         if (exporter != null) {
             try {
                 exporter.exportData(context, database, output, password);
-                return ImportExportResult.Success;
-            } catch (IOException e) {
+                return new ImportExportResult(ImportExportResultType.Success);
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to export data", e);
-            } catch (InterruptedException e) {
-                Log.e(TAG, "Failed to export data", e);
+                error = e.toString();
             }
-
-            return ImportExportResult.GenericFailure;
         } else {
-            Log.e(TAG, "Unsupported data format exported: " + format.name());
-            return ImportExportResult.GenericFailure;
+            error = "Unsupported data format exported: " + format.name();
+            Log.e(TAG, error);
         }
+
+        return new ImportExportResult(ImportExportResultType.GenericFailure, error);
     }
 }

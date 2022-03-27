@@ -11,7 +11,7 @@
     <string name="unstar">Премахва от любими</string>
     <string name="star">Добавя към любими</string>
     <string name="noBarcode">Без щрихкод</string>
-    <string name="barcodeNoBarcode">Картата няма щрихкод</string>
+    <string name="barcodeNoBarcode">Липсва щрихкод</string>
     <string name="barcodeType">Вид на щрихкод</string>
     <string name="cardId">Идентификатор на карта</string>
     <string name="note">Бележка</string>
@@ -25,18 +25,18 @@
     </plurals>
     <string name="failedOpeningFileManager">Инсталирайте приложение за управление на файлове.</string>
     <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+</string>
-    <string name="frontImageDescription">Снимка на предната страна на карта</string>
-    <string name="backImageDescription">Снимка на задната страна на карта</string>
+    <string name="frontImageDescription">Снимка на предната страна</string>
+    <string name="backImageDescription">Снимка на задната страна</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не изглежда истинска наличност.</string>
     <string name="no">Не</string>
     <string name="yes">Да</string>
     <string name="setBackImage">Снимка на задната страна</string>
     <string name="setFrontImage">Снимка на предната страна</string>
     <string name="photos">Снимки</string>
-    <string name="importOptionApplicationExplanation">Изберете файл чрез друго приложение.</string>
-    <string name="noExternalStoragePermissionError">Дайте разрешение за достъп до хранилището, за да работи внасянето и изнасянето</string>
+    <string name="importOptionApplicationExplanation">Изберете файл на друго приложение.</string>
+    <string name="noExternalStoragePermissionError">Разрешете достъп до хранилището, за да работи внасянето и изнасянето</string>
     <string name="noCardExistsError">Картата не е намерена</string>
-    <string name="updateBarcodeQuestionText">Идентификаторът е променен. Желаете ли с неговата стойност да бъде променен и щрихкода\?</string>
+    <string name="updateBarcodeQuestionText">Идентификаторът е променен. Желаете ли с неговата стойност да бъде променен и щрихкодът\?</string>
     <string name="updateBarcodeQuestionTitle">Обновяване на щрихкода\?</string>
     <string name="noCardIdError">Не е въведен идентификатор</string>
     <string name="noCardsMessage">Добавете карта</string>
@@ -80,7 +80,6 @@
     <string name="groupsList">Списъци: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Валидност: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> точки</string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
     <string name="noStoreError">Не е въведено наименование</string>
@@ -99,33 +98,33 @@
     <string name="settings_category_title_ui">Потребителски интерфейс</string>
     <string name="settings">Настройки</string>
     <string name="starImage">Звезда за любимо</string>
-    <string name="thumbnailDescription">Миниатюра на картата</string>
-    <string name="copy_to_clipboard_toast">Идентификаторът на картата е копиран в междинната памет</string>
-    <string name="enterBarcodeInstructions">Въведете идентификатор на картата или като изберете вида на щрихкода или докоснете бутона „Картата няма щрихкод“.</string>
+    <string name="thumbnailDescription">Миниатюра</string>
+    <string name="copy_to_clipboard_toast">Идентификаторът е копиран в междинната памет</string>
+    <string name="enterBarcodeInstructions">Въведете идентификатор и или изберете вида на щрихкода, или докоснете бутона „Липсва щрихкод“.</string>
     <string name="selectBarcodeTitle">Избиране на щрихкод</string>
     <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>
     <string name="exporting">Изнасяне…</string>
-    <string name="exportFailed">Картите не могат да бъдат изнесени</string>
+    <string name="exportFailed">Данните не могат да бъдат изнесени</string>
     <string name="exportFailedTitle">Грешка при изнасяне</string>
-    <string name="importFailed">Картите не могат да бъдат внесени</string>
+    <string name="importFailed">Данните не могат да бъдат внесени</string>
     <string name="importFailedTitle">Грешка при внасяне</string>
     <string name="exportSuccessfulTitle">Резултат от изнасяне</string>
     <string name="importSuccessfulTitle">Резултат от внасяне</string>
-    <string name="importExportHelp">Резервните копия на картите ви дават възможност да ги преместите на друго устройство.</string>
+    <string name="importExportHelp">Резервните копия на данните ви дават възможност да ги премествате на друго устройство.</string>
     <string name="exportName">Изнасяне</string>
     <string name="importExport">Внасяне/изнасяне</string>
     <string name="sendLabel">Изпращане…</string>
-    <string name="scanCardBarcode">Снемане на щрихкод от карта</string>
+    <string name="scanCardBarcode">Снемане на щрихкод</string>
     <string name="editCardTitle">Редактиране на карта</string>
     <string name="share">Споделя</string>
     <string name="copy_to_clipboard">Копира идентификатора в междинната памет</string>
     <string name="ok">Добре</string>
-    <string name="importSuccessful">Картите са внесени успешно</string>
-    <string name="chooseImportType">От къде ще внесете\?</string>
+    <string name="importSuccessful">Данните са внесени</string>
+    <string name="chooseImportType">Внасяне на данни на</string>
     <string name="importCatimaMessage">Изберете файла <i>catima.zip</i>, предварително изнесен от Catima.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Catima като изберете Изнасяне.</string>
-    <string name="importOptionApplicationTitle">От друго приложение</string>
+    <string name="importOptionApplicationTitle">Чрез друго приложение</string>
     <string name="importOptionFilesystemButton">Избиране от файлова система</string>
     <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
     <string name="app_resources">Свободни ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -139,12 +138,12 @@
     <string name="about">Относно</string>
     <string name="importOptionFilesystemTitle">Внасяне от файловата система</string>
     <string name="importCatima">Внасяне от Catima</string>
-    <string name="exportSuccessful">Картите са изнесени успешно</string>
+    <string name="exportSuccessful">Данните са изнесени</string>
     <string name="unlockScreen">Разрешава автоматичното завъртане</string>
     <string name="lockScreen">Спира автоматичното завъртане</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> избрана карта</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> избрани карти</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> избрана</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> избрани</item>
     </plurals>
     <string name="deleteConfirmationGroup">Изтриване на група\?</string>
     <string name="moveDown">Преместване надолу</string>
@@ -162,14 +161,13 @@
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
-    <string name="card_ids_copied">[не превеждай този низ, https://github.com/TheLastProject/Catima/issues/278]</string>
     <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
     <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
         <item quantity="other">Изтриване на <xliff:g>%d</xliff:g> карти</item>
     </plurals>
-    <string name="deleteConfirmation">Потвърдете премахване на картата.</string>
+    <string name="deleteConfirmation">Потвърждавате ли премахване на картата\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Желаете ли <xliff:g>%d</xliff:g> карта да бъде премахната\?</item>
         <item quantity="other">Желаете ли тези <xliff:g>%d</xliff:g> карти да бъдат премахнати\?</item>
@@ -187,12 +185,11 @@
     <string name="settings_theme_color">Цвят на темата</string>
     <string name="settings_system_locale">Система</string>
     <string name="settings_locale">Език</string>
-    <string name="noGroupCards">Групата не съдържа карти</string>
-    <string name="toggleMoreInfo">Превключване на повече информация</string>
-    <string name="barcodeImageDescriptionWithType">Изображение на щрихкод на карта от вида <xliff:g>%s</xliff:g></string>
+    <string name="noGroupCards">Групата е празна</string>
+    <string name="barcodeImageDescriptionWithType">Изображение на щрихкод от вид <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Плъзване или задържане за смяна на изображения</string>
     <string name="sort_by">Сортиране по</string>
-    <string name="reverse">Наобратно</string>
+    <string name="reverse">…в обратен ред</string>
     <string name="sort_by_balance">Наличност</string>
     <string name="sort_by_expiry">Валидност</string>
     <string name="sort_by_most_recently_used">Последно използване</string>
@@ -219,5 +216,19 @@
     <string name="group_edit">Редактиране на списък</string>
     <string name="action_show_details">Повече детайли</string>
     <string name="action_hide_details">По-малко детайли</string>
-    <string name="noGiftCardsGroup">Няма карти. След като добавите ще можете да ги зачислите към списък от тук.</string>
+    <string name="noGiftCardsGroup">Създайте карти и ги зачислите към списък от тук.</string>
+    <string name="translate_platform">в Weblate</string>
+    <string name="shortcutSelectCard">Избор на карта</string>
+    <string name="starred">Със звезда</string>
+    <string name="set_scale">Мащаб</string>
+    <string name="showMoreInfo">Показване на информация</string>
+    <string name="hideMoreInfo">Скриване на информация</string>
+    <string name="options">Настройки</string>
+    <string name="card_ids_copied">Идентификаторите са копирани</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> точка</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> точки</item>
+    </plurals>
+    <string name="settings_oled_dark">Чисто черен фон за тъмната тема</string>
+    <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
 </resources>

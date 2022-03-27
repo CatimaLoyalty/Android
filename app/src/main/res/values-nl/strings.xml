@@ -104,9 +104,8 @@
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="balancePoints"><xliff:g>%s</xliff:g> punten</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="chooseImportType">Gegevens importeren uit…\?</string>
+    <string name="chooseImportType">Gegevens importeren uit</string>
     <string name="app_loyalty_card_keychain">Klantenkaartkluis</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Schermvergrendeling uitschakelen</string>
     <string name="settings_keep_screen_on">Scherm niet uitschakelen</string>
@@ -188,7 +187,6 @@
     <string name="settings_theme_color">Themakleur</string>
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
-    <string name="toggleMoreInfo">Meer informatie tonen/verbergen</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>
     <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
     <string name="sort_by">Sorteren op</string>
@@ -222,4 +220,15 @@
     <string name="action_hide_details">Details verbergen</string>
     <string name="translate_platform">op Weblate</string>
     <string name="shortcutSelectCard">Kies een kaart</string>
+    <string name="options">Opties</string>
+    <string name="showMoreInfo">Informatie tonen</string>
+    <string name="starred">Favoriet</string>
+    <string name="hideMoreInfo">Informatie verbergen</string>
+    <string name="set_scale">Schaal instellen</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punten</item>
+    </plurals>
+    <string name="settings_oled_dark">Zwarte achtergrond gebruiken bij donker thema</string>
+    <string name="include_if_asking_support">Als je ondersteuning wilt, voorzie je verzoek dan van de volgende informatie:</string>
 </resources>

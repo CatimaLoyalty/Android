@@ -1,8 +1,59 @@
 # Changelog
 
-## Unreleased - 96
+## v2.16.2 - 106 (2022-03-31)
+
+- Fix some character sequences being shown as a single character
+
+## v2.16.1 - 105 (2022-03-25)
+
+- Fix gray block appearing on invalid value for barcode
+- Stocard import fixes
+
+## v2.16.0 - 104 (2022-03-09)
+
+- Save card detail expansion state
+- Minor UI fixes
+
+## v2.15.2 - 103 (2022-02-11)
+
+- Fix manual language selection not applying everywhere
+- Fix crash in edit view on regionless locale
+
+## v2.15.1 - 102 (2022-02-10)
+
+- Various minor fixes
+- Fix crash when using Norwegian translation
+
+## v2.15.0 - 101 (2022-02-06)
+
+- Fix cropper not using theme colour
+- Fix minor theming issues
+- Add pure black dark theme for OLED screens
+
+## v2.14.1 - 100 (2022-01-15)
+
+- Hide search, expand and sort icons until there is at least 1 card
+- Various theming fixes
+
+## v2.14.0 - 99 (2022-01-14)
+
+- Material You redesign
+
+## v2.13.1 - 98 (2022-01-09)
+
+- Fix various TalkBack-related bugs
+
+## v2.13.0 - 97 (2022-01-03)
+
+- Fixed pressing the save button multiple times creating multiple entries
+- Lower card header size when hiding details to fit even more cards
+- Restructure edit screen
+- Improve star icon contrast in main view
+
+## v2.12.0 - 96 (2021-12-23)
 
 - Add CODE 93 support
+- Various minor bugfixes and improvements
 
 ## v2.11.2 - 95 (2021-12-04)
 

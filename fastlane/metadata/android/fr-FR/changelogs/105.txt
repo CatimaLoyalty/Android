@@ -1,0 +1,2 @@
+- Correction du bloc gris apparaissant sur une valeur invalide pour un code-barres
+- Corrections pour l'importation de Stocard

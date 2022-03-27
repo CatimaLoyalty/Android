@@ -1,0 +1,1 @@
+- Fix some character sequences being shown as a single character

@@ -1,0 +1,2 @@
+- Sauvegarde de l'état d'expansion du détail de carte
+- Corrections mineures de l'interface utilisateur

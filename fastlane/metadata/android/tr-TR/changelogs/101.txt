@@ -1,0 +1,3 @@
+- Kırpıcının tema rengini kullanmaması düzeltildi
+- Küçük tema sorunları düzeltildi
+- OLED ekranlar için saf siyah koyu tema eklendi

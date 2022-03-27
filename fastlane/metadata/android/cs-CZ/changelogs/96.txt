@@ -1,0 +1,2 @@
+- Přidání podpory kódu CODE 93
+- Různé drobné opravy a vylepšení

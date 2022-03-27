@@ -49,6 +49,7 @@ import androidx.core.content.res.ResourcesCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
+import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
 
@@ -63,9 +64,6 @@ import static org.robolectric.Shadows.shadowOf;
 public class ImportExportTest {
     private Activity activity;
     private SQLiteDatabase mDatabase;
-    private long nowMs;
-    private long lastYearMs;
-    private final int MONTHS_PER_YEAR = 12;
 
     private final String BARCODE_DATA = "428311627547";
     private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
@@ -76,11 +74,6 @@ public class ImportExportTest {
 
         activity = Robolectric.setupActivity(MainActivity.class);
         mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
-        nowMs = System.currentTimeMillis();
-
-        Calendar lastYear = Calendar.getInstance();
-        lastYear.set(Calendar.YEAR, lastYear.get(Calendar.YEAR) - 1);
-        lastYearMs = lastYear.getTimeInMillis();
     }
 
     /**
@@ -324,7 +317,7 @@ public class ImportExportTest {
 
         // Export data to CSV format
         ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
         TestHelpers.getEmptyDb(activity);
@@ -333,7 +326,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
 
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -354,7 +347,7 @@ public class ImportExportTest {
 
             // Export data to CSV format
             ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, password);
-            assertEquals(ImportExportResult.Success, result);
+            assertEquals(ImportExportResultType.Success, result.resultType());
             outStream.close();
 
             TestHelpers.getEmptyDb(activity);
@@ -363,7 +356,7 @@ public class ImportExportTest {
 
             // Import the CSV data
             result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, password);
-            assertEquals(ImportExportResult.Success, result);
+            assertEquals(ImportExportResultType.Success, result.resultType());
 
             assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -386,7 +379,7 @@ public class ImportExportTest {
 
         // Export data to CSV format
         ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
         TestHelpers.getEmptyDb(activity);
@@ -395,7 +388,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
 
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -457,7 +450,7 @@ public class ImportExportTest {
 
         // Export data to CSV format
         ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
         TestHelpers.getEmptyDb(activity);
@@ -466,7 +459,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
 
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
         assertEquals(NUM_GROUPS, DBHelper.getGroupCount(mDatabase));
@@ -500,14 +493,14 @@ public class ImportExportTest {
 
         // Export into CSV data
         ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         outStream.close();
 
         ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
 
         // Import the CSV data on top of the existing database
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
 
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -529,7 +522,7 @@ public class ImportExportTest {
 
             // Export data to CSV format
             ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
-            assertEquals(ImportExportResult.Success, result);
+            assertEquals(ImportExportResultType.Success, result.resultType());
 
             TestHelpers.getEmptyDb(activity);
 
@@ -543,7 +536,7 @@ public class ImportExportTest {
 
             // Attempt to import the data
             result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, format, null);
-            assertEquals(ImportExportResult.GenericFailure, result);
+            assertEquals(ImportExportResultType.GenericFailure, result.resultType());
 
             assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -586,7 +579,7 @@ public class ImportExportTest {
 
         // Check that the listener was executed
         assertNotNull(listener.result);
-        assertEquals(ImportExportResult.Success, listener.result);
+        assertEquals(ImportExportResultType.Success, listener.result.resultType());
 
         TestHelpers.getEmptyDb(activity);
 
@@ -607,7 +600,7 @@ public class ImportExportTest {
 
         // Check that the listener was executed
         assertNotNull(listener.result);
-        assertEquals(ImportExportResult.Success, listener.result);
+        assertEquals(ImportExportResultType.Success, listener.result.resultType());
 
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -633,7 +626,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -670,7 +663,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -707,7 +700,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.GenericFailure, result);
+        assertEquals(ImportExportResultType.GenericFailure, result.resultType());
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
 
         TestHelpers.getEmptyDb(activity);
@@ -731,7 +724,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -768,7 +761,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -805,7 +798,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -842,7 +835,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         csvText = "";
@@ -861,7 +854,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -1020,7 +1013,7 @@ public class ImportExportTest {
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(7, DBHelper.getLoyaltyCardCount(mDatabase));
         assertEquals(3, DBHelper.getGroupCount(mDatabase));
 
@@ -1162,7 +1155,7 @@ public class ImportExportTest {
 
         // Import the Fidme data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Fidme, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -1210,13 +1203,13 @@ public class ImportExportTest {
 
         // Import the Stocard data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Stocard, null);
-        assertEquals(ImportExportResult.BadPassword, result);
+        assertEquals(ImportExportResultType.BadPassword, result.resultType());
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
 
         inputStream = getClass().getResourceAsStream("stocard.zip");
 
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Stocard, "da811b40a4dac56f0cbb2d99b21bbb9a".toCharArray());
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -1302,7 +1295,7 @@ public class ImportExportTest {
 
         // Import the Voucher Vault data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.VoucherVault, null);
-        assertEquals(ImportExportResult.Success, result);
+        assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);

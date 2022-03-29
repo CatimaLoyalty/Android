@@ -73,9 +73,10 @@ class LetterBitmap {
         String firstChar = displayName.substring(0, 1).toUpperCase();
         int firstCharEnd = 2;
         while (firstCharEnd <= displayName.length()) {
-            // test for the longest render-able string
+            // Test for the longest render-able string
+            // But ignore containing only a-Z0-9 to not render things like ffi as a single character
             String test = displayName.substring(0, firstCharEnd);
-            if (PaintCompat.hasGlyph(paint, test)) {
+            if (!isAlphabetical(test) && PaintCompat.hasGlyph(paint, test)) {
                 firstChar = test;
             }
             firstCharEnd++;
@@ -122,6 +123,10 @@ class LetterBitmap {
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;
         return colors.getColor(color, Color.BLACK);
+    }
+
+    private static boolean isAlphabetical(String string) {
+        return string.matches("[a-zA-Z0-9]*");
     }
 
     /**

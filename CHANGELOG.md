@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 106
+
+- Fix some character sequences being shown as a single character
+
 ## v2.16.1 - 105 (2022-03-25)
 
 - Fix gray block appearing on invalid value for barcode

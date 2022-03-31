@@ -1,4 +1,4 @@
-- Est désormais officiellement compatible avec ces codes-barres à une et deux dimensions :
+- Est désormais officiellement compatible avec les codes-barres à une et deux dimensions suivants :
   - AZTEC
   - CODABAR
   - CODE_39
@@ -11,4 +11,4 @@
   - QR_CODE
   - UPC_A
 
-- Les codes-barres sont maintenant affichés plus grand, afin d'en faciliter la lecture.
+- Les codes-barres sont maintenant affichés plus grand, afin d'en faciliter la lecture

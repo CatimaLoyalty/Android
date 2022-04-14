@@ -55,7 +55,7 @@ public class MultiFormatImporter {
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
                 return new ImportExportResult(ImportExportResultType.BadPassword);
-            } catch (IOException | FormatException | InterruptedException | JSONException | ParseException | NullPointerException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to import data", e);
                 error = e.toString();
             } finally {

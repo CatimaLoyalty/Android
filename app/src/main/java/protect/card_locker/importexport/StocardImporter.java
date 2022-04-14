@@ -211,6 +211,8 @@ public class StocardImporter implements Importer {
             if (barcodeTypeString != null && !barcodeTypeString.isEmpty()) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
                     barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.RSS_EXPANDED);
+                } else if (barcodeTypeString.equals("GS1_128")) {
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.CODE_128);
                 } else {
                     barcodeType = CatimaBarcode.fromName(barcodeTypeString);
                 }

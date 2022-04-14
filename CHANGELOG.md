@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 107
+
+- Stocard import fixes
+
 ## v2.16.2 - 106 (2022-03-31)
 
 - Fix some character sequences being shown as a single character

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 107
+## v2.16.3 - 107 (2022-04-15)
 
 - Stocard import fixes
 

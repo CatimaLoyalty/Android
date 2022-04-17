@@ -54,7 +54,12 @@ public class MultiFormatImporter {
                 database.setTransactionSuccessful();
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
-                return new ImportExportResult(ImportExportResultType.BadPassword);
+                if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
+                    return new ImportExportResult(ImportExportResultType.BadPassword);
+                } else {
+                    Log.e(TAG, "Failed to import data", e);
+                    error = e.toString();
+                }
             } catch (Exception e) {
                 Log.e(TAG, "Failed to import data", e);
                 error = e.toString();

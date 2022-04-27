@@ -1,4 +1,4 @@
-- Додано налаштування яскравості екрану при перегляді штрих-коду (pull #259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
-- Додано грецьку локалізацію (pull #252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
-- Додано словенську локалізацію (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
-- Оновлено переклади (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260), pull #254 (https://github.com/brarcher/loyalty-card-locker/pull/254))
+- Додано налаштування яскравості екрану при перегляді штрих-коду
+- Додано грецьку локалізацію
+- Додано словенську локалізацію
+- Оновлено наявні переклади

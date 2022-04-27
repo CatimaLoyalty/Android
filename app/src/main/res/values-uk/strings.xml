@@ -203,11 +203,11 @@
     <string name="sort_by_expiry">Термін дії</string>
     <string name="sort_by_most_recently_used">Часто використовувані</string>
     <string name="sort_by_name">Назва</string>
-    <string name="sort">Сортування</string>
+    <string name="sort">Сортувати</string>
     <string name="version_history">Історія версій</string>
     <string name="help_translate_this_app">Допомогти з перекладом програми</string>
     <string name="license">Ліцензія</string>
-    <string name="source_repository">Вихідний код</string>
+    <string name="source_repository">Початковий код</string>
     <string name="on_github">на GitHub</string>
     <string name="and_data_usage">та використання даних</string>
     <string name="credits">Подяки</string>

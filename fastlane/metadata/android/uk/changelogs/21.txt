@@ -1,2 +1,2 @@
-- Покращено інтерфейс списку карт. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
-- Покращено інтерфейс перегляду карти. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))
+- Покращено інтерфейс списку карт
+- Покращено інтерфейс перегляду карти

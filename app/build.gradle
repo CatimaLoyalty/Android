@@ -106,7 +106,7 @@ dependencies {
 // Testing
     testImplementation 'androidx.test:core:1.4.0'
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.7.3'
+    testImplementation 'org.robolectric:robolectric:4.8'
 }
 
 tasks.withType(SpotBugsTask) {

@@ -234,4 +234,6 @@
         <item quantity="few"><xliff:g>%s</xliff:g> body</item>
         <item quantity="other"><xliff:g>%s</xliff:g> bodů</item>
     </plurals>
+    <string name="settings_oled_dark">Čistě černé pozadí pro tmavý motiv</string>
+    <string name="include_if_asking_support">Pokud chcete požádat o podporu, uveďte následující informace:</string>
 </resources>

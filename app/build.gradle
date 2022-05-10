@@ -85,7 +85,7 @@ dependencies {
     implementation 'androidx.exifinterface:exifinterface:1.3.3'
     implementation 'androidx.palette:palette:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
     implementation 'com.github.yalantis:ucrop:2.2.8'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 

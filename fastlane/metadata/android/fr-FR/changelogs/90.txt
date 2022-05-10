@@ -1,0 +1,4 @@
+- Correction des points sur la vue "carte" qui avaient la mauvaise couleur lorsqu'on changeait de thème manuellement
+- Correction d'un crash dans la vue "carte" lors de la rotation/du changement de thème
+- Correction de la liste des cartes qui clignotait
+- Correction du texte qui recouvrait l'icône étoile

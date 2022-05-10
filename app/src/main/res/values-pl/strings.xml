@@ -137,7 +137,7 @@
 \nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importuj dane z ...\?</string>
+    <string name="chooseImportType">Importuj dane z ...</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
@@ -229,4 +229,14 @@
     <string name="exportPassword">Ustaw hasło, aby zabezpieczyć twoje wyeksportowane dane (opcjonalne)</string>
     <string name="exportPasswordHint">Wpisz hasło</string>
     <string name="options">Opcje</string>
+    <string name="showMoreInfo">Pokaż informacje</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punkt</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> punkty</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> punkty</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> punkty</item>
+    </plurals>
+    <string name="include_if_asking_support">Jeśli chcesz poprosić o pomoc, podaj następujące informacje:</string>
+    <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
+    <string name="hideMoreInfo">Ukryj informacje</string>
 </resources>

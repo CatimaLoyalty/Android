@@ -1,0 +1,2 @@
+- Correction de la sélection manuelle de la langue qui ne s'appliquait pas partout
+- Correction du plantage sur l'écran de modification lorsque le "locale" n'avait pas de région

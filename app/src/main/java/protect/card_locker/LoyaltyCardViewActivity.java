@@ -698,6 +698,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
+        menu.findItem(R.id.action_duplicate).setIcon(getIcon(R.drawable.ic_duplicate, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
@@ -733,6 +734,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     Toast.makeText(LoyaltyCardViewActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
+                return true;
+
+            case R.id.action_duplicate:
+                loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
+                DBHelper.insertLoyaltyCard(database,loyaltyCard.store,loyaltyCard.note,loyaltyCard.expiry,loyaltyCard.balance,loyaltyCard.balanceType,
+                        loyaltyCard.cardId,loyaltyCard.barcodeId,loyaltyCard.barcodeType,loyaltyCard.headerColor,loyaltyCard.starStatus,loyaltyCard.lastUsed);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_lock_unlock:

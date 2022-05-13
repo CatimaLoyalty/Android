@@ -140,6 +140,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    int duplicateFromLoyaltyCardId;
     String cardId;
     String barcodeId;
     String barcodeType;
@@ -223,6 +224,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
         updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
+        //duplicateFromLoyaltyCardId
 
         cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
         barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;

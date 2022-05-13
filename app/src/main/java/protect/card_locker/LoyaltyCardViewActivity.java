@@ -738,9 +738,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             case R.id.action_duplicate:
                 loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
-                DBHelper.insertLoyaltyCard(database,loyaltyCard.store,loyaltyCard.note,loyaltyCard.expiry,loyaltyCard.balance,loyaltyCard.balanceType,
-                        loyaltyCard.cardId,loyaltyCard.barcodeId,loyaltyCard.barcodeType,loyaltyCard.headerColor,loyaltyCard.starStatus,loyaltyCard.lastUsed);
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 startActivity(intent);
                 return true;
 
@@ -769,7 +767,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Log.d(TAG, "Detected landscape mode");
-
             setTitle(loyaltyCard.store);
 
             collapsingToolbarLayout.setVisibility(View.GONE);

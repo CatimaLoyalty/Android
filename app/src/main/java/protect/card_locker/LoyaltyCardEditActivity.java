@@ -108,6 +108,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
 
     public static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
     public static final String BUNDLE_UPDATE = "update";
     public static final String BUNDLE_CARDID = "cardId";
     public static final String BUNDLE_BARCODEID = "barcodeId";

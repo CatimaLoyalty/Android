@@ -108,6 +108,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
 
     public static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
     public static final String BUNDLE_UPDATE = "update";
     public static final String BUNDLE_CARDID = "cardId";
     public static final String BUNDLE_BARCODEID = "barcodeId";
@@ -140,7 +141,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
-    int duplicateFromLoyaltyCardId;
+    boolean duplicateFromLoyaltyCardId;
     String cardId;
     String barcodeId;
     String barcodeType;
@@ -224,7 +225,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
         updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
-        //duplicateFromLoyaltyCardId
+        duplicateFromLoyaltyCardId = b != null && b.getBoolean(BUNDLE_DUPLICATE_ID, false);
 
         cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
         barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
@@ -1284,7 +1285,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             selectedGroups.add((Group) chip.getTag());
         }
 
-        if (updateLoyaltyCard) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
+        if (updateLoyaltyCard && !duplicateFromLoyaltyCardId) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
@@ -1309,6 +1310,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
+        if(duplicateFromLoyaltyCardId){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
         finish();
     }
 

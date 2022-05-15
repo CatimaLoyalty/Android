@@ -739,6 +739,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             case R.id.action_duplicate:
                 loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", loyaltyCardId);
+                bundle.putBoolean("duplicateId", true);
+                bundle.putBoolean("update", true);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 return true;
 

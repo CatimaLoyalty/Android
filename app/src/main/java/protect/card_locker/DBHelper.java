@@ -451,25 +451,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
-    public static boolean getLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id) {
-
-        String[] columns = new String[1];
-        columns[0] = LoyaltyCardDbIds.ARCHIVE_STATUS;
-
-        Cursor data = database.query(LoyaltyCardDbIds.TABLE, columns, whereAttrs(LoyaltyCardDbIds.CARD_ID), withArgs(id), null, null, null);
-        boolean status = false;
-        Integer number = null;
-
-        if (data.getCount() == 1) {
-            data.moveToFirst();
-            number = data.getInt(data.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
-        }
-        data.close();
-
-        if(number == 1)
-            status = true;
-
-        return status;
+    public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(id));
+        return (rowsUpdated == 1);
     }
 
 

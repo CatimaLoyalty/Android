@@ -321,6 +321,15 @@ public class CatimaImporter implements Importer {
         }
         if (starStatus != 1) starStatus = 0;
 
+        int archiveStatus = 0;
+        try {
+            archiveStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS, record, false);
+        } catch (FormatException _e) {
+            // This field did not exist in versions 0.28 and before
+            // We catch this exception so we can still import old backups
+        }
+        if (archiveStatus != 1) archiveStatus = 0;
+
         Long lastUsed = 0L;
         try {
             lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
@@ -329,7 +338,7 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed);
+        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed,archiveStatus);
     }
 
     /**

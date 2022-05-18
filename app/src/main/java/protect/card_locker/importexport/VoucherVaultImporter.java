@@ -126,7 +126,7 @@ public class VoucherVaultImporter implements Importer {
                     throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            DBHelper.insertLoyaltyCard(database, store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime());
+            DBHelper.insertLoyaltyCard(database, store, "", expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(),0);
         }
 
         bufferedReader.close();

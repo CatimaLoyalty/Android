@@ -1321,10 +1321,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         if (updateLoyaltyCard) {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
-            archived = DBHelper.getLoyaltyCardArchiveStatus(mDatabase,loyaltyCardId);
         } else {
             getMenuInflater().inflate(R.menu.card_add_menu, menu);
         }
+
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
+        archived = loyaltyCard.archiveStatus != 0;
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -1335,10 +1337,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             super.onPrepareOptionsMenu(menu);
             if (archived) {
                 menu.findItem(R.id.action_archive_unarchive).setIcon(getIcon(R.drawable.ic_baseline_archive_24, false));
-                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.unarchive);
+                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
             } else {
                 menu.findItem(R.id.action_archive_unarchive).setIcon(getIcon(R.drawable.ic_baseline_archive_24, true));
-                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
+                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.unarchive);
             }
         }
         return true;
@@ -1367,7 +1369,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 break;
 
             case R.id.action_archive_unarchive:
-
+                archived = !archived;
+                if(archived)
+                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
+                }
+                DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCardId, archived ? 1 : 0);
+                invalidateOptionsMenu();
+                return true;
 
             case R.id.action_delete:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);

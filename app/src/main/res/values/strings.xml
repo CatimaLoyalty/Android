@@ -272,4 +272,6 @@
     <string name="set_scale">Set scale</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="duplicateCard">Duplicate Card</string>
+    <string name="archive">Archive Card</string>
+    <string name="unarchive">Card unarchived</string>
 </resources>

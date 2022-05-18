@@ -4,9 +4,8 @@
 
     <item
         android:id="@+id/action_duplicate"
-        android:icon="@drawable/ic_duplicate"
         android:title="@string/duplicateCard"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_lock_unlock"
         android:icon="@drawable/ic_lock_open_white_24dp"

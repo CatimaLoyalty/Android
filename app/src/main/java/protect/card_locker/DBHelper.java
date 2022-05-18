@@ -45,6 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String STAR_STATUS = "starstatus";
         public static final String LAST_USED = "lastused";
         public static final String ZOOM_LEVEL = "zoomlevel";
+        public static final String ARCHIVE_STATUS = "archive";
     }
 
     public static class LoyaltyCardDbIdsGroups {
@@ -97,7 +98,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
-                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' )");
+                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100', " +
+                LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
 
         // create associative table for cards in groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -128,6 +130,9 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 4 && newVersion >= 4) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'");
+
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0'");
         }
 
         if (oldVersion < 5 && newVersion >= 5) {
@@ -180,7 +185,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO tmp (" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -193,7 +199,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS + ")" +
+                    LoyaltyCardDbIds.STAR_STATUS + " ," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS + ")" +
                     " SELECT " +
                     LoyaltyCardDbIds.ID + " ," +
                     LoyaltyCardDbIds.STORE + " ," +
@@ -205,7 +212,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     " NULLIF(" + LoyaltyCardDbIds.BARCODE_TYPE + ",'') ," +
-                    LoyaltyCardDbIds.STAR_STATUS +
+                    LoyaltyCardDbIds.STAR_STATUS + " ," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS +
                     " FROM " + LoyaltyCardDbIds.TABLE);
 
             db.execSQL("DROP TABLE " + LoyaltyCardDbIds.TABLE);
@@ -221,7 +229,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' ," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO " + LoyaltyCardDbIds.TABLE + "(" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -234,7 +243,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS + ")" +
+                    LoyaltyCardDbIds.STAR_STATUS + " ," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS + ")" +
                     " SELECT " +
                     LoyaltyCardDbIds.ID + " ," +
                     LoyaltyCardDbIds.STORE + " ," +
@@ -246,7 +256,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS +
+                    LoyaltyCardDbIds.STAR_STATUS + " ," +
+                    LoyaltyCardDbIds.ARCHIVE_STATUS +
                     " FROM tmp");
 
             db.execSQL("DROP TABLE tmp");
@@ -349,7 +360,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final SQLiteDatabase database, final String store, final String note, final Date expiry,
             final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
-            final int starStatus, final Long lastUsed) {
+            final int starStatus, final Long lastUsed,final int archiveStatus) {
         database.beginTransaction();
 
         // Card
@@ -364,6 +375,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         long id = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
@@ -380,7 +392,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final SQLiteDatabase database, final int id, final String store, final String note,
             final Date expiry, final BigDecimal balance, final Currency balanceType,
             final String cardId, final String barcodeId, final CatimaBarcode barcodeType,
-            final Integer headerColor, final int starStatus, final Long lastUsed) {
+            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
 
         // Card
@@ -396,6 +408,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
@@ -437,6 +450,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return (rowsUpdated == 1);
     }
+
+    public static boolean getLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id) {
+
+        String[] columns = new String[1];
+        columns[0] = LoyaltyCardDbIds.ARCHIVE_STATUS;
+
+        Cursor data = database.query(LoyaltyCardDbIds.TABLE, columns, whereAttrs(LoyaltyCardDbIds.CARD_ID), withArgs(id), null, null, null);
+        boolean status = false;
+        Integer number = null;
+
+        if (data.getCount() == 1) {
+            data.moveToFirst();
+            number = data.getInt(data.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS));
+        }
+        data.close();
+
+        if(number == 1)
+            status = true;
+
+        return status;
+    }
+
 
     public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) {
         ContentValues contentValues = new ContentValues();

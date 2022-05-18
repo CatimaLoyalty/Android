@@ -120,10 +120,11 @@ public class FidmeImporter implements Importer {
 
         // No favourite data or colour in the export either
         int starStatus = 0;
+        int archiveStatus = 0;
         int headerColor = Utils.getRandomHeaderColor(context);
 
         // TODO: Front and back image
 
-        DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, null);
+        DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, null,archiveStatus);
     }
 }

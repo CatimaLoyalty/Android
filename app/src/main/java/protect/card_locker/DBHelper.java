@@ -451,6 +451,51 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
+    //esto ando haciendo
+    public static void insertIntoArchiveGroup(SQLiteDatabase database, final int id){
+       Group group = getGroup(database,"Archived");
+
+       //esto no tiene que ser asi porque no tienes que crear una tabla que se llama archived sino que crear una tabla como ALL/TODO
+       if(group == null){
+           insertGroup(database,"Archived");
+           insertIntoLoyaltyCardDbIdsGroups(database,id);
+       }
+
+       //delete the card from all the groups
+        database.delete(LoyaltyCardDbIdsGroups.TABLE,
+                whereAttrs(LoyaltyCardDbIdsGroups.cardID),
+                withArgs(id));
+
+        // Delete FTS table entries
+        database.delete(LoyaltyCardDbFTS.TABLE,
+                whereAttrs(LoyaltyCardDbFTS.ID),
+                withArgs(id));
+    }
+
+    public static long insertIntoLoyaltyCardDbIdsGroups(SQLiteDatabase database, final int cardId) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIdsGroups.cardID, cardId);
+        contentValues.put(LoyaltyCardDbIdsGroups.groupID, "Archived");
+
+        return database.insert(LoyaltyCardDbIdsGroups.TABLE, null, contentValues);
+    }
+
+    /*public static long deleteFromArchiveGroup(SQLiteDatabase database, final int cardId){
+
+        int count = getGroupCardCount(database,"Archived");
+
+        if(count > 0){
+
+        }
+        else{
+
+        }
+
+        database.delete(LoyaltyCardDbFTS.TABLE,
+                whereAttrs(LoyaltyCardDbFTS.ID),
+                withArgs(id));
+    }*/
+
     public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
@@ -733,6 +778,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return cardIds;
     }
+
 
     public static long insertGroup(SQLiteDatabase database, final String name) {
         if (name.isEmpty()) return -1;

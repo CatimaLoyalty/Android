@@ -1322,12 +1322,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         if (updateLoyaltyCard) {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
+            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
+            archived = loyaltyCard.archiveStatus != 0;
         } else {
             getMenuInflater().inflate(R.menu.card_add_menu, menu);
         }
-
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
-        archived = loyaltyCard.archiveStatus != 0;
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -1371,9 +1370,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             case R.id.action_archive_unarchive:
                 archived = !archived;
-                if(archived)
+                if(archived) {
+                    DBHelper.insertIntoArchiveGroup(mDatabase,loyaltyCardId);
                     Toast.makeText(LoyaltyCardEditActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+                }
                 else{
+                    //DBHelper.deleteFromArchiveGroup(mDatabase,Integer.parseInt(tempLoyaltyCard.cardId));
                     Toast.makeText(LoyaltyCardEditActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
                 }
                 DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCardId, archived ? 1 : 0);

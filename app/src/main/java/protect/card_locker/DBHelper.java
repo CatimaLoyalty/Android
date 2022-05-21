@@ -3,12 +3,15 @@ package protect.card_locker;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
@@ -70,6 +73,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public enum LoyaltyCardOrderDirection {
         Ascending,
         Descending
+    }
+
+    public enum LoyaltyCardArchiveFilter{
+        Archived,
+        Unarchived
     }
 
     public DBHelper(Context context) {
@@ -451,51 +459,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
-    //esto ando haciendo
-    public static void insertIntoArchiveGroup(SQLiteDatabase database, final int id){
-       Group group = getGroup(database,"Archived");
-
-       //esto no tiene que ser asi porque no tienes que crear una tabla que se llama archived sino que crear una tabla como ALL/TODO
-       if(group == null){
-           insertGroup(database,"Archived");
-           insertIntoLoyaltyCardDbIdsGroups(database,id);
-       }
-
-       //delete the card from all the groups
-        database.delete(LoyaltyCardDbIdsGroups.TABLE,
-                whereAttrs(LoyaltyCardDbIdsGroups.cardID),
-                withArgs(id));
-
-        // Delete FTS table entries
-        database.delete(LoyaltyCardDbFTS.TABLE,
-                whereAttrs(LoyaltyCardDbFTS.ID),
-                withArgs(id));
-    }
-
-    public static long insertIntoLoyaltyCardDbIdsGroups(SQLiteDatabase database, final int cardId) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(LoyaltyCardDbIdsGroups.cardID, cardId);
-        contentValues.put(LoyaltyCardDbIdsGroups.groupID, "Archived");
-
-        return database.insert(LoyaltyCardDbIdsGroups.TABLE, null, contentValues);
-    }
-
-    /*public static long deleteFromArchiveGroup(SQLiteDatabase database, final int cardId){
-
-        int count = getGroupCardCount(database,"Archived");
-
-        if(count > 0){
-
-        }
-        else{
-
-        }
-
-        database.delete(LoyaltyCardDbFTS.TABLE,
-                whereAttrs(LoyaltyCardDbFTS.ID),
-                withArgs(id));
-    }*/
-
     public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
@@ -504,7 +467,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 withArgs(id));
         return (rowsUpdated == 1);
     }
-
 
     public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) {
         ContentValues contentValues = new ContentValues();
@@ -640,7 +602,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending);
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Archived);
     }
 
     /**
@@ -651,7 +613,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @param order
      * @return Cursor
      */
-    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction) {
+    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, String filter, Group group, LoyaltyCardOrder order, LoyaltyCardOrderDirection direction, LoyaltyCardArchiveFilter archiveFilter) {
         StringBuilder groupFilter = new StringBuilder();
         String limitString = "";
 
@@ -674,19 +636,41 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }
 
+        StringBuilder archiveString = new StringBuilder();
+        if(archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived))
+            archiveString.append(" WHERE " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 ");
+        else{
+            archiveString.append(" ");
+        }
+
         String orderField = getFieldForOrder(order);
 
         return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
-                groupFilter.toString() +
+                groupFilter.toString() + archiveString.toString()+
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
                 limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
     }
+
+    //ESTO LO UTILIZO DE PRUEBA
+    public static Cursor getArchivedCardsCursor(SQLiteDatabase database, LoyaltyCardArchiveFilter filter){
+        Cursor result;
+
+        if(filter.equals(LoyaltyCardArchiveFilter.Archived)){
+            result = database.query(LoyaltyCardDbIds.TABLE, null, whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(1), null, null, null);
+        }
+        else{
+            result = database.query(LoyaltyCardDbIds.TABLE, null, whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(0), null, null, null);
+        }
+
+        return result;
+    }
+
 
     /**
      * Returns the amount of loyalty cards.

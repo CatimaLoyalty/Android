@@ -30,4 +30,10 @@
         android:titleCondensed="@string/delete"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/action_archive_unarchive"
+        android:icon="@drawable/ic_baseline_archive_24"
+        android:title="@string/archive_unarchive"
+        android:titleCondensed="@string/archive_unarchive"
+        app:showAsAction="ifRoom"/>
 </menu>

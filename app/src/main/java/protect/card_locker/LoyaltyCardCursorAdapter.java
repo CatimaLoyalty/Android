@@ -132,6 +132,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 
         inputHolder.toggleStar(loyaltyCard.starStatus != 0, itemSelected(inputCursor.getPosition()));
+        inputHolder.toogleArchived(loyaltyCard.archiveStatus != 0);
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -235,6 +236,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
         public MaterialCardView mRow, mIconLayout;
         public ConstraintLayout mStar;
+        public ConstraintLayout mArchived;
         public View mDivider;
 
         private int mIconBackgroundColor;
@@ -251,6 +253,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mIconLayout = inputView.findViewById(R.id.icon_layout);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStar = inputView.findViewById(R.id.star);
+            mArchived = inputView.findViewById(R.id.archivedIcon);
             mStarBackground = inputView.findViewById(R.id.star_background);
             mStarBorder = inputView.findViewById(R.id.star_border);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
@@ -354,6 +357,14 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public void setIconBackgroundColor(int color) {
             mIconBackgroundColor = color;
             mCardIcon.setBackgroundColor(color);
+        }
+
+        public void toogleArchived(boolean enable){
+            if (enable) {
+                mArchived.setVisibility(View.VISIBLE);
+            } else {
+                mArchived.setVisibility(View.GONE);
+            }
         }
     }
 

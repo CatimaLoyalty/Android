@@ -740,6 +740,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", loyaltyCardId);
+                bundle.putBoolean("update", true);
                 bundle.putBoolean("duplicateId", true);
                 intent.putExtras(bundle);
                 startActivity(intent);

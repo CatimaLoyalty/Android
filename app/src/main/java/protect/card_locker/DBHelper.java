@@ -657,21 +657,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
     }
 
-    //ESTO LO UTILIZO DE PRUEBA
-    public static Cursor getArchivedCardsCursor(SQLiteDatabase database, LoyaltyCardArchiveFilter filter){
-        Cursor result;
-
-        if(filter.equals(LoyaltyCardArchiveFilter.Archived)){
-            result = database.query(LoyaltyCardDbIds.TABLE, null, whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(1), null, null, null);
-        }
-        else{
-            result = database.query(LoyaltyCardDbIds.TABLE, null, whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(0), null, null, null);
-        }
-
-        return result;
-    }
-
-
     /**
      * Returns the amount of loyalty cards.
      *

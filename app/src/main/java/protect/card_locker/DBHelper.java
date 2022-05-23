@@ -77,7 +77,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public enum LoyaltyCardArchiveFilter{
         Archived,
-        Unarchived
+        Unarchived,
+        All
     }
 
     public DBHelper(Context context) {
@@ -138,9 +139,6 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 4 && newVersion >= 4) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'");
-
-            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
-                    + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0'");
         }
 
         if (oldVersion < 5 && newVersion >= 5) {
@@ -321,6 +319,11 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' ");
         }
+
+        if (oldVersion < 15 && newVersion >= 15) {
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0'");
+        }
     }
 
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {
@@ -383,8 +386,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
-        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         long id = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -416,8 +419,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
-        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -602,7 +605,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Archived);
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Unarchived);
     }
 
     /**

@@ -143,7 +143,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                 builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
-                        Log.e(TAG, "Deleting card: " + loyaltyCard.id);
+                        Log.d(TAG, "Deleting card: " + loyaltyCard.id);
 
                         DBHelper.deleteLoyaltyCard(mDatabase, MainActivity.this, loyaltyCard.id);
 
@@ -165,7 +165,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
             else if(inputItem.getItemId() == R.id.action_archive_unarchive){
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
-                    Log.e(TAG, "Archiving card: " + loyaltyCard.id);
+                    Log.d(TAG, "Archiving card: " + loyaltyCard.id);
                     int num;
                     if(loyaltyCard.archiveStatus == 0){
                         num = 1;

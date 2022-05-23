@@ -94,7 +94,21 @@
                 android:layout_gravity="end">
 
                 <ImageView
-                    android:id="@+id/archive"
+                    android:id="@+id/archive_background"
+                    android:layout_width="42dp"
+                    android:layout_height="151dp"
+                    android:layout_gravity="end"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/archived"
+                    android:elevation="4dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_archive_24"
+                    tools:ignore="ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/archive_border"
                     android:layout_width="42dp"
                     android:layout_height="151dp"
                     android:layout_gravity="end"

@@ -752,7 +752,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         onResuming = true;
 
-
         if (tempLoyaltyCard == null) {
             if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 tempLoyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
@@ -1319,7 +1318,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
+        if (updateLoyaltyCard) {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
         } else {
             getMenuInflater().inflate(R.menu.card_add_menu, menu);

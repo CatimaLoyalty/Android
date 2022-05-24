@@ -279,5 +279,7 @@
     <string name="archived">Card archived</string>
     <string name="unarchive">Unarchive</string>
     <string name="showArchived">show archived</string>
-    <string name="sharedpreference_sort_filter" translatable="false">sharedpreference_sort_filter</string>
+    <string name="sharedpreference_show_archived" translatable="false">sharedpreference_show_archived</string>
+    <string name="archiveAll">Archive all</string>
+    <string name="unarchiveAll">Unarchive all</string>
 </resources>

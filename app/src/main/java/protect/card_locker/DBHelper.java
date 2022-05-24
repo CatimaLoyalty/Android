@@ -76,9 +76,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public enum LoyaltyCardArchiveFilter{
-        Archived,
-        Unarchived,
-        All
+        All,
+        Active
     }
 
     public DBHelper(Context context) {
@@ -605,7 +604,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Unarchived);
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Active);
     }
 
     /**
@@ -640,7 +639,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         StringBuilder archiveString = new StringBuilder();
-        if(archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived))
+        if(archiveFilter.equals(LoyaltyCardArchiveFilter.Active))
             archiveString.append(" WHERE " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 ");
         else{
             archiveString.append(" ");

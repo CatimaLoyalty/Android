@@ -21,4 +21,19 @@
         android:icon="@drawable/ic_unstarred_white"
         android:title="@string/star"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_archive"
+        android:icon="@drawable/ic_baseline_archive_24"
+        android:title="@string/archive"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_unarchive"
+        android:icon="@drawable/ic_baseline_archive_24"
+        android:title="@string/unarchive"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:title="@string/delete"
+        app:showAsAction="never"/>
 </menu>

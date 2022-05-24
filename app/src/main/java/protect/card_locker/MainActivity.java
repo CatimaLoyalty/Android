@@ -52,7 +52,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected Object mGroup = null;
     protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
-    protected DBHelper.LoyaltyCardArchiveFilter mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Archived;
+    protected DBHelper.LoyaltyCardArchiveFilter mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Active;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -163,17 +163,19 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                 return true;
             }
-            else if(inputItem.getItemId() == R.id.action_archive_unarchive){
+            else if(inputItem.getItemId() == R.id.action_archive){
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Archiving card: " + loyaltyCard.id);
-                    int num;
-                    if(loyaltyCard.archiveStatus == 0){
-                        num = 1;
-                    }
-                    else{
-                        num = 0;
-                    }
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,num);
+                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,1);
+                    updateLoyaltyCardList(false);
+                    inputMode.finish();
+                }
+                return true;
+            }
+            else if(inputItem.getItemId() == R.id.action_unarchive){
+                for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
+                    Log.d(TAG, "Unarchieving card: " + loyaltyCard.id);
+                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,0);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                 }
@@ -341,7 +343,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         try {
             mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
             mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
-            mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_filter), null));
+            mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.valueOf(sortPref.getString(getString(R.string.sharedpreference_show_archived), null));
         } catch (IllegalArgumentException | NullPointerException ignored) {
         }
 
@@ -399,7 +401,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             group = (Group) mGroup;
         }
 
-        //todo
         mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection,mArchiveFilter));
 
         if (updateCount) {
@@ -541,22 +542,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             CheckBox showArchived = (CheckBox) customLayout.findViewById(R.id.checkBox_archived);
 
             ch.setChecked(mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending);
-            showArchived.setChecked(mArchiveFilter == DBHelper.LoyaltyCardArchiveFilter.Archived);
+            showArchived.setChecked(mArchiveFilter == DBHelper.LoyaltyCardArchiveFilter.All);
 
             builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
 
             builder.setPositiveButton(R.string.sort, (dialog, which) -> {
 
-                if (ch.isChecked())
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending);
-                else if(!ch.isChecked()) {
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending);
+                if (ch.isChecked() && showArchived.isChecked())
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending, DBHelper.LoyaltyCardArchiveFilter.All);
+                else if(!ch.isChecked() && showArchived.isChecked()) {
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.All);
                 }
-
-                if(showArchived.isChecked())
-                    setArchivedSort(DBHelper.LoyaltyCardArchiveFilter.Archived);
-                else if(!showArchived.isChecked()){
-                    setArchivedSort(DBHelper.LoyaltyCardArchiveFilter.Unarchived);
+                else if(ch.isChecked() && !showArchived.isChecked()){
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending, DBHelper.LoyaltyCardArchiveFilter.Active);
+                }
+                else if(!ch.isChecked() && !showArchived.isChecked()){
+                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Active);
                 }
 
                 dialog.dismiss();
@@ -597,10 +598,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         return super.onOptionsItemSelected(inputItem);
     }
 
-    private void setSort(DBHelper.LoyaltyCardOrder order, DBHelper.LoyaltyCardOrderDirection direction) {
+    private void setSort(DBHelper.LoyaltyCardOrder order, DBHelper.LoyaltyCardOrderDirection direction, DBHelper.LoyaltyCardArchiveFilter archived) {
         // Update values
         mOrder = order;
         mOrderDirection = direction;
+        mArchiveFilter = archived;
 
         // Store in Shared Preference to restore next app launch
         SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
@@ -609,22 +611,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         SharedPreferences.Editor sortPrefEditor = sortPref.edit();
         sortPrefEditor.putString(getString(R.string.sharedpreference_sort_order), order.name());
         sortPrefEditor.putString(getString(R.string.sharedpreference_sort_direction), direction.name());
-        sortPrefEditor.apply();
-
-        // Update card list
-        updateLoyaltyCardList(false);
-    }
-
-    private void setArchivedSort(DBHelper.LoyaltyCardArchiveFilter filter){
-        // Update values
-        mArchiveFilter = filter;
-
-        // Store in Shared Preference to restore next app launch
-        SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_sort),
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor sortPrefEditor = sortPref.edit();
-        sortPrefEditor.putString(getString(R.string.sharedpreference_sort_filter), filter.name());
+        sortPrefEditor.putString(getString(R.string.sharedpreference_show_archived), archived.name());
         sortPrefEditor.apply();
 
         // Update card list
@@ -731,14 +718,24 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mCurrentActionMode.setTitle(getResources().getQuantityString(R.plurals.selectedCardCount, count, count));
 
             MenuItem editItem = mCurrentActionMode.getMenu().findItem(R.id.action_edit);
-
-            MenuItem archiveItem = mCurrentActionMode.getMenu().findItem(R.id.action_archive_unarchive);
+            MenuItem archiveItem = mCurrentActionMode.getMenu().findItem(R.id.action_archive);
+            MenuItem unarchiveItem = mCurrentActionMode.getMenu().findItem(R.id.action_unarchive);
             archiveItem.setVisible(true);
+            unarchiveItem.setVisible(true);
+            LoyaltyCard loyaltyCard = mAdapter.getSelectedItems().get(0);
 
             if (count == 1) {
+                if(loyaltyCard.archiveStatus != 0){
+                    archiveItem.setVisible(false);
+                }
+                else{
+                    unarchiveItem.setVisible(false);
+                }
                 editItem.setVisible(true);
                 editItem.setEnabled(true);
             } else {
+                archiveItem.setTitle(R.string.archiveAll);
+                unarchiveItem.setTitle(R.string.unarchiveAll);
                 editItem.setVisible(false);
                 editItem.setEnabled(false);
             }

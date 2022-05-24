@@ -185,8 +185,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean mBackImageRemoved = false;
     boolean mIconRemoved = false;
 
-    boolean archived = false;
-
     final private TaskHandler mTasks = new TaskHandler();
 
     // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
@@ -1322,28 +1320,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         if (updateLoyaltyCard) {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
-            LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
-            archived = loyaltyCard.archiveStatus != 0;
         } else {
             getMenuInflater().inflate(R.menu.card_add_menu, menu);
         }
 
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        if (updateLoyaltyCard) {
-            super.onPrepareOptionsMenu(menu);
-            if (archived) {
-                menu.findItem(R.id.action_archive_unarchive).setIcon(getIcon(R.drawable.ic_baseline_archive_24, false));
-                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.archive);
-            } else {
-                menu.findItem(R.id.action_archive_unarchive).setIcon(getIcon(R.drawable.ic_baseline_archive_24, true));
-                menu.findItem(R.id.action_archive_unarchive).setTitle(R.string.unarchive);
-            }
-        }
-        return true;
     }
 
     private Drawable getIcon(int icon, boolean dark) {
@@ -1367,38 +1348,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             case android.R.id.home:
                 askBeforeQuitIfChanged();
                 break;
-
-            case R.id.action_archive_unarchive:
-                archived = !archived;
-                if(archived) {
-                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(LoyaltyCardEditActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
-                }
-                DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCardId, archived ? 1 : 0);
-                invalidateOptionsMenu();
-                return true;
-
-            case R.id.action_delete:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.deleteTitle);
-                builder.setMessage(R.string.deleteConfirmation);
-                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                    Log.e(TAG, "Deleting card: " + loyaltyCardId);
-
-                    DBHelper.deleteLoyaltyCard(mDatabase, LoyaltyCardEditActivity.this, loyaltyCardId);
-
-                    ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
-
-                    finish();
-                    dialog.dismiss();
-                });
-                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                return true;
         }
 
         return super.onOptionsItemSelected(item);

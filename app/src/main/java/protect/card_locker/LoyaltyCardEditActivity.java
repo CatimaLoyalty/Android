@@ -777,9 +777,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (!initDone) {
-            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
+            if (updateLoyaltyCard) {
                 setTitle(R.string.editCardTitle);
-
+            } else {
+                setTitle(R.string.addCardTitle);
+            }
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
                     setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.front), true);
                 }
@@ -789,18 +792,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 if (!mIconUnsaved && !croppedIcon() && !mIconRemoved) {
                     setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.icon), false);
                 }
-            } else {
-                setTitle(R.string.addCardTitle);
-            }
-
-            if (mFrontImageUnsaved && !croppedFrontImage()) {
-                setCardImage(cardImageFront, Utils.loadTempImage(this, TEMP_UNSAVED_FRONT_IMAGE_NAME), true);
-            }
-            if (mBackImageUnsaved && !croppedBackImage()) {
-                setCardImage(cardImageBack, Utils.loadTempImage(this, TEMP_UNSAVED_BACK_IMAGE_NAME), true);
-            }
-            if (mIconUnsaved && !croppedIcon()) {
-                setCardImage(thumbnail, Utils.loadTempImage(this, TEMP_UNSAVED_ICON_NAME), false);
             }
         }
 

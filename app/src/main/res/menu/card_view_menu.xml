@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/action_duplicate"
-        android:icon="@drawable/ic_duplicate"
         android:title="@string/duplicateCard"
         app:showAsAction="never" />
     <item

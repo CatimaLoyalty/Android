@@ -754,7 +754,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
 
         if (tempLoyaltyCard == null) {
-            if (updateLoyaltyCard) {
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 tempLoyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
                 if (tempLoyaltyCard == null) {
                     Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
@@ -778,7 +778,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (!initDone) {
-            if (updateLoyaltyCard) {
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 setTitle(R.string.editCardTitle);
 
                 if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
@@ -1319,7 +1319,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (updateLoyaltyCard) {
+        if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
             getMenuInflater().inflate(R.menu.card_update_menu, menu);
         } else {
             getMenuInflater().inflate(R.menu.card_add_menu, menu);

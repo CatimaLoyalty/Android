@@ -698,7 +698,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
-        menu.findItem(R.id.action_duplicate).setIcon(getIcon(R.drawable.ic_duplicate, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
@@ -742,7 +741,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", loyaltyCardId);
                 bundle.putBoolean("duplicateId", true);
-                bundle.putBoolean("update", true);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 return true;

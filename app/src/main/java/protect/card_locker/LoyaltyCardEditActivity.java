@@ -793,6 +793,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.icon), false);
                 }
             }
+            else {
+                if (mFrontImageUnsaved && !croppedFrontImage()) {
+                    setCardImage(cardImageFront, Utils.loadTempImage(this, TEMP_UNSAVED_FRONT_IMAGE_NAME), true);
+                }
+                if (mBackImageUnsaved && !croppedBackImage()) {
+                    setCardImage(cardImageBack, Utils.loadTempImage(this, TEMP_UNSAVED_BACK_IMAGE_NAME), true);
+                }
+                if (mIconUnsaved && !croppedIcon()) {
+                    setCardImage(thumbnail, Utils.loadTempImage(this, TEMP_UNSAVED_ICON_NAME), false);
+                }
+            }
         }
 
         mCropperFinishedType = 0;

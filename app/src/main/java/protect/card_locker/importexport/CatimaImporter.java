@@ -325,7 +325,7 @@ public class CatimaImporter implements Importer {
         try {
             archiveStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS, record, false);
         } catch (FormatException _e) {
-            // This field did not exist in versions 0.28 and before
+            // This field did not exist in versions 2.16.3 and before
             // We catch this exception so we can still import old backups
         }
         if (archiveStatus != 1) archiveStatus = 0;

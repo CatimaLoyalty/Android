@@ -339,43 +339,40 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             if (colorByTheme) {
                 dark = !mDarkModeEnabled;
             }
-            if(enableStar) {
-                if (dark) {
-                    mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
-                    mStarBackground.setImageResource(R.drawable.ic_starred_black);
-                } else {
-                    mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
-                    mStarBackground.setImageResource(R.drawable.ic_starred_white);
-                }
 
-                if (enableStar) {
-                    mStar.setVisibility(View.VISIBLE);
-                } else {
-                    mStar.setVisibility(View.GONE);
-                }
-
-                mStarBorder.invalidate();
-                mStarBackground.invalidate();
-
+            if (dark) {
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
+                mStarBackground.setImageResource(R.drawable.ic_starred_black);
+            } else {
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
+                mStarBackground.setImageResource(R.drawable.ic_starred_white);
             }
 
-            if(enableArchive){
-                if (dark) {
-                    mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24);
-                    mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
-                } else {
-                    mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24_black);
-                    mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
-                }
-                if (enableArchive) {
-                    mArchived.setVisibility(View.VISIBLE);
-                } else {
-                    mArchived.setVisibility(View.GONE);
-                }
-
-                mArchivedBorder.invalidate();
-                mArchivedBackground.invalidate();
+            if (enableStar) {
+                mStar.setVisibility(View.VISIBLE);
+            } else {
+                mStar.setVisibility(View.GONE);
             }
+
+            mStarBorder.invalidate();
+            mStarBackground.invalidate();
+
+            if (dark) {
+                mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24);
+                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
+            } else {
+                mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24_black);
+                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
+            }
+
+            if (enableArchive) {
+                mArchived.setVisibility(View.VISIBLE);
+            } else {
+                mArchived.setVisibility(View.GONE);
+            }
+
+            mArchivedBorder.invalidate();
+            mArchivedBackground.invalidate();
 
         }
 

@@ -1284,7 +1284,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             selectedGroups.add((Group) chip.getTag());
         }
 
-        if (updateLoyaltyCard && !duplicateFromLoyaltyCardId) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
+        if (updateLoyaltyCard) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
             DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);

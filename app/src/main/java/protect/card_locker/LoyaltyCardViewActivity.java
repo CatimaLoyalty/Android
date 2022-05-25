@@ -775,13 +775,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             case R.id.action_archive:
                 DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
                 invalidateOptionsMenu();
                 return true;
 
             case R.id.action_unarchive:
                 DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
                 invalidateOptionsMenu();
                 return true;
 

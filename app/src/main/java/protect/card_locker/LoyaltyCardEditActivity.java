@@ -1307,10 +1307,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
-        if(duplicateFromLoyaltyCardId){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
         finish();
     }
 

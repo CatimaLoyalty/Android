@@ -708,7 +708,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             menu.findItem(R.id.action_archive).setVisible(true);
         }
 
-        menu.findItem(R.id.action_duplicate).setIcon(getIcon(R.drawable.ic_duplicate, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
@@ -725,7 +724,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             menu.findItem(R.id.action_star_unstar).setIcon(getIcon(R.drawable.ic_unstarred_white, backgroundNeedsDarkIcons));
             menu.findItem(R.id.action_star_unstar).setTitle(R.string.star);
         }
-
         return true;
     }
 
@@ -752,7 +750,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", loyaltyCardId);
-                bundle.putBoolean("update", true);
                 bundle.putBoolean("duplicateId", true);
                 intent.putExtras(bundle);
                 startActivity(intent);

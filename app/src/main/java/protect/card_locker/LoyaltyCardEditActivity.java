@@ -8,12 +8,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -70,15 +68,12 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
-import androidx.palette.graphics.Palette;
 
 import protect.card_locker.async.TaskHandler;
 
@@ -160,8 +155,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean initDone = false;
     boolean onResuming = false;
     AlertDialog confirmExitDialog = null;
-    
-    //comentario
 
     boolean validBalance = true;
     Runnable barcodeImageGenerationFinishedCallback;
@@ -1314,6 +1307,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
+        if(duplicateFromLoyaltyCardId){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
         finish();
     }
 
@@ -1326,19 +1323,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         return super.onCreateOptionsMenu(menu);
-    }
-
-    private Drawable getIcon(int icon, boolean dark) {
-        Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
-        assert unwrappedIcon != null;
-        Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
-        if (dark) {
-            DrawableCompat.setTint(wrappedIcon, Color.BLACK);
-        } else {
-            DrawableCompat.setTintList(wrappedIcon, null);
-        }
-
-        return wrappedIcon;
     }
 
     @Override

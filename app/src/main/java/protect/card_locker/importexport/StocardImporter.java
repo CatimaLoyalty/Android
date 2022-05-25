@@ -3,6 +3,7 @@ package protect.card_locker.importexport;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -39,6 +40,8 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class StocardImporter implements Importer {
+    private static final String TAG = "Catima";
+
     public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
@@ -201,6 +204,12 @@ public class StocardImporter implements Importer {
 
         for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
             String providerId = (String) loyaltyCardData.get("_providerId");
+
+            if (providerId == null) {
+                Log.d(TAG, "Missing providerId for card " + loyaltyCardData + ", ignoring...");
+                continue;
+            }
+
             HashMap<String, Object> providerData = providers.get(providerId);
 
             String store = providerData != null ? providerData.get("name").toString() : providerId;
@@ -211,6 +220,8 @@ public class StocardImporter implements Importer {
             if (barcodeTypeString != null && !barcodeTypeString.isEmpty()) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
                     barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.RSS_EXPANDED);
+                } else if (barcodeTypeString.equals("GS1_128")) {
+                    barcodeType = CatimaBarcode.fromBarcode(BarcodeFormat.CODE_128);
                 } else {
                     barcodeType = CatimaBarcode.fromName(barcodeTypeString);
                 }

@@ -168,8 +168,8 @@
     <string name="turn_flashlight_off">Skru av lommelykten</string>
     <string name="deleteTitle">Slett kort</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kort</item>
-        <item quantity="other">Slett <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> kort</item>
+        <item quantity="one">Slett <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Slett <xliff:g>%d</xliff:g> kort</item>
     </plurals>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>

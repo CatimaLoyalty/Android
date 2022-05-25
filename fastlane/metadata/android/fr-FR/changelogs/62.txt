@@ -1,0 +1,1 @@
+- Correction de l'équilibre de l'analyse pour les pays utilisant un espace comme séparateur

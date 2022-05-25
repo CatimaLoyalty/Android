@@ -109,6 +109,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
 
     public static final String BUNDLE_ID = "id";
+    public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
     public static final String BUNDLE_UPDATE = "update";
     public static final String BUNDLE_CARDID = "cardId";
     public static final String BUNDLE_BARCODEID = "barcodeId";
@@ -141,6 +142,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
+    boolean duplicateFromLoyaltyCardId;
     String cardId;
     String barcodeId;
     String barcodeType;
@@ -224,6 +226,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
         updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
+        duplicateFromLoyaltyCardId = b != null && b.getBoolean(BUNDLE_DUPLICATE_ID, false);
 
         cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
         barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
@@ -750,9 +753,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         onResuming = true;
 
-
         if (tempLoyaltyCard == null) {
-            if (updateLoyaltyCard) {
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 tempLoyaltyCard = DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId);
                 if (tempLoyaltyCard == null) {
                     Log.w(TAG, "Could not lookup loyalty card " + loyaltyCardId);
@@ -778,7 +780,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         if (!initDone) {
             if (updateLoyaltyCard) {
                 setTitle(R.string.editCardTitle);
+            } else {
+                setTitle(R.string.addCardTitle);
+            }
 
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
                     setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.front), true);
                 }
@@ -1308,6 +1314,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
+        if(duplicateFromLoyaltyCardId){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
         finish();
     }
 

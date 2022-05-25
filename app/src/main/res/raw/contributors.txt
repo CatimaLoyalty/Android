@@ -5,12 +5,12 @@ Allan Nordhøy
 Heimen Stoffels
 solokot
 Katharine Chui
-mondstern
 Oğuz Ersen
-Altonss
+mondstern
 IllusiveMan196
-Petr Novák
+Altonss
 StoyanDimitrov
+Petr Novák
 Joel A
 Taco
 Gediminas Murauskas
@@ -23,12 +23,12 @@ Sergio Paredes
 huuhaa
 laralem
 arshbeerSingh
+Quentin PAGÈS
 Miha Frangež
 sr093906
 mdvhimself
 Maciej Błędkowski
 Olivia (Zoe)
-Quentin PAGÈS
 betsythefc
 Silvério Santos
 waffshappen
@@ -58,7 +58,7 @@ phlostically
 Aditya Das
 Kevin Sicong Jiang
 Airat
-Andreas Blaser
+sNiXx
 BMN
 Biren
 Mylou53
@@ -67,12 +67,14 @@ Eric
 Flav
 Franciszek Stefan
 Giovanni
+Grzegorz
 Izzy
 Karol Kosek
 bittin
 Marco
 Mattia
 Michael Gangolf
+Moi Toi
 pbeckmann
 Peer Beckmann
 Quang Nguyen
@@ -82,11 +84,13 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 Simone Dotto
+SlavekB
 Subhashish Anand
+darkodo
 Tymofii Lytvynenko
 Tjipke van der Heide
 Yevgeny M
-avikkundu
+Avik Kundu
 opsik
 psa-jforestier
 Robin

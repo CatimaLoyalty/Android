@@ -1,2 +1,2 @@
-- Відкат min SDK з версії 17 до 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
-- Стара бібліотека apache тепер використовується лише для тестів. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))
+- Відкат min SDK з версії 17 до 15
+- Стара бібліотека apache тепер використовується лише для тестів

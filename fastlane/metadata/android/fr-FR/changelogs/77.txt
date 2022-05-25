@@ -1,0 +1,4 @@
+- Amélioration de l'importateur Stocard
+- Correction de l'import d'un export Catima avec une note multiligne
+- Titre de la carte maintenant à l'échelle dans une plage acceptable
+- Amélioration des animations

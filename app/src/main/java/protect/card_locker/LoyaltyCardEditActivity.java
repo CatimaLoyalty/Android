@@ -160,6 +160,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean initDone = false;
     boolean onResuming = false;
     AlertDialog confirmExitDialog = null;
+    
+    //comentario
 
     boolean validBalance = true;
     Runnable barcodeImageGenerationFinishedCallback;

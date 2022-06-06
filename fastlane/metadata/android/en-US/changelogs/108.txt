@@ -1,1 +1,2 @@
 - Add card duplication feature
+- Don't allow choosing expiries before 1970 (they never worked anyway)

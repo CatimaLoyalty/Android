@@ -3,7 +3,7 @@
 ## Unreleased - 108
 
 - Add card duplication feature
-- Don't allow choosing expiries before 1970 (they never worked anyway)
+- Don't allow choosing expiry before 1970 (they never worked anyway)
 
 ## v2.16.3 - 107 (2022-04-15)
 

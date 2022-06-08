@@ -343,34 +343,31 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             if (dark) {
                 mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
                 mStarBackground.setImageResource(R.drawable.ic_starred_black);
-            } else {
-                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
-                mStarBackground.setImageResource(R.drawable.ic_starred_white);
-            }
 
-            if (enableStar) {
-                mStar.setVisibility(View.VISIBLE);
-            } else {
-                mStar.setVisibility(View.GONE);
-            }
-
-            mStarBorder.invalidate();
-            mStarBackground.invalidate();
-
-            if (dark) {
                 mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24);
                 mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
             } else {
+                mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
+                mStarBackground.setImageResource(R.drawable.ic_starred_white);
+
                 mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24_black);
                 mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
             }
 
+            if (enableStar) {
+                mStar.setVisibility(View.VISIBLE);
+            } else{
+                mStar.setVisibility(View.GONE);
+            }
+
             if (enableArchive) {
                 mArchived.setVisibility(View.VISIBLE);
-            } else {
+            } else{
                 mArchived.setVisibility(View.GONE);
             }
 
+            mStarBorder.invalidate();
+            mStarBackground.invalidate();
             mArchivedBorder.invalidate();
             mArchivedBackground.invalidate();
 

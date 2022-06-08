@@ -538,27 +538,21 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
             builder.setView(customLayout);
 
-            CheckBox ch = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
+            CheckBox showReversed = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
             CheckBox showArchived = (CheckBox) customLayout.findViewById(R.id.checkBox_archived);
 
-            ch.setChecked(mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending);
+            showReversed.setChecked(mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending);
             showArchived.setChecked(mArchiveFilter == DBHelper.LoyaltyCardArchiveFilter.All);
 
             builder.setSingleChoiceItems(R.array.sort_types_array, currentIndex.get(), (dialog, which) -> currentIndex.set(which));
 
             builder.setPositiveButton(R.string.sort, (dialog, which) -> {
 
-                if (ch.isChecked() && showArchived.isChecked())
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending, DBHelper.LoyaltyCardArchiveFilter.All);
-                else if(!ch.isChecked() && showArchived.isChecked()) {
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.All);
-                }
-                else if(ch.isChecked() && !showArchived.isChecked()){
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Descending, DBHelper.LoyaltyCardArchiveFilter.Active);
-                }
-                else if(!ch.isChecked() && !showArchived.isChecked()){
-                    setSort(loyaltyCardOrders.get(currentIndex.get()), DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Active);
-                }
+                setSort(
+                        loyaltyCardOrders.get(currentIndex.get()),
+                        showReversed.isChecked() ? DBHelper.LoyaltyCardOrderDirection.Descending : DBHelper.LoyaltyCardOrderDirection.Ascending,
+                        showArchived.isChecked() ? DBHelper.LoyaltyCardArchiveFilter.All : DBHelper.LoyaltyCardArchiveFilter.Active
+                );
 
                 dialog.dismiss();
             });

@@ -190,8 +190,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
 
             db.execSQL("INSERT INTO tmp (" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -204,8 +203,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS + " ," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS + ")" +
+                    LoyaltyCardDbIds.STAR_STATUS + ")" +
                     " SELECT " +
                     LoyaltyCardDbIds.ID + " ," +
                     LoyaltyCardDbIds.STORE + " ," +
@@ -217,8 +215,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     " NULLIF(" + LoyaltyCardDbIds.BARCODE_TYPE + ",'') ," +
-                    LoyaltyCardDbIds.STAR_STATUS + " ," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS +
+                    LoyaltyCardDbIds.STAR_STATUS +
                     " FROM " + LoyaltyCardDbIds.TABLE);
 
             db.execSQL("DROP TABLE " + LoyaltyCardDbIds.TABLE);
@@ -234,8 +231,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' ," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
 
             db.execSQL("INSERT INTO " + LoyaltyCardDbIds.TABLE + "(" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -248,8 +244,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS + " ," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS + ")" +
+                    LoyaltyCardDbIds.STAR_STATUS +  ")" +
                     " SELECT " +
                     LoyaltyCardDbIds.ID + " ," +
                     LoyaltyCardDbIds.STORE + " ," +
@@ -261,8 +256,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS + " ," +
-                    LoyaltyCardDbIds.ARCHIVE_STATUS +
+                    LoyaltyCardDbIds.STAR_STATUS +
                     " FROM tmp");
 
             db.execSQL("DROP TABLE tmp");
@@ -317,11 +311,6 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 14 && newVersion >= 14) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' ");
-        }
-
-        if (oldVersion < 15 && newVersion >= 15) {
-            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
-                    + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0'");
         }
     }
 
@@ -638,20 +627,14 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }
 
-        StringBuilder archiveString = new StringBuilder();
-        if(archiveFilter.equals(LoyaltyCardArchiveFilter.Active))
-            archiveString.append(" WHERE " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 ");
-        else{
-            archiveString.append(" ");
-        }
-
         String orderField = getFieldForOrder(order);
 
         return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
                 " JOIN " + LoyaltyCardDbFTS.TABLE +
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
-                groupFilter.toString() + archiveString.toString()+
+                groupFilter.toString() +
+                (archiveFilter.equals(LoyaltyCardArchiveFilter.All) ? " " : " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 ") +
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +

@@ -3,15 +3,12 @@ package protect.card_locker;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.CursorIndexOutOfBoundsException;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.google.android.material.tabs.TabLayout;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
@@ -190,7 +187,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO tmp (" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -231,7 +228,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
-                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0')");
+                    LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO " + LoyaltyCardDbIds.TABLE + "(" +
                     LoyaltyCardDbIds.ID + " ," +
@@ -244,7 +241,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
-                    LoyaltyCardDbIds.STAR_STATUS +  ")" +
+                    LoyaltyCardDbIds.STAR_STATUS + ")" +
                     " SELECT " +
                     LoyaltyCardDbIds.ID + " ," +
                     LoyaltyCardDbIds.STORE + " ," +
@@ -732,7 +729,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return cardIds;
     }
-
 
     public static long insertGroup(SQLiteDatabase database, final String name) {
         if (name.isEmpty()) return -1;

@@ -981,8 +981,8 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, settings, add and star button should be present
-        assertEquals(menu.size(), 3);
+        // The share, settings, star and duplicate options should be present
+        assertEquals(menu.size(), 4);
 
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
@@ -1200,8 +1200,8 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, settings and star button should be present
-        assertEquals(menu.size(), 3);
+        // The share, settings, star and duplicate options should be present
+        assertEquals(menu.size(), 4);
 
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 

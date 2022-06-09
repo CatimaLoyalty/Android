@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 108
+
+- Add card duplication feature
+- Don't allow choosing expiry before 1970 (they never worked anyway)
+
 ## v2.16.3 - 107 (2022-04-15)
 
 - Stocard import fixes

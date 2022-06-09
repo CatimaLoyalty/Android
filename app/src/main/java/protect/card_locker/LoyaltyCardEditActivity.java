@@ -779,7 +779,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         if (!initDone) {
             if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 setTitle(R.string.editCardTitle);
+            } else {
+                setTitle(R.string.addCardTitle);
+            }
 
+            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
                 if (!mFrontImageUnsaved && !croppedFrontImage() && !mFrontImageRemoved) {
                     setCardImage(cardImageFront, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.front), true);
                 }
@@ -1230,7 +1234,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+            datePickerDialog.getDatePicker().setMinDate(getMinDateOfDatePicker());
+            return datePickerDialog;
+        }
+
+        private long getMinDateOfDatePicker()
+        {
+            Calendar minDateCalendar = Calendar.getInstance();
+            minDateCalendar.set(1970, 0, 1);
+            return minDateCalendar.getTimeInMillis();
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {

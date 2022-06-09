@@ -59,6 +59,7 @@ Aditya Das
 Kevin Sicong Jiang
 Airat
 sNiXx
+Asier
 BMN
 Biren
 Mylou53
@@ -67,12 +68,14 @@ Eric
 Flav
 Franciszek Stefan
 Giovanni
+Grzegorz
 Izzy
 Karol Kosek
 bittin
 Marco
 Mattia
 Michael Gangolf
+Moi Toi
 pbeckmann
 Peer Beckmann
 Quang Nguyen
@@ -82,6 +85,7 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 Simone Dotto
+SlavekB
 Subhashish Anand
 darkodo
 Tymofii Lytvynenko

@@ -1340,10 +1340,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-                askBeforeQuitIfChanged();
-                break;
+        if (id == R.id.home) {
+            askBeforeQuitIfChanged();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

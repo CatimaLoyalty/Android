@@ -131,8 +131,8 @@ public class MainActivityTest {
         SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
         DBHelper.insertLoyaltyCard(database, "storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         DBHelper.insertLoyaltyCard(database, "storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        DBHelper.insertLoyaltyCard(database, "storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1);
-        DBHelper.insertLoyaltyCard(database, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1);
+        DBHelper.insertLoyaltyCard(database, "storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0);
+        DBHelper.insertLoyaltyCard(database, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0);
 
         assertEquals(View.VISIBLE, helpText.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());

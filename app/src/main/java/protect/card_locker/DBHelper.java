@@ -73,8 +73,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public enum LoyaltyCardArchiveFilter{
-        All,
-        Active
+        Archived,
+        Unarchived
     }
 
     public DBHelper(Context context) {
@@ -594,7 +594,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return Cursor
      */
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.All);
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Unarchived);
     }
 
     /**
@@ -635,7 +635,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
                 groupFilter.toString() +
-                (archiveFilter.equals(LoyaltyCardArchiveFilter.All) ? " " : " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 ") +
+                (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 " : " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1 ") +
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +

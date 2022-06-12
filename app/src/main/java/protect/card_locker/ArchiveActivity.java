@@ -38,7 +38,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
+public class ArchiveActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
@@ -52,7 +52,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected Object mGroup = null;
     protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
-    protected DBHelper.LoyaltyCardArchiveFilter mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Unarchived;
+    protected DBHelper.LoyaltyCardArchiveFilter mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Archived;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -101,15 +101,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                 ClipData clip = ClipData.newPlainText(getString(R.string.card_ids_copied), clipboardData);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(MainActivity.this, cardCount > 1 ? R.string.copy_to_clipboard_multiple_toast : R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
+                Toast.makeText(ArchiveActivity.this, cardCount > 1 ? R.string.copy_to_clipboard_multiple_toast : R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
                 inputMode.finish();
                 return true;
             } else if (inputItem.getItemId() == R.id.action_share) {
-                final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
+                final ImportURIHelper importURIHelper = new ImportURIHelper(ArchiveActivity.this);
                 try {
                     importURIHelper.startShareIntent(mAdapter.getSelectedItems());
                 } catch (UnsupportedEncodingException e) {
-                    Toast.makeText(MainActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
+                    Toast.makeText(ArchiveActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
                 inputMode.finish();
@@ -128,7 +128,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 inputMode.finish();
                 return true;
             } else if (inputItem.getItemId() == R.id.action_delete) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ArchiveActivity.this);
                 // The following may seem weird, but it is necessary to give translators enough flexibility.
                 // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
                 // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
@@ -145,9 +145,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Deleting card: " + loyaltyCard.id);
 
-                        DBHelper.deleteLoyaltyCard(mDatabase, MainActivity.this, loyaltyCard.id);
+                        DBHelper.deleteLoyaltyCard(mDatabase, ArchiveActivity.this, loyaltyCard.id);
 
-                        ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
+                        ShortcutHelper.removeShortcut(ArchiveActivity.this, loyaltyCard.id);
                     }
 
                     TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
@@ -163,10 +163,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                 return true;
             }
-            else if(inputItem.getItemId() == R.id.action_archive){
+            else if(inputItem.getItemId() == R.id.action_unarchive){
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
-                    Log.d(TAG, "Archiving card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,1);
+                    Log.d(TAG, "Unarchieving card: " + loyaltyCard.id);
+                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,0);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                 }
@@ -206,10 +206,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
         SplashScreen.installSplashScreen(this);
-        setTitle(R.string.app_name);
+        setTitle(R.string.archive);
         // XXX color patching has to be done again after setting splash screen
         Utils.patchColors(this);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.archive_activity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -262,38 +262,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         registerForContextMenu(mCardList);
 
         mGroup = null;
+
         updateLoyaltyCardList(true);
-
-        /*
-         * This was added for Huawei, but Huawei is just too much of a fucking pain.
-         * Just leaving this commented out if needed for the future idk
-         * https://twitter.com/SylvieLorxu/status/1379437902741012483
-         *
-
-        // Show privacy policy on first run
-        SharedPreferences privacyPolicyShownPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_privacy_policy_shown),
-                Context.MODE_PRIVATE);
-
-
-        if (privacyPolicyShownPref.getInt(getString(R.string.sharedpreference_privacy_policy_shown), 0) == 0) {
-            SharedPreferences.Editor privacyPolicyShownPrefEditor = privacyPolicyShownPref.edit();
-            privacyPolicyShownPrefEditor.putInt(getString(R.string.sharedpreference_privacy_policy_shown), 1);
-            privacyPolicyShownPrefEditor.apply();
-
-            new AlertDialog.Builder(this)
-                    .setTitle(R.string.privacy_policy)
-                    .setMessage(R.string.privacy_policy_popup_text)
-                    .setPositiveButton(R.string.accept, null)
-                    .setNegativeButton(R.string.privacy_policy, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            openPrivacyPolicy();
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_info)
-                    .show();
-        }
-         */
 
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             Intent intent = result.getData();
@@ -370,20 +340,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mGroup = tab.getTag();
         }
         updateLoyaltyCardList(true);
-        // End of active tab logic
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
-
-        addButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
-            Bundle bundle = new Bundle();
-            if (selectedTab != 0) {
-                bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupsTabLayout.getTabAt(selectedTab).getText().toString());
-            }
-            intent.putExtras(bundle);
-            mBarcodeScannerLauncher.launch(intent);
-        });
-        addButton.bringToFront();
 
 
     }
@@ -485,7 +442,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
-        getMenuInflater().inflate(R.menu.main_menu, inputMenu);
+        getMenuInflater().inflate(R.menu.activity_menu, inputMenu);
 
         Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
         displayCardSetupOptions(inputMenu, mLoyaltyCardCount > 0);
@@ -545,7 +502,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(ArchiveActivity.this);
             builder.setTitle(R.string.sort_by);
 
             final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
@@ -601,13 +558,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             return true;
         }
 
-        if(id == R.id.action_archived){
-            Intent i = new Intent(getApplicationContext(), ArchiveActivity.class);
-            startActivity(i);
-            return true;
-        }
-
-
         return super.onOptionsItemSelected(inputItem);
     }
 
@@ -623,6 +573,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         SharedPreferences.Editor sortPrefEditor = sortPref.edit();
         sortPrefEditor.putString(getString(R.string.sharedpreference_sort_order), order.name());
         sortPrefEditor.putString(getString(R.string.sharedpreference_sort_direction), direction.name());
+        sortPrefEditor.putString(getString(R.string.sharedpreference_show_archived), direction.name());
         sortPrefEditor.apply();
 
         // Update card list
@@ -737,14 +688,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             boolean hasStarred = false;
             boolean hasUnstarred = false;
 
-            unarchiveItem.setVisible(false);
-            archiveItem.setVisible(true);
+            unarchiveItem.setVisible(true);
+            archiveItem.setVisible(false);
 
-            for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
-
-                if (loyaltyCard.starStatus == 1) {
+            for(LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
+                if (loyaltyCard.starStatus == 1){
                     hasStarred = true;
-                } else {
+                }
+                else{
                     hasUnstarred = true;
                 }
 
@@ -758,20 +709,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     editItem.setVisible(true);
                     editItem.setEnabled(true);
                 } else {
+
                     starItem.setVisible(true);
                     unstarItem.setVisible(true);
 
                     archiveItem.setTitle(R.string.archiveAll);
+                    unarchiveItem.setTitle(R.string.unarchiveAll);
 
                     editItem.setVisible(false);
                     editItem.setEnabled(false);
                 }
 
             }
+
             mCurrentActionMode.invalidate();
         }
     }
-
 
     @Override
     public void onRowClicked(int inputPosition) {
@@ -800,7 +753,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             b.putInt("id", loyaltyCard.id);
             i.putExtras(b);
 
-            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
+            ShortcutHelper.updateShortcuts(ArchiveActivity.this, loyaltyCard);
 
             startActivity(i);
         }

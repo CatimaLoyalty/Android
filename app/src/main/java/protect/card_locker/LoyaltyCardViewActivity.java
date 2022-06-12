@@ -708,6 +708,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             menu.findItem(R.id.action_archive).setVisible(true);
         }
 
+        menu.findItem(R.id.action_overflow).setIcon(getIcon(R.drawable.ic_overflow_menu, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);

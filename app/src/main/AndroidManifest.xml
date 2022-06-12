@@ -35,6 +35,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ArchiveActivity"
+            android:label="@string/archive"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".AboutActivity"
             android:label="@string/about"
             android:theme="@style/AppTheme.NoActionBar" />

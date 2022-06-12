@@ -282,4 +282,5 @@
     <string name="sharedpreference_show_archived" translatable="false">sharedpreference_show_archived</string>
     <string name="archiveAll">Archive all</string>
     <string name="unarchiveAll">Unarchive all</string>
+    <string name="overflowMenu" translatable="false">Overflow menu</string>
 </resources>

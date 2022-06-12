@@ -89,38 +89,42 @@ a
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/archivedIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end">
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:layout_gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
+                tools:layout_editor_absoluteX="355dp">
 
                 <ImageView
                     android:id="@+id/archive_background"
-                    android:layout_width="42dp"
-                    android:layout_height="151dp"
+                    android:layout_width="41dp"
+                    android:layout_height="44dp"
                     android:layout_gravity="end"
                     android:alpha="0.5"
                     android:contentDescription="@string/archived"
                     android:elevation="4dp"
+                    android:rotationX="2"
                     android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_baseline_archive_24"
-                    tools:ignore="ImageContrastCheck" />
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="-1dp" />
 
                 <ImageView
                     android:id="@+id/archive_border"
-                    android:layout_width="42dp"
-                    android:layout_height="151dp"
+                    android:layout_width="41dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="end"
                     android:alpha="0.5"
                     android:contentDescription="@string/archived"
                     android:elevation="4dp"
                     android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_baseline_archive_24_black"
-                    tools:ignore="ImageContrastCheck" />
+                    tools:ignore="ImageContrastCheck"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -209,5 +213,6 @@ a
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible"
             tools:text="Tomorrow"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

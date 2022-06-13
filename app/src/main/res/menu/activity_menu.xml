@@ -21,22 +21,4 @@
         android:icon="@drawable/ic_baseline_sort_24"
         app:showAsAction="always"
         android:visible="false"/>
-    <item
-        android:id="@+id/action_manage_groups"
-        android:icon="@drawable/ic_folder_white"
-        android:title="@string/groups"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_import_export"
-        android:icon="@drawable/ic_import_export_white_24dp"
-        android:title="@string/importExport"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/settings"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_about"
-        android:title="@string/about"
-        app:showAsAction="never"/>
 </menu>

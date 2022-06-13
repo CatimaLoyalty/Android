@@ -60,6 +60,7 @@ public class DatabaseTest {
         assertEquals(BarcodeFormat.UPC_A, loyaltyCard.barcodeType.format());
         assertEquals(DEFAULT_HEADER_COLOR, loyaltyCard.headerColor);
         assertEquals(0, loyaltyCard.starStatus);
+        assertEquals(0, loyaltyCard.archiveStatus);
 
         result = DBHelper.deleteLoyaltyCard(mDatabase, mActivity, 1);
         assertTrue(result);
@@ -90,6 +91,7 @@ public class DatabaseTest {
         assertEquals(BarcodeFormat.AZTEC, loyaltyCard.barcodeType.format());
         assertEquals(DEFAULT_HEADER_COLOR, loyaltyCard.headerColor);
         assertEquals(0, loyaltyCard.starStatus);
+        assertEquals(0, loyaltyCard.archiveStatus);
     }
 
     @Test
@@ -115,6 +117,7 @@ public class DatabaseTest {
         assertEquals(BarcodeFormat.UPC_A, loyaltyCard.barcodeType.format());
         assertEquals(DEFAULT_HEADER_COLOR, loyaltyCard.headerColor);
         assertEquals(1, loyaltyCard.starStatus);
+        assertEquals(0, loyaltyCard.archiveStatus);
     }
 
     @Test
@@ -146,6 +149,7 @@ public class DatabaseTest {
         assertEquals(null, loyaltyCard.barcodeType);
         // headerColor is randomly generated when not given, so skip
         assertEquals(0, loyaltyCard.starStatus);
+        assertEquals(0, loyaltyCard.archiveStatus);
     }
 
     @Test
@@ -181,6 +185,7 @@ public class DatabaseTest {
             assertEquals(BarcodeFormat.UPC_A.toString(), cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_TYPE)));
             assertEquals(index, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)));
             assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS)));
+            assertEquals(0, cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS)));
 
             cursor.moveToNext();
         }
@@ -200,7 +205,7 @@ public class DatabaseTest {
         for (int index = CARDS_TO_ADD - 1; index >= 0; index--) {
             if (index == CARDS_TO_ADD - 1) {
                 id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
-                        null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 1, null,1);
+                        null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 1, null,0);
             } else {
                 id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, new BigDecimal("0"), null, "cardId" + index,
                         null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 0, null,0);

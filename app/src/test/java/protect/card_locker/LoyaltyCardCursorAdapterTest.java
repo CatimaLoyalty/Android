@@ -163,8 +163,8 @@ public class LoyaltyCardCursorAdapterTest {
     @Test
     public void TestCursorAdapterStarring() {
         assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0));
 
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 

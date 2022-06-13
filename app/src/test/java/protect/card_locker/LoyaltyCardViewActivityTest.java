@@ -982,7 +982,7 @@ public class LoyaltyCardViewActivityTest {
         assertTrue(menu != null);
 
         // The share, settings, star and duplicate options should be present
-        assertEquals(menu.size(), 7);
+        assertEquals(menu.size(), 4);
 
         assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
@@ -1201,7 +1201,7 @@ public class LoyaltyCardViewActivityTest {
         assertTrue(menu != null);
 
         // The share, settings, star and duplicate options should be present
-        assertEquals(menu.size(), 7);
+        assertEquals(menu.size(), 4);
 
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 

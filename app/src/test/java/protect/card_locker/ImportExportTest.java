@@ -101,7 +101,7 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,1);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,0);
             boolean result = (id != -1);
             assertTrue(result);
         }
@@ -890,7 +890,7 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,1);
+        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
@@ -904,7 +904,7 @@ public class ImportExportTest {
         loyaltyCardIconImages.put(loyaltyCardId, launcherBitmap);
 
         // Create card 2
-        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,1);
+        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
         // Export everything

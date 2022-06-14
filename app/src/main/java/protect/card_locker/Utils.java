@@ -16,11 +16,15 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.material.color.DynamicColors;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.palette.graphics.Palette;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -44,12 +48,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
-
-import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -66,6 +64,8 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
     public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
     public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
+
+    private static final int[] DYNAMIC_COLOR_THEME_OVERLAY_ATTRIBUTE = new int[]{R.attr.dynamicColorThemeOverlay};
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -494,7 +494,21 @@ public class Utils {
         } else {
             // final catch all in case of invalid theme value from older versions
             // also handles R.string.settings_key_system_theme
-            DynamicColors.applyIfAvailable(activity);
+
+            // https://github.com/material-components/material-components-android/blob/master/docs/theming/Color.md#apply-dynamic-colors-to-all-activities-in-the-app
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                // probe our own dynamic theme here to get around the weird manufacturer lookup
+                TypedArray dynamicColorAttributes = activity.obtainStyledAttributes(DYNAMIC_COLOR_THEME_OVERLAY_ATTRIBUTE);
+                int themeOverlay = dynamicColorAttributes.getResourceId(0, 0);
+                if (themeOverlay != 0) {
+                    // interesting enough, this works on sdk 31, an overlay with system theme will actually be fetched
+                    Log.d("dynamic color probe", "dynamic color available, overlay res id: " + themeOverlay + " SDK: " + Build.VERSION.SDK_INT);
+                    theme.applyStyle(themeOverlay, true);
+                } else {
+                    // this should never happen as long as material 3 themes are used
+                    Log.d("dynamic color probe", "dynamic color not available, SDK: " + Build.VERSION.SDK_INT);
+                }
+            }
         }
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {

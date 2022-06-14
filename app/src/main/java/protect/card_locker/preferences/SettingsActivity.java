@@ -3,12 +3,9 @@ package protect.card_locker.preferences;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -19,7 +16,9 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.google.android.material.color.DynamicColors;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
@@ -149,7 +148,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 refreshActivity(true);
                 return true;
             });
-            if (!DynamicColors.isDynamicColorAvailable()) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
                 colorPreference.setEntryValues(R.array.color_values_no_dynamic);
                 colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
             }

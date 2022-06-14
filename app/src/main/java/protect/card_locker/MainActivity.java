@@ -173,6 +173,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,1);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
+                    invalidateOptionsMenu();
                 }
                 return true;
             }
@@ -182,6 +183,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,0);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
+                    invalidateOptionsMenu();
                 }
                 return true;
             }
@@ -562,14 +564,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
-        //todo
+
         if(!mArchiveMode) {
             if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
                 inputMenu.findItem(R.id.action_archived).setVisible(false);
             } else {
                 inputMenu.findItem(R.id.action_archived).setVisible(true);
             }
-            invalidateOptionsMenu();
         }
 
         return super.onCreateOptionsMenu(inputMenu);

@@ -7,6 +7,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -203,6 +204,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 return true;
             }
 
+            
 
             return false;
         }
@@ -231,6 +233,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Utils.patchColors(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if(mArchiveMode){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
@@ -407,8 +412,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             });
             addButton.bringToFront();
         }
-
-
     }
 
     @Override
@@ -514,6 +517,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         groupsTabLayout.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -558,12 +562,26 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
+        //todo
+        if(!mArchiveMode) {
+            if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
+                inputMenu.findItem(R.id.action_archived).setVisible(false);
+            } else {
+                inputMenu.findItem(R.id.action_archived).setVisible(true);
+            }
+            invalidateOptionsMenu();
+        }
+
         return super.onCreateOptionsMenu(inputMenu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
+
+        if (id == android.R.id.home) {
+            onBackPressed();
+        }
 
         if (id == R.id.action_unfold) {
             mAdapter.showDetails(!mAdapter.showingDetails());
@@ -819,8 +837,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 editItem.setVisible(false);
                 editItem.setEnabled(false);
             }
-
-
 
             mCurrentActionMode.invalidate();
         }

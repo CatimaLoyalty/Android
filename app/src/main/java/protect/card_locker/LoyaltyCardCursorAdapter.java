@@ -232,7 +232,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
-        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground, mArchivedBorder;
+        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
         public MaterialCardView mRow, mIconLayout;
         public ConstraintLayout mStar, mArchived;
         public View mDivider;
@@ -256,7 +256,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mStarBorder = inputView.findViewById(R.id.star_border);
             mArchived = inputView.findViewById(R.id.archivedIcon);
             mArchivedBackground = inputView.findViewById(R.id.archive_background);
-            mArchivedBorder = inputView.findViewById(R.id.archive_border);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
@@ -343,14 +342,10 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             if (dark) {
                 mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
                 mStarBackground.setImageResource(R.drawable.ic_starred_black);
-
-                mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24);
                 mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
             } else {
                 mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
                 mStarBackground.setImageResource(R.drawable.ic_starred_white);
-
-                mArchivedBorder.setImageResource(R.drawable.ic_baseline_archive_24_black);
                 mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
             }
 
@@ -368,7 +363,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
             mStarBorder.invalidate();
             mStarBackground.invalidate();
-            mArchivedBorder.invalidate();
             mArchivedBackground.invalidate();
 
         }

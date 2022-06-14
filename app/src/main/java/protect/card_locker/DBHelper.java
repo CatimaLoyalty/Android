@@ -571,6 +571,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsDeleted == 1);
     }
 
+    public static int getArchivedCardsCount(SQLiteDatabase database) {
+        return (int) DatabaseUtils.queryNumEntries(database, LoyaltyCardDbIds.TABLE,
+                whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(1));
+    }
+
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database) {
         // An empty string will match everything
         return getLoyaltyCardCursor(database, "");

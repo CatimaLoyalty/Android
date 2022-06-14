@@ -112,20 +112,6 @@ a
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="-1dp" />
 
-                <ImageView
-                    android:id="@+id/archive_border"
-                    android:layout_width="41dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="end"
-                    android:alpha="0.5"
-                    android:contentDescription="@string/archived"
-                    android:elevation="4dp"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/ic_baseline_archive_24_black"
-                    tools:ignore="ImageContrastCheck"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="0dp" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>

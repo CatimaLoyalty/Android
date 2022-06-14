@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
-a
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,7 +108,7 @@ a
                     android:rotationX="2"
                     android:visibility="visible"
                     app:srcCompat="@drawable/ic_baseline_archive_24"
-                    tools:ignore="ImageContrastCheck"
+                    tools:ignore="ImageContrastCheck,MissingConstraints"
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="-1dp" />
 

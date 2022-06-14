@@ -236,7 +236,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(mArchiveMode && toolbar !=null){
+        if(mArchiveMode && getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

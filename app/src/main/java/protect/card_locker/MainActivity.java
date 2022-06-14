@@ -235,7 +235,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Utils.patchColors(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if(mArchiveMode){
+
+        if(mArchiveMode && toolbar !=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

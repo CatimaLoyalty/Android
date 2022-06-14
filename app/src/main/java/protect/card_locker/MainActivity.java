@@ -564,7 +564,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
-
         if(!mArchiveMode) {
             if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
                 inputMenu.findItem(R.id.action_archived).setVisible(false);

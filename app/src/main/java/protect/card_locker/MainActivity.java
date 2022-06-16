@@ -227,7 +227,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             setContentView(R.layout.main_activity);
         }
         else{
-            setTitle(R.string.archive);
+            setTitle(R.string.archiveList);
             setContentView(R.layout.archive_activity);
         }
         // XXX color patching has to be done again after setting splash screen

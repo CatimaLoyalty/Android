@@ -276,6 +276,6 @@
     <string name="unarchive">Unarchive</string>
     <string name="archived">Card archived</string>
     <string name="unarchived">Card unarchived</string>
-    <string name="archiveList">Archive list</string>
+    <string name="archiveList">Archive</string>
     <string name="overflowMenu" translatable="false">Overflow menu</string>
 </resources>

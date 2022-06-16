@@ -581,10 +581,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return getLoyaltyCardCursor(database, "");
     }
 
-    public static Cursor getAllLoyaltyCardCursor(SQLiteDatabase database){
-        return database.query(LoyaltyCardDbIds.TABLE,null,null,null,null,null,null);
-    }
-
     /**
      * Returns a cursor to all loyalty cards with the filter text in either the store or note.
      *

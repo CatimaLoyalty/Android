@@ -168,15 +168,8 @@ public class LoyaltyCardCursorAdapterTest {
 
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        Cursor cursor = DBHelper.getAllLoyaltyCardCursor(mDatabase);
-        assertEquals(3, cursor.getCount());
-
-        cursor.moveToFirst();
-        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
-        cursor.moveToNext();
-        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
-        cursor.moveToNext();
-        System.out.println(LoyaltyCard.toLoyaltyCard(cursor).store);
+        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase, "", null, DBHelper.LoyaltyCardOrder.Alpha, DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
+        assertEquals(1, cursor.getCount());
 
         assertTrue(cursor.moveToFirst());
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
@@ -186,6 +179,9 @@ public class LoyaltyCardCursorAdapterTest {
         ConstraintLayout archive = view.findViewById(R.id.archivedIcon);
         assertEquals(View.GONE, star.getVisibility());
         assertEquals(View.GONE, archive.getVisibility());
+
+        cursor = DBHelper.getLoyaltyCardCursor(mDatabase, "", null, DBHelper.LoyaltyCardOrder.Alpha, DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Archived);
+        assertEquals(2, cursor.getCount());
 
         assertTrue(cursor.moveToNext());
         loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);

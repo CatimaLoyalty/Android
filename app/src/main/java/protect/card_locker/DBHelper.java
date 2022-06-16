@@ -581,6 +581,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return getLoyaltyCardCursor(database, "");
     }
 
+    public static Cursor getAllLoyaltyCardCursor(SQLiteDatabase database){
+        return database.query(LoyaltyCardDbIds.TABLE,null,null,null,null,null,null);
+    }
+
     /**
      * Returns a cursor to all loyalty cards with the filter text in either the store or note.
      *
@@ -640,7 +644,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
                 groupFilter.toString() +
-                (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 0 " : " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1 ") +
+                " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = " +
+                (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? 0 : 1) +
                 " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +

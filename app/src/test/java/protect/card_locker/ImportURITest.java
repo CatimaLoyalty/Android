@@ -42,7 +42,7 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,1);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -65,6 +65,7 @@ public class ImportURITest {
         assertEquals(card.headerColor, parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
+        assertEquals(0, parsedCard.archiveStatus);
     }
 
     @Test
@@ -93,6 +94,7 @@ public class ImportURITest {
         assertNull(parsedCard.headerColor);
         // No export of starStatus for export URL foreseen therefore 0 will be imported
         assertEquals(0, parsedCard.starStatus);
+        assertEquals(0, parsedCard.archiveStatus);
     }
 
     @Test

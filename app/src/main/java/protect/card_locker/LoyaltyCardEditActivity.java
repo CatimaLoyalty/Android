@@ -777,7 +777,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (!initDone) {
-            if (updateLoyaltyCard || duplicateFromLoyaltyCardId) {
+            if (updateLoyaltyCard) {
                 setTitle(R.string.editCardTitle);
             } else {
                 setTitle(R.string.addCardTitle);

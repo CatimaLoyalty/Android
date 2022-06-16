@@ -7,7 +7,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -54,7 +53,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected Object mGroup = null;
     protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
-    protected DBHelper.LoyaltyCardArchiveFilter mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Unarchived;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
     private View mHelpText;
@@ -386,7 +384,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         try {
             mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
             mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
-            mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.valueOf(sortPref.getString(getString(R.string.sharedpreference_show_archived), null));
         } catch (IllegalArgumentException | NullPointerException ignored) {
         }
 
@@ -448,11 +445,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             group = (Group) mGroup;
         }
 
-        if(mArchiveMode){
-            mArchiveFilter = DBHelper.LoyaltyCardArchiveFilter.Archived;
-        }
-
-        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection,mArchiveFilter));
+        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mArchiveMode ? DBHelper.LoyaltyCardArchiveFilter.Archived : DBHelper.LoyaltyCardArchiveFilter.Unarchived));
 
         if (updateCount) {
             updateLoyaltyCardCount();
@@ -532,7 +525,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if(!mArchiveMode)
             getMenuInflater().inflate(R.menu.main_menu, inputMenu);
         else{
-            getMenuInflater().inflate(R.menu.activity_menu, inputMenu);
+            getMenuInflater().inflate(R.menu.archive_menu, inputMenu);
         }
 
         Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
@@ -689,7 +682,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         sortPrefEditor.apply();
 
         // Update card list
-        updateLoyaltyCardList(true);
+        updateLoyaltyCardList(false);
     }
 
     @Override
@@ -832,12 +825,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             } else {
                 starItem.setVisible(hasUnstarred);
                 unstarItem.setVisible(hasStarred);
-
-                if(!mArchiveMode)
-                    archiveItem.setTitle(R.string.archiveAll);
-                else{
-                    unarchiveItem.setTitle(R.string.unarchiveAll);
-                }
 
                 editItem.setVisible(false);
                 editItem.setEnabled(false);

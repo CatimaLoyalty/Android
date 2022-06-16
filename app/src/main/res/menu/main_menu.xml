@@ -28,7 +28,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_archived"
-        android:title="@string/archive"
+        android:title="@string/archiveList"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_import_export"

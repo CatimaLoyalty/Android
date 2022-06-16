@@ -76,9 +76,6 @@ android {
             includeAndroidResources true
         }
     }
-    lintOptions {
-        abortOnError false
-    }
 }
 
 dependencies {

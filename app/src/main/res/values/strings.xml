@@ -272,15 +272,10 @@
     <string name="set_scale">Set scale</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="duplicateCard">Duplicate</string>
-    <string name="archive_unarchive">Archive/Unarchive</string>
     <string name="archive">Archive</string>
-    <string name="archivedTab">Archived</string>
-    <string name="unarchived">Card unarchived</string>
-    <string name="archived">Card archived</string>
     <string name="unarchive">Unarchive</string>
-    <string name="showArchived">show archived</string>
-    <string name="sharedpreference_show_archived" translatable="false">sharedpreference_show_archived</string>
-    <string name="archiveAll">Archive all</string>
-    <string name="unarchiveAll">Unarchive all</string>
+    <string name="archived">Card archived</string>
+    <string name="unarchived">Card unarchived</string>
+    <string name="archiveList">Archive list</string>
     <string name="overflowMenu" translatable="false">Overflow menu</string>
 </resources>

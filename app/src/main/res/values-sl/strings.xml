@@ -10,8 +10,6 @@
     <string name="edit">Uredi</string>
     <string name="delete">Izbriši</string>
     <string name="confirm">Potrdi</string>
-    <string name="lockScreen">Onemogoči obračanje zaslona</string>
-    <string name="unlockScreen">Omogoči obračanje zaslona</string>
     <string name="ok">Vredu</string>
     <string name="copy_to_clipboard">Kopirajte številko kartice</string>
     <string name="sendLabel">Pošlji…</string>
@@ -52,7 +50,6 @@
     <string name="settings">Nastavitve</string>
     <string name="settings_category_title_ui">Uporabniški vmesnik</string>
     <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
-    <string name="settings_lock_barcode_orientation">Zakleni orientacijo črtne kode</string>
     <string name="deleteTitle">Odstrani kartico zvestobe</string>
     <string name="deleteConfirmation">Prosim potrdite, če želite izbrisati to kartico\?</string>
     <string name="card">Kartica</string>

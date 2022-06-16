@@ -98,7 +98,6 @@
     <string name="intent_import_card_from_url_share_text">Seninle bir kart paylaşmak istiyorum</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
     <string name="settings_keep_screen_on">Ekranı açık tut</string>
-    <string name="settings_lock_barcode_orientation">Barkod yönünü kilitle</string>
     <string name="settings_display_barcode_max_brightness">Barkod görünümünü aydınlat</string>
     <string name="settings_max_font_size_scale">Azami yazı tipi boyutu</string>
     <string name="settings_dark_theme">Koyu</string>
@@ -167,8 +166,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> kartı sil</item>
     </plurals>
     <string name="deleteTitle">Kartı sil</string>
-    <string name="unlockScreen">Döndürme Engelini Kaldır</string>
-    <string name="lockScreen">Döndürmeyi Engelle</string>
     <string name="confirm">Doğrula</string>
     <string name="delete">Sil</string>
     <string name="edit">Düzenle</string>

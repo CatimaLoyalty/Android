@@ -13,8 +13,6 @@
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
     <string name="confirm">Potwierdź</string>
-    <string name="lockScreen">Zablokuj autoobracanie ekranu</string>
-    <string name="unlockScreen">Odblokuj autoobracanie ekranu</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
@@ -62,7 +60,6 @@
     <string name="settings_light_theme">Jasny</string>
     <string name="settings_dark_theme">Ciemny</string>
     <string name="settings_display_barcode_max_brightness">Rozjaśnij widok kodu kreskowego</string>
-    <string name="settings_lock_barcode_orientation">Zablokuj autoobracanie kodów kreskowych</string>
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     <string name="deleteConfirmationGroup">Usunąć grupę\?</string>
     <string name="all">Wszystko</string>

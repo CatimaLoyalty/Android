@@ -52,7 +52,6 @@
     <string name="action_search">Serĉi</string>
     <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
     <string name="deleteTitle">Forigi karton</string>
-    <string name="settings_lock_barcode_orientation">Seruro barcode orientiĝo</string>
     <string name="settings_display_barcode_max_brightness">Heligi barcode vido</string>
     <string name="settings_max_font_size_scale">Max. tiparo grandeco</string>
     <string name="starImage">Preferata stelo</string>
@@ -76,8 +75,6 @@
     <string name="cardShortcut">Karto Mallongirejo</string>
     <string name="scanCardBarcode">Scintigrafio Barcode Card</string>
     <string name="share">Interŝanĝado</string>
-    <string name="unlockScreen">Malbloki Rotacio</string>
-    <string name="lockScreen">Bloko Rotacio</string>
     <string name="star">Aldoni al miaj plej ŝatataj</string>
     <string name="copy_to_clipboard_toast">Card ID kopiita al la tondujo</string>
     <string name="settings_keep_screen_on">Teni sur ekrano</string>

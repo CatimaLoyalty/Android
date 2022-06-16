@@ -77,7 +77,6 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою картою</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
-    <string name="settings_lock_barcode_orientation">Заблокувати орієнтацію штрих-коду</string>
     <string name="settings_max_font_size_scale">Макс. розмір шрифту</string>
     <string name="settings_dark_theme">Темна</string>
     <string name="settings_light_theme">Світла</string>
@@ -132,8 +131,6 @@
     <string name="share">Поділитися</string>
     <string name="copy_to_clipboard">Копіювати ID до буферу обміну</string>
     <string name="ok">ОК</string>
-    <string name="unlockScreen">Розблокувати обертання</string>
-    <string name="lockScreen">Блокувати обертання</string>
     <string name="confirm">Підтвердити</string>
     <string name="delete">Видалити</string>
     <string name="edit">Редагувати</string>

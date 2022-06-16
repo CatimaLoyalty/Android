@@ -11,8 +11,6 @@
     <string name="edit">Änneren</string>
     <string name="delete">Läschen</string>
     <string name="confirm">Bestätegen</string>
-    <string name="lockScreen">Blockrotation</string>
-    <string name="unlockScreen">Déblockéieren Rotatioun</string>
     <string name="deleteConfirmation">Dës Kaart dauerhaft läschen\?</string>
     <string name="ok">Okay</string>
     <string name="share">Aktie</string>
@@ -73,7 +71,6 @@
     <string name="copy_to_clipboard_multiple_toast">Kaarten-IDs an d \' Tëschentablag inspiréiere</string>
     <string name="updateBarcodeQuestionText">Si hunn d \' Kaarten-ID geännert. Wëllt Dir och de Barcode aktualiséieren, fir deselwechte Wäert ze benotzen\?</string>
     <string name="settings_dark_theme">Donkel</string>
-    <string name="settings_lock_barcode_orientation">Barcode-Ausriichtung spären</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Bildschierm spären verhënneren</string>
     <string name="settings_light_theme">Liicht</string>
     <string name="settings_max_font_size_scale">Max. Schrëftgréisst</string>

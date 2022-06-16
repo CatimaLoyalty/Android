@@ -62,8 +62,6 @@
     <string name="noCardsMessage">Nejprve přidejte kartu</string>
     <string name="cardShortcut">Zástupce Karty</string>
     <string name="share">Podíl</string>
-    <string name="unlockScreen">Odblokovat Rotaci</string>
-    <string name="lockScreen">Otáčení Bloku</string>
     <string name="unstar">Odebrat z oblíbených</string>
     <string name="star">Přidat do oblíbených</string>
     <string name="noBarcode">Žádný čárový kód</string>
@@ -87,7 +85,6 @@
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Bránit uzamykání obrazovky</string>
     <string name="settings_keep_screen_on">Udržovat obrazovku zapnutou</string>
-    <string name="settings_lock_barcode_orientation">Zamknout orientaci čárového kódu</string>
     <string name="settings_max_font_size_scale">Maximální velikost písma</string>
     <string name="settings_dark_theme">Tmavý</string>
     <string name="settings_light_theme">Světlý</string>

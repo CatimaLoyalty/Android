@@ -14,8 +14,6 @@
     <string name="edit">Bewerken</string>
     <string name="delete">Verwijderen</string>
     <string name="confirm">Bevestigen</string>
-    <string name="lockScreen">Draaien niet toestaan</string>
-    <string name="unlockScreen">Draaien toestaan</string>
     <string name="ok">Oké</string>
     <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
@@ -64,7 +62,6 @@
     <string name="settings_light_theme">Licht</string>
     <string name="settings_dark_theme">Donker</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
-    <string name="settings_lock_barcode_orientation">Barcode-oriëntatie vergrendelen</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
     <string name="importSuccessful">De gegevens zijn geïmporteerd</string>

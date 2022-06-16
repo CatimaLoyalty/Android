@@ -4,7 +4,6 @@
     <string name="noBarcode">Nei strikamerkið</string>
     <string name="action_search">Leita að</string>
     <string name="delete">Eyða</string>
-    <string name="unlockScreen">Opna Snúningur</string>
     <string name="noGiftCards">Smelltu á + plús takka til að bæta kort, eða að flytja inn sumir frá ⋮ matseðill fyrst.</string>
     <string name="note">Athugið</string>
     <string name="barcodeType">Strikamerkið tegund</string>
@@ -17,7 +16,6 @@
     <string name="save">Sparaðu</string>
     <string name="edit">Breyta</string>
     <string name="confirm">Staðfesta</string>
-    <string name="lockScreen">Blokk Snúningur</string>
     <string name="ok">OK</string>
     <string name="sendLabel">Sendu…</string>
     <string name="deleteConfirmation">Eyða þetta kort til frambúðar\?</string>
@@ -49,7 +47,6 @@
     <string name="about">Um</string>
     <string name="settings">Stillingar</string>
     <string name="settings_max_font_size_scale">Max. letrið</string>
-    <string name="settings_lock_barcode_orientation">Læsa strikamerkið stefnumörkun</string>
     <string name="settings_keep_screen_on">Halda á skjánum</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Að koma í veg fyrir að læsa skjánum</string>
     <string name="editBarcode">Breyta strikamerkið</string>

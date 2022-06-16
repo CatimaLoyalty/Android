@@ -12,8 +12,6 @@
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
     <string name="confirm">Bestätigen</string>
-    <string name="lockScreen">Rotation sperren</string>
-    <string name="unlockScreen">Rotation erlauben</string>
     <string name="star">Zu den Favoriten hinzufügen</string>
     <string name="unstar">Aus den Favoriten entfernen</string>
     <string name="ok">OK</string>
@@ -56,7 +54,6 @@
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_display_barcode_max_brightness">Barcodeansicht aufhellen</string>
-    <string name="settings_lock_barcode_orientation">Barcoderotation sperren</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>

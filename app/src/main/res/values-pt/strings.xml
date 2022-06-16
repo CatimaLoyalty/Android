@@ -22,9 +22,7 @@
     <string name="about">Sobre</string>
     <string name="app_license">Software livre de partilha sob a mesma licença e segundo a licença GPLv3+</string>
     <string name="addCardTitle">Adicionar cartão</string>
-    <string name="lockScreen">Bloquear rotação</string>
     <string name="editCardTitle">Editar cartão</string>
-    <string name="unlockScreen">Desbloquear rotação</string>
     <string name="deleteTitle">Eliminar cartão</string>
     <string name="copy_to_clipboard">Copiar identificador para a área de transferência</string>
     <string name="sendLabel">Enviar…</string>
@@ -53,7 +51,6 @@
     <string name="settings_keep_screen_on">Manter ecrã ligado</string>
     <string name="enter_group_name">Introduza o nome do grupo</string>
     <string name="groups">Grupos</string>
-    <string name="settings_lock_barcode_orientation">Bloquear orientação do código de barras</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Desativar bloqueio do ecrã</string>
     <string name="exportSuccessful">Dados exportados</string>
     <string name="all">Todos</string>

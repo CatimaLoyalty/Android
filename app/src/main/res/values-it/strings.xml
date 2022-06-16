@@ -13,8 +13,6 @@
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
     <string name="confirm">Conferma</string>
-    <string name="lockScreen">Blocca rotazione</string>
-    <string name="unlockScreen">Sblocca rotazione</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Copia codice negli appunti</string>
     <string name="share">Condividi</string>
@@ -62,7 +60,6 @@
     <string name="settings_light_theme">Chiaro</string>
     <string name="settings_dark_theme">Scuro</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando viene aperto un codice a barre</string>
-    <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     <string name="exportSuccessful">Dati della carta esportati</string>
     <string name="importSuccessful">Dati importati</string>

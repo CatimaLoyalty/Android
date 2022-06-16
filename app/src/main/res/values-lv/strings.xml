@@ -27,8 +27,6 @@
     <string name="editCardTitle">Rediģēt Karti</string>
     <string name="share">Daļa</string>
     <string name="confirm">Apstiprināt</string>
-    <string name="lockScreen">Bloķēt Rotāciju</string>
-    <string name="unlockScreen">Atbloķēt Rotāciju</string>
     <string name="deleteTitle">Dzēst karti</string>
     <string name="deleteConfirmation">Dzēst šo karti pastāvīgi\?</string>
     <string name="ok">LABI</string>
@@ -72,7 +70,6 @@
     <string name="settings_dark_theme">Tumšs</string>
     <string name="settings_max_font_size_scale">Max. fonts</string>
     <string name="settings_display_barcode_max_brightness">Izgaismojiet svītrkoda skatu</string>
-    <string name="settings_lock_barcode_orientation">Lock svītrkoda orientācija</string>
     <string name="settings_keep_screen_on">Saglabāt ekrānu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Novērst bloķēšanas ekrānu</string>
     <string name="intent_import_card_from_url_share_text">Es vēlos dalīties ar jums karti</string>

@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="protect.card_locker.MainActivity">
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:icon="@drawable/ic_search_white"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always|collapseActionView"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_unfold"
+        android:title="@string/action_hide_details"
+        android:icon="@drawable/ic_baseline_unfold_less_24"
+        app:showAsAction="always"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/sort"
+        android:icon="@drawable/ic_baseline_sort_24"
+        app:showAsAction="always"
+        android:visible="false"/>
+</menu>

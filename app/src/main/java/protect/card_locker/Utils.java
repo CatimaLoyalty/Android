@@ -496,7 +496,7 @@ public class Utils {
             // also handles R.string.settings_key_system_theme
 
             // https://github.com/material-components/material-components-android/blob/master/docs/theming/Color.md#apply-dynamic-colors-to-all-activities-in-the-app
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S_V2) {
                 // probe our own dynamic theme here to get around the weird manufacturer lookup
                 TypedArray dynamicColorAttributes = activity.obtainStyledAttributes(DYNAMIC_COLOR_THEME_OVERLAY_ATTRIBUTE);
                 int themeOverlay = dynamicColorAttributes.getResourceId(0, 0);

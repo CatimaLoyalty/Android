@@ -148,7 +148,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 refreshActivity(true);
                 return true;
             });
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S_V2) {
                 colorPreference.setEntryValues(R.array.color_values_no_dynamic);
                 colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
             }

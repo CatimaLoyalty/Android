@@ -205,8 +205,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 return true;
             }
 
-            
-
             return false;
         }
 

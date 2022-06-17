@@ -162,26 +162,33 @@ public class LoyaltyCardCursorAdapterTest {
 
     @Test
     public void TestCursorAdapterStarring() {
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,1));
         assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0));
 
-        assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals(4, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase, "", null, DBHelper.LoyaltyCardOrder.Alpha, DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
-        assertEquals(1, cursor.getCount());
+        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+        assertEquals(4, cursor.getCount());
 
         assertTrue(cursor.moveToFirst());
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("storeA", loyaltyCard.store);
+        assertEquals("storeD", loyaltyCard.store);
         View view = createView(cursor);
         ConstraintLayout star = view.findViewById(R.id.star);
         ConstraintLayout archive = view.findViewById(R.id.archivedIcon);
-        assertEquals(View.GONE, star.getVisibility());
+        assertEquals(View.VISIBLE, star.getVisibility());
         assertEquals(View.GONE, archive.getVisibility());
 
-        cursor = DBHelper.getLoyaltyCardCursor(mDatabase, "", null, DBHelper.LoyaltyCardOrder.Alpha, DBHelper.LoyaltyCardOrderDirection.Ascending, DBHelper.LoyaltyCardArchiveFilter.Archived);
-        assertEquals(2, cursor.getCount());
+        assertTrue(cursor.moveToNext());
+        loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
+        assertEquals("storeC", loyaltyCard.store);
+        view = createView(cursor);
+        star = view.findViewById(R.id.star);
+        archive = view.findViewById(R.id.archivedIcon);
+        assertEquals(View.GONE, star.getVisibility());
+        assertEquals(View.GONE, archive.getVisibility());
 
         assertTrue(cursor.moveToNext());
         loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
@@ -194,11 +201,11 @@ public class LoyaltyCardCursorAdapterTest {
 
         assertTrue(cursor.moveToNext());
         loyaltyCard = LoyaltyCard.toLoyaltyCard(cursor);
-        assertEquals("storeC", loyaltyCard.store);
+        assertEquals("storeA", loyaltyCard.store);
         view = createView(cursor);
         star = view.findViewById(R.id.star);
         archive = view.findViewById(R.id.archivedIcon);
-        assertEquals(View.VISIBLE, star.getVisibility());
+        assertEquals(View.GONE, star.getVisibility());
         assertEquals(View.VISIBLE, archive.getVisibility());
 
         cursor.close();

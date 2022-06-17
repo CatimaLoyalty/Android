@@ -72,7 +72,8 @@ public class DBHelper extends SQLiteOpenHelper {
         Descending
     }
 
-    public enum LoyaltyCardArchiveFilter{
+    public enum LoyaltyCardArchiveFilter {
+        All,
         Archived,
         Unarchived
     }
@@ -578,7 +579,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database) {
         // An empty string will match everything
-        return getLoyaltyCardCursor(database, "");
+        return getLoyaltyCardCursor(database, LoyaltyCardArchiveFilter.All);
+    }
+
+    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, LoyaltyCardArchiveFilter archiveFilter) {
+        // An empty string will match everything
+        return getLoyaltyCardCursor(database, "", archiveFilter);
     }
 
     /**
@@ -587,8 +593,8 @@ public class DBHelper extends SQLiteOpenHelper {
      * @param filter
      * @return Cursor
      */
-    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter) {
-        return getLoyaltyCardCursor(database, filter, null);
+    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, LoyaltyCardArchiveFilter archiveFilter) {
+        return getLoyaltyCardCursor(database, filter, null, archiveFilter);
     }
 
     /**
@@ -598,8 +604,8 @@ public class DBHelper extends SQLiteOpenHelper {
      * @param group
      * @return Cursor
      */
-    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group) {
-        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, LoyaltyCardArchiveFilter.Unarchived);
+    public static Cursor getLoyaltyCardCursor(SQLiteDatabase database, final String filter, Group group, LoyaltyCardArchiveFilter archiveFilter) {
+        return getLoyaltyCardCursor(database, filter, group, LoyaltyCardOrder.Alpha, LoyaltyCardOrderDirection.Ascending, archiveFilter);
     }
 
     /**
@@ -633,6 +639,11 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }
 
+        String archiveFilterString = "";
+        if (archiveFilter != LoyaltyCardArchiveFilter.All) {
+            archiveFilterString = " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = " + (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? 0 : 1);
+        }
+
         String orderField = getFieldForOrder(order);
 
         return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
@@ -640,9 +651,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
                 (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
                 groupFilter.toString() +
-                " AND " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " = " +
-                (archiveFilter.equals(LoyaltyCardArchiveFilter.Unarchived) ? 0 : 1) +
-                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
+                archiveFilterString +
+                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
+                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
                 " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
                 LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
                 LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +

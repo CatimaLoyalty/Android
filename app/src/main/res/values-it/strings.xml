@@ -228,4 +228,16 @@
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
     <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
+    <string name="settings_card_orientation">Orientamento del codice a barre</string>
+    <string name="settings_follow_system_orientation">Segui il sistema</string>
+    <string name="duplicateCard">Duplica</string>
+    <string name="archive">Archivia</string>
+    <string name="unarchive">Disarchivia</string>
+    <string name="archiveList">Archivio</string>
+    <string name="noUnarchivedCardsMessage">Non esistono schede non archiviate</string>
+    <string name="unarchived">Carta non archiviata</string>
+    <string name="archived">Carta archiviata</string>
+    <string name="settings_portrait_orientation">Ritratto</string>
+    <string name="settings_landscape_orientation">Paesaggio</string>
+    <string name="settings_lock_on_opening_orientation">Blocco da utilizzare per l\'apertura della carta</string>
 </resources>

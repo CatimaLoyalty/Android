@@ -981,10 +981,9 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, settings, star and duplicate options should be present
-        assertEquals(menu.size(), 4);
+        // The share, star and overflow options should be present
+        assertEquals(menu.size(), 3);
 
-        assertEquals("Block Rotation", menu.findItem(R.id.action_lock_unlock).getTitle().toString());
         assertEquals("Share", menu.findItem(R.id.action_share).getTitle().toString());
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 
@@ -1149,40 +1148,6 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    public void checkScreenOrientationLockSetting() {
-        for (boolean locked : new boolean[]{false, true}) {
-            ActivityController activityController = createActivityWithLoyaltyCard(false);
-
-            Activity activity = (Activity) activityController.get();
-            SQLiteDatabase database = new DBHelper(activity).getWritableDatabase();
-            DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null,0);
-
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
-            settings.edit()
-                    .putBoolean(activity.getResources().getString(R.string.settings_key_lock_barcode_orientation), locked)
-                    .apply();
-
-            activityController.start();
-            activityController.resume();
-            activityController.visible();
-
-            assertEquals(false, activity.isFinishing());
-
-            MenuItem item = shadowOf(activity).getOptionsMenu().findItem(R.id.action_lock_unlock);
-
-            if (locked) {
-                assertEquals(item.isVisible(), false);
-            } else {
-                assertEquals(item.isVisible(), true);
-                String title = item.getTitle().toString();
-                assertEquals(title, activity.getString(R.string.lockScreen));
-            }
-
-            database.close();
-        }
-    }
-
-    @Test
     public void checkPushStarIcon() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
@@ -1200,8 +1165,8 @@ public class LoyaltyCardViewActivityTest {
         final Menu menu = shadowOf(activity).getOptionsMenu();
         assertTrue(menu != null);
 
-        // The share, settings, star and duplicate options should be present
-        assertEquals(menu.size(), 4);
+        // The share, star and overflow options should be present
+        assertEquals(menu.size(), 3);
 
         assertEquals("Add to favorites", menu.findItem(R.id.action_star_unstar).getTitle().toString());
 

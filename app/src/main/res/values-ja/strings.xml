@@ -57,7 +57,6 @@
     <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
     <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中は画面をロックしない</string>
     <string name="settings_keep_screen_on">バーコード表示中は画面を消灯しない</string>
-    <string name="settings_lock_barcode_orientation">バーコード表示画面を自動回転しない</string>
     <string name="settings_display_barcode_max_brightness">バーコード表示画面を明るくする</string>
     <string name="settings_max_font_size_scale">最大のフォントサイズ</string>
     <string name="settings_dark_theme">ダーク</string>
@@ -118,8 +117,6 @@
     <string name="share">共有</string>
     <string name="copy_to_clipboard">カード番号をクリップボードにコピーする</string>
     <string name="ok">確定</string>
-    <string name="unlockScreen">自動回転を無効にしない</string>
-    <string name="lockScreen">自動回転を無効にする</string>
     <string name="confirm">確認</string>
     <string name="delete">削除</string>
     <string name="edit">編集</string>

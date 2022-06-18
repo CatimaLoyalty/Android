@@ -13,8 +13,6 @@
     <string name="copy_to_clipboard">Copiați ID-ul în clipboard</string>
     <string name="deleteConfirmation">Să șterg definitiv acest card\?</string>
     <string name="deleteTitle">Ștergeți cardul</string>
-    <string name="unlockScreen">Deblocarea rotației</string>
-    <string name="lockScreen">Rotația blocurilor</string>
     <string name="confirm">Confirmați</string>
     <string name="delete">Ștergeți</string>
     <string name="edit">Editați</string>
@@ -62,7 +60,6 @@
     <string name="noBarcodeFound">Nu a fost găsit niciun cod de bare</string>
     <string name="settings_max_font_size_scale">Mărimea maximă a fontului</string>
     <string name="settings_display_barcode_max_brightness">Luminați vizualizarea codurilor de bare</string>
-    <string name="settings_lock_barcode_orientation">Blocare orientare cod de bare</string>
     <string name="settings_keep_screen_on">Păstrați ecranul pornit</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitați ecranul de blocare</string>
     <string name="balance">Balanță</string>

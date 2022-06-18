@@ -10,8 +10,6 @@
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
     <string name="confirm">Confirmer</string>
-    <string name="lockScreen">Désactiver la rotation</string>
-    <string name="unlockScreen">Activer la rotation</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
@@ -52,7 +50,6 @@
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
-    <string name="settings_lock_barcode_orientation">Verrouiller l’orientation du code-barres</string>
     <string name="exportSuccessful">Données exportées</string>
     <string name="importSuccessful">Données importées</string>
     <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="settings_lock_barcode_orientation">Lås streckkodens riktning</string>
     <string name="settings_display_barcode_max_brightness">Gör streckkodsvyn ljusare</string>
     <string name="settings_max_font_size_scale">Max. teckenstorlek</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
@@ -151,7 +150,6 @@
     <string name="privacy_policy_popup_text">Notis rörande integritetspolicy (krävs av vissa appbutiker):
 \n
 \nINGEN DATA ALLS SAMLAS IN, vilket vem som helst kan bekräfta eftersom vår app är fri programvara.</string>
-    <string name="unlockScreen">Tillåt rotation</string>
     <string name="privacy_policy">Integritetspolicy</string>
     <string name="expiryStateSentenceExpired">Förföll: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">Välj förfallodatum</string>
@@ -164,7 +162,6 @@
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>
-    <string name="lockScreen">Förhindra rotation</string>
     <string name="importCatimaMessage">Välj den exporterade <i>catima.zip</i> från Catima som du vill importera.
 \nSkapa den från Import/Export-menyn i en annan Catima-app genom att trycka på Exportera där först.</string>
     <string name="expiryStateSentence">Giltigt till: <xliff:g>%s</xliff:g></string>

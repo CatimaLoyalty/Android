@@ -252,13 +252,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        settings = new Settings(this);
+
+        String cardOrientation = settings.getCardViewOrientation();
+        if (cardOrientation.equals(getString(R.string.settings_key_lock_on_opening_orientation))) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+        } else if (cardOrientation.equals(getString(R.string.settings_key_portrait_orientation))) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else if (cardOrientation.equals(getString(R.string.settings_key_landscape_orientation))) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        }
+
         if (savedInstanceState != null) {
             mainImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX);
             isFullscreen = savedInstanceState.getBoolean(STATE_FULLSCREEN);
             bottomSheetState = savedInstanceState.getInt(STATE_BOTTOMSHEET);
         }
 
-        settings = new Settings(this);
 
         extractIntentFields(getIntent());
 
@@ -687,15 +699,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
-
-        // Always calculate lockscreen icon, it may need a black color
-        boolean lockBarcodeScreenOrientation = settings.getLockBarcodeScreenOrientation();
-        MenuItem item = menu.findItem(R.id.action_lock_unlock);
-        setOrientatonLock(item, lockBarcodeScreenOrientation);
-        if (lockBarcodeScreenOrientation) {
-            item.setVisible(false);
-        }
-
         loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
@@ -754,15 +757,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 bundle.putBoolean("duplicateId", true);
                 intent.putExtras(bundle);
                 startActivity(intent);
-                return true;
-
-            case R.id.action_lock_unlock:
-                if (rotationEnabled) {
-                    setOrientatonLock(item, true);
-                } else {
-                    setOrientatonLock(item, false);
-                }
-                rotationEnabled = !rotationEnabled;
                 return true;
 
             case R.id.action_star_unstar:
@@ -835,19 +829,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    private void setOrientatonLock(MenuItem item, boolean lock) {
-        if (lock) {
-
-            item.setIcon(getIcon(R.drawable.ic_lock_outline_white_24dp, backgroundNeedsDarkIcons));
-            item.setTitle(R.string.unlockScreen);
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-        } else {
-            item.setIcon(getIcon(R.drawable.ic_lock_open_white_24dp, backgroundNeedsDarkIcons));
-            item.setTitle(R.string.lockScreen);
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         }
     }
 

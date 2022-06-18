@@ -6,8 +6,6 @@
     <string name="edit">Uredi</string>
     <string name="delete">Ukloni</string>
     <string name="confirm">Potvrdi</string>
-    <string name="lockScreen">Rotacija bloka</string>
-    <string name="unlockScreen">Otključaj Rotaciju</string>
     <string name="deleteTitle">Ukloni kartu</string>
     <string name="deleteConfirmation">Izbrisati ovu karticu zauvijek\?</string>
     <string name="copy_to_clipboard">Kopiraj ID u međuspremnik</string>
@@ -66,7 +64,6 @@
     <string name="thumbnailDescription">Sličica za karticu</string>
     <string name="starImage">Omiljena zvijezda</string>
     <string name="settings_category_title_ui">Korisničko sučelje</string>
-    <string name="settings_lock_barcode_orientation">Zaključavanje orijentacije crtičnog koda</string>
     <string name="exportSuccessful">Izvezeni podaci o karti</string>
     <string name="settings_keep_screen_on">Držite zaslon uključen</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spriječiti zaključavanje zaslona</string>

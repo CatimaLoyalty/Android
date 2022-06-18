@@ -6,6 +6,7 @@
 - Don't allow choosing expiry before 1970 (they never worked anyway)
 - Add support for archiving cards
 - Move delete from edit to view
+- Remove rotation lock icon in favour of a new rotation lock setting
 
 ## v2.16.3 - 107 (2022-04-15)
 

@@ -87,7 +87,6 @@
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
     <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
-    <string name="settings_lock_barcode_orientation">Без на завъртане на щрихкода</string>
     <string name="settings_keep_screen_on">Поддържане на екрана включен</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Предотвратяване на заключване на екрана</string>
     <string name="settings_max_font_size_scale">Максимален размер на шрифта</string>
@@ -139,8 +138,6 @@
     <string name="importOptionFilesystemTitle">Внасяне от файловата система</string>
     <string name="importCatima">Внасяне от Catima</string>
     <string name="exportSuccessful">Данните са изнесени</string>
-    <string name="unlockScreen">Разрешава автоматичното завъртане</string>
-    <string name="lockScreen">Спира автоматичното завъртане</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> избрана</item>
         <item quantity="other"><xliff:g>%d</xliff:g> избрани</item>

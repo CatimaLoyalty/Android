@@ -151,14 +151,11 @@
     <string name="settings_light_theme">淺色</string>
     <string name="settings_dark_theme">深色</string>
     <string name="settings_display_barcode_max_brightness">調高條碼介面螢幕亮度</string>
-    <string name="settings_lock_barcode_orientation">鎖定條碼螢幕方向</string>
     <string name="settings_keep_screen_on">螢幕恆亮</string>
     <string name="settings_disable_lockscreen_while_viewing_card">防止螢幕鎖定</string>
     <string name="importSuccessful">已匯入資料</string>
     <string name="moveUp">往上移動</string>
     <string name="moveDown">往下移動</string>
-    <string name="lockScreen">禁止旋轉</string>
-    <string name="unlockScreen">允許旋轉</string>
     <string name="ok">OK</string>
     <string name="sendLabel">送出…</string>
     <string name="scanCardBarcode">掃描條碼</string>

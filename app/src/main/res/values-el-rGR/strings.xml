@@ -10,8 +10,6 @@
     <string name="edit">Επεξεργασία</string>
     <string name="delete">Διαγραφή</string>
     <string name="confirm">Επιβεβαίωση</string>
-    <string name="lockScreen">Αποκλεισμός Περιστροφής</string>
-    <string name="unlockScreen">Περιστροφή</string>
     <string name="ok">Εντάξει</string>
     <string name="copy_to_clipboard">Αντιγραφή κωδικού στο πρόχειρο</string>
     <string name="sendLabel">Αποστολή…</string>

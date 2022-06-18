@@ -73,7 +73,6 @@
     <string name="intent_import_card_from_url_share_text">我想和你分享一张卡</string>
     <string name="settings_disable_lockscreen_while_viewing_card">防止锁屏</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
-    <string name="settings_lock_barcode_orientation">锁定条码方向</string>
     <string name="settings_display_barcode_max_brightness">提高条码界面亮度</string>
     <string name="settings_max_font_size_scale">最大字体大小</string>
     <string name="settings_dark_theme">暗色</string>
@@ -121,8 +120,6 @@
     <string name="share">分享</string>
     <string name="copy_to_clipboard">复制卡号到剪贴板</string>
     <string name="ok">确定</string>
-    <string name="unlockScreen">解除旋转锁定</string>
-    <string name="lockScreen">锁定旋转</string>
     <string name="confirm">确认</string>
     <string name="delete">删除</string>
     <string name="edit">编辑</string>

@@ -45,6 +45,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
@@ -698,6 +699,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
+        if(loyaltyCard.archiveStatus != 0){
+            menu.findItem(R.id.action_unarchive).setVisible(true);
+            menu.findItem(R.id.action_archive).setVisible(false);
+        }
+        else{
+            menu.findItem(R.id.action_unarchive).setVisible(false);
+            menu.findItem(R.id.action_archive).setVisible(true);
+        }
+
+        menu.findItem(R.id.action_overflow).setIcon(getIcon(R.drawable.ic_overflow_menu, backgroundNeedsDarkIcons));
         menu.findItem(R.id.action_share).setIcon(getIcon(R.drawable.ic_share_white, backgroundNeedsDarkIcons));
 
         return super.onCreateOptionsMenu(menu);
@@ -758,6 +769,38 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 starred = !starred;
                 DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, starred ? 1 : 0);
                 invalidateOptionsMenu();
+                return true;
+
+            case R.id.action_archive:
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+                invalidateOptionsMenu();
+                return true;
+
+            case R.id.action_unarchive:
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
+                invalidateOptionsMenu();
+                return true;
+
+            case R.id.action_delete:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.deleteTitle);
+                builder.setMessage(R.string.deleteConfirmation);
+                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
+                    Log.e(TAG, "Deleting card: " + loyaltyCardId);
+
+                    DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
+
+                    ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
+
+                    finish();
+                    dialog.dismiss();
+                });
+                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
                 return true;
         }
 

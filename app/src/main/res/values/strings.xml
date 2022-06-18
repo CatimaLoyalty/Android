@@ -272,4 +272,11 @@
     <string name="set_scale">Set scale</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="duplicateCard">Duplicate</string>
+    <string name="archive">Archive</string>
+    <string name="unarchive">Unarchive</string>
+    <string name="archived">Card archived</string>
+    <string name="unarchived">Card unarchived</string>
+    <string name="archiveList">Archive</string>
+    <string name="overflowMenu" translatable="false">Overflow menu</string>
+    <string name="noUnarchivedCardsMessage">No unarchived cards exist</string>
 </resources>

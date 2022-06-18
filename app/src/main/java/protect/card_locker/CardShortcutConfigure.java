@@ -39,8 +39,15 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
         setSupportActionBar(toolbar);
 
         // If there are no cards, bail
-        if (DBHelper.getLoyaltyCardCount(mDatabase) == 0) {
+        int cardCount = DBHelper.getLoyaltyCardCount(mDatabase);
+        if (cardCount == 0) {
             Toast.makeText(this, R.string.noCardsMessage, Toast.LENGTH_LONG).show();
+            finish();
+        }
+
+        // If all cards are archived, bail
+        if (DBHelper.getArchivedCardsCount(mDatabase) == cardCount) {
+            Toast.makeText(this, R.string.noUnarchivedCardsMessage, Toast.LENGTH_LONG).show();
             finish();
         }
 
@@ -50,13 +57,13 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
             layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
         }
 
-        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
         mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
         cardList.setAdapter(mAdapter);
     }
 
     private void onClickAction(int position) {
-        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase);
+        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
         selected.moveToPosition(position);
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 

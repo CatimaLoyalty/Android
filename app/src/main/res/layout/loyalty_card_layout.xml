@@ -53,7 +53,8 @@
                 android:id="@+id/star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end">
+                android:layout_gravity="end"
+                tools:ignore="ExtraText">
 
                 <ImageView
                     android:id="@+id/star_background"
@@ -83,6 +84,33 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_unstarred_black"
                     tools:ignore="ImageContrastCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/archivedIcon"
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:layout_gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/thumbnail"
+                tools:layout_editor_absoluteX="355dp">
+
+                <ImageView
+                    android:id="@+id/archive_background"
+                    android:layout_width="41dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="end"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/archived"
+                    android:elevation="4dp"
+                    android:rotationX="2"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_baseline_archive_24"
+                    tools:ignore="ImageContrastCheck,MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="-1dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -171,5 +199,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible"
             tools:text="Tomorrow"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

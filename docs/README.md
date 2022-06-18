@@ -5,7 +5,7 @@ Copylefted libre software (GPLv3+) card management app.
 [![GitHub Version](https://img.shields.io/github/v/release/TheLastProject/Catima.svg?logo=github&label=GitHub)](https://github.com/TheLastProject/Catima/releases)
 [![F-Droid Version](https://img.shields.io/f-droid/v/me.hackerchick.catima.svg?logo=f-droid&label=F-Droid)](https://f-droid.org/packages/me.hackerchick.catima/)
 [![IzzyOnDroid Version](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/me.hackerchick.catima)](https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima)
-[![Google Play Store Version](https://img.shields.io/endpoint?color=blue&logo=google-play&url=https%3A%2F%2Fplayshields.herokuapp.com%2Fplay%3Fi%3Dme.hackerchick.catima%26l%3DGoogle%2520Play%26m%3D%24version)](https://play.google.com/store/apps/details?id=me.hackerchick.catima)
+[![Google Play Store Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fplayshields.herokuapp.com%2Fplay%3Fi%3Dme.hackerchick.catima%26l%3DGoogle%2520Play%26m%3DVaries%2520with%2520device)](https://play.google.com/store/apps/details?id=me.hackerchick.catima)
 
 ![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
 [![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)

@@ -1,0 +1,4 @@
+- Notlardaki bağlantılar tıklanabilir hale getirildi
+- Yeni bir kart oluştururken kullanıcının o anda bulunduğu grubu önceden seç
+- Sadakat kartı görünümünde virgülle ayrılmış grup adları
+- Büyüt düğmesinin barkod yokken görünmesi düzeltildi

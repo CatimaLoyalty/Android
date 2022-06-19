@@ -1,0 +1,2 @@
+- Her zaman tüm içe/dışa aktarma seçeneklerini göster ve gerçek sorunlarda bir anlık bildirim göster (XPrivacyLua ile uyumu iyileştirir)
+- Değişiklik yaptıktan sonra kaydetmeden düzenleme görünümünden çıkarken onay iste

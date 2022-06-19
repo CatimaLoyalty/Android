@@ -233,4 +233,16 @@
     </plurals>
     <string name="settings_oled_dark">Čistě černé pozadí pro tmavý motiv</string>
     <string name="include_if_asking_support">Pokud chcete požádat o podporu, uveďte následující informace:</string>
+    <string name="settings_follow_system_orientation">Následovat systém</string>
+    <string name="settings_portrait_orientation">Na výšku</string>
+    <string name="settings_lock_on_opening_orientation">Zamknout podle orientace použité při otevření karty</string>
+    <string name="archive">Archivovat</string>
+    <string name="unarchive">Vrátit z archivu</string>
+    <string name="archiveList">Archivovat</string>
+    <string name="noUnarchivedCardsMessage">Nejsou žádné karty vrácené z archivu</string>
+    <string name="unarchived">Karta vrácena z archivu</string>
+    <string name="settings_card_orientation">Orientace čárového kódu</string>
+    <string name="settings_landscape_orientation">Na šířku</string>
+    <string name="duplicateCard">Duplikovat</string>
+    <string name="archived">Karta archivována</string>
 </resources>

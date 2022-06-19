@@ -228,4 +228,16 @@
     </plurals>
     <string name="settings_oled_dark">Чисто черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
+    <string name="settings_card_orientation">Положение на щрихкода</string>
+    <string name="settings_follow_system_orientation">Според системата</string>
+    <string name="settings_portrait_orientation">Портретно</string>
+    <string name="settings_landscape_orientation">Пейзажно</string>
+    <string name="settings_lock_on_opening_orientation">Използване на положението, използвано при отваряне на картата</string>
+    <string name="duplicateCard">Дублиране</string>
+    <string name="archive">Архивиране</string>
+    <string name="unarchive">Изваждане от архива</string>
+    <string name="archived">Картата е архивирана</string>
+    <string name="unarchived">Карта е извадена от архива</string>
+    <string name="archiveList">Архив</string>
+    <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
 </resources>

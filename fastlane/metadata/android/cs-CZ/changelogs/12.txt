@@ -1,1 +1,1 @@
-- Zabránění pádu při otáčení obrazovky v úvodním průvodci prvního spuštění.
+- Zabránění pádu při otáčení obrazovky v průvodci prvního spuštění.

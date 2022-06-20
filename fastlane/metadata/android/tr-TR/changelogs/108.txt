@@ -1,0 +1,5 @@
+- Kart çoğaltma özelliği eklendi
+- 1970'ten önce sona erme seçimine izin verme (zaten hiçbir zaman çalışmadı)
+- Kartları arşivlemek için destek eklendi
+- Silme işlemi düzenlemeden görünüme taşındı
+- Döndürme kilidi simgesi kaldırıldı, yerine döndürme kilidi ayarı geldi

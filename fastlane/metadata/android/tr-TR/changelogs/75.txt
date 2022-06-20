@@ -1,0 +1,4 @@
+- Renk değiştirme iletişim kutusunda seçilen renk düzeltildi
+- Aynı anda birden fazla kart silme desteği eklendi
+- Resim yeniden boyutlandırılırken olası ArithmeticException düzeltildi
+- Aygıt döndürüldüğünde tam ekranın kapanması düzeltildi

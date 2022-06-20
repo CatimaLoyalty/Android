@@ -1,1 +1,3 @@
 - Oprava ořezávače nepoužívajícího barvu motivu
+- Drobné opravy problémů motivů
+- Přidán čistě černý motiv pro obrazovky OLED

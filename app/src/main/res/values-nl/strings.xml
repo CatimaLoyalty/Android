@@ -228,4 +228,16 @@
     </plurals>
     <string name="settings_oled_dark">Zwarte achtergrond gebruiken bij donker thema</string>
     <string name="include_if_asking_support">Als je ondersteuning wilt, voorzie je verzoek dan van de volgende informatie:</string>
+    <string name="settings_card_orientation">Barcode-oriëntatie</string>
+    <string name="settings_follow_system_orientation">Systeeminstellingen volgen</string>
+    <string name="settings_portrait_orientation">Verticaal</string>
+    <string name="settings_lock_on_opening_orientation">Oriëntatie vergrendelen na openen van kaart</string>
+    <string name="duplicateCard">Klonen</string>
+    <string name="archive">Archiveren</string>
+    <string name="unarchive">Dearchiveren</string>
+    <string name="archived">De kaart is gearchiveerd</string>
+    <string name="unarchived">De kaart is gedearchiveerd</string>
+    <string name="archiveList">Archief</string>
+    <string name="settings_landscape_orientation">Horizontaal</string>
+    <string name="noUnarchivedCardsMessage">Er zijn geen gedearchiveerde kaarten</string>
 </resources>

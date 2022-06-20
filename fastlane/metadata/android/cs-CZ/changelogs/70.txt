@@ -1,0 +1,11 @@
+- PŘELOMOVÁ ZMĚNA: Formát zálohování se změnil, viz https://github.com/TheLastProject/Catima/wiki/Export-format
+- PŘELOMOVÁ ZMĚNA: Změnil se formát sdílení URL, viz https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Umožnění zapnutí nebo vypnutí svítilny při skenování
+- Přidána podpora UPC-E
+- Podpora přidávání přední a zadní fotografie ke každé kartě
+- Podpora importu souborů zip chráněných heslem
+- Podpora importu ze Stocard (beta)
+- Oprava zbytečných bílých znaků v poznámkách z importu Fidme
+- Podpora nového formátu exportu z trezoru voucherů
+- Oprava tlačítek plovoucích akcí, která jsou v systému Android 4 za ostatními prvky rozhraní
+- Oprava horního okraje panelu aplikace pro prohlížení věrnostních karet

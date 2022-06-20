@@ -1,0 +1,3 @@
+- Hakkında ekranı kendi etkinliğine taşındı
+- Kullanıcıya kamerasını kullanmak isteyip istemediğini veya kart ekleme/düzenleme sırasında kimliği elle girmek isteyip istemediğini sor
+- Grup sıralamasını alfabetik olarak zorlamak yerine elle yapılır duruma getirildi

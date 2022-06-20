@@ -1,3 +1,3 @@
 - Oprava pádu při importu některých typů poškozených souborů CSV. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
 - Oprava importu záloh přímo ze souborového systému. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
-- Oprava importu záloh z některých typů poskytovatelů obsahu. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))
+- Oprava importu záloh z některých typů poskytovatelů obsahu. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

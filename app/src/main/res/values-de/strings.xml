@@ -228,4 +228,15 @@
     </plurals>
     <string name="settings_oled_dark">Rein schwarzer Hintergrund für dunkles Thema</string>
     <string name="include_if_asking_support">Wenn Sie Unterstützung anfordern möchten, geben Sie bitte die folgenden Informationen an:</string>
+    <string name="settings_follow_system_orientation">System folgen</string>
+    <string name="settings_landscape_orientation">Landschaft</string>
+    <string name="archiveList">Archiv</string>
+    <string name="noUnarchivedCardsMessage">Es gibt keine nicht archivierten Karten</string>
+    <string name="settings_portrait_orientation">Porträt</string>
+    <string name="duplicateCard">Duplizieren</string>
+    <string name="unarchive">Archivierung aufheben</string>
+    <string name="settings_card_orientation">Barcode-Ausrichtung</string>
+    <string name="unarchived">Karte nicht archiviert</string>
+    <string name="archive">Archivieren</string>
+    <string name="archived">Karte archiviert</string>
 </resources>

@@ -239,4 +239,5 @@
     <string name="unarchived">Karte nicht archiviert</string>
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
+    <string name="settings_lock_on_opening_orientation">Sperre zur Ausrichtung benutzt beim Öffnen der Karte</string>
 </resources>

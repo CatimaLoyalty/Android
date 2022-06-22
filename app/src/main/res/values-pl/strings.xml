@@ -133,8 +133,8 @@
 \n
 \nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">Importuj dane z ...</string>
+    <string name="app_loyalty_card_keychain">„Loyalty Card Keychain”</string>
+    <string name="chooseImportType">Importuj dane z</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
@@ -236,4 +236,18 @@
     <string name="include_if_asking_support">Jeśli chcesz poprosić o pomoc, podaj następujące informacje:</string>
     <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
     <string name="hideMoreInfo">Ukryj informacje</string>
+    <string name="settings_card_orientation">Orientacja kodu kreskowego</string>
+    <string name="settings_follow_system_orientation">Śledź system</string>
+    <string name="set_scale">Ustaw skalę</string>
+    <string name="duplicateCard">Duplikuj</string>
+    <string name="starred">Oznaczone gwiazdką</string>
+    <string name="settings_landscape_orientation">Poziomowy</string>
+    <string name="settings_lock_on_opening_orientation">Blokuj do ustawionej orientacji przy otwieraniu karty</string>
+    <string name="settings_portrait_orientation">Portretowy</string>
+    <string name="archive">Archiwizować</string>
+    <string name="unarchive">Odarchiwizować</string>
+    <string name="archived">Karta archiwizowana</string>
+    <string name="unarchived">Karta odarchiwizowana</string>
+    <string name="archiveList">Archiwum</string>
+    <string name="noUnarchivedCardsMessage">Nie istnieją żadne niezarchiwizowane karty</string>
 </resources>

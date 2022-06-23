@@ -133,7 +133,7 @@
 \n
 \nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
-    <string name="app_loyalty_card_keychain">„Loyalty Card Keychain”</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importuj dane z</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>

@@ -16,7 +16,7 @@ Dzięki temu niezbędnemu narzędziu codziennego noszenia (CDN) możesz zastąpi
 - Ręcznie wykonane lokalne tłumaczenia dla ponad 20 języków.
 - Gratis, wspierany przez wkłady społeczności.
 - Używajcie, studiujcie, zmieniajcie i dzielcie się tym, jak chcecie; <i>ze wszystkimi</i>.
-- Nie tylko „Free Software” / „Open Surce”. <i>Copylefted</i> libre software (GPLv3+) system zarządzający kartami.
+- Nie tylko „Free Software” / „Open Source”. <i>Copylefted</i> libre software (GPLv3+) system zarządzający kartami.
 
 Uprość sobie życie i zakupy, i już nigdy nie zgubisz papierowego paragonu, karty podarunkowej do płatności w sklepie czy biletu lotniczego.
 Zabierz ze sobą wszystkie nagrody i bonusy i oszczędzaj w trakcie podróży.

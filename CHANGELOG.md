@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 108
+## v2.17.0 - 108
 
 - Add card duplication feature
 - Don't allow choosing expiry before 1970 (they never worked anyway)

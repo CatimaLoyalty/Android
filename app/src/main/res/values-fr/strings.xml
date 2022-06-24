@@ -232,7 +232,7 @@
     <string name="settings_follow_system_orientation">Suivre le système</string>
     <string name="settings_portrait_orientation">Portrait</string>
     <string name="settings_landscape_orientation">Paysage</string>
-    <string name="settings_lock_on_opening_orientation">Verrouiller à l\'orientation utilisée lors de l\'ouverture de la carte</string>
+    <string name="settings_lock_on_opening_orientation">Garder l\'orientation utilisée pour ouvrir la carte</string>
     <string name="duplicateCard">Dupliquer</string>
     <string name="archive">Archiver</string>
     <string name="unarchive">Désarchiver</string>

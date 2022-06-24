@@ -1,0 +1,22 @@
+Skończ z szukaniem plastikowych kart w sklepie lub w sklepie internetowym.
+<b>Skanuj kody kreskowe do urządzenia za pomocą jego kamery, zapomnij o kartach.</b>
+
+Zapomnij o portfelu lub zachowaj ultralekki portfel na cenne przedmioty.
+
+Dzięki temu niezbędnemu narzędziu codziennego noszenia (CDN) możesz zastąpić bezużyteczny plastik gotówką.
+
+- Unikaj szpiegowania dzięki niewielkiej liczbie uprawnień. Niepotrzebny dostęp do Internetu oraz brak reklam.
+- Dodaj karty lub kody z nazwami i dostosuj je kolorami.
+- Ręczne wprowadzanie kodu, jeśli nie ma kodu kreskowego do zapisania lub nie można go użyć.
+- Importuj karty lub kody z plików „Catima”, „FidMe”, „Loyalty Card Keychain”, „Stocard” oraz „Voucher Vault”.
+- Utwórz kopię zapasową wszystkich swoich kart i przenieś je na nowe urządzenie, jeśli chcesz.
+- Udostępniaj kupony, ekskluzywne oferty, kody promocyjne lub karty i kody za pomocą dowolnej aplikacji.
+- Ciemny motyw i opcje dostępności dla użytkowników z upośledzeniem wzroku.
+- Stworzony dla wszystkich przez „libre software community”.
+- Ręcznie wykonane lokalne tłumaczenia dla ponad 20 języków.
+- Gratis, wspierany przez wkłady społeczności.
+- Używajcie, studiujcie, zmieniajcie i dzielcie się tym, jak chcecie; <i>ze wszystkimi</i>.
+- Nie tylko „Free Software” / „Open Source”. <i>Copylefted</i> libre software (GPLv3+) system zarządzający kartami.
+
+Uprość sobie życie i zakupy, i już nigdy nie zgubisz papierowego paragonu, karty podarunkowej do płatności w sklepie czy biletu lotniczego.
+Zabierz ze sobą wszystkie nagrody i bonusy i oszczędzaj w trakcie podróży.

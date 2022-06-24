@@ -55,4 +55,11 @@
     <string name="barcode">Γραμμικός κώδικας</string>
     <string name="deleteTitle">Αφαίρεση Κάρτας</string>
     <string name="deleteConfirmation">Παρακαλώ επιβεβαιώστε ότι θέλετε να διαγράψετε αυτή την κάρτα.</string>
+    <string name="action_search">Αναζήτηση</string>
+    <string name="noMatchingGiftCards">Κανένα αποτέλεσμα. Δοκίμασε με διαφορετικές λέξεις.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> επιλέγχθηκε</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
+    </plurals>
+    <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
 </resources>

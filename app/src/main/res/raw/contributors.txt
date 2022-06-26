@@ -7,8 +7,8 @@ solokot
 Katharine Chui
 Oğuz Ersen
 mondstern
-IllusiveMan196
 Altonss
+IllusiveMan196
 StoyanDimitrov
 Petr Novák
 Joel A
@@ -20,8 +20,8 @@ Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
-huuhaa
 laralem
+huuhaa
 arshbeerSingh
 Quentin PAGÈS
 Miha Frangež
@@ -35,6 +35,7 @@ waffshappen
 ati3
 Jane Kong
 K. Herbert
+SlavekB
 Still Hsu
 String E. Fighter
 Yurical
@@ -43,9 +44,11 @@ rr-vesp
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
+Astrohops1
 Clonewayx
 D. Domig
 Diego
+Freddo espresso
 Lukas Grassauer
 Marnick L'Eau
 Michalis
@@ -85,7 +88,6 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 Simone Dotto
-SlavekB
 Subhashish Anand
 darkodo
 Tymofii Lytvynenko

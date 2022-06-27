@@ -74,7 +74,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/barcodeNoBarcode"
-            android:textColor="#FFFFFF"
             android:enabled="false" />
         <ListView
             android:id="@+id/barcodes"

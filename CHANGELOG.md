@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.17.1 - 109
+
+- Fix incorrect text colour on "No barcode" button
+
 ## v2.17.0 - 108
 
 - Add card duplication feature

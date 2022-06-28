@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -206,6 +207,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
     public void addFromImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
-        photoPickerLauncher.launch(photoPickerIntent);
+        try {
+            photoPickerLauncher.launch(photoPickerIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
+        }
     }
 }

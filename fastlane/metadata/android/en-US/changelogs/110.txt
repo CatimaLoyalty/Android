@@ -1,0 +1,1 @@
+- Fix custom theme not applying to main screen correctly

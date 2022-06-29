@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 110
+
+- Fix custom theme not applying to main screen correctly
+
 ## v2.17.1 - 109
 
 - Fix incorrect text colour on "No barcode" button

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -1171,7 +1172,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                 Intent i = new Intent(Intent.ACTION_PICK);
                 i.setType("image/*");
-                mPhotoPickerLauncher.launch(i);
+
+                try {
+                    mPhotoPickerLauncher.launch(i);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "No activity found to handle intent", e);
+                }
+
                 return null;
             });
 

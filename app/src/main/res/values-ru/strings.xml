@@ -12,7 +12,7 @@
     <string name="cancel">Отмена</string>
     <string name="save">Сохранить</string>
     <string name="edit">Изменить</string>
-    <string name="delete">Удалить карту</string>
+    <string name="delete">Удалить</string>
     <string name="confirm">Подтвердить</string>
     <string name="ok">ОК</string>
     <string name="copy_to_clipboard">Копировать номер карты</string>

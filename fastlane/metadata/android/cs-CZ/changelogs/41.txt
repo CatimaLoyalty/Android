@@ -1,2 +1,2 @@
-- Přidání zaoblených okrajů na ikony karet v hlavním přehledu
+- Přidání zaoblených okrajů na ikony karet v hlavním přehledu
 - Přidána podpora pro seskupování záznamů

@@ -2,8 +2,8 @@ Sylvia van Os
 Branden Archer
 J. Lavoie
 Allan Nordhøy
-Heimen Stoffels
 solokot
+Heimen Stoffels
 Katharine Chui
 Oğuz Ersen
 mondstern
@@ -44,6 +44,7 @@ rr-vesp
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
+Artem M.
 Astrohops1
 Clonewayx
 D. Domig
@@ -91,7 +92,7 @@ Simone Dotto
 Subhashish Anand
 darkodo
 Tymofii Lytvynenko
-Tjipke van der Heide
+Vancha March
 Yevgeny M
 Avik Kundu
 opsik

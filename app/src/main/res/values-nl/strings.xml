@@ -240,4 +240,5 @@
     <string name="archiveList">Archief</string>
     <string name="settings_landscape_orientation">Horizontaal</string>
     <string name="noUnarchivedCardsMessage">Er zijn geen gedearchiveerde kaarten</string>
+    <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde galerij-app aangetroffen</string>
 </resources>

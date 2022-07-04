@@ -1,2 +1,2 @@
-- Zlepšení logiky rozboru vyvážení
+- Zlepšení logiky rozboru zůstatku
 - Oprava zobrazení desetinných míst měny na hlavní obrazovce

@@ -1,0 +1,1 @@
+- Oprava, aby vlastní motiv byl správně aplikován na hlavní obrazovku

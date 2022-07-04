@@ -1,4 +1,4 @@
 - Překlad do nizozemštiny
-- Umožnit editaci pole se jménem po přidání věrnostní karty
-- Přidat nepovinné pole pro poznámku
-- Vyřešit všechny problémy identifikované nástrojem FindBugs a vyžadovat vyřešení všech problémů FindBugs před přijetím požadavku na stažení
+- Umožnění editace pole se jménem po přidání věrnostní karty
+- Přidání nepovinného pole pro poznámku
+- Vyřešení všech problémů identifikovaných nástrojem FindBugs a vyžadování vyřešení všech problémů FindBugs před přijetím požadavku na natažení

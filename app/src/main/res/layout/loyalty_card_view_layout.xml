@@ -12,10 +12,9 @@
         android:id="@+id/fabEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
         android:contentDescription="@string/edit"
-        android:layout_margin="16dp" />
+        app:layout_anchor="@id/bottom_app_bar" />
 
     <FrameLayout
         android:clipChildren="false"
@@ -154,92 +153,15 @@
             android:layout_gravity="top"/>
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/bottom_sheet"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:colorBackground"
-        android:orientation="vertical"
-        android:paddingTop="0px"
-        android:visibility="gone"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="80dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        tools:visibility="visible">
-
-        <ImageButton
-            android:id="@+id/bottomSheetButton"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_gravity="top|start"
-            android:contentDescription="@string/showMoreInfo"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
-            app:tint="?attr/colorOnPrimary"
-            android:background="?attr/colorPrimary" />
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/bottomSheetContentWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/noteView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="all"
-                    android:enabled="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:longClickable="true"
-                    android:padding="20dp"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
-
-                <TextView
-                    android:id="@+id/groupsView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:longClickable="true"
-                    android:padding="20dp"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
-
-                <TextView
-                    android:id="@+id/balanceView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:longClickable="true"
-                    android:padding="20dp"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
-
-                <TextView
-                    android:id="@+id/expiryView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:longClickable="true"
-                    android:padding="20dp"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/singleCardNoteTextSizeMin" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
-
+        android:layout_gravity="bottom"
+        android:background="?attr/colorPrimary"
+        app:fabAlignmentMode="end"
+        app:menu="@menu/card_view_bottom_menu" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -249,8 +171,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:fitsSystemWindows="true"
-        android:weightSum="1.0"
-        >
+        android:weightSum="1.0">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_landscape"

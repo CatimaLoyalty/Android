@@ -240,4 +240,5 @@
     <string name="unarchived">Carte désarchivée</string>
     <string name="archiveList">Archives</string>
     <string name="noUnarchivedCardsMessage">Il n\'existe aucune carte non archivée</string>
+    <string name="failedLaunchingPhotoPicker">Impossible de trouver une application de galerie prise en charge</string>
 </resources>

@@ -19,10 +19,7 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // XXX splash screen activity has to do this after installing splash screen before view inflate
-        if (!this.getClass().getSimpleName().equals(MainActivity.class.getSimpleName())) {
-            Utils.patchColors(this);
-        }
+        Utils.patchColors(this);
     }
 
     @Override

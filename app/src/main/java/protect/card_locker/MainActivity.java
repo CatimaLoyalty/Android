@@ -218,8 +218,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         extractIntentFields(getIntent());
-        super.onCreate(inputSavedInstanceState);
         SplashScreen.installSplashScreen(this);
+        super.onCreate(inputSavedInstanceState);
         if(!mArchiveMode) {
             setTitle(R.string.app_name);
             setContentView(R.layout.main_activity);
@@ -228,8 +228,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             setTitle(R.string.archiveList);
             setContentView(R.layout.archive_activity);
         }
-        // XXX color patching has to be done again after setting splash screen
-        Utils.patchColors(this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -241,8 +240,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         mDatabase = new DBHelper(this).getWritableDatabase();
-
-
 
         TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

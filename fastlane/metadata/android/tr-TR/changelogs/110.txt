@@ -1,0 +1,1 @@
+- Özel temanın ana ekrana doğru şekilde uygulanmaması düzeltildi

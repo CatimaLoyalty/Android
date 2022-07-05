@@ -1,2 +1,2 @@
-- Zmenšení prostoru v záhlaví při zobrazení karty. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
-- Zakázat pípání při skenování čárového kódu. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))
+- Zmenšení prostoru v záhlaví při zobrazení karty. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Zakázáno pípání při skenování čárového kódu. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

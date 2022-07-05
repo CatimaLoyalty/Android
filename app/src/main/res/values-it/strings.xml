@@ -240,4 +240,5 @@
     <string name="settings_portrait_orientation">Ritratto</string>
     <string name="settings_landscape_orientation">Paesaggio</string>
     <string name="settings_lock_on_opening_orientation">Blocco da utilizzare per l\'apertura della carta</string>
+    <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
 </resources>

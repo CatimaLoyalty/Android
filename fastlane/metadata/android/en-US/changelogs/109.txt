@@ -1,0 +1,1 @@
+- Fix incorrect text colour on "No barcode" button

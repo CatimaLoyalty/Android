@@ -1,4 +1,4 @@
 - Přidání podpory pro škálování čárového kódu při přesunu na horní stranu, aby se vešel i do menších skenerů
 - Oprava přeskakování spodního listu po přepnutí na celou obrazovku
-- Zmenšit záhlaví v zobrazení věrnostních karet v režimu na šířku
+- Zmenšit záhlaví v zobrazení věrnostních karet v režimu na šířku
 - Oprava karet, které nezůstávají ve skupině, když se skupina přejmenuje

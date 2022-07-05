@@ -1,1 +1,1 @@
-- Oprava vyváženosti parsování pro země používající mezeru jako oddělovač
+- Oprava rozboru zůstatku pro země používající mezeru jako oddělovač

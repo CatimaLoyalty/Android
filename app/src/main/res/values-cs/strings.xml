@@ -245,4 +245,5 @@
     <string name="settings_landscape_orientation">Na šířku</string>
     <string name="duplicateCard">Duplikovat</string>
     <string name="archived">Karta archivována</string>
+    <string name="failedLaunchingPhotoPicker">Nepodařilo se najít podporovanou aplikaci galerie</string>
 </resources>

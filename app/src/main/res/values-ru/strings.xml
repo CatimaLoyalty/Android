@@ -250,4 +250,5 @@
     <string name="settings_card_orientation">Ориентация штрих-кода</string>
     <string name="archived">Карта архивирована</string>
     <string name="unarchived">Карта разархивирована</string>
+    <string name="failedLaunchingPhotoPicker">Не найдено поддерживаемое приложение галереи</string>
 </resources>

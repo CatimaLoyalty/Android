@@ -240,4 +240,5 @@
     <string name="settings_lock_on_opening_orientation">Kartı açarken kullanılan yönü kilitle</string>
     <string name="unarchived">Kart arşivden çıkarıldı</string>
     <string name="archive">Arşivle</string>
+    <string name="failedLaunchingPhotoPicker">Desteklenen bir galeri uygulaması bulunamadı</string>
 </resources>

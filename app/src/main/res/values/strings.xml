@@ -285,4 +285,8 @@
     <string name="archiveList">Archive</string>
     <string name="overflowMenu" translatable="false">Overflow menu</string>
     <string name="noUnarchivedCardsMessage">No unarchived cards exist</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$s</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$s</xliff:g> archived)</item>
+    </plurals>
 </resources>

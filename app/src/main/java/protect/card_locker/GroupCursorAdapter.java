@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
@@ -43,8 +44,18 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         inputHolder.mName.setText(group._id);
 
         int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
-        inputHolder.mCardCount.setText(mContext.getResources().getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount));
+        int archivedCardCount = DBHelper.getArchivedCardsCount(mDatabase, group._id);
 
+        Resources resources = mContext.getResources();
+
+        String mCardCountText;
+        if (archivedCardCount > 0) {
+            mCardCountText = resources.getQuantityString(R.plurals.groupCardCountWithArchived, groupCardCount, groupCardCount, archivedCardCount);
+        }  else {
+            mCardCountText = resources.getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount);
+        }
+
+        inputHolder.mCardCount.setText(mCardCountText);
         inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
         inputHolder.mCardCount.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
 

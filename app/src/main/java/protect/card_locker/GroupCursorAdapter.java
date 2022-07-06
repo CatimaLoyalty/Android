@@ -48,14 +48,14 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
 
         Resources resources = mContext.getResources();
 
-        String mCardCountText;
+        String cardCountText;
         if (archivedCardCount > 0) {
-            mCardCountText = resources.getQuantityString(R.plurals.groupCardCountWithArchived, groupCardCount, groupCardCount, archivedCardCount);
+            cardCountText = resources.getQuantityString(R.plurals.groupCardCountWithArchived, groupCardCount, groupCardCount, archivedCardCount);
         }  else {
-            mCardCountText = resources.getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount);
+            cardCountText = resources.getQuantityString(R.plurals.groupCardCount, groupCardCount, groupCardCount);
         }
 
-        inputHolder.mCardCount.setText(mCardCountText);
+        inputHolder.mCardCount.setText(cardCountText);
         inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
         inputHolder.mCardCount.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
 

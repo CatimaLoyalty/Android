@@ -241,4 +241,8 @@
     <string name="archiveList">Archives</string>
     <string name="noUnarchivedCardsMessage">Il n\'existe aucune carte non archivée</string>
     <string name="failedLaunchingPhotoPicker">Impossible de trouver une application de galerie prise en charge</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archivée)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cartes (<xliff:g id="archivedCount">%2$d</xliff:g> archivées)</item>
+    </plurals>
 </resources>

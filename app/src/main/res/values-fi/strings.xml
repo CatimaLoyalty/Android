@@ -238,4 +238,9 @@
     <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
     <string name="settings_card_orientation">Viivakoodin suuntaus</string>
     <string name="archiveList">Arkisto</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
+    </plurals>
+    <string name="duplicateCard">Duplikaatti</string>
 </resources>

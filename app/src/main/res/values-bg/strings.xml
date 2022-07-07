@@ -10,7 +10,7 @@
     <string name="cancel">Отказ</string>
     <string name="unstar">Премахва от любими</string>
     <string name="star">Добавя към любими</string>
-    <string name="noBarcode">Без щрихкод</string>
+    <string name="noBarcode">Липсва щрихкод</string>
     <string name="barcodeNoBarcode">Липсва щрихкод</string>
     <string name="barcodeType">Вид на щрихкод</string>
     <string name="cardId">Идентификатор на карта</string>
@@ -241,4 +241,8 @@
     <string name="archiveList">Архив</string>
     <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
     <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия.</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
+    </plurals>
 </resources>

@@ -240,4 +240,9 @@
     <string name="archive">Archivieren</string>
     <string name="archived">Karte archiviert</string>
     <string name="settings_lock_on_opening_orientation">Kartenausrichtung nach dem Öffnen beibehalten</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
+    </plurals>
+    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-Anwendung gefunden werden</string>
 </resources>

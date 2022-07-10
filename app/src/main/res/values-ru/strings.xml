@@ -250,4 +250,11 @@
     <string name="settings_card_orientation">Ориентация штрих-кода</string>
     <string name="archived">Карта архивирована</string>
     <string name="unarchived">Карта разархивирована</string>
+    <string name="failedLaunchingPhotoPicker">Не найдено поддерживаемое приложение галереи</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирована)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> карты (<xliff:g id="archivedCount">%2$d</xliff:g> архивированы)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> архивировано)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> архивировано)</item>
+    </plurals>
 </resources>

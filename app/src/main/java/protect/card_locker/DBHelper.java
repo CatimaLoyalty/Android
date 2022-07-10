@@ -577,6 +577,22 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbIds.ARCHIVE_STATUS), withArgs(1));
     }
 
+    public static int getArchivedCardsCount(SQLiteDatabase database, final String groupName) {
+        Cursor data = database.rawQuery(
+                "select * from " + LoyaltyCardDbIds.TABLE + " c " +
+                        " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " cg " +
+                        " ON c." + LoyaltyCardDbIds.ID + " = cg." + LoyaltyCardDbIdsGroups.cardID +
+                " where " + LoyaltyCardDbIds.ARCHIVE_STATUS + " = 1" +
+                " AND " + LoyaltyCardDbIdsGroups.groupID + "= ?",
+                withArgs(groupName)
+        );
+
+        int count = data.getCount();
+
+        data.close();
+        return count;
+    }
+
     public static Cursor getLoyaltyCardCursor(SQLiteDatabase database) {
         // An empty string will match everything
         return getLoyaltyCardCursor(database, LoyaltyCardArchiveFilter.All);

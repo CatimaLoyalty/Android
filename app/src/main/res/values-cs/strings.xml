@@ -245,4 +245,10 @@
     <string name="settings_landscape_orientation">Na šířku</string>
     <string name="duplicateCard">Duplikovat</string>
     <string name="archived">Karta archivována</string>
+    <string name="failedLaunchingPhotoPicker">Nepodařilo se najít podporovanou aplikaci galerie</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> karta (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaná)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> archivované)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> karet (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaných)</item>
+    </plurals>
 </resources>

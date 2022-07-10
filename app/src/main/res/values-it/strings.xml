@@ -240,4 +240,9 @@
     <string name="settings_portrait_orientation">Ritratto</string>
     <string name="settings_landscape_orientation">Paesaggio</string>
     <string name="settings_lock_on_opening_orientation">Blocco da utilizzare per l\'apertura della carta</string>
+    <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> scheda (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
+    </plurals>
 </resources>

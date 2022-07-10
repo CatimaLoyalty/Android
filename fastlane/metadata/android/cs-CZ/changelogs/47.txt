@@ -1,2 +1,2 @@
-- Vždy zobrazit všechny možnosti importu/exportu a zobrazit přípitek na aktuální problémy (zlepšuje kompatibilitu s XPrivacyLua)
-- Požádat o potvrzení při opuštění zobrazení úprav po provedení změn bez uložení
+- Vždy zobrazit všechny možnosti importu/exportu a zobrazit toast na aktuální problémy (zlepšuje kompatibilitu s XPrivacyLua)
+- Požádat o potvrzení při opuštění pohledu úprav po provedení změn bez uložení

@@ -240,4 +240,9 @@
     <string name="archiveList">Archief</string>
     <string name="settings_landscape_orientation">Horizontaal</string>
     <string name="noUnarchivedCardsMessage">Er zijn geen gedearchiveerde kaarten</string>
+    <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde galerij-app aangetroffen</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kaart (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kaarten (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
+    </plurals>
 </resources>

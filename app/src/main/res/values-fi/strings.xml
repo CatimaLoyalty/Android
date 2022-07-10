@@ -228,4 +228,19 @@
     <string name="rate_this_app">Arvostele tämä sovellus</string>
     <string name="noGiftCardsGroup">Lisää kortteja ja lisää ne ryhmään täällä.</string>
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> viivakoodi</string>
+    <string name="settings_follow_system_orientation">Seuraa järjestelmää</string>
+    <string name="settings_portrait_orientation">Muotokuva</string>
+    <string name="settings_landscape_orientation">Maisema</string>
+    <string name="unarchived">Kortti on poistettu arkistosta</string>
+    <string name="noUnarchivedCardsMessage">Arkistoimattomia kortteja ei ole olemassa</string>
+    <string name="unarchive">Poista arkistosta</string>
+    <string name="archived">Kortti arkistoitu</string>
+    <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
+    <string name="settings_card_orientation">Viivakoodin suuntaus</string>
+    <string name="archiveList">Arkisto</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
+    </plurals>
+    <string name="duplicateCard">Duplikaatti</string>
 </resources>

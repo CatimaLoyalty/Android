@@ -286,6 +286,10 @@
     <string name="overflowMenu" translatable="false">Overflow menu</string>
     <string name="noUnarchivedCardsMessage">No unarchived cards exist</string>
     <string name="failedLaunchingPhotoPicker">Could not find a supported gallery app</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+    </plurals>
     <string name="previousCard">Previous card</string>
     <string name="nextCard">Next card</string>
     <string name="cardNoAdditionalInfo">This card has no additional data. When you add a note, add it to a group, set balance or set expiry it will appear here.</string>

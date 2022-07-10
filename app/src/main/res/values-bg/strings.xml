@@ -10,7 +10,7 @@
     <string name="cancel">Отказ</string>
     <string name="unstar">Премахва от любими</string>
     <string name="star">Добавя към любими</string>
-    <string name="noBarcode">Без щрихкод</string>
+    <string name="noBarcode">Липсва щрихкод</string>
     <string name="barcodeNoBarcode">Липсва щрихкод</string>
     <string name="barcodeType">Вид на щрихкод</string>
     <string name="cardId">Идентификатор на карта</string>
@@ -158,7 +158,7 @@
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
-    <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
+    <string name="failedGeneratingShareURL">Не може да бъде генериран адрес за споделяне. Изпратете доклад за дефект.</string>
     <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
@@ -240,4 +240,9 @@
     <string name="unarchived">Карта е извадена от архива</string>
     <string name="archiveList">Архив</string>
     <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
+    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия.</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
+    </plurals>
 </resources>

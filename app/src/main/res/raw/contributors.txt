@@ -21,6 +21,7 @@ arno-github
 Ankit Tiwari
 Sergio Paredes
 laralem
+SlavekB
 huuhaa
 arshbeerSingh
 Quentin PAGÈS
@@ -35,11 +36,11 @@ waffshappen
 ati3
 Jane Kong
 K. Herbert
-SlavekB
 Still Hsu
 String E. Fighter
 Yurical
 rr-vesp
+alajemba-vik
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
@@ -50,6 +51,7 @@ Clonewayx
 D. Domig
 Diego
 Freddo espresso
+Giovanni
 Lukas Grassauer
 Marnick L'Eau
 Michalis
@@ -71,7 +73,6 @@ Kasina Dheeraj
 Eric
 Flav
 Franciszek Stefan
-Giovanni
 Grzegorz
 Izzy
 Karol Kosek

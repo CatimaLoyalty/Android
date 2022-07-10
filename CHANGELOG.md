@@ -3,6 +3,7 @@
 ## Unreleased - 110
 
 - Fix custom theme not applying to main screen correctly
+- Display archived card count in group overview
 
 ## v2.17.1 - 109
 

@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -12,7 +11,6 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -25,12 +23,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -40,7 +36,6 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -51,7 +46,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -64,7 +58,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.core.widget.TextViewCompat;
 
 import protect.card_locker.async.TaskHandler;
@@ -93,6 +86,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     Toolbar landscapeToolbar;
 
     int loyaltyCardId;
+    ArrayList<Integer> cardList;
+    int cardListPosition;
+
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
     SQLiteDatabase database;
@@ -210,6 +206,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
+        cardList = b != null ? b.getIntegerArrayList("cardList") : null;
+        cardListPosition = b != null ? b.getInt("cardListPosition") : null;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
@@ -369,12 +367,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
-        bottomAppBarInfoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showInfoDialog();
-            }
-        });
+        bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
+        bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
+        bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -389,7 +384,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return spannableStringBuilder;
     }
 
-    public void showInfoDialog() {
+    private void showInfoDialog() {
         AlertDialog.Builder infoDialog = new AlertDialog.Builder(this);
 
         TextView infoTitleView = new TextView(this);
@@ -449,6 +444,45 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.setView(infoTextview);
         infoDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
         infoDialog.create().show();
+    }
+
+    private void setPrevNextButtonState() {
+        if (cardList == null || cardList.size() == 1) {
+            bottomAppBarPreviousButton.setEnabled(false);
+            bottomAppBarNextButton.setEnabled(false);
+        } else if (cardListPosition == 0) {
+            bottomAppBarPreviousButton.setEnabled(false);
+            bottomAppBarNextButton.setEnabled(true);
+        } else if (cardListPosition == cardList.size() - 1) {
+            bottomAppBarPreviousButton.setEnabled(true);
+            bottomAppBarNextButton.setEnabled(false);
+        } else {
+            bottomAppBarPreviousButton.setEnabled(true);
+            bottomAppBarNextButton.setEnabled(true);
+        }
+    }
+
+    private void prevNextCard(boolean next) {
+        if (next) {
+            if (cardListPosition == cardList.size() - 1) {
+                Toast.makeText(this, "ALREADY AT LAST CARD", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            cardListPosition = cardListPosition + 1;
+        } else {
+            if (cardListPosition == 0) {
+                Toast.makeText(LoyaltyCardViewActivity.this, "ALREADY AT FIRST CARD", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            cardListPosition = cardListPosition - 1;
+        }
+
+        loyaltyCardId = cardList.get(cardListPosition);
+
+        // TODO: Restart activity differently to have an animation
+        onResume();
     }
 
     @Override
@@ -590,6 +624,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton.setIcon(getIcon(R.drawable.ic_baseline_info_24, backgroundNeedsDarkIcons));
         bottomAppBarPreviousButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_left_24, backgroundNeedsDarkIcons));
         bottomAppBarNextButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_right_24, backgroundNeedsDarkIcons));
+        setPrevNextButtonState();
 
         // Make notification area light if dark icons are needed
         if (Build.VERSION.SDK_INT >= 23) {

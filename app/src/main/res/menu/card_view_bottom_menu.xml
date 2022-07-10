@@ -12,13 +12,11 @@
         android:id="@+id/action_previous"
         android:icon="@drawable/ic_baseline_chevron_left_24"
         android:title="@string/previousCard"
-        android:enabled="false"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_next"
         android:icon="@drawable/ic_baseline_chevron_right_24"
         android:title="@string/nextCard"
-        android:enabled="false"
         app:showAsAction="always" />
 </menu>

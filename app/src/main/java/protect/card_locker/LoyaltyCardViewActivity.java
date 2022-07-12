@@ -72,9 +72,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ConstraintLayout mainLayout;
     TextView cardIdFieldView;
     BottomAppBar bottomAppBar;
-    ActionMenuItemView bottomAppBarInfoButton;
-    ActionMenuItemView bottomAppBarPreviousButton;
-    ActionMenuItemView bottomAppBarNextButton;
+    MenuItem bottomAppBarInfoButton;
+    MenuItem bottomAppBarPreviousButton;
+    MenuItem bottomAppBarNextButton;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -289,9 +289,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
         bottomAppBar = findViewById(R.id.bottom_app_bar);
-        bottomAppBarInfoButton = findViewById(R.id.action_show_info);
-        bottomAppBarPreviousButton = findViewById(R.id.action_previous);
-        bottomAppBarNextButton = findViewById(R.id.action_next);
         iconImage = findViewById(R.id.icon_image);
         landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
@@ -367,9 +364,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
-        bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
-        bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
-        bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.action_show_info) {
+                    showInfoDialog();
+                    return true;
+                } else if (id == R.id.action_previous) {
+                    prevNextCard(false);
+                    return true;
+                } else if (id == R.id.action_next) {
+                    prevNextCard(true);
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -621,6 +634,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
         }
+
+        bottomAppBarInfoButton = bottomAppBar.getMenu().findItem(R.id.action_show_info);
+        bottomAppBarPreviousButton = bottomAppBar.getMenu().findItem(R.id.action_previous);
+        bottomAppBarNextButton = bottomAppBar.getMenu().findItem(R.id.action_next);
+
         bottomAppBarInfoButton.setIcon(getIcon(R.drawable.ic_baseline_info_24, backgroundNeedsDarkIcons));
         bottomAppBarPreviousButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_left_24, backgroundNeedsDarkIcons));
         bottomAppBarNextButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_right_24, backgroundNeedsDarkIcons));
@@ -682,7 +700,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
-        loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
         if (loyaltyCard.archiveStatus != 0){
@@ -729,7 +746,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_duplicate) {
-            loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("id", loyaltyCardId);

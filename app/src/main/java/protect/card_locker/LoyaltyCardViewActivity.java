@@ -83,6 +83,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
     ImageView iconImage;
+    Toolbar portraitToolbar;
     Toolbar landscapeToolbar;
 
     int loyaltyCardId;
@@ -290,6 +291,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         appBarLayout = findViewById(R.id.app_bar_layout);
         bottomAppBar = findViewById(R.id.bottom_app_bar);
         iconImage = findViewById(R.id.icon_image);
+        portraitToolbar = findViewById(R.id.toolbar);
         landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
         barcodeImageGenerationFinishedCallback = () -> {
@@ -757,19 +759,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (id == R.id.action_star_unstar) {
             starred = !starred;
             DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, starred ? 1 : 0);
-            invalidateOptionsMenu();
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
 
             return true;
         } else if (id == R.id.action_archive) {
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
-            invalidateOptionsMenu();
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
 
             return true;
         } else if (id == R.id.action_unarchive) {
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
-            invalidateOptionsMenu();
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
 
             return true;
         } else if (id == R.id.action_delete) {
@@ -797,8 +805,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setupOrientation() {
-        Toolbar portraitToolbar = findViewById(R.id.toolbar);
-
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Log.d(TAG, "Detected landscape mode");

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Προσθήκη</string>
-    <string name="noGiftCards">Δεν έχετε κάρτες προς το παρόν. Πατήστε το κουμπί \"+\" (συν) στο πάνω μέρος για να ξεκινήσετε.\n\nΤο Loyalty Card Keychain σας δίνει τη δυνατότητα να έχετε τις κάρτες σας στο τηλέφωνο σας, έτσι ώστε να τις έχετε πάντα μαζί σας.</string>
-    <string name="storeName">Κατάστημα</string>
+    <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή εισάγετε κάρτες από το ⋮ μενού.</string>
+    <string name="storeName">Όνομα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός Κάρτας</string>
     <string name="cancel">Άκυρο</string>
@@ -15,46 +15,46 @@
     <string name="sendLabel">Αποστολή…</string>
     <string name="editCardTitle">Επεξεργασία Κάρτας</string>
     <string name="addCardTitle">Προσθήκη Κάρτας</string>
-    <string name="scanCardBarcode">Σαρώστε τον κωδικό της κάρτας</string>
+    <string name="scanCardBarcode">Σαρώστε τον γραμμοκώδικα (bardcode)</string>
     <string name="cardShortcut">Συντόμευση Κάρτας</string>
-    <string name="noCardsMessage">Δεν υπάρχουν κάρτες. προσθέστε μία πρώτα</string>
-    <string name="noStoreError">Δεν δώσατε κατάστημα</string>
-    <string name="noCardIdError">Δεν δώσατε κωδικό κάρτας</string>
-    <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί κάρτα</string>
+    <string name="noCardsMessage">Προσθέστε μία κάρτα πρώτα</string>
+    <string name="noStoreError">Δεν έχει εισαχθεί όνομα</string>
+    <string name="noCardIdError">Δεν έχει εισαχθεί κωδικός</string>
+    <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί η κάρτα</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
-    <string name="importExportHelp">Τα εφεδρικά δεδομένα σας δίνουν την δυνατότητα να μεταφέρετε τις κάρτες σας σε μία άλλη συσκευή.</string>
-    <string name="importSuccessfulTitle">Εισαγωγή επιτυχής</string>
+    <string name="importExportHelp">Τα αντίγραφα ασφαλείας, σας επιτρέπουν να τα εισάγετε σε άλλη συσκευή.</string>
+    <string name="importSuccessfulTitle">Εισήχθησαν</string>
     <string name="importFailedTitle">Εισαγωγή ανεπιτυχής</string>
-    <string name="importFailed">Δεν εισήχθει</string>
+    <string name="importFailed">Δεν ήταν δυνατή η εισαγωγή</string>
     <string name="exportSuccessfulTitle">Εξαγωγή επιτυχής</string>
     <string name="exportFailedTitle">Εξαγωγή ανεπιτυχής</string>
-    <string name="exportFailed">Δεν εξήχθη</string>
+    <string name="exportFailed">Δεν ήταν δυνατή η εξαγωγή</string>
     <string name="importing">Γίνεται εισαγωγή του…</string>
     <string name="exporting">Γίνεται εξαγωγή του…</string>
-    <string name="noExternalStoragePermissionError">Δεν είναι δυνατή η εισαγωγή ή εξαγωγή καρτών χωρίς την άδεια πρόσβασης στον εξωτερικό χώρο αποθήκευσης</string>
+    <string name="noExternalStoragePermissionError">Εγκρίνετε την άδεια εξωτερικής αποθήκευσης για να εισάγετε ή εξάγετε δεδομένα</string>
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
     <string name="importOptionFilesystemButton">Από το σύστημα αρχείων</string>
-    <string name="importOptionApplicationTitle">Χρήση εξωτερικής εφαρμογής</string>
-    <string name="importOptionApplicationExplanation">Κάντε χρήση μίας εξωτερικής εφαρμογής όπως είναι τα Dropbox, Google Drive ή ο αγαπημένος σας διαχειριστής αρχείων για να ανοίξετε ένα αρχείο.</string>
-    <string name="importOptionApplicationButton">Χρήση εξωτερικής εφαρμογής</string>
+    <string name="importOptionApplicationTitle">Χρήση άλλης εφαρμογής</string>
+    <string name="importOptionApplicationExplanation">Χρησιμοποιήστε οποιαδήποτε εφαρμογή ή τον αγαπημένο περιηγητή αρχείων σας, για να ανοίξετε ένα αρχείο.</string>
+    <string name="importOptionApplicationButton">Χρήσης άλλης εφαρμογής</string>
     <string name="about">Σχετικά</string>
-    <string name="app_license">Άδεια χρήσης υπό το GPLv3.</string>
+    <string name="app_license">Άδεια χρήσης υπό GPLv3+</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Πληροφορίες Αναθεώρησης: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
-    <string name="copy_to_clipboard_toast">Ο κωδικός της κάρτας αντιγράφτηκε στο πρόχειρο</string>
-    <string name="thumbnailDescription">Μικρογραφία κάρτας</string>
+    <string name="copy_to_clipboard_toast">Ο κωδικός αντιγράφτηκε στο πρόχειρο</string>
+    <string name="thumbnailDescription">Μικρογραφία</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_category_title_ui">Διεπαφή χρήστη</string>
     <string name="settings_dark_theme">Σκοτεινό</string>
     <string name="settings_light_theme">Φωτεινό</string>
     <string name="settings_system_theme">Σύστημα</string>
     <string name="barcode">Γραμμικός κώδικας</string>
-    <string name="deleteTitle">Αφαίρεση Κάρτας</string>
-    <string name="deleteConfirmation">Παρακαλώ επιβεβαιώστε ότι θέλετε να διαγράψετε αυτή την κάρτα.</string>
+    <string name="deleteTitle">Διαγραφή Κάρτας</string>
+    <string name="deleteConfirmation">Μόνιμη διαγραφή της κάρτας;</string>
     <string name="action_search">Αναζήτηση</string>
     <string name="noMatchingGiftCards">Κανένα αποτέλεσμα. Δοκίμασε με διαφορετικές λέξεις.</string>
     <plurals name="selectedCardCount">
@@ -62,4 +62,187 @@
         <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
     </plurals>
     <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
+    <string name="barcodeNoBarcode">Δεν υπάρχει barcode</string>
+    <string name="addManually">Χειροκίνητη εισαγωγή κωδικού</string>
+    <string name="never">Ποτέ</string>
+    <string name="share">Κοινοποίηση</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> πόντος</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> πόντοι</item>
+    </plurals>
+    <string name="exportOptionExplanation">Τα δεδομένα θα μεταφερθούν σε τοποθεσία της επιλογής σας.</string>
+    <string name="settings_theme">Θέμα</string>
+    <string name="groupsList">Ομάδες: <xliff:g>%s</xliff:g></string>
+    <string name="barcodeId">Τιμή γραμμοκώδικα</string>
+    <string name="sort">Ταξινόμηση</string>
+    <string name="deleteConfirmationGroup">Διαγραφή ομάδας;</string>
+    <string name="moveDown">Προχώρα κάτω</string>
+    <string name="accept">Αποδοχή</string>
+    <string name="yes">Ναι</string>
+    <string name="no">Όχι</string>
+    <string name="addFromImage">Επιλογή εικόνας από την συλλογή</string>
+    <string name="expiryStateSentence">Λήγει: <xliff:g>%s</xliff:g></string>
+    <string name="expiryDate">Ημερομηνία λήξης</string>
+    <string name="settings_keep_screen_on">Κράτα την οθόνη ανοιχτή</string>
+    <string name="leaveWithoutSaveTitle">Έξοδος</string>
+    <string name="swipeToSwitchImages">Σύρετε ή πατήστε παρατεταμένα για να αλλάξετε εικόνες</string>
+    <string name="sort_by_balance">Υπόλοιπο</string>
+    <string name="reverse">... σε αντίθετη σειρά</string>
+    <string name="version_history">Ιστορικό έκδοσης</string>
+    <string name="sort_by">Ταξινόμηση κατά</string>
+    <string name="credits">Πιστώσεις</string>
+    <string name="help_translate_this_app">Βοηθήστε να μεταφραστεί η εφαρμογή</string>
+    <string name="source_repository">Αποθήκη κώδικα</string>
+    <string name="on_github">στο GitHub</string>
+    <string name="on_google_play">στο Google Play</string>
+    <string name="report_error">Αναφορά Σφάλματος</string>
+    <string name="starred">Αγαπημένα</string>
+    <string name="translate_platform">στο Weblate</string>
+    <string name="set_scale">Ορίστε κλίμακα</string>
+    <string name="importLoyaltyCardKeychain">Εισαγωγή από Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
+\nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
+    <string name="importFidme">Εισαγωγή από FidMe</string>
+    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμοκώδικα μετέπειτα.
+\nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και διαλέγοντας εξαγωγή δεδομένων.</string>
+    <string name="setBarcodeId">Επιλέξτε τιμή γραμμοκώδικα</string>
+    <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για αυτού του τύπου γραμμοκώδικα</string>
+    <string name="copy_to_clipboard_multiple_toast">Οι κωδικοί αντιγράφηκαν στο πρόχειρο</string>
+    <string name="setBackImage">Επιλογή οπίσθιας εικόνας</string>
+    <string name="removeImage">Αφαίρεση εικόνας</string>
+    <string name="takePhoto">Τραβήξτε μια φωτογραφία</string>
+    <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμοκώδικα στην ίδια τιμή;</string>
+    <string name="action_show_details">Εμφάνιση λεπτομερειών</string>
+    <string name="options">Επιλογές</string>
+    <string name="hideMoreInfo">Απόκρυψη πληροφοριών</string>
+    <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
+    <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
+    <string name="group_name_is_empty">Το όνομα ομάδας δεν γίνεται να είναι κενό</string>
+    <string name="group_edit">Επεξεργασία ομάδας</string>
+    <string name="star">Προσθήκη στα αγαπημένα</string>
+    <string name="unstar">Αφαίρεση από τα αγαπημένα</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Διαγραφή <xliff:g>%d</xliff:g> κάρτας</item>
+        <item quantity="other">Διαγραφή <xliff:g>%d</xliff:g> καρτών</item>
+    </plurals>
+    <string name="card_ids_copied">Αντιγραμμένη/ες ταυτότητα/ες</string>
+    <string name="errorReadingImage">Δεν ήταν δυνατό να διαβαστεί η εικόνα</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> δεν φαίνεται να είναι έγκυρο το υπόλοιπο.</string>
+    <string name="currency">Νόμισμα</string>
+    <string name="privacy_policy">Πολιτική απορρήτου</string>
+    <string name="chooseImportType">Εισαγωγή δεδομένων από</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="privacy_policy_popup_text">Σημείωμα πολιτικής απορρήτου ( υποχρεωτικό σε κάποια \"μαγαζιά\" εφαρμογών)
+\n
+\nΜΗΔΕΝΙΚΆ ΔΕΔΟΜΈΝΑ ΣΥΛΛΈΓΟΝΤΑΙ, ο οποιοσδήποτε μπορεί να το επιβεβαιώσει μιας και η εφαρμογή είναι ελεύθερο λογισμικό.</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> κάρτα ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκε)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> κάρτες ( <xliff:g id="archivedCount">%2$d</xliff:g> αρχειοθετήθηκαν)</item>
+    </plurals>
+    <string name="importCatimaMessage">Επιλέξτε την <i>catima.zip</i> εξαγωγή από το Catima για εισαγωγή
+\nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής μιας άλλης εφαρμογής Catima κάνοντας εξαγωγή εκεί πρώτα.</string>
+    <string name="importStocardMessage">Επιλέξτε την <i>***-sync.zip</i> εξαγωγή από το Stocard για εισαγωγή.
+\nΠάρτε το στέλνοντας email στο: support@stocardapp.com ζητώντας μια εξαγωγή αρχείων των δεδομένων σας.</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
+    <string name="editGroup">Επεξεργασία Ομάδας: <xliff:g>%s</xliff:g></string>
+    <string name="setFrontImage">Επιλογή μπροστινής εικόνας</string>
+    <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
+\nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
+    <string name="unsupportedBarcodeType">Ο τύπος γραμμοκώδικα δεν γίνεται να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
+    <string name="frontImageDescription">Μπροστινή εικόνα</string>
+    <string name="photos">Φωτογραφίες</string>
+    <string name="backImageDescription">Οπίσθια εικόνα</string>
+    <string name="updateBarcodeQuestionTitle">Ενημέρωση τιμής γραμμοκώδικα;</string>
+    <string name="passwordRequired">Παρακαλώ εισάγετε τον κωδικό</string>
+    <string name="sort_by_most_recently_used">Χρησιμοποιήθηκαν πρόσφατα</string>
+    <string name="shortcutSelectCard">Επιλέξτε μία κάρτα</string>
+    <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμοκώδικα</string>
+    <string name="app_libraries">Ελεύθερες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="license">Άδεια</string>
+    <string name="include_if_asking_support">Αν θέλετε να ζητήσετε υποστήριξη, συμπεριλάβετε τις ακόλουθες πληροφορίες:</string>
+    <string name="action_hide_details">Απόκρυψη λεπτομερειών</string>
+    <string name="importSuccessful">Δεδομένα εισήχθησαν</string>
+    <string name="moveUp">Προχώρα πάνω</string>
+    <string name="barcodeType">Τύπος γραμμοκώδικα</string>
+    <string name="app_resources">Ελεύθερες πηγές τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="selectColor">Επιλογή χρώματος</string>
+    <string name="setIcon">Ορισμός εικονιδίου</string>
+    <string name="settings_sky_blue_theme">Γαλάζιο</string>
+    <string name="settings_green_theme">Πράσινο</string>
+    <string name="settings_grey_theme">Γκρι</string>
+    <string name="settings_brown_theme">Καφέ</string>
+    <string name="sort_by_expiry">Λήξη</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> κάρτα</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> κάρτες</item>
+    </plurals>
+    <string name="points">Πόντοι</string>
+    <string name="exportSuccessful">Δεδομένα εξήχθησαν</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Αποτροπή κλειδώματος οθόνης</string>
+    <string name="failedLaunchingPhotoPicker">Δεν βρέθηκε υποστηριζόμενη εφαρμογή συλλογής</string>
+    <string name="noBarcode">Χωρίς barcode</string>
+    <string name="starImage">Αγαπημένο αστέρι</string>
+    <string name="balanceSentence">Υπόλοιπο: <xliff:g>%s</xliff:g></string>
+    <string name="failedParsingImportUriError">Δεν ήταν δυνατή η ανάλυση του εισαγόμενου URL</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Διαγραφή της κάρτας <xliff:g>%d</xliff:g> μόνιμα;</item>
+        <item quantity="other">Διαγραφή των καρτρών <xliff:g>%d</xliff:g> μόνιμα;</item>
+    </plurals>
+    <string name="app_copyright_old">Βασισμένο στο Loyalty Card Keychain
+\nπνευματικά δικαιώματα © 2016-2020 Branden Archer</string>
+    <string name="enterBarcodeInstructions">Εισάγετε τον κωδικό και διαλέξτε έναν είδος γραμμοκώδικα από κάτω ή \"Δεν υπάρχει γραμμοκώδικας\".</string>
+    <string name="settings_follow_system_orientation">Ακολούθηση συστήματος</string>
+    <string name="settings_card_orientation">Προσανατολισμός γραμμοκώδικα</string>
+    <string name="settings_portrait_orientation">Πορτραίτο</string>
+    <string name="settings_landscape_orientation">Οριζόντια</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Πνευματικά δικαιώματα © 2019-<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="settings_lock_on_opening_orientation">Κλείδωμα τωρινού προσανατολισμού όταν ανοίγει μία κάρτα</string>
+    <string name="settings_max_font_size_scale">Μέγιστο μέγεθος γραμματοσειράς</string>
+    <string name="intent_import_card_from_url_share_text">Θέλω να μοιραστώ μία κάρτα μαζί σου</string>
+    <string name="enter_group_name">Εισάγετε όνομα ομάδας</string>
+    <string name="groups">Ομάδες</string>
+    <string name="noGroups">Κάντε κλικ στο + κουμπί ώστε να προσθέσετε ομάδες για κατηγοριοποίηση.</string>
+    <string name="group_name_already_in_use">Αυτό το όνομα υπάρχει ήδη</string>
+    <string name="group_updated">Η ομάδα ενημερώθηκε</string>
+    <string name="all">Όλες</string>
+    <string name="failedOpeningFileManager">Εγκαταστήστε έναν διαχειριστή αρχείων πρώτα.</string>
+    <string name="leaveWithoutSaveConfirmation">Έξοδος χωρίς αποθήκευση;</string>
+    <string name="expiryStateSentenceExpired">Έληξε: <xliff:g>%s</xliff:g></string>
+    <string name="card">Κάρτα</string>
+    <string name="editBarcode">Επεξεργασία γραμμοκώδικα</string>
+    <string name="chooseExpiryDate">Επιλέξτε ημερομηνία λήξης</string>
+    <string name="moveBarcodeToTopOfScreen">Μετακίνηση του γραμμοκώδικα στο πάνω μέρος της οθόνης</string>
+    <string name="moveBarcodeToCenterOfScreen">Κεντράρισμα του γραμμοκώδικα στην οθόνη</string>
+    <string name="noBarcodeFound">Δεν βρέθηκε γραμμοκώδικας</string>
+    <string name="balance">Υπόλοιπο</string>
+    <string name="importCatima">Εισαγωγή από Catima</string>
+    <string name="importStocard">Εισαγωγή από Stocard</string>
+    <string name="importVoucherVault">Εισαγωγή από Voucher Vault</string>
+    <string name="sameAsCardId">Ίδιος κωδικός</string>
+    <string name="exportPassword">Προσθέστε έναν κωδικό για προστασία της εξαγωγής (προαιρετικά)</string>
+    <string name="exportPasswordHint">Εισαγωγή κωδικού</string>
+    <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL. Παρακαλώ αναφέρετε το.</string>
+    <string name="turn_flashlight_on">Ενεργοποίηση φακού</string>
+    <string name="turn_flashlight_off">Απενεργοποίηση φακού</string>
+    <string name="settings_locale">Γλώσσα</string>
+    <string name="settings_oled_dark">Απόλυτο μαύρο φόντο για το μαύρο θέμα</string>
+    <string name="settings_system_locale">Σύστημα</string>
+    <string name="settings_theme_color">Χρώμα θέματος</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Ροζ</string>
+    <string name="settings_magenta_theme">Φούξια</string>
+    <string name="settings_violet_theme">Βιολετί</string>
+    <string name="settings_blue_theme">Μπλε</string>
+    <string name="app_contributors">Δημιουργήθηκε από: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="showMoreInfo">Εμφάνιση πληροφοριών</string>
+    <string name="sort_by_name">Όνομα</string>
+    <string name="and_data_usage">και δεδομένα χρήσης</string>
+    <string name="rate_this_app">Βαθμολογήστε την εφαρμογή</string>
+    <string name="duplicateCard">Αντίγραφο</string>
+    <string name="archive">Αρχειοθετήστε</string>
+    <string name="archived">Η κάρτα αρχειοθετήθηκε</string>
+    <string name="unarchived">Η κάρτα αφαιρέθηκε από το αρχείο</string>
+    <string name="unarchive">Αφαίρεση από το αρχείο</string>
+    <string name="archiveList">Αρχείο</string>
+    <string name="noUnarchivedCardsMessage">Δεν υπάρχουν αρχειοθετημένες κάρτες</string>
 </resources>

@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -1195,9 +1196,8 @@ public class LoyaltyCardViewActivityTest {
 
         assertEquals(false, activity.isFinishing());
 
-        ImageView mainImage = activity.findViewById(R.id.mainImage);
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
-        View bottomSheet = activity.findViewById(R.id.bottom_sheet);
+        BottomAppBar bottomAppBar = activity.findViewById(R.id.bottom_app_bar);
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
         LinearLayout dotIndicator = activity.findViewById(R.id.dotIndicator);
@@ -1211,7 +1211,7 @@ public class LoyaltyCardViewActivityTest {
 
         // Elements should be visible (except minimize button and scaler)
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
@@ -1229,7 +1229,7 @@ public class LoyaltyCardViewActivityTest {
 
         // Elements should not be visible (except minimize button and scaler)
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.GONE, bottomSheet.getVisibility());
+        assertEquals(View.GONE, bottomAppBar.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
@@ -1243,7 +1243,7 @@ public class LoyaltyCardViewActivityTest {
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
@@ -1257,7 +1257,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.GONE, bottomSheet.getVisibility());
+        assertEquals(View.GONE, bottomAppBar.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
         assertEquals(View.VISIBLE, minimizeButton.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
@@ -1271,7 +1271,7 @@ public class LoyaltyCardViewActivityTest {
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
@@ -1300,9 +1300,8 @@ public class LoyaltyCardViewActivityTest {
 
         assertEquals(false, activity.isFinishing());
 
-        ImageView barcodeImage = activity.findViewById(R.id.barcode);
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
-        View bottomSheet = activity.findViewById(R.id.bottom_sheet);
+        BottomAppBar bottomAppBar = activity.findViewById(R.id.bottom_app_bar);
         ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
         ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
         FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
@@ -1315,7 +1314,7 @@ public class LoyaltyCardViewActivityTest {
 
         // Elements should be visible (except minimize/maximize buttons and barcode and scaler)
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
-        assertEquals(View.VISIBLE, bottomSheet.getVisibility());
+        assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
         assertEquals(View.GONE, minimizeButton.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());

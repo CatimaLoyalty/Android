@@ -980,8 +980,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);
-            bottomAppBar.performHide();
-            editButton.hide();
+            bottomAppBar.setVisibility(View.GONE);
+            editButton.setVisibility(View.GONE);
 
             // Set Android to fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
@@ -1015,8 +1015,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);
-            bottomAppBar.performShow();
-            editButton.show();
+            editButton.setVisibility(View.VISIBLE);
+            bottomAppBar.setVisibility(View.VISIBLE);
 
             // Unset fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(

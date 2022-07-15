@@ -504,8 +504,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         loyaltyCardId = cardList.get(cardListPosition);
 
-        // TODO: Restart activity differently to have an animation
-        onResume();
+        // Restart activity with new card id and index
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        b.putInt("id", loyaltyCardId);
+        b.putInt("cardListPosition", cardListPosition);
+        intent.putExtras(b);
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
+        // Skip animation
+        overridePendingTransition(0, 0);
     }
 
     @Override

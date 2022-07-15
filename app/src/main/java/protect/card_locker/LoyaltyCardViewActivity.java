@@ -463,31 +463,39 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void setPrevNextButtonState() {
         if (cardList == null || cardList.size() == 1) {
-            bottomAppBarPreviousButton.setEnabled(false);
-            bottomAppBarNextButton.setEnabled(false);
+            showPreviousButton(false);
+            showNextButton(false);
         } else if (cardListPosition == 0) {
-            bottomAppBarPreviousButton.setEnabled(false);
-            bottomAppBarNextButton.setEnabled(true);
+            showPreviousButton(false);
+            showNextButton(true);
         } else if (cardListPosition == cardList.size() - 1) {
-            bottomAppBarPreviousButton.setEnabled(true);
-            bottomAppBarNextButton.setEnabled(false);
+            showPreviousButton(true);
+            showNextButton(false);
         } else {
-            bottomAppBarPreviousButton.setEnabled(true);
-            bottomAppBarNextButton.setEnabled(true);
+            showPreviousButton(true);
+            showNextButton(true);
         }
+    }
+
+    private void showPreviousButton(boolean show) {
+        bottomAppBarPreviousButton.setEnabled(show);
+        bottomAppBarPreviousButton.setVisible(show);
+    }
+
+    private void showNextButton(boolean show) {
+        bottomAppBarNextButton.setEnabled(show);
+        bottomAppBarNextButton.setVisible(show);
     }
 
     private void prevNextCard(boolean next) {
         if (next) {
             if (cardListPosition == cardList.size() - 1) {
-                Toast.makeText(this, "ALREADY AT LAST CARD", Toast.LENGTH_LONG).show();
                 return;
             }
 
             cardListPosition = cardListPosition + 1;
         } else {
             if (cardListPosition == 0) {
-                Toast.makeText(LoyaltyCardViewActivity.this, "ALREADY AT FIRST CARD", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -563,10 +571,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
-
-        if (!isFullscreen) {
-            bottomAppBar.performHide();
-        }
 
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getFontSizeMax(settings.getLargeFont()));

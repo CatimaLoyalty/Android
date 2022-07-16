@@ -49,13 +49,14 @@ import java.util.List;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.BlendModeColorFilterCompat;
+import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
@@ -72,9 +73,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ConstraintLayout mainLayout;
     TextView cardIdFieldView;
     BottomAppBar bottomAppBar;
-    MenuItem bottomAppBarInfoButton;
-    MenuItem bottomAppBarPreviousButton;
-    MenuItem bottomAppBarNextButton;
+    ImageButton bottomAppBarInfoButton;
+    ImageButton bottomAppBarPreviousButton;
+    ImageButton bottomAppBarNextButton;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -294,6 +295,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         portraitToolbar = findViewById(R.id.toolbar);
         landscapeToolbar = findViewById(R.id.toolbar_landscape);
 
+        bottomAppBarInfoButton = findViewById(R.id.button_show_info);
+        bottomAppBarPreviousButton = findViewById(R.id.button_previous);
+        bottomAppBarNextButton = findViewById(R.id.button_next);
+
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
                 mainImage.setVisibility(View.GONE);
@@ -366,25 +371,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-
-                if (id == R.id.action_show_info) {
-                    showInfoDialog();
-                    return true;
-                } else if (id == R.id.action_previous) {
-                    prevNextCard(false);
-                    return true;
-                } else if (id == R.id.action_next) {
-                    prevNextCard(true);
-                    return true;
-                }
-
-                return false;
-            }
-        });
+        bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
+        bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
+        bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -479,12 +468,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void showPreviousButton(boolean show) {
         bottomAppBarPreviousButton.setEnabled(show);
-        bottomAppBarPreviousButton.setVisible(show);
+        bottomAppBarPreviousButton.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     private void showNextButton(boolean show) {
         bottomAppBarNextButton.setEnabled(show);
-        bottomAppBarNextButton.setVisible(show);
+        bottomAppBarNextButton.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     private void prevNextCard(boolean next) {
@@ -650,13 +639,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
         }
 
-        bottomAppBarInfoButton = bottomAppBar.getMenu().findItem(R.id.action_show_info);
-        bottomAppBarPreviousButton = bottomAppBar.getMenu().findItem(R.id.action_previous);
-        bottomAppBarNextButton = bottomAppBar.getMenu().findItem(R.id.action_next);
-
-        bottomAppBarInfoButton.setIcon(getIcon(R.drawable.ic_baseline_info_24, backgroundNeedsDarkIcons));
-        bottomAppBarPreviousButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_left_24, backgroundNeedsDarkIcons));
-        bottomAppBarNextButton.setIcon(getIcon(R.drawable.ic_baseline_chevron_right_24, backgroundNeedsDarkIcons));
+        fixImageButtonColor(bottomAppBarInfoButton);
+        fixImageButtonColor(bottomAppBarPreviousButton);
+        fixImageButtonColor(bottomAppBarNextButton);
         setPrevNextButtonState();
 
         // Make notification area light if dark icons are needed
@@ -700,6 +685,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         setFullscreen(isFullscreen);
 
         DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
+    }
+
+    private void fixImageButtonColor(ImageButton imageButton) {
+        imageButton.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE, BlendModeCompat.SRC_ATOP));
     }
 
     @Override

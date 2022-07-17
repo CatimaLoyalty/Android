@@ -89,7 +89,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     int loyaltyCardId;
     ArrayList<Integer> cardList;
-    int cardListPosition;
 
     LoyaltyCard loyaltyCard;
     boolean rotationEnabled;
@@ -209,7 +208,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
         cardList = b != null ? b.getIntegerArrayList("cardList") : null;
-        cardListPosition = b != null ? b.getInt("cardListPosition") : null;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
@@ -467,6 +465,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             next = !next;
         }
 
+        int cardListPosition = cardList.indexOf(loyaltyCardId);
+
         if (next) {
             if (cardListPosition == cardList.size() - 1) {
                 cardListPosition = 0;
@@ -487,7 +487,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         b.putInt("id", loyaltyCardId);
-        b.putInt("cardListPosition", cardListPosition);
         intent.putExtras(b);
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

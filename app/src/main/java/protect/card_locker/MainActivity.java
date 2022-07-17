@@ -863,7 +863,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
 
             b.putIntegerArrayList("cardList", cardList);
-            b.putInt("cardListPosition", inputPosition);
             intent.putExtras(b);
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);

@@ -450,45 +450,35 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.create().show();
     }
 
-    private void setPrevNextButtonState() {
+    private void setBottomAppBarButtonState() {
         if (cardList == null || cardList.size() == 1) {
-            showPreviousButton(false);
-            showNextButton(false);
-        } else if (cardListPosition == 0) {
-            showPreviousButton(false);
-            showNextButton(true);
-        } else if (cardListPosition == cardList.size() - 1) {
-            showPreviousButton(true);
-            showNextButton(false);
+            bottomAppBarPreviousButton.setVisibility(View.GONE);
+            bottomAppBarNextButton.setVisibility(View.GONE);
         } else {
-            showPreviousButton(true);
-            showNextButton(true);
+            bottomAppBarPreviousButton.setVisibility(View.VISIBLE);
+            bottomAppBarNextButton.setVisibility(View.VISIBLE);
         }
     }
 
-    private void showPreviousButton(boolean show) {
-        bottomAppBarPreviousButton.setEnabled(show);
-        bottomAppBarPreviousButton.setVisibility(show ? View.VISIBLE : View.GONE);
-    }
-
-    private void showNextButton(boolean show) {
-        bottomAppBarNextButton.setEnabled(show);
-        bottomAppBarNextButton.setVisibility(show ? View.VISIBLE : View.GONE);
-    }
-
     private void prevNextCard(boolean next) {
+        // If we're in RTL layout, we want the "left" button to be "next" instead of "previous"
+        // So we swap next around
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            next = !next;
+        }
+
         if (next) {
             if (cardListPosition == cardList.size() - 1) {
-                return;
+                cardListPosition = 0;
+            } else {
+                cardListPosition = cardListPosition + 1;
             }
-
-            cardListPosition = cardListPosition + 1;
         } else {
             if (cardListPosition == 0) {
-                return;
+                cardListPosition = cardList.size() - 1;
+            } else {
+                cardListPosition = cardListPosition - 1;
             }
-
-            cardListPosition = cardListPosition - 1;
         }
 
         loyaltyCardId = cardList.get(cardListPosition);
@@ -642,7 +632,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         fixImageButtonColor(bottomAppBarInfoButton);
         fixImageButtonColor(bottomAppBarPreviousButton);
         fixImageButtonColor(bottomAppBarNextButton);
-        setPrevNextButtonState();
+        setBottomAppBarButtonState();
 
         // Make notification area light if dark icons are needed
         if (Build.VERSION.SDK_INT >= 23) {

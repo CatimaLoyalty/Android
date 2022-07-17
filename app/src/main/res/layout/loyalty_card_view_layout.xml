@@ -153,46 +153,6 @@
             android:layout_gravity="top"/>
     </FrameLayout>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?attr/colorPrimary"
-        app:fabAlignmentMode="center">
-
-        <ImageButton
-            android:id="@+id/button_show_info"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_info_24"
-            android:tooltipText="@string/showMoreInfo" />
-
-        <ImageButton
-            android:id="@+id/button_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:padding="15dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_chevron_left_24"
-            android:tooltipText="@string/previousCard" />
-
-        <ImageButton
-            android:id="@+id/button_next"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:padding="15dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_chevron_right_24"
-            android:tooltipText="@string/nextCard" />
-
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="fill_parent"
@@ -261,5 +221,51 @@
         app:srcCompat="@drawable/ic_launcher_foreground"
         tools:ignore="ContentDescription" />
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?attr/colorPrimary"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+        app:fabAlignmentMode="center">
 
+        <ImageButton
+            android:id="@+id/button_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_chevron_left_24"
+            android:tooltipText="@string/previousCard" />
+
+        <ImageButton
+            android:id="@+id/button_show_info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_info_24"
+            android:tooltipText="@string/showMoreInfo" />
+
+        <ImageButton
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_chevron_right_24"
+            android:tooltipText="@string/nextCard" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -47,7 +47,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_done" />
+                app:srcCompat="@drawable/ic_done"
+                android:background="@color/md_theme_dark_onSelected" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/star"

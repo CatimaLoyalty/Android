@@ -1,2 +1,3 @@
 - Fix custom theme not applying to main screen correctly
 - Display archived card count in group overview
+- Improve display of selected cards

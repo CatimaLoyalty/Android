@@ -4,6 +4,7 @@
 
 - Fix custom theme not applying to main screen correctly
 - Display archived card count in group overview
+- Improve display of selected cards
 
 ## v2.17.1 - 109
 

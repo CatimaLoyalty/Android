@@ -170,14 +170,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition) {
         if (itemSelected(inputPosition)) {
-            inputHolder.mCardIcon.setVisibility(View.GONE);
             inputHolder.mTickIcon.setVisibility(View.VISIBLE);
             if (mCurrentSelectedIndex == inputPosition) {
                 resetCurrentIndex();
             }
         } else {
             inputHolder.mTickIcon.setVisibility(View.GONE);
-            inputHolder.mCardIcon.setVisibility(View.VISIBLE);
             if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition) {
                 resetCurrentIndex();
             }

@@ -2,8 +2,9 @@
 
 ## Unreleased - 110
 
-- Fix custom theme not applying to main screen correctly
+- Arabic language support
 - Display archived card count in group overview
+- Fix custom theme not applying to main screen correctly
 - Improve display of selected cards
 - Fix crash when leaving cardview in RTL layouts for cards with expiry or balance
 - Fix back arrow in card view pointing the wrong way in RTL layouts

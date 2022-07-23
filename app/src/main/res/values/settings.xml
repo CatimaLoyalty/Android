@@ -60,6 +60,7 @@
 
     <string-array name="locale_values">
         <item />
+        <item>ar</item>
         <item>bg</item>
         <item>bn-rIN</item>
         <item>bs</item>

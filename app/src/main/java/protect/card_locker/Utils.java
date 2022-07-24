@@ -37,6 +37,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
@@ -239,32 +240,19 @@ public class Utils {
         return numberFormat.format(value);
     }
 
-    static public Boolean currencyHasDecimals(Currency currency) {
+    static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+
         if (currency == null) {
-            return false;
+            numberFormat.setMaximumFractionDigits(0);
+        } else {
+            numberFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
+            numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
         }
 
-        return currency.getDefaultFractionDigits() != 0;
-    }
+        Log.d(TAG, numberFormat.parse(value).toString());
 
-    static public BigDecimal parseCurrency(String value, Boolean hasDecimals) throws NumberFormatException {
-        // If there are no decimals expected, remove all separators before parsing
-        if (!hasDecimals) {
-            value = value.replaceAll("[^0-9]", "");
-            return new BigDecimal(value);
-        }
-
-        // There are many ways users can write a currency, so we fix it up a bit
-        // 1. Replace all non-numbers with dots
-        value = value.replaceAll("[^0-9]", ".");
-
-        // 2. Remove all but the last dot
-        while (value.split("\\.").length > 2) {
-            value = value.replaceFirst("\\.", "");
-        }
-
-        // Parse as BigDecimal
-        return new BigDecimal(value);
+        return new BigDecimal(numberFormat.parse(value).toString());
     }
 
     static public byte[] bitmapToByteArray(Bitmap bitmap) {

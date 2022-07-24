@@ -52,6 +52,7 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -402,11 +403,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals(tempLoyaltyCard.balanceType));
+                    BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
                     validBalance = true;
-
-                } catch (NumberFormatException e) {
+                } catch (ParseException e) {
                     validBalance = false;
                     e.printStackTrace();
                 }

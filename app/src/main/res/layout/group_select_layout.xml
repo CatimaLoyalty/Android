@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/select"
-            android:layout_width="@dimen/cardThumbnailSize"
+            android:layout_width="0dp"
             android:layout_height="@dimen/cardThumbnailSize"
             android:layout_weight="1"
             android:text="@string/select"/>

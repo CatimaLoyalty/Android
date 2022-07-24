@@ -221,7 +221,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     {
         final Bundle b = intent.getExtras();
         groupWidget = b != null ? b.getString("groupId") : null;
-        Log.d(TAG, "View activity: id=" + groupWidget);
+        mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
+        if(!mArchiveMode) {
+            Log.d(TAG, "View activity: id=" + groupWidget);
+        }
     }
 
     @Override
@@ -506,11 +509,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (mCurrentActionMode != null) {
             mCurrentActionMode.finish();
         }
-    }
-
-    private void extractIntentFields(Intent intent) {
-        final Bundle b = intent.getExtras();
-        mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout) {

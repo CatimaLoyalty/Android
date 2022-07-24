@@ -16,7 +16,6 @@ import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -49,7 +48,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
-
 import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 

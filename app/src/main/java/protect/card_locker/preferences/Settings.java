@@ -9,7 +9,6 @@ import androidx.annotation.IntegerRes;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
-
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.18.0 - 110
+## v2.18.1 - 111
 
 - Arabic language support
 - Display archived card count in group overview

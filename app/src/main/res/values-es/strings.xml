@@ -10,8 +10,6 @@
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
-    <string name="lockScreen">Bloquear giro</string>
-    <string name="unlockScreen">Desbloquear giro</string>
     <string name="ok">Aceptar</string>
     <string name="copy_to_clipboard">Copiar id. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
@@ -51,7 +49,6 @@
     <string name="exportSuccessful">Datos de las tarjetas exportados</string>
     <string name="importSuccessful">Datos de las tarjetas importados</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
-    <string name="settings_lock_barcode_orientation">Bloquear giro en el código de barras</string>
     <string name="settings_dark_theme">Oscuro</string>
     <string name="settings_light_theme">Claro</string>
     <string name="settings_system_theme">Sistema</string>

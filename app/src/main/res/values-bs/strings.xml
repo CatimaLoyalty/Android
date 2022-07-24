@@ -21,7 +21,6 @@
     <string name="intent_import_card_from_url_share_text">Želim podijeliti čestitku s tobom</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spriječi zaključavanje ekrana</string>
     <string name="settings_keep_screen_on">Zadrži ekran</string>
-    <string name="settings_lock_barcode_orientation">Zaključaj barcode orjentacija</string>
     <string name="settings_max_font_size_scale">Max. veliäťina fonta</string>
     <string name="settings_light_theme">Svjetlo</string>
     <string name="settings_system_theme">Sistem</string>
@@ -82,7 +81,6 @@
     <string name="share">Podijeli</string>
     <string name="copy_to_clipboard">Kopiraj ID u clipboard</string>
     <string name="deleteConfirmation">Izbriši trajno ovu karticu\?</string>
-    <string name="unlockScreen">Odblokalna Rotacija</string>
     <string name="confirm">Potvrdi</string>
     <string name="delete">Obriši</string>
     <string name="edit">Izmijeni</string>

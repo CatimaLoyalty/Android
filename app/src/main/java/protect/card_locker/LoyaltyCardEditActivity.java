@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -208,7 +209,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
-                Utils.getUnixTime(), 100
+                Utils.getUnixTime(), 100, (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus)
         );
     }
 
@@ -772,7 +773,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0);
 
             }
         }
@@ -1172,7 +1173,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
                 Intent i = new Intent(Intent.ACTION_PICK);
                 i.setType("image/*");
-                mPhotoPickerLauncher.launch(i);
+
+                try {
+                    mPhotoPickerLauncher.launch(i);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "No activity found to handle intent", e);
+                }
+
                 return null;
             });
 
@@ -1235,7 +1243,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+            datePickerDialog.getDatePicker().setMinDate(getMinDateOfDatePicker());
+            return datePickerDialog;
+        }
+
+        private long getMinDateOfDatePicker()
+        {
+            Calendar minDateCalendar = Calendar.getInstance();
+            minDateCalendar.set(1970, 0, 1);
+            return minDateCalendar.getTimeInMillis();
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -1300,7 +1317,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
             Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
         } else {
-            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed);
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed,0);
             try {
                 Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
                 Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
@@ -1323,11 +1340,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (updateLoyaltyCard) {
-            getMenuInflater().inflate(R.menu.card_update_menu, menu);
-        } else {
-            getMenuInflater().inflate(R.menu.card_add_menu, menu);
-        }
+        getMenuInflater().inflate(R.menu.card_add_menu, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -1336,30 +1349,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-                askBeforeQuitIfChanged();
-                break;
-
-            case R.id.action_delete:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.deleteTitle);
-                builder.setMessage(R.string.deleteConfirmation);
-                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                    Log.e(TAG, "Deleting card: " + loyaltyCardId);
-
-                    DBHelper.deleteLoyaltyCard(mDatabase, LoyaltyCardEditActivity.this, loyaltyCardId);
-
-                    ShortcutHelper.removeShortcut(LoyaltyCardEditActivity.this, loyaltyCardId);
-
-                    finish();
-                    dialog.dismiss();
-                });
-                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                return true;
+        if (id == android.R.id.home) {
+            askBeforeQuitIfChanged();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -131,7 +131,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
         inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 
-        inputHolder.toggleStar(loyaltyCard.starStatus != 0, itemSelected(inputCursor.getPosition()));
+        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
@@ -170,14 +170,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     private void applyIconAnimation(LoyaltyCardListItemViewHolder inputHolder, int inputPosition) {
         if (itemSelected(inputPosition)) {
-            inputHolder.mCardIcon.setVisibility(View.GONE);
             inputHolder.mTickIcon.setVisibility(View.VISIBLE);
             if (mCurrentSelectedIndex == inputPosition) {
                 resetCurrentIndex();
             }
         } else {
             inputHolder.mTickIcon.setVisibility(View.GONE);
-            inputHolder.mCardIcon.setVisibility(View.VISIBLE);
             if ((mReverseAllAnimations && mAnimationItemsIndex.get(inputPosition, false)) || mCurrentSelectedIndex == inputPosition) {
                 resetCurrentIndex();
             }
@@ -232,12 +230,14 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mStoreField, mNoteField, mBalanceField, mExpiryField;
-        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon;
+        public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
         public MaterialCardView mRow, mIconLayout;
-        public ConstraintLayout mStar;
+        public ConstraintLayout mStar, mArchived;
         public View mDivider;
 
         private int mIconBackgroundColor;
+
+
 
         protected LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
@@ -247,12 +247,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mNoteField = inputView.findViewById(R.id.note);
             mBalanceField = inputView.findViewById(R.id.balance);
             mExpiryField = inputView.findViewById(R.id.expiry);
-
             mIconLayout = inputView.findViewById(R.id.icon_layout);
             mCardIcon = inputView.findViewById(R.id.thumbnail);
             mStar = inputView.findViewById(R.id.star);
             mStarBackground = inputView.findViewById(R.id.star_background);
             mStarBorder = inputView.findViewById(R.id.star_border);
+            mArchived = inputView.findViewById(R.id.archivedIcon);
+            mArchivedBackground = inputView.findViewById(R.id.archive_background);
             mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
@@ -287,10 +288,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 mDivider.setVisibility(View.VISIBLE);
                 mBalanceField.setVisibility(View.VISIBLE);
                 Drawable balanceIcon = mBalanceField.getCompoundDrawables()[0];
-                balanceIcon.setBounds(0, 0, drawableSize, drawableSize);
-                mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
-                if (mDarkModeEnabled) {
-                    balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                if (balanceIcon != null) {
+                    balanceIcon.setBounds(0, 0, drawableSize, drawableSize);
+                    mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
+                    if (mDarkModeEnabled) {
+                        balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                    }
                 }
                 mBalanceField.setText(Utils.formatBalance(mContext, balance, balanceType));
                 mBalanceField.setTextSize(size);
@@ -307,21 +310,25 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 mDivider.setVisibility(View.VISIBLE);
                 mExpiryField.setVisibility(View.VISIBLE);
                 Drawable expiryIcon = mExpiryField.getCompoundDrawables()[0];
-                expiryIcon.setBounds(0, 0, drawableSize, drawableSize);
-                mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
-                if (Utils.hasExpired(expiry)) {
-                    expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
-                    mExpiryField.setTextColor(Color.RED);
-                } else if (mDarkModeEnabled) {
-                    expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                if (expiryIcon != null) {
+                    expiryIcon.setBounds(0, 0, drawableSize, drawableSize);
+                    mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
+                    if (Utils.hasExpired(expiry)) {
+                        expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
+                    } else if (mDarkModeEnabled) {
+                        expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
+                    }
                 }
                 mExpiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
+                if (Utils.hasExpired(expiry)) {
+                    mExpiryField.setTextColor(Color.RED);
+                }
                 mExpiryField.setTextSize(size);
             }
             mExpiryField.requestLayout();
         }
 
-        public void toggleStar(boolean enable, boolean colorByTheme) {
+        public void toggleCardStateIcon(boolean enableStar, boolean enableArchive, boolean colorByTheme) {
             /* the below code does not work in android 5! hence the change of drawable instead
             boolean needDarkForeground = Utils.needsDarkForeground(mIconBackgroundColor);
             Drawable borderDrawable = mStarBorder.getDrawable().mutate();
@@ -335,20 +342,33 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             if (colorByTheme) {
                 dark = !mDarkModeEnabled;
             }
+
             if (dark) {
                 mStarBorder.setImageResource(R.drawable.ic_unstarred_white);
                 mStarBackground.setImageResource(R.drawable.ic_starred_black);
+                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24_black);
             } else {
                 mStarBorder.setImageResource(R.drawable.ic_unstarred_black);
                 mStarBackground.setImageResource(R.drawable.ic_starred_white);
+                mArchivedBackground.setImageResource(R.drawable.ic_baseline_archive_24);
             }
-            if (enable) {
+
+            if (enableStar) {
                 mStar.setVisibility(View.VISIBLE);
-            } else {
+            } else{
                 mStar.setVisibility(View.GONE);
             }
+
+            if (enableArchive) {
+                mArchived.setVisibility(View.VISIBLE);
+            } else{
+                mArchived.setVisibility(View.GONE);
+            }
+
             mStarBorder.invalidate();
             mStarBackground.invalidate();
+            mArchivedBackground.invalidate();
+
         }
 
         public void setIconBackgroundColor(int color) {

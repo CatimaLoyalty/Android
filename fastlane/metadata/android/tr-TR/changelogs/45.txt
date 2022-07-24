@@ -1,0 +1,1 @@
+- Dikey kaydırmalar sırasında ana ekran kaydırma tetiklemesi düzeltildi

@@ -10,7 +10,7 @@
     <string name="cancel">Отказ</string>
     <string name="unstar">Премахва от любими</string>
     <string name="star">Добавя към любими</string>
-    <string name="noBarcode">Без щрихкод</string>
+    <string name="noBarcode">Липсва щрихкод</string>
     <string name="barcodeNoBarcode">Липсва щрихкод</string>
     <string name="barcodeType">Вид на щрихкод</string>
     <string name="cardId">Идентификатор на карта</string>
@@ -87,7 +87,6 @@
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
     <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
-    <string name="settings_lock_barcode_orientation">Без на завъртане на щрихкода</string>
     <string name="settings_keep_screen_on">Поддържане на екрана включен</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Предотвратяване на заключване на екрана</string>
     <string name="settings_max_font_size_scale">Максимален размер на шрифта</string>
@@ -139,8 +138,6 @@
     <string name="importOptionFilesystemTitle">Внасяне от файловата система</string>
     <string name="importCatima">Внасяне от Catima</string>
     <string name="exportSuccessful">Данните са изнесени</string>
-    <string name="unlockScreen">Разрешава автоматичното завъртане</string>
-    <string name="lockScreen">Спира автоматичното завъртане</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> избрана</item>
         <item quantity="other"><xliff:g>%d</xliff:g> избрани</item>
@@ -161,7 +158,7 @@
     <string name="importLoyaltyCardKeychainMessage">Изберете файла <i>LoyaltyCardKeychain.csv</i>, предварително изнесен от Loyalty Card Keychain.
 \nСъздайте такъв файл от меню Внасяне/изнасяне от друго устройство с Loyalty Card Keychain като изберете Изнасяне.</string>
     <string name="failedParsingImportUriError">Препратката не може да бъде анализирана за внасяне</string>
-    <string name="failedGeneratingShareURL">Грешка при създаване на адрес за споделяне. Изпратете доклад за дефект.</string>
+    <string name="failedGeneratingShareURL">Не може да бъде генериран адрес за споделяне. Изпратете доклад за дефект.</string>
     <string name="deleteTitle">Премахване на карта</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Изтриване на <xliff:g>%d</xliff:g> карта</item>
@@ -231,4 +228,21 @@
     </plurals>
     <string name="settings_oled_dark">Чисто черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
+    <string name="settings_card_orientation">Положение на щрихкода</string>
+    <string name="settings_follow_system_orientation">Според системата</string>
+    <string name="settings_portrait_orientation">Портретно</string>
+    <string name="settings_landscape_orientation">Пейзажно</string>
+    <string name="settings_lock_on_opening_orientation">Използване на положението, използвано при отваряне на картата</string>
+    <string name="duplicateCard">Дублиране</string>
+    <string name="archive">Архивиране</string>
+    <string name="unarchive">Изваждане от архива</string>
+    <string name="archived">Картата е архивирана</string>
+    <string name="unarchived">Карта е извадена от архива</string>
+    <string name="archiveList">Архив</string>
+    <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
+    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия.</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
+    </plurals>
 </resources>

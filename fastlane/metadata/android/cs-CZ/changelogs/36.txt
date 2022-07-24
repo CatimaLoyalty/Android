@@ -1,14 +1,14 @@
 - Přidání možnosti vyhledat kartu
 - Přidání možnosti sdílet a přijímat věrnostní karty
 - Podpora tmavého režimu
-- Věrnostní karty mohou být nyní bez čárového kódu (např. bez čárového kódu)
+- Věrnostní karty mohou být nyní bez čárového kódu
 - Poznámky mohou přesahovat více řádků
 - Vylepšení velikosti poznámek
 - Zlepšení viditelnosti oznámení a ikon aplikací
 - Aktualizace cílového SDK na Android 10
 - Vylepšení následujících překladů:
-  - Němčina
-  - Italština
+  - němčina
+  - italština
   - nizozemština
-  - Polština
+  - polština
   - ruština

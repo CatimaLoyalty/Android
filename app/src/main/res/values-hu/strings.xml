@@ -23,8 +23,6 @@
     <string name="edit">Szerkesztés</string>
     <string name="delete">Törlés</string>
     <string name="confirm">Alkalmaz</string>
-    <string name="lockScreen">Forgatás blokkolása</string>
-    <string name="unlockScreen">Blokkolás engedélyezése</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one"><xliff:g>%d</xliff:g> törlése</item>
         <item quantity="other"><xliff:g>%d</xliff:g> törlése</item>
@@ -106,7 +104,6 @@
     <string name="settings_light_theme">Világos</string>
     <string name="settings_max_font_size_scale">Max. betű méret</string>
     <string name="settings_display_barcode_max_brightness">Fényes vonalkód nézet</string>
-    <string name="settings_lock_barcode_orientation">Vonalkód tájolás zárolása</string>
     <string name="settings_keep_screen_on">Képernyő bekapcsolva marad</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Képernyő zárólás megakadályozása</string>
     <string name="intent_import_card_from_url_share_text">Meg akarok veled osztani egy kártyát</string>

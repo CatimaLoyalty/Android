@@ -1,0 +1,2 @@
+- Různé drobné opravy
+- Oprava pádu při použití norského překladu

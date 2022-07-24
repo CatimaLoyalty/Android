@@ -2,13 +2,13 @@ Sylvia van Os
 Branden Archer
 J. Lavoie
 Allan Nordhøy
-Heimen Stoffels
 solokot
+Heimen Stoffels
 Katharine Chui
 Oğuz Ersen
 mondstern
-IllusiveMan196
 Altonss
+IllusiveMan196
 StoyanDimitrov
 Petr Novák
 Joel A
@@ -20,12 +20,14 @@ Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
-huuhaa
 laralem
+SlavekB
+huuhaa
 arshbeerSingh
 Quentin PAGÈS
 Miha Frangež
 sr093906
+Freddo espresso
 mdvhimself
 Maciej Błędkowski
 Olivia (Zoe)
@@ -39,23 +41,29 @@ Still Hsu
 String E. Fighter
 Yurical
 rr-vesp
+alajemba-vik
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
 KovalevArtem
+Artem M.
+Astrohops1
 Clonewayx
 D. Domig
 Diego
+Giovanni
 Lukas Grassauer
 Marnick L'Eau
 Michalis
 Rosdyana Kusuma
 umoenks
 Thomas Bertels
+Runner
 inesre
 lgasp
 phlostically
 Aditya Das
+Asier
 Kevin Sicong Jiang
 Airat
 sNiXx
@@ -66,7 +74,6 @@ Kasina Dheeraj
 Eric
 Flav
 Franciszek Stefan
-Giovanni
 Grzegorz
 Izzy
 Karol Kosek
@@ -83,15 +90,16 @@ Reza
 Rohan Babbar 
 Ronak Upadhyay
 Rose Liverman
+Samarth Asthan
 Simone Dotto
-SlavekB
 Subhashish Anand
 darkodo
 Tymofii Lytvynenko
-Tjipke van der Heide
+Vancha March
 Yevgeny M
 Avik Kundu
 opsik
+pooyanazari
 psa-jforestier
 Robin
 sergio

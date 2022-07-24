@@ -1,2 +1,2 @@
-- Přidání podpory rovnováhy
-- Reorganizace karty čárového kódu v zobrazení úprav
+- Přidání podpory zůstatku
+- Přeuspořádání karty čárového kódu v pohledu úprav

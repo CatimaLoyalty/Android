@@ -77,7 +77,6 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою картою</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
-    <string name="settings_lock_barcode_orientation">Заблокувати орієнтацію штрих-коду</string>
     <string name="settings_max_font_size_scale">Макс. розмір шрифту</string>
     <string name="settings_dark_theme">Темна</string>
     <string name="settings_light_theme">Світла</string>
@@ -132,8 +131,6 @@
     <string name="share">Поділитися</string>
     <string name="copy_to_clipboard">Копіювати ID до буферу обміну</string>
     <string name="ok">ОК</string>
-    <string name="unlockScreen">Розблокувати обертання</string>
-    <string name="lockScreen">Блокувати обертання</string>
     <string name="confirm">Підтвердити</string>
     <string name="delete">Видалити</string>
     <string name="edit">Редагувати</string>
@@ -151,11 +148,11 @@
     <string name="turn_flashlight_on">Увімкнути спалах</string>
     <string name="failedGeneratingShareURL">Збій створення URL обміну. Будь ласка повідомте про цю помилку.</string>
     <string name="passwordRequired">Будь ласка введіть пароль</string>
-    <string name="takePhoto">Зробити фото</string>
+    <string name="takePhoto">Зробити світлину</string>
     <string name="removeImage">Видалити зображення</string>
     <string name="setBackImage">Встановити зображення тильної сторони</string>
     <string name="setFrontImage">Встановити зображення лицьової сторони</string>
-    <string name="photos">Фото</string>
+    <string name="photos">Світлини</string>
     <string name="backImageDescription">Тильна сторона</string>
     <string name="frontImageDescription">Лицьова сторона</string>
     <string name="importStocardMessage">Виберіть експорт <i> ***-sync.zip </i> зі Stocard для імпорту.
@@ -241,4 +238,16 @@
         <item quantity="other"><xliff:g>%s</xliff:g> балів</item>
     </plurals>
     <string name="include_if_asking_support">Якщо ви хочете отримати техпідтримку, додайте цю інформацію:</string>
+    <string name="unarchive">Розархівувати</string>
+    <string name="settings_card_orientation">Орієнтація штрих-коду</string>
+    <string name="settings_follow_system_orientation">Як у системі</string>
+    <string name="duplicateCard">Дублювати</string>
+    <string name="archive">Архівувати</string>
+    <string name="settings_portrait_orientation">Поличчя</string>
+    <string name="settings_landscape_orientation">Краєвид</string>
+    <string name="settings_lock_on_opening_orientation">Блокування орієнтації при відкритті картки</string>
+    <string name="archived">Картка архівована</string>
+    <string name="unarchived">Картка розархівована</string>
+    <string name="archiveList">Архів</string>
+    <string name="noUnarchivedCardsMessage">Немає не архівованих карток</string>
 </resources>

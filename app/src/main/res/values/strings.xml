@@ -22,8 +22,6 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="confirm">Confirm</string>
-    <string name="lockScreen">Block Rotation</string>
-    <string name="unlockScreen">Unblock Rotation</string>
     <!-- START NOTE: i18n oddness -->
     <!-- The following may seem weird, but it is necessary to give translators enough flexibility.
          For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
@@ -99,12 +97,20 @@
     <string name="settings_key_light_theme" translatable="false">light</string>
     <string name="settings_dark_theme">Dark</string>
     <string name="settings_key_dark_theme" translatable="false">dark</string>
+    <string name="settings_card_orientation">Barcode orientation</string>
+    <string name="settings_key_card_orientation" translatable="false">pref_card_orientation</string>
+    <string name="settings_follow_system_orientation">Follow system</string>
+    <string name="settings_key_follow_system_orientation" translatable="false">follow_system</string>
+    <string name="settings_portrait_orientation">Portrait</string>
+    <string name="settings_key_portrait_orientation" translatable="false">portrait</string>
+    <string name="settings_landscape_orientation">Landscape</string>
+    <string name="settings_key_landscape_orientation" translatable="false">landscape</string>
+    <string name="settings_lock_on_opening_orientation">Lock to orientation used when opening the card</string>
+    <string name="settings_key_lock_on_opening_orientation" translatable="false">lock_on_opening</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
     <string name="settings_max_font_size_scale">Max. font size</string>
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
-    <string name="settings_lock_barcode_orientation">Lock barcode orientation</string>
-    <string name="settings_key_lock_barcode_orientation" translatable="false">pref_lock_barcode_orientation</string>
     <string name="settings_keep_screen_on">Keep screen on</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
@@ -276,4 +282,16 @@
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="shortcutSelectGroup">Select a group</string>
     <string name="duplicateCard">Duplicate</string>
+    <string name="archive">Archive</string>
+    <string name="unarchive">Unarchive</string>
+    <string name="archived">Card archived</string>
+    <string name="unarchived">Card unarchived</string>
+    <string name="archiveList">Archive</string>
+    <string name="overflowMenu" translatable="false">Overflow menu</string>
+    <string name="noUnarchivedCardsMessage">No unarchived cards exist</string>
+    <string name="failedLaunchingPhotoPicker">Could not find a supported gallery app</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
+    </plurals>
 </resources>

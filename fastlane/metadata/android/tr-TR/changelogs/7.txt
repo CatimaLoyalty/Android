@@ -1,0 +1,2 @@
+- Bir karta uzun tıklamak, kart kimliğini panoya kopyalama seçeneğini getirir. (https://github.com/brarcher/loyalty-card-locker/issues/49)
+- İçe/Dışa aktar görünümündeki Geri düğmesi artık çalışıyor ve kullanıcıyı ana görünüme taşıyor

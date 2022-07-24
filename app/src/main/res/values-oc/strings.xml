@@ -22,8 +22,6 @@
     <string name="editCardTitle">Modificar la carta</string>
     <string name="sendLabel">Enviar…</string>
     <string name="share">Partejar</string>
-    <string name="unlockScreen">Activar la rotacion</string>
-    <string name="lockScreen">Desactivar la rotacion</string>
     <string name="confirm">Confirmar</string>
     <string name="delete">Suprimir</string>
     <string name="edit">Modificar</string>

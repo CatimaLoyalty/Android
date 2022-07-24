@@ -1,0 +1,2 @@
+- Ukládání stavu zobrazení rozšířených podrobností karty
+- Drobné opravy uživatelského rozhraní

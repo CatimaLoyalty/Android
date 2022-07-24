@@ -10,8 +10,6 @@
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
     <string name="confirm">Confirmer</string>
-    <string name="lockScreen">Désactiver la rotation</string>
-    <string name="unlockScreen">Activer la rotation</string>
     <string name="ok">OK</string>
     <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
@@ -52,7 +50,6 @@
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
-    <string name="settings_lock_barcode_orientation">Verrouiller l’orientation du code-barres</string>
     <string name="exportSuccessful">Données exportées</string>
     <string name="importSuccessful">Données importées</string>
     <string name="intent_import_card_from_url_share_text">Je veux partager une carte avec toi</string>
@@ -231,4 +228,21 @@
     </plurals>
     <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
     <string name="include_if_asking_support">Si vous voulez demander de l\'aide, incluez les informations suivantes :</string>
+    <string name="settings_card_orientation">Orientation du code-barres</string>
+    <string name="settings_follow_system_orientation">Suivre le système</string>
+    <string name="settings_portrait_orientation">Portrait</string>
+    <string name="settings_landscape_orientation">Paysage</string>
+    <string name="settings_lock_on_opening_orientation">Garder l\'orientation utilisée pour ouvrir la carte</string>
+    <string name="duplicateCard">Dupliquer</string>
+    <string name="archive">Archiver</string>
+    <string name="unarchive">Désarchiver</string>
+    <string name="archived">Carte archivée</string>
+    <string name="unarchived">Carte désarchivée</string>
+    <string name="archiveList">Archives</string>
+    <string name="noUnarchivedCardsMessage">Il n\'existe aucune carte non archivée</string>
+    <string name="failedLaunchingPhotoPicker">Impossible de trouver une application de galerie prise en charge</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archivée)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cartes (<xliff:g id="archivedCount">%2$d</xliff:g> archivées)</item>
+    </plurals>
 </resources>

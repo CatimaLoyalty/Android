@@ -1,4 +1,4 @@
 - Přidání nastavení pro ovládání jasu obrazovky při zobrazení čárového kódu (pull #259)
 - Přidání překladů do řečtiny (pull #252)
-- Přidat slovinské překlady (pull #260)
+- Přidání překladů do slovinštiny (pull #260)
 - Aktualizace překladů (pull #260, pull #254)

@@ -13,8 +13,6 @@
     <string name="edit">Modifica</string>
     <string name="delete">Elimina</string>
     <string name="confirm">Conferma</string>
-    <string name="lockScreen">Blocca rotazione</string>
-    <string name="unlockScreen">Sblocca rotazione</string>
     <string name="ok">Ok</string>
     <string name="copy_to_clipboard">Copia codice negli appunti</string>
     <string name="share">Condividi</string>
@@ -62,7 +60,6 @@
     <string name="settings_light_theme">Chiaro</string>
     <string name="settings_dark_theme">Scuro</string>
     <string name="settings_display_barcode_max_brightness">Aumenta luminosità dello schermo quando viene aperto un codice a barre</string>
-    <string name="settings_lock_barcode_orientation">Blocca orientamento del codice a barre</string>
     <string name="intent_import_card_from_url_share_text">Voglio condividere una carta fedeltà con te</string>
     <string name="exportSuccessful">Dati della carta esportati</string>
     <string name="importSuccessful">Dati importati</string>
@@ -231,4 +228,21 @@
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
     <string name="include_if_asking_support">Se vuoi richiedere supporto, includi le seguenti informazioni:</string>
+    <string name="settings_card_orientation">Orientamento del codice a barre</string>
+    <string name="settings_follow_system_orientation">Segui il sistema</string>
+    <string name="duplicateCard">Duplica</string>
+    <string name="archive">Archivia</string>
+    <string name="unarchive">Disarchivia</string>
+    <string name="archiveList">Archivio</string>
+    <string name="noUnarchivedCardsMessage">Non esistono schede non archiviate</string>
+    <string name="unarchived">Carta non archiviata</string>
+    <string name="archived">Carta archiviata</string>
+    <string name="settings_portrait_orientation">Ritratto</string>
+    <string name="settings_landscape_orientation">Paesaggio</string>
+    <string name="settings_lock_on_opening_orientation">Blocco da utilizzare per l\'apertura della carta</string>
+    <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> scheda (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
+    </plurals>
 </resources>

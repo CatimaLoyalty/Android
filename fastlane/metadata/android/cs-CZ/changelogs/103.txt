@@ -1,0 +1,2 @@
+- Oprava stavu, kdy ruční výběr jazyka se neprojevil všude
+- Oprava havárie v editačním pohledu pokud národní prostředí nemá regiony

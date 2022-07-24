@@ -21,7 +21,6 @@
     <string name="intent_import_card_from_url_share_text">url শেয়ার টেক্সট থেকে ইন্টেন্ট ইম্পোর্ট কার্ড</string>
     <string name="settings_disable_lockscreen_while_viewing_card"> কার্ড দেখা কালিন লকস্ক্রিন নিষ্ক্রিয়</string>
     <string name="settings_keep_screen_on">সেটিংস পর্দা খোলা রাখুন</string>
-    <string name="settings_lock_barcode_orientation"> তালাবদ্ধ বার কোড অভিযোজন</string>
     <string name="settings_max_font_size_scale">সর্বোচ্চ হরফ আকার</string>
     <string name="settings_light_theme">সাদাটে থিম</string>
     <string name="settings_system_theme">যন্ত্রর থিম</string>
@@ -82,7 +81,6 @@
     <string name="share">ভাগ</string>
     <string name="copy_to_clipboard">নকল করুন ক্লিপবোর্ড এ</string>
     <string name="deleteConfirmation">নিশ্চিতকরণ মুছে দিন</string>
-    <string name="unlockScreen">পর্দা আনলক করুন</string>
     <string name="confirm">নিশ্চিত করুন</string>
     <string name="delete">মুছে ফেলুন</string>
     <string name="edit">সম্পাদনা</string>

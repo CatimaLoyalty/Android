@@ -1,0 +1,5 @@
+- Přidána možnost duplikování karty
+- Neumožnění výběru vypršení platnosti před 1970 (stejně to nikdy nefungovalo)
+- Přidána podpora pro archivování karet
+- Přesunuto mazání z editace do prohlížení
+- Odstranění ikony zámku otáčení ve prospěch nového nastavení zamykání otáčení

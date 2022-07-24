@@ -40,7 +40,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
     @NonNull
     @Override
     public Flow.Publisher<Control> createPublisherForAllAvailable() {
-        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
         return subscriber -> {
             while (loyaltyCardCursor.moveToNext()) {
                 LoyaltyCard card = LoyaltyCard.toLoyaltyCard(loyaltyCardCursor);

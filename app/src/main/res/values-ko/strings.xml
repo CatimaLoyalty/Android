@@ -5,7 +5,6 @@
     <string name="all">모두</string>
     <string name="groups">그룹</string>
     <string name="enter_group_name">그룹 이름 입력</string>
-    <string name="settings_lock_barcode_orientation">바코드 회전 잠금</string>
     <string name="settings_dark_theme">어두움</string>
     <string name="settings_light_theme">밝음</string>
     <string name="debug_version_fmt">버전: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="version">%s</xliff:g></string>
@@ -31,8 +30,6 @@
     <string name="share">공유</string>
     <string name="copy_to_clipboard">ID를 클립보드에 복사</string>
     <string name="ok">확인</string>
-    <string name="unlockScreen">회전 잠금 해제</string>
-    <string name="lockScreen">회전 잠금</string>
     <string name="confirm">확인</string>
     <string name="delete">삭제</string>
     <string name="edit">편집</string>

@@ -34,8 +34,6 @@
     <string name="card_ids_copied">Nukopijuotos kortelės ID</string>
     <string name="noCardsMessage">Pirmiausia pridėkite kortelę</string>
     <string name="sendLabel">Siųsti…</string>
-    <string name="unlockScreen">Atblokuoti pasukimą</string>
-    <string name="lockScreen">Blokuoti pasukimą</string>
     <string name="unstar">Pašalinti iš mėgstamiausių</string>
     <string name="star">Pridėti prie mėgstamiausių</string>
     <string name="noBarcode">Nėra brūkšninio kodo</string>
@@ -130,7 +128,6 @@
     <string name="intent_import_card_from_url_share_text">Noriu pasidalyti su jumis kortele</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Neleisti užrakinti ekrano</string>
     <string name="settings_keep_screen_on">Laikyti ekraną įjungtą</string>
-    <string name="settings_lock_barcode_orientation">Užrakinti brūkšninio kodo orientaciją</string>
     <string name="settings_max_font_size_scale">Didžiausias šrifto dydis</string>
     <string name="settings_dark_theme">Tamsi</string>
     <string name="settings_light_theme">Šviesi</string>

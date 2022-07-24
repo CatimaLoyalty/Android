@@ -12,8 +12,6 @@
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
     <string name="confirm">Bestätigen</string>
-    <string name="lockScreen">Rotation sperren</string>
-    <string name="unlockScreen">Rotation erlauben</string>
     <string name="star">Zu den Favoriten hinzufügen</string>
     <string name="unstar">Aus den Favoriten entfernen</string>
     <string name="ok">OK</string>
@@ -56,7 +54,6 @@
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_display_barcode_max_brightness">Barcodeansicht aufhellen</string>
-    <string name="settings_lock_barcode_orientation">Barcoderotation sperren</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>
@@ -231,4 +228,21 @@
     </plurals>
     <string name="settings_oled_dark">Rein schwarzer Hintergrund für dunkles Thema</string>
     <string name="include_if_asking_support">Wenn Sie Unterstützung anfordern möchten, geben Sie bitte die folgenden Informationen an:</string>
+    <string name="settings_follow_system_orientation">System folgen</string>
+    <string name="settings_landscape_orientation">Landschaft</string>
+    <string name="archiveList">Archiv</string>
+    <string name="noUnarchivedCardsMessage">Es gibt keine nicht archivierten Karten</string>
+    <string name="settings_portrait_orientation">Porträt</string>
+    <string name="duplicateCard">Duplizieren</string>
+    <string name="unarchive">Archivierung aufheben</string>
+    <string name="settings_card_orientation">Barcode-Ausrichtung</string>
+    <string name="unarchived">Karte nicht archiviert</string>
+    <string name="archive">Archivieren</string>
+    <string name="archived">Karte archiviert</string>
+    <string name="settings_lock_on_opening_orientation">Kartenausrichtung nach dem Öffnen beibehalten</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> Karte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> Karten (<xliff:g id="archivedCount">%2$d</xliff:g> archiviert)</item>
+    </plurals>
+    <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-Anwendung gefunden werden</string>
 </resources>

@@ -1,0 +1,4 @@
+- Stocard içe aktarıcısı iyileştirildi
+- Catima dışa aktarımının çok satırlı not ile içe aktarılması düzeltildi
+- Kartı başlığı kabul edilebilir aralıkta ölçeklendirildi
+- Animasyon iyileştirmeleri

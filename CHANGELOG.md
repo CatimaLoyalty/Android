@@ -1,8 +1,25 @@
 # Changelog
 
-## Unreleased - 108
+## Unreleased - 110
+
+- Arabic language support
+- Display archived card count in group overview
+- Fix custom theme not applying to main screen correctly
+- Improve display of selected cards
+- Fix crash when leaving cardview in RTL layouts for cards with expiry or balance
+- Fix back arrow in card view pointing the wrong way in RTL layouts
+
+## v2.17.1 - 109
+
+- Fix incorrect text colour on "No barcode" button
+
+## v2.17.0 - 108
 
 - Add card duplication feature
+- Don't allow choosing expiry before 1970 (they never worked anyway)
+- Add support for archiving cards
+- Move delete from edit to view
+- Remove rotation lock icon in favour of a new rotation lock setting
 
 ## v2.16.3 - 107 (2022-04-15)
 

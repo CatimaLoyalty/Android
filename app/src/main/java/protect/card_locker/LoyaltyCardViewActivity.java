@@ -57,7 +57,6 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.core.widget.TextViewCompat;
-
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
 

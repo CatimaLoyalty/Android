@@ -8,8 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     private HashMap<Integer, Integer> mIndexCardMap;
     private HashMap<Integer, Boolean> mInGroupOverlay;

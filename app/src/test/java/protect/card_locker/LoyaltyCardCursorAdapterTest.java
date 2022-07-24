@@ -1,13 +1,11 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
@@ -26,10 +24,7 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.preference.PreferenceManager;
-
 import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;

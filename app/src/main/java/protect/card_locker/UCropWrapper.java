@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.textview.MaterialTextView;
+import com.yalantis.ucrop.UCropActivity;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
-
-import com.google.android.material.color.MaterialColors;
-import com.google.android.material.textview.MaterialTextView;
-import com.yalantis.ucrop.UCropActivity;
 
 public class UCropWrapper extends UCropActivity {
     public static final String UCROP_TOOLBAR_TYPEFACE_STYLE = "ucop_toolbar_typeface_style";

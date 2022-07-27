@@ -82,6 +82,17 @@
                             android:contentDescription="@string/thumbnailDescription"
                             android:src="@mipmap/ic_launcher"/>
 
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/thumbnailEditIcon"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
+                            android:layout_width="@dimen/cardThumbnailEditOverlaySize"
+                            android:layout_height="@dimen/cardThumbnailEditOverlaySize"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="4dp"
+                            app:contentPadding="4dp"
+                            android:alpha="0.8"
+                            android:src="@drawable/ic_mode_edit_white_24dp"/>
+
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.textfield.TextInputLayout

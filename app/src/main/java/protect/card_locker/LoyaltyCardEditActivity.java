@@ -117,6 +117,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     TabLayout tabs;
 
     ImageView thumbnail;
+    ImageView thumbnailEditIcon;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
@@ -315,6 +316,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
+        thumbnailEditIcon = findViewById(R.id.thumbnailEditIcon);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
@@ -914,13 +916,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         generateIcon(storeFieldEdit.getText().toString());
 
+        thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.BLACK : Color.WHITE);
+        thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.WHITE : Color.BLACK);
+
         onResuming = false;
     }
 
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
+            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary);
+
+            updateTempState(LoyaltyCardField.headerColor, headerColor);
+
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
@@ -1101,6 +1111,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         @Override
                         public void onColorSelected(int dialogId, int color) {
                             updateTempState(LoyaltyCardField.headerColor, color);
+
+                            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
+                            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
 
                             // Unset image if set
                             thumbnail.setTag(null);

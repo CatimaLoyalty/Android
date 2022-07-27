@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 112
+
+- Make the possibility to set a custom header more visible
+
 ## v2.18.1 - 111
 
 - Arabic language support

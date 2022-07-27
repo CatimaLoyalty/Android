@@ -864,12 +864,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
         }
 
-        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
-        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
-        if (tempLoyaltyCard.headerColor != null) {
-            thumbnail.setOnClickListener(new ChooseCardImage());
-        }
-
         // Update from intent
         if (barcodeType != null) {
             try {
@@ -916,8 +910,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         generateIcon(storeFieldEdit.getText().toString());
 
-        thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.BLACK : Color.WHITE);
-        thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.WHITE : Color.BLACK);
+        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
+        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
+        // NP_NULL_PARAM_DEREF: Method call passes null for non-null parameter
+        Integer headerColor = tempLoyaltyCard.headerColor;
+        if (headerColor != null) {
+            thumbnail.setOnClickListener(new ChooseCardImage());
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+        }
 
         onResuming = false;
     }

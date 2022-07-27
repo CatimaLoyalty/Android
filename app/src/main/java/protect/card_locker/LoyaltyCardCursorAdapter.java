@@ -1,12 +1,18 @@
 package protect.card_locker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
+import android.database.MatrixCursor;
+import android.database.MergeCursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -41,6 +47,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private boolean mReverseAllAnimations = false;
     private boolean mShowDetails;
 
+    private final int MAGIC_NUMBER_ARCHIVE_REFERENCE = -100;
+
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
@@ -55,6 +63,50 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         refreshState();
 
         swapCursor(inputCursor);
+    }
+
+    public void setCards(Cursor loyaltyCardCursor, int archiveCount) {
+        if (archiveCount == 0) {
+            swapCursor(loyaltyCardCursor);
+        } else {
+            // Build fake DB entry
+            MatrixCursor archiveReference = new MatrixCursor(new String[] {
+                    DBHelper.LoyaltyCardDbIds.ID,
+                    DBHelper.LoyaltyCardDbIds.STORE,
+                    DBHelper.LoyaltyCardDbIds.NOTE,
+                    DBHelper.LoyaltyCardDbIds.EXPIRY,
+                    DBHelper.LoyaltyCardDbIds.BALANCE,
+                    DBHelper.LoyaltyCardDbIds.BALANCE_TYPE,
+                    DBHelper.LoyaltyCardDbIds.CARD_ID,
+                    DBHelper.LoyaltyCardDbIds.BARCODE_ID,
+                    DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
+                    DBHelper.LoyaltyCardDbIds.STAR_STATUS,
+                    DBHelper.LoyaltyCardDbIds.LAST_USED,
+                    DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL,
+                    DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS,
+                    DBHelper.LoyaltyCardDbIds.HEADER_COLOR
+            });
+            archiveReference.addRow(new Object[] {
+                    MAGIC_NUMBER_ARCHIVE_REFERENCE,
+                    mContext.getString(R.string.archiveList),
+                    "",
+                    null,
+                    new BigDecimal(0),
+                    null,
+                    "",
+                    "",
+                    null,
+                    0,
+                    0,
+                    0,
+                    0,
+                    Color.WHITE
+            });
+            Cursor[] cursors = { loyaltyCardCursor, archiveReference };
+            Cursor extendedCursor = new MergeCursor(cursors);
+
+            swapCursor(extendedCursor);
+        }
     }
 
     public void refreshState() {
@@ -93,6 +145,32 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return LoyaltyCard.toLoyaltyCard(mCursor);
     }
 
+    public void open(int position) {
+        LoyaltyCard loyaltyCard = getCard(position);
+
+        if (loyaltyCard == null) {
+            throw new CursorIndexOutOfBoundsException("Requested position doesn't exist");
+        }
+
+        Intent i;
+        if (isArchiveReference(loyaltyCard)) {
+            i = new Intent(mContext, MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("archiveMode", true);
+            i.putExtras(bundle);
+        } else {
+            i = new Intent(mContext, LoyaltyCardViewActivity.class);
+            i.setAction("");
+            final Bundle b = new Bundle();
+            b.putInt("id", loyaltyCard.id);
+            i.putExtras(b);
+
+            ShortcutHelper.updateShortcuts(mContext, loyaltyCard);
+        }
+
+        mContext.startActivity(i);
+    }
+
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
         // Invisible until we want to show something more
         inputHolder.mDivider.setVisibility(View.GONE);
@@ -119,7 +197,14 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         setHeaderHeight(inputHolder, mShowDetails);
-        Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+
+        Bitmap cardIcon;
+        if (isArchiveReference(loyaltyCard)) {
+            cardIcon = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_baseline_archive_24);
+        } else {
+            cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+        }
+
         if (cardIcon != null) {
             inputHolder.mCardIcon.setImageBitmap(cardIcon);
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -234,8 +319,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         public View mDivider;
 
         private int mIconBackgroundColor;
-
-
 
         protected LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
             super(inputView);
@@ -379,5 +462,9 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         Resources r = mContext.getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
         return px;
+    }
+
+    private boolean isArchiveReference(LoyaltyCard loyaltyCard) {
+        return loyaltyCard.id == MAGIC_NUMBER_ARCHIVE_REFERENCE;
     }
 }

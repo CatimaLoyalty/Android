@@ -7,8 +7,12 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
+import android.database.MatrixCursor;
+import android.database.MergeCursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -23,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -449,7 +454,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             group = (Group) mGroup;
         }
 
-        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mArchiveMode ? DBHelper.LoyaltyCardArchiveFilter.Archived : DBHelper.LoyaltyCardArchiveFilter.Unarchived));
+        Cursor loyaltyCardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mArchiveMode ? DBHelper.LoyaltyCardArchiveFilter.Archived : DBHelper.LoyaltyCardArchiveFilter.Unarchived);
+
+        int archiveCount =
+                mArchiveMode ? 0 :
+                    group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
+
+        mAdapter.setCards(loyaltyCardCursor, archiveCount);
 
         if (updateCount) {
             updateLoyaltyCardCount();
@@ -852,30 +863,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             //
             // The proper fix, obviously, would involve makes sure an onFling can't happen while a
             // click is being processed. Sadly, I have not yet found a way to make that possible.
-            LoyaltyCard loyaltyCard;
             try {
-                loyaltyCard = mAdapter.getCard(inputPosition);
+                mAdapter.open(inputPosition);
             } catch (CursorIndexOutOfBoundsException e) {
                 Log.w(TAG, "Prevented crash from tap + swipe on ID " + inputPosition + ": " + e);
-                return;
             }
-
-            Intent intent = new Intent(this, LoyaltyCardViewActivity.class);
-            intent.setAction("");
-            final Bundle b = new Bundle();
-            b.putInt("id", loyaltyCard.id);
-
-            ArrayList<Integer> cardList = new ArrayList<>();
-            for (int i = 0; i < mAdapter.getItemCount(); i++) {
-                cardList.add(mAdapter.getCard(i).id);
-            }
-
-            b.putIntegerArrayList("cardList", cardList);
-            intent.putExtras(b);
-
-            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
-
-            startActivity(intent);
         }
     }
 }

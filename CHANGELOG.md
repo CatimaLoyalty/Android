@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 112
+## v2.18.2 - 112
 
 - Make the possibility to set a custom header more visible
 

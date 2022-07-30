@@ -1,0 +1,1 @@
+- Umožnit nastavit vlastní záhlaví více viditelnější

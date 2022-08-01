@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Outline;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,18 +35,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.color.MaterialColors;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -60,6 +49,18 @@ import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
@@ -229,6 +230,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        wrappedIcon.mutate();
         if (dark) {
             DrawableCompat.setTint(wrappedIcon, Color.BLACK);
         } else {
@@ -251,6 +253,18 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            Intent incomingIntent = getIntent();
+            int transitionRight = incomingIntent.getExtras().getInt("transition_right", -1);
+            if (transitionRight == 1) {
+                // right side transition
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else if (transitionRight == 0) {
+                // left side transition
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        }
+
         super.onCreate(savedInstanceState);
 
         settings = new Settings(this);
@@ -377,6 +391,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
         mainImage.setOnTouchListener(gestureTouchListener);
+
+        appBarLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
+                        CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
+                );
+                iconImage.setClipBounds(new Rect(left, top, right, bottom));
+            }
+        });
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -466,6 +490,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void prevNextCard(boolean next) {
         // If we're in RTL layout, we want the "left" button to be "next" instead of "previous"
         // So we swap next around
+        boolean transitionRight = next;
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             next = !next;
         }
@@ -492,12 +517,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         b.putInt("id", loyaltyCardId);
+        b.putInt("transition_right", transitionRight ? 1 : 0);
         intent.putExtras(b);
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-
-        // Skip animation
-        overridePendingTransition(0, 0);
     }
 
     @Override
@@ -702,10 +725,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
         starred = loyaltyCard.starStatus != 0;
 
-        if (loyaltyCard.archiveStatus != 0){
+        if (loyaltyCard.archiveStatus != 0) {
             menu.findItem(R.id.action_unarchive).setVisible(true);
             menu.findItem(R.id.action_archive).setVisible(false);
-        } else{
+        } else {
             menu.findItem(R.id.action_unarchive).setVisible(false);
             menu.findItem(R.id.action_archive).setVisible(true);
         }

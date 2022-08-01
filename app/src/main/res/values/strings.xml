@@ -292,5 +292,4 @@
     </plurals>
     <string name="previousCard">Previous</string>
     <string name="nextCard">Next</string>
-    <string name="cardNoAdditionalInfo">This card has no additional data. When you add a note, add it to a group, set balance or set expiry it will appear here.</string>
 </resources>

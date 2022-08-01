@@ -237,7 +237,8 @@
             android:paddingEnd="12dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_chevron_left_24"
-            android:tooltipText="@string/previousCard" />
+            android:tooltipText="@string/previousCard"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/button_show_info"
@@ -248,7 +249,8 @@
             android:paddingEnd="12dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_info_24"
-            android:tooltipText="@string/showMoreInfo" />
+            android:tooltipText="@string/showMoreInfo"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/button_next"
@@ -259,7 +261,8 @@
             android:paddingEnd="12dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_chevron_right_24"
-            android:tooltipText="@string/nextCard" />
+            android:tooltipText="@string/nextCard"
+            android:visibility="gone" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

@@ -91,6 +91,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ArrayList<Integer> cardList;
 
     LoyaltyCard loyaltyCard;
+    List<Group> loyaltyCardGroups;
     boolean rotationEnabled;
     SQLiteDatabase database;
     ImportURIHelper importURIHelper;
@@ -386,6 +387,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return spannableStringBuilder;
     }
 
+    private boolean hasBalance(LoyaltyCard loyaltyCard) {
+        return !loyaltyCard.balance.equals(new BigDecimal(0));
+    }
+
     private void showInfoDialog() {
         AlertDialog.Builder infoDialog = new AlertDialog.Builder(this);
 
@@ -402,11 +407,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoTextview.setTextIsSelectable(true);
 
         SpannableStringBuilder infoText = new SpannableStringBuilder();
-        if (loyaltyCard.note.length() > 0) {
+        if (!loyaltyCard.note.isEmpty()) {
             infoText.append(loyaltyCard.note);
         }
 
-        List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
         if (loyaltyCardGroups.size() > 0) {
             List<String> groupNames = new ArrayList<>();
             for (Group group : loyaltyCardGroups) {
@@ -417,7 +421,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             infoText.append(getString(R.string.groupsList, TextUtils.join(", ", groupNames)));
         }
 
-        if (!loyaltyCard.balance.equals(new BigDecimal(0))) {
+        if (hasBalance(loyaltyCard)) {
             padSpannableString(infoText);
             infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         }
@@ -436,11 +440,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         }
 
-        // Fallback explanation text
-        if (infoText.length() == 0) {
-            infoText.append(getString(R.string.cardNoAdditionalInfo));
-        }
-
         infoTextview.setText(infoText);
 
         infoDialog.setView(infoTextview);
@@ -449,6 +448,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setBottomAppBarButtonState() {
+        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
+            bottomAppBarInfoButton.setVisibility(View.VISIBLE);
+        } else {
+            bottomAppBarInfoButton.setVisibility(View.GONE);
+        }
+
         if (cardList == null || cardList.size() == 1) {
             bottomAppBarPreviousButton.setVisibility(View.GONE);
             bottomAppBarNextButton.setVisibility(View.GONE);
@@ -547,6 +552,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             finish();
             return;
         }
+
+        loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
 
         setupOrientation();
 

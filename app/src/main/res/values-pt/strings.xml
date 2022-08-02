@@ -240,4 +240,9 @@
     <string name="unarchived">Cartão desarquivado</string>
     <string name="archiveList">Arquivar</string>
     <string name="noUnarchivedCardsMessage">Não existem cartões desarquivados</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> cartão (<xliff:g id="archivedCount">%2$d</xliff:g> arquivado)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
+    </plurals>
+    <string name="failedLaunchingPhotoPicker">Não foi encontrada nenhuma aplicação de galeria de imagens</string>
 </resources>

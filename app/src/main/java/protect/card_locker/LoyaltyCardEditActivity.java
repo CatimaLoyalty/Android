@@ -9,7 +9,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -52,6 +51,7 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -76,8 +76,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
-import androidx.palette.graphics.Palette;
-
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -119,6 +117,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     TabLayout tabs;
 
     ImageView thumbnail;
+    ImageView thumbnailEditIcon;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
@@ -317,6 +316,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
+        thumbnailEditIcon = findViewById(R.id.thumbnailEditIcon);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
@@ -402,11 +402,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals(tempLoyaltyCard.balanceType));
+                    BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
                     validBalance = true;
-
-                } catch (NumberFormatException e) {
+                } catch (ParseException e) {
                     validBalance = false;
                     e.printStackTrace();
                 }
@@ -865,12 +864,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
         }
 
-        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
-        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
-        if (tempLoyaltyCard.headerColor != null) {
-            thumbnail.setOnClickListener(new ChooseCardImage());
-        }
-
         // Update from intent
         if (barcodeType != null) {
             try {
@@ -917,13 +910,28 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         generateIcon(storeFieldEdit.getText().toString());
 
+        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
+        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
+        // NP_NULL_PARAM_DEREF: Method call passes null for non-null parameter
+        Integer headerColor = tempLoyaltyCard.headerColor;
+        if (headerColor != null) {
+            thumbnail.setOnClickListener(new ChooseCardImage());
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+        }
+
         onResuming = false;
     }
 
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
+            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary);
+
+            updateTempState(LoyaltyCardField.headerColor, headerColor);
+
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
@@ -1104,6 +1112,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         @Override
                         public void onColorSelected(int dialogId, int color) {
                             updateTempState(LoyaltyCardField.headerColor, color);
+
+                            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
+                            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
 
                             // Unset image if set
                             thumbnail.setTag(null);

@@ -1,0 +1,2 @@
+- Sistemato il blocco grigio che appariva nei valori del codice a barre non validi
+- Sistemato l'importazione da Stocard

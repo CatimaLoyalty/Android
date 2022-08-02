@@ -13,40 +13,40 @@
     <string name="ok">Ano</string>
     <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
     <string name="sendLabel">Odeslat…</string>
-    <string name="editCardTitle">Editovat věrnostní kartu</string>
-    <string name="addCardTitle">Přidat věrnostní kartu</string>
+    <string name="editCardTitle">Editovat kartu</string>
+    <string name="addCardTitle">Přidat kartu</string>
     <string name="scanCardBarcode">Skenování čárového kódu</string>
-    <string name="noStoreError">Zadáno žádné jméno</string>
-    <string name="noCardIdError">ID nezadáno</string>
+    <string name="noStoreError">Nezadáno žádné jméno</string>
+    <string name="noCardIdError">Nezadáno ID</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout je do jiného zařízení.</string>
     <string name="importSuccessfulTitle">Importováno</string>
     <string name="importFailedTitle">Import selhal</string>
-    <string name="importFailed">Nelze provést import</string>
+    <string name="importFailed">Import nelze provést</string>
     <string name="exportSuccessfulTitle">Exportováno</string>
     <string name="exportFailedTitle">Export selhal</string>
-    <string name="exportFailed">Nelze provést export</string>
+    <string name="exportFailed">Export nelze provést</string>
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
     <string name="noExternalStoragePermissionError">Udělit oprávnění přístupu k externímu úložišti pro import nebo export dat</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
-    <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v uložišti.</string>
+    <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
-    <string name="importOptionApplicationTitle">Použijte jinou aplikaci</string>
+    <string name="importOptionApplicationTitle">Použitím jiné aplikace</string>
     <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
-    <string name="importOptionApplicationButton">Použijte jinou aplikaci</string>
+    <string name="importOptionApplicationButton">Použít jinou aplikaci</string>
     <string name="about">O aplikaci</string>
     <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
-    <string name="copy_to_clipboard_toast">ID zkopírované do schránky</string>
+    <string name="copy_to_clipboard_toast">ID zkopírováno do schránky</string>
     <string name="deleteTitle">Smazat kartu</string>
-    <string name="deleteConfirmation">Opravdu chcete smazat tuto věrnostní kartu?</string>
-    <string name="moveBarcodeToCenterOfScreen">Střed čárového kódu na obrazovce</string>
-    <string name="moveBarcodeToTopOfScreen">Přesuňte čárový kód do horní části obrazovky</string>
+    <string name="deleteConfirmation">Opravdu chcete smazat tuto kartu\?</string>
+    <string name="moveBarcodeToCenterOfScreen">Vycentrovat čárový kód na obrazovce</string>
+    <string name="moveBarcodeToTopOfScreen">Přesunout čárový kód do horní části obrazovky</string>
     <string name="chooseExpiryDate">Zvolte datum vypršení platnosti</string>
     <string name="never">Nikdy</string>
     <string name="expiryDate">Platnost</string>
@@ -58,9 +58,9 @@
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
     <string name="failedParsingImportUriError">Nelze analyzovat import URI</string>
-    <string name="noCardExistsError">Kartu nelze najít</string>
+    <string name="noCardExistsError">Takovou kartu nelze najít</string>
     <string name="noCardsMessage">Nejprve přidejte kartu</string>
-    <string name="cardShortcut">Zástupce Karty</string>
+    <string name="cardShortcut">Zástupce karty</string>
     <string name="share">Podíl</string>
     <string name="unstar">Odebrat z oblíbených</string>
     <string name="star">Přidat do oblíbených</string>
@@ -70,16 +70,16 @@
     <string name="noMatchingGiftCards">Nic nenalezeno. Zkuste změnit vyhledávání.</string>
     <string name="action_search">Vyhledávání</string>
     <string name="thumbnailDescription">Miniatura</string>
-    <string name="card_ids_copied">Zkopírované ID</string>
+    <string name="card_ids_copied">ID zkopírováno</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Opravdu chcete kartu <xliff:g>%d</xliff:g> trvale odstranit\?</item>
-        <item quantity="few">Opravdu chcete karty <xliff:g>%d</xliff:g> trvale odstranit\?</item>
-        <item quantity="other">Opravdu chcete karty <xliff:g>%d</xliff:g> trvale odstranit\?</item>
+        <item quantity="one">Opravdu chcete <xliff:g>%d</xliff:g> kartu trvale odstranit\?</item>
+        <item quantity="few">Opravdu chcete <xliff:g>%d</xliff:g> karty trvale odstranit\?</item>
+        <item quantity="other">Opravdu chcete <xliff:g>%d</xliff:g> karet trvale odstranit\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Odstranit kartu <xliff:g>%d</xliff:g></item>
-        <item quantity="few">Odstranit karty <xliff:g>%d</xliff:g></item>
-        <item quantity="other">Odstranit karty <xliff:g>%d</xliff:g></item>
+        <item quantity="one">Odstranit <xliff:g>%d</xliff:g> kartu</item>
+        <item quantity="few">Odstranit <xliff:g>%d</xliff:g> karty</item>
+        <item quantity="other">Odstranit <xliff:g>%d</xliff:g> karet</item>
     </plurals>
     <string name="importSuccessful">Data importována</string>
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
@@ -88,7 +88,7 @@
     <string name="settings_max_font_size_scale">Maximální velikost písma</string>
     <string name="settings_dark_theme">Tmavý</string>
     <string name="settings_light_theme">Světlý</string>
-    <string name="settings_system_theme">Systém</string>
+    <string name="settings_system_theme">Podle systému</string>
     <string name="settings_theme">Vzhled</string>
     <string name="settings_category_title_ui">Uživatelské rozhraní</string>
     <string name="settings">Nastavení</string>
@@ -98,7 +98,7 @@
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
     <string name="moveDown">Přesunout dolů</string>
     <string name="moveUp">Přesunout nahoru</string>
-    <string name="enterBarcodeInstructions">Zadejte ID a níže vyberte typ čárového kódu nebo \"Tato karta nemá čárový kód\".</string>
+    <string name="enterBarcodeInstructions">Zadejte ID a níže vyberte typ čárového kódu nebo „Tato karta nemá čárový kód“.</string>
     <string name="settings_brown_theme">Hnědá</string>
     <string name="settings_grey_theme">Šedá</string>
     <string name="settings_green_theme">Zelená</string>
@@ -109,7 +109,7 @@
     <string name="settings_pink_theme">Růžová</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Barva motivu</string>
-    <string name="settings_system_locale">Systém</string>
+    <string name="settings_system_locale">Podle systému</string>
     <string name="settings_locale">Jazyk</string>
     <string name="turn_flashlight_off">Vypnout světlo</string>
     <string name="turn_flashlight_on">Zapnout světlo</string>
@@ -126,27 +126,27 @@
     <string name="photos">Fotky</string>
     <string name="backImageDescription">Obrázek zadní strany</string>
     <string name="frontImageDescription">Obrázek přední strany</string>
-    <string name="intent_import_card_from_url_share_multiple_text">Chci s Vámi sdílet kartu</string>
-    <string name="copy_to_clipboard_multiple_toast">ID zkopírováno do schránky</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Chci s vámi sdílet karty</string>
+    <string name="copy_to_clipboard_multiple_toast">ID zkopírována do schránky</string>
     <string name="wrongValueForBarcodeType">Hodnota není platná pro vybraný typ čárového kódu</string>
     <string name="unsupportedBarcodeType">Tento typ čárového kódu zatím nelze zobrazit. Možná bude podporován v pozdější verzi aplikace.</string>
     <string name="barcodeId">Hodnota čárového kódu</string>
     <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
     <string name="sameAsCardId">Stejné jako ID</string>
-    <string name="importVoucherVaultMessage">Vyberte svůj <i>vouchervault.json</i> export z Voucher Vault, který chcete importovat.
-\nVytvořte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
+    <string name="importVoucherVaultMessage">Vyberte svůj <i>vouchervault.json</i> exportovaný z Voucher Vault, který chcete importovat.
+\nVytvoříte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
     <string name="importVoucherVault">Import z Voucher Vault</string>
-    <string name="importStocardMessage">Vyberte svůj <i>***-sync.zip</i> export z aplikace Stocard, který chcete importovat.
-\nZískejte ji zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
+    <string name="importStocardMessage">Vyberte svůj <i>***-sync.zip</i> exportovaný z aplikace Stocard, který chcete importovat.
+\nZískejte ji zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
     <string name="importStocard">Import ze Stocard</string>
-    <string name="importLoyaltyCardKeychainMessage">Vyberte export <i>LoyaltyCardKeychain.csv</i> z klíčenky věrnostních karet, který chcete importovat.
-\nVytvořte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importLoyaltyCardKeychainMessage">Vyberte <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain, který chcete importovat.
+\nVytvoříte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
     <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> export z FidMe k importu a poté vyberte typy čárových kódů ručně.
-\nVytvořte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extract moje data.</string>
+    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> exportovaný z FidMe k importu a poté vyberte typy čárových kódů ručně.
+\nVytvoříte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extrahovat moje data.</string>
     <string name="importFidme">Import z FidMe</string>
-    <string name="importCatimaMessage">Vyberte export <i>catima.zip</i> z programu Catima, který chcete importovat.
-\nVytvořte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
+    <string name="importCatimaMessage">Vyberte <i>catima.zip</i> exportovaný z aplikace Catima, který chcete importovat.
+\nVytvoříte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
     <string name="importCatima">Import z Catima</string>
     <string name="accept">Přijmout</string>
     <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):
@@ -160,7 +160,7 @@
     <string name="currency">Měna</string>
     <string name="balance">Zůstatek</string>
     <string name="errorReadingImage">Obrázek se nepodařilo přečíst</string>
-    <string name="noBarcodeFound">Čarový kód nenalezen</string>
+    <string name="noBarcodeFound">Čárový kód nenalezen</string>
     <string name="groupsList">Skupiny: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Výběr obrázku z galerie</string>
     <string name="addManually">Ruční zadání ID</string>
@@ -200,7 +200,7 @@
     <string name="version_history">Historie verzí</string>
     <string name="rate_this_app">Ohodnoťte tuto aplikaci</string>
     <string name="and_data_usage">a využití dat</string>
-    <string name="credits">Kredity</string>
+    <string name="credits">Zásluhy</string>
     <string name="on_github">na GitHubu</string>
     <string name="source_repository">Úložiště zdrojů</string>
     <string name="license">Licence</string>
@@ -209,10 +209,10 @@
     <string name="on_google_play">na Google Play</string>
     <string name="exportPassword">Nastavení hesla pro ochranu exportu (volitelné)</string>
     <string name="exportPasswordHint">Zadejte heslo</string>
-    <string name="selectColor">Vyberte barvu</string>
+    <string name="selectColor">Vybrat barvu</string>
     <string name="setIcon">Nastavit ikonu</string>
     <string name="group_edit">Upravit skupinu</string>
-    <string name="group_name_already_in_use">Již použitý název skupiny</string>
+    <string name="group_name_already_in_use">Název skupiny je již použitý</string>
     <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
     <string name="group_updated">Skupina aktualizována</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>

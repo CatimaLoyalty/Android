@@ -28,6 +28,7 @@
 
     <dimen name="cardThumbnailSize">46dp</dimen>
     <dimen name="cardThumbnailSizeLarge">200dp</dimen>
+    <dimen name="cardThumbnailEditOverlaySize">21dp</dimen>
 
     <dimen name="activity_margin_small">8dp</dimen>
     <dimen name="activity_margin">16dp</dimen>

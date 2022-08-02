@@ -1,0 +1,5 @@
+- Özel temanın ana ekrana doğru şekilde uygulanmaması düzeltildi
+- Gruba genel bakışta arşivlenen kart sayısını görüntüle
+- Seçilen kartların gösterimi iyileştirildi
+- Son kullanma tarihi veya bakiyesi olan kartlar için RTL düzenlerinde kart görünümünden çıkarken oluşan çökme düzeltildi
+- RTL düzenlerinde kart görünümündeki geri okunun yanlış yönü göstermesi düzeltildi

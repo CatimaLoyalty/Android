@@ -655,7 +655,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(getIcon(R.drawable.ic_arrow_back_white, backgroundNeedsDarkIcons));
+            actionBar.setHomeAsUpIndicator(getIcon(R.drawable.home_arrow_back_white, backgroundNeedsDarkIcons));
         }
 
         fixImageButtonColor(bottomAppBarInfoButton);

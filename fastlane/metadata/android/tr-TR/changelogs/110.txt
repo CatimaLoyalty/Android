@@ -1,2 +1,0 @@
-- Özel temanın ana ekrana doğru şekilde uygulanmaması düzeltildi
-- Gruba genel bakışta arşivlenen kart sayısını görüntüle

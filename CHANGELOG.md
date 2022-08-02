@@ -1,9 +1,18 @@
 # Changelog
 
-## Unreleased - 110
+## v2.18.2 - 112
 
-- Fix custom theme not applying to main screen correctly
+- Make the possibility to set a custom header more visible
+
+## v2.18.1 - 111
+
+- Arabic language support
 - Display archived card count in group overview
+- Fix balance parsing bugs (made cards not savable in Arabic and other language with non-Western numbers)
+- Fix custom theme not applying to main screen correctly
+- Improve display of selected cards
+- Fix crash when leaving cardview in RTL layouts for cards with expiry or balance
+- Fix back arrow in card view pointing the wrong way in RTL layouts
 
 ## v2.17.1 - 109
 

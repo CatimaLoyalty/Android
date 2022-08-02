@@ -36,6 +36,16 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
@@ -850,15 +860,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 return;
             }
 
-            Intent i = new Intent(this, LoyaltyCardViewActivity.class);
-            i.setAction("");
+            Intent intent = new Intent(this, LoyaltyCardViewActivity.class);
+            intent.setAction("");
             final Bundle b = new Bundle();
             b.putInt("id", loyaltyCard.id);
-            i.putExtras(b);
+
+            ArrayList<Integer> cardList = new ArrayList<>();
+            for (int i = 0; i < mAdapter.getItemCount(); i++) {
+                cardList.add(mAdapter.getCard(i).id);
+            }
+
+            b.putIntegerArrayList("cardList", cardList);
+            intent.putExtras(b);
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
-            startActivity(i);
+            startActivity(intent);
         }
     }
 }

@@ -8,10 +8,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Outline;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -19,7 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -31,8 +35,23 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.BlendModeColorFilterCompat;
+import androidx.core.graphics.BlendModeCompat;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.widget.TextViewCompat;
+
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -43,20 +62,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Guideline;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.core.widget.TextViewCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.preferences.Settings;
 
@@ -68,14 +73,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     CoordinatorLayout coordinatorLayout;
     ConstraintLayout mainLayout;
     TextView cardIdFieldView;
-    BottomSheetBehavior behavior;
-    LinearLayout bottomSheet;
-    NestedScrollView bottomSheetContentWrapper;
-    ImageView bottomSheetButton;
-    TextView noteView;
-    TextView groupsView;
-    TextView balanceView;
-    TextView expiryView;
+    BottomAppBar bottomAppBar;
+    ImageButton bottomAppBarInfoButton;
+    ImageButton bottomAppBarPreviousButton;
+    ImageButton bottomAppBarNextButton;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -84,10 +85,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     View collapsingToolbarLayout;
     AppBarLayout appBarLayout;
     ImageView iconImage;
+    Toolbar portraitToolbar;
     Toolbar landscapeToolbar;
 
     int loyaltyCardId;
+    ArrayList<Integer> cardList;
+
     LoyaltyCard loyaltyCard;
+    List<Group> loyaltyCardGroups;
     boolean rotationEnabled;
     SQLiteDatabase database;
     ImportURIHelper importURIHelper;
@@ -113,11 +118,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private ImageView[] dots;
     boolean isBarcodeSupported = true;
 
-    int bottomSheetState;
-
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
-    static final String STATE_BOTTOMSHEET = "bottomSheetState";
 
     private final int HEADER_FILTER_ALPHA = 127;
 
@@ -207,6 +209,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         loyaltyCardId = b != null ? b.getInt("id") : 0;
+        cardList = b != null ? b.getIntegerArrayList("cardList") : null;
         Log.d(TAG, "View activity: id=" + loyaltyCardId);
     }
 
@@ -227,6 +230,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         Drawable unwrappedIcon = AppCompatResources.getDrawable(this, icon);
         assert unwrappedIcon != null;
         Drawable wrappedIcon = DrawableCompat.wrap(unwrappedIcon);
+        wrappedIcon.mutate();
         if (dark) {
             DrawableCompat.setTint(wrappedIcon, Color.BLACK);
         } else {
@@ -249,6 +253,18 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            Intent incomingIntent = getIntent();
+            int transitionRight = incomingIntent.getExtras().getInt("transition_right", -1);
+            if (transitionRight == 1) {
+                // right side transition
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else if (transitionRight == 0) {
+                // left side transition
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            }
+        }
+
         super.onCreate(savedInstanceState);
 
         settings = new Settings(this);
@@ -267,9 +283,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (savedInstanceState != null) {
             mainImageIndex = savedInstanceState.getInt(STATE_IMAGEINDEX);
             isFullscreen = savedInstanceState.getBoolean(STATE_FULLSCREEN);
-            bottomSheetState = savedInstanceState.getInt(STATE_BOTTOMSHEET);
         }
-
 
         extractIntentFields(getIntent());
 
@@ -281,13 +295,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         coordinatorLayout = findViewById(R.id.coordinator_layout);
         mainLayout = findViewById(R.id.mainLayout);
         cardIdFieldView = findViewById(R.id.cardIdView);
-        bottomSheet = findViewById(R.id.bottom_sheet);
-        bottomSheetContentWrapper = findViewById(R.id.bottomSheetContentWrapper);
-        bottomSheetButton = findViewById(R.id.bottomSheetButton);
-        noteView = findViewById(R.id.noteView);
-        groupsView = findViewById(R.id.groupsView);
-        balanceView = findViewById(R.id.balanceView);
-        expiryView = findViewById(R.id.expiryView);
         storeName = findViewById(R.id.storeName);
         maximizeButton = findViewById(R.id.maximizeButton);
         mainImage = findViewById(R.id.mainImage);
@@ -296,8 +303,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         minimizeButton = findViewById(R.id.minimizeButton);
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         appBarLayout = findViewById(R.id.app_bar_layout);
+        bottomAppBar = findViewById(R.id.bottom_app_bar);
         iconImage = findViewById(R.id.icon_image);
+        portraitToolbar = findViewById(R.id.toolbar);
         landscapeToolbar = findViewById(R.id.toolbar_landscape);
+
+        bottomAppBarInfoButton = findViewById(R.id.button_show_info);
+        bottomAppBarPreviousButton = findViewById(R.id.button_previous);
+        bottomAppBarNextButton = findViewById(R.id.button_next);
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
@@ -363,33 +376,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         });
         editButton.bringToFront();
 
-        behavior = BottomSheetBehavior.from(bottomSheet);
-        behavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                changeUiToBottomSheetState(newState);
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-            }
-        });
-
-        bottomSheetButton.setOnClickListener(v -> {
-            if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
-                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            } else {
-                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
-
-        appBarLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                adjustLayoutHeights();
-            }
-        });
-
         appBarLayout.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
@@ -398,61 +384,144 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
+        bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
+        bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
+        bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
+
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
         mainImage.setOnTouchListener(gestureTouchListener);
-    }
 
-    private void changeUiToBottomSheetState(int newState) {
-        if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-            editButton.hide();
-        } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-            bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_down_24);
-            bottomSheetButton.setContentDescription(getString(R.string.hideMoreInfo));
-            mainLayout.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
-            editButton.hide();
-        } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-            bottomSheetButton.setImageResource(R.drawable.ic_baseline_arrow_drop_up_24);
-            bottomSheetButton.setContentDescription(getString(R.string.showMoreInfo));
-            mainLayout.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
-            if (!isFullscreen) {
-                editButton.show();
-            }
-
-            // Scroll bottomsheet content back to top
-            bottomSheetContentWrapper.setScrollY(0);
-        }
-        bottomSheetState = newState;
-    }
-
-    private void adjustLayoutHeights() {
-        // use getLayoutParams instead of getHeight when heights are pre-determined in xml! getHeight could return 0 if a View is not inflated
-        if (appBarLayout.getHeight() != 0 && iconImage.getLayoutParams().height != appBarLayout.getHeight()) {
-            Log.d("adjustLayoutHeights", "setting imageIcon height from: " + iconImage.getLayoutParams().height + " to: " + appBarLayout.getHeight());
-            iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
-                    CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
-            );
-        }
-        int bottomSheetHeight = getResources().getDisplayMetrics().heightPixels - appBarLayout.getHeight() - bottomSheetButton.getLayoutParams().height;
-        ViewGroup.LayoutParams params = bottomSheetContentWrapper.getLayoutParams();
-        if (params.height != bottomSheetHeight || params.width != LinearLayout.LayoutParams.MATCH_PARENT) {
-            // XXX android 5 - 9 has so much quirks with setting bottomSheetContent height
-            // just invalidate the wrapper works on 10 onward
-            // bottomSheetContentWrapper.invalidate();
-            // The below worked on android 5 but not 6, reloading the card then it breaks again on 6, entirely random :(
-            // for (int i = 0; i < bottomSheetContentWrapper.getChildCount(); i++) {
-            //     bottomSheetContentWrapper.getChildAt(i).invalidate();
-            // }
-            // since it's basically allergic to getting enlarged then shrunk again, and setting it at all when fullscreen makes no sense
-            if (!isFullscreen) {
-                Log.d("adjustLayoutHeights", "setting bottomSheet height from: " + params.height + " to: " + bottomSheetHeight);
-                bottomSheetContentWrapper.setLayoutParams(
-                        new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetHeight)
+        appBarLayout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                iconImage.setLayoutParams(new CoordinatorLayout.LayoutParams(
+                        CoordinatorLayout.LayoutParams.MATCH_PARENT, appBarLayout.getHeight())
                 );
+                iconImage.setClipBounds(new Rect(left, top, right, bottom));
             }
+        });
+    }
+
+    private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
+        if (spannableStringBuilder.length() > 0) {
+            spannableStringBuilder.append("\n\n");
+        }
+
+        return spannableStringBuilder;
+    }
+
+    private boolean hasBalance(LoyaltyCard loyaltyCard) {
+        return !loyaltyCard.balance.equals(new BigDecimal(0));
+    }
+
+    private void showInfoDialog() {
+        AlertDialog.Builder infoDialog = new AlertDialog.Builder(this);
+
+        TextView infoTitleView = new TextView(this);
+        infoTitleView.setPadding(20, 20, 20, 20);
+        infoTitleView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
+        infoTitleView.setText(loyaltyCard.store);
+        infoDialog.setCustomTitle(infoTitleView);
+        infoDialog.setTitle(loyaltyCard.store);
+
+        TextView infoTextview = new TextView(this);
+        infoTextview.setPadding(20, 0, 20, 0);
+        infoTextview.setAutoLinkMask(Linkify.ALL);
+        infoTextview.setTextIsSelectable(true);
+
+        SpannableStringBuilder infoText = new SpannableStringBuilder();
+        if (!loyaltyCard.note.isEmpty()) {
+            infoText.append(loyaltyCard.note);
+        }
+
+        if (loyaltyCardGroups.size() > 0) {
+            List<String> groupNames = new ArrayList<>();
+            for (Group group : loyaltyCardGroups) {
+                groupNames.add(group._id);
+            }
+
+            padSpannableString(infoText);
+            infoText.append(getString(R.string.groupsList, TextUtils.join(", ", groupNames)));
+        }
+
+        if (hasBalance(loyaltyCard)) {
+            padSpannableString(infoText);
+            infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        }
+
+        if (loyaltyCard.expiry != null) {
+            String formattedExpiry = DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry);
+
+            padSpannableString(infoText);
+            if (Utils.hasExpired(loyaltyCard.expiry)) {
+                int start = infoText.length();
+
+                infoText.append(getString(R.string.expiryStateSentenceExpired, formattedExpiry));
+                infoText.setSpan(new ForegroundColorSpan(Color.RED), start, infoText.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            } else {
+                infoText.append(getString(R.string.expiryStateSentence, formattedExpiry));
+            }
+        }
+
+        infoTextview.setText(infoText);
+
+        infoDialog.setView(infoTextview);
+        infoDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+        infoDialog.create().show();
+    }
+
+    private void setBottomAppBarButtonState() {
+        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
+            bottomAppBarInfoButton.setVisibility(View.VISIBLE);
+        } else {
+            bottomAppBarInfoButton.setVisibility(View.GONE);
+        }
+
+        if (cardList == null || cardList.size() == 1) {
+            bottomAppBarPreviousButton.setVisibility(View.GONE);
+            bottomAppBarNextButton.setVisibility(View.GONE);
+        } else {
+            bottomAppBarPreviousButton.setVisibility(View.VISIBLE);
+            bottomAppBarNextButton.setVisibility(View.VISIBLE);
         }
     }
 
+    private void prevNextCard(boolean next) {
+        // If we're in RTL layout, we want the "left" button to be "next" instead of "previous"
+        // So we swap next around
+        boolean transitionRight = next;
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            next = !next;
+        }
+
+        int cardListPosition = cardList.indexOf(loyaltyCardId);
+
+        if (next) {
+            if (cardListPosition == cardList.size() - 1) {
+                cardListPosition = 0;
+            } else {
+                cardListPosition = cardListPosition + 1;
+            }
+        } else {
+            if (cardListPosition == 0) {
+                cardListPosition = cardList.size() - 1;
+            } else {
+                cardListPosition = cardListPosition - 1;
+            }
+        }
+
+        loyaltyCardId = cardList.get(cardListPosition);
+
+        // Restart activity with new card id and index
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        b.putInt("id", loyaltyCardId);
+        b.putInt("transition_right", transitionRight ? 1 : 0);
+        intent.putExtras(b);
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 
     @Override
     public void onNewIntent(Intent intent) {
@@ -466,7 +535,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt(STATE_IMAGEINDEX, mainImageIndex);
         savedInstanceState.putBoolean(STATE_FULLSCREEN, isFullscreen);
-        savedInstanceState.putInt(STATE_BOTTOMSHEET, bottomSheetState);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -508,6 +576,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
+
         setupOrientation();
 
         format = loyaltyCard.barcodeType;
@@ -518,56 +588,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(cardIdFieldView,
                 settings.getFontSizeMin(settings.getLargeFont()), settings.getFontSizeMax(settings.getLargeFont()),
                 1, TypedValue.COMPLEX_UNIT_SP);
-
-        if (loyaltyCard.note.length() > 0) {
-            noteView.setVisibility(View.VISIBLE);
-            noteView.setText(loyaltyCard.note);
-            noteView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        } else {
-            noteView.setVisibility(View.GONE);
-        }
-
-        List<Group> loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
-
-        if (loyaltyCardGroups.size() > 0) {
-            List<String> groupNames = new ArrayList<>();
-            for (Group group : loyaltyCardGroups) {
-                groupNames.add(group._id);
-            }
-
-            groupsView.setVisibility(View.VISIBLE);
-            groupsView.setText(getString(R.string.groupsList, TextUtils.join(", ", groupNames)));
-            groupsView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        } else {
-            groupsView.setVisibility(View.GONE);
-        }
-
-        if (!loyaltyCard.balance.equals(new BigDecimal(0))) {
-            balanceView.setVisibility(View.VISIBLE);
-            balanceView.setText(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
-            balanceView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        } else {
-            balanceView.setVisibility(View.GONE);
-        }
-
-        if (loyaltyCard.expiry != null) {
-            expiryView.setVisibility(View.VISIBLE);
-
-            int expiryString = R.string.expiryStateSentence;
-            if (Utils.hasExpired(loyaltyCard.expiry)) {
-                expiryString = R.string.expiryStateSentenceExpired;
-                expiryView.setTextColor(Color.RED);
-            }
-            expiryView.setText(getString(expiryString, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry)));
-            expiryView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        } else {
-            expiryView.setVisibility(View.GONE);
-        }
-        expiryView.setTag(loyaltyCard.expiry);
-
-        if (!isFullscreen) {
-            makeBottomSheetVisibleIfUseful();
-        }
 
         storeName.setText(loyaltyCard.store);
         storeName.setTextSize(settings.getFontSizeMax(settings.getLargeFont()));
@@ -600,10 +620,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
         maximizeButton.setBackgroundColor(darkenedColor);
         minimizeButton.setBackgroundColor(darkenedColor);
-        bottomSheetButton.setBackgroundColor(darkenedColor);
+        bottomAppBar.setBackgroundColor(darkenedColor);
         maximizeButton.setColorFilter(textColor);
         minimizeButton.setColorFilter(textColor);
-        bottomSheetButton.setColorFilter(textColor);
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         editButton.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = editButton.getDrawable();
@@ -638,6 +657,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(getIcon(R.drawable.home_arrow_back_white, backgroundNeedsDarkIcons));
         }
+
+        fixImageButtonColor(bottomAppBarInfoButton);
+        fixImageButtonColor(bottomAppBarPreviousButton);
+        fixImageButtonColor(bottomAppBarNextButton);
+        setBottomAppBarButtonState();
 
         // Make notification area light if dark icons are needed
         if (Build.VERSION.SDK_INT >= 23) {
@@ -679,10 +703,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         setFullscreen(isFullscreen);
 
-        // restore bottomSheet UI states from changing orientation
-        changeUiToBottomSheetState(bottomSheetState);
-
         DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
+    }
+
+    private void fixImageButtonColor(ImageButton imageButton) {
+        imageButton.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE, BlendModeCompat.SRC_ATOP));
     }
 
     @Override
@@ -698,14 +723,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.card_view_menu, menu);
-        loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
         starred = loyaltyCard.starStatus != 0;
 
-        if(loyaltyCard.archiveStatus != 0){
+        if (loyaltyCard.archiveStatus != 0) {
             menu.findItem(R.id.action_unarchive).setVisible(true);
             menu.findItem(R.id.action_archive).setVisible(false);
-        }
-        else{
+        } else {
             menu.findItem(R.id.action_unarchive).setVisible(false);
             menu.findItem(R.id.action_archive).setVisible(true);
         }
@@ -734,75 +757,75 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
+        if (id == android.R.id.home) {
+            finish();
+        } else if (id == R.id.action_share) {
+            try {
+                importURIHelper.startShareIntent(Arrays.asList(loyaltyCard));
+            } catch (UnsupportedEncodingException e) {
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+
+            return true;
+        } else if (id == R.id.action_duplicate) {
+            Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("id", loyaltyCardId);
+            bundle.putBoolean("duplicateId", true);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
+            return true;
+        } else if (id == R.id.action_star_unstar) {
+            starred = !starred;
+            DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, starred ? 1 : 0);
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
+
+            return true;
+        } else if (id == R.id.action_archive) {
+            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+            Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
+
+            return true;
+        } else if (id == R.id.action_unarchive) {
+            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+            Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
+
+            // Re-init loyaltyCard with new data from DB
+            onResume();
+
+            return true;
+        } else if (id == R.id.action_delete) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.deleteTitle);
+            builder.setMessage(R.string.deleteConfirmation);
+            builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
+                Log.e(TAG, "Deleting card: " + loyaltyCardId);
+
+                DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
+
+                ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
+
                 finish();
-                break;
+                dialog.dismiss();
+            });
+            builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
+            AlertDialog dialog = builder.create();
+            dialog.show();
 
-            case R.id.action_share:
-                try {
-                    importURIHelper.startShareIntent(Arrays.asList(loyaltyCard));
-                } catch (UnsupportedEncodingException e) {
-                    Toast.makeText(LoyaltyCardViewActivity.this, R.string.failedGeneratingShareURL, Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                }
-                return true;
-
-            case R.id.action_duplicate:
-                loyaltyCard = DBHelper.getLoyaltyCard(database, loyaltyCardId);
-                Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", loyaltyCardId);
-                bundle.putBoolean("duplicateId", true);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                return true;
-
-            case R.id.action_star_unstar:
-                starred = !starred;
-                DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, starred ? 1 : 0);
-                invalidateOptionsMenu();
-                return true;
-
-            case R.id.action_archive:
-                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
-                invalidateOptionsMenu();
-                return true;
-
-            case R.id.action_unarchive:
-                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
-                Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
-                invalidateOptionsMenu();
-                return true;
-
-            case R.id.action_delete:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.deleteTitle);
-                builder.setMessage(R.string.deleteConfirmation);
-                builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
-                    Log.e(TAG, "Deleting card: " + loyaltyCardId);
-
-                    DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
-
-                    ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
-
-                    finish();
-                    dialog.dismiss();
-                });
-                builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                return true;
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void setupOrientation() {
-        Toolbar portraitToolbar = findViewById(R.id.toolbar);
-
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Log.d(TAG, "Detected landscape mode");
@@ -828,14 +851,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    private void makeBottomSheetVisibleIfUseful() {
-        if (noteView.getVisibility() == View.VISIBLE || groupsView.getVisibility() == View.VISIBLE || balanceView.getVisibility() == View.VISIBLE || expiryView.getVisibility() == View.VISIBLE) {
-            bottomSheet.setVisibility(View.VISIBLE);
-        } else {
-            bottomSheet.setVisibility(View.GONE);
         }
     }
 
@@ -979,10 +994,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             // Hide toolbars
-            //
-            // Appbar needs to be invisible and have padding removed
-            // Or the barcode will be centered instead of on top of the screen
-            // Don't ask me why...
             appBarLayout.setVisibility(View.INVISIBLE);
             iconImage.setVisibility(View.INVISIBLE);
             collapsingToolbarLayout.setVisibility(View.GONE);
@@ -990,12 +1001,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Hide other UI elements
             cardIdFieldView.setVisibility(View.GONE);
-            bottomSheet.setVisibility(View.GONE);
-            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            editButton.hide();
-
-            // android 5-9, avoid padding growing on top of bottomSheet
-            coordinatorLayout.removeView(bottomSheet);
+            bottomAppBar.setVisibility(View.GONE);
+            editButton.setVisibility(View.GONE);
 
             // Set Android to fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
@@ -1023,15 +1030,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             // Show appropriate toolbar
-            // And restore 24dp paddingTop for appBarLayout
             appBarLayout.setVisibility(View.VISIBLE);
             setupOrientation();
             iconImage.setVisibility(View.VISIBLE);
 
             // Show other UI elements
             cardIdFieldView.setVisibility(View.VISIBLE);
-            makeBottomSheetVisibleIfUseful();
-            editButton.show();
+            editButton.setVisibility(View.VISIBLE);
+            bottomAppBar.setVisibility(View.VISIBLE);
 
             // Unset fullscreen mode
             getWindow().getDecorView().setSystemUiVisibility(
@@ -1039,11 +1045,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             & ~View.SYSTEM_UI_FLAG_FULLSCREEN
             );
-
-            // android 5-9, avoid padding growing on top of bottomSheet
-            if (bottomSheet.getParent() != coordinatorLayout) {
-                coordinatorLayout.addView(bottomSheet);
-            }
         }
 
         Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress());

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 113
+
+- Add previous and next buttons to the loyalty card view
+
 ## v2.18.2 - 112
 
 - Make the possibility to set a custom header more visible

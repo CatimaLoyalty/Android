@@ -1,0 +1,1 @@
+- Add previous and next buttons to the loyalty card view

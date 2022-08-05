@@ -7,14 +7,15 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="protect.card_locker.ManageGroupActivity">
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        app:srcCompat="@drawable/save_24dp"
+        android:layout_margin="16dp"
         android:contentDescription="@string/save"
-        android:layout_margin="16dp" />
+        app:srcCompat="@drawable/ic_done" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

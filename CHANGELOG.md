@@ -3,6 +3,8 @@
 ## Unreleased - 113
 
 - Add previous and next buttons to the loyalty card view
+- Fix foreground colour on edit button
+- Replace floppy disk save icon with checkmark
 
 ## v2.18.2 - 112
 

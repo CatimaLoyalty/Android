@@ -382,7 +382,7 @@ public class LoyaltyCardViewActivityTest {
             Currency currency = Currency.getInstance("EUR");
             Date expiryDate = new Date();
             Bitmap frontBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
-            Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.save_24dp);
+            Bitmap backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_done);
 
             storeField.setText("correct store");
             noteField.setText("correct note");

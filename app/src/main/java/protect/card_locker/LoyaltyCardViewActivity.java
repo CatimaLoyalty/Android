@@ -43,7 +43,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -52,7 +51,6 @@ import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.color.MaterialColors;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.UnsupportedEncodingException;
@@ -627,14 +625,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButton.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = editButton.getDrawable();
         editButtonIcon.mutate();
-        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
-        int colorOnPrimary = MaterialColors.getColor(this, R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
-        boolean darkMode = Utils.isDarkModeEnabled(this);
-        if (Utils.needsDarkForeground(complementaryColor)) {
-            editButtonIcon.setTint(darkMode ? colorOnPrimary : colorPrimary);
-        } else {
-            editButtonIcon.setTint(darkMode ? colorPrimary : colorOnPrimary);
-        }
+        editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         editButton.setImageDrawable(editButtonIcon);
 
         Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
@@ -699,7 +690,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             imageTypes.add(ImageType.IMAGE_BACK);
         }
 
-        setDotIndicator(darkMode);
+        setDotIndicator(Utils.isDarkModeEnabled(this));
 
         setFullscreen(isFullscreen);
 

@@ -17,11 +17,11 @@ Gediminas Murauskas
 Michael Moroni
 Nyatsuki
 Samantaz Fox
+SlavekB
 arno-github
 Ankit Tiwari
 Sergio Paredes
 laralem
-SlavekB
 huuhaa
 arshbeerSingh
 Quentin PAGÈS
@@ -35,6 +35,7 @@ betsythefc
 Silvério Santos
 waffshappen
 ati3
+Giovanni
 Jane Kong
 K. Herbert
 Still Hsu
@@ -51,7 +52,6 @@ Astrohops1
 Clonewayx
 D. Domig
 Diego
-Giovanni
 Lukas Grassauer
 Marnick L'Eau
 Michalis

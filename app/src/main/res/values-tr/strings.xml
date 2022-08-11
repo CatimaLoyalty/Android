@@ -245,4 +245,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> tane arşivlendi)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> tane arşivlendi)</item>
     </plurals>
+    <string name="previousCard">Önceki</string>
+    <string name="nextCard">Sonraki</string>
 </resources>

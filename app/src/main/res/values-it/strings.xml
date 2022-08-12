@@ -245,4 +245,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> scheda (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
     </plurals>
+    <string name="previousCard">Precedente</string>
+    <string name="nextCard">Successivo</string>
 </resources>

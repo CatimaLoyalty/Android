@@ -245,4 +245,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archivée)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cartes (<xliff:g id="archivedCount">%2$d</xliff:g> archivées)</item>
     </plurals>
+    <string name="nextCard">Suivant</string>
+    <string name="previousCard">Précédent</string>
 </resources>

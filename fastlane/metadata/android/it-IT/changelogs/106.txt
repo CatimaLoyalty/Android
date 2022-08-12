@@ -1,0 +1,1 @@
+- Sistemate alcune sequenze di caratteri che vengono mostrate come singolo carattere

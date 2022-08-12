@@ -1,0 +1,3 @@
+- Aggiunti bottoni "Precedente" e "Successivo" nella visualizzazione delle carte
+- Sistemato colore di sottofondo sul bottone di modifica
+- Sostituita icona del floppy disk per salvare con un segno di spunta

@@ -245,4 +245,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
     </plurals>
+    <string name="previousCard">Предишна</string>
+    <string name="nextCard">Следваща</string>
 </resources>

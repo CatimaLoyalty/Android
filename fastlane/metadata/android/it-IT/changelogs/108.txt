@@ -1,0 +1,5 @@
+- Aggiunta la possibilità di duplicare una carta
+- Vietata la scelta di anni prima del 1970 come anno di scadenza della carta (non avrebbe comunque funzionato)
+- Aggiunta l'archiviazione delle carte
+- Mosso Elimina da Modifica a Visualizza
+- Rimossa l'icona del blocco della rotazione schermo a favore di una nuova impostazione di blocco della rotazione

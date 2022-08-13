@@ -257,4 +257,6 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> архивировано)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> архивировано)</item>
     </plurals>
+    <string name="nextCard">Следующая</string>
+    <string name="previousCard">Предыдущая</string>
 </resources>

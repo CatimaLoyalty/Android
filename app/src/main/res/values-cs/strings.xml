@@ -251,4 +251,6 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> archivované)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> karet (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaných)</item>
     </plurals>
+    <string name="previousCard">Předchozí</string>
+    <string name="nextCard">Následující</string>
 </resources>

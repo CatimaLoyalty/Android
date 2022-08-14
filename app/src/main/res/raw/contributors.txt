@@ -16,8 +16,8 @@ Taco
 Gediminas Murauskas
 Michael Moroni
 Nyatsuki
-Samantaz Fox
 SlavekB
+Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
@@ -55,6 +55,7 @@ Diego
 Lukas Grassauer
 Marnick L'Eau
 Michalis
+Michał
 Rosdyana Kusuma
 umoenks
 Thomas Bertels
@@ -105,3 +106,4 @@ Robin
 sergio
 Marcus
 techwebpd
+unstartdev

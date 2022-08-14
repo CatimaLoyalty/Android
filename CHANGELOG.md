@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 113
+## v2.19.0 - 113
 
 - Add previous and next buttons to the loyalty card view
 - Fix foreground colour on edit button

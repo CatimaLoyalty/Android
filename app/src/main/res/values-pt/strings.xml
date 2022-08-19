@@ -12,7 +12,7 @@
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
-    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe um no botão do menu ⋮</string>
+    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe um no botão do menu ⋮.</string>
     <string name="noBarcode">Sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
@@ -245,4 +245,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
     </plurals>
     <string name="failedLaunchingPhotoPicker">Não foi encontrada nenhuma aplicação de galeria de imagens</string>
+    <string name="nextCard">Próximo</string>
+    <string name="previousCard">Anterior</string>
 </resources>

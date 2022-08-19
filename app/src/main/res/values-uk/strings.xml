@@ -257,4 +257,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> заархівовано)</item>
     </plurals>
     <string name="failedLaunchingPhotoPicker">Підтримувану програму галереї не знайдено</string>
+    <string name="previousCard">Попередня</string>
+    <string name="nextCard">Наступна</string>
 </resources>

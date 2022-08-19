@@ -4,14 +4,14 @@
     <string name="noGiftCards">Pulse el botón «+» para añadir una tarjeta, o importe algunas del menú ⋮.</string>
     <string name="storeName">Nombre</string>
     <string name="note">Nota</string>
-    <string name="cardId">Id. de tarjeta</string>
+    <string name="cardId">ID. de tarjeta</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
     <string name="ok">Aceptar</string>
-    <string name="copy_to_clipboard">Copiar id. en portapapeles</string>
+    <string name="copy_to_clipboard">Copiar ID. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
     <string name="editCardTitle">Editar tarjeta</string>
     <string name="addCardTitle">Añadir tarjeta</string>
@@ -21,18 +21,18 @@
     <string name="noStoreError">No se proporcionó ningún nombre</string>
     <string name="noCardIdError">Id. de tarjeta no especificado</string>
     <string name="noCardExistsError">No se ha podido encontrar la tarjeta</string>
-    <string name="importExport">Importar/exportar</string>
+    <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">El respaldo le permite transferir sus tarjetas a otro dispositivo.</string>
+    <string name="importExportHelp">El respaldo le permite transferir sus datos a otro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falló la importación</string>
-    <string name="importFailed">No se han podido importar tarjetas</string>
+    <string name="importFailed">No se han podido importar</string>
     <string name="exportSuccessfulTitle">Exportado</string>
     <string name="exportFailedTitle">Falló la exportación</string>
-    <string name="exportFailed">No se han podido exportar las tarjetas</string>
+    <string name="exportFailed">No se han podido exportar las</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
-    <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar tarjetas</string>
+    <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar datos</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
@@ -40,14 +40,14 @@
     <string name="importOptionApplicationExplanation">Use una aplicación o su gestor de archivos favoritos para abrir un archivo.</string>
     <string name="importOptionApplicationButton">Utilizar otra aplicación</string>
     <string name="about">Acerca de</string>
-    <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+.</string>
+    <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+</string>
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings">Ajustes</string>
     <string name="settings_category_title_ui">Interfaz de usuario</string>
     <string name="settings_display_barcode_max_brightness">Iluminar vista del código de barras</string>
-    <string name="exportSuccessful">Datos de las tarjetas exportados</string>
-    <string name="importSuccessful">Datos de las tarjetas importados</string>
+    <string name="exportSuccessful">Datos exportados</string>
+    <string name="importSuccessful">Datos importados</string>
     <string name="intent_import_card_from_url_share_text">Quiero compartirte una tarjeta</string>
     <string name="settings_dark_theme">Oscuro</string>
     <string name="settings_light_theme">Claro</string>
@@ -55,26 +55,26 @@
     <string name="settings_theme">Tema</string>
     <string name="enterBarcodeInstructions">Introduzca el identificador de tarjeta y seleccione el código de barras que se utilizará, o de lo contrario, elija «Esta tarjeta no tiene código de barras».</string>
     <string name="app_copyright_old">Basado en Loyalty Card Keychain
-\nderechos de autor © 2016-2020 de Branden Archer.</string>
+\nderechos de autor © 2016-2020 de Branden Archer</string>
     <string name="exportOptionExplanation">Los datos se guardarán en la ubicación que elija.</string>
     <string name="failedParsingImportUriError">No se pudo procesar el URI de importación</string>
     <string name="share">Compartir</string>
     <string name="barcodeNoBarcode">Esta tarjeta no tiene código de barras</string>
     <string name="barcodeType">Tipo de código de barras</string>
-    <string name="noMatchingGiftCards">Sin resultados. Pruebe modificando su búsqueda.</string>
+    <string name="noMatchingGiftCards">Sin resultados. Intente cambiar su búsqueda.</string>
     <string name="action_search">Buscar</string>
     <string name="app_revision_fmt">Información de la revisión: <xliff:g id="app_revision_url">%s</xliff:g></string>
-    <string name="noGroups">Primero pulse en el botón «+» para añadir grupos de categorización.</string>
-    <string name="starImage">Favorito</string>
-    <string name="thumbnailDescription">Miniatura de la tarjeta</string>
-    <string name="copy_to_clipboard_toast">Se copió la id. de tarjeta en el portapapeles</string>
+    <string name="noGroups">Pulse en el botón «+» para añadir grupos de categorización.</string>
+    <string name="starImage">Estrella favorita</string>
+    <string name="thumbnailDescription">Miniatura</string>
+    <string name="copy_to_clipboard_toast">Se copió la ID en el portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
     <string name="enter_group_name">Introducir nombre del grupo</string>
     <string name="groups">Grupos</string>
     <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
-    <string name="addManually">Introducir el id. de la tarjeta manualmente</string>
+    <string name="addManually">Introducir la ID manualmente</string>
     <string name="leaveWithoutSaveConfirmation">¿Quiere abandonar sin guardar\?</string>
     <string name="leaveWithoutSaveTitle">Salir</string>
     <string name="moveDown">Bajar</string>
@@ -98,7 +98,7 @@
     <string name="card">Tarjeta</string>
     <string name="expiryStateSentenceExpired">Expirado: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os</string>
     <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="settings_max_font_size_scale">Tam. de fuente máximo</string>
@@ -146,7 +146,7 @@
 \nNINGÚN DATO SE RECOPILA, cualquiera puede confirmar ya que nuestra aplicación es software libre.</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="chooseImportType">¿De dónde importar datos\?</string>
+    <string name="chooseImportType">Importar datos de</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> no tendría un saldo válido.</string>
     <string name="currency">Moneda</string>
     <string name="balance">Saldo</string>
@@ -161,7 +161,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> tarjetas seleccionadas</item>
     </plurals>
     <string name="deleteTitle">Eliminar la tarjeta</string>
-    <string name="deleteConfirmation">¿Quiere eliminar esta tarjeta\?</string>
+    <string name="deleteConfirmation">¿Quiere eliminar permanentemente esta tarjeta\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">¿Borrar esta tarjeta <xliff:g>%d</xliff:g> permanentemente\?</item>
         <item quantity="other">¿Borrar estas tarjetas <xliff:g>%d</xliff:g> permanentemente\?</item>
@@ -183,5 +183,15 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_system_locale">Sistema</string>
     <string name="settings_locale">Lengua</string>
-    <string name="noGroupCards">Este grupo no contiene ninguna tarjeta</string>
+    <string name="noGroupCards">Este grupo está vacío</string>
+    <string name="settings_landscape_orientation">Horizontal</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> puntos</item>
+    </plurals>
+    <string name="barcodeImageDescriptionWithType">Imagen <xliff:g>%s</xliff:g> código de barras</string>
+    <string name="settings_card_orientation">Orientación del código de barras</string>
+    <string name="settings_portrait_orientation">Formato vertical</string>
+    <string name="group_edit">Editar grupo</string>
+    <string name="group_updated">Grupo actualizado</string>
 </resources>

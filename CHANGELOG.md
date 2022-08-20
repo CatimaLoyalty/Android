@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 114
+
+- Add Monochrome icon for Android 13
+
 ## v2.19.0 - 113
 
 - Add previous and next buttons to the loyalty card view

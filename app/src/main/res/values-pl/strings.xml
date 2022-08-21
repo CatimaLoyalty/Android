@@ -133,7 +133,7 @@
 \n
 \nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Keychain karty lojalnościowej</string>
     <string name="chooseImportType">Importuj dane z</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>
@@ -253,4 +253,10 @@
     <string name="failedLaunchingPhotoPicker">Nie można odnaleźć aplikacji galerii</string>
     <string name="previousCard">Poprzedni</string>
     <string name="nextCard">Następny</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> karta (<xliff:g id="archivedCount">%2$d</xliff:g> zarchiwizowana)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowane)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
+    </plurals>
 </resources>

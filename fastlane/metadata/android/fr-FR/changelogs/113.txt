@@ -1,0 +1,3 @@
+- Ajout des boutons précédent et suivant à la vue de la carte de fidélité
+- Correction de la couleur de premier plan du bouton d'édition
+- Remplacement de l'icône de sauvegarde de la disquette par une coche

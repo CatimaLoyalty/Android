@@ -1,0 +1,1 @@
+- Aggiunta icona monocolore per Android 13

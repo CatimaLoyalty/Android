@@ -1,0 +1,2 @@
+- На головному екрані можна відкрити діалогове вікно з інформацією про програму та проект на GitHub (випуск №19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Дозволити імпортувати/експортувати дані картки постійного клієнта з файлу CSV у зовнішній пам’яті (проблема №36 (https://github.com/brarcher/loyalty-card-locker/issues/36), проблема №20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

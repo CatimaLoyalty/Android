@@ -1,0 +1,2 @@
+- Зменште місце в заголовку під час перегляду картки. (витяг №213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Вимкнути звуковий сигнал під час сканування штрих-коду. (витяг №216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

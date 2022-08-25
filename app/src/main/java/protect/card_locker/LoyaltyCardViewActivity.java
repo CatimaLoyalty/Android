@@ -257,6 +257,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             if (incomingIntentExtras == null) {
                 Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
                 finish();
+                return;
             }
 
             int transitionRight = incomingIntentExtras.getInt("transition_right", -1);

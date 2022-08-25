@@ -1,3 +1,3 @@
-Виправте збій під час імпортування певних типів пошкоджених файлів CSV.  (витяг №177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
- — Виправлено імпорт резервних копій безпосередньо з файлової системи.  (витяг №180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
- — Виправлено імпортування резервних копій із певних типів постачальників вмісту.  (витяг №179 (https://github.com/brarcher/loyalty-card-locker/pull/179))
+Виправте збій під час імпортування певних типів пошкоджених файлів CSV. (витяг №177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+— Виправлено імпорт резервних копій безпосередньо з файлової системи. (витяг №180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+— Виправлено імпортування резервних копій із певних типів постачальників вмісту. (витяг №179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

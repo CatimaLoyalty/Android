@@ -975,16 +975,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            try {
-                if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
-                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
+            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
             }
         }
     }
@@ -1220,6 +1216,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             callable.call();
                         } catch (Exception e) {
                             e.printStackTrace();
+
+                            // Rethrow as NoSuchElementException
+                            // This isn't really true, but a View.OnClickListener doesn't allow throwing other types
+                            throw new NoSuchElementException(e.getMessage());
                         }
                     })
                     .show();

@@ -252,8 +252,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
-            Intent incomingIntent = getIntent();
-            int transitionRight = incomingIntent.getExtras().getInt("transition_right", -1);
+            Bundle incomingIntentExtras = getIntent().getExtras();
+
+            if (incomingIntentExtras == null) {
+                Toast.makeText(this, R.string.noCardExistsError, Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            int transitionRight = incomingIntentExtras.getInt("transition_right", -1);
             if (transitionRight == 1) {
                 // right side transition
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

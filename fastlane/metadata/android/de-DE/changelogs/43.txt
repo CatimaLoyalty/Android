@@ -1,0 +1,3 @@
+- Verbesserte Bearbeitungsoberfläche
+- Die Farboption für den Header-Text wurde entfernt (wird jetzt automatisch anhand der Helligkeit generiert)
+- Aktualisierte Übersetzungen

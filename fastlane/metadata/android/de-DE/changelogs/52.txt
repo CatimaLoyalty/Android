@@ -1,0 +1,3 @@
+- Automatischer Fokus des Textfeldes beim Erstellen oder Bearbeiten einer Gruppe
+- Unscharfe Icons wurden korrigiert (überall werden nun SVG verwendet)
+- Kamera immer öffnen, aber manuelle Scan-Schaltfläche zur Kameraansicht hinzufügen

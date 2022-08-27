@@ -1,0 +1,4 @@
+- Hinzufügen von Unterstützung für die Skalierung des Barcodes beim Verschieben nach oben, um noch mehr kleine Scanner zu unterstützen
+- Behebt das Springen des unteren Blattes nach dem Wechsel zum Vollbildmodus
+- Verkleinerung der Kopfzeile in der Treuekartenansicht im Querformat
+- Die Karten bleiben nicht in der Gruppe, wenn die Gruppe umbenannt wird

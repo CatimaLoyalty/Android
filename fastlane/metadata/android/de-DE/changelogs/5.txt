@@ -1,0 +1,2 @@
+- Vom Hauptbildschirm aus kann ein Info-Dialog geöffnet werden, der Details über die Anwendung und das Projekt auf GitHub enthält (Ausgabe #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Ermöglichung des Imports/Exports von Kundenkarteninformationen aus einer CSV-Datei in einem externen Speicher (Ausgabe #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), Ausgabe #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

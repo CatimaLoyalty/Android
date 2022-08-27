@@ -1,0 +1,14 @@
+- Unterstützt jetzt offiziell die folgende Liste von 1D- und 2D-Barcodes:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Die erzeugten Barcodes sind größer und lassen sich leichter mit einem Scangerät einlesen.

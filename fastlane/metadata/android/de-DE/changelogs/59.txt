@@ -1,0 +1,2 @@
+- Unterstützung für Balance hinzugefügt
+- Barcode-Registerkarte der Bearbeitungsansicht umorganisieren

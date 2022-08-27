@@ -1,0 +1,1 @@
+- Die Erstellung einer neuen Karte durch manuelle Eingabe des Barcodes wurde korrigiert (issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

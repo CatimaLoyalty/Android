@@ -1,0 +1,1 @@
+- Absturz bei Versionen vor Android 7 wurde behoben

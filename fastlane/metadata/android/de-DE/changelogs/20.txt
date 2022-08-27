@@ -1,0 +1,1 @@
+- Workaround-Absturz während der Installation auf einigen Android-Versionen (wahrscheinlich Android 5 und darunter). (Pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

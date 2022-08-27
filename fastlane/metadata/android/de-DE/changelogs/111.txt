@@ -1,0 +1,7 @@
+- Unterstützung der arabischen Sprache
+- Anzeige der archivierten Kartenanzahl in der Gruppenübersicht
+- Behebung von Fehlern bei der Gleichgewichtsanalyse (dadurch konnten Karten in Arabisch und anderen Sprachen mit nicht-westlichen Zahlen nicht gespeichert werden)
+- Benutzerdefiniertes Thema wird nicht korrekt auf den Hauptbildschirm angewendet
+- Verbesserte Anzeige der ausgewählten Karten
+- Behebung des Absturzes beim Verlassen der Kartenansicht in RTL-Layouts für Karten mit Ablaufdatum oder Guthaben
+- Der Rückwärtspfeil in der Kartenansicht zeigt in RTL-Layouts nicht mehr in die falsche Richtung

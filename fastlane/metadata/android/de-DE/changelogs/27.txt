@@ -1,0 +1,2 @@
+- Min. SDK von 17 auf 15 reduziert. (Pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+– Entfernen Sie die Verwendung der Legacy-Apache-Bibliothek, die nur in Komponententests verwendet wird, aber nicht mehr benötigt wird. (Pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

@@ -1,0 +1,4 @@
+- Niederländische Übersetzung
+- Das Namensfeld kann nach dem Hinzufügen einer Treuekarte bearbeitet werden
+- Hinzufügen eines optionalen Notizfeldes
+- Beheben Sie alle von FindBugs identifizierten Probleme und verlangen Sie, dass alle FindBugs-Probleme vor der Annahme von Pull Requests behoben werden

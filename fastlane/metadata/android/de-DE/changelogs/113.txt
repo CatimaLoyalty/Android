@@ -1,0 +1,3 @@
+- Hinzufügen der Schaltflächen "Vorheriges" und "Nächstes" in der Treuekartenansicht
+- Vordergrundfarbe der Schaltfläche "Bearbeiten" korrigieren
+- Disketten-Sicherungssymbol durch Häkchen ersetzen

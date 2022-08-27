@@ -1,0 +1,1 @@
+- Änderungen in der Kartenansicht, um die Notiz anzuzeigen, die Karten-ID mehrzeilig werden zu lassen und den Namen des Geschäfts anzuzeigen. (Pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

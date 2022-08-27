@@ -1,0 +1,2 @@
+- Die Bearbeitungsoberfläche wurde in Registerkarten aufgeteilt, um sie übersichtlicher zu gestalten
+- Unterstützung für Verfallsfelder hinzugefügt

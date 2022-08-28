@@ -15,8 +15,8 @@ Joel A
 Taco
 Gediminas Murauskas
 Michael Moroni
-Nyatsuki
 SlavekB
+Nyatsuki
 Samantaz Fox
 arno-github
 Ankit Tiwari
@@ -60,17 +60,20 @@ Rosdyana Kusuma
 umoenks
 Thomas Bertels
 Runner
+ce i moa
 inesre
 lgasp
 phlostically
 Aditya Das
 Asier
 Kevin Sicong Jiang
+tfuxu
 Ahmed Saleh
 Airat
 sNiXx
 BMN
 Biren
+Booc Sylvan
 Mylou53
 Kasina Dheeraj
 Donno
@@ -80,7 +83,7 @@ Franciszek Stefan
 Grzegorz
 HowITsDone
 Izzy
-krkk
+Karol Kosek
 bittin
 Marco
 Mattia

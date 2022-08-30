@@ -577,13 +577,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
-        if(!mArchiveMode) {
-            if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
-                inputMenu.findItem(R.id.action_archived).setVisible(false);
-            } else {
-                inputMenu.findItem(R.id.action_archived).setVisible(true);
-            }
-        }
 
         return super.onCreateOptionsMenu(inputMenu);
     }
@@ -668,16 +661,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             startActivity(i);
             return true;
         }
-
-        if(id == R.id.action_archived){
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("archiveMode", true);
-            i.putExtras(bundle);
-            startActivity(i);
-            return true;
-        }
-
 
         return super.onOptionsItemSelected(inputItem);
     }

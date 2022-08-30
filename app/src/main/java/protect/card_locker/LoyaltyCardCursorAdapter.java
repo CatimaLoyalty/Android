@@ -88,8 +88,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             });
             archiveReference.addRow(new Object[] {
                     MAGIC_NUMBER_ARCHIVE_REFERENCE,
-                    mContext.getString(R.string.archiveList),
-                    "",
+                    mContext.getString(R.string.openArchiveList),
+                    mContext.getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, archiveCount, archiveCount),
                     null,
                     new BigDecimal(0),
                     null,
@@ -200,17 +200,21 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         Bitmap cardIcon;
         if (isArchiveReference(loyaltyCard)) {
-            cardIcon = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_baseline_archive_24);
+            // BitmapFactory.decodeResource behaves weird.
+            // If a .xml file is found, it'll return null. Otherwise, it will return the image.
+            // We need to make sure whatever image we use here does NOT have a .xml file
+            inputHolder.mCardIcon.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.baseline_launch_black_48));
+            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         } else {
             cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
-        }
 
-        if (cardIcon != null) {
-            inputHolder.mCardIcon.setImageBitmap(cardIcon);
-            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        } else {
-            inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
-            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            if (cardIcon != null) {
+                inputHolder.mCardIcon.setImageBitmap(cardIcon);
+                inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            } else {
+                inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+                inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            }
         }
         inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 

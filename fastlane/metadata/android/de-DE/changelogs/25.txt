@@ -1,0 +1,2 @@
+- Verringert den Platz in der Kopfzeile bei der Anzeige einer Karte. (Pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Signalton beim Scannen eines Barcodes abschalten. (Pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

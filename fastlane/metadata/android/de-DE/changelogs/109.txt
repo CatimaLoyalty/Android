@@ -1,0 +1,1 @@
+- Falsche Textfarbe auf der Schaltfläche "Kein Barcode" korrigiert

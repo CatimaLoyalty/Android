@@ -1,0 +1,5 @@
+- Unterstützung für das Hinzufügen von Shortcuts zum Startbildschirm beim Hinzufügen oder Bearbeiten einer Karte. (Pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Widget entfernen, da es ein schlechter Ersatz für Shortcuts war. (Pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Exportieren von Backups unter Android 7+ korrigiert. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Genauere Angabe des Mime-Typs beim Exportieren von Sicherungsdaten. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- Behebt einen Fehler, bei dem eine Karte nicht bearbeitet werden konnte. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

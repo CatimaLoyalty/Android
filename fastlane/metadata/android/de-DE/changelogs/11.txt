@@ -1,0 +1,5 @@
+- Wenn Sie eine Karten-ID bearbeiten, füllen Sie die vorhandene ID zu Beginn aus. (Pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Begrenzen Sie die Breite der erzeugten Barcodes, um die Speichernutzung und Fehler durch Speicherüberschreitung zu reduzieren. (Pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Ändern Sie beim Bearbeiten einer Karte die Schaltfläche "Karte eingeben" in "Karte bearbeiten", wenn bereits eine Karten-ID existiert. (Pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Ändern Sie das Farbschema so, dass es weicher und mit dem App-Symbol kompatibel ist, und ändern Sie das Layout beim Anzeigen einer Karte so, dass es übersichtlicher ist. (Pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Hinzufügen eines Intro-Assistenten, der beim ersten Start der App gestartet wird. (Pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

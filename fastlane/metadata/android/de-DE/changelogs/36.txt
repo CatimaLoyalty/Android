@@ -1,0 +1,14 @@
+- Hinzufügen der Möglichkeit, nach einer Karte zu suchen (#320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
+- Hinzufügen der Möglichkeit, Treuekarten weiterzugeben und zu empfangen (#321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
+- Unterstützung des dunklen Modus (#322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
+- Treuekarten können jetzt barcodefrei sein (d.h. keinen Barcode haben) (#324 (https://github.com/brarcher/loyalty-card-locker/pull/324))
+- Notizen können sich über mehrere Zeilen erstrecken (#326 (https://github.com/brarcher/loyalty-card-locker/pull/326))
+- Verbesserungen bei der Größe von Notizen (#319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
+- Verbesserung der Sichtbarkeit von Benachrichtigungen und App-Symbolen (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- Update des Ziel-SDK auf Android 10
+- Verbessert die folgenden Übersetzungen:
+  - Deutsch
+  - Italienisch
+  - Niederländisch
+  - Polnisch
+  - Russisch

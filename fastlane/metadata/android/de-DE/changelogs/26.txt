@@ -1,0 +1,1 @@
+- Verhindert einen Absturz, wenn das Rendern eines Barcodes den Speicher der Anwendung erschöpft. (Pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

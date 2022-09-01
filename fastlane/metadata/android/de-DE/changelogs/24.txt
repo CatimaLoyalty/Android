@@ -1,0 +1,4 @@
+- Übersetzungen aktualisieren. (Pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Aktualisierung der Barcode-Darstellung: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Die Kartenansicht wird neu geladen, wenn der Bildschirm gedreht wird, so dass das Barcodebild die richtige Größe hat.
+  - Rendering von 1D-Barcodes in einem größeren Raum, so dass sie den Bildschirm besser ausfüllen können.

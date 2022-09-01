@@ -226,4 +226,5 @@
 \nSEMMILYEN ADATGYŰJTÉS NINCS, amit bárki ellenőrizhet, lévén hogy az app gáttalan szoftver.</string>
     <string name="importFidmeMessage">Válassza ki a <i>fidme-export-request-xxxxxx.zip</i> nevű FidMe exportot, majd importálja be és válassza a manuális vonalkód opciót utána.
 \nEzt a FidMe-ben megtalálja a profiljában az Adat Védelem résznél ha rányom az Adataim Kivonata linkre.</string>
+    <string name="settings_card_orientation">Vonalkód tájolás</string>
 </resources>

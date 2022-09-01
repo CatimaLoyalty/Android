@@ -1,0 +1,3 @@
+- Hinzufügen von Leerzeichen am Anfang/Ende von Barcodes. (Pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Hinzufügen von Optionen zur Konfiguration der Farben für die Schrift und den Hintergrund des Geschäftsnamens. (Pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Hinzufügen von Optionen zur Anpassung der Schriftgröße auf der Seite mit den Kartenlisten und der Einzelkartenseite. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

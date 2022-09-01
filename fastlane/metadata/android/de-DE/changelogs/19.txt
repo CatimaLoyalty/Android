@@ -1,0 +1,3 @@
+- Behebung eines Absturzes beim Importieren bestimmter Arten von beschädigten CSV-Dateien. (Pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Behebt den Import von Backups direkt aus dem Dateisystem. (Pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Behebung des Problems beim Importieren von Sicherungen von bestimmten Arten von Inhaltsanbietern. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

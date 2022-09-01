@@ -1,0 +1,2 @@
+- Sortieren der Kartenliste ohne Berücksichtigung der Groß-/Kleinschreibung (Pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Einstellung zum Sperren der Ausrichtung für alle Karten hinzufügen (Pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269))

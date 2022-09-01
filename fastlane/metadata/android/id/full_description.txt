@@ -1,0 +1,22 @@
+Berhenti mencari kartu keanggotaan saat berbelanja atau pembayaran toko digital.
+<b>Pindai barcode ke perangkat Anda, lupakan tentang kartu.</b>
+
+Lupakan dompet Anda, atau simpan hanya untuk barang-barang berharga.
+
+Dengan aplikasi ini, Anda bisa mengganti plastik tidak guna dengan uang.
+
+- Hindari pengintaian dengan izin yang sangat sedikit. Tidak dibutuhkan akses internet dan tidak ada iklan.
+- Tambahkan kartu atau kode dengan nama dan warna terkostumisasi.
+- Memasukkan kode manual jika tidak ada barcode atau tidak bisa digunakan.
+- Impor kartu dan kode dari berkas, Catima, FidMe, Loyalty Card Keychain, Stocard, dan Voucher Vault.
+- Buat cadangan dari seluruh kartu Anda dan pindahkan ke perangkat baru jika Anda menginginkannya.
+- Bagikan kupon, penawaran eksklusif, kode promo, atau kartu dan kode menggunakan aplikasi apa pun.
+- Tema gelap dan opsi aksesibilitas untuk pengguna berkebutuhan khusus.
+- Dibuat untuk semuanya oleh komunitas perangkat lunak libre.
+- Terjemahan untuk 20+ bahasa.
+- Gratis, didukung oleh kontribusi komunitas.
+- Gunakan, pelajari, ubah, dan bagikan semau Anda; <i>dengan semua</i>.
+- Tidak hanya perangkat lunak bebas. Perangkat lunak pengelola kartu yang libre dan <i>copyleft</i> (GPLv3+).
+
+Permudah hidup dan belanja Anda dan tidak akan lagi kehilangan kuitansi kertas, kartu hadiah pembayaran toko, atau tiket pesawat.
+Ambil semua hadiah dan bonus dengan Anda.

@@ -1,0 +1,2 @@
+- Hinzufügen von Unterstützung für das Hinzufügen von Treuekarten-Verknüpfungen über den Launcher/Homescreen. (Pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Entfernen Sie die Unterstützung für das Hinzufügen von Treuekartenverknüpfungen aus der App selbst. Damit entfällt die Notwendigkeit für die Verknüpfungsberechtigung. (Pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

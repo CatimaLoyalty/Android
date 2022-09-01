@@ -1,0 +1,1 @@
+- Problem beim Teilen von Karten ohne Hintergrundfarbe behoben (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

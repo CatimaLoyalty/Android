@@ -1,0 +1,3 @@
+- Hinzufügen einer Menüoption zum Sperren der Bildschirmdrehung, wenn eine Karte angezeigt wird. Wenn sie gesperrt ist, wird der Bildschirm in seine "natürliche" Ausrichtung übergehen und eine weitere Bildschirmdrehung wird blockiert (Pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Wenn eine Karte auf dem Hauptbildschirm ausgewählt wird, aber nicht geladen werden kann, schlägt die Anwendung fehl und gibt eine Meldung aus. (Pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Der Fall, dass Layout-IDs für den Intro-Assistenten nicht gefunden werden konnten, wurde behoben. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

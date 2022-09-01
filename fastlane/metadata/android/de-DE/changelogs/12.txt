@@ -1,0 +1,1 @@
+- Verhinderung eines Absturzes beim Drehen des Bildschirms beim ersten Start des Intro-Assistenten.

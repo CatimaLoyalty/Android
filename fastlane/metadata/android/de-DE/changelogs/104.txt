@@ -1,0 +1,2 @@
+- Speichern des Status der Kartenerweiterung
+- Kleinere UI-Korrekturen

@@ -1,0 +1,3 @@
+- Korrektur der Barcode-Zentrierung beim Verlassen des Vollbildes (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Erlaubt die Auswahl des Speicherortes für den Backup-Export (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Aktualisierung der Übersetzungen (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

@@ -1,0 +1,2 @@
+- Manuelle Sprachauswahl wird nicht mehr überall angewendet
+- Behebt Absturz in der Bearbeitungsansicht bei regionslosem Gebietsschema

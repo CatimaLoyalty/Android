@@ -1,0 +1,1 @@
+- Behebung des Absturzes beim Wechsel zum Barcode-Tab in der Bearbeitungsansicht, wenn kein Barcode vorhanden ist

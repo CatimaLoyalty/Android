@@ -297,4 +297,5 @@
     </plurals>
     <string name="previousCard">Previous</string>
     <string name="nextCard">Next</string>
+    <string name="this_item_cant_be_selected">This item can\'t be selected</string>
 </resources>

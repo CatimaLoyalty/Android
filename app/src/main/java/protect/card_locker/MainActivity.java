@@ -53,12 +53,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
+public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
     private SQLiteDatabase mDatabase;
-    private LoyaltyCardCursorAdapter mAdapter;
+    private LoyaltyCardAdapter mAdapter;
     private ActionMode mCurrentActionMode;
     private SearchView mSearchView;
     private GestureDetector mGestureDetector;
@@ -297,7 +297,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mCardList.setOnTouchListener(gestureTouchListener);
         mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
 
-        mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
+        mAdapter = new LoyaltyCardAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
@@ -460,7 +460,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 mArchiveMode ? 0 :
                     group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
 
-        mAdapter.setCards(loyaltyCardCursor, archiveCount);
+        mAdapter.setCards(DBHelper.convertToLoyaltyCards(loyaltyCardCursor), archiveCount);
 
         if (updateCount) {
             updateLoyaltyCardCount();
@@ -801,7 +801,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
 
             for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
-
                 if (loyaltyCard.starStatus == 1) {
                     hasStarred = true;
                 } else {

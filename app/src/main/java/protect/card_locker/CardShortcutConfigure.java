@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
+public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardAdapter.CardAdapterListener {
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
-    private LoyaltyCardCursorAdapter mAdapter;
+    private LoyaltyCardAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -57,7 +57,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
         }
 
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
+        mAdapter = new LoyaltyCardAdapter(this, DBHelper.convertToLoyaltyCards(cardCursor), this);
         cardList.setAdapter(mAdapter);
     }
 

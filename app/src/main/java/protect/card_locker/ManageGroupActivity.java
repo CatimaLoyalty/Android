@@ -25,10 +25,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
+public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupAdapter.CardAdapterListener {
 
     private SQLiteDatabase mDatabase;
-    private ManageGroupCursorAdapter mAdapter;
+    private ManageGroupAdapter mAdapter;
 
     private final String SAVE_INSTANCE_ADAPTER_STATE = "adapterState";
     private final String SAVE_INSTANCE_CURRENT_GROUP_NAME = "currentGroupName";
@@ -96,7 +96,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
         mGroupNameText.setText(mGroup._id);
         setTitle(getString(R.string.editGroup, mGroup._id));
-        mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup);
+        mAdapter = new ManageGroupAdapter(this, null, this, mGroup);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
@@ -187,7 +187,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     private void updateLoyaltyCardList() {
-        mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase));
+        mAdapter.swapCards(DBHelper.convertToLoyaltyCards(DBHelper.getLoyaltyCardCursor(mDatabase)));
 
         if (mAdapter.getItemCount() == 0) {
             mCardList.setVisibility(View.GONE);

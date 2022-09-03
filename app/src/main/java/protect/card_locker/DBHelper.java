@@ -676,6 +676,25 @@ public class DBHelper extends SQLiteOpenHelper {
                 limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
     }
 
+    public static LoyaltyCard[] convertToLoyaltyCards(Cursor data) {
+        LoyaltyCard[] loyaltyCards = new LoyaltyCard[data.getCount()];
+
+        if (!data.moveToFirst()) {
+            data.close();
+            return loyaltyCards;
+        }
+
+        int position = 0;
+
+        loyaltyCards[position] = LoyaltyCard.toLoyaltyCard(data);
+        while (data.moveToNext()) {
+            position += 1;
+            loyaltyCards[position] = LoyaltyCard.toLoyaltyCard(data);
+        }
+
+        return loyaltyCards;
+    }
+
     /**
      * Returns the amount of loyalty cards.
      *

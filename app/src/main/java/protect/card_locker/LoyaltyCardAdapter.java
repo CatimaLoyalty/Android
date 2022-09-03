@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -30,16 +31,20 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.preferences.Settings;
 
-public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
+public class LoyaltyCardAdapter extends RecyclerView.Adapter<LoyaltyCardAdapter.LoyaltyCardListItemViewHolder> {
+    private LoyaltyCard[] mLoyaltyCards;
+
     private int mCurrentSelectedIndex = -1;
     Settings mSettings;
     boolean mDarkModeEnabled;
+    private int mArchiveCount;
     public final Context mContext;
     private final CardAdapterListener mListener;
     protected SparseBooleanArray mSelectedItems;
@@ -47,10 +52,48 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     private boolean mReverseAllAnimations = false;
     private boolean mShowDetails;
 
-    private final int MAGIC_NUMBER_ARCHIVE_REFERENCE = -100;
+    private class VIEW_TYPES {
+        public static final int Card = 1;
+        public static final int ArchiveReference = 2;
+    }
 
-    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
-        super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
+    @Override
+    public int getItemViewType(int position) {
+        if (mArchiveCount > 0 && position == getItemCount() - 1) {
+            return VIEW_TYPES.ArchiveReference;
+        }
+
+        return VIEW_TYPES.Card;
+    }
+
+    @Override
+    public int getItemCount() {
+        if (mLoyaltyCards == null) {
+            return 0;
+        }
+
+        if (mArchiveCount > 0) {
+            return mLoyaltyCards.length + 1;
+        }
+
+        return mLoyaltyCards.length;
+    }
+
+    public void swapCards(LoyaltyCard[] loyaltyCards) {
+        if (loyaltyCards == mLoyaltyCards) {
+            return;
+        }
+
+        mLoyaltyCards = loyaltyCards;
+
+        if (loyaltyCards != null) {
+            notifyDataSetChanged();
+        } else {
+            notifyItemRangeRemoved(0, getItemCount());
+        }
+    }
+
+    public LoyaltyCardAdapter(Context inputContext, LoyaltyCard[] loyaltyCards, CardAdapterListener inputListener) {
         setHasStableIds(true);
         mSettings = new Settings(inputContext);
         mContext = inputContext;
@@ -62,51 +105,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         refreshState();
 
-        swapCursor(inputCursor);
+        swapCards(loyaltyCards);
     }
 
-    public void setCards(Cursor loyaltyCardCursor, int archiveCount) {
-        if (archiveCount == 0) {
-            swapCursor(loyaltyCardCursor);
-        } else {
-            // Build fake DB entry
-            MatrixCursor archiveReference = new MatrixCursor(new String[] {
-                    DBHelper.LoyaltyCardDbIds.ID,
-                    DBHelper.LoyaltyCardDbIds.STORE,
-                    DBHelper.LoyaltyCardDbIds.NOTE,
-                    DBHelper.LoyaltyCardDbIds.EXPIRY,
-                    DBHelper.LoyaltyCardDbIds.BALANCE,
-                    DBHelper.LoyaltyCardDbIds.BALANCE_TYPE,
-                    DBHelper.LoyaltyCardDbIds.CARD_ID,
-                    DBHelper.LoyaltyCardDbIds.BARCODE_ID,
-                    DBHelper.LoyaltyCardDbIds.BARCODE_TYPE,
-                    DBHelper.LoyaltyCardDbIds.STAR_STATUS,
-                    DBHelper.LoyaltyCardDbIds.LAST_USED,
-                    DBHelper.LoyaltyCardDbIds.ZOOM_LEVEL,
-                    DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS,
-                    DBHelper.LoyaltyCardDbIds.HEADER_COLOR
-            });
-            archiveReference.addRow(new Object[] {
-                    MAGIC_NUMBER_ARCHIVE_REFERENCE,
-                    mContext.getString(R.string.openArchiveList),
-                    mContext.getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, archiveCount, archiveCount),
-                    null,
-                    new BigDecimal(0),
-                    null,
-                    "",
-                    "",
-                    null,
-                    0,
-                    0,
-                    0,
-                    0,
-                    Color.WHITE
-            });
-            Cursor[] cursors = { loyaltyCardCursor, archiveReference };
-            Cursor extendedCursor = new MergeCursor(cursors);
+    public void setCards(LoyaltyCard[] loyaltyCards, int archiveCount) {
+        mArchiveCount = archiveCount;
 
-            swapCursor(extendedCursor);
-        }
+        swapCards(loyaltyCards);
     }
 
     public void refreshState() {
@@ -136,29 +141,33 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     @Override
     public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
+        View itemView;
+        if (inputViewType == VIEW_TYPES.ArchiveReference) {
+            itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
+        } else {
+            itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
+        }
         return new LoyaltyCardListItemViewHolder(itemView, mListener);
     }
 
     public LoyaltyCard getCard(int position) {
-        mCursor.moveToPosition(position);
-        return LoyaltyCard.toLoyaltyCard(mCursor);
+        return mLoyaltyCards[position];
     }
 
     public void open(int position) {
-        LoyaltyCard loyaltyCard = getCard(position);
-
-        if (loyaltyCard == null) {
-            throw new CursorIndexOutOfBoundsException("Requested position doesn't exist");
-        }
-
         Intent i;
-        if (isArchiveReference(loyaltyCard)) {
+        if (getItemViewType(position) == VIEW_TYPES.ArchiveReference) {
             i = new Intent(mContext, MainActivity.class);
             Bundle bundle = new Bundle();
             bundle.putBoolean("archiveMode", true);
             i.putExtras(bundle);
         } else {
+            LoyaltyCard loyaltyCard = getCard(position);
+
+            if (loyaltyCard == null) {
+                throw new CursorIndexOutOfBoundsException("Requested position doesn't exist");
+            }
+
             i = new Intent(mContext, LoyaltyCardViewActivity.class);
             i.setAction("");
             final Bundle b = new Bundle();
@@ -171,11 +180,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         mContext.startActivity(i);
     }
 
-    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
-        // Invisible until we want to show something more
-        inputHolder.mDivider.setVisibility(View.GONE);
-
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+    private void bindCardViewHolder(LoyaltyCardListItemViewHolder inputHolder, int position) {
+        LoyaltyCard loyaltyCard = getCard(position);
 
         inputHolder.setStoreField(loyaltyCard.store);
         if (mShowDetails && !loyaltyCard.note.isEmpty()) {
@@ -196,33 +202,49 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExpiryField(null);
         }
 
+        Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+
+        if (cardIcon != null) {
+            inputHolder.mCardIcon.setImageBitmap(cardIcon);
+            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        } else {
+            inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
+            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        }
+        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
+
+        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(position));
+
+        inputHolder.itemView.setActivated(mSelectedItems.get(position, false));
+    }
+
+    public void onBindViewHolder(@NonNull LoyaltyCardListItemViewHolder inputHolder, int position) {
+        // Invisible until we want to show something more
+        inputHolder.mDivider.setVisibility(View.GONE);
+
         setHeaderHeight(inputHolder, mShowDetails);
 
-        Bitmap cardIcon;
-        if (isArchiveReference(loyaltyCard)) {
+        if (getItemViewType(position) == VIEW_TYPES.ArchiveReference) {
+            inputHolder.setStoreField(mContext.getString(R.string.openArchiveList));
+            inputHolder.setNoteField(mContext.getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, mArchiveCount, mArchiveCount));
+            inputHolder.setBalanceField(null, null);
+            inputHolder.setExpiryField(null);
+
             // BitmapFactory.decodeResource behaves weird.
             // If a .xml file is found, it'll return null. Otherwise, it will return the image.
             // We need to make sure whatever image we use here does NOT have a .xml file
             inputHolder.mCardIcon.setImageBitmap(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.baseline_launch_black_48));
             inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+            inputHolder.setIconBackgroundColor(Color.WHITE);
+            inputHolder.toggleCardStateIcon(false, false, false);
+            inputHolder.itemView.setActivated(false);
         } else {
-            cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
-
-            if (cardIcon != null) {
-                inputHolder.mCardIcon.setImageBitmap(cardIcon);
-                inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            } else {
-                inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
-                inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            }
+            bindCardViewHolder(inputHolder, position);
         }
-        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : R.attr.colorPrimary);
 
-        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
-
-        inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
-        applyIconAnimation(inputHolder, inputCursor.getPosition());
-        applyClickEvents(inputHolder, inputCursor.getPosition());
+        applyIconAnimation(inputHolder, position);
+        applyClickEvents(inputHolder, position);
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();
@@ -270,6 +292,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     public void toggleSelection(int inputPosition) {
+        // Don't allow selecting the "Open archive" button, it's not a real card
+        if (getItemViewType(inputPosition) != VIEW_TYPES.Card) {
+            Toast.makeText(mContext, R.string.this_item_cant_be_selected, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         mCurrentSelectedIndex = inputPosition;
         if (mSelectedItems.get(inputPosition, false)) {
             mSelectedItems.delete(inputPosition);
@@ -292,13 +320,11 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     }
 
     public ArrayList<LoyaltyCard> getSelectedItems() {
-
         ArrayList<LoyaltyCard> result = new ArrayList<>();
 
         int i;
         for (i = 0; i < mSelectedItems.size(); i++) {
-            mCursor.moveToPosition(mSelectedItems.keyAt(i));
-            result.add(LoyaltyCard.toLoyaltyCard(mCursor));
+            result.add(getCard(mSelectedItems.keyAt(i)));
         }
 
         return result;
@@ -466,9 +492,5 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         Resources r = mContext.getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
         return px;
-    }
-
-    private boolean isArchiveReference(LoyaltyCard loyaltyCard) {
-        return loyaltyCard.id == MAGIC_NUMBER_ARCHIVE_REFERENCE;
     }
 }

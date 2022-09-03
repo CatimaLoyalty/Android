@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
+public class ManageGroupAdapter extends LoyaltyCardAdapter {
     private HashMap<Integer, Integer> mIndexCardMap;
     private HashMap<Integer, Boolean> mInGroupOverlay;
     private HashMap<Integer, Boolean> mIsLoyaltyCardInGroupCache;
@@ -16,31 +16,31 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     final private Group mGroup;
     final private SQLiteDatabase mDatabase;
 
-    public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group) {
-        super(inputContext, inputCursor, inputListener);
+    public ManageGroupAdapter(Context inputContext, LoyaltyCard[] loyaltyCards, CardAdapterListener inputListener, Group group) {
+        super(inputContext, loyaltyCards, inputListener);
         mGroup = new Group(group._id, group.order);
         mInGroupOverlay = new HashMap<>();
         mDatabase = new DBHelper(inputContext).getWritableDatabase();
     }
 
     @Override
-    public void swapCursor(Cursor inputCursor) {
-        super.swapCursor(inputCursor);
+    public void swapCards(LoyaltyCard[] loyaltyCards) {
+        super.swapCards(loyaltyCards);
         mIndexCardMap = new HashMap<>();
         mIsLoyaltyCardInGroupCache = new HashMap<>();
         mGetGroupCache = new HashMap<>();
     }
 
     @Override
-    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
-        LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+    public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, int position) {
+        LoyaltyCard loyaltyCard = getCard(position);
         Boolean overlayValue = mInGroupOverlay.get(loyaltyCard.id);
         if ((overlayValue != null ? overlayValue : isLoyaltyCardInGroup(loyaltyCard.id))) {
-            mAnimationItemsIndex.put(inputCursor.getPosition(), true);
-            mSelectedItems.put(inputCursor.getPosition(), true);
+            mAnimationItemsIndex.put(position, true);
+            mSelectedItems.put(position, true);
         }
-        mIndexCardMap.put(inputCursor.getPosition(), loyaltyCard.id);
-        super.onBindViewHolder(inputHolder, inputCursor);
+        mIndexCardMap.put(position, loyaltyCard.id);
+        super.onBindViewHolder(inputHolder, position);
     }
 
     private List<Group> getGroups(int cardId) {

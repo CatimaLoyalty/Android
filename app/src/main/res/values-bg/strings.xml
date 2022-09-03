@@ -247,4 +247,5 @@
     </plurals>
     <string name="previousCard">Предишна</string>
     <string name="nextCard">Следваща</string>
+    <string name="failedToOpenUrl">Първо инсталирайте уеб браузър</string>
 </resources>

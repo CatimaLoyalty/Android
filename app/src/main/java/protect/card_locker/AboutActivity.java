@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -166,7 +168,12 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
-        startActivity(intent);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.failedToOpenUrl, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
+        }
     }
 
 }

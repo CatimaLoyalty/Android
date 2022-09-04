@@ -297,4 +297,5 @@
         <item quantity="one">View archive (<xliff:g>%1$d</xliff:g> card)</item>
         <item quantity="other">View archive (<xliff:g>%1$d</xliff:g> cards)</item>
     </plurals>
+    <string name="welcome">Welcome to Catima</string>
 </resources>

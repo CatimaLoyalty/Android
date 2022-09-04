@@ -3,6 +3,8 @@
 ## Unreleased - 114
 
 - Add Monochrome icon for Android 13
+- Improve first launch screen
+- Move archive info from overflow menu to bottom of card list
 
 ## v2.19.0 - 113
 

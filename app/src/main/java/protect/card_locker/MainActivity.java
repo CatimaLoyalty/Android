@@ -65,7 +65,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
-    private View mHelpText;
+    private View mHelpSection;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
     private TextView mOpenArchiveText;
@@ -284,13 +284,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
-        mHelpText = findViewById(R.id.helpText);
+        mHelpSection = findViewById(R.id.helpSection);
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
         mOpenArchiveText = findViewById(R.id.openArchiveLinkText);
         mCardList = findViewById(R.id.list);
 
-        mHelpText.setOnTouchListener(gestureTouchListener);
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
         mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
@@ -473,7 +472,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            mHelpText.setVisibility(View.GONE);
+            mHelpSection.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
 
             int archiveCount =
@@ -500,7 +499,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mOpenArchiveText.setVisibility(archiveCount > 0 ? View.VISIBLE : View.GONE);
         } else {
             mCardList.setVisibility(View.GONE);
-            mHelpText.setVisibility(View.VISIBLE);
+            mHelpSection.setVisibility(View.VISIBLE);
 
             mNoMatchingCardsText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);

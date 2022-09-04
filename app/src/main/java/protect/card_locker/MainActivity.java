@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -67,6 +68,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpText;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
+    private TextView mOpenArchiveText;
 
     private boolean mArchiveMode;
     public static final String BUNDLE_ARCHIVE_MODE = "archiveMode";
@@ -285,12 +287,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mHelpText = findViewById(R.id.helpText);
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
+        mOpenArchiveText = findViewById(R.id.openArchiveLinkText);
         mCardList = findViewById(R.id.list);
 
         mHelpText.setOnTouchListener(gestureTouchListener);
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
         mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
+
+        // Open archive on archive text click
+        mOpenArchiveText.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("archiveMode", true);
+            i.putExtras(bundle);
+            startActivity(i);
+        });
 
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
@@ -464,7 +476,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mHelpText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
 
-            if (mAdapter.getItemCount() > 0) {
+            int archiveCount =
+                    mArchiveMode ? 0 :
+                            group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
+
+            if (mAdapter.getItemCount() + archiveCount > 0) {
                 mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
             } else {
@@ -479,6 +495,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     mNoGroupCardsText.setVisibility(View.VISIBLE);
                 }
             }
+
+            mOpenArchiveText.setText(getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, archiveCount, archiveCount));
+            mOpenArchiveText.setVisibility(archiveCount > 0 ? View.VISIBLE : View.GONE);
         } else {
             mCardList.setVisibility(View.GONE);
             mHelpText.setVisibility(View.VISIBLE);
@@ -566,13 +585,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
-        if(!mArchiveMode) {
-            if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
-                inputMenu.findItem(R.id.action_archived).setVisible(false);
-            } else {
-                inputMenu.findItem(R.id.action_archived).setVisible(true);
-            }
-        }
 
         return super.onCreateOptionsMenu(inputMenu);
     }
@@ -654,15 +666,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_about) {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-            startActivity(i);
-            return true;
-        }
-
-        if(id == R.id.action_archived){
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("archiveMode", true);
-            i.putExtras(bundle);
             startActivity(i);
             return true;
         }

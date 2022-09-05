@@ -669,6 +669,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             // Darken statusbar if icons won't be visible otherwise
             window.setStatusBarColor(backgroundNeedsDarkIcons ? ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.15f) : Color.TRANSPARENT);
         }
+        // Set darkenedColor like color on NavigationBar
+        window.setNavigationBarColor(darkenedColor);
 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);

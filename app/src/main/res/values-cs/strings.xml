@@ -253,4 +253,11 @@
     </plurals>
     <string name="previousCard">Předchozí</string>
     <string name="nextCard">Následující</string>
+    <string name="failedToOpenUrl">Nejprve nainstalujte webový prohlížeč</string>
+    <string name="welcome">Vítejte v Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karta)</item>
+        <item quantity="few">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karty)</item>
+        <item quantity="other">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karet)</item>
+    </plurals>
 </resources>

@@ -248,4 +248,9 @@
     <string name="previousCard">Предишна</string>
     <string name="nextCard">Следваща</string>
     <string name="failedToOpenUrl">Първо инсталирайте уеб браузър</string>
+    <string name="welcome">Добре дошли при Катима</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Преглед на архива (<xliff:g>%1$d</xliff:g> карта)</item>
+        <item quantity="other">Преглед на архива (<xliff:g>%1$d</xliff:g> карти)</item>
+    </plurals>
 </resources>

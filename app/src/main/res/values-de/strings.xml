@@ -247,4 +247,10 @@
     <string name="failedLaunchingPhotoPicker">Es konnte keine unterstützte Galerie-Anwendung gefunden werden</string>
     <string name="previousCard">Vorherige</string>
     <string name="nextCard">Nächste</string>
+    <string name="failedToOpenUrl">Installieren Sie zunächst einen Webbrowser</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Archiv ansehen (<xliff:g>%1$d</xliff:g> Karte)</item>
+        <item quantity="other">Archiv ansehen (<xliff:g>%1$d</xliff:g> Karten)</item>
+    </plurals>
+    <string name="welcome">Willkommen bei Catima</string>
 </resources>

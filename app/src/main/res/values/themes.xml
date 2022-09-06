@@ -29,7 +29,6 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:navigationBarColor">@color/md_theme_light_background</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">

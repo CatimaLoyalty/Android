@@ -29,7 +29,6 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
 
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:navigationBarColor">@color/md_theme_dark_background</item>
     </style>
 
     <!-- note that this is not used directly, these are used to patch the active theme runtime with
@@ -37,7 +36,6 @@
     -->
     <style name="DarkBackground">
         <item name="android:colorBackground">#000000</item>
-        <item name="android:navigationBarColor">#000000</item>
         <item name="colorSurface">#000000</item>
     </style>
 

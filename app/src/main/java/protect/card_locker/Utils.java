@@ -495,6 +495,7 @@ public class Utils {
         TypedValue typedValue = new TypedValue();
         activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
         activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+        activity.getWindow().setNavigationBarColor(typedValue.data);
     }
 
     public static void updateMenuCardDetailsButtonState(MenuItem item, boolean currentlyExpanded) {

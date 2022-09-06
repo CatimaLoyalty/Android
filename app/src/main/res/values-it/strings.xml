@@ -253,4 +253,11 @@
     </plurals>
     <string name="previousCard">Precedente</string>
     <string name="nextCard">Successivo</string>
+    <string name="welcome">Benvenuti a Catima</string>
+    <string name="failedToOpenUrl">Installa prima un browser web</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Visualizza archivio (<xliff:g>%1$d</xliff:g> scheda)</item>
+        <item quantity="many">Visualizza archivio (<xliff:g>%1$d</xliff:g> carta)</item>
+        <item quantity="other">Visualizza archivio (<xliff:g>%1$d</xliff:g> carte)</item>
+    </plurals>
 </resources>

@@ -247,4 +247,10 @@
     </plurals>
     <string name="previousCard">Önceki</string>
     <string name="nextCard">Sonraki</string>
+    <string name="failedToOpenUrl">Önce bir web tarayıcısı kurun</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Arşivi görüntüle (<xliff:g>%1$d</xliff:g> kart)</item>
+        <item quantity="other">Arşivi görüntüle (<xliff:g>%1$d</xliff:g> kart)</item>
+    </plurals>
+    <string name="welcome">Catima\'ya Hoş Geldiniz</string>
 </resources>

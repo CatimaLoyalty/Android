@@ -247,4 +247,10 @@
     </plurals>
     <string name="previousCard">Vorige</string>
     <string name="nextCard">Volgende</string>
+    <string name="welcome">Welkom bij Catima</string>
+    <string name="failedToOpenUrl">Installeer een webbrowser</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Archief bekijken (<xliff:g>%1$d</xliff:g> kaart)</item>
+        <item quantity="other">Archief bekijken (<xliff:g>%1$d</xliff:g> kaarten)</item>
+    </plurals>
 </resources>

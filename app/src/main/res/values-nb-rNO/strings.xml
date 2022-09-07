@@ -247,4 +247,10 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkivert)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkivert)</item>
     </plurals>
+    <string name="failedToOpenUrl">Installer en nettleser først</string>
+    <string name="welcome">Velkommen til Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
+        <item quantity="other">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
+    </plurals>
 </resources>

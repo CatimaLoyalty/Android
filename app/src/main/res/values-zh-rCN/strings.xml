@@ -241,4 +241,6 @@
     <string name="unarchived">卡片未归档</string>
     <string name="archiveList">已归档卡</string>
     <string name="noUnarchivedCardsMessage">没有未归档卡</string>
+    <string name="failedToOpenUrl">先安装一个浏览器</string>
+    <string name="welcome">欢迎使用Catima</string>
 </resources>

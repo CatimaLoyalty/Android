@@ -361,7 +361,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final SQLiteDatabase database, final String store, final String note, final Date expiry,
             final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
-            final int starStatus, final Long lastUsed,final int archiveStatus) {
+            final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
 
         // Card
@@ -426,7 +426,7 @@ public class DBHelper extends SQLiteOpenHelper {
             SQLiteDatabase database, final int id, final String store, final String note,
             final Date expiry, final BigDecimal balance, final Currency balanceType,
             final String cardId, final String barcodeId, final CatimaBarcode barcodeType,
-            final Integer headerColor) {
+            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
 
         // Card
@@ -440,6 +440,10 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
+        contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
+        contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
+        contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID), withArgs(id));
 

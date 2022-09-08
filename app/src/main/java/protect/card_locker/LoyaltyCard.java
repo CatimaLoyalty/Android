@@ -36,7 +36,8 @@ public class LoyaltyCard implements Parcelable {
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
                        @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus, final long lastUsed, final int zoomLevel,final int archiveStatus) {
+                       @Nullable final Integer headerColor, final int starStatus,
+                       final long lastUsed, final int zoomLevel, final int archiveStatus) {
         this.id = id;
         this.store = store;
         this.note = note;

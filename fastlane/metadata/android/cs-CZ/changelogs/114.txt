@@ -1,3 +1,4 @@
 - Přidána černobílá ikona pro Android 13
 - Vylepšení obrazovky prvního spuštění
 - Přesunutí informace o archivu z rozbalovací nabídky na konec seznamu karet
+- Opravy importu z Fidme

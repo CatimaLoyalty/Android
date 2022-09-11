@@ -4,17 +4,17 @@ J. Lavoie
 Allan Nordhøy
 solokot
 Heimen Stoffels
-Katharine Chui
 Oğuz Ersen
+Katharine Chui
 mondstern
 IllusiveMan196
 Altonss
 StoyanDimitrov
 Petr Novák
 Joel A
+Michael Moroni
 Taco
 Gediminas Murauskas
-Michael Moroni
 SlavekB
 Nyatsuki
 Samantaz Fox
@@ -52,6 +52,7 @@ Astrohops1
 Clonewayx
 D. Domig
 Diego
+Fede Pujol
 Lukas Grassauer
 Marnick L'Eau
 Michalis
@@ -71,21 +72,23 @@ Kevin Sicong Jiang
 tfuxu
 Ahmed Saleh
 Airat
+Alexander Ivanov
 sNiXx
 BMN
 Biren
 Booc Sylvan
+Colgrave
 Csaba
 Mylou53
 Kasina Dheeraj
 Donno
 Eric
-Fede Pujol
 Flav
 Franciszek Stefan
 Grzegorz
 HowITsDone
 Izzy
+Jean-Baptiste
 Jean-Luc Tibaux
 Karol Kosek
 bittin
@@ -105,7 +108,7 @@ Samarth Asthan
 Simone Dotto
 Subhashish Anand
 Tom Sawyer
-darkodo
+Tony C
 Tymofii Lytvynenko
 Vancha March
 Yevgeny M

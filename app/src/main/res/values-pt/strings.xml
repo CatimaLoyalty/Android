@@ -28,6 +28,7 @@
     <string name="sendLabel">Enviar…</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> selecionado</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> selecionado</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selecionados</item>
     </plurals>
     <string name="deleteConfirmation">Eliminar este cartão permanentemente\?</string>
@@ -115,6 +116,7 @@
     <string name="no">Não</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> cartão</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> cartões</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cartões</item>
     </plurals>
     <string name="importOptionFilesystemTitle">Importar do sistema de ficheiros</string>
@@ -196,10 +198,12 @@
     <string name="noCardIdError">Nenhum identificador inserido</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eliminar <xliff:g>%d</xliff:g> cartão</item>
+        <item quantity="many">Eliminar <xliff:g>%d</xliff:g> cartões</item>
         <item quantity="other">Eliminar <xliff:g>%d</xliff:g> cartões</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Eliminar o cartão <xliff:g>%d</xliff:g> permanentemente\?</item>
+        <item quantity="many">Eliminar os cartões <xliff:g>%d</xliff:g> permanentemente\?</item>
         <item quantity="other">Eliminar os cartões <xliff:g>%d</xliff:g> permanentemente\?</item>
     </plurals>
     <string name="ok">OK</string>
@@ -224,6 +228,7 @@
     <string name="options">Opções</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> ponto</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> pontos</item>
         <item quantity="other"><xliff:g>%s</xliff:g> pontos</item>
     </plurals>
     <string name="settings_oled_dark">Fundo preto puro para tema negro</string>
@@ -242,9 +247,17 @@
     <string name="noUnarchivedCardsMessage">Não existem cartões desarquivados</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> cartão (<xliff:g id="archivedCount">%2$d</xliff:g> arquivado)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>
     </plurals>
     <string name="failedLaunchingPhotoPicker">Não foi encontrada nenhuma aplicação de galeria de imagens</string>
     <string name="nextCard">Próximo</string>
     <string name="previousCard">Anterior</string>
+    <string name="failedToOpenUrl">Instale primeiro um navegador da Internet</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Ver arquivo (<xliff:g>%1$d</xliff:g> cartão)</item>
+        <item quantity="many">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
+        <item quantity="other">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
+    </plurals>
+    <string name="welcome">Bem-vindo ao Catima</string>
 </resources>

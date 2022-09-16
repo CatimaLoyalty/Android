@@ -1,0 +1,2 @@
+- Menambahkan dukungan untuk pintasan aplikasi (Android 7.1+), di mana kartu yang terakhir digunakan akan muncul sebagai pintasan. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Menambahkan widget yang berfungsi seperti pintasan aplikasi yang disematkan, untuk mendukung perangkat yang berjalan di bawah Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

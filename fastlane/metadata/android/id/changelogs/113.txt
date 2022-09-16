@@ -1,0 +1,3 @@
+- Menambahkan tombol sebelumnya dan berikutnya ke tampilan kartu loyalitas
+- Memperbaiki warna latar depan pada tombol edit
+- Mengganti ikon simpan floppy disk dengan tanda centang

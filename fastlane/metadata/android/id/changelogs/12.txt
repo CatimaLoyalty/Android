@@ -1,0 +1,1 @@
+- Mencegah crash saat memutar layar di wizard intro run pertama.

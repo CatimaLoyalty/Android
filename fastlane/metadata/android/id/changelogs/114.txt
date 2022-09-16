@@ -1,0 +1,4 @@
+- Menambahkan ikon Monokrom untuk Android 13
+- Meningkatkan layar peluncuran pertama
+- Memindahkan info arsip dari menu luapan ke bagian bawah daftar kartu
+- Memperbaiki impor Fidme

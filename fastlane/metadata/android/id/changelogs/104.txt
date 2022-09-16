@@ -1,0 +1,2 @@
+- Simpan status ekspansi detail kartu
+- Perbaikan kecil UI

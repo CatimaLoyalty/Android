@@ -1,0 +1,2 @@
+- Memperbaiki pemilihan bahasa manual yang tidak berlaku di mana pun
+- Memperbaiki kerusakan dalam edit tampilan di lokal tanpa wilayah

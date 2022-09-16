@@ -30,6 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
@@ -38,14 +39,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.preferences.SettingsActivity;
 
@@ -59,6 +53,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private SearchView mSearchView;
     private GestureDetector mGestureDetector;
     private int mLoyaltyCardCount = 0;
+    private int mArchiveCount = 0;
     protected String mFilter = "";
     protected Object mGroup = null;
     protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
@@ -226,16 +221,20 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     };
 
+    private void showArchiveTextIfArchived() {
+        boolean shouldShow = mCardList.getVisibility() == View.GONE || !mCardList.canScrollVertically(1);
+        mOpenArchiveText.setVisibility(mArchiveCount > 0 && shouldShow ? View.VISIBLE : View.GONE);
+    }
+
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         extractIntentFields(getIntent());
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
-        if(!mArchiveMode) {
+        if (!mArchiveMode) {
             setTitle(R.string.app_name);
             setContentView(R.layout.main_activity);
-        }
-        else{
+        } else {
             setTitle(R.string.archiveList);
             setContentView(R.layout.archive_activity);
         }
@@ -243,7 +242,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(mArchiveMode){
+        if (mArchiveMode) {
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
@@ -292,6 +291,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
+        mCardList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                showArchiveTextIfArchived();
+            }
+        });
         mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
 
         // Open archive on archive text click
@@ -435,7 +442,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onBackPressed() {
-
         if (!mSearchView.isIconified()) {
             mSearchView.setIconified(true);
             return;
@@ -469,17 +475,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         if (mLoyaltyCardCount > 0) {
-            // We want the cardList to be visible regardless of the filtered match count
-            // to ensure that the noMatchingCardsText doesn't end up being shown below
-            // the keyboard
             mHelpSection.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
 
-            int archiveCount =
+            mArchiveCount =
                     mArchiveMode ? 0 :
                             group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
 
-            if (mAdapter.getItemCount() + archiveCount > 0) {
+            if (mAdapter.getItemCount() > 0) {
                 mCardList.setVisibility(View.VISIBLE);
                 mNoMatchingCardsText.setVisibility(View.GONE);
             } else {
@@ -495,9 +498,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
-            mOpenArchiveText.setText(getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, archiveCount, archiveCount));
-            mOpenArchiveText.setVisibility(archiveCount > 0 ? View.VISIBLE : View.GONE);
+            mOpenArchiveText.setText(getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, mArchiveCount, mArchiveCount));
         } else {
+            mArchiveCount = 0;
+            if (mArchiveMode) {
+                // If an user deletes the last card in archive mode, we should close the activity
+                // This will move us back to the main view
+                finish();
+            }
+
             mCardList.setVisibility(View.GONE);
             mHelpSection.setVisibility(View.VISIBLE);
 
@@ -508,6 +517,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (mCurrentActionMode != null) {
             mCurrentActionMode.finish();
         }
+
+        showArchiveTextIfArchived();
     }
 
     private void extractIntentFields(Intent intent) {

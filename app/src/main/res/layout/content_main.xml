@@ -1,84 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="protect.card_locker.MainActivity"
     tools:showIn="@layout/main_activity">
 
     <LinearLayout
+        android:id="@+id/helpSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.HeadlineLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/welcome" />
+
+        <TextView
+            style="@style/AppTheme.TextView.NoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noGiftCards"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/AppTheme.TextView.NoData"
+        android:id="@+id/noMatchingCardsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/noMatchingGiftCards"
+        android:visibility="gone"/>
+
+    <TextView
+        style="@style/AppTheme.TextView.NoData"
+        android:id="@+id/noGroupCardsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/noGroupCards"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/helpSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="184dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_launcher_foreground" />
-
-            <TextView
-                style="@style/TextAppearance.Material3.HeadlineLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/welcome" />
-
-            <TextView
-                style="@style/AppTheme.TextView.NoData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/noGiftCards"/>
-        </LinearLayout>
-
-        <TextView
-            style="@style/AppTheme.TextView.NoData"
-            android:id="@+id/noMatchingCardsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/noMatchingGiftCards"
-            android:visibility="gone"/>
-
-        <TextView
-            style="@style/AppTheme.TextView.NoData"
-            android:id="@+id/noGroupCardsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/noGroupCards"
-            android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="@integer/main_view_card_columns"
+            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:paddingBottom="80dp" />
 
         <TextView
             style="@style/AppTheme.TextView.NoData"
             android:id="@+id/openArchiveLinkText"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:gravity="center"
             android:visibility="gone"/>
-
-            <View
-                android:id="@+id/bottomPadding"
-                android:layout_width="match_parent"
-                android:layout_height="80dp" />
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</LinearLayout>

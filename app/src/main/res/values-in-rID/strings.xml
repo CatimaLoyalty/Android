@@ -212,8 +212,7 @@
     <string name="group_name_is_empty">Nama grup tidak boleh kosong</string>
     <string name="group_updated">Grup diperbarui</string>
     <plurals name="groupCardCountWithArchived">
-        <item quantity="other"><xliff:g>%1$d</xliff:g> kartu (
-\n<xliff:g id="archivedCount">%2$d</xliff:g> diarsipkan)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartu (<xliff:g id="archivedCount">%2$d</xliff:g> diarsipkan)</item>
     </plurals>
     <string name="translate_platform">di Weblate</string>
     <string name="action_show_details">Tampilkan detail</string>

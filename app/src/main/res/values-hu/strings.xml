@@ -227,4 +227,24 @@
     <string name="importFidmeMessage">Válassza ki a <i>fidme-export-request-xxxxxx.zip</i> nevű FidMe exportot, majd importálja be és válassza a manuális vonalkód opciót utána.
 \nEzt a FidMe-ben megtalálja a profiljában az Adat Védelem résznél ha rányom az Adataim Kivonata linkre.</string>
     <string name="settings_card_orientation">Vonalkód tájolás</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kártyák (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
+    </plurals>
+    <string name="noUnarchivedCardsMessage">Nincs archiválatlan kártya</string>
+    <string name="failedToOpenUrl">Először telepíts egy webböngészőt</string>
+    <string name="failedLaunchingPhotoPicker">Nem található támogatott képnézegető app</string>
+    <string name="previousCard">Előző</string>
+    <string name="nextCard">Következő</string>
+    <string name="settings_portrait_orientation">Álló</string>
+    <string name="settings_follow_system_orientation">Rendszer követése</string>
+    <string name="settings_lock_on_opening_orientation">A használt tájolás zárolása kártya használatakor</string>
+    <string name="settings_landscape_orientation">Fekvő</string>
+    <string name="settings_oled_dark">Tiszta fekete háttér sötét témánál</string>
+    <string name="include_if_asking_support">Ha támogatást szeretnél igénybe venni, oszd meg az alábbi információkat:</string>
+    <string name="archive">Archivál</string>
+    <string name="unarchive">Archiválás megszüntetése</string>
+    <string name="archived">Kártya archiválása</string>
+    <string name="archiveList">Archivál</string>
+    <string name="duplicateCard">Másolat</string>
 </resources>

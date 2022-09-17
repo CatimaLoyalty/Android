@@ -11,13 +11,19 @@ spotbugs {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion "31.0.0"
 
     defaultConfig {
+
+        resConfigs("ar", "bg", "bn-rIN", "bs", "cs", "cy", "da", "de", "el-rGR", "enm",
+                "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hr", "hu",
+                "in-rID", "is", "it", "ja", "ko", "lb", "lt", "lv", "nb-rNO", "nl",
+                "oc", "pl", "pt", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "zh-rCN", "zh-rTW")
+
         applicationId "me.hackerchick.catima"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 113
         versionName "2.19.0"
 

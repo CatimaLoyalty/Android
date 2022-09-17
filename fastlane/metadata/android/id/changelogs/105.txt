@@ -1,0 +1,2 @@
+- Memperbaiki blok abu-abu yang muncul pada nilai yang tidak valid untuk barcode
+- Perbaikan impor Stocard

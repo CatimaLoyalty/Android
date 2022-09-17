@@ -1,0 +1,3 @@
+- Menambahkan opsi menu kunci rotasi layar saat menampilkan kartu. Jika terkunci, layar akan beralih ke orientasi "alami" dan rotasi layar selanjutnya akan diblokir. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Jika kartu dipilih dari layar utama tetapi tidak dapat dimuat, aplikasi gagal dengan baik dan mengirim pesan. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Memperbaiki kasus di mana ID tata letak untuk wizard intro tidak dapat ditemukan. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

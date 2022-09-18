@@ -18,10 +18,10 @@ Gediminas Murauskas
 SlavekB
 Nyatsuki
 Samantaz Fox
+laralem
 arno-github
 Ankit Tiwari
 Sergio Paredes
-laralem
 huuhaa
 arshbeerSingh
 Quentin PAGÈS
@@ -38,6 +38,7 @@ ati3
 Giovanni
 Jane Kong
 K. Herbert
+Magnitudee
 Still Hsu
 String E. Fighter
 Yurical
@@ -74,12 +75,14 @@ Ahmed Saleh
 Airat
 Alexander Ivanov
 sNiXx
+Ashish Yadav
 BMN
 Biren
 Booc Sylvan
 Colgrave
 Csaba
 Mylou53
+danieluhrinyi
 Kasina Dheeraj
 Donno
 Eric
@@ -90,7 +93,7 @@ HowITsDone
 Izzy
 Jean-Baptiste
 Jean-Luc Tibaux
-Karol Kosek
+krkk
 bittin
 Marco
 Mattia
@@ -107,6 +110,7 @@ Rose Liverman
 Samarth Asthan
 Simone Dotto
 Subhashish Anand
+Titas Pažereckas
 Tom Sawyer
 Tony C
 Tymofii Lytvynenko
@@ -121,4 +125,5 @@ Robin
 sergio
 Marcus
 techwebpd
+tygyh
 unstartdev

@@ -87,7 +87,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'com.github.yalantis:ucrop:2.2.8'
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
 
 // Splash Screen
     implementation 'androidx.core:core-splashscreen:1.0.0'

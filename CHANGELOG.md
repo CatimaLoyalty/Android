@@ -4,7 +4,6 @@
 
 - Add Monochrome icon for Android 13
 - Improve first launch screen
-- Move archive info from overflow menu to bottom of card list
 - Fidme import fixes
 
 ## v2.19.0 - 113

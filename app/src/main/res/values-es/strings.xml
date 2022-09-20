@@ -29,7 +29,7 @@
     <string name="importFailed">No se han podido importar</string>
     <string name="exportSuccessfulTitle">Exportado</string>
     <string name="exportFailedTitle">Falló la exportación</string>
-    <string name="exportFailed">No se han podido exportar las</string>
+    <string name="exportFailed">No se han podido exportar</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
     <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar datos</string>
@@ -194,4 +194,7 @@
     <string name="settings_portrait_orientation">Formato vertical</string>
     <string name="group_edit">Editar grupo</string>
     <string name="group_updated">Grupo actualizado</string>
+    <string name="noGiftCardsGroup">Cree algunas tarjetas y luego asígnelas al grupo aquí.</string>
+    <string name="settings_follow_system_orientation">Seguir sistema</string>
+    <string name="settings_lock_on_opening_orientation">Bloqueo a la orientación utilizada al abrir la tarjeta</string>
 </resources>

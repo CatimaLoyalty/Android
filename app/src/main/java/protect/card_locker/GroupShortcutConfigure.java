@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
@@ -17,13 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * The configuration screen for creating a shortcut.
  */
-public class GroupShortcutConfigure extends AppCompatActivity implements GroupSelectCursorAdapter.GroupAdapterListener {
+public class GroupShortcutConfigure extends CatimaAppCompatActivity implements GroupSelectCursorAdapter.GroupAdapterListener {
     static final String TAG = "Catima";
-    final SQLiteDatabase mDatabase = new DBHelper(this).getReadableDatabase();
+    private SQLiteDatabase mDatabase;
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+
+        mDatabase = new DBHelper(this).getReadableDatabase();
+
 
         // Set the result to CANCELED.  This will cause nothing to happen if the
         // aback button is pressed.

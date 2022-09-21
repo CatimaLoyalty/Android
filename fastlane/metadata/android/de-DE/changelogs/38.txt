@@ -1,0 +1,3 @@
+- Tippen auf einen Barcode verschiebt diesen nun an den oberen Rand des Bildschirms (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Weißer Raum um Barcodes wurde hinzugefügt, um das Scannen im dunklen Modus zu verbessern (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Fix für vertauschte Importknöpfe. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

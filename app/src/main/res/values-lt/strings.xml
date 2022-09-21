@@ -219,4 +219,5 @@
     <string name="selectColor">Pasirinkti spalvą</string>
     <string name="action_hide_details">Paslėpti informaciją</string>
     <string name="action_show_details">Rodyti išsamią informaciją</string>
+    <string name="settings_card_orientation">Brūkšninio kodo orientacija</string>
 </resources>

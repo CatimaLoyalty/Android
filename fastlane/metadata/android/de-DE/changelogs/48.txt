@@ -1,0 +1,3 @@
+- Verschieben des Info-Bildschirms in eine eigene Aktivität
+- Fragen Sie den Benutzer, ob er seine Kamera verwenden oder die ID manuell eingeben möchte, wenn er eine Karte hinzufügt oder bearbeitet.
+- Gruppensortierung manuell statt zwangsweise alphabetisch vornehmen

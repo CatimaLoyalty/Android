@@ -294,4 +294,12 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
     </plurals>
+    <string name="previousCard">Previous</string>
+    <string name="nextCard">Next</string>
+    <string name="failedToOpenUrl">Install a web browser first</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">View archive (<xliff:g>%1$d</xliff:g> card)</item>
+        <item quantity="other">View archive (<xliff:g>%1$d</xliff:g> cards)</item>
+    </plurals>
+    <string name="welcome">Welcome to Catima</string>
 </resources>

@@ -4,24 +4,24 @@ J. Lavoie
 Allan Nordhøy
 solokot
 Heimen Stoffels
-Katharine Chui
 Oğuz Ersen
+Katharine Chui
 mondstern
-Altonss
 IllusiveMan196
+Altonss
 StoyanDimitrov
 Petr Novák
 Joel A
+Michael Moroni
 Taco
 Gediminas Murauskas
+SlavekB
 Nyatsuki
-Michael Moroni
 Samantaz Fox
+laralem
 arno-github
 Ankit Tiwari
 Sergio Paredes
-laralem
-SlavekB
 huuhaa
 arshbeerSingh
 Quentin PAGÈS
@@ -35,8 +35,10 @@ betsythefc
 Silvério Santos
 waffshappen
 ati3
+Giovanni
 Jane Kong
 K. Herbert
+Magnitudee
 Still Hsu
 String E. Fighter
 Yurical
@@ -51,32 +53,47 @@ Astrohops1
 Clonewayx
 D. Domig
 Diego
-Giovanni
+Fede Pujol
 Lukas Grassauer
 Marnick L'Eau
 Michalis
+Michał
+Neko Nekowazarashi
 Rosdyana Kusuma
 umoenks
 Thomas Bertels
 Runner
+ce i moa
 inesre
 lgasp
 phlostically
 Aditya Das
 Asier
 Kevin Sicong Jiang
+tfuxu
+Ahmed Saleh
 Airat
+Alexander Ivanov
 sNiXx
+Ashish Yadav
 BMN
 Biren
+Booc Sylvan
+Colgrave
+Csaba
 Mylou53
+danieluhrinyi
 Kasina Dheeraj
+Donno
 Eric
 Flav
 Franciszek Stefan
 Grzegorz
+HowITsDone
 Izzy
-Karol Kosek
+Jean-Baptiste
+Jean-Luc Tibaux
+krkk
 bittin
 Marco
 Mattia
@@ -93,11 +110,14 @@ Rose Liverman
 Samarth Asthan
 Simone Dotto
 Subhashish Anand
-darkodo
+Titas Pažereckas
+Tom Sawyer
+Tony C
 Tymofii Lytvynenko
 Vancha March
 Yevgeny M
 Avik Kundu
+gbonaspetti
 opsik
 pooyanazari
 psa-jforestier
@@ -105,3 +125,5 @@ Robin
 sergio
 Marcus
 techwebpd
+tygyh
+unstartdev

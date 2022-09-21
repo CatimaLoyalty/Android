@@ -84,6 +84,7 @@
     <string name="moveUp">Monter</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> carte</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> cartes</item>
         <item quantity="other"><xliff:g>%d</xliff:g> cartes</item>
     </plurals>
     <string name="groupsList">Groupes : <xliff:g>%s</xliff:g></string>
@@ -158,16 +159,19 @@
     <string name="failedGeneratingShareURL">Impossible de générer une URL partageable. Veuillez signaler ceci.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> sélectionnée</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> sélectionnées</item>
         <item quantity="other"><xliff:g>%d</xliff:g> sélectionnées</item>
     </plurals>
     <string name="deleteTitle">Supprimer la carte</string>
     <string name="deleteConfirmation">Supprimer cette carte \?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Supprimer cette <xliff:g>%d</xliff:g> carte définitivement \?</item>
+        <item quantity="many">Supprimer ces <xliff:g>%d</xliff:g> cartes définitivement \?</item>
         <item quantity="other">Supprimer ces <xliff:g>%d</xliff:g> cartes définitivement \?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Supprimer <xliff:g>%d</xliff:g> carte</item>
+        <item quantity="many">Supprimer <xliff:g>%d</xliff:g> cartes</item>
         <item quantity="other">Supprimer <xliff:g>%d</xliff:g> cartes</item>
     </plurals>
     <string name="settings_system_locale">Système</string>
@@ -224,6 +228,7 @@
     <string name="hideMoreInfo">Masquer les infos</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> point</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> points</item>
         <item quantity="other"><xliff:g>%s</xliff:g> points</item>
     </plurals>
     <string name="settings_oled_dark">Fond noir pour le thème sombre</string>
@@ -243,6 +248,16 @@
     <string name="failedLaunchingPhotoPicker">Impossible de trouver une application de galerie prise en charge</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archivée)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> cartes (<xliff:g id="archivedCount">%2$d</xliff:g> archivées)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> cartes (<xliff:g id="archivedCount">%2$d</xliff:g> archivées)</item>
     </plurals>
+    <string name="nextCard">Suivant</string>
+    <string name="previousCard">Précédent</string>
+    <string name="failedToOpenUrl">Installez d\'abord un navigateur web</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Voir les archives (<xliff:g>%1$d</xliff:g> carte)</item>
+        <item quantity="many">Voir les archives (<xliff:g>%1$d</xliff:g> cartes)</item>
+        <item quantity="other">Voir les archives (<xliff:g>%1$d</xliff:g> cartes)</item>
+    </plurals>
+    <string name="welcome">Bienvenue dans Catima</string>
 </resources>

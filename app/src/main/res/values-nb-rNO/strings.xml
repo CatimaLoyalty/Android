@@ -240,4 +240,17 @@
     <string name="archiveList">Arkiv</string>
     <string name="settings_follow_system_orientation">Følg systemet</string>
     <string name="settings_portrait_orientation">Stående</string>
+    <string name="failedLaunchingPhotoPicker">Fant ikke noe støttet galleriprogram</string>
+    <string name="previousCard">Forrige</string>
+    <string name="nextCard">Neste</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkivert)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkivert)</item>
+    </plurals>
+    <string name="failedToOpenUrl">Installer en nettleser først</string>
+    <string name="welcome">Velkommen til Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
+        <item quantity="other">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
+    </plurals>
 </resources>

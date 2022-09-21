@@ -1,0 +1,2 @@
+- Salva lo stato espanso dei dettagli della carta
+- Minori correzioni dell'interfaccia

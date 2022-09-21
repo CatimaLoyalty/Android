@@ -1,0 +1,3 @@
+- Italienische Übersetzungen
+- Unterstützung für alle 1D-Barcodetypen. (Ursprünglich wurden nur Produkt-1D-Barcodes unterstützt)
+- Hinzufügen der erforderlichen Kamerazulassung, die ursprünglich fehlte.

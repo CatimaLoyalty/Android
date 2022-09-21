@@ -1,0 +1,3 @@
+- Memperbaiki pemotong yang tidak menggunakan warna tema
+- Memperbaiki masalah kecil tema
+- Menambahkan tema gelap hitam murni untuk layar OLED

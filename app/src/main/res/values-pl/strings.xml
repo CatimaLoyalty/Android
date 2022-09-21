@@ -250,4 +250,13 @@
     <string name="unarchived">Karta odarchiwizowana</string>
     <string name="archiveList">Archiwum</string>
     <string name="noUnarchivedCardsMessage">Nie istnieją żadne niezarchiwizowane karty</string>
+    <string name="failedLaunchingPhotoPicker">Nie można odnaleźć aplikacji galerii</string>
+    <string name="previousCard">Poprzedni</string>
+    <string name="nextCard">Następny</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> karta (<xliff:g id="archivedCount">%2$d</xliff:g> zarchiwizowana)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowane)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
+    </plurals>
 </resources>

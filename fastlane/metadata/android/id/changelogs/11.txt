@@ -1,0 +1,5 @@
+- Saat mengedit ID kartu, isi ID yang ada terlebih dahulu untuk memulai. (tarik #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Batasi lebar barcode yang dihasilkan untuk mengurangi penggunaan memori dan kehabisan memori. (tarik #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Saat mengedit kartu, ubah tombol "Masukkan Kartu" menjadi "Edit Kartu" jika ID kartu sudah ada. (tarik #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Ubah skema warna menjadi lebih lembut dan kompatibel dengan ikon aplikasi, dan ubah tata letak saat melihat kartu menjadi lebih bersih. (tarik #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Tambahkan wizard intro yang diluncurkan pada peluncuran pertama aplikasi. (tarik #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

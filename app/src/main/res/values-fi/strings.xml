@@ -243,4 +243,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
     </plurals>
     <string name="duplicateCard">Duplikaatti</string>
+    <string name="previousCard">Edellinen</string>
+    <string name="nextCard">Seuraava</string>
 </resources>

@@ -1,0 +1,2 @@
+- Hinzufügen von Swiping zwischen Gruppen auf dem Startbildschirm
+- Behebung eines Absturzes bei Karten mit fehlender Kopffarbe

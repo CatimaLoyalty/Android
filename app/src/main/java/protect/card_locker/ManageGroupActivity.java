@@ -35,7 +35,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
     protected Group mGroup = null;
     private RecyclerView mCardList;
-    private TextView mHelpText;
+    private TextView noGroupCardsText;
     private EditText mGroupNameText;
 
     private boolean mGroupNameNotInUse;
@@ -49,7 +49,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        mHelpText = findViewById(R.id.helpText);
+        noGroupCardsText = findViewById(R.id.noGroupCardsText);
         mCardList = findViewById(R.id.list);
         FloatingActionButton saveButton = findViewById(R.id.fabSave);
 
@@ -133,7 +133,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             finish();
         });
         // this setText is here because content_main.xml is reused from main activity
-        mHelpText.setText(getResources().getText(R.string.noGiftCardsGroup));
+        noGroupCardsText.setText(getResources().getText(R.string.noGiftCardsGroup));
         updateLoyaltyCardList();
     }
 
@@ -191,10 +191,10 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
         if (mAdapter.getItemCount() == 0) {
             mCardList.setVisibility(View.GONE);
-            mHelpText.setVisibility(View.VISIBLE);
+            noGroupCardsText.setVisibility(View.VISIBLE);
         } else {
             mCardList.setVisibility(View.VISIBLE);
-            mHelpText.setVisibility(View.GONE);
+            noGroupCardsText.setVisibility(View.GONE);
         }
     }
 

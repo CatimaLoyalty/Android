@@ -1,0 +1,7 @@
+- Dukungan bahasa Arab
+- Menampilkan jumlah kartu yang diarsipkan dalam ikhtisar grup
+- Memperbaiki bug parsing saldo (membuat kartu tidak dapat disimpan dalam bahasa Arab dan bahasa lain dengan nomor non-Barat)
+- Memperbaiki tema khusus yang tidak berlaku untuk layar utama dengan benar
+- Meningkatkan tampilan kartu yang dipilih
+- Memperbaiki kerusakan saat meninggalkan tampilan kartu di tata letak RTL untuk kartu dengan kedaluwarsa atau saldo
+- Memperbaiki panah kembali dalam tampilan kartu yang menunjuk ke arah yang salah dalam tata letak RTL

@@ -1,0 +1,6 @@
+- Umbenennung in Catima
+- Intro entfernt
+- Schwebende Aktionsknöpfe hinzugefügt
+- Android 5 Absturz beim Öffnen des Info-Bildschirms behoben
+- Unterstützung für Favoriten hinzugefügt
+- Deaktiviertes automatisches Drehen wird jetzt ignoriert

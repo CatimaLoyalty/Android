@@ -110,7 +110,10 @@ public class FidmeImporter implements Importer {
         // The ID is called reference
         String cardId = CSVHelpers.extractString("Reference", record, "");
         if (cardId.isEmpty()) {
-            throw new FormatException("No card ID listed, but is required");
+            // Fidme deletes the card id if a card is expired
+            // Because Catima considers the card id a required field, we ignore these expired cards
+            // https://github.com/CatimaLoyalty/Android/issues/1005
+            return;
         }
 
         // Sadly, Fidme exports don't contain the card type

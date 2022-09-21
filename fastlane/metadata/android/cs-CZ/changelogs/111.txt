@@ -1,0 +1,7 @@
+- Podpora arabštiny
+- Zobrazení počtu archivovaných karet v přehledu skupin
+- Oprava chyby analýzy zůstatku (znemožnit uložení karet, které jsou v arabštině a ostatních jazycích, s ne-západními čísly)
+- Oprava, aby vlastní motiv byl správně aplikován na hlavní obrazovku
+- Vylepšeno zobrazení vybraných karet
+- Oprava havárie při opuštění zobrazení karty v rozvržení RTL pro karty s vypršením nebo zůstatkem
+- Oprava šipky zpět v zobrazení karty, která ukazuje nesprávný směr v rozvržení RTL

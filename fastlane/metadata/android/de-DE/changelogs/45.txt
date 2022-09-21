@@ -1,0 +1,1 @@
+- Das Wischen auf dem Startbildschirm wurde bisher auch bei vertikalen Wischbewegungen ausgelöst

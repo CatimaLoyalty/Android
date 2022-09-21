@@ -19,7 +19,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> valt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valda</item>
     </plurals>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Nyckelring för bonuskort</string>
     <string name="importLoyaltyCardKeychainMessage">Välj den exporterade <i>LoyaltyCardKeychain.csv</i> från Loyalty Card Keychain som du vill importera.
 \nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
     <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera.
@@ -120,8 +120,8 @@
     </plurals>
     <string name="deleteConfirmation">Ta bort detta kort permanent\?</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one">Ta bort <xliff:g>%d</xliff:g> kort</item>
-        <item quantity="other">Ta bort <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="one">Radera <xliff:g>%d</xliff:g> kort</item>
+        <item quantity="other">Radera <xliff:g>%d</xliff:g> kort</item>
     </plurals>
     <string name="deleteTitle">Ta bort kort</string>
     <string name="confirm">Bekräfta</string>
@@ -228,4 +228,29 @@
     <string name="set_scale">Justera skala</string>
     <string name="include_if_asking_support">Om du vill be om hjälp, inkludera då följande information:</string>
     <string name="settings_oled_dark">Helsvart bakgrund för mörkt tema</string>
+    <string name="failedLaunchingPhotoPicker">Kunde inte hitta kompatibelt bildprogram</string>
+    <string name="settings_card_orientation">Streckkodsriktning</string>
+    <string name="settings_portrait_orientation">Porträtt</string>
+    <string name="settings_landscape_orientation">Landskap</string>
+    <string name="settings_lock_on_opening_orientation">Lås aktuell riktning när kort öppnas</string>
+    <string name="unarchive">Ta tillbaks från arkiv</string>
+    <string name="archived">Kort arkiverat</string>
+    <string name="archiveList">Arkivet</string>
+    <string name="settings_follow_system_orientation">Spårsystem</string>
+    <string name="duplicateCard">Kopiera</string>
+    <string name="unarchived">Kort återläst från arkiv</string>
+    <string name="nextCard">Nästa</string>
+    <string name="archive">Arkivera</string>
+    <string name="previousCard">Föregående</string>
+    <string name="noUnarchivedCardsMessage">Inga ej arkiverade kort finns</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkiverat)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kort (<xliff:g id="archivedCount">%2$d</xliff:g> arkiverade)</item>
+    </plurals>
+    <string name="failedToOpenUrl">Installera en webbläsare först</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Visa arkiv (<xliff:g>%1$d</xliff:g> card)</item>
+        <item quantity="other">Visa arkiv (<xliff:g>%1$d</xliff:g> cards)</item>
+    </plurals>
+    <string name="welcome">Välkommen till Catima</string>
 </resources>

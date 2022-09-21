@@ -1,0 +1,2 @@
+- Verbesserte Übersetzungen
+- Kleine UI-Korrekturen

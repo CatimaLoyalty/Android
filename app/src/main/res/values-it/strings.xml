@@ -85,6 +85,7 @@
     <string name="noBarcode">Nessun codice a barre</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> carta</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> carte</item>
         <item quantity="other"><xliff:g>%d</xliff:g> carte</item>
     </plurals>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> non sembra un saldo corretto.</string>
@@ -158,16 +159,19 @@
     <string name="failedGeneratingShareURL">Impossibile generare un URL condivisibile. Si prega di segnalarlo.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> selezionata</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> selezionate</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selezionate</item>
     </plurals>
     <string name="deleteTitle">Rimuovi la carta</string>
     <string name="deleteConfirmation">Eliminare questa carta\?</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Eliminare definitivamente questa <xliff:g>%d</xliff:g> carta\?</item>
+        <item quantity="many">Eliminare definitivamente queste <xliff:g>%d</xliff:g> carte\?</item>
         <item quantity="other">Eliminare definitivamente queste <xliff:g>%d</xliff:g> carte\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Elimina <xliff:g>%d</xliff:g> carta</item>
+        <item quantity="many">Elimina <xliff:g>%d</xliff:g> carte</item>
         <item quantity="other">Elimina <xliff:g>%d</xliff:g> carte</item>
     </plurals>
     <string name="settings_system_locale">Sistema</string>
@@ -224,6 +228,7 @@
     <string name="hideMoreInfo">Nascondi info</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
+        <item quantity="many"><xliff:g>%s</xliff:g> punti</item>
         <item quantity="other"><xliff:g>%s</xliff:g> punti</item>
     </plurals>
     <string name="settings_oled_dark">Sfondo nero puro per il tema scuro</string>
@@ -237,12 +242,22 @@
     <string name="noUnarchivedCardsMessage">Non esistono schede non archiviate</string>
     <string name="unarchived">Carta non archiviata</string>
     <string name="archived">Carta archiviata</string>
-    <string name="settings_portrait_orientation">Ritratto</string>
-    <string name="settings_landscape_orientation">Paesaggio</string>
-    <string name="settings_lock_on_opening_orientation">Blocco da utilizzare per l\'apertura della carta</string>
+    <string name="settings_portrait_orientation">Verticale</string>
+    <string name="settings_landscape_orientation">Orizzontale</string>
+    <string name="settings_lock_on_opening_orientation">Blocca sull\'orientamento utilizzato all\'apertura della carta</string>
     <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> scheda (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
+    </plurals>
+    <string name="previousCard">Precedente</string>
+    <string name="nextCard">Successivo</string>
+    <string name="welcome">Benvenuti su Catima</string>
+    <string name="failedToOpenUrl">Installa prima un browser web</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Visualizza archivio (<xliff:g>%1$d</xliff:g> scheda)</item>
+        <item quantity="many">Visualizza archivio (<xliff:g>%1$d</xliff:g> carta)</item>
+        <item quantity="other">Visualizza archivio (<xliff:g>%1$d</xliff:g> carte)</item>
     </plurals>
 </resources>

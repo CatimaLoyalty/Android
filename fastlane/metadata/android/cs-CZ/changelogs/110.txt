@@ -1,2 +1,0 @@
-- Oprava, aby vlastní motiv byl správně aplikován na hlavní obrazovku
-- Zobrazení počtu archivovaných karet v přehledu skupin

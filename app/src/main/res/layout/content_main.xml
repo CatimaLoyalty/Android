@@ -9,14 +9,33 @@
     tools:context="protect.card_locker.MainActivity"
     tools:showIn="@layout/main_activity">
 
-    <TextView
-        style="@style/AppTheme.TextView.NoData"
-        android:id="@+id/helpText"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/noGiftCards"
-        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/helpSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.HeadlineLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/welcome" />
+
+        <TextView
+            style="@style/AppTheme.TextView.NoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noGiftCards"/>
+    </LinearLayout>
 
     <TextView
         style="@style/AppTheme.TextView.NoData"
@@ -26,7 +45,7 @@
         android:gravity="center"
         android:text="@string/noMatchingGiftCards"
         android:visibility="gone"/>
-    
+
     <TextView
         style="@style/AppTheme.TextView.NoData"
         android:id="@+id/noGroupCardsText"

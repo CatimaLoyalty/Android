@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -41,8 +42,8 @@ public class MainActivityTest {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         assertNotNull(activity);
 
-        TextView helpText = activity.findViewById(R.id.helpText);
-        assertEquals(View.VISIBLE, helpText.getVisibility());
+        LinearLayout helpSection = activity.findViewById(R.id.helpSection);
+        assertEquals(View.VISIBLE, helpSection.getVisibility());
 
         TextView noMatchingCardsText = activity.findViewById(R.id.noMatchingCardsText);
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -64,6 +65,7 @@ public class MainActivityTest {
         assertEquals("Sort", menu.findItem(R.id.action_sort).getTitle().toString());
         assertEquals("Hide details", menu.findItem(R.id.action_unfold).getTitle().toString());
         assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
+        assertEquals("Archive", menu.findItem(R.id.action_archived).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());
         assertEquals("About", menu.findItem(R.id.action_about).getTitle().toString());
         assertEquals("Settings", menu.findItem(R.id.action_settings).getTitle().toString());
@@ -87,7 +89,7 @@ public class MainActivityTest {
         activityController.start();
         activityController.resume();
 
-        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
 
@@ -96,14 +98,14 @@ public class MainActivityTest {
         SQLiteDatabase database = TestHelpers.getEmptyDb(mainActivity).getWritableDatabase();
         DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
 
-        assertEquals(View.VISIBLE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -122,7 +124,7 @@ public class MainActivityTest {
         activityController.resume();
         activityController.visible();
 
-        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
 
@@ -134,7 +136,7 @@ public class MainActivityTest {
         DBHelper.insertLoyaltyCard(database, "storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0);
         DBHelper.insertLoyaltyCard(database, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0);
 
-        assertEquals(View.VISIBLE, helpText.getVisibility());
+        assertEquals(View.VISIBLE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
@@ -142,7 +144,7 @@ public class MainActivityTest {
         activityController.resume();
         activityController.visible();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -217,7 +219,7 @@ public class MainActivityTest {
         activityController.start();
         activityController.resume();
 
-        TextView helpText = mainActivity.findViewById(R.id.helpText);
+        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);
@@ -234,7 +236,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -245,7 +247,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -257,7 +259,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -266,7 +268,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -277,7 +279,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -289,7 +291,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -298,7 +300,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -309,7 +311,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -321,7 +323,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -330,7 +332,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -341,7 +343,7 @@ public class MainActivityTest {
         activityController.pause();
         activityController.resume();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -355,7 +357,7 @@ public class MainActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
@@ -364,7 +366,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -377,7 +379,7 @@ public class MainActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
@@ -391,7 +393,7 @@ public class MainActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
@@ -400,7 +402,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.VISIBLE, noMatchingCardsText.getVisibility());
         assertEquals(View.GONE, list.getVisibility());
 
@@ -413,7 +415,7 @@ public class MainActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -427,7 +429,7 @@ public class MainActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 
@@ -436,7 +438,7 @@ public class MainActivityTest {
         // Switch back to all groups
         groupTabs.selectTab(groupTabs.getTabAt(0));
 
-        assertEquals(View.GONE, helpText.getVisibility());
+        assertEquals(View.GONE, helpSection.getVisibility());
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
         assertEquals(View.VISIBLE, list.getVisibility());
 

@@ -245,4 +245,12 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> kaart (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kaarten (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>
     </plurals>
+    <string name="previousCard">Vorige</string>
+    <string name="nextCard">Volgende</string>
+    <string name="welcome">Welkom bij Catima</string>
+    <string name="failedToOpenUrl">Installeer een webbrowser</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Archief bekijken (<xliff:g>%1$d</xliff:g> kaart)</item>
+        <item quantity="other">Archief bekijken (<xliff:g>%1$d</xliff:g> kaarten)</item>
+    </plurals>
 </resources>

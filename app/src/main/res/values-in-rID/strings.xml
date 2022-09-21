@@ -16,7 +16,7 @@
     <string name="sort_by_name">Nama</string>
     <string name="sort_by_balance">Saldo</string>
     <string name="sort_by">Sortir dengan</string>
-    <string name="sort">Sortir</string>
+    <string name="sort">Urut</string>
     <string name="credits">Kredit</string>
     <string name="license">Lisensi</string>
     <string name="settings">Pengaturan</string>
@@ -27,8 +27,8 @@
     <string name="share">Bagikan</string>
     <string name="editCardTitle">Ubah Kartu</string>
     <string name="addCardTitle">Tambah Kartu</string>
-    <string name="scanCardBarcode">Pindai Kartu Barcode</string>
-    <string name="barcodeNoBarcode">Kartu ini tidak memiliki barcode</string>
+    <string name="scanCardBarcode">Pindai Barcode</string>
+    <string name="barcodeNoBarcode">Tidak ada barcode</string>
     <string name="cancel">Batalkan</string>
     <string name="importExport">Import/Ekspor</string>
     <string name="settings_category_title_ui">Tampilan Pengguna</string>
@@ -39,15 +39,15 @@
     <string name="barcode">Barcode</string>
     <string name="chooseExpiryDate">Pilih masa berlaku</string>
     <string name="noBarcodeFound">Barcode tidak ditemukan</string>
-    <string name="errorReadingImage">TIdak dapat membaca gambar</string>
+    <string name="errorReadingImage">Tidak dapat membaca gambar</string>
     <string name="balance">Saldo</string>
     <string name="currency">Mata uang</string>
-    <string name="chooseImportType">Impor data dari?</string>
+    <string name="chooseImportType">Impor data dari</string>
     <string name="accept">Terima</string>
     <string name="importCatima">Impor dari Catima</string>
     <string name="importFidme">Impor dari FidMe</string>
     <string name="barcodeId">Nilai barcode</string>
-    <string name="sameAsCardId">Sama denga kartu ID</string>
+    <string name="sameAsCardId">Sama dengan ID</string>
     <string name="setBarcodeId">Tentukan nilai barcode</string>
     <string name="photos">Foto</string>
     <string name="setFrontImage">Atur gambar bagian depan</string>
@@ -75,12 +75,12 @@
     <string name="takePhoto">Ambil foto</string>
     <string name="removeImage">Hapus gambar</string>
     <string name="setBackImage">Atur gambar bagian belakang</string>
-    <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan anda</string>
-    <string name="noGiftCards">Klik tanda + tombol tambah untuk menambahkan kartu, atau mengimpor beberapa kartu melalui menu ⋮ terlebih dahulu.</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan Anda</string>
+    <string name="noGiftCards">Klik tanda + tombol tambah untuk menambahkan kartu, atau mengimpor beberapa kartu melalui ⋮ menu.</string>
     <string name="noMatchingGiftCards">Tidak menemukan apapun. Coba untuk mengubah pencarian anda.</string>
     <string name="noBarcode">Bukan barcode</string>
     <string name="confirm">Konfirmasi</string>
-    <string name="copy_to_clipboard">Salin ID</string>
+    <string name="copy_to_clipboard">Salin ID ke papan klip</string>
     <string name="sendLabel">Kirim…</string>
     <string name="noCardsMessage">Tambah kartu terlebih dahulu</string>
     <string name="noStoreError">Nama masih kosong</string>
@@ -90,13 +90,13 @@
     <string name="exportName">Ekspor</string>
     <string name="importSuccessfulTitle">Sudah diimpor</string>
     <string name="importFailedTitle">Impor gagal</string>
-    <string name="importFailed">Tidak dapat mengimpor kartu</string>
+    <string name="importFailed">Tidak dapat mengimpor</string>
     <string name="exportSuccessfulTitle">Sudah diekspor</string>
     <string name="exportFailedTitle">Ekspor gagal</string>
-    <string name="exportFailed">Tidak dapat mengekspor kartu</string>
+    <string name="exportFailed">Tidak dapat mengekspor</string>
     <string name="importing">Mengimpor…</string>
     <string name="exporting">Mengekspor…</string>
-    <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor kartu terlebih dahulu</string>
+    <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor data</string>
     <string name="exportOptionExplanation">Data akan ditulis ke lokasi pilihan Anda.</string>
     <string name="importOptionFilesystemTitle">Impor dari sistem</string>
     <string name="importOptionFilesystemExplanation">Pilih file dari sistem.</string>
@@ -114,9 +114,9 @@
     <string name="app_revision_fmt">Info Revisi: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Pustaka pihak ketiga gratis: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Sumber daya pihak ketiga gratis: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="enterBarcodeInstructions">Masukkan ID kartu, dan pilih jenis barcodenya di bawah atau \"Kartu ini tidak memiliki barcode\".</string>
-    <string name="copy_to_clipboard_toast">ID kartu telah disalin</string>
-    <string name="thumbnailDescription">Gambar tampilan untuk kartu</string>
+    <string name="enterBarcodeInstructions">Masukkan ID, dan pilih jenis barcode di bawah ini, atau \"Tidak ada barcode\".</string>
+    <string name="copy_to_clipboard_toast">ID disalin ke papan klip</string>
+    <string name="thumbnailDescription">Gambar tampilan</string>
     <string name="starImage">Favorit</string>
     <string name="settings_light_theme">Terang</string>
     <string name="settings_dark_theme">Gelap</string>
@@ -125,18 +125,18 @@
     <string name="settings_keep_screen_on">Biarkan layar menyala</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Mencegah layar menyala</string>
     <string name="intent_import_card_from_url_share_text">Saya ingin berbagi kartu dengan anda</string>
-    <string name="importSuccessful">Data kartu terimpor</string>
-    <string name="exportSuccessful">Data kartu terekspor</string>
+    <string name="importSuccessful">Data terimpor</string>
+    <string name="exportSuccessful">Data terekspor</string>
     <string name="enter_group_name">Masukan nama grup</string>
     <string name="groups">Grup</string>
-    <string name="noGroups">Klik pada tombol tambah + untuk menambahkan grup atau kategori terlebih dahulu.</string>
-    <string name="noGroupCards">Grup ini tidak memilik kartu</string>
+    <string name="noGroups">Klik pada tombol tambah + untuk menambahkan grup untuk pengkategorian.</string>
+    <string name="noGroupCards">Grup ini kosong</string>
     <string name="deleteConfirmationGroup">Hapus grup?</string>
-    <string name="failedOpeningFileManager">Instal aplikasi pengelola file terlebih dahulu.</string>
+    <string name="failedOpeningFileManager">Pasang aplikasi pengelola berkas terlebih dahulu.</string>
     <string name="moveUp">Pindah ke atas</string>
     <string name="moveDown">Pindah ke bawah</string>
     <string name="leaveWithoutSaveConfirmation">Keluar tanpa menyimpan?</string>
-    <string name="addManually">Masukan ID kartu</string>
+    <string name="addManually">Masukan ID</string>
     <string name="addFromImage">Pilih gambar dari galeri</string>
     <string name="groupsList">Grup: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Masa ber: <xliff:g>%s</xliff:g></string>
@@ -169,11 +169,11 @@
 \nBuat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
     <string name="unsupportedBarcodeType">Jenis barcode ini belum dapat ditampilkan. Ini mungkin didukung di versi aplikasi yang lebih baru.</string>
     <string name="wrongValueForBarcodeType">Nilai tidak berlaku untuk jenis barcode yang dipilih</string>
-    <string name="copy_to_clipboard_multiple_toast">ID kartu telah disalin</string>
-    <string name="frontImageDescription">Gambar depan kartu</string>
-    <string name="backImageDescription">Gambar belakang kartu</string>
+    <string name="copy_to_clipboard_multiple_toast">ID disalin ke papan klip</string>
+    <string name="frontImageDescription">Gambar depan</string>
+    <string name="backImageDescription">Gambar belakang</string>
     <string name="updateBarcodeQuestionTitle">Perbarui barcode?</string>
-    <string name="updateBarcodeQuestionText">Anda mengubah ID kartu. Apakah Anda juga ingin memperbarui barcode untuk menggunakan nilai yang sama?</string>
+    <string name="updateBarcodeQuestionText">Anda mengubah ID. Apakah Anda juga ingin memperbarui barcode untuk menggunakan nilai yang sama\?</string>
     <string name="passwordRequired">Silahkan masukan kata sandi</string>
     <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
     <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
@@ -188,8 +188,8 @@
     <string name="on_google_play">di Google Play</string>
     <string name="cardShortcut">Pintasan kartu</string>
     <string name="card_ids_copied">ID kartu yang tersalin</string>
-    <string name="barcodeImageDescriptionWithType">Gambar dari jenis barcode <xliff:g>%s</xliff:g></string>
-    <string name="importExportHelp">Mencadangkan kartu memungkinkan anda memindahkannya ke perangkat lain.</string>
+    <string name="barcodeImageDescriptionWithType">Gambar <xliff:g>%s</xliff:g> barcode</string>
+    <string name="importExportHelp">Mencadangkan data anda memungkinkan memindahkannya ke perangkat lain.</string>
     <plurals name="selectedCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> kartu dipilih</item>
     </plurals>
@@ -202,4 +202,44 @@
     <plurals name="deleteCardsTitle">
         <item quantity="other">Hapus <xliff:g>%d</xliff:g> kartu</item>
     </plurals>
+    <string name="editGroup">Menyunting Grup: <xliff:g>%s</xliff:g></string>
+    <string name="selectColor">Pilih warna</string>
+    <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini.</string>
+    <string name="group_name_already_in_use">Nama grup telah dipakai</string>
+    <string name="setIcon">Atur ikon</string>
+    <string name="settings_oled_dark">Latar belakang gelap gulita untuk tema gelap</string>
+    <string name="group_edit">Sunting Grup</string>
+    <string name="group_name_is_empty">Nama grup tidak boleh kosong</string>
+    <string name="group_updated">Grup diperbarui</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartu (<xliff:g id="archivedCount">%2$d</xliff:g> diarsipkan)</item>
+    </plurals>
+    <string name="translate_platform">di Weblate</string>
+    <string name="action_show_details">Tampilkan detail</string>
+    <string name="action_hide_details">Sembunyikan detail</string>
+    <string name="welcome">Selamat datang di Catima</string>
+    <string name="failedToOpenUrl">Install browser web terlebih dahulu</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="other">Lihat arsip (<xliff:g>%1$d</xliff:g> kartu)</item>
+    </plurals>
+    <string name="failedLaunchingPhotoPicker">Tidak dapat menemukan aplikasi galeri yang didukung</string>
+    <string name="previousCard">Sebelumnya</string>
+    <string name="nextCard">Berikutnya</string>
+    <string name="settings_card_orientation">Orientasi Barcode</string>
+    <string name="settings_follow_system_orientation">Ikuti sistem</string>
+    <string name="settings_portrait_orientation">Potret</string>
+    <string name="settings_landscape_orientation">Lanskap</string>
+    <string name="settings_lock_on_opening_orientation">Kunci ke orientasi yang digunakan saat membuka kartu</string>
+    <plurals name="balancePoints">
+        <item quantity="other"><xliff:g>%s</xliff:g> poin</item>
+    </plurals>
+    <string name="showMoreInfo">Tampilkan informasi</string>
+    <string name="hideMoreInfo">Sembunyikan informasi</string>
+    <string name="shortcutSelectCard">Pilih kartu</string>
+    <string name="set_scale">Atur skala</string>
+    <string name="include_if_asking_support">Jika anda ingin meminta bantuan, sertakan informasi berikut:</string>
+    <string name="duplicateCard">Duplikat</string>
+    <string name="archive">Arsip</string>
+    <string name="archived">Kartu diarsipkan</string>
+    <string name="archiveList">Arsip</string>
 </resources>

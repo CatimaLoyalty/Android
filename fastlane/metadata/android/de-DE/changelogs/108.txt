@@ -1,0 +1,5 @@
+- Funktion zum Duplizieren von Karten hinzufügen
+- Die Wahl des Verfallsdatums vor 1970 nicht mehr zulassen (hat sowieso nie funktioniert)
+- Unterstützung für die Archivierung von Karten hinzufügen
+- Löschen von der Bearbeitung in die Ansicht verschieben
+- Entfernen des Symbols für die Rotationssperre zugunsten einer neuen Einstellung für die Rotationssperre

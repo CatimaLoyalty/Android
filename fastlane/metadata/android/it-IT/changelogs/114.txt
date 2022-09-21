@@ -1,0 +1,4 @@
+- Aggiunta icona monocolore per Android 13
+- Migliorata la schermata del primo avvio
+- Spostate le informazioni dell'archivio dal menù alla parte inferiore della lista di carte
+- Sistemato l'importazione da Fidme

@@ -17,7 +17,16 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -33,6 +42,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -55,7 +65,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
-    private View mHelpText;
+    private View mHelpSection;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
@@ -285,12 +295,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
-        mHelpText = findViewById(R.id.helpText);
+        mHelpSection = findViewById(R.id.helpSection);
         mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
         mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
         mCardList = findViewById(R.id.list);
 
-        mHelpText.setOnTouchListener(gestureTouchListener);
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
         mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
@@ -480,7 +489,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             // We want the cardList to be visible regardless of the filtered match count
             // to ensure that the noMatchingCardsText doesn't end up being shown below
             // the keyboard
-            mHelpText.setVisibility(View.GONE);
+            mHelpSection.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
 
             if (mAdapter.getItemCount() > 0) {
@@ -499,8 +508,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         } else {
+            if (mArchiveMode) {
+                // If an user deletes the last card in archive mode, we should close the activity
+                // This will move us back to the main view
+                finish();
+            }
+
             mCardList.setVisibility(View.GONE);
-            mHelpText.setVisibility(View.VISIBLE);
+            mHelpSection.setVisibility(View.VISIBLE);
 
             mNoMatchingCardsText.setVisibility(View.GONE);
             mNoGroupCardsText.setVisibility(View.GONE);
@@ -577,6 +592,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             });
         }
+
         if(!mArchiveMode) {
             if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
                 inputMenu.findItem(R.id.action_archived).setVisible(false);
@@ -651,6 +667,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             return true;
         }
 
+        if (id == R.id.action_archived) {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("archiveMode", true);
+            i.putExtras(bundle);
+            startActivity(i);
+            return true;
+        }
+
         if (id == R.id.action_import_export) {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
             startActivity(i);
@@ -665,15 +690,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_about) {
             Intent i = new Intent(getApplicationContext(), AboutActivity.class);
-            startActivity(i);
-            return true;
-        }
-
-        if(id == R.id.action_archived){
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("archiveMode", true);
-            i.putExtras(bundle);
             startActivity(i);
             return true;
         }
@@ -871,15 +887,22 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 return;
             }
 
-            Intent i = new Intent(this, LoyaltyCardViewActivity.class);
-            i.setAction("");
+            Intent intent = new Intent(this, LoyaltyCardViewActivity.class);
+            intent.setAction("");
             final Bundle b = new Bundle();
             b.putInt("id", loyaltyCard.id);
-            i.putExtras(b);
+
+            ArrayList<Integer> cardList = new ArrayList<>();
+            for (int i = 0; i < mAdapter.getItemCount(); i++) {
+                cardList.add(mAdapter.getCard(i).id);
+            }
+
+            b.putIntegerArrayList("cardList", cardList);
+            intent.putExtras(b);
 
             ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
-            startActivity(i);
+            startActivity(intent);
         }
     }
 

@@ -9,7 +9,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -53,6 +52,7 @@ import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -77,8 +77,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
-import androidx.palette.graphics.Palette;
-
 import protect.card_locker.async.TaskHandler;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
@@ -120,6 +118,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     TabLayout tabs;
 
     ImageView thumbnail;
+    ImageView thumbnailEditIcon;
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
@@ -209,7 +208,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
-                Utils.getUnixTime(), 100, (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus)
+                0, // Unimportant, always set to null in doSave so the DB updates it to the current timestamp
+                100, // Unimportant, not updated in doSave, defaults to 100 for new cards
+                (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus)
         );
     }
 
@@ -318,6 +319,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         tabs = findViewById(R.id.tabs);
         thumbnail = findViewById(R.id.thumbnail);
+        thumbnailEditIcon = findViewById(R.id.thumbnailEditIcon);
         storeFieldEdit = findViewById(R.id.storeNameEdit);
         noteFieldEdit = findViewById(R.id.noteEdit);
         groupsChips = findViewById(R.id.groupChips);
@@ -403,11 +405,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    BigDecimal balance = Utils.parseCurrency(s.toString(), Utils.currencyHasDecimals(tempLoyaltyCard.balanceType));
+                    BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
                     validBalance = true;
-
-                } catch (NumberFormatException e) {
+                } catch (ParseException e) {
                     validBalance = false;
                     e.printStackTrace();
                 }
@@ -866,12 +867,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
         }
 
-        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
-        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference
-        if (tempLoyaltyCard.headerColor != null) {
-            thumbnail.setOnClickListener(new ChooseCardImage());
-        }
-
         // Update from intent
         if (barcodeType != null) {
             try {
@@ -918,13 +913,28 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         generateIcon(storeFieldEdit.getText().toString());
 
+        // It can't be null because we set it in updateTempState but SpotBugs insists it can be
+        // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
+        // NP_NULL_PARAM_DEREF: Method call passes null for non-null parameter
+        Integer headerColor = tempLoyaltyCard.headerColor;
+        if (headerColor != null) {
+            thumbnail.setOnClickListener(new ChooseCardImage());
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+        }
+
         onResuming = false;
     }
 
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            updateTempState(LoyaltyCardField.headerColor, Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary));
+            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary);
+
+            updateTempState(LoyaltyCardField.headerColor, headerColor);
+
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
         }
@@ -968,16 +978,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            try {
-                if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
-                } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
+            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
             }
         }
     }
@@ -1106,6 +1112,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         public void onColorSelected(int dialogId, int color) {
                             updateTempState(LoyaltyCardField.headerColor, color);
 
+                            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
+                            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
+
                             // Unset image if set
                             thumbnail.setTag(null);
 
@@ -1210,6 +1219,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             callable.call();
                         } catch (Exception e) {
                             e.printStackTrace();
+
+                            // Rethrow as NoSuchElementException
+                            // This isn't really true, but a View.OnClickListener doesn't allow throwing other types
+                            throw new NoSuchElementException(e.getMessage());
                         }
                     })
                     .show();
@@ -1306,35 +1319,34 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             selectedGroups.add((Group) chip.getTag());
         }
 
-        if (updateLoyaltyCard) {   //update of "starStatus" not necessary, since it cannot be changed in this activity (only in ViewActivity)
-            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor);
-            try {
-                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
-                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
-                Utils.saveCardImage(this, (Bitmap) thumbnail.getTag(), loyaltyCardId, ImageLocationType.icon);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            Log.i(TAG, "Updated " + loyaltyCardId + " to " + cardId);
+        // Both update and new card save with lastUsed set to null
+        // This makes the DBHelper set it to the current date
+        // So that new and edited card are always on top when sorting by recently used
+        if (updateLoyaltyCard) {
+            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, tempLoyaltyCard.starStatus, null, tempLoyaltyCard.archiveStatus);
         } else {
-            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, tempLoyaltyCard.lastUsed,0);
-            try {
-                Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
-                Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
-                Utils.saveCardImage(this, (Bitmap) thumbnail.getTag(), loyaltyCardId, ImageLocationType.icon);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, null, 0);
         }
+
+        try {
+            Utils.saveCardImage(this, (Bitmap) cardImageFront.getTag(), loyaltyCardId, ImageLocationType.front);
+            Utils.saveCardImage(this, (Bitmap) cardImageBack.getTag(), loyaltyCardId, ImageLocationType.back);
+            Utils.saveCardImage(this, (Bitmap) thumbnail.getTag(), loyaltyCardId, ImageLocationType.icon);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Log.i(TAG, "Set " + loyaltyCardId + " to " + cardId + " (update: " + updateLoyaltyCard + ")");
 
         DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, selectedGroups);
 
         ShortcutHelper.updateShortcuts(this, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
-        if(duplicateFromLoyaltyCardId){
+        if (duplicateFromLoyaltyCardId) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
+
         finish();
     }
 

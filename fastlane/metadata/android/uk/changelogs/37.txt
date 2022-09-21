@@ -1,0 +1,1 @@
+- Вирішено проблему з обміном картками без фонового кольору (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

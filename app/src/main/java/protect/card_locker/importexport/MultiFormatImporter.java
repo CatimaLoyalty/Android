@@ -6,13 +6,7 @@ import android.util.Log;
 
 import net.lingala.zip4j.exception.ZipException;
 
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
-
-import protect.card_locker.FormatException;
 
 public class MultiFormatImporter {
     private static final String TAG = "Catima";

@@ -269,4 +269,6 @@
     <string name="action_show_details">اظهر التفاصيل</string>
     <string name="on_google_play">على Google Play</string>
     <string name="settings_theme_color">لون المظهر</string>
+    <string name="previousCard">السابق</string>
+    <string name="nextCard">التالي</string>
 </resources>

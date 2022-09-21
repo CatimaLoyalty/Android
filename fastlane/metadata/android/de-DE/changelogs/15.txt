@@ -1,0 +1,2 @@
+- Unterstützung für App-Verknüpfungen hinzufügen (Android 7.1+), wobei die zuletzt verwendeten Karten als Verknüpfungen erscheinen. (Pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Hinzufügen eines Widgets, das wie eine angeheftete App-Verknüpfung funktioniert, um Geräte zu unterstützen, die unter Android 7.1 laufen (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

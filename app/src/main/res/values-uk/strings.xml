@@ -259,4 +259,12 @@
     <string name="failedLaunchingPhotoPicker">Підтримувану програму галереї не знайдено</string>
     <string name="previousCard">Попередня</string>
     <string name="nextCard">Наступна</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Переглянути архів (<xliff:g>%1$d</xliff:g> картка)</item>
+        <item quantity="few">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
+        <item quantity="many">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
+        <item quantity="other">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
+    </plurals>
+    <string name="failedToOpenUrl">Спочатку встановіть браузер</string>
+    <string name="welcome">Ласкаво просимо до Катіма</string>
 </resources>

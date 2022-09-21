@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 114
+## v2.20.0 - 114
 
 - Add Monochrome icon for Android 13
 - Improve first launch screen

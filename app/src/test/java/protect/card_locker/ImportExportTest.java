@@ -33,6 +33,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
@@ -297,7 +298,7 @@ public class ImportExportTest {
 
             String expectedGroupName = String.format("group, \"%4d", index);
 
-            assertEquals(expectedGroupName, group._id);
+            assertEquals(expectedGroupName, group.name);
 
             index--;
         }
@@ -400,7 +401,7 @@ public class ImportExportTest {
         List<String> groupNames = new ArrayList<>();
 
         for (Group group : groups) {
-            groupNames.add(group._id);
+            groupNames.add(group.name);
         }
 
         return groupNames;
@@ -417,25 +418,25 @@ public class ImportExportTest {
         List<Group> emptyGroup = new ArrayList<>();
 
         List<Group> groupsForOne = new ArrayList<>();
-        groupsForOne.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
+        groupsForOne.add(DBHelper.getGroupByName(mDatabase, "group, \"   1"));
 
         List<Group> groupsForTwo = new ArrayList<>();
-        groupsForTwo.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
-        groupsForTwo.add(DBHelper.getGroup(mDatabase, "group, \"   2"));
+        groupsForTwo.add(DBHelper.getGroupByName(mDatabase, "group, \"   1"));
+        groupsForTwo.add(DBHelper.getGroupByName(mDatabase, "group, \"   2"));
 
         List<Group> groupsForThree = new ArrayList<>();
-        groupsForThree.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
-        groupsForThree.add(DBHelper.getGroup(mDatabase, "group, \"   2"));
-        groupsForThree.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
+        groupsForThree.add(DBHelper.getGroupByName(mDatabase, "group, \"   1"));
+        groupsForThree.add(DBHelper.getGroupByName(mDatabase, "group, \"   2"));
+        groupsForThree.add(DBHelper.getGroupByName(mDatabase, "group, \"   3"));
 
         List<Group> groupsForFour = new ArrayList<>();
-        groupsForFour.add(DBHelper.getGroup(mDatabase, "group, \"   1"));
-        groupsForFour.add(DBHelper.getGroup(mDatabase, "group, \"   2"));
-        groupsForFour.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
+        groupsForFour.add(DBHelper.getGroupByName(mDatabase, "group, \"   1"));
+        groupsForFour.add(DBHelper.getGroupByName(mDatabase, "group, \"   2"));
+        groupsForFour.add(DBHelper.getGroupByName(mDatabase, "group, \"   3"));
 
         List<Group> groupsForFive = new ArrayList<>();
-        groupsForFive.add(DBHelper.getGroup(mDatabase,"group, \"   1"));
-        groupsForFive.add(DBHelper.getGroup(mDatabase, "group, \"   3"));
+        groupsForFive.add(DBHelper.getGroupByName(mDatabase,"group, \"   1"));
+        groupsForFive.add(DBHelper.getGroupByName(mDatabase, "group, \"   3"));
 
         DBHelper.setLoyaltyCardGroups(mDatabase, 1, groupsForOne);
         DBHelper.setLoyaltyCardGroups(mDatabase, 2, groupsForTwo);
@@ -464,12 +465,37 @@ public class ImportExportTest {
 
         checkLoyaltyCards();
         checkGroups();
-
-        assertEquals(groupsToGroupNames(groupsForOne), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 1)));
-        assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 2)));
-        assertEquals(groupsToGroupNames(groupsForThree), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 3)));
-        assertEquals(groupsToGroupNames(groupsForFour), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 4)));
-        assertEquals(groupsToGroupNames(groupsForFive), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 5)));
+        // card 1
+        List<String> groupsForOneInitial = groupsToGroupNames(groupsForOne);
+        List<String> groupsForOneImport = groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 1));
+        Collections.sort(groupsForOneInitial);
+        Collections.sort(groupsForOneImport);
+        assertEquals(groupsForOneInitial, groupsForOneImport);
+        // card 2
+        List<String> groupsForTwoInitial = groupsToGroupNames(groupsForTwo);
+        List<String> groupsForTwoImport = groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 2));
+        Collections.sort(groupsForTwoInitial);
+        Collections.sort(groupsForTwoImport);
+        assertEquals(groupsForTwoInitial, groupsForTwoImport);
+        // card 3
+        List<String> groupsForThreeInitial = groupsToGroupNames(groupsForThree);
+        List<String> groupsForThreeImport = groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 3));
+        Collections.sort(groupsForThreeInitial);
+        Collections.sort(groupsForThreeImport);
+        assertEquals(groupsForThreeInitial, groupsForThreeImport);
+        // card 4
+        List<String> groupsForFourInitial = groupsToGroupNames(groupsForFour);
+        List<String> groupsForFourImport = groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 4));
+        Collections.sort(groupsForFourInitial);
+        Collections.sort(groupsForFourImport);
+        assertEquals(groupsForFourInitial, groupsForFourImport);
+        // card 5
+        List<String> groupsForFiveInitial = groupsToGroupNames(groupsForFive);
+        List<String> groupsForFiveImport = groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 5));
+        Collections.sort(groupsForFiveInitial);
+        Collections.sort(groupsForFiveImport);
+        assertEquals(groupsForFiveInitial, groupsForFiveImport);
+        // cards 6 to 10
         assertEquals(emptyGroup, DBHelper.getLoyaltyCardGroups(mDatabase, 6));
         assertEquals(emptyGroup, DBHelper.getLoyaltyCardGroups(mDatabase, 7));
         assertEquals(emptyGroup, DBHelper.getLoyaltyCardGroups(mDatabase, 8));
@@ -800,7 +826,7 @@ public class ImportExportTest {
         int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
         DBHelper.insertGroup(mDatabase, "One");
-        List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
+        List<Group> groups = Arrays.asList(DBHelper.getGroupByName(mDatabase, "One"));
         DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, groups);
         loyaltyCardGroups.put(loyaltyCardId, groups);
         Utils.saveCardImage(activity.getApplicationContext(), bitmap1, loyaltyCardId, ImageLocationType.front);
@@ -901,20 +927,20 @@ public class ImportExportTest {
         assertEquals(3, DBHelper.getGroupCount(mDatabase));
 
         // Check all groups
-        Group healthGroup = DBHelper.getGroup(mDatabase, "Health");
+        Group healthGroup = DBHelper.getGroupByName(mDatabase, "Health");
         assertNotNull(healthGroup);
-        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, "Health"));
-        assertEquals(Arrays.asList(4), DBHelper.getGroupCardIds(mDatabase, "Health"));
+        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, healthGroup._id));
+        assertEquals(Arrays.asList(4), DBHelper.getGroupCardIds(mDatabase, healthGroup._id));
 
-        Group foodGroup = DBHelper.getGroup(mDatabase, "Food");
+        Group foodGroup = DBHelper.getGroupByName(mDatabase, "Food");
         assertNotNull(foodGroup);
-        assertEquals(2, DBHelper.getGroupCardCount(mDatabase, "Food"));
-        assertEquals(Arrays.asList(3, 5), DBHelper.getGroupCardIds(mDatabase, "Food"));
+        assertEquals(2, DBHelper.getGroupCardCount(mDatabase, foodGroup._id));
+        assertEquals(Arrays.asList(3, 5), DBHelper.getGroupCardIds(mDatabase, foodGroup._id));
 
-        Group fashionGroup = DBHelper.getGroup(mDatabase, "Fashion");
+        Group fashionGroup = DBHelper.getGroupByName(mDatabase, "Fashion");
         assertNotNull(fashionGroup);
-        assertEquals(2, DBHelper.getGroupCardCount(mDatabase, "Fashion"));
-        assertEquals(Arrays.asList(8, 6), DBHelper.getGroupCardIds(mDatabase, "Fashion"));
+        assertEquals(2, DBHelper.getGroupCardCount(mDatabase, fashionGroup._id));
+        assertEquals(Arrays.asList(8, 6), DBHelper.getGroupCardIds(mDatabase, fashionGroup._id));
 
         // Check all cards
         LoyaltyCard card1 = DBHelper.getLoyaltyCard(mDatabase, 1);

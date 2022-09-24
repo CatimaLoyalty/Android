@@ -223,4 +223,5 @@
     <string name="options">選項</string>
     <string name="set_scale">設定大小</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
+    <string name="settings_card_orientation">條碼方向</string>
 </resources>

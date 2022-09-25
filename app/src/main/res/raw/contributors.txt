@@ -14,8 +14,8 @@ Petr Novák
 Joel A
 Michael Moroni
 Taco
-Gediminas Murauskas
 SlavekB
+Gediminas Murauskas
 Nyatsuki
 Samantaz Fox
 laralem
@@ -99,6 +99,7 @@ Marco
 Mattia
 Michael Gangolf
 Moi Toi
+DivideEtImpera
 pbeckmann
 Peer Beckmann
 Quang Nguyen
@@ -118,6 +119,7 @@ Vancha March
 Yevgeny M
 Avik Kundu
 gbonaspetti
+mtrmirez
 opsik
 pooyanazari
 psa-jforestier

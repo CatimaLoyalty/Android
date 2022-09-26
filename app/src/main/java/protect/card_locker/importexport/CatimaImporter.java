@@ -346,9 +346,9 @@ public class CatimaImporter implements Importer {
      * session.
      */
     private void importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException {
-        String id = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
+        String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
 
-        DBHelper.insertGroup(database, id);
+        DBHelper.insertGroup(database, name);
     }
 
     /**
@@ -357,7 +357,7 @@ public class CatimaImporter implements Importer {
      */
     private void importCardGroupMapping(SQLiteDatabase database, CSVRecord record) throws FormatException {
         Integer cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record, false);
-        String groupId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
+        Integer groupId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, false);
 
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
         cardGroups.add(DBHelper.getGroup(database, groupId));

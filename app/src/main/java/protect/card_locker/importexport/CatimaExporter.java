@@ -104,14 +104,15 @@ public class CatimaExporter implements Exporter {
         printer.println();
 
         // Print the header for groups
-        printer.printRecord(DBHelper.LoyaltyCardDbGroups.ID);
+        printer.printRecord(DBHelper.LoyaltyCardDbGroups.ID,
+                DBHelper.LoyaltyCardDbGroups.NAME);
 
         Cursor groupCursor = DBHelper.getGroupCursor(database);
 
         while (groupCursor.moveToNext()) {
             Group group = Group.toGroup(groupCursor);
 
-            printer.printRecord(group._id);
+            printer.printRecord(group._id, group.name);
 
             if (Thread.currentThread().isInterrupted()) {
                 throw new InterruptedException();

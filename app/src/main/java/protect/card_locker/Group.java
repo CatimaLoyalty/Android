@@ -5,19 +5,22 @@ import android.database.Cursor;
 import androidx.annotation.Nullable;
 
 public class Group {
-    public final String _id;
+    public final int _id;
+    public final String name;
     public final int order;
 
-    public Group(final String _id, final int order) {
+    public Group(final int _id, final String name, final int order) {
         this._id = _id;
+        this.name = name;
         this.order = order;
     }
 
     public static Group toGroup(Cursor cursor) {
-        String _id = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ID));
+        int _id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ID));
+        String name = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.NAME));
         int order = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbGroups.ORDER));
 
-        return new Group(_id, order);
+        return new Group(_id, name, order);
     }
 
     @Override
@@ -29,7 +32,7 @@ public class Group {
             return false;
         }
         Group anotherGroup = (Group) obj;
-        return _id.equals(anotherGroup._id) && order == anotherGroup.order;
+        return _id == anotherGroup._id && order == anotherGroup.order;
     }
 
     @Override

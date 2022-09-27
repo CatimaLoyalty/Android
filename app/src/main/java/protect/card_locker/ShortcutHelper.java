@@ -135,7 +135,11 @@ class ShortcutHelper {
         intent.setAction(Intent.ACTION_MAIN);
         // Prevent instances of the view activity from piling up; if one exists let this
         // one replace it.
-        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         final Bundle bundle = new Bundle();
         bundle.putInt("id", loyaltyCard.id);
         bundle.putBoolean("view", true);
@@ -149,11 +153,34 @@ class ShortcutHelper {
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
-
         return new ShortcutInfoCompat.Builder(context, Integer.toString(loyaltyCard.id))
                 .setShortLabel(loyaltyCard.store)
                 .setLongLabel(loyaltyCard.store)
                 .setIntent(intent)
                 .setIcon(icon);
+    }
+    static ShortcutInfoCompat.Builder createGroupShortcutBuilder(Context context, Group group) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.setAction(Intent.ACTION_MAIN);
+        // Prevent instances of the view activity from piling up; if one exists let this
+        // one replace it.
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        final Bundle bundle = new Bundle();
+        // Done like with the cards but with group._id (a string)
+        bundle.putString("groupId", group._id);
+        intent.putExtras(bundle);
+
+        String shortcutId = "GROUP_" + group._id;
+
+        IconCompat shortcutIcon= IconCompat.createWithResource(context, R.mipmap.ic_launcher);
+
+        return new ShortcutInfoCompat.Builder(context, shortcutId)
+                .setShortLabel(group._id)
+                .setLongLabel(group._id)
+                .setIntent(intent)
+                .setIcon(shortcutIcon);
     }
 }

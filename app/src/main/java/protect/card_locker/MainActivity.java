@@ -69,6 +69,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
 
+    private String groupWidget = null;
+    
     private boolean mArchiveMode;
     public static final String BUNDLE_ARCHIVE_MODE = "archiveMode";
 
@@ -225,6 +227,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     };
 
+    private void extractIntentFields(Intent intent)
+    {
+        final Bundle b = intent.getExtras();
+        groupWidget = b != null ? b.getString("groupId") : null;
+        mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
+        if(!mArchiveMode) {
+            Log.d(TAG, "View activity: id=" + groupWidget);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         extractIntentFields(getIntent());
@@ -238,7 +250,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             setTitle(R.string.archiveList);
             setContentView(R.layout.archive_activity);
         }
-
+        
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -378,10 +390,25 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateTabGroups(groupsTabLayout);
 
         // Restore settings from Shared Preference
-        SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
-                getString(R.string.sharedpreference_active_tab),
-                Context.MODE_PRIVATE);
-        selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
+        if (groupWidget != null){
+            Group groupSelected = DBHelper.getGroup(mDatabase, groupWidget);
+            if (groupSelected == null) {
+                Log.w(TAG, "Could not lookup group " + groupWidget);
+                Toast.makeText(this, R.string.noGroupExistsError, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+            else{
+                selectedTab = groupSelected.order+1;
+            }
+        }
+        else {
+            SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
+                    getString(R.string.sharedpreference_active_tab),
+                    Context.MODE_PRIVATE);
+            selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
+        }
+
         SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_sort),
                 Context.MODE_PRIVATE);
@@ -404,6 +431,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mGroup = tab.getTag();
         }
         updateLoyaltyCardList(true);
+        groupWidget = null;
         // End of active tab logic
 
         if (!mArchiveMode) {
@@ -498,11 +526,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void extractIntentFields(Intent intent) {
-        final Bundle b = intent.getExtras();
-        mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
-    }
-
     public void updateTabGroups(TabLayout groupsTabLayout) {
         List<Group> newGroups = DBHelper.getGroups(mDatabase);
 
@@ -537,9 +560,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         else{
             getMenuInflater().inflate(R.menu.archive_menu, inputMenu);
         }
-
-        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
-        displayCardSetupOptions(inputMenu, mLoyaltyCardCount > 0);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
@@ -884,5 +904,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        Log.i(TAG, "Received new intent");
+        extractIntentFields(intent);
     }
 }

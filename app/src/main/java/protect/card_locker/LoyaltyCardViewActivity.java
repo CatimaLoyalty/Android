@@ -714,7 +714,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             setFullscreen(false);
             return;
         }
-
         super.onBackPressed();
     }
 

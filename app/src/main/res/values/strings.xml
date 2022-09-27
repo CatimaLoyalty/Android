@@ -272,11 +272,15 @@
     <string name="action_show_details">Show details</string>
     <string name="action_hide_details">Hide details</string>
     <string name="translate_platform">on Weblate</string>
+    <string name="groupShortcut">Group Shortcut</string>
+    <string name="select">Select</string>
+    <string name="noGroupExistsError">Could not find that group (deleted or name changed)</string>
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
     <string name="starred">Starred</string>
     <string name="set_scale">Set scale</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
+    <string name="shortcutSelectGroup">Select a group</string>
     <string name="duplicateCard">Duplicate</string>
     <string name="archive">Archive</string>
     <string name="unarchive">Unarchive</string>

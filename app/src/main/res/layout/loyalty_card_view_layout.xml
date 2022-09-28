@@ -264,6 +264,18 @@
             android:tooltipText="@string/nextCard"
             android:visibility="gone" />
 
+        <ImageButton
+            android:id="@+id/button_update_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:src="@drawable/ic_baseline_arrow_drop_up_24"
+            android:tooltipText="@string/updateBalance"
+            android:visibility="gone" />
+
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

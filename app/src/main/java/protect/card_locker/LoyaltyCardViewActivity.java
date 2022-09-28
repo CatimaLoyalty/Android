@@ -75,6 +75,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton bottomAppBarInfoButton;
     ImageButton bottomAppBarPreviousButton;
     ImageButton bottomAppBarNextButton;
+    ImageButton bottomAppBarUpdateBalanceButton;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -316,6 +317,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton = findViewById(R.id.button_show_info);
         bottomAppBarPreviousButton = findViewById(R.id.button_previous);
         bottomAppBarNextButton = findViewById(R.id.button_next);
+        bottomAppBarUpdateBalanceButton = findViewById(R.id.button_update_balance);
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
@@ -490,6 +492,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bottomAppBarPreviousButton.setVisibility(View.VISIBLE);
             bottomAppBarNextButton.setVisibility(View.VISIBLE);
         }
+
+        bottomAppBarUpdateBalanceButton.setVisibility(View.VISIBLE);
     }
 
     private void prevNextCard(boolean next) {

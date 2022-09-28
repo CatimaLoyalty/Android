@@ -250,6 +250,7 @@
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
     <string name="hideMoreInfo">Hide info</string>
+    <string name="updateBalance">Update Balance</string>
     <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>

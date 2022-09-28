@@ -1,0 +1,3 @@
+- Изменено имя файла импорта/экспорта по умолчанию. (пулл #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Исправлена строка на странице импорта/экспорта. (пулл #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Улучшен макет страницы просмотра карты. Текст должен быть более удобным для чтения и выбираться длинным щелчком мыши. (пулл #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

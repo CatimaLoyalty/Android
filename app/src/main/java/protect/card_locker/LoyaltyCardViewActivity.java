@@ -43,6 +43,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -53,6 +54,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -150,8 +152,29 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public void onLongPress(MotionEvent e) {
-        // Also switch on long-press for accessibility
-        setMainImage(true, true);
+        openCurrentMainImageInGallery();
+    }
+
+    private void openCurrentMainImageInGallery() {
+        ImageType wantedImageType = imageTypes.get(mainImageIndex);
+
+        File file = null;
+        if (wantedImageType == ImageType.IMAGE_FRONT) {
+            file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
+        }
+        else if (wantedImageType == ImageType.IMAGE_BACK) {
+            file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+        }
+
+        //Unreachable condition, but added this for safety
+        if (file == null) {
+            return;
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW)//
+                .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file),
+                        "image/*").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
     }
 
     @Override

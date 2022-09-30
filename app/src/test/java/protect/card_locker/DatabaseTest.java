@@ -291,14 +291,14 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
-        Group group = DBHelper.getGroup(mDatabase, "group one");
+        Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
-        result = DBHelper.deleteGroup(mDatabase, "group one");
+        result = DBHelper.deleteGroup(mDatabase, group._id);
         assertTrue(result);
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-        assertNull(DBHelper.getGroup(mDatabase, "group one"));
+        assertNull(DBHelper.getGroup(mDatabase, group._id));
     }
 
     @Test
@@ -317,7 +317,7 @@ public class DatabaseTest {
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         // Add card to group
-        Group group = DBHelper.getGroup(mDatabase, "group one");
+        Group group = DBHelper.getGroupByName(mDatabase, "group one");
         List<Group> groupList1 = new ArrayList<>();
         groupList1.add(group);
         DBHelper.setLoyaltyCardGroups(mDatabase, 1, groupList1);
@@ -326,19 +326,19 @@ public class DatabaseTest {
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, (int) id);
         assertEquals(1, cardGroups.size());
         assertEquals("group one", cardGroups.get(0)._id);
-        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, "group one"));
+        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group._id));
 
         // Rename group
-        result = DBHelper.updateGroup(mDatabase, "group one", "group one renamed");
+        result = DBHelper.updateGroup(mDatabase, group._id, "group one renamed");
         assertTrue(result);
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         // Group one no longer exists
-        group = DBHelper.getGroup(mDatabase,"group one");
+        group = DBHelper.getGroupByName(mDatabase,"group one");
         assertNull(group);
 
         // But group one renamed does
-        Group group2 = DBHelper.getGroup(mDatabase, "group one renamed");
+        Group group2 = DBHelper.getGroupByName(mDatabase, "group one renamed");
         assertNotNull(group2);
         assertEquals("group one renamed", group2._id);
 
@@ -347,14 +347,14 @@ public class DatabaseTest {
         cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, (int) id);
         assertEquals(1, cardGroups.size());
         assertEquals("group one renamed", cardGroups.get(0)._id);
-        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, "group one renamed"));
+        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group._id));
     }
 
     @Test
     public void updateMissingGroup() {
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-
-        boolean result = DBHelper.updateGroup(mDatabase, "group one", "new name");
+        Group group1 = DBHelper.getGroupByName(mDatabase, "group one");
+        boolean result = DBHelper.updateGroup(mDatabase, group1._id, "new name");
         assertEquals(false, result);
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
     }
@@ -375,7 +375,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
-        Group group = DBHelper.getGroup(mDatabase, "group one");
+        Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
@@ -399,16 +399,17 @@ public class DatabaseTest {
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
         // Should fail when trying to rename group two to one
-        boolean result3 = DBHelper.updateGroup(mDatabase, "group two", "group one");
+        Group group2_init = DBHelper.getGroupByName(mDatabase, "group two");
+        boolean result3 = DBHelper.updateGroup(mDatabase, group2_init._id, "group one");
         assertFalse(result3);
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
         // Rename failed so both should still be the same
-        Group group = DBHelper.getGroup(mDatabase, "group one");
+        Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
-        Group group2 = DBHelper.getGroup(mDatabase, "group two");
+        Group group2 = DBHelper.getGroupByName(mDatabase, "group two");
         assertNotNull(group2);
         assertEquals("group two", group2._id);
     }
@@ -434,7 +435,8 @@ public class DatabaseTest {
 
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
-        Group group1 = DBHelper.getGroup(mDatabase, "one");
+        Group group1 = DBHelper.getGroupByName(mDatabase, "one");
+        Group group2 = DBHelper.getGroupByName(mDatabase, "two");
 
         // Card has no groups by default
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, 1);
@@ -448,15 +450,15 @@ public class DatabaseTest {
         List<Group> cardGroups1 = DBHelper.getLoyaltyCardGroups(mDatabase, 1);
         assertEquals(1, cardGroups1.size());
         assertEquals(cardGroups1.get(0)._id, group1._id);
-        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, "one"));
-        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, "two"));
+        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group1._id));
+        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, group2._id));
 
         // Remove groups
         DBHelper.setLoyaltyCardGroups(mDatabase, 1, new ArrayList<Group>());
         List<Group> cardGroups2 = DBHelper.getLoyaltyCardGroups(mDatabase, 1);
         assertEquals(0, cardGroups2.size());
-        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, "one"));
-        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, "two"));
+        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, group1._id));
+        assertEquals(0, DBHelper.getGroupCardCount(mDatabase, group2._id));
     }
 
     @Test

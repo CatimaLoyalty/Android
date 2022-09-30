@@ -61,6 +61,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -512,7 +513,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         layout.addView(updateTextview);
 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setHint(R.string.updateBalanceHint);
         input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -521,10 +522,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 BigDecimal newBalance = currentBalance;
-                if (s.length() != 0) {
-                    BigDecimal value = new BigDecimal(s.toString());
+                try {
+                    BigDecimal value = Utils.parseBalance(s.toString(), loyaltyCard.balanceType);
                     newBalance = currentBalance.subtract(value).max(new BigDecimal(0));
-                }
+                } catch (ParseException e) {}
                 updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
             }
 

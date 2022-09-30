@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -12,9 +13,12 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
@@ -28,6 +32,7 @@ import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -394,6 +399,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
         bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
         bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
+        bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -478,6 +484,61 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.create().show();
     }
 
+    private void showBalanceUpdateDialog() {
+        BigDecimal currentBalance = loyaltyCard.balance;
+        Context dialogContext = this;
+
+        AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        TextView updateTitleView = new TextView(this);
+        updateTitleView.setPadding(20, 20, 20, 20);
+        updateTitleView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
+        updateTitleView.setText(R.string.updateBalanceTitle);
+        updateDialog.setCustomTitle(updateTitleView);
+        updateDialog.setTitle(R.string.updateBalanceTitle);
+
+        TextView currentTextview = new TextView(this);
+        currentTextview.setPadding(20, 0, 20, 0);
+        currentTextview.setAutoLinkMask(Linkify.ALL);
+        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        layout.addView(currentTextview);
+
+        TextView updateTextview = new TextView(this);
+        updateTextview.setPadding(20, 0, 20, 0);
+        updateTextview.setAutoLinkMask(Linkify.ALL);
+        updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        layout.addView(updateTextview);
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint(R.string.updateBalanceHint);
+        input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                BigDecimal newBalance = currentBalance;
+                if (s.length() != 0) {
+                    BigDecimal value = new BigDecimal(s.toString());
+                    newBalance = currentBalance.subtract(value).max(new BigDecimal(0));
+                }
+                updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+        layout.addView(input);
+
+        updateDialog.setView(layout);
+        updateDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+        updateDialog.setNegativeButton(getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.cancel());
+        updateDialog.create().show();
+    }
+
     private void setBottomAppBarButtonState() {
         if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
             bottomAppBarInfoButton.setVisibility(View.VISIBLE);
@@ -493,7 +554,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bottomAppBarNextButton.setVisibility(View.VISIBLE);
         }
 
-        bottomAppBarUpdateBalanceButton.setVisibility(View.VISIBLE);
+        if (hasBalance(loyaltyCard)) {
+            bottomAppBarUpdateBalanceButton.setVisibility(View.VISIBLE);
+        } else {
+            bottomAppBarUpdateBalanceButton.setVisibility(View.GONE);
+        }
     }
 
     private void prevNextCard(boolean next) {
@@ -663,6 +728,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         fixImageButtonColor(bottomAppBarInfoButton);
         fixImageButtonColor(bottomAppBarPreviousButton);
         fixImageButtonColor(bottomAppBarNextButton);
+        fixImageButtonColor(bottomAppBarUpdateBalanceButton);
         setBottomAppBarButtonState();
 
         // Make notification area light if dark icons are needed

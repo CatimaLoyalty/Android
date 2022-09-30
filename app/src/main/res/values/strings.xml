@@ -299,4 +299,8 @@
         <item quantity="other">View archive (<xliff:g>%1$d</xliff:g> cards)</item>
     </plurals>
     <string name="welcome">Welcome to Catima</string>
+    <string name="updateBalanceTitle">How much did you spend?</string>
+    <string name="updateBalanceHint">Enter Amount</string>
+    <string name="currentBalanceSentence">Current Balance: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">New Balance: <xliff:g>%s</xliff:g></string>
 </resources>

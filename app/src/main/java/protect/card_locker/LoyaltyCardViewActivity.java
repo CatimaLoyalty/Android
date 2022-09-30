@@ -18,7 +18,6 @@ import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
@@ -486,7 +485,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void showBalanceUpdateDialog() {
-        BigDecimal currentBalance = loyaltyCard.balance;
         Context dialogContext = this;
 
         AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
@@ -503,13 +501,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         TextView currentTextview = new TextView(this);
         currentTextview.setPadding(20, 0, 20, 0);
         currentTextview.setAutoLinkMask(Linkify.ALL);
-        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         layout.addView(currentTextview);
 
         TextView updateTextview = new TextView(this);
         updateTextview.setPadding(20, 0, 20, 0);
         updateTextview.setAutoLinkMask(Linkify.ALL);
-        updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         layout.addView(updateTextview);
 
         final EditText input = new EditText(this);
@@ -518,20 +516,34 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         input.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                BigDecimal newBalance = currentBalance;
-                try {
-                    BigDecimal value = Utils.parseBalance(s.toString(), loyaltyCard.balanceType);
-                    newBalance = currentBalance.subtract(value).max(new BigDecimal(0));
-                } catch (ParseException e) {}
-                updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
+                updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, calculateNewBalance(s), loyaltyCard.balanceType)));
             }
         });
         layout.addView(input);
 
         updateDialog.setView(layout);
-        updateDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+        updateDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+            handleBalanceUpdate(input.getText());
+        });
         updateDialog.setNegativeButton(getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.cancel());
         updateDialog.create().show();
+    }
+
+    private BigDecimal calculateNewBalance(CharSequence s){
+        BigDecimal current = loyaltyCard.balance;
+        BigDecimal newBalance = current;
+        try {
+            BigDecimal value = Utils.parseBalance(s.toString(), loyaltyCard.balanceType);
+            newBalance = current.subtract(value).max(new BigDecimal(0));
+        } catch (ParseException e) {}
+        return newBalance;
+    }
+
+    private void handleBalanceUpdate(Editable text){
+        BigDecimal newBalance = calculateNewBalance(text);
+        SQLiteDatabase mDatabase = new DBHelper(this).getWritableDatabase();
+        DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, loyaltyCard.store, loyaltyCard.note, loyaltyCard.expiry, newBalance, loyaltyCard.balanceType, loyaltyCard.cardId, loyaltyCard.barcodeId, loyaltyCard.barcodeType, loyaltyCard.headerColor, loyaltyCard.starStatus, null, loyaltyCard.archiveStatus);
     }
 
     private void setBottomAppBarButtonState() {

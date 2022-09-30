@@ -840,6 +840,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return group;
     }
 
+    public static Group getGroupByName(SQLiteDatabase database, String groupName) {
+        Cursor data = database.query(LoyaltyCardDbGroups.TABLE, null,
+                whereAttrs(LoyaltyCardDbGroups.NAME), withArgs(groupName), null, null, null);
+
+        Group group = null;
+        if (data.getCount() == 1) {
+            data.moveToFirst();
+            group = Group.toGroup(data);
+        }
+        data.close();
+
+        return group;
+    }
+
     public static int getGroupCount(SQLiteDatabase database) {
         return (int) DatabaseUtils.queryNumEntries(database, LoyaltyCardDbGroups.TABLE);
     }

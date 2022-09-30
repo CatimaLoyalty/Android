@@ -121,7 +121,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
                 Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (DBHelper.getGroup(mDatabase, inputString) != null) {
+            if (DBHelper.getGroupByName(mDatabase, inputString) != null) {
                 Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -140,11 +140,18 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         return (String) groupNameTextView.getText();
     }
 
+    private int getGroupId(View view) {
+        TextView groupNameTextView = view.findViewById(R.id.name);
+        String groupName = (String) groupNameTextView.getText();
+        Group group = DBHelper.getGroupByName(mDatabase, groupName);
+        return group._id;
+    }
+
     private void moveGroup(View view, boolean up) {
         List<Group> groups = DBHelper.getGroups(mDatabase);
         final String groupName = getGroupName(view);
 
-        int currentIndex = DBHelper.getGroup(mDatabase, groupName).order;
+        int currentIndex = DBHelper.getGroupByName(mDatabase, groupName).order;
         int newIndex;
 
         // Reinsert group in correct position
@@ -185,12 +192,13 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     @Override
     public void onEditButtonClicked(View view) {
         Intent intent = new Intent(this, ManageGroupActivity.class);
-        intent.putExtra("group", getGroupName(view));
+        intent.putExtra("group", getGroupId(view));
         startActivity(intent);
     }
 
     @Override
     public void onDeleteButtonClicked(View view) {
+        final int groupId = getGroupId(view);
         final String groupName = getGroupName(view);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -198,7 +206,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         builder.setMessage(groupName);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.deleteGroup(mDatabase, groupName);
+            DBHelper.deleteGroup(mDatabase, groupId);
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();

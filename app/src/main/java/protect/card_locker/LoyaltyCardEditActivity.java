@@ -835,15 +835,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             for (Group group : DBHelper.getGroups(mDatabase)) {
                 Chip chip = (Chip) getLayoutInflater().inflate(R.layout.layout_chip_choice, groupsChips, false);
-                chip.setText(group._id);
+                chip.setText(group.name);
                 chip.setTag(group);
 
-                if (group._id.equals(addGroup)) {
+                if (group.name.equals(addGroup)) {
                     chip.setChecked(true);
                 } else {
                     chip.setChecked(false);
                     for (Group loyaltyCardGroup : loyaltyCardGroups) {
-                        if (loyaltyCardGroup._id.equals(group._id)) {
+                        if (loyaltyCardGroup._id == group._id) {
                             chip.setChecked(true);
                             break;
                         }

@@ -180,13 +180,6 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         return (String) groupNameTextView.getText();
     }
 
-    private int getGroupId(View view) {
-        TextView groupNameTextView = view.findViewById(R.id.name);
-        String groupName = (String) groupNameTextView.getText();
-        Group group = DBHelper.getGroupByName(mDatabase, groupName);
-        return group._id;
-    }
-
     private void moveGroup(View view, boolean up) {
         List<Group> groups = DBHelper.getGroups(mDatabase);
         final String groupName = getGroupName(view);
@@ -232,21 +225,23 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     @Override
     public void onEditButtonClicked(View view) {
         Intent intent = new Intent(this, ManageGroupActivity.class);
-        intent.putExtra("group", getGroupId(view));
+        final String groupName = getGroupName(view);
+        Group group = DBHelper.getGroupByName(mDatabase, groupName);
+        intent.putExtra("group", group._id);
         startActivity(intent);
     }
 
     @Override
     public void onDeleteButtonClicked(View view) {
-        final int groupId = getGroupId(view);
         final String groupName = getGroupName(view);
+        Group group = DBHelper.getGroupByName(mDatabase, groupName);
 
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);
         builder.setMessage(groupName);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.deleteGroup(mDatabase, groupId);
+            DBHelper.deleteGroup(mDatabase, group._id);
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();

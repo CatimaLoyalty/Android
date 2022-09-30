@@ -515,10 +515,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setHint(R.string.updateBalanceHint);
-        input.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
+        input.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 BigDecimal newBalance = currentBalance;
@@ -528,9 +525,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 } catch (ParseException e) {}
                 updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
             }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
         });
         layout.addView(input);
 

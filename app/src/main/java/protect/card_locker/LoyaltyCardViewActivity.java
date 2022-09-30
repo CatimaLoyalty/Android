@@ -101,6 +101,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     SQLiteDatabase database;
     ImportURIHelper importURIHelper;
     Settings settings;
+    BigDecimal currentBalance;
 
     String cardIdString;
     String barcodeIdString;
@@ -425,7 +426,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private boolean hasBalance(LoyaltyCard loyaltyCard) {
-        return !loyaltyCard.balance.equals(new BigDecimal(0));
+        return !currentBalance.equals(new BigDecimal(0));
     }
 
     private void showInfoDialog() {
@@ -460,7 +461,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         if (hasBalance(loyaltyCard)) {
             padSpannableString(infoText);
-            infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+            infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
         }
 
         if (loyaltyCard.expiry != null) {
@@ -491,6 +492,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
+
         TextView updateTitleView = new TextView(this);
         updateTitleView.setPadding(20, 20, 20, 20);
         updateTitleView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
@@ -498,17 +500,26 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         updateDialog.setCustomTitle(updateTitleView);
         updateDialog.setTitle(R.string.updateBalanceTitle);
 
+        LinearLayout textLayout = new LinearLayout(this);
+        textLayout.setOrientation(LinearLayout.HORIZONTAL);
+
         TextView currentTextview = new TextView(this);
-        currentTextview.setPadding(20, 0, 20, 0);
+        currentTextview.setPadding(20, 0, 30, 0);
+        currentTextview.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
+        currentTextview.setTextColor(Color.GRAY);
         currentTextview.setAutoLinkMask(Linkify.ALL);
-        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
-        layout.addView(currentTextview);
+        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        textLayout.addView(currentTextview);
 
         TextView updateTextview = new TextView(this);
-        updateTextview.setPadding(20, 0, 20, 0);
+        updateTextview.setPadding(30, 0, 20, 0);
+        updateTextview.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
+        updateTextview.setTextColor(Color.GRAY);
         updateTextview.setAutoLinkMask(Linkify.ALL);
-        updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
-        layout.addView(updateTextview);
+        updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
+        textLayout.addView(updateTextview);
+
+        layout.addView(textLayout);
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -531,19 +542,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private BigDecimal calculateNewBalance(CharSequence s){
-        BigDecimal current = loyaltyCard.balance;
+        BigDecimal current = currentBalance;
         BigDecimal newBalance = current;
         try {
             BigDecimal value = Utils.parseBalance(s.toString(), loyaltyCard.balanceType);
             newBalance = current.subtract(value).max(new BigDecimal(0));
-        } catch (ParseException e) {}
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return newBalance;
     }
 
     private void handleBalanceUpdate(Editable text){
         BigDecimal newBalance = calculateNewBalance(text);
+        currentBalance = newBalance;
         SQLiteDatabase mDatabase = new DBHelper(this).getWritableDatabase();
-        DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, loyaltyCard.store, loyaltyCard.note, loyaltyCard.expiry, newBalance, loyaltyCard.balanceType, loyaltyCard.cardId, loyaltyCard.barcodeId, loyaltyCard.barcodeType, loyaltyCard.headerColor, loyaltyCard.starStatus, null, loyaltyCard.archiveStatus);
+        DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, loyaltyCard.store, loyaltyCard.note, loyaltyCard.expiry, currentBalance, loyaltyCard.balanceType, loyaltyCard.cardId, loyaltyCard.barcodeId, loyaltyCard.barcodeType, loyaltyCard.headerColor, loyaltyCard.starStatus, null, loyaltyCard.archiveStatus);
     }
 
     private void setBottomAppBarButtonState() {
@@ -656,6 +670,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             finish();
             return;
         }
+        currentBalance = loyaltyCard.balance;
 
         loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
 

@@ -66,5 +66,4 @@
         <item quantity="many">מעט</item>
         <item quantity="other">אחר</item>
     </plurals>
-    <string name="barcodeImageDescriptionWithType">ברקוד</string>
 </resources>

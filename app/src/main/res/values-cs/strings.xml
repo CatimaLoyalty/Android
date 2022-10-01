@@ -194,7 +194,7 @@
     <string name="sort_by_expiry">Vypršení</string>
     <string name="sort_by_most_recently_used">Naposledy použité</string>
     <string name="sort_by_name">Název</string>
-    <string name="swipeToSwitchImages">Přejetím nebo dlouhým stisknutím přepínáte obrázky</string>
+    <string name="swipeToSwitchImages">Přejetím přepínáte obrázky, dlouhým stisknutím otevřete obrázek v aplikaci pro galerii</string>
     <string name="sort">Seřadit</string>
     <string name="barcodeImageDescriptionWithType">Obrázek čárového kódu <xliff:g>%s</xliff:g></string>
     <string name="version_history">Historie verzí</string>
@@ -260,4 +260,6 @@
         <item quantity="few">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karty)</item>
         <item quantity="other">Zobrazit archiv (<xliff:g>%1$d</xliff:g> karet)</item>
     </plurals>
+    <string name="barcodeLongPressMessage">V aplikaci pro galerii mohou být otevírány pouze obrázky</string>
+    <string name="failedToRetrieveImageFile">Nepodařilo se získat soubor obrázku</string>
 </resources>

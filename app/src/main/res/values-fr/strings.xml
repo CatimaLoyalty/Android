@@ -97,7 +97,7 @@
     <string name="chooseImportType">Importer les données depuis</string>
     <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
-    <string name="currency">Monnaie</string>
+    <string name="currency">Devise</string>
     <string name="balance">Solde</string>
     <string name="moveBarcodeToCenterOfScreen">Centrer le code-barres sur l’écran</string>
     <string name="moveBarcodeToTopOfScreen">Déplacez le code-barres vers le haut de l’écran</string>

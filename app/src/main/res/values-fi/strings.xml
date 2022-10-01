@@ -245,4 +245,10 @@
     <string name="duplicateCard">Duplikaatti</string>
     <string name="previousCard">Edellinen</string>
     <string name="nextCard">Seuraava</string>
+    <string name="failedToOpenUrl">Asenna ensin verkkoselain</string>
+    <string name="welcome">Tervetuloa Catimaan</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Näytä arkisto (<xliff:g>%1$d</xliff:g> kortti)</item>
+        <item quantity="other">Näytä arkisto (<xliff:g>%1$d</xliff:g> korttia)</item>
+    </plurals>
 </resources>

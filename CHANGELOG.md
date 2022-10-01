@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 115
+
+- Open image in gallery on long-press
+
 ## v2.20.0 - 114
 
 - Add Monochrome icon for Android 13

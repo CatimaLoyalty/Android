@@ -170,13 +170,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 break;
             case BARCODE:
                 Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
-                break;
+                return;
             default:
-                //Empty default case for now
+                // Empty default case for now to keep the spotBugsRelease job happy
         }
 
         // Do nothing if there is no file
         if (file == null) {
+            Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
             return;
         }
 

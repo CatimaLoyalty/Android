@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -166,15 +167,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
         }
 
-        //Unreachable condition, but added this for safety
         if (file == null) {
             return;
         }
 
-        Intent intent = new Intent(Intent.ACTION_VIEW)//
-                .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file),
-                        "image/*").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(intent);
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW)//
+                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file),
+                            "image/*").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(intent);
+        }
+        catch (ActivityNotFoundException e) {
+            //Do nothing if an image viewer is not installed on device except logging
+            e.printStackTrace();
+        }
     }
 
     @Override

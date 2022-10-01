@@ -160,14 +160,22 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         ImageType wantedImageType = imageTypes.get(mainImageIndex);
 
         File file = null;
-        if (wantedImageType == ImageType.IMAGE_FRONT) {
-            file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
-        }
-        else if (wantedImageType == ImageType.IMAGE_BACK) {
-            file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+
+        switch (wantedImageType) {
+            case IMAGE_FRONT:
+                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
+                break;
+            case IMAGE_BACK:
+                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+                break;
+            case BARCODE:
+                Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                //Empty default case for now
         }
 
-        // Entry is either the barcode (not an image) or image retrieval failed
+        // Do nothing if there is no file
         if (file == null) {
             return;
         }
@@ -179,7 +187,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             startActivity(intent);
         }
         catch (ActivityNotFoundException e) {
-            // Do nothing if an image viewer is not installed on device except logging
+            // Display a toast message if an image viewer is not installed on device
+            Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }

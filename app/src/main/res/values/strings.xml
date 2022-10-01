@@ -250,7 +250,8 @@
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
     <string name="hideMoreInfo">Hide info</string>
-    <string name="swipeToSwitchImages">Swipe to switch images\nLong press an image to open in gallery app</string>
+    <string name="swipeToSwitchImages">Swipe to switch images, hold to open image in the gallery app</string>
+    <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>

@@ -167,18 +167,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
         }
 
+        // Entry is either the barcode (not an image) or image retrieval failed
         if (file == null) {
             return;
         }
 
         try {
-            Intent intent = new Intent(Intent.ACTION_VIEW)//
-                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file),
-                            "image/*").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Intent intent = new Intent(Intent.ACTION_VIEW)
+                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);
         }
         catch (ActivityNotFoundException e) {
-            //Do nothing if an image viewer is not installed on device except logging
+            // Do nothing if an image viewer is not installed on device except logging
             e.printStackTrace();
         }
     }

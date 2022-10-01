@@ -1,7 +1,9 @@
 import com.github.spotbugs.snom.SpotBugsTask
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.github.spotbugs'
+plugins {
+    id 'com.android.application'
+    id 'com.github.spotbugs'
+}
 
 spotbugs {
     ignoreFailures = false

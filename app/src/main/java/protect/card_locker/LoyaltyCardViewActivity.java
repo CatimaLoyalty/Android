@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -43,6 +44,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
@@ -53,6 +55,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -150,8 +153,45 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public void onLongPress(MotionEvent e) {
-        // Also switch on long-press for accessibility
-        setMainImage(true, true);
+        openCurrentMainImageInGallery();
+    }
+
+    private void openCurrentMainImageInGallery() {
+        ImageType wantedImageType = imageTypes.get(mainImageIndex);
+
+        File file = null;
+
+        switch (wantedImageType) {
+            case IMAGE_FRONT:
+                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
+                break;
+            case IMAGE_BACK:
+                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.back);
+                break;
+            case BARCODE:
+                Toast.makeText(this, R.string.barcodeLongPressMessage, Toast.LENGTH_SHORT).show();
+                return;
+            default:
+                // Empty default case for now to keep the spotBugsRelease job happy
+        }
+
+        // Do nothing if there is no file
+        if (file == null) {
+            Toast.makeText(this, R.string.failedToRetrieveImageFile, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW)
+                    .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
+                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(intent);
+        }
+        catch (ActivityNotFoundException e) {
+            // Display a toast message if an image viewer is not installed on device
+            Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 
     @Override

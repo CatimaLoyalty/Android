@@ -102,7 +102,21 @@
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:pathPattern="catima.zip" />
+                <data android:pathPattern="fidme-export-request-*.zip" />
+                <data android:pathPattern="LoyaltyCardKeychain.csv" />
+                <data android:pathPattern=".*-sync.zip" />
+                <data android:pathPattern="vouchervault.json" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CardShortcutConfigure"
             android:exported="true"

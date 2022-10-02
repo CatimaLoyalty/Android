@@ -62,6 +62,7 @@ Neko Nekowazarashi
 Rosdyana Kusuma
 umoenks
 Thomas Bertels
+Wanath
 Runner
 ce i moa
 inesre
@@ -86,6 +87,7 @@ danieluhrinyi
 Kasina Dheeraj
 Donno
 Eric
+Evgeniy Khramov
 Flav
 Franciszek Stefan
 Grzegorz
@@ -94,7 +96,9 @@ Izzy
 Jean-Baptiste
 Jean-Luc Tibaux
 krkk
+Lisa
 bittin
+Manan Jhaveri
 Marco
 Mattia
 Michael Gangolf
@@ -113,6 +117,7 @@ Simone Dotto
 Subhashish Anand
 Titas Pažereckas
 Tom Sawyer
+Tomer Ben-Rachel
 Tony C
 Tymofii Lytvynenko
 Vancha March

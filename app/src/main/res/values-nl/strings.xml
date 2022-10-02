@@ -185,7 +185,7 @@
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Veeg of houd lang ingedrukt om te bladeren</string>
+    <string name="swipeToSwitchImages">Veeg om te bladeren; houd lang ingedrukt om te openen in de galerij-app</string>
     <string name="sort_by">Sorteren op</string>
     <string name="reverse">…in omgekeerde volgorde</string>
     <string name="sort_by_balance">Op saldo</string>
@@ -253,4 +253,6 @@
         <item quantity="one">Archief bekijken (<xliff:g>%1$d</xliff:g> kaart)</item>
         <item quantity="other">Archief bekijken (<xliff:g>%1$d</xliff:g> kaarten)</item>
     </plurals>
+    <string name="failedToRetrieveImageFile">De afbeelding kan niet worden opgehaald</string>
+    <string name="barcodeLongPressMessage">Alleen afbeeldingen kunnen worden geopend in de galerij-app</string>
 </resources>

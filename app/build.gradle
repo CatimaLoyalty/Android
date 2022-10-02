@@ -59,8 +59,7 @@ android {
     }
 
     lintOptions {
-        disable "GoogleAppIndexingWarning", "ButtonStyle", "AlwaysShowAction",
-                "MissingTranslation", "MissingPrefix"
+        lintConfig file("lint.xml")
     }
 
     sourceSets {

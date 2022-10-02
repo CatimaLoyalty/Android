@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="AlwaysShowAction" severity="ignore" />
+    <issue id="ButtonStyle" severity="ignore" />
+    <issue id="GoogleAppIndexingWarning" severity="ignore" />
+    <issue id="MissingTranslation" severity="ignore" />
+    <issue id="MissingPrefix" severity="ignore" />
+</lint>

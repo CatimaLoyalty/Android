@@ -64,9 +64,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements GestureDetector.OnGestureListener {
+    private LoyaltyCardViewLayoutBinding binding;
     private static final String TAG = "Catima";
 
     private GestureDetector mGestureDetector;
@@ -311,6 +313,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
 
         super.onCreate(savedInstanceState);
+        binding = LoyaltyCardViewLayoutBinding.inflate(getLayoutInflater());
 
         settings = new Settings(this);
 
@@ -332,30 +335,30 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         extractIntentFields(getIntent());
 
-        setContentView(R.layout.loyalty_card_view_layout);
+        setContentView(binding.getRoot());
 
         database = new DBHelper(this).getWritableDatabase();
         importURIHelper = new ImportURIHelper(this);
 
-        coordinatorLayout = findViewById(R.id.coordinator_layout);
-        mainLayout = findViewById(R.id.mainLayout);
-        cardIdFieldView = findViewById(R.id.cardIdView);
-        storeName = findViewById(R.id.storeName);
-        maximizeButton = findViewById(R.id.maximizeButton);
-        mainImage = findViewById(R.id.mainImage);
+        coordinatorLayout = binding.coordinatorLayout;
+        mainLayout = binding.mainLayout;
+        cardIdFieldView = binding.cardIdView;
+        storeName = binding.storeName;
+        maximizeButton = binding.maximizeButton;
+        mainImage = binding.mainImage;
         mainImage.setClipToOutline(true);
-        dotIndicator = findViewById(R.id.dotIndicator);
-        minimizeButton = findViewById(R.id.minimizeButton);
-        collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
-        appBarLayout = findViewById(R.id.app_bar_layout);
-        bottomAppBar = findViewById(R.id.bottom_app_bar);
-        iconImage = findViewById(R.id.icon_image);
-        portraitToolbar = findViewById(R.id.toolbar);
-        landscapeToolbar = findViewById(R.id.toolbar_landscape);
+        dotIndicator = binding.dotIndicator;
+        minimizeButton = binding.minimizeButton;
+        collapsingToolbarLayout = binding.collapsingToolbarLayout;
+        appBarLayout = binding.appBarLayout;
+        bottomAppBar = binding.bottomAppBar;
+        iconImage = binding.iconImage;
+        portraitToolbar = binding.toolbar;
+        landscapeToolbar = binding.toolbarLandscape;
 
-        bottomAppBarInfoButton = findViewById(R.id.button_show_info);
-        bottomAppBarPreviousButton = findViewById(R.id.button_previous);
-        bottomAppBarNextButton = findViewById(R.id.button_next);
+        bottomAppBarInfoButton = binding.buttonShowInfo;
+        bottomAppBarPreviousButton = binding.buttonPrevious;
+        bottomAppBarNextButton = binding.buttonNext;
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
@@ -370,8 +373,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         };
 
-        centerGuideline = findViewById(R.id.centerGuideline);
-        barcodeScaler = findViewById(R.id.barcodeScaler);
+        centerGuideline = binding.centerGuideline;
+        barcodeScaler = binding.barcodeScaler;
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -409,7 +412,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         maximizeButton.setOnClickListener(v -> setFullscreen(true));
         minimizeButton.setOnClickListener(v -> setFullscreen(false));
 
-        editButton = findViewById(R.id.fabEdit);
+        editButton = binding.fabEdit;
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();

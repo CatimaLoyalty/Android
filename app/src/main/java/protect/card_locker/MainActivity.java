@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -47,9 +48,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import protect.card_locker.databinding.ArchiveActivityBinding;
+import protect.card_locker.databinding.ContentMainBinding;
+import protect.card_locker.databinding.MainActivityBinding;
+import protect.card_locker.databinding.SortingOptionBinding;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
+    private MainActivityBinding binding;
+    private ArchiveActivityBinding archiveActivityBinding;
+    private ContentMainBinding contentMainBinding;
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
@@ -68,6 +76,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpSection;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
+    private TabLayout groupsTabLayout;
 
     private boolean mArchiveMode;
     public static final String BUNDLE_ARCHIVE_MODE = "archiveMode";
@@ -163,7 +172,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
 
-                    TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+                    TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
                     mGroup = tab != null ? tab.getTag() : null;
 
                     updateLoyaltyCardList(true);
@@ -231,16 +240,21 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
         if(!mArchiveMode) {
+            binding = MainActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.app_name);
-            setContentView(R.layout.main_activity);
+            setContentView(binding.getRoot());
+            setSupportActionBar(binding.toolbar);
+            groupsTabLayout = binding.groups;
+            contentMainBinding = ContentMainBinding.bind(binding.include.getRoot());
         }
         else{
+            archiveActivityBinding = ArchiveActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.archiveList);
-            setContentView(R.layout.archive_activity);
+            setContentView(archiveActivityBinding.getRoot());
+            setSupportActionBar(archiveActivityBinding.toolbar);
+            groupsTabLayout = archiveActivityBinding.groups;
+            contentMainBinding = ContentMainBinding.bind(archiveActivityBinding.include.getRoot());
         }
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         if(mArchiveMode){
             ActionBar actionBar = getSupportActionBar();
@@ -251,7 +265,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -283,10 +296,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
-        mHelpSection = findViewById(R.id.helpSection);
-        mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-        mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
-        mCardList = findViewById(R.id.list);
+        mHelpSection = contentMainBinding.helpSection;
+        mNoMatchingCardsText = contentMainBinding.noMatchingCardsText;
+        mNoGroupCardsText = contentMainBinding.noGroupCardsText;
+        mCardList = contentMainBinding.list;
 
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
@@ -374,7 +387,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         // Start of active tab logic
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         updateTabGroups(groupsTabLayout);
 
         // Restore settings from Shared Preference
@@ -407,7 +419,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         // End of active tab logic
 
         if (!mArchiveMode) {
-            FloatingActionButton addButton = findViewById(R.id.fabAdd);
+            FloatingActionButton addButton = binding.fabAdd;
 
             addButton.setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
@@ -562,7 +574,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 public boolean onQueryTextChange(String newText) {
                     mFilter = newText;
 
-                    TabLayout groupsTabLayout = findViewById(R.id.groups);
                     TabLayout.Tab currentTab = groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition());
                     mGroup = currentTab != null ? currentTab.getTag() : null;
 
@@ -612,10 +623,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle(R.string.sort_by);
 
-            final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
+            SortingOptionBinding sortingOptionBinding = SortingOptionBinding
+                    .inflate(LayoutInflater.from(MainActivity.this), null, false);
+            final View customLayout = sortingOptionBinding.getRoot();
             builder.setView(customLayout);
 
-            CheckBox showReversed = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
+            CheckBox showReversed = sortingOptionBinding.checkBoxReverse;
 
 
             showReversed.setChecked(mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending);
@@ -736,7 +749,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             return false;
         }
 
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         if (groupsTabLayout.getTabCount() < 2) {
             return false;
         }

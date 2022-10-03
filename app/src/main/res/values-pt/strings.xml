@@ -178,7 +178,7 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
-    <string name="swipeToSwitchImages">Deslize ou pressione prolongadamente para mudar as imagens</string>
+    <string name="swipeToSwitchImages">Deslize para mudar as imagens, segure para abrir a imagem no aplicativo de galeria</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>
     <string name="sort_by_expiry">Validade</string>
@@ -260,4 +260,6 @@
         <item quantity="other">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
     </plurals>
     <string name="welcome">Bem-vindo ao Catima</string>
+    <string name="failedToRetrieveImageFile">Falhou ao recuperar arquivo de imagem</string>
+    <string name="barcodeLongPressMessage">Apenas imagens podem ser abertas no aplicativo de galeria</string>
 </resources>

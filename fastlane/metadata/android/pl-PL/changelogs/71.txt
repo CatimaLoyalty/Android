@@ -1,0 +1,2 @@
+- Kilka poprawek dla tłumaczeń i UI
+- Naprawiono zawieszanie się aplikacji podczas importu/udostępniania karty lojalnościowej na Androidzie 6

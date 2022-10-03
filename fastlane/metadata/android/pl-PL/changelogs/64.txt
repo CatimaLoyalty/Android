@@ -1,0 +1,1 @@
+- Naprawiono błąd regresji sprawiający , że wpisany ręcznie kod kreskowy nie był zapisywany

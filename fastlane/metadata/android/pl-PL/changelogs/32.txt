@@ -1,0 +1,1 @@
+- Naprawiono tworzenie nowej karty przez ręczne wpisanie kodu kreskowego (issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

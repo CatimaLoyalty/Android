@@ -1,0 +1,4 @@
+- Wsparcie nowego eksportu PDF417 z Voucher Vault
+- Wsparcie dla kopiowania wielu kodów kreskowych jednocześnie
+- Wsparcie dla udostępniania wielu kart lojalnościowych jednocześnie
+- Dodano pytanie o aktualizację kodu kreskowego jeśli zmienia się ID karty

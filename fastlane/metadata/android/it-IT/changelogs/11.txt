@@ -1,0 +1,5 @@
+- ID esistente pre-compilato, quando si modifica un ID carta. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Limitazione della larghezza dei codici a barre generati per ridurre l'uso e gli errori di memoria. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- Per effettuare modifiche ad ID carta esistenti, il pulsante "Inserisci carta" è cambiato a "Modifica carta" . (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Modificata la combinazione di colori, resa più attenuata ed in linea con l'icona dell'app e pulizia del layout di visualizzazione scheda.(pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Aggiunta un'introduzione guidata che appare al primo avvio dell'applicazione. (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

@@ -1,7 +1,7 @@
 - Aggiunto supporto all'arabo
 - Visualizza il numero delle carte archiviate nella panoramica di gruppo
-- Risolti i bug di analisi di bilanciamento (Impedivano alle carte di essere salvate in Arabo e altre lingue con numeri non occidentali)
-- Ora i temi personalizzati si applicano correttamente alla schermata principale
-- Migliorata visualizzazione carte selezionate
-- Risolta chiusura inaspettata quando si chiude una carta nel layout RTL con una scadenza o un saldo
-- Sistemato un problema con la freccia indietro nella vista scheda che puntava nella direzione sbagliata nei layout RTL
+- Risolti bug di parsing (non consentivano il salvataggio di carte in Arabo ed altre lingue con sistemi di numerazione non occidentali)
+- Corretta la visualizzazione di temi personalizzati nella schermata principale
+- Migliorata visualizzazione delle carte selezionate
+- Correzione di un arresto anomalo quando si esce da una cardview nei layout RTL con scadenza o saldo.
+- Sistemata la freccia che puntava nella direzione sbagliata nella vista scheda dei layout RTL

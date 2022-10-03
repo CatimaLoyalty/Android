@@ -1,0 +1,1 @@
+- Naprawiono błąd - ciągi znaków wyświetlane jako pojedynczy znak

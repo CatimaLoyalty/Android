@@ -271,4 +271,8 @@
     <string name="settings_theme_color">لون المظهر</string>
     <string name="previousCard">السابق</string>
     <string name="nextCard">التالي</string>
+    <string name="failedToRetrieveImageFile">فشل في استخراج ملف الصورة</string>
+    <string name="barcodeLongPressMessage">يمكن فتح صور فقط في تطبيق معرض الصور</string>
+    <string name="failedToOpenUrl">ثبت متصفح ويب أولاً</string>
+    <string name="welcome">مرحبا بك في كاتيما</string>
 </resources>

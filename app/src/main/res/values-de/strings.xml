@@ -185,7 +185,7 @@
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
-    <string name="swipeToSwitchImages">Wischen oder langes Drücken zum Wechseln der Bilder</string>
+    <string name="swipeToSwitchImages">Wischen zum Wechseln der Bilder, Halten zum Öffnen des Bildes in der Galerie</string>
     <string name="sort_by">Sortieren nach</string>
     <string name="sort_by_balance">Kontostand</string>
     <string name="sort_by_expiry">Ablaufdatum</string>
@@ -253,4 +253,6 @@
         <item quantity="other">Archiv ansehen (<xliff:g>%1$d</xliff:g> Karten)</item>
     </plurals>
     <string name="welcome">Willkommen bei Catima</string>
+    <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
+    <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
 </resources>

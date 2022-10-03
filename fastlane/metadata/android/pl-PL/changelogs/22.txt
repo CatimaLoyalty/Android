@@ -1,0 +1,1 @@
+- Zmiany dotyczące widoku karty: wyświetlanie notatki, wsparcie dla wieloliniowych ID kart i wyświetlenie nazwy sklepu. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

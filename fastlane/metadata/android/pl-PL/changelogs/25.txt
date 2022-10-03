@@ -1,0 +1,2 @@
+- Zredukowano przestrzeń nagłówka podczas przeglądania karty (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Wyłączono dźwięk skanowania kodu kreskowego (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

@@ -193,7 +193,7 @@
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Пуста група</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Свайп чи довге натискання для зміни зображень</string>
+    <string name="swipeToSwitchImages">Свайп для зміни зображень, довге натискання для перегляду в галереї</string>
     <string name="sort_by">Сортувати за</string>
     <string name="reverse">… у зворотному порядку</string>
     <string name="sort_by_balance">Баланс</string>
@@ -262,9 +262,11 @@
     <plurals name="viewArchivedCardsWithCount">
         <item quantity="one">Переглянути архів (<xliff:g>%1$d</xliff:g> картка)</item>
         <item quantity="few">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
-        <item quantity="many">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
-        <item quantity="other">Переглянути архів (<xliff:g>%1$d</xliff:g> картки)</item>
+        <item quantity="many">Переглянути архів (<xliff:g>%1$d</xliff:g> карток)</item>
+        <item quantity="other">Переглянути архів (<xliff:g>%1$d</xliff:g> карток)</item>
     </plurals>
     <string name="failedToOpenUrl">Спочатку встановіть браузер</string>
-    <string name="welcome">Ласкаво просимо до Катіма</string>
+    <string name="welcome">Ласкаво просимо до Catima</string>
+    <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>
+    <string name="barcodeLongPressMessage">Галерея може відкривати лише зображення</string>
 </resources>

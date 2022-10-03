@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın veya uzun basın</string>
+    <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın, resmi galeri uygulamasında açmak için basılı tutun</string>
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Kahverengi</string>
     <string name="settings_grey_theme">Gri</string>
@@ -253,4 +253,6 @@
         <item quantity="other">Arşivi görüntüle (<xliff:g>%1$d</xliff:g> kart)</item>
     </plurals>
     <string name="welcome">Catima\'ya Hoş Geldiniz</string>
+    <string name="failedToRetrieveImageFile">Resim dosyası alınamadı</string>
+    <string name="barcodeLongPressMessage">Galeri uygulamasında yalnızca resimler açılabilir</string>
 </resources>

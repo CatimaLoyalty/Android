@@ -1,0 +1,2 @@
+- Poprawiono tłumaczenie w języku hiszpańskim (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+- Zaktualizowano tłumaczenia (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))

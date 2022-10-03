@@ -1,0 +1,1 @@
+- Poprawiono widoczność dla możliwości zdefiniowania własnego nagłówka

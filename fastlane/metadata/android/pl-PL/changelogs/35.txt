@@ -1,0 +1,2 @@
+- Umożliwiono utworzenie kopii zapasowej aplikacji
+- Zaktualizowano tłumaczenie w języku rosyjskim

@@ -1,0 +1,2 @@
+- Miglioramento del contrasto utilizzando sempre testo bianco sui pulsanti rossi
+- Foglio trascinabile in fondo alla schermata della carta fedeltà

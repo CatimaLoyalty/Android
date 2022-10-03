@@ -1,0 +1,1 @@
+- Risolto il problema della condivisione di schede senza colore di sfondo (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

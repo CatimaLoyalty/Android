@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import protect.card_locker.barcodes.Barcode;
+import protect.card_locker.barcodes.BarcodeFactory;
+
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
@@ -61,7 +64,7 @@ public class ImportURIHelper {
 
         try {
             // These values are allowed to be null
-            CatimaBarcode barcodeType = null;
+            Barcode barcodeType = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
@@ -95,7 +98,7 @@ public class ImportURIHelper {
 
             String unparsedBarcodeType = kv.get(BARCODE_TYPE);
             if (unparsedBarcodeType != null && !unparsedBarcodeType.equals("")) {
-                barcodeType = CatimaBarcode.fromName(unparsedBarcodeType);
+                barcodeType = BarcodeFactory.fromName(unparsedBarcodeType);
             }
 
             String unparsedBalance = kv.get(BALANCE);

@@ -34,7 +34,6 @@
     <string name="barcodeId">Barcode vrijednost</string>
     <string name="sameAsCardId">Isto kao i kartica</string>
     <string name="setBarcodeId">Postavi vrijednost za bar kod</string>
-    <string name="unsupportedBarcodeType">Ovaj bar kod još nije prikazan. Ona može biti podržana u kasnijoj verziji app.</string>
     <string name="wrongValueForBarcodeType">Izabrana vrijednost nije izvršna</string>
     <string name="copy_to_clipboard_multiple_toast">IDs kartica kopiran u clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">Želim podijeliti karte s tobom</string>

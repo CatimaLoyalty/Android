@@ -151,7 +151,6 @@
     <string name="barcodeId">Vonalkód érték</string>
     <string name="sameAsCardId">Ugyanaz, mint az azonosító</string>
     <string name="setBarcodeId">Vonalkód érték beállítása</string>
-    <string name="unsupportedBarcodeType">Ez a vonalkód típus még nem megjeleníthető. Feltehetően támogatva lesz egy későbbi verzióban.</string>
     <string name="copy_to_clipboard_multiple_toast">Azonosítók a vágólapra másolva</string>
     <string name="intent_import_card_from_url_share_multiple_text">Meg akarok veled osztani pár kártyát</string>
     <string name="frontImageDescription">Előlapi kép</string>

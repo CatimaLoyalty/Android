@@ -131,7 +131,6 @@
     <string name="noBarcodeFound">Kein Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
     <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
-    <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>

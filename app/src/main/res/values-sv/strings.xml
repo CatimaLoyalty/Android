@@ -72,7 +72,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Jag vill dela några kort med dig</string>
     <string name="copy_to_clipboard_multiple_toast">ID:n kopierades till Urklipp</string>
     <string name="wrongValueForBarcodeType">Värdet är inte giltigt för den valda streckkodstypen</string>
-    <string name="unsupportedBarcodeType">Denna streckkodstyp kan ännu inte visas. Den kan komma att stödjas i en senare version av appen.</string>
     <string name="setBarcodeId">Ange streckkodsvärde</string>
     <string name="sameAsCardId">Samma som ID:t</string>
     <string name="turn_flashlight_on">Sätt på ficklampa</string>

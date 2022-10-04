@@ -8,7 +8,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Haluan jakaa joitain kortteja kanssasi</string>
     <string name="copy_to_clipboard_multiple_toast">ID-tunnukset kopioitu leikepöydälle</string>
     <string name="wrongValueForBarcodeType">Arvo ei ole kelvollinen valitulle viivakoodityypille</string>
-    <string name="unsupportedBarcodeType">Tätä viivakoodityyppiä ei voi vielä näyttää. Sitä saatetaan tukea sovelluksen myöhemmässä versiossa.</string>
     <string name="setBarcodeId">Aseta viivakoodin arvo</string>
     <string name="sameAsCardId">Sama kuin ID-tunnus</string>
     <string name="barcodeId">Viivakoodin arvo</string>

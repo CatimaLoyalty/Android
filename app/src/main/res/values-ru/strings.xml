@@ -132,7 +132,6 @@
     <string name="sameAsCardId">Как номер</string>
     <string name="barcodeId">Значение штрих-кода</string>
     <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
-    <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
     <string name="app_resources">Свободные сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>

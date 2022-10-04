@@ -34,7 +34,6 @@
     <string name="barcodeId">বারকোড আইডি</string>
     <string name="sameAsCardId">কার্ড আইডির মতো</string>
     <string name="setBarcodeId">বারকোড আইডি সেট করুন</string>
-    <string name="unsupportedBarcodeType">অসমর্থিত বারকোড টাইপ</string>
     <string name="wrongValueForBarcodeType">বারকোড টাইপের জন্য ভুল মান</string>
     <string name="copy_to_clipboard_multiple_toast">ক্লিপবোর্ড একাধিক টোস্টে অনুলিপি করুন</string>
     <string name="intent_import_card_from_url_share_multiple_text">url থেকে ইন্টেন্ট ইম্পোর্ট কার্ড একাধিক টেক্সট শেয়ার করে</string>

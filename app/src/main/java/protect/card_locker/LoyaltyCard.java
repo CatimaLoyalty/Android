@@ -9,6 +9,8 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.annotation.Nullable;
+import protect.card_locker.barcodes.Barcode;
+import protect.card_locker.barcodes.BarcodeFactory;
 
 public class LoyaltyCard implements Parcelable {
     public final int id;
@@ -23,7 +25,7 @@ public class LoyaltyCard implements Parcelable {
     public final String barcodeId;
 
     @Nullable
-    public final CatimaBarcode barcodeType;
+    public final Barcode barcodeType;
 
     @Nullable
     public final Integer headerColor;
@@ -35,7 +37,7 @@ public class LoyaltyCard implements Parcelable {
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
-                       @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
+                       @Nullable final String barcodeId, @Nullable final Barcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus) {
         this.id = id;
@@ -65,7 +67,7 @@ public class LoyaltyCard implements Parcelable {
         cardId = in.readString();
         barcodeId = in.readString();
         String tmpBarcodeType = in.readString();
-        barcodeType = !tmpBarcodeType.isEmpty() ? CatimaBarcode.fromName(tmpBarcodeType) : null;
+        barcodeType = !tmpBarcodeType.isEmpty() ? BarcodeFactory.fromName(tmpBarcodeType) : null;
         int tmpHeaderColor = in.readInt();
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
@@ -109,13 +111,13 @@ public class LoyaltyCard implements Parcelable {
         int balanceTypeColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE_TYPE);
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
 
-        CatimaBarcode barcodeType = null;
+        Barcode barcodeType = null;
         Currency balanceType = null;
         Date expiry = null;
         Integer headerColor = null;
 
         if (cursor.isNull(barcodeTypeColumn) == false) {
-            barcodeType = CatimaBarcode.fromName(cursor.getString(barcodeTypeColumn));
+            barcodeType = BarcodeFactory.fromName(cursor.getString(barcodeTypeColumn));
         }
 
         if (cursor.isNull(balanceTypeColumn) == false) {

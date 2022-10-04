@@ -116,7 +116,6 @@
     <string name="errorReadingImage">Kunne ikke lese bildet</string>
     <string name="noBarcodeFound">Fant ingen strekkode</string>
     <string name="addFromImage">Velg bilde fra galleri</string>
-    <string name="unsupportedBarcodeType">Denne strekkodetypen kan ikke vises for øyeblikket. Støtte kan bli lagt til i en senere versjon av programmet.</string>
     <string name="setBarcodeId">Sett strekkodeverdi</string>
     <string name="sameAsCardId">Samme som ID</string>
     <string name="barcodeId">Strekkodeverdi</string>

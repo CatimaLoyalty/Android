@@ -148,7 +148,6 @@
     <string name="addFromImage">Избор от галерията</string>
     <string name="addManually">Ръчно въвеждане</string>
     <string name="leaveWithoutSaveConfirmation">Оставяте промените незапазени\?</string>
-    <string name="unsupportedBarcodeType">Щрихкод от този вид не може да бъде показан. Може да бъде поддържан в следващо издание.</string>
     <string name="importStocard">Внасяне от Stocard</string>
     <string name="importVoucherVault">Внасяне от Voucher Vault</string>
     <string name="importVoucherVaultMessage">Изберете файла <i>vouchervault.json</i>, предварително изнесен от Voucher Vault.

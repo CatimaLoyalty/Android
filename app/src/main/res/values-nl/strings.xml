@@ -130,7 +130,6 @@
     <string name="sameAsCardId">Gelijk aan kaart-id</string>
     <string name="barcodeId">Barcodewaarde</string>
     <string name="settings_max_font_size_scale">Max. tekstgrootte</string>
-    <string name="unsupportedBarcodeType">Dit type barcode kan nog niet worden getoond - we hopen hiervoor in een nieuwere versie ondersteuning toe te voegen.</string>
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
     <string name="app_resources">Vrije externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vrije externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>

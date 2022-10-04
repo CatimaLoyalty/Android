@@ -148,7 +148,6 @@
     <string name="setFrontImage">Επιλογή μπροστινής εικόνας</string>
     <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
 \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
-    <string name="unsupportedBarcodeType">Ο τύπος γραμμοκώδικα δεν γίνεται να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
     <string name="frontImageDescription">Μπροστινή εικόνα</string>
     <string name="photos">Φωτογραφίες</string>
     <string name="backImageDescription">Οπίσθια εικόνα</string>

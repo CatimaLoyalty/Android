@@ -13,8 +13,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.barcodes.Barcode;
+import protect.card_locker.barcodes.BarcodeFactory;
+import protect.card_locker.barcodes.BarcodeWithValue;
 
-public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue> {
+public class BarcodeSelectorAdapter extends ArrayAdapter<BarcodeWithValue> {
     private static final String TAG = "Catima";
 
     private final TaskHandler mTasks = new TaskHandler();
@@ -29,12 +32,12 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
         void onRowClicked(int inputPosition, View view);
     }
 
-    public BarcodeSelectorAdapter(Context context, ArrayList<CatimaBarcodeWithValue> barcodes, BarcodeSelectorListener barcodeSelectorListener) {
+    public BarcodeSelectorAdapter(Context context, ArrayList<BarcodeWithValue> barcodes, BarcodeSelectorListener barcodeSelectorListener) {
         super(context, 0, barcodes);
         mListener = barcodeSelectorListener;
     }
 
-    public void setBarcodes(ArrayList<CatimaBarcodeWithValue> barcodes) {
+    public void setBarcodes(ArrayList<BarcodeWithValue> barcodes) {
         clear();
         addAll(barcodes);
         notifyDataSetChanged();
@@ -43,9 +46,9 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        CatimaBarcodeWithValue catimaBarcodeWithValue = getItem(position);
-        CatimaBarcode catimaBarcode = catimaBarcodeWithValue.catimaBarcode();
-        String value = catimaBarcodeWithValue.value();
+        BarcodeWithValue barcodeWithValue = getItem(position);
+        Barcode catimaBarcode = barcodeWithValue.barcode();
+        String value = barcodeWithValue.value();
 
         ViewHolder viewHolder;
         if (convertView == null) {
@@ -73,7 +76,7 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
     }
 
     private void createBarcodeOption(final ImageView image, final String formatType, final String cardId, final TextView text) {
-        final CatimaBarcode format = CatimaBarcode.fromName(formatType);
+        final Barcode format = BarcodeFactory.fromName(formatType);
 
         image.setImageBitmap(null);
         image.setClipToOutline(true);

@@ -190,7 +190,6 @@
     <string name="barcodeId">Hodnota čiarového kódu</string>
     <string name="sameAsCardId">Rovnaké ako ID</string>
     <string name="setBarcodeId">Nastavenie hodnoty čiarového kódu</string>
-    <string name="unsupportedBarcodeType">Tento typ čiarového kódu zatiaľ nie je možné zobraziť. Možno bude podporovaný v neskoršej verzii aplikácie.</string>
     <string name="wrongValueForBarcodeType">Hodnota nie je platná pre vybraný typ čiarového kódu</string>
     <string name="frontImageDescription">Obrázok prednej strany</string>
     <string name="backImageDescription">Obrázok zadnej strany</string>

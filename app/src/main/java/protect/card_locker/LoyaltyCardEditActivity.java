@@ -77,6 +77,8 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.barcodes.Barcode;
+import protect.card_locker.barcodes.BarcodeFactory;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final String TAG = "Catima";
@@ -204,7 +206,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (Currency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
                 (String) (fieldName == LoyaltyCardField.cardId ? value : loyaltyCard.cardId),
                 (String) (fieldName == LoyaltyCardField.barcodeId ? value : loyaltyCard.barcodeId),
-                (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
+                (Barcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
                 (Integer) (fieldName == LoyaltyCardField.headerColor ? value : loyaltyCard.headerColor),
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
                 0, // Unimportant, always set to null in doSave so the DB updates it to the current timestamp
@@ -553,13 +555,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         updateTempState(LoyaltyCardField.barcodeType, null);
                     } else {
                         try {
-                            CatimaBarcode barcodeFormat = CatimaBarcode.fromPrettyName(s.toString());
-
-                            updateTempState(LoyaltyCardField.barcodeType, barcodeFormat);
-
-                            if (!barcodeFormat.isSupported()) {
-                                Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
-                            }
+                            updateTempState(LoyaltyCardField.barcodeType, barcodeTypeField.getTag());
                         } catch (IllegalArgumentException e) {
                         }
                     }
@@ -820,7 +816,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
         cardIdFieldView.setText(tempLoyaltyCard.cardId);
         barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
-        barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.prettyName() : getString(R.string.noBarcode));
+        setbarcodeTypeField(tempLoyaltyCard.barcodeType);
 
         if (groupsChips.getChildCount() == 0) {
             List<Group> existingGroups = DBHelper.getGroups(mDatabase);
@@ -869,9 +865,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         // Update from intent
         if (barcodeType != null) {
             try {
-                barcodeTypeField.setText(CatimaBarcode.fromName(barcodeType).prettyName());
+                Barcode barcode = BarcodeFactory.fromName(barcodeType);
+                setbarcodeTypeField(barcode);
             } catch (IllegalArgumentException e) {
-                barcodeTypeField.setText(getString(R.string.noBarcode));
+                setbarcodeTypeField(null);
             }
         }
 
@@ -947,6 +944,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         } else if (applyFallback) {
             imageView.setImageResource(R.drawable.ic_camera_white);
         }
+    }
+
+    private void setbarcodeTypeField(Barcode barcode) {
+        barcodeTypeField.setTag(barcode);
+        barcodeTypeField.setText(barcode != null ? barcode.prettyName() : getString(R.string.noBarcode));
     }
 
     protected static void formatExpiryField(Context context, EditText expiryField, Date expiry) {

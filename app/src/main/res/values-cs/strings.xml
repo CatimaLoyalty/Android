@@ -129,7 +129,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Chci s vámi sdílet karty</string>
     <string name="copy_to_clipboard_multiple_toast">ID zkopírována do schránky</string>
     <string name="wrongValueForBarcodeType">Hodnota není platná pro vybraný typ čárového kódu</string>
-    <string name="unsupportedBarcodeType">Tento typ čárového kódu zatím nelze zobrazit. Možná bude podporován v pozdější verzi aplikace.</string>
     <string name="barcodeId">Hodnota čárového kódu</string>
     <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
     <string name="sameAsCardId">Stejné jako ID</string>

@@ -167,7 +167,6 @@
     <string name="importVoucherVault">Impor dari Voucher Vault</string>
     <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Vault Voucher untuk diimpor. 
 \nBuat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
-    <string name="unsupportedBarcodeType">Jenis barcode ini belum dapat ditampilkan. Ini mungkin didukung di versi aplikasi yang lebih baru.</string>
     <string name="wrongValueForBarcodeType">Nilai tidak berlaku untuk jenis barcode yang dipilih</string>
     <string name="copy_to_clipboard_multiple_toast">ID disalin ke papan klip</string>
     <string name="frontImageDescription">Gambar depan</string>

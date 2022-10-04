@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 
-import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Utils;

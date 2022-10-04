@@ -131,7 +131,6 @@
     <string name="sameAsCardId">Identique à l’identifiant</string>
     <string name="barcodeId">Valeur du code-barres</string>
     <string name="settings_max_font_size_scale">Taille max. de la police</string>
-    <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
     <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>

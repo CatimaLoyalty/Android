@@ -17,6 +17,7 @@ import com.google.zxing.common.BitMatrix;
 import java.lang.ref.WeakReference;
 
 import protect.card_locker.async.CompatCallable;
+import protect.card_locker.barcodes.Barcode;
 
 /**
  * This task will generate a barcode and load it into an ImageView.
@@ -38,7 +39,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private final WeakReference<ImageView> imageViewReference;
     private final WeakReference<TextView> textViewReference;
     private String cardId;
-    private final CatimaBarcode format;
+    private final Barcode format;
     private final int imageHeight;
     private final int imageWidth;
     private final boolean showFallback;
@@ -46,7 +47,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
-            CatimaBarcode barcodeFormat, TextView textView,
+            Barcode barcodeFormat, TextView textView,
             boolean showFallback, Runnable callback, boolean roundCornerPadding
     ) {
         mContext = context;
@@ -90,68 +91,8 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         this.showFallback = showFallback;
     }
 
-    private int getMaxWidth(CatimaBarcode format) {
-        switch (format.format()) {
-            // 2D barcodes
-            case AZTEC:
-            case DATA_MATRIX:
-            case MAXICODE:
-            case PDF_417:
-            case QR_CODE:
-                return MAX_WIDTH_2D;
-
-            // 1D barcodes:
-            case CODABAR:
-            case CODE_39:
-            case CODE_93:
-            case CODE_128:
-            case EAN_8:
-            case EAN_13:
-            case ITF:
-            case UPC_A:
-            case UPC_E:
-            case RSS_14:
-            case RSS_EXPANDED:
-            case UPC_EAN_EXTENSION:
-            default:
-                return MAX_WIDTH_1D;
-        }
-    }
-
-    private String getFallbackString(CatimaBarcode format) {
-        switch (format.format()) {
-            // 2D barcodes
-            case AZTEC:
-                return "AZTEC";
-            case DATA_MATRIX:
-                return "DATA_MATRIX";
-            case PDF_417:
-                return "PDF_417";
-            case QR_CODE:
-                return "QR_CODE";
-
-            // 1D barcodes:
-            case CODABAR:
-                return "C0C";
-            case CODE_39:
-                return "CODE_39";
-            case CODE_93:
-                return "CODE_93";
-            case CODE_128:
-                return "CODE_128";
-            case EAN_8:
-                return "32123456";
-            case EAN_13:
-                return "5901234123457";
-            case ITF:
-                return "1003";
-            case UPC_A:
-                return "123456789012";
-            case UPC_E:
-                return "0123456";
-            default:
-                throw new IllegalArgumentException("No fallback known for this barcode type");
-        }
+    private int getMaxWidth(Barcode format) {
+        return format.is2D() ? MAX_WIDTH_2D : MAX_WIDTH_1D;
     }
 
     private Bitmap generate() {
@@ -227,7 +168,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
                 if (showFallback && !Thread.currentThread().isInterrupted()) {
                     Log.i(TAG, "Barcode generation failed, generating fallback...");
-                    cardId = getFallbackString(format);
+                    cardId = format.exampleValue();
                     bitmap = generate();
                     return bitmap;
                 }

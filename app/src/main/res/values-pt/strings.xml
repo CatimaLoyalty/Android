@@ -161,7 +161,6 @@
     <string name="importVoucherVault">Importar do Voucher Vault</string>
     <string name="importVoucherVaultMessage">Selecione a exportação <i>vouchervault.json</i> do Voucher Vault para importar.
 \nCrie-a primeiro pressionando a opção \"Exportar\" no Voucher Vault.</string>
-    <string name="unsupportedBarcodeType">Este tipo de código de barras ainda não pode ser mostrado. Pode vir a ser suportado numa versão posterior da aplicação.</string>
     <string name="copy_to_clipboard_multiple_toast">Identificação copiado para a área de transferência</string>
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem de trás</string>

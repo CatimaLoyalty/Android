@@ -54,7 +54,6 @@
     <string name="updateBarcodeQuestionTitle">Aktualiséiert barcode-Wäert\?</string>
     <string name="intent_import_card_from_url_share_text">Ech wëll eng Kaart mat dir deelen</string>
     <string name="importSuccessfulTitle">Anere sproochen</string>
-    <string name="unsupportedBarcodeType">Dee barcode-Typ kann net ugewise ginn. Et kann zu enger spéiderer Versioun vun der App ënnerstëtzt ginn.</string>
     <string name="yes">Jo</string>
     <string name="importFailedTitle">Import fehlgeschlagen</string>
     <string name="importFailed">Kaarten konnten net anere sproochen ginn</string>

@@ -102,7 +102,6 @@
     <string name="barcodeId">قيمة الباركود</string>
     <string name="sameAsCardId">نفس بطاقة الهوية</string>
     <string name="setBarcodeId">قم بتعيين قيمة الباركود</string>
-    <string name="unsupportedBarcodeType">لا يمكن عرض نوع الباركود هذا. قد يكون مدعومًا في إصدار أحدث من التطبيق.</string>
     <string name="wrongValueForBarcodeType">القيمة غير صالحة لنوع الباركود المحدد</string>
     <string name="copy_to_clipboard_multiple_toast">تم نسخ بطاقات الهوية إلى الحافظة</string>
     <string name="intent_import_card_from_url_share_multiple_text">أريد مشاركة بعض البطاقات معك</string>

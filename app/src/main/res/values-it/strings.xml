@@ -131,7 +131,6 @@
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
     <string name="settings_max_font_size_scale">Dimensione massima del carattere</string>
-    <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
     <string name="app_resources">Risorse libere di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
     <string name="app_libraries">Librerie libere di terze parti: <xliff:g id="app_libraries_list"> %s </xliff:g></string>

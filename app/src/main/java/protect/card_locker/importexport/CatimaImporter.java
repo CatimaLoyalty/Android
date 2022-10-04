@@ -25,7 +25,6 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
-import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Group;

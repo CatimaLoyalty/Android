@@ -24,7 +24,6 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.HashMap;
 
-import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.ImageLocationType;

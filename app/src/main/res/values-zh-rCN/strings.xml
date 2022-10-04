@@ -19,7 +19,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">我想和你分享一些卡片</string>
     <string name="copy_to_clipboard_multiple_toast">卡号已复制到剪贴板</string>
     <string name="wrongValueForBarcodeType">该值对所选条形码类型无效</string>
-    <string name="unsupportedBarcodeType">此条形码类型尚无法显示。较新版本的应用程序可能提供支持。</string>
     <string name="setBarcodeId">设置条形码值</string>
     <string name="sameAsCardId">与卡号相同</string>
     <string name="barcodeId">条形码值</string>

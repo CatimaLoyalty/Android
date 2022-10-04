@@ -64,6 +64,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.barcodes.Barcode;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements GestureDetector.OnGestureListener {
@@ -101,7 +102,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     String cardIdString;
     String barcodeIdString;
-    CatimaBarcode format;
+    Barcode format;
 
     FloatingActionButton editButton;
 
@@ -117,7 +118,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     int mainImageIndex = 0;
     List<ImageType> imageTypes;
     private ImageView[] dots;
-    boolean isBarcodeSupported = true;
 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
@@ -713,17 +713,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         // Set shadow colour of store text so even same color on same color would be readable
         storeName.setShadowLayer(1, 1, 1, backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE);
 
-        if (format != null && !format.isSupported()) {
-            isBarcodeSupported = false;
-
-            Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
-        } else if (format == null) {
-            isBarcodeSupported = false;
-        }
-
         imageTypes = new ArrayList<>();
 
-        if (isBarcodeSupported) {
+        if (format != null) {
             imageTypes.add(ImageType.BARCODE);
         }
 

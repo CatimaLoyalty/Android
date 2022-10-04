@@ -18,6 +18,9 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+import protect.card_locker.barcodes.Barcode;
+import protect.card_locker.barcodes.BarcodeFactory;
+import protect.card_locker.barcodes.BarcodeWithValue;
 
 /**
  * This activity is callable and will allow a user to enter
@@ -86,10 +89,10 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
 
     private void generateBarcodes(String value) {
         // Update barcodes
-        ArrayList<CatimaBarcodeWithValue> barcodes = new ArrayList<>();
-        for (BarcodeFormat barcodeFormat : CatimaBarcode.barcodeFormats) {
-            CatimaBarcode catimaBarcode = CatimaBarcode.fromBarcode(barcodeFormat);
-            barcodes.add(new CatimaBarcodeWithValue(catimaBarcode, value));
+        ArrayList<BarcodeWithValue> barcodes = new ArrayList<>();
+        for (BarcodeFormat barcodeFormat : BarcodeFactory.getAllFormats()) {
+            Barcode catimaBarcode = BarcodeFactory.fromBarcode(barcodeFormat);
+            barcodes.add(new BarcodeWithValue(catimaBarcode, value));
         }
         mAdapter.setBarcodes(barcodes);
     }
@@ -118,7 +121,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public void onRowClicked(int inputPosition, View view) {
-        CatimaBarcodeWithValue barcodeWithValue = mAdapter.getItem(inputPosition);
+        BarcodeWithValue barcodeWithValue = mAdapter.getItem(inputPosition);
         CatimaBarcode catimaBarcode = barcodeWithValue.catimaBarcode();
 
         if (!mAdapter.isValid(view)) {

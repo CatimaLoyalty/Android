@@ -72,7 +72,6 @@
     <string name="intent_import_card_from_url_share_multiple_text">Noriu su jumis pasidalyti keliomis kortelėmis</string>
     <string name="copy_to_clipboard_multiple_toast">Kortelės ID nukopijuotas į iškarpinę</string>
     <string name="wrongValueForBarcodeType">Vertė netinkama pasirinktam brūkšninio kodo tipui</string>
-    <string name="unsupportedBarcodeType">Šio brūkšninio kodo tipo dar negalima rodyti. Galbūt jis bus palaikomas vėlesnėje programėlės versijoje.</string>
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>
     <string name="sameAsCardId">Tokia pat kaip kortelės ID</string>
     <string name="barcodeId">Brūkšninio kodo reikšmė</string>

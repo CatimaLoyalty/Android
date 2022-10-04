@@ -156,5 +156,4 @@
     <string name="updateBarcodeQuestionText">Spremenili ste številko kartice. Želite posodobiti tudi črtno kodo na enako vrednost?</string>
     <string name="updateBarcodeQuestionTitle">Posodobi črtno kodo?</string>
     <string name="removeImage">Odstrani sliko</string>
-    <string name="unsupportedBarcodeType">Te vrste črtne kode aplikacija ne more prikazati. Morda bo to možno v prihodnosti.</string>
 </resources>

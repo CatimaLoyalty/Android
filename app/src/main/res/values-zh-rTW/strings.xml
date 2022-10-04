@@ -194,7 +194,6 @@
     <string name="moveBarcodeToTopOfScreen">將條碼移至螢幕上方</string>
     <string name="moveBarcodeToCenterOfScreen">將條碼移至螢幕中央</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
-    <string name="unsupportedBarcodeType">尚支援此條碼種類，但未來版本的應用程式可能會支援此條碼種類。</string>
     <string name="wrongValueForBarcodeType">條碼內容不適用於此條碼種類</string>
     <string name="backImageDescription">背面圖片</string>
     <string name="updateBarcodeQuestionText">您已更新了 ID，是否要更新條碼內容以匹配此 ID？</string>

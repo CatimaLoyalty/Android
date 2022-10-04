@@ -22,7 +22,6 @@
     <string name="updateBarcodeQuestionText">Ви змінили ID. Чи ви бажаєте оновити штрих-код для використання цього ж значення\?</string>
     <string name="updateBarcodeQuestionTitle">Оновити значення штрих-коду\?</string>
     <string name="wrongValueForBarcodeType">Значення не дійсне для обраного типу штрих-коду</string>
-    <string name="unsupportedBarcodeType">Цей тип штрих-коду поки що не відображається. Підтримку може бути додано в подальших версіях програми.</string>
     <string name="setBarcodeId">Встановіть значення штрих-коду</string>
     <string name="sameAsCardId">Таке ж як ID</string>
     <string name="barcodeId">Значення штрих-коду</string>

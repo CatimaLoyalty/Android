@@ -132,7 +132,6 @@
     <string name="frontImageDescription">Imagen frontal</string>
     <string name="copy_to_clipboard_multiple_toast">Códigos copiados al portapapeles</string>
     <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
-    <string name="unsupportedBarcodeType">Este tipo de código de barras todavía no se puede visualizar. Es posible que se admita en una futura versión de la aplicación.</string>
     <string name="setBarcodeId">Establecer valor de código de barra</string>
     <string name="sameAsCardId">Igual que el código</string>
     <string name="barcodeId">Valor de código de barra</string>

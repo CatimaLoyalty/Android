@@ -1,7 +1,9 @@
 import com.github.spotbugs.snom.SpotBugsTask
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.github.spotbugs'
+plugins {
+    id 'com.android.application'
+    id 'com.github.spotbugs'
+}
 
 spotbugs {
     ignoreFailures = false
@@ -11,13 +13,12 @@ spotbugs {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    compileSdk 31
 
     defaultConfig {
         applicationId "me.hackerchick.catima"
-        minSdkVersion 21
-        targetSdkVersion 31
+        minSdk 21
+        targetSdk 31
         versionCode 114
         versionName "2.20.0"
 
@@ -37,6 +38,10 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     bundle {
         language {
             enableSplit = false
@@ -54,8 +59,7 @@ android {
     }
 
     lintOptions {
-        disable "GoogleAppIndexingWarning", "ButtonStyle", "AlwaysShowAction",
-                "MissingTranslation", "MissingPrefix"
+        lintConfig file("lint.xml")
     }
 
     sourceSets {

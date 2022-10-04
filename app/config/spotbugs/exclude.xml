@@ -6,5 +6,8 @@
     <Match>
         <Class name="~.*Manifest\$.*"/>
     </Match>
+    <Match>
+        <Class name="~.*Binding" />
+    </Match>
 
 </FindBugsFilter>

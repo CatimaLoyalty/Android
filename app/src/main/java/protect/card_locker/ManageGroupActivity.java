@@ -25,8 +25,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.ActivityManageGroupBinding;
+
 public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
 
+    private ActivityManageGroupBinding binding;
     private SQLiteDatabase mDatabase;
     private ManageGroupCursorAdapter mAdapter;
 
@@ -43,17 +46,18 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
-        setContentView(R.layout.activity_manage_group);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        binding = ActivityManageGroupBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        noGroupCardsText = findViewById(R.id.noGroupCardsText);
-        mCardList = findViewById(R.id.list);
-        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        noGroupCardsText = binding.include.noGroupCardsText;
+        mCardList = binding.include.list;
+        FloatingActionButton saveButton = binding.fabSave;
 
-        mGroupNameText = findViewById(R.id.editTextGroupName);
+        mGroupNameText = binding.editTextGroupName;
 
         mGroupNameText.addTextChangedListener(new TextWatcher() {
             @Override

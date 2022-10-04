@@ -24,7 +24,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.ManageGroupsActivityBinding;
+
 public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
+    private ManageGroupsActivityBinding binding;
     private static final String TAG = "Catima";
 
     private SQLiteDatabase mDatabase;
@@ -35,9 +38,10 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ManageGroupsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.groups);
-        setContentView(R.layout.manage_groups_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -51,12 +55,12 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     protected void onResume() {
         super.onResume();
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        FloatingActionButton addButton = binding.fabAdd;
         addButton.setOnClickListener(v -> createGroup());
         addButton.bringToFront();
 
-        mGroupList = findViewById(R.id.list);
-        mHelpText = findViewById(R.id.helpText);
+        mGroupList = binding.include.list;
+        mHelpText = binding.include.helpText;
 
         // Init group list
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

@@ -1,0 +1,1 @@
+- Aggirato il crash durante l'installazione su alcune versioni di Android (probabilmente Android 5 e inferiori). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

@@ -1,0 +1,4 @@
+- Traduzione in olandese
+- Possibilità di modificare il campo del nome una volta aggiunta la carta fedeltà
+- Aggiunta campo per nota opzionale
+- Risoluzione dei problemi identificati da FindBugs e far sì che tutti i problemi di FindBugs siano risolti prima dell'accettazione della richiesta di pull

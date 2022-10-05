@@ -1,0 +1,2 @@
+- Poprawiono szary blok pojawiający się przy nieprawidłowej wartości kodu kreskowego
+- Poprawki dla importu ze Stocard

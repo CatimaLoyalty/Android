@@ -146,7 +146,7 @@
 \n
 \nNINGÚN DATO SE RECOPILA, cualquiera puede confirmar ya que nuestra aplicación es software libre.</string>
     <string name="privacy_policy">Política de privacidad</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Llavero con tarjeta de fidelización</string>
     <string name="chooseImportType">Importar datos de</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> no tendría un saldo válido.</string>
     <string name="currency">Moneda</string>
@@ -225,7 +225,7 @@
     <string name="selectColor">Seleccione el color</string>
     <string name="setIcon">Establecer icono</string>
     <string name="sort">Ordenar</string>
-    <string name="swipeToSwitchImages">Desliza el dedo o haz una pulsación larga para cambiar de imagen</string>
+    <string name="swipeToSwitchImages">Desliza para cambiar de imagen, mantén presionado para abrir la imagen en la aplicación de la galería</string>
     <string name="sort_by">Ordenar por</string>
     <string name="rate_this_app">Califica esta aplicación</string>
     <string name="options">Opciones</string>
@@ -258,4 +258,7 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> tarjetas (archivadas)<xliff:g id="archivedCount">%2$d</xliff:g></item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> tarjetas (archivadas)<xliff:g id="archivedCount">%2$d</xliff:g></item>
     </plurals>
+    <string name="starred">Estrellado</string>
+    <string name="failedToRetrieveImageFile">No se pudo recuperar el archivo de imagen</string>
+    <string name="barcodeLongPressMessage">Solo se pueden abrir imágenes en la aplicación de galería</string>
 </resources>

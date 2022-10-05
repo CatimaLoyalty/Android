@@ -1,0 +1,3 @@
+- Ajout d'une option de menu de verrouillage de la rotation de l'écran lors de l'affichage d'une carte. Si cette option est verrouillée, l'écran retrouvera son orientation "naturelle" et toute rotation ultérieure de l'écran sera bloquée. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Si une carte est sélectionnée à partir de l'écran principal mais ne peut être chargée, l'application échoue gracieusement et affiche un message. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Correction du cas où les ID de mise en page pour l'assistant d'introduction ne pouvaient pas être trouvés. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

@@ -1,0 +1,1 @@
+- Ouvrir l' image dans la galerie sur appui-long

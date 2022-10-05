@@ -1,0 +1,4 @@
+- Stocard-Importer verbessert
+- Import von Catima-Export mit mehrzeiligem Hinweis behoben
+- Kartentitel im akzeptablen Bereich skaliert
+- Verbesserungen der Animation

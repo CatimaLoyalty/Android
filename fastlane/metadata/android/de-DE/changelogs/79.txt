@@ -1,0 +1,2 @@
+- Behebung des Fehlers, bei dem das Widget anders aussehende Verknüpfungen als die App-Verknüpfungen erstellt
+- Standardmäßigen schwarzen Android-Bildschirm durch den Begrüßungsbildschirm ersetzt

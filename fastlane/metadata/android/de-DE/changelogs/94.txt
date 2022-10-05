@@ -1,0 +1,3 @@
+- Unschärfe der Buchstabensymbole auf dem Hauptbildschirm behoben
+- Behebung des Problems, dass Icons manchmal nach der Auswahl verschwinden
+- Behebung der Unsichtbarkeit von Statusleistensymbolen unter Android 5

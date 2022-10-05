@@ -1,1 +1,2 @@
 - Open image in gallery on long-press
+- Apply Material style to dialogs

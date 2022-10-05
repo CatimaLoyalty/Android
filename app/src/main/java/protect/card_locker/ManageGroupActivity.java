@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -204,7 +205,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
     private void leaveWithoutSaving() {
         if (hasChanged()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ManageGroupActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(ManageGroupActivity.this);
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> finish());

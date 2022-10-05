@@ -21,10 +21,11 @@ import java.util.Calendar;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.text.HtmlCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import protect.card_locker.databinding.AboutActivityBinding;
 
@@ -131,7 +132,7 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         contributorInfo.append("\n\n");
         contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
 
-        credits.setOnClickListener(view -> new AlertDialog.Builder(this)
+        credits.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.credits)
                 .setMessage(contributorInfo.toString())
                 .setPositiveButton(R.string.ok, (dialogInterface, i) -> {

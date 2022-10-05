@@ -29,6 +29,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.ImportExportActivityBinding;
 import protect.card_locker.importexport.DataFormat;
@@ -131,7 +134,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Button exportButton = binding.exportButton;
         exportButton.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(ImportExportActivity.this);
             builder.setTitle(R.string.exportPassword);
 
             FrameLayout container = new FrameLayout(ImportExportActivity.this);
@@ -194,7 +197,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             importOptions.add(importOption);
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.chooseImportType)
                 .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
                     switch (which) {
@@ -232,7 +235,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             throw new IllegalArgumentException("Unknown DataFormat");
                     }
 
-                    new AlertDialog.Builder(this)
+                    new MaterialAlertDialogBuilder(this)
                             .setTitle(importAlertTitle)
                             .setMessage(importAlertMessage)
                             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -343,7 +346,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void retryWithPassword(DataFormat dataFormat, Uri uri) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.passwordRequired);
 
         final EditText input = new EditText(this);
@@ -386,7 +389,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(resultType == ImportExportResultType.Success ? R.string.importSuccessfulTitle : R.string.importFailedTitle);
         builder.setMessage(buildResultDialogMessage(result, true));
         builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
@@ -397,7 +400,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private void onExportComplete(ImportExportResult result, final Uri path) {
         ImportExportResultType resultType = result.resultType();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(resultType == ImportExportResultType.Success ? R.string.exportSuccessfulTitle : R.string.exportFailedTitle);
         builder.setMessage(buildResultDialogMessage(result, false));
         builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());

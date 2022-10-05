@@ -21,6 +21,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -150,7 +151,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 inputMode.finish();
                 return true;
             } else if (inputItem.getItemId() == R.id.action_delete) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new MaterialAlertDialogBuilder(MainActivity.this);
                 // The following may seem weird, but it is necessary to give translators enough flexibility.
                 // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
                 // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
@@ -620,7 +621,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(MainActivity.this);
             builder.setTitle(R.string.sort_by);
 
             SortingOptionBinding sortingOptionBinding = SortingOptionBinding

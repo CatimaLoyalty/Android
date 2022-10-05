@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -113,7 +114,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void createGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -197,7 +198,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     public void onDeleteButtonClicked(View view) {
         final String groupName = getGroupName(view);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);
         builder.setMessage(groupName);
 

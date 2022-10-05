@@ -38,6 +38,7 @@ import android.widget.Toast;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.color.MaterialColors;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -513,7 +514,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         barcodeIdField.setText(lastValue);
                     }
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoyaltyCardEditActivity.this);
+                    AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardEditActivity.this);
                     builder.setTitle(R.string.setBarcodeId);
                     final EditText input = new EditText(LoyaltyCardEditActivity.this);
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -1006,7 +1007,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        new AlertDialog.Builder(this)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.updateBarcodeQuestionTitle)
                 .setMessage(R.string.updateBarcodeQuestionText)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
@@ -1040,7 +1041,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
 
         if (confirmExitDialog == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
@@ -1210,7 +1211,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 throw new IllegalArgumentException("Unknown ID type " + v.getId());
             }
 
-            new AlertDialog.Builder(LoyaltyCardEditActivity.this)
+            new MaterialAlertDialogBuilder(LoyaltyCardEditActivity.this)
                     .setTitle(getString(titleResource))
                     .setItems(cardOptions.keySet().toArray(new CharSequence[cardOptions.size()]), (dialog, which) -> {
                         Iterator<Callable<Void>> callables = cardOptions.values().iterator();

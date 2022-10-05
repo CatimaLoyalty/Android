@@ -53,6 +53,7 @@ import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -464,7 +465,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void showInfoDialog() {
-        AlertDialog.Builder infoDialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder infoDialog = new MaterialAlertDialogBuilder(this);
 
         TextView infoTitleView = new TextView(this);
         infoTitleView.setPadding(20, 20, 20, 20);
@@ -843,7 +844,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_delete) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
             builder.setTitle(R.string.deleteTitle);
             builder.setMessage(R.string.deleteConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> {

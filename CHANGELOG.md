@@ -3,6 +3,7 @@
 ## Unreleased - 115
 
 - Open image in gallery on long-press
+- Apply Material style to dialogs
 
 ## v2.20.0 - 114
 

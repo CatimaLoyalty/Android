@@ -286,6 +286,12 @@ public class CatimaImporter implements Importer {
         }
 
         String note = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
+        Date validFrom = null;
+        try {
+            validFrom = new Date(CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record, true));
+        } catch (NullPointerException | FormatException e) {
+        }
+
         Date expiry = null;
         try {
             expiry = new Date(CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record, true));
@@ -355,7 +361,7 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
+        DBHelper.insertLoyaltyCard(database, id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
     }
 
     /**

@@ -234,7 +234,7 @@ public class StocardImporter implements Importer {
                 headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
             }
 
-            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, null,0);
+            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, null,0);
 
             if (cardIcon != null) {
                 Utils.saveCardImage(context, cardIcon, (int) loyaltyCardInternalId, ImageLocationType.icon);

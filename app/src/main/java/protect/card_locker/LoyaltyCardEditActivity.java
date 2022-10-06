@@ -71,6 +71,7 @@ import java.util.concurrent.Callable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -130,6 +131,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     EditText storeFieldEdit;
     EditText noteFieldEdit;
     ChipGroup groupsChips;
+    AutoCompleteTextView validFromField;
     AutoCompleteTextView expiryField;
     EditText balanceField;
     AutoCompleteTextView balanceCurrencyField;
@@ -208,6 +210,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (int) (fieldName == LoyaltyCardField.id ? value : loyaltyCard.id),
                 (String) (fieldName == LoyaltyCardField.store ? value : loyaltyCard.store),
                 (String) (fieldName == LoyaltyCardField.note ? value : loyaltyCard.note),
+                (Date) (fieldName == LoyaltyCardField.validFrom ? value : loyaltyCard.validFrom),
                 (Date) (fieldName == LoyaltyCardField.expiry ? value : loyaltyCard.expiry),
                 (BigDecimal) (fieldName == LoyaltyCardField.balance ? value : loyaltyCard.balance),
                 (Currency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
@@ -328,6 +331,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         storeFieldEdit = binding.storeNameEdit;
         noteFieldEdit = binding.noteEdit;
         groupsChips = binding.groupChips;
+        validFromField = binding.validFromField;
         expiryField = binding.expiryField;
         balanceField = binding.balanceField;
         balanceCurrencyField = binding.balanceCurrencyField;
@@ -367,38 +371,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
         });
 
-        expiryField.addTextChangedListener(new SimpleTextWatcher() {
-            CharSequence lastValue;
+        addDateFieldTextChangedListener(validFromField, R.string.anyDate, R.string.chooseValidFromDate, LoyaltyCardField.validFrom);
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                lastValue = s;
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().equals(getString(R.string.never))) {
-                    expiryField.setTag(null);
-                } else if (s.toString().equals(getString(R.string.chooseExpiryDate))) {
-                    if (!lastValue.toString().equals(getString(R.string.chooseExpiryDate))) {
-                        expiryField.setText(lastValue);
-                    }
-                    DialogFragment datePickerFragment = new DatePickerFragment(LoyaltyCardEditActivity.this, expiryField);
-                    datePickerFragment.show(getSupportFragmentManager(), "datePicker");
-                }
-
-                updateTempState(LoyaltyCardField.expiry, expiryField.getTag());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                ArrayList<String> expiryList = new ArrayList<>();
-                expiryList.add(0, getString(R.string.never));
-                expiryList.add(1, getString(R.string.chooseExpiryDate));
-                ArrayAdapter<String> expiryAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, expiryList);
-                expiryField.setAdapter(expiryAdapter);
-            }
-        });
+        addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
@@ -779,7 +754,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0);
 
             }
         }
@@ -822,7 +797,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         storeFieldEdit.setText(tempLoyaltyCard.store);
         noteFieldEdit.setText(tempLoyaltyCard.note);
-        formatExpiryField(this, expiryField, tempLoyaltyCard.expiry);
+        formatDateField(this, validFromField, tempLoyaltyCard.validFrom);
+        formatDateField(this, expiryField, tempLoyaltyCard.expiry);
         formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
         cardIdFieldView.setText(tempLoyaltyCard.cardId);
         barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
@@ -957,13 +933,56 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
     }
 
-    protected static void formatExpiryField(Context context, EditText expiryField, Date expiry) {
-        expiryField.setTag(expiry);
+    protected void addDateFieldTextChangedListener(AutoCompleteTextView dateField, @StringRes int defaultOptionStringId, @StringRes int chooseDateOptionStringId, LoyaltyCardField loyaltyCardField) {
+        dateField.addTextChangedListener(new SimpleTextWatcher() {
+            CharSequence lastValue;
 
-        if (expiry == null) {
-            expiryField.setText(context.getString(R.string.never));
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                lastValue = s;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals(getString(defaultOptionStringId))) {
+                    dateField.setTag(null);
+                } else if (s.toString().equals(getString(chooseDateOptionStringId))) {
+                    if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
+                        dateField.setText(lastValue);
+                    }
+                    DialogFragment datePickerFragment = new DatePickerFragment(LoyaltyCardEditActivity.this, dateField);
+                    datePickerFragment.show(getSupportFragmentManager(), "datePicker");
+                }
+
+                updateTempState(loyaltyCardField, dateField.getTag());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ArrayList<String> dropdownOptions = new ArrayList<>();
+                dropdownOptions.add(0, getString(defaultOptionStringId));
+                dropdownOptions.add(1, getString(chooseDateOptionStringId));
+                ArrayAdapter<String> dropdownOptionsAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, dropdownOptions);
+                dateField.setAdapter(dropdownOptionsAdapter);
+            }
+        });
+    }
+
+    protected static void formatDateField(Context context, EditText textField, Date date) {
+        textField.setTag(date);
+
+        if (date == null) {
+            String text;
+            if (textField.getId() == R.id.validFromField) {
+                text = context.getString(R.string.anyDate);
+            } else if (textField.getId() == R.id.expiryField) {
+                text = context.getString(R.string.never);
+            } else {
+                throw new IllegalArgumentException("Unknown textField Id " + textField.getId());
+            }
+            textField.setText(text);
         } else {
-            expiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
+            textField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(date));
         }
     }
 
@@ -1282,11 +1301,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             implements DatePickerDialog.OnDateSetListener {
 
         final Context context;
-        final EditText expiryFieldEdit;
+        final EditText textFieldEdit;
 
-        DatePickerFragment(Context context, EditText expiryFieldEdit) {
+        DatePickerFragment(Context context, EditText textFieldEdit) {
             this.context = context;
-            this.expiryFieldEdit = expiryFieldEdit;
+            this.textFieldEdit = textFieldEdit;
         }
 
         @NonNull
@@ -1295,7 +1314,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             // Use the current date as the default date in the picker
             final Calendar c = Calendar.getInstance();
 
-            Date date = (Date) expiryFieldEdit.getTag();
+            Date date = (Date) textFieldEdit.getTag();
             if (date != null) {
                 c.setTime(date);
             }
@@ -1331,7 +1350,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             Date date = new Date(unixTime);
 
-            formatExpiryField(context, expiryFieldEdit, date);
+            formatDateField(context, textFieldEdit, date);
         }
     }
 
@@ -1372,9 +1391,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         // This makes the DBHelper set it to the current date
         // So that new and edited card are always on top when sorting by recently used
         if (updateLoyaltyCard) {
-            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, tempLoyaltyCard.starStatus, null, tempLoyaltyCard.archiveStatus);
+            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, tempLoyaltyCard.starStatus, null, tempLoyaltyCard.archiveStatus);
         } else {
-            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, null, 0);
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, null, 0);
         }
 
         try {

@@ -1,0 +1,2 @@
+- Ajout de la prise en charge des raccourcis d'applications (Android 7.1+), où les cartes les plus récemment utilisées apparaîtront comme raccourcis. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Ajout d'un widget qui fonctionne comme un raccourci d'application épinglé, pour prendre en charge les appareils fonctionnant sous Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

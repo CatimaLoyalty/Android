@@ -1,0 +1,4 @@
+- Verbesserte Unterstützung für Screenreader
+- Absturz beim Versuch, ein Video aus der Galerie zu öffnen, behoben
+- Swipe-Unterstützung auf dem Kundenkarten-Ansichtsbildschirm
+- Gruppe wird beim Drücken der Zurück-Taste nicht mehr zurückgesetzt

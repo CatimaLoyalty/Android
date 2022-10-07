@@ -1,0 +1,4 @@
+- Punkte in der Kartenansicht haben jetzt die richtige Farbe, wenn das Design manuell geändert wird
+- Absturz in der Kartenansicht bei Rotation/Themenwechsel behoben
+- Flashen der Kartenliste repariert
+- Text repariert, der das Sternsymbol überlagert hat

@@ -1,0 +1,1 @@
+- Fehler beim Laden von Fotos beim Bearbeiten vorhandener Karten behoben

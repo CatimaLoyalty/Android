@@ -1,0 +1,7 @@
+Der "Locker" -Teil des Namens war nicht intuitiv. Um dies zu ändern, wurde von betsythefc ein neues Anwendungssymbol erstellt, das den Zweck der Anwendung besser darstellt: die Speicherung von Kundenkarten, die Barcodes verwenden. Zusammen mit diesem neuen Symbol wurde der Name der Anwendung in "Kundenkarten-Schlüsselbund" geändert.
+
+Zusätzliche Funktionen/Verbesserungen:
+
+- Das Importieren/Exportieren von Karten wurde flexibler gestaltet. (pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- Übersetzung für Litauisch hinzugefügt. (pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- Übersetzung für Französisch hinzugefügt. (pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

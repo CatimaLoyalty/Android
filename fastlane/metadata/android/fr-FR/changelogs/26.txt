@@ -1,0 +1,1 @@
+- Empêche un plantage lorsque la generation d'un code-barre rempli la mémoire de l'application. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

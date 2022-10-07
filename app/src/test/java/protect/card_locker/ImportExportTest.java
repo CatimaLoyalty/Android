@@ -1,6 +1,14 @@
 package protect.card_locker;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.robolectric.Shadows.shadowOf;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -10,6 +18,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.os.Looper;
 import android.util.DisplayMetrics;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.test.core.app.ApplicationProvider;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -44,7 +55,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import androidx.core.content.res.ResourcesCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
@@ -52,16 +62,11 @@ import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.importexport.MultiFormatExporter;
 import protect.card_locker.importexport.MultiFormatImporter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.robolectric.Shadows.shadowOf;
-
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 23)
 public class ImportExportTest {
     private Activity activity;
+    private Context context;
     private SQLiteDatabase mDatabase;
 
     private final String BARCODE_DATA = "428311627547";
@@ -72,6 +77,8 @@ public class ImportExportTest {
         ShadowLog.stream = System.out;
 
         activity = Robolectric.setupActivity(MainActivity.class);
+        context = ApplicationProvider.getApplicationContext();
+        context.setTheme(R.style.AppTheme);
         mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
     }
 
@@ -566,7 +573,7 @@ public class ImportExportTest {
         // Export to the file
         final String password = "123456789";
         FileOutputStream fileOutputStream = new FileOutputStream(exportFile);
-        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), listener);
+        ImportExportTask task = new ImportExportTask(activity, DataFormat.Catima, fileOutputStream, password.toCharArray(), listener, context);
         TaskHandler mTasks = new TaskHandler();
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, task);
 
@@ -588,7 +595,7 @@ public class ImportExportTest {
 
         FileInputStream fileStream = new FileInputStream(exportFile);
 
-        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, password.toCharArray(), listener);
+        task = new ImportExportTask(activity, DataFormat.Catima, fileStream, password.toCharArray(), listener, context);
         mTasks.executeTask(TaskHandler.TYPE.IMPORT, task);
 
         // Actually run the task to completion

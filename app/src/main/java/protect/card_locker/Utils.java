@@ -122,7 +122,7 @@ public class Utils {
                     ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
                     bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
                 } else {
-                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+                    bitmap = getBitmapSdkLessThan29(intent, context);
                 }
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
@@ -161,6 +161,11 @@ public class Utils {
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
+    }
+
+    @SuppressWarnings("deprecation")
+    private static Bitmap getBitmapSdkLessThan29(Intent intent, Context context) throws IOException {
+        return MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
     }
 
     static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {
@@ -396,8 +401,7 @@ public class Utils {
         Resources res = context.getResources();
         Configuration configuration = res.getConfiguration();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
-            res.updateConfiguration(configuration, res.getDisplayMetrics());
+            setLocalesSdkLessThan24(chosenLocale, configuration, res);
             return context;
         }
 
@@ -405,6 +409,12 @@ public class Utils {
         LocaleList.setDefault(localeList);
         configuration.setLocales(localeList);
         return context.createConfigurationContext(configuration);
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void setLocalesSdkLessThan24(Locale chosenLocale, Configuration configuration, Resources res) {
+        configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
+        res.updateConfiguration(configuration, res.getDisplayMetrics());
     }
 
     static public long getUnixTime() {
@@ -488,7 +498,7 @@ public class Utils {
         } else {
             // final catch all in case of invalid theme value from older versions
             // also handles R.string.settings_key_system_theme
-            DynamicColors.applyIfAvailable(activity);
+            DynamicColors.applyToActivityIfAvailable(activity);
         }
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {

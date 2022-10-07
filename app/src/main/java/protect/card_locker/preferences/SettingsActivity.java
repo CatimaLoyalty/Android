@@ -17,9 +17,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import kotlin.Suppress;
 import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
 import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
@@ -166,6 +169,10 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         }
 
         @Override
+        @SuppressWarnings("deprecation") // setTargetFragment
+        // androidx.preference.PreferenceDialogFragmentCompat uses the deprecated method
+        // `getTargetFragment()`, which throws if `setTargetFragment()` isn't used before.
+        // While this isn't fixed on upstream, suppress the deprecation warning
         public void onDisplayPreferenceDialog(Preference preference) {
             if (preference instanceof NumberDialogPreference) {
                 NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;

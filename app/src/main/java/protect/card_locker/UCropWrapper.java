@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 public class UCropWrapper extends UCropActivity {
     public static final String UCROP_TOOLBAR_TYPEFACE_STYLE = "ucop_toolbar_typeface_style";
@@ -28,7 +29,9 @@ public class UCropWrapper extends UCropActivity {
         boolean darkMode = Utils.isDarkModeEnabled(this);
         // setup status bar to look like the rest of the app
         if (Build.VERSION.SDK_INT >= 23) {
-            getWindow().getDecorView().setSystemUiVisibility(darkMode ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            View decorView = getWindow().getDecorView();
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), decorView);
+            wic.setAppearanceLightStatusBars(!darkMode);
         } else {
             // icons are always white back then
             if (!darkMode) {

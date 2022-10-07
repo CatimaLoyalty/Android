@@ -1,0 +1,4 @@
+- Ajoute un réglage de contrôle de la luminosité lors de l'affichage d'un code barre.(pull #259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- Ajout du Grec (pull #252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- Ajout du Slovénien (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- Mise à jour des traductions (pull #254 (https://github.com/brarcher/loyalty-card-locker/pull/254))

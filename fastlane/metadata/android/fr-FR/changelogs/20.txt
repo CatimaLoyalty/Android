@@ -1,0 +1,1 @@
+- Contournement d'un crash lors de l'installation sur certaines versions d'Android (probablement Android 5 et inférieur). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

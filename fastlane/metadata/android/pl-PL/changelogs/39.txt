@@ -1,0 +1,3 @@
+- Naprawiono wyśrodkowanie kodu kreskowego podczas zamknięcia trybu pełnego ekranu (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Dodano możliwość wyboru lokalizacji dla eksportu (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Zaktualizowano tłumaczenia (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

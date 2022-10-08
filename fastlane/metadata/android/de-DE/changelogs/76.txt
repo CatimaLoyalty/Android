@@ -1,0 +1,4 @@
+- Links in Notizen anklickbar gemacht
+- Gruppe, in der sich der Benutzer gerade befindet, wird vorausgewählt wenn eine neue Karte erstellt wird
+- Gruppennamen in der Treuekartenansicht durch Kommas getrennt
+- Schaltfläche „Maximieren“ wird jetzt auf allen Barcode angezeigt

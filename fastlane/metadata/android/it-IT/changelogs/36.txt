@@ -1,0 +1,14 @@
+- Aggiunta la possibilità di cercare una carta (#320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
+- Aggiunta opzione per condividere e ricevere carte fedeltà (#321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
+- Supporto della modalità notte (#322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
+- Le carte fedeltà possono ora essere prive di codice a barre (non hanno un codice a barre) (#324 (https://github.com/brarcher/loyalty-card-locker/pull/324))
+- Le note possono occupare più righe (#326 (https://github.com/brarcher/loyalty-card-locker/pull/326))
+- Miglioramenti al dimensionamento delle note (#319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
+- Miglioramento della visibilità delle notifiche e delle icone dell'app (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- Aggiornamento del SDK target ad Android 10
+- Migliorare le seguenti traduzioni
+- Tedesco
+- Italiano
+- Olandese
+- Polacco
+- Russo

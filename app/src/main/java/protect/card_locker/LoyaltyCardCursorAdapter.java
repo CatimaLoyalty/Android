@@ -24,10 +24,13 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import protect.card_locker.databinding.LoyaltyCardLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
@@ -82,10 +85,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return mShowDetails;
     }
 
+    @NonNull
     @Override
-    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
-        return new LoyaltyCardListItemViewHolder(itemView, mListener);
+    public LoyaltyCardListItemViewHolder onCreateViewHolder(@NonNull ViewGroup inputParent, int inputViewType) {
+        LoyaltyCardLayoutBinding loyaltyCardLayoutBinding = LoyaltyCardLayoutBinding.inflate(
+                LayoutInflater.from(inputParent.getContext()),
+                inputParent,
+                false
+        );
+        return new LoyaltyCardListItemViewHolder(loyaltyCardLayoutBinding, mListener);
     }
 
     public LoyaltyCard getCard(int position) {
@@ -237,22 +245,23 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
 
 
-        protected LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
-            super(inputView);
-            mRow = inputView.findViewById(R.id.row);
-            mDivider = inputView.findViewById(R.id.info_divider);
-            mStoreField = inputView.findViewById(R.id.store);
-            mNoteField = inputView.findViewById(R.id.note);
-            mBalanceField = inputView.findViewById(R.id.balance);
-            mExpiryField = inputView.findViewById(R.id.expiry);
-            mIconLayout = inputView.findViewById(R.id.icon_layout);
-            mCardIcon = inputView.findViewById(R.id.thumbnail);
-            mStar = inputView.findViewById(R.id.star);
-            mStarBackground = inputView.findViewById(R.id.star_background);
-            mStarBorder = inputView.findViewById(R.id.star_border);
-            mArchived = inputView.findViewById(R.id.archivedIcon);
-            mArchivedBackground = inputView.findViewById(R.id.archive_background);
-            mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
+        protected LoyaltyCardListItemViewHolder(LoyaltyCardLayoutBinding loyaltyCardLayoutBinding, CardAdapterListener inputListener) {
+            super(loyaltyCardLayoutBinding.getRoot());
+            View inputView = loyaltyCardLayoutBinding.getRoot();
+            mRow = loyaltyCardLayoutBinding.row;
+            mDivider = loyaltyCardLayoutBinding.infoDivider;
+            mStoreField = loyaltyCardLayoutBinding.store;
+            mNoteField = loyaltyCardLayoutBinding.note;
+            mBalanceField = loyaltyCardLayoutBinding.balance;
+            mExpiryField = loyaltyCardLayoutBinding.expiry;
+            mIconLayout = loyaltyCardLayoutBinding.iconLayout;
+            mCardIcon = loyaltyCardLayoutBinding.thumbnail;
+            mStar = loyaltyCardLayoutBinding.star;
+            mStarBackground = loyaltyCardLayoutBinding.starBackground;
+            mStarBorder = loyaltyCardLayoutBinding.starBorder;
+            mArchived = loyaltyCardLayoutBinding.archivedIcon;
+            mArchivedBackground = loyaltyCardLayoutBinding.archiveBackground;
+            mTickIcon = loyaltyCardLayoutBinding.selectedThumbnail;
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);

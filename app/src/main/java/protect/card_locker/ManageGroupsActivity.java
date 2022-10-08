@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -24,7 +27,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.ManageGroupsActivityBinding;
+
 public class ManageGroupsActivity extends CatimaAppCompatActivity implements GroupCursorAdapter.GroupAdapterListener {
+    private ManageGroupsActivityBinding binding;
     private static final String TAG = "Catima";
 
     private SQLiteDatabase mDatabase;
@@ -35,9 +41,10 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ManageGroupsActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.groups);
-        setContentView(R.layout.manage_groups_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -51,12 +58,12 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     protected void onResume() {
         super.onResume();
 
-        FloatingActionButton addButton = findViewById(R.id.fabAdd);
+        FloatingActionButton addButton = binding.fabAdd;
         addButton.setOnClickListener(v -> createGroup());
         addButton.bringToFront();
 
-        mGroupList = findViewById(R.id.list);
-        mHelpText = findViewById(R.id.helpText);
+        mGroupList = binding.include.list;
+        mHelpText = binding.include.helpText;
 
         // Init group list
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -109,11 +116,23 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     }
 
     private void createGroup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
+
+        // Add spacing to EditText
+        FrameLayout container = new FrameLayout(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.leftMargin = 50;
+        params.rightMargin = 50;
+        input.setLayoutParams(params);
+        container.addView(input);
+
+        builder.setView(container);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
             String inputString = input.getText().toString().trim();
@@ -193,7 +212,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     public void onDeleteButtonClicked(View view) {
         final String groupName = getGroupName(view);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);
         builder.setMessage(groupName);
 

@@ -1,0 +1,2 @@
+- Ajout de la prise en charge de l'ajout de raccourcis de cartes de fidélité depuis le lanceur/l'écran d'accueil. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Suppression de la prise en charge de l'ajout de raccourcis de cartes de fidélité à partir de l'application elle-même. Cela supprime la nécessité de la permission de raccourci. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

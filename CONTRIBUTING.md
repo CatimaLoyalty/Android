@@ -8,7 +8,20 @@ to the rules described here, but by following the instructions below you
 should have a much easier time getting your work merged with the upstream
 project.
 
-## Test Your Code
+## Translation Changes
+
+Translation changes are managed through [Weblate](https://hosted.weblate.org/projects/catima/).
+Please do not supply translation updates directly through GitHub.
+
+Weblate requires an account to translate changes, so please log in before
+you start translating.
+
+While using Weblate, please do not ignore any of its warnings. They exist
+for good reason.
+
+## Code Changes
+
+### Test Your Code
 
 There are four possible tests you can run to verify your code.  The first
 is unit tests, which check the basic functionality of the application, and
@@ -28,14 +41,14 @@ and SpotBugs, run using:
 The final check is by testing the application on a live device and verifying
 the basic functionality works as expected.
 
-## Make Sure Your Code is Tested
+### Make Sure Your Code is Tested
 
 The Catima code uses a fair number of unit tests to verify that
 the basic functionality is working. Submissions which add functionality
 or significantly change the existing code should include additional tests
 to verify the proper operation of the proposed changes.
 
-## Explain Your Work
+### Explain Your Work
 
 At the top of every patch you should include a description of the problem you
 are trying to solve, how you solved it, and why you chose the solution you
@@ -44,7 +57,7 @@ if you can describe/include a reproducer for the problem in the description as
 well as instructions on how to test for the bug and verify that it has been
 fixed.
 
-## Sign Your Work
+### Sign Your Work
 
 The sign-off is a simple line at the end of the patch description, which
 certifies that you wrote it or otherwise have the right to pass it on as an
@@ -82,7 +95,7 @@ your real name, saying:
 
 	Signed-off-by: Random J Developer <random@developer.example.org>
 
-## Submit Patch(es) for Review
+### Submit Patch(es) for Review
 
 Finally, you will need to submit your patches so that they can be reviewed
 and potentially merged into the main Catima repository. The preferred

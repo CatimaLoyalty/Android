@@ -1,0 +1,2 @@
+- Catima zur Gerätesteuerung für den Schnellzugriff hinzugefügt (https://developer.android.com/guide/topics/ui/device-control)
+- Gruppen repariert, die im Gruppenverwaltungsbildschirm nicht richtig angezeigt wurden

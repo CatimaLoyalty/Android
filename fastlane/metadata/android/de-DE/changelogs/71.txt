@@ -1,0 +1,2 @@
+- Verschiedene kleinere Übersetzungs- und UI-Korrekturen
+- Behebung eines Absturzes beim Importieren/Freigeben von Treuekarten unter Android 6

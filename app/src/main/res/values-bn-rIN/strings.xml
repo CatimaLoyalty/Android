@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="save">সংরক্ষণ</string>
     <string name="cancel">বাতিল</string>
     <string name="unstar">তারা মুক্ত</string>
     <string name="star">তারা</string>
-    <string name="barcodeNoBarcode">বারকোড না বারকোড</string>
+    <string name="barcodeNoBarcode">কোনো বারকোড নেই</string>
     <string name="barcodeType">বারকোড ধরন</string>
     <string name="note">বিঃদ্রঃ</string>
     <string name="storeName">দোকানের নাম</string>
@@ -38,8 +38,8 @@
     <string name="wrongValueForBarcodeType">বারকোড টাইপের জন্য ভুল মান</string>
     <string name="copy_to_clipboard_multiple_toast">ক্লিপবোর্ড একাধিক টোস্টে অনুলিপি করুন</string>
     <string name="intent_import_card_from_url_share_multiple_text">url থেকে ইন্টেন্ট ইম্পোর্ট কার্ড একাধিক টেক্সট শেয়ার করে</string>
-    <string name="frontImageDescription">সামনের চিত্রের বর্ণনা</string>
-    <string name="backImageDescription">পিছনের চিত্রের বর্ণনা</string>
+    <string name="frontImageDescription">সামনের চিত্র</string>
+    <string name="backImageDescription">পিছনের চিত্র</string>
     <string name="photos">ছবি</string>
     <string name="setFrontImage">সদর ছবি স্থাপন</string>
     <string name="setBackImage">পিছনের ছবি স্থাপন</string>
@@ -71,17 +71,34 @@
     <string name="sort_by_expiry">মেয়াদ শেষ করে সাজান</string>
     <string name="reverse">বিপরীত</string>
     <string name="sort_by">ক্রমানুসার</string>
-    <string name="noCardExistsError">কোন কার্ড নেই ত্রুটি</string>
+    <string name="noCardExistsError">কার্ডটি পাওয়া যায়নি</string>
     <string name="noStoreError">স্টোরেজ ত্রুটি নেই</string>
-    <string name="card_ids_copied">কার্ড আইডি কপি করা হয়েছে</string>
+    <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
     <string name="noCardsMessage">কোন কার্ড বার্তা নেই</string>
     <string name="addCardTitle">কার্ডের শিরোনাম যোগ করুন</string>
     <string name="editCardTitle">কার্ডের শিরোনাম সম্পাদনা করুন</string>
-    <string name="sendLabel">লেবেল পাঠান</string>
+    <string name="sendLabel">পাঠান…</string>
     <string name="share">ভাগ</string>
     <string name="copy_to_clipboard">নকল করুন ক্লিপবোর্ড এ</string>
     <string name="deleteConfirmation">নিশ্চিতকরণ মুছে দিন</string>
     <string name="confirm">নিশ্চিত করুন</string>
     <string name="delete">মুছে ফেলুন</string>
     <string name="edit">সম্পাদনা</string>
+    <string name="action_search">খুঁজুন</string>
+    <string name="card">কার্ড</string>
+    <string name="currency">মুদ্রা</string>
+    <string name="cardId">কার্ড আইডি</string>
+    <string name="noBarcode">বারকোড নেই</string>
+    <string name="deleteTitle">কার্ড ডিলিট করুন</string>
+    <string name="ok">ঠিক আছে</string>
+    <string name="about">সম্পর্কিত</string>
+    <string name="debug_version_fmt">সংস্করণ:
+\n<xliff:g id="version">
+\n%s</xliff:g></string>
+    <string name="importOptionApplicationButton">অন্য অ্যাপ ব্যাবহার করুন</string>
+    <string name="moveUp">উপরে উঠান</string>
+    <string name="moveDown">নিচে নামান</string>
+    <string name="barcode">বারকোড</string>
+    <string name="expiryDate">মেয়াদোত্তীর্ণ তারিখ</string>
+    <string name="noBarcodeFound">কোনো বারকোড পাওয়া যায়নি</string>
 </resources>

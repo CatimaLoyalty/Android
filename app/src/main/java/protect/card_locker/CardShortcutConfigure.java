@@ -14,10 +14,13 @@ import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.SimpleToolbarListActivityBinding;
+
 /**
  * The configuration screen for creating a shortcut.
  */
 public class CardShortcutConfigure extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
+    private SimpleToolbarListActivityBinding binding;
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
@@ -25,15 +28,15 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
+        binding = SimpleToolbarListActivityBinding.inflate(getLayoutInflater());
         mDatabase = new DBHelper(this).getReadableDatabase();
 
         // Set the result to CANCELED.  This will cause nothing to happen if the
         // aback button is pressed.
         setResult(RESULT_CANCELED);
 
-        setContentView(R.layout.simple_toolbar_list_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         toolbar.setTitle(R.string.shortcutSelectCard);
         setSupportActionBar(toolbar);
 
@@ -50,7 +53,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
             finish();
         }
 
-        final RecyclerView cardList = findViewById(R.id.list);
+        final RecyclerView cardList = binding.list;
         GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
         if (layoutManager != null) {
             layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));

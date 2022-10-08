@@ -345,6 +345,14 @@ public class Utils {
         saveCardImage(context, bitmap, getCardImageFileName(loyaltyCardId, type));
     }
 
+    public static File retrieveCardImageAsFile(Context context, String fileName) {
+        return context.getFileStreamPath(fileName);
+    }
+
+    public static File retrieveCardImageAsFile(Context context, int loyaltyCardId, ImageLocationType type) {
+        return retrieveCardImageAsFile(context, getCardImageFileName(loyaltyCardId, type));
+    }
+
     static public Bitmap retrieveCardImage(Context context, String fileName) {
         FileInputStream in;
         try {

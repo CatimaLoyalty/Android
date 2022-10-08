@@ -21,21 +21,26 @@ import java.util.Calendar;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.text.HtmlCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import protect.card_locker.databinding.AboutActivityBinding;
+
 public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener {
+    private AboutActivityBinding binding;
     private static final String TAG = "Catima";
     ConstraintLayout version_history, translate, license, repo, privacy, error, credits, rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = AboutActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.about);
-        setContentView(R.layout.about_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -94,21 +99,21 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
             Log.w(TAG, "Package name not found", e);
         }
 
-        TextView copyright = findViewById(R.id.credits_sub);
+        TextView copyright = binding.creditsSub;
         copyright.setText(String.format(getString(R.string.app_copyright_fmt), year));
-        TextView vHistory = findViewById(R.id.version_history_sub);
+        TextView vHistory = binding.versionHistorySub;
         vHistory.setText(String.format(getString(R.string.debug_version_fmt), version));
 
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
-        version_history = findViewById(R.id.version_history);
-        translate = findViewById(R.id.translate);
-        license = findViewById(R.id.license);
-        repo = findViewById(R.id.repo);
-        privacy = findViewById(R.id.privacy);
-        error = findViewById(R.id.report_error);
-        credits = findViewById(R.id.credits);
-        rate = findViewById(R.id.rate);
+        version_history = binding.versionHistory;
+        translate = binding.translate;
+        license = binding.license;
+        repo = binding.repo;
+        privacy = binding.privacy;
+        error = binding.reportError;
+        credits = binding.credits;
+        rate = binding.rate;
 
         version_history.setOnClickListener(this);
         translate.setOnClickListener(this);
@@ -127,7 +132,7 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         contributorInfo.append("\n\n");
         contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
 
-        credits.setOnClickListener(view -> new AlertDialog.Builder(this)
+        credits.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.credits)
                 .setMessage(contributorInfo.toString())
                 .setPositiveButton(R.string.ok, (dialogInterface, i) -> {

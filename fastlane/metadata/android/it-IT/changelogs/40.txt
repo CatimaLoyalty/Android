@@ -1,0 +1,6 @@
+- Rinominato in Catima
+- Rimossa l'intro
+- Aggiunta di pulsanti fluttuanti
+- Correzione del crash di Android 5 all'apertura della schermata Informazioni
+- Aggiunta del supporto per i preferiti
+- Riconoscimento della disabilitazione della rotazione automatica

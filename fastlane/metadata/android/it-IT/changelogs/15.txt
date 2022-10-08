@@ -1,0 +1,2 @@
+- Aggiunto supporto per collegamenti all'app (Android 7.1+), dove le carte utilizzate più di recente appariranno come scorciatoie. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Aggiunto widget che funge da scorciatoia all'app, per supportare i dispositivi con sistema operativo inferiore ad Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

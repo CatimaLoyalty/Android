@@ -1,0 +1,2 @@
+- Naprawiono błąd dla Androida SDK 24+ gdzie opcja importu z wyborem pliku powodowała zawieszenie aplikacji. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Nowy schemat dla ikon i kolorów. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

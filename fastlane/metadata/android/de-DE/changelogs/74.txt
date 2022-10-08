@@ -1,0 +1,3 @@
+- Erstellung von Shortcuts repariert
+- Erzeugung kartenspezifischer Verknüpfungssymbole hinzugefügt
+- Möglichkeit die Farbe der Treuekarte zu ändern verbessert

@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="storeName">नाम</string>
+    <string name="note">नोट</string>
+    <string name="cardId">कार्ड आईडी</string>
+    <string name="star">पसंदीदा में जोड़ें</string>
+    <string name="unstar">पसंदीदा से निकाले</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="save">बचाना</string>
+    <string name="delete">मिटाना</string>
+    <string name="deleteConfirmation">इस कार्ड को स्थायी रूप से हटाएं\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">इस <xliff:g>%d</xliff:g> कार्ड को स्थायी रूप से हटाएं\?</item>
+        <item quantity="other">ये <xliff:g>%d</xliff:g> कार्ड स्थायी रूप से हटाएं\?</item>
+    </plurals>
+    <string name="ok">ठीक</string>
+    <string name="share">शेयर</string>
+    <string name="sendLabel">भेजना…</string>
+    <string name="editCardTitle">कार्ड संपादित करें</string>
+    <string name="addCardTitle">कार्ड जोड़ें</string>
+    <string name="noCardsMessage">पहले एक कार्ड जोड़ें</string>
+    <string name="card_ids_copied">कॉपी की गई आईडी</string>
+    <string name="noStoreError">कोई नाम दर्ज नहीं</string>
+    <string name="noCardIdError">कोई आईडी दर्ज नहीं की गई</string>
+    <string name="noCardExistsError">वह कार्ड नहीं मिला</string>
+    <string name="importExport">आयात / निर्यात</string>
+    <string name="exportName">निर्यात</string>
+    <string name="importSuccessfulTitle">आयातित</string>
+    <string name="importFailed">आयात नहीं कर सका</string>
+    <string name="action_search">खोज</string>
+    <string name="noGiftCardsGroup">कुछ कार्ड बनाएँ, और फिर उन्हें यहाँ समूह करें।</string>
+    <string name="noMatchingGiftCards">कोई परिणाम नहीं। अपनी खोज बदलने का प्रयास करें।</string>
+    <string name="deleteTitle">कार्ड हटाएं</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">कार्ड <xliff:g>%d</xliff:g> हटाएं</item>
+        <item quantity="other">कार्ड <xliff:g>%d</xliff:g> हटाएं</item>
+    </plurals>
+    <string name="importFailedTitle">आयात विफल</string>
+</resources>

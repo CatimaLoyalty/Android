@@ -272,7 +272,7 @@
             android:background="@android:color/transparent"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:src="@drawable/ic_baseline_arrow_drop_up_24"
+            android:src="@drawable/ic_basket_plus"
             android:tooltipText="@string/updateBalance"
             android:visibility="gone" />
 

@@ -1,0 +1,12 @@
+<vector android:height="24dp" android:tint="?attr/colorControlNormal"
+    android:viewportHeight="24" android:viewportWidth="24"
+    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path
+        android:name="basket"
+        android:pathData="M 21 9 L 19.58 9 L 15.868 2.504 L 14.132 3.496 L 17.277 9 L 6.723 9 L 9.869 3.496 L 8.132 2.504 L 4.42 9 L 3 9 C 2.794 9 2.594 9.064 2.426 9.182 C 2.257 9.3 2.13 9.467 2.06 9.661 C 1.99 9.854 1.981 10.065 2.035 10.263 L 4.834 20.527 C 4.95 20.95 5.202 21.323 5.551 21.589 C 5.899 21.855 6.326 21.999 6.764 22 L 17.237 22 C 18.135 22 18.929 21.395 19.167 20.525 L 21.966 10.262 C 22.02 10.063 22.012 9.853 21.942 9.659 C 21.872 9.466 21.744 9.298 21.576 9.18 C 21.407 9.062 21.206 8.999 21 9 Z M 17.236 20 L 17.236 21 L 17.236 20 L 6.764 20 L 4.31 11 L 19.69 11 L 17.236 20 Z"
+        android:fillColor="@android:color/white"/>
+    <path
+        android:name="plus"
+        android:pathData="M 10.836 11.942 L 12.97 11.942 L 12.97 14.23 L 15.442 14.23 L 15.442 16.514 L 12.97 16.514 L 12.97 18.802 L 10.836 18.802 L 10.836 16.514 L 8.364 16.514 L 8.364 14.23 L 10.836 14.23 Z"
+        android:fillColor="@android:color/white"/>
+</vector>

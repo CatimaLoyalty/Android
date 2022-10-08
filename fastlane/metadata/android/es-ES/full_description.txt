@@ -1,14 +1,22 @@
-Detenga la búsqueda de tarjetas descuentos de plástico durante la compra en tienda o tienda web.
-<b>Escanea códigos de barras a tu dispositivo usando su cámara, olvídate de las tarjetas. </b>
+Detenga la búsqueda de tarjetas de recompensa de plástico durante el pago en la tienda o en la tienda web.
+<b>Escanea códigos de barras a tu dispositivo usando su cámara, olvídate de las tarjetas.</b>
 
-Olvídate de tu billetera, o mantenla ultraligera para objetos de valor.
+Olvídese de su billetera o manténgala ultraligera para objetos de valor.
 
-Con esta herramienta esencial de transporte diario (EDC) puede reemplazar el plástico inútil con dinero en efectivo.
+Con esta herramienta esencial de transporte diario (EDC), puede reemplazar el plástico inútil con dinero en efectivo.
 
-- Evite ser espiado con muy pocos permisos. Sin acceso a Internet y sin anuncios.
-- Añadir tarjetas o códigos con nombres y colores personalizables.
-- Entrada de código manual si no hay código de barras para almacenar, o no se puede utilizar.
-- Importar tarjetas y códigos desde archivos, Catima, FidMe, Loyalty Card Keychain, Stocard y Voucher Vault.
-- Hacer una copia de seguridad de todas sus tarjetas y transferirlas a un nuevo dispositivo si lo desea.
-- Compartir cupones, ofertas exclusivas, códigos promocionales, o tarjetas y códigos utilizando cualquier aplicación.
-- Tema oscuro y opciones de accesibilidad
+- Evita espiar con muy pocos permisos. Sin acceso a Internet y sin anuncios.
+- Añade tarjetas o códigos con nombres y colores personalizables.
+- Entrada de código manual si no hay un código de barras para almacenar o no se puede usar.
+- Importación de tarjetas y códigos desde ficheros, Catima, FidMe, Llavero Tarjeta Fidelización, Stocard y Bóveda de Vales.
+- Haga una copia de seguridad de todas sus tarjetas y transfiéralas a un nuevo dispositivo si lo desea.
+- Comparta cupones, ofertas exclusivas, códigos promocionales o tarjetas y códigos usando cualquier aplicación.
+- Tema oscuro y opciones de accesibilidad para usuarios con problemas de visión.
+- Hecho para todos por la comunidad de software libre.
+- Traducciones hechas a mano localizadas para más de 20 idiomas.
+- Gratis, apoyado por contribuciones de la comunidad.
+- Úsalo, estúdialo, cámbialo y compártelo como quieras; <i>con todo</i>.
+- No solo Software Libre / Código Abierto. Gestión de tarjetas de software libre (GPLv3+) con <i>copyleft</i>.
+
+Simplifique su vida y sus compras, y nunca más pierda un recibo en papel, una tarjeta de regalo de pago en la tienda o un boleto de avión.
+Llévate todas tus recompensas y bonificaciones contigo y ahorra sobre la marcha.

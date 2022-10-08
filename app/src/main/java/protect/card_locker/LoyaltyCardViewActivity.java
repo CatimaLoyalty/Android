@@ -367,6 +367,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton = binding.buttonShowInfo;
         bottomAppBarPreviousButton = binding.buttonPrevious;
         bottomAppBarNextButton = binding.buttonNext;
+        bottomAppBarUpdateBalanceButton = binding.buttonUpdateBalance;
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {

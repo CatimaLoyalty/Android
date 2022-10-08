@@ -8,6 +8,7 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="fill_parent"
@@ -272,7 +273,7 @@
             android:background="@android:color/transparent"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:src="@drawable/ic_basket_plus"
+            android:src="@drawable/ic_baseline_add_shopping_cart_24"
             android:tooltipText="@string/updateBalance"
             android:visibility="gone" />
 

@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -28,11 +29,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -459,6 +463,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 iconImage.setClipBounds(new Rect(left, top, right, bottom));
             }
         });
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -530,42 +535,29 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void showBalanceUpdateDialog() {
-        Context dialogContext = this;
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.updateBalanceTitle);
+        FrameLayout container = new FrameLayout(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.leftMargin = 60;
+        params.rightMargin = 60;
 
-        AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-
-        TextView updateTitleView = new TextView(this);
-        updateTitleView.setPadding(20, 20, 20, 20);
-        updateTitleView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
-        updateTitleView.setText(R.string.updateBalanceTitle);
-        updateDialog.setCustomTitle(updateTitleView);
-        updateDialog.setTitle(R.string.updateBalanceTitle);
-
-        LinearLayout textLayout = new LinearLayout(this);
-        textLayout.setOrientation(LinearLayout.HORIZONTAL);
-
         TextView currentTextview = new TextView(this);
-        currentTextview.setPadding(20, 0, 30, 0);
-        currentTextview.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        currentTextview.setTextColor(Color.GRAY);
-        currentTextview.setAutoLinkMask(Linkify.ALL);
         currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
-        textLayout.addView(currentTextview);
+        layout.addView(currentTextview);
 
         TextView updateTextview = new TextView(this);
-        updateTextview.setPadding(30, 0, 20, 0);
-        updateTextview.setTextSize(settings.getFontSizeMax(settings.getSmallFont()));
-        updateTextview.setTextColor(Color.GRAY);
-        updateTextview.setAutoLinkMask(Linkify.ALL);
         updateTextview.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, currentBalance, loyaltyCard.balanceType)));
-        textLayout.addView(updateTextview);
-
-        layout.addView(textLayout);
+        layout.addView(updateTextview);
 
         final EditText input = new EditText(this);
+        Context dialogContext = this;
         input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setHint(R.string.updateBalanceHint);
         input.addTextChangedListener(new SimpleTextWatcher() {
@@ -575,14 +567,19 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
         layout.addView(input);
+        layout.setLayoutParams(params);
+        container.addView(layout);
 
-        updateDialog.setView(layout);
-        updateDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+        builder.setView(container);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
             dialogInterface.dismiss();
             handleBalanceUpdate(input.getText());
         });
-        updateDialog.setNegativeButton(getString(R.string.cancel), (dialogInterface, i) -> dialogInterface.cancel());
-        updateDialog.create().show();
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
     }
 
     private BigDecimal calculateNewBalance(CharSequence s){
@@ -602,6 +599,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         currentBalance = newBalance;
         SQLiteDatabase mDatabase = new DBHelper(this).getWritableDatabase();
         DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, loyaltyCard.store, loyaltyCard.note, loyaltyCard.expiry, currentBalance, loyaltyCard.balanceType, loyaltyCard.cardId, loyaltyCard.barcodeId, loyaltyCard.barcodeType, loyaltyCard.headerColor, loyaltyCard.starStatus, null, loyaltyCard.archiveStatus);
+        this.setBottomAppBarButtonState();
     }
 
     private void setBottomAppBarButtonState() {

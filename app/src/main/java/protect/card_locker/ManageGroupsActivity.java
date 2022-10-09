@@ -115,11 +115,37 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         return super.onOptionsItemSelected(item);
     }
 
+    private void setGroupNameError(EditText input) {
+        String string = sanitizeAddGroupNameField(input.getText());
+
+        if (string.length() == 0) {
+            input.setError(getString(R.string.group_name_is_empty));
+            return;
+        }
+
+        if (DBHelper.getGroup(mDatabase, string) != null) {
+            input.setError(getString(R.string.group_name_already_in_use));
+            return;
+        }
+
+        input.setError(null);
+    }
+
+    private String sanitizeAddGroupNameField(CharSequence s) {
+        return s.toString().trim();
+    }
+
     private void createGroup() {
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.enter_group_name);
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                setGroupNameError(input);
+            }
+        });
+        setGroupNameError(input);
 
         // Add spacing to EditText
         FrameLayout container = new FrameLayout(this);
@@ -135,16 +161,14 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         builder.setView(container);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            String inputString = input.getText().toString().trim();
-            if (inputString.length() == 0) {
-                Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
+            CharSequence error = input.getError();
+
+            if (error != null) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (DBHelper.getGroup(mDatabase, inputString) != null) {
-                Toast.makeText(getApplicationContext(), R.string.group_name_already_in_use, Toast.LENGTH_SHORT).show();
-                return;
-            }
-            DBHelper.insertGroup(mDatabase, inputString);
+
+            DBHelper.insertGroup(mDatabase, sanitizeAddGroupNameField(input.getText()));
             updateGroupList();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());

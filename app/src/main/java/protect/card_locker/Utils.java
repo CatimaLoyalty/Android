@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
@@ -65,6 +66,7 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
     public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
     public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
+    public static final int BARCODE_IMPORT_FROM_SHARE_INTENT = 11;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -158,6 +160,39 @@ public class Utils {
             Log.i(TAG, "Read format: " + format);
 
             return new BarcodeValues(format, contents);
+        }
+
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_SHARE_INTENT) {
+            Log.i(TAG, "Received image file with possible barcode");
+
+            Bitmap bitmap;
+            try {
+                Uri receiveUri = intent
+                        .getParcelableExtra(Intent.EXTRA_STREAM);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), receiveUri);
+                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+                } else {
+                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), receiveUri);
+                }
+            } catch (IOException e) {
+                Log.e(TAG, "Error getting data from image file");
+                e.printStackTrace();
+                Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                return new BarcodeValues(null, null);
+            }
+
+            BarcodeValues barcodeFromBitmap = getBarcodeFromBitmap(bitmap);
+
+            if (barcodeFromBitmap.isEmpty()) {
+                Log.i(TAG, "No barcode found in image file");
+                Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+            }
+
+            Log.i(TAG, "Read barcode id: " + barcodeFromBitmap.content());
+            Log.i(TAG, "Read format: " + barcodeFromBitmap.format());
+
+            return barcodeFromBitmap;
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");

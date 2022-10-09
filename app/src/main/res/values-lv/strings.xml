@@ -73,8 +73,8 @@
     <string name="settings_keep_screen_on">Turēt ekrānu ieslēgtu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Neļaut bloķēt ekrānu</string>
     <string name="intent_import_card_from_url_share_text">Es vēlos ar Jums kopīgot karti</string>
-    <string name="importSuccessful">Importētie kartes dati</string>
-    <string name="exportSuccessful">Kartes dati eksportēti</string>
+    <string name="importSuccessful">Importētie dati</string>
+    <string name="exportSuccessful">Dati eksportēti</string>
     <string name="noGroups">Noklikšķiniet uz \"+\" plus pogas, lai pievienotu grupas kategorizēšanai.</string>
     <string name="noGroupCards">Šī grupa ir tukša</string>
     <string name="all">Visi</string>
@@ -237,4 +237,24 @@
     <string name="hideMoreInfo">Slēpt informāciju</string>
     <string name="swipeToSwitchImages">Velciet, lai pārslēgtu attēlus; spiediet un turiet lai atvērtu attēlu galerijas lietotnē</string>
     <string name="sort_by_most_recently_used">Nesen lietotās</string>
+    <string name="unarchive">Atarhivēt</string>
+    <string name="archived">Karte arhivēta</string>
+    <string name="unarchived">Karte atarhivēta</string>
+    <string name="archiveList">Arhīvs</string>
+    <string name="noUnarchivedCardsMessage">Nav atarhivētu karšu</string>
+    <string name="failedLaunchingPhotoPicker">Nevarēja atrast atbalstītu galerijas lietotni</string>
+    <string name="previousCard">Iepriekšējā</string>
+    <string name="nextCard">Nākamā</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="zero">Skatīt arhivētu (<xliff:g>%1$d</xliff:g> karti)</item>
+        <item quantity="one">Skatīt arhivētu (<xliff:g>%1$d</xliff:g> karti)</item>
+        <item quantity="other">Skatīt arhivētas (<xliff:g>%1$d</xliff:g> kartes)</item>
+    </plurals>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="zero"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> arhivēta)</item>
+        <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> arhivēta)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> cards (<xliff:g id="archivedCount">%2$d</xliff:g> arhivētas)</item>
+    </plurals>
+    <string name="failedToOpenUrl">Vispirms nepieciešams uzstādīt interneta pārlūku</string>
+    <string name="welcome">Laipni lūgti Catima</string>
 </resources>

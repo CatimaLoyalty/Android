@@ -173,6 +173,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         // androidx.preference.PreferenceDialogFragmentCompat uses the deprecated method
         // `getTargetFragment()`, which throws if `setTargetFragment()` isn't used before.
         // While this isn't fixed on upstream, suppress the deprecation warning
+        // https://issuetracker.google.com/issues/181793702
         public void onDisplayPreferenceDialog(Preference preference) {
             if (preference instanceof NumberDialogPreference) {
                 NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.color.DynamicColors;
 
@@ -92,7 +93,6 @@ public class SettingsActivity extends CatimaAppCompatActivity {
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         private static final String DIALOG_FRAGMENT_TAG = "SettingsFragment";
-
         public boolean mReloadMain;
 
         @Override
@@ -126,14 +126,24 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 }
-
+                refreshActivity(true);
                 return true;
             });
+
+            if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
+                themePreference.setSummary(getResources().getString(R.string.settings_light_theme));
+            } else if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+                themePreference.setSummary(getResources().getString(R.string.settings_dark_theme));
+            }
+            else{
+                themePreference.setSummary(getResources().getString(R.string.settings_system_theme));
+            }
 
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 refreshActivity(true);
                 return true;
             });
+            localePreference.setSummary(localePreference.getEntry());
 
             Preference oledDarkPreference = findPreference(getResources().getString(R.string.settings_key_oled_dark));
             assert oledDarkPreference != null;
@@ -148,10 +158,20 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 refreshActivity(true);
                 return true;
             });
+            colorPreference.setSummary(colorPreference.getEntry());
+
             if (!DynamicColors.isDynamicColorAvailable()) {
                 colorPreference.setEntryValues(R.array.color_values_no_dynamic);
                 colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
             }
+
+            ListPreference barcodeOrientation = findPreference(getResources().getString(R.string.settings_key_card_orientation));
+            assert barcodeOrientation != null;
+            barcodeOrientation.setOnPreferenceChangeListener(((preference, o) -> {
+                refreshActivity(true);
+                return true;
+            }));
+            barcodeOrientation.setSummary(barcodeOrientation.getEntry());
         }
 
         private void refreshActivity(boolean reloadMain) {

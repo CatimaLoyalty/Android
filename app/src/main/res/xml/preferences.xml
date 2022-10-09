@@ -51,12 +51,10 @@
             app:numberPickerPreference_unitText="%"
             app:singleLineTitle="false" />
 
-        <SwitchPreferenceCompat
-            android:defaultValue="true"
-            android:key="@string/settings_key_display_barcode_max_brightness"
-            android:title="@string/settings_display_barcode_max_brightness"
-            app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/settings_category_title_barcode"
+        app:iconSpaceReserved="false">
 
         <ListPreference
             android:defaultValue="@string/settings_key_follow_system_orientation"
@@ -66,6 +64,16 @@
             android:title="@string/settings_card_orientation"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/settings_key_display_barcode_max_brightness"
+            android:title="@string/settings_display_barcode_max_brightness"
+            app:iconSpaceReserved="false"
+            app:singleLineTitle="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/settings_category_title_display"
+        app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
             android:defaultValue="true"
@@ -73,7 +81,6 @@
             android:title="@string/settings_keep_screen_on"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
-
         <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="@string/settings_key_disable_lockscreen_while_viewing_card"

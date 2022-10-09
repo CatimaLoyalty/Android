@@ -1,19 +1,11 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +24,6 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private static final String TAG = "Catima";
 
     private Activity activity;
-    private Context context;
     private boolean doImport;
     private DataFormat format;
     private OutputStream outputStream;
@@ -40,16 +31,15 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     private char[] password;
     private TaskCompleteListener listener;
 
-    private AlertDialog dialog;
+    private ProgressDialog progress;
 
     /**
      * Constructor which will setup a task for exporting to the given file
      */
     ImportExportTask(Activity activity, DataFormat format, OutputStream output, char[] password,
-                     TaskCompleteListener listener, Context context) {
+                     TaskCompleteListener listener) {
         super();
         this.activity = activity;
-        this.context = context;
         this.doImport = false;
         this.format = format;
         this.outputStream = output;
@@ -61,10 +51,9 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
      * Constructor which will setup a task for importing from the given InputStream.
      */
     ImportExportTask(Activity activity, DataFormat format, InputStream input, char[] password,
-                     TaskCompleteListener listener, Context context) {
+                     TaskCompleteListener listener) {
         super();
         this.activity = activity;
-        this.context = context;
         this.doImport = true;
         this.format = format;
         this.inputStream = input;
@@ -74,6 +63,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
 
     private ImportExportResult performImport(Context context, InputStream stream, SQLiteDatabase database, char[] password) {
         ImportExportResult importResult = MultiFormatImporter.importData(context, database, stream, format, password);
+
         Log.i(TAG, "Import result: " + importResult);
 
         return importResult;
@@ -97,47 +87,17 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     }
 
     public void onPreExecute() {
-        int llPadding = 30;
-        LinearLayout ll = new LinearLayout(context);
-        ll.setOrientation(LinearLayout.HORIZONTAL);
-        ll.setPadding(llPadding, llPadding, llPadding, llPadding);
-        ll.setGravity(Gravity.CENTER);
-        LinearLayout.LayoutParams llParam = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        llParam.gravity = Gravity.CENTER;
-        ll.setLayoutParams(llParam);
+        progress = new ProgressDialog(activity);
+        progress.setTitle(doImport ? R.string.importing : R.string.exporting);
 
-        ProgressBar progressBar = new ProgressBar(context);
-        progressBar.setIndeterminate(true);
-        progressBar.setPadding(0, 0, llPadding, 0);
-        progressBar.setLayoutParams(llParam);
+        progress.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                ImportExportTask.this.stop();
+            }
+        });
 
-        llParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        llParam.gravity = Gravity.CENTER;
-        TextView tvText = new TextView(context);
-        tvText.setText(doImport ? R.string.importing : R.string.exporting);
-
-        int textColor;
-        if (Utils.isDarkModeEnabled(context)) {
-            textColor = Color.WHITE;
-        } else {
-            textColor = Color.BLACK;
-        }
-        tvText.setTextColor(textColor);
-        tvText.setTextSize(20);
-        tvText.setLayoutParams(llParam);
-
-        ll.addView(progressBar);
-        ll.addView(tvText);
-
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
-        builder.setCancelable(true);
-        builder.setView(ll);
-
-        dialog = builder.create();
-        dialog.show();
+        progress.show();
     }
 
     protected ImportExportResult doInBackground(Void... nothing) {
@@ -158,12 +118,12 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
     public void onPostExecute(Object castResult) {
         listener.onTaskComplete((ImportExportResult) castResult, format);
 
-        dialog.dismiss();
+        progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Complete");
     }
 
     protected void onCancelled() {
-        dialog.dismiss();
+        progress.dismiss();
         Log.i(TAG, (doImport ? "Import" : "Export") + " Cancelled");
     }
 

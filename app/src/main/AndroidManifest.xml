@@ -112,15 +112,31 @@
                     android:mimeType="application/x-zip-compressed" />
             </intent-filter>
             <intent-filter>
-                <action
-                    android:name="android.intent.action.VIEW" />
-                <category
-                    android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data
                     android:scheme="file"
                     android:host="*"
                     android:pathPattern=".*\.zip" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:mimeType="text/comma-separated-values" />
+                <data android:pathPattern="*.csv" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="file"
+                    android:host="*"
+                    android:pathPattern=".*\.csv" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".CardShortcutConfigure"

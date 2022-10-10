@@ -28,6 +28,8 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -49,6 +51,8 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.appbar.AppBarLayout;
@@ -189,8 +193,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                     .setDataAndType(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file), "image/*")
                     .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);
-        }
-        catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
             // Display a toast message if an image viewer is not installed on device
             Toast.makeText(this, R.string.failedLaunchingPhotoPicker, Toast.LENGTH_SHORT).show();
             e.printStackTrace();
@@ -610,8 +613,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (settings.getDisableLockscreenWhileViewingCard()) {
-                window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                    setShowWhenLocked(true);
+                } else {
+                    showWhenLockedSdkLessThan27(window);
+                }
             }
 
             window.setAttributes(attributes);
@@ -707,7 +713,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Make notification area light if dark icons are needed
         if (Build.VERSION.SDK_INT >= 23) {
-            window.getDecorView().setSystemUiVisibility(backgroundNeedsDarkIcons ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0);
+            View decorView = getWindow().getDecorView();
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), decorView);
+            wic.setAppearanceLightStatusBars(backgroundNeedsDarkIcons);
             window.setStatusBarColor(Color.TRANSPARENT);
         } else {
             // Darken statusbar if icons won't be visible otherwise
@@ -746,6 +754,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         setFullscreen(isFullscreen);
 
         DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
+    }
+
+    @SuppressWarnings("deprecation")
+    private void showWhenLockedSdkLessThan27(Window window) {
+        window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
     }
 
     private void fixImageButtonColor(ImageButton imageButton) {
@@ -1047,11 +1061,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             editButton.setVisibility(View.GONE);
 
             // Set Android to fullscreen mode
-            getWindow().getDecorView().setSystemUiVisibility(
-                    getWindow().getDecorView().getSystemUiVisibility()
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-            );
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                getWindow().setDecorFitsSystemWindows(false);
+                if (getWindow().getInsetsController() != null) {
+                    getWindow().getInsetsController().hide(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                    getWindow().getInsetsController().setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+                }
+            } else {
+                setFullscreenModeSdkLessThan30();
+            }
         } else {
             Log.d(TAG, "Move out of fullscreen");
 
@@ -1082,13 +1100,34 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bottomAppBar.setVisibility(View.VISIBLE);
 
             // Unset fullscreen mode
-            getWindow().getDecorView().setSystemUiVisibility(
-                    getWindow().getDecorView().getSystemUiVisibility()
-                            & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            & ~View.SYSTEM_UI_FLAG_FULLSCREEN
-            );
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                getWindow().setDecorFitsSystemWindows(true);
+                if (getWindow().getInsetsController() != null) {
+                    getWindow().getInsetsController().show(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                }
+            } else {
+                unsetFullscreenModeSdkLessThan30();
+            }
         }
 
         Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress());
+    }
+
+    @SuppressWarnings("deprecation")
+    private void unsetFullscreenModeSdkLessThan30() {
+        getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                        & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+        );
+    }
+
+    @SuppressWarnings("deprecation")
+    private void setFullscreenModeSdkLessThan30() {
+        getWindow().getDecorView().setSystemUiVisibility(
+                getWindow().getDecorView().getSystemUiVisibility()
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+        );
     }
 }

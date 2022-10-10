@@ -1,22 +1,22 @@
-Deja de buscar tarjetas de recompensa de plástico durante la compra en la tienda o en la web.
-<b>Escanea los códigos de barras en tu dispositivo usando su cámara, olvídate de las tarjetas.</b>
+Detenga la búsqueda de tarjetas de recompensa de plástico durante el pago en la tienda o en la tienda web.
+<b>Escanea códigos de barras a tu dispositivo usando su cámara, olvídate de las tarjetas.</b>
 
-Olvídate de la cartera, o téngala ultraligera para los objetos de valor.
+Olvídese de su billetera o manténgala ultraligera para objetos de valor.
 
-Con esta herramienta esencial para llevar a diario (EDC) puedes sustituir el plástico inútil por el dinero en efectivo.
+Con esta herramienta esencial de transporte diario (EDC), puede reemplazar el plástico inútil con dinero en efectivo.
 
-- Evita el espionaje con muy pocos permisos. Sin acceso a Internet y sin anuncios.
+- Evita espiar con muy pocos permisos. Sin acceso a Internet y sin anuncios.
 - Añade tarjetas o códigos con nombres y colores personalizables.
-- Introduce manual de códigos si no hay código de barras que almacenar, o no se puede utilizar.
-- Importe tarjetas y códigos desde archivos, Catima, FidMe, Llavero de tarjetas de fidelidad, Stocard y Voucher Vault.
-- Haz respaldos de todas tus tarjetas y mígralas a un nuevo dispositivo si lo necesita.
-- Comparte cupones, ofertas exclusivas, códigos promocionales o tarjetas y códigos utilizando cualquier aplicación.
+- Entrada de código manual si no hay un código de barras para almacenar o no se puede usar.
+- Importación de tarjetas y códigos desde ficheros, Catima, FidMe, Llavero Tarjeta Fidelización, Stocard y Bóveda de Vales.
+- Haga una copia de seguridad de todas sus tarjetas y transfiéralas a un nuevo dispositivo si lo desea.
+- Comparta cupones, ofertas exclusivas, códigos promocionales o tarjetas y códigos usando cualquier aplicación.
 - Tema oscuro y opciones de accesibilidad para usuarios con problemas de visión.
-- Hecho para todos por la comunidad del software libre.
-- Traducciones localizadas a mano para más de 20 idiomas.
-- Gratis, apoyado por las contribuciones de la comunidad.
-- Utiliza, estudia, cambia y comparte como quieras; <i>con quien quieras</i>.
-- No sólo Software Libre / Open Source. Es un software de gestión de tarjetas libre y <i>copyleft</i> (GPLv3+).
+- Hecho para todos por la comunidad de software libre.
+- Traducciones hechas a mano localizadas para más de 20 idiomas.
+- Gratis, apoyado por contribuciones de la comunidad.
+- Úsalo, estúdialo, cámbialo y compártelo como quieras; <i>con todo</i>.
+- No solo Software Libre / Código Abierto. Gestión de tarjetas de software libre (GPLv3+) con <i>copyleft</i>.
 
-Simplifica tu vida y tus compras, y no vuelvas a perder un recibo de papel, una tarjeta regalo de pago en tienda o un billete de avión.
-Lleva contigo todas tus recompensas y bonos, y ahorra sobre la marcha.
+Simplifique su vida y sus compras, y nunca más pierda un recibo en papel, una tarjeta de regalo de pago en la tienda o un boleto de avión.
+Llévate todas tus recompensas y bonificaciones contigo y ahorra sobre la marcha.

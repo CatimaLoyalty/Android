@@ -1,0 +1,2 @@
+- Affiche toujours les options d'import/export et affiche un toast avec les problèmes actuels (improves compat with XPrivacyLua)
+- Demande de confirmation lorsqu'on quitte la page d'édition sans avoir sauvegardé les changements effectués

@@ -1,0 +1,4 @@
+- Traduction Hollandaise
+- Permet l'édition du nom après ajout d'une carte de fidélité
+- Ajout d'un champs optionnel "Note"
+- Résolution de tous les problèmes identifié par "FindBugs" et nécessite que tous les problèmes soient résolus avant d'accepter une pull request

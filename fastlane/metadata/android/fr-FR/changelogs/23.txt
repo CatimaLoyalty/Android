@@ -1,0 +1,3 @@
+-Ajout d'espace au début et à la fin du code-barre. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Ajout d'une option afin de configurer la couleur utilisé pour le nom du magasin et son arrière plan. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Ajout d'une option afin d'ajuster la taille de police sur la liste des cartes et le détail d'une carte. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

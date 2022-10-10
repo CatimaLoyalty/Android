@@ -125,7 +125,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:mimeType="text/comma-separated-values" />
-                <data android:pathPattern="*.csv" />
+                <data android:pathPattern="LoyaltyCardKeychain.csv" />
             </intent-filter>
 
             <intent-filter>

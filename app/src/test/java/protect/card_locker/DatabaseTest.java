@@ -353,8 +353,8 @@ public class DatabaseTest {
     @Test
     public void updateMissingGroup() {
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-        Group group1 = DBHelper.getGroupByName(mDatabase, "group one");
-        boolean result = DBHelper.updateGroup(mDatabase, group1._id, "new name");
+
+        boolean result = DBHelper.updateGroup(mDatabase, 1, "new name");
         assertEquals(false, result);
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
     }

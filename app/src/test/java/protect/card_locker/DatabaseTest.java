@@ -300,7 +300,7 @@ public class DatabaseTest {
 
         Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
-        assertEquals("group one", group._id);
+        assertEquals("group one", group.name);
 
         result = DBHelper.deleteGroup(mDatabase, group._id);
         assertTrue(result);

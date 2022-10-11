@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -11,6 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -20,11 +26,6 @@ import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 
 import protect.card_locker.databinding.CustomBarcodeScannerBinding;
 import protect.card_locker.databinding.ScanActivityBinding;
@@ -50,12 +51,50 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
+    private ActivityResultLauncher<Intent> mainActivityLauncher;
+
+    private void startMainActivity() {
+        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+        mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mainIntent);
+    }
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
         addGroup = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
         Log.d(TAG, "Scan activity: id=" + cardId);
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        if (receivedAction.equals(Intent.ACTION_SEND)) {
+            if (receivedType.startsWith("image/")) {
+                Uri receiveUri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                if (receiveUri != null) {
+                    BarcodeValues barcodeValues;
+                    try {
+                        barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent, getApplicationContext());
+                    } catch (NullPointerException e) {
+                        Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    if (!barcodeValues.isEmpty()) {
+                        Intent manualResult = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                        Bundle manualResultBundle = new Bundle();
+                        manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+                        manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+
+                        manualResult.putExtras(manualResultBundle);
+                        mainActivityLauncher.launch(manualResult);
+                    } else {
+                        startMainActivity();
+                    }
+                }
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
+        }
     }
 
     @Override
@@ -72,6 +111,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        mainActivityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            startMainActivity();
+        });
         extractIntentFields(getIntent());
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
@@ -110,7 +152,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
             }
         });
-        onSharedIntent();
     }
 
     @Override
@@ -220,23 +261,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
         } catch (ActivityNotFoundException e) {
             Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
             Log.e(TAG, "No activity found to handle intent", e);
-        }
-    }
-
-    private void onSharedIntent() {
-        Intent intent = getIntent();
-        String receivedAction = intent.getAction();
-        String receivedType = intent.getType();
-
-        if (Intent.ACTION_SEND.equals(receivedAction)) {
-            if (receivedType.startsWith("image/")) {
-                handleActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent);
-                //Return if barcode wasn't found
-                ScanActivity.this.setResult(RESULT_CANCELED);
-                finish();
-            } else {
-                Log.e(TAG, "Wrong mime-type");
-            }
         }
     }
 }

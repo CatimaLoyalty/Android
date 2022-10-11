@@ -120,7 +120,12 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                Uri data = intent.getData();
+                Uri data;
+                if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
+                    data = intent.getData();
+                } else {
+                    data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
                     bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));

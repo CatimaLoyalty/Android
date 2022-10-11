@@ -64,7 +64,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public enum LoyaltyCardOrder {
         Alpha,
         LastUsed,
-        Expiry
+        Expiry,
+        Balance
     }
 
     public enum LoyaltyCardOrderDirection {
@@ -877,6 +878,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (order == LoyaltyCardOrder.Expiry) {
             return LoyaltyCardDbIds.EXPIRY;
+        }
+
+        if(order == LoyaltyCardOrder.Balance) {
+            return LoyaltyCardDbIds.BALANCE;
         }
 
         throw new IllegalArgumentException("Unknown order " + order);

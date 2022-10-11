@@ -120,7 +120,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
             return;
         }
 
-        if (DBHelper.getGroup(mDatabase, string) != null) {
+        if (DBHelper.getGroupByName(mDatabase, string) != null) {
             input.setError(getString(R.string.group_name_already_in_use));
             return;
         }

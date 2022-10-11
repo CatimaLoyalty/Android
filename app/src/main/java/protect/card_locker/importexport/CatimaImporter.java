@@ -353,15 +353,23 @@ public class CatimaImporter implements Importer {
      * session.
      */
     private boolean importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException {
-        if (CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null) != null){
+        boolean success = true;
+        try {
             String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
             DBHelper.insertGroup(database, name);
             // return true if csv export is already migrated to the new group id scheme
             return true;
-        } else {
+        } catch (FormatException _e) {
+            success = false;
+            // This field did not exist before database version 16
+            // We catch this exception so we can still import old backups
+        }
+        if (success) {
             String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
             DBHelper.insertGroup(database, name);
             return false;
+        } else {
+            return true;
         }
     }
 

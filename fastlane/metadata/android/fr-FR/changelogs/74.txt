@@ -1,0 +1,3 @@
+- Correction de la création de raccourcis
+- Génération d'une icône de raccourci spécifique à la carte
+- Correction de la possibilité de changer la couleur de la carte de fidélité

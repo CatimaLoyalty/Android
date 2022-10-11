@@ -1,0 +1,1 @@
+- Correction du chargement des photos lors de l'édition d'une carte existante

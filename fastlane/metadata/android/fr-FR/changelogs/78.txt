@@ -1,0 +1,1 @@
+- Correction d'un crash lors de la rotation dans la modification d'activité de la carte de fidélité

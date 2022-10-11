@@ -1,0 +1,3 @@
+- Focus automatique du champ de texte lors de la création ou de la modification d'un groupe
+- Correction des icônes floues (utilisation de SVG partout)
+- Toujours ouvrir l'appareil photo mais ajoutez un bouton de numérisation manuelle à la vue de l'appareil photo

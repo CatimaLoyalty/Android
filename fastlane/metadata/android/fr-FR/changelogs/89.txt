@@ -1,0 +1,5 @@
+- Correction du balayage entre les groupes ne fonctionnant pas sur un groupe vide
+- Autorisation des exportations protégées par mot de passe
+- Amélioration de l'utilisation de l'espace pour les QR codes
+- Enregistrement du dernier niveau de zoom utilisé par carte
+- Correction d'un crash lors du balayage juste après un appui

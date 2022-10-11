@@ -1,0 +1,2 @@
+- Plusieurs corrections mineures de traduction et d'interface utilisateur
+- Correction d'un crash lors de l'importation/partage de carte de fidélité sur Android 6

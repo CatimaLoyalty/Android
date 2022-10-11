@@ -1,0 +1,6 @@
+- Option hinzugefügt, um einen separaten Barcodewert von der Karten-ID festzulegen
+- Vereinfachte Konfiguration der Schriftgröße
+- Mehrere kleine UI-Korrekturen
+- Buchstabensymbol kann auch für Verknüpfungen verwendet werden
+- Bei der manuellen Eingabe werden immer alle Barcode-Typen angezeigt
+- Datenschutzdialog im Willkommensbildschirm entfernt

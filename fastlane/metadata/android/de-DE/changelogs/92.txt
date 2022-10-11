@@ -1,0 +1,2 @@
+- Neues Layout des Hauptbildschirms
+- Behebung von Problemen mit der Größe des Bottomsheets beim Ein- und Ausschalten des Vollbildmodus

@@ -3,7 +3,7 @@
     <string name="action_search">بحث</string>
     <string name="action_add">اضف</string>
     <string name="noGiftCards">اضغط علي زر + لاضافة بطاقة, او استورد بعض منهم من قائمة ال ⋮.</string>
-    <string name="noMatchingGiftCards">لا نتائج. حاول تغيير بحثك.</string>
+    <string name="noMatchingGiftCards">لا يوجد نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
     <string name="cardId">بطاقة شخصية</string>
@@ -271,4 +271,8 @@
     <string name="settings_theme_color">لون المظهر</string>
     <string name="previousCard">السابق</string>
     <string name="nextCard">التالي</string>
+    <string name="failedToRetrieveImageFile">فشل في استخراج ملف الصورة</string>
+    <string name="barcodeLongPressMessage">يمكن فتح صور فقط في تطبيق معرض الصور</string>
+    <string name="failedToOpenUrl">ثبت متصفح ويب أولاً</string>
+    <string name="welcome">مرحبا بك في كاتيما</string>
 </resources>

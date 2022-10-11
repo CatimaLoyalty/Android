@@ -1,0 +1,2 @@
+- Naprawiono brak importu obrazów z kopii zapasowej
+- Dodano opcje nadpisania języka

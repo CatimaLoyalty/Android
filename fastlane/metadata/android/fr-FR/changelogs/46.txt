@@ -1,0 +1,1 @@
+- Garde en mémoire le groupe d'onglet actif entre les pages et sessions

@@ -1,0 +1,5 @@
+- Ajouter une fonction de duplication de carte
+- Ne pas autoriser le choix d'expiration avant 1970 (ils n'ont jamais fonctionné de toute façon)
+- Ajout d'un support pour l'archivage des cartes
+- Déplacer la suppression de l'édition vers voir
+- Suppression de l'icône de verrouillage de rotation au profit d'un nouveau paramètre de verrouillage de rotation

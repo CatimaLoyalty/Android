@@ -1,0 +1,3 @@
+- Fehlende Barcode-ID zum Exportieren hinzufügen
+- Dialog zum Aktualisieren des Barcodes nicht anzeigen, wenn der Wert mit der Karten-ID übereinstimmt
+- Finnische Übersetzung hinzugefügt

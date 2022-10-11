@@ -26,6 +26,9 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
+import protect.card_locker.databinding.CustomBarcodeScannerBinding;
+import protect.card_locker.databinding.ScanActivityBinding;
+
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
  * <p>
@@ -33,6 +36,8 @@ import androidx.appcompat.widget.Toolbar;
  * originally licensed under Apache 2.0
  */
 public class ScanActivity extends CatimaAppCompatActivity {
+    private ScanActivityBinding binding;
+    private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
 
     private CaptureManager capture;
@@ -56,9 +61,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ScanActivityBinding.inflate(getLayoutInflater());
+        customBarcodeScannerBinding = CustomBarcodeScannerBinding.bind(binding.zxingBarcodeScanner);
         setTitle(R.string.scanCardBarcode);
-        setContentView(R.layout.scan_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -69,10 +76,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
-        findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
-        findViewById(R.id.add_manually).setOnClickListener(this::addManually);
+        customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
+        customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
 
-        barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
+        barcodeScannerView = binding.zxingBarcodeScanner;
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar

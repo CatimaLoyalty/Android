@@ -1,0 +1,2 @@
+- Manuelle Eingabe des Barcodes durch den Benutzer erlaubt. Wenn ein Benutzer einen Barcode manuell eingeben möchte, wird eine Liste aller gültigen und unterstützten Barcode-Bilder angezeigt. Der Benutzer kann dann das Bild auswählen, das seinen Wünschen entspricht. issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- Problem behoben, bei dem einige angezeigte Barcodes unscharf waren. issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37)

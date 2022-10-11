@@ -7,11 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
+
+import protect.card_locker.databinding.GroupLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.GroupListItemViewHolder> {
@@ -33,9 +35,14 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
 
     @NonNull
     @Override
-    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.group_layout, inputParent, false);
-        return new GroupListItemViewHolder(itemView);
+    public GroupCursorAdapter.GroupListItemViewHolder onCreateViewHolder(@NonNull ViewGroup inputParent, int inputViewType) {
+        return new GroupListItemViewHolder(
+                GroupLayoutBinding.inflate(
+                        LayoutInflater.from(inputParent.getContext()),
+                        inputParent,
+                        false
+                )
+        );
     }
 
     public void onBindViewHolder(GroupListItemViewHolder inputHolder, Cursor inputCursor) {
@@ -81,16 +88,16 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
 
     public static class GroupListItemViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mCardCount;
-        public AppCompatImageButton mMoveUp, mMoveDown, mEdit, mDelete;
+        public ImageButton mMoveUp, mMoveDown, mEdit, mDelete;
 
-        public GroupListItemViewHolder(View inputView) {
-            super(inputView);
-            mName = inputView.findViewById(R.id.name);
-            mCardCount = inputView.findViewById(R.id.cardCount);
-            mMoveUp = inputView.findViewById(R.id.moveUp);
-            mMoveDown = inputView.findViewById(R.id.moveDown);
-            mEdit = inputView.findViewById(R.id.edit);
-            mDelete = inputView.findViewById(R.id.delete);
+        public GroupListItemViewHolder(GroupLayoutBinding groupLayoutBinding) {
+            super(groupLayoutBinding.getRoot());
+            mName = groupLayoutBinding.name;
+            mCardCount = groupLayoutBinding.cardCount;
+            mMoveUp = groupLayoutBinding.moveUp;
+            mMoveDown = groupLayoutBinding.moveDown;
+            mEdit = groupLayoutBinding.edit;
+            mDelete = groupLayoutBinding.delete;
         }
     }
 }

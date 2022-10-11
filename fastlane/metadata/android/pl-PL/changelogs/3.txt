@@ -1,0 +1,14 @@
+- Dodano oficjalne wsparcie następującej listy kodów kreskowych 1D i 2D:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Generowane kody kreskowe są teraz większe i łatwiejsze do skanowania

@@ -1,0 +1,4 @@
+- Verbesserte Unterstützung der Gruppenverwaltung
+- Möglichkeit des Zuschneidens von Bildern hinzugefügt
+- Bilddatenverlustes beim Speichern nach dem Drehen in der Bearbeitungsansicht behoben
+- Möglichkeit hinzugefügt, ein eigenes Bild als Kartensymbol festzulegen

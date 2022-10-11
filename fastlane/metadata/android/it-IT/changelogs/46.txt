@@ -1,0 +1,1 @@
+- Memorizzazione della scheda gruppo attiva anche tra diverse schermate e sessioni

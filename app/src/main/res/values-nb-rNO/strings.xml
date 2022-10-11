@@ -183,7 +183,7 @@
     <string name="settings_theme_color">Draktfarge</string>
     <string name="noGroupCards">Denne gruppen er tom</string>
     <string name="barcodeImageDescriptionWithType">Bilde av <xliff:g>%s</xliff:g>-strekkode</string>
-    <string name="swipeToSwitchImages">Dra eller hold lenge for å bygge bilder</string>
+    <string name="swipeToSwitchImages">Dra for å bytte bilder, hold for å åpne et bilde i galleriet.</string>
     <string name="sort_by">Sortering</string>
     <string name="reverse">…i omvendt rekkefølge</string>
     <string name="sort_by_balance">Saldo</string>
@@ -253,4 +253,6 @@
         <item quantity="one">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
         <item quantity="other">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
     </plurals>
+    <string name="failedToRetrieveImageFile">Kunne ikke hente bildefil</string>
+    <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriet</string>
 </resources>

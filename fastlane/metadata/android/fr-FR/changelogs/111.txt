@@ -1,0 +1,7 @@
+- Support de la langue arabe
+- Affichage du nombre de cartes archivées dans l'aperçu du groupe
+- Correction de bugs d'analyse de la balance (les cartes ne pouvaient pas être sauvegardées en arabe et dans d'autres langues dont les chiffres sont d'origine non occidentale)
+- Correction du thème personnalisé qui ne s'applique pas correctement à l'écran principal
+- Amélioration de l'affichage des cartes sélectionnées
+- Correction d'un crash lors de la sortie de la vue des cartes dans les mises en page RTL pour les cartes avec expiration ou solde
+- Correction de la flèche de retour dans la vue des cartes qui pointe dans le mauvais sens dans les mises en page RTL

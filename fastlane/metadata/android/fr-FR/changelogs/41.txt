@@ -1,0 +1,2 @@
+- Ajout de bords arrondis sur les icones des cartes sur l'affichage d'ensemble
+- Ajout de la fonctionnalité de groupage des entrées

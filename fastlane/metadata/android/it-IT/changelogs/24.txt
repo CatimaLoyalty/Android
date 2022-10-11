@@ -1,0 +1,4 @@
+- Traduzioni aggiornate. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Aggiornamenti del rendering dei codici a barre: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+- Reload della visualizzazione della carta quando lo schermo viene ruotato, in modo che il codice a barre sia di dimensioni corrette.
+- Modifica al rendering dei codici a barre 1D, per riempire meglio lo schermo.

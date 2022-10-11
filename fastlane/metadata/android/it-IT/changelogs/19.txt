@@ -1,0 +1,3 @@
+- Correzione crash durante l'importazione di alcuni tipi di file CSV danneggiati. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Corretta l'importazione dei backup direttamente dal file system. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Corretta l'importazione dei backup da alcuni tipi di content provider. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

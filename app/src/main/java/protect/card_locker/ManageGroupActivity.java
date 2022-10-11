@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -25,8 +26,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import protect.card_locker.databinding.ActivityManageGroupBinding;
+
 public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
 
+    private ActivityManageGroupBinding binding;
     private SQLiteDatabase mDatabase;
     private ManageGroupCursorAdapter mAdapter;
 
@@ -43,17 +47,18 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
         super.onCreate(inputSavedInstanceState);
-        setContentView(R.layout.activity_manage_group);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        binding = ActivityManageGroupBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        noGroupCardsText = findViewById(R.id.noGroupCardsText);
-        mCardList = findViewById(R.id.list);
-        FloatingActionButton saveButton = findViewById(R.id.fabSave);
+        noGroupCardsText = binding.include.noGroupCardsText;
+        mCardList = binding.include.list;
+        FloatingActionButton saveButton = binding.fabSave;
 
-        mGroupNameText = findViewById(R.id.editTextGroupName);
+        mGroupNameText = binding.editTextGroupName;
 
         mGroupNameText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -198,7 +203,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
     private void leaveWithoutSaving() {
         if (hasChanged()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ManageGroupActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(ManageGroupActivity.this);
             builder.setTitle(R.string.leaveWithoutSaveTitle);
             builder.setMessage(R.string.leaveWithoutSaveConfirmation);
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> finish());

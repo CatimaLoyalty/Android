@@ -199,7 +199,7 @@
     <string name="sort_by_name">名称</string>
     <string name="help_translate_this_app">帮助翻译此应用</string>
     <string name="sort_by_balance">余额</string>
-    <string name="swipeToSwitchImages">滑动或长按来切换图片</string>
+    <string name="swipeToSwitchImages">滑动切换图片，按住打开图库应用中的图片</string>
     <string name="reverse">倒序</string>
     <string name="sort_by">排序方式</string>
     <string name="selectColor">选择颜色</string>

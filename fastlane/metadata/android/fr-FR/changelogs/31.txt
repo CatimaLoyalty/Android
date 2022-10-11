@@ -1,0 +1,2 @@
+- Tri des cartes sans tenir compte de la casse. (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Ajout d'un parametre pour bloquer l'orientation de toutes les cartes (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

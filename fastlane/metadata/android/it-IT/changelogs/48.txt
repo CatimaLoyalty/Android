@@ -1,0 +1,3 @@
+- Creata una schermata dedicata alle informazioni
+- L'utente può scegliere se usare la fotocamera o inserire manualmente l'ID per l'aggiunta/modifica di una carta
+- Ordine i gruppi manuale anzichè alfabetico

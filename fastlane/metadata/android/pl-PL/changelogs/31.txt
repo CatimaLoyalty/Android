@@ -1,0 +1,2 @@
+- Dodano sortowanie kart na liście niezależnie od wielkości znaków (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Dodano ustawienie zablokowania orientacji dla wszystkich kart (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

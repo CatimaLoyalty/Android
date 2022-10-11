@@ -137,7 +137,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
         closePowerScreenOnAndroid11();
     }
 
-    @SuppressLint({"MissingPermission", "deprecation"})
+    @SuppressWarnings({"MissingPermission", "deprecation"})
     private void closePowerScreenOnAndroid11() {
         // Android 12 will auto-close the power screen, but earlier versions won't
         // Lint complains about this but on Android 11 the permission is not needed

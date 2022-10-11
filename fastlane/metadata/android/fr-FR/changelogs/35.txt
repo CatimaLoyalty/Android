@@ -1,0 +1,2 @@
+- Activation de la sauvegarde de l'application
+- Mise à jour des traductions Française et Slovène

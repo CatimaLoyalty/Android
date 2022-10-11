@@ -1,0 +1,1 @@
+- Absturz bei Rotation in der Bearbeitungsansicht der Kundenkarte behoben

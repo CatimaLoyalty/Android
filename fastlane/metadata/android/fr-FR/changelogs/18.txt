@@ -1,0 +1,2 @@
+- Correction du problème sur Android SDK+24 où l'utilisation de l'option "import" du selecteur de fichiers faisait crash l'application (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Nouvel icon et charte graphique (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

@@ -1,0 +1,5 @@
+- Ajout de la prise en charge des raccourcis à l'écran d'accueil lors de l'ajout ou de la modification d'une carte. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Suppression du widget, car il était un mauvais substitut aux raccourcis. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Correction de l'exportation des sauvegardes sur Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Rapport sur le type mime plus précis lors de l'exportation des données de sauvegarde. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- Correction du bogue où une carte ne pouvait pas être modifiée. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

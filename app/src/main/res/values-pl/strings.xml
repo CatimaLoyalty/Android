@@ -263,4 +263,10 @@
     <string name="barcodeLongPressMessage">W galerii możesz otworzyć tylko obrazy</string>
     <string name="failedToOpenUrl">Najpierw zainstaluj przeglądarkę</string>
     <string name="welcome">Witaj w Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Wyświetl zarchiwizowaną (<xliff:g>%1$d</xliff:g> kartę)</item>
+        <item quantity="few">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
+        <item quantity="many">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
+        <item quantity="other">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
+    </plurals>
 </resources>

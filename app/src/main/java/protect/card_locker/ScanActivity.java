@@ -228,7 +228,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         String receivedAction = intent.getAction();
         String receivedType = intent.getType();
 
-        if (receivedAction.equals(Intent.ACTION_SEND)) {
+        if (Intent.ACTION_SEND.equals(receivedAction)) {
             if (receivedType.startsWith("image/")) {
                 handleActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent);
                 //Return if barcode wasn't found

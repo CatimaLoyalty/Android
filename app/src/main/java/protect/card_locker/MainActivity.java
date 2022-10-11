@@ -379,7 +379,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         String receivedType = intent.getType();
 
         if (Intent.ACTION_SEND.equals(receivedAction)) {
-
             if (receivedType.startsWith("image/")) {
                 Intent i = new Intent(getApplicationContext(), ScanActivity.class);
                 i.setAction(Intent.ACTION_SEND);

@@ -119,7 +119,25 @@
                 <data
                     android:scheme="file"
                     android:host="*"
-                    android:pathPattern=".*\.zip" />
+                    android:pathPattern="catima.zip" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="file"
+                    android:host="*"
+                    android:pathPattern="fidme-export-request-*.zip" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="file"
+                    android:host="*"
+                    android:pathPattern=".*-sync.zip" />
             </intent-filter>
 
             <!-- CSV Intent Filters -->

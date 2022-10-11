@@ -33,6 +33,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".AboutActivity"
@@ -118,18 +124,6 @@
         <activity
             android:name=".UCropWrapper"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".ShareActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

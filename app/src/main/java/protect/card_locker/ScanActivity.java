@@ -110,6 +110,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
             }
         });
+        onSharedIntent();
     }
 
     @Override
@@ -219,6 +220,23 @@ public class ScanActivity extends CatimaAppCompatActivity {
         } catch (ActivityNotFoundException e) {
             Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
             Log.e(TAG, "No activity found to handle intent", e);
+        }
+    }
+
+    private void onSharedIntent() {
+        Intent intent = getIntent();
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        if (receivedAction.equals(Intent.ACTION_SEND)) {
+            if (receivedType.startsWith("image/")) {
+                handleActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent);
+                //Return if barcode wasn't found
+                ScanActivity.this.setResult(RESULT_CANCELED);
+                finish();
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
         }
     }
 }

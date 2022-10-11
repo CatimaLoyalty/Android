@@ -370,6 +370,25 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         });
+        onSharedIntent();
+    }
+
+    private void onSharedIntent() {
+        Intent intent = getIntent();
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        if (receivedAction.equals(Intent.ACTION_SEND)) {
+
+            if (receivedType.startsWith("image/")) {
+                Intent i = new Intent(getApplicationContext(), ScanActivity.class);
+                i.setAction(Intent.ACTION_SEND);
+                i.setDataAndType(intent.getParcelableExtra(Intent.EXTRA_STREAM), intent.getType());
+                mBarcodeScannerLauncher.launch(i);
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
+        }
     }
 
     @Override

@@ -590,7 +590,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 return;
             }
 
-            BigDecimal newBalance = new BigDecimal(updateTextView.getTag().toString());
+            BigDecimal newBalance = (BigDecimal) updateTextView.getTag();
             DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
             this.onResume();
         });

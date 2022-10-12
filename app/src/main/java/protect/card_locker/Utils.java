@@ -20,6 +20,12 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.palette.graphics.Palette;
+
 import com.google.android.material.color.DynamicColors;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
@@ -45,11 +51,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -120,7 +121,12 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                Uri data = intent.getData();
+                Uri data;
+                if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
+                    data = intent.getData();
+                } else {
+                    data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
                     bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));

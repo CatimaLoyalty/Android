@@ -18,17 +18,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -36,10 +26,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -348,18 +338,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
-            if (!barcodeValues.isEmpty()) {
-                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle newBundle = new Bundle();
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-                Bundle inputBundle = intent.getExtras();
-                if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
-                }
-                newIntent.putExtras(newBundle);
-                startActivity(newIntent);
-            }
+            processBarcodeValues(intent, barcodeValues);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -370,24 +349,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         });
-        onSharedIntent();
-    }
-
-    private void onSharedIntent() {
-        Intent intent = getIntent();
-        String receivedAction = intent.getAction();
-        String receivedType = intent.getType();
-
-        if (Intent.ACTION_SEND.equals(receivedAction)) {
-            if (receivedType.startsWith("image/")) {
-                Intent i = new Intent(getApplicationContext(), ScanActivity.class);
-                i.setAction(Intent.ACTION_SEND);
-                i.setDataAndType(intent.getParcelableExtra(Intent.EXTRA_STREAM), intent.getType());
-                mBarcodeScannerLauncher.launch(i);
-            } else {
-                Log.e(TAG, "Wrong mime-type");
-            }
-        }
     }
 
     @Override
@@ -529,9 +490,46 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
+    private void processBarcodeValues(Intent intent, BarcodeValues barcodeValues) {
+        if (barcodeValues.isEmpty()) {
+            return;
+        }
+        Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+        Bundle newBundle = new Bundle();
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+        Bundle inputBundle = intent.getExtras();
+        if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
+        }
+        newIntent.putExtras(newBundle);
+        startActivity(newIntent);
+    }
+
+    private void onSharedIntent(Intent intent) {
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(receivedAction)) {
+            if (receivedType.startsWith("image/")) {
+                BarcodeValues barcodeValues;
+                try {
+                    barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent, this);
+                } catch (NullPointerException e) {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                processBarcodeValues(intent, barcodeValues);
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
+        }
+    }
+
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
+        onSharedIntent(intent);
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout) {

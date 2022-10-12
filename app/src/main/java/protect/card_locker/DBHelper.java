@@ -379,7 +379,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIdsGroups.cardID + " ," +
                     LoyaltyCardDbGroups.ID +
                     " FROM tmpDbIdsGroups AS idsGroups JOIN tmpDbGroups AS groups ON " +
-                    "tmp." + LoyaltyCardDbIdsGroups.groupID + "=" + "groups." + LoyaltyCardDbGroups.NAME);
+                    "idsGroups." + LoyaltyCardDbIdsGroups.groupID + "=" + "groups." + LoyaltyCardDbGroups.NAME);
 
             db.execSQL("DROP TABLE tmpDbGroups");
             db.execSQL("DROP TABLE tmpDbIdsGroups");

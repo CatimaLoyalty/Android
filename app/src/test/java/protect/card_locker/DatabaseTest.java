@@ -347,7 +347,7 @@ public class DatabaseTest {
         cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, (int) id);
         assertEquals(1, cardGroups.size());
         assertEquals("group one renamed", cardGroups.get(0).name);
-        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group._id));
+        assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group2._id));
     }
 
     @Test

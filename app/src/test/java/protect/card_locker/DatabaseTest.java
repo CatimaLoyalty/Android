@@ -325,7 +325,7 @@ public class DatabaseTest {
         // Ensure the card has one group and the group has one card
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, (int) id);
         assertEquals(1, cardGroups.size());
-        assertEquals("group one", cardGroups.get(0)._id);
+        assertEquals("group one", cardGroups.get(0).name);
         assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group._id));
 
         // Rename group
@@ -377,7 +377,7 @@ public class DatabaseTest {
 
         Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
-        assertEquals("group one", group._id);
+        assertEquals("group one", group.name);
 
         // Should fail on duplicate
         long id2 = DBHelper.insertGroup(mDatabase, "group one");
@@ -407,7 +407,7 @@ public class DatabaseTest {
         // Rename failed so both should still be the same
         Group group = DBHelper.getGroupByName(mDatabase, "group one");
         assertNotNull(group);
-        assertEquals("group one", group._id);
+        assertEquals("group one", group.name);
 
         Group group2 = DBHelper.getGroupByName(mDatabase, "group two");
         assertNotNull(group2);

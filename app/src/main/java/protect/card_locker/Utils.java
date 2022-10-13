@@ -67,7 +67,6 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
     public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
     public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
-    public static final int BARCODE_IMPORT_FROM_SHARE_INTENT = 11;
 
     static final double LUMINANCE_MIDPOINT = 0.5;
 
@@ -116,23 +115,13 @@ public class Utils {
             return new BarcodeValues(null, null);
         }
 
-        if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE || requestCode == Utils.BARCODE_IMPORT_FROM_SHARE_INTENT) {
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
             Log.i(TAG, "Received image file with possible barcode");
 
             Bitmap bitmap;
             try {
-                Uri data;
-                if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
-                    data = intent.getData();
-                } else {
-                    data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
-                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
-                } else {
-                    bitmap = getBitmapSdkLessThan29(data, context);
-                }
+                Uri data = intent.getData();
+                bitmap = retrieveImageFromUri(context, data);
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
                 e.printStackTrace();
@@ -170,6 +159,17 @@ public class Utils {
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
+    }
+
+    static public Bitmap retrieveImageFromUri(Context context, Uri data) throws IOException {
+        Bitmap bitmap;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
+            bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+        } else {
+            bitmap = getBitmapSdkLessThan29(data, context);
+        }
+        return bitmap;
     }
 
     @SuppressWarnings("deprecation")

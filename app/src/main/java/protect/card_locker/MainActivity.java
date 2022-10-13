@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -33,6 +35,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -338,7 +341,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
-            processBarcodeValues(intent, barcodeValues);
+            Bundle inputBundle = intent.getExtras();
+            String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+            processBarcodeValues(barcodeValues, group);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -490,7 +495,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void processBarcodeValues(Intent intent, BarcodeValues barcodeValues) {
+    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
         if (barcodeValues.isEmpty()) {
             return;
         }
@@ -498,9 +503,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Bundle newBundle = new Bundle();
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-        Bundle inputBundle = intent.getExtras();
-        if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
-            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
+        if (group != null) {
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
         }
         newIntent.putExtras(newBundle);
         startActivity(newIntent);
@@ -515,13 +519,34 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             if (receivedType.startsWith("image/")) {
                 BarcodeValues barcodeValues;
                 try {
-                    barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent, this);
+                    Bitmap bitmap;
+                    try {
+                        Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                        bitmap = Utils.retrieveImageFromUri(this, data);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Error getting data from image file");
+                        e.printStackTrace();
+                        Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
+
+                    barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
+
+                    if (barcodeValues.isEmpty()) {
+                        Log.i(TAG, "No barcode found in image file");
+                        Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
                 } catch (NullPointerException e) {
                     Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
                     finish();
                     return;
                 }
-                processBarcodeValues(intent, barcodeValues);
+                Bundle inputBundle = intent.getExtras();
+                String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+                processBarcodeValues(barcodeValues, group);
             } else {
                 Log.e(TAG, "Wrong mime-type");
             }

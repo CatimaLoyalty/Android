@@ -324,6 +324,7 @@ public class DBHelper extends SQLiteOpenHelper {
             db.beginTransaction();
 
             db.execSQL("CREATE TEMPORARY TABLE tmpDbGroups (" +
+                    LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
                     LoyaltyCardDbGroups.NAME + " TEXT not null," +
                     LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0' )");
             

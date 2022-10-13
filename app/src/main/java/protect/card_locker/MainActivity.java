@@ -517,6 +517,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_IMPORT_FROM_SHARE_INTENT, RESULT_OK, intent, this);
                 } catch (NullPointerException e) {
                     Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                    finish();
                     return;
                 }
                 processBarcodeValues(intent, barcodeValues);

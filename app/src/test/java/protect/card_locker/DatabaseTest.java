@@ -340,13 +340,13 @@ public class DatabaseTest {
         // But group one renamed does
         Group group2 = DBHelper.getGroupByName(mDatabase, "group one renamed");
         assertNotNull(group2);
-        assertEquals("group one renamed", group2._id);
+        assertEquals("group one renamed", group2.name);
 
         // And card is in "group one renamed"
         // Ensure the card has one group and the group has one card
         cardGroups = DBHelper.getLoyaltyCardGroups(mDatabase, (int) id);
         assertEquals(1, cardGroups.size());
-        assertEquals("group one renamed", cardGroups.get(0)._id);
+        assertEquals("group one renamed", cardGroups.get(0).name);
         assertEquals(1, DBHelper.getGroupCardCount(mDatabase, group._id));
     }
 
@@ -411,7 +411,7 @@ public class DatabaseTest {
 
         Group group2 = DBHelper.getGroupByName(mDatabase, "group two");
         assertNotNull(group2);
-        assertEquals("group two", group2._id);
+        assertEquals("group two", group2.name);
     }
 
     @Test

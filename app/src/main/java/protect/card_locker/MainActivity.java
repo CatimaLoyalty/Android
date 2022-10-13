@@ -510,6 +510,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         String receivedAction = intent.getAction();
         String receivedType = intent.getType();
 
+        // Check if an image was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
             if (receivedType.startsWith("image/")) {
                 BarcodeValues barcodeValues;

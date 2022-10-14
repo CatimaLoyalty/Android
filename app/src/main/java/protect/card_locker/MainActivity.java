@@ -544,8 +544,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     finish();
                     return;
                 }
-                Bundle inputBundle = intent.getExtras();
-                String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
                 processBarcodeValues(barcodeValues, group);
             } else {
                 Log.e(TAG, "Wrong mime-type");

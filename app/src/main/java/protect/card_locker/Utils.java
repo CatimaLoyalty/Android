@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
@@ -18,6 +19,12 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.palette.graphics.Palette;
 
 import com.google.android.material.color.DynamicColors;
 import com.google.zxing.BinaryBitmap;
@@ -44,11 +51,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -118,12 +120,8 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
-                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
-                } else {
-                    bitmap = getBitmapSdkLessThan29(intent, context);
-                }
+                Uri data = intent.getData();
+                bitmap = retrieveImageFromUri(context, data);
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
                 e.printStackTrace();
@@ -163,9 +161,18 @@ public class Utils {
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
     }
 
+    static public Bitmap retrieveImageFromUri(Context context, Uri data) throws IOException {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
+            return ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+        } else {
+            return getBitmapSdkLessThan29(data, context);
+        }
+    }
+
     @SuppressWarnings("deprecation")
-    private static Bitmap getBitmapSdkLessThan29(Intent intent, Context context) throws IOException {
-        return MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
+    private static Bitmap getBitmapSdkLessThan29(Uri data, Context context) throws IOException {
+        return MediaStore.Images.Media.getBitmap(context.getContentResolver(), data);
     }
 
     static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {

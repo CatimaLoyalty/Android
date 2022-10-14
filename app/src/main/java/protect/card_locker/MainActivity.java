@@ -579,7 +579,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         for (Group group : newGroups) {
             TabLayout.Tab tab = groupsTabLayout.newTab();
-            tab.setText(group._id);
+            tab.setText(group.name);
             tab.setTag(group);
             groupsTabLayout.addTab(tab, false);
         }

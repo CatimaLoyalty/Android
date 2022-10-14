@@ -1,0 +1,1 @@
+- Corrige falha na busca quando não há grupos

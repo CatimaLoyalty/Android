@@ -1,0 +1,2 @@
+- Adiciona suporte a atalhos de app (Android 7.1+), onde os cartões mais frequentemente usados vão aparecer como atalhos. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Adiciona widget que parece um atalho de aplicativo fixado, para dar suporte a dispositivos que rodam versão inferior à Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

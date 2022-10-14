@@ -1,0 +1,5 @@
+- Adiciona suporte para adicionar atalhos à tela inicial quando adicionando ou editando cartões. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Remove widget, pois é um mal substituto para atalhos. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Corrige exportação de cópias de segurança no Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Relata um tipo de mídia mais exato ao exportar dados de cópia de segurança. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- Corrige problema onde um cartão não podia ser editado. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

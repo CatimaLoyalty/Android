@@ -1,0 +1,2 @@
+- Conserta importação de imagens da cópia de segurança
+- Opção para sobrepor idioma do sistema

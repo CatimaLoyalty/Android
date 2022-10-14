@@ -1,0 +1,5 @@
+- Adiciona função de duplicar cartão
+- Não permitir expiração anterior a 1970 (nunca funcionou de qualquer forma)
+- Adiciona suporte a arquivar cartões
+- Move a função deletar da tela de edição para visualização
+- Remove ícone de travamento de rotação em favor de nova configuração de travamento de rotação

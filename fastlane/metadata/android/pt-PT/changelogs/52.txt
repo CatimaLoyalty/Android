@@ -1,0 +1,3 @@
+- Foca campo de texto automaticamente quando criando ou editando um grupo
+- Conserta ícones borrados (usando SVG em todo lugar)
+- Sempre abre a câmera, mas adiciona botão para leitura manual na tela da câmera

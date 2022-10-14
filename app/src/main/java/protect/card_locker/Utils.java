@@ -162,14 +162,12 @@ public class Utils {
     }
 
     static public Bitmap retrieveImageFromUri(Context context, Uri data) throws IOException {
-        Bitmap bitmap;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
-            bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+            return ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
         } else {
-            bitmap = getBitmapSdkLessThan29(data, context);
+            return getBitmapSdkLessThan29(data, context);
         }
-        return bitmap;
     }
 
     @SuppressWarnings("deprecation")

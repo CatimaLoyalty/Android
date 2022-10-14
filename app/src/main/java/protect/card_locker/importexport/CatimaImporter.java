@@ -68,6 +68,8 @@ public class CatimaImporter implements Importer {
             bufferedInputStream.reset();
             importCSV(context, database, bufferedInputStream);
         }
+
+        input.close();
     }
 
     public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {

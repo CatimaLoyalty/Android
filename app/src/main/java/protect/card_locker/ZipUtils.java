@@ -15,7 +15,15 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 
 public class ZipUtils {
-    static public String read(ZipInputStream zipInputStream) throws IOException {
+    public static Bitmap readImage(ZipInputStream zipInputStream) {
+        return BitmapFactory.decodeStream(zipInputStream);
+    }
+
+    public static JSONObject readJSON(ZipInputStream zipInputStream) throws IOException, JSONException {
+        return new JSONObject(read(zipInputStream));
+    }
+
+    private static String read(ZipInputStream zipInputStream) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, StandardCharsets.UTF_8));
         int c;
@@ -23,13 +31,5 @@ public class ZipUtils {
             stringBuilder.append((char) c);
         }
         return stringBuilder.toString();
-    }
-
-    static public Bitmap readImage(ZipInputStream zipInputStream) {
-        return BitmapFactory.decodeStream(zipInputStream);
-    }
-
-    static public JSONObject readJSON(ZipInputStream zipInputStream) throws IOException, JSONException {
-        return new JSONObject(read(zipInputStream));
     }
 }

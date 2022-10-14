@@ -55,7 +55,7 @@ public class CatimaImporter implements Importer {
 
             String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
             if (fileName.equals("catima.csv")) {
-                importCSV(context, database, new ByteArrayInputStream(ZipUtils.read(zipInputStream).getBytes(StandardCharsets.UTF_8)));
+                importCSV(context, database, zipInputStream);
             } else if (fileName.endsWith(".png")) {
                 Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), fileName);
             } else {
@@ -73,16 +73,12 @@ public class CatimaImporter implements Importer {
     public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
-        bufferedReader.mark(100);
-
-        Integer version = 1;
-
-        try {
-            version = Integer.parseInt(bufferedReader.readLine());
-        } catch (NumberFormatException _e) {
-            // Assume version 1
-        }
-
+        bufferedReader.mark(10);
+        int codePoint = bufferedReader.read();
+        // default to version 1
+        // keep in mind this breaks with more digits, but is probably better than BufferedReader.readLine
+        // where you could burst past the read ahead limit
+        int version = Character.isDigit(codePoint) ? Character.digit(codePoint, 10) : 1;
         bufferedReader.reset();
 
         switch (version) {
@@ -95,8 +91,6 @@ public class CatimaImporter implements Importer {
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
         }
-
-        bufferedReader.close();
     }
 
     public void parseV1(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
@@ -118,8 +112,8 @@ public class CatimaImporter implements Importer {
     }
 
     public void parseV2(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
-        Integer part = 0;
-        String stringPart = "";
+        int part = 0;
+        StringBuilder stringPart = new StringBuilder();
 
         try {
             while (true) {
@@ -135,7 +129,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 1:
                             try {
-                                parseV2Groups(database, stringPart);
+                                parseV2Groups(database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -143,7 +137,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 2:
                             try {
-                                parseV2Cards(context, database, stringPart);
+                                parseV2Cards(context, database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -151,7 +145,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 3:
                             try {
-                                parseV2CardGroups(database, stringPart);
+                                parseV2CardGroups(database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -167,12 +161,12 @@ public class CatimaImporter implements Importer {
 
                     if (sectionParsed) {
                         part += 1;
-                        stringPart = "";
+                        stringPart = new StringBuilder();
                     } else {
-                        stringPart += tmp + "\n";
+                        stringPart.append(tmp).append('\n');
                     }
                 } else {
-                    stringPart += tmp + "\n";
+                    stringPart.append(tmp).append('\n');
                 }
             }
         } catch (FormatException e) {

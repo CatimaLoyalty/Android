@@ -99,7 +99,7 @@ public class CatimaExporter implements Exporter {
         CSVPrinter printer = new CSVPrinter(output, CSVFormat.RFC4180);
 
         // Print the version
-        printer.printRecord("2");
+        printer.printRecord("3");
 
         printer.println();
 

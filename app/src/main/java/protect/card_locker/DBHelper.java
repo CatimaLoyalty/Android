@@ -859,7 +859,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static long insertGroup(SQLiteDatabase database, final String name) {
-        if (name.isEmpty()) return -1;
+        if (name.isEmpty() || getGroupByName(database, name)!= null) return -1;
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.NAME, name);

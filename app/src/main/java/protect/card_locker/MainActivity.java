@@ -544,7 +544,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     finish();
                     return;
                 }
-                processBarcodeValues(barcodeValues, group);
+                processBarcodeValues(barcodeValues, null);
             } else {
                 Log.e(TAG, "Wrong mime-type");
             }

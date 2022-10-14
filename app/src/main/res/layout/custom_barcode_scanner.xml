@@ -19,23 +19,40 @@
         app:zxing_viewfinder_laser="@color/zxing_custom_viewfinder_laser"
         app:zxing_viewfinder_mask="@color/zxing_custom_viewfinder_mask"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_scanner_padding"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tap_give_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noCameraPermissionDirectToSystemSetting"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/add_manually"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/add_from_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/addFromImage" />
+            android:text="@string/addFromImage"
+            app:layout_constraintBottom_toTopOf="@+id/add_manually"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/add_manually"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/addManually" />
-    </LinearLayout>
+            android:text="@string/addManually"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

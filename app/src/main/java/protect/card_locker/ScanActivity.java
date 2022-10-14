@@ -1,16 +1,20 @@
 package protect.card_locker;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -23,9 +27,12 @@ import java.util.List;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import protect.card_locker.databinding.CustomBarcodeScannerBinding;
 import protect.card_locker.databinding.ScanActivityBinding;
 
@@ -36,6 +43,9 @@ import protect.card_locker.databinding.ScanActivityBinding;
  * originally licensed under Apache 2.0
  */
 public class ScanActivity extends CatimaAppCompatActivity {
+
+    private static int CAMERA_PERMISSION_REQUEST_CODE = 250;
+
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
@@ -46,6 +56,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String cardId;
     private String addGroup;
     private boolean torch = false;
+
+    private Toast camPermissionToast;
 
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
@@ -78,6 +90,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
         customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
         customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
+
 
         barcodeScannerView = binding.zxingBarcodeScanner;
 
@@ -116,6 +129,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onResume() {
         super.onResume();
         capture.onResume();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+            changeStateBasedOnCamPermission(true);
     }
 
     @Override
@@ -128,6 +143,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         capture.onDestroy();
+        //Dismiss the toast dialog when activity destroyed, so that give it no chancec to cover other activities.
+        if (camPermissionToast != null)
+            camPermissionToast.cancel();
+
     }
 
     @Override
@@ -221,4 +240,36 @@ public class ScanActivity extends CatimaAppCompatActivity {
             Log.e(TAG, "No activity found to handle intent", e);
         }
     }
+
+    private void promptCameraPermission() {
+        if (camPermissionToast == null)
+            camPermissionToast = Toast.makeText(this, R.string.noCameraPermissionError, Toast.LENGTH_SHORT);
+        camPermissionToast.show();
+    }
+
+
+
+    private void changeStateBasedOnCamPermission(boolean hasGranted) {
+        customBarcodeScannerBinding.tapGivePermission.setOnClickListener(hasGranted ? null : v -> {
+            navigateToSystemPermissionSetting();
+        });
+        customBarcodeScannerBinding.tapGivePermission.setVisibility(hasGranted ? View.GONE : View.VISIBLE);
+
+    }
+
+
+    private void navigateToSystemPermissionSetting() {
+        Intent permissionIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null));
+        permissionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(permissionIntent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE)
+            changeStateBasedOnCamPermission(grantResults[0] == PackageManager.PERMISSION_GRANTED);
+
+    }
+
 }

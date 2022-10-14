@@ -102,79 +102,15 @@
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- ZIP Intent Filters -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:mimeType="application/x-zip-compressed" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:scheme="file"
-                    android:host="*"
-                    android:pathPattern="catima.zip" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:scheme="file"
-                    android:host="*"
-                    android:pathPattern="fidme-export-request-*.zip" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:scheme="file"
-                    android:host="*"
-                    android:pathPattern=".*-sync.zip" />
-            </intent-filter>
-
-            <!-- CSV Intent Filters -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:mimeType="text/comma-separated-values" />
-                <data android:pathPattern="LoyaltyCardKeychain.csv" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:scheme="file"
-                    android:host="*"
-                    android:pathPattern=".*\.csv" />
-            </intent-filter>
-
-            <!-- JSON Intent Filters -->
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="file" />
-                <data android:host="*" />
-                <data android:mimeType="application/json" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="file" />
-                <data android:host="*" />
-                <data android:pathPattern="vouchervault.json" />
+                    android:mimeType="application/zip" />
             </intent-filter>
         </activity>
         <activity

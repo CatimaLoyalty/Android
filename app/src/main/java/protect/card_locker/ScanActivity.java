@@ -249,7 +249,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
 
 
-    private void changeStateBasedOnCamPermission(boolean hasGranted) {
+    private void showCameraPermissionMissingText(boolean show) {
         customBarcodeScannerBinding.tapGivePermission.setOnClickListener(hasGranted ? null : v -> {
             navigateToSystemPermissionSetting();
         });

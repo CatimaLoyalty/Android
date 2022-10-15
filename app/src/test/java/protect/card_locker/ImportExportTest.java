@@ -474,9 +474,7 @@ public class ImportExportTest {
         checkGroups();
 
         assertEquals(groupsToGroupNames(groupsForOne), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 1)));
-        System.out.println(groupsToGroupNames(groupsForTwo));
-        System.out.println(groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 2)));
-        // assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 2)));
+        assertEquals(groupsToGroupNames(groupsForTwo), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 2)));
         assertEquals(groupsToGroupNames(groupsForThree), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 3)));
         assertEquals(groupsToGroupNames(groupsForFour), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 4)));
         assertEquals(groupsToGroupNames(groupsForFive), groupsToGroupNames(DBHelper.getLoyaltyCardGroups(mDatabase, 5)));

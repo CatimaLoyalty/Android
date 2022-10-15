@@ -3,6 +3,7 @@ package protect.card_locker.importexport;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Pair;
 
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
@@ -22,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.List;
 
 import protect.card_locker.CatimaBarcode;
@@ -174,6 +176,7 @@ public class CatimaImporter implements Importer {
     public void parseV3(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
         Integer part = 0;
         String stringPart = "";
+        Hashtable<Integer,String> groupsTable = null;
 
         try {
             while (true) {
@@ -189,7 +192,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 1:
                             try {
-                                parseV3Groups(database, stringPart.toString());
+                                groupsTable = parseV3Groups(database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -205,7 +208,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 3:
                             try {
-                                parseV3CardGroups(database, stringPart.toString());
+                                parseV3CardGroups(database, stringPart.toString(), groupsTable);
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -259,7 +262,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV3Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public Hashtable<Integer,String> parseV3Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
         // Parse groups
         final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -279,9 +282,15 @@ public class CatimaImporter implements Importer {
             groupParser.close();
         }
 
+        Hashtable<Integer,String> groupsTable = new Hashtable<Integer,String>();
+
         for (CSVRecord record : records) {
-            importGroupV3(database, record);
+            Pair<Integer, String> group = importGroupV3(database, record);
+            Integer id = group.first;
+            String name = group.second;
+            groupsTable.put(id, name);
         }
+        return groupsTable;
     }
 
     public void parseV2Cards(Context context, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
@@ -334,7 +343,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV3CardGroups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public void parseV3CardGroups(SQLiteDatabase database, String data, Hashtable<Integer,String> groupsTable) throws IOException, FormatException, InterruptedException {
         // Parse card group mappings
         final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -355,7 +364,7 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importCardGroupMappingV3(database, record);
+            importCardGroupMappingV3(database, record, groupsTable);
         }
     }
 
@@ -493,9 +502,12 @@ public class CatimaImporter implements Importer {
      * Import a single group from the V3 scheme (database v16) into the database using the given
      * session.
      */
-    private void importGroupV3(SQLiteDatabase database, CSVRecord record) throws FormatException {
+    private Pair<Integer, String> importGroupV3(SQLiteDatabase database, CSVRecord record) throws FormatException {
+        Integer id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ID, record, false);
         String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
         DBHelper.insertGroup(database, name);
+        Pair<Integer, String> group = new Pair<>(id, name);
+        return group;
     }
 
     /**
@@ -513,15 +525,16 @@ public class CatimaImporter implements Importer {
     }
 
     /**
-     * Import a single card to group mapping into the database using the given
+     * Import a single card to group mapping from V3 scheme (database v16) into the database using the given
      * session.
      */
-    private void importCardGroupMappingV3(SQLiteDatabase database, CSVRecord record) throws FormatException {
+    private void importCardGroupMappingV3(SQLiteDatabase database, CSVRecord record, Hashtable<Integer,String> groupsTable) throws FormatException {
         Integer cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record, false);
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
 
         Integer groupId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, false);
-        cardGroups.add(DBHelper.getGroup(database, groupId));
+        String groupName = groupsTable.get(groupId);
+        cardGroups.add(DBHelper.getGroupByName(database, groupName));
 
         DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
     }

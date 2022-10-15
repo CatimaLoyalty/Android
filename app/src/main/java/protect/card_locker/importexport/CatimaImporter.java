@@ -13,7 +13,6 @@ import org.apache.commons.csv.CSVRecord;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -75,14 +74,7 @@ public class CatimaImporter implements Importer {
     public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
-        bufferedReader.mark(10);
-        int codePoint = bufferedReader.read();
-        // default to version 1
-        // keep in mind this breaks with more digits, but is probably better than BufferedReader.readLine
-        // where you could burst past the read ahead limit
-        int version = Character.isDigit(codePoint) ? Character.digit(codePoint, 10) : 1;
-        bufferedReader.reset();
-
+        int version = parseVersion(bufferedReader);
         switch (version) {
             case 1:
                 parseV1(context, database, bufferedReader);
@@ -252,6 +244,35 @@ public class CatimaImporter implements Importer {
     }
 
     /**
+     * Parse the version number of the import file
+     *
+     * @param reader the reader containing the import file
+     * @return the parsed version number, defaulting to 1 if none is found
+     * @throws IOException there was a problem reading the file
+     */
+    private int parseVersion(BufferedReader reader) throws IOException {
+        reader.mark(10); // slightly over the search limit just to be sure
+        StringBuilder sb = new StringBuilder();
+        int searchLimit = 5; // gives you version numbers up to 99999
+        int codePoint;
+        // search until the next whitespace, indicating the end of the version
+        while (!Character.isWhitespace(codePoint = reader.read())) {
+            // we found something that isn't a digit, or we ran out of chars
+            if (!Character.isDigit(codePoint) || searchLimit <= 0) {
+                reader.reset();
+                return 1; // default value
+            }
+            sb.append((char) codePoint);
+            searchLimit--;
+        }
+        reader.reset();
+        if (sb.length() == 0) {
+            return 1;
+        }
+        return Integer.parseInt(sb.toString());
+    }
+
+    /**
      * Import a single loyalty card into the database using the given
      * session.
      */
@@ -334,7 +355,7 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed,archiveStatus);
+        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
     }
 
     /**

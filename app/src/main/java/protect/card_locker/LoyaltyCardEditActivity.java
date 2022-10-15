@@ -71,6 +71,7 @@ import java.util.concurrent.Callable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -950,7 +951,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
                         dateField.setText(lastValue);
                     }
-                    DialogFragment datePickerFragment = new DatePickerFragment(LoyaltyCardEditActivity.this, dateField);
+                    DialogFragment datePickerFragment = new DatePickerFragment(
+                            LoyaltyCardEditActivity.this,
+                            dateField,
+                            // if the expiry date is being set, set date picker's minDate to the 'valid from' date
+                            loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
+                            // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
+                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null);
                     datePickerFragment.show(getSupportFragmentManager(), "datePicker");
                 }
 
@@ -1302,10 +1309,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
         final Context context;
         final EditText textFieldEdit;
+        @Nullable
+        final Date minDate;
+        @Nullable
+        final Date maxDate;
 
-        DatePickerFragment(Context context, EditText textFieldEdit) {
+        DatePickerFragment(Context context, EditText textFieldEdit, @Nullable Date minDate, @Nullable Date maxDate) {
             this.context = context;
             this.textFieldEdit = textFieldEdit;
+            this.minDate = minDate;
+            this.maxDate = maxDate;
         }
 
         @NonNull
@@ -1325,15 +1338,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             // Create a new instance of DatePickerDialog and return it
             DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
-            datePickerDialog.getDatePicker().setMinDate(getMinDateOfDatePicker());
+            datePickerDialog.getDatePicker().setMinDate(minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker());
+            datePickerDialog.getDatePicker().setMaxDate(maxDate != null ? maxDate.getTime() : getDefaultMaxDateOfDatePicker());
             return datePickerDialog;
         }
 
-        private long getMinDateOfDatePicker()
-        {
+        private long getDefaultMinDateOfDatePicker() {
             Calendar minDateCalendar = Calendar.getInstance();
             minDateCalendar.set(1970, 0, 1);
             return minDateCalendar.getTimeInMillis();
+        }
+
+        private long getDefaultMaxDateOfDatePicker() {
+            Calendar maxDateCalendar = Calendar.getInstance();
+            maxDateCalendar.set(2100, 11, 31);
+            return maxDateCalendar.getTimeInMillis();
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {

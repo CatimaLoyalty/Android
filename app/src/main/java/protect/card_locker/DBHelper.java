@@ -586,8 +586,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static List<Group> getLoyaltyCardGroups(SQLiteDatabase database, final int id) {
         Cursor data = database.rawQuery("select * from " + LoyaltyCardDbGroups.TABLE + " g " +
                 " LEFT JOIN " + LoyaltyCardDbIdsGroups.TABLE + " ig ON ig." + LoyaltyCardDbIdsGroups.groupID + " = g." + LoyaltyCardDbGroups.ID +
-                " where " + LoyaltyCardDbIdsGroups.cardID + "=?" +
-                " ORDER BY " + LoyaltyCardDbIdsGroups.groupID, withArgs(id));
+                " where " + LoyaltyCardDbIdsGroups.cardID + "=?", withArgs(id));
 
         List<Group> groups = new ArrayList<>();
 

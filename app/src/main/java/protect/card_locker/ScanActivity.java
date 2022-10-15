@@ -9,12 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -31,8 +31,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import protect.card_locker.databinding.CustomBarcodeScannerBinding;
 import protect.card_locker.databinding.ScanActivityBinding;
 
@@ -44,8 +44,6 @@ import protect.card_locker.databinding.ScanActivityBinding;
  */
 public class ScanActivity extends CatimaAppCompatActivity {
 
-    private static int CAMERA_PERMISSION_REQUEST_CODE = 250;
-
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
@@ -56,8 +54,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String cardId;
     private String addGroup;
     private boolean torch = false;
-
-    private Toast camPermissionToast;
 
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
@@ -90,7 +86,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
         customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
         customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
-
 
         barcodeScannerView = binding.zxingBarcodeScanner;
 
@@ -130,7 +125,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         super.onResume();
         capture.onResume();
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
-            changeStateBasedOnCamPermission(true);
+            showCameraPermissionMissingText(true);
     }
 
     @Override
@@ -143,10 +138,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         capture.onDestroy();
-        //Dismiss the toast dialog when activity destroyed, so that give it no chancec to cover other activities.
-        if (camPermissionToast != null)
-            camPermissionToast.cancel();
-
     }
 
     @Override
@@ -241,22 +232,20 @@ public class ScanActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void promptCameraPermission() {
-        if (camPermissionToast == null)
-            camPermissionToast = Toast.makeText(this, R.string.noCameraPermissionError, Toast.LENGTH_SHORT);
-        camPermissionToast.show();
-    }
-
-
-
     private void showCameraPermissionMissingText(boolean show) {
-        customBarcodeScannerBinding.tapGivePermission.setOnClickListener(hasGranted ? null : v -> {
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? null : v -> {
             navigateToSystemPermissionSetting();
         });
-        customBarcodeScannerBinding.tapGivePermission.setVisibility(hasGranted ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.background.setBackgroundColor(show ? getResources().getColor(R.color.transparent) : obtainThemeAttribute(R.attr.colorSurface));
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.GONE : View.VISIBLE);
 
     }
 
+    private int obtainThemeAttribute(int attribute) {
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.colorSurface, typedValue, true);
+        return typedValue.data;
+    }
 
     private void navigateToSystemPermissionSetting() {
         Intent permissionIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null));
@@ -267,8 +256,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == CAMERA_PERMISSION_REQUEST_CODE)
-            changeStateBasedOnCamPermission(grantResults[0] == PackageManager.PERMISSION_GRANTED);
+        if (requestCode == CaptureManager.getCameraPermissionReqCode())
+            showCameraPermissionMissingText(grantResults[0] == PackageManager.PERMISSION_GRANTED);
 
     }
 

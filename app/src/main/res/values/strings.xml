@@ -68,6 +68,7 @@
     <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export data</string>
     <string name="noCameraPermissionError">Camera permission not granted.</string>
+    <string name="cameraPermissionDeniedTitle">We can\'t access the camera</string>
     <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>

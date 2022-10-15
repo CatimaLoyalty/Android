@@ -96,6 +96,7 @@
     <string name="exportOptionExplanation">导出的数据将储存至你选择的位置.</string>
     <string name="noExternalStoragePermissionError">在导入导出前需要获得外部储存权限</string>
     <string name="noCameraPermissionError">未授予相机权限.</string>
+    <string name="cameraPermissionDeniedTitle">我们不能访问您的相机</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima需要访问您的相机来扫描条形码. 轻触这里以更改您的权限设置。</string>
     <string name="exporting">导出中…</string>
     <string name="importing">导入中…</string>

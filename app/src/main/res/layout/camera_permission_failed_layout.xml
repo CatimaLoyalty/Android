@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="protect.card_locker.MainActivity"
+    tools:showIn="@layout/custom_barcode_scanner">
+
+    <LinearLayout
+        android:id="@+id/camera_permission_denied_clickable_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/camera_permission_denied" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.HeadlineLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cameraPermissionDeniedTitle" />
+
+        <TextView
+            style="@style/AppTheme.TextView.NoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noCameraPermissionDirectToSystemSetting" />
+    </LinearLayout>
+
+</RelativeLayout>

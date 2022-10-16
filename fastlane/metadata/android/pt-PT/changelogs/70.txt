@@ -1,11 +1,11 @@
-- QUEBRA DE COMPATIBILIDADE: O formato da cópia de segurança mudou, veja https://github.com/TheLastProject/Catima/wiki/Export-format
-- QUEBRA DE COMPATIBILIDADE: O formato do compartilhamento de URL mudou, veja https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Torna possível habilitar ou desabilitar a lanterna enquanto escaneando
-- Adiciona suporte à UPC-E
-- Suporte à adição de foto de frente e verso de cada cartão
-- Suporte à importação de arquivos zip protegidos por senha
-- Suporte à importação de Stocard (Beta)
-- Conserta espaço em branco inútil em notas importadas do Fidme
-- Suporte ao novo formato de exportação do Voucher Vault
-- Conserta os botões de ação flutuante ficando atrás de outros elementos da interface no Android 4
-- Corrige margem superior da barra do app na visualização de cartão
+- SIGNIFICATIVO: O formato da cópia de segurança mudou
+- SIGNIFICATIVO: O formato do compartilhamento de URL mudou
+- Habilitar/desabilitar a lanterna ao escanear
+- Suporte à UPC-E
+- Suporte à foto de frente e verso de cada cartão
+- Suporte à zip protegido por senha
+- Suporte à Stocard (Beta)
+- Conserta notas do Fidme
+- Novo formato do Voucher Vault
+- Corrige os botões flutuantes atrás de outros elementos da interface no Android 4
+- Corrige margem da barra do app na visualização de cartão

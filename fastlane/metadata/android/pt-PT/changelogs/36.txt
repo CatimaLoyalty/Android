@@ -1,10 +1,10 @@
-- Funcionalidade de busca (#320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
-- Funcionalidade de compartilhar (#321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
-- Suporte a modo escuro (#322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
-- Cartões podem não ter código de barras (#324 (https://github.com/brarcher/loyalty-card-locker/pull/324))
-- Notas podem ter múltiplas linhas (#326 (https://github.com/brarcher/loyalty-card-locker/pull/326))
-- Melhora no dimensionamento de notas (#319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
-- Melhora nas notificações e no ícone do app (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- Funcionalidade de busca
+- Funcionalidade de compartilhar
+- Suporte a modo escuro
+- Cartões podem não ter código de barras
+- Notas podem ter múltiplas linhas
+- Melhora no dimensionamento de notas
+- Melhora nas notificações e no ícone do app
 - Atualiza SDK de destino para Android 10
 - Melhora nas traduções:
   - Alemão

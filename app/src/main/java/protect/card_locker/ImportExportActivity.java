@@ -77,6 +77,20 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                     PERMISSIONS_EXTERNAL_STORAGE);
         }
 
+        Intent fileIntent = getIntent();
+        if (fileIntent != null && fileIntent.getType() != null) {
+            String intentType = fileIntent.getType();
+            if (intentType.contains("/zip")) {
+                importDataFormat = DataFormat.Catima;
+            } else if (intentType.contains("/csv")) {
+                importDataFormat = DataFormat.Stocard;
+            } else if (intentType.contains("/json")) {
+                importDataFormat = DataFormat.VoucherVault;
+            }
+
+            openFileForImport(fileIntent.getData(), null);
+        }
+
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
         fileCreateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             Intent intent = result.getData();

@@ -105,7 +105,7 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <!-- ZIP Intent Filters -->
+            <!-- ZIP Intent Filter -->
             <intent-filter >
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -114,11 +114,13 @@
                 <data android:host="*"/>
             </intent-filter>
 
+            <!-- JSON Intent Filter -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:mimeType="application/json" />
+                <data android:mimeType="application/json" />
+                <data android:scheme="content"/>
+                <data android:host="*"/>
             </intent-filter>
         </activity>
         <activity

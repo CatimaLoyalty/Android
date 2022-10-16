@@ -338,6 +338,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
          */
 
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            // Exit early if the user cancelled the scan (pressed back/home)
+            if (result.getResultCode() != RESULT_OK) {
+                return;
+            }
+
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
@@ -497,8 +502,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
         if (barcodeValues.isEmpty()) {
-            return;
+            throw new IllegalArgumentException("barcodesValues may not be empty");
         }
+
         Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
         Bundle newBundle = new Bundle();
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());

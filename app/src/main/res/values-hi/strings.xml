@@ -36,4 +36,25 @@
         <item quantity="other">कार्ड <xliff:g>%d</xliff:g> हटाएं</item>
     </plurals>
     <string name="importFailedTitle">आयात विफल</string>
+    <string name="exportOptionExplanation">डाटा आपके मनचाहे स्थान पर लिखा जाएगा.</string>
+    <string name="importOptionFilesystemExplanation">फाईल सिस्टम से एक फाईल चुनें.</string>
+    <string name="app_copyright_old">लोयलटी कार्ड कीचैंन पर आधारित
+\nकौपीराईट © 2016–2020 ब्रांडन आर्चर</string>
+    <string name="action_add">जोड़</string>
+    <string name="edit">बदलें</string>
+    <string name="confirm">पक्का करें</string>
+    <string name="failedParsingImportUriError">दी गई URL का विक्ष्लेषण नही हो सका</string>
+    <string name="exportSuccessfulTitle">निर्यात सफल</string>
+    <string name="exportFailedTitle">निर्यात असफल</string>
+    <string name="exportFailed">निर्यात नही हो सका</string>
+    <string name="importing">आयात चल रहा है…</string>
+    <string name="exporting">निर्यात चल रहा है…</string>
+    <string name="importOptionFilesystemTitle">फाईल सिस्टम से आयात करें</string>
+    <string name="importOptionFilesystemButton">फाईल सिस्टम से</string>
+    <string name="importOptionApplicationTitle">दूसरा एप्प इस्तमाल करें</string>
+    <string name="importOptionApplicationButton">दूसरा एप्प इस्तमाल करें</string>
+    <string name="about">बारे में</string>
+    <string name="starImage">पसंदीदा स्टार</string>
+    <string name="settings_light_theme">उजाला</string>
+    <string name="settings_dark_theme">अँधेरा</string>
 </resources>

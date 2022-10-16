@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="settings_locale">ভাষা</string>
     <string name="action_search">খুঁজুন</string>
     <string name="settings_pink_theme">গুলাপি</string>
@@ -25,4 +25,31 @@
     <string name="no">না</string>
     <string name="nextCard">পরবর্তী</string>
     <string name="action_add">যুক্ত করুন</string>
+    <string name="noGiftCardsGroup">কিছু কার্ড তৈরি করুন এবং তারপর সেগুলিকে এখানে গ্রুপে বরাদ্দ করুন।</string>
+    <string name="noMatchingGiftCards">কোন ফলাফল নেই. আপনার অনুসন্ধান পরিবর্তন করার চেষ্টা করুন.</string>
+    <string name="storeName">নাম</string>
+    <string name="note">বিঃদ্রঃ</string>
+    <string name="star">ফেভারিটে যোগ করুন</string>
+    <string name="barcodeNoBarcode">কোন বারকোড নেই</string>
+    <string name="noBarcode">বারকোড নেই</string>
+    <string name="unstar">পছন্দের তালিকা থেকে অপসারণ</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="edit">সম্পাদনা করুন</string>
+    <string name="delete">মুছে ফেলা</string>
+    <string name="confirm">নিশ্চিত করুন</string>
+    <string name="deleteConfirmation">এই কার্ডটি স্থায়ীভাবে মুছবেন\?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">এই <xliff:g>%d</xliff:g> কার্ডটি স্থায়ীভাবে মুছবেন\?</item>
+        <item quantity="other">এই <xliff:g>%d</xliff:g> কার্ডগুলিকে স্থায়ীভাবে মুছবেন\?</item>
+    </plurals>
+    <string name="copy_to_clipboard">ক্লিপবোর্ডে আইডি কপি করুন</string>
+    <string name="share">শেয়ার করুন</string>
+    <string name="editCardTitle">কার্ড সম্পাদনা করুন</string>
+    <string name="addCardTitle">কার্ড যোগ করুন</string>
+    <string name="scanCardBarcode">বারকোড স্ক্যান করুন</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> কার্ড মুছুন</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> কার্ডগুলো মুছুন</item>
+    </plurals>
+    <string name="deleteTitle">কার্ড মুছুন</string>
 </resources>

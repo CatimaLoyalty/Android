@@ -1,6 +1,8 @@
 package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -13,6 +15,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -25,12 +29,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,8 +71,10 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Currency;
 import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
@@ -85,6 +94,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton bottomAppBarInfoButton;
     ImageButton bottomAppBarPreviousButton;
     ImageButton bottomAppBarNextButton;
+    ImageButton bottomAppBarUpdateBalanceButton;
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -363,6 +373,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton = binding.buttonShowInfo;
         bottomAppBarPreviousButton = binding.buttonPrevious;
         bottomAppBarNextButton = binding.buttonNext;
+        bottomAppBarUpdateBalanceButton = binding.buttonUpdateBalance;
 
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
@@ -439,6 +450,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarInfoButton.setOnClickListener(view -> showInfoDialog());
         bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
         bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
+        bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -453,6 +465,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 iconImage.setClipBounds(new Rect(left, top, right, bottom));
             }
         });
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -523,6 +536,78 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         infoDialog.create().show();
     }
 
+    private void showBalanceUpdateDialog() {
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.updateBalanceTitle);
+        FrameLayout container = new FrameLayout(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.leftMargin = 60;
+        params.rightMargin = 60;
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        TextView currentTextview = new TextView(this);
+        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        layout.addView(currentTextview);
+
+        TextView updateTextView = new TextView(this);
+        updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        layout.addView(updateTextView);
+
+        final EditText input = new EditText(this);
+        Context dialogContext = this;
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setHint(R.string.updateBalanceHint);
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                BigDecimal newBalance;
+                try {
+                    newBalance = calculateNewBalance(loyaltyCard.balance, loyaltyCard.balanceType, s.toString());
+                } catch (ParseException e) {
+                    input.setTag(null);
+                    updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, loyaltyCard.balance, loyaltyCard.balanceType)));
+                    return;
+                }
+
+                // Save new balance into this element
+                input.setTag(newBalance);
+                updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
+            }
+        });
+        layout.addView(input);
+        layout.setLayoutParams(params);
+        container.addView(layout);
+
+        builder.setView(container);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            // Grab calculated balance from input field
+            BigDecimal newBalance = (BigDecimal) input.getTag();
+            if (newBalance == null) {
+                return;
+            }
+
+            // Actually update balance
+            DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+            // Reload UI
+            this.onResume();
+        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
+    }
+
+    private BigDecimal calculateNewBalance(BigDecimal currentBalance, Currency currency, String unparsedSubtraction) throws ParseException {
+        BigDecimal subtraction = Utils.parseBalance(unparsedSubtraction, currency);
+        return currentBalance.subtract(subtraction).max(new BigDecimal(0));
+    }
+
     private void setBottomAppBarButtonState() {
         if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
             bottomAppBarInfoButton.setVisibility(View.VISIBLE);
@@ -537,6 +622,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bottomAppBarPreviousButton.setVisibility(View.VISIBLE);
             bottomAppBarNextButton.setVisibility(View.VISIBLE);
         }
+
+        bottomAppBarUpdateBalanceButton.setVisibility(hasBalance(loyaltyCard) ? View.VISIBLE : View.GONE);
     }
 
     private void prevNextCard(boolean next) {
@@ -709,6 +796,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         fixImageButtonColor(bottomAppBarInfoButton);
         fixImageButtonColor(bottomAppBarPreviousButton);
         fixImageButtonColor(bottomAppBarNextButton);
+        fixImageButtonColor(bottomAppBarUpdateBalanceButton);
         setBottomAppBarButtonState();
 
         // Make notification area light if dark icons are needed

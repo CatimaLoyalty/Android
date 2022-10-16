@@ -236,7 +236,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? null : v -> {
             navigateToSystemPermissionSetting();
         });
-        customBarcodeScannerBinding.background.setBackgroundColor(show ? getResources().getColor(R.color.transparent) : obtainThemeAttribute(R.attr.colorSurface));
+        customBarcodeScannerBinding.background.setBackgroundColor(show ? Color.TRANSPARENT : obtainThemeAttribute(R.attr.colorSurface));
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.GONE : View.VISIBLE);
 
     }

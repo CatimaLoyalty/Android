@@ -122,6 +122,15 @@
                 <data android:scheme="content"/>
                 <data android:host="*"/>
             </intent-filter>
+
+            <!-- CSV Intent Filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content"/>
+                <data android:host="*" />
+                <data android:mimeType="text/comma-separated-values" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".CardShortcutConfigure"

@@ -566,15 +566,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 try {
                     newBalance = calculateNewBalance(loyaltyCard.balance, loyaltyCard.balanceType, s.toString());
                 } catch (ParseException e) {
-                    updateTextView.setTag(null);
-                    updateTextView.setError(getString(R.string.parsingBalanceFailed));
+                    input.setTag(null);
                     updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, loyaltyCard.balance, loyaltyCard.balanceType)));
                     return;
                 }
 
                 // Save new balance into this element
-                updateTextView.setTag(newBalance);
-                updateTextView.setError(null);
+                input.setTag(newBalance);
                 updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
             }
         });
@@ -584,14 +582,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         builder.setView(container);
         builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-            CharSequence balanceError = updateTextView.getError();
-            if (balanceError != null) {
-                Toast.makeText(getApplicationContext(), balanceError.toString(), Toast.LENGTH_SHORT).show();
+            // Grab calculated balance from input field
+            BigDecimal newBalance = (BigDecimal) input.getTag();
+            if (newBalance == null) {
                 return;
             }
 
-            BigDecimal newBalance = (BigDecimal) updateTextView.getTag();
+            // Actually update balance
             DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+            // Reload UI
             this.onResume();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -125,7 +126,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         super.onResume();
         capture.onResume();
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
-            showCameraPermissionMissingText(true);
+            showCameraPermissionMissingText(false);
     }
 
     @Override
@@ -233,17 +234,17 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     private void showCameraPermissionMissingText(boolean show) {
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? null : v -> {
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
             navigateToSystemPermissionSetting();
-        });
-        customBarcodeScannerBinding.background.setBackgroundColor(show ? getResources().getColor(R.color.transparent) : obtainThemeAttribute(R.attr.colorSurface));
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.GONE : View.VISIBLE);
+        } : null);
+        customBarcodeScannerBinding.background.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
 
     }
 
     private int obtainThemeAttribute(int attribute) {
         TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorSurface, typedValue, true);
+        getTheme().resolveAttribute(attribute, typedValue, true);
         return typedValue.data;
     }
 
@@ -257,7 +258,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CaptureManager.getCameraPermissionReqCode())
-            showCameraPermissionMissingText(grantResults[0] == PackageManager.PERMISSION_GRANTED);
+            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
 
     }
 

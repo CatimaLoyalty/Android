@@ -2,7 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="action_search">Search</string>
     <string name="action_add">Add</string>
-    <string name="action_dismiss">Dismiss</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
@@ -67,7 +66,6 @@
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export data</string>
-    <string name="noCameraPermissionError">Camera permission not granted.</string>
     <string name="cameraPermissionDeniedTitle">We can\'t access the camera</string>
     <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>

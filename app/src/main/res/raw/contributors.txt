@@ -32,8 +32,10 @@ Freddo espresso
 mdvhimself
 Katarzyna
 Maciej Błędkowski
+Magnitudee
 Olivia (Zoe)
 betsythefc
+gallegonovato
 Silvério Santos
 waffshappen
 ati3
@@ -41,7 +43,7 @@ Giovanni
 Jane Kong
 K. Herbert
 Lisa A.
-Magnitudee
+Mawuena M. KODZO A.
 Still Hsu
 String E. Fighter
 Tapu
@@ -51,29 +53,32 @@ alajemba-vik
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
+Arnis Jaundzeikars
 KovalevArtem
 Artem M.
 Astrohops1
 BMN
+BootVirtual
 Clonewayx
 D. Domig
 Diego
 Fede Pujol
 Lukas Grassauer
 Marnick L'Eau
-Mawuena M. KODZO A.
 Michalis
 Michał
 Mohamed A. Salah
 Neko Nekowazarashi
 Rosdyana Kusuma
 umoenks
+Simon Rusinov
+Sneakyturtle22
 Tarik Dzambic
 Thomas Bertels
+Thomas Cruveilher
 Wanath
 Runner
 ce i moa
-gallegonovato
 inesre
 lgasp
 phlostically
@@ -86,7 +91,6 @@ Ahmed Saleh
 Airat
 Alexander Ivanov
 sNiXx
-Arnis Jaundzeikars
 Ashish Yadav
 Aya Elsaadany
 Biren
@@ -106,6 +110,7 @@ Izzy
 Jacopo Gennaro Esposito
 Jean-Baptiste
 Jean-Luc Tibaux
+人工知能
 krkk
 Lucas da Costa
 bittin
@@ -117,6 +122,7 @@ Moi Toi
 DivideEtImpera
 pbeckmann
 Peer Beckmann
+Piotr Zet
 Quang Nguyen
 Ratnesh
 Reza
@@ -127,7 +133,6 @@ Samarth Asthan
 Simone Dotto
 Subhashish Anand
 TenTraicion
-Thomas Cruveilher
 Titas Pažereckas
 Tom Sawyer
 Tomer Ben-Rachel

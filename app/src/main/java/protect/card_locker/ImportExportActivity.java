@@ -79,16 +79,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
-            String intentType = fileIntent.getType();
-            if (intentType.contains("/zip")) {
-                importDataFormat = DataFormat.Catima;
-            } else if (intentType.contains("/csv")) {
-                importDataFormat = DataFormat.Stocard;
-            } else if (intentType.contains("/json")) {
-                importDataFormat = DataFormat.VoucherVault;
-            }
-
-            openFileForImport(fileIntent.getData(), null);
+            handleImportingFileOpenedByIntentFilter(fileIntent);
         }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
@@ -432,5 +423,32 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
+    }
+
+    private void handleImportingFileOpenedByIntentFilter(Intent fileIntent) {
+        try {
+            String intentType = fileIntent.getType();
+            if (intentType.contains("/zip")) {
+                Uri fileData = fileIntent.getData();
+                String filePath = fileData.getPath();
+                if (filePath.contains("fidme-export-request")) {
+                    importDataFormat = DataFormat.Fidme;
+                } else if (filePath.contains("sync")) {
+                    importDataFormat = DataFormat.Stocard;
+                } else {
+                    importDataFormat = DataFormat.Catima;
+                }
+            } else if (intentType.contains("/comma-separated-values")) {
+                importDataFormat = DataFormat.Catima;
+            } else if (intentType.contains("/json")) {
+                importDataFormat = DataFormat.VoucherVault;
+            } else {
+                throw new IllegalArgumentException("Unknown DataFormat");
+            }
+            openFileForImport(fileIntent.getData(), null);
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
+        }
     }
 }

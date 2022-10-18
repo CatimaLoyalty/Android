@@ -1,0 +1,1 @@
+- Naprawiono nieprawidłowy kolor tekstu na przycisku "Brak kodu kreskowego"

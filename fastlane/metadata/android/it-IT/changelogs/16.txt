@@ -1,0 +1,5 @@
+- Aggiunto supporto per creare collegamenti alla schermata iniziale quando si aggiunge o modifica una carta. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Rimuosso il widget, in quanto non era un buon sostituto per le scorciatoie. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Corretta l'esportazione dei backup su Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Report più specifico del tipo MIME durante l'esportazione dei dati di backup. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- Correzione del bug che impediva la modifica di una carta. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

@@ -24,10 +24,13 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import protect.card_locker.databinding.LoyaltyCardLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
@@ -82,10 +85,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         return mShowDetails;
     }
 
+    @NonNull
     @Override
-    public LoyaltyCardListItemViewHolder onCreateViewHolder(ViewGroup inputParent, int inputViewType) {
-        View itemView = LayoutInflater.from(inputParent.getContext()).inflate(R.layout.loyalty_card_layout, inputParent, false);
-        return new LoyaltyCardListItemViewHolder(itemView, mListener);
+    public LoyaltyCardListItemViewHolder onCreateViewHolder(@NonNull ViewGroup inputParent, int inputViewType) {
+        LoyaltyCardLayoutBinding loyaltyCardLayoutBinding = LoyaltyCardLayoutBinding.inflate(
+                LayoutInflater.from(inputParent.getContext()),
+                inputParent,
+                false
+        );
+        return new LoyaltyCardListItemViewHolder(loyaltyCardLayoutBinding, mListener);
     }
 
     public LoyaltyCard getCard(int position) {
@@ -107,15 +115,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         if (mShowDetails && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
-            inputHolder.setBalanceField(loyaltyCard.balance, loyaltyCard.balanceType);
+            inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null);
         } else {
-            inputHolder.setBalanceField(null, null);
+            inputHolder.setExtraField(inputHolder.mBalanceField, null, null);
         }
 
         if (mShowDetails && loyaltyCard.expiry != null) {
-            inputHolder.setExpiryField(loyaltyCard.expiry);
+            inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null);
         } else {
-            inputHolder.setExpiryField(null);
+            inputHolder.setExtraField(inputHolder.mExpiryField, null, null);
         }
 
         setHeaderHeight(inputHolder, mShowDetails);
@@ -237,27 +245,63 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
 
 
-        protected LoyaltyCardListItemViewHolder(View inputView, CardAdapterListener inputListener) {
-            super(inputView);
-            mRow = inputView.findViewById(R.id.row);
-            mDivider = inputView.findViewById(R.id.info_divider);
-            mStoreField = inputView.findViewById(R.id.store);
-            mNoteField = inputView.findViewById(R.id.note);
-            mBalanceField = inputView.findViewById(R.id.balance);
-            mExpiryField = inputView.findViewById(R.id.expiry);
-            mIconLayout = inputView.findViewById(R.id.icon_layout);
-            mCardIcon = inputView.findViewById(R.id.thumbnail);
-            mStar = inputView.findViewById(R.id.star);
-            mStarBackground = inputView.findViewById(R.id.star_background);
-            mStarBorder = inputView.findViewById(R.id.star_border);
-            mArchived = inputView.findViewById(R.id.archivedIcon);
-            mArchivedBackground = inputView.findViewById(R.id.archive_background);
-            mTickIcon = inputView.findViewById(R.id.selected_thumbnail);
+        protected LoyaltyCardListItemViewHolder(LoyaltyCardLayoutBinding loyaltyCardLayoutBinding, CardAdapterListener inputListener) {
+            super(loyaltyCardLayoutBinding.getRoot());
+            View inputView = loyaltyCardLayoutBinding.getRoot();
+            mRow = loyaltyCardLayoutBinding.row;
+            mDivider = loyaltyCardLayoutBinding.infoDivider;
+            mStoreField = loyaltyCardLayoutBinding.store;
+            mNoteField = loyaltyCardLayoutBinding.note;
+            mBalanceField = loyaltyCardLayoutBinding.balance;
+            mExpiryField = loyaltyCardLayoutBinding.expiry;
+            mIconLayout = loyaltyCardLayoutBinding.iconLayout;
+            mCardIcon = loyaltyCardLayoutBinding.thumbnail;
+            mStar = loyaltyCardLayoutBinding.star;
+            mStarBackground = loyaltyCardLayoutBinding.starBackground;
+            mStarBorder = loyaltyCardLayoutBinding.starBorder;
+            mArchived = loyaltyCardLayoutBinding.archivedIcon;
+            mArchivedBackground = loyaltyCardLayoutBinding.archiveBackground;
+            mTickIcon = loyaltyCardLayoutBinding.selectedThumbnail;
             inputView.setOnLongClickListener(view -> {
                 inputListener.onRowClicked(getAdapterPosition());
                 inputView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             });
+        }
+
+        private void setExtraField(TextView field, String text, Integer color) {
+            // If text is null, hide the field
+            // If iconColor is null, use the default text and icon color based on theme
+            if (text == null) {
+                field.setVisibility(View.GONE);
+                field.requestLayout();
+                return;
+            }
+
+            int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
+
+            field.setVisibility(View.VISIBLE);
+            field.setText(text);
+            field.setTextSize(size);
+            field.setTextColor(color != null ? color : field.getTextColors().getDefaultColor());
+
+            int drawableSize = dpToPx((size * 24) / 14, mContext);
+            mDivider.setVisibility(View.VISIBLE);
+            field.setVisibility(View.VISIBLE);
+            Drawable icon = field.getCompoundDrawables()[0];
+            if (icon != null) {
+                icon.mutate();
+                icon.setBounds(0, 0, drawableSize, drawableSize);
+                field.setCompoundDrawablesRelative(icon, null, null, null);
+
+                if (color != null) {
+                    icon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(color, BlendModeCompat.SRC_ATOP));
+                } else {
+                    icon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(mDarkModeEnabled ? Color.WHITE : Color.BLACK, BlendModeCompat.SRC_ATOP));
+                }
+            }
+
+            field.requestLayout();
         }
 
         public void setStoreField(String text) {
@@ -275,55 +319,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
             }
             mNoteField.requestLayout();
-        }
-
-        public void setBalanceField(BigDecimal balance, Currency balanceType) {
-            if (balance == null) {
-                mBalanceField.setVisibility(View.GONE);
-            } else {
-                int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
-                int drawableSize = dpToPx((size * 24) / 14, mContext);
-                mDivider.setVisibility(View.VISIBLE);
-                mBalanceField.setVisibility(View.VISIBLE);
-                Drawable balanceIcon = mBalanceField.getCompoundDrawables()[0];
-                if (balanceIcon != null) {
-                    balanceIcon.setBounds(0, 0, drawableSize, drawableSize);
-                    mBalanceField.setCompoundDrawablesRelative(balanceIcon, null, null, null);
-                    if (mDarkModeEnabled) {
-                        balanceIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
-                    }
-                }
-                mBalanceField.setText(Utils.formatBalance(mContext, balance, balanceType));
-                mBalanceField.setTextSize(size);
-            }
-            mBalanceField.requestLayout();
-        }
-
-        public void setExpiryField(Date expiry) {
-            if (expiry == null) {
-                mExpiryField.setVisibility(View.GONE);
-            } else {
-                int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
-                int drawableSize = dpToPx((size * 24) / 14, mContext);
-                mDivider.setVisibility(View.VISIBLE);
-                mExpiryField.setVisibility(View.VISIBLE);
-                Drawable expiryIcon = mExpiryField.getCompoundDrawables()[0];
-                if (expiryIcon != null) {
-                    expiryIcon.setBounds(0, 0, drawableSize, drawableSize);
-                    mExpiryField.setCompoundDrawablesRelative(expiryIcon, null, null, null);
-                    if (Utils.hasExpired(expiry)) {
-                        expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.RED, BlendModeCompat.SRC_ATOP));
-                    } else if (mDarkModeEnabled) {
-                        expiryIcon.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP));
-                    }
-                }
-                mExpiryField.setText(DateFormat.getDateInstance(DateFormat.LONG).format(expiry));
-                if (Utils.hasExpired(expiry)) {
-                    mExpiryField.setTextColor(Color.RED);
-                }
-                mExpiryField.setTextSize(size);
-            }
-            mExpiryField.requestLayout();
         }
 
         public void toggleCardStateIcon(boolean enableStar, boolean enableArchive, boolean colorByTheme) {

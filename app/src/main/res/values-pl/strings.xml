@@ -206,7 +206,7 @@
     <string name="report_error">Zgłoś Błąd</string>
     <string name="setIcon">Ustaw ikonę</string>
     <string name="on_github">na GitHub\'ie</string>
-    <string name="swipeToSwitchImages">Przeciągnij lub przytrzymaj aby zmienić obraz</string>
+    <string name="swipeToSwitchImages">Przeciągnij aby zmienić obraz, przytrzymaj aby otworzyć obraz w galerii</string>
     <string name="selectColor">Wybierz kolor</string>
     <string name="version_history">Historia Wersji</string>
     <string name="and_data_usage">i wykorzystanie danych</string>
@@ -258,5 +258,15 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowane)</item>
         <item quantity="many"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kart (<xliff:g id="archivedCount">%2$d</xliff:g> zarchwizowanych)</item>
+    </plurals>
+    <string name="failedToRetrieveImageFile">Nie udało się pobrać pliku obrazu</string>
+    <string name="barcodeLongPressMessage">W galerii możesz otworzyć tylko obrazy</string>
+    <string name="failedToOpenUrl">Najpierw zainstaluj przeglądarkę</string>
+    <string name="welcome">Witaj w Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Wyświetl zarchiwizowaną (<xliff:g>%1$d</xliff:g> kartę)</item>
+        <item quantity="few">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
+        <item quantity="many">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
+        <item quantity="other">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
     </plurals>
 </resources>

@@ -1,0 +1,4 @@
+- Aggiunta di un'impostazione per controllare la luminosità dello schermo quando si visualizza un codice a barre (pull #259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- Aggiunte traduzioni in greco (pull #252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- Aggiunte traduzioni in sloveno (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- Aggiornamento traduzioni (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260), pull #254 (https://github.com/brarcher/loyalty-card-locker/pull/254))

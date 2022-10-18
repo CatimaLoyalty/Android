@@ -1,0 +1,1 @@
+- Correction de la création d'une carte en entrant manuellement le code-barre (issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

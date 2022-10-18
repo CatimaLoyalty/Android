@@ -1,0 +1,2 @@
+- Fehler behoben, bei dem Bilder nicht aus dem Backup importiert wurden
+- Option zum Überschreiben der Sprache hinzugefügt

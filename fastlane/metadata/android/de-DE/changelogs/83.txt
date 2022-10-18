@@ -1,0 +1,2 @@
+- Unterstützung für die Änderung der Sortierreihenfolge hinzugefügt
+- Speicherprobleme beim Scannen großer Bilder für Barcodes behoben

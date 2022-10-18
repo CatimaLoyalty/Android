@@ -1,0 +1,2 @@
+- Verbesserung der Balance-Parsing-Logik
+- Währungsdezimalanzeige auf dem Hauptbildschirm korrigiert

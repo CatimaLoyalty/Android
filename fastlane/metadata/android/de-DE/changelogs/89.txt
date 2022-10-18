@@ -1,0 +1,5 @@
+- Swipen zwischen Gruppen funktioniert auch bei leeren Gruppen
+- Passwortgeschützte Exporte erlaubt
+- Verbesserte Nutzung des Platzes für QR-Codes
+- Zuletzt verwendeten Zoomstufe wird pro Karte gespeichert
+- Absturz beim Swipen nach rechts nach einem Tippen behoben

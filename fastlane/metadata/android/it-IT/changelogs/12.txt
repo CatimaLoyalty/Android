@@ -1,1 +1,1 @@
-- Evitato che l'app crashi quando lo schermo si ruota nell'introduzione del primo avvio.
+- Prevenuto il crash indotto dalla rotazione dello schermo durante l'introduzione guidata.

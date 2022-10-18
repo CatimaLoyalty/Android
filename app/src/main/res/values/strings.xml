@@ -66,6 +66,8 @@
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export data</string>
+    <string name="cameraPermissionDeniedTitle">We can\'t access the camera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
@@ -250,7 +252,10 @@
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
     <string name="hideMoreInfo">Hide info</string>
-    <string name="swipeToSwitchImages">Swipe or long press to switch images</string>
+    <string name="updateBalance">Update balance</string>
+    <string name="swipeToSwitchImages">Swipe to switch images, hold to open image in the gallery app</string>
+    <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
+    <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>
@@ -299,4 +304,8 @@
     </plurals>
     <string name="welcome">Welcome to Catima</string>
     <string name="importCards">Import cards</string>
+    <string name="updateBalanceTitle">How much did you spend?</string>
+    <string name="updateBalanceHint">Enter amount</string>
+    <string name="currentBalanceSentence">Current balance: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">New balance: <xliff:g>%s</xliff:g></string>
 </resources>

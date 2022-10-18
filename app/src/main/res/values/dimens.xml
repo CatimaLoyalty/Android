@@ -32,7 +32,8 @@
 
     <dimen name="activity_margin_small">8dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
-
+    <!--    Padding for layouts-->
+    <dimen name="activity_scanner_padding">10dp</dimen>
     <!-- The default letter tile text size -->
     <dimen name="tileLetterFontSize">66sp</dimen>
     <dimen name="tileLetterFontSizeForShortcut">48dp</dimen>

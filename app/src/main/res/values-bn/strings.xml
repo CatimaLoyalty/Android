@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_locale">ভাষা</string>
+    <string name="action_search">খুঁজুন</string>
+    <string name="settings_pink_theme">গুলাপি</string>
+    <string name="settings_blue_theme">নীল</string>
+    <string name="settings_green_theme">সবুজ</string>
+    <string name="settings_brown_theme">বাদামি</string>
+    <string name="save">সংরক্ষণ</string>
+    <string name="cardId">কার্ড আইডি</string>
+    <string name="barcodeType">বারকোডের ধরন</string>
+    <string name="about">সম্পর্কিত</string>
+    <string name="card">কার্ড</string>
+    <string name="yes">হ্যাঁ</string>
+    <string name="settings_grey_theme">ধূসর</string>
+    <string name="ok">ঠিক আছে</string>
+    <string name="sendLabel">পাঠান…</string>
+    <string name="sort_by_name">নাম</string>
+    <string name="previousCard">পূর্ববর্তী</string>
+    <string name="all">সকল</string>
+    <string name="barcode">বারকোড</string>
+    <string name="never">কখনো না</string>
+    <string name="currency">মুদ্রা</string>
+    <string name="settings_violet_theme">বেগুনি</string>
+    <string name="no">না</string>
+    <string name="nextCard">পরবর্তী</string>
+    <string name="action_add">যুক্ত করুন</string>
+</resources>

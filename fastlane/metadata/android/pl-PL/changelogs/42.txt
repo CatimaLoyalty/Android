@@ -1,0 +1,1 @@
+- Naprawiono zawieszanie się aplikacji dla szukania bez grup

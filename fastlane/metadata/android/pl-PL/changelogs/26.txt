@@ -1,0 +1,1 @@
+- Uniemożliwiono zawieszenie aplikacji gdy renderowanie kodu kreskowego wyczerpuje pamięć aplikacji. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

@@ -1,0 +1,2 @@
+- Otevření obrázku v aplikaci pro galerii při dlouhém stisku
+- Styl Material použit na dialogová okna

@@ -1,0 +1,3 @@
+- Déplace la page "A propos" dans sa propre activité android
+- Demande à l'utilisateur.ice si iel souhaite utiliser sa caméra ou entrer manuellement l'ID lors de l'ajout/la modification d'une carte
+- L'ordre des groupes peut être librement choisi au lieu d'être obligatoirement alphabétique

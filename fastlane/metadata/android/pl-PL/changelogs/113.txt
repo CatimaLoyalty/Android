@@ -1,0 +1,3 @@
+- Dodano przyciski "Poprzedni" i "Następny" do widoku karty lojalnościowej
+- Naprawiono kolor tła dla przycisku edycji
+- Zastąpiono ikonę dyskietki ikoną "fajki"

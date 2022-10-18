@@ -8,6 +8,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
     @Override
@@ -29,8 +30,10 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         // XXX changing this in onCreate causes issues with the splash screen activity, so doing this here
         boolean darkMode = Utils.isDarkModeEnabled(this);
         if (Build.VERSION.SDK_INT >= 23) {
+            View decorView = getWindow().getDecorView();
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), decorView);
+            wic.setAppearanceLightStatusBars(!darkMode);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-            getWindow().getDecorView().setSystemUiVisibility(darkMode ? 0 : View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         } else {
             // icons are always white back then
             getWindow().setStatusBarColor(darkMode ? Color.TRANSPARENT : Color.argb(127, 0, 0, 0));

@@ -1,0 +1,1 @@
+- Modifiche alla visualizzazione della cartala per mostrare la nota, l'ID carta può ora occupare più righe e mostrare il nome del negozio. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

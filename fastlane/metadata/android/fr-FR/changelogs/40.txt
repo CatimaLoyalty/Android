@@ -1,0 +1,6 @@
+- Changement de nom pour Catima
+- Suppression de l'introduction
+- Ajout de boutons d'action flotants
+- Correction de plantage sur Android 5 lors de l'ouverture de la page "À propos"
+- Ajout de la fonctionnalité "Favoris"
+- Correction d'un bug ignorant le paramètre "désactiver la rotation automatique"

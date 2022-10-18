@@ -1,0 +1,4 @@
+- Ausgewählte Farbe im Farbwechseldialog korrigiert
+- Unterstützung für das gleichzeitige Löschen mehrerer Karten hinzugefügt
+- Mögliche ArithmeticException beim Ändern der Bildgröße behoben
+- Vollbild wird nicht mehr geschlossen, wenn das Gerät gedreht wird

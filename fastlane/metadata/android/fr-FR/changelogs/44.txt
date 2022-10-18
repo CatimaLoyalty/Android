@@ -1,0 +1,2 @@
+- Ajout de la possibilité de swipe entre les groupes sur la page d'accueil
+- Correction d'un crash quand la carte ne comportait pas de couleur d'en-tête

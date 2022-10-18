@@ -189,7 +189,7 @@
     <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Questo gruppo è vuoto</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre in formato <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Scorri o premi a lungo per cambiare immagine</string>
+    <string name="swipeToSwitchImages">Scorri per cambiare immagine, tieni premuto per aprire l\'immagine nella galleria</string>
     <string name="sort_by">Ordina per</string>
     <string name="reverse">…in ordine inverso</string>
     <string name="sort_by_balance">Saldo</string>
@@ -260,4 +260,6 @@
         <item quantity="many">Visualizza archivio (<xliff:g>%1$d</xliff:g> carta)</item>
         <item quantity="other">Visualizza archivio (<xliff:g>%1$d</xliff:g> carte)</item>
     </plurals>
+    <string name="failedToRetrieveImageFile">Impossibile ottenere il file dell\'immagine</string>
+    <string name="barcodeLongPressMessage">Si possono aprire solo immagini dell\'app della galleria</string>
 </resources>

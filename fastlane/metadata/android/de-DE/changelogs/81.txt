@@ -1,0 +1,4 @@
+- Verbesserte Kartenliste für Querformat- und Tablet-Anzeigen
+- Unterstützung für Themenfarben hinzugefügt (Danke, Subhashish Anand!)
+- Scan-Seite wird bei Kamerafehlern nicht mehr geschlossen (damit die manuelle Eingabe weiterhin möglich ist)
+- Alle Mitwirkenden zum Info-Dialog hinzugefügt

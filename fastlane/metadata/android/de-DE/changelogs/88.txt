@@ -1,0 +1,1 @@
+- Fehlerhafte Migration behoben, wodurch die erste Karte unsichtbar wurde

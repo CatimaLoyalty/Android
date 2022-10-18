@@ -1,0 +1,1 @@
+- Korrektur der Parsing-Balance für Länder mit Leerzeichen als Trennzeichen

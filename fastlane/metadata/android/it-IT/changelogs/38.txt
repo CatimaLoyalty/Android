@@ -1,0 +1,3 @@
+- Toccando un codice a barre, si sposta verso la parte superiore dello schermo (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Aggiunta di spazi bianchi intorno ai codici a barre per migliorare la scansione in modalità notte (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Correzione dei pulsanti di importazione scambiati. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

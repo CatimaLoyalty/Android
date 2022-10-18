@@ -1,0 +1,3 @@
+- Aggiunta l'opzione di blocco della rotazione dello schermo quando si visualizza una carta. Se il blocco è attivo, lo schermo passa all'orientamento predefinito, bloccando un'ulteriore rotazione. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128)).
+- Se una carta selezionata dalla schermata principale non può essere caricata, l'applicazione si blocca e compare un messaggio di errore. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Correzione ID dei layout non trovati per l'introduzione guidata. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

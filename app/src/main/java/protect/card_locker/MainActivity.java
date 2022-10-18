@@ -9,24 +9,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -34,22 +28,30 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import protect.card_locker.databinding.ArchiveActivityBinding;
+import protect.card_locker.databinding.ContentMainBinding;
+import protect.card_locker.databinding.MainActivityBinding;
+import protect.card_locker.databinding.SortingOptionBinding;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
+    private MainActivityBinding binding;
+    private ArchiveActivityBinding archiveActivityBinding;
+    private ContentMainBinding contentMainBinding;
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
@@ -68,6 +70,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private View mHelpSection;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
+    private TabLayout groupsTabLayout;
 
     private boolean mArchiveMode;
     public static final String BUNDLE_ARCHIVE_MODE = "archiveMode";
@@ -141,7 +144,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 inputMode.finish();
                 return true;
             } else if (inputItem.getItemId() == R.id.action_delete) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new MaterialAlertDialogBuilder(MainActivity.this);
                 // The following may seem weird, but it is necessary to give translators enough flexibility.
                 // For example, in Russian, Android's plural quantity "one" actually refers to "any number ending on 1 but not ending in 11".
                 // So while in English the extra non-plural form seems unnecessary duplication, it is necessary to give translators enough flexibility.
@@ -163,7 +166,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
 
-                    TabLayout.Tab tab = ((TabLayout) findViewById(R.id.groups)).getTabAt(selectedTab);
+                    TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
                     mGroup = tab != null ? tab.getTag() : null;
 
                     updateLoyaltyCardList(true);
@@ -231,16 +234,21 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
         if(!mArchiveMode) {
+            binding = MainActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.app_name);
-            setContentView(R.layout.main_activity);
+            setContentView(binding.getRoot());
+            setSupportActionBar(binding.toolbar);
+            groupsTabLayout = binding.groups;
+            contentMainBinding = ContentMainBinding.bind(binding.include.getRoot());
         }
         else{
+            archiveActivityBinding = ArchiveActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.archiveList);
-            setContentView(R.layout.archive_activity);
+            setContentView(archiveActivityBinding.getRoot());
+            setSupportActionBar(archiveActivityBinding.toolbar);
+            groupsTabLayout = archiveActivityBinding.groups;
+            contentMainBinding = ContentMainBinding.bind(archiveActivityBinding.include.getRoot());
         }
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         if(mArchiveMode){
             ActionBar actionBar = getSupportActionBar();
@@ -251,7 +259,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -283,10 +290,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
-        mHelpSection = findViewById(R.id.helpSection);
-        mNoMatchingCardsText = findViewById(R.id.noMatchingCardsText);
-        mNoGroupCardsText = findViewById(R.id.noGroupCardsText);
-        mCardList = findViewById(R.id.list);
+        mHelpSection = contentMainBinding.helpSection;
+        mNoMatchingCardsText = contentMainBinding.noMatchingCardsText;
+        mNoGroupCardsText = contentMainBinding.noGroupCardsText;
+        mCardList = contentMainBinding.list;
 
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
@@ -331,21 +338,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
          */
 
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            // Exit early if the user cancelled the scan (pressed back/home)
+            if (result.getResultCode() != RESULT_OK) {
+                return;
+            }
+
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
-            if (!barcodeValues.isEmpty()) {
-                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle newBundle = new Bundle();
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-                Bundle inputBundle = intent.getExtras();
-                if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
-                }
-                newIntent.putExtras(newBundle);
-                startActivity(newIntent);
-            }
+            Bundle inputBundle = intent.getExtras();
+            String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+            processBarcodeValues(barcodeValues, group);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -374,7 +377,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         // Start of active tab logic
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         updateTabGroups(groupsTabLayout);
 
         // Restore settings from Shared Preference
@@ -407,7 +409,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         // End of active tab logic
 
         if (!mArchiveMode) {
-            FloatingActionButton addButton = findViewById(R.id.fabAdd);
+            FloatingActionButton addButton = binding.fabAdd;
 
             addButton.setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
@@ -498,9 +500,67 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
+    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
+        if (barcodeValues.isEmpty()) {
+            throw new IllegalArgumentException("barcodesValues may not be empty");
+        }
+
+        Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+        Bundle newBundle = new Bundle();
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+        if (group != null) {
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+        }
+        newIntent.putExtras(newBundle);
+        startActivity(newIntent);
+    }
+
+    private void onSharedIntent(Intent intent) {
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        // Check if an image was shared to us
+        if (Intent.ACTION_SEND.equals(receivedAction)) {
+            if (receivedType.startsWith("image/")) {
+                BarcodeValues barcodeValues;
+                try {
+                    Bitmap bitmap;
+                    try {
+                        Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                        bitmap = Utils.retrieveImageFromUri(this, data);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Error getting data from image file");
+                        e.printStackTrace();
+                        Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
+
+                    barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
+
+                    if (barcodeValues.isEmpty()) {
+                        Log.i(TAG, "No barcode found in image file");
+                        Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
+                } catch (NullPointerException e) {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
+                }
+                processBarcodeValues(barcodeValues, null);
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
+        }
+    }
+
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
+        onSharedIntent(intent);
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout) {
@@ -562,7 +622,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 public boolean onQueryTextChange(String newText) {
                     mFilter = newText;
 
-                    TabLayout groupsTabLayout = findViewById(R.id.groups);
                     TabLayout.Tab currentTab = groupsTabLayout.getTabAt(groupsTabLayout.getSelectedTabPosition());
                     mGroup = currentTab != null ? currentTab.getTag() : null;
 
@@ -609,13 +668,15 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(MainActivity.this);
             builder.setTitle(R.string.sort_by);
 
-            final View customLayout = getLayoutInflater().inflate(R.layout.sorting_option, null);
+            SortingOptionBinding sortingOptionBinding = SortingOptionBinding
+                    .inflate(LayoutInflater.from(MainActivity.this), null, false);
+            final View customLayout = sortingOptionBinding.getRoot();
             builder.setView(customLayout);
 
-            CheckBox showReversed = (CheckBox) customLayout.findViewById(R.id.checkBox_reverse);
+            CheckBox showReversed = sortingOptionBinding.checkBoxReverse;
 
 
             showReversed.setChecked(mOrderDirection == DBHelper.LoyaltyCardOrderDirection.Descending);
@@ -736,7 +797,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             return false;
         }
 
-        TabLayout groupsTabLayout = findViewById(R.id.groups);
         if (groupsTabLayout.getTabCount() < 2) {
             return false;
         }

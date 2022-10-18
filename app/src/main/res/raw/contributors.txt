@@ -8,13 +8,13 @@ Oğuz Ersen
 Katharine Chui
 mondstern
 IllusiveMan196
-Altonss
 StoyanDimitrov
+Altonss
 Petr Novák
 Joel A
+SlavekB
 Michael Moroni
 Taco
-SlavekB
 Gediminas Murauskas
 Nyatsuki
 Samantaz Fox
@@ -22,6 +22,7 @@ laralem
 arno-github
 Ankit Tiwari
 Sergio Paredes
+Aayush Gupta
 huuhaa
 arshbeerSingh
 Quentin PAGÈS
@@ -29,27 +30,35 @@ Miha Frangež
 sr093906
 Freddo espresso
 mdvhimself
+Katarzyna
 Maciej Błędkowski
+Magnitudee
 Olivia (Zoe)
 betsythefc
+gallegonovato
 Silvério Santos
 waffshappen
 ati3
 Giovanni
 Jane Kong
 K. Herbert
-Magnitudee
+Lisa A.
+Mawuena M. KODZO A.
 Still Hsu
 String E. Fighter
+Tapu
 Yurical
 rr-vesp
 alajemba-vik
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
+Arnis Jaundzeikars
 KovalevArtem
 Artem M.
 Astrohops1
+BMN
+BootVirtual
 Clonewayx
 D. Domig
 Diego
@@ -58,10 +67,16 @@ Lukas Grassauer
 Marnick L'Eau
 Michalis
 Michał
+Mohamed A. Salah
 Neko Nekowazarashi
 Rosdyana Kusuma
 umoenks
+Simon Rusinov
+Sneakyturtle22
+Tarik Dzambic
 Thomas Bertels
+Thomas Cruveilher
+Wanath
 Runner
 ce i moa
 inesre
@@ -70,13 +85,14 @@ phlostically
 Aditya Das
 Asier
 Kevin Sicong Jiang
+Eric
 tfuxu
 Ahmed Saleh
 Airat
 Alexander Ivanov
 sNiXx
 Ashish Yadav
-BMN
+Aya Elsaadany
 Biren
 Booc Sylvan
 Colgrave
@@ -85,16 +101,20 @@ Mylou53
 danieluhrinyi
 Kasina Dheeraj
 Donno
-Eric
+Evgeniy Khramov
 Flav
 Franciszek Stefan
 Grzegorz
 HowITsDone
 Izzy
+Jacopo Gennaro Esposito
 Jean-Baptiste
 Jean-Luc Tibaux
+人工知能
 krkk
+Lucas da Costa
 bittin
+Manan Jhaveri
 Marco
 Mattia
 Michael Gangolf
@@ -102,6 +122,7 @@ Moi Toi
 DivideEtImpera
 pbeckmann
 Peer Beckmann
+Piotr Zet
 Quang Nguyen
 Ratnesh
 Reza
@@ -111,8 +132,10 @@ Rose Liverman
 Samarth Asthan
 Simone Dotto
 Subhashish Anand
+TenTraicion
 Titas Pažereckas
 Tom Sawyer
+Tomer Ben-Rachel
 Tony C
 Tymofii Lytvynenko
 Vancha March
@@ -129,3 +152,4 @@ Marcus
 techwebpd
 tygyh
 unstartdev
+JungHee Lee

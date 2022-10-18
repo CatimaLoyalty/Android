@@ -1,0 +1,2 @@
+- Naprawiono błąd związany z ręcznym wyborem języka, który nie działał w każdym miejscu aplikacji
+- Naprawiono zawieszanie się aplikacji w trybie edycji dla lokalizacji bez wybranego regionu

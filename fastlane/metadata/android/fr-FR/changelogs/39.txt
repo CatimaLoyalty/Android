@@ -1,0 +1,3 @@
+- Correction du centrage du code-barre lorsqu'on quitte le plein écran (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Permet la selection de l'emplacement de destination de l'export de la sauvegarde (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Mise à jour des traductions (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

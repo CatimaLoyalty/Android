@@ -1,0 +1,1 @@
+- Regression behoben, die dazu führte, dass die manuelle Barcode-Eingabe nicht gespeichert wurde

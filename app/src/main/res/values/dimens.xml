@@ -3,7 +3,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="no_data_textSize">16sp</dimen>
+    <dimen name="scan_button_max_textSize">14sp</dimen>
+    <dimen name="scan_button_min_textSize">12sp</dimen>
+    <dimen name="scan_button_min_height">10px</dimen>
+
+    <dimen name="no_data_max_textSize">16sp</dimen>
+    <dimen name="no_data_min_textSize">10sp</dimen>
     <dimen name="no_data_padding">22dp</dimen>
 
     <dimen name="barcode_disp_height">200dp</dimen>

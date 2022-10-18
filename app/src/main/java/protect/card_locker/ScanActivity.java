@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -24,6 +26,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.TextViewCompat;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -55,6 +58,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String cardId;
     private String addGroup;
     private boolean torch = false;
+
+    private int buttonDefaultMinHeight;
+    private int buttonDefaultMaxHeight;
 
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
@@ -98,7 +104,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
         captureIntent.putExtras(captureIntentBundle);
         capture.initializeFromIntent(captureIntent, savedInstanceState);
-
+        saveDefaultUIValues();
         barcodeScannerView.decodeSingle(new BarcodeCallback() {
             @Override
             public void barcodeResult(BarcodeResult result) {
@@ -127,6 +133,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         capture.onResume();
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
             showCameraPermissionMissingText(false);
+        scaleScreen();
     }
 
     @Override
@@ -162,6 +169,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -237,9 +245,39 @@ public class ScanActivity extends CatimaAppCompatActivity {
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
             navigateToSystemPermissionSetting();
         } : null);
-        customBarcodeScannerBinding.cardInputScroller.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
+        customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
 
+    }
+
+    private void scaleScreen() {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        float ratio = (float) metrics.heightPixels / metrics.widthPixels;
+        boolean shouldScaleSmaller = ratio <= 0.8f;
+        boolean shouldScaleMedium = ratio <= 1.1f && !shouldScaleSmaller;
+        if (shouldScaleMedium) {
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility( View.GONE );
+        } else {
+            int buttonMinHeight = getResources().getDimensionPixelSize(R.dimen.scan_button_min_height);
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.no_data_min_textSize : R.dimen.no_data_max_textSize));
+            customBarcodeScannerBinding.addFromImage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
+            customBarcodeScannerBinding.addManually.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
+            customBarcodeScannerBinding.addFromImage.setMinimumHeight(shouldScaleSmaller ? getResources().getDimensionPixelSize(R.dimen.scan_button_min_height) : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addFromImage.setMinimumWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addManually.setMinimumHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addManually.setMinimumWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addFromImage.setMinHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addFromImage.setMinWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addManually.setMinHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+            customBarcodeScannerBinding.addManually.setMinWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
+        }
+    }
+
+    private void saveDefaultUIValues() {
+        buttonDefaultMinHeight = customBarcodeScannerBinding.addFromImage.getMinHeight();
+        buttonDefaultMaxHeight = customBarcodeScannerBinding.addFromImage.getMinWidth();
     }
 
     private int obtainThemeAttribute(int attribute) {

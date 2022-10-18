@@ -18,13 +18,10 @@
         app:zxing_viewfinder_laser="@color/zxing_custom_viewfinder_laser"
         app:zxing_viewfinder_mask="@color/zxing_custom_viewfinder_mask" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/card_input_scroller"
-        android:layout_width="match_parent"
-        android:fillViewport="true"
-        android:layout_height="match_parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_input_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/activity_scanner_padding">
@@ -59,5 +56,4 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
 </merge>

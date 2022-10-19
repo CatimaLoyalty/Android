@@ -189,7 +189,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void chooseImportType(boolean choosePicker) {
-        
+
         List<CharSequence> importOptions = generateImportOptions();
 
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
@@ -454,6 +454,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                     }
                     openFileForImport(fileIntent.getData(), null);
                 });
+        builder.setNegativeButton(R.string.cancel, null);
         builder.show();
     }
 

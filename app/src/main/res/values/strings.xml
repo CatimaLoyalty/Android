@@ -6,7 +6,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
-    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import from the ⋮ menu.</string>
     <string name="noGiftCardsGroup">Create some cards, and then assign them to the group here.</string>
     <string name="noMatchingGiftCards">No results. Try changing your search.</string>
     <string name="storeName">Name</string>

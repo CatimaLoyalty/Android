@@ -189,18 +189,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void chooseImportType(boolean choosePicker) {
-        List<CharSequence> betaImportOptions = new ArrayList<>();
-        betaImportOptions.add("Fidme");
-        betaImportOptions.add("Stocard");
-        List<CharSequence> importOptions = new ArrayList<>();
-
-        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
-            if (betaImportOptions.contains(importOption)) {
-                importOption = importOption + " (BETA)";
-            }
-
-            importOptions.add(importOption);
-        }
+        
+        List<CharSequence> importOptions = generateImportOptions();
 
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.chooseImportType)
@@ -432,29 +422,55 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void handleImportingFileOpenedByIntentFilter(Intent fileIntent) {
-        try {
-            String intentType = fileIntent.getType();
-            if (intentType.contains("/zip")) {
-                Uri fileData = fileIntent.getData();
-                String filePath = fileData.getPath();
-                if (filePath.contains("fidme-export-request")) {
-                    importDataFormat = DataFormat.Fidme;
-                } else if (filePath.contains("sync")) {
-                    importDataFormat = DataFormat.Stocard;
-                } else {
-                    importDataFormat = DataFormat.Catima;
-                }
-            } else if (intentType.contains("/comma-separated-values")) {
-                importDataFormat = DataFormat.Catima;
-            } else if (intentType.contains("/json")) {
-                importDataFormat = DataFormat.VoucherVault;
-            } else {
-                throw new IllegalArgumentException("Unknown DataFormat");
+
+        List<CharSequence> importOptions = generateImportOptions();
+
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.chooseImportType)
+                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
+                    switch (which) {
+                        // Catima
+                        case 0:
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Fidme
+                        case 1:
+                            importDataFormat = DataFormat.Fidme;
+                            break;
+                        // Loyalty Card Keychain
+                        case 2:
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Stocard
+                        case 3:
+                            importDataFormat = DataFormat.Stocard;
+                            break;
+                        // Voucher Vault
+                        case 4:
+                            importDataFormat = DataFormat.VoucherVault;
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Unknown DataFormat");
+                    }
+                    openFileForImport(fileIntent.getData(), null);
+                });
+        builder.show();
+    }
+
+    private List<CharSequence> generateImportOptions() {
+        List<CharSequence> betaImportOptions = new ArrayList<>();
+        betaImportOptions.add("Fidme");
+        betaImportOptions.add("Stocard");
+        List<CharSequence> importOptions = new ArrayList<>();
+
+        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
+            if (betaImportOptions.contains(importOption)) {
+                importOption = importOption + " (BETA)";
             }
-            openFileForImport(fileIntent.getData(), null);
-        } catch (IllegalArgumentException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+
+            importOptions.add(importOption);
         }
+
+        return importOptions;
     }
 }

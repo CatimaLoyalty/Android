@@ -85,7 +85,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
-            handleImportingFileOpenedByIntentFilter(fileIntent);
+            chooseImportType(false);
         }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
@@ -190,7 +190,18 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
     private void chooseImportType(boolean choosePicker) {
 
-        List<CharSequence> importOptions = generateImportOptions();
+        List<CharSequence> betaImportOptions = new ArrayList<>();
+        betaImportOptions.add("Fidme");
+        betaImportOptions.add("Stocard");
+        List<CharSequence> importOptions = new ArrayList<>();
+
+        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
+            if (betaImportOptions.contains(importOption)) {
+                importOption = importOption + " (BETA)";
+            }
+
+            importOptions.add(importOption);
+        }
 
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.chooseImportType)
@@ -419,59 +430,5 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
-    }
-
-    private void handleImportingFileOpenedByIntentFilter(Intent fileIntent) {
-
-        List<CharSequence> importOptions = generateImportOptions();
-
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-        builder.setTitle(R.string.chooseImportType)
-                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
-                    switch (which) {
-                        // Catima
-                        case 0:
-                            importDataFormat = DataFormat.Catima;
-                            break;
-                        // Fidme
-                        case 1:
-                            importDataFormat = DataFormat.Fidme;
-                            break;
-                        // Loyalty Card Keychain
-                        case 2:
-                            importDataFormat = DataFormat.Catima;
-                            break;
-                        // Stocard
-                        case 3:
-                            importDataFormat = DataFormat.Stocard;
-                            break;
-                        // Voucher Vault
-                        case 4:
-                            importDataFormat = DataFormat.VoucherVault;
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Unknown DataFormat");
-                    }
-                    openFileForImport(fileIntent.getData(), null);
-                });
-        builder.setNegativeButton(R.string.cancel, null);
-        builder.show();
-    }
-
-    private List<CharSequence> generateImportOptions() {
-        List<CharSequence> betaImportOptions = new ArrayList<>();
-        betaImportOptions.add("Fidme");
-        betaImportOptions.add("Stocard");
-        List<CharSequence> importOptions = new ArrayList<>();
-
-        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
-            if (betaImportOptions.contains(importOption)) {
-                importOption = importOption + " (BETA)";
-            }
-
-            importOptions.add(importOption);
-        }
-
-        return importOptions;
     }
 }

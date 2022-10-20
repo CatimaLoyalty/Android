@@ -14,7 +14,7 @@
     <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
-    <string name="scanCardBarcode">Skenuoti kortelės brūkšninį kodą</string>
+    <string name="scanCardBarcode">Nuskaityti brūkšninį kodą</string>
     <string name="noStoreError">Neįvestas pavadinimas</string>
     <string name="noCardIdError">Neįvestas kortelės ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
@@ -31,15 +31,15 @@
     <string name="app_revision_fmt">Revizijos info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="copy_to_clipboard_toast">Kortelės ID nukopijuota į iškarpinę</string>
-    <string name="card_ids_copied">Nukopijuotos kortelės ID</string>
+    <string name="card_ids_copied">Nukopijuoti ID</string>
     <string name="noCardsMessage">Pirmiausia pridėkite kortelę</string>
     <string name="sendLabel">Siųsti…</string>
     <string name="unstar">Pašalinti iš mėgstamiausių</string>
     <string name="star">Pridėti prie mėgstamiausių</string>
     <string name="noBarcode">Nėra brūkšninio kodo</string>
-    <string name="barcodeNoBarcode">Ši kortelė neturi brūkšninio kodo</string>
+    <string name="barcodeNoBarcode">Brūkšninio kodo nėra</string>
     <string name="barcodeType">Brūkšninio kodo tipas</string>
-    <string name="noMatchingGiftCards">Nieko nerasta. Pabandykite pakeisti paiešką.</string>
+    <string name="noMatchingGiftCards">Rezultatų nėra. Pabandykite pakeisti paiešką.</string>
     <string name="action_search">Ieškoti</string>
     <string name="cardShortcut">Kortelės sparčioji nuoroda</string>
     <string name="importVoucherVaultMessage">Pasirinkite savo <i>vouchervault.json</i> eksportą iš Voucher Vault, kurį norite importuoti.
@@ -214,7 +214,7 @@
     <string name="editGroup">Redaguojama grupė: <xliff:g>%s</xliff:g></string>
     <string name="group_updated">Grupė atnaujinta</string>
     <string name="group_edit">Redaguoti grupę</string>
-    <string name="noGiftCardsGroup">Dar neturite jokių lojalumo kortelių. Kai kelias pridėsite, galėsite jas priskirti grupei čia.</string>
+    <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
     <string name="action_hide_details">Paslėpti informaciją</string>

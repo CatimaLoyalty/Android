@@ -1,0 +1,1 @@
+- Conserta fundo transparente da folha de fundo

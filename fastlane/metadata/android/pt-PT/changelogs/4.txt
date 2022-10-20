@@ -1,0 +1,4 @@
+- Tradução para Holandês
+- Permite que o campo de nome seja editável após a adição de um cartão de fidelidade
+- Adiciona um campo de nota opcional
+- Resolve todas os problemas identificados por FindBugs e exige que problemas do FindBugs sejam resolvidos antes da aceitação de um pull request

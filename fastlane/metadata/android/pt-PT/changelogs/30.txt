@@ -1,0 +1,4 @@
+- Configuração para controlar brilho da tela ao exibir código de barras (pull #259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- Traduções para Grego (pull #252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- Traduções para Esloveno (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- Traduções atualizadas (pull #260 (https://github.com/brarcher/loyalty-card-locker/pull/260), pull #254 (https://github.com/brarcher/loyalty-card-locker/pull/254))

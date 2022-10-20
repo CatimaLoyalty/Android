@@ -1,0 +1,3 @@
+- Adiciona espaço em branco no início/fim dos códigos de barra. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Adiciona opções para configurar cores usadas para a fonte e fundo do nome da loja. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Adiciona opções para ajustar tamanho da fonte na lista de cartões e na visualização de cartão. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

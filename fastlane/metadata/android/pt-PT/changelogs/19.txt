@@ -1,0 +1,3 @@
+- Corrige falha ao importar alguns tipos de arquivos CSV corrompidos. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Corrige importação de cópias de segurança diretamente do sistema de arquivos. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Corrige importação de cópias de segurança a partir de alguns provedores de conteúdo. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

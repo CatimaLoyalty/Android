@@ -1,0 +1,7 @@
+- Suporte a Árabe
+- Mostra número de cartões arquivados na visão de grupo
+- Corrige problemas na validação de saldo com números não ocidentais
+- Corrige problema em que temas personalizados não eram aplicados à tela principal corretamente
+- Melhora a visualização de cartões selecionados
+- Corrige falha ao sair da visualização de cartão em modo de Direita para Esquerda (RTL) com saldo ou data de expiração
+- Corrige direção da seta de voltar na visualização de cartão no modo RTL

@@ -1,0 +1,4 @@
+- Amélioration de la liste des cartes pour l'affichage paysage et sur tablette
+- Ajout de la prise en charge des couleurs de thème (merci Subhashish Anand !)
+- L'activité de numérisation en cas d'erreur de caméra ne ferme pas (la saisie manuelle est donc toujours possible)
+- Ajout de tous les contributeurs à la boîte de dialogue à propos

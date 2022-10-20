@@ -1,0 +1,4 @@
+- Prise en charge de l'importation Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Autoriser l'importation d'une carte à partir d'une image stockée dans la galerie Android de l'utilisateur
+- Correction de la coupure des notes multi-lignes
+- Remplacez le texte "Merci" dans la boîte de dialogue de confidentialité par "Accepter" car Huawei est trop pointilleux

@@ -1,0 +1,1 @@
+- Correctif d'un crash lorsqu'on change vers la tabulation barre code quand il n'y a pas de barre code dans la vue d'édition

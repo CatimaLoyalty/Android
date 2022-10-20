@@ -1,0 +1,11 @@
+- SIGNIFICATIVO: O formato da cópia de segurança mudou
+- SIGNIFICATIVO: O formato do compartilhamento de URL mudou
+- Habilitar/desabilitar a lanterna ao escanear
+- Suporte à UPC-E
+- Suporte à foto de frente e verso de cada cartão
+- Suporte à zip protegido por senha
+- Suporte à Stocard (Beta)
+- Conserta notas do Fidme
+- Novo formato do Voucher Vault
+- Corrige os botões flutuantes atrás de outros elementos da interface no Android 4
+- Corrige margem da barra do app na visualização de cartão

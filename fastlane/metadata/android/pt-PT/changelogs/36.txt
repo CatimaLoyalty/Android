@@ -1,0 +1,14 @@
+- Funcionalidade de busca
+- Funcionalidade de compartilhar
+- Suporte a modo escuro
+- Cartões podem não ter código de barras
+- Notas podem ter múltiplas linhas
+- Melhora no dimensionamento de notas
+- Melhora nas notificações e no ícone do app
+- Atualiza SDK de destino para Android 10
+- Melhora nas traduções:
+  - Alemão
+  - Italiano
+  - Holandês
+  - Polonês
+  - Russo

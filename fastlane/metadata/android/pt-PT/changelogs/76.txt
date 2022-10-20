@@ -1,0 +1,4 @@
+- Links em notas agora são clicáveis
+- Pré seleciona o grupo que o usuário tinha aberto ao criar um novo cartão
+- Nomes de grupos separados por vírgula na visualização de cartão
+- Botão de maximizar não aparece mais quando não há código de barras

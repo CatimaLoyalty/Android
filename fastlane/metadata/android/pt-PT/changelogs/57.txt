@@ -1,0 +1,4 @@
+- Nova funcionalidade para redimensionar o código se barras quando movendo-o para o topo para que caiba em leitores menores
+- Corrige salto da folha inferior após entrar em tela cheia
+- Diminui o cabeçalho na tela de visualização do cartão quando em modo paisagem
+- Conserta os cards não permanecendo no grupo quando o grupo é renomeado

@@ -1,0 +1,4 @@
+- Luminosité augmentée à son maximum lors de l'affichage d'une carte, pour aider les scanners de codes-barres. (pull #54)
+- Ajout d'une confirmation de suppression de carte. (pull #55)
+- Ajout de traductions en allemand (pull #57)) et en tchèque (pull #58).
+- Clarification de la traduction italienne. (pull #66)

@@ -16,11 +16,11 @@
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Nuskaityti brūkšninį kodą</string>
     <string name="noStoreError">Neįvestas pavadinimas</string>
-    <string name="noCardIdError">Neįvestas kortelės ID</string>
+    <string name="noCardIdError">Neįvestas ID</string>
     <string name="importExport">Importuoti/Exportuoti</string>
     <string name="exportName">Exportuoti</string>
-    <string name="importFailed">Nepavyko importuoti kortelių</string>
-    <string name="exportFailed">Nepavyko eksportuoti kortelių</string>
+    <string name="importFailed">Nepavyko importuoti</string>
+    <string name="exportFailed">Nepavyko eksportuoti</string>
     <string name="importing">Importuoja…</string>
     <string name="exporting">Eksportuoja…</string>
     <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>
@@ -90,7 +90,7 @@
 \n
 \nJOKIE DUOMENYS NĖRA RENKAMI, o tai gali patvirtinti bet kas, nes mūsų programėlė yra laisvoji programinė įranga.</string>
     <string name="privacy_policy">Privatumo politika</string>
-    <string name="chooseImportType">Importuoti duomenis iš\?</string>
+    <string name="chooseImportType">Importuoti duomenis iš</string>
     <string name="points">Taškai</string>
     <string name="currency">Valiuta</string>
     <string name="balance">Balansas</string>
@@ -107,7 +107,7 @@
     <string name="expiryStateSentence">Nustoja galioti: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Grupės: <xliff:g> %s </xliff:g></string>
     <string name="addFromImage">Pasirinkti vaizdą iš galerijos</string>
-    <string name="addManually">Rankiniu būdu įvesti kortelės ID</string>
+    <string name="addManually">Rankiniu būdu įvesti ID</string>
     <string name="leaveWithoutSaveConfirmation">Išeiti neišsaugojus\?</string>
     <string name="leaveWithoutSaveTitle">Išeiti</string>
     <string name="moveDown">Judėti žemyn</string>
@@ -120,11 +120,11 @@
         <item quantity="few"><xliff:g>%d</xliff:g> kortelės</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
-    <string name="noGroups">Spustelėkite + pliuso mygtuką, kad pirmiausia pridėtumėte grupes kategorizavimui.</string>
+    <string name="noGroups">Spustelėkite + pliuso mygtuką, kad pridėtumėte grupes kategorizavimui.</string>
     <string name="groups">Grupės</string>
     <string name="enter_group_name">Įvesti grupės pavadinimą</string>
-    <string name="exportSuccessful">Kortelės duomenys eksportuoti</string>
-    <string name="importSuccessful">Kortelės duomenys importuoti</string>
+    <string name="exportSuccessful">Duomenys eksportuoti</string>
+    <string name="importSuccessful">Duomenys importuoti</string>
     <string name="intent_import_card_from_url_share_text">Noriu pasidalyti su jumis kortele</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Neleisti ekrano užrakinimo</string>
     <string name="settings_keep_screen_on">Laikyti ekraną įjungtą</string>
@@ -154,8 +154,8 @@
     <string name="exportSuccessfulTitle">Eksportuota</string>
     <string name="importFailedTitle">Importuoti nepavyko</string>
     <string name="importSuccessfulTitle">Importuota</string>
-    <string name="importExportHelp">Atsarginių kopijų darymas leidžia perkelti korteles į kitą įrenginį.</string>
-    <string name="noCardExistsError">Nepavyko rasti kortelės</string>
+    <string name="importExportHelp">Duomenų atsarginių kopijų darymas leidžia perkelti juos į kitą įrenginį.</string>
+    <string name="noCardExistsError">Nepavyko rasti šios kortelės</string>
     <string name="share">Dalintis</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Pasirinkta: <xliff:g>%d</xliff:g> kortelė</item>
@@ -187,8 +187,8 @@
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Temos spalva</string>
     <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="noGroupCards">Šioje grupėje nėra jokių kortelių</string>
-    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> tipo kortelės brūkšninio kodo vaizdas</string>
+    <string name="noGroupCards">Grupėje yra tuščia</string>
+    <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> brūkšninio kodo vaizdas</string>
     <string name="swipeToSwitchImages">Braukite, kad perjungtumėte vaizdus, palaikykite, kad atvertumėte vaizdą galerijos programėlėje</string>
     <string name="sort_by">Rikiuoti pagal</string>
     <string name="reverse">…atvirkštine tvarka</string>
@@ -265,4 +265,11 @@
     <string name="settings_portrait_orientation">Portretas</string>
     <string name="settings_landscape_orientation">Gulsčias</string>
     <string name="settings_lock_on_opening_orientation">Užfiksuoti padėtį, kuri naudojama atidarant kortelę</string>
+    <string name="cameraPermissionDeniedTitle">Kamera nepasiekiama</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Skanuoti brūkšniniams kodams Catima reikės gauti leidimo naudotis jūsų kamera. Spustelkite čia norėdami pakeisti leidimų nustatymus.</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> taškas</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> taškai</item>
+        <item quantity="other"></item>
+    </plurals>
 </resources>

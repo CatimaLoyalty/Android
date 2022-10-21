@@ -81,4 +81,9 @@
     <string name="importExportHelp">तथ्य (डाटा) को बैकअप करना हमें उसे दूसरे डिवाइस में भेजने देता है|</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> का बारकोड</string>
     <string name="settings_disable_lockscreen_while_viewing_card">स्क्रीन को लॉक होने से रोकें</string>
+    <string name="enterBarcodeInstructions">अपनी आई डी लिखें तथा या तो बारकोड प्रकार चुनें, या फिर कोई बारकोड नहीं है चुनें|</string>
+    <string name="settings_lock_on_opening_orientation">कार्ड खोलते समय प्रयोग करि गयी अवस्था को प्रतिबन्ध करें</string>
+    <string name="intent_import_card_from_url_share_text">मैं तुम्हें एक कार्ड भेजना चाहता हूँ</string>
+    <string name="selectBarcodeTitle">बारकोड चुनें</string>
+    <string name="thumbnailDescription">छोटा चित्र</string>
 </resources>

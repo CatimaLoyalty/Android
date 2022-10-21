@@ -270,6 +270,6 @@
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> taškas</item>
         <item quantity="few"><xliff:g>%s</xliff:g> taškai</item>
-        <item quantity="other"></item>
+        <item quantity="other"><xliff:g>%s</xliff:g> taškų</item>
     </plurals>
 </resources>

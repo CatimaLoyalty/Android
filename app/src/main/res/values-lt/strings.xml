@@ -231,12 +231,9 @@
         <item quantity="other">Peržiūrėti archyvą (<xliff:g>%1$d</xliff:g> kortelių)</item>
     </plurals>
     <plurals name="groupCardCountWithArchived">
-        <item quantity="one"><xliff:g>%1$d</xliff:g> kortelė (
-\narchyvuota)<xliff:g id="archivedCount">%2$d</xliff:g></item>
-        <item quantity="few"><xliff:g>%1$d</xliff:g> kortelės (
-\narchyvuotos)<xliff:g id="archivedCount">%2$d</xliff:g></item>
-        <item quantity="other"><xliff:g>%1$d</xliff:g> kortelių (
-\narchyvuotų)<xliff:g id="archivedCount">%2$d</xliff:g></item>
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kortelė ( archyvuota)<xliff:g id="archivedCount">%2$d</xliff:g></item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> kortelės ( archyvuotos)<xliff:g id="archivedCount">%2$d</xliff:g></item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kortelių ( archyvuotų)<xliff:g id="archivedCount">%2$d</xliff:g></item>
     </plurals>
     <string name="set_scale">Nustatyti mastelį</string>
     <string name="hideMoreInfo">Slėpti informaciją</string>

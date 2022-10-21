@@ -24,6 +24,7 @@ import java.util.List;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -85,7 +86,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
-            chooseImportType(false);
+            chooseImportType(false, fileIntent.getData());
         }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
@@ -170,11 +171,11 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         // Check that there is a file manager available
         Button importFilesystem = binding.importOptionFilesystemButton;
-        importFilesystem.setOnClickListener(v -> chooseImportType(false));
+        importFilesystem.setOnClickListener(v -> chooseImportType(false, null));
 
         // Check that there is an app that data can be imported from
         Button importApplication = binding.importOptionApplicationButton;
-        importApplication.setOnClickListener(v -> chooseImportType(true));
+        importApplication.setOnClickListener(v -> chooseImportType(true, null));
     }
 
     private void openFileForImport(Uri uri, char[] password) {
@@ -188,7 +189,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void chooseImportType(boolean choosePicker) {
+    private void chooseImportType(boolean choosePicker,
+                                  @Nullable Uri fileData) {
 
         List<CharSequence> betaImportOptions = new ArrayList<>();
         betaImportOptions.add("Fidme");
@@ -239,6 +241,11 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             break;
                         default:
                             throw new IllegalArgumentException("Unknown DataFormat");
+                    }
+
+                    if (fileData != null) {
+                        openFileForImport(fileData, null);
+                        return;
                     }
 
                     new MaterialAlertDialogBuilder(this)

@@ -26,7 +26,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.core.content.ContextCompat;
-import androidx.core.widget.TextViewCompat;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -51,6 +50,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
+
+    private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
+    private static final int COMPAT_SCALE_FACTOR_DIP = 320;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -251,17 +253,24 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     private void scaleScreen() {
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        float ratio = (float) metrics.heightPixels / metrics.widthPixels;
-        boolean shouldScaleSmaller = ratio <= 0.8f;
-        boolean shouldScaleMedium = ratio <= 1.1f && !shouldScaleSmaller;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenHeight = displayMetrics.heightPixels;
+        int compatPadding = getResources().getDimensionPixelSize(R.dimen.no_data_compat_padding);
+        int normalPadding = getResources().getDimensionPixelSize(R.dimen.no_data_padding);
+        //Converting the scaling factor dps to pixels.
+        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        float compatSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,COMPAT_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        boolean shouldScaleSmaller = screenHeight < compatSizePx;
+        boolean shouldScaleMedium = screenHeight < mediumSizePx && !shouldScaleSmaller;
         if (shouldScaleMedium) {
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility( View.GONE );
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(View.GONE);
         } else {
             int buttonMinHeight = getResources().getDimensionPixelSize(R.dimen.scan_button_min_height);
             customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
             customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
             customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.no_data_min_textSize : R.dimen.no_data_max_textSize));
+            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setPadding(shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding);
             customBarcodeScannerBinding.addFromImage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
             customBarcodeScannerBinding.addManually.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
             customBarcodeScannerBinding.addFromImage.setMinimumHeight(shouldScaleSmaller ? getResources().getDimensionPixelSize(R.dimen.scan_button_min_height) : buttonDefaultMinHeight);
@@ -273,6 +282,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             customBarcodeScannerBinding.addManually.setMinHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
             customBarcodeScannerBinding.addManually.setMinWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
         }
+
     }
 
     private void saveDefaultUIValues() {

@@ -58,6 +58,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
 
+    private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
+
     private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
     private ActionMode mCurrentActionMode;
@@ -846,9 +848,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
 
     private void scaleScreen() {
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        float ratio = (float) metrics.heightPixels / metrics.widthPixels;
-        boolean shouldScaleSmaller = ratio <= 1.1f;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenHeight = displayMetrics.heightPixels;
+        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        boolean shouldScaleSmaller = screenHeight < mediumSizePx;
 
         binding.include.welcomeIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
     }

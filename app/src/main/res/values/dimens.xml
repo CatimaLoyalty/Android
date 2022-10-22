@@ -10,6 +10,7 @@
     <dimen name="no_data_max_textSize">16sp</dimen>
     <dimen name="no_data_min_textSize">10sp</dimen>
     <dimen name="no_data_padding">22dp</dimen>
+    <dimen name="no_data_compat_padding">10dp</dimen>
 
     <dimen name="barcode_disp_height">200dp</dimen>
 

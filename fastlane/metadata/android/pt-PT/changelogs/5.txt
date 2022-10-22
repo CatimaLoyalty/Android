@@ -1,0 +1,2 @@
+- Um diálogo Sobre pode ser aberto a partir da tela principal que mostra detalhes sobre a aplicação e projeto no GitHub (issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Permite que a informação de cartões de fidelidade sejam importadas de/exportadas para um arquivo CSV (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

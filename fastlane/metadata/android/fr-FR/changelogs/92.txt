@@ -1,0 +1,2 @@
+- Nouvelle disposition de l'écran principal
+- Correction des problèmes de dimensionnement du bas de fiche lors de l'activation et de la désactivation du plein écran

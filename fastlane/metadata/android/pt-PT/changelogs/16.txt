@@ -1,0 +1,5 @@
+- Adiciona suporte para adicionar atalhos à tela inicial quando adicionando ou editando cartões
+- Remove widget, pois é um mal substituto para atalhos
+- Corrige exportação de cópias de segurança no Android 7+
+- Relata um tipo de mídia mais exato ao exportar dados de cópia de segurança
+- Corrige problema onde um cartão não podia ser editado

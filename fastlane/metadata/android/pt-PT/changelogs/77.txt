@@ -1,0 +1,4 @@
+- Melhorias na importação de Stocard
+- Conserta a importação de exportado do Catima com notas com múltiplas linhas
+- Redimensiona título do cartão em uma faixa aceitável
+- Melhorias em animações

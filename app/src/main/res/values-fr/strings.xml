@@ -262,4 +262,11 @@
     <string name="welcome">Bienvenue dans Catima</string>
     <string name="barcodeLongPressMessage">Seules les images peuvent être ouvertes dans l’application galerie</string>
     <string name="failedToRetrieveImageFile">Impossible de récupérer le fichier image</string>
+    <string name="currentBalanceSentence">Solde actuel : <xliff:g>%s</xliff:g></string>
+    <string name="updateBalanceHint">Entrez le montant</string>
+    <string name="cameraPermissionDeniedTitle">On ne peut pas accéder à la caméra</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Pour scanner les codes-barres, Catima doit avoir accès à votre caméra. Tapez ici pour modifier vos paramètres d\'autorisation.</string>
+    <string name="updateBalance">Mettre à jour le solde</string>
+    <string name="updateBalanceTitle">Combien avez-vous dépensé \?</string>
+    <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
 </resources>

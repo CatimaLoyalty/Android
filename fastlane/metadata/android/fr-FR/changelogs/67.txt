@@ -1,0 +1,6 @@
+- Ajouter une option pour définir une valeur de code-barres distincte de l'ID de la carte
+- Simplifiez la configuration de la taille des polices
+- Plusieurs petites corrections d'interface utilisateur
+- Utilisez également l'icône de lettre pour les raccourcis
+- Toujours afficher tous les types de codes-barres en saisie manuelle
+- Supprimer la politique de confidentialité du premier dialogue de démarrage

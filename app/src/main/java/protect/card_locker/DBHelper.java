@@ -568,6 +568,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
+    public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.BALANCE, newBalance.toString());
+        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(id));
+        return (rowsUpdated == 1);
+    }
+
     public static LoyaltyCard getLoyaltyCard(SQLiteDatabase database, final int id) {
         Cursor data = database.query(LoyaltyCardDbIds.TABLE, null, whereAttrs(LoyaltyCardDbIds.ID), withArgs(id), null, null, null);
 

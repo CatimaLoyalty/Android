@@ -1,0 +1,1 @@
+- Conserta falha ao compartilhar um cartão

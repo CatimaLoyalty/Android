@@ -1,0 +1,2 @@
+- Correction du widget créant un raccourci avec un aspect différent des raccourcis d'application
+- Remplacement de l'écran noir Android par défaut par un écran de démarrage

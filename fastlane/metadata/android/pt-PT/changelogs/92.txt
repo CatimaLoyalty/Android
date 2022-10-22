@@ -1,0 +1,2 @@
+- Novo layout de tela principal
+- Conserta problemas de redimensionamento da folha de fundo quando entrando ou saindo do modo de tela cheia

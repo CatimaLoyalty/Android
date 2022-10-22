@@ -1,0 +1,3 @@
+- Conserta ícones de letra borrados na tela principal
+- Conserta ícones desaparecendo as vezes depois de selecionados
+- Conserta ícones da barra de estado possivelmente estarem invisíveis no Android 5

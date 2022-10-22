@@ -1,0 +1,1 @@
+- Correctif du bouton d'édition ou plus d'information en bas de fiche se dessinant par dessus l'ID du code barre

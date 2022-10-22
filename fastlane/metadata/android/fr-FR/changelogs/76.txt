@@ -1,0 +1,4 @@
+- Rendre les liens dans les notes cliquables
+- Présélectionnez le groupe dans lequel l'utilisateur se trouve actuellement lors de la création d'une nouvelle carte
+- Noms de groupe séparés par des virgules dans la vue de la carte de fidélité
+- Correction du bouton Agrandir apparaissant sur aucun code-barres

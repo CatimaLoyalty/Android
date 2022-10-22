@@ -1,0 +1,3 @@
+- Adiciona botões anterior e próximo à visualização de cartões de fidelidade
+- Corrige cor de primeiro plano no botão de edição
+- Substitui ícone de disquete para salvar por marca de seleção

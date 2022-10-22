@@ -1,0 +1,4 @@
+- Melhora exibição da lista de cartões para modo paisagem e tablets
+- Adiciona suporte a temas (obrigada, Subhashish Anand!)
+- Não fecha a atividade de escanear quando há erro de câmera (para que a entrada manual ainda seja possível)
+- Mostra todos os contribuidores no diálogo Sobre

@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -18,17 +20,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -36,13 +28,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -345,21 +338,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
          */
 
         mBarcodeScannerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            // Exit early if the user cancelled the scan (pressed back/home)
+            if (result.getResultCode() != RESULT_OK) {
+                return;
+            }
+
             Intent intent = result.getData();
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
-            if (!barcodeValues.isEmpty()) {
-                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-                Bundle newBundle = new Bundle();
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-                Bundle inputBundle = intent.getExtras();
-                if (inputBundle != null && inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) != null) {
-                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP));
-                }
-                newIntent.putExtras(newBundle);
-                startActivity(newIntent);
-            }
+            Bundle inputBundle = intent.getExtras();
+            String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+            processBarcodeValues(barcodeValues, group);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -511,9 +500,67 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
+    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
+        if (barcodeValues.isEmpty()) {
+            throw new IllegalArgumentException("barcodesValues may not be empty");
+        }
+
+        Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+        Bundle newBundle = new Bundle();
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+        if (group != null) {
+            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+        }
+        newIntent.putExtras(newBundle);
+        startActivity(newIntent);
+    }
+
+    private void onSharedIntent(Intent intent) {
+        String receivedAction = intent.getAction();
+        String receivedType = intent.getType();
+
+        // Check if an image was shared to us
+        if (Intent.ACTION_SEND.equals(receivedAction)) {
+            if (receivedType.startsWith("image/")) {
+                BarcodeValues barcodeValues;
+                try {
+                    Bitmap bitmap;
+                    try {
+                        Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                        bitmap = Utils.retrieveImageFromUri(this, data);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Error getting data from image file");
+                        e.printStackTrace();
+                        Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
+
+                    barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
+
+                    if (barcodeValues.isEmpty()) {
+                        Log.i(TAG, "No barcode found in image file");
+                        Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
+                    }
+                } catch (NullPointerException e) {
+                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
+                }
+                processBarcodeValues(barcodeValues, null);
+            } else {
+                Log.e(TAG, "Wrong mime-type");
+            }
+        }
+    }
+
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         mArchiveMode = b != null && b.getBoolean(BUNDLE_ARCHIVE_MODE, false);
+        onSharedIntent(intent);
     }
 
     public void updateTabGroups(TabLayout groupsTabLayout) {

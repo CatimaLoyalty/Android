@@ -1,0 +1,2 @@
+- Corrige problema no Android SDK 24+ onde usando a opção seletor de arquivos causava uma falha. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Novo ícone e esquema de cores. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

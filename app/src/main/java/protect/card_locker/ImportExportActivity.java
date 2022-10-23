@@ -116,7 +116,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 Log.e(TAG, "Activity returned NULL data");
                 return;
             }
-            openFileForImport(result, null);
+            showDialogAfterFileToImportChosen(result);
         });
         filePickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             Intent intent = result.getData();
@@ -129,7 +129,8 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 Log.e(TAG, "Activity returned NULL uri");
                 return;
             }
-            openFileForImport(intent.getData(), null);
+
+            showDialogAfterFileToImportChosen(intent.getData());
         });
 
         // Check that there is a file manager available
@@ -208,68 +209,58 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.chooseImportType)
                 .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
-                    switch (which) {
-                        // Catima
-                        case 0:
-                            importAlertTitle = getString(R.string.importCatima);
-                            importAlertMessage = getString(R.string.importCatimaMessage);
-                            importDataFormat = DataFormat.Catima;
-                            break;
-                        // Fidme
-                        case 1:
-                            importAlertTitle = getString(R.string.importFidme);
-                            importAlertMessage = getString(R.string.importFidmeMessage);
-                            importDataFormat = DataFormat.Fidme;
-                            break;
-                        // Loyalty Card Keychain
-                        case 2:
-                            importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
-                            importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
-                            importDataFormat = DataFormat.Catima;
-                            break;
-                        // Stocard
-                        case 3:
-                            importAlertTitle = getString(R.string.importStocard);
-                            importAlertMessage = getString(R.string.importStocardMessage);
-                            importDataFormat = DataFormat.Stocard;
-                            break;
-                        // Voucher Vault
-                        case 4:
-                            importAlertTitle = getString(R.string.importVoucherVault);
-                            importAlertMessage = getString(R.string.importVoucherVaultMessage);
-                            importDataFormat = DataFormat.VoucherVault;
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Unknown DataFormat");
-                    }
+                            switch (which) {
+                                // Catima
+                                case 0:
+                                    importAlertTitle = getString(R.string.importCatima);
+                                    importAlertMessage = getString(R.string.importCatimaMessage);
+                                    importDataFormat = DataFormat.Catima;
+                                    break;
+                                // Fidme
+                                case 1:
+                                    importAlertTitle = getString(R.string.importFidme);
+                                    importAlertMessage = getString(R.string.importFidmeMessage);
+                                    importDataFormat = DataFormat.Fidme;
+                                    break;
+                                // Loyalty Card Keychain
+                                case 2:
+                                    importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
+                                    importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
+                                    importDataFormat = DataFormat.Catima;
+                                    break;
+                                // Stocard
+                                case 3:
+                                    importAlertTitle = getString(R.string.importStocard);
+                                    importAlertMessage = getString(R.string.importStocardMessage);
+                                    importDataFormat = DataFormat.Stocard;
+                                    break;
+                                // Voucher Vault
+                                case 4:
+                                    importAlertTitle = getString(R.string.importVoucherVault);
+                                    importAlertMessage = getString(R.string.importVoucherVaultMessage);
+                                    importDataFormat = DataFormat.VoucherVault;
+                                    break;
+                                default:
+                                    throw new IllegalArgumentException("Unknown DataFormat");
+                            }
 
-                    if (fileData != null) {
-                        openFileForImport(fileData, null);
-                        return;
-                    }
+                            if (fileData != null) {
+                                openFileForImport(fileData, null);
+                                return;
+                            }
 
-                    new MaterialAlertDialogBuilder(this)
-                            .setTitle(importAlertTitle)
-                            .setMessage(importAlertMessage)
-                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    try {
-                                        if (choosePicker) {
-                                            final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-                                            filePickerLauncher.launch(intentPickAction);
-                                        } else {
-                                            fileOpenLauncher.launch("*/*");
-                                        }
-                                    } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-                                        Log.e(TAG, "No activity found to handle intent", e);
-                                    }
+                            try {
+                                if (choosePicker) {
+                                    final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
+                                    filePickerLauncher.launch(intentPickAction);
+                                } else {
+                                    fileOpenLauncher.launch("*/*");
                                 }
-                            })
-                            .setNegativeButton(R.string.cancel, null)
-                            .show();
-                });
+                            } catch (ActivityNotFoundException e) {
+                                Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                                Log.e(TAG, "No activity found to handle intent", e);
+                            }
+                        });
         builder.show();
     }
 
@@ -437,5 +428,24 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
+    }
+
+    private void showDialogAfterFileToImportChosen(Uri uri) {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(importAlertTitle)
+                .setMessage(importAlertMessage)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            openFileForImport(uri, null);
+                        } catch (ActivityNotFoundException e) {
+                            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                            Log.e(TAG, "No activity found to handle intent", e);
+                        }
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 }

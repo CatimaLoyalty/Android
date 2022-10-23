@@ -97,6 +97,13 @@
                 app:layout_constraintGuide_percent="0.5"/>
 
             <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalCenterGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/scalerGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,6 +131,7 @@
 
             <ImageView
                 android:id="@+id/mainImage"
+                android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
@@ -156,8 +164,8 @@
 
             <LinearLayout
                 android:id="@+id/dotIndicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="15.0dip"
                 android:layout_marginTop="10dp"
@@ -181,6 +189,22 @@
                 android:max="100"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />
+
+            <SeekBar
+                android:id="@+id/barcodeWidthScaler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/inputPadding"
+                android:layout_marginStart="15.0dip"
+                android:layout_marginEnd="15.0dip"
+                android:contentDescription="@string/set_scale"
+                android:progress="50"
+                android:max="100"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />

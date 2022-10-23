@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -113,7 +114,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     FloatingActionButton editButton;
 
     Guideline centerGuideline;
+    Guideline verticalCenterGuideline;
     SeekBar barcodeScaler;
+    SeekBar barcodeWidthScaler;
 
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
@@ -295,6 +298,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     }
 
+    private void setVerticalCenterGuideline(int zoomWidth) {
+        float scale = zoomWidth / 100f;
+
+        if (format != null && format.isSquare()) {
+            verticalCenterGuideline.setGuidelinePercent(0.75f * scale);
+        } else {
+            verticalCenterGuideline.setGuidelinePercent(0.5f * scale);
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
@@ -395,6 +409,42 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
 
                 setCenterGuideline(loyaltyCard.zoomLevel);
+
+                drawMainImage(mainImageIndex, true, isFullscreen);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        verticalCenterGuideline = binding.verticalCenterGuideline;
+        barcodeWidthScaler = binding.barcodeWidthScaler;
+        barcodeWidthScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser) {
+                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                    return;
+                }
+                Log.d(TAG, "Progress is " + progress);
+                Log.d(TAG, "Max is " + barcodeWidthScaler.getMax());
+                float scale = (float) progress / (float) barcodeWidthScaler.getMax();
+                Log.d(TAG, "Scaling to " + scale);
+
+                loyaltyCard.zoomWidth = progress;
+                DBHelper.updateLoyaltyCardZoomWidth(database, loyaltyCardId, loyaltyCard.zoomWidth);
+
+                mainImage.getLayoutParams().width = mainLayout.getWidth() * loyaltyCard.zoomWidth / 100;
+                mainImage.requestLayout();
+
+                setVerticalCenterGuideline(loyaltyCard.zoomWidth);
 
                 drawMainImage(mainImageIndex, true, isFullscreen);
             }
@@ -935,6 +985,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             mainImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
+                            Log.d(TAG, "Image width = " + mainImage.getWidth());
                             drawBarcode(addPadding);
                         }
                     });
@@ -1037,12 +1088,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             drawMainImage(mainImageIndex, true, isFullscreen);
 
             barcodeScaler.setProgress(loyaltyCard.zoomLevel);
+            barcodeWidthScaler.setProgress(loyaltyCard.zoomWidth);
             setCenterGuideline(loyaltyCard.zoomLevel);
+            setVerticalCenterGuideline(loyaltyCard.zoomWidth);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
             minimizeButton.setVisibility(View.VISIBLE);
             barcodeScaler.setVisibility(View.VISIBLE);
+            barcodeWidthScaler.setVisibility(View.VISIBLE);
 
             // Hide actionbar
             if (actionBar != null) {
@@ -1075,6 +1129,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Reset center guideline
             setCenterGuideline(100);
+            setVerticalCenterGuideline(100);
 
             drawMainImage(mainImageIndex, true, isFullscreen);
 
@@ -1083,6 +1138,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             minimizeButton.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);
+            barcodeWidthScaler.setVisibility(View.GONE);
 
             // Show actionbar
             if (actionBar != null) {
@@ -1110,7 +1166,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         }
 
-        Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress());
+        Log.d("setFullScreen", "Is full screen enabled? " + enabled + " Zoom Level = " + barcodeScaler.getProgress() + ", Width level = " + barcodeWidthScaler.getProgress());
+
     }
 
     @SuppressWarnings("deprecation")

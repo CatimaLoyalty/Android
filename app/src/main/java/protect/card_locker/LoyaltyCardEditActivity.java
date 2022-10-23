@@ -214,6 +214,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
                 0, // Unimportant, always set to null in doSave so the DB updates it to the current timestamp
                 100, // Unimportant, not updated in doSave, defaults to 100 for new cards
+                100,
                 (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus)
         );
     }
@@ -778,7 +779,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100, 100, 0);
 
             }
         }

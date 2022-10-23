@@ -40,6 +40,19 @@ public class DatabaseTest {
         mDatabase = TestHelpers.getEmptyDb(mActivity).getWritableDatabase();
     }
 
+    /**
+     * Test the number of columns in the database.
+     * This test is created for the addition of the "zoom_width" column.
+     */
+    @Test
+    public void testNumColumns() {
+        assertEquals(15,DBHelper.getColumnCount(mDatabase));
+        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        assertTrue(DBHelper.updateLoyaltyCardZoomWidth(mDatabase, 1, 80));
+        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
+        assertEquals(80,loyaltyCard.zoomWidth);
+    }
+
     @Test
     public void addRemoveOneGiftCard() {
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));

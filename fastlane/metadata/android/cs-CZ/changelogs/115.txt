@@ -1,2 +1,4 @@
 - Otevření obrázku v aplikaci pro galerii při dlouhém stisku
 - Styl Material použit na dialogová okna
+- Podpora vytváření karty pomocí sdílení obrázku do Catima
+- Na obrazovku karty přidáno tlačítko pro rychlé zadání útraty

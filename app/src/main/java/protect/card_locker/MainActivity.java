@@ -403,7 +403,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             groupsTabLayout.selectTab(tab);
             assert tab != null;
             mGroup = tab.getTag();
-        } else
+        } else if(!mArchiveMode)
             scaleScreen();
 
         updateLoyaltyCardList(true);

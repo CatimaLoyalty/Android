@@ -262,11 +262,12 @@
     <string name="settings_portrait_orientation">Portretas</string>
     <string name="settings_landscape_orientation">Gulsčias</string>
     <string name="settings_lock_on_opening_orientation">Užfiksuoti padėtį, kuri naudojama atidarant kortelę</string>
-    <string name="cameraPermissionDeniedTitle">Kamera nepasiekiama</string>
+    <string name="cameraPermissionDeniedTitle">Nepavyko pasiekti kameros</string>
     <string name="noCameraPermissionDirectToSystemSetting">Skanuoti brūkšniniams kodams Catima reikės gauti leidimo naudotis jūsų kamera. Spustelkite čia norėdami pakeisti leidimų nustatymus.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> taškas</item>
         <item quantity="few"><xliff:g>%s</xliff:g> taškai</item>
         <item quantity="other"><xliff:g>%s</xliff:g> taškų</item>
     </plurals>
+    <string name="importCards">Importuoti korteles</string>
 </resources>

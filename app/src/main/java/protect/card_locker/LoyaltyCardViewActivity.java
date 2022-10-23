@@ -114,7 +114,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     FloatingActionButton editButton;
 
     Guideline centerGuideline;
-    Guideline verticalCenterGuideline;
     SeekBar barcodeScaler;
     SeekBar barcodeWidthScaler;
 
@@ -298,17 +297,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     }
 
-    private void setVerticalCenterGuideline(int zoomWidth) {
-        float scale = zoomWidth / 100f;
-
-        if (format != null && format.isSquare()) {
-            verticalCenterGuideline.setGuidelinePercent(0.75f * scale);
-        } else {
-            verticalCenterGuideline.setGuidelinePercent(0.5f * scale);
-        }
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
@@ -424,7 +412,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
-        verticalCenterGuideline = binding.verticalCenterGuideline;
         barcodeWidthScaler = binding.barcodeWidthScaler;
         barcodeWidthScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -443,8 +430,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
                 mainImage.getLayoutParams().width = mainLayout.getWidth() * loyaltyCard.zoomWidth / 100;
                 mainImage.requestLayout();
-
-                setVerticalCenterGuideline(loyaltyCard.zoomWidth);
 
                 drawMainImage(mainImageIndex, true, isFullscreen);
             }
@@ -1016,7 +1001,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (waitForResize) {
-                redrawBarcodeAfterResize(!isFullscreen);
+                redrawBarcodeAfterResize(false);
             } else {
                 drawBarcode(!isFullscreen);
             }
@@ -1090,7 +1075,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             barcodeScaler.setProgress(loyaltyCard.zoomLevel);
             barcodeWidthScaler.setProgress(loyaltyCard.zoomWidth);
             setCenterGuideline(loyaltyCard.zoomLevel);
-            setVerticalCenterGuideline(loyaltyCard.zoomWidth);
 
             // Hide maximize and show minimize button and scaler
             maximizeButton.setVisibility(View.GONE);
@@ -1129,7 +1113,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Reset center guideline
             setCenterGuideline(100);
-            setVerticalCenterGuideline(100);
 
             drawMainImage(mainImageIndex, true, isFullscreen);
 

@@ -245,4 +245,5 @@
     <string name="noUnarchivedCardsMessage">没有未归档卡</string>
     <string name="failedToOpenUrl">先安装一个浏览器</string>
     <string name="welcome">欢迎使用Catima</string>
+    <string name="updateBalanceHint">输入金额</string>
 </resources>

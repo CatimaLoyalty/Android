@@ -41,8 +41,8 @@ public class DatabaseTest {
     }
 
     /**
-     * Test the number of columns in the database.
-     * This test is created for the addition of the "zoom_width" column.
+     * Test the number of columns in the database, and whether zoomWidth was updated successuflly.
+     * This test is added for the addition of the "zoomWidth" function.
      */
     @Test
     public void testNumColumns() {

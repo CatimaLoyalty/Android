@@ -116,6 +116,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     Guideline centerGuideline;
     SeekBar barcodeScaler;
     SeekBar barcodeWidthScaler;
+    TextView zoomHeightText;
+    TextView zoomWidthText;
 
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
@@ -361,6 +363,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         iconImage = binding.iconImage;
         portraitToolbar = binding.toolbar;
         landscapeToolbar = binding.toolbarLandscape;
+        zoomHeightText = binding.zoomHeightText;
+        zoomWidthText = binding.zoomWidthText;
 
         bottomAppBarInfoButton = binding.buttonShowInfo;
         bottomAppBarPreviousButton = binding.buttonPrevious;
@@ -412,6 +416,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         });
 
+        // set zoom width of barcode
         barcodeWidthScaler = binding.barcodeWidthScaler;
         barcodeWidthScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -970,7 +975,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                             mainImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            Log.d(TAG, "Image width = " + mainImage.getWidth());
                             drawBarcode(addPadding);
                         }
                     });

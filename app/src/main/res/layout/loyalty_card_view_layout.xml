@@ -97,6 +97,13 @@
                 app:layout_constraintGuide_percent="0.5"/>
 
             <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25"/>
+
+            <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/scalerGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,6 +128,28 @@
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
                 app:tint="?attr/colorOnPrimary"
                 tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/zoomWidthText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/barcodeWidthScaler"
+                app:layout_constraintEnd_toEndOf="@+id/verticalGuideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/barcodeWidthScaler"
+                />
+
+            <TextView
+                android:id="@+id/zoomHeightText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
+                app:layout_constraintEnd_toEndOf="@+id/verticalGuideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/barcodeScaler"
+                />
 
             <ImageView
                 android:id="@+id/mainImage"

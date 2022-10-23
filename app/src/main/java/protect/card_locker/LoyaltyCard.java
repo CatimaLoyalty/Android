@@ -55,6 +55,7 @@ public class LoyaltyCard implements Parcelable {
         this.archiveStatus = archiveStatus;
     }
 
+    // Another constructor, with zoomWidth as an extra parameter
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
                        @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,

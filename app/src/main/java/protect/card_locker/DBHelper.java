@@ -499,6 +499,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return (rowsUpdated == 1);
     }
 
+    /**
+     * Updates the zoom width of a card.
+     * @param database database where the card is located
+     * @param loyaltyCardId id of the card
+     * @param zoomWidth new zoom width of the card
+     * @return whether exactly 1 row was updated
+     */
     public static boolean updateLoyaltyCardZoomWidth(SQLiteDatabase database, int loyaltyCardId, int zoomWidth) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ZOOM_WIDTH, zoomWidth);

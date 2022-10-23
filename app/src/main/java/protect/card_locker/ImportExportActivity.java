@@ -423,11 +423,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             throw new IllegalArgumentException("Unknown DataFormat");
                     }
 
-//                    if (uri != null) {
-//                        openFileForImport(uri, null);
-//                        return;
-//                    }
-
                     new MaterialAlertDialogBuilder(this)
                             .setTitle(importAlertTitle)
                             .setMessage(importAlertMessage)

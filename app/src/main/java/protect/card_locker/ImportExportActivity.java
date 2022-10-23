@@ -86,7 +86,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
-            chooseImportType(false, fileIntent.getData());
+            showDialogAfterFileToImportChosen(fileIntent.getData());
         }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
@@ -192,76 +192,17 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
     private void chooseImportType(boolean choosePicker,
                                   @Nullable Uri fileData) {
-
-        List<CharSequence> betaImportOptions = new ArrayList<>();
-        betaImportOptions.add("Fidme");
-        betaImportOptions.add("Stocard");
-        List<CharSequence> importOptions = new ArrayList<>();
-
-        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
-            if (betaImportOptions.contains(importOption)) {
-                importOption = importOption + " (BETA)";
+        try {
+            if (choosePicker) {
+                final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
+                filePickerLauncher.launch(intentPickAction);
+            } else {
+                fileOpenLauncher.launch("*/*");
             }
-
-            importOptions.add(importOption);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
         }
-
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-        builder.setTitle(R.string.chooseImportType)
-                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
-                            switch (which) {
-                                // Catima
-                                case 0:
-                                    importAlertTitle = getString(R.string.importCatima);
-                                    importAlertMessage = getString(R.string.importCatimaMessage);
-                                    importDataFormat = DataFormat.Catima;
-                                    break;
-                                // Fidme
-                                case 1:
-                                    importAlertTitle = getString(R.string.importFidme);
-                                    importAlertMessage = getString(R.string.importFidmeMessage);
-                                    importDataFormat = DataFormat.Fidme;
-                                    break;
-                                // Loyalty Card Keychain
-                                case 2:
-                                    importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
-                                    importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
-                                    importDataFormat = DataFormat.Catima;
-                                    break;
-                                // Stocard
-                                case 3:
-                                    importAlertTitle = getString(R.string.importStocard);
-                                    importAlertMessage = getString(R.string.importStocardMessage);
-                                    importDataFormat = DataFormat.Stocard;
-                                    break;
-                                // Voucher Vault
-                                case 4:
-                                    importAlertTitle = getString(R.string.importVoucherVault);
-                                    importAlertMessage = getString(R.string.importVoucherVaultMessage);
-                                    importDataFormat = DataFormat.VoucherVault;
-                                    break;
-                                default:
-                                    throw new IllegalArgumentException("Unknown DataFormat");
-                            }
-
-                            if (fileData != null) {
-                                openFileForImport(fileData, null);
-                                return;
-                            }
-
-                            try {
-                                if (choosePicker) {
-                                    final Intent intentPickAction = new Intent(Intent.ACTION_PICK);
-                                    filePickerLauncher.launch(intentPickAction);
-                                } else {
-                                    fileOpenLauncher.launch("*/*");
-                                }
-                            } catch (ActivityNotFoundException e) {
-                                Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-                                Log.e(TAG, "No activity found to handle intent", e);
-                            }
-                        });
-        builder.show();
     }
 
     private void startImport(final InputStream target, final Uri targetUri, final DataFormat dataFormat, final char[] password, final boolean closeWhenDone) {
@@ -431,21 +372,81 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void showDialogAfterFileToImportChosen(Uri uri) {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(importAlertTitle)
-                .setMessage(importAlertMessage)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            openFileForImport(uri, null);
-                        } catch (ActivityNotFoundException e) {
-                            Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
-                            Log.e(TAG, "No activity found to handle intent", e);
-                        }
+        List<CharSequence> betaImportOptions = new ArrayList<>();
+        betaImportOptions.add("Fidme");
+        betaImportOptions.add("Stocard");
+        List<CharSequence> importOptions = new ArrayList<>();
+
+        for (String importOption : getResources().getStringArray(R.array.import_types_array)) {
+            if (betaImportOptions.contains(importOption)) {
+                importOption = importOption + " (BETA)";
+            }
+
+            importOptions.add(importOption);
+        }
+
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.chooseImportType)
+                .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
+                    switch (which) {
+                        // Catima
+                        case 0:
+                            importAlertTitle = getString(R.string.importCatima);
+                            importAlertMessage = getString(R.string.importCatimaMessage);
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Fidme
+                        case 1:
+                            importAlertTitle = getString(R.string.importFidme);
+                            importAlertMessage = getString(R.string.importFidmeMessage);
+                            importDataFormat = DataFormat.Fidme;
+                            break;
+                        // Loyalty Card Keychain
+                        case 2:
+                            importAlertTitle = getString(R.string.importLoyaltyCardKeychain);
+                            importAlertMessage = getString(R.string.importLoyaltyCardKeychainMessage);
+                            importDataFormat = DataFormat.Catima;
+                            break;
+                        // Stocard
+                        case 3:
+                            importAlertTitle = getString(R.string.importStocard);
+                            importAlertMessage = getString(R.string.importStocardMessage);
+                            importDataFormat = DataFormat.Stocard;
+                            break;
+                        // Voucher Vault
+                        case 4:
+                            importAlertTitle = getString(R.string.importVoucherVault);
+                            importAlertMessage = getString(R.string.importVoucherVaultMessage);
+                            importDataFormat = DataFormat.VoucherVault;
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Unknown DataFormat");
                     }
-                })
-                .setNegativeButton(R.string.cancel, null)
-                .show();
+
+//                    if (uri != null) {
+//                        openFileForImport(uri, null);
+//                        return;
+//                    }
+
+                    new MaterialAlertDialogBuilder(this)
+                            .setTitle(importAlertTitle)
+                            .setMessage(importAlertMessage)
+                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    try {
+                                        openFileForImport(uri, null);
+                                    } catch (ActivityNotFoundException e) {
+                                        Toast.makeText(getApplicationContext(), R.string.failedOpeningFileManager, Toast.LENGTH_LONG).show();
+                                        Log.e(TAG, "No activity found to handle intent", e);
+                                    }
+                                }
+                            })
+                            .setNegativeButton(R.string.cancel, null)
+                            .show();
+                });
+
+        builder.show();
     }
+
 }

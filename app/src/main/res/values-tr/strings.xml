@@ -260,6 +260,7 @@
     <string name="updateBalanceHint">Miktarı girin</string>
     <string name="updateBalanceTitle">Ne kadar harcadınız\?</string>
     <string name="newBalanceSentence">Yeni bakiye: <xliff:g>%s</xliff:g></string>
-    <string name="cameraPermissionDeniedTitle">Kameraya erişilemiyor</string>
+    <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
     <string name="updateBalance">Bakiyeyi güncelle</string>
+    <string name="importCards">Kartları içe aktar</string>
 </resources>

@@ -276,4 +276,5 @@
     <string name="cameraPermissionDeniedTitle">Камера недоступна</string>
     <string name="updateBalanceHint">Введите сумму</string>
     <string name="updateBalanceTitle">Какое изменение\?</string>
+    <string name="importCards">Импорт карт</string>
 </resources>

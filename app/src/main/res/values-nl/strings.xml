@@ -262,4 +262,5 @@
     <string name="updateBalance">Saldo bijwerken</string>
     <string name="updateBalanceHint">Voer een bedrag in</string>
     <string name="newBalanceSentence">Nieuw saldo: <xliff:g>%s</xliff:g></string>
+    <string name="importCards">Kaarten importeren</string>
 </resources>

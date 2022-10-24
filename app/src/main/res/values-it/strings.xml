@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Cerca</string>
     <string name="action_add">Aggiungi</string>
-    <string name="noGiftCards">Premi il pulsante + per aggiungere una carta oppure importane alcune dal menù ⋮.</string>
+    <string name="noGiftCards">Premi il pulsante + per aggiungere una carta oppure importala dal menù ⋮.</string>
     <string name="noMatchingGiftCards">Nessun risultato. Prova a cambiare la tua ricerca.</string>
     <string name="storeName">Nome</string>
     <string name="note">Note</string>
@@ -262,4 +262,12 @@
     </plurals>
     <string name="failedToRetrieveImageFile">Impossibile ottenere il file dell\'immagine</string>
     <string name="barcodeLongPressMessage">Si possono aprire solo immagini dell\'app della galleria</string>
+    <string name="cameraPermissionDeniedTitle">È impossibile accedere alla fotocamera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Per poter scansionare i codici a barre, Catima ha bisogno di accedere alla tua fotocamera. Premi qui per poter cambiare le impostazioni dei permessi.</string>
+    <string name="updateBalance">Aggiorna bilancio</string>
+    <string name="updateBalanceTitle">Quanto hai speso\?</string>
+    <string name="updateBalanceHint">Inserisci l\'importo</string>
+    <string name="currentBalanceSentence">Bilancio attuale: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Nuovo bilancio: <xliff:g>%s</xliff:g></string>
+    <string name="importCards">Importa carte</string>
 </resources>

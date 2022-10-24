@@ -217,6 +217,11 @@ public class Utils {
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
 
+        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
+        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
+        // is not a problem for the way the comparison currently works, it's good to keep in mind such
+        // dates may exist in the DB in case the comparison changes in the future and the new one relies
+        // on both dates being set at 12:00 AM.
         return expiryDate.before(date.getTime());
     }
 

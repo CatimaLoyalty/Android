@@ -1,0 +1,2 @@
+- Adiciona suporte a saldo
+- Reorganiza a aba do código de barra na tela de edição

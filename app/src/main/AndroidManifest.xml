@@ -108,7 +108,39 @@
         <activity
             android:name=".ImportExportActivity"
             android:label="@string/importExport"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- ZIP Intent Filter -->
+            <intent-filter
+                android:label="@string/importCards">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/zip" />
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+            </intent-filter>
+
+            <!-- JSON Intent Filter -->
+            <intent-filter
+                android:label="@string/importCards">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/json" />
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+            </intent-filter>
+
+            <!-- CSV Intent Filter -->
+            <intent-filter
+                android:label="@string/importCards">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content"/>
+                <data android:host="*" />
+                <data android:mimeType="text/comma-separated-values" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CardShortcutConfigure"
             android:exported="true"

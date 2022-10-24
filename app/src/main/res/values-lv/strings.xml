@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="action_search">Meklēšana</string>
+    <string name="action_search">Meklēt</string>
     <string name="action_add">Pievienot</string>
     <string name="noGiftCards">Noklikšķiniet uz pogas + plus, lai pievienotu karti, vai vispirms importējiet dažus no ⋮ izvēlnes.</string>
-    <string name="noMatchingGiftCards">Neko neatradu. Mēģiniet mainīt meklējamo tekstu.</string>
+    <string name="noMatchingGiftCards">Nav rezultātu. Mēģiniet mainīt meklējamo tekstu.</string>
     <string name="storeName">Nosaukums</string>
     <string name="note">Piezīme</string>
-    <string name="barcodeType">Svītrkoda Tips</string>
+    <string name="barcodeType">Svītrkoda tips</string>
     <string name="barcodeNoBarcode">Bez svītrkoda</string>
     <string name="noBarcode">Nav svītrkoda</string>
     <string name="star">Pievienot izlasei</string>
@@ -35,56 +35,56 @@
     <string name="cardShortcut">Kartes saīsne</string>
     <string name="noCardsMessage">Vispirms pievienojiet karti</string>
     <string name="noStoreError">Vārds nav ievadīts</string>
-    <string name="noCardExistsError">Nevarēja atrast to karti</string>
+    <string name="noCardExistsError">Nevarēja atrast karti</string>
     <string name="failedParsingImportUriError">Nevarēja parsēt importa URI</string>
     <string name="importExport">Imports/Eksports</string>
     <string name="exportName">Eksports</string>
-    <string name="importExportHelp">Jūsu datu dublēšana ļauj tos pārnest uz citu ierīci.</string>
+    <string name="importExportHelp">Dublējot Jūsu datus, tos var pārnest uz citu ierīci.</string>
     <string name="importSuccessfulTitle">Importēts</string>
-    <string name="importFailedTitle">Neizdevās importēt</string>
-    <string name="importFailed">Nevarēja veikt karšu importu</string>
+    <string name="importFailedTitle">Imports neizdevās</string>
+    <string name="importFailed">Karšu importu nevarēja veikt</string>
     <string name="exportSuccessfulTitle">Eksportēts</string>
     <string name="exportFailedTitle">Eksports neizdevās</string>
-    <string name="exportFailed">Neizdevās eksportēt kartes</string>
+    <string name="exportFailed">Kartes neizdevās eksportēt</string>
     <string name="importing">Importē…</string>
     <string name="exporting">Eksportē…</string>
     <string name="noExternalStoragePermissionError">Piešķiriet ārējai atmiņai atļauju vispirms importēt vai eksportēt kartes</string>
-    <string name="exportOptionExplanation">Dati tiks rakstīti Jūsu izvēlētajā vietā.</string>
-    <string name="importOptionFilesystemTitle">Importēt no failu sistēmas</string>
+    <string name="exportOptionExplanation">Dati tiks saglabāti Jūsu izvēlētajā vietā.</string>
+    <string name="importOptionFilesystemTitle">Imports no failu sistēmas</string>
     <string name="importOptionFilesystemExplanation">Izvēlieties konkrētu failu no failu sistēmas.</string>
     <string name="importOptionFilesystemButton">No failu sistēmas</string>
-    <string name="importOptionApplicationTitle">Izmantojiet citu lietotni</string>
+    <string name="importOptionApplicationTitle">Izmantojot citu lietotni</string>
     <string name="importOptionApplicationExplanation">Izmantojiet jebkuru lietotni vai savu iecienītāko failu pārvaldnieku, lai atvērtu failu.</string>
-    <string name="importOptionApplicationButton">Izmantojiet citu lietotni</string>
+    <string name="importOptionApplicationButton">Ar citu lietotni</string>
     <string name="about">Par</string>
-    <string name="app_license">Copylefted libre programmatūra, licencēta GPLv3+</string>
+    <string name="app_license">Copyleft brīva un atvērta programmatūra, licencēta GPLv3+</string>
     <string name="selectBarcodeTitle">Izvēlieties svītrkodu</string>
     <string name="copy_to_clipboard_toast">Numurs kopēts starpliktuvē</string>
     <string name="thumbnailDescription">Sīktēls</string>
-    <string name="starImage">Mīļākā zvaigzne</string>
+    <string name="starImage">Izlases zvaigzne</string>
     <string name="settings">Iestatījumi</string>
     <string name="settings_category_title_ui">Interfeiss</string>
     <string name="settings_theme">Tēma</string>
-    <string name="settings_system_theme">Sistēma</string>
+    <string name="settings_system_theme">Sistēmas</string>
     <string name="settings_light_theme">Gaiša</string>
     <string name="settings_dark_theme">Tumša</string>
     <string name="settings_max_font_size_scale">Maksimālais burtu lielums</string>
     <string name="settings_display_barcode_max_brightness">Izgaismot svītrkoda skatu</string>
     <string name="settings_keep_screen_on">Turēt ekrānu ieslēgtu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Neļaut bloķēt ekrānu</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Neļaut ekrānam aizslēgties</string>
     <string name="intent_import_card_from_url_share_text">Es vēlos ar Jums kopīgot karti</string>
-    <string name="importSuccessful">Importētie dati</string>
+    <string name="importSuccessful">Dati importēti</string>
     <string name="exportSuccessful">Dati eksportēti</string>
-    <string name="noGroups">Noklikšķiniet uz \"+\" plus pogas, lai pievienotu grupas kategorizēšanai.</string>
+    <string name="noGroups">Spiediet uz \"+\" plus pogas, lai pievienotu grupas karšu kategorizēšanai.</string>
     <string name="noGroupCards">Šī grupa ir tukša</string>
-    <string name="all">Visi</string>
+    <string name="all">Visas</string>
     <string name="deleteConfirmationGroup">Dzēst grupu\?</string>
     <string name="failedOpeningFileManager">Vispirms instalējiet failu pārvaldnieku.</string>
     <string name="moveUp">Pārvietot uz augšu</string>
     <string name="moveDown">Pārvietot uz leju</string>
     <string name="leaveWithoutSaveTitle">Iziet</string>
     <string name="leaveWithoutSaveConfirmation">Iziet nesaglabājot\?</string>
-    <string name="addFromImage">Izvēlieties attēlu no galerijas</string>
+    <string name="addFromImage">Izvēlēties attēlu no galerijas</string>
     <string name="card">Karte</string>
     <string name="barcode">Svītrkods</string>
     <string name="expiryDate">Derīguma termiņš</string>
@@ -104,7 +104,7 @@
     <string name="cardId">Kartes numurs</string>
     <string name="enterBarcodeInstructions">Ievadiet kartes numuru un izvēlieties svītrkoda tipu (vai izvēlieties \"bez svītrkoda\").</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="zero">Neatgriezeniski dzēst šo <xliff:g>%d</xliff:g> karti\?</item>
+        <item quantity="zero">Neatgriezeniski dzēst šīs <xliff:g>%d</xliff:g> kartes\?</item>
         <item quantity="one">Neatgriezeniski dzēst šo <xliff:g>%d</xliff:g> karti\?</item>
         <item quantity="other">Neatgriezeniski dzēst šīs <xliff:g>%d</xliff:g> kartes\?</item>
     </plurals>
@@ -152,42 +152,42 @@
     <string name="license">Licence</string>
     <string name="source_repository">Pirmkods</string>
     <string name="rate_this_app">Novērtējiet šo lietotni</string>
-    <string name="noGiftCardsGroup">Izveidojiet kartes, tad sadaliet tās grupās šeit.</string>
+    <string name="noGiftCardsGroup">Izveidojiet kartes, un pēc tam šeit pievienojiet tās grupai.</string>
     <string name="options">Parametri</string>
     <plurals name="groupCardCount">
-        <item quantity="zero"><xliff:g>%d</xliff:g> karšu</item>
+        <item quantity="zero"><xliff:g>%d</xliff:g> kartes</item>
         <item quantity="one"><xliff:g>%d</xliff:g> karte</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kartes</item>
     </plurals>
     <plurals name="deleteCardsTitle">
-        <item quantity="zero">Izdzēst <xliff:g>%d</xliff:g> karšu</item>
-        <item quantity="one">Izdzēst <xliff:g>%d</xliff:g> karti</item>
-        <item quantity="other">Izdzēst <xliff:g>%d</xliff:g> kartes</item>
+        <item quantity="zero">Dzēst <xliff:g>%d</xliff:g> kartes</item>
+        <item quantity="one">Dzēst <xliff:g>%d</xliff:g> karti</item>
+        <item quantity="other">Dzēst <xliff:g>%d</xliff:g> kartes</item>
     </plurals>
     <string name="updateBarcodeQuestionText">Jūs izmainījāt numuru. Vai vēlaties arī atjaunināt svītrkodu ar tādu pašu vērtību\?</string>
     <string name="updateBarcodeQuestionTitle">Atjaunināt svītrkoda vērtību\?</string>
     <string name="yes">Jā</string>
     <string name="no">Nē</string>
-    <string name="settings_system_locale">Sistēma</string>
+    <string name="settings_system_locale">Sistēmas</string>
     <string name="include_if_asking_support">Ja vēlaties lūgt atbalstu, lūdzu iekļaujiet sekojošo informāciju:</string>
     <string name="card_ids_copied">Kopētie numuri</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> svītrkoda attēls</string>
     <string name="privacy_policy">Privātuma politika</string>
     <string name="accept">Apstiprināt</string>
     <string name="editGroup">Grupas rediģēšana: <xliff:g>%s</xliff:g></string>
-    <string name="settings_brown_theme">Brūnā</string>
-    <string name="copy_to_clipboard">Kopēt kartes numuru</string>
+    <string name="settings_brown_theme">Brūna</string>
+    <string name="copy_to_clipboard">Kopēt kartes numuru starpliktuvē</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autortiesības © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_copyright_old">Balstīta uz Loyalty Card Keychain
 \nautortiesības © 2016–2020 Branden Archer</string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_libraries">Libre trešo pušu programmatūras bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_resources">Libre trešo pušu resursi: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="app_libraries">Brīvas trešo pušu programmatūras bibliotēkas: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Brīvi trešo pušu resursi: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_card_orientation">Svītrkoda orientācija</string>
     <string name="settings_follow_system_orientation">Pēc sistēmas</string>
-    <string name="settings_portrait_orientation">Portrets</string>
-    <string name="settings_landscape_orientation">Ainava</string>
-    <string name="settings_lock_on_opening_orientation">Ievērot orientāciju, kādā karte atvērta</string>
+    <string name="settings_portrait_orientation">Portreta</string>
+    <string name="settings_landscape_orientation">Ainavas</string>
+    <string name="settings_lock_on_opening_orientation">Ievērot to orientāciju, kādā karte atvērta</string>
     <string name="enter_group_name">Ievadiet grupas nosaukumu</string>
     <string name="groups">Grupas</string>
     <string name="group_edit">Rediģēt grupu</string>
@@ -202,7 +202,7 @@
     <string name="importCatima">Importēt no Catima</string>
     <string name="importFidme">Importēt no FidMe</string>
     <string name="importFidmeMessage">Importam izvēlieties Jūsu <i>fidme-export-request-xxxxxx.zip</i> FidMe eksportēto failu, un pēc tam manuāli precizējiet svītrkodu tipus.
-\nFailu var izveidot no Jūsu FidMe profile, ejot uz \"Data Protection\" un spiežot \"Extract my data\".</string>
+\nFailu var izveidot Jūsu FidMe profilā, ejot uz \"Data Protection\" un spiežot \"Extract my data\".</string>
     <string name="importLoyaltyCardKeychain">Importēt no Loyalty Card Keychain</string>
     <string name="importStocard">Importēt no Stocard</string>
     <string name="importStocardMessage">Importam izvēlieties Jūsu <i>***-sync.zip</i> eksporta failu no Stocard.
@@ -213,7 +213,7 @@
     <string name="barcodeId">Svītrkoda vērtība</string>
     <string name="sameAsCardId">Tāpat kā numurs</string>
     <string name="setBarcodeId">Norādiet svītrkoda vērtību</string>
-    <string name="unsupportedBarcodeType">Šo svītrkoda tipu pagaidām nav iespējams attēlot. Iespējams, tas tiks atbalstīts vēlākā lietotnes versijā nākotnē.</string>
+    <string name="unsupportedBarcodeType">Šo svītrkoda tipu pagaidām nav iespējams attēlot. Iespējams, nākotnē tas tiks atbalstīts vēlākā lietotnes versijā.</string>
     <string name="wrongValueForBarcodeType">Šī vērtība nav derīga izvēlētajam svītrkoda tipam</string>
     <string name="copy_to_clipboard_multiple_toast">Numuri kopēti starpliktuvē</string>
     <string name="intent_import_card_from_url_share_multiple_text">Vēlos koplietot kartes</string>
@@ -226,10 +226,10 @@
     <string name="passwordRequired">Ievadiet paroli</string>
     <string name="exportPassword">Iestatiet paroli, lai aizsargātu eksporta failu (nav obligāti)</string>
     <string name="turn_flashlight_on">Ieslēgt zibspuldzi</string>
-    <string name="settings_oled_dark">Pilnīgi melns fons tumšajai tēmai</string>
+    <string name="settings_oled_dark">Tīri melns fons tumšajai tēmai</string>
     <string name="setIcon">Iestatīt ikonu</string>
     <string name="settings_theme_color">Tēmas krāsa</string>
-    <string name="settings_violet_theme">Violets</string>
+    <string name="settings_violet_theme">Violeta</string>
     <string name="settings_blue_theme">Zila</string>
     <string name="settings_grey_theme">Pelēka</string>
     <string name="sort">Kārtot</string>

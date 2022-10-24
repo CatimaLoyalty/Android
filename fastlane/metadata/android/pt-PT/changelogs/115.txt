@@ -1,0 +1,2 @@
+- Abre imagem na galeria ao fazer toque-longo
+- Aplica estilo Material a diálogos

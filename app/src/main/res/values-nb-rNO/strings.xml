@@ -255,4 +255,12 @@
     </plurals>
     <string name="failedToRetrieveImageFile">Kunne ikke hente bildefil</string>
     <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriet</string>
+    <string name="cameraPermissionDeniedTitle">Fikk ikke tilgang til kameraet</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Catima trenger kameratilgang for å skanne strekkoder. Trykk her for å endre tilgangsinnstillingene.</string>
+    <string name="importCards">Importer kort</string>
+    <string name="currentBalanceSentence">Nåværende saldo: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalanceTitle">Hvor mye brukte du\?</string>
+    <string name="updateBalanceHint">Skriv inn beløp</string>
+    <string name="newBalanceSentence">Ny saldo: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalance">Oppdater saldo</string>
 </resources>

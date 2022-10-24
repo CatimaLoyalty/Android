@@ -1,0 +1,2 @@
+- Melhora lógica de validação do saldo
+- Conserta exibição de decimais na tela principal

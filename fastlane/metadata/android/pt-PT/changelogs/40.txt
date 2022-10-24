@@ -1,0 +1,6 @@
+- Rebrand para Catima
+- Remoção da introdução
+- Adiciona botões de ação flutuantes
+- Corrige falha no Android 5 quando se abre a tela Sobre
+- Adiciona suporte a favoritos
+- Correção da auto-rotação desabilitada estar sendo ignorada

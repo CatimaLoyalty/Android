@@ -1,0 +1,2 @@
+- Salva estado de expansão dos detalhes dos cartões
+- Pequenas correções na interface de usuário

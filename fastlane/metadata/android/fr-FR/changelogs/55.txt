@@ -1,0 +1,2 @@
+- Séparation de l'édition de l'interface utilisateur dans les tabulations pour rendre plus spacieux
+- Ajout de la prise en charge du champ d'expiration

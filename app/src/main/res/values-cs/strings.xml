@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Přidat</string>
-    <string name="noGiftCards">Klepnutím na tlačítko + plus přidáte kartu nebo ji nejprve importujete z nabídky ⋮.</string>
+    <string name="noGiftCards">Klepněte na tlačítko + plus pro přidání karty nebo naimportujete karty z nabídky ⋮.</string>
     <string name="storeName">Název</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
@@ -262,4 +262,12 @@
     </plurals>
     <string name="barcodeLongPressMessage">V aplikaci pro galerii mohou být otevírány pouze obrázky</string>
     <string name="failedToRetrieveImageFile">Nepodařilo se získat soubor obrázku</string>
+    <string name="cameraPermissionDeniedTitle">Nelze získat přístup k fotoaparátu</string>
+    <string name="importCards">Importovat karty</string>
+    <string name="updateBalance">Aktualizovat zůstatek</string>
+    <string name="currentBalanceSentence">Současný zůstatek: <xliff:g>%s</xliff:g></string>
+    <string name="noCameraPermissionDirectToSystemSetting">Pro skenování čárových kódů bude Catima potřebovat přístup k fotoaparátu. Klepněte zde pro změnu nastavení oprávnění.</string>
+    <string name="updateBalanceTitle">Kolik jste utratil\?</string>
+    <string name="updateBalanceHint">Zadejte výši</string>
+    <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
 </resources>

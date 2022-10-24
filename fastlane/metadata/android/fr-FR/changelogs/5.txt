@@ -1,0 +1,2 @@
+- Une fenêtre à propos peut être ouverte depuis l'écran principal, donnant des détails à propos de l'application et du project sur GitHub (issue #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Autorisation d'importation des informations de la carte de fidélité depuis /exported vers fichier CSV dans le stockage externe (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

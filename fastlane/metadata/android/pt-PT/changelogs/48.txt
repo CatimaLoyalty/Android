@@ -1,0 +1,3 @@
+- Move tela Sobre para sua própria atividade
+- Pede ao usuário se ele quer usar a câmera ou digitar o ID manualmente ao adicionar/editar cartão
+- Faz com que ordenação de grupos seja manual ao invés de ordem alfabética forçada

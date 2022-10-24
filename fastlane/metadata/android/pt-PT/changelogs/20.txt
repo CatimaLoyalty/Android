@@ -1,0 +1,1 @@
+- Solução para falha durante instalação em algumas versões de Android (provavelmente Android 5 e inferior). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

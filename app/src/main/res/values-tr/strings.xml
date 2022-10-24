@@ -179,7 +179,7 @@
     <string name="note">Not</string>
     <string name="storeName">Ad</string>
     <string name="noMatchingGiftCards">Sonuç yok. Aramanızı değiştirmeyi deneyin.</string>
-    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya ⋮ menüsünden birkaçını içe aktarın.</string>
+    <string name="noGiftCards">Bir kart eklemek için + artı düğmesine tıklayın veya ⋮ menüsünden içe aktarın.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seçildi</item>
         <item quantity="other"><xliff:g>%d</xliff:g> seçildi</item>
@@ -255,4 +255,12 @@
     <string name="welcome">Catima\'ya Hoş Geldiniz</string>
     <string name="failedToRetrieveImageFile">Resim dosyası alınamadı</string>
     <string name="barcodeLongPressMessage">Galeri uygulamasında yalnızca resimler açılabilir</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Barkodları taramak için Catima\'nın kameranıza erişmesi gerekecektir. İzin ayarlarınızı değiştirmek için buraya dokunun.</string>
+    <string name="currentBalanceSentence">Geçerli bakiye: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalanceHint">Miktarı girin</string>
+    <string name="updateBalanceTitle">Ne kadar harcadınız\?</string>
+    <string name="newBalanceSentence">Yeni bakiye: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
+    <string name="updateBalance">Bakiyeyi güncelle</string>
+    <string name="importCards">Kartları içe aktar</string>
 </resources>

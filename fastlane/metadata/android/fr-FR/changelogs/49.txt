@@ -1,0 +1,2 @@
+- Traductions améliorées
+- Petits correctifs d'interfaces utilisateur

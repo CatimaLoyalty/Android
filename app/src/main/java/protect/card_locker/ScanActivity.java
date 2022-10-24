@@ -1,11 +1,16 @@
 package protect.card_locker;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,8 +19,11 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
@@ -36,6 +44,7 @@ import protect.card_locker.databinding.ScanActivityBinding;
  * originally licensed under Apache 2.0
  */
 public class ScanActivity extends CatimaAppCompatActivity {
+
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
@@ -116,6 +125,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onResume() {
         super.onResume();
         capture.onResume();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+            showCameraPermissionMissingText(false);
     }
 
     @Override
@@ -221,4 +232,34 @@ public class ScanActivity extends CatimaAppCompatActivity {
             Log.e(TAG, "No activity found to handle intent", e);
         }
     }
+
+    private void showCameraPermissionMissingText(boolean show) {
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
+            navigateToSystemPermissionSetting();
+          } : null);
+          customBarcodeScannerBinding.background.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
+          customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
+
+    }
+
+    private int obtainThemeAttribute(int attribute) {
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(attribute, typedValue, true);
+        return typedValue.data;
+    }
+
+    private void navigateToSystemPermissionSetting() {
+        Intent permissionIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null));
+        permissionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(permissionIntent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CaptureManager.getCameraPermissionReqCode())
+            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
+
+    }
+
 }

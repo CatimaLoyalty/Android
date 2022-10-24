@@ -262,4 +262,6 @@
     <string name="welcome">Bem-vindo ao Catima</string>
     <string name="failedToRetrieveImageFile">Falhou ao recuperar arquivo de imagem</string>
     <string name="barcodeLongPressMessage">Apenas imagens podem ser abertas no aplicativo de galeria</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para escanear código de barras, Catima precisa acessar a sua câmera. Clique aqui para mudar suas configurações de permissão.</string>
+    <string name="cameraPermissionDeniedTitle">Não é possível acessar à câmera</string>
 </resources>

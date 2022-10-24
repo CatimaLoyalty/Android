@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Añadir</string>
-    <string name="noGiftCards">Pulse el botón «+» para añadir una tarjeta, o importe algunas del menú ⋮.</string>
+    <string name="noGiftCards">Haz clic en el botón + para añadir una tarjeta, o importa desde el menú ⋮.</string>
     <string name="storeName">Nombre</string>
     <string name="note">Nota</string>
     <string name="cardId">ID. de tarjeta</string>
@@ -261,4 +261,12 @@
     <string name="starred">Estrellado</string>
     <string name="failedToRetrieveImageFile">No se pudo recuperar el archivo de imagen</string>
     <string name="barcodeLongPressMessage">Solo se pueden abrir imágenes en la aplicación de galería</string>
+    <string name="updateBalanceTitle">¿Cuánto has gastado\?</string>
+    <string name="currentBalanceSentence">Saldo actual: <xliff:g>%s</xliff:g></string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barras, Catima necesitará acceso a su cámara. Toque aquí para cambiar la configuración de sus permisos.</string>
+    <string name="updateBalanceHint">Introduzca el importe</string>
+    <string name="newBalanceSentence">Nuevo balance: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
+    <string name="updateBalance">Actualizar el balance</string>
+    <string name="importCards">Importar tarjetas</string>
 </resources>

@@ -8,6 +8,7 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="fill_parent"
@@ -336,6 +337,18 @@
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_chevron_right_24"
             android:tooltipText="@string/nextCard"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/button_update_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:tooltipText="@string/updateBalance"
             android:visibility="gone" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>

@@ -205,4 +205,5 @@
     <string name="passwordRequired">Zadajte prosím heslo</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sa nezdá byť platným zostatkom.</string>
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
+    <string name="noCameraPermissionDirectToSystemSetting"></string>
 </resources>

@@ -1,0 +1,4 @@
+- Corrige cor selecionada no diálogo de troca de cor
+- Suporte a deletar vários cartões de uma vez
+- Corrige possível ArithmeticException quando redimensionando uma imagem
+- Não sai mais da tela cheia ao rotacionar o dispositivo

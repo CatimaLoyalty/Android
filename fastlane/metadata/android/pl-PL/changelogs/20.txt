@@ -1,0 +1,1 @@
+- Obejście błędu podczas instalacji na niektórych wersjach Androida (prawdopodobnie Android 5 oraz poniżej). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

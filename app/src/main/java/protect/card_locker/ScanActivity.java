@@ -61,9 +61,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private String addGroup;
     private boolean torch = false;
 
-    private int buttonDefaultMinHeight;
-    private int buttonDefaultMaxHeight;
-
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
@@ -106,7 +103,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
         captureIntent.putExtras(captureIntentBundle);
         capture.initializeFromIntent(captureIntent, savedInstanceState);
-        saveDefaultUIValues();
         barcodeScannerView.decodeSingle(new BarcodeCallback() {
             @Override
             public void barcodeResult(BarcodeResult result) {

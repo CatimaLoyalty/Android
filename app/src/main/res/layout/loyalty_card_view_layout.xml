@@ -108,6 +108,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/widthScalerGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.75"/>
 
             <ImageButton
@@ -128,28 +135,6 @@
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24"
                 app:tint="?attr/colorOnPrimary"
                 tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/zoomWidthText"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/barcodeWidthScaler"
-                app:layout_constraintEnd_toEndOf="@+id/verticalGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/barcodeWidthScaler"
-                />
-
-            <TextView
-                android:id="@+id/zoomHeightText"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
-                app:layout_constraintEnd_toEndOf="@+id/verticalGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/barcodeScaler"
-                />
 
             <ImageView
                 android:id="@+id/mainImage"
@@ -199,35 +184,80 @@
                 app:layout_constraintTop_toBottomOf="@+id/minimizeButton"
                 tools:visibility="visible" />
 
-            <SeekBar
-                android:id="@+id/barcodeScaler"
+            <LinearLayout
+                android:id="@+id/widthScalerLayout"
+                app:layout_constraintBottom_toBottomOf="@+id/heightScalerLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/widthScalerGuideline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/inputPadding"
-                android:layout_marginStart="15.0dip"
-                android:layout_marginEnd="15.0dip"
-                android:contentDescription="@string/set_scale"
-                android:max="100"
                 android:visibility="gone"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/zoomWidthText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15.0dip"
+                    android:layout_marginEnd="4.8dip"
+                    android:visibility="gone"
+                    android:gravity="center|left"
+                    />
+
+                <SeekBar
+                    android:id="@+id/barcodeWidthScaler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/inputPadding"
+                    android:layout_marginEnd="15.0dip"
+                    android:contentDescription="@string/set_scale"
+                    android:max="100"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuideline"
+                    app:layout_constraintTop_toTopOf="@+id/scalerGuideline" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/heightScalerLayout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />
-
-            <SeekBar
-                android:id="@+id/barcodeWidthScaler"
+                app:layout_constraintTop_toBottomOf="@+id/scalerGuideline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/inputPadding"
-                android:layout_marginStart="15.0dip"
-                android:layout_marginEnd="15.0dip"
-                android:contentDescription="@string/set_scale"
-                android:max="100"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/zoomHeightText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:visibility="gone"
+                    android:gravity="center|left"
+                    />
+
+                <SeekBar
+                    android:id="@+id/barcodeScaler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/inputPadding"
+                    android:layout_marginEnd="15.0dip"
+                    android:contentDescription="@string/set_scale"
+                    android:max="100"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/verticalGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/cardIdView"

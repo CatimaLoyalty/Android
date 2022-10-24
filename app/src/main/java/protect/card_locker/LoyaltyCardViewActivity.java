@@ -118,6 +118,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     SeekBar barcodeWidthScaler;
     TextView zoomHeightText;
     TextView zoomWidthText;
+    LinearLayout widthScalerLayout;
+    LinearLayout heightScalerLayout;
 
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
@@ -383,8 +385,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
         };
 
+        widthScalerLayout = binding.widthScalerLayout;
+        heightScalerLayout = binding.heightScalerLayout;
         centerGuideline = binding.centerGuideline;
         barcodeScaler = binding.barcodeScaler;
+        zoomHeightText = binding.zoomHeightText;
         barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -418,6 +423,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // set zoom width of barcode
         barcodeWidthScaler = binding.barcodeWidthScaler;
+        zoomWidthText = binding.zoomWidthText;
         barcodeWidthScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -1081,10 +1087,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             setCenterGuideline(loyaltyCard.zoomLevel);
 
             // Hide maximize and show minimize button and scaler
+            widthScalerLayout.setVisibility(View.VISIBLE);
+            heightScalerLayout.setVisibility(View.VISIBLE);
             maximizeButton.setVisibility(View.GONE);
             minimizeButton.setVisibility(View.VISIBLE);
             barcodeScaler.setVisibility(View.VISIBLE);
             barcodeWidthScaler.setVisibility(View.VISIBLE);
+            zoomWidthText.setText("Width");
+            zoomHeightText.setText("Height");
+            zoomWidthText.setVisibility(View.VISIBLE);
+            zoomHeightText.setVisibility(View.VISIBLE);
 
             // Hide actionbar
             if (actionBar != null) {
@@ -1124,8 +1136,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             maximizeButton.setVisibility(imageTypes.isEmpty() ? View.GONE : View.VISIBLE);
 
             minimizeButton.setVisibility(View.GONE);
+            widthScalerLayout.setVisibility(View.GONE);
+            heightScalerLayout.setVisibility(View.GONE);
             barcodeScaler.setVisibility(View.GONE);
             barcodeWidthScaler.setVisibility(View.GONE);
+            zoomWidthText.setVisibility(View.GONE);
+            zoomHeightText.setVisibility(View.GONE);
 
             // Show actionbar
             if (actionBar != null) {

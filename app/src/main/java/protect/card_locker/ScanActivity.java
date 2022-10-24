@@ -256,38 +256,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenHeight = displayMetrics.heightPixels;
-        int compatPadding = getResources().getDimensionPixelSize(R.dimen.no_data_compat_padding);
-        int normalPadding = getResources().getDimensionPixelSize(R.dimen.no_data_padding);
-        //Converting the scaling factor dps to pixels.
         float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
-        float compatSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,COMPAT_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
-        boolean shouldScaleSmaller = screenHeight < compatSizePx;
-        boolean shouldScaleMedium = screenHeight < mediumSizePx && !shouldScaleSmaller;
-        if (shouldScaleMedium) {
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(View.GONE);
-        } else {
-            int buttonMinHeight = getResources().getDimensionPixelSize(R.dimen.scan_button_min_height);
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.no_data_min_textSize : R.dimen.no_data_max_textSize));
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setPadding(shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding,shouldScaleSmaller?compatPadding:normalPadding);
-            customBarcodeScannerBinding.addFromImage.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
-            customBarcodeScannerBinding.addManually.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(shouldScaleSmaller ? R.dimen.scan_button_min_textSize : R.dimen.scan_button_max_textSize));
-            customBarcodeScannerBinding.addFromImage.setMinimumHeight(shouldScaleSmaller ? getResources().getDimensionPixelSize(R.dimen.scan_button_min_height) : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addFromImage.setMinimumWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addManually.setMinimumHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addManually.setMinimumWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addFromImage.setMinHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addFromImage.setMinWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addManually.setMinHeight(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-            customBarcodeScannerBinding.addManually.setMinWidth(shouldScaleSmaller ? buttonMinHeight : buttonDefaultMinHeight);
-        }
+        boolean shouldScaleSmaller = screenHeight < mediumSizePx;
 
-    }
-
-    private void saveDefaultUIValues() {
-        buttonDefaultMinHeight = customBarcodeScannerBinding.addFromImage.getMinHeight();
-        buttonDefaultMaxHeight = customBarcodeScannerBinding.addFromImage.getMinWidth();
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
     }
 
     private int obtainThemeAttribute(int attribute) {

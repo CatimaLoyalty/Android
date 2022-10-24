@@ -269,4 +269,5 @@
     <string name="updateBalanceHint">Inserisci l\'importo</string>
     <string name="currentBalanceSentence">Bilancio attuale: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Nuovo bilancio: <xliff:g>%s</xliff:g></string>
+    <string name="importCards">Importa carte</string>
 </resources>

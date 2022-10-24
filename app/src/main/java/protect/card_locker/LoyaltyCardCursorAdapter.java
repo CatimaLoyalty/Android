@@ -17,15 +17,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.color.MaterialColors;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Currency;
-import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -283,7 +283,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             field.setVisibility(View.VISIBLE);
             field.setText(text);
             field.setTextSize(size);
-            field.setTextColor(color != null ? color : field.getTextColors().getDefaultColor());
+            field.setTextColor(color != null ? color : MaterialColors.getColor(mContext, R.attr.colorSecondary, ContextCompat.getColor(mContext, mDarkModeEnabled ? R.color.md_theme_dark_secondary : R.color.md_theme_light_secondary)));
 
             int drawableSize = dpToPx((size * 24) / 14, mContext);
             mDivider.setVisibility(View.VISIBLE);

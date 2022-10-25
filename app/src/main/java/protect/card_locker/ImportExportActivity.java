@@ -16,12 +16,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
@@ -29,10 +23,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.ImportExportResultType;
+import protect.card_locker.utils.PermissionUtils;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
     private static final String TAG = "Catima";
@@ -66,16 +68,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         // If the application does not have permissions to external
         // storage, ask for it now
-
-        if (ContextCompat.checkSelfPermission(ImportExportActivity.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(ImportExportActivity.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(ImportExportActivity.this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    PERMISSIONS_EXTERNAL_STORAGE);
-        }
+        PermissionUtils.requestStoragePermission(this);
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
         fileCreateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -91,10 +84,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             }
             try {
                 OutputStream writer = getContentResolver().openOutputStream(uri);
-                Log.e(TAG, "Starting file export with: " + result.toString());
+                Log.e(TAG, "Starting file export with: " + result);
                 startExport(writer, uri, exportPassword.toCharArray(), true);
             } catch (IOException e) {
-                Log.e(TAG, "Failed to export file: " + result.toString(), e);
+                Log.e(TAG, "Failed to export file: " + result, e);
                 onExportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, result.toString()), uri);
             }
 
@@ -297,7 +290,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSIONS_EXTERNAL_STORAGE) {
@@ -418,5 +411,17 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
+    }
+
+    private boolean isNeedRequestStoragePermission() {
+        return (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
+                (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED);
+    }
+
+    private void requestStoragePermission() {
+        ActivityCompat.requestPermissions(ImportExportActivity.this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                PERMISSIONS_EXTERNAL_STORAGE);
     }
 }

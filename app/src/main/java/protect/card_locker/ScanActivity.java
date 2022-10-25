@@ -12,6 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
 import com.journeyapps.barcodescanner.BarcodeCallback;
@@ -21,10 +26,7 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.util.List;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
+import protect.card_locker.utils.PermissionUtils;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
@@ -205,13 +207,17 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     public void addFromImage(View view) {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        try {
-            photoPickerLauncher.launch(photoPickerIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+        if (PermissionUtils.isNeedRequestStoragePermission(this)) {
+            PermissionUtils.requestStoragePermission(this);
+        } else {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            try {
+                photoPickerLauncher.launch(photoPickerIntent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
         }
     }
 }

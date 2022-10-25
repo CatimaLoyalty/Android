@@ -184,7 +184,7 @@
     <string name="settings_locale">Език</string>
     <string name="noGroupCards">Групата е празна</string>
     <string name="barcodeImageDescriptionWithType">Изображение на щрихкод от вид <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">За да смените изображението плъзнете, за да го отворите в галерията - задръжте.</string>
+    <string name="swipeToSwitchImages">За да размените изображенията - плъзнете, а за да ги отворите в галерията - задръжте</string>
     <string name="sort_by">Сортиране по</string>
     <string name="reverse">…в обратен ред</string>
     <string name="sort_by_balance">Наличност</string>
@@ -240,7 +240,7 @@
     <string name="unarchived">Карта е извадена от архива</string>
     <string name="archiveList">Архив</string>
     <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
-    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия.</string>
+    <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> архивирани)</item>
@@ -255,4 +255,12 @@
     </plurals>
     <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
     <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
+    <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>
+    <string name="updateBalanceTitle">Каква е промяната\?</string>
+    <string name="updateBalanceHint">Въведете стойност</string>
+    <string name="newBalanceSentence">Нов баланс: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Камерата е недостъпна</string>
+    <string name="currentBalanceSentence">Текущ баланс: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalance">Обновяване на баланса</string>
+    <string name="importCards">Внасяне на карти</string>
 </resources>

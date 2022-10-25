@@ -1,0 +1,2 @@
+- Amélioration des contrastes en utilisant tout le temps du texte blanc sur les boutons rouges
+- Fiche inférieure déplaçable dans la vue carte de fidélité

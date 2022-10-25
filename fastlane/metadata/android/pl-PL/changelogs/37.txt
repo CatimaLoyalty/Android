@@ -1,0 +1,1 @@
+- Naprawiono błąd związany z udostępnianiem kart bez koloru tła (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

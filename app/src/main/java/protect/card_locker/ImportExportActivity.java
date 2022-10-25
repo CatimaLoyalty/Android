@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -30,13 +31,18 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.ImportExportActivityBinding;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.ImportExportResultType;
 import protect.card_locker.utils.PermissionUtils;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
+    private ImportExportActivityBinding binding;
     private static final String TAG = "Catima";
 
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
@@ -57,9 +63,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ImportExportActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.importExport);
-        setContentView(R.layout.import_export_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -69,6 +76,11 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         // If the application does not have permissions to external
         // storage, ask for it now
         PermissionUtils.requestStoragePermission(this);
+
+        Intent fileIntent = getIntent();
+        if (fileIntent != null && fileIntent.getType() != null) {
+            chooseImportType(false, fileIntent.getData());
+        }
 
         // would use ActivityResultContracts.CreateDocument() but mime type cannot be set
         fileCreateLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -119,9 +131,9 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         intentCreateDocumentAction.setType("application/zip");
         intentCreateDocumentAction.putExtra(Intent.EXTRA_TITLE, "catima.zip");
 
-        Button exportButton = findViewById(R.id.exportButton);
+        Button exportButton = binding.exportButton;
         exportButton.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ImportExportActivity.this);
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(ImportExportActivity.this);
             builder.setTitle(R.string.exportPassword);
 
             FrameLayout container = new FrameLayout(ImportExportActivity.this);
@@ -151,12 +163,12 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         });
 
         // Check that there is a file manager available
-        Button importFilesystem = findViewById(R.id.importOptionFilesystemButton);
-        importFilesystem.setOnClickListener(v -> chooseImportType(false));
+        Button importFilesystem = binding.importOptionFilesystemButton;
+        importFilesystem.setOnClickListener(v -> chooseImportType(false, null));
 
         // Check that there is an app that data can be imported from
-        Button importApplication = findViewById(R.id.importOptionApplicationButton);
-        importApplication.setOnClickListener(v -> chooseImportType(true));
+        Button importApplication = binding.importOptionApplicationButton;
+        importApplication.setOnClickListener(v -> chooseImportType(true, null));
     }
 
     private void openFileForImport(Uri uri, char[] password) {
@@ -170,7 +182,9 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void chooseImportType(boolean choosePicker) {
+    private void chooseImportType(boolean choosePicker,
+                                  @Nullable Uri fileData) {
+
         List<CharSequence> betaImportOptions = new ArrayList<>();
         betaImportOptions.add("Fidme");
         betaImportOptions.add("Stocard");
@@ -184,7 +198,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             importOptions.add(importOption);
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.chooseImportType)
                 .setItems(importOptions.toArray(new CharSequence[importOptions.size()]), (dialog, which) -> {
                     switch (which) {
@@ -222,7 +236,12 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                             throw new IllegalArgumentException("Unknown DataFormat");
                     }
 
-                    new AlertDialog.Builder(this)
+                    if (fileData != null) {
+                        openFileForImport(fileData, null);
+                        return;
+                    }
+
+                    new MaterialAlertDialogBuilder(this)
                             .setTitle(importAlertTitle)
                             .setMessage(importAlertMessage)
                             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -333,7 +352,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void retryWithPassword(DataFormat dataFormat, Uri uri) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.passwordRequired);
 
         final EditText input = new EditText(this);
@@ -376,7 +395,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(resultType == ImportExportResultType.Success ? R.string.importSuccessfulTitle : R.string.importFailedTitle);
         builder.setMessage(buildResultDialogMessage(result, true));
         builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());
@@ -387,7 +406,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private void onExportComplete(ImportExportResult result, final Uri path) {
         ImportExportResultType resultType = result.resultType();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(resultType == ImportExportResultType.Success ? R.string.exportSuccessfulTitle : R.string.exportFailedTitle);
         builder.setMessage(buildResultDialogMessage(result, false));
         builder.setNeutralButton(R.string.ok, (dialog, which) -> dialog.dismiss());

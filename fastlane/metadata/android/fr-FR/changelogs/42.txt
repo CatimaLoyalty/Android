@@ -1,0 +1,1 @@
+- Correction d'un plantage lors de la recherche sans groupes

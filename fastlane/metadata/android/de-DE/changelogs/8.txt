@@ -1,0 +1,4 @@
+- Bildschirmhelligkeit wird beim Anzeigen einer Karte auf das Maximum erhöht, um Barcode-Scannern zu helfen, den Barcode erfolgreich zu erfassen. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Bestätigung beim Löschen einer Karte hinzugefügt. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Übersetzung für Deutsch (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) und Tschechisch (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)) hinzugefügt.
+- Vereinfachung der italienischen Übersetzung. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

@@ -1,0 +1,2 @@
+- Reduz a SDK mínima de 17 para 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Remove uso de biblioteca legada apache, usada apenas para testes unitários, e que não é mais necessária. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
@@ -18,6 +19,12 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.palette.graphics.Palette;
 
 import com.google.android.material.color.DynamicColors;
 import com.google.zxing.BinaryBitmap;
@@ -44,11 +51,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.ColorUtils;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.palette.graphics.Palette;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -118,12 +120,8 @@ public class Utils {
 
             Bitmap bitmap;
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), intent.getData());
-                    bitmap = ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
-                } else {
-                    bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), intent.getData());
-                }
+                Uri data = intent.getData();
+                bitmap = retrieveImageFromUri(context, data);
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");
                 e.printStackTrace();
@@ -161,6 +159,20 @@ public class Utils {
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
+    }
+
+    static public Bitmap retrieveImageFromUri(Context context, Uri data) throws IOException {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ImageDecoder.Source image_source = ImageDecoder.createSource(context.getContentResolver(), data);
+            return ImageDecoder.decodeBitmap(image_source, (decoder, info, source) -> decoder.setMutableRequired(true));
+        } else {
+            return getBitmapSdkLessThan29(data, context);
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    private static Bitmap getBitmapSdkLessThan29(Uri data, Context context) throws IOException {
+        return MediaStore.Images.Media.getBitmap(context.getContentResolver(), data);
     }
 
     static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {
@@ -205,6 +217,11 @@ public class Utils {
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
 
+        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
+        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
+        // is not a problem for the way the comparison currently works, it's good to keep in mind such
+        // dates may exist in the DB in case the comparison changes in the future and the new one relies
+        // on both dates being set at 12:00 AM.
         return expiryDate.before(date.getTime());
     }
 
@@ -396,8 +413,7 @@ public class Utils {
         Resources res = context.getResources();
         Configuration configuration = res.getConfiguration();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
-            res.updateConfiguration(configuration, res.getDisplayMetrics());
+            setLocalesSdkLessThan24(chosenLocale, configuration, res);
             return context;
         }
 
@@ -405,6 +421,12 @@ public class Utils {
         LocaleList.setDefault(localeList);
         configuration.setLocales(localeList);
         return context.createConfigurationContext(configuration);
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void setLocalesSdkLessThan24(Locale chosenLocale, Configuration configuration, Resources res) {
+        configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
+        res.updateConfiguration(configuration, res.getDisplayMetrics());
     }
 
     static public long getUnixTime() {
@@ -488,7 +510,7 @@ public class Utils {
         } else {
             // final catch all in case of invalid theme value from older versions
             // also handles R.string.settings_key_system_theme
-            DynamicColors.applyIfAvailable(activity);
+            DynamicColors.applyToActivityIfAvailable(activity);
         }
 
         if (isDarkModeEnabled(activity) && settings.getOledDark()) {

@@ -1,0 +1,2 @@
+- Reduit l'espace dans l'en-tête lors de l'affichage d'une carte. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Désactive le bip lors du scan d'un code-barre. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

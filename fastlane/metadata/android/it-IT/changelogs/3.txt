@@ -1,0 +1,14 @@
+- Ora supporta ufficialmente il seguente elenco di codici a barre 1D e 2D:
+- AZTEC
+- CODABAR
+- CODICE_39
+- CODICE_128
+- DATA_MATRIX
+- EAN_8
+- EAN_13
+- ITF
+- PDF_417
+- CODICE QR
+- UPC_A
+
+- I codici a barre generati sono più grandi, più facili da scansionare da un dispositivo di scansione

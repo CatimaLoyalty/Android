@@ -1,0 +1,3 @@
+- Prise en charge de l'importation de Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Possibilité de garder l'écran allumé lors de la visualisation d'une carte de fidélité
+- Possibilité de suspendre l'écran de verrouillage lors de la visualisation d'une carte de fidélité

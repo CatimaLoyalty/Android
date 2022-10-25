@@ -1,0 +1,4 @@
+- Correction de la couleur sélectionnée dans la boîte de dialogue de changement de couleur
+- Prise en charge de la suppression de plusieurs cartes à la fois
+- Correction d'une ArithmeticException possible lors du redimensionnement de l'image
+- Correction du plein écran qui se ferme lors de la rotation de l'appareil

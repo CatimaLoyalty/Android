@@ -1,0 +1,4 @@
+- Unterstützung des Imports von Fidme-Exporten (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Möglichkeit des Imports einer Karte aus einem Bild, das in der Android-Galerie des Benutzers gespeichert ist, hinzugefügt
+- Abschneiden von mehrzeiligen Notizen behoben
+- Änderung des "Danke"-Textes im Datenschutzdialog in "Akzeptieren", da Huawei zu pedantisch ist

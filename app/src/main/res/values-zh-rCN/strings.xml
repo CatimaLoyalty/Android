@@ -95,6 +95,8 @@
     <string name="importOptionFilesystemTitle">从文件系统导入</string>
     <string name="exportOptionExplanation">导出的数据将储存至你选择的位置.</string>
     <string name="noExternalStoragePermissionError">在导入导出前需要获得外部储存权限</string>
+    <string name="cameraPermissionDeniedTitle">无法访问相机</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Catima需要访问您的相机来扫描条形码. 轻触这里以更改您的权限设置。</string>
     <string name="exporting">导出中…</string>
     <string name="importing">导入中…</string>
     <string name="exportFailed">无法导出卡片</string>
@@ -133,7 +135,7 @@
     <string name="note">备注</string>
     <string name="storeName">名称</string>
     <string name="noMatchingGiftCards">没有结果。尝试改变你的搜索。</string>
-    <string name="noGiftCards">点击 \"+\"加号按钮来添加卡片，或者从⋮ 菜单导入一些。</string>
+    <string name="noGiftCards">点击 \"+\"加号按钮来添加卡片，或者从⋮ 菜单导入。</string>
     <string name="action_add">添加</string>
     <string name="action_search">搜索</string>
     <string name="deleteConfirmation">删除此卡？</string>
@@ -243,4 +245,5 @@
     <string name="noUnarchivedCardsMessage">没有未归档卡</string>
     <string name="failedToOpenUrl">先安装一个浏览器</string>
     <string name="welcome">欢迎使用Catima</string>
+    <string name="updateBalanceHint">输入金额</string>
 </resources>

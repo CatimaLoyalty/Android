@@ -1,16 +1,29 @@
 package protect.card_locker;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.core.content.ContextCompat;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -27,6 +40,8 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import java.util.List;
 
 import protect.card_locker.utils.PermissionUtils;
+import protect.card_locker.databinding.CustomBarcodeScannerBinding;
+import protect.card_locker.databinding.ScanActivityBinding;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
@@ -35,6 +50,9 @@ import protect.card_locker.utils.PermissionUtils;
  * originally licensed under Apache 2.0
  */
 public class ScanActivity extends CatimaAppCompatActivity {
+
+    private ScanActivityBinding binding;
+    private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
 
     private CaptureManager capture;
@@ -58,9 +76,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ScanActivityBinding.inflate(getLayoutInflater());
+        customBarcodeScannerBinding = CustomBarcodeScannerBinding.bind(binding.zxingBarcodeScanner);
         setTitle(R.string.scanCardBarcode);
-        setContentView(R.layout.scan_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -71,10 +91,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
-        findViewById(R.id.add_from_image).setOnClickListener(this::addFromImage);
-        findViewById(R.id.add_manually).setOnClickListener(this::addManually);
+        customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
+        customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
 
-        barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
+        barcodeScannerView = binding.zxingBarcodeScanner;
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
@@ -111,6 +131,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onResume() {
         super.onResume();
         capture.onResume();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+            showCameraPermissionMissingText(false);
     }
 
     @Override
@@ -220,4 +242,34 @@ public class ScanActivity extends CatimaAppCompatActivity {
             }
         }
     }
+
+    private void showCameraPermissionMissingText(boolean show) {
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
+            navigateToSystemPermissionSetting();
+          } : null);
+          customBarcodeScannerBinding.background.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
+          customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
+
+    }
+
+    private int obtainThemeAttribute(int attribute) {
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(attribute, typedValue, true);
+        return typedValue.data;
+    }
+
+    private void navigateToSystemPermissionSetting() {
+        Intent permissionIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null));
+        permissionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(permissionIntent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CaptureManager.getCameraPermissionReqCode())
+            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
+
+    }
+
 }

@@ -224,4 +224,28 @@
     <string name="set_scale">設定大小</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
     <string name="settings_card_orientation">條碼方向</string>
+    <string name="failedToRetrieveImageFile">無法擷取圖片檔案</string>
+    <string name="barcodeLongPressMessage">圖庫應用程式僅可開啟圖片</string>
+    <string name="duplicateCard">重複</string>
+    <string name="archive">封存</string>
+    <string name="unarchive">解除封存</string>
+    <string name="archived">卡片已封存</string>
+    <string name="unarchived">卡片已解除封存</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="other"><xliff:g>%1$d</xliff:g> 張卡片 (<xliff:g id="archivedCount">%2$d</xliff:g> 張已封存)</item>
+    </plurals>
+    <string name="settings_portrait_orientation">直向</string>
+    <string name="settings_follow_system_orientation">跟隨系統</string>
+    <string name="settings_landscape_orientation">橫向</string>
+    <string name="failedToOpenUrl">先安裝網頁瀏覽器</string>
+    <string name="archiveList">封存</string>
+    <string name="failedLaunchingPhotoPicker">無法找到支援的圖庫應用程式</string>
+    <string name="previousCard">上一張</string>
+    <string name="noUnarchivedCardsMessage">沒有已封存的卡片</string>
+    <string name="nextCard">下一張</string>
+    <string name="welcome">歡迎使用 Catima</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="other">檢視封存 (<xliff:g>%1$d</xliff:g> 張卡片)</item>
+    </plurals>
+    <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
 </resources>

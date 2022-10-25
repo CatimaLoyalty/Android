@@ -6,7 +6,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> selected</item>
         <item quantity="other"><xliff:g>%d</xliff:g> selected</item>
     </plurals>
-    <string name="noGiftCards">Click the + plus button to add a card, or import some from the ⋮ menu.</string>
+    <string name="noGiftCards">Click the + plus button to add a card, or import from the ⋮ menu.</string>
     <string name="noGiftCardsGroup">Create some cards, and then assign them to the group here.</string>
     <string name="noMatchingGiftCards">No results. Try changing your search.</string>
     <string name="storeName">Name</string>
@@ -66,6 +66,8 @@
     <string name="importing">Importing…</string>
     <string name="exporting">Exporting…</string>
     <string name="noExternalStoragePermissionError">Grant external storage permission to import or export data</string>
+    <string name="cameraPermissionDeniedTitle">Could not access the camera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>
     <string name="importOptionFilesystemTitle">Import from filesystem</string>
     <string name="importOptionFilesystemExplanation">Choose a specific file from the filesystem.</string>
@@ -250,6 +252,7 @@
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
     <string name="hideMoreInfo">Hide info</string>
+    <string name="updateBalance">Update balance</string>
     <string name="swipeToSwitchImages">Swipe to switch images, hold to open image in the gallery app</string>
     <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
     <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
@@ -300,4 +303,9 @@
         <item quantity="other">View archive (<xliff:g>%1$d</xliff:g> cards)</item>
     </plurals>
     <string name="welcome">Welcome to Catima</string>
+    <string name="importCards">Import cards</string>
+    <string name="updateBalanceTitle">How much did you spend?</string>
+    <string name="updateBalanceHint">Enter amount</string>
+    <string name="currentBalanceSentence">Current balance: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">New balance: <xliff:g>%s</xliff:g></string>
 </resources>

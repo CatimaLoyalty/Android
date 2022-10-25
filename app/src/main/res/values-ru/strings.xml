@@ -269,4 +269,12 @@
     </plurals>
     <string name="failedToRetrieveImageFile">Невозможно получить файл изображения</string>
     <string name="barcodeLongPressMessage">В приложении галереи можно открывать только изображения</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Для сканирования штрих-кодов Catima требуется доступ к камере устройства. Нажмите здесь, чтобы изменить настройки разрешений.</string>
+    <string name="updateBalance">Обновить баланс</string>
+    <string name="newBalanceSentence">Новый баланс: <xliff:g>%s</xliff:g></string>
+    <string name="currentBalanceSentence">Текущий баланс: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Камера недоступна</string>
+    <string name="updateBalanceHint">Введите сумму</string>
+    <string name="updateBalanceTitle">Какое изменение\?</string>
+    <string name="importCards">Импорт карт</string>
 </resources>

@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
+import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
+
 /**
  * This activity is callable and will allow a user to enter
  * barcode data and generate all barcodes possible for
@@ -26,6 +28,7 @@ import androidx.appcompat.widget.Toolbar;
  * data and type will be returned to the caller.
  */
 public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements BarcodeSelectorAdapter.BarcodeSelectorListener {
+    private BarcodeSelectorActivityBinding binding;
     private static final String TAG = "Catima";
 
     // Result this activity will return
@@ -40,17 +43,18 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = BarcodeSelectorActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.selectBarcodeTitle);
-        setContentView(R.layout.barcode_selector_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        EditText cardId = findViewById(R.id.cardId);
-        ListView mBarcodeList = findViewById(R.id.barcodes);
+        EditText cardId = binding.cardId;
+        ListView mBarcodeList = binding.barcodes;
         mAdapter = new BarcodeSelectorAdapter(this, new ArrayList<>(), this);
         mBarcodeList.setAdapter(mAdapter);
 
@@ -66,7 +70,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
                     runOnUiThread(() -> {
                         generateBarcodes(s.toString());
 
-                        View noBarcodeButtonView = findViewById(R.id.noBarcode);
+                        View noBarcodeButtonView = binding.noBarcode;
                         setButtonListener(noBarcodeButtonView, s.toString());
                         noBarcodeButtonView.setEnabled(s.length() > 0);
                     });

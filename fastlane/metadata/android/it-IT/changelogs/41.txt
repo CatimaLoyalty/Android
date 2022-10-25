@@ -1,0 +1,2 @@
+- Aggiunti bordi arrotondati alle icone delle carte nella panoramica principale
+- Aggiunto il supporto per raggruppare le voci

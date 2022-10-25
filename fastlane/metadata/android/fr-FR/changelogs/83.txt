@@ -1,0 +1,2 @@
+- Support pour changer l'ordre de tri
+- Empêcher que la mémoire soit insuffisante lors de la numérisation de grandes images pour le code-barres

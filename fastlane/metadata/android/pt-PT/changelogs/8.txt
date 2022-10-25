@@ -1,0 +1,4 @@
+- Brilho da tela máximo quando exibindo um cartão, para ajudar os leitores de código de barra
+- Confirmação ao deletar um cartão
+- Traduções para Alemão e Tcheco
+- Melhoria em tradução para italiano

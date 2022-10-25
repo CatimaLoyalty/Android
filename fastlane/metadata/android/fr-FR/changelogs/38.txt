@@ -1,0 +1,3 @@
+- Appuyer sur un code-barre déplace celui-ci en haut de l'écran (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Ajout d'espace autours des code-barres afin d'améliorer le scan en mode sombre (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Correction des boutons d'imports qui étaient mélangés. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

@@ -1,0 +1,4 @@
+- Amélioration du support de gestion de groupe
+- Prise en charge du recadrage des images
+- Correction de la perte de données d'image lors de l'enregistrement après une rotation dans la vue d'édition
+- Possibilité de définir une image personnalisée comme icône de carte

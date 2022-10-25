@@ -1,0 +1,2 @@
+- Aggiunto supporto per la creazione di collegamenti alle carte fedeltà dal launcher/schermata iniziale. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Rimosso il supporto per l'aggiunta di collegamenti alle carte fedeltà dall'app stessa.Questo elimina la necessità dei permesso per i collegamenti. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

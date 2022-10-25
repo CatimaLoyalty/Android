@@ -1,0 +1,3 @@
+- Am schimbat numele implicit al fișierului importat/exportat. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84)) 
+- Am corectat string-urile de pe pagina de import/export. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87)) 
+- Am îmbunătățit aspectul paginii de vizualizare carduri. Textul ar trebui să fie mai ușor de citit și se poate selecta cu un click lung. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

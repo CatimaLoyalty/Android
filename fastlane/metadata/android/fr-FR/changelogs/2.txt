@@ -1,0 +1,3 @@
+- Traduction en Italien
+- Ajout du support de tous les types de code-barres 1D. (Seuls les code-barres de produit 1D étaient supportés jusqu'à présent)
+- Ajout de la permission d'utilisation de la caméra.

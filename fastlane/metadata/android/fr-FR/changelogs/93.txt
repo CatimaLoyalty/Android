@@ -1,0 +1,2 @@
+- Ajout de Catima aux contrôles de périphérique d'accès rapide (https://developer.android.com/guide/topics/ui/device-control)
+- Correction de certains groupes qui ne s'affichent pas correctement dans l'écran de gestion des groupes

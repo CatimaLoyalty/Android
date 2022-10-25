@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.databinding.BarcodeLayoutBinding;
 
 public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue> {
     private static final String TAG = "Catima";
@@ -51,9 +52,10 @@ public class BarcodeSelectorAdapter extends ArrayAdapter<CatimaBarcodeWithValue>
         if (convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.barcode_layout, parent, false);
-            viewHolder.image = convertView.findViewById(R.id.barcodeImage);
-            viewHolder.text = convertView.findViewById(R.id.barcodeName);
+            BarcodeLayoutBinding barcodeLayoutBinding = BarcodeLayoutBinding.inflate(inflater, parent, false);
+            convertView = barcodeLayoutBinding.getRoot();
+            viewHolder.image = barcodeLayoutBinding.barcodeImage;
+            viewHolder.text = barcodeLayoutBinding.barcodeName;
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

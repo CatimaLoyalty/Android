@@ -1,0 +1,2 @@
+- Amélioration de la présentation de la liste des cartes. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- Amélioration de la présentation lors de la visualisation d'une carte. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

@@ -1,0 +1,3 @@
+- Miglioramento dell'interfaccia di modifica
+- Rimossa l'opzione per il colore del testo dell'intestazione (ora generato automaticamente in base alla luminosità)
+- Traduzioni aggiornate

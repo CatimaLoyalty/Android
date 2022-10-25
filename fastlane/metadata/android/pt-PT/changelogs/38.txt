@@ -1,0 +1,3 @@
+- Um toque curto no código de barras agora o move para o topo da tela (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Adiciona um espaço em branco em volta dos códigos de barra para melhorar a leitura em modo escuro (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Corrige botões de importação trocados. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

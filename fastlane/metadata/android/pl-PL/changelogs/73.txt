@@ -1,0 +1,1 @@
+- Naprawiono ładowanie zdjęć podczas edycji istniejącej karty

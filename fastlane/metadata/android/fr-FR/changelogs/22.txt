@@ -1,0 +1,1 @@
+- Changement de la présentation d'une Carte afin d'afficher la note, gérer plusieurs lignes sur l'ID de la carte, et d'afficher le nom du magasin. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

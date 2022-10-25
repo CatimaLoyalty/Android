@@ -1,0 +1,3 @@
+- Unterstützung des Imports von Voucher Vault-Exporten (https://github.com/tim-smart/vouchervault/)
+- Option, den Bildschirm eingeschaltet zu lassen, während eine Treuekarte angezeigt wird
+- Option zum Sperren des Sperrbildschirms während der Anzeige einer Treuekarte

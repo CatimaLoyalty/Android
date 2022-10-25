@@ -1,0 +1,4 @@
+- Unterstützung des neuen PDF417-Export aus Voucher Vault hinzugefügt
+- Möglichkeit des gleichzeitigen Kopierens mehrerer Barcodes hinzugefügt
+- Möglichkeit des gleichzeitigen Teilens mehrerer Kundenkarten hinzugefügt
+- Abfrage hinzugefügt, den Barcode-Wert zu aktualisieren, wenn sich die Karten-ID ändert

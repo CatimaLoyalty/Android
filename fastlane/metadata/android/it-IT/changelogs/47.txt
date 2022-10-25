@@ -1,0 +1,2 @@
+- Mostra sempre tutte le opzioni di importazione/esportazione e mostra messaggi "toast" per problemi effettivi (migliora la compatibilità con XPrivacyLua)
+- Richiesta di conferma quando si esce dalla visuale di modifica senza aver salvato le modifiche effettuate

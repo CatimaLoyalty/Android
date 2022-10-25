@@ -1,0 +1,2 @@
+- L'ordine delle carte distingue tra maiuscole e minuscole (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Aggiunta l'impostazione per bloccare l'orientamento di tutte le carte (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269))

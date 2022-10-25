@@ -1,0 +1,2 @@
+- SDK ridotto da 17 a 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Rimossa la libreria apache legacy, usata solo nei test unitari e non più necessaria. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

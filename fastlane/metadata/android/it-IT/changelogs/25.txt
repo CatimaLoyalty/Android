@@ -1,0 +1,2 @@
+- Ridutto lo spazio nell'intestazione quando si visualizza una carta. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Disattivazione del segnale acustico durante la scansione di un codice a barre. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

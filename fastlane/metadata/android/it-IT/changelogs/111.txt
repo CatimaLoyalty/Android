@@ -3,5 +3,5 @@
 - Risolti bug di parsing (non consentivano il salvataggio di carte in Arabo ed altre lingue con sistemi di numerazione non occidentali)
 - Corretta la visualizzazione di temi personalizzati nella schermata principale
 - Migliorata visualizzazione delle carte selezionate
-- Correzione di un arresto anomalo quando si esce da una cardview nei layout RTL con scadenza o saldo.
+- Correzione del crash quando si esce da una carta nei layout RTL con scadenza o saldo.
 - Sistemata la freccia che puntava nella direzione sbagliata nella vista scheda dei layout RTL

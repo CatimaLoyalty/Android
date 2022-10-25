@@ -1,0 +1,1 @@
+- Correction d'un crash sur les versions antérieures à Android 7

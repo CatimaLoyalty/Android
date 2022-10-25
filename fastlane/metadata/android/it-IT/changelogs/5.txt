@@ -1,0 +1,2 @@
+- Dalla schermata principale è possibile aprire una finestra di dialogo che fornisce dettagli sull'applicazione e sul progetto su GitHub (issue n. 19 (https://github.com/brarcher/loyalty-card-locker/issues/19)).
+- Le informazioni della carta fedeltà possono essere importate ed esportate tramite file CSV su storage esterni (issue #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), issue #20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

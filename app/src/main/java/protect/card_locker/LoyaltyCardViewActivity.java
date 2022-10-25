@@ -1098,7 +1098,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             }
 
             if (waitForResize) {
-                redrawBarcodeAfterResize(false);
+                redrawBarcodeAfterResize(!isFullscreen);
             } else {
                 drawBarcode(!isFullscreen);
             }
@@ -1229,6 +1229,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             barcodeWidthScaler.setVisibility(View.GONE);
             zoomWidthText.setVisibility(View.GONE);
             zoomHeightText.setVisibility(View.GONE);
+
+            // reset displaying width after exiting maximize mode
+            mainImage.getLayoutParams().width = mainLayout.getWidth();
+            mainImage.requestLayout();
 
             // Show actionbar
             if (actionBar != null) {

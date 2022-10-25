@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -103,6 +102,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
         captureIntent.putExtras(captureIntentBundle);
         capture.initializeFromIntent(captureIntent, savedInstanceState);
+
         barcodeScannerView.decodeSingle(new BarcodeCallback() {
             @Override
             public void barcodeResult(BarcodeResult result) {
@@ -129,8 +129,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onResume() {
         super.onResume();
         capture.onResume();
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             showCameraPermissionMissingText(false);
+        }
         scaleScreen();
     }
 
@@ -167,7 +168,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -245,7 +245,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
         } : null);
         customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
-
     }
 
     private void scaleScreen() {

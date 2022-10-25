@@ -31,7 +31,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.splashscreen.SplashScreen;
-import androidx.core.widget.TextViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -302,6 +301,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
+
         mGroup = null;
         updateLoyaltyCardList(true);
 
@@ -403,8 +403,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             groupsTabLayout.selectTab(tab);
             assert tab != null;
             mGroup = tab.getTag();
-        } else if(!mArchiveMode)
+        } else if (!mArchiveMode) {
             scaleScreen();
+        }
 
         updateLoyaltyCardList(true);
         // End of active tab logic
@@ -427,7 +428,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onBackPressed() {
-
         if (!mSearchView.isIconified()) {
             mSearchView.setIconified(true);
             return;
@@ -593,9 +593,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
-        if (!mArchiveMode)
+        if (!mArchiveMode) {
             getMenuInflater().inflate(R.menu.main_menu, inputMenu);
-        else {
+        } else {
             getMenuInflater().inflate(R.menu.archive_menu, inputMenu);
         }
 

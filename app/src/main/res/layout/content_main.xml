@@ -8,39 +8,36 @@
     tools:context="protect.card_locker.MainActivity"
     tools:showIn="@layout/main_activity">
 
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/helpSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/welcome_icon"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_foreground" />
 
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/helpSection"
+        <TextView
+            android:id="@+id/welcome_text"
+            style="@style/TextAppearance.Material3.HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="@string/welcome" />
 
-            <ImageView
-                android:id="@+id/welcome_icon"
-                android:layout_width="match_parent"
-                android:layout_height="184dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_launcher_foreground" />
-
-            <TextView
-                android:id="@+id/welcome_text"
-                style="@style/TextAppearance.Material3.HeadlineLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/welcome" />
-
-            <TextView
-                android:id="@+id/add_card_instruction"
-                style="@style/AppTheme.TextView.NoData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/noGiftCards" />
-        </LinearLayout>
-
+        <TextView
+            android:id="@+id/add_card_instruction"
+            style="@style/AppTheme.TextView.NoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noGiftCards" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/noMatchingCardsText"
@@ -70,5 +67,4 @@
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="@integer/main_view_card_columns" />
-
 </RelativeLayout>

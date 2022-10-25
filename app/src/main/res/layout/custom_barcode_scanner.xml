@@ -18,42 +18,40 @@
         app:zxing_viewfinder_laser="@color/zxing_custom_viewfinder_laser"
         app:zxing_viewfinder_mask="@color/zxing_custom_viewfinder_mask" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_scanner_padding">
 
+        <include
+            android:id="@+id/camera_permission_denied_layout"
+            layout="@layout/camera_permission_failed_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/card_input_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/activity_scanner_padding">
+        <Button
+            android:id="@+id/add_from_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addFromImage"
+            app:layout_constraintBottom_toTopOf="@+id/add_manually"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/camera_permission_denied_layout"
+            app:layout_constraintVertical_bias="1.0" />
 
-            <include
-                android:id="@+id/camera_permission_denied_layout"
-                layout="@layout/camera_permission_failed_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/add_from_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/addFromImage"
-                app:layout_constraintBottom_toTopOf="@+id/add_manually"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/camera_permission_denied_layout"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <Button
-                android:id="@+id/add_manually"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/addManually"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/add_manually"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addManually"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

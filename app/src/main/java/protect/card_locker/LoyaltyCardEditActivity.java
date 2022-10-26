@@ -82,6 +82,7 @@ import androidx.fragment.app.DialogFragment;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
+import protect.card_locker.utils.PermissionUtils;
 
 public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private LoyaltyCardEditActivityBinding binding;
@@ -1177,26 +1178,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             });
 
             cardOptions.put(getString(R.string.addFromImage), () -> {
-                if (v.getId() == R.id.frontImageHolder) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_FRONT;
-                } else if (v.getId() == R.id.backImageHolder) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_BACK;
-                } else if (v.getId() == R.id.thumbnail) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_ICON;
+                if (PermissionUtils.isNeedRequestStoragePermission(LoyaltyCardEditActivity.this)) {
+                    PermissionUtils.requestStoragePermission(LoyaltyCardEditActivity.this);
                 } else {
-                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
+                    setupPhotoPicker(v);
                 }
-
-                Intent i = new Intent(Intent.ACTION_PICK);
-                i.setType("image/*");
-
-                try {
-                    mPhotoPickerLauncher.launch(i);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-                    Log.e(TAG, "No activity found to handle intent", e);
-                }
-
                 return null;
             });
 
@@ -1537,6 +1523,28 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             currencyList.add(0, currencySymbol);
         } catch (IllegalArgumentException e) {
             Log.d(TAG, "Could not get currency data for locale info: " + e);
+        }
+    }
+
+    private void setupPhotoPicker(View view) {
+        if (view.getId() == R.id.frontImageHolder) {
+            mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_FRONT;
+        } else if (view.getId() == R.id.backImageHolder) {
+            mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_BACK;
+        } else if (view.getId() == R.id.thumbnail) {
+            mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_ICON;
+        } else {
+            throw new IllegalArgumentException("Unknown ID type " + view.getId());
+        }
+
+        Intent i = new Intent(Intent.ACTION_PICK);
+        i.setType("image/*");
+
+        try {
+            mPhotoPickerLauncher.launch(i);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
         }
     }
 }

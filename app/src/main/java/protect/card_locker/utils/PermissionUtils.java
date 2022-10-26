@@ -17,7 +17,7 @@ public class PermissionUtils {
     }
 
     public static void requestStoragePermission(Activity activity) {
-        if (isNeedRequestStoragePermission(activity) && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+        if (isNeedRequestStoragePermission(activity) && Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
             ActivityCompat.requestPermissions(activity,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE},

@@ -25,21 +25,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.ImportExportActivityBinding;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.ImportExportResultType;
-import protect.card_locker.utils.PermissionUtils;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
     private ImportExportActivityBinding binding;
@@ -75,7 +73,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
 
         // If the application does not have permissions to external
         // storage, ask for it now
-        PermissionUtils.requestStoragePermission(this);
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {

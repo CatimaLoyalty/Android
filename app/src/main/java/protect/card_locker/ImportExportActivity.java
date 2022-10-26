@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,8 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -427,17 +424,5 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         }
 
         builder.create().show();
-    }
-
-    private boolean isNeedRequestStoragePermission() {
-        return (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
-                (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED);
-    }
-
-    private void requestStoragePermission() {
-        ActivityCompat.requestPermissions(ImportExportActivity.this,
-                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                PERMISSIONS_EXTERNAL_STORAGE);
     }
 }

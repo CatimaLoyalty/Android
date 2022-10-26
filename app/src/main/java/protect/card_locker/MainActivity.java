@@ -12,7 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -54,6 +56,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private ContentMainBinding contentMainBinding;
     private static final String TAG = "Catima";
     public static final String RESTART_ACTIVITY_INTENT = "restart_activity_intent";
+
+    private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
 
     private SQLiteDatabase mDatabase;
     private LoyaltyCardCursorAdapter mAdapter;
@@ -178,28 +182,25 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 dialog.show();
 
                 return true;
-            }
-            else if(inputItem.getItemId() == R.id.action_archive){
+            } else if (inputItem.getItemId() == R.id.action_archive) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Archiving card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,1);
+                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                     invalidateOptionsMenu();
                 }
                 return true;
-            }
-            else if(inputItem.getItemId() == R.id.action_unarchive){
+            } else if (inputItem.getItemId() == R.id.action_unarchive) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Unarchiving card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id,0);
+                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                     invalidateOptionsMenu();
                 }
                 return true;
-            }
-            else if(inputItem.getItemId() == R.id.action_star){
+            } else if (inputItem.getItemId() == R.id.action_star) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Starring card: " + loyaltyCard.id);
                     DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1);
@@ -207,8 +208,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     inputMode.finish();
                 }
                 return true;
-            }
-            else if(inputItem.getItemId() == R.id.action_unstar){
+            } else if (inputItem.getItemId() == R.id.action_unstar) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Unstarring card: " + loyaltyCard.id);
                     DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0);
@@ -233,15 +233,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         extractIntentFields(getIntent());
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
-        if(!mArchiveMode) {
+        if (!mArchiveMode) {
             binding = MainActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.app_name);
             setContentView(binding.getRoot());
             setSupportActionBar(binding.toolbar);
             groupsTabLayout = binding.groups;
             contentMainBinding = ContentMainBinding.bind(binding.include.getRoot());
-        }
-        else{
+        } else {
             archiveActivityBinding = ArchiveActivityBinding.inflate(getLayoutInflater());
             setTitle(R.string.archiveList);
             setContentView(archiveActivityBinding.getRoot());
@@ -250,7 +249,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             contentMainBinding = ContentMainBinding.bind(archiveActivityBinding.include.getRoot());
         }
 
-        if(mArchiveMode){
+        if (mArchiveMode) {
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
@@ -404,7 +403,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             groupsTabLayout.selectTab(tab);
             assert tab != null;
             mGroup = tab.getTag();
+        } else if (!mArchiveMode) {
+            scaleScreen();
         }
+
         updateLoyaltyCardList(true);
         // End of active tab logic
 
@@ -426,7 +428,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onBackPressed() {
-
         if (!mSearchView.isIconified()) {
             mSearchView.setIconified(true);
             return;
@@ -592,9 +593,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
-        if(!mArchiveMode)
+        if (!mArchiveMode) {
             getMenuInflater().inflate(R.menu.main_menu, inputMenu);
-        else{
+        } else {
             getMenuInflater().inflate(R.menu.archive_menu, inputMenu);
         }
 
@@ -632,7 +633,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             });
         }
 
-        if(!mArchiveMode) {
+        if (!mArchiveMode) {
             if (DBHelper.getArchivedCardsCount(mDatabase) == 0) {
                 inputMenu.findItem(R.id.action_archived).setVisible(false);
             } else {
@@ -846,6 +847,16 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         toggleSelection(inputPosition);
     }
 
+    private void scaleScreen() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenHeight = displayMetrics.heightPixels;
+        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        boolean shouldScaleSmaller = screenHeight < mediumSizePx;
+
+        binding.include.welcomeIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+    }
+
     private void toggleSelection(int inputPosition) {
         mAdapter.toggleSelection(inputPosition);
         int count = mAdapter.getSelectedItemCount();
@@ -864,11 +875,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             boolean hasStarred = false;
             boolean hasUnstarred = false;
 
-            if(!mArchiveMode) {
+            if (!mArchiveMode) {
                 unarchiveItem.setVisible(false);
                 archiveItem.setVisible(true);
-            }
-            else{
+            } else {
                 unarchiveItem.setVisible(true);
                 archiveItem.setVisible(false);
             }

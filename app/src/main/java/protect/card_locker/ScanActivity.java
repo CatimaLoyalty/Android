@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -47,6 +48,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
+
+    private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
+    private static final int COMPAT_SCALE_FACTOR_DIP = 320;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -124,8 +128,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     protected void onResume() {
         super.onResume();
         capture.onResume();
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             showCameraPermissionMissingText(false);
+        }
+        scaleScreen();
     }
 
     @Override
@@ -236,9 +242,19 @@ public class ScanActivity extends CatimaAppCompatActivity {
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
             navigateToSystemPermissionSetting();
         } : null);
-        customBarcodeScannerBinding.background.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
+        customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(R.attr.colorSurface) : Color.TRANSPARENT);
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
+    }
 
+    private void scaleScreen() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenHeight = displayMetrics.heightPixels;
+        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        boolean shouldScaleSmaller = screenHeight < mediumSizePx;
+
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
     }
 
     private int obtainThemeAttribute(int attribute) {

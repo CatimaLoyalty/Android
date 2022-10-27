@@ -42,8 +42,11 @@ public class MainActivityTest {
         Activity activity = Robolectric.setupActivity(MainActivity.class);
         assertNotNull(activity);
 
-        LinearLayout helpSection = activity.findViewById(R.id.helpSection);
+        androidx.constraintlayout.widget.Group helpSection = activity.findViewById(R.id.group_helper_section);
         assertEquals(View.VISIBLE, helpSection.getVisibility());
+
+        TextView viewArchive = activity.findViewById(R.id.mOpenArchiveText);
+        assertEquals(View.GONE, viewArchive.getVisibility());
 
         TextView noMatchingCardsText = activity.findViewById(R.id.noMatchingCardsText);
         assertEquals(View.GONE, noMatchingCardsText.getVisibility());
@@ -89,7 +92,7 @@ public class MainActivityTest {
         activityController.start();
         activityController.resume();
 
-        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
+        androidx.constraintlayout.widget.Group helpSection = mainActivity.findViewById(R.id.group_helper_section);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
 
@@ -124,7 +127,7 @@ public class MainActivityTest {
         activityController.resume();
         activityController.visible();
 
-        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
+        androidx.constraintlayout.widget.Group helpSection = mainActivity.findViewById(R.id.group_helper_section);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
 
@@ -219,7 +222,7 @@ public class MainActivityTest {
         activityController.start();
         activityController.resume();
 
-        LinearLayout helpSection = mainActivity.findViewById(R.id.helpSection);
+        androidx.constraintlayout.widget.Group helpSection = mainActivity.findViewById(R.id.group_helper_section);
         TextView noMatchingCardsText = mainActivity.findViewById(R.id.noMatchingCardsText);
         RecyclerView list = mainActivity.findViewById(R.id.list);
         TabLayout groupTabs = mainActivity.findViewById(R.id.groups);

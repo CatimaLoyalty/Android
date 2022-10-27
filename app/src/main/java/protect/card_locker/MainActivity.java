@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -71,9 +72,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;
-    private View mHelpSection;
+    private androidx.constraintlayout.widget.Group mHelpSection;
     private View mNoMatchingCardsText;
     private View mNoGroupCardsText;
+    private TextView mOpenArchiveText;
     private TabLayout groupsTabLayout;
 
     private boolean mArchiveMode;
@@ -289,10 +291,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
 
-        mHelpSection = contentMainBinding.helpSection;
+        mHelpSection = contentMainBinding.groupHelperSection;
         mNoMatchingCardsText = contentMainBinding.noMatchingCardsText;
         mNoGroupCardsText = contentMainBinding.noGroupCardsText;
         mCardList = contentMainBinding.list;
+        mOpenArchiveText = contentMainBinding.mOpenArchiveText;
 
         mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
         mCardList.setOnTouchListener(gestureTouchListener);
@@ -469,8 +472,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             if (mAdapter.getItemCount() > 0) {
                 mCardList.setVisibility(View.VISIBLE);
+                setArchivedCardsCount(group);
                 mNoMatchingCardsText.setVisibility(View.GONE);
             } else {
+                mOpenArchiveText.setVisibility(View.GONE);
                 mCardList.setVisibility(View.GONE);
                 if (!mFilter.isEmpty()) {
                     // Actual Empty Search Result
@@ -498,6 +503,25 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (mCurrentActionMode != null) {
             mCurrentActionMode.finish();
+        }
+    }
+
+    private void setArchivedCardsCount(Group group) {
+        int mArchiveCount =
+                mArchiveMode ? 0 :
+                        group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
+        if (mArchiveCount > 0){
+            mOpenArchiveText.setText(getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, mArchiveCount, mArchiveCount));
+            mOpenArchiveText.setVisibility(View.VISIBLE);
+            mOpenArchiveText.setOnClickListener(v -> {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("archiveMode", true);
+                i.putExtras(bundle);
+                startActivity(i);
+            });
+        }else {
+            mOpenArchiveText.setVisibility(View.GONE);
         }
     }
 
@@ -851,7 +875,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int screenHeight = displayMetrics.heightPixels;
-        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
+        float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, MEDIUM_SCALE_FACTOR_DIP, getResources().getDisplayMetrics());
         boolean shouldScaleSmaller = screenHeight < mediumSizePx;
 
         binding.include.welcomeIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);

@@ -511,7 +511,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 mArchiveMode ? 0 :
                         group != null ? DBHelper.getArchivedCardsCount(mDatabase, group._id) : DBHelper.getArchivedCardsCount(mDatabase);
         if (mArchiveCount > 0){
-            mOpenArchiveText.setText(this.getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, mArchiveCount));
             mOpenArchiveText.setText(getResources().getQuantityString(R.plurals.viewArchivedCardsWithCount, mArchiveCount, mArchiveCount));
             mOpenArchiveText.setVisibility(View.VISIBLE);
             mOpenArchiveText.setOnClickListener(v -> {

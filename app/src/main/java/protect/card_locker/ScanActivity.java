@@ -36,6 +36,7 @@ import java.util.List;
 
 import protect.card_locker.databinding.CustomBarcodeScannerBinding;
 import protect.card_locker.databinding.ScanActivityBinding;
+import protect.card_locker.utils.PermissionUtils;
 
 /**
  * Custom Scannner Activity extending from Activity to display a custom layout form scanner view.
@@ -51,6 +52,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
     private static final int COMPAT_SCALE_FACTOR_DIP = 320;
+
+    private static final int CAMERA_PERMISSION_CODE = 111;
+    private static final int STORAGE_PERMISSION_CODE = 112;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -88,7 +92,13 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
-        customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
+        customBarcodeScannerBinding.addFromImage.setOnClickListener(view -> {
+            if (PermissionUtils.isNeedRequestStoragePermission(this)) {
+                PermissionUtils.requestStoragePermission(this, STORAGE_PERMISSION_CODE);
+            } else {
+                addFromImage();
+            }
+        });
         customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
 
         barcodeScannerView = binding.zxingBarcodeScanner;
@@ -96,6 +106,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
         capture = new CatimaCaptureManager(this, barcodeScannerView);
+        CaptureManager.setCameraPermissionReqCode(CAMERA_PERMISSION_CODE);
         Intent captureIntent = new Intent();
         Bundle captureIntentBundle = new Bundle();
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
@@ -227,7 +238,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         manualAddLauncher.launch(i);
     }
 
-    public void addFromImage(View view) {
+    public void addFromImage() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         try {
@@ -272,9 +283,16 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == CaptureManager.getCameraPermissionReqCode())
-            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
 
+        switch(requestCode) {
+            case CAMERA_PERMISSION_CODE:
+                showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
+                break;
+            case STORAGE_PERMISSION_CODE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    addFromImage();
+                }
+                break;
+        }
     }
-
 }

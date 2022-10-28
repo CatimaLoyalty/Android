@@ -112,6 +112,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
+    private static final int PERMISSION_REQUEST_STORAGE = 103;
 
     public static final String BUNDLE_ID = "id";
     public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
@@ -193,6 +194,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     // store system locale for Build.VERSION.SDK_INT < Build.VERSION_CODES.N
     private Locale mSystemLocale;
+
+    private View itemClickedView;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -986,12 +989,23 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
-            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
+            switch (requestCode) {
+                case PERMISSION_REQUEST_CAMERA_IMAGE_FRONT: {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
+                    break;
+                }
+                case PERMISSION_REQUEST_CAMERA_IMAGE_BACK: {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                    break;
+                }
+                case PERMISSION_REQUEST_CAMERA_IMAGE_ICON: {
+                    takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
+                    break;
+                }
+                case PERMISSION_REQUEST_STORAGE: {
+                    setupPhotoPicker(itemClickedView);
+                    break;
+                }
             }
         }
     }
@@ -1079,6 +1093,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         @Override
         public void onClick(View v) throws NoSuchElementException {
             ImageView targetView;
+            itemClickedView = v;
 
             if (v.getId() == R.id.frontImageHolder) {
                 targetView = cardImageFront;
@@ -1179,7 +1194,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             cardOptions.put(getString(R.string.addFromImage), () -> {
                 if (PermissionUtils.isNeedRequestStoragePermission(LoyaltyCardEditActivity.this)) {
-                    PermissionUtils.requestStoragePermission(LoyaltyCardEditActivity.this);
+                    PermissionUtils.requestStoragePermission(LoyaltyCardEditActivity.this, PERMISSION_REQUEST_STORAGE);
                 } else {
                     setupPhotoPicker(v);
                 }

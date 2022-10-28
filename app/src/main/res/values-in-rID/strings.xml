@@ -7,8 +7,8 @@
     <string name="edit">Ubah</string>
     <string name="save">Simpan</string>
     <string name="deleteTitle">Hapus kartu</string>
-    <string name="cardId">Kartu ID</string>
-    <string name="barcodeType">Tipe barcode</string>
+    <string name="cardId">ID Kartu</string>
+    <string name="barcodeType">Jenis barcode</string>
     <string name="star">Tambahkan ke favorit</string>
     <string name="unstar">Hapus dari favorit</string>
     <string name="action_add">Tambah</string>
@@ -30,7 +30,7 @@
     <string name="scanCardBarcode">Pindai Barcode</string>
     <string name="barcodeNoBarcode">Tidak ada barcode</string>
     <string name="cancel">Batalkan</string>
-    <string name="importExport">Import/Ekspor</string>
+    <string name="importExport">Impor/Ekspor</string>
     <string name="settings_category_title_ui">Tampilan Pengguna</string>
     <string name="settings_theme">Tema</string>
     <string name="all">Semua</string>
@@ -76,8 +76,8 @@
     <string name="removeImage">Hapus gambar</string>
     <string name="setBackImage">Atur gambar bagian belakang</string>
     <string name="intent_import_card_from_url_share_multiple_text">Saya ingin berbagi kartu dengan Anda</string>
-    <string name="noGiftCards">Klik tanda + tombol tambah untuk menambahkan kartu, atau mengimpor beberapa kartu melalui ⋮ menu.</string>
-    <string name="noMatchingGiftCards">Tidak menemukan apapun. Coba untuk mengubah pencarian anda.</string>
+    <string name="noGiftCards">Tap tanda tombol plus ( + ) untuk menambahkan kartu, atau mengimpor nya melalui menu ( ⋮ ).</string>
+    <string name="noMatchingGiftCards">Tidak menemukan apapun. Cobalah untuk mengubah pencarian anda.</string>
     <string name="noBarcode">Bukan barcode</string>
     <string name="confirm">Konfirmasi</string>
     <string name="copy_to_clipboard">Salin ID ke papan klip</string>
@@ -85,8 +85,8 @@
     <string name="noCardsMessage">Tambah kartu terlebih dahulu</string>
     <string name="noStoreError">Nama masih kosong</string>
     <string name="noCardIdError">Tidak ada ID yang dimasukkan</string>
-    <string name="noCardExistsError">Tidak dapat menemukan kartu itu</string>
-    <string name="failedParsingImportUriError">Tidak dapat menguraikan alamat impor situs web</string>
+    <string name="noCardExistsError">Tidak dapat menemukan kartu</string>
+    <string name="failedParsingImportUriError">Tidak dapat memparsing impor URI</string>
     <string name="exportName">Ekspor</string>
     <string name="importSuccessfulTitle">Sudah diimpor</string>
     <string name="importFailedTitle">Impor gagal</string>
@@ -94,13 +94,13 @@
     <string name="exportSuccessfulTitle">Sudah diekspor</string>
     <string name="exportFailedTitle">Ekspor gagal</string>
     <string name="exportFailed">Tidak dapat mengekspor</string>
-    <string name="importing">Mengimpor…</string>
-    <string name="exporting">Mengekspor…</string>
+    <string name="importing">Sedang mengimpor…</string>
+    <string name="exporting">Sedang mengekspor…</string>
     <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor data</string>
     <string name="exportOptionExplanation">Data akan ditulis ke lokasi pilihan Anda.</string>
-    <string name="importOptionFilesystemTitle">Impor dari sistem</string>
-    <string name="importOptionFilesystemExplanation">Pilih file dari sistem.</string>
-    <string name="importOptionFilesystemButton">Dari sistem</string>
+    <string name="importOptionFilesystemTitle">Impor dari pengelola file bawaan</string>
+    <string name="importOptionFilesystemExplanation">Pilih file dari pengelola file bawaan.</string>
+    <string name="importOptionFilesystemButton">Dari pengelola file bawaan</string>
     <string name="importOptionApplicationTitle">Gunakan aplikasi lain</string>
     <string name="importOptionApplicationExplanation">Gunakan aplikasi lain atau pengelola file favorit anda untuk membuka file.</string>
     <string name="importOptionApplicationButton">Gunakan aplikasi lain</string>
@@ -186,10 +186,10 @@
     <string name="on_github">di GitHub</string>
     <string name="and_data_usage">dan penggunaan data</string>
     <string name="on_google_play">di Google Play</string>
-    <string name="cardShortcut">Pintasan kartu</string>
-    <string name="card_ids_copied">ID yang disalin</string>
+    <string name="cardShortcut">Pintasan Kartu</string>
+    <string name="card_ids_copied">ID(s) yang disalin</string>
     <string name="barcodeImageDescriptionWithType">Gambar <xliff:g>%s</xliff:g> barcode</string>
-    <string name="importExportHelp">Mencadangkan data anda memungkinkan memindahkannya ke perangkat lain.</string>
+    <string name="importExportHelp">Mencadangkan data anda akan memungkinkan memindahkannya ke perangkat lain.</string>
     <plurals name="selectedCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> kartu dipilih</item>
     </plurals>
@@ -244,9 +244,17 @@
     <string name="archiveList">Arsip</string>
     <string name="failedToRetrieveImageFile">Gagal mengambil file gambar</string>
     <string name="barcodeLongPressMessage">Hanya gambar yang dapat dibuka di aplikasi galeri</string>
-    <string name="unarchive">Batalkan pengarsipan</string>
+    <string name="unarchive">Ekstrak</string>
     <string name="unarchived">Kartu tidak diarsipkan</string>
-    <string name="noUnarchivedCardsMessage">Tidak ada kartu yang tidak diarsipkan</string>
-    <string name="options">Options</string>
+    <string name="noUnarchivedCardsMessage">Tidak ada kartu yang diekstrak</string>
+    <string name="options">Opsi</string>
     <string name="starred">Berbintang</string>
+    <string name="importCards">Import kartu</string>
+    <string name="newBalanceSentence">Saldo baru: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Tidak dapat mengakses kamera</string>
+    <string name="updateBalance">Perbarui saldo</string>
+    <string name="updateBalanceHint">Masukkan jumlah</string>
+    <string name="currentBalanceSentence">Saldo saat ini: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalanceTitle">Berapa banyak yang telah kamu habiskan \?</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Untuk memindai barcode, Catima membutuhkan akses ke kamera mu. Tap disini untuk mengganti pengaturan perizinan mu.</string>
 </resources>

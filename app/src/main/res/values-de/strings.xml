@@ -256,7 +256,11 @@
     <string name="barcodeLongPressMessage">In der Galerie können nur Bilder geöffnet werden</string>
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
     <string name="updateBalanceTitle">Wie viel haben Sie ausgegeben\?</string>
-    <string name="cameraPermissionDeniedTitle">Wir können nicht auf die Kamera zugreifen</string>
+    <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera möglich</string>
     <string name="noCameraPermissionDirectToSystemSetting">Um Strichcodes zu scannen, benötigt Catima Zugriff auf Ihre Kamera. Tippen Sie hier, um Ihre Berechtigungseinstellungen zu ändern.</string>
     <string name="updateBalanceHint">Betrag eingeben</string>
+    <string name="importCards">Karten importieren</string>
+    <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Neues Guthaben: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalance">Guthaben aktualisieren</string>
 </resources>

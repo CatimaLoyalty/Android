@@ -260,5 +260,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Um Strichcodes zu scannen, benötigt Catima Zugriff auf Ihre Kamera. Tippen Sie hier, um Ihre Berechtigungseinstellungen zu ändern.</string>
     <string name="updateBalanceHint">Betrag eingeben</string>
     <string name="importCards">Karten importieren</string>
-    <string name="currentBalanceSentence">Aktuelle Bilanz: <xliff:g>%s</xliff:g></string>
+    <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Neues Guthaben: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalance">Guthaben aktualisieren</string>
 </resources>

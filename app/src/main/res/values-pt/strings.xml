@@ -12,7 +12,7 @@
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
-    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe um no botão do menu ⋮.</string>
+    <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮.</string>
     <string name="noBarcode">Sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
@@ -178,7 +178,7 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
-    <string name="swipeToSwitchImages">Deslize para mudar as imagens, segure para abrir a imagem no aplicativo de galeria</string>
+    <string name="swipeToSwitchImages">Deslize para mudar as imagens, toque prolongadamente para abrir na aplicação da galeria</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>
     <string name="sort_by_expiry">Validade</string>
@@ -260,8 +260,14 @@
         <item quantity="other">Ver arquivo (<xliff:g>%1$d</xliff:g> cartões)</item>
     </plurals>
     <string name="welcome">Bem-vindo ao Catima</string>
-    <string name="failedToRetrieveImageFile">Falhou ao recuperar arquivo de imagem</string>
-    <string name="barcodeLongPressMessage">Apenas imagens podem ser abertas no aplicativo de galeria</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Para escanear código de barras, Catima precisa acessar a sua câmera. Clique aqui para mudar suas configurações de permissão.</string>
-    <string name="cameraPermissionDeniedTitle">Não é possível acessar à câmera</string>
+    <string name="failedToRetrieveImageFile">Falha ao recuperar o ficheiro de imagem</string>
+    <string name="barcodeLongPressMessage">Apenas imagens podem ser abertas na aplicação de galeria</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para digitalizar código de barras, o Catima tem de aceder à câmara. Clique aqui para mudar as configurações de permissão.</string>
+    <string name="cameraPermissionDeniedTitle">Não foi possível aceder à câmara</string>
+    <string name="importCards">Importar cartões</string>
+    <string name="currentBalanceSentence">Saldo atual: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Novo saldo: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalance">Atualizar saldo</string>
+    <string name="updateBalanceTitle">Quanto gastou\?</string>
+    <string name="updateBalanceHint">Introduza o valor</string>
 </resources>

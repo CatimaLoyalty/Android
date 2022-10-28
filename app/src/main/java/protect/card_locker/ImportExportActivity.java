@@ -40,7 +40,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private ImportExportActivityBinding binding;
     private static final String TAG = "Catima";
 
-    private static final int PERMISSIONS_EXTERNAL_STORAGE = 1;
+    private static final int PERMISSIONS_STORAGE = 1;
 
     private ImportExportTask importExporter;
 
@@ -306,7 +306,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == PERMISSIONS_EXTERNAL_STORAGE) {
+        if (requestCode == PERMISSIONS_STORAGE) {
             // If request is cancelled, the result arrays are empty.
             boolean success = grantResults.length > 0;
 

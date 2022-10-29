@@ -34,19 +34,17 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AboutActivityBinding binding = AboutActivityBinding.inflate(getLayoutInflater());
-        setTitle(R.string.about);
+        setTitle(String.format(getString(R.string.about_title_fmt), getString(R.string.app_name)));
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         enableToolbarBackButton();
 
-        String appName = getString(R.string.app_name);
 
         TextView copyright = binding.creditsSub;
         copyright.setText(String.format(getString(R.string.app_copyright_fmt), getCurrentYear()));
         TextView vHistory = binding.versionHistorySub;
         vHistory.setText(String.format(getString(R.string.debug_version_fmt), getAppVersion()));
 
-        setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
 
         binding.versionHistory.setOnClickListener(this);

@@ -12,6 +12,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.collection.ArrayMap;
+import androidx.core.text.HtmlCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,10 +24,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import androidx.core.text.HtmlCompat;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import protect.card_locker.databinding.AboutActivityBinding;
 
@@ -67,7 +68,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
     }
 
     private void bindClickListeners() {
-        View.OnClickListener openExternalBrowser = createOpenExternalBrowserClickListener();
+        View.OnClickListener openExternalBrowser = view -> (new AboutOpenLinkHandler()).open(this, view);
 
         binding.versionHistory.setOnClickListener(openExternalBrowser);
         binding.translate.setOnClickListener(openExternalBrowser);
@@ -95,40 +96,6 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.reportError.setOnClickListener(null);
         binding.rate.setOnClickListener(null);
         binding.credits.setOnClickListener(null);
-    }
-
-    private View.OnClickListener createOpenExternalBrowserClickListener() {
-        return (View view)  -> {
-            int id = view.getId();
-
-            String url;
-            if (id == R.id.version_history) {
-                url = "https://catima.app/changelog/";
-            } else if (id == R.id.translate) {
-                url = "https://hosted.weblate.org/engage/catima/";
-            } else if (id == R.id.license) {
-                url = "https://github.com/CatimaLoyalty/Android/blob/master/LICENSE";
-            } else if (id == R.id.repo) {
-                url = "https://github.com/CatimaLoyalty/Android/";
-            } else if (id == R.id.privacy) {
-                url = "https://catima.app/privacy-policy/";
-            } else if (id == R.id.report_error) {
-                url = "https://github.com/CatimaLoyalty/Android/issues";
-            } else if (id == R.id.rate) {
-                url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
-            } else {
-                return;
-            }
-
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            try {
-                startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                Toast.makeText(this, R.string.failedToOpenUrl, Toast.LENGTH_LONG).show();
-                Log.e(TAG, "No activity found to handle intent", e);
-            }
-        };
     }
 
     private String getAppVersion() {

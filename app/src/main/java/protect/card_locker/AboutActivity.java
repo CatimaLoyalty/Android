@@ -26,14 +26,16 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import protect.card_locker.databinding.AboutActivityBinding;
 
-public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener {
+public class AboutActivity extends CatimaAppCompatActivity {
 
     private static final String TAG = "Catima";
+
+    private AboutActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AboutActivityBinding binding = AboutActivityBinding.inflate(getLayoutInflater());
+        binding = AboutActivityBinding.inflate(getLayoutInflater());
         setTitle(String.format(getString(R.string.about_title_fmt), getString(R.string.app_name)));
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
@@ -42,27 +44,10 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
 
         TextView copyright = binding.creditsSub;
         copyright.setText(String.format(getString(R.string.app_copyright_fmt), getCurrentYear()));
-        TextView vHistory = binding.versionHistorySub;
-        vHistory.setText(String.format(getString(R.string.debug_version_fmt), getAppVersion()));
+        TextView versionHistory = binding.versionHistorySub;
+        versionHistory.setText(String.format(getString(R.string.debug_version_fmt), getAppVersion()));
 
-
-
-        binding.versionHistory.setOnClickListener(this);
-        binding.translate.setOnClickListener(this);
-        binding.license.setOnClickListener(this);
-        binding.repo.setOnClickListener(this);
-        binding.privacy.setOnClickListener(this);
-        binding.reportError.setOnClickListener(this);
-        binding.rate.setOnClickListener(this);
-
-
-        binding.credits
-                .setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
-                .setTitle(R.string.credits)
-                .setMessage(getContributorInfo())
-                .setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-                })
-                .show());
+        bindClickListeners();
     }
 
     @Override
@@ -75,36 +60,75 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
     }
 
     @Override
-    public void onClick(View view) {
-        int id = view.getId();
+    protected void onDestroy() {
+        super.onDestroy();
+        clearClickListeners();
+        binding = null;
+    }
 
-        String url;
-        if (id == R.id.version_history) {
-            url = "https://catima.app/changelog/";
-        } else if (id == R.id.translate) {
-            url = "https://hosted.weblate.org/engage/catima/";
-        } else if (id == R.id.license) {
-            url = "https://github.com/CatimaLoyalty/Android/blob/master/LICENSE";
-        } else if (id == R.id.repo) {
-            url = "https://github.com/CatimaLoyalty/Android/";
-        } else if (id == R.id.privacy) {
-            url = "https://catima.app/privacy-policy/";
-        } else if (id == R.id.report_error) {
-            url = "https://github.com/CatimaLoyalty/Android/issues";
-        } else if (id == R.id.rate) {
-            url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
-        } else {
-            return;
-        }
+    private void bindClickListeners() {
+        View.OnClickListener openExternalBrowser = createOpenExternalBrowserClickListener();
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, R.string.failedToOpenUrl, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
-        }
+        binding.versionHistory.setOnClickListener(openExternalBrowser);
+        binding.translate.setOnClickListener(openExternalBrowser);
+        binding.license.setOnClickListener(openExternalBrowser);
+        binding.repo.setOnClickListener(openExternalBrowser);
+        binding.privacy.setOnClickListener(openExternalBrowser);
+        binding.reportError.setOnClickListener(openExternalBrowser);
+        binding.rate.setOnClickListener(openExternalBrowser);
+
+        binding.credits
+                .setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
+                        .setTitle(R.string.credits)
+                        .setMessage(getContributorInfo())
+                        .setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                        })
+                        .show());
+    }
+
+    private void clearClickListeners() {
+        binding.versionHistory.setOnClickListener(null);
+        binding.translate.setOnClickListener(null);
+        binding.license.setOnClickListener(null);
+        binding.repo.setOnClickListener(null);
+        binding.privacy.setOnClickListener(null);
+        binding.reportError.setOnClickListener(null);
+        binding.rate.setOnClickListener(null);
+        binding.credits.setOnClickListener(null);
+    }
+
+    private View.OnClickListener createOpenExternalBrowserClickListener() {
+        return (View view)  -> {
+            int id = view.getId();
+
+            String url;
+            if (id == R.id.version_history) {
+                url = "https://catima.app/changelog/";
+            } else if (id == R.id.translate) {
+                url = "https://hosted.weblate.org/engage/catima/";
+            } else if (id == R.id.license) {
+                url = "https://github.com/CatimaLoyalty/Android/blob/master/LICENSE";
+            } else if (id == R.id.repo) {
+                url = "https://github.com/CatimaLoyalty/Android/";
+            } else if (id == R.id.privacy) {
+                url = "https://catima.app/privacy-policy/";
+            } else if (id == R.id.report_error) {
+                url = "https://github.com/CatimaLoyalty/Android/issues";
+            } else if (id == R.id.rate) {
+                url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima";
+            } else {
+                return;
+            }
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, R.string.failedToOpenUrl, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
+        };
     }
 
     private String getAppVersion() {

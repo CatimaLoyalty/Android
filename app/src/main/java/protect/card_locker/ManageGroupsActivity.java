@@ -46,10 +46,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         mDatabase = new DBHelper(this).getWritableDatabase();
     }

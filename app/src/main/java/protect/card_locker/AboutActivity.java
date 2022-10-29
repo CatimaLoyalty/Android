@@ -38,10 +38,7 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         setTitle(R.string.about);
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         StringBuilder contributors = new StringBuilder().append("<br/>");
 

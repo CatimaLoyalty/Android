@@ -48,10 +48,7 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         EditText cardId = binding.cardId;
         ListView mBarcodeList = binding.barcodes;

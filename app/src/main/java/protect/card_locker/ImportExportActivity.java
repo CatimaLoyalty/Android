@@ -66,10 +66,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         // If the application does not have permissions to external
         // storage, ask for it now

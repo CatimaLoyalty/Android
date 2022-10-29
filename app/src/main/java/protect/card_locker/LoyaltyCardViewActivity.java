@@ -992,10 +992,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             setSupportActionBar(portraitToolbar);
         }
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
     }
 
     private void drawBarcode(boolean addPadding) {

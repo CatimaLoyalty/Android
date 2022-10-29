@@ -307,10 +307,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         setContentView(binding.getRoot());
         toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         mDatabase = new DBHelper(this).getWritableDatabase();
 

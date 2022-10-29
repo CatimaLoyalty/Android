@@ -110,12 +110,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             mGroupNameText.setText(inputSavedInstanceState.getString(SAVE_INSTANCE_CURRENT_GROUP_NAME));
         }
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            throw (new RuntimeException("mActionBar is not expected to be null here"));
-        }
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+        enableToolbarBackButton();
 
         saveButton.setOnClickListener(v -> {
             String currentGroupName = mGroupNameText.getText().toString().trim();

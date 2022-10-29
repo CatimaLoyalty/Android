@@ -249,11 +249,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             contentMainBinding = ContentMainBinding.bind(archiveActivityBinding.include.getRoot());
         }
 
-        if (mArchiveMode) {
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-            }
+        if(mArchiveMode) {
+            enableToolbarBackButton();
         }
 
         mDatabase = new DBHelper(this).getWritableDatabase();

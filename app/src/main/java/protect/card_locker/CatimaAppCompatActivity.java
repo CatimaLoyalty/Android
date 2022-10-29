@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowInsetsControllerCompat;
 
@@ -40,5 +41,12 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         }
         // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
         Utils.postPatchColors(this);
+    }
+
+    protected void enableToolbarBackButton() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 }

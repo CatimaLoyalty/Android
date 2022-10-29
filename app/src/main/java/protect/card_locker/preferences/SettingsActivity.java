@@ -45,10 +45,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         // Display the fragment as the main content.
         fragment = new SettingsFragment();

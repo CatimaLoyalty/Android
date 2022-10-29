@@ -26,6 +26,10 @@ public class AboutContent {
         this.context = null;
     }
 
+    public String getPageTitle() {
+        return String.format(context.getString(R.string.about_title_fmt), context.getString(R.string.app_name));
+    }
+
     public String getAppVersion() {
         String version = "?";
         try {

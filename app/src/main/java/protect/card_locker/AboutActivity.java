@@ -21,12 +21,12 @@ public class AboutActivity extends CatimaAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = AboutActivityBinding.inflate(getLayoutInflater());
-        setTitle(String.format(getString(R.string.about_title_fmt), getString(R.string.app_name)));
+        content = new AboutContent(this);
+        setTitle(content.getPageTitle());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         enableToolbarBackButton();
 
-        content = new AboutContent(this);
 
         TextView copyright = binding.creditsSub;
         copyright.setText(content.getCopyright());

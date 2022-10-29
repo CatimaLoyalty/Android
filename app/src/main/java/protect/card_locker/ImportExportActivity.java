@@ -40,8 +40,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     private ImportExportActivityBinding binding;
     private static final String TAG = "Catima";
 
-    private static final int PERMISSIONS_STORAGE = 1;
-
     private ImportExportTask importExporter;
 
     private String importAlertTitle;
@@ -67,9 +65,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        // If the application does not have permissions to external
-        // storage, ask for it now
 
         Intent fileIntent = getIntent();
         if (fileIntent != null && fileIntent.getType() != null) {
@@ -300,30 +295,6 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         importExporter = new ImportExportTask(ImportExportActivity.this,
                 DataFormat.Catima, target, password, listener);
         mTasks.executeTask(TaskHandler.TYPE.EXPORT, importExporter);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == PERMISSIONS_STORAGE) {
-            // If request is cancelled, the result arrays are empty.
-            boolean success = grantResults.length > 0;
-
-            for (int grant : grantResults) {
-                if (grant != PackageManager.PERMISSION_GRANTED) {
-                    success = false;
-                }
-            }
-
-            if (!success) {
-                // External storage permission rejected, inform user that
-                // import/export is prevented
-                Toast.makeText(getApplicationContext(), R.string.noExternalStoragePermissionError,
-                        Toast.LENGTH_LONG).show();
-            }
-
-        }
     }
 
     @Override

@@ -11,8 +11,11 @@ import androidx.core.content.ContextCompat;
 public class PermissionUtils {
 
     public static boolean isNeedRequestStoragePermission(Activity activity) {
-        return (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
-                (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            return false;
+        }
+
+        return ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED;
     }
 
     public static void requestStoragePermission(Activity activity, int requestCode) {

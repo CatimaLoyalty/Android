@@ -20,6 +20,7 @@ import android.util.TypedValue;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
@@ -41,6 +42,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -549,5 +551,15 @@ public class Utils {
         TypedArray colors = context.getResources().obtainTypedArray(R.array.letter_tile_colors);
         final int color = (int) (Math.random() * colors.length());
         return colors.getColor(color, Color.BLACK);
+    }
+
+    public static String readTextFile(Context context, @RawRes int resourceId) throws IOException {
+        InputStream input = context.getResources().openRawResource(resourceId);
+        int size = input.available();
+        byte[] buffer = new byte[size];
+        input.read(buffer);
+        input.close();
+
+        return new String(buffer);
     }
 }

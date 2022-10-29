@@ -7,10 +7,7 @@ import android.util.Log;
 
 import androidx.core.text.HtmlCompat;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -50,26 +47,13 @@ public class AboutContent {
     }
 
     public String getContributors() {
-        StringBuilder contributors = new StringBuilder().append("<br/>");
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(context.getResources().openRawResource(R.raw.contributors), StandardCharsets.UTF_8));
-
+        String contributors;
         try {
-            while (true) {
-                String tmp = reader.readLine();
-
-                if (tmp == null || tmp.isEmpty()) {
-                    reader.close();
-                    break;
-                }
-
-                contributors.append("<br/>");
-                contributors.append(tmp);
-            }
-        } catch (IOException ignored) {
+            contributors = "<br/>" + Utils.readTextFile(context, R.raw.contributors);
+        }  catch (IOException ignored) {
+            return "";
         }
-
-        return contributors.toString();
+        return contributors.replace("\n", "<br />");
     }
 
     public String getThirdPartyLibraries() {

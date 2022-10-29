@@ -36,6 +36,7 @@ import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,7 +44,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -555,11 +559,20 @@ public class Utils {
 
     public static String readTextFile(Context context, @RawRes int resourceId) throws IOException {
         InputStream input = context.getResources().openRawResource(resourceId);
-        int size = input.available();
-        byte[] buffer = new byte[size];
-        input.read(buffer);
-        input.close();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
+        StringBuilder result = new StringBuilder();
+        while (true) {
+            String nextLine = reader.readLine();
 
-        return new String(buffer);
+            if (nextLine == null || nextLine.isEmpty()) {
+                reader.close();
+                break;
+            }
+
+            result.append("\n");
+            result.append(nextLine);
+        }
+
+        return result.toString();
     }
 }

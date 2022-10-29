@@ -483,15 +483,27 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void showInfoDialog() {
         AlertDialog.Builder infoDialog = new MaterialAlertDialogBuilder(this);
 
+        int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        int dialogTitlePadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_title_padding);
         TextView infoTitleView = new TextView(this);
-        infoTitleView.setPadding(20, 20, 20, 20);
+        infoTitleView.setPadding(
+                dialogContentPadding,
+                dialogContentPadding,
+                dialogContentPadding,
+                dialogTitlePadding
+        );
         infoTitleView.setTextSize(settings.getFontSizeMax(settings.getMediumFont()));
         infoTitleView.setText(loyaltyCard.store);
         infoDialog.setCustomTitle(infoTitleView);
         infoDialog.setTitle(loyaltyCard.store);
 
         TextView infoTextview = new TextView(this);
-        infoTextview.setPadding(20, 0, 20, 0);
+        infoTextview.setPadding(
+                dialogContentPadding,
+                0,
+                dialogContentPadding,
+                0
+        );
         infoTextview.setAutoLinkMask(Linkify.ALL);
         infoTextview.setTextIsSelectable(true);
 
@@ -544,8 +556,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        params.leftMargin = 60;
-        params.rightMargin = 60;
+        int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        params.leftMargin = contentPadding;
+        params.rightMargin = contentPadding;
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);

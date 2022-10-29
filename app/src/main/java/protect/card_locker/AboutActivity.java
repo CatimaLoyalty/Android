@@ -21,8 +21,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.text.HtmlCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -30,18 +28,16 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import protect.card_locker.databinding.AboutActivityBinding;
 
 public class AboutActivity extends CatimaAppCompatActivity implements View.OnClickListener {
-    private AboutActivityBinding binding;
+
     private static final String TAG = "Catima";
-    ConstraintLayout version_history, translate, license, repo, privacy, error, credits, rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = AboutActivityBinding.inflate(getLayoutInflater());
+        AboutActivityBinding binding = AboutActivityBinding.inflate(getLayoutInflater());
         setTitle(R.string.about);
         setContentView(binding.getRoot());
-        Toolbar toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -106,22 +102,14 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
 
         setTitle(String.format(getString(R.string.about_title_fmt), appName));
 
-        version_history = binding.versionHistory;
-        translate = binding.translate;
-        license = binding.license;
-        repo = binding.repo;
-        privacy = binding.privacy;
-        error = binding.reportError;
-        credits = binding.credits;
-        rate = binding.rate;
 
-        version_history.setOnClickListener(this);
-        translate.setOnClickListener(this);
-        license.setOnClickListener(this);
-        repo.setOnClickListener(this);
-        privacy.setOnClickListener(this);
-        error.setOnClickListener(this);
-        rate.setOnClickListener(this);
+        binding.versionHistory.setOnClickListener(this);
+        binding.translate.setOnClickListener(this);
+        binding.license.setOnClickListener(this);
+        binding.repo.setOnClickListener(this);
+        binding.privacy.setOnClickListener(this);
+        binding.reportError.setOnClickListener(this);
+        binding.rate.setOnClickListener(this);
 
         StringBuilder contributorInfo = new StringBuilder();
         contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_contributors), contributors.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
@@ -132,7 +120,8 @@ public class AboutActivity extends CatimaAppCompatActivity implements View.OnCli
         contributorInfo.append("\n\n");
         contributorInfo.append(HtmlCompat.fromHtml(String.format(getString(R.string.app_resources), resources.toString()), HtmlCompat.FROM_HTML_MODE_COMPACT));
 
-        credits.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
+        binding.credits
+                .setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.credits)
                 .setMessage(contributorInfo.toString())
                 .setPositiveButton(R.string.ok, (dialogInterface, i) -> {

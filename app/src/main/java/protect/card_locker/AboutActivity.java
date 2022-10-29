@@ -64,13 +64,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.reportError.setOnClickListener(openExternalBrowser);
         binding.rate.setOnClickListener(openExternalBrowser);
 
-        binding.credits
-                .setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
-                        .setTitle(R.string.credits)
-                        .setMessage(content.getContributorInfo())
-                        .setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-                        })
-                        .show());
+        binding.credits.setOnClickListener(view -> showCredits());
     }
 
     private void clearClickListeners() {
@@ -82,5 +76,13 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.reportError.setOnClickListener(null);
         binding.rate.setOnClickListener(null);
         binding.credits.setOnClickListener(null);
+    }
+
+    private void showCredits() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.credits)
+                .setMessage(content.getContributorInfo())
+                .setPositiveButton(R.string.ok, null)
+                .show();
     }
 }

@@ -73,32 +73,35 @@ public class AboutContent {
     }
 
     public String getThirdPartyLibraries() {
-        final List<ThirdPartyInfo> USED_LIBRARIES = new ArrayList<>();
-        USED_LIBRARIES.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("Commons CSV", "https://commons.apache.org/proper/commons-csv/", "Apache 2.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference", "GNU LGPL 3.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("uCrop", "https://github.com/Yalantis/uCrop", "Apache 2.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("Zip4j", "https://github.com/srikanth-lingala/zip4j", "Apache 2.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("ZXing", "https://github.com/zxing/zxing", "Apache 2.0"));
-        USED_LIBRARIES.add(new ThirdPartyInfo("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded", "Apache 2.0"));
-        StringBuilder libs = new StringBuilder().append("<br/>");
-        for (ThirdPartyInfo entry : USED_LIBRARIES) {
-            libs.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
+        final List<ThirdPartyInfo> usedLibraries = new ArrayList<>();
+        usedLibraries.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
+        usedLibraries.add(new ThirdPartyInfo("Commons CSV", "https://commons.apache.org/proper/commons-csv/", "Apache 2.0"));
+        usedLibraries.add(new ThirdPartyInfo("NumberPickerPreference", "https://github.com/invissvenska/NumberPickerPreference", "GNU LGPL 3.0"));
+        usedLibraries.add(new ThirdPartyInfo("uCrop", "https://github.com/Yalantis/uCrop", "Apache 2.0"));
+        usedLibraries.add(new ThirdPartyInfo("Zip4j", "https://github.com/srikanth-lingala/zip4j", "Apache 2.0"));
+        usedLibraries.add(new ThirdPartyInfo("ZXing", "https://github.com/zxing/zxing", "Apache 2.0"));
+        usedLibraries.add(new ThirdPartyInfo("ZXing Android Embedded", "https://github.com/journeyapps/zxing-android-embedded", "Apache 2.0"));
+
+        StringBuilder result = new StringBuilder("<br/>");
+        for (ThirdPartyInfo entry : usedLibraries) {
+            result.append("<br/>")
+                .append(entry.toHtml());
         }
 
-        return libs.toString();
+        return result.toString();
     }
 
     public String getUsedThirdPartyAssets() {
-        final List<ThirdPartyInfo> USED_ASSETS = new ArrayList<>();
-        USED_ASSETS.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
+        final List<ThirdPartyInfo> usedAssets = new ArrayList<>();
+        usedAssets.add(new ThirdPartyInfo("Android icons", "https://fonts.google.com/icons?selected=Material+Icons", "Apache 2.0"));
 
-        StringBuilder resources = new StringBuilder().append("<br/>");
-        for (ThirdPartyInfo entry : USED_ASSETS) {
-            resources.append("<br/><a href=\"").append(entry.url()).append("\">").append(entry.name()).append("</a> (").append(entry.license()).append(")");
+        StringBuilder result = new StringBuilder().append("<br/>");
+        for (ThirdPartyInfo entry : usedAssets) {
+            result.append("<br/>")
+                    .append(entry.toHtml());
         }
 
-        return resources.toString();
+        return result.toString();
     }
 
     public String getContributorInfo() {

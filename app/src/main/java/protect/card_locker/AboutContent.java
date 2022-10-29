@@ -45,6 +45,10 @@ public class AboutContent {
         return Calendar.getInstance().get(Calendar.YEAR);
     }
 
+    public String getCopyright() {
+        return String.format(context.getString(R.string.app_copyright_fmt), getCurrentYear());
+    }
+
     public String getContributors() {
         StringBuilder contributors = new StringBuilder().append("<br/>");
 
@@ -108,5 +112,9 @@ public class AboutContent {
         contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssets()), HtmlCompat.FROM_HTML_MODE_COMPACT));
 
         return contributorInfo.toString();
+    }
+
+    public String getVersionHistory() {
+        return String.format(context.getString(R.string.debug_version_fmt), getAppVersion());
     }
 }

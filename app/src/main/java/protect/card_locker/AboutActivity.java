@@ -29,9 +29,9 @@ public class AboutActivity extends CatimaAppCompatActivity {
         content = new AboutContent(this);
 
         TextView copyright = binding.creditsSub;
-        copyright.setText(String.format(getString(R.string.app_copyright_fmt), content.getCurrentYear()));
+        copyright.setText(content.getCopyright());
         TextView versionHistory = binding.versionHistorySub;
-        versionHistory.setText(String.format(getString(R.string.debug_version_fmt), content.getAppVersion()));
+        versionHistory.setText(content.getVersionHistory());
 
         bindClickListeners();
     }

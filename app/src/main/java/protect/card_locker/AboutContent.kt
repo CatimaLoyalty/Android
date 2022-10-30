@@ -13,14 +13,7 @@ class AboutContent(var context: Context?) {
         context = null
     }
 
-    val pageTitle: String
-        get() {
-            val context = context ?: return ""
-            return String.format(
-                context.getString(R.string.about_title_fmt),
-                context.getString(R.string.app_name)
-            )
-        }
+    val pageTitle: String = R.string.about_title_fmt.format(R.string.app_name.getString())
 
     private val appVersion: String
         get() {
@@ -39,11 +32,7 @@ class AboutContent(var context: Context?) {
 
     private val currentYear: Int = Calendar.getInstance()[Calendar.YEAR]
 
-    val copyright: String
-        get() {
-        val context = context ?: return ""
-        return String.format(context.getString(R.string.app_copyright_fmt), currentYear)
-    }
+    val copyright: String = R.string.app_copyright_fmt.format(currentYear)
 
     private val contributors: String
         get() {
@@ -58,11 +47,7 @@ class AboutContent(var context: Context?) {
             return contributors.replace("\n", "<br />")
         }
 
-    val versionHistory: String
-        get() {
-            val context = context ?: return ""
-            return String.format(context.getString(R.string.debug_version_fmt), appVersion)
-        }
+    val versionHistory: String = R.string.debug_version_fmt.format(appVersion)
 
     private val thirdPartyLibraries: String
         get() {
@@ -121,25 +106,16 @@ class AboutContent(var context: Context?) {
     val contributorInfo: String
         get() {
             val context = context ?: return ""
-            val contributors = HtmlCompat.fromHtml(
-                String.format(
-                    context.getString(R.string.app_contributors),
-                    contributors
-                ), HtmlCompat.FROM_HTML_MODE_COMPACT
-            )
+            val contributors = R.string.app_contributors
+                .format(contributors)
+                .toHtml()
             val copyright = context.getString(R.string.app_copyright_old)
-            val thirdPartyLibraries = HtmlCompat.fromHtml(
-                String.format(
-                    context.getString(R.string.app_libraries),
-                    thirdPartyLibraries
-                ), HtmlCompat.FROM_HTML_MODE_COMPACT
-            )
-            val thirdPartyAssets = HtmlCompat.fromHtml(
-                String.format(
-                    context.getString(R.string.app_resources),
-                    usedThirdPartyAssets
-                ), HtmlCompat.FROM_HTML_MODE_COMPACT
-            )
+            val thirdPartyLibraries = R.string.app_libraries
+                .format(thirdPartyLibraries)
+                .toHtml()
+            val thirdPartyAssets = R.string.app_resources
+                .format(usedThirdPartyAssets)
+                .toHtml()
             return """
 $contributors
 
@@ -150,6 +126,22 @@ $thirdPartyLibraries
 $thirdPartyAssets
             """.trimIndent()
         }
+
+    private fun Int.getString(): String {
+        val context = context ?: return ""
+
+        return context.getString(this)
+    }
+
+    private fun Int.format(vararg args: Any?): String {
+        val context = context ?: return ""
+
+        return String.format(context.getString(this), *args)
+    }
+
+    private fun String.toHtml(): CharSequence {
+        return HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_COMPACT)
+    }
 
     companion object {
         const val TAG = "Catima"

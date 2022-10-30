@@ -3,6 +3,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 plugins {
     id 'com.android.application'
     id 'com.github.spotbugs'
+    id 'org.jetbrains.kotlin.android'
 }
 
 spotbugs {
@@ -126,4 +127,8 @@ tasks.withType(SpotBugsTask) {
         xml.enabled = false
         html.enabled = true
     }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions.jvmTarget = "11"
 }

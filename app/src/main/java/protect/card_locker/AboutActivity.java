@@ -27,11 +27,18 @@ public class AboutActivity extends CatimaAppCompatActivity {
         setSupportActionBar(binding.toolbar);
         enableToolbarBackButton();
 
-
         TextView copyright = binding.creditsSub;
         copyright.setText(content.getCopyright());
         TextView versionHistory = binding.versionHistorySub;
         versionHistory.setText(content.getVersionHistory());
+
+        binding.versionHistory.setTag("https://catima.app/changelog/");
+        binding.translate.setTag("https://hosted.weblate.org/engage/catima/");
+        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/master/LICENSE");
+        binding.repo.setTag("https://github.com/CatimaLoyalty/Android/");
+        binding.privacy.setTag("https://catima.app/privacy-policy/");
+        binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
+        binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
 
         bindClickListeners();
     }
@@ -54,8 +61,12 @@ public class AboutActivity extends CatimaAppCompatActivity {
     }
 
     private void bindClickListeners() {
-        View.OnClickListener openExternalBrowser = view -> (new AboutOpenLinkHandler()).open(this, view);
-
+        View.OnClickListener openExternalBrowser = view -> {
+            Object tag = view.getTag();
+            if (tag instanceof String && ((String) tag).startsWith("https://")) {
+                (new OpenWebLinkHandler()).open(this, (String) tag);
+            }
+        };
         binding.versionHistory.setOnClickListener(openExternalBrowser);
         binding.translate.setOnClickListener(openExternalBrowser);
         binding.license.setOnClickListener(openExternalBrowser);

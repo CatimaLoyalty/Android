@@ -5,25 +5,30 @@ import android.content.pm.PackageManager
 import android.util.Log
 import androidx.core.text.HtmlCompat
 import java.io.IOException
-import java.lang.StringBuilder
 import java.util.*
 
 class AboutContent(var context: Context?) {
+
     fun destroy() {
         context = null
     }
 
     val pageTitle: String
-        get() = String.format(
-            context!!.getString(R.string.about_title_fmt),
-            context!!.getString(R.string.app_name)
-        )
-    val appVersion: String
         get() {
+            val context = context ?: return ""
+            return String.format(
+                context.getString(R.string.about_title_fmt),
+                context.getString(R.string.app_name)
+            )
+        }
+
+    private val appVersion: String
+        get() {
+            val context = context ?: return ""
             var version = "?"
             try {
-                val pi = context!!.packageManager.getPackageInfo(
-                    context!!.packageName, 0
+                val pi = context.packageManager.getPackageInfo(
+                    context.packageName, 0
                 )
                 version = pi.versionName
             } catch (e: PackageManager.NameNotFoundException) {
@@ -31,131 +36,120 @@ class AboutContent(var context: Context?) {
             }
             return version
         }
-    val currentYear: Int
-        get() = Calendar.getInstance()[Calendar.YEAR]
+
+    private val currentYear: Int = Calendar.getInstance()[Calendar.YEAR]
+
     val copyright: String
-        get() = String.format(context!!.getString(R.string.app_copyright_fmt), currentYear)
-    val contributors: String
         get() {
-            val contributors: String
-            contributors = try {
-                "<br/>" + Utils.readTextFile(context, R.raw.contributors)
+        val context = context ?: return ""
+        return String.format(context.getString(R.string.app_copyright_fmt), currentYear)
+    }
+
+    private val contributors: String
+        get() {
+            val context = context ?: return ""
+            val contributors = try {
+                "<br/>" + context.resources.openRawResource(R.raw.contributors)
+                    .bufferedReader(Charsets.UTF_8)
+                    .readText()
             } catch (ignored: IOException) {
                 return ""
             }
             return contributors.replace("\n", "<br />")
         }
-    val thirdPartyLibraries: String
+
+    val versionHistory: String
         get() {
-            val usedLibraries: MutableList<ThirdPartyInfo> = ArrayList()
-            usedLibraries.add(
+            val context = context ?: return ""
+            return String.format(context.getString(R.string.debug_version_fmt), appVersion)
+        }
+
+    private val thirdPartyLibraries: String
+        get() {
+            val usedLibraries = listOf(
                 ThirdPartyInfo(
                     "Color Picker",
                     "https://github.com/jaredrummler/ColorPicker",
                     "Apache 2.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "Commons CSV",
                     "https://commons.apache.org/proper/commons-csv/",
                     "Apache 2.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "NumberPickerPreference",
                     "https://github.com/invissvenska/NumberPickerPreference",
                     "GNU LGPL 3.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "uCrop",
                     "https://github.com/Yalantis/uCrop",
                     "Apache 2.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "Zip4j",
                     "https://github.com/srikanth-lingala/zip4j",
                     "Apache 2.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "ZXing",
                     "https://github.com/zxing/zxing",
                     "Apache 2.0"
-                )
-            )
-            usedLibraries.add(
+                ),
                 ThirdPartyInfo(
                     "ZXing Android Embedded",
                     "https://github.com/journeyapps/zxing-android-embedded",
                     "Apache 2.0"
                 )
             )
-            val result = StringBuilder("<br/>")
-            for (entry in usedLibraries) {
-                result.append("<br/>")
-                    .append(entry.toHtml())
-            }
-            return result.toString()
+            return "<br/>" + usedLibraries.joinToString("<br/>") { it.toHtml() }
         }
-    val usedThirdPartyAssets: String
+
+    private val usedThirdPartyAssets: String
         get() {
-            val usedAssets: MutableList<ThirdPartyInfo> = ArrayList()
-            usedAssets.add(
+            val usedAssets = listOf(
                 ThirdPartyInfo(
                     "Android icons",
                     "https://fonts.google.com/icons?selected=Material+Icons",
                     "Apache 2.0"
                 )
             )
-            val result = StringBuilder().append("<br/>")
-            for (entry in usedAssets) {
-                result.append("<br/>")
-                    .append(entry.toHtml())
-            }
-            return result.toString()
+            return "<br/>" + usedAssets.joinToString("<br/>") { it.toHtml() }
         }
+
     val contributorInfo: String
         get() {
-            val contributorInfo = StringBuilder()
-            contributorInfo.append(
-                HtmlCompat.fromHtml(
-                    String.format(
-                        context!!.getString(R.string.app_contributors),
-                        contributors
-                    ), HtmlCompat.FROM_HTML_MODE_COMPACT
-                )
+            val context = context ?: return ""
+            val contributors = HtmlCompat.fromHtml(
+                String.format(
+                    context.getString(R.string.app_contributors),
+                    contributors
+                ), HtmlCompat.FROM_HTML_MODE_COMPACT
             )
-            contributorInfo.append("\n\n")
-            contributorInfo.append(context!!.getString(R.string.app_copyright_old))
-            contributorInfo.append("\n\n")
-            contributorInfo.append(
-                HtmlCompat.fromHtml(
-                    String.format(
-                        context!!.getString(R.string.app_libraries),
-                        thirdPartyLibraries
-                    ), HtmlCompat.FROM_HTML_MODE_COMPACT
-                )
+            val copyright = context.getString(R.string.app_copyright_old)
+            val thirdPartyLibraries = HtmlCompat.fromHtml(
+                String.format(
+                    context.getString(R.string.app_libraries),
+                    thirdPartyLibraries
+                ), HtmlCompat.FROM_HTML_MODE_COMPACT
             )
-            contributorInfo.append("\n\n")
-            contributorInfo.append(
-                HtmlCompat.fromHtml(
-                    String.format(
-                        context!!.getString(R.string.app_resources),
-                        usedThirdPartyAssets
-                    ), HtmlCompat.FROM_HTML_MODE_COMPACT
-                )
+            val thirdPartyAssets = HtmlCompat.fromHtml(
+                String.format(
+                    context.getString(R.string.app_resources),
+                    usedThirdPartyAssets
+                ), HtmlCompat.FROM_HTML_MODE_COMPACT
             )
-            return contributorInfo.toString()
+            return """
+$contributors
+
+$copyright
+
+$thirdPartyLibraries
+
+$thirdPartyAssets
+            """.trimIndent()
         }
-    val versionHistory: String
-        get() = String.format(context!!.getString(R.string.debug_version_fmt), appVersion)
 
     companion object {
         const val TAG = "Catima"

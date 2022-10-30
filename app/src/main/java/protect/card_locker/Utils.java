@@ -556,23 +556,4 @@ public class Utils {
         final int color = (int) (Math.random() * colors.length());
         return colors.getColor(color, Color.BLACK);
     }
-
-    public static String readTextFile(Context context, @RawRes int resourceId) throws IOException {
-        InputStream input = context.getResources().openRawResource(resourceId);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
-        StringBuilder result = new StringBuilder();
-        while (true) {
-            String nextLine = reader.readLine();
-
-            if (nextLine == null || nextLine.isEmpty()) {
-                reader.close();
-                break;
-            }
-
-            result.append("\n");
-            result.append(nextLine);
-        }
-
-        return result.toString();
-    }
 }

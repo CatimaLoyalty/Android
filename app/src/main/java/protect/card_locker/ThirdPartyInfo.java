@@ -22,4 +22,8 @@ public class ThirdPartyInfo {
     public String license() {
         return mLicense;
     }
+
+    public String toHtml() {
+        return String.format("<a href=\"%s\">%s</a> (%s)", url(), name(), license());
+    }
 }

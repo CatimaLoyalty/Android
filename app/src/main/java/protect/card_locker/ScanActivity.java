@@ -80,10 +80,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         setContentView(binding.getRoot());
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        enableToolbarBackButton();
 
         extractIntentFields(getIntent());
 

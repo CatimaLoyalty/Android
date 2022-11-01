@@ -64,7 +64,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         View.OnClickListener openExternalBrowser = view -> {
             Object tag = view.getTag();
             if (tag instanceof String && ((String) tag).startsWith("https://")) {
-                (new OpenWebLinkHandler()).open(this, (String) tag);
+                (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
             }
         };
         binding.versionHistory.setOnClickListener(openExternalBrowser);

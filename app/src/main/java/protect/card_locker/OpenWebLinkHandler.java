@@ -12,7 +12,7 @@ public class OpenWebLinkHandler {
 
     private static final String TAG = "Catima";
 
-    public void open(AppCompatActivity activity, String url) {
+    public void openBrowser(AppCompatActivity activity, String url) {
         if (url == null) {
             return;
         }

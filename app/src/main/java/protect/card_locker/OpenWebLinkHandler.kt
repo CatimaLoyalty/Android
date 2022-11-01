@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.Toast
 
 class OpenWebLinkHandler {
-    fun open(activity: AppCompatActivity, url: String) {
+    fun openBrowser(activity: AppCompatActivity, url: String) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         try {

@@ -61,7 +61,7 @@ class AboutActivity : CatimaAppCompatActivity() {
         val openExternalBrowser = View.OnClickListener { view: View ->
             val tag = view.tag
             if (tag is String && tag.startsWith("https://")) {
-                OpenWebLinkHandler().open(this, tag)
+                OpenWebLinkHandler().openBrowser(this, tag)
             }
         }
 

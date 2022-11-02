@@ -231,13 +231,13 @@ public class Utils {
         Currency currency = catimaCurrency.getCurrency();
         //Points or Percent
         if (currency == null) {
-            if (catimaCurrency.getSymbol().equals("Points")) {
+            if (catimaCurrency.getSymbol().equals(context.getString(R.string.points))) {
                 numberFormat.setMaximumFractionDigits(0);
                 return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
 
-            } else if (catimaCurrency.getSymbol().equals("Percent")) {
+            } else if (catimaCurrency.getSymbol().equals(context.getString(R.string.percent))) {
                 numberFormat.setMaximumFractionDigits(2);
-                return value.intValue() + catimaCurrency.getSymbol();
+                return numberFormat.format(value) + "%";
             }
         }
 

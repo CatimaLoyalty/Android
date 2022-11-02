@@ -2,7 +2,6 @@ package protect.card_locker;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
@@ -15,7 +14,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -58,7 +56,6 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.widget.TextViewCompat;
 
@@ -74,10 +71,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Currency;
 import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.currency.CatimaCurrency;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
@@ -616,7 +613,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         input.requestFocus();
     }
 
-    private BigDecimal calculateNewBalance(BigDecimal currentBalance, Currency currency, String unparsedSubtraction) throws ParseException {
+    private BigDecimal calculateNewBalance(BigDecimal currentBalance, CatimaCurrency currency, String unparsedSubtraction) throws ParseException {
         BigDecimal subtraction = Utils.parseBalance(unparsedSubtraction, currency);
         return currentBalance.subtract(subtraction).max(new BigDecimal(0));
     }

@@ -237,7 +237,7 @@ public class Utils {
 
             } else if (catimaCurrency.getSymbol().equals(context.getString(R.string.percent))) {
                 numberFormat.setMaximumFractionDigits(2);
-                return numberFormat.format(value) + "%";
+                return numberFormat.format(value) + context.getString(R.string.percentSymbol);
             }
         }
 

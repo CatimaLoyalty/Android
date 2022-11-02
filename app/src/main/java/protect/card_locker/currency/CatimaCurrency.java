@@ -6,10 +6,8 @@ import androidx.annotation.Nullable;
 
 public class CatimaCurrency {
 
-    private Currency mCurrency;
-    private String mSpecialSymbol;
-
-    private static final String Percent = "Percent";
+    private final Currency mCurrency;
+    private final String mSpecialSymbol;
 
     public CatimaCurrency(Currency currency) {
         mCurrency = currency;

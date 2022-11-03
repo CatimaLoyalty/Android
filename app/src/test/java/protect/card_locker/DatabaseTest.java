@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
 
+import protect.card_locker.currency.CatimaCurrency;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -75,7 +77,7 @@ public class DatabaseTest {
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        result = DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR, 0, null, 0);
+        result = DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, new BigDecimal("10.00"), new CatimaCurrency(Currency.getInstance("EUR")), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR, 0, null, 0);
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 

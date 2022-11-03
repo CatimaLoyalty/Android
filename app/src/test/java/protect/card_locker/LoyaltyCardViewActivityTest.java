@@ -57,6 +57,7 @@ import java.util.Date;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.widget.TextViewCompat;
 import androidx.preference.PreferenceManager;
+import protect.card_locker.currency.CatimaCurrency;
 
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
@@ -795,7 +796,7 @@ public class LoyaltyCardViewActivityTest {
         final Context context = activity.getApplicationContext();
         SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
 
-        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(database, "store", "note", null, new BigDecimal("10.00"), new CatimaCurrency(Currency.getInstance("USD")), EAN_BARCODE_DATA, null, EAN_BARCODE_TYPE, Color.BLACK, 0, null,0);
 
         activityController.start();
         activityController.visible();

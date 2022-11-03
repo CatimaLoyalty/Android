@@ -25,6 +25,7 @@ import java.util.Date;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.preference.PreferenceManager;
+import protect.card_locker.currency.CatimaCurrency;
 import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;
@@ -223,7 +224,7 @@ public class LoyaltyCardCursorAdapterTest {
 
     @Test
     public void TestCursorAdapter0EUR() {
-        DBHelper.insertLoyaltyCard(mDatabase,"store", "", null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase,"store", "", null, new BigDecimal("0"), new CatimaCurrency(Currency.getInstance("EUR")), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -253,7 +254,7 @@ public class LoyaltyCardCursorAdapterTest {
 
     @Test
     public void TestCursorAdapter10USD() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), new CatimaCurrency(Currency.getInstance("USD")), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);

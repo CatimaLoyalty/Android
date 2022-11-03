@@ -1,2 +1,4 @@
 - Ouvrir l' image dans la galerie sur appui-long
 - Appliquer le style Material à la fenêtre de dialogue
+- Prise en charge de la création de carte en partageant une image avec Catima
+- Ajout d'un bouton de dépense rapide à l'écran des cartes

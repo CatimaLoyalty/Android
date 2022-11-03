@@ -235,7 +235,7 @@ public class Utils {
                 numberFormat.setMaximumFractionDigits(0);
                 return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
 
-            } else if (catimaCurrency.getSymbol().equals(context.getString(R.string.percent))) {
+            } else if (catimaCurrency.getSymbol().equals(context.getString(R.string.percentSymbol))) {
                 numberFormat.setMaximumFractionDigits(2);
                 return numberFormat.format(value) + context.getString(R.string.percentSymbol);
             }

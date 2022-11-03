@@ -323,7 +323,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             currencies.put(currency.getSymbol(), new CatimaCurrency(currency));
         }
 
-        CatimaCurrency percentCurrency = new CatimaCurrency(getString(R.string.percent));
+        CatimaCurrency percentCurrency = new CatimaCurrency(getString(R.string.percentSymbol));
         CatimaCurrency pointCurrency = new CatimaCurrency(getString(R.string.points));
 
         currencies.put(percentCurrency.getSymbol(), percentCurrency);
@@ -470,7 +470,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
 
                 currencyList.add(0, getString(R.string.points));
-                currencyList.add(1,getString(R.string.percent));
+                currencyList.add(1,getString(R.string.percentSymbol));
                 ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
                 balanceCurrencyField.setAdapter(currencyAdapter);
             }

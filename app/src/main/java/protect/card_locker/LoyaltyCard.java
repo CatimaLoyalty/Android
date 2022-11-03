@@ -128,11 +128,9 @@ public class LoyaltyCard implements Parcelable {
                 exception.printStackTrace();
             }
 
-            if (currency == null) {
-                balanceType = new CatimaCurrency(currencySymbol);
-            } else {
-                balanceType = new CatimaCurrency(currency);
-            }
+            balanceType = currency == null ?
+                    new CatimaCurrency(currencySymbol) :
+                    new CatimaCurrency(currency);
         }
 
         if (expiryLong > 0) {

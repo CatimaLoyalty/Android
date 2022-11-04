@@ -248,12 +248,12 @@
     <string name="updateBalanceHint">输入金额</string>
     <string name="importCards">导入卡</string>
     <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">查看存档（<xliff:g xmlns:xliff="urn:oasis:names:tc:xlif:document:1.2">%1$d</xliff:g>卡）</item>
+        <item quantity="other">查看存档（<xliff:g>%1$d</xliff:g> 张卡片）</item>
     </plurals>
     <string name="updateBalance">更新余额</string>
     <string name="updateBalanceTitle">你花了多少钱？</string>
-    <string name="currentBalanceSentence">当前余额：%s</string>
+    <string name="currentBalanceSentence">当前余额：<xliff:g>%s</xliff:g></string>
     <string name="failedToRetrieveImageFile">无法检索图像文件</string>
-    <string name="newBalanceSentence">新余额：%s</string>
+    <string name="newBalanceSentence">新余额：<xliff:g>%s</xliff:g></string>
     <string name="barcodeLongPressMessage">只能在图库应用程序中打开图像</string>
 </resources>

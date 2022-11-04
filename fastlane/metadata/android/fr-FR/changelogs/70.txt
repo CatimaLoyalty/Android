@@ -5,7 +5,7 @@
 - Ajout de photo avant et arrière à chaque carte
 - Importation de zip protégés par mot de passe
 - Importation via Stocard (Bêta)
-- Correction d'espaces inutiles des notes importées Fidme
+- Correction d'espaces inutiles des notes importées depuis Fidme
 - Prise en charge du format d'exportation Voucher Vault
 - Correction des boutons d'action flottants sur Android 4
 - Correction de la marge supérieure de la visionneuse de carte de fidélité

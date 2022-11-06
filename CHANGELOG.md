@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 115
+## v2.21.0 - 115
 
 - Open image in gallery on long-press
 - Apply Material style to dialogs

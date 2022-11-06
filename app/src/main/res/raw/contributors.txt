@@ -16,9 +16,10 @@ Gediminas Murauskas
 Michael Moroni
 Joel A
 Taco
+pfaffenrodt
 Nyatsuki
-Samantaz Fox
 laralem
+Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
@@ -40,6 +41,7 @@ betsythefc
 Silvério Santos
 waffshappen
 Robin
+Eric
 Alexander Ivanov
 ati3
 Giovanni
@@ -54,7 +56,6 @@ Tapu
 Yurical
 rr-vesp
 alajemba-vik
-Eric
 /usr/local/ΕΨΗΕΛΩΝ
 Adolfo Jayme-Barrientos
 Alessandro Mandelli
@@ -78,7 +79,7 @@ Rishi Agarwal
 Rosdyana Kusuma
 umoenks
 Simon Rusinov
-Sneakyturtle22
+Mritunjay
 Tarik Dzambic
 Thomas Bertels
 Thomas Cruveilher
@@ -93,7 +94,6 @@ phlostically
 Aditya Das
 Asier
 Kevin Sicong Jiang
-pfaffenrodt
 Tomer Ben-Rachel
 tfuxu
 Ahmed Saleh
@@ -118,6 +118,7 @@ Grzegorz
 HowITsDone
 Izzy
 Jacopo Gennaro Esposito
+Jean Mareilles
 Jean-Baptiste
 人工知能
 krkk
@@ -168,4 +169,5 @@ Marcus
 techwebpd
 tygyh
 unstartdev
+luoyang3
 JungHee Lee

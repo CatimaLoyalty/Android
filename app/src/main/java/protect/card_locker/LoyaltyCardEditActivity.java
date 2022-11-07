@@ -1184,7 +1184,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
-                Intent i = new Intent(Intent.ACTION_PICK);
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
                 i.setType("image/*");
 
                 try {

@@ -226,7 +226,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     public void addFromImage(View view) {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        photoPickerIntent.addCategory(Intent.CATEGORY_OPENABLE);
         photoPickerIntent.setType("image/*");
         try {
             photoPickerLauncher.launch(photoPickerIntent);

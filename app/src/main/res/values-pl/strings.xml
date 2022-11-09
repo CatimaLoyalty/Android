@@ -28,7 +28,7 @@
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
-    <string name="importExportHelp">„……Kopie zapasowe umożliwiają przeniesienie kart na inne urządzenie.</string>
+    <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
     <string name="importFailedTitle">Importowanie nie powiodło się</string>
     <string name="importFailed">Nie udało się zaimportować</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Pridėti</string>
-    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + plius arba importuokite kortelę iš ⋮ meniu.</string>
+    <string name="noGiftCards">Norėdami pridėti kortelę, spustelėkite mygtuką + arba importuokite kortelę iš ⋮ meniu.</string>
     <string name="storeName">Pavadinimas</string>
     <string name="note">Užrašas</string>
     <string name="cardId">Kortelės ID</string>
@@ -120,18 +120,18 @@
         <item quantity="few"><xliff:g>%d</xliff:g> kortelės</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kortelių</item>
     </plurals>
-    <string name="noGroups">Spustelėkite + pliuso mygtuką, kad pridėtumėte grupes kategorizavimui.</string>
+    <string name="noGroups">Spustelėkite mygtuką +, kad pridėtumėte grupes kategorizavimui.</string>
     <string name="groups">Grupės</string>
     <string name="enter_group_name">Įvesti grupės pavadinimą</string>
     <string name="exportSuccessful">Duomenys eksportuoti</string>
     <string name="importSuccessful">Duomenys importuoti</string>
     <string name="intent_import_card_from_url_share_text">Noriu pasidalyti su jumis kortele</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Neleisti ekrano užrakinimo</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Neleisti užrakinti ekrano</string>
     <string name="settings_keep_screen_on">Laikyti ekraną įjungtą</string>
     <string name="settings_max_font_size_scale">Didžiausias šrifto dydis</string>
     <string name="settings_dark_theme">Tamsi</string>
     <string name="settings_light_theme">Šviesi</string>
-    <string name="settings_system_theme">Sistema</string>
+    <string name="settings_system_theme">Sistemos</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_category_title_ui">Vartotojo sąsaja</string>
     <string name="settings">Nustatymai</string>

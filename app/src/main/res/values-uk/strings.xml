@@ -3,7 +3,7 @@
     <string name="privacy_policy_popup_text">Політика конфіденційності (вимагається деякими магазинами):
 \n
 \nЖОДНОЇ ІНФОРМАЦІЇ НЕ ЗБИРАЄТЬСЯ, що може підтвердити будь-хто, адже наша програма це вільне програмне забезпечення.</string>
-    <string name="noGiftCards">Натисніть + щоб додати карту чи імпортуйте з ⋮ меню.</string>
+    <string name="noGiftCards">Натисніть кнопку +, щоб додати картку, або ⋮ для імпорту з меню.</string>
     <string name="settings_display_barcode_max_brightness">Яскравіший штрих-код</string>
     <string name="enterBarcodeInstructions">Введіть ID та оберіть тип штрих-коду чи \"Не має штрих-коду\".</string>
     <string name="selectBarcodeTitle">Оберіть штрих-код</string>
@@ -269,4 +269,12 @@
     <string name="welcome">Ласкаво просимо до Catima</string>
     <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>
     <string name="barcodeLongPressMessage">Галерея може відкривати лише зображення</string>
+    <string name="importCards">Імпорт картки</string>
+    <string name="updateBalanceTitle">Скільки витратили\?</string>
+    <string name="updateBalanceHint">Введіть суму</string>
+    <string name="currentBalanceSentence">Поточний баланс: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Новий баланс: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Не вдалося отримати доступ до камери</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Для сканування штрих-кодів програмі Catima потрібен доступ до вашої камери. Натисніть тут, щоб змінити дозволи.</string>
+    <string name="updateBalance">Оновити баланс</string>
 </resources>

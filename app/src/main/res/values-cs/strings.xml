@@ -34,10 +34,10 @@
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
     <string name="importOptionApplicationTitle">Použitím jiné aplikace</string>
-    <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
+    <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
     <string name="importOptionApplicationButton">Použít jinou aplikaci</string>
     <string name="about">O aplikaci</string>
-    <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
+    <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
@@ -49,20 +49,20 @@
     <string name="moveBarcodeToTopOfScreen">Přesunout čárový kód do horní části obrazovky</string>
     <string name="chooseExpiryDate">Zvolte datum vypršení platnosti</string>
     <string name="never">Nikdy</string>
-    <string name="expiryDate">Platnost</string>
+    <string name="expiryDate">Vypršení platnosti</string>
     <string name="editBarcode">Upravit čárový kód</string>
     <string name="barcode">Kód</string>
     <string name="app_resources">Svobodné zdroje třetích stran: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Svobodné knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_old">Na základě Loyalty Card Keychain
+    <string name="app_copyright_old">Založeno na Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
-    <string name="failedParsingImportUriError">Nelze analyzovat import URI</string>
+    <string name="failedParsingImportUriError">Nelze analyzovat importovanou URI</string>
     <string name="noCardExistsError">Takovou kartu nelze najít</string>
     <string name="noCardsMessage">Nejprve přidejte kartu</string>
     <string name="cardShortcut">Zástupce karty</string>
-    <string name="share">Podíl</string>
-    <string name="unstar">Odebrat z oblíbených</string>
+    <string name="share">Sdílet</string>
+    <string name="unstar">Odebrat z oblíbených</string>
     <string name="star">Přidat do oblíbených</string>
     <string name="noBarcode">Žádný čárový kód</string>
     <string name="barcodeNoBarcode">Tato karta nemá čárový kód</string>
@@ -72,9 +72,9 @@
     <string name="thumbnailDescription">Miniatura</string>
     <string name="card_ids_copied">ID zkopírováno</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">Opravdu chcete <xliff:g>%d</xliff:g> kartu trvale odstranit\?</item>
-        <item quantity="few">Opravdu chcete <xliff:g>%d</xliff:g> karty trvale odstranit\?</item>
-        <item quantity="other">Opravdu chcete <xliff:g>%d</xliff:g> karet trvale odstranit\?</item>
+        <item quantity="one">Opravdu chcete trvale odstranit <xliff:g>%d</xliff:g> kartu\?</item>
+        <item quantity="few">Opravdu chcete trvale odstranit <xliff:g>%d</xliff:g> karty\?</item>
+        <item quantity="other">Opravdu chcete trvale odstranit <xliff:g>%d</xliff:g> karet\?</item>
     </plurals>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Odstranit <xliff:g>%d</xliff:g> kartu</item>
@@ -82,7 +82,7 @@
         <item quantity="other">Odstranit <xliff:g>%d</xliff:g> karet</item>
     </plurals>
     <string name="importSuccessful">Data importována</string>
-    <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
+    <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Bránit uzamykání obrazovky</string>
     <string name="settings_keep_screen_on">Udržovat obrazovku zapnutou</string>
     <string name="settings_max_font_size_scale">Maximální velikost písma</string>
@@ -162,7 +162,7 @@
     <string name="errorReadingImage">Obrázek se nepodařilo přečíst</string>
     <string name="noBarcodeFound">Čárový kód nenalezen</string>
     <string name="groupsList">Skupiny: <xliff:g>%s</xliff:g></string>
-    <string name="addFromImage">Výběr obrázku z galerie</string>
+    <string name="addFromImage">Výběr obrázku z galerie</string>
     <string name="addManually">Ruční zadání ID</string>
     <string name="leaveWithoutSaveConfirmation">Ukončit bez uložení\?</string>
     <string name="leaveWithoutSaveTitle">Ukončit</string>
@@ -216,7 +216,7 @@
     <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
     <string name="group_updated">Skupina aktualizována</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
-    <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je přiřadit do skupiny zde.</string>
+    <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je zde přiřadit do skupiny.</string>
     <string name="shortcutSelectCard">Vybrat kartu</string>
     <string name="action_show_details">Zobrazit detaily</string>
     <string name="action_hide_details">Skrýt detaily</string>

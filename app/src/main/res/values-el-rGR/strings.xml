@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Προσθήκη</string>
-    <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή εισάγετε κάρτες από το ⋮ μενού.</string>
+    <string name="noGiftCards">Κάντε κλικ στο + κουμπί για να προσθέσετε μία κάρτα ή προσθέστε από το ⋮ μενού.</string>
     <string name="storeName">Όνομα</string>
     <string name="note">Σημείωση</string>
     <string name="cardId">Κωδικός Κάρτας</string>
@@ -85,7 +85,7 @@
     <string name="expiryDate">Ημερομηνία λήξης</string>
     <string name="settings_keep_screen_on">Κράτα την οθόνη ανοιχτή</string>
     <string name="leaveWithoutSaveTitle">Έξοδος</string>
-    <string name="swipeToSwitchImages">Σύρετε ή πατήστε παρατεταμένα για να αλλάξετε εικόνες</string>
+    <string name="swipeToSwitchImages">Σύρετε για να αλλάξετε εικόνες, κρατήστε για να ανοίξετε μια εικόνα στην συλλογή</string>
     <string name="sort_by_balance">Υπόλοιπο</string>
     <string name="reverse">... σε αντίθετη σειρά</string>
     <string name="version_history">Ιστορικό έκδοσης</string>
@@ -245,4 +245,22 @@
     <string name="unarchive">Αφαίρεση από το αρχείο</string>
     <string name="archiveList">Αρχείο</string>
     <string name="noUnarchivedCardsMessage">Δεν υπάρχουν αρχειοθετημένες κάρτες</string>
+    <string name="updateBalanceTitle">Πόσα ξοδέψατε;</string>
+    <string name="cameraPermissionDeniedTitle">Αδύνατη η πρόσβαση στην κάμερα</string>
+    <string name="failedToRetrieveImageFile">Αποτυχία ανάκτησης αρχείου εικόνας</string>
+    <string name="previousCard">Προηγούμενη</string>
+    <string name="nextCard">Επόμενη</string>
+    <string name="updateBalance">Ενημέρωση υπολοίπου</string>
+    <string name="barcodeLongPressMessage">Μόνο εικόνες μπορούν να ανοιχτούν στην εφαρμογή φωτογραφιών</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμοκώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> κάρτας)</item>
+        <item quantity="other">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> καρτών)</item>
+    </plurals>
+    <string name="importCards">Εισαγωγή καρτών</string>
+    <string name="updateBalanceHint">Εισάγετε ποσό</string>
+    <string name="currentBalanceSentence">Τωρινό υπόλοιπο <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Νέο υπόλοιπο: <xliff:g>%s</xliff:g></string>
+    <string name="failedToOpenUrl">Εγκαταστήστε έναν περιηγητή πρώτα</string>
+    <string name="welcome">Καλώς ήρθατε στο Catima</string>
 </resources>

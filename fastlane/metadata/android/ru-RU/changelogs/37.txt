@@ -1,0 +1,1 @@
+- Исправление проблемы с совместным использованием карточек без цвета фона (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

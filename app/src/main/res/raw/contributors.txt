@@ -10,9 +10,9 @@ mondstern
 IllusiveMan196
 StoyanDimitrov
 Altonss
-Petr Novák
 SlavekB
 Gediminas Murauskas
+Petr Novák
 Michael Moroni
 Joel A
 Taco
@@ -91,6 +91,7 @@ inesre
 lgasp
 phlostically
 Ágata Leuck
+BmBKun
 Aditya Das
 Asier
 Kevin Sicong Jiang
@@ -167,6 +168,7 @@ psa-jforestier
 sergio
 Marcus
 techwebpd
+Truestorybaby 
 tygyh
 unstartdev
 luoyang3

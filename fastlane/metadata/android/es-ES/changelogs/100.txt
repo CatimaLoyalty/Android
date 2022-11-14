@@ -1,0 +1,2 @@
+- Oculte los íconos de búsqueda, expanda y clasifique hasta que haya al menos 1 tarjeta
+- Varias correcciones en los temas

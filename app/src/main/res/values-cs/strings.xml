@@ -113,7 +113,7 @@
     <string name="settings_locale">Jazyk</string>
     <string name="turn_flashlight_off">Vypnout světlo</string>
     <string name="turn_flashlight_on">Zapnout světlo</string>
-    <string name="failedGeneratingShareURL">Nepodařilo se vygenerovat sdílenou adresu URL. Nahlaste to prosím.</string>
+    <string name="failedGeneratingShareURL">Nepodařilo se vygenerovat adresu URL pro sdílení. Nahlaste to prosím.</string>
     <string name="passwordRequired">Zadejte prosím heslo</string>
     <string name="no">Ne</string>
     <string name="yes">Ano</string>
@@ -133,23 +133,23 @@
     <string name="barcodeId">Hodnota čárového kódu</string>
     <string name="setBarcodeId">Nastavení hodnoty čárového kódu</string>
     <string name="sameAsCardId">Stejné jako ID</string>
-    <string name="importVoucherVaultMessage">Vyberte svůj <i>vouchervault.json</i> exportovaný z Voucher Vault, který chcete importovat.
+    <string name="importVoucherVaultMessage">Vyberte k importu svůj <i>vouchervault.json</i> exportovaný z Voucher Vault.
 \nVytvoříte jej tak, že nejprve stisknete tlačítko Exportovat v aplikaci Voucher Vault.</string>
-    <string name="importVoucherVault">Import z Voucher Vault</string>
-    <string name="importStocardMessage">Vyberte svůj <i>***-sync.zip</i> exportovaný z aplikace Stocard, který chcete importovat.
+    <string name="importVoucherVault">Import z Voucher Vault</string>
+    <string name="importStocardMessage">Vyberte k importu svůj <i>***-sync.zip</i> exportovaný z aplikace Stocard.
 \nZískejte ji zasláním e-mailu na adresu support@stocardapp.com s žádostí o export vašich dat.</string>
     <string name="importStocard">Import ze Stocard</string>
-    <string name="importLoyaltyCardKeychainMessage">Vyberte <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain, který chcete importovat.
+    <string name="importLoyaltyCardKeychainMessage">Vyberte k importu <i>LoyaltyCardKeychain.csv</i> exportovaný z Loyalty Card Keychain.
 \nVytvoříte jej z nabídky Import/Export v Loyalty Card Keychain tak, že tam nejprve stisknete tlačítko Exportovat.</string>
-    <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
-    <string name="importFidmeMessage">Vyberte svůj <i>fidme-export-request-xxxxxx.zip</i> exportovaný z FidMe k importu a poté vyberte typy čárových kódů ručně.
+    <string name="importLoyaltyCardKeychain">Import z Loyalty Card Keychain</string>
+    <string name="importFidmeMessage">Vyberte k importu svůj <i>fidme-export-request-xxxxxx.zip</i> exportovaný z FidMe a poté vyberte typy čárových kódů ručně.
 \nVytvoříte jej ze svého profilu FidMe tak, že nejprve zvolíte možnost Ochrana dat a poté stisknete tlačítko Extrahovat moje data.</string>
-    <string name="importFidme">Import z FidMe</string>
+    <string name="importFidme">Import z FidMe</string>
     <string name="importCatimaMessage">Vyberte <i>catima.zip</i> exportovaný z aplikace Catima, který chcete importovat.
 \nVytvoříte jej z nabídky Import/Export jiné aplikace Catima tak, že v ní nejprve stisknete tlačítko Exportovat.</string>
-    <string name="importCatima">Import z Catima</string>
+    <string name="importCatima">Import z Catima</string>
     <string name="accept">Přijmout</string>
-    <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):
+    <string name="privacy_policy_popup_text">Oznámení o zásadách ochrany osobních údajů (vyžadováno některými obchody s aplikacemi):
 \n
 \nNejsou shromažďovány žádné údaje, což může potvrdit každý, protože naše aplikace je svobodný software.</string>
     <string name="privacy_policy">Zásady soukromí</string>
@@ -204,7 +204,7 @@
     <string name="on_github">na GitHubu</string>
     <string name="source_repository">Úložiště zdrojů</string>
     <string name="license">Licence</string>
-    <string name="help_translate_this_app">Pomozte s překladem této aplikace</string>
+    <string name="help_translate_this_app">Pomozte s překladem této aplikace</string>
     <string name="report_error">Nahlásit chybu</string>
     <string name="on_google_play">na Google Play</string>
     <string name="exportPassword">Nastavení hesla pro ochranu exportu (volitelné)</string>
@@ -223,7 +223,7 @@
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobrazit podrobnosti</string>
     <string name="hideMoreInfo">Skrýt podrobnosti</string>
-    <string name="starred">S hvězdičkou</string>
+    <string name="starred">S hvězdičkou</string>
     <string name="set_scale">Nastavení měřítka</string>
     <string name="options">Volby</string>
     <plurals name="balancePoints">
@@ -238,7 +238,7 @@
     <string name="settings_lock_on_opening_orientation">Zamknout podle orientace použité při otevření karty</string>
     <string name="archive">Archivovat</string>
     <string name="unarchive">Vrátit z archivu</string>
-    <string name="archiveList">Archivovat</string>
+    <string name="archiveList">Archiv</string>
     <string name="noUnarchivedCardsMessage">Nejsou žádné karty vrácené z archivu</string>
     <string name="unarchived">Karta vrácena z archivu</string>
     <string name="settings_card_orientation">Orientace čárového kódu</string>

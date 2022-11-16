@@ -425,7 +425,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     public void onBackPressed() {
-        if (!mSearchView.isIconified()) {
+        if (mSearchView != null && !mSearchView.isIconified()) {
             mSearchView.setIconified(true);
             return;
         }

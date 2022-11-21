@@ -34,27 +34,6 @@ public class LoyaltyCard implements Parcelable {
     public int zoomLevel;
     public int zoomWidth;
 
-    public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
-                       final BigDecimal balance, final Currency balanceType, final String cardId,
-                       @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus,
-                       final long lastUsed, final int zoomLevel, final int archiveStatus) {
-        this.id = id;
-        this.store = store;
-        this.note = note;
-        this.expiry = expiry;
-        this.balance = balance;
-        this.balanceType = balanceType;
-        this.cardId = cardId;
-        this.barcodeId = barcodeId;
-        this.barcodeType = barcodeType;
-        this.headerColor = headerColor;
-        this.starStatus = starStatus;
-        this.lastUsed = lastUsed;
-        this.zoomLevel = zoomLevel;
-        this.archiveStatus = archiveStatus;
-    }
-
     // Another constructor, with zoomWidth as an extra parameter
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
                        final BigDecimal balance, final Currency balanceType, final String cardId,
@@ -156,7 +135,6 @@ public class LoyaltyCard implements Parcelable {
         if (cursor.isNull(headerColorColumn) == false) {
             headerColor = cursor.getInt(headerColorColumn);
         }
-//        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, archived);
 
         return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, zoomWidth, archived);
     }

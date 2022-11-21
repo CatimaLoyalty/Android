@@ -21,7 +21,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 15;
+    public static final int DATABASE_VERSION = 16;
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
@@ -311,6 +311,9 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 14 && newVersion >= 14) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' ");
+        }
+
+        if (oldVersion < 16 && newVersion >= 16) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_WIDTH + " INTEGER DEFAULT '100' ");
         }
@@ -319,6 +322,7 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' ");
         }
+
     }
 
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {

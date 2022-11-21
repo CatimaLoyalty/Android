@@ -280,8 +280,8 @@
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
     <string name="starred">Starred</string>
-    <string name="set_scale">Set scale</string>
-    <string name="set_width_scale">Set width scale</string>
+    <string name="set_scale">Set height</string>
+    <string name="set_width_scale">Set width</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="duplicateCard">Duplicate</string>
     <string name="archive">Archive</string>

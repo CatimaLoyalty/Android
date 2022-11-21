@@ -70,6 +70,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.nio.channels.SelectionKey;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -399,72 +400,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         heightScalerLayout = binding.heightScalerLayout;
         centerGuideline = binding.centerGuideline;
         barcodeScaler = binding.barcodeScaler;
-        zoomHeightText = binding.zoomHeightText;
-        barcodeScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
-                    return;
-                }
-                Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + barcodeScaler.getMax());
-                float scale = (float) progress / (float) barcodeScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
 
-                loyaltyCard.zoomLevel = progress;
-                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
-
-                setCenterGuideline(loyaltyCard.zoomLevel);
-
-                drawMainImage(mainImageIndex, true, isFullscreen);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        SeekBarListener heightScalerListener = new SeekBarListener(barcodeScaler);
+        barcodeScaler.setOnSeekBarChangeListener(heightScalerListener);
 
         // set zoom width of barcode
         barcodeWidthScaler = binding.barcodeWidthScaler;
         zoomWidthText = binding.zoomWidthText;
-        barcodeWidthScaler.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
-                    return;
-                }
-                Log.d(TAG, "Progress is " + progress);
-                Log.d(TAG, "Max is " + barcodeWidthScaler.getMax());
-                float scale = (float) progress / (float) barcodeWidthScaler.getMax();
-                Log.d(TAG, "Scaling to " + scale);
-
-                loyaltyCard.zoomWidth = progress;
-                DBHelper.updateLoyaltyCardZoomWidth(database, loyaltyCardId, loyaltyCard.zoomWidth);
-
-                mainImage.getLayoutParams().width = mainLayout.getWidth() * loyaltyCard.zoomWidth / 100;
-                mainImage.requestLayout();
-
-                drawMainImage(mainImageIndex, true, isFullscreen);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        SeekBarListener widthScalerListener = new SeekBarListener(barcodeWidthScaler);
+        barcodeWidthScaler.setOnSeekBarChangeListener(widthScalerListener);
 
         rotationEnabled = true;
 
@@ -805,6 +749,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
         barcodeScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
         barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
+        barcodeWidthScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
+        barcodeWidthScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
         maximizeButton.setBackgroundColor(darkenedColor);
         minimizeButton.setBackgroundColor(darkenedColor);
         bottomAppBar.setBackgroundColor(darkenedColor);
@@ -1280,5 +1226,48 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
         );
+    }
+
+    /**
+     * Helper class for the barcode zoom scalers.
+     */
+    public class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
+        private SeekBar seekBar;
+
+        public SeekBarListener(SeekBar sb) {
+            seekBar = sb;
+        }
+
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if (!fromUser) {
+                Log.d(TAG, "non user triggered onProgressChanged, ignoring, progress is " + progress);
+                return;
+            }
+            Log.d(TAG, "Progress is " + progress);
+            Log.d(TAG, "Max is " + seekBar.getMax());
+            float scale = (float) progress / (float) seekBar.getMax();
+            Log.d(TAG, "Scaling to " + scale);
+
+            if (seekBar == barcodeScaler) {
+                loyaltyCard.zoomLevel = progress;
+                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
+                setCenterGuideline(loyaltyCard.zoomLevel);
+            } else if (seekBar == barcodeWidthScaler) {
+                loyaltyCard.zoomWidth = progress;
+                DBHelper.updateLoyaltyCardZoomWidth(database, loyaltyCardId, loyaltyCard.zoomWidth);
+                mainImage.getLayoutParams().width = mainLayout.getWidth() * loyaltyCard.zoomWidth / 100;
+                mainImage.requestLayout();
+            }
+
+            drawMainImage(mainImageIndex, true, isFullscreen);
+        }
+
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
     }
 }

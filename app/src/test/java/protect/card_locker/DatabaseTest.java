@@ -40,19 +40,6 @@ public class DatabaseTest {
         mDatabase = TestHelpers.getEmptyDb(mActivity).getWritableDatabase();
     }
 
-    /**
-     * Test the number of columns in the database, and whether zoomWidth was updated successuflly.
-     * This test is added for the addition of the "zoomWidth" function.
-     */
-    @Test
-    public void testNumColumns() {
-        assertEquals(15,DBHelper.getColumnCount(mDatabase));
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        assertTrue(DBHelper.updateLoyaltyCardZoomWidth(mDatabase, 1, 80));
-        LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
-        assertEquals(80,loyaltyCard.zoomWidth);
-    }
-
     @Test
     public void addRemoveOneGiftCard() {
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -501,6 +488,7 @@ public class DatabaseTest {
         assertEquals(0, card.starStatus);
         assertEquals(0, card.lastUsed);
         assertEquals(100, card.zoomLevel);
+        assertEquals(100, card.zoomWidth);
 
         // Determine that the entries are queryable and the fields are correct
         LoyaltyCard card2 = DBHelper.getLoyaltyCard(database, newCardId2);
@@ -516,6 +504,7 @@ public class DatabaseTest {
         assertEquals(0, card2.starStatus);
         assertEquals(0, card2.lastUsed);
         assertEquals(100, card2.zoomLevel);
+        assertEquals(100, card.zoomWidth);
     }
 
     @Test

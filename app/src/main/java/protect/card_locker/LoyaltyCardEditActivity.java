@@ -1184,11 +1184,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
-                Intent i = new Intent(Intent.ACTION_PICK);
-                i.setType("image/*");
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                contentIntent.setType("image/*");
+                Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
 
                 try {
-                    mPhotoPickerLauncher.launch(i);
+                    mPhotoPickerLauncher.launch(chooserIntent);
                 } catch (ActivityNotFoundException e) {
                     Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
                     Log.e(TAG, "No activity found to handle intent", e);

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="addManually">직접 카드 ID 입력</string>
-    <string name="groupsList">그룹: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="groupsList">그룹: <xliff:g>%s</xliff:g></string>
     <string name="all">모두</string>
     <string name="groups">그룹</string>
     <string name="enter_group_name">그룹 이름 입력</string>
     <string name="settings_dark_theme">어두움</string>
     <string name="settings_light_theme">밝음</string>
-    <string name="debug_version_fmt">버전: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="version">%s</xliff:g></string>
-    <string name="about_title_fmt"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_name">%s</xliff:g> 정보</string>
+    <string name="debug_version_fmt">버전: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> 정보</string>
     <string name="settings_system_theme">시스템</string>
     <string name="settings_theme">테마</string>
     <string name="settings_category_title_ui">사용자 인터페이스</string>
     <string name="settings">설정</string>
     <string name="enterBarcodeInstructions">카드 ID를 입력하고 카드에서 사용하는 바코드 이미지를 선택하세요. 바코드를 사용하지 않는 경우 “이 카드는 바코드가 없음”을 선택하세요.</string>
-    <string name="app_revision_fmt">리비전 정보: <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">리비전 정보: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">바코드 선택</string>
     <string name="about">정보</string>
     <string name="exporting">내보내는 중…</string>
@@ -74,4 +74,7 @@
     <string name="barcode">바코드</string>
     <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
     <string name="deleteTitle">카드 삭제</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="other">카드 <xliff:g>%d</xliff:g> 제거</item>
+    </plurals>
 </resources>

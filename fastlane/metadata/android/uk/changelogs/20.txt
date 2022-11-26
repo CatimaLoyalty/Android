@@ -1,1 +1,1 @@
-- Збій під час інсталяції на деяких версіях Android (ймовірно, Android 5 і нижче). (витяг №184 (https://github.com/brarcher/loyalty-card-locker/pull/184))
+- Збій під час інсталяції на деяких версіях Android (ймовірно, Android 5 і нижче)

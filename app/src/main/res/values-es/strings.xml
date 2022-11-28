@@ -158,8 +158,9 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Evitar el bloqueo de pantalla</string>
     <string name="settings_keep_screen_on">Mantener pantalla encendida</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> tarjeta seleccionada</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> tarjetas seleccionadas</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> seleccionada</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> seleccionadas</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> seleccionadas</item>
     </plurals>
     <string name="deleteTitle">Eliminar la tarjeta</string>
     <string name="deleteConfirmation">¿Quiere eliminar permanentemente esta tarjeta\?</string>

@@ -22,7 +22,7 @@
     <string name="action_add">Dodaj</string>
     <string name="storeName">Ime</string>
     <string name="note">Napomena</string>
-    <string name="noMatchingGiftCards">Ništa nisam našao. Pokušajte promijeniti pretraživanje.</string>
+    <string name="noMatchingGiftCards">Nema rezultata. Pokušajte promijeniti pretraživanje.</string>
     <string name="cardId">ID kartice</string>
     <string name="barcodeType">Vrsta crtičnog koda</string>
     <string name="barcodeNoBarcode">Na ovoj kartici nema crtičnog koda</string>
@@ -80,4 +80,5 @@
     <string name="leaveWithoutSaveTitle">Izlaz</string>
     <string name="card">Karta</string>
     <string name="leaveWithoutSaveConfirmation">Otići bez očuvanja\?</string>
+    <string name="noGiftCardsGroup">Izradite neke kartice, a zatim ih dodijelite grupi ovdje.</string>
 </resources>

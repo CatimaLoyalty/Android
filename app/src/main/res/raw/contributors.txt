@@ -24,8 +24,8 @@ arno-github
 Ankit Tiwari
 Sergio Paredes
 Aayush Gupta
-huuhaa
 gallegonovato
+huuhaa
 arshbeerSingh
 Freddo espresso
 Quentin PAGÈS
@@ -130,6 +130,7 @@ Lucas da Costa
 bittin
 Manan Jhaveri
 Marco
+Mario M. Viscovich
 Mattia
 Md. Al-Amin
 Michael Gangolf

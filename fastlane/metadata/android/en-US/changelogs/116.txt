@@ -1,0 +1,2 @@
+- Fix quick spend dialog not allowing , separator
+- Support loading image from file manager

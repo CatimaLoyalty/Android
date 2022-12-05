@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 116
+
+- Fix quick spend dialog not allowing , separator
+- Support loading image from file manager
+
 ## v2.21.0 - 115
 
 - Open image in gallery on long-press

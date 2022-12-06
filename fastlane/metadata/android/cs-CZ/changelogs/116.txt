@@ -1,0 +1,2 @@
+- Oprava dialogu pro rychlé zadání útraty, který neumožňuje oddělovač , (čárku)
+- Podpora načítání obrázku ze správce souborů

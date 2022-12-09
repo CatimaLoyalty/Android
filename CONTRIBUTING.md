@@ -100,5 +100,5 @@ your real name, saying:
 Finally, you will need to submit your patches so that they can be reviewed
 and potentially merged into the main Catima repository. The preferred
 way to do this is to submit a Pull Request to the Catima project.
-Changes need to apply cleanly onto the master branch and pass all
+Changes need to apply cleanly onto the main branch and pass all
 unit tests and produce no errors during static analysis.

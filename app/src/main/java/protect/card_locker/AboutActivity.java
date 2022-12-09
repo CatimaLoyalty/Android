@@ -34,7 +34,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
 
         binding.versionHistory.setTag("https://catima.app/changelog/");
         binding.translate.setTag("https://hosted.weblate.org/engage/catima/");
-        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/master/LICENSE");
+        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/main/LICENSE");
         binding.repo.setTag("https://github.com/CatimaLoyalty/Android/");
         binding.privacy.setTag("https://catima.app/privacy-policy/");
         binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");

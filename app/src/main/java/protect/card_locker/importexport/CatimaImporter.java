@@ -354,8 +354,23 @@ public class CatimaImporter implements Importer {
             // This field did not exist in versions 2.5.0 and before
             // We catch this exception so we can still import old backups
         }
+        int frontUserDefined = 0;
+        try {
+            frontUserDefined = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.FRONT_USER_DEFINED, record, false);
+        } catch (FormatException _e) {
+            // This field did not exist in versions 0.28 and before
+            // We catch this exception so we can still import old backups
+        }
+        int backUserDefined = 0;
+        try {
+            backUserDefined = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.BACK_USER_DEFINED, record, false);
+        } catch (FormatException _e) {
+            // This field did not exist in versions 0.28 and before
+            // We catch this exception so we can still import old backups
+        }
 
-        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
+
+        DBHelper.insertLoyaltyCard(database, id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus,frontUserDefined,backUserDefined);
     }
 
     /**

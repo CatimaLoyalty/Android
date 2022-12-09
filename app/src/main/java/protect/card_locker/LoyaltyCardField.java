@@ -12,5 +12,7 @@ public enum LoyaltyCardField {
     barcodeType,
     headerColor,
     starStatus,
-    archiveStatus
+    archiveStatus,
+    frontUserDefined,
+    backUserDefined
 }

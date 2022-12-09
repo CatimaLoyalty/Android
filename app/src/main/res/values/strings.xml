@@ -212,6 +212,7 @@
     <string name="setBackImage">Set back image</string>
     <string name="removeImage">Remove image</string>
     <string name="takePhoto">Take a photo</string>
+    <string name="replacePhoto">Do you want to replace %s with current barcode?</string>
     <string name="updateBarcodeQuestionTitle">Update barcode value?</string>
     <string name="updateBarcodeQuestionText">You changed the ID. Do you want to also update the barcode to use the same value?</string>
     <string name="yes">Yes</string>

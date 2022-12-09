@@ -344,7 +344,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             Bundle inputBundle = intent.getExtras();
             String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
-            processBarcodeValues(barcodeValues, group);
+            Uri coverUri = inputBundle != null ?inputBundle.getParcelable(LoyaltyCardEditActivity.BUNDLE_COVER_URI): null;
+            processBarcodeValues(barcodeValues, group,coverUri);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -498,7 +499,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
+    private void processBarcodeValues(BarcodeValues barcodeValues, String group, Uri coverUri) {
         if (barcodeValues.isEmpty()) {
             throw new IllegalArgumentException("barcodesValues may not be empty");
         }
@@ -507,6 +508,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Bundle newBundle = new Bundle();
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+        if(coverUri != null) {
+            newBundle.putParcelable(LoyaltyCardEditActivity.BUNDLE_COVER_URI, coverUri);
+        }
         if (group != null) {
             newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
         }
@@ -548,7 +552,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     finish();
                     return;
                 }
-                processBarcodeValues(barcodeValues, null);
+                processBarcodeValues(barcodeValues, null, null);
             } else {
                 Log.e(TAG, "Wrong mime-type");
             }

@@ -206,6 +206,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             Bundle manualResultBundle = new Bundle();
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
+            manualResultBundle.putParcelable(LoyaltyCardEditActivity.BUNDLE_COVER_URI, intent.getData());
             if (addGroup != null) {
                 manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
             }

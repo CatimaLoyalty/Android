@@ -21,7 +21,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 15;
+    public static final int DATABASE_VERSION = 16;
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
@@ -46,6 +46,8 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String LAST_USED = "lastused";
         public static final String ZOOM_LEVEL = "zoomlevel";
         public static final String ARCHIVE_STATUS = "archive";
+        public static final String FRONT_USER_DEFINED = "frontuserdefined";
+        public static final String BACK_USER_DEFINED = "backuserdefined";
     }
 
     public static class LoyaltyCardDbIdsGroups {
@@ -105,7 +107,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
                 LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100', " +
-                LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
+                LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0', " +
+                LoyaltyCardDbIds.FRONT_USER_DEFINED + " INTEGER DEFAULT '0'," +
+                LoyaltyCardDbIds.BACK_USER_DEFINED + " INTEGER DEFAULT '0')");
 
         // create associative table for cards in groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
@@ -314,6 +318,12 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' ");
         }
+        if(oldVersion < 16 && newVersion >= 16){
+            db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " + LoyaltyCardDbIds.FRONT_USER_DEFINED + " INTEGER DEFAULT '0' ");
+            db.execSQL("ALTER TABLE "+ LoyaltyCardDbIds.TABLE
+                    + " ADD COLUMN " +LoyaltyCardDbIds.BACK_USER_DEFINED +" INTEGER DEFAULT '0' ");
+        }
     }
 
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {
@@ -361,7 +371,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final SQLiteDatabase database, final String store, final String note, final Date expiry,
             final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
-            final int starStatus, final Long lastUsed, final int archiveStatus) {
+            final int starStatus, final Long lastUsed, final int archiveStatus, final int frontUserDefined, final int backUserDefined) {
         database.beginTransaction();
 
         // Card
@@ -378,6 +388,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        contentValues.put(LoyaltyCardDbIds.FRONT_USER_DEFINED, frontUserDefined);
+        contentValues.put(LoyaltyCardDbIds.BACK_USER_DEFINED, backUserDefined);
         long id = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -388,12 +400,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return id;
     }
-
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final int id, final String store, final String note,
             final Date expiry, final BigDecimal balance, final Currency balanceType,
             final String cardId, final String barcodeId, final CatimaBarcode barcodeType,
-            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus) {
+            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus, final int frontUserDefined, final int backUserDefined) {
         database.beginTransaction();
 
         // Card
@@ -411,6 +422,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        contentValues.put(LoyaltyCardDbIds.FRONT_USER_DEFINED, frontUserDefined);
+        contentValues.put(LoyaltyCardDbIds.BACK_USER_DEFINED, backUserDefined);
         database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
         // FTS
@@ -426,7 +439,7 @@ public class DBHelper extends SQLiteOpenHelper {
             SQLiteDatabase database, final int id, final String store, final String note,
             final Date expiry, final BigDecimal balance, final Currency balanceType,
             final String cardId, final String barcodeId, final CatimaBarcode barcodeType,
-            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus) {
+            final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus, final int frontUserDefined, final int backUserDefined) {
         database.beginTransaction();
 
         // Card
@@ -443,6 +456,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        contentValues.put(LoyaltyCardDbIds.FRONT_USER_DEFINED, frontUserDefined);
+        contentValues.put(LoyaltyCardDbIds.BACK_USER_DEFINED, backUserDefined);
 
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID), withArgs(id));
@@ -459,6 +474,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
+        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(id));
+        return (rowsUpdated == 1);
+    }
+
+    public static boolean updateLoyaltyCardUserDefinedStatus(SQLiteDatabase database, final int id, final int frontUserDefined, final int backUserDefined){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbIds.FRONT_USER_DEFINED, frontUserDefined);
+        contentValues.put(LoyaltyCardDbIds.BACK_USER_DEFINED, backUserDefined);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));

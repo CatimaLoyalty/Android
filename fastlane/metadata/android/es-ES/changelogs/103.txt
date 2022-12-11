@@ -1,0 +1,2 @@
+- Corrección de la selección manual de idioma que no se aplica en todas partes
+- Corregir el bloqueo en la vista de edición en la configuración regional sin región

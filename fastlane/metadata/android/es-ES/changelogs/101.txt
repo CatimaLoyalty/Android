@@ -1,0 +1,3 @@
+- Corregir cropper no utilizar el color del tema
+- Corregir problemas menores de tematización
+- Añadir tema oscuro negro puro para pantallas OLED

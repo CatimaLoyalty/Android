@@ -1,0 +1,2 @@
+- Fijar el bloque gris que aparece en el valor no válido para el código de barras
+- Corrección de la importación de Stocard

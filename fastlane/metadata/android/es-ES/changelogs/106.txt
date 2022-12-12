@@ -1,0 +1,1 @@
+- Corregir algunas secuencias de caracteres que se muestran como un solo carácter

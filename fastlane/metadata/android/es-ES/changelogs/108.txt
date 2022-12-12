@@ -1,0 +1,5 @@
+- Agregada la función para duplicar los mapas
+- No permitir elegir la fecha del vencimiento antes de 1970 (nunca funcionó de todos modos)
+- Agregado el soporte para archivar los mapas
+- Mover eliminar de editar a ver
+- Eliminar del ícono de bloqueo de rotación a favor de una nueva configuración de bloqueo de rotación

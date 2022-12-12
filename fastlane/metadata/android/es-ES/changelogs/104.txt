@@ -1,0 +1,2 @@
+- Guardar el estado de ampliación de los detalles de las tarjetas
+- Correcciones menores de la interfaz de usuario

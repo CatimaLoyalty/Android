@@ -1,0 +1,1 @@
+- Correcciones a la importación de Stocard

@@ -1,0 +1,2 @@
+- Corrigir caixa de diálogo de gastos rápidos não permitir o separador ,
+- Suporte a carregar imagem do gestor de ficheiros

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="noGiftCards">Nyomja meg a + jelet a kártya hozzáadásához, vagy importáljon a ⋮ menüvel.</string>
+    <string name="noGiftCards">Kattintson a + plusz gombra egy kártya hozzáadásához, vagy importáljon a ⋮ menüből.</string>
     <string name="action_add">Hozzáadás</string>
     <string name="action_search">Keresés</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g>%d</xliff:g> kiválasztva</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kiválasztva</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> kiválasztott</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kiválasztottak</item>
     </plurals>
     <string name="noCardsMessage">Először adjon hozzá egy kártyát</string>
     <string name="noGiftCardsGroup">Hozzon létre kártyákat, és rendelje hozzá a megfelelő csoporthoz.</string>
@@ -24,8 +24,8 @@
     <string name="delete">Törlés</string>
     <string name="confirm">Alkalmaz</string>
     <plurals name="deleteCardsTitle">
-        <item quantity="one"><xliff:g>%d</xliff:g> törlése</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> törlése</item>
+        <item quantity="one">Törölje az <xliff:g>%d</xliff:g> kártyát</item>
+        <item quantity="other">Törölje az <xliff:g>%d</xliff:g> kártyákat</item>
     </plurals>
     <string name="deleteConfirmation">Véglegesen törli a kártyát\?</string>
     <string name="ok">Rendben</string>
@@ -137,7 +137,7 @@
     <string name="currency">Valuta</string>
     <string name="points">Pontok</string>
     <string name="parsingBalanceFailed">A <xliff:g>%s</xliff:g> nem tűnik valós egyenlegnek.</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Hűségkártya kulcstartó</string>
     <string name="privacy_policy">Adatvédelmi Szabályzat</string>
     <string name="accept">Elfogad</string>
     <string name="importCatima">Importálás Catimából</string>
@@ -179,7 +179,7 @@
     <string name="app_contributors">Lehetővé tette: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Infó mutatása</string>
     <string name="hideMoreInfo">Infó elrejtése</string>
-    <string name="swipeToSwitchImages">Húzza oldalra vagy tartsa nyomva a kép megváltoztatásáért</string>
+    <string name="swipeToSwitchImages">Csúsztassa ujját a képek váltásához, tartsa lenyomva a kép megnyitásához a Galéria alkalmazásban</string>
     <string name="sort_by_balance">Egyenleg</string>
     <string name="reverse">...fordított sorrendben</string>
     <string name="sort_by">Rendezés mint</string>
@@ -200,7 +200,7 @@
     </plurals>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> pont</item>
-        <item quantity="other"><xliff:g>%s</xliff:g> pont</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> pontok</item>
     </plurals>
     <string name="chooseImportType">Adat importálása innen</string>
     <string name="thumbnailDescription">Előkép</string>
@@ -247,4 +247,20 @@
     <string name="archived">Kártya archiválása</string>
     <string name="archiveList">Archivál</string>
     <string name="duplicateCard">Másolat</string>
+    <string name="currentBalanceSentence">Jelenlegi egyenleg: <xliff:g>%s</xliff:g></string>
+    <string name="updateBalanceHint">Adja meg az összeget</string>
+    <string name="importCards">Kártyák importálása</string>
+    <string name="updateBalanceTitle">Mennyit költöttél\?</string>
+    <string name="newBalanceSentence">Új egyenleg: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionDeniedTitle">Nem sikerült hozzáférni a kamerához</string>
+    <string name="failedToRetrieveImageFile">Nem sikerült lekérni a képfájlt</string>
+    <string name="barcodeLongPressMessage">Csak képek nyithatók meg a galéria alkalmazásban</string>
+    <string name="unarchived">Archiválatlan kártya</string>
+    <string name="welcome">Üdvözöljük Catimában</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártya)</item>
+        <item quantity="other">Archívum megtekintése (<xliff:g>%1$d</xliff:g> kártyák)</item>
+    </plurals>
+    <string name="updateBalance">Egyenleg frissítése</string>
+    <string name="noCameraPermissionDirectToSystemSetting">A vonalkódok beolvasásához a Catimának hozzá kell férnie a kamerához. Koppintson ide az engedélybeállítások módosításához.</string>
 </resources>

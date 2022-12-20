@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="storeName">नाम</string>
     <string name="note">नोट</string>
     <string name="cardId">कार्ड आईडी</string>
@@ -114,4 +114,41 @@
     <string name="balance">संतुलन</string>
     <string name="currency">मुद्रा</string>
     <string name="accept">स्वीकार</string>
+    <string name="exportSuccessful">डेटा निर्यात किया गया</string>
+    <string name="groupsList">समूह: <xliff:g>%s</xliff:g></string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> अंक</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> अंक</item>
+    </plurals>
+    <string name="privacy_policy_popup_text">निजता नीति नोटिस (कुछ ऐप स्टोर के लिए आवश्यक):
+\n
+\nकोई भी डेटा एकत्र नहीं किया जाता है, जिसकी पुष्टि कोई भी कर सकता है क्योंकि हमारा ऐप मुफ्त सॉफ्टवेयर है।</string>
+    <string name="importCatimaMessage">आयात करने के लिए, <i>catima.zip</i> फाइल को चुने जो की Catima से निर्यात किया गया था.
+\nदूसरे Catima ऍप के आयात/निर्यात मेनू से निर्यात बटन दबाकर, पहले catima.zip फाइल को बनाये.</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> चयनित</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> चयनित.</item>
+    </plurals>
+    <string name="groups">समूहों</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">कॉपीराइट © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> कार्ड</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> कार्डों</item>
+    </plurals>
+    <string name="group_updated">समूह अपडेट किया गया</string>
+    <string name="failedOpeningFileManager">पहले एक फाइल मैनेजर इनस्टॉल करें.</string>
+    <string name="leaveWithoutSaveConfirmation">बिना सुरक्षित किये छोड़े\?</string>
+    <string name="addManually">मैन्युअली आई डी दर्ज करें</string>
+    <string name="editGroup">समूह संपादन: <xliff:g>%s</xliff:g></string>
+    <string name="points">अंक</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> एक वैध शेष राशि नहीं है.</string>
+    <string name="chooseImportType">यहाँ से डेटा का आयात करें</string>
+    <string name="privacy_policy">निजता नीति</string>
+    <string name="importCatima">कैटिमा से आयात करें</string>
+    <string name="app_license">कॉपीलेफ्ट लिबर सॉफ्टवेयर, GPLv3+ लाइसेंस प्राप्त</string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> के बारे में</string>
+    <string name="debug_version_fmt">संस्करण: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_revision_fmt"><xliff:g id="app_revision_url">%s</xliff:g> संशोधन के बारे में</string>
+    <string name="copy_to_clipboard_toast">आई डी क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="noExternalStoragePermissionError">डेटा आयात या निर्यात करने के लिए एक्सटर्नल स्टोरेज एक्सेस प्रदान करें</string>
 </resources>

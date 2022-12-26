@@ -216,7 +216,7 @@
                     android:contentDescription="@string/set_scale"
                     android:max="100"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
+                    app:layout_constraintBottom_toBottomOf="@+id/barcodeHeightScaler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/verticalGuideline"
                     app:layout_constraintTop_toTopOf="@+id/scalerGuideline" />
@@ -245,7 +245,7 @@
                     />
 
                 <SeekBar
-                    android:id="@+id/barcodeScaler"
+                    android:id="@+id/barcodeHeightScaler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/inputPadding"
@@ -253,7 +253,7 @@
                     android:contentDescription="@string/set_scale"
                     android:max="100"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/barcodeScaler"
+                    app:layout_constraintBottom_toBottomOf="@+id/barcodeHeightScaler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/verticalGuideline"
                     app:layout_constraintTop_toBottomOf="@+id/scalerGuideline" />

@@ -145,6 +145,7 @@
     </plurals>
     <string name="group_name_already_in_use">Group name already in use</string>
     <string name="group_name_is_empty">Group name cannot be empty</string>
+    <string name="card_name_is_empty">Card name cannot be empty</string>
     <string name="group_updated">Group updated</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>

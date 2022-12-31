@@ -210,6 +210,7 @@
     <string name="editGroup">Grup Düzenleniyor: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Grubu Düzenle</string>
     <string name="group_name_is_empty">Grup adı boş olamaz</string>
+    <string name="card_name_is_empty">Kartın adı boş olamaz</string>
     <string name="group_updated">Grup güncellendi</string>
     <string name="selectColor">Renk seç</string>
     <string name="setIcon">Simge ayarla</string>

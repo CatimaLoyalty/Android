@@ -113,6 +113,7 @@
     <string name="groups">Csoportok</string>
     <string name="group_edit">Csoport szerkesztése</string>
     <string name="group_name_is_empty">Csoport név nem lehet üres</string>
+    <string name="card_name_is_empty">A kártya neve nem lehet üres</string>
     <string name="failedOpeningFileManager">Telepítsen egy fájl menedzsert.</string>
     <string name="moveUp">Felfelé mozgatás</string>
     <string name="moveDown">Lefelé mozgatás</string>

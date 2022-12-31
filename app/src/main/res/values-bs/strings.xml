@@ -16,6 +16,7 @@
     <string name="noGroups">Kliknite + Plus dugme da dodate grupe za kategorizaciju prvo.</string>
     <string name="groups">Grupe</string>
     <string name="enter_group_name">Unesite ime grupe</string>
+    <string name="card_name_is_empty">Naziv kartice ne može biti prazan</string>
     <string name="exportSuccessful">Podaci o kartama izvožen</string>
     <string name="importSuccessful">Uvezeni podaci o kartama</string>
     <string name="intent_import_card_from_url_share_text">Želim podijeliti čestitku s tobom</string>

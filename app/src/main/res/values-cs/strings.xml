@@ -214,6 +214,7 @@
     <string name="group_edit">Upravit skupinu</string>
     <string name="group_name_already_in_use">Název skupiny je již použitý</string>
     <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
+    <string name="card_name_is_empty">Název karty nesmí být prázdný</string>
     <string name="group_updated">Skupina aktualizována</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je zde přiřadit do skupiny.</string>

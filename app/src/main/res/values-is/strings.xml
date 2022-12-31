@@ -67,6 +67,7 @@
     <string name="settings_dark_theme">Dökk</string>
     <string name="settings_display_barcode_max_brightness">Bjartari strikamerkið skoða</string>
     <string name="enter_group_name">Inn nafn hópur</string>
+    <string name="card_name_is_empty">Nafn kortsins má ekki vera autt</string>
     <string name="intent_import_card_from_url_share_text">Ég vil deila kort með þér</string>
     <string name="importSuccessful">Kortið gögn flutt</string>
     <string name="groups">Tekur</string>

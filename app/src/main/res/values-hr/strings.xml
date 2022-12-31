@@ -81,4 +81,5 @@
     <string name="card">Karta</string>
     <string name="leaveWithoutSaveConfirmation">Otići bez očuvanja\?</string>
     <string name="noGiftCardsGroup">Izradite neke kartice, a zatim ih dodijelite grupi ovdje.</string>
+    <string name="card_name_is_empty">Naziv kartice ne može biti prazan</string>
 </resources>

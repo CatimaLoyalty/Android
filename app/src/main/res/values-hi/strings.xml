@@ -95,6 +95,7 @@
     <string name="noGroupCards">यह समूह खाली है</string>
     <string name="group_name_already_in_use">समूह का नाम पहले ही प्रयोग में है</string>
     <string name="group_name_is_empty">समूह का नाम खाली नहीं हो सकता</string>
+    <string name="card_name_is_empty">कार्ड का नाम खाली नहीं हो सकता</string>
     <string name="all">सब</string>
     <string name="deleteConfirmationGroup">समूह को मिटा दिया जाए\?</string>
     <string name="moveUp">ऊपर की और बढ़ें</string>

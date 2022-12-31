@@ -195,6 +195,7 @@
     <string name="shortcutSelectCard">选择一张卡片</string>
     <string name="group_name_already_in_use">组名已在使用中</string>
     <string name="group_name_is_empty">组名不可为空</string>
+    <string name="card_name_is_empty">卡名不能为空</string>
     <string name="settings_brown_theme">棕色</string>
     <string name="settings_green_theme">绿色</string>
     <string name="sort_by_most_recently_used">最近使用</string>

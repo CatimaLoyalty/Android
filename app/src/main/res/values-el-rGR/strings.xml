@@ -118,6 +118,7 @@
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
     <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
     <string name="group_name_is_empty">Το όνομα ομάδας δεν γίνεται να είναι κενό</string>
+    <string name="card_name_is_empty">Το όνομα της κάρτας δεν μπορεί να είναι κενό</string>
     <string name="group_edit">Επεξεργασία ομάδας</string>
     <string name="star">Προσθήκη στα αγαπημένα</string>
     <string name="unstar">Αφαίρεση από τα αγαπημένα</string>

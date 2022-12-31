@@ -74,6 +74,7 @@
     <string name="noGroupCards">هذه المجموعة فارغة</string>
     <string name="group_name_already_in_use">اسم المجموعة قيد الاستخدام بالفعل</string>
     <string name="group_name_is_empty">لا يمكن أن يكون اسم المجموعة فارغًا</string>
+    <string name="card_name_is_empty">لا يمكن أن يكون اسم البطاقة فارغًا</string>
     <string name="group_updated">تم تحديث المجموعة</string>
     <string name="all">الكل</string>
     <string name="deleteConfirmationGroup">هل تريد حذف المجموعة؟</string>

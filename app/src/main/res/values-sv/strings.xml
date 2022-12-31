@@ -207,6 +207,7 @@
     <string name="group_edit">Redigera grupp</string>
     <string name="group_name_already_in_use">Gruppnamnet är redan upptaget</string>
     <string name="group_name_is_empty">Gruppnamn måste anges</string>
+    <string name="card_name_is_empty">Namnet på kortet får inte vara tomt</string>
     <string name="editGroup">Redigerar grupp: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Välj färg</string>
     <string name="setIcon">Välj ikon</string>

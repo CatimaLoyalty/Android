@@ -210,6 +210,7 @@
     <string name="group_updated">Промените са запазени</string>
     <string name="selectColor">Избиране на цвят</string>
     <string name="group_name_is_empty">Името на списъка не може да е празно</string>
+    <string name="card_name_is_empty">Името на картата не може да бъде празно</string>
     <string name="group_edit">Редактиране на списък</string>
     <string name="action_show_details">Повече детайли</string>
     <string name="action_hide_details">По-малко детайли</string>

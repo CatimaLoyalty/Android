@@ -25,6 +25,7 @@
     </plurals>
     <string name="exportFailed">לא ניתן לייצא</string>
     <string name="noGiftCardsGroup">צור מספר כרטיסים, ואז שייך אותם לקבוצה פה.</string>
+    <string name="card_name_is_empty">שם הכרטיס לא יכול להיות ריק</string>
     <string name="failedParsingImportUriError">נתיב לא נמצא</string>
     <string name="noMatchingGiftCards">אין תוצאות. נסה חיפוש אחר.</string>
     <string name="storeName">שם חנות</string>

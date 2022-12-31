@@ -221,6 +221,7 @@
     <string name="group_edit">Edytuj Grupę</string>
     <string name="group_name_already_in_use">Ta nazwa jest już w użytku</string>
     <string name="group_name_is_empty">Nazwa grupy nie może być pusta</string>
+    <string name="card_name_is_empty">Nazwa karty nie może być pusta</string>
     <string name="group_updated">Zaktualizowano grupę</string>
     <string name="editGroup">Edytowanie grupy: <xliff:g>%s</xliff:g></string>
     <string name="exportPassword">Ustaw hasło, aby zabezpieczyć twoje wyeksportowane dane (opcjonalne)</string>

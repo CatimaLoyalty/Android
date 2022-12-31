@@ -210,6 +210,7 @@
     <string name="settings_oled_dark">Latar belakang gelap gulita untuk tema gelap</string>
     <string name="group_edit">Sunting Grup</string>
     <string name="group_name_is_empty">Nama grup tidak boleh kosong</string>
+    <string name="card_name_is_empty">Nama kartu tidak boleh kosong</string>
     <string name="group_updated">Grup diperbarui</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="other"><xliff:g>%1$d</xliff:g> kartu (<xliff:g id="archivedCount">%2$d</xliff:g> diarsipkan)</item>

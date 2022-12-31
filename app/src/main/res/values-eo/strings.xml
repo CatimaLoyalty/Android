@@ -80,6 +80,7 @@
     <string name="settings_keep_screen_on">Teni sur ekrano</string>
     <string name="importSuccessful">Karto datumo importitaj</string>
     <string name="enter_group_name">Eniri nomo de la grupo</string>
+    <string name="card_name_is_empty">Kartnomo ne povas esti malplena</string>
     <string name="noGroups">Klaki la + plus butonon por aldoni grupoj por categorization unua.</string>
     <string name="all">Ĉiuj</string>
     <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>

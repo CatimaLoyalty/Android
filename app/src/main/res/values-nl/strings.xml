@@ -208,6 +208,7 @@
     <string name="group_name_already_in_use">Er is al een groep met deze naam</string>
     <string name="group_updated">De groep is bijgewerkt</string>
     <string name="group_name_is_empty">Voer een groepsnaam in</string>
+    <string name="card_name_is_empty">De naam van de kaart mag niet leeg zijn</string>
     <string name="editGroup">Groep bewerken: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Voeg kaarten toe om ze hier te kunnen groeperen.</string>
     <string name="group_edit">Groep bewerken</string>

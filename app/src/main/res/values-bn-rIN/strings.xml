@@ -16,6 +16,7 @@
     <string name="noGroups">গোষ্ঠীগুলি নেই</string>
     <string name="groups">গোষ্ঠীগুলি</string>
     <string name="enter_group_name">গোষ্ঠী নাম লিখুন </string>
+    <string name="card_name_is_empty">কার্ডের নাম খালি রাখা যাবে না</string>
     <string name="exportSuccessful">রপ্তানি সফল</string>
     <string name="importSuccessful">আগম সফল</string>
     <string name="intent_import_card_from_url_share_text">url শেয়ার টেক্সট থেকে ইন্টেন্ট ইম্পোর্ট কার্ড</string>

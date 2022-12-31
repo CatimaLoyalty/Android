@@ -215,6 +215,7 @@
     <string name="group_edit">編輯群組</string>
     <string name="group_name_already_in_use">此群組名稱已存在</string>
     <string name="group_name_is_empty">群組名稱不能為空</string>
+    <string name="card_name_is_empty">卡名不能为空</string>
     <string name="group_updated">已更新群組</string>
     <string name="editGroup">編輯群組中：<xliff:g>%s</xliff:g></string>
     <string name="settings_oled_dark">使用深色主題時，使用純黑色背景</string>

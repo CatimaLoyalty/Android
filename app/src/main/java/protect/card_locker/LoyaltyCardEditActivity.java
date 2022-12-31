@@ -354,10 +354,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.toString().length() == 0) {
-                    storeFieldEdit.setError(getString(R.string.group_name_is_empty));
+                    storeFieldEdit.setError(getString(R.string.card_name_is_empty));
                     return;
                 }
-                
+
                 updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
             }

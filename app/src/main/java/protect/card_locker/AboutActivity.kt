@@ -56,7 +56,7 @@ class AboutActivity : CatimaAppCompatActivity() {
     }
 
     private fun bindClickListeners() {
-        val binding = binding ?: return
+        val binding = binding!!
 
         val openExternalBrowser = View.OnClickListener { view: View ->
             val tag = view.tag
@@ -76,7 +76,7 @@ class AboutActivity : CatimaAppCompatActivity() {
     }
 
     private fun clearClickListeners() {
-        val binding = binding ?: return
+        val binding = binding!!
         binding.versionHistory.setOnClickListener(null)
         binding.translate.setOnClickListener(null)
         binding.license.setOnClickListener(null)
@@ -88,7 +88,7 @@ class AboutActivity : CatimaAppCompatActivity() {
     }
 
     private fun showCredits() {
-        val content = content ?: return
+        val content = content!!
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.credits)
             .setMessage(content.contributorInfo)

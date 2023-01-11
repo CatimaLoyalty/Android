@@ -17,7 +17,7 @@ class AboutContent(var context: Context?) {
 
     private val appVersion: String
         get() {
-            val context = context ?: return ""
+            val context = context!!
             var version = "?"
             try {
                 val pi = context.packageManager.getPackageInfo(
@@ -36,7 +36,7 @@ class AboutContent(var context: Context?) {
 
     private val contributors: String
         get() {
-            val context = context ?: return ""
+            val context = context!!
             val contributors = try {
                 "<br/>" + context.resources.openRawResource(R.raw.contributors)
                     .bufferedReader(Charsets.UTF_8)
@@ -105,7 +105,7 @@ class AboutContent(var context: Context?) {
 
     val contributorInfo: String
         get() {
-            val context = context ?: return ""
+            val context = context!!
             val contributors = R.string.app_contributors
                 .format(contributors)
                 .toHtml()
@@ -128,15 +128,11 @@ $thirdPartyAssets
         }
 
     private fun Int.getString(): String {
-        val context = context ?: return ""
-
-        return context.getString(this)
+        return context!!.getString(this)
     }
 
     private fun Int.format(vararg args: Any?): String {
-        val context = context ?: return ""
-
-        return String.format(context.getString(this), *args)
+        return String.format(context!!.getString(this), *args)
     }
 
     private fun String.toHtml(): CharSequence {

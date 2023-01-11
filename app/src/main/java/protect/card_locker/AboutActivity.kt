@@ -37,7 +37,8 @@ class AboutActivity : CatimaAppCompatActivity() {
     }
 
     private fun showCredits() {
-        val content = content ?: return
+        val content = content!!
+
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.credits)
             .setMessage(content.contributorInfo)

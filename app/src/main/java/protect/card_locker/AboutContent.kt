@@ -7,6 +7,22 @@ import androidx.core.text.HtmlCompat
 import java.io.IOException
 import java.util.*
 
+interface AboutEntry {
+    val title: String
+    val description: String
+}
+
+data class UrlAboutEntry(
+    override val title: String,
+    override val description: String,
+    val url: String,
+) : AboutEntry
+
+data class CreditsAboutEntry(
+    override val title: String,
+    override val description: String,
+) : AboutEntry
+
 class AboutContent(var context: Context?) {
 
     fun destroy() {
@@ -14,6 +30,51 @@ class AboutContent(var context: Context?) {
     }
 
     val pageTitle: String = R.string.about_title_fmt.format(R.string.app_name.getString())
+
+    val items: List<AboutEntry>
+        get() {
+            return listOf(
+                UrlAboutEntry(
+                    title = R.string.version_history.getString(),
+                    description = versionHistory,
+                    url = "https://catima.app/changelog/",
+                ),
+                CreditsAboutEntry(
+                    title = R.string.credits.getString(),
+                    description = copyright,
+                ),
+                UrlAboutEntry(
+                    title = R.string.help_translate_this_app.getString(),
+                    description = R.string.translate_platform.getString(),
+                    url = "https://hosted.weblate.org/engage/catima/",
+                ),
+                UrlAboutEntry(
+                    title = R.string.license.getString(),
+                    description = R.string.app_license.getString(),
+                    url = "https://github.com/CatimaLoyalty/Android/blob/master/LICENSE",
+                ),
+                UrlAboutEntry(
+                    title = R.string.source_repository.getString(),
+                    description = R.string.on_github.getString(),
+                    url = "https://github.com/CatimaLoyalty/Android/",
+                ),
+                UrlAboutEntry(
+                    title = R.string.privacy_policy.getString(),
+                    description = R.string.and_data_usage.getString(),
+                    url = "https://catima.app/privacy-policy/",
+                ),
+                UrlAboutEntry(
+                    title = R.string.rate_this_app.getString(),
+                    description = R.string.on_google_play.getString(),
+                    url = "https://play.google.com/store/apps/details?id=me.hackerchick.catima",
+                ),
+                UrlAboutEntry(
+                    title = R.string.report_error.getString(),
+                    description = R.string.on_github.getString(),
+                    url = "https://github.com/CatimaLoyalty/Android/issues",
+                ),
+            )
+        }
 
     private val appVersion: String
         get() {

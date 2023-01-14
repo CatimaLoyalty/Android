@@ -3,7 +3,6 @@ package protect.card_locker.importexport;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.util.Pair;
 
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
 import net.lingala.zip4j.model.LocalFileHeader;
@@ -25,6 +24,7 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.TreeMap;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -492,12 +492,16 @@ public class CatimaImporter implements Importer {
      */
     private Hashtable<Integer, String> importGroupV3(SQLiteDatabase database, List<CSVRecord> records) throws FormatException {
         Hashtable<Integer,String> groupsTable = new Hashtable<>();
+        TreeMap<Integer, Group> sortedGroups = new TreeMap<Integer, Group>();
         for (CSVRecord record : records) {
             Integer id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ID, record, false);
             String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
+            Integer order = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ORDER, record, false);
             DBHelper.insertGroup(database, name);
+            sortedGroups.put(order, DBHelper.getGroupByName(database, name));
             groupsTable.put(id, name);
         }
+        DBHelper.reorderGroups(database, List.copyOf(sortedGroups.values()));
         return groupsTable;
     }
 

@@ -530,8 +530,7 @@ public class CatimaImporter implements Importer {
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
 
         Integer groupId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, false);
-        String groupName = groupsTable.get(groupId);
-        cardGroups.add(DBHelper.getGroupByName(database, groupName));
+        cardGroups.add(DBHelper.getGroup(database, groupId));
 
         DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
     }

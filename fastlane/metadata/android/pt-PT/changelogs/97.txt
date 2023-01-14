@@ -1,0 +1,4 @@
+- Conserta o botão de salvar criando várias entradas ao ser pressionado várias vezes
+- Diminui o tamanho do cabeçalho do cartão quando escondendo os detalhes, para que caibam ainda mais cartões
+- Reestruturação da tela de edição
+- Melhora o contraste do ícone de estrela na tela principal

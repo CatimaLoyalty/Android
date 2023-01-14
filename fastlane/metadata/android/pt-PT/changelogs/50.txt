@@ -1,0 +1,2 @@
+- Melhora o contraste sempre utilizando texto branco em botões vermelhos
+- Folha de fundo arrastável na tela de visualização de cartão

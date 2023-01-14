@@ -1,0 +1,2 @@
+- Amélioration de la logique d'analyse de balance
+- Correction de l'affichage décimal de la devise sur l'écran principal

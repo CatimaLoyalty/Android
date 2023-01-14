@@ -1,0 +1,2 @@
+- Ordena lista de cartões de forma não sensível à caixa das letras (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Adiciona configuração para travar a orientação de todos os cartões (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

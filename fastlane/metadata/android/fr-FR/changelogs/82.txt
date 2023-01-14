@@ -1,0 +1,4 @@
+- Prise en charge améliorée des lecteurs d'écran
+- Plus de crash lorsque vous essayez d'ouvrir une vidéo de la galerie
+- Prise en charge du balayage sur l'écran de visualisation de la carte de fidélité
+- Pas de réinitialisation du groupe en appuyant sur le bouton de retour

@@ -1,0 +1,2 @@
+- Un clic long sur une carte affiche l'option de copier l'ID de la carte dans le presse-papiers. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Le bouton Retour de la vue Entrée/Exportation fonctionne désormais, déplaçant alors l'utilisateur vers la vue principale

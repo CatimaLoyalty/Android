@@ -1,0 +1,4 @@
+- Prise en charge de la nouvelle exportation PDF417 à partir de Voucher Vault
+- Prise en charge de la copie de plusieurs codes à barres à la fois
+- Prise en charge du partage de plusieurs cartes de fidélité à la fois
+- Demander de mettre à jour la valeur du code-barres si l'ID de la carte change

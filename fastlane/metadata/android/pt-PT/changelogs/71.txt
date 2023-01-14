@@ -1,0 +1,2 @@
+- Várias pequenas correções de tradução e interface
+- Corrige falha na importação/compartilhamento de cartões no Android 6

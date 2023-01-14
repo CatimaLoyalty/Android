@@ -1,0 +1,4 @@
+- Ajout de la prise en charge de la mise à l'échelle du code barre lors du déplacement vers le haut pour s'adapter à des plus de petits scanners
+- Correction du saut de la feuille inférieure après le passage en plein écran
+- Faire en sorte que l'en-tête dans la vue de la carte de fidélité soit petite en mode paysage
+- Correction des cartes ne restant pas dans le groupe lorsque le groupe est renommé

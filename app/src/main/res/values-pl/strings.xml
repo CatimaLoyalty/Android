@@ -24,13 +24,13 @@
     <string name="noCardsMessage">Najpierw dodaj kartę</string>
     <string name="noStoreError">Nie wprowadzono nazwy</string>
     <string name="noCardIdError">Nie wprowadzono identyfikatora</string>
-    <string name="noCardExistsError">Nie można wyszukać karty lojalnościowej</string>
+    <string name="noCardExistsError">Nie można znaleźć tej karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
     <string name="importExport">Importuj/Eksportuj</string>
     <string name="exportName">Eksportuj</string>
     <string name="importExportHelp">Kopie zapasowe umożliwiają przeniesienie kart na inne urządzenie.</string>
     <string name="importSuccessfulTitle">Zaimportowano</string>
-    <string name="importFailedTitle">Import nie powiódł się</string>
+    <string name="importFailedTitle">Importowanie nie powiodło się</string>
     <string name="importFailed">Nie udało się zaimportować</string>
     <string name="exportSuccessfulTitle">Wyeksportowano</string>
     <string name="exportFailedTitle">Eksport nie powiódł się</string>
@@ -48,7 +48,7 @@
     <string name="app_license">Wolne oprogramowanie typu copyleft, na licencji GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Info o wydaniu: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_revision_fmt">Informacje o wydaniu: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
     <string name="enterBarcodeInstructions">Wprowadź ID, a następnie wybierz typ kodu kreskowego, którego chcesz użyć lub wybierz „Bez kodu kreskowego”.</string>
     <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
@@ -63,12 +63,12 @@
     <string name="intent_import_card_from_url_share_text">Chcę udostępnić Ci kartę lojalnościową</string>
     <string name="deleteConfirmationGroup">Usunąć grupę\?</string>
     <string name="all">Wszystko</string>
-    <string name="noGroups">Kliknij przycisk + plus, aby dodać grupy w celu kategoryzacji.</string>
+    <string name="noGroups">Kliknij przycisk + plus, aby dodać grupy do kategoryzacji.</string>
     <string name="groups">Grupy</string>
     <string name="enter_group_name">Wpisz nazwę grupy</string>
     <string name="exportSuccessful">Dane zostały wyeksportowane</string>
     <string name="importSuccessful">Zaimportowano dane</string>
-    <string name="starImage">Ulubiona gwiazda</string>
+    <string name="starImage">Gwiazdka ulubionych</string>
     <string name="app_copyright_old">Na podstawie Loyalty Card Keychain
 \nWszelkie prawa zastrzeżone © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Dane zostaną zapisane w wybranym przez Ciebie miejscu.</string>
@@ -213,13 +213,13 @@
     <string name="rate_this_app">Oceń tą aplikację</string>
     <string name="license">Licencja</string>
     <string name="on_google_play">w Google Play</string>
-    <string name="noGiftCardsGroup">Stwórz karty i przypisz je do grupy w tym miejscu.</string>
+    <string name="noGiftCardsGroup">Stwórz karty i przypisz je do grup w tym miejscu.</string>
     <string name="reverse">...w odwrotnej kolejności</string>
     <string name="translate_platform">na Weblate</string>
     <string name="sort">Sortuj</string>
     <string name="barcodeImageDescriptionWithType">Obraz kodu kreskowego typu <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Edytuj Grupę</string>
-    <string name="group_name_already_in_use">Ta nazwa jest już użyta</string>
+    <string name="group_name_already_in_use">Ta nazwa jest już w użytku</string>
     <string name="group_name_is_empty">Nazwa grupy nie może być pusta</string>
     <string name="group_updated">Zaktualizowano grupę</string>
     <string name="editGroup">Edytowanie grupy: <xliff:g>%s</xliff:g></string>
@@ -237,7 +237,7 @@
     <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
     <string name="hideMoreInfo">Ukryj informacje</string>
     <string name="settings_card_orientation">Orientacja kodu kreskowego</string>
-    <string name="settings_follow_system_orientation">Śledź system</string>
+    <string name="settings_follow_system_orientation">Śledź orientację systemową</string>
     <string name="set_scale">Ustaw skalę</string>
     <string name="duplicateCard">Duplikuj</string>
     <string name="starred">Oznaczone gwiazdką</string>
@@ -269,4 +269,13 @@
         <item quantity="many">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
         <item quantity="other">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
     </plurals>
+    <string name="currentBalanceSentence">Saldo:
+\n<xliff:g>%s</xliff:g></string>
+    <string name="noCameraPermissionDirectToSystemSetting">By zeskanować kody kreskowe, Catima musi mieć dostęp do twojej kamery. Dotknij tutaj by zmienić swoje ustawienia dostępu.</string>
+    <string name="updateBalanceTitle">Ile wydałeś\?</string>
+    <string name="updateBalanceHint">Wpisz sumę</string>
+    <string name="updateBalance">Zaktualizuj balans</string>
+    <string name="cameraPermissionDeniedTitle">Odmówiono dostępu do kamery</string>
+    <string name="newBalanceSentence">Nowe saldo:
+\n<xliff:g>%s</xliff:g></string>
 </resources>

@@ -1,0 +1,2 @@
+- Adiciona gesto de swipe para trocar de grupo na tela inicial
+- Corrige falha com cartões que não tem uma cor de cabeçalho

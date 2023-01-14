@@ -1,0 +1,2 @@
+- Autoriser l'utilisateur à saisir manuellement le code-barres. Si un utilisateur choisit de saisir manuellement un code-barres, une liste de toutes les images de codes-barres valides et supportés s'affiche. L'utilisateur peut alors sélectionner l'image du code à barres qui correspond à ce qu'il souhaite. (issue #33, pull #44)
+- Résolution du problème où certains codes-barres affichés étaient flous. (issue #37)

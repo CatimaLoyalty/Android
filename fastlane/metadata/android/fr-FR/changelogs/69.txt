@@ -1,0 +1,3 @@
+- Ajouter un ID de code-barres manquant à exporter
+- Ne pas afficher la boîte de dialogue de mise à jour du code-barres si la valeur est identique à l'ID de la carte
+- Ajout de la traduction Finnoise

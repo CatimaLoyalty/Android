@@ -22,22 +22,4 @@ public class Group {
 
         return new Group(_id, name, order);
     }
-
-    @Override
-    public boolean equals(@Nullable Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof Group)) {
-            return false;
-        }
-        Group anotherGroup = (Group) obj;
-        return _id == anotherGroup._id && order == anotherGroup.order;
-    }
-
-    @Override
-    public int hashCode() {
-        String combined = _id + "_" + order;
-        return combined.hashCode();
-    }
 }

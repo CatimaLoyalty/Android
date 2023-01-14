@@ -895,9 +895,6 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues groupContentValues = new ContentValues();
         groupContentValues.put(LoyaltyCardDbGroups.NAME, newName);
 
-        ContentValues lookupContentValues = new ContentValues();
-        lookupContentValues.put(LoyaltyCardDbIdsGroups.groupID, newName);
-
         database.beginTransaction();
         try {
             // Update group name

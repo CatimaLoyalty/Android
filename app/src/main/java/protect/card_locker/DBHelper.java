@@ -888,7 +888,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static boolean updateGroup(SQLiteDatabase database, final int groupId, final String newName) {
-        if (newName.isEmpty()) return false;
+        if (newName.isEmpty() || getGroupByName(database, newName)!= null) return false;
 
         boolean success = false;
 

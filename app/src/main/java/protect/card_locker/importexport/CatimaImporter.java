@@ -282,14 +282,8 @@ public class CatimaImporter implements Importer {
             groupParser.close();
         }
 
-        Hashtable<Integer,String> groupsTable = new Hashtable<Integer,String>();
+        Hashtable<Integer, String> groupsTable = importGroupV3(database, records);
 
-        for (CSVRecord record : records) {
-            Pair<Integer, String> group = importGroupV3(database, record);
-            Integer id = group.first;
-            String name = group.second;
-            groupsTable.put(id, name);
-        }
         return groupsTable;
     }
 
@@ -496,12 +490,15 @@ public class CatimaImporter implements Importer {
      * Import a single group from the V3 scheme (database v16) into the database using the given
      * session.
      */
-    private Pair<Integer, String> importGroupV3(SQLiteDatabase database, CSVRecord record) throws FormatException {
-        Integer id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ID, record, false);
-        String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
-        DBHelper.insertGroup(database, name);
-        Pair<Integer, String> group = new Pair<>(id, name);
-        return group;
+    private Hashtable<Integer, String> importGroupV3(SQLiteDatabase database, List<CSVRecord> records) throws FormatException {
+        Hashtable<Integer,String> groupsTable = new Hashtable<>();
+        for (CSVRecord record : records) {
+            Integer id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ID, record, false);
+            String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
+            DBHelper.insertGroup(database, name);
+            groupsTable.put(id, name);
+        }
+        return groupsTable;
     }
 
     /**

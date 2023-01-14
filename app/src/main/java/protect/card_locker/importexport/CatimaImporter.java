@@ -215,7 +215,7 @@ public class CatimaImporter implements Importer {
                             }
                             break;
                         default:
-                            throw new FormatException("Issue parsing CSV data, too many parts for v2 parsing");
+                            throw new FormatException("Issue parsing CSV data, too many parts for v3 parsing");
                     }
 
                     if (tmp == null) {

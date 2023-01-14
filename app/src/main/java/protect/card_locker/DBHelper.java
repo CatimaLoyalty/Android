@@ -930,7 +930,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static int getGroupCardCount(SQLiteDatabase database, final int groupId) {
         return (int) DatabaseUtils.queryNumEntries(database, LoyaltyCardDbIdsGroups.TABLE,
-                LoyaltyCardDbIdsGroups.groupID + "=" + groupId);
+                whereAttrs(LoyaltyCardDbIdsGroups.groupID),withArgs(groupId));
     }
 
     static private String whereAttrs(String... attrs) {

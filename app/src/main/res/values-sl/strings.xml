@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Dodaj</string>
-    <string name="noGiftCards">Trenutno nimate shranjene nobene kartice zvestobe. Kliknite  \"+\" (plus) na vrhu, da jih dodate.\n\n Aplikacija Kartice zvestobe Vam omogoča, da imate kartice zvestobe shranjene na Vašem telefonu in vedno v dosegu roke.</string>
-    <string name="storeName">Shrani</string>
+    <string name="noGiftCards">Pritisnite gumb + za dodajanje nove kartice ali gumb⋮v meniju za uvoz baze kartic iz datoteke.</string>
+    <string name="storeName">Ime</string>
     <string name="note">Zabeležka</string>
     <string name="cardId">Št. kartice</string>
     <string name="cancel">Prekliči</string>
@@ -18,35 +18,35 @@
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Najprej dodajte kartico</string>
-    <string name="noStoreError">Ime trgovine ni bilo vnešeno</string>
-    <string name="noCardIdError">Številka kartice ni bila vnešena</string>
-    <string name="noCardExistsError">Te kartice zvestobe ni bilo moč najti</string>
+    <string name="noStoreError">Ime ni bilo vnešeno</string>
+    <string name="noCardIdError">ID številka kartice ni bila vnešena</string>
+    <string name="noCardExistsError">Te kartice zvestobe ni bilo mogoče najti</string>
     <string name="importExport">Uvozi/izvozi</string>
     <string name="exportName">Izvozi</string>
-    <string name="importExportHelp">Varnostna kopija omogoča varen prenos kartic na druge naprave.</string>
+    <string name="importExportHelp">Varnostna kopija podatkovne baze kartic zvestobe omogoča prenos baze kartic tudi na drugo napravo.</string>
     <string name="importSuccessfulTitle">Uvoz je bil uspešen</string>
     <string name="importFailedTitle">Uvoz ni uspel</string>
-    <string name="importFailed">Napaka pri uvozu</string>
+    <string name="importFailed">Napaka pri uvozu baze</string>
     <string name="exportSuccessfulTitle">Izvoz je uspel</string>
     <string name="exportFailedTitle">Izvoz ni uspel</string>
-    <string name="exportFailed">Napaka pri izvozu</string>
+    <string name="exportFailed">Napaka pri izvozu baze</string>
     <string name="importing">Uvažanje…</string>
     <string name="exporting">Izvažanje…</string>
     <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema.</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>
-    <string name="importOptionApplicationTitle">Uporabi zunanjo aplikacijo</string>
+    <string name="importOptionApplicationTitle">Uporabi drugo aplikacijo</string>
     <string name="importOptionApplicationExplanation">Uporabi zunanjo aplikacijo, kot npr. Dropbox, Google Drive ali ostale upravljalnike datotek, za odpiranje datoteke.</string>
-    <string name="importOptionApplicationButton">Uporabi zunanjo aplikacijo</string>
+    <string name="importOptionApplicationButton">Uporabi drugo aplikacijo</string>
     <string name="about">Več o aplikaciji</string>
-    <string name="app_license">Licencirano s skladu z GPLv3.</string>
+    <string name="app_license">Odprtokodna programska oprema, licencirana skladno s GPL3+</string>
     <string name="about_title_fmt">Več o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt">Informacije o popravkih: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Izberite črtno kodo</string>
-    <string name="copy_to_clipboard_toast">Številka kartice je bila kopirana v odložišče</string>
-    <string name="thumbnailDescription">Ikona kartice</string>
+    <string name="copy_to_clipboard_toast">ID številka je kopirana v odložišče</string>
+    <string name="thumbnailDescription">Sličica</string>
     <string name="settings">Nastavitve</string>
     <string name="settings_category_title_ui">Uporabniški vmesnik</string>
     <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
@@ -54,7 +54,7 @@
     <string name="deleteConfirmation">Prosim potrdite, če želite izbrisati to kartico\?</string>
     <string name="card">Kartica</string>
     <string name="addFromImage">Izberite sliko iz galerije</string>
-    <string name="addManually">Ročno vnesite št. kartice</string>
+    <string name="addManually">Ročno vnesite ID kartice</string>
     <string name="leaveWithoutSaveConfirmation">Zapustite brez shranjevanja\?</string>
     <string name="leaveWithoutSaveTitle">Izhod</string>
     <string name="moveDown">Premikanje navzdol</string>
@@ -62,33 +62,34 @@
     <string name="failedOpeningFileManager">Najprej namestite upravitelja datotek.</string>
     <string name="deleteConfirmationGroup">Brisanje skupine\?</string>
     <string name="all">Vse</string>
-    <string name="noGroupCards">Ta skupina ne vsebuje kartic</string>
-    <string name="noGroups">Kliknite gumb + plus, če želite najprej dodati skupine za kategorizacijo.</string>
+    <string name="noGroupCards">Ta skupina je prazna</string>
+    <string name="noGroups">Pritisnite gumb \"+\", če želite dodati skupine za kategorizacijo.</string>
     <string name="groups">Skupine</string>
     <string name="enter_group_name">Vnesite ime skupine</string>
-    <string name="exportSuccessful">Izvoženi podatki o karticah</string>
-    <string name="importSuccessful">Uvoženi podatki o karticah</string>
+    <string name="exportSuccessful">Podatkovna baza izvožena</string>
+    <string name="importSuccessful">Podatkovna baza uvožena</string>
     <string name="intent_import_card_from_url_share_text">Z vami želim deliti kartico</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Preprečitev zaklepanja zaslona</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Prepreči zaklepanje zaslona</string>
     <string name="settings_keep_screen_on">Ohranite zaslon vklopljen</string>
-    <string name="enterBarcodeInstructions">Vnesite ID kartice in spodaj izberite vrsto črtne kode ali \"Ta kartica nima črtne kode\".</string>
+    <string name="enterBarcodeInstructions">Vnesite ID kartice in spodaj izberite vrsto črtne kode ali izbiro \"Ta kartica nima črtne kode\".</string>
     <string name="settings_max_font_size_scale">Največja velikost pisave</string>
     <string name="settings_dark_theme">Temno</string>
     <string name="settings_light_theme">Svetlo</string>
     <string name="settings_system_theme">Sistem</string>
     <string name="settings_theme">Tema</string>
     <string name="starImage">Zvezdica za priljubljene</string>
-    <string name="app_copyright_old">Na podlagi aplikacije Loyalty Card Keychain  copyright © 2016-2020 Branden Archer.</string>
+    <string name="app_copyright_old">Bazira na podlagi aplikacije Loyalty Card Keychain
+\ncopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Podatki bodo zapisani na izbrano mesto.</string>
     <string name="failedParsingImportUriError">Ni bilo mogoče razčleniti URI uvoza</string>
-    <string name="card_ids_copied">Kopirana kartica ID(s)</string>
+    <string name="card_ids_copied">Kopirana ID številka kartice</string>
     <string name="share">Delite</string>
     <string name="unstar">Odstrani iz priljubljenih</string>
     <string name="star">Dodaj med priljubljene</string>
     <string name="noBarcode">Brez črtne kode</string>
-    <string name="barcodeNoBarcode">Ta kartica nima črtne kode</string>
+    <string name="barcodeNoBarcode">Ni črtne kode</string>
     <string name="barcodeType">Vrsta črtne kode</string>
-    <string name="noMatchingGiftCards">Ničesar nisem našel. Poskusite spremeniti iskanje.</string>
+    <string name="noMatchingGiftCards">Brez rezultata iskanja. Poskusite spremeniti iskalni niz.</string>
     <string name="action_search">Iskanje</string>
     <string name="exportPasswordHint">Vnesite geslo</string>
     <string name="exportPassword">Izberite geslo za zaščito izvoza (neobvezno)</string>
@@ -105,10 +106,10 @@
     <string name="settings_theme_color">Barva teme</string>
     <string name="settings_system_locale">Sistem</string>
     <string name="settings_locale">Jezik</string>
-    <string name="barcodeImageDescriptionWithType">Slika črtne kode tipa <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Povlecite ali dolgo pritisnite da zamenjate slike</string>
+    <string name="barcodeImageDescriptionWithType">Slika <xliff:g>%s</xliff:g> črtna koda</string>
+    <string name="swipeToSwitchImages">Povlecite za zamenjavo slike ali dolgo pritisnite, da odprete sliko v aplikaciji za gledanje slik</string>
     <string name="sort_by">Razvrsti po</string>
-    <string name="reverse">Obratno</string>
+    <string name="reverse">...v obratnem vrstnem redu</string>
     <string name="sort_by_balance">Stanje</string>
     <string name="sort_by_expiry">Potek</string>
     <string name="sort_by_most_recently_used">Nazadnje uporabljene</string>
@@ -127,7 +128,7 @@
     <string name="errorReadingImage">Slike ni bilo mogoče prebrati</string>
     <string name="noBarcodeFound">Črtna koda ni bila najdena</string>
     <string name="balanceSentence">Stanje: <xliff:g>%s</xliff:g></string>
-    <string name="chooseImportType">Uvoz iz?</string>
+    <string name="chooseImportType">Uvozi podatke iz</string>
     <string name="importCatima">Izvoz iz aplikacije Catima</string>
     <string name="importStocard">Izvoz iz aplikacije Stocard</string>
     <string name="importVoucherVault">Izvoz iz aplikacije Voucher Vault</string>
@@ -138,23 +139,142 @@
     <string name="accept">Sprejmi</string>
     <string name="importLoyaltyCardKeychain">Uvoz iz aplikacije Loyalty Card Keychain</string>
     <string name="barcodeId">Vsebina črtne kode</string>
-    <string name="sameAsCardId">Enaka kot številka kartice</string>
+    <string name="sameAsCardId">Enaka kot ID kartice</string>
     <string name="setBarcodeId">Nastavi vsebino črtne kode</string>
     <string name="wrongValueForBarcodeType">Ta vrednost ni veljavna pri izbranem tipu čtne kode</string>
     <string name="takePhoto">Naredi fotografijo</string>
     <string name="intent_import_card_from_url_share_multiple_text">Z vami želim deliti kartice zvestobe</string>
-    <string name="copy_to_clipboard_multiple_toast">Številke kartic kopirane v odložišče</string>
+    <string name="copy_to_clipboard_multiple_toast">ID številke kartic so kopirane v odložišče</string>
     <string name="importFidme">Uvoz iz aplikacije FidMe</string>
     <string name="no">Ne</string>
     <string name="yes">Da</string>
-    <string name="frontImageDescription">Slika sprednje strani</string>
-    <string name="backImageDescription">Slika zadnje strani</string>
+    <string name="frontImageDescription">Prednja stran</string>
+    <string name="backImageDescription">Zadnja stran</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ni veljavno stanje.</string>
     <string name="setBackImage">Nastavi sliko sprednje strani</string>
     <string name="setFrontImage">Nastavi sliko sprednje strani</string>
     <string name="photos">Fotografije</string>
-    <string name="updateBarcodeQuestionText">Spremenili ste številko kartice. Želite posodobiti tudi črtno kodo na enako vrednost?</string>
+    <string name="updateBarcodeQuestionText">Spremenili ste ID kartice. Želite posodobiti tudi črtno kodo na enako vrednost\?</string>
     <string name="updateBarcodeQuestionTitle">Posodobi črtno kodo?</string>
     <string name="removeImage">Odstrani sliko</string>
     <string name="unsupportedBarcodeType">Te vrste črtne kode aplikacija ne more prikazati. Morda bo to možno v prihodnosti.</string>
+    <string name="shortcutSelectCard">Izberite kartico</string>
+    <string name="starred">Priljubljene</string>
+    <string name="set_scale">Nastavi velikost</string>
+    <string name="include_if_asking_support">Ob zahtevani pomoči podpore je potrebno vključiti naslednje informacije:</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> točka</item>
+        <item quantity="two"><xliff:g>%s</xliff:g> točki</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> točk</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> točk</item>
+    </plurals>
+    <string name="barcode">Črtna koda</string>
+    <string name="editBarcode">Uredi črtno kodo</string>
+    <string name="group_edit">Uredi skupino</string>
+    <string name="never">Nikoli</string>
+    <string name="importCards">Uvozite kartice</string>
+    <string name="currentBalanceSentence">Trenutno stanje: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Novo stanje: <xliff:g>%s</xliff:g></string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> izbrana</item>
+        <item quantity="two"><xliff:g>%d</xliff:g> izbrani</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> izbrane</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> izbrane</item>
+    </plurals>
+    <string name="settings_card_orientation">Orientacija črtne kode</string>
+    <string name="settings_follow_system_orientation">Sledi sistemu</string>
+    <string name="settings_portrait_orientation">Podoba</string>
+    <string name="settings_landscape_orientation">Pokrajina</string>
+    <string name="settings_lock_on_opening_orientation">Ohrani usmerjenost uporabljeno pri odpiranju kartice</string>
+    <string name="setIcon">Nastavite ikono</string>
+    <string name="showMoreInfo">Prikaži informacije</string>
+    <string name="hideMoreInfo">Skrij informacije</string>
+    <string name="updateBalance">Posodobi stanje</string>
+    <string name="failedToRetrieveImageFile">Slikovne datoteke ni bilo mogoče pridobiti</string>
+    <string name="credits">Zasluge</string>
+    <string name="action_show_details">Prikaži podrobnosti</string>
+    <string name="translate_platform">na Weblate-u</string>
+    <string name="options">Možnosti</string>
+    <string name="duplicateCard">Podvoji</string>
+    <string name="archive">Arhiviraj</string>
+    <string name="unarchive">Odpakiraj arhiv</string>
+    <string name="archived">Karta arhivirana</string>
+    <string name="unarchived">Kartica ni arhivirana</string>
+    <string name="archiveList">Arhiv</string>
+    <string name="noUnarchivedCardsMessage">Ne obstajajo ne arhivirane kartice</string>
+    <string name="failedLaunchingPhotoPicker">Ni mogoče najti podprte aplikacije za gledanje slik</string>
+    <string name="previousCard">Prejšnje</string>
+    <string name="nextCard">Naslednje</string>
+    <string name="updateBalanceTitle">Koliko ste porabili\?</string>
+    <string name="updateBalanceHint">Vpišite vrednost</string>
+    <string name="group_name_already_in_use">Ime skupine je že uporabljeno</string>
+    <string name="group_name_is_empty">Ime skupine ne more biti prazno polje</string>
+    <string name="group_updated">Skupina posodobljena</string>
+    <string name="groupsList">Skupine: <xliff:g>%s</xliff:g></string>
+    <string name="app_libraries">Proste knjižnice tretjih oseb: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Prosti viri tretjih oseb: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="expiryStateSentence">Poteče: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Poteklo: <xliff:g>%s</xliff:g></string>
+    <string name="expiryDate">Datum poteka veljavnosti</string>
+    <string name="chooseExpiryDate">Izberi datum poteka veljavnosti</string>
+    <string name="moveBarcodeToTopOfScreen">Premakni črtno kodo na vrh zaslona</string>
+    <string name="moveBarcodeToCenterOfScreen">Postavi črtno kodo na sredino zaslona</string>
+    <string name="importCatimaMessage">Izberi svoj obstoječ Catima <i>catima.zip</i> izvoz podatkov za uvoz v aplikacijo.
+\nNajprej izvozi podatke v meniju \"Uvozi/Izvozi\" v drugi aplikaciji Catima s pritiskom na izbiro izvozi.</string>
+    <string name="importStocardMessage">Izberi svoj <i>***-sync.zip</i> Stocard izvoz podatkov za uvoz.
+\nIzvoz podatkov dobiš s pošiljanjem elektronske pošte na support@stocardapp.com, kjer povprašaš za izvoz svojih podatkov.</string>
+    <string name="importVoucherVaultMessage">Izberi svoj <i>vouchervault.json</i> Voucher Vault izvoz podatkov za uvoz.
+\nIzvoz podatkov dobiš s pritiskom na gumb \"Export\" v Voucher Vault first.</string>
+    <string name="failedToOpenUrl">Prvo namestite spletni brskalnik</string>
+    <string name="welcome">Pozdravljeni v Catimi</string>
+    <string name="noGiftCardsGroup">Kreiraj kartice in jim dodeli skupino tukaj.</string>
+    <string name="privacy_policy_popup_text">Obvestilo o politiki zasebnosti (nekatere trgovine aplikacij to zahtevajo):
+\n
+\nPODATKI SE NE ZBIRAJO, kar se lahko preveri v programski kodi, saj je aplikacija prosta programska oprema.</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Izbriši <xliff:g>%d</xliff:g> kartico zvestobe</item>
+        <item quantity="two">Izbriši <xliff:g>%d</xliff:g> kartici zvestobe</item>
+        <item quantity="few">Izbriši <xliff:g>%d</xliff:g> kartice zvestobe</item>
+        <item quantity="other">Izbriši <xliff:g>%d</xliff:g> kartice zvestobe</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Izbriši to <xliff:g>%d</xliff:g> kartico zvestobe dokončno\?</item>
+        <item quantity="two">Izbriši ti dve <xliff:g>%d</xliff:g> kartici zvestobe dokončno\?</item>
+        <item quantity="few">Izbriši te <xliff:g>%d</xliff:g> kartice zvestobe dokončno\?</item>
+        <item quantity="other">Izbriši te <xliff:g>%d</xliff:g> kartice zvestobe dokončno\?</item>
+    </plurals>
+    <string name="cameraPermissionDeniedTitle">Ni bilo mogoče dostopati do kamere</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Catima potrebuje dostop do vaše kamere za skeniranje črtnih kod. Pritisnite tukaj in spremenite nastavitve dovoljenj.</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kartica</item>
+        <item quantity="two"><xliff:g>%d</xliff:g> kartici</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartice</item>
+    </plurals>
+    <string name="editGroup">Urejanje skupine: <xliff:g>%s</xliff:g></string>
+    <string name="importFidmeMessage">Izberi svoj <i>fidme-export-request-xxxxxx.zip</i> FidMe izvoz podatkov za uvoz in naknadno ročno izberi tipe črtnih kod.
+\nFidMe izvoz podatkov naredi v svojem FidMe profilu z izbiro \"Data Protection\" in nato s pritiskom na gumb \"Extract my data first\".</string>
+    <string name="importLoyaltyCardKeychainMessage">Izberi svoj <i>LoyaltyCardKeychain.csv</i> Loyalty Card Keychain izvoz podatkov za uvoz.
+\nLoyalty Card Keychain izvoz podatkov naredi s pritiskom na gumb \"Import/Export\" v meniju s pritiskom najprej na gumb \"Export\".</string>
+    <string name="failedGeneratingShareURL">URL-ja za skupno rabo ni bilo mogoče ustvariti. Prosim prijavite napako.</string>
+    <string name="settings_oled_dark">Čisto črno ozadje za temno temo</string>
+    <string name="selectColor">Izberite barvo</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="app_contributors">Omogočeno od: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="barcodeLongPressMessage">V aplikaciji za gledanje slik lahko odpremo samo slike</string>
+    <string name="action_hide_details">Skrij podrobnosti</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>
+        <item quantity="two"><xliff:g>%1$d</xliff:g> kartici (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirani)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
+    </plurals>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartica)</item>
+        <item quantity="two">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartici)</item>
+        <item quantity="few">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
+        <item quantity="other">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
+    </plurals>
 </resources>

@@ -1,0 +1,2 @@
+- Shrani podrobnosti razširitvenega stanja kartice
+- Manjši popravki uporabniškega vmesnika

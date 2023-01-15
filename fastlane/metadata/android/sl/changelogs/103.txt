@@ -1,0 +1,2 @@
+- Popravek pri ročni izbiri jezika - ta izbira se ne uveljavlja povsod
+- Popravek sesutja v pogledu urejanja na lokalnem brezpodročnem okolju

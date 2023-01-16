@@ -58,17 +58,16 @@ For FidMe you need to select the barcode type for each entry afterwards.
 
 # Building
 
-Use the Gradle wrapper scripts provided in the top level directory of the project.
-To compile the app and run all unit tests:
+Building can either be done through Android Studio (not reproducible!) or the build.sh script in this repository (reproducibly with Java 11, same way F-Droid builds it). This script can also sign the build.
 
-Linux|GNU, Unix-like, macOS:
+Build without signing:
 ```
-./gradlew build
+./build.sh
 ```
 
-Windows:
+Build with signing:
 ```
-./gradlew.bat build
+KEYSTORE=/path/to/keystore $KEYSTORE_ALIAS=catima ./build.sh
 ```
 
 # Translating

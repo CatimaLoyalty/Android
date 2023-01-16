@@ -7,17 +7,17 @@ IFS=$'\n\t'
 
 if [ -z "${ANDROID_SDK_ROOT:-}" ]; then
   echo "ANDROID_SDK_ROOT is not set, setting to $HOME/Android/Sdk";
-  ANDROID_SDK_ROOT=$HOME/Android/Sdk
+  export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 fi
 
 if [ -z "${JAVA_HOME:-}" ]; then
   echo "JAVA_HOME is not set, setting to Java 11 (like F-Droid)"
   if [ -f "/etc/debian_version" ]; then
     echo "Debian-based distro, Java 11 is /usr/lib/jvm/java-11-openjdk-amd64"
-    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
   else
     echo "Not Debian-based, assuming Fedora and setting Java 11 as /usr/lib/jvm/java-11-openjdk"
-    JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
   fi
 fi
 

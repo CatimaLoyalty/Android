@@ -67,7 +67,7 @@ Build without signing:
 
 Build with signing:
 ```
-KEYSTORE=/path/to/keystore $KEYSTORE_ALIAS=catima ./build.sh
+KEYSTORE=/path/to/keystore KEYSTORE_ALIAS=catima ./build.sh
 ```
 
 # Translating

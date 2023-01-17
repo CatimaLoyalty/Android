@@ -1,0 +1,1 @@
+- Popravki prikaza nepravilne barve besedila na gumbu "Brez črtne kode"

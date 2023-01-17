@@ -1,0 +1,1 @@
+- Popravek napake prosojnosti ozadja spodnjega lista

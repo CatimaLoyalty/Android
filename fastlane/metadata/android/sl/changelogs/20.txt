@@ -1,0 +1,1 @@
+- Odprava napake zrušitve med namestitvijo na nekaterih različicah Androida (najverjetneje Android 5 in starejše). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

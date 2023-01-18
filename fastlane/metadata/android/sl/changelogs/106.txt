@@ -1,0 +1,1 @@
+- Popravek nekaterih zaporedij znakov, ki se prikažejo kot en sam znak

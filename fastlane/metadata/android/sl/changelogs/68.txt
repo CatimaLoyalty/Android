@@ -1,0 +1,4 @@
+- Podpora novemu izvozu PDF417 iz Vaucher Vault 
+- Podpora za kopiranje več črtnih kod hkrati
+- Podpora za deljenje več kartic zvestobe naenkrat
+- Zahteva za posodobitev vrednosti črtne kode, če se ID kartice spremeni

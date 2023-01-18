@@ -1,0 +1,1 @@
+- Popravek gumba za urejanje oziroma več informacij na spodnjem listu risbe preko ID-ja črtne kode

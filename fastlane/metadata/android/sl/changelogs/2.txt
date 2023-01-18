@@ -1,0 +1,3 @@
+- Italijanski prevod
+- Podpora za vse vrste črtnih kod 1D. (Prvotno so bile podprte samo 1D črtne kode izdelkov)
+- Dodano dovoljenje za uporabo kamere, ki je sprva manjkalo.

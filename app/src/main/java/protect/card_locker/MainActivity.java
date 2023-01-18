@@ -508,7 +508,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Bundle newBundle = new Bundle();
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-        if (DBHelper.getGroup(mDatabase, groupId) != null) {
+        if (groupId != null) {
             newBundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupId);
         }
         newIntent.putExtras(newBundle);

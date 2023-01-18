@@ -1,0 +1,3 @@
+- Popravki obrezovalnika zaradi neupoštevanja barve teme
+- Odpravite manjše težave s temami
+- Dodajanje temne teme v čisto črni barvi za zaslone OLED

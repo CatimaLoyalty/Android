@@ -160,7 +160,7 @@
     <string name="importStocard">Імпорт із Stocard</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Обрано: <xliff:g>%d</xliff:g></item>
-        <item quantity="few">Обрано: <xliff:g>%d</xliff:g></item>
+        <item quantity="few">Обрані: <xliff:g>%d</xliff:g></item>
         <item quantity="many">Обрано: <xliff:g>%d</xliff:g></item>
         <item quantity="other">Обрано: <xliff:g>%d</xliff:g></item>
     </plurals>

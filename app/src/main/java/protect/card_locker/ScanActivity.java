@@ -59,7 +59,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private DecoratedBarcodeView barcodeScannerView;
 
     private String cardId;
-    private String addGroup;
+    private Integer addGroup;
     private boolean torch = false;
 
     private ActivityResultLauncher<Intent> manualAddLauncher;
@@ -69,7 +69,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
-        addGroup = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+        addGroup = b != null ? b.getInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
         Log.d(TAG, "Scan activity: id=" + cardId);
     }
 
@@ -110,7 +110,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
                 scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, result.getText());
                 scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, result.getBarcodeFormat().name());
                 if (addGroup != null) {
-                    scanResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+                    scanResultBundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
                 }
                 scanResult.putExtras(scanResultBundle);
                 ScanActivity.this.setResult(RESULT_OK, scanResult);
@@ -209,7 +209,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
             manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
             if (addGroup != null) {
-                manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+                manualResultBundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
             }
             manualResult.putExtras(manualResultBundle);
             ScanActivity.this.setResult(RESULT_OK, manualResult);

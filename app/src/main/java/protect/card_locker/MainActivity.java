@@ -343,8 +343,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
             Bundle inputBundle = intent.getExtras();
-            String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
-            processBarcodeValues(barcodeValues, group);
+            int groupId = inputBundle != null ? inputBundle.getInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
+            processBarcodeValues(barcodeValues, groupId);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -413,8 +413,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             addButton.setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
                 Bundle bundle = new Bundle();
-                if (selectedTab != 0) {
-                    bundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupsTabLayout.getTabAt(selectedTab).getText().toString());
+                Group group = (Group) groupsTabLayout.getTabAt(selectedTab).getTag();
+                if (group != null) {
+                    bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group._id);
                 }
                 intent.putExtras(bundle);
                 mBarcodeScannerLauncher.launch(intent);
@@ -498,7 +499,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
+    private void processBarcodeValues(BarcodeValues barcodeValues, Integer groupId) {
         if (barcodeValues.isEmpty()) {
             throw new IllegalArgumentException("barcodesValues may not be empty");
         }
@@ -507,8 +508,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         Bundle newBundle = new Bundle();
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
         newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-        if (group != null) {
-            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+        if (DBHelper.getGroup(mDatabase, groupId) != null) {
+            newBundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, groupId);
         }
         newIntent.putExtras(newBundle);
         startActivity(newIntent);

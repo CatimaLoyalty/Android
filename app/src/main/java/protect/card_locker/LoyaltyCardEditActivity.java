@@ -157,7 +157,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     String cardId;
     String barcodeId;
     String barcodeType;
-    String addGroup;
+    int addGroup;
 
     Uri importLoyaltyCardUri = null;
 
@@ -245,7 +245,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
         barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
         barcodeType = b != null ? b.getString(BUNDLE_BARCODETYPE) : null;
-        addGroup = b != null ? b.getString(BUNDLE_ADDGROUP) : null;
+        addGroup = b != null ? b.getInt(BUNDLE_ADDGROUP) : null;
 
         importLoyaltyCardUri = intent.getData();
 
@@ -823,7 +823,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 chip.setText(group.name);
                 chip.setTag(group);
 
-                if (group.name.equals(addGroup)) {
+                if (group._id == addGroup) {
                     chip.setChecked(true);
                 } else {
                     chip.setChecked(false);

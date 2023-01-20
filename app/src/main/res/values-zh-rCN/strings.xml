@@ -40,7 +40,7 @@
 \n
 \n本应用没有收集任何数据，任何人都可以查阅源码来确认，因为本软件是自由软件。</string>
     <string name="privacy_policy">隐私政策</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">会员卡卡包</string>
     <string name="chooseImportType">数据导入源</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g>似乎不是有效的余额。</string>
     <string name="points">积分</string>

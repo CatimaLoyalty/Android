@@ -2,7 +2,7 @@ name: Convert CHANGELOG to Fastlane
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   convert_changelog_to_fastlane:

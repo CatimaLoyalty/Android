@@ -20,6 +20,8 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 
+import protect.card_locker.currency.CatimaCurrency;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -71,7 +73,7 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), new CatimaCurrency(Currency.getInstance("EUR")), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);

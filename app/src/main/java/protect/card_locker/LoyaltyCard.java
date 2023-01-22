@@ -9,6 +9,7 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.annotation.Nullable;
+import protect.card_locker.currency.CatimaCurrency;
 
 public class LoyaltyCard implements Parcelable {
     public final int id;
@@ -16,7 +17,7 @@ public class LoyaltyCard implements Parcelable {
     public final String note;
     public final Date expiry;
     public final BigDecimal balance;
-    public final Currency balanceType;
+    public final CatimaCurrency balanceType;
     public final String cardId;
 
     @Nullable
@@ -34,7 +35,7 @@ public class LoyaltyCard implements Parcelable {
     public int zoomLevel;
 
     public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
-                       final BigDecimal balance, final Currency balanceType, final String cardId,
+                       final BigDecimal balance, final CatimaCurrency balanceType, final String cardId,
                        @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus) {
@@ -61,7 +62,7 @@ public class LoyaltyCard implements Parcelable {
         long tmpExpiry = in.readLong();
         expiry = tmpExpiry != -1 ? new Date(tmpExpiry) : null;
         balance = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
-        balanceType = (Currency) in.readValue(Currency.class.getClassLoader());
+        balanceType = (CatimaCurrency) in.readValue(Currency.class.getClassLoader());
         cardId = in.readString();
         barcodeId = in.readString();
         String tmpBarcodeType = in.readString();
@@ -110,7 +111,7 @@ public class LoyaltyCard implements Parcelable {
         int headerColorColumn = cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.HEADER_COLOR);
 
         CatimaBarcode barcodeType = null;
-        Currency balanceType = null;
+        CatimaCurrency balanceType = null;
         Date expiry = null;
         Integer headerColor = null;
 
@@ -119,7 +120,17 @@ public class LoyaltyCard implements Parcelable {
         }
 
         if (cursor.isNull(balanceTypeColumn) == false) {
-            balanceType = Currency.getInstance(cursor.getString(balanceTypeColumn));
+            String currencySymbol = cursor.getString(balanceTypeColumn);
+            Currency currency = null;
+            try {
+                currency = Currency.getInstance(currencySymbol);
+            } catch(Exception exception) {
+                exception.printStackTrace();
+            }
+
+            balanceType = currency == null ?
+                    new CatimaCurrency(currencySymbol) :
+                    new CatimaCurrency(currency);
         }
 
         if (expiryLong > 0) {

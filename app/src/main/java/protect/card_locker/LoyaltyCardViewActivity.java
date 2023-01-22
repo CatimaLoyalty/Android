@@ -72,10 +72,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Currency;
 import java.util.List;
 
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.currency.CatimaCurrency;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
 import protect.card_locker.preferences.Settings;
 
@@ -615,7 +615,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         input.requestFocus();
     }
 
-    private BigDecimal calculateNewBalance(BigDecimal currentBalance, Currency currency, String unparsedSubtraction) throws ParseException {
+    private BigDecimal calculateNewBalance(BigDecimal currentBalance, CatimaCurrency currency, String unparsedSubtraction) throws ParseException {
         BigDecimal subtraction = Utils.parseBalance(unparsedSubtraction, currency);
         return currentBalance.subtract(subtraction).max(new BigDecimal(0));
     }

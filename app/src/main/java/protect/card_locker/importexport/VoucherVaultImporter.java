@@ -27,6 +27,7 @@ import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.Utils;
+import protect.card_locker.currency.CatimaCurrency;
 
 /**
  * Class for importing a database from CSV (Comma Separate Values)
@@ -67,8 +68,8 @@ public class VoucherVaultImporter implements Importer {
             } else if (!jsonCard.isNull("balance")) {
                 balance = new BigDecimal(String.valueOf(jsonCard.getDouble("balance")));
             }
-
-            Currency balanceType = Currency.getInstance("USD");
+            Currency currency = Currency.getInstance("USD");
+            CatimaCurrency balanceType = new CatimaCurrency(currency);
 
             String cardId = jsonCard.getString("code");
 

@@ -80,6 +80,7 @@ import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.DialogFragment;
 import protect.card_locker.async.TaskHandler;
+import protect.card_locker.currency.CatimaCurrency;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 
@@ -167,7 +168,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean validBalance = true;
     Runnable barcodeImageGenerationFinishedCallback;
 
-    HashMap<String, Currency> currencies = new HashMap<>();
+    HashMap<String, CatimaCurrency> currencies = new HashMap<>();
 
     LoyaltyCard tempLoyaltyCard;
 
@@ -207,7 +208,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (String) (fieldName == LoyaltyCardField.note ? value : loyaltyCard.note),
                 (Date) (fieldName == LoyaltyCardField.expiry ? value : loyaltyCard.expiry),
                 (BigDecimal) (fieldName == LoyaltyCardField.balance ? value : loyaltyCard.balance),
-                (Currency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
+                (CatimaCurrency) (fieldName == LoyaltyCardField.balanceType ? value : loyaltyCard.balanceType),
                 (String) (fieldName == LoyaltyCardField.cardId ? value : loyaltyCard.cardId),
                 (String) (fieldName == LoyaltyCardField.barcodeId ? value : loyaltyCard.barcodeId),
                 (CatimaBarcode) (fieldName == LoyaltyCardField.barcodeType ? value : loyaltyCard.barcodeType),
@@ -316,8 +317,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         importUriHelper = new ImportURIHelper(this);
 
         for (Currency currency : Currency.getAvailableCurrencies()) {
-            currencies.put(currency.getSymbol(), currency);
+            currencies.put(currency.getSymbol(), new CatimaCurrency(currency));
         }
+
+        CatimaCurrency percentCurrency = new CatimaCurrency(getString(R.string.percentSymbol));
+        CatimaCurrency pointCurrency = new CatimaCurrency(getString(R.string.points));
+
+        currencies.put(percentCurrency.getSymbol(), percentCurrency);
+        currencies.put(pointCurrency.getSymbol(), pointCurrency);
 
         tabs = binding.tabs;
         thumbnail = binding.thumbnail;
@@ -420,13 +427,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         balanceCurrencyField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Currency currency;
+                CatimaCurrency currency;
 
-                if (s.toString().equals(getString(R.string.points))) {
-                    currency = null;
-                } else {
-                    currency = currencies.get(s.toString());
-                }
+                currency = currencies.get(s.toString());
 
                 updateTempState(LoyaltyCardField.balanceType, currency);
 
@@ -464,6 +467,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
 
                 currencyList.add(0, getString(R.string.points));
+                currencyList.add(1,getString(R.string.percentSymbol));
                 ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(LoyaltyCardEditActivity.this, android.R.layout.select_dialog_item, currencyList);
                 balanceCurrencyField.setAdapter(currencyAdapter);
             }
@@ -964,7 +968,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void formatBalanceCurrencyField(Currency balanceType) {
+    private void formatBalanceCurrencyField(CatimaCurrency balanceType) {
         if (balanceType == null) {
             balanceCurrencyField.setText(getString(R.string.points));
         } else {

@@ -57,6 +57,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
 
+import protect.card_locker.currency.CatimaCurrency;
 import protect.card_locker.preferences.Settings;
 
 public class Utils {
@@ -231,23 +232,30 @@ public class Utils {
         return expiryDate.before(date.getTime());
     }
 
-    static public String formatBalance(Context context, BigDecimal value, Currency currency) {
+    static public String formatBalance(Context context, BigDecimal value, CatimaCurrency catimaCurrency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
-
+        Currency currency = catimaCurrency.getCurrency();
+        //Points or Percent
         if (currency == null) {
-            numberFormat.setMaximumFractionDigits(0);
-            return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
+            if (catimaCurrency.getSymbol().equals(context.getString(R.string.points))) {
+                numberFormat.setMaximumFractionDigits(0);
+                return context.getResources().getQuantityString(R.plurals.balancePoints, value.intValue(), numberFormat.format(value));
+
+            } else if (catimaCurrency.getSymbol().equals(context.getString(R.string.percentSymbol))) {
+                numberFormat.setMaximumFractionDigits(2);
+                return numberFormat.format(value) + context.getString(R.string.percentSymbol);
+            }
         }
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
-        currencyFormat.setCurrency(currency);
-        currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
-        currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
+        currencyFormat.setCurrency(catimaCurrency.getCurrency());
+        currencyFormat.setMinimumFractionDigits(catimaCurrency.getDefaultFractionDigits());
+        currencyFormat.setMaximumFractionDigits(catimaCurrency.getDefaultFractionDigits());
 
         return currencyFormat.format(value);
     }
 
-    static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
+    static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, CatimaCurrency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
         if (currency == null) {
@@ -261,7 +269,7 @@ public class Utils {
         return numberFormat.format(value);
     }
 
-    static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
+    static public BigDecimal parseBalance(String value, CatimaCurrency currency) throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
         if (currency == null) {

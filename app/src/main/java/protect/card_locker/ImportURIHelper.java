@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import protect.card_locker.currency.CatimaCurrency;
+
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
@@ -64,7 +66,7 @@ public class ImportURIHelper {
             CatimaBarcode barcodeType = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
-            Currency balanceType = null;
+            CatimaCurrency balanceType = null;
             Integer headerColor = null;
 
             // Store everything in a simple key/value hashmap
@@ -104,7 +106,8 @@ public class ImportURIHelper {
             }
             String unparsedBalanceType = kv.get(BALANCE_TYPE);
             if (unparsedBalanceType != null && !unparsedBalanceType.equals("")) {
-                balanceType = Currency.getInstance(unparsedBalanceType);
+                Currency currency = Currency.getInstance(unparsedBalanceType);
+                balanceType = new CatimaCurrency(currency);
             }
             String unparsedExpiry = kv.get(EXPIRY);
             if (unparsedExpiry != null && !unparsedExpiry.equals("")) {

@@ -18,6 +18,8 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
+import protect.card_locker.currency.CatimaCurrency;
+
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
@@ -359,7 +361,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final String store, final String note, final Date expiry,
-            final BigDecimal balance, final Currency balanceType, final String cardId,
+            final BigDecimal balance, final CatimaCurrency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
             final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();
@@ -424,7 +426,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static boolean updateLoyaltyCard(
             SQLiteDatabase database, final int id, final String store, final String note,
-            final Date expiry, final BigDecimal balance, final Currency balanceType,
+            final Date expiry, final BigDecimal balance, final CatimaCurrency balanceType,
             final String cardId, final String barcodeId, final CatimaBarcode barcodeType,
             final Integer headerColor, final int starStatus, final Long lastUsed, final int archiveStatus) {
         database.beginTransaction();

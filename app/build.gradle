@@ -58,9 +58,6 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 
-    lintOptions {
-        lintConfig file("lint.xml")
-    }
 
     sourceSets {
         test {
@@ -80,6 +77,10 @@ android {
             includeAndroidResources true
         }
     }
+    lint {
+        lintConfig file('lint.xml')
+    }
+    namespace 'protect.card_locker'
 }
 
 dependencies {

@@ -175,7 +175,7 @@
     <string name="importCards">Uvozite kartice</string>
     <string name="currentBalanceSentence">Trenutno stanje: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Novo stanje: <xliff:g>%s</xliff:g></string>
-    <string name="app_loyalty_card_keychain">Aplikacija Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> izbrana</item>
         <item quantity="two"><xliff:g>%d</xliff:g> izbrani</item>

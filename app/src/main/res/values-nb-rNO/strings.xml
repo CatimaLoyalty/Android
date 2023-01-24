@@ -33,7 +33,6 @@
     <string name="exportFailed">Kunne ikke utføre eksport</string>
     <string name="importing">Importerer…</string>
     <string name="exporting">Exporterer…</string>
-    <string name="noExternalStoragePermissionError">Innvilg lagringstilgang til eksternlager for å importere eller eksportere data</string>
     <string name="exportOptionExplanation">Data skrives dit du ønsker det.</string>
     <string name="importOptionFilesystemTitle">Importer fra filsystem</string>
     <string name="importOptionFilesystemExplanation">Velg spesifikk fil fra filsystemet.</string>

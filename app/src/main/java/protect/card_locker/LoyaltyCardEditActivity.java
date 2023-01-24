@@ -111,6 +111,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_FRONT = 100;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_BACK = 101;
     private static final int PERMISSION_REQUEST_CAMERA_IMAGE_ICON = 102;
+    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_FRONT = 103;
+    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_BACK = 104;
+    private static final int PERMISSION_REQUEST_STORAGE_IMAGE_ICON = 105;
 
     public static final String BUNDLE_ID = "id";
     public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
@@ -981,14 +984,59 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean allowed = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+        Integer failureReason = null;
+
+        if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
+            if (allowed) {
                 takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
-            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
-            } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
+                return;
             }
+
+            failureReason = R.string.cameraPermissionRequired;
+        } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
+            if (allowed) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
+                return;
+            }
+
+            failureReason = R.string.cameraPermissionRequired;
+        } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
+            if (allowed) {
+                takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
+                return;
+            }
+
+            failureReason = R.string.cameraPermissionRequired;
+        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_FRONT) {
+            if (allowed) {
+                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_FRONT);
+                return;
+            }
+
+            failureReason = R.string.storageReadPermissionRequired;
+        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_BACK) {
+            if (allowed) {
+                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_BACK);
+                return;
+            }
+
+            failureReason = R.string.storageReadPermissionRequired;
+        } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_ICON) {
+            if (allowed) {
+                selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_ICON);
+                return;
+            }
+
+            failureReason = R.string.storageReadPermissionRequired;
+        }
+
+        if (failureReason != null) {
+            Toast.makeText(this, failureReason, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -1058,6 +1106,24 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         mRequestedImage = type;
 
         mPhotoTakerLauncher.launch(photoURI);
+    }
+
+    private void selectImageFromGallery(int type) {
+        mRequestedImage = type;
+
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        contentIntent.setType("image/*");
+        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
+
+        try {
+            mPhotoPickerLauncher.launch(chooserIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
+        }
     }
 
     class EditCardIdAndBarcode implements View.OnClickListener {
@@ -1141,62 +1207,37 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
 
             cardOptions.put(getString(R.string.takePhoto), () -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    int permissionRequestType;
+                int permissionRequestType;
 
-                    if (v.getId() == R.id.frontImageHolder) {
-                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
-                    } else if (v.getId() == R.id.backImageHolder) {
-                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
-                    } else if (v.getId() == R.id.thumbnail) {
-                        permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
-                    } else {
-                        throw new IllegalArgumentException("Unknown ID type " + v.getId());
-                    }
-
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, permissionRequestType);
-                } else {
-                    int cardImageType;
-
-                    if (v.getId() == R.id.frontImageHolder) {
-                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_FRONT;
-                    } else if (v.getId() == R.id.backImageHolder) {
-                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_BACK;
-                    } else if (v.getId() == R.id.thumbnail) {
-                        cardImageType = Utils.CARD_IMAGE_FROM_CAMERA_ICON;
-                    } else {
-                        throw new IllegalArgumentException("Unknown ID type " + v.getId());
-                    }
-
-                    takePhotoForCard(cardImageType);
-                }
-                return null;
-            });
-
-            cardOptions.put(getString(R.string.addFromImage), () -> {
                 if (v.getId() == R.id.frontImageHolder) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_FRONT;
+                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_FRONT;
                 } else if (v.getId() == R.id.backImageHolder) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_BACK;
+                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_BACK;
                 } else if (v.getId() == R.id.thumbnail) {
-                    mRequestedImage = Utils.CARD_IMAGE_FROM_FILE_ICON;
+                    permissionRequestType = PERMISSION_REQUEST_CAMERA_IMAGE_ICON;
                 } else {
                     throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
 
-                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                photoPickerIntent.setType("image/*");
-                Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                contentIntent.setType("image/*");
-                Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
+                PermissionUtils.requestCameraPermission(LoyaltyCardEditActivity.this, permissionRequestType);
 
-                try {
-                    mPhotoPickerLauncher.launch(chooserIntent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-                    Log.e(TAG, "No activity found to handle intent", e);
+                return null;
+            });
+
+            cardOptions.put(getString(R.string.addFromImage), () -> {
+                int permissionRequestType;
+
+                if (v.getId() == R.id.frontImageHolder) {
+                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_FRONT;
+                } else if (v.getId() == R.id.backImageHolder) {
+                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_BACK;
+                } else if (v.getId() == R.id.thumbnail) {
+                    permissionRequestType = PERMISSION_REQUEST_STORAGE_IMAGE_ICON;
+                } else {
+                    throw new IllegalArgumentException("Unknown ID type " + v.getId());
                 }
+
+                PermissionUtils.requestStorageReadPermission(LoyaltyCardEditActivity.this, permissionRequestType);
 
                 return null;
             });

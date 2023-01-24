@@ -33,7 +33,6 @@
     <string name="importExportHelp">Stuðningur upp spil gerir þér kleift að færa þá til annar tæki.</string>
     <string name="importSuccessfulTitle">Flutt</string>
     <string name="importFailedTitle">Innflutningur mistókst</string>
-    <string name="noExternalStoragePermissionError">Grant ytri geymslu leyfi til að flytja eða flytja spil fyrstu</string>
     <string name="exportOptionExplanation">Gögnum verður skrifað á stað af eigin vali.</string>
     <string name="importOptionFilesystemTitle">Innflutningur frá möppuna</string>
     <string name="importOptionFilesystemExplanation">Velja ákveðna skrá frá möppuna.</string>

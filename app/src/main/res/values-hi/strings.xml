@@ -150,5 +150,4 @@
     <string name="debug_version_fmt">संस्करण: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_revision_fmt"><xliff:g id="app_revision_url">%s</xliff:g> संशोधन के बारे में</string>
     <string name="copy_to_clipboard_toast">आई डी क्लिपबोर्ड पर कॉपी किया गया</string>
-    <string name="noExternalStoragePermissionError">डेटा आयात या निर्यात करने के लिए एक्सटर्नल स्टोरेज एक्सेस प्रदान करें</string>
 </resources>

@@ -32,7 +32,6 @@
     <string name="exportFailed">Impossible d’effectuer l’exportation</string>
     <string name="importing">Import …</string>
     <string name="exporting">Export …</string>
-    <string name="noExternalStoragePermissionError">Accorder au stockage externe l’autorisation d’importer ou d’exporter des données</string>
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>

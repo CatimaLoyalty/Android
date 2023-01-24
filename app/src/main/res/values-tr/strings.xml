@@ -128,7 +128,6 @@
     <string name="importOptionFilesystemExplanation">Dosya sisteminden belirli bir dosya seçin.</string>
     <string name="importOptionFilesystemTitle">Dosya sisteminden içe aktar</string>
     <string name="exportOptionExplanation">Veriler seçtiğiniz bir konuma yazılacak.</string>
-    <string name="noExternalStoragePermissionError">Verileri içeri veya dışarı aktarmak için harici depolama izni verin</string>
     <string name="exporting">Dışa aktarılıyor…</string>
     <string name="importing">İçe aktarılıyor…</string>
     <string name="exportFailed">Dışa aktarma gerçekleştirilemedi</string>

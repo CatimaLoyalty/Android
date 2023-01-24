@@ -53,6 +53,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
     private static final int COMPAT_SCALE_FACTOR_DIP = 320;
 
+    private static final int PERMISSION_SCAN_ADD_FROM_IMAGE = 100;
+
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
 
@@ -226,6 +228,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     public void addFromImage(View view) {
+        PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_IMAGE);
+    }
+
+    private void addFromImageAfterPermission() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -275,9 +281,19 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == CaptureManager.getCameraPermissionReqCode())
-            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
 
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == CaptureManager.getCameraPermissionReqCode()) {
+            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
+        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                addFromImageAfterPermission();
+            } else {
+                Toast.makeText(this, R.string.storageReadPermissionRequired, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }

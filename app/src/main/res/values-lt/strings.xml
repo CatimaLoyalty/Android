@@ -23,7 +23,6 @@
     <string name="exportFailed">Nepavyko eksportuoti</string>
     <string name="importing">Importuoja…</string>
     <string name="exporting">Eksportuoja…</string>
-    <string name="noExternalStoragePermissionError">Pirmiausia suteikite išorinės saugyklos leidimą, kad galėtumėte importuoti arba eksportuoti korteles</string>
     <string name="about">Apie</string>
     <string name="app_license">Copylefted laisvoji programinė įranga, licencijuota GPLv3+</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>

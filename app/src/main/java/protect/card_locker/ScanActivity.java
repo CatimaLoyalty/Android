@@ -282,6 +282,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == CaptureManager.getCameraPermissionReqCode()) {
             showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
         } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {

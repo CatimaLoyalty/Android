@@ -984,6 +984,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        onMockedRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         boolean allowed = grantResults[0] == PackageManager.PERMISSION_GRANTED;
         Integer failureReason = null;
 

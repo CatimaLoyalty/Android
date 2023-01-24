@@ -96,7 +96,6 @@
     <string name="exportFailed">Tidak dapat mengekspor</string>
     <string name="importing">Sedang mengimpor…</string>
     <string name="exporting">Sedang mengekspor…</string>
-    <string name="noExternalStoragePermissionError">Berikan izin penyimpanan eksternal untuk mengimpor atau mengekspor data</string>
     <string name="exportOptionExplanation">Data akan ditulis ke lokasi pilihan Anda.</string>
     <string name="importOptionFilesystemTitle">Impor dari pengelola file bawaan</string>
     <string name="importOptionFilesystemExplanation">Pilih file dari pengelola file bawaan.</string>

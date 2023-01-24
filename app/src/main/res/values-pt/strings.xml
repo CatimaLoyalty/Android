@@ -72,7 +72,6 @@
     <string name="moveUp">Subir</string>
     <string name="moveDown">Descer</string>
     <string name="leaveWithoutSaveTitle">Sair</string>
-    <string name="noExternalStoragePermissionError">Conceda primeiro a autorização de acesso ao armazenamento externo para importar ou exportar dados</string>
     <string name="importExportHelp">A cópia de segurança dos seus dados permite-lhe movê-los para outro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">A importação falhou</string>

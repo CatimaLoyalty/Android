@@ -32,7 +32,6 @@
     <string name="exportFailed">Zlyhal export</string>
     <string name="importing">Importujem…</string>
     <string name="exporting">Exportujem…</string>
-    <string name="noExternalStoragePermissionError">Nie je možné importovať a exportovať karty bez prístupu k externému úložisku</string>
     <string name="importOptionFilesystemTitle">Import zo súborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte súbor zo súborového systému.</string>
     <string name="importOptionFilesystemButton">Zo súborového systému</string>

@@ -32,7 +32,6 @@
     <string name="exportFailed">Napaka pri izvozu baze</string>
     <string name="importing">Uvažanje…</string>
     <string name="exporting">Izvažanje…</string>
-    <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema.</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>

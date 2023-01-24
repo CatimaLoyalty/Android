@@ -29,7 +29,6 @@
     <string name="exportFailed">Export nelze provést</string>
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
-    <string name="noExternalStoragePermissionError">Udělit oprávnění přístupu k externímu úložišti pro import nebo export dat</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>

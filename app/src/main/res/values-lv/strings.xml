@@ -48,7 +48,6 @@
     <string name="exportFailed">Kartes neizdevās eksportēt</string>
     <string name="importing">Importē…</string>
     <string name="exporting">Eksportē…</string>
-    <string name="noExternalStoragePermissionError">Piešķiriet ārējai atmiņai atļauju vispirms importēt vai eksportēt kartes</string>
     <string name="exportOptionExplanation">Dati tiks saglabāti Jūsu izvēlētajā vietā.</string>
     <string name="importOptionFilesystemTitle">Imports no failu sistēmas</string>
     <string name="importOptionFilesystemExplanation">Izvēlieties konkrētu failu no failu sistēmas.</string>

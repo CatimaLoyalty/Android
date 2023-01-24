@@ -37,7 +37,6 @@
     <string name="exportFailed">Impossibile eseguire l\'esportazione</string>
     <string name="importing">Importazione in corso…</string>
     <string name="exporting">Esportazione in corso…</string>
-    <string name="noExternalStoragePermissionError">Concedi il permesso di archiviazione esterna per importare o esportare dati</string>
     <string name="importOptionFilesystemTitle">Importa dall\'archivio</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dall\'archivio.</string>
     <string name="importOptionFilesystemButton">Dall\'archivio</string>

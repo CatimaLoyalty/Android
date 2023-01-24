@@ -67,7 +67,6 @@
     <string name="importOptionFilesystemExplanation">Vælg en bestemt fil fra filsystemet.</string>
     <string name="importOptionFilesystemTitle">Import fra filsystem</string>
     <string name="exportOptionExplanation">Dataene skrives til en placering efter eget valg.</string>
-    <string name="noExternalStoragePermissionError">Giv først tilladelse til ekstern lagring til at importere eller eksportere kort</string>
     <string name="failedParsingImportUriError">Kunne ikke analysere import-URI\'en</string>
     <string name="noCardExistsError">Kunne ikke finde kort</string>
     <string name="noCardIdError">Der er ikke angivet noget kort-ID</string>

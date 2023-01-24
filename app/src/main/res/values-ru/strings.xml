@@ -38,7 +38,6 @@
     <string name="exportFailed">Невозможно выполнить экспорт</string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
-    <string name="noExternalStoragePermissionError">Импорт или экспорт данных невозможен без разрешения на доступ к хранилищу</string>
     <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>

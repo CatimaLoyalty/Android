@@ -106,7 +106,6 @@
     <string name="importOptionFilesystemExplanation">Оберіть файл у провіднику.</string>
     <string name="importOptionFilesystemTitle">Імпорт з файлу</string>
     <string name="exportOptionExplanation">Дані буде записано до локації обраної вами.</string>
-    <string name="noExternalStoragePermissionError">Надайте дозвіл на доступ до пам\'яті пристрою для імпорту/експорту даних</string>
     <string name="exporting">Експортуємо…</string>
     <string name="importing">Імпортуємо…</string>
     <string name="exportFailed">Неможливо здійснити експорт</string>

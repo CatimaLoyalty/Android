@@ -34,7 +34,6 @@
     <string name="setFrontImage">Снимка на предната страна</string>
     <string name="photos">Снимки</string>
     <string name="importOptionApplicationExplanation">Изберете файл на друго приложение.</string>
-    <string name="noExternalStoragePermissionError">Разрешете достъп до хранилището, за да работи внасянето и изнасянето</string>
     <string name="noCardExistsError">Картата не е намерена</string>
     <string name="updateBarcodeQuestionText">Идентификаторът е променен. Желаете ли с неговата стойност да бъде променен и щрихкодът\?</string>
     <string name="updateBarcodeQuestionTitle">Обновяване на щрихкода\?</string>

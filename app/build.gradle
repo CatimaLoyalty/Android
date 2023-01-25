@@ -13,12 +13,12 @@ spotbugs {
 }
 
 android {
-    compileSdk 31
+    compileSdk 32
 
     defaultConfig {
         applicationId "me.hackerchick.catima"
         minSdk 21
-        targetSdk 31
+        targetSdk 32
         versionCode 116
         versionName "2.21.1"
 

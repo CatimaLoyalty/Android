@@ -988,46 +988,46 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     }
 
     public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean allowed = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+        boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
         Integer failureReason = null;
 
         if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_FRONT) {
-            if (allowed) {
+            if (granted) {
                 takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_FRONT);
                 return;
             }
 
             failureReason = R.string.cameraPermissionRequired;
         } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_BACK) {
-            if (allowed) {
+            if (granted) {
                 takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_BACK);
                 return;
             }
 
             failureReason = R.string.cameraPermissionRequired;
         } else if (requestCode == PERMISSION_REQUEST_CAMERA_IMAGE_ICON) {
-            if (allowed) {
+            if (granted) {
                 takePhotoForCard(Utils.CARD_IMAGE_FROM_CAMERA_ICON);
                 return;
             }
 
             failureReason = R.string.cameraPermissionRequired;
         } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_FRONT) {
-            if (allowed) {
+            if (granted) {
                 selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_FRONT);
                 return;
             }
 
             failureReason = R.string.storageReadPermissionRequired;
         } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_BACK) {
-            if (allowed) {
+            if (granted) {
                 selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_BACK);
                 return;
             }
 
             failureReason = R.string.storageReadPermissionRequired;
         } else if (requestCode == PERMISSION_REQUEST_STORAGE_IMAGE_ICON) {
-            if (allowed) {
+            if (granted) {
                 selectImageFromGallery(Utils.CARD_IMAGE_FROM_FILE_ICON);
                 return;
             }

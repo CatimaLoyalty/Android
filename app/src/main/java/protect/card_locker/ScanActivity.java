@@ -286,10 +286,12 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     public void onMockedRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+
         if (requestCode == CaptureManager.getCameraPermissionReqCode()) {
-            showCameraPermissionMissingText(grantResults[0] != PackageManager.PERMISSION_GRANTED);
+            showCameraPermissionMissingText(!granted);
         } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (granted) {
                 addFromImageAfterPermission();
             } else {
                 Toast.makeText(this, R.string.storageReadPermissionRequired, Toast.LENGTH_LONG).show();

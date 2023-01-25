@@ -117,7 +117,7 @@ public class ImportURIHelper {
             }
 
             return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100,0);
-        } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException ex) {
+        } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException | ArrayIndexOutOfBoundsException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
     }

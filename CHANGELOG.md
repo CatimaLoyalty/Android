@@ -3,6 +3,7 @@
 ## Unreleased - 117
 
 - Remove unnecessary permissions
+- Target Android 13
 
 ## v2.21.1 - 116
 

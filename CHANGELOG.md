@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 117
+
+- Remove unnecessary permissions
+
 ## v2.21.1 - 116
 
 - Fix quick spend dialog not allowing , separator

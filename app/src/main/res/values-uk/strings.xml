@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="privacy_policy_popup_text">Політика конфіденційності (вимагається деякими магазинами):
 \n
-\nЖОДНОЇ ІНФОРМАЦІЇ НЕ ЗБИРАЄТЬСЯ, що може підтвердити будь-хто, адже наша програма це вільне програмне забезпечення.</string>
+\nЖОДНОЇ ІНФОРМАЦІЇ НЕ ЗБИРАЄТЬСЯ, що може підтвердити будь-хто, адже наш застосунок це вільне програмне забезпечення.</string>
     <string name="noGiftCards">Натисніть кнопку +, щоб додати картку, або ⋮ для імпорту з меню.</string>
     <string name="settings_display_barcode_max_brightness">Яскравіший штрих-код</string>
     <string name="enterBarcodeInstructions">Введіть ID та оберіть тип штрих-коду чи \"Не має штрих-коду\".</string>
@@ -22,7 +22,7 @@
     <string name="updateBarcodeQuestionText">Ви змінили ID. Чи ви бажаєте оновити штрих-код для використання цього ж значення\?</string>
     <string name="updateBarcodeQuestionTitle">Оновити значення штрих-коду\?</string>
     <string name="wrongValueForBarcodeType">Значення не дійсне для обраного типу штрих-коду</string>
-    <string name="unsupportedBarcodeType">Цей тип штрих-коду поки що не відображається. Підтримку може бути додано в подальших версіях програми.</string>
+    <string name="unsupportedBarcodeType">Цей тип штрих-коду поки що не відображається. Підтримку може бути додано в подальших версіях застосунку.</string>
     <string name="setBarcodeId">Встановіть значення штрих-коду</string>
     <string name="sameAsCardId">Таке ж як ID</string>
     <string name="barcodeId">Значення штрих-коду</string>
@@ -99,9 +99,9 @@
 \nавторські права © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="about">Про програму</string>
-    <string name="importOptionApplicationButton">Вибір програми</string>
-    <string name="importOptionApplicationExplanation">Використайте іншу програму чи ваш улюблений файл-менеджер для відкриття файлу.</string>
-    <string name="importOptionApplicationTitle">З іншої програми</string>
+    <string name="importOptionApplicationButton">Використовувати інший застосунок</string>
+    <string name="importOptionApplicationExplanation">Використайте інший застосунок чи ваш улюблений файл-менеджер для відкриття файлу.</string>
+    <string name="importOptionApplicationTitle">З іншого застосунку</string>
     <string name="importOptionFilesystemButton">Обрати файл</string>
     <string name="importOptionFilesystemExplanation">Оберіть файл у провіднику.</string>
     <string name="importOptionFilesystemTitle">Імпорт з файлу</string>
@@ -201,13 +201,13 @@
     <string name="sort_by_name">Назва</string>
     <string name="sort">Сортувати</string>
     <string name="version_history">Історія версій</string>
-    <string name="help_translate_this_app">Допомогти з перекладом програми</string>
+    <string name="help_translate_this_app">Допомогти з перекладом застосунку</string>
     <string name="license">Ліцензія</string>
     <string name="source_repository">Початковий код</string>
     <string name="on_github">на GitHub</string>
     <string name="and_data_usage">та використання даних</string>
     <string name="credits">Подяки</string>
-    <string name="rate_this_app">Оцінити програму</string>
+    <string name="rate_this_app">Оцінити застосунок</string>
     <string name="on_google_play">у Google Play</string>
     <string name="report_error">Повідомити про помилку</string>
     <string name="exportPassword">Встановіть пароль для захисту експорту (необов\'язково)</string>
@@ -255,7 +255,7 @@
         <item quantity="many"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> заархівовано)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> карт (<xliff:g id="archivedCount">%2$d</xliff:g> заархівовано)</item>
     </plurals>
-    <string name="failedLaunchingPhotoPicker">Підтримувану програму галереї не знайдено</string>
+    <string name="failedLaunchingPhotoPicker">Підтримуваний застосунок галереї не знайдено</string>
     <string name="previousCard">Попередня</string>
     <string name="nextCard">Наступна</string>
     <plurals name="viewArchivedCardsWithCount">
@@ -276,4 +276,6 @@
     <string name="cameraPermissionDeniedTitle">Не вдалося отримати доступ до камери</string>
     <string name="noCameraPermissionDirectToSystemSetting">Для сканування штрих-кодів програмі Catima потрібен доступ до вашої камери. Натисніть тут, щоб змінити дозволи.</string>
     <string name="updateBalance">Оновити баланс</string>
+    <string name="storageReadPermissionRequired">Дозвіл на читання сховища, необхідний для цієї дії…</string>
+    <string name="cameraPermissionRequired">Дозвіл на доступ до камери, необхідний для цієї дії…</string>
 </resources>

@@ -262,4 +262,6 @@
     <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
     <string name="updateBalance">Bakiyeyi güncelle</string>
     <string name="importCards">Kartları içe aktar</string>
+    <string name="storageReadPermissionRequired">Bu eylem için depolama alanını okuma izni gerekiyor…</string>
+    <string name="cameraPermissionRequired">Bu eylem için kameraya erişim izni gerekiyor…</string>
 </resources>

@@ -262,4 +262,6 @@
     <string name="currentBalanceSentence">Текущ баланс: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Обновяване на баланса</string>
     <string name="importCards">Внасяне на карти</string>
+    <string name="storageReadPermissionRequired">За това действие е необходимо разрешение за четене на хранилището…</string>
+    <string name="cameraPermissionRequired">За това действие е необходимо разрешение за достъп до камерата…</string>
 </resources>

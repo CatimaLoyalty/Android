@@ -276,4 +276,6 @@
         <item quantity="few">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
         <item quantity="other">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
     </plurals>
+    <string name="cameraPermissionRequired">Za to dejanje je potrebno dovoljenje za dostop do kamere…</string>
+    <string name="storageReadPermissionRequired">Za to dejanje je potrebno dovoljenje za branje iz pomnilnika…</string>
 </resources>

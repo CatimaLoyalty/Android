@@ -44,8 +44,8 @@ else
 fi
 
 pushd app/build/outputs/apk/release/
-sha256sum -- *.apk > SHA256SUM
+sha256sum -- *.apk > SHA256SUMS
 popd
 
-echo "SHA256SUM generated"
-echo "Your SHA256SUM is at app/build/outputs/apk/release/SHA256SUM"
+echo "SHA256SUMS generated"
+echo "Your SHA256SUMS is at app/build/outputs/apk/release/SHA256SUMS"

@@ -269,4 +269,6 @@
     <string name="updateBalanceTitle">Combien avez-vous dépensé \?</string>
     <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importer des cartes</string>
+    <string name="storageReadPermissionRequired">L\'autorisation de lire le stockage est nécessaire pour cette action…</string>
+    <string name="cameraPermissionRequired">L\'autorisation d\'accéder à la caméra est nécessaire pour cette action…</string>
 </resources>

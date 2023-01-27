@@ -262,6 +262,6 @@
     <string name="updateBalanceHint">Voer een bedrag in</string>
     <string name="newBalanceSentence">Nieuw saldo: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Kaarten importeren</string>
-    <string name="storageReadPermissionRequired">Toestemming om de opslag uit te lezen voor deze actie…</string>
-    <string name="cameraPermissionRequired">Toestemming om de camera te openen voor deze actie…</string>
+    <string name="storageReadPermissionRequired">Toestemming om de opslag uit te lezen benodigd voor deze actie…</string>
+    <string name="cameraPermissionRequired">Toestemming om de camera te openen benodigd voor deze actie…</string>
 </resources>

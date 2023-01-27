@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 117
+## v2.21.2 - 117
 
 - Remove unnecessary permissions
 - Target Android 13

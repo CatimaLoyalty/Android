@@ -262,4 +262,6 @@
     <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Neues Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Guthaben aktualisieren</string>
+    <string name="storageReadPermissionRequired">Berechtigung zum Lesen des Speichers für diese Aktion erforderlich …</string>
+    <string name="cameraPermissionRequired">Für diese Aktion wird die Erlaubnis zum Zugriff auf die Kamera benötigt …</string>
 </resources>

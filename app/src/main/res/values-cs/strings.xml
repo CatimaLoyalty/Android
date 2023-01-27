@@ -269,4 +269,6 @@
     <string name="updateBalanceTitle">Kolik jste utratil\?</string>
     <string name="updateBalanceHint">Zadejte výši</string>
     <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">Pro tuto akci je potřeba oprávnění ke čtení úložiště…</string>
+    <string name="cameraPermissionRequired">Pro tuto akci je potřeba oprávnění k přístupu k fotoaparátu…</string>
 </resources>

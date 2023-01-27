@@ -1,0 +1,4 @@
+- Večkratni pritisk na gumb za shranjevanje zdaj ne ustvari več vnosov
+- Zmanjšanje glave kartice pri skrivanju podrobnosti za še več kartic
+- Prestrukturiran zaslon za urejanje
+- Izboljšan kontrast zvezdnih ikon v glavnem pogledu

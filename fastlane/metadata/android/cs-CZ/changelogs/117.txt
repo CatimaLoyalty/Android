@@ -1,0 +1,2 @@
+- Odstranění nepotřebných oprávnění
+- Cíl Android 13

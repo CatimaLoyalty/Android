@@ -1,0 +1,2 @@
+- Dodana podpora za CODE 93
+- Različni manjši popravki napak in izboljšave

@@ -36,7 +36,7 @@
     <string name="all">Semua</string>
     <string name="leaveWithoutSaveTitle">Keluar</string>
     <string name="card">Kartu</string>
-    <string name="barcode">Barcode</string>
+    <string name="barcode">barcode</string>
     <string name="chooseExpiryDate">Pilih masa berlaku</string>
     <string name="noBarcodeFound">Barcode tidak ditemukan</string>
     <string name="errorReadingImage">Tidak dapat membaca gambar</string>
@@ -148,7 +148,7 @@
     <string name="moveBarcodeToCenterOfScreen">Pusatkan barcode pada layar</string>
     <string name="points">Poin</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sepertinya bukan saldo yang valid.</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Gantungan kunci kartu kesetiaan</string>
     <string name="privacy_policy">Kebijakan Privasi</string>
     <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 
 \n
@@ -256,6 +256,6 @@
     <string name="currentBalanceSentence">Saldo saat ini: <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceTitle">Berapa banyak yang telah kamu habiskan \?</string>
     <string name="noCameraPermissionDirectToSystemSetting">Untuk memindai barcode, Catima membutuhkan akses ke kamera mu. Tap disini untuk mengganti pengaturan perizinan mu.</string>
-    <string name="cameraPermissionRequired">Berikan izin untuk mengakses kamera anda.</string>
-    <string name="storageReadPermissionRequired">Berikan izin untuk membaca penyimpanan anda.</string>
+    <string name="cameraPermissionRequired">Berikan izin untuk mengakses kamera anda…</string>
+    <string name="storageReadPermissionRequired">Berikan izin untuk membaca penyimpanan anda…</string>
 </resources>

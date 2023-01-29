@@ -1,0 +1,1 @@
+- Popravek zrušitev aplikacije pri delitvi kartice

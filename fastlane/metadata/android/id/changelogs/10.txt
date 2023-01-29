@@ -1,0 +1,3 @@
+- Mengubah nama berkas impor/ekspor standar. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Benar string pada halaman impor/ekspor. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Meningkatkan tata letak halaman tampilan kartu. Teks harus lebih mudah dibaca, dan dapat dipilih dengan klik panjang. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

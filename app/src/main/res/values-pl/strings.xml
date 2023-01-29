@@ -276,4 +276,6 @@
     <string name="cameraPermissionDeniedTitle">Odmówiono dostępu do kamery</string>
     <string name="newBalanceSentence">Nowe saldo: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importuj karty</string>
+    <string name="storageReadPermissionRequired">Pozwolenie na odczytanie pamięci masowej potrzebne do wykonania tej czynności…</string>
+    <string name="cameraPermissionRequired">Zezwolenie na dostęp do kamery potrzebne do wykonania tej czynności…</string>
 </resources>

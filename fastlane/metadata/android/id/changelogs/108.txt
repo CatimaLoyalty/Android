@@ -1,5 +1,5 @@
 - Menambahkan fitur duplikasi kartu
 - Jangan izinkan memilih kedaluwarsa sebelum 1970 (mereka tidak pernah berhasil)
 - Menambahkan dukungan untuk pengarsipan kartu
-- Pindahkan hapus dari edit ke tampilan
+- Pindahkan hapus dari ubah ke tampilan
 - Hapus ikon kunci rotasi yang mendukung pengaturan kunci rotasi baru

@@ -14,6 +14,7 @@ public class LoyaltyCard implements Parcelable {
     public final int id;
     public final String store;
     public final String note;
+    public final Date validFrom;
     public final Date expiry;
     public final BigDecimal balance;
     public final Currency balanceType;
@@ -33,14 +34,16 @@ public class LoyaltyCard implements Parcelable {
     public final long lastUsed;
     public int zoomLevel;
 
-    public LoyaltyCard(final int id, final String store, final String note, final Date expiry,
-                       final BigDecimal balance, final Currency balanceType, final String cardId,
-                       @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
+    public LoyaltyCard(final int id, final String store, final String note, final Date validFrom,
+                       final Date expiry, final BigDecimal balance, final Currency balanceType,
+                       final String cardId, @Nullable final String barcodeId,
+                       @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus) {
         this.id = id;
         this.store = store;
         this.note = note;
+        this.validFrom = validFrom;
         this.expiry = expiry;
         this.balance = balance;
         this.balanceType = balanceType;
@@ -58,6 +61,8 @@ public class LoyaltyCard implements Parcelable {
         id = in.readInt();
         store = in.readString();
         note = in.readString();
+        long tmpValidFrom = in.readLong();
+        validFrom = tmpValidFrom != -1 ? new Date(tmpValidFrom) : null;
         long tmpExpiry = in.readLong();
         expiry = tmpExpiry != -1 ? new Date(tmpExpiry) : null;
         balance = (BigDecimal) in.readValue(BigDecimal.class.getClassLoader());
@@ -79,6 +84,7 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(id);
         parcel.writeString(store);
         parcel.writeString(note);
+        parcel.writeLong(validFrom != null ? validFrom.getTime() : -1);
         parcel.writeLong(expiry != null ? expiry.getTime() : -1);
         parcel.writeValue(balance);
         parcel.writeValue(balanceType);
@@ -96,6 +102,7 @@ public class LoyaltyCard implements Parcelable {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
         String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
+        long validFromLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM));
         long expiryLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY));
         BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
@@ -111,6 +118,7 @@ public class LoyaltyCard implements Parcelable {
 
         CatimaBarcode barcodeType = null;
         Currency balanceType = null;
+        Date validFrom = null;
         Date expiry = null;
         Integer headerColor = null;
 
@@ -122,6 +130,10 @@ public class LoyaltyCard implements Parcelable {
             balanceType = Currency.getInstance(cursor.getString(balanceTypeColumn));
         }
 
+        if (validFromLong > 0) {
+            validFrom = new Date(validFromLong);
+        }
+
         if (expiryLong > 0) {
             expiry = new Date(expiryLong);
         }
@@ -130,7 +142,7 @@ public class LoyaltyCard implements Parcelable {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel,archived);
+        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, archived);
     }
 
     @Override

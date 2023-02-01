@@ -43,6 +43,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -73,7 +74,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
+import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LoyaltyCardViewLayoutBinding;
@@ -525,25 +528,30 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             infoText.append(getString(R.string.balanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         }
 
-        if (loyaltyCard.expiry != null) {
-            String formattedExpiry = DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry);
+        appendDateInfo(infoText, loyaltyCard.validFrom, (Utils::isNotYetValid), R.string.validFromSentence, R.string.validFromSentence);
 
-            padSpannableString(infoText);
-            if (Utils.hasExpired(loyaltyCard.expiry)) {
-                int start = infoText.length();
-
-                infoText.append(getString(R.string.expiryStateSentenceExpired, formattedExpiry));
-                infoText.setSpan(new ForegroundColorSpan(Color.RED), start, infoText.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            } else {
-                infoText.append(getString(R.string.expiryStateSentence, formattedExpiry));
-            }
-        }
+        appendDateInfo(infoText, loyaltyCard.expiry, (Utils::hasExpired), R.string.expiryStateSentenceExpired, R.string.expiryStateSentence);
 
         infoTextview.setText(infoText);
 
         infoDialog.setView(infoTextview);
         infoDialog.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
         infoDialog.create().show();
+    }
+
+    private void appendDateInfo(SpannableStringBuilder infoText, Date date, Predicate<Date> dateCheck, @StringRes int dateCheckTrueString, @StringRes int dateCheckFalseString) {
+        if (date != null) {
+            String formattedDate = DateFormat.getDateInstance(DateFormat.LONG).format(date);
+
+            padSpannableString(infoText);
+            if (dateCheck.test(date)) {
+                int start = infoText.length();
+                infoText.append(getString(dateCheckTrueString, formattedDate));
+                infoText.setSpan(new ForegroundColorSpan(Color.RED), start, infoText.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            } else {
+                infoText.append(getString(dateCheckFalseString, formattedDate));
+            }
+        }
     }
 
     private void showBalanceUpdateDialog() {
@@ -621,7 +629,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setBottomAppBarButtonState() {
-        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
+        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.validFrom != null || loyaltyCard.expiry != null) {
             bottomAppBarInfoButton.setVisibility(View.VISIBLE);
         } else {
             bottomAppBarInfoButton.setVisibility(View.GONE);

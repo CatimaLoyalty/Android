@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
@@ -214,7 +215,21 @@ public class Utils {
         }
     }
 
+    static public Boolean isNotYetValid(Date validFromDate) {
+        // The note in `hasExpired` does not apply here, since the bug was fixed before this feature was added.
+        return validFromDate.after(getStartOfToday().getTime());
+    }
+
     static public Boolean hasExpired(Date expiryDate) {
+        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
+        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
+        // is not a problem for the way the comparison currently works, it's good to keep in mind such
+        // dates may exist in the DB in case the comparison changes in the future and the new one relies
+        // on both dates being set at 12:00 AM.
+        return expiryDate.before(getStartOfToday().getTime());
+    }
+
+    static private Calendar getStartOfToday() {
         // today
         Calendar date = new GregorianCalendar();
         // reset hour, minutes, seconds and millis
@@ -222,13 +237,7 @@ public class Utils {
         date.set(Calendar.MINUTE, 0);
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
-
-        // Note: In #1083 it was discovered that `DatePickerFragment` may sometimes store the expiryDate
-        // at 12:00 PM instead of 12:00 AM in the DB. While this has been fixed and the 12-hour difference
-        // is not a problem for the way the comparison currently works, it's good to keep in mind such
-        // dates may exist in the DB in case the comparison changes in the future and the new one relies
-        // on both dates being set at 12:00 AM.
-        return expiryDate.before(date.getTime());
+        return date;
     }
 
     static public String formatBalance(Context context, BigDecimal value, Currency currency) {

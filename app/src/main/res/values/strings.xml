@@ -309,4 +309,8 @@
     <string name="updateBalanceHint">Enter amount</string>
     <string name="currentBalanceSentence">Current balance: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">New balance: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">Valid from</string>
+    <string name="anyDate">Any date</string>
+    <string name="chooseValidFromDate">Choose valid from date</string>
+    <string name="validFromSentence">Valid from: <xliff:g>%s</xliff:g></string>
 </resources>

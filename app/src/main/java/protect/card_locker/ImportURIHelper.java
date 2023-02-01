@@ -18,6 +18,7 @@ import java.util.List;
 public class ImportURIHelper {
     private static final String STORE = DBHelper.LoyaltyCardDbIds.STORE;
     private static final String NOTE = DBHelper.LoyaltyCardDbIds.NOTE;
+    private static final String VALID_FROM = DBHelper.LoyaltyCardDbIds.VALID_FROM;
     private static final String EXPIRY = DBHelper.LoyaltyCardDbIds.EXPIRY;
     private static final String BALANCE = DBHelper.LoyaltyCardDbIds.BALANCE;
     private static final String BALANCE_TYPE = DBHelper.LoyaltyCardDbIds.BALANCE_TYPE;
@@ -62,6 +63,7 @@ public class ImportURIHelper {
         try {
             // These values are allowed to be null
             CatimaBarcode barcodeType = null;
+            Date validFrom = null;
             Date expiry = null;
             BigDecimal balance = new BigDecimal("0");
             Currency balanceType = null;
@@ -106,6 +108,10 @@ public class ImportURIHelper {
             if (unparsedBalanceType != null && !unparsedBalanceType.equals("")) {
                 balanceType = Currency.getInstance(unparsedBalanceType);
             }
+            String unparsedValidFrom = kv.get(VALID_FROM);
+            if (unparsedValidFrom != null && !unparsedValidFrom.equals("")) {
+                validFrom = new Date(Long.parseLong(unparsedValidFrom));
+            }
             String unparsedExpiry = kv.get(EXPIRY);
             if (unparsedExpiry != null && !unparsedExpiry.equals("")) {
                 expiry = new Date(Long.parseLong(unparsedExpiry));
@@ -116,7 +122,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100,0);
+            return new LoyaltyCard(-1, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100, 0);
         } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException | ArrayIndexOutOfBoundsException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }
@@ -148,6 +154,9 @@ public class ImportURIHelper {
         fragment = appendFragment(fragment, BALANCE, loyaltyCard.balance.toString());
         if (loyaltyCard.balanceType != null) {
             fragment = appendFragment(fragment, BALANCE_TYPE, loyaltyCard.balanceType.getCurrencyCode());
+        }
+        if (loyaltyCard.validFrom != null) {
+            fragment = appendFragment(fragment, VALID_FROM, String.valueOf(loyaltyCard.validFrom.getTime()));
         }
         if (loyaltyCard.expiry != null) {
             fragment = appendFragment(fragment, EXPIRY, String.valueOf(loyaltyCard.expiry.getTime()));

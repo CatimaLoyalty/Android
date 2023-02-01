@@ -62,9 +62,10 @@ public class LoyaltyCardCursorAdapterTest {
         return viewHolder.itemView;
     }
 
-    private void checkView(final View view, final String store, final String note, final String expiry, final String balance, boolean checkFontSizes) {
+    private void checkView(final View view, final String store, final String note, final String validFrom, final String expiry, final String balance, boolean checkFontSizes) {
         final TextView storeField = view.findViewById(R.id.store);
         final TextView noteField = view.findViewById(R.id.note);
+        final TextView validFromField = view.findViewById(R.id.validFrom);
         final TextView expiryField = view.findViewById(R.id.expiry);
         final TextView balanceField = view.findViewById(R.id.balance);
 
@@ -75,6 +76,7 @@ public class LoyaltyCardCursorAdapterTest {
 
             assertEquals(mediumFontSize, (int) storeField.getTextSize());
             assertEquals(smallFontSize, (int) noteField.getTextSize());
+            assertEquals(smallFontSize, (int) validFromField.getTextSize());
             assertEquals(smallFontSize, (int) expiryField.getTextSize());
         }
 
@@ -84,6 +86,13 @@ public class LoyaltyCardCursorAdapterTest {
             assertEquals(note, noteField.getText().toString());
         } else {
             assertEquals(View.GONE, noteField.getVisibility());
+        }
+
+        if (!validFrom.isEmpty()) {
+            assertEquals(View.VISIBLE, validFromField.getVisibility());
+            assertEquals(validFrom, validFromField.getText().toString());
+        } else {
+            assertEquals(View.GONE, validFromField.getVisibility());
         }
 
         if (!expiry.isEmpty()) {
@@ -104,7 +113,7 @@ public class LoyaltyCardCursorAdapterTest {
 
     @Test
     public void TestCursorAdapterEmptyNote() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -112,14 +121,14 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", false);
+        checkView(view, card.store, card.note, "", "", "", false);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapterWithNote() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -127,17 +136,17 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", false);
+        checkView(view, card.store, card.note, "", "", "", false);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapterFontSizes() {
-        Date expiryDate = new Date();
-        String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(expiryDate);
+        Date date = new Date();
+        String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(date);
 
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", expiryDate, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", date, date, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -146,21 +155,21 @@ public class LoyaltyCardCursorAdapterTest {
         setFontScale(50);
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, dateString, "", true);
+        checkView(view, card.store, card.note, dateString, dateString, "", true);
 
         setFontScale(200);
         view = createView(cursor);
-        checkView(view, card.store, card.note, dateString, "", true);
+        checkView(view, card.store, card.note, dateString, dateString, "", true);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapterStarring() {
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeA", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,1));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeB", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0));
-        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeD", "note", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeA", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,1));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeB", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,1));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeC", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0));
+        assertNotEquals(-1, DBHelper.insertLoyaltyCard(mDatabase, "storeD", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 1, null,0));
 
         assertEquals(4, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -208,7 +217,7 @@ public class LoyaltyCardCursorAdapterTest {
 
     @Test
     public void TestCursorAdapter0Points() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -216,14 +225,14 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", false);
+        checkView(view, card.store, card.note, "", "", "", false);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapter0EUR() {
-        DBHelper.insertLoyaltyCard(mDatabase,"store", "", null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase,"store", "", null, null, new BigDecimal("0"), Currency.getInstance("EUR"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -231,14 +240,14 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", false);
+        checkView(view, card.store, card.note, "", "", "", false);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapter100Points() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -246,14 +255,14 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "100 points", false);
+        checkView(view, card.store, card.note, "", "", "100 points", false);
 
         cursor.close();
     }
 
     @Test
     public void TestCursorAdapter10USD() {
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("USD"), "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
@@ -261,7 +270,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "$10.00", false);
+        checkView(view, card.store, card.note, "", "", "$10.00", false);
 
         cursor.close();
     }

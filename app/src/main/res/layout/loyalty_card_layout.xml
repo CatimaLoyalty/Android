@@ -176,11 +176,30 @@
             android:drawablePadding="4dp"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/info_divider"
-            app:layout_constraintBottom_toTopOf="@+id/expiry"
+            app:layout_constraintBottom_toTopOf="@+id/validFrom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible"
             tools:text="525 points"/>
+
+        <TextView
+            android:id="@+id/validFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary"
+            app:drawableLeftCompat="@drawable/ic_valid_from_24dp"
+            android:drawablePadding="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/balance"
+            app:layout_constraintBottom_toTopOf="@+id/expiry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible"
+            tools:text="Today"/>
 
         <TextView
             android:id="@+id/expiry"
@@ -194,7 +213,7 @@
             app:drawableLeftCompat="@drawable/ic_baseline_access_time_24"
             android:drawablePadding="4dp"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/balance"
+            app:layout_constraintTop_toBottomOf="@+id/validFrom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

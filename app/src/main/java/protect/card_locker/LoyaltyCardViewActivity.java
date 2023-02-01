@@ -629,7 +629,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     }
 
     private void setBottomAppBarButtonState() {
-        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.expiry != null) {
+        if (!loyaltyCard.note.isEmpty() || !loyaltyCardGroups.isEmpty() || hasBalance(loyaltyCard) || loyaltyCard.validFrom != null || loyaltyCard.expiry != null) {
             bottomAppBarInfoButton.setVisibility(View.VISIBLE);
         } else {
             bottomAppBarInfoButton.setVisibility(View.GONE);

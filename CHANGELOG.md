@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 118
+
+- Support setting start of card validity
+
 ## v2.21.2 - 117
 
 - Remove unnecessary permissions

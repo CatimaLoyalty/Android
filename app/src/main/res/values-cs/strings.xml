@@ -271,4 +271,8 @@
     <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">Pro tuto akci je potřeba oprávnění ke čtení úložiště…</string>
     <string name="cameraPermissionRequired">Pro tuto akci je potřeba oprávnění k přístupu k fotoaparátu…</string>
+    <string name="validFromDate">Platnost od</string>
+    <string name="anyDate">Jakékoliv datum</string>
+    <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
+    <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
 </resources>

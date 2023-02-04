@@ -1311,8 +1311,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        if (tempLoyaltyCard.store.isEmpty()) {
-            Snackbar.make(storeFieldEdit, R.string.noStoreError, Snackbar.LENGTH_LONG).show();
+        CharSequence storeFieldEditTextError = storeFieldEdit.getError();
+
+        if (storeFieldEditTextError != null) {
+            Snackbar.make(storeFieldEdit, storeFieldEditTextError.toString(), Snackbar.LENGTH_LONG).show();
             return;
         }
 

@@ -264,4 +264,8 @@
     <string name="importCards">Kartları içe aktar</string>
     <string name="storageReadPermissionRequired">Bu eylem için depolama alanını okuma izni gerekiyor…</string>
     <string name="cameraPermissionRequired">Bu eylem için kameraya erişim izni gerekiyor…</string>
+    <string name="chooseValidFromDate">Geçerlilik başlangıcı tarihini seç</string>
+    <string name="anyDate">Herhangi bir tarih</string>
+    <string name="validFromDate">Geçerlilik başlangıcı</string>
+    <string name="validFromSentence"><xliff:g>%s</xliff:g> tarihinden itibaren geçerlidir</string>
 </resources>

@@ -164,7 +164,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     boolean onResuming = false;
     AlertDialog confirmExitDialog = null;
 
-    boolean validBalance = true;
     Runnable barcodeImageGenerationFinishedCallback;
 
     HashMap<String, Currency> currencies = new HashMap<>();
@@ -415,9 +414,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 try {
                     BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
-                    validBalance = true;
                 } catch (ParseException e) {
-                    validBalance = false;
+                    balanceField.setError(getString(R.string.parsingBalanceFailed));
                     e.printStackTrace();
                 }
             }
@@ -1323,7 +1321,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        if (!validBalance) {
+        CharSequence balanceFieldEditTextError = balanceField.getError();
+
+        if (balanceFieldEditTextError != null) {
             Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
             return;
         }

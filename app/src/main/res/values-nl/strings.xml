@@ -264,4 +264,8 @@
     <string name="importCards">Kaarten importeren</string>
     <string name="storageReadPermissionRequired">Toestemming om de opslag uit te lezen benodigd voor deze actie…</string>
     <string name="cameraPermissionRequired">Toestemming om de camera te openen benodigd voor deze actie…</string>
+    <string name="anyDate">Iedere datum</string>
+    <string name="validFromDate">Geldig vanaf</string>
+    <string name="validFromSentence">Geldig vanaf: <xliff:g>%s</xliff:g></string>
+    <string name="chooseValidFromDate">Kies een geldige vanaf-datum</string>
 </resources>

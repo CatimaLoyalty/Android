@@ -262,4 +262,6 @@
     <string name="settings_lock_on_opening_orientation">Lukitse suunta, kun korttia avataan</string>
     <string name="noCameraPermissionDirectToSystemSetting">Viivakoodien lukeminen vaatii, että Catimalla on käyttöoikeus kameraan. Napauta tästä muuttaaksesi oikeuksia.</string>
     <string name="updateBalance">Päivitä saldo</string>
+    <string name="cameraPermissionRequired">Tämä toiminto vaatii oikeuden käyttää kameraa…</string>
+    <string name="storageReadPermissionRequired">Tämä toiminto vaatii oikeuden lukea tallennustilaa…</string>
 </resources>

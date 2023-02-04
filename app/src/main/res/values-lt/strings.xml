@@ -47,7 +47,7 @@
     <string name="importLoyaltyCardKeychainMessage">Pasirinkite savo <i> LoyaltyCardKeychain.csv</i> eksportą iš Loyalty Card Keychain, kurį norite importuoti.
 \nSukurkite jį iš Loyalty Card Keychain meniu Importavimas/Eksportavimas, pirmiausia paspausdami Eksportuoti.</string>
     <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
     <string name="parsingBalanceFailed">Panašu, kad <xliff:g> %s </xliff:g> reikšmė nėra tinkama.</string>
     <string name="moveBarcodeToCenterOfScreen">Centruoti brūkšninį kodą ekrane</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
@@ -269,4 +269,6 @@
         <item quantity="other"><xliff:g>%s</xliff:g> taškų</item>
     </plurals>
     <string name="importCards">Importuoti korteles</string>
+    <string name="storageReadPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie saugyklos…</string>
+    <string name="cameraPermissionRequired">Šio veiksmo atlikimui reikalinga prieiga prie kameros…</string>
 </resources>

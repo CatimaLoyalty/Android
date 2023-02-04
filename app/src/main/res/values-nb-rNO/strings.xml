@@ -209,7 +209,6 @@
     <string name="group_name_already_in_use">Gruppenavn allerede i bruk</string>
     <string name="group_updated">Gruppe oppdatert</string>
     <string name="group_name_is_empty">Gruppenavn kan ikke være tomt</string>
-    <string name="card_name_is_empty">Navnet på kortet kan ikke være tomt</string>
     <string name="editGroup">Redigerer gruppe: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Lag noen kort, og legg dem til i en gruppe her.</string>
     <string name="action_show_details">Vis detaljer</string>

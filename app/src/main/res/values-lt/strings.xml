@@ -211,7 +211,6 @@
     <string name="exportPassword">Nustatykite slaptažodį, kad apsaugotumėte eksportavimą (neprivaloma)</string>
     <string name="group_name_already_in_use">Toks grupės pavadinimas jau naudojamas</string>
     <string name="group_name_is_empty">Grupės pavadinimas negali būti tuščias</string>
-    <string name="card_name_is_empty">Kortelės pavadinimo laukas negali būti tuščias</string>
     <string name="editGroup">Redaguojama grupė: <xliff:g>%s</xliff:g></string>
     <string name="group_updated">Grupė atnaujinta</string>
     <string name="group_edit">Redaguoti grupę</string>

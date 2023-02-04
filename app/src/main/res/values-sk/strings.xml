@@ -123,7 +123,6 @@
     <string name="group_edit">Upraviť skupinu</string>
     <string name="group_name_already_in_use">Tento názov skupiny sa už používa</string>
     <string name="group_name_is_empty">Názov skupiny nemôže byť prázdny</string>
-    <string name="card_name_is_empty">Názov karty nemôže byť prázdny</string>
     <string name="group_updated">Skupina bola aktualizovaná</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>

@@ -210,7 +210,6 @@
     <string name="group_edit">グループ編集</string>
     <string name="group_name_already_in_use">このグループ名は既に使用されています</string>
     <string name="group_name_is_empty">グループ名を入力してください</string>
-    <string name="card_name_is_empty">カードの名前を空にすることはできません</string>
     <string name="shortcutSelectCard">カードを選択してください</string>
     <string name="translate_platform">on Weblate</string>
 </resources>

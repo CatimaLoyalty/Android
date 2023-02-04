@@ -207,7 +207,6 @@
     <string name="exportPasswordHint">Passwort eingeben</string>
     <string name="group_name_already_in_use">Der Gruppenname wird bereits verwendet</string>
     <string name="group_name_is_empty">Gruppenname darf nicht leer sein</string>
-    <string name="card_name_is_empty">Der Kartenname darf nicht leer sein</string>
     <string name="group_updated">Gruppe aktualisiert</string>
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>

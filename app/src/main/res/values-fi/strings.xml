@@ -187,7 +187,6 @@
     <string name="group_edit">Muokkaa ryhmää</string>
     <string name="group_name_already_in_use">Ryhmän nimi on jo käytössä</string>
     <string name="group_name_is_empty">Ryhmän nimi ei voi olla tyhjä</string>
-    <string name="card_name_is_empty">Kortin nimi ei voi olla tyhjä</string>
     <string name="group_updated">Ryhmä päivitetty</string>
     <string name="editGroup">Muokataan ryhmää: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">

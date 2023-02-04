@@ -214,7 +214,6 @@
     <string name="exportPassword">Встановіть пароль для захисту експорту (необов\'язково)</string>
     <string name="exportPasswordHint">Введіть пароль</string>
     <string name="group_name_is_empty">Назва групи не може бути пустою</string>
-    <string name="card_name_is_empty">Назва картки не може бути пустою</string>
     <string name="group_updated">Групу оновлено</string>
     <string name="editGroup">Редагування групи: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Змінити групу</string>

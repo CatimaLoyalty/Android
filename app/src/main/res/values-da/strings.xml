@@ -78,7 +78,6 @@
     <string name="noGroups">Klik på + plus-knappen for først at tilføje grupper til kategorisering.</string>
     <string name="groups">Grupper</string>
     <string name="enter_group_name">Indtast gruppenavn</string>
-    <string name="card_name_is_empty">Kortnavnet må ikke være tomt</string>
     <string name="exportSuccessful">Eksporterede kortdata</string>
     <string name="importSuccessful">Kortdata importeret</string>
     <string name="intent_import_card_from_url_share_text">Jeg vil dele et kort med jer</string>

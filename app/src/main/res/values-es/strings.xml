@@ -239,7 +239,6 @@
     <string name="welcome">Bienvenido/a a Catima</string>
     <string name="group_name_already_in_use">Nombre del grupo ya está en uso</string>
     <string name="group_name_is_empty">El nombre del grupo no puede estar vacío</string>
-    <string name="card_name_is_empty">El nombre de la tarjeta no puede estar vacío</string>
     <string name="settings_oled_dark">Fondo negro puro para el tema oscuro</string>
     <string name="exportPasswordHint">Introduzca la contraseña</string>
     <string name="previousCard">Anterior</string>

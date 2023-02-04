@@ -193,7 +193,6 @@
     <string name="group_edit">Rediģēt grupu</string>
     <string name="group_name_already_in_use">Jau ir grupa ar šādu nosaukumu</string>
     <string name="group_name_is_empty">Grupas nosaukums nevar būt tukšs</string>
-    <string name="card_name_is_empty">Kartes nosaukums nedrīkst būt tukšs</string>
     <string name="group_updated">Grupa atjaunināta</string>
     <string name="addManually">Ievadīt numuru manuāli</string>
     <string name="groupsList">Grupas: <xliff:g>%s</xliff:g></string>

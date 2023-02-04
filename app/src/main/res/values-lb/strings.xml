@@ -83,5 +83,4 @@
         <item quantity="one"><xliff:g>%d</xliff:g> Kaart</item>
         <item quantity="other"><xliff:g>%d</xliff:g> Netzwerkkarten</item>
     </plurals>
-    <string name="card_name_is_empty">Den Numm vun der Kaart kann net eidel sinn</string>
 </resources>

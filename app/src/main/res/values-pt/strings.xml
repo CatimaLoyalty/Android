@@ -212,7 +212,6 @@
     <string name="group_edit">Editar grupo</string>
     <string name="group_name_already_in_use">O nome do grupo já está a ser usado</string>
     <string name="group_name_is_empty">O nome do grupo não pode estar vazio</string>
-    <string name="card_name_is_empty">O nome do cartão não pode estar vazio</string>
     <string name="group_updated">Grupo atualizado</string>
     <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui.</string>

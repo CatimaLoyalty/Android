@@ -158,7 +158,6 @@
     <string name="updateBarcodeQuestionTitle">Posodobi črtno kodo?</string>
     <string name="removeImage">Odstrani sliko</string>
     <string name="unsupportedBarcodeType">Te vrste črtne kode aplikacija ne more prikazati. Morda bo to možno v prihodnosti.</string>
-    <string name="card_name_is_empty">Ime kartice ne sme biti prazno</string>
     <string name="shortcutSelectCard">Izberite kartico</string>
     <string name="starred">Priljubljene</string>
     <string name="set_scale">Nastavi velikost</string>

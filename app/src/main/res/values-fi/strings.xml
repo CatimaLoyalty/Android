@@ -264,4 +264,8 @@
     <string name="updateBalance">Päivitä saldo</string>
     <string name="cameraPermissionRequired">Tämä toiminto vaatii oikeuden käyttää kameraa…</string>
     <string name="storageReadPermissionRequired">Tämä toiminto vaatii oikeuden lukea tallennustilaa…</string>
+    <string name="validFromDate">Kelvollinen alkaen</string>
+    <string name="anyDate">Mikä tahansa päivämäärä</string>
+    <string name="chooseValidFromDate">Valitse kelvollinen päivämäärä</string>
+    <string name="validFromSentence">Kelvollinen alkaen: <xliff:g>%s</xliff:g></string>
 </resources>

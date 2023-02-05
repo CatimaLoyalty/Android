@@ -47,6 +47,7 @@ public class DBHelper extends SQLiteOpenHelper {
         public static final String LAST_USED = "lastused";
         public static final String ZOOM_LEVEL = "zoomlevel";
         public static final String ARCHIVE_STATUS = "archive";
+        public static final String USAGE_NUMBER = "usagenumber";
     }
 
     public static class LoyaltyCardDbIdsGroups {
@@ -65,7 +66,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public enum LoyaltyCardOrder {
         Alpha,
         LastUsed,
-        Expiry
+        Expiry,
+
+        UsageNumber
     }
 
     public enum LoyaltyCardOrderDirection {
@@ -103,6 +106,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                 LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                 LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
+                LoyaltyCardDbIds.USAGE_NUMBER + " INTEGER DEFAULT '0', " +
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
@@ -189,6 +193,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
+                    LoyaltyCardDbIds.USAGE_NUMBER + " INTEGER DEFAULT '0', " +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                     LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
 
@@ -202,6 +207,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.HEADER_COLOR + " ," +
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
+                    LoyaltyCardDbIds.USAGE_NUMBER + " , " +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
                     LoyaltyCardDbIds.STAR_STATUS + ")" +
                     " SELECT " +
@@ -214,6 +220,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.HEADER_COLOR + " ," +
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
+                    LoyaltyCardDbIds.USAGE_NUMBER + " , " +
                     " NULLIF(" + LoyaltyCardDbIds.BARCODE_TYPE + ",'') ," +
                     LoyaltyCardDbIds.STAR_STATUS +
                     " FROM " + LoyaltyCardDbIds.TABLE);
@@ -230,6 +237,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.HEADER_COLOR + " INTEGER," +
                     LoyaltyCardDbIds.CARD_ID + " TEXT not null," +
                     LoyaltyCardDbIds.BARCODE_ID + " TEXT," +
+                    LoyaltyCardDbIds.USAGE_NUMBER + " INTEGER DEFAULT '0', " +
                     LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                     LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0' )");
 
@@ -243,6 +251,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbIds.HEADER_COLOR + " ," +
                     LoyaltyCardDbIds.CARD_ID + " ," +
                     LoyaltyCardDbIds.BARCODE_ID + " ," +
+                    LoyaltyCardDbIds.USAGE_NUMBER + " , " +
                     LoyaltyCardDbIds.BARCODE_TYPE + " ," +
                     LoyaltyCardDbIds.STAR_STATUS + ")" +
                     " SELECT " +
@@ -416,6 +425,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.BALANCE_TYPE, balanceType != null ? balanceType.getCurrencyCode() : null);
         contentValues.put(LoyaltyCardDbIds.CARD_ID, cardId);
         contentValues.put(LoyaltyCardDbIds.BARCODE_ID, barcodeId);
+        contentValues.put(LoyaltyCardDbIds.USAGE_NUMBER, 0);
         contentValues.put(LoyaltyCardDbIds.BARCODE_TYPE, barcodeType != null ? barcodeType.name() : null);
         contentValues.put(LoyaltyCardDbIds.HEADER_COLOR, headerColor);
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
@@ -437,7 +447,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final Date validFrom, final Date expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
-            final Long lastUsed, final int archiveStatus) {
+            final Long lastUsed, final int archiveStatus ) {
         database.beginTransaction();
 
         // Card
@@ -475,6 +485,24 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
         return (rowsUpdated == 1);
+    }
+
+    public static boolean updateLoyaltyCardUsageNumber(SQLiteDatabase database, final int id) {
+
+        LoyaltyCard to_update_card = getLoyaltyCard(database,id);
+        int usage_number = to_update_card.usage_number + 1;
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(LoyaltyCardDbIds.USAGE_NUMBER, usage_number);
+        Log.d("updateLoyaltyCardULevel", "Card Id = " + id + " usage number = " + usage_number);
+        int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
+                whereAttrs(LoyaltyCardDbIds.ID),
+                withArgs(to_update_card.id));
+        Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
+
+        return (rowsUpdated == 1);
+
     }
 
     public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) {
@@ -687,18 +715,31 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String orderField = getFieldForOrder(order);
 
-        return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
-                " JOIN " + LoyaltyCardDbFTS.TABLE +
-                " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
-                (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
-                groupFilter.toString() +
-                archiveFilterString +
-                " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
-                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
-                " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
-                LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
-                LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
-                limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
+        if(order != LoyaltyCardOrder.UsageNumber)
+            return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
+                    " JOIN " + LoyaltyCardDbFTS.TABLE +
+                    " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
+                    (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
+                    groupFilter.toString() +
+                    archiveFilterString +
+                    " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ARCHIVE_STATUS + " ASC, " +
+                    LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STAR_STATUS + " DESC, " +
+                    " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
+                    LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
+                    LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                    limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
+        else
+            return database.rawQuery("SELECT " + LoyaltyCardDbIds.TABLE + ".* FROM " + LoyaltyCardDbIds.TABLE +
+                    " JOIN " + LoyaltyCardDbFTS.TABLE +
+                    " ON " + LoyaltyCardDbFTS.TABLE + "." + LoyaltyCardDbFTS.ID + " = " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.ID +
+                    (filter.trim().isEmpty() ? " " : " AND " + LoyaltyCardDbFTS.TABLE + " MATCH ? ") +
+                    groupFilter.toString() +
+                    archiveFilterString +
+                    " ORDER BY " + LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.USAGE_NUMBER + " DESC, "+
+                    " (CASE WHEN " + LoyaltyCardDbIds.TABLE + "." + orderField + " IS NULL THEN 1 ELSE 0 END), " +
+                    LoyaltyCardDbIds.TABLE + "." + orderField + " COLLATE NOCASE " + getDbDirection(order, direction) + ", " +
+                    LoyaltyCardDbIds.TABLE + "." + LoyaltyCardDbIds.STORE + " COLLATE NOCASE ASC " +
+                    limitString, filter.trim().isEmpty() ? null : new String[]{TextUtils.join("* ", filter.split(" ")) + '*'}, null);
     }
 
     /**
@@ -898,6 +939,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (order == LoyaltyCardOrder.Expiry) {
             return LoyaltyCardDbIds.EXPIRY;
+        }
+
+        if (order == LoyaltyCardOrder.UsageNumber) {
+            return LoyaltyCardDbIds.USAGE_NUMBER;
         }
 
         throw new IllegalArgumentException("Unknown order " + order);

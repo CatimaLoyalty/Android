@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -73,7 +72,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
@@ -222,7 +220,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 (int) (fieldName == LoyaltyCardField.starStatus ? value : loyaltyCard.starStatus),
                 0, // Unimportant, always set to null in doSave so the DB updates it to the current timestamp
                 100, // Unimportant, not updated in doSave, defaults to 100 for new cards
-                (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus)
+                (int) (fieldName == LoyaltyCardField.archiveStatus ? value : loyaltyCard.archiveStatus),
+                (int) (fieldName == LoyaltyCardField.usage_number ? value : 0)
         );
     }
 
@@ -755,7 +754,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
             } else {
                 // New card, use default values
-                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0);
+                tempLoyaltyCard = new LoyaltyCard(-1, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, Utils.getUnixTime(), 100,0, 0);
 
             }
         }

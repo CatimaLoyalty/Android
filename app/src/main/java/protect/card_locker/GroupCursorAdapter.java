@@ -53,6 +53,8 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
         int archivedCardCount = DBHelper.getArchivedCardsCount(mDatabase, group._id);
 
+        System.out.println("Try to find 1");
+
         Resources resources = mContext.getResources();
 
         String cardCountText;

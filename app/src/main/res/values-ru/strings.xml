@@ -278,4 +278,8 @@
     <string name="importCards">Импорт карт</string>
     <string name="storageReadPermissionRequired">Для этого действия необходимо разрешение на чтение хранилища…</string>
     <string name="cameraPermissionRequired">Для этого действия необходимо разрешение на доступ к камере…</string>
+    <string name="validFromDate">Действует с</string>
+    <string name="anyDate">Любая дата</string>
+    <string name="chooseValidFromDate">Выберите дату действия</string>
+    <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
 </resources>

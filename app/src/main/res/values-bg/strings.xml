@@ -264,4 +264,8 @@
     <string name="importCards">Внасяне на карти</string>
     <string name="storageReadPermissionRequired">За това действие е необходимо разрешение за четене на хранилището…</string>
     <string name="cameraPermissionRequired">За това действие е необходимо разрешение за достъп до камерата…</string>
+    <string name="validFromDate">Валидна от</string>
+    <string name="anyDate">Без значение от датата</string>
+    <string name="validFromSentence">Валидна от: <xliff:g>%s</xliff:g></string>
+    <string name="chooseValidFromDate">Изберете датата, от която е валидна</string>
 </resources>

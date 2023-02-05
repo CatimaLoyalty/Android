@@ -262,4 +262,10 @@
     <string name="updateBalanceHint">Skriv inn beløp</string>
     <string name="newBalanceSentence">Ny saldo: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Oppdater saldo</string>
+    <string name="validFromDate">Gyldig fra</string>
+    <string name="anyDate">Når som helst</string>
+    <string name="chooseValidFromDate">Velg en gyldig dato</string>
+    <string name="storageReadPermissionRequired">Lagringslesetilgang kreves for denne handlingen …</string>
+    <string name="validFromSentence">Gyldig fra: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionRequired">Kameratilgang kreves for denne handlingen …</string>
 </resources>

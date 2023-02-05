@@ -24,10 +24,11 @@ Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
+HudobniVolk
 Aayush Gupta
 huuhaa
-HudobniVolk
 Quentin PAGÈS
+Alexander Ivanov
 arshbeerSingh
 Freddo espresso
 Silvério Santos
@@ -44,9 +45,12 @@ betsythefc
 waffshappen
 Robin
 Eric
-Alexander Ivanov
 ati3
+(Cliff Heraldo)
+Kefir2105
+Evgeniy Khramov
 Jane Kong
+Jiri Grönroos
 K. Herbert
 Lisa A.
 Mawuena M. KODZO A.
@@ -67,18 +71,15 @@ BMN
 BootVirtual
 Clonewayx
 D. Domig
-Kefir2105
 Diego
-Evgeniy Khramov
 Fede Pujol
 Jean-Luc Tibaux
-Jiri Grönroos
 Lukas Grassauer
 Marnick L'Eau
 Michalis
 Michał
 Mohamed A. Salah
-Neko Nekowazarashi
+the7thNightmare
 Rishi Agarwal
 Rosdyana Kusuma
 umoenks
@@ -128,6 +129,7 @@ Jasielprogramador
 Jean Mareilles
 Jean-Baptiste
 人工知能
+Karvjorm
 krkk
 Laura Ferraz 
 Lucas da Costa
@@ -153,6 +155,7 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 SKULD
+Salem Malus
 Samarth Asthan
 Shailendra Maurya
 Simone Dotto
@@ -169,6 +172,7 @@ Yusril A
 Avik Kundu
 diksha-2911
 gbonaspetti
+Eryk Michalak
 huang ivan
 mtrmirez
 opsik

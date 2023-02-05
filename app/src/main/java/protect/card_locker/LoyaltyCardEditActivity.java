@@ -894,9 +894,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             Snackbar.make(cardIdFieldView,
                     cardFieldTextViewError.toString(),
                     Snackbar.LENGTH_LONG).show();
-        }
-
-        if (cardId != null) {
+        } else if (cardId != null) {
             cardIdFieldView.setText(cardId);
         }
 

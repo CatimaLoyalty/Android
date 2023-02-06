@@ -271,4 +271,8 @@
     <string name="importCards">Importa carte</string>
     <string name="storageReadPermissionRequired">Per questa azione è necessario il permesso per accedere alla memoria del dispositivo…</string>
     <string name="cameraPermissionRequired">Per questa azione è necessario il permesso ad accedere alla fotocamera…</string>
+    <string name="validFromDate">Valido dal</string>
+    <string name="chooseValidFromDate">Scegli la data di validità</string>
+    <string name="validFromSentence">Valido da: <xliff:g>%s</xliff:g></string>
+    <string name="anyDate">Qualsiasi data</string>
 </resources>

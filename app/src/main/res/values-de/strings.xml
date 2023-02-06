@@ -264,4 +264,8 @@
     <string name="updateBalance">Guthaben aktualisieren</string>
     <string name="storageReadPermissionRequired">Berechtigung zum Lesen des Speichers für diese Aktion erforderlich …</string>
     <string name="cameraPermissionRequired">Für diese Aktion wird die Erlaubnis zum Zugriff auf die Kamera benötigt …</string>
+    <string name="validFromDate">Gültig ab</string>
+    <string name="validFromSentence">Gültig ab: <xliff:g>%s</xliff:g></string>
+    <string name="chooseValidFromDate">Gültig-ab-Datum wählen</string>
+    <string name="anyDate">Beliebiges Datum</string>
 </resources>

@@ -278,4 +278,8 @@
     <string name="updateBalance">Оновити баланс</string>
     <string name="storageReadPermissionRequired">Дозвіл на читання сховища, необхідний для цієї дії…</string>
     <string name="cameraPermissionRequired">Дозвіл на доступ до камери, необхідний для цієї дії…</string>
+    <string name="validFromDate">Дійсний від</string>
+    <string name="anyDate">Будь-яка дата</string>
+    <string name="chooseValidFromDate">Виберіть термін дії з дати</string>
+    <string name="validFromSentence">Дійсний від: <xliff:g>%s</xliff:g></string>
 </resources>

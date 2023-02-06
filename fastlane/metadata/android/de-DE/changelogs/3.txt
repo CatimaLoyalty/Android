@@ -11,4 +11,4 @@
   - QR_CODE
   - UPC_A
 
-- Die erzeugten Barcodes sind größer und lassen sich leichter mit einem Scangerät einlesen.
+- Die erzeugten Barcodes sind größer und lassen sich leichter mit einem Scangerät einlesen

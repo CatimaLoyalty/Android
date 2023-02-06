@@ -495,6 +495,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
         });
 
+        cardIdFieldView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    cardIdFieldView.setError(getString(R.string.noCardIdError));
+                }
+            }
+        });
+
         barcodeIdField.addTextChangedListener(new SimpleTextWatcher() {
             CharSequence lastValue;
 

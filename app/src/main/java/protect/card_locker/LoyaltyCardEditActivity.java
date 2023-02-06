@@ -1334,7 +1334,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         CharSequence balanceFieldEditTextError = balanceField.getError();
 
         if (balanceFieldEditTextError != null) {
-            Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(balanceField, balanceFieldEditTextError.toString(), Snackbar.LENGTH_LONG).show();
             return;
         }
 

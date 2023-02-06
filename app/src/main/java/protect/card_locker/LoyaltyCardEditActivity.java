@@ -415,7 +415,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                     BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
                 } catch (ParseException e) {
-                    balanceField.setError(getString(R.string.parsingBalanceFailed, balanceField.getText().toString()));
+                    balanceField.setError("Invalid balance");
                     e.printStackTrace();
                 }
             }

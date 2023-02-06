@@ -1,22 +1,22 @@
-Schluss mit der Suche nach Plastik-Belohnungskarten beim Bezahlen im Geschäft oder Webshop.
-<b>Scanne EAN-Codes mit der Kamera deines Geräts, du brauchst keine Karten mehr.</b>
+Schluss mit der Suche nach Kundenkarten aus Plastik beim Bezahlen im Geschäft oder Webshop.
+<b>Speichere Barcodes mit der Kamera auf dein Gerät und vergesse deine Karten.</b>
 
-Du brauchst keine Geldbörse, oder mach sie federleicht für Wertsachen.
+Lass deine Geldbörse daheim, oder schaffe wenigstens viel Platz für die wichtigen Wertsachen.
 
-Mit diesem unverzichtbaren (EDC) Werkzeug kannst du nutzloses Plastik durch Bargeld ersetzen.
+Mit diesem unverzichtbaren Programm schaffst du Platz für Bargeld statt für nutzloses Plastik.
 
-- Vermeide Spionage mit sehr wenigen Berechtigungen. Kein Internetzugang und keine Werbung.
+- Du wirst nicht ausspioniert, dank sehr weniger Berechtigungen. Kein Internetzugang und keine Werbung.
 - Füge Karten oder Codes mit Namen und anpassbaren Farben hinzu.
-- Manuelle Code-Eingabe, wenn kein Barcode gespeichert ist oder nicht funktioniert.
-- Importiere Karten und Codes aus Dateien, Catima, Loyalty Card Keychain, Stocard, Voucher Vault und FidMe.
-- Erstelle ein Backup aller Karten und übertrage diese auf ein neues Gerät.
-- Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und Codes mit jeder Applikation.
-- Dunkler Modus und Zugänglichkeitsoptionen für sehbehinderte Nutzer.
+- Manuelle Code-Eingabe, wenn kein Barcode vorhanden ist oder er nicht funktioniert.
+- Importiere Karten und Codes aus Dateien, von Catima, FidMe, Loyalty Card Keychain, Stocard oder Voucher Vault.
+- Erstelle ein Backup aller deiner Karten und übertrage diese auf ein neues Gerät.
+- Teile Gutscheine, exklusive Angebote, Werbeaktionscodes oder Karten und sonstige Codes mit allen Apps.
+- Dunkles Design und Barrierefreiheit für sehbehinderte Nutzer.
 - Von der Freien-Software-Gemeinschaft für alle Menschen gemacht.
-- Lokalisierte, eigenhändige Übersetzungen für mehr als 20 Sprachen.
+- Lokalisierte, menschliche Übersetzungen für mehr als 20 Sprachen.
 - Kostenlos, unterstützt durch Gemeinschaftsbeiträge.
-- Verwende, studiere, ändere und teile es, wie du willst; <i>mit Allen</i>.
-- Nicht nur freie und quelloffene Software. <i>Copylefted</i> freie Software (GPLv3+) Kartenverwaltung.
+- Verwende, prüfe, ändere und teile die App, wie du willst; <i>mit Allen</i>.
+- Nicht nur freie und quelloffene Software. Eine freie, <i>Copylefted</i> Software-Kartenverwaltung (GPLv3+).
 
-Vereinfache dein Leben und Einkäufe, und verliere nie wieder eine Papierrechung, eine Geschenkkarte für die Bezahlung im Geschäft oder ein Flugticket.
-Habe deine Prämien und Boni immer bei der Hand, und spare unterwegs.
+Vereinfache dein Leben und deine Einkäufe, und verliere nie wieder einen Beleg, eine Gutscheinkarte oder ein Flugticket.
+Habe deine Prämien und Boni immer bei dir, und spare unterwegs.

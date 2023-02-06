@@ -1,0 +1,2 @@
+- Bugfix: Spendendialog erlaubte kene Trennzeichen
+- Unterstützt das Laden von Bildern aus dem Dateimanager

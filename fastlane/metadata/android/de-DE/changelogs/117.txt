@@ -1,0 +1,2 @@
+- Ncht benötigte Berechtigungen entfernt
+- Ziel Android 13

@@ -491,10 +491,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().length() == 0) {
-                    cardIdFieldView.setError(getString(R.string.noCardIdError));
-                    return;
-                }
                 updateTempState(LoyaltyCardField.cardId, s.toString());
             }
         });
@@ -888,14 +884,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             }
         }
 
-        CharSequence cardFieldTextViewError = cardIdFieldView.getError();
 
-        if (cardFieldTextViewError != null) {
-            Snackbar.make(cardIdFieldView,
-                    cardFieldTextViewError.toString(),
-                    Snackbar.LENGTH_LONG).show();
-        } else if (cardId != null) {
+        if (cardId != null) {
             cardIdFieldView.setText(cardId);
+        } else {
+            cardIdFieldView.setError(getString(R.string.noCardIdError));
         }
 
         if (barcodeId != null) {
@@ -1326,7 +1319,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        if (tempLoyaltyCard.cardId.isEmpty()) {
+        CharSequence cardFieldViewError = cardIdFieldView.getError();
+
+        if (cardFieldViewError != null) {
             Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
             return;
         }

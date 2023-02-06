@@ -28,7 +28,6 @@
     <string name="barcodeNoBarcode">Na ovoj kartici nema crtičnog koda</string>
     <string name="cancel">Poništi</string>
     <string name="noGiftCards">Pritisnite gumb + plus da biste dodali karticu ili ga najprije uvezite iz izbornika ⋮.</string>
-    <string name="noStoreError">Ime nije uneseno</string>
     <string name="noCardExistsError">Nije moguće pronaći karticu</string>
     <string name="failedParsingImportUriError">Nije moguće analizirati uvoz URI</string>
     <string name="importExport">Uvoz / Izvoz</string>

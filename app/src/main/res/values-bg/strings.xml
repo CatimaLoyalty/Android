@@ -82,7 +82,6 @@
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
-    <string name="noStoreError">Не е въведено наименование</string>
     <string name="groups">Списъци</string>
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>

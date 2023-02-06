@@ -18,7 +18,6 @@
     <string name="scanCardBarcode">Zosnímajte čiarový kód na karte</string>
     <string name="cardShortcut">Skratka</string>
     <string name="noCardsMessage">Najprv pridajte kartu</string>
-    <string name="noStoreError">Nebol zadaný obchod</string>
     <string name="noCardIdError">Nebolo zadané ID</string>
     <string name="noCardExistsError">Nepodarilo sa nájsť túto kartu</string>
     <string name="importExport">Import/Export</string>

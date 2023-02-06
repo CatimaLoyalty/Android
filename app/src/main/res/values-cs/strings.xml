@@ -16,7 +16,6 @@
     <string name="editCardTitle">Editovat kartu</string>
     <string name="addCardTitle">Přidat kartu</string>
     <string name="scanCardBarcode">Skenování čárového kódu</string>
-    <string name="noStoreError">Nezadáno žádné jméno</string>
     <string name="noCardIdError">Nezadáno ID</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>

@@ -72,7 +72,6 @@
     <string name="reverse">Rikverc</string>
     <string name="sort_by">Sortiraj</string>
     <string name="noCardExistsError">Nisam mogao pronaći tu karticu</string>
-    <string name="noStoreError">Nije uneseno ime</string>
     <string name="card_ids_copied">Kopiran ID/ovi</string>
     <string name="noCardsMessage">Dodaj prvo kartu</string>
     <string name="addCardTitle">Dodaj Kartu</string>

@@ -39,7 +39,6 @@
     <string name="cardId">Identificador do cartão</string>
     <string name="cardShortcut">Atalho do cartão</string>
     <string name="noCardsMessage">Adicione primeiro um cartão</string>
-    <string name="noStoreError">Nenhum nome inserido</string>
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
     <string name="importExport">Importar / exportar</string>

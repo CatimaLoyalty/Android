@@ -36,7 +36,6 @@
     <string name="addCardTitle">Kártya hozzáadása</string>
     <string name="scanCardBarcode">Vonalkód szkennelése</string>
     <string name="cardShortcut">Kártya parancsikon</string>
-    <string name="noStoreError">Nincs név megadva</string>
     <string name="failedParsingImportUriError">Nem elemezhető az importált URI</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>

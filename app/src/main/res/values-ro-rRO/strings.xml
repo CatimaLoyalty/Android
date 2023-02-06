@@ -76,7 +76,6 @@
     <string name="chooseExpiryDate">Alegeți data de expirare</string>
     <string name="moveBarcodeToCenterOfScreen">Centrați codul de bare pe ecran</string>
     <string name="copy_to_clipboard_toast">ID-ul cardului copiat în clipboard</string>
-    <string name="noStoreError">Nici un nume introdus</string>
     <string name="selectBarcodeTitle">Selectare cod de bare</string>
     <string name="noGroupCards">Acest grup nu conține nicio carte</string>
     <string name="addFromImage">Selectați imaginea din galerie</string>

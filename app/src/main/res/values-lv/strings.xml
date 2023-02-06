@@ -34,7 +34,6 @@
     <string name="scanCardBarcode">Skenēt svītrkodu</string>
     <string name="cardShortcut">Kartes saīsne</string>
     <string name="noCardsMessage">Vispirms pievienojiet karti</string>
-    <string name="noStoreError">Vārds nav ievadīts</string>
     <string name="noCardExistsError">Nevarēja atrast karti</string>
     <string name="failedParsingImportUriError">Nevarēja parsēt importa URI</string>
     <string name="importExport">Imports/Eksports</string>

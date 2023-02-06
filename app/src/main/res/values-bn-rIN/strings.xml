@@ -72,7 +72,6 @@
     <string name="reverse">বিপরীত</string>
     <string name="sort_by">ক্রমানুসার</string>
     <string name="noCardExistsError">কার্ডটি পাওয়া যায়নি</string>
-    <string name="noStoreError">স্টোরেজ ত্রুটি নেই</string>
     <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
     <string name="noCardsMessage">কোন কার্ড বার্তা নেই</string>
     <string name="addCardTitle">কার্ডের শিরোনাম যোগ করুন</string>

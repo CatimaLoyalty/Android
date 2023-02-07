@@ -128,7 +128,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 1:
                             try {
-                                 parseV2Groups(database, stringPart);
+                                 parseV2Groups(database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -136,7 +136,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 2:
                             try {
-                                parseV2Cards(context, database, stringPart);
+                                parseV2Cards(context, database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -144,7 +144,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 3:
                             try {
-                                parseV2CardGroups(database, stringPart);
+                                parseV2CardGroups(database, stringPart.toString());
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -160,12 +160,12 @@ public class CatimaImporter implements Importer {
 
                     if (sectionParsed) {
                         part += 1;
-                        stringPart = "";
+                        stringPart = new StringBuilder();
                     } else {
-                        stringPart += tmp + "\n";
+                        stringPart.append(tmp).append('\n');
                     }
                 } else {
-                    stringPart += tmp + "\n";
+                    stringPart.append(tmp).append('\n');
                 }
             }
         } catch (FormatException e) {
@@ -175,7 +175,7 @@ public class CatimaImporter implements Importer {
 
     public void parseV3(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
         Integer part = 0;
-        String stringPart = "";
+        StringBuilder stringPart = new StringBuilder();
         Hashtable<Integer,String> groupsTable = null;
 
         try {

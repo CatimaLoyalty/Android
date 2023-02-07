@@ -507,7 +507,8 @@ public class CatimaImporter implements Importer {
             sortedGroups.put(order, DBHelper.getGroupByName(database, name));
             groupsTable.put(id, name);
         }
-        DBHelper.reorderGroups(database, List.copyOf(sortedGroups.values()));
+        List<Group> sortedGroupList = new ArrayList<>(sortedGroups.values());
+        DBHelper.reorderGroups(database, sortedGroupList);
         return groupsTable;
     }
 

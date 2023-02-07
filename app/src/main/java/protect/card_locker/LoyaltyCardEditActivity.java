@@ -498,7 +498,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardIdFieldView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                if (!hasFocus) {
+                if (!hasFocus && cardIdFieldView.getText().length() == 0) {
                     cardIdFieldView.setError(getString(R.string.noCardIdError));
                 }
             }

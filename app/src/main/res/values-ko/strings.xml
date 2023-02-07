@@ -77,4 +77,6 @@
     <plurals name="deleteCardsTitle">
         <item quantity="other">카드 <xliff:g>%d</xliff:g> 제거</item>
     </plurals>
+    <string name="noGiftCardsGroup">카드를 몇 장 만든 다음 여기에서 그룹에 할당합니다.</string>
+    <string name="noCardsMessage">먼저 카드 추가</string>
 </resources>

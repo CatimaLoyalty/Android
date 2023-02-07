@@ -1,1 +1,1 @@
-- Behebung verschiedener TalkBack-bezogener Fehler
+- Behebung verschiedener Fehler im Zusammenhang mit TalkBack

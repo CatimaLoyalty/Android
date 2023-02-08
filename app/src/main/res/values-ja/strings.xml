@@ -19,7 +19,6 @@
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">インポート元を選択</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> は有効な残高ではないようです。</string>
     <string name="points">ポイント</string>
     <string name="currency">通貨</string>
     <string name="balance">残高</string>

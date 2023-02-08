@@ -135,7 +135,6 @@
     <string name="balance">Egyenleg</string>
     <string name="currency">Valuta</string>
     <string name="points">Pontok</string>
-    <string name="parsingBalanceFailed">A <xliff:g>%s</xliff:g> nem tűnik valós egyenlegnek.</string>
     <string name="app_loyalty_card_keychain">Hűségkártya kulcstartó</string>
     <string name="privacy_policy">Adatvédelmi Szabályzat</string>
     <string name="accept">Elfogad</string>

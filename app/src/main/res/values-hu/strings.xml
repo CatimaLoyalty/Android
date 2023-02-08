@@ -80,7 +80,6 @@
     <string name="exportFailed">Exportálás sikertelen</string>
     <string name="importing">Importálás…</string>
     <string name="exporting">Exportálás…</string>
-    <string name="noExternalStoragePermissionError">Külső háttértárhoz való hozzáférés engedélyezése adat import vagy export miatt</string>
     <string name="exportOptionExplanation">Az adatokat a kiválasztott helyre fogjuk menteni.</string>
     <string name="importOptionFilesystemTitle">Importálás fájlrendszerből</string>
     <string name="importOptionFilesystemButton">A fájlrendszerből</string>

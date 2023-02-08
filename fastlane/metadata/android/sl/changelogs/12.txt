@@ -1,0 +1,1 @@
+- Preprečitev sesutja po vrtenju zaslona ob prvem zagonu uvoda čarovnika.

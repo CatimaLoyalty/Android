@@ -43,7 +43,6 @@
     <string name="exportOptionExplanation">Podaci će biti zabilježeni na odabranom mjestu.</string>
     <string name="exportFailedTitle">Izvoz nije uspio</string>
     <string name="exporting">Opskrba…</string>
-    <string name="noExternalStoragePermissionError">Najprije odobrite dopuštenje za vanjsku pohranu za uvoz ili izvoz kartica</string>
     <string name="importOptionFilesystemExplanation">Odaberite određenu datoteku iz datotečnog sustava.</string>
     <string name="importOptionApplicationTitle">Koristite drugu aplikaciju</string>
     <string name="settings">Postavke</string>

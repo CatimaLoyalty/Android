@@ -1,0 +1,5 @@
+- Dodana funkcija podvajanja kartic
+- Ne dovoli izbire poteka pred letom 1970 (itak niso nikoli delovale)
+- Dodana podpora za arhiviranje kartic
+- Premakni "brisanje iz urejanja" v pogled
+- Odstranite ikono zaklepanja vrtenja v korist nove nastavitve zaklepanja vrtenja

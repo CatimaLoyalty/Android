@@ -11,41 +11,46 @@ IllusiveMan196
 StoyanDimitrov
 Altonss
 SlavekB
+Michael Moroni
 Gediminas Murauskas
 Petr Novák
-Michael Moroni
 Joel A
 Taco
 pfaffenrodt
-Nyatsuki
 laralem
+Nyatsuki
+gallegonovato
 Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
+HudobniVolk
 Aayush Gupta
-gallegonovato
 huuhaa
+Quentin PAGÈS
+Alexander Ivanov
 arshbeerSingh
 Freddo espresso
-Quentin PAGÈS
+Silvério Santos
 Miha Frangež
 Arnis Jaundzeikars
 sr093906
+Giovanni Donisi
 mdvhimself
 Katarzyna
-Maciej Błędkowski
+echo r"0xX4H" | rev
 Magnitudee
 Olivia (Zoe)
 betsythefc
-Silvério Santos
 waffshappen
 Robin
 Eric
-Alexander Ivanov
 ati3
-Giovanni
+(Cliff Heraldo)
+Kefir2105
+Evgeniy Khramov
 Jane Kong
+Jiri Grönroos
 K. Herbert
 Lisa A.
 Mawuena M. KODZO A.
@@ -67,7 +72,6 @@ BootVirtual
 Clonewayx
 D. Domig
 Diego
-Evgeniy Khramov
 Fede Pujol
 Jean-Luc Tibaux
 Lukas Grassauer
@@ -75,7 +79,7 @@ Marnick L'Eau
 Michalis
 Michał
 Mohamed A. Salah
-Neko Nekowazarashi
+the7thNightmare
 Rishi Agarwal
 Rosdyana Kusuma
 umoenks
@@ -94,7 +98,6 @@ phlostically
 Ágata Leuck
 BmBKun
 Aditya Das
-Asier
 Kevin Sicong Jiang
 Tomer Ben-Rachel
 tfuxu
@@ -104,6 +107,7 @@ sNiXx
 Angela Enogieru
 AnimeshChatterjee1
 Ashish Yadav
+Asier
 Aya Elsaadany
 Biren
 Booc Sylvan
@@ -121,16 +125,18 @@ HowITsDone
 Izzy
 Jacek
 Jacopo Gennaro Esposito
+Jasielprogramador
 Jean Mareilles
 Jean-Baptiste
 人工知能
+Karvjorm
 krkk
 Laura Ferraz 
 Lucas da Costa
 bittin
 Manan Jhaveri
 Marco
-Mario M. Viscovich
+BRBsoup
 Mattia
 Md. Al-Amin
 Michael Gangolf
@@ -140,6 +146,7 @@ DivideEtImpera
 Nicolas
 pbeckmann
 Peer Beckmann
+Piotr Strebski
 Piotr Zet
 Quang Nguyen
 Ratnesh
@@ -148,12 +155,15 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 SKULD
+Salem Malus
 Samarth Asthan
+Shailendra Maurya
 Simone Dotto
 Subhashish Anand
 TenTraicion
 Titas Pažereckas
 Tom Sawyer
+atakujonc
 Tony C
 Tymofii Lytvynenko
 Vancha March
@@ -162,6 +172,7 @@ Yusril A
 Avik Kundu
 diksha-2911
 gbonaspetti
+Eryk Michalak
 huang ivan
 mtrmirez
 opsik
@@ -169,11 +180,13 @@ polarhun
 pooyanazari
 psa-jforestier
 sergio
+080502
 Marcus
 techwebpd
 Truestorybaby 
 tygyh
 unstartdev
+wmilan 17
 luoyang3
 JaeBeom An
 JungHee Lee

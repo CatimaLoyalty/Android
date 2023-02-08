@@ -1,0 +1,2 @@
+- Sistemato il dialogo di spesa rapida che non permette di usare la virgola come separatore
+- Supporto al caricamento delle immagini dal gestore file

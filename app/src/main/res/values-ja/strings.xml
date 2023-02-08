@@ -86,7 +86,6 @@
     <string name="importOptionFilesystemExplanation">ストレージからファイルを選択してください。</string>
     <string name="importOptionFilesystemTitle">ストレージからインポート</string>
     <string name="exportOptionExplanation">選択した場所にデータを出力します。</string>
-    <string name="noExternalStoragePermissionError">データをインポート/エクスポートするために外部ストレージへのアクセスを許可してください</string>
     <string name="exporting">エクスポート中…</string>
     <string name="importing">インポート中…</string>
     <string name="exportFailed">カードをエクスポートできませんでした</string>

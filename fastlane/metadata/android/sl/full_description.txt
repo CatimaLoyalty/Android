@@ -1,0 +1,22 @@
+Prenehajte z iskanjem plastičnih kartic zvestobe pri blagajni v trgovini ali doma pri nakupovanju v spletni trgovini.
+<b>S kamero na svoji napravi skenirajte črtne kode ter pozabite na plastične kartice.</b>
+
+Pozabite na nošenje vaše denarnice ali pa jo uporabljajte za vaše druge dragocenosti.
+
+S tem osnovnim orodjem na vaši elektronski napravi, lahko neuporabno plastiko nadomestite z gotovino.
+
+- Izogibajte se vohunjenju z zelo malo dovoljenji. Ni dostopa do interneta in brez oglasov.
+- Dodajte kartice ali kode z imeni in prilagodljivimi barvami.
+- Ročni vnos kode, če ni črtne kode za shranjevanje ali je ni mogoče uporabiti.
+- Uvozite kartice in kode iz datotek, Catima, FidMe, Loyalty Card Keychain, Stocard in Voucher Vault.
+- Naredite varnostno kopijo vseh svojih kartic in jih po želji prenesite v novo napravo.
+- Delite kupone, ekskluzivne ponudbe, promocijske kode ali kartice in kode s katero koli aplikacijo.
+- Temna tema in možnosti dostopnosti za uporabnike z okvarami vida.
+- Izdelana za vsakogar s strani skupnosti programske opreme libre.
+- Lokalizirani ročno izdelani prevodi za več kot 20 jezikov.
+- Brezplačno, podprto s prispevki skupnosti.
+- Uporabljajte, preučujte, spreminjajte in delite po želji; <i>z vsem</i>.
+- Programska oprema je odprtokodna in brezplačna. Upravljanje kartic s pomočjo <i>Copylefted</i> proste programske opreme (GPLv3+ licenca).
+
+Poenostavite si življenje in nakupovanje ter nikoli več ne izgubite papirnatega računa, darilne kartice za plačilo v trgovini ali letalske karte.
+S seboj vzemite vse svoje nagrade in bonuse in sproti varčujte.

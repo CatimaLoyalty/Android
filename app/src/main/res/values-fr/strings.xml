@@ -31,7 +31,6 @@
     <string name="exportFailed">Impossible d’effectuer l’exportation</string>
     <string name="importing">Import …</string>
     <string name="exporting">Export …</string>
-    <string name="noExternalStoragePermissionError">Accorder au stockage externe l’autorisation d’importer ou d’exporter des données</string>
     <string name="importOptionFilesystemTitle">Importer depuis le système de fichiers</string>
     <string name="importOptionFilesystemExplanation">Choisissez le fichier à importer.</string>
     <string name="importOptionFilesystemButton">Système de fichiers</string>
@@ -268,4 +267,10 @@
     <string name="updateBalanceTitle">Combien avez-vous dépensé \?</string>
     <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importer des cartes</string>
+    <string name="storageReadPermissionRequired">L\'autorisation de lire le stockage est nécessaire pour cette action…</string>
+    <string name="cameraPermissionRequired">L\'autorisation d\'accéder à la caméra est nécessaire pour cette action…</string>
+    <string name="validFromDate">Valide à partir de</string>
+    <string name="validFromSentence">Valide à partir de : <xliff:g>%s</xliff:g></string>
+    <string name="anyDate">N’importe quelle date</string>
+    <string name="chooseValidFromDate">Choisissez la date de début de validité</string>
 </resources>

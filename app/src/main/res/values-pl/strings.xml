@@ -36,7 +36,6 @@
     <string name="exportFailed">Nie udało się wyeksportować</string>
     <string name="importing">Importowanie…</string>
     <string name="exporting">Eksportowanie…</string>
-    <string name="noExternalStoragePermissionError">Zezwalaj na przechowywanie zewnętrzne w celu importowania lub eksportowania danych</string>
     <string name="importOptionFilesystemTitle">Importuj z systemu plików</string>
     <string name="importOptionFilesystemExplanation">Wybierz określony plik z systemu plików.</string>
     <string name="importOptionFilesystemButton">Z systemu plików</string>
@@ -132,7 +131,7 @@
 \n
 \nŻADNE DANE NIE SĄ ZBIERANE, co może potwierdzić każdy, gdyż nasza aplikacja jest wolnym oprogramowaniem.</string>
     <string name="privacy_policy">Polityka prywatności</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Brelok dla twoich kart lojalnościowych</string>
     <string name="chooseImportType">Importuj dane z</string>
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
@@ -275,4 +274,10 @@
     <string name="cameraPermissionDeniedTitle">Odmówiono dostępu do kamery</string>
     <string name="newBalanceSentence">Nowe saldo: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importuj karty</string>
+    <string name="storageReadPermissionRequired">Pozwolenie na odczytanie pamięci masowej potrzebne do wykonania tej czynności…</string>
+    <string name="cameraPermissionRequired">Zezwolenie na dostęp do kamery potrzebne do wykonania tej czynności…</string>
+    <string name="validFromDate">Obowiązuje od</string>
+    <string name="chooseValidFromDate">Wybierz datę rozpoczęcia ważności</string>
+    <string name="anyDate">Dowolna data</string>
+    <string name="validFromSentence">Ważny od: <xliff:g>%s</xliff:g></string>
 </resources>

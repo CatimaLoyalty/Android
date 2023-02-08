@@ -28,7 +28,6 @@
     <string name="exportFailed">Export nelze provést</string>
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
-    <string name="noExternalStoragePermissionError">Udělit oprávnění přístupu k externímu úložišti pro import nebo export dat</string>
     <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
     <string name="importOptionFilesystemButton">Ze souborového systému</string>
@@ -268,4 +267,10 @@
     <string name="updateBalanceTitle">Kolik jste utratil\?</string>
     <string name="updateBalanceHint">Zadejte výši</string>
     <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">Pro tuto akci je potřeba oprávnění ke čtení úložiště…</string>
+    <string name="cameraPermissionRequired">Pro tuto akci je potřeba oprávnění k přístupu k fotoaparátu…</string>
+    <string name="validFromDate">Platnost od</string>
+    <string name="anyDate">Jakékoliv datum</string>
+    <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
+    <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
 </resources>

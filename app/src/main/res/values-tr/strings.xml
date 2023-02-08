@@ -127,7 +127,6 @@
     <string name="importOptionFilesystemExplanation">Dosya sisteminden belirli bir dosya seçin.</string>
     <string name="importOptionFilesystemTitle">Dosya sisteminden içe aktar</string>
     <string name="exportOptionExplanation">Veriler seçtiğiniz bir konuma yazılacak.</string>
-    <string name="noExternalStoragePermissionError">Verileri içeri veya dışarı aktarmak için harici depolama izni verin</string>
     <string name="exporting">Dışa aktarılıyor…</string>
     <string name="importing">İçe aktarılıyor…</string>
     <string name="exportFailed">Dışa aktarma gerçekleştirilemedi</string>
@@ -261,4 +260,10 @@
     <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
     <string name="updateBalance">Bakiyeyi güncelle</string>
     <string name="importCards">Kartları içe aktar</string>
+    <string name="storageReadPermissionRequired">Bu eylem için depolama alanını okuma izni gerekiyor…</string>
+    <string name="cameraPermissionRequired">Bu eylem için kameraya erişim izni gerekiyor…</string>
+    <string name="chooseValidFromDate">Geçerlilik başlangıcı tarihini seç</string>
+    <string name="anyDate">Herhangi bir tarih</string>
+    <string name="validFromDate">Geçerlilik başlangıcı</string>
+    <string name="validFromSentence"><xliff:g>%s</xliff:g> tarihinden itibaren geçerlidir</string>
 </resources>

@@ -1,0 +1,1 @@
+- Spremembe v pogledu "Ogled kartice" pri prikazu opombe. Prikaz ID-ja kartice sedaj zaseda več vrstic. Prikazano je tudi ime trgovine. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

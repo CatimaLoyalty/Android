@@ -1,1 +1,4 @@
 - Premendo a lungo l'immagine si apre nella galleria
+- Applicazione dello stile Material ai dialoghi
+- Supporto alla creazione delle carte condividendo un'immagine con Catima
+- Aggiunta di un bottone rapido alla schermata della carta

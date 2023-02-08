@@ -1,0 +1,3 @@
+- Samodejno izostri besedilno polje pri ustvarjanju ali urejanju skupine
+- Popravek zamegljenih ikon (SVG se naj uporablja vsepovsod)
+- Kamera se sedaj vedno odpre vendar je dodan gumb za ročno skeniranje v pogled kamere

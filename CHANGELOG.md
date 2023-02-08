@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased - 118
+
+- Support setting start of card validity
+
+## v2.21.2 - 117
+
+- Remove unnecessary permissions
+- Target Android 13
+
 ## v2.21.1 - 116
 
 - Fix quick spend dialog not allowing , separator

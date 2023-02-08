@@ -38,7 +38,6 @@
     <string name="exportFailed">Nu s-a putut exporta carduri</string>
     <string name="importing">Importul…</string>
     <string name="exporting">Exportul…</string>
-    <string name="noExternalStoragePermissionError">Acordați mai întâi permisiunea de stocare externă pentru a importa sau exporta carduri</string>
     <string name="exportOptionExplanation">Datele vor fi scrise într-o locație aleasă de dumneavoastră.</string>
     <string name="importOptionFilesystemTitle">Import din sistemul de fișiere</string>
     <string name="importOptionApplicationTitle">Utilizați o altă aplicație</string>

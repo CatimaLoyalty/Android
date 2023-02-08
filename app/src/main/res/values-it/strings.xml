@@ -36,7 +36,6 @@
     <string name="exportFailed">Impossibile eseguire l\'esportazione</string>
     <string name="importing">Importazione in corso…</string>
     <string name="exporting">Esportazione in corso…</string>
-    <string name="noExternalStoragePermissionError">Concedi il permesso di archiviazione esterna per importare o esportare dati</string>
     <string name="importOptionFilesystemTitle">Importa dall\'archivio</string>
     <string name="importOptionFilesystemExplanation">Scegli un file dall\'archivio.</string>
     <string name="importOptionFilesystemButton">Dall\'archivio</string>
@@ -102,7 +101,7 @@
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Scadenza: <xliff:g>%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni lo schermo attivo</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Carte fedeltà</string>
     <string name="chooseImportType">Importa i dati da</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>
@@ -268,4 +267,10 @@
     <string name="currentBalanceSentence">Bilancio attuale: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Nuovo bilancio: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importa carte</string>
+    <string name="storageReadPermissionRequired">Per questa azione è necessario il permesso per accedere alla memoria del dispositivo…</string>
+    <string name="cameraPermissionRequired">Per questa azione è necessario il permesso ad accedere alla fotocamera…</string>
+    <string name="validFromDate">Valido dal</string>
+    <string name="chooseValidFromDate">Scegli la data di validità</string>
+    <string name="validFromSentence">Valido da: <xliff:g>%s</xliff:g></string>
+    <string name="anyDate">Qualsiasi data</string>
 </resources>

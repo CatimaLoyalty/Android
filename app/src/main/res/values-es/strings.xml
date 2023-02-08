@@ -31,7 +31,6 @@
     <string name="exportFailed">No se han podido exportar</string>
     <string name="importing">Importando…</string>
     <string name="exporting">Exportando…</string>
-    <string name="noExternalStoragePermissionError">Otorgar permiso de almacenamiento para importar o exportar datos</string>
     <string name="importOptionFilesystemTitle">Importar desde el sistema de archivos</string>
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
@@ -268,4 +267,10 @@
     <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
     <string name="updateBalance">Actualizar el balance</string>
     <string name="importCards">Importar tarjetas</string>
+    <string name="storageReadPermissionRequired">Se necesita permiso para leer el almacenamiento para esta acción…</string>
+    <string name="cameraPermissionRequired">Se necesita permiso para acceder a la cámara para esta acción…</string>
+    <string name="anyDate">Cualquier fecha</string>
+    <string name="validFromDate">Válido desde</string>
+    <string name="chooseValidFromDate">Elija una fecha válida desde</string>
+    <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
 </resources>

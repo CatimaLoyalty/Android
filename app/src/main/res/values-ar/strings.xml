@@ -38,7 +38,6 @@
     <string name="exportSuccessfulTitle">متصدر</string>
     <string name="exportFailedTitle">فشل التصدير</string>
     <string name="exportFailed">لا يمكن عمل التصدير</string>
-    <string name="noExternalStoragePermissionError">امنح التخزين الخارجي اذن لاستيراد وتصدير البيانات</string>
     <string name="exportOptionExplanation">ستتم كتابة البيانات في الموقع الذي تختاره.</string>
     <string name="importOptionFilesystemButton">من نظام الملفات</string>
     <string name="importOptionApplicationTitle">استخدم تطبيقًا آخر</string>

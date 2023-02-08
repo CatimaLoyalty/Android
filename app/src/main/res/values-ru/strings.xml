@@ -37,7 +37,6 @@
     <string name="exportFailed">Невозможно выполнить экспорт</string>
     <string name="importing">Импорт…</string>
     <string name="exporting">Экспорт…</string>
-    <string name="noExternalStoragePermissionError">Импорт или экспорт данных невозможен без разрешения на доступ к хранилищу</string>
     <string name="exportOptionExplanation">Данные будут записаны в выбранное место.</string>
     <string name="importOptionFilesystemTitle">Импорт из файловой системы</string>
     <string name="importOptionFilesystemExplanation">Выберете файл на файловой системе.</string>
@@ -275,4 +274,10 @@
     <string name="updateBalanceHint">Введите сумму</string>
     <string name="updateBalanceTitle">Какое изменение\?</string>
     <string name="importCards">Импорт карт</string>
+    <string name="storageReadPermissionRequired">Для этого действия необходимо разрешение на чтение хранилища…</string>
+    <string name="cameraPermissionRequired">Для этого действия необходимо разрешение на доступ к камере…</string>
+    <string name="validFromDate">Действует с</string>
+    <string name="anyDate">Любая дата</string>
+    <string name="chooseValidFromDate">Выберите дату действия</string>
+    <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
 </resources>

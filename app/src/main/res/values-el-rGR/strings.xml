@@ -31,7 +31,6 @@
     <string name="exportFailed">Δεν ήταν δυνατή η εξαγωγή</string>
     <string name="importing">Γίνεται εισαγωγή του…</string>
     <string name="exporting">Γίνεται εξαγωγή του…</string>
-    <string name="noExternalStoragePermissionError">Εγκρίνετε την άδεια εξωτερικής αποθήκευσης για να εισάγετε ή εξάγετε δεδομένα</string>
     <string name="importOptionFilesystemTitle">Εισαγωγή από το σύστημα αρχείων</string>
     <string name="importOptionFilesystemExplanation">Επιλέξτε ένα συγκεκριμένο αρχείο από το σύστημα αρχείων.</string>
     <string name="importOptionFilesystemButton">Από το σύστημα αρχείων</string>

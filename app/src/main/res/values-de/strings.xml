@@ -35,7 +35,6 @@
     <string name="exportFailed">Export konnte nicht durchgeführt werden</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
-    <string name="noExternalStoragePermissionError">Berechtigung für den externen Speicher zum Importieren oder Exportieren von Daten erteilen</string>
     <string name="importOptionFilesystemTitle">Importiere aus dem Dateisystem</string>
     <string name="importOptionFilesystemExplanation">Wähle eine Datei vom Dateisystem aus.</string>
     <string name="importOptionFilesystemButton">Wähle vom Dateisystem</string>
@@ -52,7 +51,7 @@
     <string name="thumbnailDescription">Vorschaubild</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_category_title_ui">Benutzeroberfläche</string>
-    <string name="settings_display_barcode_max_brightness">Barcodeansicht aufhellen</string>
+    <string name="settings_display_barcode_max_brightness">Displayhelligkeit in der Barcodeansicht erhöhen</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>
     <string name="intent_import_card_from_url_share_text">Ich würde gerne diese Karte mit dir teilen</string>
@@ -104,7 +103,7 @@
     <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
-    <string name="settings_keep_screen_on">Bildschirm aktiv halten</string>
+    <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
     <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (oft gefordert):
 \n
 \nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
@@ -224,7 +223,7 @@
         <item quantity="one"><xliff:g>%s</xliff:g> Punkt</item>
         <item quantity="other"><xliff:g>%s</xliff:g> Punkte</item>
     </plurals>
-    <string name="settings_oled_dark">Rein schwarzer Hintergrund für dunkles Thema</string>
+    <string name="settings_oled_dark">Komplett schwarzer Hintergrund im dunklen Design</string>
     <string name="include_if_asking_support">Wenn Sie Unterstützung anfordern möchten, geben Sie bitte die folgenden Informationen an:</string>
     <string name="settings_follow_system_orientation">System folgen</string>
     <string name="settings_landscape_orientation">Landschaft</string>
@@ -261,4 +260,10 @@
     <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Neues Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Guthaben aktualisieren</string>
+    <string name="storageReadPermissionRequired">Berechtigung zum Lesen des Speichers für diese Aktion erforderlich …</string>
+    <string name="cameraPermissionRequired">Für diese Aktion wird die Erlaubnis zum Zugriff auf die Kamera benötigt …</string>
+    <string name="validFromDate">Gültig ab</string>
+    <string name="validFromSentence">Gültig ab: <xliff:g>%s</xliff:g></string>
+    <string name="chooseValidFromDate">Gültig-ab-Datum wählen</string>
+    <string name="anyDate">Beliebiges Datum</string>
 </resources>

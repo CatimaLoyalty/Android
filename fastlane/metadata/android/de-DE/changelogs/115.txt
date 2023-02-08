@@ -1,1 +1,4 @@
 - Bild durch langes Drücken in der Galerie öffnen
+- Materialstil in Dialogen angewendet
+- Unterstützung für das Erstellen von Karten durch Verwendung eines Bildes hinzugefügt
+- Spenden-Button zu Kartenbildschirm hinzugefügt

@@ -1,0 +1,3 @@
+- Popravek zamegljenost ikon s črkami na glavnem zaslonu
+- Popravek izginjanja ikone, ki včasih izginejo po izbiri
+- Popravek nevidne ikone v vrstici stanja, ki se lahko zgodi v sistemu Android 5

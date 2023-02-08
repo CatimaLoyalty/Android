@@ -37,7 +37,6 @@
     <string name="exportFailed">Het exporteren is mislukt</string>
     <string name="importing">Bezig met importeren…</string>
     <string name="exporting">Bezig met exporteren…</string>
-    <string name="noExternalStoragePermissionError">Verleen het recht ‘externe opslag’ om gegevens te kunnen im- of exporteren</string>
     <string name="exportOptionExplanation">De gegevens worden weggeschreven op een locatie naar keuze.</string>
     <string name="importOptionFilesystemTitle">Importeren uit bestandssysteem</string>
     <string name="importOptionFilesystemExplanation">Kies een specifiek bestand van het bestandssysteem.</string>
@@ -261,4 +260,10 @@
     <string name="updateBalanceHint">Voer een bedrag in</string>
     <string name="newBalanceSentence">Nieuw saldo: <xliff:g>%s</xliff:g></string>
     <string name="importCards">Kaarten importeren</string>
+    <string name="storageReadPermissionRequired">Toestemming om de opslag uit te lezen benodigd voor deze actie…</string>
+    <string name="cameraPermissionRequired">Toestemming om de camera te openen benodigd voor deze actie…</string>
+    <string name="anyDate">Iedere datum</string>
+    <string name="validFromDate">Geldig vanaf</string>
+    <string name="validFromSentence">Geldig vanaf: <xliff:g>%s</xliff:g></string>
+    <string name="chooseValidFromDate">Kies een geldige vanaf-datum</string>
 </resources>

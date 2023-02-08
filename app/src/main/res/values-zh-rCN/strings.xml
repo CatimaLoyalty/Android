@@ -40,7 +40,7 @@
 \n
 \n本应用没有收集任何数据，任何人都可以查阅源码来确认，因为本软件是自由软件。</string>
     <string name="privacy_policy">隐私政策</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">会员卡卡包</string>
     <string name="chooseImportType">数据导入源</string>
     <string name="points">积分</string>
     <string name="currency">货币</string>
@@ -93,7 +93,6 @@
     <string name="importOptionFilesystemExplanation">请从文件系统选择文件.</string>
     <string name="importOptionFilesystemTitle">从文件系统导入</string>
     <string name="exportOptionExplanation">导出的数据将储存至你选择的位置.</string>
-    <string name="noExternalStoragePermissionError">在导入导出前需要获得外部储存权限</string>
     <string name="cameraPermissionDeniedTitle">无法访问相机</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima需要访问您的相机来扫描条形码. 轻触这里以更改您的权限设置。</string>
     <string name="exporting">导出中…</string>

@@ -31,7 +31,6 @@
     <string name="exportFailed">Napaka pri izvozu baze</string>
     <string name="importing">Uvažanje…</string>
     <string name="exporting">Izvažanje…</string>
-    <string name="noExternalStoragePermissionError">Izvažanje in uvažanje je nemogoče brez omogočenega dostopa do zunanje shrambe</string>
     <string name="importOptionFilesystemTitle">Uvozi iz datotečnega sistema</string>
     <string name="importOptionFilesystemExplanation">Izberite specifično datoteko iz datotečnega sistema.</string>
     <string name="importOptionFilesystemButton">Iz datotečnega sistema</string>
@@ -163,7 +162,7 @@
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> točka</item>
         <item quantity="two"><xliff:g>%s</xliff:g> točki</item>
-        <item quantity="few"><xliff:g>%s</xliff:g> točk</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> točke</item>
         <item quantity="other"><xliff:g>%s</xliff:g> točk</item>
     </plurals>
     <string name="barcode">Črtna koda</string>
@@ -178,7 +177,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> izbrana</item>
         <item quantity="two"><xliff:g>%d</xliff:g> izbrani</item>
         <item quantity="few"><xliff:g>%d</xliff:g> izbrane</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> izbrane</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> izbranih</item>
     </plurals>
     <string name="settings_card_orientation">Orientacija črtne kode</string>
     <string name="settings_follow_system_orientation">Sledi sistemu</string>
@@ -234,13 +233,13 @@
         <item quantity="one">Izbriši <xliff:g>%d</xliff:g> kartico zvestobe</item>
         <item quantity="two">Izbriši <xliff:g>%d</xliff:g> kartici zvestobe</item>
         <item quantity="few">Izbriši <xliff:g>%d</xliff:g> kartice zvestobe</item>
-        <item quantity="other">Izbriši <xliff:g>%d</xliff:g> kartice zvestobe</item>
+        <item quantity="other">Izbriši <xliff:g>%d</xliff:g> kartic zvestobe</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Izbriši to <xliff:g>%d</xliff:g> kartico zvestobe dokončno\?</item>
         <item quantity="two">Izbriši ti dve <xliff:g>%d</xliff:g> kartici zvestobe dokončno\?</item>
         <item quantity="few">Izbriši te <xliff:g>%d</xliff:g> kartice zvestobe dokončno\?</item>
-        <item quantity="other">Izbriši te <xliff:g>%d</xliff:g> kartice zvestobe dokončno\?</item>
+        <item quantity="other">Izbriši teh <xliff:g>%d</xliff:g> kartic zvestobe dokončno\?</item>
     </plurals>
     <string name="cameraPermissionDeniedTitle">Ni bilo mogoče dostopati do kamere</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima potrebuje dostop do vaše kamere za skeniranje črtnih kod. Pritisnite tukaj in spremenite nastavitve dovoljenj.</string>
@@ -249,7 +248,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> kartica</item>
         <item quantity="two"><xliff:g>%d</xliff:g> kartici</item>
         <item quantity="few"><xliff:g>%d</xliff:g> kartice</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartic</item>
     </plurals>
     <string name="editGroup">Urejanje skupine: <xliff:g>%s</xliff:g></string>
     <string name="importFidmeMessage">Izberi svoj <i>fidme-export-request-xxxxxx.zip</i> FidMe izvoz podatkov za uvoz in naknadno ročno izberi tipe črtnih kod.
@@ -267,12 +266,14 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>
         <item quantity="two"><xliff:g>%1$d</xliff:g> kartici (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirani)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
-        <item quantity="other"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartic (<xliff:g id="archivedCount">%2$d</xliff:g> arhiviranih)</item>
     </plurals>
     <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartica)</item>
-        <item quantity="two">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartici)</item>
-        <item quantity="few">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
-        <item quantity="other">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
+        <item quantity="one">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
+        <item quantity="two">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
+        <item quantity="few">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
+        <item quantity="other">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
     </plurals>
+    <string name="cameraPermissionRequired">Za to dejanje je potrebno dovoljenje za dostop do kamere…</string>
+    <string name="storageReadPermissionRequired">Za to dejanje je potrebno dovoljenje za branje iz pomnilnika…</string>
 </resources>

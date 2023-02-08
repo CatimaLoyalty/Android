@@ -8,3 +8,8 @@ captures/
 **/release
 **/debug
 app/*.log
+
+# Bundle
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/

@@ -3,12 +3,12 @@ name: Android CI
 on:
   push:
     branches:
-      - master
+      - main
       - staging
       - trying
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:

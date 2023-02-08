@@ -4,6 +4,7 @@ public enum LoyaltyCardField {
     id,
     store,
     note,
+    validFrom,
     expiry,
     balance,
     balanceType,

@@ -54,6 +54,7 @@
     <string name="exportOptionExplanation">המידע יכתב למיקום שאת/ה תבחר/י.</string>
     <string name="importOptionFilesystemTitle">יבא ממערכת קבצים</string>
     <string name="importOptionFilesystemExplanation">בחר/י קובץ מסויים ממערכת הקבצים.</string>
+    <string name="invalidBalance">מאזן לא תקין</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">אחד</item>
         <item quantity="two">שניים</item>

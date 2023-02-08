@@ -278,4 +278,8 @@
     </plurals>
     <string name="cameraPermissionRequired">Za to dejanje je potrebno dovoljenje za dostop do kamere…</string>
     <string name="storageReadPermissionRequired">Za to dejanje je potrebno dovoljenje za branje iz pomnilnika…</string>
+    <string name="validFromSentence">Veljavno od: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">Velja od</string>
+    <string name="anyDate">Katerikoli datum</string>
+    <string name="chooseValidFromDate">Izberite datum začetka veljavnosti</string>
 </resources>

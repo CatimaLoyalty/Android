@@ -253,7 +253,7 @@
         <item quantity="other">Vis arkiv (<xliff:g>%1$d</xliff:g> kort)</item>
     </plurals>
     <string name="failedToRetrieveImageFile">Kunne ikke hente bildefil</string>
-    <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriet</string>
+    <string name="barcodeLongPressMessage">Kun bilder kan åpnes i galleriprogrammet</string>
     <string name="cameraPermissionDeniedTitle">Fikk ikke tilgang til kameraet</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima trenger kameratilgang for å skanne strekkoder. Trykk her for å endre tilgangsinnstillingene.</string>
     <string name="importCards">Importer kort</string>

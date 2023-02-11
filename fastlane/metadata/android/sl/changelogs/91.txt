@@ -1,0 +1,4 @@
+- Izboljšana podpora za upravljanje skupin
+- Podpora za obrezovanje slik
+- Odprava napake izgube slikovnih podatkov pri shranjevanju po vrtenju v pogledu za urejanje
+- Možnost nastavitve slike po meri kot ikona kartice

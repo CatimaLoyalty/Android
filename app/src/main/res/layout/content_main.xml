@@ -30,13 +30,22 @@
             android:gravity="center"
             android:text="@string/welcome" />
 
-        <TextView
-            android:id="@+id/add_card_instruction"
-            style="@style/AppTheme.TextView.NoData"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/noGiftCards" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:text="Click here to add a Card" />
+
+        <Button
+            android:id="@+id/importExportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:text="Click here to import/export a Card" />
+
     </LinearLayout>
 
     <TextView

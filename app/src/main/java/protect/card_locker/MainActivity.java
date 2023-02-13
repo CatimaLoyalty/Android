@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -407,8 +408,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         updateLoyaltyCardList(true);
         // End of active tab logic
 
+        
         if (!mArchiveMode) {
-            FloatingActionButton addButton = binding.fabAdd;
+            Button addButton = findViewById(R.id.addButton);
+            Button importExportButton = findViewById(R.id.importExportButton);
 
             addButton.setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
@@ -420,6 +423,13 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 mBarcodeScannerLauncher.launch(intent);
             });
             addButton.bringToFront();
+
+
+            importExportButton.setOnClickListener(v -> {
+                Intent intent = new Intent(getApplicationContext(), ImportExportActivity.class);
+                startActivity(intent);
+            });
+            importExportButton.bringToFront();
         }
     }
 
@@ -711,12 +721,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             Bundle bundle = new Bundle();
             bundle.putBoolean("archiveMode", true);
             i.putExtras(bundle);
-            startActivity(i);
-            return true;
-        }
-
-        if (id == R.id.action_import_export) {
-            Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
             startActivity(i);
             return true;
         }

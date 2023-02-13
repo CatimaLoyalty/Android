@@ -31,11 +31,6 @@
         android:title="@string/archiveList"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_import_export"
-        android:icon="@drawable/ic_import_export_white_24dp"
-        android:title="@string/importExport"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/action_settings"
         android:title="@string/settings"
         app:showAsAction="never"/>

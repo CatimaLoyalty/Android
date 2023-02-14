@@ -413,9 +413,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             addButton.setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), ScanActivity.class);
                 Bundle bundle = new Bundle();
-                Group group = (Group) groupsTabLayout.getTabAt(selectedTab).getTag();
-                if (group != null) {
-                    bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group._id);
+                TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
+                if (tab != null) {
+                    Group group = (Group) groupsTabLayout.getTabAt(selectedTab).getTag();
+                    if (group != null) {
+                        bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group._id);
+                    }
                 }
                 intent.putExtras(bundle);
                 mBarcodeScannerLauncher.launch(intent);

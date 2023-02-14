@@ -157,7 +157,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     String cardId;
     String barcodeId;
     String barcodeType;
-    int addGroup;
+    Integer addGroup;
 
     Uri importLoyaltyCardUri = null;
 

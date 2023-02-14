@@ -174,7 +174,7 @@ public class CatimaImporter implements Importer {
     }
 
     public void parseV3(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
-        Integer part = 0;
+        int part = 0;
         StringBuilder stringPart = new StringBuilder();
         Hashtable<Integer,String> groupsTable = null;
 

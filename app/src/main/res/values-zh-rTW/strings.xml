@@ -3,7 +3,7 @@
     <string name="app_revision_url">https://github.com/CatimaLoyalty/Android/releases</string>
     <string name="action_search">搜尋</string>
     <string name="action_add">新增</string>
-    <string name="noGiftCards">點選 + 按鈕以新增卡片，或從 ⋮ 選單中匯入卡片。</string>
+    <string name="noGiftCards">點選 + 按鈕以新增卡片，或從 ⋮ 選單中匯入。</string>
     <string name="noMatchingGiftCards">找不到相關結果。試試其他關鍵字。</string>
     <string name="storeName">名稱</string>
     <string name="note">註記</string>
@@ -198,7 +198,7 @@
     <string name="backImageDescription">背面圖片</string>
     <string name="updateBarcodeQuestionText">您已更新了 ID，是否要更新條碼內容以匹配此 ID？</string>
     <string name="failedGeneratingShareURL">無法建立可分享的 URL，請回報此錯誤。</string>
-    <string name="swipeToSwitchImages">滑動或長按以切換圖片</string>
+    <string name="swipeToSwitchImages">滑動切換圖片，長按檢視圖片</string>
     <string name="starImage">收藏標示</string>
     <string name="noGiftCardsGroup">建立一些卡片，然後將它們分配到這個群組中。</string>
     <string name="showMoreInfo">顯示資訊</string>
@@ -247,4 +247,18 @@
         <item quantity="other">檢視封存 (<xliff:g>%1$d</xliff:g> 張卡片)</item>
     </plurals>
     <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
+    <string name="importCards">導入卡片</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Catima 需要鏡頭使用權才能夠掃描條碼， 點擊這裏更變你的權限設定。</string>
+    <string name="validFromDate">生效</string>
+    <string name="anyDate">任何日期</string>
+    <string name="chooseValidFromDate">選擇生效日期</string>
+    <string name="validFromSentence">生效日期： <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">這個行動需要閱讀儲存空間的權限…</string>
+    <string name="cameraPermissionRequired">這個行動需要使用鏡頭的權限…</string>
+    <string name="cameraPermissionDeniedTitle">不能使用鏡頭</string>
+    <string name="updateBalance">更新餘額</string>
+    <string name="updateBalanceTitle">你用了多少？</string>
+    <string name="updateBalanceHint">輸入金額</string>
+    <string name="currentBalanceSentence">餘額： <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">新的餘額： <xliff:g>%s</xliff:g></string>
 </resources>

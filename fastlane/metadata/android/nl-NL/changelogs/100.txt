@@ -1,0 +1,2 @@
+- Verberg de zoekoptie, vergroot en sorteer iconen tot er minstens 1 kaart beschikbaar is.
+- Verscheidene esthetische verbeteringen.

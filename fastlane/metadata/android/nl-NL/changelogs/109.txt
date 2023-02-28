@@ -1,0 +1,1 @@
+- Fout opgelost waarbij er een incorrecte kleur wordt weergeven op de "geen barcode" knop

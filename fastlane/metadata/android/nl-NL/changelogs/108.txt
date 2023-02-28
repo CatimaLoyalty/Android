@@ -1,0 +1,5 @@
+- Feature toevoegen voor het dupliceren van passen.
+-Sta geen vervaldatum toe voor 1970 (deze hebben in de eerste plaats immers nooit geerkt).
+- Ondersteuning toevoegen voor het archiveren van passen.
+- Verplaats delete van bewerken naar inzien.
+- Vervang het rotatie vergrendelen icoon met een instelling voor het vergrendelen van rotatie.

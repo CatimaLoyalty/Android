@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Bæta</string>
     <string name="noBarcode">Nei strikamerkið</string>
     <string name="action_search">Leita að</string>
@@ -81,8 +81,8 @@
     <string name="moveDown">Fara neðar</string>
     <string name="chooseExpiryDate">Velja rennur</string>
     <plurals name="selectedCardCount">
-        <item quantity="one">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; valið</item>
-        <item quantity="other">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt; valin</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> valið</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> valin</item>
     </plurals>
     <string name="noGiftCardsGroup">Búðu til nokkur kort og settu þau síðan í hópinn hér.</string>
     <string name="settings_brown_theme">Brún</string>

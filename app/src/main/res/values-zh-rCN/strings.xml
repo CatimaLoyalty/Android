@@ -255,4 +255,5 @@
     <string name="failedToRetrieveImageFile">无法检索图像文件</string>
     <string name="newBalanceSentence">新余额：<xliff:g>%s</xliff:g></string>
     <string name="barcodeLongPressMessage">只能在图库应用程序中打开图像</string>
+    <string name="storageReadPermissionRequired">此操作所需的读取存储空间的权限…</string>
 </resources>

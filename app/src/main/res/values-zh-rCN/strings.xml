@@ -256,4 +256,9 @@
     <string name="newBalanceSentence">新余额：<xliff:g>%s</xliff:g></string>
     <string name="barcodeLongPressMessage">只能在图库应用程序中打开图像</string>
     <string name="storageReadPermissionRequired">此操作所需的读取存储空间的权限…</string>
+    <string name="validFromDate">有效期自</string>
+    <string name="anyDate">任何日期</string>
+    <string name="chooseValidFromDate">选择有效日期</string>
+    <string name="validFromSentence">有效期自: <xliff:g>%s</xliff:g></string>
+    <string name="cameraPermissionRequired">此操作所需的访问相机的权限…</string>
 </resources>

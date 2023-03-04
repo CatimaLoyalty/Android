@@ -1,0 +1,2 @@
+- Separate le interfacce di modifica nelle schede in modo da renderle più spaziose
+- Aggiunto campo scadenza

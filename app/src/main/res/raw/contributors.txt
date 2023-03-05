@@ -76,7 +76,9 @@ Diego
 Fede Pujol
 francescbassas
 Jean-Luc Tibaux
+Jesse Davids
 Lukas Grassauer
+bittin
 Marnick L'Eau
 Michalis
 Michał
@@ -86,10 +88,12 @@ Rishi Agarwal
 Rosdyana Kusuma
 umoenks
 Simon Rusinov
+Siriusmart
 Mritunjay
 Tarik Dzambic
 Thomas Bertels
 Thomas Cruveilher
+Tian Jiale
 Tong Liu
 Wanath
 Runner
@@ -106,6 +110,7 @@ Tomer Ben-Rachel
 tfuxu
 Ahmed Saleh
 Airat
+Alexander
 sNiXx
 Angela Enogieru
 AnimeshChatterjee1
@@ -139,7 +144,6 @@ Karvjorm
 krkk
 Laura Ferraz 
 Lucas da Costa
-bittin
 Manan Jhaveri
 Marco
 BRBsoup
@@ -180,6 +184,7 @@ diksha-2911
 gbonaspetti
 gittyboy-cell
 huang ivan
+lucafont2
 mtrmirez
 opsik
 polarhun

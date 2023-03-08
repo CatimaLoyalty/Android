@@ -1,0 +1,2 @@
+-Supprime les autorisations inutiles
+-Cible Android 13

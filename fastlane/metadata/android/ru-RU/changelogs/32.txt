@@ -1,0 +1,1 @@
+- Исправлено создание карты путём ручного ввода штрихкода (заявка №272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

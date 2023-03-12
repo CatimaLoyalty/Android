@@ -1,0 +1,1 @@
+- Устранён сбой при установке на некоторые версии Android (скорее всего Android 5 и старее). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

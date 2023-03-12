@@ -1,0 +1,4 @@
+- Добавлена настройка яркости при показе штрихкода (запрос №259 (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- Добавлены греческие переводы (запрос №252 (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- Добавлены словацкие переводы (запрос №260 (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- Обновлены переводы (запрос №260 (https://github.com/brarcher/loyalty-card-locker/pull/260) и запрос №254 (https://github.com/brarcher/loyalty-card-locker/pull/254))

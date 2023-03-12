@@ -1,0 +1,2 @@
+- Устранена проблема с Android SDK 24+, приводящая к сбою при выборе файла для импорта. (запрос №170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Новый значок и цветовая схема. (запрос №171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

@@ -1,0 +1,3 @@
+- Исправлена центровка штрихкода при выходе из полноэкранного режима (запрос №351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Добавлена возможность выбора места выгрузки (запрос №352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Обновлены переводы (запрос №357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) и (запрос №362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

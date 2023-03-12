@@ -1,0 +1,2 @@
+- Уменьшены отступы заголовка при просмотре карты. (запрос №213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Отключён звуковой сигнал при сканировании штрихкода. (запрос №216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

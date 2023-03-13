@@ -1,0 +1,3 @@
+- Устранён сбой при импорте некоторых видов повреждённых CSV-файлов. (запрос №177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Исправлен импорт резервных копий непосредственно из файловой системы. (запрос №180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Исправлен импорт резервных копий из некоторых типов поставщиков данных. (запрос №179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

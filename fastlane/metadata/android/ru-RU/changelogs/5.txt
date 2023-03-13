@@ -1,0 +1,2 @@
+- На главный экран добавлена возможность открытия окна, которое содержит подробности о приложении и проекте на GitHub (заявка №19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Добавлена возможность загрузки или выгрузки данных карты через CSV-файл во внешнем хранилище (заявка №36 (https://github.com/brarcher/loyalty-card-locker/issues/36), заявка №20 (https://github.com/brarcher/loyalty-card-locker/issues/20))

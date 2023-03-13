@@ -1,0 +1,14 @@
+- Добавлена возможость поиска карты (запрос №320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
+- Добавлена возможность отправки и получения карт (запрос №321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
+- Добавлена поддержка тёмного режима (запрос №322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
+- Карты лояльности теперь могут быть без штрихкодов (запрос №324 (https://github.com/brarcher/loyalty-card-locker/pull/324))
+- Примечания могут отображаться в несколько строк (запрос №326 (https://github.com/brarcher/loyalty-card-locker/pull/326))
+- Улучшено масштабирование примечаний (запрос №319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
+- Улучшена видимость уведомлений и значка приложения (запрос №330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- Целевой SDK обновлён до Android 10
+- Улучшены следующие переводы:
+  - немецкий
+  - итальянский
+  - нидерладский
+  - польский
+  - русский

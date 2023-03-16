@@ -1,6 +1,5 @@
-- Pre-populate existing ID when editing a card ID. #94
-- Generated barcode-width limited for reduced memory use and fewer out of memory errors. #103
-- "Enter Card" button now says "Edit Card" when editing a card and its ID already exists. #104
-- Softened color scheme compatible with the app icon. Cleaner layout when viewing a card. #107
-- Intro wizard for the app's first launch. #108
-All from https://github.com/brarcher/loyalty-card-locker/pull/
+- When editing a card ID, pre-populate the existing ID to start. (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Limit the width of generated barcodes to reduce memory usage and out of memory errors. (pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- When editing a card, change the "Enter Card" button to say "Edit Card" if a card ID already exists. (pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- Change the color scheme to be softer and compatible with the app icon, and change the layout when viewing a card to be cleaner. (pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- Add an intro wizard which launches on the app's first launch. (pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

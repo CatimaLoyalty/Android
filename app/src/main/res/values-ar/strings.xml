@@ -290,4 +290,5 @@
     <string name="noCameraPermissionDirectToSystemSetting">لمسح الباركود، ستحتاج Catima إلى الوصول إلى الكاميرا. اضغط هنا لتغيير إعدادات الأذونات.</string>
     <string name="updateBalance">تحديث الرصيد</string>
     <string name="updateBalanceHint">أدخل المبلغ</string>
+    <string name="storageReadPermissionRequired">الصلاحيه للوصل للتخزين مطلوبة لهذا الاجراء</string>
 </resources>

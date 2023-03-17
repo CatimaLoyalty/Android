@@ -21,11 +21,12 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
-    public static final int DATABASE_VERSION = 16;
+    public static final int DATABASE_VERSION = 17;
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
         public static final String ID = "_id";
+        public static final String NAME = "name";
         public static final String ORDER = "orderId";
     }
 
@@ -87,7 +88,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // create table for card groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbGroups.TABLE + "(" +
-                LoyaltyCardDbGroups.ID + " TEXT primary key not null," +
+                LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
+                LoyaltyCardDbGroups.NAME + " TEXT not null," +
                 LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0')");
 
         // create table for cards
@@ -112,7 +114,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // create associative table for cards in groups
         db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
                 LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
-                LoyaltyCardDbIdsGroups.groupID + " TEXT," +
+                LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
                 "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID + "))");
 
         // create FTS search table
@@ -320,6 +322,70 @@ public class DBHelper extends SQLiteOpenHelper {
         if (oldVersion < 16 && newVersion >= 16) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.VALID_FROM + " INTEGER");
+        }
+
+        if (oldVersion < 17 && newVersion >= 17) {
+            // SQLite doesn't support modify column
+            // So we need to create a temp column to change the key of the group table
+            // https://www.sqlite.org/faq.html#q11
+            db.beginTransaction();
+
+            // Step 1: Migrate LoyaltyCardDbGroups to contain integer ID
+            db.execSQL("CREATE TEMPORARY TABLE tmp (" +
+                    LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
+                    LoyaltyCardDbGroups.NAME + " TEXT not null," +
+                    LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0')");
+
+            db.execSQL("INSERT INTO tmp (" +
+                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ORDER + ")" +
+                    " SELECT " +
+                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ORDER +
+                    " FROM " + LoyaltyCardDbGroups.TABLE);
+
+            db.execSQL("DROP TABLE " + LoyaltyCardDbGroups.TABLE);
+
+            db.execSQL("CREATE TABLE " + LoyaltyCardDbGroups.TABLE + "(" +
+                    LoyaltyCardDbGroups.ID + " INTEGER primary key autoincrement," +
+                    LoyaltyCardDbGroups.NAME + " TEXT not null," +
+                    LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0')");
+
+            db.execSQL("INSERT INTO " + LoyaltyCardDbGroups.TABLE + "(" +
+                    LoyaltyCardDbGroups.ID + " ," +
+                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ORDER + ")" +
+                    " SELECT " +
+                    LoyaltyCardDbGroups.ID + " ," +
+                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ORDER +
+                    " FROM tmp");
+
+            db.execSQL("DROP TABLE tmp");
+
+            // Step 2: Migrate LoyaltyCardDbIdsGroups to link to ID
+            db.execSQL("CREATE TEMPORARY TABLE tmp (" +
+                    LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
+                    LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
+                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID + "))");
+
+
+            db.execSQL("INSERT INTO tmp (" +
+                    LoyaltyCardDbIdsGroups.cardID + " ," +
+                    LoyaltyCardDbIdsGroups.groupID + ")" +
+                    " SELECT " +
+                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ORDER +
+                    " FROM " + LoyaltyCardDbGroups.TABLE);
+
+            //////////
+            db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
+                    LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
+                    LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
+                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID + "))");
+
+            db.setTransactionSuccessful();
+            db.endTransaction();
         }
     }
 

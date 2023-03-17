@@ -3,6 +3,7 @@
 ## Unreleased - 118
 
 - Support setting start of card validity
+- Fix Stocard import (Stocard's export format changed)
 
 ## v2.21.2 - 117
 

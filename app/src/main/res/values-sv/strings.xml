@@ -24,7 +24,7 @@
 \nSkapa den från Import/Export-menyn i Loyalty Card Keychain först genom att trycka på Exportera.</string>
     <string name="importVoucherVaultMessage">Välj den exporterade <i>vouchervault.json</i> från Voucher Vault som du vill importera.
 \nSkapa den först genom att trycka på Exportera i Voucher Vault.</string>
-    <string name="importStocardMessage">Välj den exporterade <i>***-sync.zip</i> från Stocard som du vill importera.
+    <string name="importStocardMessage">Välj den exporterade <i>***.zip</i> från Stocard som du vill importera.
 \nSkaffa den först genom att skicka e-post till support@stocardapp.com och be om att få dina data exporterade.</string>
     <string name="enter_group_name">Ange gruppnamn</string>
     <string name="groups">Grupper</string>

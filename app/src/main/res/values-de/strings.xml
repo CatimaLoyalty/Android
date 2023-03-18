@@ -150,7 +150,7 @@
     <string name="frontImageDescription">Bild auf der Vorseite</string>
     <string name="backImageDescription">Bild auf der Rückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
-    <string name="importStocardMessage">Wähle deinen <i>***-sync.zip</i>-Export aus Stocard zum Importieren aus.
+    <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus.
 \nSie erhalten ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
     <string name="turn_flashlight_off">Licht ausschalten</string>

@@ -204,7 +204,7 @@
 \nFailu var izveidot Jūsu FidMe profilā, ejot uz \"Data Protection\" un spiežot \"Extract my data\".</string>
     <string name="importLoyaltyCardKeychain">Importēt no Loyalty Card Keychain</string>
     <string name="importStocard">Importēt no Stocard</string>
-    <string name="importStocardMessage">Importam izvēlieties Jūsu <i>***-sync.zip</i> eksporta failu no Stocard.
+    <string name="importStocardMessage">Importam izvēlieties Jūsu <i>***.zip</i> eksporta failu no Stocard.
 \nFailu var iegūt sūtot e-pastu uz support@stocardapp.com ar pieprasījumu eksportēt Jūsu datus.</string>
     <string name="importVoucherVault">Importēt no Voucher Vault</string>
     <string name="importVoucherVaultMessage">Importam izvēlieties Jūsu <i>vouchervault.json</i> failu no Voucher Vault.

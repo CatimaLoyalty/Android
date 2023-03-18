@@ -140,7 +140,7 @@
     </plurals>
     <string name="importCatimaMessage">Επιλέξτε την <i>catima.zip</i> εξαγωγή από το Catima για εισαγωγή
 \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής μιας άλλης εφαρμογής Catima κάνοντας εξαγωγή εκεί πρώτα.</string>
-    <string name="importStocardMessage">Επιλέξτε την <i>***-sync.zip</i> εξαγωγή από το Stocard για εισαγωγή.
+    <string name="importStocardMessage">Επιλέξτε την <i>***.zip</i> εξαγωγή από το Stocard για εισαγωγή.
 \nΠάρτε το στέλνοντας email στο: support@stocardapp.com ζητώντας μια εξαγωγή αρχείων των δεδομένων σας.</string>
     <string name="intent_import_card_from_url_share_multiple_text">Θέλω να μοιραστώ μερικές κάρτες μαζί σου</string>
     <string name="editGroup">Επεξεργασία Ομάδας: <xliff:g>%s</xliff:g></string>

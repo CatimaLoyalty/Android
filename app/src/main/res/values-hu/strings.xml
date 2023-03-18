@@ -55,7 +55,7 @@
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> vonalkód képe</string>
     <string name="noCardIdError">Nincs azonosító megadva</string>
     <string name="noCardExistsError">Kártya nem található</string>
-    <string name="importStocardMessage">Válassza ki a <i>***-sync.zip</i> Stocard exportot.
+    <string name="importStocardMessage">Válassza ki a <i>***.zip</i> Stocard exportot.
 \nAdatinak exportját kérheti e-mailben a support@stocardapp.com címre írva.</string>
     <string name="importVoucherVault">Importálás Voucher Vault-ból</string>
     <string name="wrongValueForBarcodeType">Ez az érték meg megfelelő a vonalkód típushoz</string>

@@ -150,7 +150,7 @@
     <string name="backImageDescription">Задняя сторона</string>
     <string name="frontImageDescription">Лицевая сторона</string>
     <string name="photos">Фото</string>
-    <string name="importStocardMessage">Выберите для импортирования файл <i>***-sync.zip</i>.
+    <string name="importStocardMessage">Выберите для импортирования файл <i>***.zip</i>.
 \nЭтот файл можно получить по электронной почте от support@stocardapp.com, предварительно запросив экспорт ваших данных.</string>
     <string name="passwordRequired">Введите пароль</string>
     <string name="importStocard">Импорт из Stocard</string>

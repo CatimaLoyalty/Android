@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="groups">Grups</string>
+    <string name="action_add">Afegeix</string>
+    <string name="save">Desa</string>
+    <string name="edit">Edita</string>
+    <string name="delete">Elimina</string>
+    <string name="confirm">Confirma</string>
+    <string name="ok">D\'acord</string>
+    <string name="importExport">Importa/Exporta</string>
+    <string name="exportName">Exporta</string>
+    <string name="action_search">Cerca</string>
+    <string name="deleteTitle">Elimina la targeta</string>
+    <string name="welcome">Benvingut a Catima</string>
+    <string name="noGiftCards">Cliqueu el botó + més per afegir una targeta, o importeu-ne des del ⋮ menú.</string>
+</resources>

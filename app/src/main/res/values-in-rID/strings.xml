@@ -256,4 +256,9 @@
     <string name="noCameraPermissionDirectToSystemSetting">Untuk memindai barcode, Catima membutuhkan akses ke kamera mu. Tap disini untuk mengganti pengaturan perizinan mu.</string>
     <string name="cameraPermissionRequired">Berikan izin untuk mengakses kamera anda…</string>
     <string name="storageReadPermissionRequired">Berikan izin untuk membaca penyimpanan anda…</string>
+    <string name="validFromDate">Valid dari</string>
+    <string name="validFromSentence">Valid dari: 
+\n<xliff:g>%s</xliff:g></string>
+    <string name="anyDate">Kapan pun</string>
+    <string name="chooseValidFromDate">Pilih valid dari tanggal</string>
 </resources>

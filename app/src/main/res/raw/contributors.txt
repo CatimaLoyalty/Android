@@ -20,11 +20,11 @@ pfaffenrodt
 laralem
 Nyatsuki
 gallegonovato
+HudobniVolk
 Samantaz Fox
 arno-github
 Ankit Tiwari
 Sergio Paredes
-HudobniVolk
 Aayush Gupta
 huuhaa
 Quentin PAGÈS
@@ -34,6 +34,7 @@ Freddo espresso
 Silvério Santos
 Miha Frangež
 Arnis Jaundzeikars
+Kefir2105
 sr093906
 Giovanni Donisi
 mdvhimself
@@ -47,7 +48,6 @@ Robin
 Eric
 ati3
 (Cliff Heraldo)
-Kefir2105
 Evgeniy Khramov
 Jane Kong
 Jiri Grönroos
@@ -59,6 +59,7 @@ Still Hsu
 String E. Fighter
 Tapu
 Yurical
+Eryk Michalak
 rr-vesp
 alajemba-vik
 /usr/local/ΕΨΗΕΛΩΝ
@@ -73,8 +74,11 @@ Clonewayx
 D. Domig
 Diego
 Fede Pujol
+francescbassas
 Jean-Luc Tibaux
+Jesse Davids
 Lukas Grassauer
+bittin
 Marnick L'Eau
 Michalis
 Michał
@@ -84,10 +88,12 @@ Rishi Agarwal
 Rosdyana Kusuma
 umoenks
 Simon Rusinov
+Siriusmart
 Mritunjay
 Tarik Dzambic
 Thomas Bertels
 Thomas Cruveilher
+Tian Jiale
 Tong Liu
 Wanath
 Runner
@@ -95,6 +101,7 @@ ce i moa
 inesre
 lgasp
 phlostically
+sal0max
 Ágata Leuck
 BmBKun
 Aditya Das
@@ -103,6 +110,7 @@ Tomer Ben-Rachel
 tfuxu
 Ahmed Saleh
 Airat
+Alexander
 sNiXx
 Angela Enogieru
 AnimeshChatterjee1
@@ -111,6 +119,7 @@ Asier
 Aya Elsaadany
 Biren
 Booc Sylvan
+Brage Nesteby Reitan
 CherryMonster222
 Colgrave
 Csaba
@@ -121,6 +130,8 @@ Donno
 Flav
 Franciszek Stefan
 Grzegorz
+gneiss15
+Hamustra Scans
 HowITsDone
 Izzy
 Jacek
@@ -133,7 +144,6 @@ Karvjorm
 krkk
 Laura Ferraz 
 Lucas da Costa
-bittin
 Manan Jhaveri
 Marco
 BRBsoup
@@ -144,6 +154,7 @@ Michael Gangolf
 Moi Toi
 DivideEtImpera
 Nicolas
+Nosnahc
 pbeckmann
 Peer Beckmann
 Piotr Strebski
@@ -172,8 +183,9 @@ Yusril A
 Avik Kundu
 diksha-2911
 gbonaspetti
-Eryk Michalak
+gittyboy-cell
 huang ivan
+lucafont2
 mtrmirez
 opsik
 polarhun

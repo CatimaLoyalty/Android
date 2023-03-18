@@ -1,0 +1,2 @@
+- Минимальная поддерживаемая версия SDK уменьшена с 17 до 15. (запрос №226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Прекращено использование устаревшей Apache-библиотеки, которая применялась только в модульных тестах и больше не нужна. (запрос №225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

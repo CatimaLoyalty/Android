@@ -1,0 +1,2 @@
+- Сортировка карт в списке теперь не учитывае регистр (запрос №266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Добавлена настройка блокировки ориентации всех карт (запрос №269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

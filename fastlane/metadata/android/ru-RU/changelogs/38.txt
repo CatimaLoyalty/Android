@@ -1,0 +1,3 @@
+- Перемещение штрихкода к верху экрана при нажатии (запрос №348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- К штрихкодам добавлены белые отступы для улучшения сканирования в тёмном режиме (запрос №328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Исправлены перепутанные кнопки импорта. (запрос №346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

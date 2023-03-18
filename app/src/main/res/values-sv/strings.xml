@@ -136,7 +136,7 @@
     <string name="cardId">Kort-ID</string>
     <string name="storeName">Namn</string>
     <string name="noMatchingGiftCards">Inget resultat. Försök justera din sökning.</string>
-    <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera några från ⋮-menyn.</string>
+    <string name="noGiftCards">Klicka på plus(+)-knappen för att lägga till ett kort, eller importera från ⋮-menyn.</string>
     <string name="action_add">Lägg till</string>
     <string name="action_search">Sök</string>
     <string name="exportOptionExplanation">Datan kommer att sparas till en plats som du väljer.</string>
@@ -182,7 +182,7 @@
     <string name="settings_theme_color">Temafärg</string>
     <string name="noGroupCards">Denna grupp är tom</string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> streckkod</string>
-    <string name="swipeToSwitchImages">Svep eller tryck länge för att växla bild</string>
+    <string name="swipeToSwitchImages">Svep eller ändra bilder, håll för att öppna i bild i galleri app</string>
     <string name="reverse">...i omvänd ordning</string>
     <string name="sort_by">Sortera efter</string>
     <string name="sort_by_balance">Saldo</string>
@@ -250,4 +250,20 @@
         <item quantity="other">Visa arkiv (<xliff:g>%1$d</xliff:g> cards)</item>
     </plurals>
     <string name="welcome">Välkommen till Catima</string>
+    <string name="importCards">Importera kort</string>
+    <string name="cameraPermissionDeniedTitle">Kunde inte komma åt kamera</string>
+    <string name="noCameraPermissionDirectToSystemSetting">För att skanna streckkoder kommer Catima att behöva åtkomst till din kamera. Tryck här för att ändra dina tillståndsinställningar.</string>
+    <string name="anyDate">Valfritt datum</string>
+    <string name="chooseValidFromDate">Välj giltigt från datum</string>
+    <string name="validFromSentence">Giltigt från: <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">Tillstånd att läsa lagring behövs för denna åtgärd…</string>
+    <string name="currentBalanceSentence">Nuvarande balans: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">Giltig från</string>
+    <string name="cameraPermissionRequired">Tillstånd att komma åt kameran krävs för denna åtgärd…</string>
+    <string name="updateBalance">Uppdatera balans</string>
+    <string name="failedToRetrieveImageFile">Misslyckades att hämta bildfil</string>
+    <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleri app</string>
+    <string name="updateBalanceTitle">Hur mycket spenderade du\?</string>
+    <string name="updateBalanceHint">Ange summa</string>
+    <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
 </resources>

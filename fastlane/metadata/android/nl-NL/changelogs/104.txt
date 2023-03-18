@@ -1,0 +1,2 @@
+- Onthoudt de voorkeur voor het al dan niet uitvouwen van de detailweergave.
+- Verscheidene kleine aanpassingen in de gebruikers interface.

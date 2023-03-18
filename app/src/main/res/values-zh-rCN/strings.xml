@@ -140,7 +140,7 @@
     <string name="deleteConfirmation">删除此卡？</string>
     <string name="deleteTitle">移除卡片</string>
     <string name="starImage">最喜欢的星星</string>
-    <string name="importStocardMessage">选择 Stocard 导出文件 <i>****-sync.zip</i>来导入。
+    <string name="importStocardMessage">选择 Stocard 导出文件 <i>****.zip</i>来导入。
 \n发电子邮件给 support@stocardapp.com 请求获得数据导出文件。</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="other">确定永久删除 <xliff:g>%d</xliff:g> 这些卡片？</item>

@@ -97,7 +97,7 @@
     <string name="sameAsCardId">Igual ao identificador</string>
     <string name="importFidmeMessage">Selecione a exportação <i>fidme-export-request-xxxxxx.zip</i> do FidMe para importar e depois selecione os tipos de código de barras manualmente.
 \nPrimeiro crie a exportação no seu perfil do FidMe escolhendo a opção \"Proteção de dados\" e em seguida pressionando \"Extrair os meus dados\".</string>
-    <string name="importStocardMessage">Selecione a exportação <i>***-sync.zip</i> do Stocard para importar.
+    <string name="importStocardMessage">Selecione a exportação <i>***.zip</i> do Stocard para importar.
 \nObtenha-o através do e-mail support@stocardapp.com solicitando uma exportação dos seus dados.</string>
     <string name="barcodeId">Valor do código de barras</string>
     <string name="wrongValueForBarcodeType">O valor não é válido para o tipo de código de barras selecionado</string>

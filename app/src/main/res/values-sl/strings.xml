@@ -221,7 +221,7 @@
     <string name="moveBarcodeToCenterOfScreen">Postavi črtno kodo na sredino zaslona</string>
     <string name="importCatimaMessage">Izberi svoj obstoječ Catima <i>catima.zip</i> izvoz podatkov za uvoz v aplikacijo.
 \nNajprej izvozi podatke v meniju \"Uvozi/Izvozi\" v drugi aplikaciji Catima s pritiskom na izbiro izvozi.</string>
-    <string name="importStocardMessage">Izberi svoj <i>***-sync.zip</i> Stocard izvoz podatkov za uvoz.
+    <string name="importStocardMessage">Izberi svoj <i>***.zip</i> Stocard izvoz podatkov za uvoz.
 \nIzvoz podatkov dobiš s pošiljanjem elektronske pošte na support@stocardapp.com, kjer povprašaš za izvoz svojih podatkov.</string>
     <string name="importVoucherVaultMessage">Izberi svoj <i>vouchervault.json</i> Voucher Vault izvoz podatkov za uvoz.
 \nIzvoz podatkov dobiš s pritiskom na gumb \"Export\" v Voucher Vault first.</string>

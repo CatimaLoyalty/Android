@@ -151,7 +151,7 @@
     <string name="photos">フォト</string>
     <string name="backImageDescription">裏</string>
     <string name="frontImageDescription">表</string>
-    <string name="importStocardMessage">Stocardでエクスポートした<i>***-sync.zip</i>ファイルを選択してください。
+    <string name="importStocardMessage">Stocardでエクスポートした<i>***.zip</i>ファイルを選択してください。
 \nファイルがない場合、e-mailing support@stocardapp.comにデータのエクスポートを要求してください。</string>
     <string name="importStocard">Stocardからインポート</string>
     <plurals name="selectedCardCount">

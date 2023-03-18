@@ -1,2 +1,4 @@
 - Förbättrat stöd för skärmläsare
-- Kraschar inte när den försöker öppna en video från galleriet
+- Kraschar inte vid försök att öppna en video från galleriet
+- Svepstöd på lojalitetskortets översiktssida
+- Nollställ inte grupp vid klickning på tillbakaknappen

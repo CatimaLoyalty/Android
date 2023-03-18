@@ -511,13 +511,37 @@ public class LoyaltyCardViewActivityTest {
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), "", context.getString(R.string.sameAsCardId), context.getString(R.string.noBarcode), null, null);
+        checkAllFields(activity,
+                ViewMode.ADD_CARD,
+                "",
+                "",
+                context.getString(R.string.anyDate),
+                context.getString(R.string.never),
+                "0",
+                context.getString(R.string.points),
+                "",
+                context.getString(R.string.sameAsCardId),
+                context.getString(R.string.noBarcode),
+                null,
+                null);
 
         // Complete barcode capture successfully
         captureBarcodeWithResult(activity, true);
         activityController.resume();
 
-        checkAllFields(activity, ViewMode.ADD_CARD, "", "", context.getString(R.string.anyDate), context.getString(R.string.never), "0", context.getString(R.string.points), BARCODE_DATA, context.getString(R.string.sameAsCardId), BARCODE_TYPE.prettyName(), null, null);
+        checkAllFields(activity,
+                ViewMode.ADD_CARD,
+                "",
+                "",
+                context.getString(R.string.anyDate),
+                context.getString(R.string.never),
+                "0",
+                context.getString(R.string.points),
+                "",
+                context.getString(R.string.sameAsCardId),
+                BARCODE_TYPE.prettyName(),
+                null,
+                null);
 
         shadowOf(getMainLooper()).idle();
 

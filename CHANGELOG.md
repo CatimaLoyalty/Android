@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 118
+## v2.22.0 - 118
 
 - Support setting start of card validity
 - Fix Stocard import (Stocard's export format changed)

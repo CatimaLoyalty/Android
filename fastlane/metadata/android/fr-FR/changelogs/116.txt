@@ -1,0 +1,2 @@
+- Correction de la boîte de dialogue de dépense rapide qui ne permettait pas l'utilisation de la virgule comme séparateur
+- Prise en charge du chargement d'images à partir du gestionnaire de fichiers

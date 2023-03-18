@@ -1222,6 +1222,10 @@ public class ImportExportTest {
 
     @Test
     public void importStocard() throws IOException {
+        // FIXME: The provided stocard.zip is a very old export (8 July 2021) manually edited to
+        // look more like the Stocard files provided by users for #1242. It is not an up-to-date
+        // export and the test is possibly unreliable. This should be replaced by an up-to-date
+        // export.
         InputStream inputStream = getClass().getResourceAsStream("stocard.zip");
 
         // Import the Stocard data
@@ -1271,8 +1275,7 @@ public class ImportExportTest {
 
         card = DBHelper.getLoyaltyCard(mDatabase, 3);
 
-        // I don't think we can know this one, but falling back to an unique store name is at least something
-        assertEquals("63536738-d64b-48ae-aeb8-82761523fa67", card.store);
+        assertEquals("jö", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
         assertEquals(null, card.expiry);

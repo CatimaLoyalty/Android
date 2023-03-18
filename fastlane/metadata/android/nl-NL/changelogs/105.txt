@@ -1,0 +1,2 @@
+- Bug opgelost waarbij bij een onbekende waarde van de barcode een grijs blok verschijnt.
+- Verbeteringen doorgevoerd van Stocard imports.

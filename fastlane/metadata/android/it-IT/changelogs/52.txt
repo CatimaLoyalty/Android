@@ -1,0 +1,3 @@
+- Seleziona automaticamente il campo di testo quando crei o modifichi un gruppo
+- Evita icone sfuocate (usa solamente SVG)
+- Apri sempre la fotocamera ma aggiungi la scansione manuale nella vista

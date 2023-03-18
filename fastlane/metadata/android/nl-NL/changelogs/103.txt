@@ -1,0 +1,2 @@
+- Probleem opgelost waarbij de handmatig gekozen taal niet overal werd toegepast.
+- Een crash verholpen die optrad  in het bewerkings scherm van de niet regio-gebonden lokatie instellingen.

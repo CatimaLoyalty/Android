@@ -1,0 +1,3 @@
+- Добавлены боковые поля для штрихкодов. (запрос №200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Добавлена возможность настройки цветов текста и фона для названия магазина. (запрос №203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Добавлена возможность регулировки размеров шрифта для списка карт и экрана просмотра одной карты. (запрос №204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

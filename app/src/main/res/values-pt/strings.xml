@@ -269,4 +269,8 @@
     <string name="updateBalanceHint">Introduza o valor</string>
     <string name="storageReadPermissionRequired">É necessária a permissão para ler o armazenamento para esta ação…</string>
     <string name="cameraPermissionRequired">É necessária a permissão para aceder à câmara para esta ação…</string>
+    <string name="validFromDate">Válido desde</string>
+    <string name="anyDate">Qualquer data</string>
+    <string name="chooseValidFromDate">Escolha uma data desde válida</string>
+    <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
 </resources>

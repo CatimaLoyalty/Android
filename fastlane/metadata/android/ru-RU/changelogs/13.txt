@@ -1,0 +1,2 @@
+- Правки версии 0.11 снизили использование памяти при отрисовке штрихкода, но повлияли на его размеры. Теперь это сделано с сохранением размеров штрихкода. (запрос №126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- Обновлены немецкий и французский переводы. (запрос №122 (https://github.com/brarcher/loyalty-card-locker/pull/122), запрос №124 (https://github.com/brarcher/loyalty-card-locker/pull/124), запрос №125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

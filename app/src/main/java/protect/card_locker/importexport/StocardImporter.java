@@ -74,29 +74,31 @@ public class StocardImporter implements Importer {
             String fileName = localFileHeader.getFileName();
             String[] nameParts = fileName.split("/");
 
+            if (nameParts.length < 2) {
+                continue;
+            }
+
             if (providersFileName == null) {
                 providersFileName = new String[]{
-                        nameParts[0],
-                        "sync",
-                        "data",
+                        "extracts",
+                        nameParts[1],
                         "users",
-                        nameParts[0],
-                        "analytics-properties.json"
+                        nameParts[1],
+                        "analytics-properties",
+                        "content.json"
                 };
                 customProvidersBaseName = new String[]{
-                        nameParts[0],
-                        "sync",
-                        "data",
+                        "extracts",
+                        nameParts[1],
                         "users",
-                        nameParts[0],
+                        nameParts[1],
                         "loyalty-card-custom-providers"
                 };
                 cardBaseName = new String[]{
-                        nameParts[0],
-                        "sync",
-                        "data",
+                        "extracts",
+                        nameParts[1],
                         "users",
-                        nameParts[0],
+                        nameParts[1],
                         "loyalty-cards"
                 };
             }
@@ -106,18 +108,15 @@ public class StocardImporter implements Importer {
                 customProviderId = nameParts[customProvidersBaseName.length].split("\\.", 2)[0];
 
                 // Name file
-                if (nameParts.length == customProvidersBaseName.length + 1) {
-                    // Ignore the .txt file
-                    if (fileName.endsWith(".json")) {
-                        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
+                if (fileName.endsWith(customProviderId + "/content.json")) {
+                    JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
 
-                        providers = appendToHashMap(
-                                providers,
-                                customProviderId,
-                                "name",
-                                jsonObject.getString("name")
-                        );
-                    }
+                    providers = appendToHashMap(
+                            providers,
+                            customProviderId,
+                            "name",
+                            jsonObject.getString("name")
+                    );
                 } else if (fileName.endsWith("logo.png")) {
                     providers = appendToHashMap(
                             providers,
@@ -133,46 +132,43 @@ public class StocardImporter implements Importer {
                 cardName = nameParts[cardBaseName.length].split("\\.", 2)[0];
 
                 // This is the card itself
-                if (nameParts.length == cardBaseName.length + 1) {
-                    // Ignore the .txt file
-                    if (fileName.endsWith(".json")) {
-                        JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
+                if (fileName.endsWith(cardName + "/content.json")) {
+                    JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
 
-                        loyaltyCardHashMap = appendToHashMap(
-                                loyaltyCardHashMap,
-                                cardName,
-                                "cardId",
-                                jsonObject.getString("input_id")
-                        );
+                    loyaltyCardHashMap = appendToHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "cardId",
+                            jsonObject.getString("input_id")
+                    );
 
-                        // Provider ID can be either custom or not, extract whatever version is relevant
-                        String customProviderPrefix = "/users/" + nameParts[0] + "/loyalty-card-custom-providers/";
-                        String providerId = jsonObject
-                                .getJSONObject("input_provider_reference")
-                                .getString("identifier");
-                        if (providerId.startsWith(customProviderPrefix)) {
-                            providerId = providerId.substring(customProviderPrefix.length());
-                        } else {
-                            providerId = providerId.substring("/loyalty-card-providers/".length());
-                        }
-
-                        loyaltyCardHashMap = appendToHashMap(
-                                loyaltyCardHashMap,
-                                cardName,
-                                "_providerId",
-                                providerId
-                        );
-
-                        if (jsonObject.has("input_barcode_format")) {
-                            loyaltyCardHashMap = appendToHashMap(
-                                    loyaltyCardHashMap,
-                                    cardName,
-                                    "barcodeType",
-                                    jsonObject.getString("input_barcode_format")
-                            );
-                        }
+                    // Provider ID can be either custom or not, extract whatever version is relevant
+                    String customProviderPrefix = "/users/" + nameParts[1] + "/loyalty-card-custom-providers/";
+                    String providerId = jsonObject
+                            .getJSONObject("input_provider_reference")
+                            .getString("identifier");
+                    if (providerId.startsWith(customProviderPrefix)) {
+                        providerId = providerId.substring(customProviderPrefix.length());
+                    } else {
+                        providerId = providerId.substring("/loyalty-card-providers/".length());
                     }
-                } else if (fileName.endsWith("notes/default.json")) {
+
+                    loyaltyCardHashMap = appendToHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "_providerId",
+                            providerId
+                    );
+
+                    if (jsonObject.has("input_barcode_format")) {
+                        loyaltyCardHashMap = appendToHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "barcodeType",
+                                jsonObject.getString("input_barcode_format")
+                        );
+                    }
+                } else if (fileName.endsWith("notes/default/content.json")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,

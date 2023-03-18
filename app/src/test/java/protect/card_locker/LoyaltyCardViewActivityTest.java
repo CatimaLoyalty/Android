@@ -519,7 +519,7 @@ public class LoyaltyCardViewActivityTest {
                 context.getString(R.string.never),
                 "0",
                 context.getString(R.string.points),
-                BARCODE_DATA,
+               "",
                 context.getString(R.string.sameAsCardId),
                 context.getString(R.string.noBarcode),
                 null,

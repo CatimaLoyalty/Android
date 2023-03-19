@@ -35,6 +35,7 @@ Silvério Santos
 Miha Frangež
 Arnis Jaundzeikars
 Kefir2105
+Denis Shilin
 sr093906
 Giovanni Donisi
 mdvhimself
@@ -107,6 +108,7 @@ BmBKun
 Aditya Das
 Kevin Sicong Jiang
 Tomer Ben-Rachel
+Tom Sawyer
 tfuxu
 Ahmed Saleh
 Airat
@@ -139,7 +141,7 @@ Jacopo Gennaro Esposito
 Jasielprogramador
 Jean Mareilles
 Jean-Baptiste
-人工知能
+Kung-chih
 Karvjorm
 krkk
 Laura Ferraz 
@@ -155,6 +157,7 @@ Moi Toi
 DivideEtImpera
 Nicolas
 Nosnahc
+pa4k
 pbeckmann
 Peer Beckmann
 Piotr Strebski
@@ -173,13 +176,13 @@ Simone Dotto
 Subhashish Anand
 TenTraicion
 Titas Pažereckas
-Tom Sawyer
 atakujonc
 Tony C
 Tymofii Lytvynenko
 Vancha March
 Yevgeny M
 Yusril A
+ahmed-awad26
 Avik Kundu
 diksha-2911
 gbonaspetti

@@ -71,13 +71,13 @@
     <string name="moveBarcodeToCenterOfScreen">Премества щрихкода в центъра на екрана</string>
     <string name="moveBarcodeToTopOfScreen">Премества щрихкода най-горе на екрана</string>
     <string name="never">Не изтича</string>
-    <string name="chooseExpiryDate">Дата на изтичане</string>
-    <string name="expiryDate">Валидност</string>
+    <string name="chooseExpiryDate">Определена дата</string>
+    <string name="expiryDate">Валидна до</string>
     <string name="editBarcode">Редактиране на щрихкод</string>
     <string name="barcode">Щрихкод</string>
     <string name="card">Карта</string>
     <string name="groupsList">Списъци: <xliff:g>%s</xliff:g></string>
-    <string name="expiryStateSentence">Валидност: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Валидна до: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
@@ -267,5 +267,5 @@
     <string name="validFromDate">Валидна от</string>
     <string name="anyDate">Без значение от датата</string>
     <string name="validFromSentence">Валидна от: <xliff:g>%s</xliff:g></string>
-    <string name="chooseValidFromDate">Изберете датата, от която е валидна</string>
+    <string name="chooseValidFromDate">Определена дата</string>
 </resources>

@@ -1,1 +1,2 @@
--Prise en charge du début de la validité de la carte
+- Prise en charge du début de la validité de la carte
+- Correction de l'importation Stocard (le format d'exportation de Stocard a changé)

@@ -2,6 +2,12 @@
 
 Copylefted libre software (GPLv3+) card management app.
 
+## Introduction
+
+Welcome to the Android repository for Catima Loyalty, a customer loyalty and engagement platform. This repository contains the Android application code for the Catima Loyalty app, which is designed to help businesses create loyalty programs and engage with their customers.
+
+The Catima Loyalty Android app provides customers with a user-friendly interface to manage their loyalty accounts, view rewards and benefits, and engage with the businesses they frequent. The app also offers businesses the ability to customize loyalty programs, track customer behavior, and send targeted offers and promotions.
+
 [![GitHub Version](https://img.shields.io/github/v/release/TheLastProject/Catima.svg?logo=github&label=GitHub)](https://github.com/TheLastProject/Catima/releases)
 [![F-Droid Version](https://img.shields.io/f-droid/v/me.hackerchick.catima.svg?logo=f-droid&label=F-Droid)](https://f-droid.org/packages/me.hackerchick.catima/)
 [![IzzyOnDroid Version](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/me.hackerchick.catima)](https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima)

@@ -22,7 +22,7 @@
     <string name="save">Mentés</string>
     <string name="edit">Szerkesztés</string>
     <string name="delete">Törlés</string>
-    <string name="confirm">Alkalmaz</string>
+    <string name="confirm">Jóváhagy</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Törölje az <xliff:g>%d</xliff:g> kártyát</item>
         <item quantity="other">Törölje az <xliff:g>%d</xliff:g> kártyákat</item>
@@ -262,4 +262,10 @@
     </plurals>
     <string name="updateBalance">Egyenleg frissítése</string>
     <string name="noCameraPermissionDirectToSystemSetting">A vonalkódok beolvasásához a Catimának hozzá kell férnie a kamerához. Koppintson ide az engedélybeállítások módosításához.</string>
+    <string name="validFromDate">Érvényesség kezdete</string>
+    <string name="anyDate">Bármely dátum</string>
+    <string name="chooseValidFromDate">Válassza ki az érvényesség kezdeti dátumot</string>
+    <string name="validFromSentence">Érvényesség kezdete: <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">A művelethez tároló olvasási engedély szükséges…</string>
+    <string name="cameraPermissionRequired">A kamerához való hozzáférés engedélye szükséges ehhez a művelethez…</string>
 </resources>

@@ -1,1 +1,2 @@
 - Podpora nastavení začátku platnosti karty
+- Oprava importu Stocard (změnil se formát exportu Stocard)

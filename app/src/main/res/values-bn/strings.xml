@@ -52,4 +52,9 @@
         <item quantity="other"><xliff:g>%d</xliff:g> কার্ডগুলো মুছুন</item>
     </plurals>
     <string name="deleteTitle">কার্ড মুছুন</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one">নির্বাচিত</item>
+        <item quantity="other"></item>
+    </plurals>
+    <string name="noGiftCards">একটি কার্ড যোগ করতে + প্লাস বোতামে ক্লিক করুন বা ⋮ মেনু থেকে আমদানি করুন।</string>
 </resources>

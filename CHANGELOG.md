@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 119
+
+- Use Material You colours on more devices (Google library update)
+
 ## v2.22.0 - 118
 
 - Support setting start of card validity

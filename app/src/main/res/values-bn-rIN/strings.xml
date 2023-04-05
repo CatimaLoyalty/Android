@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="save">সংরক্ষণ</string>
     <string name="cancel">বাতিল</string>
     <string name="unstar">তারা মুক্ত</string>
@@ -8,8 +8,8 @@
     <string name="barcodeType">বারকোড ধরন</string>
     <string name="note">বিঃদ্রঃ</string>
     <string name="storeName">দোকানের নাম</string>
-    <string name="noMatchingGiftCards">কোন ম্যাচিং উপহার কার্ড নেই</string>
-    <string name="noGiftCards">উপহার কার্ড নেই</string>
+    <string name="noMatchingGiftCards">কোনো ফলাফল পাওয়া যায়নি। অনুসন্ধানের বাক্যটি বদলে দেখুন।</string>
+    <string name="noGiftCards">প্লাস বোতামটি টিপে একটি কার্ড যোগ করুন বা ⋮ মেনু থেকে কিছু নিয়ে আসুন</string>
     <string name="action_add">কর্ম যোগ</string>
     <string name="all">সব</string>
     <string name="noGroupCards">গোষ্ঠী কার্ড নেই</string>
@@ -101,4 +101,62 @@
     <string name="barcode">বারকোড</string>
     <string name="expiryDate">মেয়াদোত্তীর্ণ তারিখ</string>
     <string name="noBarcodeFound">কোনো বারকোড পাওয়া যায়নি</string>
+    <string name="cameraPermissionRequired">এই কাজটির জন্য ক্যামেরা ব্যবহার করার অনুমতি লাগবে…</string>
+    <string name="noCameraPermissionDirectToSystemSetting">বারকোড স্ক্যান করার জন্য, কাটিমাকে ফোনের ক্যামেরা ব্যবহার করার অনুমতি দিতে হবে। এইখানে টাচ করে আপনার অনুমতি সেটিংস পালটে নিন।</string>
+    <string name="importOptionApplicationExplanation">আপনার প্রিয় ফাইল ম্যানেজার বা আর যেকোনো অ্যাপ দিয়ে একটি ফাইল খুলুন।</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">মেধাস্বত্ব © ২০১৯-<xliff:g>%d</xliff:g> সিলভিয়া ভান অস</string>
+    <string name="app_license">কপিলেফ্ট করা মুক্ত সফটওয়্যার, জিপিএলের ৩য় এবং তার অধিক সংস্করণে লাইসেন্স করা</string>
+    <string name="enterBarcodeInstructions">আইডিটি লিখুন আর নয় নিচ থেকে একটি বারকোডের প্রকার বা \"কোনো বারকোড নেই\", নির্বাচন করুন।</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবেন\?</item>
+        <item quantity="other">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবেন\?</item>
+    </plurals>
+    <plurals name="selectedCardCount">
+        <item quantity="one">একটি নির্বাচিত</item>
+        <item quantity="other"><xliff:g>%d</xliff:g>টি নির্বাচিত</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g>টি কার্ড মুছে ফেলুন</item>
+        <item quantity="other"><xliff:g>%d</xliff:g>টি কার্ড মুছে ফেলুন</item>
+    </plurals>
+    <string name="cameraPermissionDeniedTitle">ফোনের ক্যামেরা ব্যবহার করা যাচ্ছে না</string>
+    <string name="importOptionFilesystemExplanation">ফোনের স্টোরেজ থেকে নির্দিষ্ট একটি ফাইল আনুন।</string>
+    <string name="app_libraries">মুক্ত লাইব্রেরি যেগুলি আমার নয়: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g>টির ব্যাপারে</string>
+    <string name="app_revision_fmt">সংশোধন তথ্য: <xliff:g id="app_revision_url">%s</xliff:g></string>
+    <string name="app_resources">মুক্ত সম্পদ যেগুলি আমার নয়: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="thumbnailDescription">থাম্বনেইল</string>
+    <string name="settings_card_orientation">বারকোড অভিমুখ</string>
+    <string name="settings_follow_system_orientation">সিস্টেমের অনুসারে</string>
+    <string name="settings_portrait_orientation">প্রতিকৃতি</string>
+    <string name="barcodeImageDescriptionWithType">ছবি <xliff:g>%s</xliff:g> বারকোড</string>
+    <string name="exportName">রপ্তানি</string>
+    <string name="failedParsingImportUriError">আমদানির ইউআরআই বোঝা যাচ্ছে না</string>
+    <string name="importExport">আমদানি/রপ্তানি</string>
+    <string name="cardShortcut">কার্ড শর্টকাট</string>
+    <string name="exportFailed">বার করা যাচ্ছে না</string>
+    <string name="copy_to_clipboard_toast">আইডি ক্লিপবোর্ডে নকল করা হল</string>
+    <string name="noCardIdError">কোনো আইডি দওয়া হয়নি</string>
+    <string name="importExportHelp">নিজের তথ্য অন্য কোথাও সংরক্ষণ করে রাখলে পরে সেটা অন্য ফোনে আবার নিয়ে নাওয়া যাই।</string>
+    <string name="importFailed">আনা যাচ্ছে না</string>
+    <string name="noGiftCardsGroup">কিছু কার্ড বানান আর এই গ্রুপে স্থির করুন।</string>
+    <string name="scanCardBarcode">বারকোড স্ক্যান করুন</string>
+    <string name="importSuccessfulTitle">আনা শেষ</string>
+    <string name="importFailedTitle">আনা ব্যর্থ</string>
+    <string name="exportSuccessfulTitle">বার করা শেষ</string>
+    <string name="exportFailedTitle">বার করা ব্যর্থ</string>
+    <string name="importing">আনা হচ্ছে…</string>
+    <string name="exporting">বার করা হচ্ছে…</string>
+    <string name="storageReadPermissionRequired">এই কাজটির জন্য ফোনের স্টোরেজ দেখার অনুমতি লাগবে…</string>
+    <string name="exportOptionExplanation">তথ্যটি আপনার পছন্দের জায়গায় রাখা হবে।</string>
+    <string name="importOptionFilesystemTitle">ফোনের স্টোরেজ থেকে আনুন</string>
+    <string name="importOptionFilesystemButton">ফোনের স্টোরেজ থেকে</string>
+    <string name="importOptionApplicationTitle">অন্য অ্যাপ ব্যবহার করুন</string>
+    <string name="app_copyright_old">লয়ালটি কার্ড কিচ্যেনের উপর ভিত্তি করে
+\nমেধাস্বত্ব © ২০১৬-২০২০ ব্রানডেন আর্চার</string>
+    <string name="selectBarcodeTitle">বারকোড নির্বাচন করুন</string>
+    <string name="settings">সেটিংস</string>
+    <string name="settings_dark_theme">অন্ধকার</string>
+    <string name="settings_landscape_orientation">অনুভূমিক</string>
+    <string name="settings_lock_on_opening_orientation">কার্ড খোলার সময় যে অভিমুখ থাকে সেটিতে লক করে দেবেন</string>
 </resources>

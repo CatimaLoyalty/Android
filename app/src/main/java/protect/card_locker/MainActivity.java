@@ -67,7 +67,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private int mLoyaltyCardCount = 0;
     protected String mFilter = "";
     protected Object mGroup = null;
-    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.Alpha;
+    protected DBHelper.LoyaltyCardOrder mOrder = DBHelper.LoyaltyCardOrder.UsageNumber;
     protected DBHelper.LoyaltyCardOrderDirection mOrderDirection = DBHelper.LoyaltyCardOrderDirection.Ascending;
     protected int selectedTab = 0;
     private RecyclerView mCardList;

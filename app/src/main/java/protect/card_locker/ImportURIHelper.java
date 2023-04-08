@@ -27,6 +27,8 @@ public class ImportURIHelper {
     private static final String BARCODE_TYPE = DBHelper.LoyaltyCardDbIds.BARCODE_TYPE;
     private static final String HEADER_COLOR = DBHelper.LoyaltyCardDbIds.HEADER_COLOR;
 
+    private static final String USAGE_NUMBER = DBHelper.LoyaltyCardDbIds.USAGE_NUMBER;
+
     private final Context context;
     private final String[] hosts = new String[3];
     private final String[] paths = new String[3];
@@ -92,6 +94,7 @@ public class ImportURIHelper {
             String note = kv.get(NOTE);
             String cardId = kv.get(CARD_ID);
             String barcodeId = kv.get(BARCODE_ID);
+            int usage_number = Integer.parseInt(kv.get(USAGE_NUMBER));
             if (store == null || note == null || cardId == null)
                 throw new InvalidObjectException("Not a valid import URI: " + uri.toString());
 
@@ -122,7 +125,7 @@ public class ImportURIHelper {
                 headerColor = Integer.parseInt(unparsedHeaderColor);
             }
 
-            return new LoyaltyCard(-1, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100, 0);
+            return new LoyaltyCard(-1, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, 0, Utils.getUnixTime(), 100, 0, usage_number);
         } catch (NullPointerException | NumberFormatException | UnsupportedEncodingException | ArrayIndexOutOfBoundsException ex) {
             throw new InvalidObjectException("Not a valid import URI");
         }

@@ -308,6 +308,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         if (savedInstanceState == null) {
             Bundle incomingIntentExtras = getIntent().getExtras();
 
@@ -428,6 +429,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         maximizeButton.setOnClickListener(v -> setFullscreen(true));
         minimizeButton.setOnClickListener(v -> setFullscreen(false));
 
+        DBHelper.updateLoyaltyCardUsageNumber(database, loyaltyCardId);
+
         editButton = binding.fabEdit;
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
@@ -466,7 +469,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 iconImage.setClipBounds(new Rect(left, top, right, bottom));
             }
         });
+
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        //this.database
+
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {

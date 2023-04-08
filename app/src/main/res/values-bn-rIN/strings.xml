@@ -112,8 +112,8 @@
         <item quantity="other">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবেন\?</item>
     </plurals>
     <plurals name="selectedCardCount">
-        <item quantity="one">একটি নির্বাচিত</item>
-        <item quantity="other"><xliff:g>%d</xliff:g>টি নির্বাচিত</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> একটি নির্বাচিত</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> টি নির্বাচিত</item>
     </plurals>
     <plurals name="deleteCardsTitle">
         <item quantity="one"><xliff:g>%d</xliff:g>টি কার্ড মুছে ফেলুন</item>

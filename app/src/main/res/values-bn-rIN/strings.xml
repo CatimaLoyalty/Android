@@ -12,14 +12,14 @@
     <string name="noGiftCards">প্লাস বোতামটি টিপে একটি কার্ড যোগ করুন বা ⋮ মেনু থেকে কিছু নিয়ে আসুন</string>
     <string name="action_add">কর্ম যোগ</string>
     <string name="all">সব</string>
-    <string name="noGroupCards">গোষ্ঠী কার্ড নেই</string>
+    <string name="noGroupCards">এই গ্রুপটি খালি</string>
     <string name="noGroups">গোষ্ঠীগুলি নেই</string>
     <string name="groups">গোষ্ঠীগুলি</string>
     <string name="enter_group_name">গোষ্ঠী নাম লিখুন </string>
     <string name="exportSuccessful">রপ্তানি সফল</string>
-    <string name="importSuccessful">আগম সফল</string>
+    <string name="importSuccessful">তথ্য আনা শেষ</string>
     <string name="intent_import_card_from_url_share_text">url শেয়ার টেক্সট থেকে ইন্টেন্ট ইম্পোর্ট কার্ড</string>
-    <string name="settings_disable_lockscreen_while_viewing_card"> কার্ড দেখা কালিন লকস্ক্রিন নিষ্ক্রিয়</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">স্ক্রীন লক হতে দেবেন না</string>
     <string name="settings_keep_screen_on">সেটিংস পর্দা খোলা রাখুন</string>
     <string name="settings_max_font_size_scale">সর্বোচ্চ হরফ আকার</string>
     <string name="settings_light_theme">সাদাটে থিম</string>
@@ -159,4 +159,18 @@
     <string name="settings_dark_theme">অন্ধকার</string>
     <string name="settings_landscape_orientation">অনুভূমিক</string>
     <string name="settings_lock_on_opening_orientation">কার্ড খোলার সময় যে অভিমুখ থাকে সেটিতে লক করে দেবেন</string>
+    <string name="group_name_already_in_use">গ্রুপটির নাম আগে একবার ব্যবহার করে ফেলেছেন</string>
+    <string name="group_edit">গ্রুপ সম্পাদনা করুন</string>
+    <string name="group_updated">গ্রুপটি আপডেট করা হল</string>
+    <string name="group_name_is_empty">গ্রুপের একটি নাম থাকতে হবে</string>
+    <string name="deleteConfirmationGroup">গ্রুপটি মুছে দেবেন\?</string>
+    <string name="failedOpeningFileManager">প্রথমে একটি ফাইল ম্যানেজার ইনস্টল করুন।</string>
+    <string name="leaveWithoutSaveConfirmation">সংরক্ষণ না করেই চলে যাবেন\?</string>
+    <string name="addManually">নিজে হাতে আইডি লিখুন</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g>টি কার্ড</item>
+        <item quantity="other"><xliff:g>%d</xliff:g>টি কার্ড</item>
+    </plurals>
+    <string name="leaveWithoutSaveTitle">প্রস্থান</string>
+    <string name="settings_display_barcode_max_brightness">বারকোড উজ্জ্বল করুন</string>
 </resources>

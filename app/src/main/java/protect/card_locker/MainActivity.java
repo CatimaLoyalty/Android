@@ -375,18 +375,28 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         // Start of active tab logic
         updateTabGroups(groupsTabLayout);
 
-        // Restore settings from Shared Preference
+        // Restore selected tab from Shared Preference
         SharedPreferences activeTabPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_active_tab),
                 Context.MODE_PRIVATE);
         selectedTab = activeTabPref.getInt(getString(R.string.sharedpreference_active_tab), 0);
+
+        // Restore sort preferences from Shared Preferences
+        // If one of the sorting prefererences has never been set or is set to an invalid value,
+        // stick to the defaults.
         SharedPreferences sortPref = getApplicationContext().getSharedPreferences(
                 getString(R.string.sharedpreference_sort),
                 Context.MODE_PRIVATE);
-        try {
-            mOrder = DBHelper.LoyaltyCardOrder.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_order), null));
-            mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(sortPref.getString(getString(R.string.sharedpreference_sort_direction), null));
-        } catch (IllegalArgumentException | NullPointerException ignored) {
+
+        String orderString = sortPref.getString(getString(R.string.sharedpreference_sort_order), null);
+        String orderDirectionString = sortPref.getString(getString(R.string.sharedpreference_sort_direction), null);
+
+        if (orderString != null && orderDirectionString != null) {
+            try {
+                mOrder = DBHelper.LoyaltyCardOrder.valueOf(orderString);
+                mOrderDirection = DBHelper.LoyaltyCardOrderDirection.valueOf(orderDirectionString);
+            } catch (IllegalArgumentException ignored) {
+            }
         }
 
         mGroup = null;
@@ -520,38 +530,41 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Check if an image was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
-            if (receivedType.startsWith("image/")) {
-                BarcodeValues barcodeValues;
-                try {
-                    Bitmap bitmap;
-                    try {
-                        Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                        bitmap = Utils.retrieveImageFromUri(this, data);
-                    } catch (IOException e) {
-                        Log.e(TAG, "Error getting data from image file");
-                        e.printStackTrace();
-                        Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                        finish();
-                        return;
-                    }
-
-                    barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
-
-                    if (barcodeValues.isEmpty()) {
-                        Log.i(TAG, "No barcode found in image file");
-                        Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-                        finish();
-                        return;
-                    }
-                } catch (NullPointerException e) {
-                    Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                    finish();
-                    return;
-                }
-                processBarcodeValues(barcodeValues, null);
-            } else {
+            if (!receivedType.startsWith("image/")) {
                 Log.e(TAG, "Wrong mime-type");
+                return;
             }
+
+            BarcodeValues barcodeValues;
+            Bitmap bitmap;
+
+            Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (data == null) {
+                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            try {
+                bitmap = Utils.retrieveImageFromUri(this, data);
+            } catch (IOException e) {
+                Log.e(TAG, "Error getting data from image file");
+                e.printStackTrace();
+                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
+
+            if (barcodeValues.isEmpty()) {
+                Log.i(TAG, "No barcode found in image file");
+                Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            processBarcodeValues(barcodeValues, null);
         }
     }
 

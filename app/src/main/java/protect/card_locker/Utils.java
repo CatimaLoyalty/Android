@@ -114,6 +114,17 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
+    /**
+     * Returns the Barcode format and content based on the result of an activity.
+     * It shows toasts to notify the end-user as needed itself and will return an empty
+     * BarcodeValues object if the activity was cancelled or nothing could be found.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param intent
+     * @param context
+     * @return BarcodeValues
+     */
     static public BarcodeValues parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
         String contents;
         String format;
@@ -125,9 +136,15 @@ public class Utils {
         if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
             Log.i(TAG, "Received image file with possible barcode");
 
+            Uri data = intent.getData();
+            if (data == null) {
+                Log.e(TAG, "Intent did not contain any data");
+                Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+                return new BarcodeValues(null, null);
+            }
+
             Bitmap bitmap;
             try {
-                Uri data = intent.getData();
                 bitmap = retrieveImageFromUri(context, data);
             } catch (IOException e) {
                 Log.e(TAG, "Error getting data from image file");

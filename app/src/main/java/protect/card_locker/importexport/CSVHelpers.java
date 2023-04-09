@@ -8,22 +8,14 @@ public class CSVHelpers {
     /**
      * Extract a string from the items array. The index into the array
      * is determined by looking up the index in the fields map using the
-     * "key" as the key. If no such key exists, defaultValue is returned
-     * if it is not null. Otherwise, a FormatException is thrown.
+     * "key" as the key. If no such key exists, defaultValue is returned.
      */
-    static String extractString(String key, CSVRecord record, String defaultValue)
-            throws FormatException {
-        String toReturn = defaultValue;
-
+    static String extractString(String key, CSVRecord record, String defaultValue) {
         if (record.isMapped(key)) {
-            toReturn = record.get(key);
-        } else {
-            if (defaultValue == null) {
-                throw new FormatException("Field not used but expected: " + key);
-            }
+            return record.get(key);
         }
 
-        return toReturn;
+        return defaultValue;
     }
 
     /**
@@ -32,15 +24,15 @@ public class CSVHelpers {
      * "key" as the key. If no such key exists, or the data is not a valid
      * int, a FormatException is thrown.
      */
-    static Integer extractInt(String key, CSVRecord record, boolean nullIsOk)
+    static Integer extractInt(String key, CSVRecord record)
             throws FormatException {
-        if (record.isMapped(key) == false) {
+        if (!record.isMapped(key)) {
             throw new FormatException("Field not used but expected: " + key);
         }
 
         String value = record.get(key);
-        if (value.isEmpty() && nullIsOk) {
-            return null;
+        if (value.isEmpty()) {
+            throw new FormatException("Field is empty: " + key);
         }
 
         try {
@@ -56,15 +48,15 @@ public class CSVHelpers {
      * "key" as the key. If no such key exists, or the data is not a valid
      * int, a FormatException is thrown.
      */
-    static Long extractLong(String key, CSVRecord record, boolean nullIsOk)
+    static Long extractLong(String key, CSVRecord record)
             throws FormatException {
-        if (record.isMapped(key) == false) {
+        if (!record.isMapped(key)) {
             throw new FormatException("Field not used but expected: " + key);
         }
 
         String value = record.get(key);
-        if (value.isEmpty() && nullIsOk) {
-            return null;
+        if (value.isEmpty()) {
+            throw new FormatException("Field is empty: " + key);
         }
 
         try {

@@ -291,4 +291,5 @@
     <string name="updateBalance">تحديث الرصيد</string>
     <string name="updateBalanceHint">أدخل المبلغ</string>
     <string name="storageReadPermissionRequired">الصلاحيه للوصل للتخزين مطلوبة لهذا الاجراء</string>
+    <string name="validFromDate">عربيه</string>
 </resources>

@@ -77,7 +77,7 @@ public class CatimaImporter implements Importer {
         int version = parseVersion(bufferedReader);
         switch (version) {
             case 1:
-                parseV1(context, database, bufferedReader);
+                parseV1(database, bufferedReader);
                 break;
             case 2:
                 parseV2(context, database, bufferedReader);
@@ -87,12 +87,12 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV1(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public void parseV1(SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
         final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
 
         try {
             for (CSVRecord record : parser) {
-                importLoyaltyCard(context, database, record);
+                importLoyaltyCard(database, record);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -214,7 +214,7 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importLoyaltyCard(context, database, record);
+            importLoyaltyCard(database, record);
         }
     }
 
@@ -276,9 +276,9 @@ public class CatimaImporter implements Importer {
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(Context context, SQLiteDatabase database, CSVRecord record)
-            throws IOException, FormatException {
-        int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record, false);
+    private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record)
+            throws FormatException {
+        int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record);
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
         if (store.isEmpty()) {
@@ -286,25 +286,38 @@ public class CatimaImporter implements Importer {
         }
 
         String note = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.NOTE, record, "");
+
         Date validFrom = null;
+        Long validFromLong;
         try {
-            validFrom = new Date(CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record, true));
-        } catch (NullPointerException | FormatException e) {
+            validFromLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.VALID_FROM, record);
+        } catch (FormatException ignored) {
+            validFromLong = null;
+        }
+        if (validFromLong != null) {
+            validFrom = new Date(validFromLong);
         }
 
         Date expiry = null;
+        Long expiryLong;
         try {
-            expiry = new Date(CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record, true));
-        } catch (NullPointerException | FormatException e) {
+            expiryLong = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.EXPIRY, record);
+        } catch (FormatException ignored) {
+            expiryLong = null;
+        }
+        if (expiryLong != null) {
+            expiry = new Date(expiryLong);
         }
 
-        BigDecimal balance;
-        try {
-            balance = new BigDecimal(CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null));
-        } catch (FormatException _e) {
-            // These fields did not exist in versions 1.8.1 and before
-            // We catch this exception so we can still import old backups
-            balance = new BigDecimal("0");
+        // These fields did not exist in versions 1.8.1 and before
+        // We default to 0 so we can still import old backups
+        BigDecimal balance = new BigDecimal("0");
+        String balanceString = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null);
+        if (balanceString != null) {
+            try {
+                balance = new BigDecimal(CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.BALANCE, record, null));
+            } catch (NumberFormatException ignored) {
+            }
         }
 
         Currency balanceType = null;
@@ -330,14 +343,14 @@ public class CatimaImporter implements Importer {
         }
 
         Integer headerColor = null;
-
-        if (record.isMapped(DBHelper.LoyaltyCardDbIds.HEADER_COLOR)) {
-            headerColor = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record, true);
+        try {
+            headerColor = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.HEADER_COLOR, record);
+        } catch (FormatException ignored) {
         }
 
         int starStatus = 0;
         try {
-            starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record, false);
+            starStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.STAR_STATUS, record);
         } catch (FormatException _e) {
             // This field did not exist in versions 0.28 and before
             // We catch this exception so we can still import old backups
@@ -346,7 +359,7 @@ public class CatimaImporter implements Importer {
 
         int archiveStatus = 0;
         try {
-            archiveStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS, record, false);
+            archiveStatus = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ARCHIVE_STATUS, record);
         } catch (FormatException _e) {
             // This field did not exist in versions 2.16.3 and before
             // We catch this exception so we can still import old backups
@@ -355,7 +368,7 @@ public class CatimaImporter implements Importer {
 
         Long lastUsed = 0L;
         try {
-            lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record, false);
+            lastUsed = CSVHelpers.extractLong(DBHelper.LoyaltyCardDbIds.LAST_USED, record);
         } catch (FormatException _e) {
             // This field did not exist in versions 2.5.0 and before
             // We catch this exception so we can still import old backups
@@ -371,6 +384,10 @@ public class CatimaImporter implements Importer {
     private void importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException {
         String id = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
 
+        if (id == null) {
+            throw new FormatException("Group has no ID: " + record);
+        }
+
         DBHelper.insertGroup(database, id);
     }
 
@@ -379,8 +396,12 @@ public class CatimaImporter implements Importer {
      * session.
      */
     private void importCardGroupMapping(SQLiteDatabase database, CSVRecord record) throws FormatException {
-        Integer cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record, false);
+        int cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record);
         String groupId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
+
+        if (groupId == null) {
+            throw new FormatException("Group has no ID: " + record);
+        }
 
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
         cardGroups.add(DBHelper.getGroup(database, groupId));

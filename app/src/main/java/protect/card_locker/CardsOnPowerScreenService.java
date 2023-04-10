@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -69,10 +68,9 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
             subscriber.onSubscribe(new NoOpSubscription());
             for (String controlId : controlIds) {
                 Control control;
-
-                try {
-                    Integer cardId = this.controlIdToCardId(controlId);
-                    LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, cardId);
+                Integer cardId = this.controlIdToCardId(controlId);
+                LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, cardId);
+                if (card != null) {
                     Intent openIntent = new Intent(this, LoyaltyCardViewActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             .putExtra("id", card.id);
@@ -85,7 +83,7 @@ public class CardsOnPowerScreenService extends ControlsProviderService {
                             .setControlTemplate(new StatelessTemplate(controlId))
                             .setCustomIcon(Icon.createWithBitmap(getIcon(this, card)))
                             .build();
-                } catch (NullPointerException ignored) {
+                } else {
                     Intent mainScreenIntent = new Intent(this, MainActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), -1, mainScreenIntent, PendingIntent.FLAG_IMMUTABLE);

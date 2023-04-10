@@ -194,27 +194,22 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues;
+        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
-        try {
-            barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
-        } catch (NullPointerException e) {
-            Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+        if (barcodeValues.isEmpty()) {
             return;
         }
 
-        if (!barcodeValues.isEmpty()) {
-            Intent manualResult = new Intent();
-            Bundle manualResultBundle = new Bundle();
-            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
-            manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
-            if (addGroup != null) {
-                manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
-            }
-            manualResult.putExtras(manualResultBundle);
-            ScanActivity.this.setResult(RESULT_OK, manualResult);
-            finish();
+        Intent manualResult = new Intent();
+        Bundle manualResultBundle = new Bundle();
+        manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
+        manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
+        if (addGroup != null) {
+            manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
         }
+        manualResult.putExtras(manualResultBundle);
+        ScanActivity.this.setResult(RESULT_OK, manualResult);
+        finish();
     }
 
     public void addManually(View view) {

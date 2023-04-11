@@ -94,9 +94,9 @@
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
     <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
     <string name="currency">Валюта</string>
-    <string name="chooseExpiryDate">Указать срок действия</string>
+    <string name="chooseExpiryDate">Выбор срока действия</string>
     <string name="never">Никогда</string>
-    <string name="expiryDate">Окончание срока действия</string>
+    <string name="expiryDate">Срок действия</string>
     <string name="editBarcode">Изменить штрих-код</string>
     <string name="barcode">Штрих-код</string>
     <string name="card">Карта</string>
@@ -280,6 +280,6 @@
     <string name="cameraPermissionRequired">Для этого действия необходимо разрешение на доступ к камере…</string>
     <string name="validFromDate">Действует с</string>
     <string name="anyDate">Любая дата</string>
-    <string name="chooseValidFromDate">Выберите дату действия</string>
+    <string name="chooseValidFromDate">Выбор даты действия</string>
     <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
 </resources>

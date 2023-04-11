@@ -13,10 +13,10 @@
     <string name="action_add">কর্ম যোগ</string>
     <string name="all">সব</string>
     <string name="noGroupCards">এই গ্রুপটি খালি</string>
-    <string name="noGroups">গোষ্ঠীগুলি নেই</string>
+    <string name="noGroups">+ যোগ বোতামটি টিপে গ্রুপ যোগ করুন যাতে তাদের শ্রেণীকরণ করা যায়।</string>
     <string name="groups">গোষ্ঠীগুলি</string>
     <string name="enter_group_name">গোষ্ঠী নাম লিখুন </string>
-    <string name="exportSuccessful">রপ্তানি সফল</string>
+    <string name="exportSuccessful">তথ্য রপ্তানি করা শেষ</string>
     <string name="importSuccessful">তথ্য আনা শেষ</string>
     <string name="intent_import_card_from_url_share_text">url শেয়ার টেক্সট থেকে ইন্টেন্ট ইম্পোর্ট কার্ড</string>
     <string name="settings_disable_lockscreen_while_viewing_card">স্ক্রীন লক হতে দেবেন না</string>
@@ -173,4 +173,16 @@
     </plurals>
     <string name="leaveWithoutSaveTitle">প্রস্থান</string>
     <string name="settings_display_barcode_max_brightness">বারকোড উজ্জ্বল করুন</string>
+    <string name="editGroup">যেই গ্রুপ সম্পাদনা করা হচ্ছে: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">মেয়াদ শেষ হয়ে গিয়েছে: <xliff:g>%s</xliff:g></string>
+    <string name="editBarcode">বারকোড সম্পাদন করুন</string>
+    <string name="never">কখনই না</string>
+    <string name="addFromImage">গ্যালারি থেকে ছবি বাছুন</string>
+    <string name="groupsList">গ্রুপগুলি: <xliff:g>%s</xliff:g></string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> পয়েন্ট</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> পয়েন্ট</item>
+    </plurals>
+    <string name="expiryStateSentence">মেয়াদ শেষ হবে: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">ব্যালেন্স: <xliff:g>%s</xliff:g></string>
 </resources>

@@ -9,7 +9,7 @@
     <string name="note">বিঃদ্রঃ</string>
     <string name="storeName">দোকানের নাম</string>
     <string name="noMatchingGiftCards">কোনো ফলাফল পাওয়া যায়নি। অনুসন্ধানের বাক্যটি বদলে দেখুন।</string>
-    <string name="noGiftCards">প্লাস বোতামটি টিপে একটি কার্ড যোগ করুন বা ⋮ মেনু থেকে কিছু নিয়ে আসুন</string>
+    <string name="noGiftCards">প্লাস বোতামটি টিপে একটি কার্ড যোগ করুন বা ⋮ মেনু থেকে কিছু নিয়ে আসুন।</string>
     <string name="action_add">কর্ম যোগ</string>
     <string name="all">সব</string>
     <string name="noGroupCards">এই গ্রুপটি খালি</string>
@@ -34,7 +34,7 @@
     <string name="barcodeId">বারকোড আইডি</string>
     <string name="sameAsCardId">কার্ড আইডির মতো</string>
     <string name="setBarcodeId">বারকোড আইডি সেট করুন</string>
-    <string name="unsupportedBarcodeType">অসমর্থিত বারকোড টাইপ</string>
+    <string name="unsupportedBarcodeType">এই বারকোডের টাইপটি এখন দেখানো যাচ্ছে না। অ্যাপের পরের সংস্করণে হয়ত এটি সমর্থন করা যেতে পারে।</string>
     <string name="wrongValueForBarcodeType">বারকোড টাইপের জন্য ভুল মান</string>
     <string name="copy_to_clipboard_multiple_toast">ক্লিপবোর্ড একাধিক টোস্টে অনুলিপি করুন</string>
     <string name="intent_import_card_from_url_share_multiple_text">url থেকে ইন্টেন্ট ইম্পোর্ট কার্ড একাধিক টেক্সট শেয়ার করে</string>
@@ -45,12 +45,12 @@
     <string name="setBackImage">পিছনের ছবি স্থাপন</string>
     <string name="removeImage">ছবি অপসারণ</string>
     <string name="takePhoto">ছবি নেত্তয়া</string>
-    <string name="updateBarcodeQuestionTitle">হালনাগাদ বারকোড প্রশ্ন শিরোনাম</string>
-    <string name="updateBarcodeQuestionText">হালনাগাদ বারকোড প্রশ্ন টেক্সট </string>
+    <string name="updateBarcodeQuestionTitle">বারকোডের মানটি আপডেট করবেন\?</string>
+    <string name="updateBarcodeQuestionText">আপনি আইডিটি পাল্টেছেন, এটির কোনো বারকোড দিয়ে কি এখনের বারকোডটি আপডেট করে দেবেন\?</string>
     <string name="yes">হাঁ</string>
     <string name="no">না</string>
     <string name="passwordRequired">পাসওয়ার্ড প্রয়োজন</string>
-    <string name="failedGeneratingShareURL">শেয়ার ইউআরএল তৈরি করতে ব্যর্থ হয়েছে</string>
+    <string name="failedGeneratingShareURL">শেয়ার করার ইউআরএল তৈরি করা গেল না। অনুগ্রহ করে এটিকে রিপোর্ট করে দিন।</string>
     <string name="turn_flashlight_on">টর্চলাইট চালু করুন</string>
     <string name="turn_flashlight_off">টর্চলাইট বন্ধ করুন</string>
     <string name="settings_locale">লোকেল</string>
@@ -80,7 +80,7 @@
     <string name="sendLabel">পাঠান…</string>
     <string name="share">ভাগ</string>
     <string name="copy_to_clipboard">নকল করুন ক্লিপবোর্ড এ</string>
-    <string name="deleteConfirmation">নিশ্চিতকরণ মুছে দিন</string>
+    <string name="deleteConfirmation">এই কার্ডটি চিরকালের জন্য মুছে দেবো\?</string>
     <string name="confirm">নিশ্চিত করুন</string>
     <string name="delete">মুছে ফেলুন</string>
     <string name="edit">সম্পাদনা</string>
@@ -92,9 +92,7 @@
     <string name="deleteTitle">কার্ড ডিলিট করুন</string>
     <string name="ok">ঠিক আছে</string>
     <string name="about">সম্পর্কিত</string>
-    <string name="debug_version_fmt">সংস্করণ:
-\n<xliff:g id="version">
-\n%s</xliff:g></string>
+    <string name="debug_version_fmt">সংস্করণ: <xliff:g id="version">%s</xliff:g></string>
     <string name="importOptionApplicationButton">অন্য অ্যাপ ব্যাবহার করুন</string>
     <string name="moveUp">উপরে উঠান</string>
     <string name="moveDown">নিচে নামান</string>
@@ -108,8 +106,8 @@
     <string name="app_license">কপিলেফ্ট করা মুক্ত সফটওয়্যার, জিপিএলের ৩য় এবং তার অধিক সংস্করণে লাইসেন্স করা</string>
     <string name="enterBarcodeInstructions">আইডিটি লিখুন আর নয় নিচ থেকে একটি বারকোডের প্রকার বা \"কোনো বারকোড নেই\", নির্বাচন করুন।</string>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="one">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবেন\?</item>
-        <item quantity="other">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবেন\?</item>
+        <item quantity="one">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবো\?</item>
+        <item quantity="other">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবো\?</item>
     </plurals>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> একটি নির্বাচিত</item>
@@ -185,4 +183,7 @@
     </plurals>
     <string name="expiryStateSentence">মেয়াদ শেষ হবে: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">ব্যালেন্স: <xliff:g>%s</xliff:g></string>
+    <string name="chooseExpiryDate">মেয়াদ শেষ হওয়ার তারিখ মনোনীত করুন</string>
+    <string name="moveBarcodeToTopOfScreen">বারকোডটি স্ক্রিনের উপরে উঠিয়ে দিন</string>
+    <string name="moveBarcodeToCenterOfScreen">বারকোডটি স্ক্রিনের কেন্দ্রে সরিয়ে দিন</string>
 </resources>

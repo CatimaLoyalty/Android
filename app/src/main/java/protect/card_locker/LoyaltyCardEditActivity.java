@@ -1,6 +1,5 @@
 package protect.card_locker;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -73,7 +72,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
@@ -672,16 +670,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
         mCropperOptions.setAspectRatioOptions(selectedByDefault,
                 new AspectRatio(null, 1, 1),
-                new AspectRatio(getResources().getString(R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
+                new AspectRatio(getResources().getString(com.yalantis.ucrop.R.string.ucrop_label_original).toUpperCase(), sourceWidth, sourceHeight),
                 new AspectRatio(getResources().getString(R.string.card).toUpperCase(), 85.6f, 53.98f)
         );
 
         // Fix theming
 
-        int colorPrimary = MaterialColors.getColor(this, R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
-        int colorOnPrimary = MaterialColors.getColor(this, R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
-        int colorSurface = MaterialColors.getColor(this, R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
-        int colorOnSurface = MaterialColors.getColor(this, R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+        int colorPrimary = MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary, ContextCompat.getColor(this, R.color.md_theme_light_primary));
+        int colorOnPrimary = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnPrimary, ContextCompat.getColor(this, R.color.md_theme_light_onPrimary));
+        int colorSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
+        int colorOnSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
         int colorBackground = MaterialColors.getColor(this, android.R.attr.colorBackground, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
         mCropperOptions.setToolbarColor(colorSurface);
         mCropperOptions.setStatusBarColor(colorSurface);
@@ -913,7 +911,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : R.attr.colorPrimary);
+            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : androidx.appcompat.R.attr.colorPrimary);
 
             updateTempState(LoyaltyCardField.headerColor, headerColor);
 

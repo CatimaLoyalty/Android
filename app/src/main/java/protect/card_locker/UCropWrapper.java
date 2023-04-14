@@ -53,8 +53,8 @@ public class UCropWrapper extends UCropActivity {
                         AppCompatImageView controlsBackgroundImage = (AppCompatImageView) check;
                         // everything gathered and are as expected, now perform color patching
                         Utils.patchColors(this);
-                        int colorSurface = MaterialColors.getColor(this, R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
-                        int colorOnSurface = MaterialColors.getColor(this, R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
+                        int colorSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorSurface, ContextCompat.getColor(this, R.color.md_theme_light_surface));
+                        int colorOnSurface = MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurface, ContextCompat.getColor(this, R.color.md_theme_light_onSurface));
 
                         Drawable controlsBackgroundImageDrawable = controlsBackgroundImage.getBackground();
                         controlsBackgroundImageDrawable.mutate();

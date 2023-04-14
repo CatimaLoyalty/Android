@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.provider.MediaStore;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
@@ -46,7 +45,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
@@ -574,7 +572,7 @@ public class Utils {
             return fallback;
         }
 
-        return new Palette.Builder(image).generate().getDominantColor(R.attr.colorPrimary);
+        return new Palette.Builder(image).generate().getDominantColor(androidx.appcompat.R.attr.colorPrimary);
     }
 
     public static int getRandomHeaderColor(Context context) {

@@ -622,4 +622,19 @@ public class Utils {
             textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
         }
     }
+
+    public static boolean installedFromGooglePlay(Context context) {
+        try {
+            String packageName = context.getPackageName();
+            String installer;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                installer = context.getPackageManager().getInstallSourceInfo(packageName).getInstallingPackageName();
+            } else {
+                installer = context.getPackageManager().getInstallerPackageName(packageName);
+            }
+            return installer.equals("com.android.vending");
+        } catch (Throwable ignored) {
+            return false;
+        }
+    }
 }

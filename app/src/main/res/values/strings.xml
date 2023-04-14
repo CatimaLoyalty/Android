@@ -321,4 +321,5 @@
     <string name="openFrontImageInGalleryApp">Open front image in gallery app</string>
     <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
     <string name="setBarcodeHeight">Set barcode height</string>
+    <string name="donate">Donate</string>
 </resources>

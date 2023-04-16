@@ -19,6 +19,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -62,6 +64,7 @@ import androidx.preference.PreferenceManager;
 
 import static android.os.Looper.getMainLooper;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -69,7 +72,6 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class LoyaltyCardViewActivityTest {
     private final String BARCODE_DATA = "428311627547";
     private final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
@@ -1209,7 +1211,7 @@ public class LoyaltyCardViewActivityTest {
         activityController.visible();
         activityController.resume();
 
-        assertEquals(false, activity.isFinishing());
+        assertFalse(activity.isFinishing());
 
         View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
         BottomAppBar bottomAppBar = activity.findViewById(R.id.bottom_app_bar);
@@ -1220,9 +1222,9 @@ public class LoyaltyCardViewActivityTest {
         SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode
-        int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
+        assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
         // Elements should be visible (except minimize button and scaler)
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
@@ -1238,9 +1240,9 @@ public class LoyaltyCardViewActivityTest {
         shadowOf(getMainLooper()).idle();
 
         // Android should be in fullscreen mode
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+        assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
+        assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
+        assertEquals(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
         // Elements should not be visible (except minimize button and scaler)
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
@@ -1254,9 +1256,11 @@ public class LoyaltyCardViewActivityTest {
         // Clicking minimize button should deactivate fullscreen mode
         minimizeButton.performClick();
         shadowOf(getMainLooper()).idle();
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
+        assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
+
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
@@ -1268,9 +1272,11 @@ public class LoyaltyCardViewActivityTest {
         // Another click back to fullscreen
         maximizeButton.performClick();
         shadowOf(getMainLooper()).idle();
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
+        assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
+        assertEquals(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE, activity.getWindow().getInsetsController().getSystemBarsBehavior());
+
         assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.GONE, bottomAppBar.getVisibility());
         assertEquals(View.GONE, maximizeButton.getVisibility());
@@ -1282,9 +1288,11 @@ public class LoyaltyCardViewActivityTest {
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();
         shadowOf(getMainLooper()).idle();
-        uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY, uiOptions);
-        assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
+
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
+        assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
+        assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
+
         assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
         assertEquals(View.VISIBLE, maximizeButton.getVisibility());
@@ -1296,7 +1304,7 @@ public class LoyaltyCardViewActivityTest {
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();
         shadowOf(getMainLooper()).idle();
-        assertEquals(true, activity.isFinishing());
+        assertTrue(activity.isFinishing());
 
         database.close();
     }

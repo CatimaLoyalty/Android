@@ -59,7 +59,6 @@ import static org.junit.Assert.assertTrue;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class ImportExportTest {
     private Activity activity;
     private SQLiteDatabase mDatabase;
@@ -888,11 +887,8 @@ public class ImportExportTest {
     @Test
     public void exportImportV2Zip() throws FileNotFoundException {
         // Prepare images
-        BitmapDrawable launcher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
-        BitmapDrawable roundLauncher = (BitmapDrawable) ResourcesCompat.getDrawableForDensity(activity.getResources(), R.mipmap.ic_launcher_round, DisplayMetrics.DENSITY_XXXHIGH, activity.getTheme());
-
-        Bitmap launcherBitmap = launcher.getBitmap();
-        Bitmap roundLauncherBitmap = roundLauncher.getBitmap();
+        Bitmap bitmap1 = new LetterBitmap(activity.getApplicationContext(), "1", "1", 12, 64, 64, Color.BLACK, Color.YELLOW).getLetterTile();
+        Bitmap bitmap2 = new LetterBitmap(activity.getApplicationContext(), "2", "2", 12, 64, 64, Color.GREEN, Color.WHITE).getLetterTile();
 
         // Set up cards and groups
         HashMap<Integer, LoyaltyCard> loyaltyCardHashMap = new HashMap<>();
@@ -908,12 +904,12 @@ public class ImportExportTest {
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
         DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, groups);
         loyaltyCardGroups.put(loyaltyCardId, groups);
-        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, ImageLocationType.front);
-        Utils.saveCardImage(activity.getApplicationContext(), roundLauncherBitmap, loyaltyCardId, ImageLocationType.back);
-        Utils.saveCardImage(activity.getApplicationContext(), launcherBitmap, loyaltyCardId, ImageLocationType.icon);
-        loyaltyCardFrontImages.put(loyaltyCardId, launcherBitmap);
-        loyaltyCardBackImages.put(loyaltyCardId, roundLauncherBitmap);
-        loyaltyCardIconImages.put(loyaltyCardId, launcherBitmap);
+        Utils.saveCardImage(activity.getApplicationContext(), bitmap1, loyaltyCardId, ImageLocationType.front);
+        Utils.saveCardImage(activity.getApplicationContext(), bitmap2, loyaltyCardId, ImageLocationType.back);
+        Utils.saveCardImage(activity.getApplicationContext(), bitmap1, loyaltyCardId, ImageLocationType.icon);
+        loyaltyCardFrontImages.put(loyaltyCardId, bitmap1);
+        loyaltyCardBackImages.put(loyaltyCardId, bitmap2);
+        loyaltyCardIconImages.put(loyaltyCardId, bitmap1);
 
         // Create card 2
         loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);

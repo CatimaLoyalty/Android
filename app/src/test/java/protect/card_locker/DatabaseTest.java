@@ -27,7 +27,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class DatabaseTest {
     private SQLiteDatabase mDatabase;
     private Activity mActivity;

@@ -32,11 +32,11 @@
     <string name="importStocard">স্টো কার্ড আমদানি করুন</string>
     <string name="importVoucherVault">আমদানি ভাউচার ভল্ট</string>
     <string name="barcodeId">বারকোড আইডি</string>
-    <string name="sameAsCardId">কার্ড আইডির মতো</string>
+    <string name="sameAsCardId">আইডি আর এটা এক</string>
     <string name="setBarcodeId">বারকোড আইডি সেট করুন</string>
     <string name="unsupportedBarcodeType">এই বারকোডের টাইপটি এখন দেখানো যাচ্ছে না। অ্যাপের পরের সংস্করণে হয়ত এটি সমর্থন করা যেতে পারে।</string>
     <string name="wrongValueForBarcodeType">বারকোড টাইপের জন্য ভুল মান</string>
-    <string name="copy_to_clipboard_multiple_toast">ক্লিপবোর্ড একাধিক টোস্টে অনুলিপি করুন</string>
+    <string name="copy_to_clipboard_multiple_toast">আইডিগুলি ক্লিপবোর্ডে কপি হল</string>
     <string name="intent_import_card_from_url_share_multiple_text">url থেকে ইন্টেন্ট ইম্পোর্ট কার্ড একাধিক টেক্সট শেয়ার করে</string>
     <string name="frontImageDescription">সামনের চিত্র</string>
     <string name="backImageDescription">পিছনের চিত্র</string>
@@ -65,11 +65,11 @@
     <string name="settings_green_theme">সবুজ থিম</string>
     <string name="settings_brown_theme">বাদামী থিম</string>
     <string name="sort">সাজান</string>
-    <string name="swipeToSwitchImages">ছবি পরিবর্তন করতে সোয়াইপ করুন</string>
+    <string name="swipeToSwitchImages">ছবি পাল্টানোর জন্য সোয়াইপ করুন, ছবিটি গ্যালারি অ্যাপে খোলার জন্য টিপে ধড়ে থাকুন</string>
     <string name="sort_by_name">নামের দ্বারা সাজান</string>
     <string name="sort_by_most_recently_used">সর্বাধিক সম্প্রতি ব্যবহৃত দ্বারা সাজান</string>
     <string name="sort_by_expiry">মেয়াদ শেষ করে সাজান</string>
-    <string name="reverse">বিপরীত</string>
+    <string name="reverse">...উল্টো ক্রমে</string>
     <string name="sort_by">ক্রমানুসার</string>
     <string name="noCardExistsError">কার্ডটি পাওয়া যায়নি</string>
     <string name="noStoreError">স্টোরেজ ত্রুটি নেই</string>
@@ -186,4 +186,15 @@
     <string name="chooseExpiryDate">মেয়াদ শেষ হওয়ার তারিখ মনোনীত করুন</string>
     <string name="moveBarcodeToTopOfScreen">বারকোডটি স্ক্রিনের উপরে উঠিয়ে দিন</string>
     <string name="moveBarcodeToCenterOfScreen">বারকোডটি স্ক্রিনের কেন্দ্রে সরিয়ে দিন</string>
+    <string name="errorReadingImage">ছবিটি স্ক্যান করা যাচ্ছে না</string>
+    <string name="privacy_policy_popup_text">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি নোটিশ (কিছু অ্যাপ স্টোরের এটি লাগে):
+\n
+\nকোন তথ্য একেবারেই সংগ্রহ করা হয় না, যা যে কেউ নিশ্চিত করতে পারবেন কারন আমাদের অ্যাপ মুক্ত সফটওয়্যার।</string>
+    <string name="balance">ব্যালান্স</string>
+    <string name="points">পয়েন্ট</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> কোনো বৈধ ব্যালান্স মনে হচ্ছে না।</string>
+    <string name="chooseImportType">এখান থেকে তথ্য আমদানি করুন</string>
+    <string name="app_loyalty_card_keychain">আনুগত্য কার্ড কীচেন</string>
+    <string name="privacy_policy">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি</string>
+    <string name="accept">গ্রহণ</string>
 </resources>

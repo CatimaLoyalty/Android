@@ -33,7 +33,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class MainActivityTest {
     private SharedPreferences prefs;
 

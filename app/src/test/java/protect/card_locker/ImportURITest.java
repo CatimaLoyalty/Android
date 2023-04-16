@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 
 import java.io.InvalidObjectException;
 import java.io.UnsupportedEncodingException;
@@ -25,7 +24,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class ImportURITest {
     private ImportURIHelper importURIHelper;
     private SQLiteDatabase mDatabase;

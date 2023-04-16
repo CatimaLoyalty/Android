@@ -1209,6 +1209,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 getWindow().setDecorFitsSystemWindows(true);
                 if (getWindow().getInsetsController() != null) {
                     getWindow().getInsetsController().show(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                    getWindow().getInsetsController().setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_DEFAULT);
                 }
             } else {
                 unsetFullscreenModeSdkLessThan30();

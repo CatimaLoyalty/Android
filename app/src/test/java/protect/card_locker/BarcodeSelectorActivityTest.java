@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.android.controller.ActivityController;
-import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +20,6 @@ import static org.robolectric.Shadows.shadowOf;
 
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 23)
 public class BarcodeSelectorActivityTest {
     @Test
     public void emptyStateTest() {

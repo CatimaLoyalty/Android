@@ -16,8 +16,8 @@ Gediminas Murauskas
 Petr Novák
 Joel A
 Taco
-pfaffenrodt
 laralem
+pfaffenrodt
 Nyatsuki
 gallegonovato
 HudobniVolk
@@ -43,6 +43,7 @@ Katarzyna
 echo r"0xX4H" | rev
 Magnitudee
 Olivia (Zoe)
+Projjal Moitra
 betsythefc
 waffshappen
 Robin
@@ -153,6 +154,7 @@ Mattia
 Md. Al-Amin
 Michael Gangolf
 3DN1M
+Mobashir Raihan
 Moi Toi
 DivideEtImpera
 Nicolas
@@ -175,7 +177,7 @@ Shailendra Maurya
 Simone Dotto
 Subhashish Anand
 SziaTomi
-TenTraicion
+Mehedi Hasan
 Titas Pažereckas
 atakujonc
 Tony C
@@ -203,6 +205,7 @@ Truestorybaby
 tygyh
 unstartdev
 wmilan 17
+يوسف لطفي
 luoyang3
 JaeBeom An
 JungHee Lee

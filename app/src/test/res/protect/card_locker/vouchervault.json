@@ -1,0 +1,24 @@
+[
+  {
+    "uuid": "ae1ae525-3f27-481e-853a-8c30b7fa12d8",
+    "description": "Clothes Store",
+    "code": "123456",
+    "codeType": "CODE128",
+    "expires": null,
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": null,
+    "color": "GREY"
+  },
+  {
+    "uuid": "29a5d3b3-eace-4311-a15c-4c7e6a010531",
+    "description": "Department Store",
+    "code": "26846363",
+    "codeType": "CODE39",
+    "expires": "2021-03-26T00:00:00.000",
+    "removeOnceExpired": true,
+    "balance": null,
+    "balanceMilliunits": 3500,
+    "color": "PURPLE"
+  }
+]

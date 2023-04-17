@@ -6,20 +6,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.os.Looper;
-import android.util.DisplayMetrics;
 
 import com.google.zxing.BarcodeFormat;
 
-import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 import org.robolectric.annotation.LooperMode;
 import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowLooper;
@@ -34,8 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +38,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import androidx.core.content.res.ResourcesCompat;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
@@ -516,7 +509,7 @@ public class ImportExportTest {
     }
 
     @Test
-    public void corruptedImportNothingSaved() throws IOException {
+    public void corruptedImportNothingSaved() {
         final int NUM_CARDS = 10;
 
         for (DataFormat format : DataFormat.values()) {
@@ -537,7 +530,7 @@ public class ImportExportTest {
             //             ^ after the quote there should only be a , \n or EOF
             String corruptEntry = "ThisStringIsLikelyNotPartOfAnyFormat,\"\"a";
 
-            ByteArrayInputStream inData = new ByteArrayInputStream((outData.toString() + corruptEntry).getBytes());
+            ByteArrayInputStream inData = new ByteArrayInputStream((outData + corruptEntry).getBytes());
 
             // Attempt to import the data
             result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, format, null);
@@ -616,18 +609,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithoutColorsV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,0";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithoutColorsV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_no_colors.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -652,20 +635,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithoutNullColorsV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,,,0";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithoutNullColorsV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_empty_colors.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -690,20 +661,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithoutInvalidColorsV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,type,not a number,invalid,0";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithoutInvalidColorsV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_invalid_colors.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -714,20 +673,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithNoBarcodeTypeV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,,1,1,0";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithNoBarcodeTypeV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_no_barcode_type.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -752,20 +699,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithStarredFieldV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,1,1,1";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithStarredFieldV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_starred_field.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -790,20 +725,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithNoStarredFieldV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,1,1,";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithNoStarredFieldV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_no_starred_field.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -828,39 +751,15 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importWithInvalidStarFieldV1() throws IOException {
-        String csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,1,1,2";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+    public void importWithInvalidStarFieldV1() {
+        InputStream inputStream = getClass().getResourceAsStream("catima_v1_invalid_starred_field.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        csvText = "";
-        csvText += DBHelper.LoyaltyCardDbIds.ID + "," +
-                DBHelper.LoyaltyCardDbIds.STORE + "," +
-                DBHelper.LoyaltyCardDbIds.NOTE + "," +
-                DBHelper.LoyaltyCardDbIds.CARD_ID + "," +
-                DBHelper.LoyaltyCardDbIds.BARCODE_TYPE + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.HEADER_TEXT_COLOR + "," +
-                DBHelper.LoyaltyCardDbIds.STAR_STATUS + "\n";
-
-        csvText += "1,store,note,12345,AZTEC,1,1,text";
-
-        inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        inputStream = getClass().getResourceAsStream("catima_v1_invalid_starred_field_2.csv");
 
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -993,32 +892,7 @@ public class ImportExportTest {
 
     @Test
     public void importV2CSV() {
-        String csvText = "2\n" +
-                "\n" +
-                "_id\n" +
-                "Health\n" +
-                "Food\n" +
-                "Fashion\n" +
-                "\n" +
-                "_id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus\n" +
-                "1,Card 1,Note 1,1601510400,1618053234,100,USD,1234,5432,1,QR_CODE,0,\r\n" +
-                "8,Clothes Store,Note about store,,,0,,a,,-5317,,0,\n" +
-                "2,Department Store,,,1618041729,0,,A,,-9977996,,0,\n" +
-                "3,Grocery Store,\"Multiline note about grocery store\n" +
-                "\n" +
-                "with blank line\",,,150,,dhd,,-9977996,,0,\n" +
-                "4,Pharmacy,,,,0,,dhshsvshs,,-10902850,,1,\n" +
-                "5,Restaurant,Note about restaurant here,,,0,,98765432,23456,-10902850,CODE_128,0,\n" +
-                "6,Shoe Store,,,,12.50,EUR,a,-5317,,AZTEC,0,\n" +
-                "\n" +
-                "cardId,groupId\n" +
-                "8,Fashion\n" +
-                "3,Food\n" +
-                "4,Health\n" +
-                "5,Food\n" +
-                "6,Fashion\n";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(csvText.getBytes(StandardCharsets.UTF_8));
+        InputStream inputStream = getClass().getResourceAsStream("catima_v2.csv");
 
         // Import the CSV data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
@@ -1217,7 +1091,7 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importStocard() throws IOException {
+    public void importStocard() {
         // FIXME: The provided stocard.zip is a very old export (8 July 2021) manually edited to
         // look more like the Stocard files provided by users for #1242. It is not an up-to-date
         // export and the test is possibly unreliable. This should be replaced by an up-to-date
@@ -1290,33 +1164,8 @@ public class ImportExportTest {
     }
 
     @Test
-    public void importVoucherVault() throws IOException, FormatException, JSONException, ParseException {
-        String jsonText = "[\n" +
-                "  {\n" +
-                "    \"uuid\": \"ae1ae525-3f27-481e-853a-8c30b7fa12d8\",\n" +
-                "    \"description\": \"Clothes Store\",\n" +
-                "    \"code\": \"123456\",\n" +
-                "    \"codeType\": \"CODE128\",\n" +
-                "    \"expires\": null,\n" +
-                "    \"removeOnceExpired\": true,\n" +
-                "    \"balance\": null,\n" +
-                "    \"balanceMilliunits\": null,\n" +
-                "    \"color\": \"GREY\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"uuid\": \"29a5d3b3-eace-4311-a15c-4c7e6a010531\",\n" +
-                "    \"description\": \"Department Store\",\n" +
-                "    \"code\": \"26846363\",\n" +
-                "    \"codeType\": \"CODE39\",\n" +
-                "    \"expires\": \"2021-03-26T00:00:00.000\",\n" +
-                "    \"removeOnceExpired\": true,\n" +
-                "    \"balance\": null,\n" +
-                "    \"balanceMilliunits\": 3500,\n" +
-                "    \"color\": \"PURPLE\"\n" +
-                "  }\n" +
-                "]";
-
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(jsonText.getBytes(StandardCharsets.UTF_8));
+    public void importVoucherVault() {
+        InputStream inputStream = getClass().getResourceAsStream("vouchervault.json");
 
         // Import the Voucher Vault data
         ImportExportResult result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.VoucherVault, null);

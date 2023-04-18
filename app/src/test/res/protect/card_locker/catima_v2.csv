@@ -1,0 +1,24 @@
+2
+
+_id
+Health
+Food
+Fashion
+
+_id,store,note,validfrom,expiry,balance,balancetype,cardid,barcodeid,headercolor,barcodetype,starstatus
+1,Card 1,Note 1,1601510400,1618053234,100,USD,1234,5432,1,QR_CODE,0,
+8,Clothes Store,Note about store,,,0,,a,,-5317,,0,
+2,Department Store,,,1618041729,0,,A,,-9977996,,0,
+3,Grocery Store,"Multiline note about grocery store
+
+with blank line",,,150,,dhd,,-9977996,,0,
+4,Pharmacy,,,,0,,dhshsvshs,,-10902850,,1,
+5,Restaurant,Note about restaurant here,,,0,,98765432,23456,-10902850,CODE_128,0,
+6,Shoe Store,,,,12.50,EUR,a,-5317,,AZTEC,0,
+
+cardId,groupId
+8,Fashion
+3,Food
+4,Health
+5,Food
+6,Fashion

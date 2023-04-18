@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.io.UncheckedIOException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ public class CatimaImporter implements Importer {
             }
 
             parser.close();
-        } catch (IllegalArgumentException | IllegalStateException e) {
+        } catch (UncheckedIOException e) {
             throw new FormatException("Issue parsing CSV data", e);
         }
     }
@@ -182,7 +183,7 @@ public class CatimaImporter implements Importer {
                     throw new InterruptedException();
                 }
             }
-        } catch (IllegalArgumentException | IllegalStateException e) {
+        } catch (UncheckedIOException e) {
             throw new FormatException("Issue parsing CSV data", e);
         } finally {
             groupParser.close();
@@ -207,7 +208,7 @@ public class CatimaImporter implements Importer {
                     throw new InterruptedException();
                 }
             }
-        } catch (IllegalArgumentException | IllegalStateException e) {
+        } catch (UncheckedIOException e) {
             throw new FormatException("Issue parsing CSV data", e);
         } finally {
             cardParser.close();
@@ -232,7 +233,7 @@ public class CatimaImporter implements Importer {
                     throw new InterruptedException();
                 }
             }
-        } catch (IllegalArgumentException | IllegalStateException e) {
+        } catch (UncheckedIOException e) {
             throw new FormatException("Issue parsing CSV data", e);
         } finally {
             cardGroupParser.close();

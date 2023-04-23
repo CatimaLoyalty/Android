@@ -32,6 +32,7 @@ Alexander Ivanov
 arshbeerSingh
 Denis Shilin
 Freddo espresso
+Projjal Moitra
 Silvério Santos
 Miha Frangež
 Arnis Jaundžeikars
@@ -43,7 +44,6 @@ Katarzyna
 echo r"0xX4H" | rev
 Magnitudee
 Olivia (Zoe)
-Projjal Moitra
 betsythefc
 waffshappen
 Robin

@@ -96,6 +96,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageButton bottomAppBarPreviousButton;
     ImageButton bottomAppBarNextButton;
     ImageButton bottomAppBarUpdateBalanceButton;
+
+    ImageButton bottomAppBarAddBalanceButton;
+
     AppCompatTextView storeName;
     ImageButton maximizeButton;
     ImageView mainImage;
@@ -376,6 +379,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarNextButton = binding.buttonNext;
         bottomAppBarUpdateBalanceButton = binding.buttonUpdateBalance;
 
+        bottomAppBarAddBalanceButton = binding.buttonAddBalance; //idk how but this is allowed
+
         barcodeImageGenerationFinishedCallback = () -> {
             if (!(boolean) mainImage.getTag()) {
                 mainImage.setVisibility(View.GONE);
@@ -452,6 +457,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
         bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
         bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
+
+        bottomAppBarAddBalanceButton.setOnClickListener(view -> showBalanceAddDialog()); //////////create method
 
         mGestureDetector = new GestureDetector(this, this);
         View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
@@ -554,6 +561,83 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         }
     }
 
+    private void showBalanceAddDialog() {
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.updateEarnBalanceTitle);
+        FrameLayout container = new FrameLayout(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        params.leftMargin = contentPadding;
+        params.rightMargin = contentPadding;
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        TextView currentTextview = new TextView(this);
+        currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        layout.addView(currentTextview);
+
+        TextView updateTextView = new TextView(this);
+        updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
+        layout.addView(updateTextView);
+
+        final TextInputEditText input = new TextInputEditText(this);
+        Context dialogContext = this;
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
+        input.setHint(R.string.updateBalanceHint);
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                BigDecimal newBalance;
+                try {
+                    newBalance = addBalance(loyaltyCard.balance, loyaltyCard.balanceType
+                            , s.toString()); //change calculation
+                } catch (ParseException e) {
+                    input.setTag(null);
+                    updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, loyaltyCard.balance, loyaltyCard.balanceType)));
+                    return;
+                }
+
+                // Save new balance into this element
+                input.setTag(newBalance);
+                updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
+            }
+        });
+        layout.addView(input);
+        layout.setLayoutParams(params);
+        container.addView(layout);
+
+        builder.setView(container);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            // Grab calculated balance from input field
+            BigDecimal newBalance = (BigDecimal) input.getTag();
+            if (newBalance == null) {
+                return;
+            }
+
+            // Actually update balance
+            DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+            // Reload UI
+            this.onResume();
+        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
+    }
+
+    private BigDecimal addBalance(BigDecimal currentBalance, Currency currency,
+                                  String unparsedAddition) throws ParseException {
+        BigDecimal addition = Utils.parseBalance(unparsedAddition, currency);
+        return currentBalance.add(addition).max(new BigDecimal(0));
+    }
+
+    //updates balance after quick spend
     private void showBalanceUpdateDialog() {
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.updateBalanceTitle);
@@ -587,7 +671,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 BigDecimal newBalance;
                 try {
-                    newBalance = calculateNewBalance(loyaltyCard.balance, loyaltyCard.balanceType, s.toString());
+                    newBalance = calculateNewBalance(loyaltyCard.balance, loyaltyCard.balanceType
+                            , s.toString()); //change calculation
                 } catch (ParseException e) {
                     input.setTag(null);
                     updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, loyaltyCard.balance, loyaltyCard.balanceType)));
@@ -1209,7 +1294,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 getWindow().setDecorFitsSystemWindows(true);
                 if (getWindow().getInsetsController() != null) {
                     getWindow().getInsetsController().show(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
-                    getWindow().getInsetsController().setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_DEFAULT);
                 }
             } else {
                 unsetFullscreenModeSdkLessThan30();

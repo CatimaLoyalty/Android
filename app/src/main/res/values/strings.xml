@@ -186,19 +186,19 @@
     <string name="accept">Accept</string>
     <string name="importCatima">Import from Catima</string>
     <string name="importCatimaMessage">Select your <i>catima.zip</i> export from Catima to import.
-\nCreate it from the Import/Export menu of another Catima app by pressing Export there first.</string>
+        \nCreate it from the Import/Export menu of another Catima app by pressing Export there first.</string>
     <string name="importFidme">Import from FidMe</string>
     <string name="importFidmeMessage">Select your <i>fidme-export-request-xxxxxx.zip</i> export from FidMe to import, and select the barcode types manually afterwards.
-\nCreate it from your FidMe profile by choosing Data Protection and then pressing Extract my data first.</string>
+        \nCreate it from your FidMe profile by choosing Data Protection and then pressing Extract my data first.</string>
     <string name="importLoyaltyCardKeychain">Import from Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Select your <i>LoyaltyCardKeychain.csv</i> export from Loyalty Card Keychain to import.
-\nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first.</string>
+        \nCreate it from the Import/Export menu in Loyalty Card Keychain by pressing Export there first.</string>
     <string name="importStocard">Import from Stocard</string>
     <string name="importStocardMessage">Select your <i>***.zip</i> export from Stocard to import.
-\nGet it by e-mailing support@stocardapp.com asking for an export of your data.</string>
+        \nGet it by e-mailing support@stocardapp.com asking for an export of your data.</string>
     <string name="importVoucherVault">Import from Voucher Vault</string>
     <string name="importVoucherVaultMessage">Select your <i>vouchervault.json</i> export from Voucher Vault to import.
-\nCreate it by pressing Export in Voucher Vault first.</string>
+        \nCreate it by pressing Export in Voucher Vault first.</string>
     <string name="barcodeId">Barcode value</string>
     <string name="sameAsCardId">Same as ID</string>
     <string name="setBarcodeId">Set barcode value</string>
@@ -306,6 +306,7 @@
     <string name="welcome">Welcome to Catima</string>
     <string name="importCards">Import cards</string>
     <string name="updateBalanceTitle">How much did you spend?</string>
+    <string name="updateEarnBalanceTitle">How much did you earn?</string>
     <string name="updateBalanceHint">Enter amount</string>
     <string name="currentBalanceSentence">Current balance: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">New balance: <xliff:g>%s</xliff:g></string>

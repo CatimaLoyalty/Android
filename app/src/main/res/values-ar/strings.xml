@@ -292,4 +292,8 @@
     <string name="updateBalanceHint">أدخل المبلغ</string>
     <string name="storageReadPermissionRequired">الصلاحيه للوصل للتخزين مطلوبة لهذا الاجراء</string>
     <string name="validFromDate">عربيه</string>
+    <string name="cameraPermissionRequired">إذن للوصول إلى الكاميرا اللازمة لهذا الإجراء…</string>
+    <string name="anyDate">أي تاريخ</string>
+    <string name="chooseValidFromDate">اختر صالح من التاريخ</string>
+    <string name="validFromSentence">صالح من:<xliff:g>%s</xliff:g></string>
 </resources>

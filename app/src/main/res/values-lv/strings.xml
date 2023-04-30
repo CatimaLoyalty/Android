@@ -264,11 +264,6 @@
     <string name="updateBalanceHint">Ievadi summu</string>
     <string name="currentBalanceSentence">Šābrīža bilance: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Jauna bilance: <xliff:g>%s</xliff:g></string>
-    <plurals name="selectedCardCount">
-        <item quantity="zero">&lt;xliff:g xmlns:xliff=\"urn:oasis:names:tc:xliff:document:1.2\"&gt;</item>
-        <item quantity="one"><xliff:g>%d</xliff:g> izvēlēts</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> izvēlēts</item>
-    </plurals>
     <string name="storageReadPermissionRequired">Atļauja lasīt noliktavu ir nepieciešama šai darbībai…</string>
     <string name="importCards">Importēt kartes</string>
 </resources>

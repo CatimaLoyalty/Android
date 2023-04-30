@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_search">Meklēt</string>
     <string name="action_add">Pievienot</string>
-    <string name="noGiftCards">Noklikšķiniet uz pogas + plus, lai pievienotu karti, vai vispirms importējiet dažus no ⋮ izvēlnes.</string>
+    <string name="noGiftCards">Noklikšķiniet uz pogas + plus, lai pievienotu karti, vai vispirms importējiet no ⋮ izvēlnes.</string>
     <string name="noMatchingGiftCards">Nav rezultātu. Mēģiniet mainīt meklējamo tekstu.</string>
     <string name="storeName">Nosaukums</string>
     <string name="note">Piezīme</string>
@@ -256,4 +256,14 @@
     </plurals>
     <string name="failedToOpenUrl">Vispirms nepieciešams uzstādīt interneta pārlūku</string>
     <string name="welcome">Laipni lūgti Catima</string>
+    <string name="cameraPermissionRequired">Ir nepieciešama pieeja kamerai lai veiktu šo darbību</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Lai skanētu svītrkods, Catima ir nepieciešama pieeja jūsu kamerai. Nospied šeit lai nomainītu atļaujas iestatījumus.</string>
+    <string name="cameraPermissionDeniedTitle">Nevar pievienieties kamerai</string>
+    <string name="updateBalance">Atjaunināta bilance</string>
+    <string name="updateBalanceTitle">Cik daudz Tu iztērēji\?</string>
+    <string name="updateBalanceHint">Ievadi summu</string>
+    <string name="currentBalanceSentence">Šābrīža bilance: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">Jauna bilance: <xliff:g>%s</xliff:g></string>
+    <string name="storageReadPermissionRequired">Atļauja lasīt noliktavu ir nepieciešama šai darbībai…</string>
+    <string name="importCards">Importēt kartes</string>
 </resources>

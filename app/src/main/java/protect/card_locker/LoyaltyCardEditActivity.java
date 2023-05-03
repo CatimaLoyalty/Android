@@ -1285,11 +1285,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         Callable<Void> callable = callables.next();
 
                         for (int i = 0; i < which; i++) {
+
                             callable = callables.next();
                         }
 
                         try {
+
                             callable.call();
+                        }catch(ActivityNotFoundException e){
+
+                            Toast.makeText(getApplicationContext(), "Camera disabled",
+                                    Toast.LENGTH_SHORT).show();
+
+                            e.printStackTrace();
+
+
                         } catch (Exception e) {
                             e.printStackTrace();
 
@@ -1617,4 +1627,5 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             Log.d(TAG, "Could not get currency data for locale info: " + e);
         }
     }
+
 }

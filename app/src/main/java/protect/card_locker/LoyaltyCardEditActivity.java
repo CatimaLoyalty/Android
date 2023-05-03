@@ -1285,12 +1285,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                         Callable<Void> callable = callables.next();
 
                         for (int i = 0; i < which; i++) {
-
                             callable = callables.next();
                         }
 
                         try {
-
                             callable.call();
                         }catch(ActivityNotFoundException e){
 
@@ -1298,8 +1296,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
 
                             e.printStackTrace();
-
-
                         } catch (Exception e) {
                             e.printStackTrace();
 

@@ -89,4 +89,5 @@
     <string name="moveDown">Bevæger sig nedad</string>
     <string name="leaveWithoutSaveTitle">Afslut</string>
     <string name="addManually">Indtast kort-ID manuelt</string>
+    <string name="cardNameShouldNotBeEmpty">Kortnavnet må ikke være tomt</string>
 </resources>

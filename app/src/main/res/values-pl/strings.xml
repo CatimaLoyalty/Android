@@ -282,4 +282,5 @@
     <string name="chooseValidFromDate">Wybierz datę rozpoczęcia ważności</string>
     <string name="anyDate">Dowolna data</string>
     <string name="validFromSentence">Ważny od: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Nazwa karty nie może być pusta</string>
 </resources>

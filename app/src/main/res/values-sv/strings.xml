@@ -268,4 +268,5 @@
     <string name="updateBalanceTitle">Hur mycket spenderade du\?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Ime kartice ne sme biti prazno</string>
 </resources>

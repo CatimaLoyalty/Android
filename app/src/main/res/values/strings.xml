@@ -313,4 +313,5 @@
     <string name="anyDate">Any date</string>
     <string name="chooseValidFromDate">Choose valid from date</string>
     <string name="validFromSentence">Valid from: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">The card name should not be empty</string>
 </resources>

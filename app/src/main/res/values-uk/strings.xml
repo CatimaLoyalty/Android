@@ -282,4 +282,5 @@
     <string name="anyDate">Будь-яка дата</string>
     <string name="chooseValidFromDate">Виберіть термін дії з дати</string>
     <string name="validFromSentence">Дійсний від: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Назва картки не повинна бути пустою</string>
 </resources>

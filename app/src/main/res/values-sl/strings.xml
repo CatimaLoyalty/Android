@@ -282,4 +282,5 @@
     <string name="validFromDate">Velja od</string>
     <string name="anyDate">Katerikoli datum</string>
     <string name="chooseValidFromDate">Izberite datum začetka veljavnosti</string>
+    <string name="cardNameShouldNotBeEmpty">Ime kartice ne sme biti prazno</string>
 </resources>

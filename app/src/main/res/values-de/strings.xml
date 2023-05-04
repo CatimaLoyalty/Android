@@ -268,4 +268,5 @@
     <string name="validFromSentence">Gültig ab: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Gültig-ab-Datum wählen</string>
     <string name="anyDate">Beliebiges Datum</string>
+    <string name="cardNameShouldNotBeEmpty">Der Kartenname darf nicht leer sein</string>
 </resources>

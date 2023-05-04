@@ -84,4 +84,5 @@
     <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>
     <string name="exportSuccessful">Karto datumo eksportita</string>
     <string name="noGroupCards">Ĉi tiu grupo ne enhavas ajnan kartoj</string>
+    <string name="cardNameShouldNotBeEmpty">La kartnomo ne estu malplena</string>
 </resources>

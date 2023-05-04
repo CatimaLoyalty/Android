@@ -268,4 +268,5 @@
     <string name="anyDate">Mikä tahansa päivämäärä</string>
     <string name="chooseValidFromDate">Valitse kelvollinen päivämäärä</string>
     <string name="validFromSentence">Kelvollinen alkaen: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Kortin nimi ei saa olla tyhjä</string>
 </resources>

@@ -268,4 +268,5 @@
     <string name="anyDate">Без значение от датата</string>
     <string name="validFromSentence">Валидна от: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Определена дата</string>
+    <string name="cardNameShouldNotBeEmpty">Името на картата не трябва да е празно</string>
 </resources>

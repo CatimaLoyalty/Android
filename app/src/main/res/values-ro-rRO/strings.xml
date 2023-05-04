@@ -106,4 +106,5 @@
     <string name="importCatima">Importați din Catima</string>
     <string name="importStocard">Importați din Stocard</string>
     <string name="intent_import_card_from_url_share_multiple_text">Aș dori să partajez niște carduri cu tine</string>
+    <string name="cardNameShouldNotBeEmpty">Numele cardului nu trebuie să fie gol</string>
 </resources>

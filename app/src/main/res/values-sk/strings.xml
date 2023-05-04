@@ -275,4 +275,5 @@
     <string name="noUnarchivedCardsMessage">Nie sú žiadne karty vrátené z archívu</string>
     <string name="newBalanceSentence">Nový zostatok: <xliff:g>%s</xliff:g></string>
     <string name="failedLaunchingPhotoPicker">Nepodarilo sa nájsť podporovanú aplikáciu galérie</string>
+    <string name="cardNameShouldNotBeEmpty">Názov karty by nemal byť prázdny</string>
 </resources>

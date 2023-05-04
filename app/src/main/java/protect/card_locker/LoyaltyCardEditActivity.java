@@ -358,6 +358,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().isEmpty() || s.toString().isBlank()) {
+                    storeFieldEdit.setError(getString(R.string.cardNameShouldNotBeEmpty));
+                }
                 updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
             }

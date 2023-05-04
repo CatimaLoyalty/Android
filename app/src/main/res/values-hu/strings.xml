@@ -268,4 +268,5 @@
     <string name="validFromSentence">Érvényesség kezdete: <xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">A művelethez tároló olvasási engedély szükséges…</string>
     <string name="cameraPermissionRequired">A kamerához való hozzáférés engedélye szükséges ehhez a művelethez…</string>
+    <string name="cardNameShouldNotBeEmpty">A kártya neve nem lehet üres</string>
 </resources>

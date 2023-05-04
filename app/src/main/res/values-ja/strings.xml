@@ -211,4 +211,5 @@
     <string name="group_name_is_empty">グループ名を入力してください</string>
     <string name="shortcutSelectCard">カードを選択してください</string>
     <string name="translate_platform">on Weblate</string>
+    <string name="cardNameShouldNotBeEmpty">カード名を空にすることはできません</string>
 </resources>

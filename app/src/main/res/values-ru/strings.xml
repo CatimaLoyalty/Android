@@ -282,4 +282,5 @@
     <string name="anyDate">Любая дата</string>
     <string name="chooseValidFromDate">Выбор даты действия</string>
     <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Имя карты не должно быть пустым.</string>
 </resources>

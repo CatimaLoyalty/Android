@@ -275,4 +275,5 @@
     <string name="anyDate">Jakékoliv datum</string>
     <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
     <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
+    <string name="cardNameShouldNotBeEmpty">Název karty nesmí být prázdný</string>
 </resources>

@@ -4,4 +4,5 @@
     <string name="action_add">Ychwanegu</string>
     <string name="action_search">Chwilio</string>
     <string name="noMatchingGiftCards">Nid oedd hyd i unrhyw beth. Ceisiwch newid eich chwiliad.</string>
+    <string name="cardNameShouldNotBeEmpty">Ni ddylai enw\'r cerdyn fod yn wag</string>
 </resources>

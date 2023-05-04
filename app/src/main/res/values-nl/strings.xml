@@ -268,4 +268,5 @@
     <string name="validFromDate">Geldig vanaf</string>
     <string name="validFromSentence">Geldig vanaf: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Kies een geldige vanaf-datum</string>
+    <string name="cardNameShouldNotBeEmpty">De kaartnaam mag niet leeg zijn</string>
 </resources>

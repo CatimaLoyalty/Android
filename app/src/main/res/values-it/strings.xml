@@ -275,4 +275,5 @@
     <string name="chooseValidFromDate">Scegli la data di validità</string>
     <string name="validFromSentence">Valido da: <xliff:g>%s</xliff:g></string>
     <string name="anyDate">Qualsiasi data</string>
+    <string name="cardNameShouldNotBeEmpty">Il nome della carta non deve essere vuoto</string>
 </resources>

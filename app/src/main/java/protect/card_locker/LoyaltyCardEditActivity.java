@@ -68,6 +68,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -177,6 +178,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
 
     ActivityResultLauncher<Uri> mPhotoTakerLauncher;
     ActivityResultLauncher<Intent> mPhotoPickerLauncher;
+    ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
     ActivityResultLauncher<Intent> mCardIdAndBarCodeEditorLauncher;
 
     ActivityResultLauncher<Intent> mCropperLauncher;
@@ -593,6 +595,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                 }
                 Uri uri = intent.getData();
                 startCropperUri(uri);
+            }
+        });
+
+        pickMedia = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(),result -> {
+            if(result != null){
+                startCropperUri(result);
             }
         });
 
@@ -1135,18 +1143,31 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     private void selectImageFromGallery(int type) {
         mRequestedImage = type;
 
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        contentIntent.setType("image/*");
-        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Use the new photo picker on devices where it is available
+            try {
+                // Registers a photo picker activity launcher in single-select mode.
+                pickMedia.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                        .build());
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
+        } else {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            contentIntent.setType("image/*");
+            Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{contentIntent});
 
-        try {
-            mPhotoPickerLauncher.launch(chooserIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+            try {
+                mPhotoPickerLauncher.launch(chooserIntent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
         }
     }
 

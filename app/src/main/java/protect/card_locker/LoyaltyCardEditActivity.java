@@ -1623,5 +1623,4 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
             Log.d(TAG, "Could not get currency data for locale info: " + e);
         }
     }
-
 }

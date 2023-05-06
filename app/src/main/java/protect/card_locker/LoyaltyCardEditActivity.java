@@ -1292,7 +1292,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             callable.call();
                         }catch(ActivityNotFoundException e){
 
-                            Toast.makeText(getApplicationContext(), "Camera disabled",
+                            Toast.makeText(getApplicationContext(),
+                                    getString(R.string.cameraPermissionDeniedTitle),
                                     Toast.LENGTH_SHORT).show();
 
                             e.printStackTrace();

@@ -1,0 +1,4 @@
+- Memperbaiki menekan tombol simpan beberapa kali membuat banyak entri
+- Turunkan ukuran tajuk kartu saat menyembunyikan detail agar muat lebih banyak kartu
+- Restrukturisasi layar edit
+- Tingkatkan kontras ikon bintang di tampilan utama

@@ -1,0 +1,1 @@
+- Memperbaiki pembuatan kartu baru dengan memasukkan kode batang secara manual (issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

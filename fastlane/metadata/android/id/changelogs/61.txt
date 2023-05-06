@@ -1,0 +1,2 @@
+- Tingkatkan logika penguraian keseimbangan
+- Perbaiki tampilan desimal mata uang di layar utama

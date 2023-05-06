@@ -1,0 +1,2 @@
+- Perbaiki dialog pengeluaran cepat yang tidak memungkinkan, pemisah
+- Mendukung pemuatan gambar dari pengelola file

@@ -1,0 +1,4 @@
+- Mendukung ekspor PDF417 baru dari Voucher Vault
+- Mendukung penyalinan beberapa kode batang sekaligus
+- Dukungan berbagi beberapa kartu loyalitas sekaligus
+- Minta untuk memperbarui nilai barcode jika ID kartu berubah

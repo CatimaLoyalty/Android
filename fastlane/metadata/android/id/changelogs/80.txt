@@ -1,0 +1,2 @@
+- Perbaiki gambar yang tidak diimpor dari cadangan
+- Opsi untuk mengganti bahasa

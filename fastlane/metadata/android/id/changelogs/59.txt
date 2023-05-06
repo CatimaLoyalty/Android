@@ -1,0 +1,2 @@
+- Tambahkan dukungan keseimbangan
+- Atur ulang tab kode batang dari tampilan edit

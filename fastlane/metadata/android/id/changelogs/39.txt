@@ -1,0 +1,3 @@
+- Perbaiki pemusatan kode batang saat keluar dari layar penuh (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Izinkan lokasi ekspor cadangan dipilih (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- Perbarui terjemahan (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull /362))

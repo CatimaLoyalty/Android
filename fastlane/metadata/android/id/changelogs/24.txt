@@ -1,0 +1,4 @@
+- Perbarui terjemahan. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Pembaruan rendering kode batang: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Muat ulang aktivitas tampilan kartu saat layar diputar, sehingga ukuran gambar barcode benar.
+  - Render barcode 1D di ruang yang lebih besar, memungkinkannya memenuhi layar dengan lebih baik.

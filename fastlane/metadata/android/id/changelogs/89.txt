@@ -1,0 +1,5 @@
+- Perbaiki gesekan antar grup yang tidak berfungsi pada grup kosong
+- Izinkan ekspor yang melindungi kata sandi
+- Tingkatkan penggunaan ruang untuk kode QR
+- Simpan tingkat zoom yang terakhir digunakan per kartu
+- Perbaiki kerusakan saat menggesek tepat setelah ketukan

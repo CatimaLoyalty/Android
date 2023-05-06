@@ -1,0 +1,2 @@
+- Memperbaiki masalah pada Android SDK 24+ di mana menggunakan opsi impor pemilih file akan menyebabkan crash. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Ikon baru dan skema warna. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

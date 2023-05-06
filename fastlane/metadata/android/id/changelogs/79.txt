@@ -1,0 +1,2 @@
+- Perbaiki widget yang membuat pintasan yang tampak berbeda dari pintasan aplikasi
+- Ganti layar hitam bawaan Android dengan layar splash

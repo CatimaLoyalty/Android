@@ -1,0 +1,2 @@
+- Tambahkan dukungan untuk menambahkan pintasan kartu loyalitas dari peluncur/layar beranda. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Hapus dukungan untuk menambahkan pintasan kartu loyalitas dari aplikasi itu sendiri. Ini menghilangkan kebutuhan akan izin pintasan. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

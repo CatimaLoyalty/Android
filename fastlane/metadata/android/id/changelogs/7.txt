@@ -1,0 +1,2 @@
+- Klik lama kartu menampilkan opsi untuk menyalin ID kartu ke clipboard. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Tombol kembali pada tampilan Impor/Ekspor kini berfungsi, memindahkan pengguna ke tampilan utama

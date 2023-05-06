@@ -1,0 +1,2 @@
+- Tingkatkan kontras dengan selalu menggunakan teks putih pada tombol merah
+- Lembar bawah yang dapat diseret dalam tampilan kartu loyalitas

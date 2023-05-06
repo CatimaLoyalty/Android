@@ -1,0 +1,4 @@
+- Perbaiki warna yang dipilih dalam dialog perubahan warna
+- Dukungan untuk menghapus banyak kartu sekaligus
+- Perbaiki kemungkinan ArithmeticException saat mengubah ukuran gambar
+- Perbaiki layar penuh ditutup saat memutar perangkat

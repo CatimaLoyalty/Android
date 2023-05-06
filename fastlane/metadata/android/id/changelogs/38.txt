@@ -1,0 +1,3 @@
+- Mengetuk kode batang sekarang memindahkannya ke bagian atas layar (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Tambahkan spasi putih di sekitar kode batang untuk menyempurnakan pemindaian dalam mode gelap (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Perbaiki tombol impor yang ditukar. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

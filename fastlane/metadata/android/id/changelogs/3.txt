@@ -1,0 +1,14 @@
+- Sekarang secara resmi mendukung daftar barcode 1D dan 2D berikut:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Barcode yang dihasilkan lebih besar, lebih mudah dipindai dari perangkat pemindaian

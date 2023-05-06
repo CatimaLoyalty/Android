@@ -1,0 +1,1 @@
+- Perbaiki kerusakan saat beralih ke tab kode batang di tampilan edit jika tidak ada kode batang

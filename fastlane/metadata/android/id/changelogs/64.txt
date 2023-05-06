@@ -1,0 +1,1 @@
+- Perbaiki regresi yang menyebabkan entri kode batang manual tidak disimpan

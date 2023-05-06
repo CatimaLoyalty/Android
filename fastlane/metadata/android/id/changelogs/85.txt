@@ -1,0 +1,5 @@
+Android 4.4 tidak lagi didukung sejak rilis ini. Jika Anda ingin menggunakan Catima di Android 4.4, silakan gunakan versi 2.6.1.
+
+- Peningkatan dukungan Android 12
+- Peningkatan tentang layar
+- Pencarian sekarang mengabaikan aksen

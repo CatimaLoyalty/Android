@@ -1,0 +1,6 @@
+- Tambahkan opsi untuk mengatur nilai barcode terpisah dari ID kartu
+- Menyederhanakan konfigurasi ukuran font
+- Beberapa perbaikan UI kecil
+- Gunakan ikon huruf untuk pintasan juga
+- Selalu tampilkan semua jenis barcode dalam entri manual
+- Hapus kebijakan privasi dialog mulai pertama

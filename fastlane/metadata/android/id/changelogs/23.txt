@@ -1,0 +1,3 @@
+- Tambahkan ruang sunyi di awal/akhir kode batang. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Tambahkan opsi untuk mengonfigurasi warna yang digunakan untuk font dan latar belakang nama toko. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Tambahkan opsi untuk menyesuaikan ukuran font pada halaman daftar kartu dan halaman kartu tunggal. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

@@ -1,0 +1,2 @@
+- Hapus izin yang tidak perlu
+- Targetkan Android 13

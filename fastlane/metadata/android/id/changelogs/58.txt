@@ -1,0 +1,1 @@
+- Perbaiki Crash pada versi sebelum Android 7

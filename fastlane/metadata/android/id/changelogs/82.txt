@@ -1,0 +1,4 @@
+- Peningkatan dukungan untuk pembaca layar
+- Jangan macet saat mencoba membuka video dari galeri
+- Dukungan gesek pada layar tampilan kartu loyalitas
+- Jangan mengatur ulang grup saat menekan tombol kembali

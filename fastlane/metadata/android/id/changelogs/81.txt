@@ -1,0 +1,4 @@
+- Tingkatkan daftar kartu untuk tampilan lanskap dan tablet
+- Tambahkan dukungan warna bertema (terima kasih, Subhashish Anand!)
+- Jangan tutup aktivitas pindai pada kesalahan kamera (jadi entri manual masih memungkinkan)
+- Tambahkan semua kontributor ke dialog tentang

@@ -1,0 +1,3 @@
+- Dukungan mengimpor Vault Voucher (https://github.com/tim-smart/vouchervault/) ekspor
+- Opsi untuk tetap mengaktifkan layar saat melihat kartu loyalitas
+- Opsi untuk menangguhkan layar kunci saat melihat kartu loyalitas

@@ -1,0 +1,3 @@
+- Perbaiki kerusakan saat mengimpor beberapa jenis file CSV yang rusak. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Perbaiki mengimpor cadangan langsung dari sistem file. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Memperbaiki pengimporan cadangan dari jenis penyedia konten tertentu. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

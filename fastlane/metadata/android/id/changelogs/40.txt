@@ -1,0 +1,6 @@
+- Ubah merek menjadi Catima
+- Intro dihapus
+- Tambahkan tombol aksi mengambang
+- Memperbaiki kerusakan Android 5 saat membuka Tentang layar
+- Tambahkan dukungan favorit
+- Perbaiki putar otomatis yang dinonaktifkan yang diabaikan

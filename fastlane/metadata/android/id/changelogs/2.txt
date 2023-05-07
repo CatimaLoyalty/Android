@@ -1,0 +1,3 @@
+- terjemahan Italia
+- Dukungan untuk semua jenis barcode 1D. (Awalnya hanya barcode produk 1D yang didukung)
+- Tambahkan izin kamera yang diperlukan, yang awalnya hilang.

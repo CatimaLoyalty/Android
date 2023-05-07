@@ -1,0 +1,3 @@
+- Perbaiki pembuatan pintasan
+- Hasilkan ikon pintasan khusus kartu
+- Perbaiki kemampuan untuk mengubah warna kartu loyalitas

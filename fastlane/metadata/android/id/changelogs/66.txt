@@ -1,0 +1,4 @@
+- Mendukung impor ekspor Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Izinkan mengimpor kartu dari gambar yang disimpan di galeri Android pengguna
+- Perbaiki cutoff catatan multiline
+- Ubah teks "Terima kasih" pada dialog privasi menjadi "Terima" karena Huawei terlalu bertele-tele

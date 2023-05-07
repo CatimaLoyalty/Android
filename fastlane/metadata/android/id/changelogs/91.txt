@@ -1,0 +1,4 @@
+- Peningkatan dukungan manajemen kelompok
+- Mendukung pemotongan gambar
+- Perbaiki kehilangan data gambar saat menyimpan setelah memutar dalam tampilan edit
+- Kemampuan untuk mengatur gambar khusus sebagai ikon kartu

@@ -1,0 +1,4 @@
+- Terjemahan Belanda
+- Izinkan bidang nama dapat diedit setelah menambahkan kartu loyalitas
+- Tambahkan bidang catatan opsional
+- Selesaikan semua masalah yang diidentifikasi oleh FindBugs dan minta semua masalah FindBugs diselesaikan sebelum penerimaan permintaan tarik

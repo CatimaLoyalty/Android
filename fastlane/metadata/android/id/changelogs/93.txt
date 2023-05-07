@@ -1,0 +1,2 @@
+- Tambahkan Catima ke Kontrol Perangkat Akses Cepat (https://developer.android.com/guide/topics/ui/device-control)
+- Perbaiki beberapa grup yang tidak muncul dengan benar di layar manajemen grup

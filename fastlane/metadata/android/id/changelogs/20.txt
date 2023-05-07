@@ -1,0 +1,1 @@
+- Solusi gagal saat menginstal pada beberapa versi Android (kemungkinan Android 5 dan lebih rendah). (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

@@ -1,0 +1,2 @@
+- Tata letak yang ditingkatkan untuk daftar kartu. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- Tata letak yang ditingkatkan saat melihat kartu. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

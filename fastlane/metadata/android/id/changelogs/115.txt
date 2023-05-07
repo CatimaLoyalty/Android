@@ -1,0 +1,4 @@
+- Buka gambar di galeri dengan menekan lama
+- Terapkan gaya Material ke dialog
+- Mendukung pembuatan kartu dengan membagikan gambar ke Catima
+- Tambahkan tombol belanja cepat ke layar kartu

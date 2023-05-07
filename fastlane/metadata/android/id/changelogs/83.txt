@@ -1,0 +1,2 @@
+- Dukungan untuk mengubah urutan penyortiran
+- Mencegah Kehabisan Memori saat memindai gambar besar untuk kode batang

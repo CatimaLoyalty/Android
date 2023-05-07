@@ -1,0 +1,3 @@
+- Secara otomatis memfokuskan bidang teks saat membuat atau mengedit grup
+- Perbaiki ikon buram (gunakan SVG di mana-mana)
+- Selalu buka kamera tetapi tambahkan tombol pindai manual ke tampilan kamera

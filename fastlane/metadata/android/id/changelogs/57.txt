@@ -1,0 +1,4 @@
+- Tambahkan dukungan untuk menskalakan kode batang saat berpindah ke atas agar sesuai dengan pemindai yang lebih kecil
+- Perbaiki lompatan lembar bawah setelah beralih ke layar penuh
+- Jadikan tajuk dalam tampilan kartu loyalitas menjadi kecil dalam mode lansekap
+- Perbaiki kartu yang tidak tetap dalam grup saat grup diganti namanya

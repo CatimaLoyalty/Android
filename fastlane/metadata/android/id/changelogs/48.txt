@@ -1,0 +1,3 @@
+- Pindahkan Tentang layar ke dalam aktivitasnya sendiri
+- Tanyakan kepada pengguna apakah mereka ingin menggunakan kamera mereka atau memasukkan ID secara manual pada kartu tambah/edit
+- Buat pemesanan grup secara manual alih-alih dipaksakan berdasarkan abjad

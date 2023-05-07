@@ -1,0 +1,4 @@
+- Perbaiki titik-titik pada tampilan kartu yang memiliki warna yang salah saat mengubah tema secara manual
+- Perbaiki kerusakan pada tampilan kartu saat rotasi/perubahan tema
+- Perbaiki flashing daftar kartu
+- Memperbaiki ikon bintang overlay teks

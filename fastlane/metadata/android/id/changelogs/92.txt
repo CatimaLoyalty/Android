@@ -1,0 +1,2 @@
+- Tata letak layar utama baru
+- Perbaiki masalah ukuran lembar bawah saat beralih masuk dan keluar dari layar penuh

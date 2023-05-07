@@ -1,0 +1,2 @@
+- Kurangi min SDK dari 17 menjadi 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Hapus penggunaan perpustakaan apache lama, hanya digunakan dalam pengujian unit tetapi tidak lagi diperlukan. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

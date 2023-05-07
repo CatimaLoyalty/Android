@@ -1,0 +1,2 @@
+- Dialog tentang dapat dibuka dari layar utama, yang memberikan detail tentang aplikasi dan proyek di GitHub (masalah #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Izinkan informasi kartu loyalitas untuk diimpor dari/diekspor ke file CSV di penyimpanan eksternal (masalah #36 (https://github.com/brarcher/loyalty-card-locker/issues/36), masalah #20 (https: //github.com/brarcher/loyalty-card-locker/issues/20))

@@ -1,0 +1,4 @@
+- Buat tautan dalam catatan yang dapat diklik
+- Pra-pilih grup pengguna saat ini saat membuat kartu baru
+- Nama grup yang dipisahkan koma dalam tampilan kartu loyalitas
+- Perbaiki tombol maksimalkan yang muncul tanpa kode batang

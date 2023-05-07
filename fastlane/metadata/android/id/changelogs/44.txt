@@ -1,0 +1,2 @@
+- Tambahkan gesekan antar grup di layar beranda
+- Perbaiki kerusakan dengan kartu yang tidak memiliki warna tajuk

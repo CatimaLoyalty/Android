@@ -1,0 +1,1 @@
+- Perbaiki kerusakan dalam pencarian tanpa grup

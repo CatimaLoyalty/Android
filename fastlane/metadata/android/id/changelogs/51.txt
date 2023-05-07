@@ -1,0 +1,1 @@
+- Perbaiki latar belakang lembar bawah menjadi transparan

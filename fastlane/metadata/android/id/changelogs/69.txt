@@ -1,0 +1,3 @@
+- Tambahkan ID kode batang yang hilang untuk diekspor
+- Jangan tampilkan dialog barcode pembaruan jika nilainya sama dengan ID kartu
+- Tambahkan terjemahan Finlandia

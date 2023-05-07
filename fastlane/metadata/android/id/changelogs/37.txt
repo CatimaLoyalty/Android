@@ -1,0 +1,1 @@
+- Memperbaiki masalah berbagi kartu tanpa warna latar belakang (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

@@ -1,0 +1,2 @@
+- Selalu tampilkan semua opsi impor/ekspor dan tunjukkan bersulang untuk masalah aktual (meningkatkan kesesuaian dengan XPrivacyLua)
+- Minta konfirmasi saat keluar dari tampilan edit setelah melakukan perubahan tanpa menyimpan

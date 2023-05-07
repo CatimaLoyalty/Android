@@ -1,0 +1,2 @@
+- Dukungan pengaturan awal validitas kartu
+- Perbaiki impor Stocard (format ekspor Stocard berubah)

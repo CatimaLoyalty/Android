@@ -1,0 +1,1 @@
+- Perbaiki kerusakan pada rotasi dalam aktivitas edit kartu loyalitas

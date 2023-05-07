@@ -258,13 +258,13 @@ public class ScanActivity extends CatimaAppCompatActivity {
         }
     }
 
-        private void showCameraPermissionMissingText ( boolean show){
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
-                navigateToSystemPermissionSetting();
-            } : null);
-            customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(com.google.android.material.R.attr.colorSurface) : Color.TRANSPARENT);
-            customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
-        }
+    private void showCameraPermissionMissingText ( boolean show){
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
+            navigateToSystemPermissionSetting();
+        } : null);
+        customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(com.google.android.material.R.attr.colorSurface) : Color.TRANSPARENT);
+        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
+    }
 
     private void scaleScreen() {
         DisplayMetrics displayMetrics = new DisplayMetrics();

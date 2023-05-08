@@ -60,25 +60,13 @@ public class LoyaltyCardCursorAdapterTest {
         return viewHolder.itemView;
     }
 
-    private void checkView(final View view, final String store, final String note, final String validFrom, final String expiry, final String balance, boolean checkFontSizes) {
-        final TextView storeField = view.findViewById(R.id.store);
+    private void checkView(final View view, final String store, final String note, final String validFrom, final String expiry, final String balance) {
+        final TextView storeField = view.findViewById(R.id.thumbnail_text);
         final TextView noteField = view.findViewById(R.id.note);
         final TextView validFromField = view.findViewById(R.id.validFrom);
         final TextView expiryField = view.findViewById(R.id.expiry);
         final TextView balanceField = view.findViewById(R.id.balance);
 
-        if (checkFontSizes) {
-            Settings preferences = new Settings(activity.getApplicationContext());
-            int mediumFontSize = preferences.getFontSizeMax(preferences.getMediumFont());
-            int smallFontSize = preferences.getFontSizeMax(preferences.getSmallFont());
-
-            assertEquals(mediumFontSize, (int) storeField.getTextSize());
-            assertEquals(smallFontSize, (int) noteField.getTextSize());
-            assertEquals(smallFontSize, (int) validFromField.getTextSize());
-            assertEquals(smallFontSize, (int) expiryField.getTextSize());
-        }
-
-        assertEquals(store, storeField.getText().toString());
         if (!note.isEmpty()) {
             assertEquals(View.VISIBLE, noteField.getVisibility());
             assertEquals(note, noteField.getText().toString());
@@ -119,7 +107,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "", false);
+        checkView(view, card.store, card.note, "", "", "");
 
         cursor.close();
     }
@@ -134,30 +122,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "", false);
-
-        cursor.close();
-    }
-
-    @Test
-    public void TestCursorAdapterFontSizes() {
-        Date date = new Date();
-        String dateString = DateFormat.getDateInstance(DateFormat.LONG).format(date);
-
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", date, date, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), Color.BLACK, 0, null,0);
-        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
-
-        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
-        cursor.moveToFirst();
-
-        setFontScale(50);
-        View view = createView(cursor);
-
-        checkView(view, card.store, card.note, dateString, dateString, "", true);
-
-        setFontScale(200);
-        view = createView(cursor);
-        checkView(view, card.store, card.note, dateString, dateString, "", true);
+        checkView(view, card.store, card.note, "", "", "");
 
         cursor.close();
     }
@@ -223,7 +188,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "", false);
+        checkView(view, card.store, card.note, "", "", "");
 
         cursor.close();
     }
@@ -238,7 +203,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "", false);
+        checkView(view, card.store, card.note, "", "", "");
 
         cursor.close();
     }
@@ -253,7 +218,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "100 points", false);
+        checkView(view, card.store, card.note, "", "", "100 points");
 
         cursor.close();
     }
@@ -268,7 +233,7 @@ public class LoyaltyCardCursorAdapterTest {
 
         View view = createView(cursor);
 
-        checkView(view, card.store, card.note, "", "", "$10.00", false);
+        checkView(view, card.store, card.note, "", "", "$10.00");
 
         cursor.close();
     }

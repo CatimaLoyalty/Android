@@ -63,8 +63,6 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
         }
 
         inputHolder.mCardCount.setText(cardCountText);
-        inputHolder.mName.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
-        inputHolder.mCardCount.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
 
         applyClickEvents(inputHolder);
     }

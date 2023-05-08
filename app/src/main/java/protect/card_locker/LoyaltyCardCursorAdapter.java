@@ -107,7 +107,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
 
-        inputHolder.setStoreField(loyaltyCard.store);
         if (mShowDetails && !loyaltyCard.note.isEmpty()) {
             inputHolder.setNoteField(loyaltyCard.note);
         } else {
@@ -132,15 +131,8 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null);
         }
 
-        setHeaderHeight(inputHolder, mShowDetails);
-        Bitmap cardIcon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
-        if (cardIcon != null) {
-            inputHolder.mCardIcon.setImageBitmap(cardIcon);
-            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        } else {
-            inputHolder.mCardIcon.setImageBitmap(Utils.generateIcon(mContext, loyaltyCard.store, loyaltyCard.headerColor).getLetterTile());
-            inputHolder.mCardIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        }
+        inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
+        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, inputHolder.mCardIcon, inputHolder.mCardText);
         inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : androidx.appcompat.R.attr.colorPrimary);
 
         inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
@@ -151,19 +143,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();
-    }
-
-    private void setHeaderHeight(LoyaltyCardListItemViewHolder inputHolder, boolean expanded) {
-        int iconHeight;
-        if (expanded) {
-            iconHeight = ViewGroup.LayoutParams.MATCH_PARENT;
-        } else {
-            iconHeight = (int) mContext.getResources().getDimension(R.dimen.cardThumbnailSize);
-        }
-
-        inputHolder.mIconLayout.getLayoutParams().height = expanded ? 0 : iconHeight;
-        inputHolder.mCardIcon.getLayoutParams().height = iconHeight;
-        inputHolder.mTickIcon.getLayoutParams().height = iconHeight;
     }
 
     private void applyClickEvents(LoyaltyCardListItemViewHolder inputHolder, final int inputPosition) {
@@ -241,7 +220,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mStoreField, mNoteField, mBalanceField, mValidFromField, mExpiryField;
+        public TextView mCardText, mNoteField, mBalanceField, mValidFromField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
         public MaterialCardView mRow, mIconLayout;
         public ConstraintLayout mStar, mArchived;
@@ -249,20 +228,18 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         private int mIconBackgroundColor;
 
-
-
         protected LoyaltyCardListItemViewHolder(LoyaltyCardLayoutBinding loyaltyCardLayoutBinding, CardAdapterListener inputListener) {
             super(loyaltyCardLayoutBinding.getRoot());
             View inputView = loyaltyCardLayoutBinding.getRoot();
             mRow = loyaltyCardLayoutBinding.row;
             mDivider = loyaltyCardLayoutBinding.infoDivider;
-            mStoreField = loyaltyCardLayoutBinding.store;
             mNoteField = loyaltyCardLayoutBinding.note;
             mBalanceField = loyaltyCardLayoutBinding.balance;
             mValidFromField = loyaltyCardLayoutBinding.validFrom;
             mExpiryField = loyaltyCardLayoutBinding.expiry;
             mIconLayout = loyaltyCardLayoutBinding.iconLayout;
             mCardIcon = loyaltyCardLayoutBinding.thumbnail;
+            mCardText = loyaltyCardLayoutBinding.thumbnailText;
             mStar = loyaltyCardLayoutBinding.star;
             mStarBackground = loyaltyCardLayoutBinding.starBackground;
             mStarBorder = loyaltyCardLayoutBinding.starBorder;
@@ -285,20 +262,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 return;
             }
 
-            int size = mSettings.getFontSizeMax(mSettings.getSmallFont());
-
             field.setVisibility(View.VISIBLE);
             field.setText(text);
-            field.setTextSize(size);
             field.setTextColor(color != null ? color : MaterialColors.getColor(mContext, com.google.android.material.R.attr.colorSecondary, ContextCompat.getColor(mContext, mDarkModeEnabled ? R.color.md_theme_dark_secondary : R.color.md_theme_light_secondary)));
 
-            int drawableSize = dpToPx((size * 24) / 14, mContext);
             mDivider.setVisibility(View.VISIBLE);
             field.setVisibility(View.VISIBLE);
             Drawable icon = field.getCompoundDrawables()[0];
             if (icon != null) {
                 icon.mutate();
-                icon.setBounds(0, 0, drawableSize, drawableSize);
                 field.setCompoundDrawablesRelative(icon, null, null, null);
 
                 if (color != null) {
@@ -311,19 +283,12 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             field.requestLayout();
         }
 
-        public void setStoreField(String text) {
-            mStoreField.setText(text);
-            mStoreField.setTextSize(mSettings.getFontSizeMax(mSettings.getMediumFont()));
-            mStoreField.requestLayout();
-        }
-
         public void setNoteField(String text) {
             if (text == null) {
                 mNoteField.setVisibility(View.GONE);
             } else {
                 mNoteField.setVisibility(View.VISIBLE);
                 mNoteField.setText(text);
-                mNoteField.setTextSize(mSettings.getFontSizeMax(mSettings.getSmallFont()));
             }
             mNoteField.requestLayout();
         }

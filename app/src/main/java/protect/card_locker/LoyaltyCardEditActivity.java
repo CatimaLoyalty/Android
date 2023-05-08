@@ -83,7 +83,7 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 
-public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
+public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
     private LoyaltyCardEditActivityBinding binding;
     private static final String TAG = "Catima";
 
@@ -169,8 +169,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
-    Runnable barcodeImageGenerationFinishedCallback;
-
     HashMap<String, Currency> currencies = new HashMap<>();
 
     LoyaltyCard tempLoyaltyCard;
@@ -347,13 +345,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         cardImageBack = binding.backImage;
 
         enterButton = binding.enterButton;
-
-        barcodeImageGenerationFinishedCallback = () -> {
-            if (!(boolean) barcodeImage.getTag()) {
-                barcodeImageLayout.setVisibility(View.GONE);
-                Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
-            }
-        };
 
         storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
@@ -1150,6 +1141,14 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
         }
     }
 
+    @Override
+    public void onBarcodeImageWriterResult(boolean success) {
+        if (!success) {
+            barcodeImageLayout.setVisibility(View.GONE);
+            Toast.makeText(LoyaltyCardEditActivity.this, getString(R.string.wrongValueForBarcodeType), Toast.LENGTH_LONG).show();
+        }
+    }
+
     class EditCardIdAndBarcode implements View.OnClickListener {
         @Override
         public void onClick(View v) {
@@ -1547,13 +1546,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity {
                             barcodeImage.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                             Log.d(TAG, "ImageView size now known");
-                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
+                            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, LoyaltyCardEditActivity.this, true);
                             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
                         }
                     });
         } else {
             Log.d(TAG, "ImageView size known known, creating barcode");
-            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, barcodeImageGenerationFinishedCallback, true);
+            BarcodeImageWriterTask barcodeWriter = new BarcodeImageWriterTask(getApplicationContext(), barcodeImage, cardIdString, barcodeFormat, null, false, this, true);
             mTasks.executeTask(TaskHandler.TYPE.BARCODE, barcodeWriter);
         }
     }

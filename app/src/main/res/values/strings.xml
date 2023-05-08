@@ -313,4 +313,12 @@
     <string name="anyDate">Any date</string>
     <string name="chooseValidFromDate">Choose valid from date</string>
     <string name="validFromSentence">Valid from: <xliff:g>%s</xliff:g></string>
+    <string name="height">Height:</string>
+    <string name="switchToFrontImage">Switch to front image</string>
+    <string name="switchToBackImage">Switch to back image</string>
+    <string name="switchToBarcode">Switch to barcode</string>
+    <string name="openImageInGallery">Open image in gallery app</string>
+    <string name="openFrontImageInGalleryApp">Open front image in gallery app</string>
+    <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
+    <string name="setBarcodeHeight">Set barcode height</string>
 </resources>

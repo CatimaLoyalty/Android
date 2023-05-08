@@ -50,7 +50,7 @@ import protect.card_locker.databinding.MainActivityBinding;
 import protect.card_locker.databinding.SortingOptionBinding;
 import protect.card_locker.preferences.SettingsActivity;
 
-public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener, GestureDetector.OnGestureListener {
+public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     private MainActivityBinding binding;
     private ArchiveActivityBinding archiveActivityBinding;
     private ContentMainBinding contentMainBinding;
@@ -63,7 +63,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private LoyaltyCardCursorAdapter mAdapter;
     private ActionMode mCurrentActionMode;
     private SearchView mSearchView;
-    private GestureDetector mGestureDetector;
     private int mLoyaltyCardCount = 0;
     protected String mFilter = "";
     protected Object mGroup = null;
@@ -282,18 +281,10 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
         });
 
-        mGestureDetector = new GestureDetector(this, this);
-
-        View.OnTouchListener gestureTouchListener = (v, event) -> mGestureDetector.onTouchEvent(event);
-
         mHelpSection = contentMainBinding.helpSection;
         mNoMatchingCardsText = contentMainBinding.noMatchingCardsText;
         mNoGroupCardsText = contentMainBinding.noGroupCardsText;
         mCardList = contentMainBinding.list;
-
-        mNoMatchingCardsText.setOnTouchListener(gestureTouchListener);
-        mCardList.setOnTouchListener(gestureTouchListener);
-        mNoGroupCardsText.setOnTouchListener(gestureTouchListener);
 
         mAdapter = new LoyaltyCardCursorAdapter(this, null, this);
         mCardList.setAdapter(mAdapter);
@@ -766,83 +757,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         // Update card list
         updateLoyaltyCardList(false);
-    }
-
-    @Override
-    public boolean onDown(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        mGestureDetector.onTouchEvent(ev);
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        Log.d(TAG, "On fling");
-
-        // Don't swipe if we have too much vertical movement
-        if (Math.abs(velocityY) > (0.75 * Math.abs(velocityX))) {
-            return false;
-        }
-
-        if (groupsTabLayout.getTabCount() < 2) {
-            return false;
-        }
-
-        Integer currentTab = groupsTabLayout.getSelectedTabPosition();
-        Log.d("onFling", "Current Tab " + currentTab);
-        // Swipe right
-        if (velocityX < -150) {
-            Log.d("onFling", "Right Swipe detected " + velocityX);
-            Integer nextTab = currentTab + 1;
-
-            if (nextTab == groupsTabLayout.getTabCount()) {
-                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(0));
-            } else {
-                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(nextTab));
-            }
-
-            return true;
-        }
-
-        // Swipe left
-        if (velocityX > 150) {
-            Log.d("onFling", "Left Swipe detected " + velocityX);
-            Integer nextTab = currentTab - 1;
-
-            if (nextTab < 0) {
-                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(groupsTabLayout.getTabCount() - 1));
-            } else {
-                groupsTabLayout.selectTab(groupsTabLayout.getTabAt(nextTab));
-            }
-
-            return true;
-        }
-
-        return false;
     }
 
     @Override

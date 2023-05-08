@@ -63,30 +63,6 @@ public class Settings {
         return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
     }
 
-    public double getFontSizeScale() {
-        return getInt(R.string.settings_key_max_font_size_scale, R.integer.settings_max_font_size_scale_pct) / 100.0;
-    }
-
-    public int getSmallFont() {
-        return 14;
-    }
-
-    public int getMediumFont() {
-        return 28;
-    }
-
-    public int getLargeFont() {
-        return 40;
-    }
-
-    public int getFontSizeMin(int fontSize) {
-        return (int) (Math.round(fontSize / 2.0) - 1);
-    }
-
-    public int getFontSizeMax(int fontSize) {
-        return (int) Math.round(fontSize * getFontSizeScale());
-    }
-
     public boolean useMaxBrightnessDisplayingBarcode() {
         return getBoolean(R.string.settings_key_display_barcode_max_brightness, true);
     }

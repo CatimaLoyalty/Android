@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 120
+
+- Complete redesign of main and loyalty card view screens
+
 ## v2.22.1 - 119
 
 - Use Material You colours on more devices (Google library update)

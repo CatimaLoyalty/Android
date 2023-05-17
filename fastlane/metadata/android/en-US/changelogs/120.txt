@@ -1,1 +1,2 @@
 - Complete redesign of main and loyalty card view screens
+- Material You design for the settings screen

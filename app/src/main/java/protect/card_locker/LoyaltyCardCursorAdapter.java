@@ -35,7 +35,6 @@ import protect.card_locker.preferences.Settings;
 
 public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder> {
     private int mCurrentSelectedIndex = -1;
-    Settings mSettings;
     boolean mDarkModeEnabled;
     public final Context mContext;
     private final CardAdapterListener mListener;
@@ -47,7 +46,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
-        mSettings = new Settings(inputContext);
         mContext = inputContext;
         mListener = inputListener;
         mSelectedItems = new SparseBooleanArray();
@@ -222,7 +220,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         public TextView mCardText, mNoteField, mBalanceField, mValidFromField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
-        public MaterialCardView mRow, mIconLayout;
+        public MaterialCardView mRow;
         public ConstraintLayout mStar, mArchived;
         public View mDivider;
 
@@ -237,7 +235,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mBalanceField = loyaltyCardLayoutBinding.balance;
             mValidFromField = loyaltyCardLayoutBinding.validFrom;
             mExpiryField = loyaltyCardLayoutBinding.expiry;
-            mIconLayout = loyaltyCardLayoutBinding.iconLayout;
             mCardIcon = loyaltyCardLayoutBinding.thumbnail;
             mCardText = loyaltyCardLayoutBinding.thumbnailText;
             mStar = loyaltyCardLayoutBinding.star;

@@ -27,8 +27,16 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog.Monet</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog.Monet</item>
 
         <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog.Monet" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.Material3</item>
+        <item name="dialogCornerRadius">28dp</item>
+        <item name="android:background">@drawable/dialog_bg_monet</item>
     </style>
 
     <!-- note that this is not used directly, these are used to patch the active theme runtime with

@@ -153,10 +153,10 @@ public class MainActivityTest {
         list.measure(0, 0);
         list.layout(0, 0, 100, 1000);
 
-        assertEquals("storeC", ((TextView) list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.store)).getText());
-        assertEquals("storeD", ((TextView) list.findViewHolderForAdapterPosition(1).itemView.findViewById(R.id.store)).getText());
-        assertEquals("storeA", ((TextView) list.findViewHolderForAdapterPosition(2).itemView.findViewById(R.id.store)).getText());
-        assertEquals("storeB", ((TextView) list.findViewHolderForAdapterPosition(3).itemView.findViewById(R.id.store)).getText());
+        assertEquals("storeC", ((TextView) list.findViewHolderForAdapterPosition(0).itemView.findViewById(R.id.thumbnail_text)).getText());
+        assertEquals("storeD", ((TextView) list.findViewHolderForAdapterPosition(1).itemView.findViewById(R.id.thumbnail_text)).getText());
+        assertEquals("storeA", ((TextView) list.findViewHolderForAdapterPosition(2).itemView.findViewById(R.id.thumbnail_text)).getText());
+        assertEquals("storeB", ((TextView) list.findViewHolderForAdapterPosition(3).itemView.findViewById(R.id.thumbnail_text)).getText());
 
         database.close();
     }

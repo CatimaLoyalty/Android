@@ -59,6 +59,7 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 import androidx.preference.PreferenceManager;
 
@@ -309,7 +310,7 @@ public class LoyaltyCardViewActivityTest {
                                 final String barcodeId, final String barcodeType,
                                 final Bitmap frontImage, final Bitmap backImage) {
         if (mode == ViewMode.VIEW_CARD) {
-            checkFieldProperties(activity, R.id.cardIdView, View.VISIBLE, cardId, FieldTypeView.TextView);
+            checkFieldProperties(activity, R.id.card_id_view, View.VISIBLE, cardId, FieldTypeView.TextView);
         } else {
             int editVisibility = View.VISIBLE;
 
@@ -621,7 +622,7 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    public void startWithLoyaltyCardViewModeCheckDisplay() throws IOException {
+    public void startWithLoyaltyCardViewModeCheckDisplay() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
         Activity activity = (Activity) activityController.get();
         final Context context = activity.getApplicationContext();
@@ -1132,40 +1133,6 @@ public class LoyaltyCardViewActivityTest {
     }
 
     @Test
-    public void startCheckFontSizes() {
-        ActivityController activityController = createActivityWithLoyaltyCard(false);
-
-        Activity activity = (Activity) activityController.get();
-        SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
-        DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null,0);
-
-        final int LARGE_FONT_SIZE = 40;
-
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(activity);
-        settings.edit()
-                .putInt(activity.getResources().getString(R.string.settings_key_max_font_size_scale), 100)
-                .apply();
-
-        activityController.start();
-        activityController.visible();
-        activityController.resume();
-
-        assertEquals(false, activity.isFinishing());
-
-        TextView storeName = activity.findViewById(R.id.storeName);
-        TextView cardIdFieldView = activity.findViewById(R.id.cardIdView);
-
-        TextViewCompat.getAutoSizeMaxTextSize(storeName);
-        TextViewCompat.getAutoSizeMaxTextSize(storeName);
-        assertEquals(LARGE_FONT_SIZE, TextViewCompat.getAutoSizeMaxTextSize(cardIdFieldView));
-
-        shadowOf(activity).clickMenuItem(android.R.id.home);
-        assertEquals(true, activity.isFinishing());
-
-        database.close();
-    }
-
-    @Test
     public void checkPushStarIcon() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
@@ -1213,13 +1180,12 @@ public class LoyaltyCardViewActivityTest {
 
         assertFalse(activity.isFinishing());
 
-        View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
         BottomAppBar bottomAppBar = activity.findViewById(R.id.bottom_app_bar);
-        ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
-        ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
-        LinearLayout dotIndicator = activity.findViewById(R.id.dotIndicator);
+        ImageView mainImage = activity.findViewById(R.id.main_image);
+        LinearLayout container = activity.findViewById(R.id.container);
+        ConstraintLayout fullScreenLayout = activity.findViewById(R.id.fullscreen_layout);
+        ImageButton minimizeButton = activity.findViewById(R.id.fullscreen_button_minimize);
         FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
-        SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode
         assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
@@ -1227,16 +1193,13 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
         // Elements should be visible (except minimize button and scaler)
-        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
-        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
-        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, container.getVisibility());
+        assertEquals(View.GONE, fullScreenLayout.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
-        assertEquals(View.GONE, barcodeScaler.getVisibility());
-        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Click maximize button to activate fullscreen
-        maximizeButton.performClick();
+        mainImage.performClick();
         shadowOf(getMainLooper()).idle();
 
         // Android should be in fullscreen mode
@@ -1245,13 +1208,10 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
         // Elements should not be visible (except minimize button and scaler)
-        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.GONE, bottomAppBar.getVisibility());
-        assertEquals(View.GONE, maximizeButton.getVisibility());
-        assertEquals(View.VISIBLE, minimizeButton.getVisibility());
+        assertEquals(View.GONE, container.getVisibility());
+        assertEquals(View.VISIBLE, fullScreenLayout.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
-        assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
-        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Clicking minimize button should deactivate fullscreen mode
         minimizeButton.performClick();
@@ -1261,29 +1221,23 @@ public class LoyaltyCardViewActivityTest {
         assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
         assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
-        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
-        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
-        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, container.getVisibility());
+        assertEquals(View.GONE, fullScreenLayout.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
-        assertEquals(View.GONE, barcodeScaler.getVisibility());
-        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Another click back to fullscreen
-        maximizeButton.performClick();
+        mainImage.performClick();
         shadowOf(getMainLooper()).idle();
 
         assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
         assertFalse(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
         assertEquals(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
-        assertEquals(View.GONE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.GONE, bottomAppBar.getVisibility());
-        assertEquals(View.GONE, maximizeButton.getVisibility());
-        assertEquals(View.VISIBLE, minimizeButton.getVisibility());
+        assertEquals(View.GONE, container.getVisibility());
+        assertEquals(View.VISIBLE, fullScreenLayout.getVisibility());
         assertEquals(View.GONE, editButton.getVisibility());
-        assertEquals(View.VISIBLE, barcodeScaler.getVisibility());
-        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // In full screen mode, back button should disable fullscreen
         activity.onBackPressed();
@@ -1293,13 +1247,10 @@ public class LoyaltyCardViewActivityTest {
         assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.navigationBars()));
         assertEquals(WindowInsetsController.BEHAVIOR_DEFAULT, activity.getWindow().getInsetsController().getSystemBarsBehavior());
 
-        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
-        assertEquals(View.VISIBLE, maximizeButton.getVisibility());
-        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.VISIBLE, container.getVisibility());
+        assertEquals(View.GONE, fullScreenLayout.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
-        assertEquals(View.GONE, barcodeScaler.getVisibility());
-        assertEquals(View.GONE, dotIndicator.getVisibility()); // We have no images, only a barcode
 
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();
@@ -1323,12 +1274,10 @@ public class LoyaltyCardViewActivityTest {
 
         assertEquals(false, activity.isFinishing());
 
-        View collapsingToolbarLayout = activity.findViewById(R.id.collapsingToolbarLayout);
         BottomAppBar bottomAppBar = activity.findViewById(R.id.bottom_app_bar);
-        ImageButton maximizeButton = activity.findViewById(R.id.maximizeButton);
-        ImageButton minimizeButton = activity.findViewById(R.id.minimizeButton);
+        ImageView mainImage = activity.findViewById(R.id.main_image);
+        ConstraintLayout fullScreenLayout = activity.findViewById(R.id.fullscreen_layout);
         FloatingActionButton editButton = activity.findViewById(R.id.fabEdit);
-        SeekBar barcodeScaler = activity.findViewById(R.id.barcodeScaler);
 
         // Android should not be in fullscreen mode
         int uiOptions = activity.getWindow().getDecorView().getSystemUiVisibility();
@@ -1336,12 +1285,10 @@ public class LoyaltyCardViewActivityTest {
         assertNotEquals(uiOptions | View.SYSTEM_UI_FLAG_FULLSCREEN, uiOptions);
 
         // Elements should be visible (except minimize/maximize buttons and barcode and scaler)
-        assertEquals(View.VISIBLE, collapsingToolbarLayout.getVisibility());
         assertEquals(View.VISIBLE, bottomAppBar.getVisibility());
-        assertEquals(View.GONE, maximizeButton.getVisibility());
-        assertEquals(View.GONE, minimizeButton.getVisibility());
+        assertEquals(View.GONE, mainImage.getVisibility());
+        assertEquals(View.GONE, fullScreenLayout.getVisibility());
         assertEquals(View.VISIBLE, editButton.getVisibility());
-        assertEquals(View.GONE, barcodeScaler.getVisibility());
 
         // Pressing back when not in full screen should finish activity
         activity.onBackPressed();

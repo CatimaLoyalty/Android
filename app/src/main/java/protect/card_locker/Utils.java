@@ -18,6 +18,9 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RawRes;
@@ -598,5 +601,25 @@ public class Utils {
         }
 
         return result.toString();
+    }
+
+    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, ImageView backgroundOrIcon, TextView textWhenNoImage) {
+        Bitmap icon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+        if (icon != null) {
+            Log.d("onResume", "setting icon image");
+            textWhenNoImage.setVisibility(View.GONE);
+
+            backgroundOrIcon.setImageBitmap(icon);
+            backgroundOrIcon.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            textWhenNoImage.setVisibility(View.VISIBLE);
+
+            int headerColor = loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
+
+            backgroundOrIcon.setImageBitmap(null);
+            backgroundOrIcon.setBackgroundColor(headerColor);
+            textWhenNoImage.setText(loyaltyCard.store);
+            textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+        }
     }
 }

@@ -42,12 +42,12 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private final int imageHeight;
     private final int imageWidth;
     private final boolean showFallback;
-    private final Runnable callback;
+    private final BarcodeImageWriterResultCallback callback;
 
     BarcodeImageWriterTask(
             Context context, ImageView imageView, String cardIdString,
             CatimaBarcode barcodeFormat, TextView textView,
-            boolean showFallback, Runnable callback, boolean roundCornerPadding
+            boolean showFallback, BarcodeImageWriterResultCallback callback, boolean roundCornerPadding
     ) {
         mContext = context;
 
@@ -282,7 +282,7 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         }
 
         if (callback != null) {
-            callback.run();
+            callback.onBarcodeImageWriterResult(isSuccesful);
         }
     }
 

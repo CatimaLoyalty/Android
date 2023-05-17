@@ -3,6 +3,7 @@
 ## Unreleased - 120
 
 - Complete redesign of main and loyalty card view screens
+- Material You design for the settings screen
 
 ## v2.22.1 - 119
 

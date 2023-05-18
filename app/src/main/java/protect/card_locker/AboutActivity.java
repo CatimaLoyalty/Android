@@ -39,6 +39,13 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.privacy.setTag("https://catima.app/privacy-policy/");
         binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
         binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
+        binding.donate.setTag("https://catima.app/contribute/#donating");
+
+        boolean installedFromGooglePlay = Utils.installedFromGooglePlay(this);
+        // Hide Google Play rate button if not on Google Play
+        binding.rate.setVisibility(installedFromGooglePlay ? View.VISIBLE : View.GONE);
+        // Hide donate button on Google Play (Google Play doesn't allow donation links)
+        binding.donate.setVisibility(installedFromGooglePlay ? View.GONE : View.VISIBLE);
 
         bindClickListeners();
     }
@@ -74,6 +81,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.privacy.setOnClickListener(openExternalBrowser);
         binding.reportError.setOnClickListener(openExternalBrowser);
         binding.rate.setOnClickListener(openExternalBrowser);
+        binding.donate.setOnClickListener(openExternalBrowser);
 
         binding.credits.setOnClickListener(view -> showCredits());
     }
@@ -86,6 +94,8 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.privacy.setOnClickListener(null);
         binding.reportError.setOnClickListener(null);
         binding.rate.setOnClickListener(null);
+        binding.donate.setOnClickListener(null);
+
         binding.credits.setOnClickListener(null);
     }
 

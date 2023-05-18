@@ -1,2 +1,2 @@
-- Keresés elrejtése, az ikonok kihúzása és rendezése amíg nincs legalább egy kártya
-- Többféle téma fixálás
+- A keresés, a kibontás és a rendezés ikonjainak elrejtése, amíg nincs legalább egy kártya
+- Különböző témajavítások

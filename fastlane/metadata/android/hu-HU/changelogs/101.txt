@@ -1,0 +1,3 @@
+- Javítás, hogy a vágó a téma színeit használja
+- Apró témázási problémák javítása
+- Teljesen fekete sötét téma az OLED képernyők számára

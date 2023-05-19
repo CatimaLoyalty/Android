@@ -1,0 +1,1 @@
+- A helytelen szövegszín javítása a „Nincs vonalkód” gombon

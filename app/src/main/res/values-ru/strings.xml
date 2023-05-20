@@ -282,4 +282,12 @@
     <string name="anyDate">Любая дата</string>
     <string name="chooseValidFromDate">Выбор даты действия</string>
     <string name="validFromSentence">Действует с: <xliff:g>%s</xliff:g></string>
+    <string name="setBarcodeHeight">Указать высоту штрих-кода</string>
+    <string name="height">Высота:</string>
+    <string name="switchToBarcode">Переключить на штрих-код</string>
+    <string name="switchToFrontImage">Переключить на лицевую сторону</string>
+    <string name="switchToBackImage">Переключить на заднюю сторону</string>
+    <string name="openImageInGallery">Открыть изображение в приложении галереи</string>
+    <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении галереи</string>
+    <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении галереи</string>
 </resources>

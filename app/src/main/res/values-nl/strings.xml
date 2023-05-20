@@ -276,4 +276,5 @@
     <string name="openImageInGallery">Afbeelding openen in galerij-app</string>
     <string name="openFrontImageInGalleryApp">Voorzijde openen in galerij-app</string>
     <string name="openBackImageInGalleryApp">Achterzijde openen in galerij-app</string>
+    <string name="donate">Doneren</string>
 </resources>

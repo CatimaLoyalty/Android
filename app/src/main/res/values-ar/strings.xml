@@ -296,4 +296,5 @@
     <string name="anyDate">أي تاريخ</string>
     <string name="chooseValidFromDate">اختر صالح من التاريخ</string>
     <string name="validFromSentence">صالح من:<xliff:g>%s</xliff:g></string>
+    <string name="height">الطول:</string>
 </resources>

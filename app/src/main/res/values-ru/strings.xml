@@ -290,4 +290,5 @@
     <string name="openImageInGallery">Открыть изображение в приложении галереи</string>
     <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении галереи</string>
     <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении галереи</string>
+    <string name="donate">Пожертвовать</string>
 </resources>

@@ -261,4 +261,13 @@
     <string name="chooseValidFromDate">选择有效日期</string>
     <string name="validFromSentence">有效期自: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">此操作所需的访问相机的权限…</string>
+    <string name="height">高度：</string>
+    <string name="switchToFrontImage">选择正面图像</string>
+    <string name="switchToBackImage">选择背面图像</string>
+    <string name="switchToBarcode">选择条形码</string>
+    <string name="openImageInGallery">使用图库软件打开图像</string>
+    <string name="openFrontImageInGalleryApp">使用图库软件打开正面图像</string>
+    <string name="openBackImageInGalleryApp">使用图库软件打开背面图像</string>
+    <string name="setBarcodeHeight">设置条形码高度</string>
+    <string name="donate">捐赠</string>
 </resources>

@@ -51,7 +51,7 @@
     <string name="settings">Paramètres</string>
     <string name="settings_category_title_ui">Interfàcia utilizaire</string>
     <string name="settings_theme">Tèma</string>
-    <string name="noGiftCards">Clicatz lo boton + per apondre una carta o utilizatz lo menú ⋮ per n’importar una.</string>
+    <string name="noGiftCards">Clicatz lo boton + per apondre una carta o n’importar una menú ⋮</string>
     <string name="noMatchingGiftCards">Cap de resultat. Ensajatz de modificar vòstra recèrca.</string>
     <string name="settings_light_theme">Clar</string>
     <string name="settings_dark_theme">Escur</string>
@@ -66,4 +66,5 @@
     <string name="settings_max_font_size_scale">Talha max. de la poliça</string>
     <string name="settings_theme_color">Color del tèma</string>
     <string name="settings_locale">Lenga</string>
+    <string name="noGiftCardsGroup">Creatz de cartas puèi ligatz-las al grop aicí.</string>
 </resources>

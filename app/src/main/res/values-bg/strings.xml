@@ -268,4 +268,12 @@
     <string name="anyDate">Без значение от датата</string>
     <string name="validFromSentence">Валидна от: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Определена дата</string>
+    <string name="height">Височина:</string>
+    <string name="switchToFrontImage">Показване на предната страна</string>
+    <string name="switchToBackImage">Показване на задната страна</string>
+    <string name="switchToBarcode">Показване на щрихкода</string>
+    <string name="openImageInGallery">Отваряне на изображението в приложението галерия</string>
+    <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложението галерия</string>
+    <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
+    <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
 </resources>

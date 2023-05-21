@@ -1,0 +1,5 @@
+- Kártyaklónozási funkció hozzáadása
+- Az 1970 előtti lejárat kiválasztásának letiltása (egyébként sem működött)
+- Kártyák archiválásának támogatása
+- Törlés áthelyezése a szerkesztéstől a megtekintéshez
+- Forgatási zárolási ikon eltávolítása, felváltja az új forgatási zárolási beállítás

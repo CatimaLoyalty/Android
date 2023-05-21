@@ -1,0 +1,3 @@
+- 点击条形码现在可以把它移到屏幕的顶部(#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- 在条码周围增加白色空间，以改善黑暗模式下的扫描(#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- 修复互换的导入按钮。(#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

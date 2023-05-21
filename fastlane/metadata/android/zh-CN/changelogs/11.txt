@@ -1,0 +1,5 @@
+- 编辑卡ID时，预先填入现有的ID开始。(pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- 限制条码的宽度，以减少内存使用和内存不足的错误。(pull #103 (https://github.com/brarcher/loyalty-card-locker/pull/103))
+- 编辑卡片时，如果一个卡片ID已经存在，将 "输入卡片"按钮改为 "编辑卡片"。(pull #104 (https://github.com/brarcher/loyalty-card-locker/pull/104))
+- 使颜色方案更柔和，与应用的图标兼容，并改变查看卡片时的布局，使之更简洁。(pull #107 (https://github.com/brarcher/loyalty-card-locker/pull/107))
+- 在应用首次运行时开启介绍行引导。(pull #108 (https://github.com/brarcher/loyalty-card-locker/pull/108))

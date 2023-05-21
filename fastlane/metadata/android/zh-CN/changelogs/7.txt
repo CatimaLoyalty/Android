@@ -1,0 +1,2 @@
+- 长按卡片会出现复制卡片ID到剪贴板的选项。(pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- 导入/导出视图的后退按钮现在可以工作，将会移到主视图

@@ -1,0 +1,2 @@
+- 允许用户手动输入条码。如果用户选择手动输入条形码，将显示所有有效和支持的条形码图像的列表。然后用户可以选择符合用户要求的条码图像。issue #33 (https://github.com/brarcher/loyalty-card-locker/issues/33), pull #44 (https://github.com/brarcher/loyalty-card-locker/pull/44)
+- 解决了一些显示的条形码模糊的问题。(issue #37 (https://github.com/brarcher/loyalty-card-locker/issues/37))

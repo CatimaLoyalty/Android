@@ -1,0 +1,3 @@
+- 支持导入Voucher Vault(https://github.com/tim-smart/vouchervault/)导出的数据
+- 可选择在查看会员卡时保持屏幕开启状态
+- 可选择在查看会员卡时暂停锁定屏幕

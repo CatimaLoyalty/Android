@@ -1,0 +1,2 @@
+- 修复在Android SDK 24+上使用文件选择器导入选项会导致崩溃的问题。(pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- 新的图标和颜色方案。(pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

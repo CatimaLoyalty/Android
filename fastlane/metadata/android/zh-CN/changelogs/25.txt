@@ -1,0 +1,2 @@
+- 在查看卡片时减少页眉的空间。(pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- 禁用扫描条形码时的提示音。(pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

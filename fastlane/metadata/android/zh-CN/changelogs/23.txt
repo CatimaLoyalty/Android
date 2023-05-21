@@ -1,0 +1,3 @@
+- 在条形码的开头/结尾处增加安静的空格。(pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- 增加选项来配置商店名称字体和背景的颜色。(pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- 增加选项以调整卡片列表页和单张卡片页的字体大小。(pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

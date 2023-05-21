@@ -1,0 +1,5 @@
+- 添加的翻译
+   - 波兰语 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - 西班牙语 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - 斯洛伐克语 (pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- 更新了翻译(pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

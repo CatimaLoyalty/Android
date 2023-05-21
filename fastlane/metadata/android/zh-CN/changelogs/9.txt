@@ -1,0 +1,7 @@
+名称中的 "储物柜 "部分并不直观。为了帮助解决这个问题，betsythefc创建了一个新的应用程序图标，更好地代表了该应用程序的目的：存储使用条形码的忠诚卡。随着这个新图标的出现，应用程序的名称也被改为 "会员卡钥匙链"。
+
+其他功能/改进：
+
+- 导入/导出卡片的方式已经改变，变得更加灵活。(pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- 增加了立陶宛语的翻译。(pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- 添加了对法语的翻译。(pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

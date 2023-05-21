@@ -1,0 +1,4 @@
+- 更新翻译。(pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- 条形码渲染更新：(pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+   - 当屏幕旋转时，重新加载卡片视图活动，以便条形码图像有正确的尺寸。
+   - 在更大的空间中渲染一维条码，使其更好地填充屏幕。

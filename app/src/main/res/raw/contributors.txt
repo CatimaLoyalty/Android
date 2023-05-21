@@ -50,6 +50,7 @@ waffshappen
 Robin
 Eric
 ati3
+Balázs Meskó
 Evgeniy Khramov
 Jane Kong
 Jiri Grönroos
@@ -103,10 +104,12 @@ ce i moa
 inesre
 lgasp
 phlostically
+pokeghost
 sal0max
 Ágata Leuck
 BmBKun
 Aditya Das
+asier123123131
 Kevin Sicong Jiang
 Tomer Ben-Rachel
 Tom Sawyer
@@ -118,12 +121,12 @@ sNiXx
 Angela Enogieru
 AnimeshChatterjee1
 Ashish Yadav
-Asier
 Aya Elsaadany
 Biren
 Booc Sylvan
 Brage Nesteby Reitan
 Cap Amr Karam
+Carlo Maria Cuoghi Barbagli
 CherryMonster222
 Csaba
 Mylou53
@@ -140,7 +143,6 @@ HowITsDone
 Izzy
 Jacek
 Jacopo Gennaro Esposito
-Jasielprogramador
 Jean Mareilles
 Jean-Baptiste
 Kung-chih
@@ -177,6 +179,7 @@ Samarth Asthan
 Shailendra Maurya
 Simone Dotto
 Subhashish Anand
+Subhradeep Bera
 SziaTomi
 Mehedi Hasan
 Titas Pažereckas

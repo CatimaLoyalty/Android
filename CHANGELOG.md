@@ -4,6 +4,7 @@
 
 - Complete redesign of main and loyalty card view screens
 - Material You design for the settings screen
+- Fix crash when using "Take a photo" with disabled camera app
 
 ## v2.22.1 - 119
 

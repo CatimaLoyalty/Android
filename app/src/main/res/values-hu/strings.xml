@@ -268,4 +268,13 @@
     <string name="validFromSentence">Érvényesség kezdete: <xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">A művelethez tárolóolvasási engedély szükséges…</string>
     <string name="cameraPermissionRequired">A művelethez a kamera-hozzáférési engedély szükséges…</string>
+    <string name="height">Magasság:</string>
+    <string name="switchToFrontImage">Elölnézeti képre váltás</string>
+    <string name="switchToBackImage">Hátulnézeti képre váltás</string>
+    <string name="switchToBarcode">Vonalkódra váltás</string>
+    <string name="donate">Adományozás</string>
+    <string name="openImageInGallery">Kép megnyitása a galéria alkalmazásban</string>
+    <string name="openBackImageInGalleryApp">Hátulnézeti kép megnyitása a galéria alkalmazásban</string>
+    <string name="openFrontImageInGalleryApp">Elölnézeti kép megnyitása a galéria alkalmazásban</string>
+    <string name="setBarcodeHeight">Vonalkód magasságának megadása</string>
 </resources>

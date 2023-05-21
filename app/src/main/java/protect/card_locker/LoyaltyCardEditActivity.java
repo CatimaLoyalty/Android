@@ -1120,7 +1120,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         Uri photoURI = FileProvider.getUriForFile(LoyaltyCardEditActivity.this, BuildConfig.APPLICATION_ID, Utils.createTempFile(this, TEMP_CAMERA_IMAGE_NAME));
         mRequestedImage = type;
 
-        mPhotoTakerLauncher.launch(photoURI);
+        try {
+            mPhotoTakerLauncher.launch(photoURI);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.cameraPermissionDeniedTitle, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "No activity found to handle intent", e);
+        }
     }
 
     private void selectImageFromGallery(int type) {

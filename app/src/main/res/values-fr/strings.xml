@@ -275,4 +275,13 @@
     <string name="validFromSentence">Valide à partir de : <xliff:g>%s</xliff:g></string>
     <string name="anyDate">N’importe quelle date</string>
     <string name="chooseValidFromDate">Choisissez la date de début de validité</string>
+    <string name="height">Hauteur :</string>
+    <string name="switchToFrontImage">Passer à l\'image avant</string>
+    <string name="switchToBackImage">Passer à l\'image arrière</string>
+    <string name="switchToBarcode">Passer au code barre</string>
+    <string name="openImageInGallery">Ouvrir l\'image dans l\'application galerie</string>
+    <string name="openFrontImageInGalleryApp">Ouvrir l\'image avant dans l\'application galerie</string>
+    <string name="openBackImageInGalleryApp">Ouvrir l\'image arrière dans l\'application galerie</string>
+    <string name="setBarcodeHeight">Définir la hauteur du code-barres</string>
+    <string name="donate">Faire un don</string>
 </resources>

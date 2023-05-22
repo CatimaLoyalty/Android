@@ -1,0 +1,3 @@
+- 修复导入某些类型的损坏的CSV文件时的崩溃。(pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- 修复直接从文件系统导入备份的问题。(pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- 修复从某些类型的内容提供商导入备份的问题。(pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

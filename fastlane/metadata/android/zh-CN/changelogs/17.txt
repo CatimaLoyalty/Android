@@ -1,0 +1,2 @@
+- 增加对从启动器/主屏幕添加会员卡快捷方式的支持。(pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- 移除对从应用本身添加会员卡快捷方式的支持。这消除了对快捷方式权限的需求。(pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

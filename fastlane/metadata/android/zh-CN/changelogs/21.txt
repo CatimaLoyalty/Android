@@ -1,0 +1,2 @@
+- 改进了卡片列表的布局。(pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- 改进了查看卡片时的布局。(pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

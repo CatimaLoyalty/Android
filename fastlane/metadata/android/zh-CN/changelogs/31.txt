@@ -1,0 +1,2 @@
+- 对卡片列表进行不区分大小写的排序(pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- 添加设置以锁定所有卡片的方向(pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

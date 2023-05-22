@@ -1,0 +1,2 @@
+- 在快速访问设备控制中添加 Catima（https://developer.android.com/guide/topics/ui/device-control）。
+- 修复某些组在组管理界面不能正确显示的问题

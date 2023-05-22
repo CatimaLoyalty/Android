@@ -1,0 +1,2 @@
+- 增加对应用程序快捷方式的支持（Android 7.1+），最近使用的卡片将作为快捷方式出现。(pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- 添加一个小部件，其工作方式类似于钉住的应用快捷方式，以支持运行在Android 7.1以下的设备。（pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

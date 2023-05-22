@@ -1,0 +1,5 @@
+- 添加支持在添加或编辑卡片时在主屏幕上添加快捷方式。(pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- 删除小部件，因为它不能很好地替代快捷方式。(pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- 修复在 Android 7+ 上导出备份的问题。(pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- 在导出备份数据时报告更准确的 mime 类型。(pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
+- 修复无法编辑卡片的问题。(pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

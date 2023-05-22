@@ -1,0 +1,2 @@
+- 将最小的SDK从17减至15。(pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- 移除对传统 apache 库的使用，该库仅在单元测试中使用，但已不再需要。(pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

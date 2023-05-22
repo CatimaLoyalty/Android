@@ -1,0 +1,14 @@
+- 现在正式支持以下一维和二维条码的清单：
+   - AZTEC
+   - CODABAR
+   - CODE_39
+   - CODE_128
+   - DATA_MATRIX
+   - EAN_8
+   - EAN_13
+   - ITF
+   - PDF_417
+   - QR_CODE
+   - UPC_A
+
+- 生成的条形码更大，更容易从扫描设备上扫描

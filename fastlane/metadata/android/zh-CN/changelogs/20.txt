@@ -1,0 +1,1 @@
+- 解决了在某些安卓版本（可能是Android 5及以下版本）安装过程中的崩溃问题。(pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

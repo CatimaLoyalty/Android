@@ -1,0 +1,3 @@
+- 在显示卡片时增加屏幕旋转锁定菜单选项。如果锁定，屏幕将过渡到其 "自然 "方向，进一步的屏幕旋转将被阻止。（pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- 如果从主屏幕上选择了一个卡片但不能加载，应用程序会优雅地失败，并发布一条信息。(pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- 修复无法找到入门向导的布局ID的情况。(pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

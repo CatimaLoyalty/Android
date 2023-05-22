@@ -1,0 +1,4 @@
+- 支持导入Fidme(https://play.google.com/store/apps/details?id=fr.snapp.fidme)导出的信息
+- 允许从用户的安卓图库中存储的图片导入卡片
+- 修复多行注释的切断
+- 将隐私对话框中的 "谢谢 "文字改为 "接受"，因为华为过于迂腐了

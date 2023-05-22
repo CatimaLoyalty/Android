@@ -1,0 +1,2 @@
+- 在v0.11中的一个变化减少了条形码绘制的内存使用，但影响了条形码的尺寸。现在的改变是为了在减少内存使用的同时保持条形码的尺寸。(pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- 更新德语和法语的翻译。(pull #122 (https://github.com/brarcher/loyalty-card-locker/pull/122), pull #124 (https://github.com/brarcher/loyalty-card-locker/pull/124), pull #125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

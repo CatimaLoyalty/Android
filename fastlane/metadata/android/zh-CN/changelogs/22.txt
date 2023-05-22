@@ -1,0 +1,1 @@
+- 更改卡片视图以显示注释，允许卡片ID占用多行，并显示商店名称。(pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

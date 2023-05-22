@@ -1,0 +1,1 @@
+- 修复共享的卡片没有背景颜色的问题(#343(https://github.com/brarcher/loyalty-card-locker/pull/343))

@@ -1,0 +1,11 @@
+- 重大变化：备份格式改变, 参见 https://github.com/TheLastProject/Catima/wiki/Export-format
+- 重大变化：URL共享格式改变，参见 https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- 使得在扫描时启用或禁用手电筒成为可能
+- 增加UPC-E支持
+- 支持为每张卡片添加正面和背面照片
+- 支持导入有密码保护的压缩文件
+- 支持从Stocard（测试版）导入
+- 修复从Fidme导入的笔记中无用的空白部分
+- 支持新的Voucher Vault导出格式
+- 修复Android 4上浮动的动作按钮在其他UI元素后面的问题
+- 修复会员卡查看器应用栏的顶部边缘

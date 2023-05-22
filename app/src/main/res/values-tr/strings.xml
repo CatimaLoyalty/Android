@@ -268,4 +268,13 @@
     <string name="anyDate">Herhangi bir tarih</string>
     <string name="validFromDate">Geçerlilik başlangıcı</string>
     <string name="validFromSentence"><xliff:g>%s</xliff:g> tarihinden itibaren geçerlidir</string>
+    <string name="height">Yükseklik:</string>
+    <string name="switchToBackImage">Arka resme geç</string>
+    <string name="switchToBarcode">Barkoda geç</string>
+    <string name="openImageInGallery">Resmi galeri uygulamasında aç</string>
+    <string name="donate">Bağış yap</string>
+    <string name="switchToFrontImage">Ön resme geç</string>
+    <string name="setBarcodeHeight">Barkod yüksekliğini ayarla</string>
+    <string name="openFrontImageInGalleryApp">Ön resmi galeri uygulamasında aç</string>
+    <string name="openBackImageInGalleryApp">Arka resmi galeri uygulamasında aç</string>
 </resources>

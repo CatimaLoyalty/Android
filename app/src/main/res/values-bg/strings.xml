@@ -276,4 +276,5 @@
     <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложението галерия</string>
     <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
+    <string name="donate">Даряване</string>
 </resources>

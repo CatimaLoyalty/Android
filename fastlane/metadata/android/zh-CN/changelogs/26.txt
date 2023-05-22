@@ -1,0 +1,1 @@
+- 防止在渲染条码时耗尽应用程序的内存而导致崩溃。(pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

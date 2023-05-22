@@ -1,0 +1,2 @@
+- 可以从主屏幕上打开一个关于对话框，它提供了关于应用程序和GitHub上项目的详细信息（issue #19（https://github.com/brarcher/loyalty-card-locker/issues/19））
+- 允许从外部存储的CSV文件中导入/导出会员卡信息（issue #36（https://github.com/brarcher/loyalty-card-locker/issues/36），issue #20（https://github.com/brarcher/loyalty-card-locker/issues/20））

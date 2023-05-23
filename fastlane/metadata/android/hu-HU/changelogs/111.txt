@@ -1,0 +1,7 @@
+- Arab nyelvi támogatás
+- Archivált kártyák számának megjelenítése a csoportáttekintőben
+- Egyenlegértelmezési hibák javítása (Az arab, vagy a más nyelvű, nem nyugati számokat használó kártyák nem voltak menthetők)
+- A főképernyőn nem helyesen voltak alkalmazva az egyéni témák
+- A kiválasztott kártyák megjelenésének finomítása
+- A jobbról balra írt kártyák esetén történő összeomlás javítása
+- A jobbról balra irányú elrendezés esetén hibás irányba mutató vissza nyíl javítása

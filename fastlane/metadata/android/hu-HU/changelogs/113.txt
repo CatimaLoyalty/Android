@@ -1,0 +1,3 @@
+- Előző és következő gombok hozzáadása a hűségkártya nézethez
+- Előtérszín javítása a szerkesztés gombon
+- A floppy lemezt használó mentés ikon lecserélése egy pipára

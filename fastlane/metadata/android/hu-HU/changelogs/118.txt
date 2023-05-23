@@ -1,0 +1,2 @@
+- A kártya érvényességének beállításának támogatása
+- A Stocard importálás javítása (a Stocard exportálási formátuma megváltozott)

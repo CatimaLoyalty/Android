@@ -275,4 +275,13 @@
     <string name="anyDate">Jakékoliv datum</string>
     <string name="chooseValidFromDate">Vyberte datum počátku platnosti</string>
     <string name="validFromSentence">Platnost od: <xliff:g>%s</xliff:g></string>
+    <string name="height">Výška:</string>
+    <string name="switchToFrontImage">Přepnout na přední obrázek</string>
+    <string name="switchToBackImage">Přepnout na zadní obrázek</string>
+    <string name="switchToBarcode">Přepnout na čárový kód</string>
+    <string name="openFrontImageInGalleryApp">Otevřít přední obrázek v galerii</string>
+    <string name="openImageInGallery">Otevřít obrázek v galerii</string>
+    <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
+    <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
+    <string name="donate">Přispět</string>
 </resources>

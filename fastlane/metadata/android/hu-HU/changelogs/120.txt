@@ -1,0 +1,3 @@
+- A fő képernyő és a hűségkártya nézet teljes újratervezése
+- Material You dizájn a beállítási képernyőn
+- A tiltott kamera alkalmazás esetén, a „Fénykép készítése” lehetőségnél fellépő összeomlás javítása

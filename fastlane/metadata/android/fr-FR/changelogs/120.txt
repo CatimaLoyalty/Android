@@ -1,0 +1,3 @@
+- Refonte complète des écrans de visualisation de la carte principale et de la carte de fidélité
+- Design Material You pour l'écran des paramètres
+- Correction du crash lors de l'utilisation de "Prendre une photo" avec l'application de caméra désactivée

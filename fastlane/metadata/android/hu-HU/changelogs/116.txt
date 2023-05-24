@@ -1,0 +1,2 @@
+- A gyors költési párbeszédablak nem támogatta a , elválasztót
+- A fájlkezelőből történő képbetöltés támogatása

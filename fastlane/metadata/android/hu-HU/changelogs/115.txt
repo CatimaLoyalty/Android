@@ -1,0 +1,4 @@
+- Kép megnyitása a galériában hosszú lenyomásra
+- Material stílus alkalmazása az a párbeszédablakokra
+- Kártyák létrehozásának támogatása a kép a Catimával történő megosztásával
+- Gyors költés gomb hozzáadása a kártya kéőernyőhöz

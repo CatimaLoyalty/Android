@@ -279,4 +279,9 @@
     <string name="switchToFrontImage">Passa all\'immagine frontale</string>
     <string name="switchToBackImage">Passa all\'immagine dietro</string>
     <string name="switchToBarcode">Passa al codice a barre</string>
+    <string name="openFrontImageInGalleryApp">Apri l\'immagine frontale nell\'app Galleria</string>
+    <string name="donate">Dona</string>
+    <string name="openImageInGallery">Apri l\'immagine nell\'app Galleria</string>
+    <string name="openBackImageInGalleryApp">Apri l\'immagine posteriore nell\'app Galleria</string>
+    <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
 </resources>

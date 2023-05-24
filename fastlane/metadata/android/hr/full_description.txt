@@ -1,0 +1,22 @@
+Prestani tražiti plastične kartice tijekom plaćanju u trgovini ili webshopu.
+<b>Snimi crtični kod na svoj uređaj pomoću kamere, zaboravi kartice.</b>
+
+Zaboravi novčanik ili ga koristi samo za dragocjenosti.
+
+S ovim osnovnim alatom za svakodnevne potrebe (EDC) možeš zamijeniti beskorisnu plastiku s gotovinom.
+
+- Izbjegni špijuniranja s vrlo malim brojem dozvola. Bez pristupa internetu i bez oglasa.
+- Dodaj kartice ili kodove s imenima i prilagodljivim bojama.
+- Ručni unos koda ako ne postoji crtični kod za spremanje ili ako se ne može koristiti.
+- Uvoz kartica i kodova iz datoteka, Catima, FidMe, Loyalty Card Keychain, Stocard i Vaucher Vault.
+- Spremi sigurnosnu kopiju svih tvojih kartica i prenesi ih na novi uređaj ako želiš.
+- Dijeli kupone, ekskluzivne ponude, promotivne kodove ili kartice i kodove pomoću bilo koje aplikacije.
+- Tamna tema i opcije pristupačnosti za slabovidne korisnike.
+- Stvoreno za svakoga od zajednice libre softvera.
+- Prevedeno na više od 20 jezika.
+- Besplatna aplikacija, podržana doprinosima zajednice.
+- Koristi, proučavaj, mijenjaj i dijeli kako želiš; <i>sa svima</i>.
+- Ne samo slobodan softver/softver otvorenog koda. <i>Copylefted</i> libre softver (GPLv3+) za upravljanje karticama.
+
+Olakšaj si život i kupovinu te više nikada nemoj izgubiti papirnati račun, darovnu karticu za plaćanje u trgovini ili avionsku kartu.
+Ponesi sve svoje nagrade i bonuse sa sobom i uštedi.

@@ -1,2 +1,2 @@
-- 0.11-ben lecsökkentve a memória használat, cserébe csökkent a megjelenített karaktere száma is. (pull #126)
-- Francia és német fordítások frissítése. (pull #122, pull #124, pull #125)
+- A v0.11-ben lecsökkent a vonalkódrajzolás memóriahasználata, de ez érintette a vonalkód méretét. Most már megtartja a méretet, miközben csökkenti a memóriahasználatot. (pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- A francia és német fordítások frissítése. (pull #122 (https://github.com/brarcher/loyalty-card-locker/pull/122), pull #124 (https://github.com/brarcher/loyalty-card-locker/pull/124), pull #125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

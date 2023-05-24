@@ -1,0 +1,2 @@
+- Alkalmazásindítók támogatása (Android 7.1+), ahol a legutóbb használt kártyák jelennek meg indítóként. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Modul hozzáadása, amely úgy működik mint egy rögzített indító, hogy támogassa az Android 7.1-nél régebbi verziót futtató eszközöket. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

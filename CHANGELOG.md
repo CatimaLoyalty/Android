@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 121
+
+- Update used libraries
+
 ## v2.23.0 - 120
 
 - Complete redesign of main and loyalty card view screens

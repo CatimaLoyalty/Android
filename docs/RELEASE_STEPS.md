@@ -1,4 +1,4 @@
-**This documentation is for maintainers. If you're an user, please ignore it.**
+**This documentation is for maintainers. If you're a user, please ignore it.**
 
 # When releasing, do the following:
 1. Press "Commit" and "Push" on Weblate to ensure all translations are up to date

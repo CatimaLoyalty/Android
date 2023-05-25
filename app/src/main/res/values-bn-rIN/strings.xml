@@ -21,7 +21,6 @@
     <string name="intent_import_card_from_url_share_text">url শেয়ার টেক্সট থেকে ইন্টেন্ট ইম্পোর্ট কার্ড</string>
     <string name="settings_disable_lockscreen_while_viewing_card">স্ক্রীন লক হতে দেবেন না</string>
     <string name="settings_keep_screen_on">সেটিংস পর্দা খোলা রাখুন</string>
-    <string name="settings_max_font_size_scale">সর্বোচ্চ হরফ আকার</string>
     <string name="settings_light_theme">সাদাটে থিম</string>
     <string name="settings_system_theme">যন্ত্রর থিম</string>
     <string name="settings_theme">থিম</string>
@@ -65,7 +64,6 @@
     <string name="settings_green_theme">সবুজ থিম</string>
     <string name="settings_brown_theme">বাদামী থিম</string>
     <string name="sort">সাজান</string>
-    <string name="swipeToSwitchImages">ছবি পাল্টানোর জন্য সোয়াইপ করুন, ছবিটি গ্যালারি অ্যাপে খোলার জন্য টিপে ধড়ে থাকুন</string>
     <string name="sort_by_name">নামের দ্বারা সাজান</string>
     <string name="sort_by_most_recently_used">সর্বাধিক সম্প্রতি ব্যবহৃত দ্বারা সাজান</string>
     <string name="sort_by_expiry">মেয়াদ শেষ করে সাজান</string>
@@ -96,7 +94,6 @@
     <string name="importOptionApplicationButton">অন্য অ্যাপ ব্যাবহার করুন</string>
     <string name="moveUp">উপরে উঠান</string>
     <string name="moveDown">নিচে নামান</string>
-    <string name="barcode">বারকোড</string>
     <string name="expiryDate">মেয়াদোত্তীর্ণ তারিখ</string>
     <string name="noBarcodeFound">কোনো বারকোড পাওয়া যায়নি</string>
     <string name="cameraPermissionRequired">এই কাজটির জন্য ক্যামেরা ব্যবহার করার অনুমতি লাগবে…</string>
@@ -121,7 +118,6 @@
     <string name="importOptionFilesystemExplanation">ফোনের স্টোরেজ থেকে নির্দিষ্ট একটি ফাইল আনুন।</string>
     <string name="app_libraries">মুক্ত লাইব্রেরি যেগুলি আমার নয়: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g>টির ব্যাপারে</string>
-    <string name="app_revision_fmt">সংশোধন তথ্য: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_resources">মুক্ত সম্পদ যেগুলি আমার নয়: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="thumbnailDescription">থাম্বনেইল</string>
     <string name="settings_card_orientation">বারকোড অভিমুখ</string>
@@ -185,7 +181,6 @@
     <string name="balanceSentence">ব্যালেন্স: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">মেয়াদ শেষ হওয়ার তারিখ মনোনীত করুন</string>
     <string name="moveBarcodeToTopOfScreen">বারকোডটি স্ক্রিনের উপরে উঠিয়ে দিন</string>
-    <string name="moveBarcodeToCenterOfScreen">বারকোডটি স্ক্রিনের কেন্দ্রে সরিয়ে দিন</string>
     <string name="errorReadingImage">ছবিটি স্ক্যান করা যাচ্ছে না</string>
     <string name="privacy_policy_popup_text">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি নোটিশ (কিছু অ্যাপ স্টোরের এটি লাগে):
 \n
@@ -224,9 +219,7 @@
     <string name="help_translate_this_app">এই অ্যাপটি অনুবাদ করতে সাহায্য করুন</string>
     <string name="showMoreInfo">তথ্য দেখান</string>
     <string name="app_contributors">এর দ্বারা সম্ভব হয়েছে: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="hideMoreInfo">তথ্য লুকান</string>
     <string name="importCards">কার্ড আমদানি করুন</string>
-    <string name="sort_by_balance">ব্যালান্স</string>
     <string name="importFidmeMessage">FidMe থেকে আমদানি করতে আপনার <i>fidme-export-request-xxxxxx.zip</i> রপ্তানি নির্বাচন করুন এবং পরে বারকোডের ধরন ম্যানুয়ালি নির্বাচন করুন।
 \nআপনার FidMe প্রোফাইল থেকে ডেটা সুরক্ষা নির্বাচন করে এবং তারপর প্রথমে আমার ডেটা বের করুন টিপে এটি তৈরি করুন।</string>
     <string name="importCatimaMessage">ক্যাটিমা থেকে আমদানি করতে আপনার <i>catima.zip</i> রপ্তানি নির্বাচন করুন।
@@ -247,7 +240,6 @@
     <string name="shortcutSelectCard">একটি কার্ড নির্বাচন করুন</string>
     <string name="options">অপশন</string>
     <string name="starred">তারকাচিহ্নিত</string>
-    <string name="set_scale">স্কেল সেট করুন</string>
     <string name="duplicateCard">নকল</string>
     <string name="include_if_asking_support">আপনি যদি সমর্থনের জন্য অনুরোধ করতে চান তবে নিম্নলিখিত তথ্যগুলি অন্তর্ভুক্ত করুন:</string>
     <string name="importFidme">FidMe থেকে আমদানি করুন</string>

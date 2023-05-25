@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="barcode">Código de barras</string>
     <string name="ok">OK</string>
     <string name="barcodeNoBarcode">No hay código de barra</string>
     <string name="storeName">Nombre</string>

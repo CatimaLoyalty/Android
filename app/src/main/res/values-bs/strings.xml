@@ -21,7 +21,6 @@
     <string name="intent_import_card_from_url_share_text">Želim podijeliti čestitku s tobom</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spriječi zaključavanje ekrana</string>
     <string name="settings_keep_screen_on">Zadrži ekran</string>
-    <string name="settings_max_font_size_scale">Max. veliäťina fonta</string>
     <string name="settings_light_theme">Svjetlo</string>
     <string name="settings_system_theme">Sistem</string>
     <string name="settings_theme">Tema</string>
@@ -65,7 +64,6 @@
     <string name="settings_green_theme">Zeleno</string>
     <string name="settings_brown_theme">Braun</string>
     <string name="sort">Poništi sortiranje</string>
-    <string name="swipeToSwitchImages">Swipe ili long press za prebacivanje slika</string>
     <string name="sort_by_name">Ime</string>
     <string name="sort_by_most_recently_used">Nedavno Korišten</string>
     <string name="sort_by_expiry">Sajam</string>

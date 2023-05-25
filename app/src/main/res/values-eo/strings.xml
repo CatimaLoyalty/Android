@@ -31,7 +31,6 @@
     <string name="points">Poentoj</string>
     <string name="currency">Valuto</string>
     <string name="editBarcode">Redakti strekokodon</string>
-    <string name="barcode">Strekokodo</string>
     <string name="card">Karto</string>
     <string name="never">Neniam</string>
     <string name="groupsList">Grupoj: <xliff:g>%s</xliff:g></string>
@@ -53,7 +52,6 @@
     <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
     <string name="deleteTitle">Forigi karton</string>
     <string name="settings_display_barcode_max_brightness">Heligi barcode vido</string>
-    <string name="settings_max_font_size_scale">Max. tiparo grandeco</string>
     <string name="starImage">Preferata stelo</string>
     <string name="thumbnailDescription">Bildeto por karto</string>
     <string name="app_copyright_old">Bazita sur Lojaleco Karto Keychain

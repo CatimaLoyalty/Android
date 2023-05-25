@@ -82,7 +82,6 @@
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revision Info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Select Barcode</string>
@@ -111,7 +110,6 @@
     <string name="settings_lock_on_opening_orientation">Lock to orientation used when opening the card</string>
     <string name="settings_key_lock_on_opening_orientation" translatable="false">lock_on_opening</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
-    <string name="settings_max_font_size_scale">Max. font size</string>
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_keep_screen_on">Keep screen on</string>
@@ -166,13 +164,11 @@
         <item quantity="other"><xliff:g>%s</xliff:g> points</item>
     </plurals>
     <string name="card">Card</string>
-    <string name="barcode">Barcode</string>
     <string name="editBarcode">Edit barcode</string>
     <string name="expiryDate">Expiry date</string>
     <string name="never">Never</string>
     <string name="chooseExpiryDate">Choose expiry date</string>
     <string name="moveBarcodeToTopOfScreen">Move the barcode to the top of the screen</string>
-    <string name="moveBarcodeToCenterOfScreen">Center the barcode on the screen</string>
     <string name="noBarcodeFound">No barcode was found</string>
     <string name="errorReadingImage">Could not read the image</string>
     <string name="balance">Balance</string>
@@ -252,15 +248,12 @@
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
-    <string name="hideMoreInfo">Hide info</string>
     <string name="updateBalance">Update balance</string>
-    <string name="swipeToSwitchImages">Swipe to switch images, hold to open image in the gallery app</string>
     <string name="failedToRetrieveImageFile">Failed to retrieve image file</string>
     <string name="barcodeLongPressMessage">Only images can be opened in the gallery app</string>
     <string name="sort_by_name">Name</string>
     <string name="sort_by_most_recently_used">Most Recently Used</string>
     <string name="sort_by_expiry">Expiry</string>
-    <string name="sort_by_balance">Balance</string>
     <!-- \"Reversed order\" is also OK. This is an option in the card sorting list -->
     <string name="reverse">…in reversed order</string>
     <string name="sort_by">Sort by</string>
@@ -281,7 +274,6 @@
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
     <string name="starred">Starred</string>
-    <string name="set_scale">Set scale</string>
     <string name="include_if_asking_support">If you want to request support, include the following info:</string>
     <string name="duplicateCard">Duplicate</string>
     <string name="archive">Archive</string>
@@ -317,7 +309,6 @@
     <string name="switchToFrontImage">Switch to front image</string>
     <string name="switchToBackImage">Switch to back image</string>
     <string name="switchToBarcode">Switch to barcode</string>
-    <string name="openImageInGallery">Open image in gallery app</string>
     <string name="openFrontImageInGalleryApp">Open front image in gallery app</string>
     <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
     <string name="setBarcodeHeight">Set barcode height</string>

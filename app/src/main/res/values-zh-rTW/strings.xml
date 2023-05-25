@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_revision_url">https://github.com/CatimaLoyalty/Android/releases</string>
     <string name="action_search">搜尋</string>
     <string name="action_add">新增</string>
     <string name="noGiftCards">點選 + 按鈕以新增卡片，或從 ⋮ 選單中匯入。</string>
@@ -32,7 +31,6 @@
     <string name="balance">餘額</string>
     <string name="balanceSentence">餘額: <xliff:g>%s</xliff:g></string>
     <string name="app_copyright_old">基於 Loyalty Card Keychain\n著作權所有 © 2016–2020 Branden Archer</string>
-    <string name="barcode">條碼</string>
     <string name="barcodeId">條碼內容</string>
     <string name="barcodeImageDescriptionWithType">圖片為 <xliff:g>%s</xliff:g> 的條碼</string>
     <string name="card">卡片</string>
@@ -101,7 +99,6 @@
     <string name="sort_by_name">名稱</string>
     <string name="sort_by_most_recently_used">最近使用</string>
     <string name="sort_by_expiry">逾期日期</string>
-    <string name="sort_by_balance">餘額</string>
     <string name="reverse">...以反序排列</string>
     <string name="sort_by">排列方式</string>
     <string name="version_history">版本歷史</string>
@@ -147,7 +144,6 @@
     <string name="thumbnailDescription">縮圖</string>
     <string name="noGroupCards">此群組為空</string>
     <string name="settings_category_title_ui">用戶界面</string>
-    <string name="settings_max_font_size_scale">最大字體大小</string>
     <string name="settings_light_theme">淺色</string>
     <string name="settings_dark_theme">深色</string>
     <string name="settings_display_barcode_max_brightness">調高條碼介面螢幕亮度</string>
@@ -185,24 +181,20 @@
 \n您可透過其他裝置的 Catima 程式中的匯入/匯出選單進行匯出。</string>
     <string name="points">點</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 似乎不是個可用的餘額數值。</string>
-    <string name="app_revision_fmt">修訂版本資訊：<xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">第三方自由函示庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">選擇條碼</string>
     <string name="noGroups">請點選 + 加號按鈕新增群組。</string>
     <string name="moveBarcodeToTopOfScreen">將條碼移至螢幕上方</string>
-    <string name="moveBarcodeToCenterOfScreen">將條碼移至螢幕中央</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="unsupportedBarcodeType">尚支援此條碼種類，但未來版本的應用程式可能會支援此條碼種類。</string>
     <string name="wrongValueForBarcodeType">條碼內容不適用於此條碼種類</string>
     <string name="backImageDescription">背面圖片</string>
     <string name="updateBarcodeQuestionText">您已更新了 ID，是否要更新條碼內容以匹配此 ID？</string>
     <string name="failedGeneratingShareURL">無法建立可分享的 URL，請回報此錯誤。</string>
-    <string name="swipeToSwitchImages">滑動切換圖片，長按檢視圖片</string>
     <string name="starImage">收藏標示</string>
     <string name="noGiftCardsGroup">建立一些卡片，然後將它們分配到這個群組中。</string>
     <string name="showMoreInfo">顯示資訊</string>
-    <string name="hideMoreInfo">隱藏資訊</string>
     <string name="action_show_details">顯示詳情</string>
     <string name="shortcutSelectCard">選擇卡片</string>
     <string name="starred">已收藏</string>
@@ -220,7 +212,6 @@
     <string name="action_hide_details">隱藏詳情</string>
     <string name="translate_platform">於 Weblate</string>
     <string name="options">選項</string>
-    <string name="set_scale">設定大小</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
     <string name="settings_card_orientation">條碼方向</string>
     <string name="failedToRetrieveImageFile">無法擷取圖片檔案</string>

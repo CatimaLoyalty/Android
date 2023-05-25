@@ -49,7 +49,6 @@
     <string name="app_license">Авторское лево свободного программного обеспечения, лицензия GPLv3+</string>
     <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Информация о версиях: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
     <string name="enterBarcodeInstructions">Введите номер и выберите тип штрих-кода (или выберите \"Нет штрих-кода\").</string>
     <string name="copy_to_clipboard_toast">Номер скопирован в буфер обмена</string>
@@ -92,13 +91,11 @@
     <string name="chooseImportType">Откуда импортировать данные</string>
     <string name="balance">Баланс</string>
     <string name="moveBarcodeToTopOfScreen">Переместить штрих-код в верхнюю часть экрана</string>
-    <string name="moveBarcodeToCenterOfScreen">Центрировать штрих-код на экране</string>
     <string name="currency">Валюта</string>
     <string name="chooseExpiryDate">Выбор срока действия</string>
     <string name="never">Никогда</string>
     <string name="expiryDate">Срок действия</string>
     <string name="editBarcode">Изменить штрих-код</string>
-    <string name="barcode">Штрих-код</string>
     <string name="card">Карта</string>
     <string name="groupsList">Группы: <xliff:g>%s</xliff:g></string>
     <string name="moveDown">Переместить ниже</string>
@@ -130,7 +127,6 @@
     <string name="setBarcodeId">Указать значение</string>
     <string name="sameAsCardId">Как номер</string>
     <string name="barcodeId">Значение штрих-кода</string>
-    <string name="settings_max_font_size_scale">Максимальный размер шрифта</string>
     <string name="unsupportedBarcodeType">В настоящее время данный тип штрих-кодов не отображается. Его поддержка может быть добавлена в следующих версиях приложения.</string>
     <string name="wrongValueForBarcodeType">Недопустимое значение для выбранного типа штрих-кода</string>
     <string name="app_resources">Свободные сторонние ресурсы: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -192,11 +188,9 @@
     <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Группа пуста</string>
     <string name="barcodeImageDescriptionWithType">Изображение штрих-кода <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Смахивание переключает изображения, долгое нажатие открывает в приложении галереи</string>
     <string name="sort_by_expiry">Срок действия</string>
     <string name="sort_by">Сортировать по</string>
     <string name="reverse">…в обратном порядке</string>
-    <string name="sort_by_balance">Баланс</string>
     <string name="sort_by_most_recently_used">Частота использования</string>
     <string name="sort_by_name">Название</string>
     <string name="sort">Сортировка</string>
@@ -225,8 +219,6 @@
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Выбор карты</string>
     <string name="options">Параметры</string>
-    <string name="set_scale">Выбор масштаба</string>
-    <string name="hideMoreInfo">Скрыть данные</string>
     <string name="showMoreInfo">Показать данные</string>
     <string name="starred">Избранное</string>
     <plurals name="balancePoints">
@@ -287,7 +279,6 @@
     <string name="switchToBarcode">Переключить на штрих-код</string>
     <string name="switchToFrontImage">Переключить на лицевую сторону</string>
     <string name="switchToBackImage">Переключить на заднюю сторону</string>
-    <string name="openImageInGallery">Открыть изображение в приложении галереи</string>
     <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении галереи</string>
     <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении галереи</string>
     <string name="donate">Пожертвовать</string>

@@ -46,7 +46,6 @@
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revisionsinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode auswählen</string>
     <string name="copy_to_clipboard_toast">ID in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild</string>
@@ -93,13 +92,11 @@
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
     <string name="balance">Guthaben</string>
-    <string name="moveBarcodeToCenterOfScreen">Barcode auf dem Bildschirm zentrieren</string>
     <string name="moveBarcodeToTopOfScreen">Barcode auf dem Bildschirm oben fixieren</string>
     <string name="chooseExpiryDate">Ablaufdatum wählen</string>
     <string name="never">Nie</string>
     <string name="expiryDate">Ablaufdatum</string>
     <string name="editBarcode">Barcode ändern</string>
-    <string name="barcode">Strichcode</string>
     <string name="card">Karte</string>
     <string name="balanceSentence">Guthaben: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Abgelaufen: <xliff:g>%s</xliff:g></string>
@@ -129,7 +126,6 @@
     <string name="errorReadingImage">Bildverarbeitung fehlgeschlagen</string>
     <string name="noBarcodeFound">Kein Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
-    <string name="settings_max_font_size_scale">Maximale Schriftgröße</string>
     <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -184,9 +180,7 @@
     <string name="settings_theme_color">Designfarbe</string>
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
-    <string name="swipeToSwitchImages">Wischen zum Wechseln der Bilder, Halten zum Öffnen des Bildes in der Galerie</string>
     <string name="sort_by">Sortieren nach</string>
-    <string name="sort_by_balance">Kontostand</string>
     <string name="sort_by_expiry">Ablaufdatum</string>
     <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
     <string name="sort_by_name">Name</string>
@@ -217,8 +211,6 @@
     <string name="translate_platform">auf Weblate</string>
     <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
     <string name="options">Optionen</string>
-    <string name="hideMoreInfo">Infos ausblenden</string>
-    <string name="set_scale">Größe festlegen</string>
     <string name="showMoreInfo">Infos anzeigen</string>
     <string name="starred">als Favorit</string>
     <plurals name="balancePoints">

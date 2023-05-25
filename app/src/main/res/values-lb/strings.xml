@@ -73,7 +73,6 @@
     <string name="settings_dark_theme">Donkel</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Bildschierm spären verhënneren</string>
     <string name="settings_light_theme">Liicht</string>
-    <string name="settings_max_font_size_scale">Max. Schrëftgréisst</string>
     <string name="settings_keep_screen_on">Hale Si op Bildschierm</string>
     <string name="importSuccessful">Kartendaten anere sproochen</string>
     <string name="exportSuccessful">Exportierte Kartendaten</string>

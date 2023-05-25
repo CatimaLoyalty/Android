@@ -42,7 +42,6 @@
     <string name="app_license">Logiciel libre à copyleft, sous licence GPLv3+</string>
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Notes de version : <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
     <string name="copy_to_clipboard_toast">Identifiant copié dans le presse-papiers</string>
     <string name="thumbnailDescription">Miniature</string>
@@ -98,13 +97,11 @@
     <string name="points">Points</string>
     <string name="currency">Devise</string>
     <string name="balance">Solde</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrer le code-barres sur l’écran</string>
     <string name="moveBarcodeToTopOfScreen">Déplacez le code-barres vers le haut de l’écran</string>
     <string name="chooseExpiryDate">Choisissez la date d’expiration</string>
     <string name="never">Jamais</string>
     <string name="expiryDate">Date d’expiration</string>
     <string name="editBarcode">Modifier le code-barres</string>
-    <string name="barcode">Code-barres</string>
     <string name="card">Carte</string>
     <string name="balanceSentence">Solde : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expiré : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
@@ -129,7 +126,6 @@
     <string name="setBarcodeId">Définir la valeur du code-barres</string>
     <string name="sameAsCardId">Identique à l’identifiant</string>
     <string name="barcodeId">Valeur du code-barres</string>
-    <string name="settings_max_font_size_scale">Taille max. de la police</string>
     <string name="unsupportedBarcodeType">Ce type de code-barres ne peut pas encore être affiché. Il sera peut-être pris en charge dans une version ultérieure de l’application.</string>
     <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -188,14 +184,12 @@
     <string name="app_contributors">Rendu possible par : <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Ce groupe est vide</string>
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> code-barres</string>
-    <string name="swipeToSwitchImages">Balayez pour changer d’image, maintenez appuyé pour ouvrir l’image dans la galerie</string>
     <string name="sort">Trier</string>
     <string name="sort_by">Trier par</string>
     <string name="reverse">… dans l’ordre inverse</string>
     <string name="sort_by_expiry">Date d’expiration</string>
     <string name="sort_by_most_recently_used">Les plus récemment utilisées</string>
     <string name="sort_by_name">Nom</string>
-    <string name="sort_by_balance">Solde</string>
     <string name="report_error">Signaler une erreur</string>
     <string name="on_google_play">sur Google Play</string>
     <string name="rate_this_app">Notez cette appli</string>
@@ -222,9 +216,7 @@
     <string name="shortcutSelectCard">Sélectionnez une carte</string>
     <string name="options">Options</string>
     <string name="starred">En favori</string>
-    <string name="set_scale">Définir une échelle</string>
     <string name="showMoreInfo">Afficher les infos</string>
-    <string name="hideMoreInfo">Masquer les infos</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> point</item>
         <item quantity="many"><xliff:g>%s</xliff:g> points</item>
@@ -279,7 +271,6 @@
     <string name="switchToFrontImage">Passer à l\'image avant</string>
     <string name="switchToBackImage">Passer à l\'image arrière</string>
     <string name="switchToBarcode">Passer au code barre</string>
-    <string name="openImageInGallery">Ouvrir l\'image dans l\'application galerie</string>
     <string name="openFrontImageInGalleryApp">Ouvrir l\'image avant dans l\'application galerie</string>
     <string name="openBackImageInGalleryApp">Ouvrir l\'image arrière dans l\'application galerie</string>
     <string name="setBarcodeHeight">Définir la hauteur du code-barres</string>

@@ -39,18 +39,15 @@
     <string name="app_license">Copyleftovaný svobodný software s licencí GPLv3+</string>
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informace o revizi: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
     <string name="copy_to_clipboard_toast">ID zkopírováno do schránky</string>
     <string name="deleteTitle">Smazat kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto kartu\?</string>
-    <string name="moveBarcodeToCenterOfScreen">Vycentrovat čárový kód na obrazovce</string>
     <string name="moveBarcodeToTopOfScreen">Přesunout čárový kód do horní části obrazovky</string>
     <string name="chooseExpiryDate">Zvolte datum vypršení platnosti</string>
     <string name="never">Nikdy</string>
     <string name="expiryDate">Vypršení platnosti</string>
     <string name="editBarcode">Upravit čárový kód</string>
-    <string name="barcode">Kód</string>
     <string name="app_resources">Svobodné zdroje třetích stran: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Svobodné knihovny třetích stran: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Založeno na Loyalty Card Keychain
@@ -84,7 +81,6 @@
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Bránit uzamykání obrazovky</string>
     <string name="settings_keep_screen_on">Udržovat obrazovku zapnutou</string>
-    <string name="settings_max_font_size_scale">Maximální velikost písma</string>
     <string name="settings_dark_theme">Tmavý</string>
     <string name="settings_light_theme">Světlý</string>
     <string name="settings_system_theme">Podle systému</string>
@@ -189,11 +185,9 @@
     <string name="noGroupCards">Tato skupina je prázdná</string>
     <string name="sort_by">Seřadit podle</string>
     <string name="reverse">…v obráceném pořadí</string>
-    <string name="sort_by_balance">Zůstatek</string>
     <string name="sort_by_expiry">Vypršení</string>
     <string name="sort_by_most_recently_used">Naposledy použité</string>
     <string name="sort_by_name">Název</string>
-    <string name="swipeToSwitchImages">Přejetím přepínáte obrázky, dlouhým stisknutím otevřete obrázek v aplikaci pro galerii</string>
     <string name="sort">Seřadit</string>
     <string name="barcodeImageDescriptionWithType">Obrázek čárového kódu <xliff:g>%s</xliff:g></string>
     <string name="version_history">Historie verzí</string>
@@ -221,9 +215,7 @@
     <string name="action_hide_details">Skrýt detaily</string>
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobrazit podrobnosti</string>
-    <string name="hideMoreInfo">Skrýt podrobnosti</string>
     <string name="starred">S hvězdičkou</string>
-    <string name="set_scale">Nastavení měřítka</string>
     <string name="options">Volby</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> bod</item>
@@ -280,7 +272,6 @@
     <string name="switchToBackImage">Přepnout na zadní obrázek</string>
     <string name="switchToBarcode">Přepnout na čárový kód</string>
     <string name="openFrontImageInGalleryApp">Otevřít přední obrázek v galerii</string>
-    <string name="openImageInGallery">Otevřít obrázek v galerii</string>
     <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
     <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
     <string name="donate">Přispět</string>

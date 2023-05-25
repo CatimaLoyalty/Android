@@ -27,7 +27,6 @@
     <string name="app_license">Copylefted laisvoji programinė įranga, licencijuota GPLv3+</string>
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revizijos info: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
     <string name="copy_to_clipboard_toast">ID nukopijuota į iškarpinę</string>
     <string name="card_ids_copied">Nukopijuoti ID</string>
@@ -49,7 +48,6 @@
     <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
     <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
     <string name="parsingBalanceFailed">Panašu, kad <xliff:g> %s </xliff:g> reikšmė nėra tinkama.</string>
-    <string name="moveBarcodeToCenterOfScreen">Centruoti brūkšninį kodą ekrane</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
     <string name="settings_display_barcode_max_brightness">Šviesinti brūkšninio kodo rodinį</string>
     <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>
@@ -99,7 +97,6 @@
     <string name="never">Niekada</string>
     <string name="expiryDate">Galiojimo data</string>
     <string name="editBarcode">Redaguoti brūkšninį kodą</string>
-    <string name="barcode">Brūkšninis kodas</string>
     <string name="card">Kortelė</string>
     <string name="balanceSentence">Balansas: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Galiojimas baigėsi: <xliff:g>%s</xliff:g></string>
@@ -127,7 +124,6 @@
     <string name="intent_import_card_from_url_share_text">Noriu pasidalyti su jumis kortele</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Neleisti užrakinti ekrano</string>
     <string name="settings_keep_screen_on">Laikyti ekraną įjungtą</string>
-    <string name="settings_max_font_size_scale">Didžiausias šrifto dydis</string>
     <string name="settings_dark_theme">Tamsi</string>
     <string name="settings_light_theme">Šviesi</string>
     <string name="settings_system_theme">Sistemos</string>
@@ -188,10 +184,8 @@
     <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Grupėje yra tuščia</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> brūkšninio kodo vaizdas</string>
-    <string name="swipeToSwitchImages">Braukite, kad perjungtumėte vaizdus, palaikykite, kad atvertumėte vaizdą galerijos programėlėje</string>
     <string name="sort_by">Rikiuoti pagal</string>
     <string name="reverse">…atvirkštine tvarka</string>
-    <string name="sort_by_balance">Balansas</string>
     <string name="sort_by_expiry">Galiojimo pabaiga</string>
     <string name="sort_by_most_recently_used">Vėliausiai naudota</string>
     <string name="sort_by_name">Pavadinimas</string>
@@ -234,8 +228,6 @@
         <item quantity="few"><xliff:g>%1$d</xliff:g> kortelės ( archyvuotos)<xliff:g id="archivedCount">%2$d</xliff:g></item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kortelių ( archyvuotų)<xliff:g id="archivedCount">%2$d</xliff:g></item>
     </plurals>
-    <string name="set_scale">Nustatyti mastelį</string>
-    <string name="hideMoreInfo">Slėpti informaciją</string>
     <string name="updateBalance">Atnaujinti balansą</string>
     <string name="failedToRetrieveImageFile">Nepavyko gauti vaizdo failo</string>
     <string name="barcodeLongPressMessage">Galerijos programėlėje galima atidaryti tik vaizdus</string>
@@ -279,7 +271,6 @@
     <string name="validFromSentence">Galioja nuo: <xliff:g>%s</xliff:g></string>
     <string name="switchToBackImage">Perjungti į galinį vaizdą</string>
     <string name="switchToBarcode">Perjungti į brūkšninį kodą</string>
-    <string name="openImageInGallery">Atidarykite paveikslėlį galerijos programėlėje</string>
     <string name="height">Aukštis:</string>
     <string name="switchToFrontImage">Perjungti į priekinį vaizdą</string>
     <string name="openFrontImageInGalleryApp">Atidarykite priekinį vaizdą galerijos programėlėje</string>

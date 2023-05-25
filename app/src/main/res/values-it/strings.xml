@@ -47,7 +47,6 @@
     <string name="app_license">Software libero con copyleft, licenza GPLv3+</string>
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informazioni sulla revisione: <xliff:g id="app_revision_url"> %s </xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
     <string name="enterBarcodeInstructions">Inserisci il codice e scegli un tipo di codice a barre sotto oppure seleziona «Non c\'è un codice a barre».</string>
     <string name="copy_to_clipboard_toast">Codice copiato negli appunti</string>
@@ -91,13 +90,11 @@
     <string name="points">Punti</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>
-    <string name="moveBarcodeToCenterOfScreen">Centra il codice a barre sullo schermo</string>
     <string name="moveBarcodeToTopOfScreen">Sposta il codice a barre in cima allo schermo</string>
     <string name="chooseExpiryDate">Scegli data di scadenza</string>
     <string name="never">Mai</string>
     <string name="expiryDate">Data di scadenza</string>
     <string name="editBarcode">Modifica il codice a barre</string>
-    <string name="barcode">Codice a barre</string>
     <string name="card">Carta</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g>%s</xliff:g></string>
@@ -129,7 +126,6 @@
     <string name="errorReadingImage">Impossibile leggere l\'immagine</string>
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
     <string name="addFromImage">Seleziona immagine dalla galleria</string>
-    <string name="settings_max_font_size_scale">Dimensione massima del carattere</string>
     <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
     <string name="app_resources">Risorse libere di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
@@ -188,10 +184,8 @@
     <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Questo gruppo è vuoto</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre in formato <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Scorri per cambiare immagine, tieni premuto per aprire l\'immagine nella galleria</string>
     <string name="sort_by">Ordina per</string>
     <string name="reverse">…in ordine inverso</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="sort_by_expiry">Scadenza</string>
     <string name="sort_by_most_recently_used">Usate più recentemente</string>
     <string name="sort_by_name">Nome</string>
@@ -222,9 +216,7 @@
     <string name="shortcutSelectCard">Seleziona una tessera</string>
     <string name="options">Opzioni</string>
     <string name="starred">Nei preferiti</string>
-    <string name="set_scale">Imposta la scala</string>
     <string name="showMoreInfo">Mostra info</string>
-    <string name="hideMoreInfo">Nascondi info</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> punti</item>
@@ -281,7 +273,6 @@
     <string name="switchToBarcode">Passa al codice a barre</string>
     <string name="openFrontImageInGalleryApp">Apri l\'immagine frontale nell\'app Galleria</string>
     <string name="donate">Dona</string>
-    <string name="openImageInGallery">Apri l\'immagine nell\'app Galleria</string>
     <string name="openBackImageInGalleryApp">Apri l\'immagine posteriore nell\'app Galleria</string>
     <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
 </resources>

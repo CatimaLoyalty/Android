@@ -49,7 +49,6 @@
     <string name="app_license">Vrije software, uitgebracht onder de GPLv3+-licentie</string>
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Versie-informatie: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
     <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode of druk op “Deze kaart heeft geen barcode”.</string>
     <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
@@ -87,14 +86,12 @@
     </plurals>
     <string name="groupsList">Groepen: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Barcode aanpassen</string>
-    <string name="barcode">Barcode</string>
     <string name="card">Kaart</string>
     <string name="chooseExpiryDate">Kies een vervaldatum</string>
     <string name="never">Nooit</string>
     <string name="expiryDate">Vervaldatum</string>
     <string name="expiryStateSentence">Vervalt op <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Verlopen: <xliff:g>%s</xliff:g></string>
-    <string name="moveBarcodeToCenterOfScreen">Barcode verplaatsen naar midden van scherm</string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
     <string name="points">Aantal punten</string>
@@ -128,7 +125,6 @@
     <string name="setBarcodeId">Barcodewaarde instellen</string>
     <string name="sameAsCardId">Gelijk aan kaart-id</string>
     <string name="barcodeId">Barcodewaarde</string>
-    <string name="settings_max_font_size_scale">Max. tekstgrootte</string>
     <string name="unsupportedBarcodeType">Dit type barcode kan nog niet worden getoond - we hopen hiervoor in een nieuwere versie ondersteuning toe te voegen.</string>
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
     <string name="app_resources">Vrije externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
@@ -184,10 +180,8 @@
     <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Veeg om te bladeren; houd lang ingedrukt om te openen in de galerij-app</string>
     <string name="sort_by">Sorteren op</string>
     <string name="reverse">…in omgekeerde volgorde</string>
-    <string name="sort_by_balance">Op saldo</string>
     <string name="sort_by_expiry">Op vervaldatum</string>
     <string name="sort_by_most_recently_used">Op onlangs gebruikt</string>
     <string name="sort_by_name">Op naam</string>
@@ -219,8 +213,6 @@
     <string name="options">Opties</string>
     <string name="showMoreInfo">Informatie tonen</string>
     <string name="starred">Favoriet</string>
-    <string name="hideMoreInfo">Informatie verbergen</string>
-    <string name="set_scale">Schaal instellen</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punt</item>
         <item quantity="other"><xliff:g>%s</xliff:g> punten</item>
@@ -273,7 +265,6 @@
     <string name="switchToFrontImage">Voorzijde tonen</string>
     <string name="switchToBackImage">Achterzijde tonen</string>
     <string name="switchToBarcode">Barcode tonen</string>
-    <string name="openImageInGallery">Afbeelding openen in galerij-app</string>
     <string name="openFrontImageInGalleryApp">Voorzijde openen in galerij-app</string>
     <string name="openBackImageInGalleryApp">Achterzijde openen in galerij-app</string>
     <string name="donate">Doneren</string>

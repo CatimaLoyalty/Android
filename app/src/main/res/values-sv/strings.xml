@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="settings_display_barcode_max_brightness">Gör streckkodsvyn ljusare</string>
-    <string name="settings_max_font_size_scale">Max. teckenstorlek</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
     <string name="enterBarcodeInstructions">Ange ID:t och välj antingen streckkodstyp nedan, eller \"Det finns ingen streckkod\".</string>
     <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
@@ -42,11 +41,9 @@
     <string name="addManually">Ange ID manuellt</string>
     <string name="addFromImage">Välj bild från galleriet</string>
     <string name="card">Kort</string>
-    <string name="barcode">Streckkod</string>
     <string name="editBarcode">Redigera streckkod</string>
     <string name="never">Aldrig</string>
     <string name="moveBarcodeToTopOfScreen">Flytta streckkoden högst upp på skärmen</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrera streckkoden på skärmen</string>
     <string name="noBarcodeFound">Hittade ingen streckkod</string>
     <string name="points">Poäng</string>
     <string name="chooseImportType">Importera data från</string>
@@ -146,7 +143,6 @@
     <string name="exportSuccessfulTitle">Exporten lyckades</string>
     <string name="scanCardBarcode">Skanna streckkod</string>
     <string name="settings_system_theme">Systemtemat</string>
-    <string name="app_revision_fmt">Ändringsinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="privacy_policy_popup_text">Notis rörande integritetspolicy (krävs av vissa appbutiker):
 \n
 \nINGEN DATA ALLS SAMLAS IN, vilket vem som helst kan bekräfta eftersom vår app är fri programvara.</string>
@@ -184,10 +180,8 @@
     <string name="settings_theme_color">Temafärg</string>
     <string name="noGroupCards">Denna grupp är tom</string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> streckkod</string>
-    <string name="swipeToSwitchImages">Svep eller ändra bilder, håll för att öppna i bild i galleri app</string>
     <string name="reverse">...i omvänd ordning</string>
     <string name="sort_by">Sortera efter</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="sort_by_expiry">Förfallodag</string>
     <string name="sort_by_most_recently_used">Senast använda</string>
     <string name="sort_by_name">Namn</string>
@@ -218,13 +212,11 @@
     <string name="shortcutSelectCard">Välj ett kort</string>
     <string name="showMoreInfo">Visa info</string>
     <string name="starred">Stjärnmärkt</string>
-    <string name="hideMoreInfo">Dölj info</string>
     <string name="options">Alternativ</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> poäng</item>
         <item quantity="other"><xliff:g>%s</xliff:g> poäng</item>
     </plurals>
-    <string name="set_scale">Justera skala</string>
     <string name="include_if_asking_support">Om du vill be om hjälp, inkludera då följande information:</string>
     <string name="settings_oled_dark">Helsvart bakgrund för mörkt tema</string>
     <string name="failedLaunchingPhotoPicker">Kunde inte hitta kompatibelt bildprogram</string>

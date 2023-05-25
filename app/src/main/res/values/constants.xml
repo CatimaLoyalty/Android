@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_revision_url" translatable="false">https://github.com/CatimaLoyalty/Android/releases</string>
-    <string name="app_webpage_url" translatable="false">https://github.com/CatimaLoyalty/Android</string>
-    <integer name="full_rotation_duration">100</integer>
-    <integer name="half_rotation_duration">50</integer>
-</resources>

@@ -47,7 +47,6 @@
     <string name="app_license">Wolne oprogramowanie typu copyleft, na licencji GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informacje o wydaniu: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
     <string name="enterBarcodeInstructions">Wprowadź ID, a następnie wybierz typ kodu kreskowego, którego chcesz użyć lub wybierz „Bez kodu kreskowego”.</string>
     <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
@@ -140,13 +139,11 @@
     <string name="balance">Saldo</string>
     <string name="errorReadingImage">Nie udało się odczytać zdjęcia</string>
     <string name="noBarcodeFound">Nie znaleziono kodu kreskowego</string>
-    <string name="moveBarcodeToCenterOfScreen">Wyśrodkuj kod kreskowy na ekranie</string>
     <string name="moveBarcodeToTopOfScreen">Przenieś kod kreskowy na górę ekranu</string>
     <string name="chooseExpiryDate">Wybierz datę wygaśnięcia</string>
     <string name="never">Nigdy</string>
     <string name="expiryDate">Data wygaśnięcia</string>
     <string name="editBarcode">Edytuj kod kreskowy</string>
-    <string name="barcode">Kod kreskowy</string>
     <string name="card">Karta</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Wygasło: <xliff:g>%s</xliff:g></string>
@@ -168,7 +165,6 @@
     <string name="noGroupCards">Ta grupa jest pusta</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Zapobiegaj wyłączeniu ekranu</string>
     <string name="settings_keep_screen_on">Nie wygaszaj ekranu</string>
-    <string name="settings_max_font_size_scale">Maks. rozmiar czcionki</string>
     <string name="app_resources">Otwarte zewnętrzne zasoby: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Otwarte zewnętrzne biblioteki: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Wszelkie prawa zastrzeżone © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
@@ -197,7 +193,6 @@
     <string name="sort_by_name">Nazwa</string>
     <string name="sort_by_most_recently_used">Ostatnio użyte</string>
     <string name="sort_by_expiry">Data wygaśnięcia</string>
-    <string name="sort_by_balance">Balans</string>
     <string name="sort_by">Sortuj według</string>
     <string name="credits">Podziękowania</string>
     <string name="help_translate_this_app">Pomóż przetłumaczyć tą aplikację</string>
@@ -205,7 +200,6 @@
     <string name="report_error">Zgłoś Błąd</string>
     <string name="setIcon">Ustaw ikonę</string>
     <string name="on_github">na GitHub\'ie</string>
-    <string name="swipeToSwitchImages">Przeciągnij aby zmienić obraz, przytrzymaj aby otworzyć obraz w galerii</string>
     <string name="selectColor">Wybierz kolor</string>
     <string name="version_history">Historia Wersji</string>
     <string name="and_data_usage">i wykorzystanie danych</string>
@@ -234,10 +228,8 @@
     </plurals>
     <string name="include_if_asking_support">Jeśli chcesz poprosić o pomoc, podaj następujące informacje:</string>
     <string name="settings_oled_dark">Całkowicie czarne tło dla ciemnego motywu</string>
-    <string name="hideMoreInfo">Ukryj informacje</string>
     <string name="settings_card_orientation">Orientacja kodu kreskowego</string>
     <string name="settings_follow_system_orientation">Śledź orientację systemową</string>
-    <string name="set_scale">Ustaw skalę</string>
     <string name="duplicateCard">Duplikuj</string>
     <string name="starred">Oznaczone gwiazdką</string>
     <string name="settings_landscape_orientation">Poziomowy</string>

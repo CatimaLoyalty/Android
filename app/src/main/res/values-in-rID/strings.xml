@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_revision_url">https://github.com/CatimaLoyalty/Android/releases</string>
     <string name="storeName">Nama</string>
     <string name="note">Keterangan</string>
     <string name="delete">Hapus</string>
@@ -14,7 +13,6 @@
     <string name="action_add">Tambah</string>
     <string name="action_search">Cari</string>
     <string name="sort_by_name">Nama</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="sort_by">Sortir dengan</string>
     <string name="sort">Urut</string>
     <string name="credits">Kredit</string>
@@ -36,7 +34,6 @@
     <string name="all">Semua</string>
     <string name="leaveWithoutSaveTitle">Keluar</string>
     <string name="card">Kartu</string>
-    <string name="barcode">barcode</string>
     <string name="chooseExpiryDate">Pilih masa berlaku</string>
     <string name="noBarcodeFound">Barcode tidak ditemukan</string>
     <string name="errorReadingImage">Tidak dapat membaca gambar</string>
@@ -110,7 +107,6 @@
     <string name="app_license">Perangkat lunak bebas copyleft, berlisensi GPLv3+</string>
     <string name="about_title_fmt">Tentang <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versi: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Info Revisi: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_libraries">Pustaka pihak ketiga gratis: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Sumber daya pihak ketiga gratis: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="enterBarcodeInstructions">Masukkan ID, dan pilih jenis barcode di bawah ini, atau \"Tidak ada barcode\".</string>
@@ -119,7 +115,6 @@
     <string name="starImage">Favorit</string>
     <string name="settings_light_theme">Terang</string>
     <string name="settings_dark_theme">Gelap</string>
-    <string name="settings_max_font_size_scale">Ukuran maksimal huruf</string>
     <string name="settings_display_barcode_max_brightness">Terangkan tampilan barcode</string>
     <string name="settings_keep_screen_on">Biarkan layar menyala</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Cegah kunci layar</string>
@@ -145,7 +140,6 @@
     <string name="expiryDate">Tanggal masa berlaku</string>
     <string name="never">Tidak pernah</string>
     <string name="moveBarcodeToTopOfScreen">Pindah barcode ke bagian paling depan</string>
-    <string name="moveBarcodeToCenterOfScreen">Pusatkan barcode pada layar</string>
     <string name="points">Poin</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sepertinya bukan saldo yang valid.</string>
     <string name="app_loyalty_card_keychain">Gantungan kunci kartu kesetiaan</string>
@@ -177,7 +171,6 @@
     <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
     <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
     <string name="app_contributors">Pengembangan dibantu oleh: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Geser untuk beralih gambar, tahan untuk membuka gambar di aplikasi galeri</string>
     <string name="reverse">…dalam urutan terbalik</string>
     <string name="version_history">Riwayat Versi</string>
     <string name="help_translate_this_app">Bantu terjemahkan aplikasi ini</string>
@@ -233,9 +226,7 @@
         <item quantity="other"><xliff:g>%s</xliff:g> poin</item>
     </plurals>
     <string name="showMoreInfo">Tampilkan informasi</string>
-    <string name="hideMoreInfo">Sembunyikan informasi</string>
     <string name="shortcutSelectCard">Pilih kartu</string>
-    <string name="set_scale">Atur skala</string>
     <string name="include_if_asking_support">Jika anda ingin meminta bantuan, sertakan informasi berikut:</string>
     <string name="duplicateCard">Duplikat</string>
     <string name="archive">Arsip</string>
@@ -267,7 +258,6 @@
     <string name="switchToFrontImage">Ubah ke depan gambar</string>
     <string name="switchToBackImage">Ubah ke belakang gambar</string>
     <string name="switchToBarcode">Ubah ke kode batang</string>
-    <string name="openImageInGallery">Buka gambar dari galeri app</string>
     <string name="openFrontImageInGalleryApp">Buka gambar didepan di galeri app</string>
     <string name="openBackImageInGalleryApp">Buka gambar dibelakang di galeri app</string>
     <string name="setBarcodeHeight">Atur tinggi kode batang</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="swipeToSwitchImages">Resimler arasında geçiş yapmak için kaydırın, resmi galeri uygulamasında açmak için basılı tutun</string>
     <string name="app_contributors">Katkıda bulunanlar: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Kahverengi</string>
     <string name="settings_grey_theme">Gri</string>
@@ -64,13 +63,11 @@
     <string name="balance">Bakiye</string>
     <string name="errorReadingImage">Resim okunamadı</string>
     <string name="noBarcodeFound">Barkod bulunamadı</string>
-    <string name="moveBarcodeToCenterOfScreen">Barkodu ekranda ortala</string>
     <string name="moveBarcodeToTopOfScreen">Barkodu ekranın en üstüne taşı</string>
     <string name="chooseExpiryDate">Son kullanma tarihi seç</string>
     <string name="never">Hiçbir zaman</string>
     <string name="expiryDate">Son kullanma tarihi</string>
     <string name="editBarcode">Barkodu düzenle</string>
-    <string name="barcode">Barkod</string>
     <string name="card">Kart</string>
     <string name="balanceSentence">Bakiye: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Süresi doldu: <xliff:g>%s</xliff:g></string>
@@ -99,7 +96,6 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Ekran kilidini engelle</string>
     <string name="settings_keep_screen_on">Ekranı açık tut</string>
     <string name="settings_display_barcode_max_brightness">Barkod görünümünü aydınlat</string>
-    <string name="settings_max_font_size_scale">Azami yazı tipi boyutu</string>
     <string name="settings_dark_theme">Koyu</string>
     <string name="settings_light_theme">Açık</string>
     <string name="settings_system_theme">Sistem</string>
@@ -113,7 +109,6 @@
     <string name="selectBarcodeTitle">Barkod Seç</string>
     <string name="app_resources">Özgür üçüncü taraf kaynakları: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Özgür üçüncü taraf kütüphaneleri: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_revision_fmt">Değişiklik Bilgileri: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Sürüm: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> hakkında</string>
     <string name="app_license">GPLv3+ altında lisanslanan copyleft özgür yazılım</string>
@@ -187,7 +182,6 @@
     <string name="action_search">Ara</string>
     <string name="sort_by">Sıralama ölçütü</string>
     <string name="reverse">…ters sırada</string>
-    <string name="sort_by_balance">Bakiye</string>
     <string name="sort_by_expiry">Son kullanma tarihi</string>
     <string name="sort_by_most_recently_used">En Son Kullanılan</string>
     <string name="sort_by_name">Ad</string>
@@ -218,9 +212,7 @@
     <string name="shortcutSelectCard">Kart seç</string>
     <string name="options">Seçenekler</string>
     <string name="showMoreInfo">Bilgileri göster</string>
-    <string name="hideMoreInfo">Bilgileri gizle</string>
     <string name="starred">Yıldızlı</string>
-    <string name="set_scale">Ölçeği ayarla</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> puan</item>
         <item quantity="other"><xliff:g>%s</xliff:g> puan</item>
@@ -271,7 +263,6 @@
     <string name="height">Yükseklik:</string>
     <string name="switchToBackImage">Arka resme geç</string>
     <string name="switchToBarcode">Barkoda geç</string>
-    <string name="openImageInGallery">Resmi galeri uygulamasında aç</string>
     <string name="donate">Bağış yap</string>
     <string name="switchToFrontImage">Ön resme geç</string>
     <string name="setBarcodeHeight">Barkod yüksekliğini ayarla</string>

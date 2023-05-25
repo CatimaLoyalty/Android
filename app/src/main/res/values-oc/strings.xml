@@ -63,7 +63,6 @@
     <string name="addFromImage">Causir a la galariá</string>
     <string name="groups">Grops</string>
     <string name="groupsList">Grops : <xliff:g>%s</xliff:g></string>
-    <string name="settings_max_font_size_scale">Talha max. de la poliça</string>
     <string name="settings_theme_color">Color del tèma</string>
     <string name="settings_locale">Lenga</string>
     <string name="noGiftCardsGroup">Creatz de cartas puèi ligatz-las al grop aicí.</string>

@@ -62,7 +62,6 @@
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_light_theme">Claro</string>
     <string name="settings_dark_theme">Escuro</string>
-    <string name="settings_max_font_size_scale">Tamanho máximo da fonte</string>
     <string name="selectBarcodeTitle">Selecionar código de barras</string>
     <string name="enterBarcodeInstructions">Introduza o identificador e depois escolha o tipo de código de barras abaixo ou \"Sem código de barras\".</string>
     <string name="copy_to_clipboard_toast">Identificador copiado para a área de transferência</string>
@@ -83,7 +82,6 @@
     <string name="exporting">A exportar…</string>
     <string name="settings_sky_blue_theme">Azul céu</string>
     <string name="report_error">Reportar erro</string>
-    <string name="barcode">Código de barras</string>
     <string name="chooseImportType">Importar dados de</string>
     <string name="card">Cartão</string>
     <string name="expiryStateSentence">Expiram: <xliff:g>%s</xliff:g></string>
@@ -124,7 +122,6 @@
 \ndireitos de autor © 2016–2020 Branden Archer</string>
     <string name="about_title_fmt">Sobre o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informação da revisão: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expirados: <xliff:g>%s</xliff:g></string>
     <string name="leaveWithoutSaveConfirmation">Sair sem guardar\?</string>
     <string name="addManually">Introduzir manualmente o identificador</string>
@@ -136,7 +133,6 @@
     <string name="never">Nunca</string>
     <string name="chooseExpiryDate">Escolher validade</string>
     <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo do ecrã</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrar o código de barras no ecrã</string>
     <string name="noBarcodeFound">Não foi encontrado nenhum código de barras</string>
     <string name="errorReadingImage">Não foi possível ler a imagem</string>
     <string name="balance">Saldo</string>
@@ -177,11 +173,9 @@
     <string name="settings_blue_theme">Azul</string>
     <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
-    <string name="swipeToSwitchImages">Deslize para mudar as imagens, toque prolongadamente para abrir na aplicação da galeria</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>
     <string name="sort_by_expiry">Validade</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="reverse">…na ordem inversa</string>
     <string name="sort_by">Ordenar por</string>
     <string name="version_history">Histórico de versões</string>
@@ -221,9 +215,7 @@
     <string name="shortcutSelectCard">Selecione um cartão</string>
     <string name="translate_platform">no Weblate</string>
     <string name="starred">Estrela</string>
-    <string name="set_scale">Escala de set</string>
     <string name="showMoreInfo">Mostrar info</string>
-    <string name="hideMoreInfo">Ocultar informação</string>
     <string name="options">Opções</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> ponto</item>

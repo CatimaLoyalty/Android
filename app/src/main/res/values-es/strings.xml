@@ -62,7 +62,6 @@
     <string name="barcodeType">Tipo de código de barras</string>
     <string name="noMatchingGiftCards">Sin resultados. Intente cambiar su búsqueda.</string>
     <string name="action_search">Buscar</string>
-    <string name="app_revision_fmt">Información de la revisión: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="noGroups">Pulse en el botón «+» para añadir grupos de categorización.</string>
     <string name="starImage">Estrella favorita</string>
     <string name="thumbnailDescription">Miniatura</string>
@@ -88,20 +87,17 @@
         <item quantity="other"><xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
     <string name="points">Puntos</string>
-    <string name="moveBarcodeToCenterOfScreen">Centre el código de barras en la pantalla</string>
     <string name="moveBarcodeToTopOfScreen">Mueva el código de barras a la zona superior de la pantalla</string>
     <string name="chooseExpiryDate">Elegir fecha de caducidad</string>
     <string name="never">Nunca</string>
     <string name="expiryDate">Fecha de caducidad</string>
     <string name="editBarcode">Editar el código de barras</string>
-    <string name="barcode">Código de barras</string>
     <string name="card">Tarjeta</string>
     <string name="expiryStateSentenceExpired">Expirado: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os</string>
     <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="settings_max_font_size_scale">Tam. de fuente máximo</string>
     <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
 \nCréalo primero desde el menú Importar/Exportar de otra app de Catima al presionar Exportar desde allí.</string>
     <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado desde FidMe para importar, y luego escoja los tipos de códigos de barras manualmente.
@@ -203,19 +199,16 @@
     <string name="settings_lock_on_opening_orientation">Bloqueo a la orientación utilizada al abrir la tarjeta</string>
     <string name="sort_by_most_recently_used">Lo más reciente que se ha utilizado</string>
     <string name="sort_by_expiry">Caducidad</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="version_history">Historial de versiones</string>
     <string name="help_translate_this_app">Ayuda a traducir esta aplicación</string>
     <string name="and_data_usage">y el uso de datos</string>
     <string name="shortcutSelectCard">Seleccione una tarjeta</string>
     <string name="showMoreInfo">Mostrar información</string>
-    <string name="hideMoreInfo">Ocultar información</string>
     <string name="reverse">… en orden inverso</string>
     <string name="credits">Créditos</string>
     <string name="sort_by_name">Nombre</string>
     <string name="license">Licencia</string>
     <string name="source_repository">Repositorio de fuente</string>
-    <string name="set_scale">Ajustar la escala</string>
     <string name="on_github">En GitHub</string>
     <string name="on_google_play">en Google Play</string>
     <string name="report_error">Informar de un error</string>
@@ -225,7 +218,6 @@
     <string name="selectColor">Seleccione el color</string>
     <string name="setIcon">Establecer icono</string>
     <string name="sort">Ordenar</string>
-    <string name="swipeToSwitchImages">Desliza para cambiar de imagen, mantén presionado para abrir la imagen en la aplicación de la galería</string>
     <string name="sort_by">Ordenar por</string>
     <string name="rate_this_app">Califica esta aplicación</string>
     <string name="options">Opciones</string>
@@ -282,6 +274,5 @@
     <string name="setBarcodeHeight">Ajustar la altura del código de barras</string>
     <string name="donate">Donar</string>
     <string name="switchToBarcode">Cambiar a código de barras</string>
-    <string name="openImageInGallery">Abrir imagen en la aplicación de la galería</string>
     <string name="switchToBackImage">Cambiar a imagen trasera</string>
 </resources>

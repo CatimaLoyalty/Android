@@ -68,13 +68,11 @@
     <string name="balance">Наличност</string>
     <string name="errorReadingImage">Изображението е нечетимо</string>
     <string name="noBarcodeFound">Не е намерен щрихкод</string>
-    <string name="moveBarcodeToCenterOfScreen">Премества щрихкода в центъра на екрана</string>
     <string name="moveBarcodeToTopOfScreen">Премества щрихкода най-горе на екрана</string>
     <string name="never">Не изтича</string>
     <string name="chooseExpiryDate">Определена дата</string>
     <string name="expiryDate">Валидна до</string>
     <string name="editBarcode">Редактиране на щрихкод</string>
-    <string name="barcode">Щрихкод</string>
     <string name="card">Карта</string>
     <string name="groupsList">Списъци: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Валидна до: <xliff:g>%s</xliff:g></string>
@@ -88,7 +86,6 @@
     <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
     <string name="settings_keep_screen_on">Поддържане на екрана включен</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Предотвратяване на заключване на екрана</string>
-    <string name="settings_max_font_size_scale">Максимален размер на шрифта</string>
     <string name="settings_dark_theme">Тъмна</string>
     <string name="settings_light_theme">Светла</string>
     <string name="settings_system_theme">Системна</string>
@@ -127,7 +124,6 @@
     <string name="importOptionFilesystemExplanation">Изберете определен файл от файловата система.</string>
     <string name="app_resources">Свободни ресурси: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Свободни библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_revision_fmt">Компилация: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Издание: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Относно <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
@@ -183,10 +179,8 @@
     <string name="settings_locale">Език</string>
     <string name="noGroupCards">Групата е празна</string>
     <string name="barcodeImageDescriptionWithType">Изображение на щрихкод от вид <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">За да размените изображенията - плъзнете, а за да ги отворите в галерията - задръжте</string>
     <string name="sort_by">Сортиране по</string>
     <string name="reverse">…в обратен ред</string>
-    <string name="sort_by_balance">Наличност</string>
     <string name="sort_by_expiry">Валидност</string>
     <string name="sort_by_most_recently_used">Последно използване</string>
     <string name="sort_by_name">Наименование</string>
@@ -216,9 +210,7 @@
     <string name="translate_platform">в Weblate</string>
     <string name="shortcutSelectCard">Избор на карта</string>
     <string name="starred">Със звезда</string>
-    <string name="set_scale">Мащаб</string>
     <string name="showMoreInfo">Показване на информация</string>
-    <string name="hideMoreInfo">Скриване на информация</string>
     <string name="options">Настройки</string>
     <string name="card_ids_copied">Идентификаторите са копирани</string>
     <plurals name="balancePoints">
@@ -272,7 +264,6 @@
     <string name="switchToFrontImage">Показване на предната страна</string>
     <string name="switchToBackImage">Показване на задната страна</string>
     <string name="switchToBarcode">Показване на щрихкода</string>
-    <string name="openImageInGallery">Отваряне на изображението в приложението галерия</string>
     <string name="openFrontImageInGalleryApp">Отваряне на изображението на предната страна в приложението галерия</string>
     <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>

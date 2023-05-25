@@ -36,13 +36,11 @@
     <string name="balance">Saldo</string>
     <string name="errorReadingImage">Kuvaa ei voitu lukea</string>
     <string name="noBarcodeFound">Viivakoodia ei löytynyt</string>
-    <string name="moveBarcodeToCenterOfScreen">Keskitä viivakoodi näytölle</string>
     <string name="moveBarcodeToTopOfScreen">Siirrä viivakoodi näytön yläosaan</string>
     <string name="chooseExpiryDate">Valitse viimeinen voimassaolopäivä</string>
     <string name="never">Ei koskaan</string>
     <string name="expiryDate">Viimeinen voimassaolopäivä</string>
     <string name="editBarcode">Muokkaa viivakoodia</string>
-    <string name="barcode">Viivakoodi</string>
     <string name="card">Kortti</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Vanhentunut: <xliff:g>%s</xliff:g></string>
@@ -70,7 +68,6 @@
     <string name="settings_disable_lockscreen_while_viewing_card">Estä näytön lukitus</string>
     <string name="settings_keep_screen_on">Pidä näyttö päällä</string>
     <string name="settings_display_barcode_max_brightness">Kirkasta viivakoodinäkymää</string>
-    <string name="settings_max_font_size_scale">Fontin enimmäiskoko</string>
     <string name="settings_dark_theme">Tumma</string>
     <string name="settings_light_theme">Vaalea</string>
     <string name="settings_system_theme">Järjestelmän oletus</string>
@@ -84,7 +81,6 @@
     <string name="selectBarcodeTitle">Valitse viivakoodi</string>
     <string name="app_resources">Vapaat kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vapaat kolmannen osapuolen kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_revision_fmt">Muutostiedot: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Tietoja <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_license">Copyleft (käyttäjänoikeus) - vapaa ohjelmisto, lisenssi GPLv3+</string>
@@ -194,11 +190,9 @@
     </plurals>
     <string name="settings_oled_dark">Musta tausta tummalle teemalle</string>
     <string name="setIcon">Aseta kuvake</string>
-    <string name="swipeToSwitchImages">Vaihda kuvia pyyhkäisemällä, paina kuvaa pitkään avataksesi galleriasovelluksessa</string>
     <string name="sort_by_name">Nimi</string>
     <string name="sort_by_most_recently_used">Viimeksi käytetyt</string>
     <string name="sort_by_expiry">Viimeinen voimassaoloaika</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="reverse">...käänteisessä järjestyksessä</string>
     <string name="sort_by">Lajitteluperuste</string>
     <string name="credits">Krediitit</string>
@@ -214,9 +208,7 @@
     <string name="shortcutSelectCard">Valitse kortti</string>
     <string name="starred">Tähdellä merkityt</string>
     <string name="options">Vaihtoehdot</string>
-    <string name="set_scale">Säädä kokoa</string>
     <string name="include_if_asking_support">Jos haluat pyytää tukea, ilmoita seuraavat tiedot:</string>
-    <string name="hideMoreInfo">Piilota tiedot</string>
     <string name="exportPassword">Aseta salasana suojataksesi vientitiedostosi (valinnainen)</string>
     <string name="exportPasswordHint">Syötä salasana</string>
     <string name="showMoreInfo">Näytä tiedot</string>

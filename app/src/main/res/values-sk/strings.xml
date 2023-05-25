@@ -42,7 +42,6 @@
     <string name="app_license">Copyleftovaný slobodný softvér s licenciou GPLv3+</string>
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Informácia o revízii: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
     <string name="copy_to_clipboard_toast">ID skopírované do schránky</string>
     <string name="thumbnailDescription">Miniatúra</string>
@@ -63,7 +62,6 @@
     <string name="balance">Vyváženie</string>
     <string name="errorReadingImage">Obrázok sa nepodarilo prečítať</string>
     <string name="noBarcodeFound">Nenašiel sa žiadny čiarový kód</string>
-    <string name="moveBarcodeToCenterOfScreen">Vycentrovanie čiarového kódu na obrazovke</string>
     <string name="moveBarcodeToTopOfScreen">Presun čiarového kódu do hornej časti obrazovky</string>
     <string name="chooseExpiryDate">Zvoľte dátum skončenia platnosti</string>
     <string name="never">Nikdy</string>
@@ -85,7 +83,6 @@
     <string name="intent_import_card_from_url_share_text">Chcem sa s vami podeliť o pohľadnicu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Zabrániť uzamknutiu obrazovky</string>
     <string name="settings_keep_screen_on">Nechajte obrazovku zapnutú</string>
-    <string name="settings_max_font_size_scale">Maximálna veľkosť písma</string>
     <string name="card_ids_copied">Skopírované ID</string>
     <string name="unstar">Odstrániť z obľúbených</string>
     <string name="settings_dark_theme">Tmavé</string>
@@ -140,7 +137,6 @@
     <string name="turn_flashlight_on">Zapnúť svetlo</string>
     <string name="sort_by_name">Názov</string>
     <string name="sort_by_most_recently_used">Naposledy použité</string>
-    <string name="sort_by_balance">Zostatok</string>
     <string name="reverse">…v obrátenom poradí</string>
     <string name="on_github">na GitHube</string>
     <string name="sort_by_expiry">Koniec platnosti</string>
@@ -151,7 +147,6 @@
     <string name="report_error">Nahlásiť chybu</string>
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobraziť podrobnosti</string>
-    <string name="hideMoreInfo">Skryť podrobnosti</string>
     <string name="action_hide_details">Skryť detaily</string>
     <string name="yes">Áno</string>
     <string name="importStocard">Import z aplikácie Stocard</string>
@@ -182,7 +177,6 @@
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="expiryDate">Platnosť</string>
-    <string name="barcode">Čiarový kód</string>
     <string name="editBarcode">Upraviť čiarový kód</string>
     <string name="privacy_policy">Zásady ochrany osobných údajov</string>
     <string name="importVoucherVault">Import z Voucher Vault</string>
@@ -215,7 +209,6 @@
     <string name="and_data_usage">a využitie dát</string>
     <string name="options">Možnosti</string>
     <string name="starred">S hviezdičkou</string>
-    <string name="set_scale">Nastaviť mierku</string>
     <string name="duplicateCard">Duplikovať</string>
     <string name="archive">Archivovať</string>
     <string name="unarchive">Vrátiť z archivu</string>
@@ -256,7 +249,6 @@
         <item quantity="few">Zobraziť archív (<xliff:g>%1$d</xliff:g> karty)</item>
         <item quantity="other">Zobraziť archív (<xliff:g>%1$d</xliff:g> kariet)</item>
     </plurals>
-    <string name="swipeToSwitchImages">Potiahnutím prstom prepínate obrázky, podržaním otvoríte obrázok v aplikácii galéria</string>
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>
     <string name="storageReadPermissionRequired">Pre túto akciu je potrebné oprávnenie na čítanie úložiska…</string>

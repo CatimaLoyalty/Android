@@ -128,11 +128,4 @@
         <item>#2093cd</item>
         <item>#ad62a7</item>
     </array>
-
-    <!-- Default values -->
-    <integer name="settings_max_font_size_scale_pct">100</integer>
-
-    <!-- Constraints -->
-    <integer name="settings_max_font_size_scale_pct_min">50</integer>
-    <integer name="settings_max_font_size_scale_pct_max">200</integer>
 </resources>

@@ -57,7 +57,6 @@
     <string name="settings_light_theme">Lumină</string>
     <string name="settings_dark_theme">Întuneric</string>
     <string name="noBarcodeFound">Nu a fost găsit niciun cod de bare</string>
-    <string name="settings_max_font_size_scale">Mărimea maximă a fontului</string>
     <string name="settings_display_barcode_max_brightness">Luminați vizualizarea codurilor de bare</string>
     <string name="settings_keep_screen_on">Păstrați ecranul pornit</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitați ecranul de blocare</string>
@@ -69,11 +68,9 @@
     <string name="failedOpeningFileManager">Instalați mai întâi un manager de fișiere.</string>
     <string name="leaveWithoutSaveTitle">Ieșire</string>
     <string name="addManually">Introduceți manual ID-ul cardului</string>
-    <string name="barcode">Cod de bare</string>
     <string name="currency">Monedă</string>
     <string name="editBarcode">Editarea codului de bare</string>
     <string name="chooseExpiryDate">Alegeți data de expirare</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrați codul de bare pe ecran</string>
     <string name="copy_to_clipboard_toast">ID-ul cardului copiat în clipboard</string>
     <string name="noStoreError">Nici un nume introdus</string>
     <string name="selectBarcodeTitle">Selectare cod de bare</string>

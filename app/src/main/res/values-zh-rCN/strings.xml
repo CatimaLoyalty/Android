@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_revision_fmt">更新日志: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="groupsList">组：<xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> 卡片</item>
@@ -8,7 +7,6 @@
     <string name="app_libraries">第三方自由程序库: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">版本: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">关于 <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="barcode">条形码</string>
     <string name="card">卡片</string>
     <string name="addManually">手动输入卡号</string>
     <string name="settings_system_theme">系统设置</string>
@@ -48,7 +46,6 @@
     <string name="balance">余额</string>
     <string name="errorReadingImage">无法读取图像</string>
     <string name="noBarcodeFound">未找到条形码</string>
-    <string name="moveBarcodeToCenterOfScreen">将条形码居中显示</string>
     <string name="moveBarcodeToTopOfScreen">将条形码移到屏幕的顶部</string>
     <string name="chooseExpiryDate">选择到期日</string>
     <string name="never">从不</string>
@@ -74,7 +71,6 @@
     <string name="settings_disable_lockscreen_while_viewing_card">防止锁屏</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
     <string name="settings_display_barcode_max_brightness">提高条码界面亮度</string>
-    <string name="settings_max_font_size_scale">最大字体大小</string>
     <string name="settings_dark_theme">暗色</string>
     <string name="settings_light_theme">浅色</string>
     <string name="settings_theme">主题</string>
@@ -177,7 +173,6 @@
     <string name="setIcon">设置图标</string>
     <string name="settings_pink_theme">粉色</string>
     <string name="settings_oled_dark">纯黑色背景的深色主题</string>
-    <string name="hideMoreInfo">隐藏信息</string>
     <string name="translate_platform">在Weblate上</string>
     <string name="settings_sky_blue_theme">天蓝</string>
     <string name="showMoreInfo">显示信息</string>
@@ -199,8 +194,6 @@
     <string name="sort_by_most_recently_used">最近使用</string>
     <string name="sort_by_name">名称</string>
     <string name="help_translate_this_app">帮助翻译此应用</string>
-    <string name="sort_by_balance">余额</string>
-    <string name="swipeToSwitchImages">滑动切换图片，按住打开图库应用中的图片</string>
     <string name="reverse">倒序</string>
     <string name="sort_by">排序方式</string>
     <string name="selectColor">选择颜色</string>
@@ -218,7 +211,6 @@
     <string name="settings_violet_theme">紫色</string>
     <string name="action_show_details">显示详情</string>
     <string name="action_hide_details">隐藏详情</string>
-    <string name="set_scale">设置大小</string>
     <string name="app_contributors">因他们而存在: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="and_data_usage">和数据使用方法</string>
     <string name="failedLaunchingPhotoPicker">找不到支持的图库应用</string>
@@ -265,7 +257,6 @@
     <string name="switchToFrontImage">选择正面图像</string>
     <string name="switchToBackImage">选择背面图像</string>
     <string name="switchToBarcode">选择条形码</string>
-    <string name="openImageInGallery">使用图库软件打开图像</string>
     <string name="openFrontImageInGalleryApp">使用图库软件打开正面图像</string>
     <string name="openBackImageInGalleryApp">使用图库软件打开背面图像</string>
     <string name="setBarcodeHeight">设置条形码高度</string>

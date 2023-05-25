@@ -42,7 +42,6 @@
     <string name="app_license">Άδεια χρήσης υπό GPLv3+</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Πληροφορίες Αναθεώρησης: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
     <string name="copy_to_clipboard_toast">Ο κωδικός αντιγράφτηκε στο πρόχειρο</string>
     <string name="thumbnailDescription">Μικρογραφία</string>
@@ -51,7 +50,6 @@
     <string name="settings_dark_theme">Σκοτεινό</string>
     <string name="settings_light_theme">Φωτεινό</string>
     <string name="settings_system_theme">Σύστημα</string>
-    <string name="barcode">Γραμμικός κώδικας</string>
     <string name="deleteTitle">Διαγραφή Κάρτας</string>
     <string name="deleteConfirmation">Μόνιμη διαγραφή της κάρτας;</string>
     <string name="action_search">Αναζήτηση</string>
@@ -84,8 +82,6 @@
     <string name="expiryDate">Ημερομηνία λήξης</string>
     <string name="settings_keep_screen_on">Κράτα την οθόνη ανοιχτή</string>
     <string name="leaveWithoutSaveTitle">Έξοδος</string>
-    <string name="swipeToSwitchImages">Σύρετε για να αλλάξετε εικόνες, κρατήστε για να ανοίξετε μια εικόνα στην συλλογή</string>
-    <string name="sort_by_balance">Υπόλοιπο</string>
     <string name="reverse">... σε αντίθετη σειρά</string>
     <string name="version_history">Ιστορικό έκδοσης</string>
     <string name="sort_by">Ταξινόμηση κατά</string>
@@ -97,7 +93,6 @@
     <string name="report_error">Αναφορά Σφάλματος</string>
     <string name="starred">Αγαπημένα</string>
     <string name="translate_platform">στο Weblate</string>
-    <string name="set_scale">Ορίστε κλίμακα</string>
     <string name="importLoyaltyCardKeychain">Εισαγωγή από Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
 \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
@@ -113,7 +108,6 @@
     <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμοκώδικα στην ίδια τιμή;</string>
     <string name="action_show_details">Εμφάνιση λεπτομερειών</string>
     <string name="options">Επιλογές</string>
-    <string name="hideMoreInfo">Απόκρυψη πληροφοριών</string>
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
     <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
     <string name="group_name_is_empty">Το όνομα ομάδας δεν γίνεται να είναι κενό</string>
@@ -196,7 +190,6 @@
     <string name="settings_landscape_orientation">Οριζόντια</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Πνευματικά δικαιώματα © 2019-<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="settings_lock_on_opening_orientation">Κλείδωμα τωρινού προσανατολισμού όταν ανοίγει μία κάρτα</string>
-    <string name="settings_max_font_size_scale">Μέγιστο μέγεθος γραμματοσειράς</string>
     <string name="intent_import_card_from_url_share_text">Θέλω να μοιραστώ μία κάρτα μαζί σου</string>
     <string name="enter_group_name">Εισάγετε όνομα ομάδας</string>
     <string name="groups">Ομάδες</string>
@@ -211,7 +204,6 @@
     <string name="editBarcode">Επεξεργασία γραμμοκώδικα</string>
     <string name="chooseExpiryDate">Επιλέξτε ημερομηνία λήξης</string>
     <string name="moveBarcodeToTopOfScreen">Μετακίνηση του γραμμοκώδικα στο πάνω μέρος της οθόνης</string>
-    <string name="moveBarcodeToCenterOfScreen">Κεντράρισμα του γραμμοκώδικα στην οθόνη</string>
     <string name="noBarcodeFound">Δεν βρέθηκε γραμμοκώδικας</string>
     <string name="balance">Υπόλοιπο</string>
     <string name="importCatima">Εισαγωγή από Catima</string>

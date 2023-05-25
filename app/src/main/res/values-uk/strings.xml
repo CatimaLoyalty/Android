@@ -48,13 +48,11 @@
     <string name="balance">Баланс</string>
     <string name="errorReadingImage">Неможливо прочитати зображення</string>
     <string name="noBarcodeFound">Жодного штрих-коду не знайдено</string>
-    <string name="moveBarcodeToCenterOfScreen">Відцентрувати штрих-код на екрані</string>
     <string name="moveBarcodeToTopOfScreen">Посунути штрих-код наверх екрану</string>
     <string name="chooseExpiryDate">Оберіть дату</string>
     <string name="never">Ніколи</string>
     <string name="expiryDate">Дата закінчення терміну дії</string>
     <string name="editBarcode">Редагувати штрих-код</string>
-    <string name="barcode">Штрих-код</string>
     <string name="card">Картка</string>
     <string name="balanceSentence">Баланс: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Термін дії закінчився: <xliff:g>%s</xliff:g></string>
@@ -77,7 +75,6 @@
     <string name="intent_import_card_from_url_share_text">Я хочу поділитися з тобою картою</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Не блокувати екран</string>
     <string name="settings_keep_screen_on">Не вимикати екран</string>
-    <string name="settings_max_font_size_scale">Макс. розмір шрифту</string>
     <string name="settings_dark_theme">Темна</string>
     <string name="settings_light_theme">Світла</string>
     <string name="settings_system_theme">Системна</string>
@@ -91,7 +88,6 @@
     <string name="copy_to_clipboard_toast">ID скопійовано до буферу обміну</string>
     <string name="app_resources">Вільні ресурси третіх сторін: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Вільні бібліотеки третіх сторін: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_revision_fmt">Інформація про випуск: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="debug_version_fmt">Версія: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Про <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_license">Копілефт вільне програмне забезпечення, ліцензоване під GPLv3+</string>
@@ -192,10 +188,8 @@
     <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Пуста група</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
-    <string name="swipeToSwitchImages">Свайп для зміни зображень, довге натискання для перегляду в галереї</string>
     <string name="sort_by">Сортувати за</string>
     <string name="reverse">… у зворотному порядку</string>
-    <string name="sort_by_balance">Баланс</string>
     <string name="sort_by_expiry">Термін дії</string>
     <string name="sort_by_most_recently_used">Часто використовувані</string>
     <string name="sort_by_name">Назва</string>
@@ -227,8 +221,6 @@
     <string name="options">Параметри</string>
     <string name="showMoreInfo">Відобразити дані</string>
     <string name="starred">Обране</string>
-    <string name="set_scale">Зміна масштабу</string>
-    <string name="hideMoreInfo">Сховати дані</string>
     <string name="settings_oled_dark">Повністю чорний фон для темної теми</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> бал</item>

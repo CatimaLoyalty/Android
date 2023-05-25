@@ -16,7 +16,6 @@
     <string name="edit">Rediģēt</string>
     <string name="delete">Dzēst</string>
     <string name="moveBarcodeToTopOfScreen">Pārvietojiet svītrkodu uz ekrāna augšdaļu</string>
-    <string name="moveBarcodeToCenterOfScreen">Centrējiet svītrkodu uz ekrāna</string>
     <string name="errorReadingImage">Nevarēja nolasīt attēlu</string>
     <string name="balance">Bilance</string>
     <string name="noBarcodeFound">Svītrkods netika atrasts</string>
@@ -67,7 +66,6 @@
     <string name="settings_system_theme">Sistēmas</string>
     <string name="settings_light_theme">Gaiša</string>
     <string name="settings_dark_theme">Tumša</string>
-    <string name="settings_max_font_size_scale">Maksimālais burtu lielums</string>
     <string name="settings_display_barcode_max_brightness">Izgaismot svītrkoda skatu</string>
     <string name="settings_keep_screen_on">Turēt ekrānu ieslēgtu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Neļaut ekrānam aizslēgties</string>
@@ -85,7 +83,6 @@
     <string name="leaveWithoutSaveConfirmation">Iziet nesaglabājot\?</string>
     <string name="addFromImage">Izvēlēties attēlu no galerijas</string>
     <string name="card">Karte</string>
-    <string name="barcode">Svītrkods</string>
     <string name="expiryDate">Derīguma termiņš</string>
     <string name="never">Nekad</string>
     <string name="chooseExpiryDate">Izvēlieties derīguma termiņu</string>
@@ -95,7 +92,6 @@
     <string name="reverse">...apgrieztā secībā</string>
     <string name="credits">Pateicības</string>
     <string name="shortcutSelectCard">Izvēlieties karti</string>
-    <string name="set_scale">Iestatiet mērogu</string>
     <string name="duplicateCard">Dublēt</string>
     <string name="archive">Arhivēt</string>
     <string name="translate_platform">vietnē Weblate</string>
@@ -109,7 +105,6 @@
     </plurals>
     <string name="noCardIdError">Numurs nav ievadīts</string>
     <string name="about_title_fmt">Par <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_revision_fmt">Versijas pārskats: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Derīguma termiņš beidzās: <xliff:g>%s</xliff:g></string>
     <string name="action_hide_details">Slēpt detaļas</string>
     <string name="action_show_details">Rādīt detalizēti</string>
@@ -143,7 +138,6 @@
     <string name="failedGeneratingShareURL">Nevarēja izveidot koplietojamu URL. Lūdzu, ziņojiet par šo kļūdu.</string>
     <string name="turn_flashlight_off">Izslēgt zibspuldzi</string>
     <string name="app_contributors">To padarīja iespējamu: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="sort_by_balance">Bilance</string>
     <string name="version_history">Versiju vēsture</string>
     <string name="sort_by">Kārtot pēc</string>
     <string name="help_translate_this_app">Palīdziet tulkot šo lietotni</string>
@@ -233,8 +227,6 @@
     <string name="settings_grey_theme">Pelēka</string>
     <string name="sort">Kārtot</string>
     <string name="showMoreInfo">Rādīt informāciju</string>
-    <string name="hideMoreInfo">Slēpt informāciju</string>
-    <string name="swipeToSwitchImages">Velciet, lai pārslēgtu attēlus; spiediet un turiet lai atvērtu attēlu galerijas lietotnē</string>
     <string name="sort_by_most_recently_used">Nesen lietotās</string>
     <string name="unarchive">Atarhivēt</string>
     <string name="archived">Karte arhivēta</string>

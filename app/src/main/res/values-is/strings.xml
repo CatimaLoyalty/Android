@@ -40,12 +40,10 @@
     <string name="never">Aldrei</string>
     <string name="currency">Mynt</string>
     <string name="moveBarcodeToTopOfScreen">Færa strikamerkið að efst á skjánum</string>
-    <string name="moveBarcodeToCenterOfScreen">Miðju strikamerkið á skjánum</string>
     <string name="errorReadingImage">Gat ekki lesið ímynd</string>
     <string name="importOptionApplicationButton">Notaðu annan app</string>
     <string name="about">Um</string>
     <string name="settings">Stillingar</string>
-    <string name="settings_max_font_size_scale">Max. letrið</string>
     <string name="settings_keep_screen_on">Halda á skjánum</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Að koma í veg fyrir að læsa skjánum</string>
     <string name="editBarcode">Breyta strikamerkið</string>
@@ -76,7 +74,6 @@
     <string name="leaveWithoutSaveConfirmation">Fara án þess að bjarga\?</string>
     <string name="addFromImage">Veldu mynd frá gallerí</string>
     <string name="card">Kort</string>
-    <string name="barcode">Strikamerkið</string>
     <string name="expiryDate">Fyrningu</string>
     <string name="moveDown">Fara neðar</string>
     <string name="chooseExpiryDate">Velja rennur</string>

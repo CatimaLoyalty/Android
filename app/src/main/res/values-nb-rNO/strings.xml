@@ -44,7 +44,6 @@
     <string name="app_license">Gemenhetslig fri programvare, lisensiert GPLv3+</string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Utgivelsesinfo: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
     <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg strekkodetypen nedenfor, eller «Det er ingen strekkode».</string>
     <string name="copy_to_clipboard_toast">ID kopiert til utklippstavle</string>
@@ -87,14 +86,12 @@
     </plurals>
     <string name="groupsList">Grupper: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Rediger strekkode</string>
-    <string name="barcode">Strekkode</string>
     <string name="card">Kort</string>
     <string name="expiryStateSentence">Utløper: <xliff:g>%s</xliff:g></string>
     <string name="chooseExpiryDate">Velg utløpsdato</string>
     <string name="never">Aldri</string>
     <string name="expiryDate">Utløpsdato</string>
     <string name="expiryStateSentenceExpired">Utløpt: <xliff:g>%s</xliff:g></string>
-    <string name="moveBarcodeToCenterOfScreen">Sentrer strekkoden på skjermen</string>
     <string name="moveBarcodeToTopOfScreen">Flytt strekkoden til toppen av skjermen</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ser ikke ut til å være en gyldig saldo.</string>
     <string name="points">Poeng</string>
@@ -127,7 +124,6 @@
     <string name="importLoyaltyCardKeychain">Importer fra Kundekortknippe</string>
     <string name="importFidmeMessage">Velg din <i>fidme.export-request-xxxxx.zip</i>-eksport fra FidMe å importere, for så å velge strekkodetypene manuelt etterpå-
 \nOpprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
-    <string name="settings_max_font_size_scale">Maks. skriftstørrelse</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
     <string name="copy_to_clipboard_multiple_toast">ID-er ble kopiert til utklippstavle</string>
@@ -182,10 +178,8 @@
     <string name="settings_theme_color">Draktfarge</string>
     <string name="noGroupCards">Denne gruppen er tom</string>
     <string name="barcodeImageDescriptionWithType">Bilde av <xliff:g>%s</xliff:g>-strekkode</string>
-    <string name="swipeToSwitchImages">Dra for å bytte bilder, hold for å åpne et bilde i galleriet.</string>
     <string name="sort_by">Sortering</string>
     <string name="reverse">…i omvendt rekkefølge</string>
-    <string name="sort_by_balance">Saldo</string>
     <string name="sort_by_expiry">Utløp</string>
     <string name="sort_by_most_recently_used">Nyligst brukt</string>
     <string name="sort_by_name">Navn</string>
@@ -218,9 +212,7 @@
     <string name="translate_platform">på Weblate</string>
     <string name="options">Alternativer</string>
     <string name="starred">Stjernemerket</string>
-    <string name="set_scale">Sett skalering</string>
     <string name="showMoreInfo">Vis info</string>
-    <string name="hideMoreInfo">Skjul info</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> poeng</item>
         <item quantity="other"><xliff:g>%s</xliff:g> poeng</item>

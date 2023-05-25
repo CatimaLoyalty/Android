@@ -1,8 +1,4 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-
     <dimen name="no_data_textSize">16sp</dimen>
     <dimen name="no_data_padding">22dp</dimen>
 
@@ -14,23 +10,13 @@
     <dimen name="storeNameTextSize">28sp</dimen>
     <dimen name="noteTextSize">14sp</dimen>
 
-    <dimen name="singleCardCardIdTextSizeMin">15sp</dimen>
-    <dimen name="singleCardCardIdTextSizeMax">50sp</dimen>
-    <dimen name="singleCardNoteTextSizeMin">25sp</dimen>
-    <dimen name="singleCardNoteTextSizeMax">50sp</dimen>
-
-    <dimen name="inputBorderThickness">2dip</dimen>
-    <dimen name="inputBorderDividerThickness">4dip</dimen>
     <dimen name="inputMargin">2dip</dimen>
     <dimen name="inputPadding">10dip</dimen>
-    <dimen name="colorSamplePadding">10dip</dimen>
     <dimen name="inputSize">18sp</dimen>
 
     <dimen name="cardThumbnailSize">46dp</dimen>
-    <dimen name="cardThumbnailSizeLarge">200dp</dimen>
     <dimen name="cardThumbnailEditOverlaySize">21dp</dimen>
 
-    <dimen name="activity_margin_small">8dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
     <!-- Padding for layouts-->
     <dimen name="activity_scanner_padding">10dp</dimen>
@@ -40,5 +26,4 @@
     <dimen name="tileLetterFontSize">66sp</dimen>
     <dimen name="tileLetterFontSizeForShortcut">48dp</dimen>
     <dimen name="tileLetterImageSize">92dp</dimen>
-    <dimen name="cardViewLetterFontSize">100sp</dimen>
 </resources>

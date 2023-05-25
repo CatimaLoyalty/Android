@@ -90,7 +90,6 @@
     <string name="app_license">Copyleft licencű szabad szoftver, GPLv3+ alatt közzétéve</string>
     <string name="about_title_fmt">A <xliff:g id="app_name">%s</xliff:g> névjegye</string>
     <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
-    <string name="app_revision_fmt">Revíziós információ: <xliff:g id="app_revision_url">%s</xliff:g></string>
     <string name="app_resources">Szabad külső erőforrások: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vonalkód kiválasztása</string>
     <string name="enterBarcodeInstructions">Írja be az azonosítót, majd válasszon egy vonalkódot, vagy a „Nincs vonalkód” lehetőséget.</string>
@@ -101,7 +100,6 @@
     <string name="settings_theme">Téma</string>
     <string name="settings_system_theme">Rendszer</string>
     <string name="settings_light_theme">Világos</string>
-    <string name="settings_max_font_size_scale">Legnagyobb betűméret</string>
     <string name="settings_display_barcode_max_brightness">Vonalkód nézet világosítása</string>
     <string name="settings_keep_screen_on">A képernyő bekapcsolva tartása</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Képernyőzárólás megakadályozása</string>
@@ -123,13 +121,11 @@
     <string name="expiryStateSentence">Lejárat: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="card">Kártya</string>
-    <string name="barcode">Vonalkód</string>
     <string name="editBarcode">Vonalkód szerkesztése</string>
     <string name="expiryDate">Lejárati dátum</string>
     <string name="never">Soha</string>
     <string name="chooseExpiryDate">Lejárati dátum kiválasztása</string>
     <string name="moveBarcodeToTopOfScreen">Vonalkód feltolása a képernyő tetejére</string>
-    <string name="moveBarcodeToCenterOfScreen">Vonalkód középre igazítása</string>
     <string name="noBarcodeFound">Nem található vonalkód</string>
     <string name="errorReadingImage">Nem lehet olvasni a képet</string>
     <string name="balance">Egyenleg</string>
@@ -177,9 +173,6 @@
     <string name="settings_brown_theme">Barna</string>
     <string name="app_contributors">Lehetővé tették: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Információk megjelenítése</string>
-    <string name="hideMoreInfo">Információk elrejtése</string>
-    <string name="swipeToSwitchImages">Legyintsen a képek váltásához, tartsa lenyomva a kép megnyitásához a galéria alkalmazásban</string>
-    <string name="sort_by_balance">Egyenleg</string>
     <string name="reverse">…fordított sorrendben</string>
     <string name="sort_by">Rendezés:</string>
     <string name="version_history">Verziótörténet</string>
@@ -192,7 +185,6 @@
     <string name="shortcutSelectCard">Válasszon egy kártyát</string>
     <string name="options">Beállítások</string>
     <string name="starred">Csillagozva</string>
-    <string name="set_scale">Méret beállítása</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kártya</item>
         <item quantity="other"><xliff:g>%d</xliff:g> kártya</item>
@@ -273,7 +265,6 @@
     <string name="switchToBackImage">Hátulnézeti képre váltás</string>
     <string name="switchToBarcode">Vonalkódra váltás</string>
     <string name="donate">Adományozás</string>
-    <string name="openImageInGallery">Kép megnyitása a galéria alkalmazásban</string>
     <string name="openBackImageInGalleryApp">Hátulnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="openFrontImageInGalleryApp">Elölnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="setBarcodeHeight">Vonalkód magasságának megadása</string>

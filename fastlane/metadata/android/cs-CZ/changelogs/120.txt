@@ -1,0 +1,3 @@
+- Kompletní přepracování hlavní obrazovky a obrazovek věrnostních karet
+- Motiv Material You pro obrazovku Nastavení
+- Oprava havárie při použití „Pořídit fotografii“ při zakázaném fotoaparátu

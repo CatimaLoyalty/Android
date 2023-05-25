@@ -13,18 +13,13 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import kotlin.Suppress;
-import nl.invissvenska.numberpickerpreference.NumberDialogPreference;
-import nl.invissvenska.numberpickerpreference.NumberPickerPreferenceDialogFragment;
 import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.MainActivity;
 import protect.card_locker.R;
@@ -164,30 +159,5 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 activity.recreate();
             }
         }
-
-        @Override
-        @SuppressWarnings("deprecation") // setTargetFragment
-        // androidx.preference.PreferenceDialogFragmentCompat uses the deprecated method
-        // `getTargetFragment()`, which throws if `setTargetFragment()` isn't used before.
-        // While this isn't fixed on upstream, suppress the deprecation warning
-        // https://issuetracker.google.com/issues/181793702
-        public void onDisplayPreferenceDialog(Preference preference) {
-            if (preference instanceof NumberDialogPreference) {
-                NumberDialogPreference dialogPreference = (NumberDialogPreference) preference;
-                DialogFragment dialogFragment = NumberPickerPreferenceDialogFragment
-                        .newInstance(
-                                dialogPreference.getKey(),
-                                dialogPreference.getMinValue(),
-                                dialogPreference.getMaxValue(),
-                                dialogPreference.getStepValue(),
-                                dialogPreference.getUnitText()
-                        );
-                dialogFragment.setTargetFragment(this, 0);
-                dialogFragment.show(getParentFragmentManager(), DIALOG_FRAGMENT_TAG);
-            } else {
-                super.onDisplayPreferenceDialog(preference);
-            }
-        }
     }
 }
-

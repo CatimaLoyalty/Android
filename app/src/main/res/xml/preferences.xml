@@ -41,17 +41,6 @@
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
 
-        <nl.invissvenska.numberpickerpreference.NumberDialogPreference
-            android:key="@string/settings_key_max_font_size_scale"
-            android:title="@string/settings_max_font_size_scale"
-            app:defaultValue="@integer/settings_max_font_size_scale_pct"
-            app:iconSpaceReserved="false"
-            app:numberPickerPreference_maxValue="@integer/settings_max_font_size_scale_pct_max"
-            app:numberPickerPreference_minValue="@integer/settings_max_font_size_scale_pct_min"
-            app:numberPickerPreference_stepValue="10"
-            app:numberPickerPreference_unitText="%"
-            app:singleLineTitle="false" />
-
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"

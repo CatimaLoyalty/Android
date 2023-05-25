@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 120
+## v2.23.0 - 120
 
 - Complete redesign of main and loyalty card view screens
 - Material You design for the settings screen

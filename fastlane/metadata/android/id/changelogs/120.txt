@@ -1,0 +1,3 @@
+- Desain ulang lengkap layar tampilan kartu utama dan loyalitas
+- Bahan yang Anda desain untuk layar pengaturan
+- Perbaiki kerusakan saat menggunakan "Ambil foto" dengan aplikasi kamera yang dinonaktifkan

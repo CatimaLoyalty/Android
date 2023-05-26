@@ -7,8 +7,8 @@
 - Tingkatkan visibilitas ikon notifikasi dan aplikasi (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
 - Perbarui SDK target ke Android 10
 - Tingkatkan terjemahan berikut:
-  - Jerman
-  - Italia
-  - Belanda
-  - Polandia
-  - Rusia
+   - Jerman
+   - Italia
+   - Belanda
+   - Polandia
+   - Rusia

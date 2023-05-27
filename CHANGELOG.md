@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 121
+## v2.23.1 - 121
 
 - Update used libraries
 

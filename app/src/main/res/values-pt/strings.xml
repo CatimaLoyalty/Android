@@ -267,4 +267,12 @@
     <string name="anyDate">Qualquer data</string>
     <string name="chooseValidFromDate">Escolha uma data desde válida</string>
     <string name="validFromSentence">Válido desde: <xliff:g>%s</xliff:g></string>
+    <string name="switchToFrontImage">Mudar para imagem frontal</string>
+    <string name="height">Altura:</string>
+    <string name="switchToBackImage">Mudar para a imagem de trás</string>
+    <string name="switchToBarcode">Mudar para o código de barras</string>
+    <string name="openFrontImageInGalleryApp">Abra a imagem frontal no aplicativo da galeria</string>
+    <string name="openBackImageInGalleryApp">Abra a imagem traseira no aplicativo da galeria</string>
+    <string name="setBarcodeHeight">Definir altura do código de barras</string>
+    <string name="donate">Doar</string>
 </resources>

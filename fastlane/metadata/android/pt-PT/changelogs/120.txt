@@ -1,0 +1,3 @@
+- Redesenho completo das telas principais e de visualização do cartão de fidelidade
+ - Material que você projeta para a tela de configurações
+ - Correção de falha ao usar "Tirar uma foto" com o aplicativo de câmera desativado

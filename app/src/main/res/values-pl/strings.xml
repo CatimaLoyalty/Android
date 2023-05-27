@@ -278,7 +278,6 @@
     <string name="switchToFrontImage">Przełącz na obraz z przodu</string>
     <string name="switchToBackImage">Przełącz na obraz z tyłu</string>
     <string name="switchToBarcode">Przełącz na kod kreskowy</string>
-    <string name="openImageInGallery">Otwórz obraz w aplikacji galeria</string>
     <string name="openFrontImageInGalleryApp">Otwórz obraz z przodu w aplikacji galeria</string>
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>

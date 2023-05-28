@@ -29,7 +29,7 @@
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
     <string name="importExport">Importeren/Exporteren</string>
     <string name="exportName">Exporteren</string>
-    <string name="importExportHelp">Door je gegevens te back-uppen, kun je ze overzetten naar een ander apparaat.</string>
+    <string name="importExportHelp">Met een reservekopie van je gegevens kun je ze overzetten naar een ander apparaat.</string>
     <string name="importSuccessfulTitle">Importeren voltooid</string>
     <string name="importFailedTitle">Importeren mislukt</string>
     <string name="importFailed">Het importeren is mislukt</string>

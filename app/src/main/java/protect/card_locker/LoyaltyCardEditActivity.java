@@ -118,6 +118,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     public static final String BUNDLE_ID = "id";
     public static final String BUNDLE_DUPLICATE_ID = "duplicateId";
     public static final String BUNDLE_UPDATE = "update";
+    public static final String BUNDLE_OPEN_SET_ICON_MENU = "openSetIconMenu";
     public static final String BUNDLE_CARDID = "cardId";
     public static final String BUNDLE_BARCODEID = "barcodeId";
     public static final String BUNDLE_BARCODETYPE = "barcodeType";
@@ -152,6 +153,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     int loyaltyCardId;
     boolean updateLoyaltyCard;
     boolean duplicateFromLoyaltyCardId;
+    boolean openSetIconMenu;
     String cardId;
     String barcodeId;
     String barcodeType;
@@ -237,6 +239,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         loyaltyCardId = b != null ? b.getInt(BUNDLE_ID) : 0;
         updateLoyaltyCard = b != null && b.getBoolean(BUNDLE_UPDATE, false);
         duplicateFromLoyaltyCardId = b != null && b.getBoolean(BUNDLE_DUPLICATE_ID, false);
+
+        openSetIconMenu = b != null && b.getBoolean(BUNDLE_OPEN_SET_ICON_MENU, false);
 
         cardId = b != null ? b.getString(BUNDLE_CARDID) : null;
         barcodeId = b != null ? b.getString(BUNDLE_BARCODEID) : null;
@@ -897,6 +901,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         }
 
         onResuming = false;
+
+        // Fake click on the edit icon to cause the set icon option to pop up if the icon was
+        // long-pressed in the view activity
+        if (openSetIconMenu) {
+            openSetIconMenu = false;
+            thumbnail.callOnClick();
+        }
     }
 
     protected void setColorFromIcon() {

@@ -313,4 +313,5 @@
     <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
+    <string name="icon_header_click_text">Long press to edit icon</string>
 </resources>

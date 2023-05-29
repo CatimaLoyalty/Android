@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 122
+
+- Long-press card icon in view activity to change it
+
 ## v2.23.1 - 121
 
 - Update used libraries

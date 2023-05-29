@@ -288,8 +288,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.fabEdit.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("id", loyaltyCardId);
-            bundle.putBoolean("update", true);
+            bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ID, loyaltyCardId);
+            bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true);
             intent.putExtras(bundle);
             startActivity(intent);
             finish();
@@ -300,6 +300,20 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarPreviousButton.setOnClickListener(view -> prevNextCard(false));
         binding.bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
+
+        binding.iconContainer.setOnClickListener(view -> Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show());
+        binding.iconContainer.setOnLongClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ID, loyaltyCardId);
+            bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true);
+            bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_OPEN_SET_ICON_MENU, true);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
+
+            return true;
+        });
 
         binding.mainImage.setOnClickListener(view -> onMainImageTap());
         // This long-press was originally only intended for when Talkback was used but sadly limiting
@@ -743,8 +757,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (id == R.id.action_duplicate) {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("id", loyaltyCardId);
-            bundle.putBoolean("duplicateId", true);
+            bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ID, loyaltyCardId);
+            bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_DUPLICATE_ID, true);
             intent.putExtras(bundle);
             startActivity(intent);
 

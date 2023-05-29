@@ -3,6 +3,7 @@
 ## Unreleased - 122
 
 - Long-press card icon in view activity to change it
+- Improve button styling in Groups screen
 
 ## v2.23.1 - 121
 

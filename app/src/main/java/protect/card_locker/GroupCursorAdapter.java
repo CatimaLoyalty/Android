@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -84,7 +85,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
 
     public static class GroupListItemViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mCardCount;
-        public ImageButton mMoveUp, mMoveDown, mEdit, mDelete;
+        public Button mMoveUp, mMoveDown, mEdit, mDelete;
 
         public GroupListItemViewHolder(GroupLayoutBinding groupLayoutBinding) {
             super(groupLayoutBinding.getRoot());

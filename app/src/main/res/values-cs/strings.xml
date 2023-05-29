@@ -275,4 +275,5 @@
     <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
     <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
     <string name="donate">Přispět</string>
+    <string name="icon_header_click_text">Dlouhým stisknutím ikonu upravíte</string>
 </resources>

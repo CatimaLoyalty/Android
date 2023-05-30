@@ -4,6 +4,7 @@
 
 - Long-press card icon in view activity to change it
 - Improve button styling in Groups screen
+- Fix long barcode values causing barcode to scale down to nothing
 
 ## v2.23.1 - 121
 

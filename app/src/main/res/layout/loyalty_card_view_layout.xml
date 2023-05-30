@@ -125,6 +125,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/text_size_large"
+                                android:ellipsize="end"
+                                android:singleLine="true"
                                 android:gravity="center"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>

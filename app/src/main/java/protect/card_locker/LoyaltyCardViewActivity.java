@@ -605,6 +605,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         binding.cardIdView.setText(loyaltyCard.cardId);
 
+        // Display full text on click in case it doesn't fit in a single line
+        binding.cardIdView.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
+            builder.setTitle(R.string.barcodeId);
+            builder.setMessage(loyaltyCard.cardId);
+            builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        });
+
         int backgroundHeaderColor;
         if (loyaltyCard.headerColor != null) {
             backgroundHeaderColor = loyaltyCard.headerColor;

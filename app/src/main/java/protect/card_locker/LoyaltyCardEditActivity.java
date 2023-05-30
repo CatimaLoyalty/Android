@@ -98,6 +98,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     private final String STATE_FRONT_IMAGE_REMOVED = "frontImageRemoved";
     private final String STATE_BACK_IMAGE_REMOVED = "backImageRemoved";
     private final String STATE_ICON_REMOVED = "iconRemoved";
+    private final String STATE_OPEN_SET_ICON_MENU = "openSetIconMenu";
 
     private final String TEMP_CAMERA_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_camera_image.jpg";
     private final String TEMP_CROP_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_crop_image.png";
@@ -288,6 +289,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         savedInstanceState.putInt(STATE_FRONT_IMAGE_REMOVED, mFrontImageRemoved ? 1 : 0);
         savedInstanceState.putInt(STATE_BACK_IMAGE_REMOVED, mBackImageRemoved ? 1 : 0);
         savedInstanceState.putInt(STATE_ICON_REMOVED, mIconRemoved ? 1 : 0);
+        savedInstanceState.putInt(STATE_OPEN_SET_ICON_MENU, openSetIconMenu ? 1 : 0);
     }
 
     @Override
@@ -305,6 +307,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         mFrontImageRemoved = savedInstanceState.getInt(STATE_FRONT_IMAGE_REMOVED) == 1;
         mBackImageRemoved = savedInstanceState.getInt(STATE_BACK_IMAGE_REMOVED) == 1;
         mIconRemoved = savedInstanceState.getInt(STATE_ICON_REMOVED) == 1;
+        openSetIconMenu = savedInstanceState.getInt(STATE_OPEN_SET_ICON_MENU) == 1;
     }
 
     @Override

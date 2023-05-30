@@ -341,16 +341,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         AlertDialog.Builder infoDialog = new MaterialAlertDialogBuilder(this);
 
         int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-        int dialogTitlePadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_title_padding);
-        TextView infoTitleView = new TextView(this);
-        infoTitleView.setPadding(
-                dialogContentPadding,
-                dialogContentPadding,
-                dialogContentPadding,
-                dialogTitlePadding
-        );
-        infoTitleView.setText(loyaltyCard.store);
-        infoDialog.setCustomTitle(infoTitleView);
         infoDialog.setTitle(loyaltyCard.store);
 
         TextView infoTextview = new TextView(this);

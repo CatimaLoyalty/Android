@@ -197,7 +197,7 @@
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
     <string name="exportPasswordHint">Въведете парола</string>
     <string name="exportPassword">Задаване на парола за защита на изнесеното (по избор)</string>
-    <string name="setIcon">Задаване на пиктограма</string>
+    <string name="setIcon">Задаване на значка</string>
     <string name="editGroup">Променяне на списъка: <xliff:g>%s</xliff:g></string>
     <string name="group_name_already_in_use">Има списък с това име</string>
     <string name="group_updated">Промените са запазени</string>
@@ -268,4 +268,5 @@
     <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
     <string name="donate">Даряване</string>
+    <string name="icon_header_click_text">Задръжте, за да промените значката</string>
 </resources>

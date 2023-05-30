@@ -268,4 +268,5 @@
     <string name="openFrontImageInGalleryApp">Voorzijde openen in galerij-app</string>
     <string name="openBackImageInGalleryApp">Achterzijde openen in galerij-app</string>
     <string name="donate">Doneren</string>
+    <string name="icon_header_click_text">Houd lang ingedrukt om pictogram te bewerken</string>
 </resources>

@@ -1,0 +1,2 @@
+- Změna ikony karty v pohledu aktivity dlouhým stisknutím ikony
+- Vylepšení stylu tlačítek na obrazovce Skupiny

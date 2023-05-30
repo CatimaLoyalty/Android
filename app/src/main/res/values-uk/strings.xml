@@ -40,7 +40,7 @@
     <string name="importCatima">Імпорт з Catima</string>
     <string name="accept">Прийняти</string>
     <string name="privacy_policy">Політика конфіденційності</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Брелок для картки лояльності</string>
     <string name="chooseImportType">Імпортувати дані з</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
@@ -274,4 +274,12 @@
     <string name="anyDate">Будь-яка дата</string>
     <string name="chooseValidFromDate">Виберіть термін дії з дати</string>
     <string name="validFromSentence">Дійсний від: <xliff:g>%s</xliff:g></string>
+    <string name="switchToFrontImage">Перемкнутися на лицьову сторону</string>
+    <string name="switchToBackImage">Перемкнутися на зворотню сторону</string>
+    <string name="switchToBarcode">Перемкнутися на штрих-код</string>
+    <string name="openFrontImageInGalleryApp">Відкрити зображення лицьової сторони у додату галереї</string>
+    <string name="openBackImageInGalleryApp">Відкрити зображення тильної сторони у додатку галереї</string>
+    <string name="setBarcodeHeight">Встановити висоту штрих-коду</string>
+    <string name="height">Висота:</string>
+    <string name="donate">Пожертвувати</string>
 </resources>

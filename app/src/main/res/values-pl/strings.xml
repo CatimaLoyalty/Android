@@ -281,4 +281,5 @@
     <string name="openFrontImageInGalleryApp">Otwórz obraz z przodu w aplikacji galeria</string>
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>
+    <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
 </resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="storeName">Nome</string>
+    <string name="note">Nota</string>
+    <string name="noMatchingGiftCards">Nun hai nengún resultáu. Prueba a camudar la busca.</string>
+    <string name="barcodeType">Tipu de códigu de barres</string>
+    <string name="noBarcode">Ensin códigu de barres</string>
+    <string name="star">Meter en Favoritos</string>
+    <string name="confirm">Confirmar</string>
+    <string name="deleteConfirmation">¿Quies desaniciar esta tarxeta permanentemente\?</string>
+    <string name="importExport">Importar/Esportar</string>
+    <string name="noCardIdError">Nun s\'introduxo nenguna ID</string>
+    <string name="exportFailed">Num se pudo facer la esportación</string>
+    <string name="importFailedTitle">La importación falló</string>
+    <string name="exportOptionExplanation">Los datos escríbense nel llugar qu\'escueyas.</string>
+    <string name="app_license">Software llibre llicenciao cola GPLv3+</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_add">Amestar</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> na seleición</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> na seleición</item>
+    </plurals>
+    <string name="noGiftCards">Calca\'l botón «+» p\'amestar una tarxeta o impórtales dende\'l menú «⋮».</string>
+    <string name="cardId">ID</string>
+    <string name="barcodeNoBarcode">Nun hai nengún códigu de barres</string>
+    <string name="save">Guardar</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Desaniciar</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"></item>
+        <item quantity="other"></item>
+    </plurals>
+    <string name="unstar">Quitar de Favoritos</string>
+    <string name="cancel">Encaboxar</string>
+    <string name="importFailed">Nun se pudo facer la importación</string>
+    <string name="noCardExistsError">Nun se pudo atopar esa tarxeta</string>
+    <string name="all">Too</string>
+    <string name="noStoreError">Nun s\'introduxo nengún nome</string>
+    <string name="sendLabel">Unviar…</string>
+    <string name="editCardTitle">Editar la tarxeta</string>
+    <string name="ok">D\'acuerdu</string>
+    <string name="exportFailedTitle">La esportación falló</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Pa escaniar códigos de barres, Catima tien d\'acceder a la cámara. Toca equí pa camudar la configuración de los permisos.</string>
+    <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
+    <string name="importing">Importando…</string>
+    <string name="exporting">Esportando…</string>
+    <string name="storageReadPermissionRequired">Esta aición precisa\'l permisu pa lleer l\'almacenamientu…</string>
+    <string name="cameraPermissionRequired">Esta aición precisa l\'accesu a la cámara…</string>
+    <string name="cameraPermissionDeniedTitle">Nun se pudo acceder a la cámara</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_old">Básase en Loyalty Card Keychain
+\ncopyright © 2016–2020 Branden Archer</string>
+    <string name="thumbnailDescription">Miniatura</string>
+    <string name="settings">Configuración</string>
+    <string name="settings_theme">Estilu</string>
+</resources>

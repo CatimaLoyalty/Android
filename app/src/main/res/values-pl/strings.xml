@@ -282,4 +282,5 @@
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>
     <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
+    <string name="icon_header_click_text">Przytrzymaj, aby edytować ikonę</string>
 </resources>

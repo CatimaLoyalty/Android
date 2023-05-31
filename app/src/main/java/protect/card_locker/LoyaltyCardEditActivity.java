@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -30,7 +31,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -491,10 +494,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     builder.setTitle(R.string.setBarcodeId);
                     final EditText input = new EditText(LoyaltyCardEditActivity.this);
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
+                    FrameLayout container = new FrameLayout(LoyaltyCardEditActivity.this);
+                    FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    params.leftMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
+                    params.rightMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
+                    input.setLayoutParams(params);
+                    container.addView(input);
                     if (tempLoyaltyCard.barcodeId != null) {
                         input.setText(tempLoyaltyCard.barcodeId);
                     }
-                    builder.setView(input);
+                    builder.setView(container);
 
                     builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
                         // If the user manually changes the barcode again make sure we disable the

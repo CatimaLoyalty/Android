@@ -268,4 +268,5 @@
     <string name="openBackImageInGalleryApp">Hátulnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="openFrontImageInGalleryApp">Elölnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="setBarcodeHeight">Vonalkód magasságának megadása</string>
+    <string name="icon_header_click_text">Hosszú nyomás az ikon szerkesztéséhez</string>
 </resources>

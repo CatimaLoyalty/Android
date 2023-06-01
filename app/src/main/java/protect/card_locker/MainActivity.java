@@ -416,7 +416,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 Bundle bundle = new Bundle();
                 TabLayout.Tab tab = groupsTabLayout.getTabAt(selectedTab);
                 if (tab != null) {
-                    Group group = (Group) groupsTabLayout.getTabAt(selectedTab).getTag();
+                    Group group = (Group) tab.getTag();
                     if (group != null) {
                         bundle.putInt(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group._id);
                     }

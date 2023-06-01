@@ -336,10 +336,10 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO tmpDbGroups (" +
-                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.NAME + ", " +
                     LoyaltyCardDbGroups.ORDER + ")" +
                     " SELECT " +
-                    LoyaltyCardDbGroups.ID + " ," +
+                    LoyaltyCardDbGroups.ID + ", " +
                     LoyaltyCardDbGroups.ORDER +
                     " FROM " + LoyaltyCardDbGroups.TABLE);
 
@@ -348,13 +348,15 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TEMPORARY TABLE tmpDbIdsGroups (" +
                     LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
                     LoyaltyCardDbIdsGroups.groupID + " TEXT," +
-                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID + "))");
+                    " primary key (" +
+                    LoyaltyCardDbIdsGroups.cardID + ", " +
+                    LoyaltyCardDbIdsGroups.groupID + "))");
 
             db.execSQL("INSERT INTO tmpDbIdsGroups (" +
-                    LoyaltyCardDbIdsGroups.cardID + " ," +
+                    LoyaltyCardDbIdsGroups.cardID + ", " +
                     LoyaltyCardDbIdsGroups.groupID + ")" +
                     " SELECT " +
-                    LoyaltyCardDbIdsGroups.cardID + " ," +
+                    LoyaltyCardDbIdsGroups.cardID + ", " +
                     LoyaltyCardDbIdsGroups.groupID +
                     " FROM " + LoyaltyCardDbIdsGroups.TABLE);
 
@@ -366,28 +368,32 @@ public class DBHelper extends SQLiteOpenHelper {
                     LoyaltyCardDbGroups.ORDER + " INTEGER DEFAULT '0' )");
 
             db.execSQL("INSERT INTO " + LoyaltyCardDbGroups.TABLE + "(" +
-                    LoyaltyCardDbGroups.ID + " ," +
-                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ID + ", " +
+                    LoyaltyCardDbGroups.NAME + ", " +
                     LoyaltyCardDbGroups.ORDER + ")" +
                     " SELECT " +
-                    LoyaltyCardDbGroups.ID + " ," +
-                    LoyaltyCardDbGroups.NAME + " ," +
+                    LoyaltyCardDbGroups.ID + ", " +
+                    LoyaltyCardDbGroups.NAME + ", " +
                     LoyaltyCardDbGroups.ORDER +
                     " FROM tmpDbGroups");
 
             db.execSQL("CREATE TABLE " + LoyaltyCardDbIdsGroups.TABLE + "(" +
                     LoyaltyCardDbIdsGroups.cardID + " INTEGER," +
                     LoyaltyCardDbIdsGroups.groupID + " INTEGER," +
-                    "primary key (" + LoyaltyCardDbIdsGroups.cardID + "," + LoyaltyCardDbIdsGroups.groupID + "))");
+                    " primary key (" +
+                    LoyaltyCardDbIdsGroups.cardID + ", " +
+                    LoyaltyCardDbIdsGroups.groupID + "))");
 
             db.execSQL("INSERT INTO " + LoyaltyCardDbIdsGroups.TABLE + "(" +
-                    LoyaltyCardDbIdsGroups.cardID + " ," +
+                    LoyaltyCardDbIdsGroups.cardID + ", " +
                     LoyaltyCardDbIdsGroups.groupID + ")" +
                     " SELECT " +
-                    "idsGroups." + LoyaltyCardDbIdsGroups.cardID + " ," +
+                    "idsGroups." + LoyaltyCardDbIdsGroups.cardID + ", " +
                     "groups." + LoyaltyCardDbGroups.ID +
-                    " FROM tmpDbIdsGroups AS idsGroups JOIN " + LoyaltyCardDbGroups.TABLE + " AS groups ON " +
-                    "idsGroups." + LoyaltyCardDbIdsGroups.groupID + "=" + "groups." + LoyaltyCardDbGroups.NAME);
+                    " FROM tmpDbIdsGroups AS idsGroups JOIN " +
+                    LoyaltyCardDbGroups.TABLE + " AS groups ON " +
+                    "idsGroups." + LoyaltyCardDbIdsGroups.groupID + "=" +
+                    "groups." + LoyaltyCardDbGroups.NAME);
 
             db.execSQL("DROP TABLE tmpDbGroups");
             db.execSQL("DROP TABLE tmpDbIdsGroups");
@@ -880,7 +886,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static long insertGroup(SQLiteDatabase database, final String name) {
-        if (name.isEmpty() || getGroupByName(database, name)!= null) return -1;
+        if (name.isEmpty() || getGroupByName(database, name) != null) return -1;
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.NAME, name);
@@ -888,8 +894,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
     }
 
+    public static long insertGroup(SQLiteDatabase database, final int groupId, final String name) {
+        if (name.isEmpty() || getGroup(database, groupId) != null || getGroupByName(database, name) != null) return -1;
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LoyaltyCardDbGroups.ID, groupId);
+        contentValues.put(LoyaltyCardDbGroups.NAME, name);
+        contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount(database));
+        return database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+    }
+
     public static boolean updateGroup(SQLiteDatabase database, final int groupId, final String newName) {
-        if (newName.isEmpty() || getGroupByName(database, newName)!= null) return false;
+        if (newName.isEmpty() || getGroupByName(database, newName) != null) return false;
 
         boolean success = false;
 
@@ -943,7 +959,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static int getGroupCardCount(SQLiteDatabase database, final int groupId) {
         return (int) DatabaseUtils.queryNumEntries(database, LoyaltyCardDbIdsGroups.TABLE,
-                whereAttrs(LoyaltyCardDbIdsGroups.groupID),withArgs(groupId));
+                whereAttrs(LoyaltyCardDbIdsGroups.groupID), withArgs(groupId));
     }
 
     static private String whereAttrs(String... attrs) {

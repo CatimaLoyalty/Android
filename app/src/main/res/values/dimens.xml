@@ -26,7 +26,4 @@
     <dimen name="tileLetterFontSize">66sp</dimen>
     <dimen name="tileLetterFontSizeForShortcut">48dp</dimen>
     <dimen name="tileLetterImageSize">92dp</dimen>
-
-    <!--    Margin for EditText inside MaterialAlertDialog-->
-    <dimen name="dialog_margin">20dp</dimen>
 </resources>

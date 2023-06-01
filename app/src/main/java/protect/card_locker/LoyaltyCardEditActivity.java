@@ -494,10 +494,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     builder.setTitle(R.string.setBarcodeId);
                     final EditText input = new EditText(LoyaltyCardEditActivity.this);
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
+
                     FrameLayout container = new FrameLayout(LoyaltyCardEditActivity.this);
                     FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    params.leftMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
-                    params.rightMargin = getResources().getDimensionPixelSize(R.dimen.dialog_margin);
+                    int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+                    params.leftMargin = contentPadding;
+                    params.rightMargin = contentPadding;
+
                     input.setLayoutParams(params);
                     container.addView(input);
                     if (tempLoyaltyCard.barcodeId != null) {

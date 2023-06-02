@@ -150,8 +150,9 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        params.leftMargin = 50;
-        params.rightMargin = 50;
+        int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        params.leftMargin = contentPadding;
+        params.rightMargin = contentPadding;
         input.setLayoutParams(params);
         container.addView(input);
 

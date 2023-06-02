@@ -604,7 +604,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             cardIdView.setPadding(contentPadding, 0, contentPadding, 0);
 
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
-            builder.setTitle(R.string.barcodeId);
+            builder.setTitle(R.string.cardId);
             builder.setView(cardIdView);
             builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
             AlertDialog dialog = builder.create();

@@ -601,7 +601,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             cardIdView.setText(loyaltyCard.cardId);
             cardIdView.setTextIsSelectable(true);
             int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-            cardIdView.setPadding(contentPadding, contentPadding, contentPadding, 0);
+            cardIdView.setPadding(contentPadding, 0, contentPadding, 0);
 
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.barcodeId);

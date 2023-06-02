@@ -593,13 +593,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         cardIdString = loyaltyCard.cardId;
         barcodeIdString = loyaltyCard.barcodeId;
 
-        binding.cardIdView.setText(loyaltyCard.cardId);
+        binding.cardIdView.setText(barcodeIdString != null ? barcodeIdString : cardIdString);
 
         // Display full text on click in case it doesn't fit in a single line
         binding.cardIdView.setOnClickListener(v -> {
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.barcodeId);
-            builder.setMessage(loyaltyCard.cardId);
+            builder.setMessage(barcodeIdString != null ? barcodeIdString : cardIdString);
             builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();

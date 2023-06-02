@@ -275,4 +275,5 @@
     <string name="openBackImageInGalleryApp">Ouvrir l\'image arrière dans l\'application galerie</string>
     <string name="setBarcodeHeight">Définir la hauteur du code-barres</string>
     <string name="donate">Faire un don</string>
+    <string name="icon_header_click_text">Pressez longtemps pour éditer l\'icône</string>
 </resources>

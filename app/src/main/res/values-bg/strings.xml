@@ -83,9 +83,9 @@
     <string name="groups">Списъци</string>
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>
-    <string name="settings_display_barcode_max_brightness">Увеличаване на яркостта при видим щрихкод</string>
-    <string name="settings_keep_screen_on">Поддържане на екрана включен</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Предотвратяване на заключване на екрана</string>
+    <string name="settings_display_barcode_max_brightness">Максимална яркост при видим щрихкод</string>
+    <string name="settings_keep_screen_on">Без изключване на екрана</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Без заключване на екрана</string>
     <string name="settings_dark_theme">Тъмна</string>
     <string name="settings_light_theme">Светла</string>
     <string name="settings_system_theme">Системна</string>
@@ -196,7 +196,7 @@
     <string name="and_data_usage">и използване на данни</string>
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
     <string name="exportPasswordHint">Въведете парола</string>
-    <string name="exportPassword">Задаване на парола за защита на изнесеното (по избор)</string>
+    <string name="exportPassword">Защитете архива с парола (по желание)</string>
     <string name="setIcon">Задаване на значка</string>
     <string name="editGroup">Променяне на списъка: <xliff:g>%s</xliff:g></string>
     <string name="group_name_already_in_use">Има списък с това име</string>
@@ -217,13 +217,13 @@
         <item quantity="one"><xliff:g>%s</xliff:g> точка</item>
         <item quantity="other"><xliff:g>%s</xliff:g> точки</item>
     </plurals>
-    <string name="settings_oled_dark">Чисто черен фон за тъмната тема</string>
+    <string name="settings_oled_dark">Черен фон за тъмната тема</string>
     <string name="include_if_asking_support">Ако искате да потърсите поддръжка, включете следната информация:</string>
-    <string name="settings_card_orientation">Положение на щрихкода</string>
+    <string name="settings_card_orientation">Завъртане на щрихкода</string>
     <string name="settings_follow_system_orientation">Според системата</string>
-    <string name="settings_portrait_orientation">Портретно</string>
-    <string name="settings_landscape_orientation">Пейзажно</string>
-    <string name="settings_lock_on_opening_orientation">Използване на положението, използвано при отваряне на картата</string>
+    <string name="settings_portrait_orientation">Портрет</string>
+    <string name="settings_landscape_orientation">Пейзаж</string>
+    <string name="settings_lock_on_opening_orientation">Като при отваряне на картата</string>
     <string name="duplicateCard">Дублиране</string>
     <string name="archive">Архивиране</string>
     <string name="unarchive">Изваждане от архива</string>

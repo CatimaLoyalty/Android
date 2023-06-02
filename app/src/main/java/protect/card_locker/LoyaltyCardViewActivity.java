@@ -597,9 +597,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Display full text on click in case it doesn't fit in a single line
         binding.cardIdView.setOnClickListener(v -> {
+            TextView cardIdView = new TextView(LoyaltyCardViewActivity.this);
+            cardIdView.setText(loyaltyCard.cardId);
+            cardIdView.setTextIsSelectable(true);
+            int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+            cardIdView.setPadding(contentPadding, 0, contentPadding, 0);
+
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.barcodeId);
-            builder.setMessage(loyaltyCard.cardId);
+            builder.setView(cardIdView);
             builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();

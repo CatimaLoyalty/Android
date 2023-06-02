@@ -495,7 +495,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     input.setInputType(InputType.TYPE_CLASS_TEXT);
 
                     FrameLayout container = new FrameLayout(LoyaltyCardEditActivity.this);
-                    FrameLayout.LayoutParams params = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
                     params.leftMargin = contentPadding;
                     params.rightMargin = contentPadding;

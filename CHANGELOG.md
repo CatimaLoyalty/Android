@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 123
+
+- Minor UI improvements
+
 ## v2.23.2 - 122
 
 - Long-press card icon in view activity to change it

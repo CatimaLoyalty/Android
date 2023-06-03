@@ -1,0 +1,3 @@
+- Ikon kartu tekan lama dalam aktivitas tampilan untuk mengubahnya
+- Tingkatkan gaya tombol di layar Grup
+- Perbaiki nilai barcode panjang yang menyebabkan barcode turun menjadi kosong

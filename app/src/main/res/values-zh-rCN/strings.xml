@@ -261,4 +261,5 @@
     <string name="openBackImageInGalleryApp">使用图库软件打开背面图像</string>
     <string name="setBarcodeHeight">设置条形码高度</string>
     <string name="donate">捐赠</string>
+    <string name="icon_header_click_text">长按以编辑图标</string>
 </resources>

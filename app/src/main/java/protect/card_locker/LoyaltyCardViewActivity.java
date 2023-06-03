@@ -587,7 +587,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         loyaltyCardGroups = DBHelper.getLoyaltyCardGroups(database, loyaltyCardId);
 
-        setupOrientation();
+        showHideElementsForScreenSize();
 
         format = loyaltyCard.barcodeType;
         cardIdString = loyaltyCard.cardId;
@@ -819,13 +819,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupOrientation() {
+    private void showHideElementsForScreenSize() {
         int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Log.d(TAG, "Detected landscape mode");
+        // Detect square-ish screens like the Unihertz Titan
+        boolean isSmallHeight = getResources().getDisplayMetrics().heightPixels < (getResources().getDisplayMetrics().widthPixels * 1.5);
+
+        // Treat sqaure-ish screens as
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE || isSmallHeight) {
+            Log.d(TAG, "Detected landscape mode or square-ish screen");
             binding.iconContainer.setVisibility(View.GONE);
         } else {
-            Log.d(TAG, "Detected portrait mode");
+            Log.d(TAG, "Detected portrait mode on non square-ish screen");
             binding.iconContainer.setVisibility(View.VISIBLE);
         }
 

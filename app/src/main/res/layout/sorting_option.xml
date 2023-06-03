@@ -15,7 +15,7 @@
             android:layout_marginLeft="20dp"
             android:paddingLeft="20dp"
             android:text="@string/reverse"
-            android:textSize="19sp"/>
+            android:textSize="16sp"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

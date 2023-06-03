@@ -10,9 +10,9 @@
         app:showAsAction="always|collapseActionView"
         android:visible="false"/>
     <item
-        android:id="@+id/action_unfold"
-        android:title="@string/action_hide_details"
-        android:icon="@drawable/ic_baseline_unfold_less_24"
+        android:id="@+id/action_shown_details"
+        android:title="@string/action_show_details"
+        android:icon="@drawable/baseline_visibility_24"
         app:showAsAction="always"
         android:visible="false"/>
     <item

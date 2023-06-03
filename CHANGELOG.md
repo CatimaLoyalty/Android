@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 124
+
+- Support selecting exactly which details to view in card overview
+
 ## v2.23.3 - 123
 
 - Minor UI improvements

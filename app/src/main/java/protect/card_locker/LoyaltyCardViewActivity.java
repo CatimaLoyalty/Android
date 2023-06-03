@@ -630,7 +630,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
-        Utils.setIconOrTextWithBackground(this, loyaltyCard, binding.iconImage, binding.iconText);
+        Utils.setIconOrTextWithBackground(this, loyaltyCard, binding.iconImage, binding.iconText, false);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);

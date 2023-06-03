@@ -123,7 +123,6 @@
     <string name="sharedpreference_sort_order" translatable="false">sharedpreference_sort_order</string>
     <string name="sharedpreference_sort_direction" translatable="false">sharedpreference_sort_direction</string>
     <string name="sharedpreference_card_details" translatable="false">sharedpreference_card_details</string>
-    <string name="sharedpreference_card_details_show" translatable="false">sharedpreference_card_details_show</string>
     <string name="intent_import_card_from_url_share_text">I want to share a card with you</string>
     <string name="intent_import_card_from_url_host_catima_app" translatable="false">catima.app</string>
     <string name="intent_import_card_from_url_path_prefix_catima_app" translatable="false">/share</string>
@@ -314,4 +313,12 @@
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
     <string name="icon_header_click_text">Long press to edit icon</string>
+    <string name="always_show_name">Always show name</string>
+    <string name="show_note">Show note</string>
+    <string name="show_balance">Show balance</string>
+    <string name="show_validity">Show validity</string>
+    <string name="sharedpreference_card_details_always_show_name" translatable="false">sharedpreference_card_details_always_show_name</string>
+    <string name="sharedpreference_card_details_show_note" translatable="false">sharedpreference_card_details_show_note</string>
+    <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
+    <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
 </resources>

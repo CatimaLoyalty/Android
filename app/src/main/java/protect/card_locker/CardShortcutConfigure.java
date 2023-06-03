@@ -81,7 +81,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
         getMenuInflater().inflate(R.menu.card_details_menu, inputMenu);
-        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
+
         return super.onCreateOptionsMenu(inputMenu);
     }
 
@@ -89,8 +89,8 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
 
-        if (id == R.id.action_unfold) {
-            mAdapter.showDetails(!mAdapter.showingDetails());
+        if (id == R.id.action_shown_details) {
+            mAdapter.showSelectDetailDisplayDialog();
             invalidateOptionsMenu();
 
             return true;

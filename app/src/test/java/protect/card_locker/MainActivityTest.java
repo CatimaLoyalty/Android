@@ -62,7 +62,7 @@ public class MainActivityTest {
         assertEquals(menu.size(), 8);
         assertEquals("Search", menu.findItem(R.id.action_search).getTitle().toString());
         assertEquals("Sort", menu.findItem(R.id.action_sort).getTitle().toString());
-        assertEquals("Hide details", menu.findItem(R.id.action_unfold).getTitle().toString());
+        assertEquals("Show details", menu.findItem(R.id.action_shown_details).getTitle().toString());
         assertEquals("Groups", menu.findItem(R.id.action_manage_groups).getTitle().toString());
         assertEquals("Archive", menu.findItem(R.id.action_archived).getTitle().toString());
         assertEquals("Import/Export", menu.findItem(R.id.action_import_export).getTitle().toString());

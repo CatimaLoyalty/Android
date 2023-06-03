@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 123
+## v2.23.3 - 123
 
 - Minor UI improvements
 - Fix new design not being usable on devices with square screens

@@ -28,16 +28,17 @@ Sergio Paredes
 Aayush Gupta
 huuhaa
 Quentin PAGÈS
-(Cliff Heraldo)
+Clxff H3r4ld0
+Balázs Meskó
 Alexander Ivanov
 arshbeerSingh
-Balázs Meskó
 Denis Shilin
 Freddo espresso
 Giovanni Donisi
 Projjal Moitra
 Silvério Santos
 Miha Frangež
+Eryk Michalak
 Arnis Jaundžeikars
 Kefir2105
 sr093906
@@ -51,7 +52,9 @@ waffshappen
 Robin
 Eric
 ati3
+enolp
 Evgeniy Khramov
+FC Stegerman
 Jane Kong
 Jean Mareilles
 Jiri Grönroos
@@ -63,7 +66,6 @@ Still Hsu
 String E. Fighter
 Tapu
 Yurical
-Eryk Michalak
 rr-vesp
 丛林意志
 alajemba-vik
@@ -74,6 +76,7 @@ KovalevArtem
 Artem M.
 Astrohops1
 BMN
+balaraz
 BootVirtual
 Clonewayx
 D. Domig
@@ -123,7 +126,7 @@ Airat
 Alexander
 sNiXx
 Angela Enogieru
-AnimeshChatterjee1
+Animesh Chatterjee
 Artūras Kalenda
 Ashish Yadav
 Aya Elsaadany
@@ -138,7 +141,6 @@ Mylou53
 danieluhrinyi
 Kasina Dheeraj
 Donno
-FC Stegerman
 Flav
 Franciszek Stefan
 Gael Caraballo
@@ -174,6 +176,7 @@ pbeckmann
 Peer Beckmann
 Piotr Strebski
 Piotr Zet
+Poorva Patidar
 Quang Nguyen
 Ratnesh
 Reza
@@ -181,6 +184,7 @@ Rohan Babbar
 Ronak Upadhyay
 Rose Liverman
 SKULD
+Sabri Ünal
 Salem Malus
 Samarth Asthan
 Shailendra Maurya
@@ -188,6 +192,7 @@ SilverFS
 Simone Dotto
 Subhashish Anand
 Subhradeep Bera
+Swayam Khare
 SziaTomi
 Mehedi Hasan
 Titas Pažereckas
@@ -201,6 +206,7 @@ Yusril A
 ahmed-awad26
 Avik Kundu
 diksha-2911
+Frablock
 gbonaspetti
 gittyboy-cell
 huang ivan

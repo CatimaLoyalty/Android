@@ -168,7 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/fullscreen_button_minimize"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
             android:layout_marginStart="15.0dip"
             android:layout_marginEnd="15.0dip">
 
@@ -195,7 +195,7 @@
             android:src="@drawable/ic_baseline_expand_more_24"
             android:tooltipText="@string/moveDown"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
             android:background="@android:color/transparent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

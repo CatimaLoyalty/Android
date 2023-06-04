@@ -12,10 +12,11 @@
             android:id="@+id/checkBox_reverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:paddingLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:paddingStart="20dp"
             android:text="@string/reverse"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="?attr/colorOnSurfaceVariant"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

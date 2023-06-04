@@ -1,0 +1,2 @@
+- Drobná vylepšení uživatelského rozhraní
+- Oprava nového vzhledu, který není použitelný na zařízeních se čtvercovými obrazovkami

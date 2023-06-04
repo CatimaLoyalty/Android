@@ -610,6 +610,12 @@ public class Utils {
             textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
             textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
+            // Add a small shadow layer if there is an icon to increase readability
+            if (icon != null) {
+                textWhenNoImage.setShadowLayer(1, 1, 1, Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
+            } else {
+                textWhenNoImage.setShadowLayer(0, 0, 0, Color.TRANSPARENT);
+            }
         } else {
             textWhenNoImage.setVisibility(View.GONE);
         }

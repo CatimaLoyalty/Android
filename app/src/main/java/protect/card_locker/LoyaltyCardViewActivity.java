@@ -346,7 +346,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         TextView infoTextview = new TextView(this);
         infoTextview.setPadding(
                 dialogContentPadding,
-                0,
+                dialogContentPadding / 2,
                 dialogContentPadding,
                 0
         );
@@ -409,6 +409,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         );
         int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
         params.leftMargin = contentPadding;
+        params.topMargin = contentPadding / 2;
         params.rightMargin = contentPadding;
 
         LinearLayout layout = new LinearLayout(this);
@@ -601,7 +602,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             cardIdView.setText(loyaltyCard.cardId);
             cardIdView.setTextIsSelectable(true);
             int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
-            cardIdView.setPadding(contentPadding, 0, contentPadding, 0);
+            cardIdView.setPadding(contentPadding, contentPadding / 2, contentPadding, 0);
 
             AlertDialog.Builder builder = new MaterialAlertDialogBuilder(LoyaltyCardViewActivity.this);
             builder.setTitle(R.string.cardId);

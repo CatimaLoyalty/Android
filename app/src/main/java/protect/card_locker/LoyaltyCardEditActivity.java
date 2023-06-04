@@ -498,6 +498,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
                     params.leftMargin = contentPadding;
+                    params.topMargin = contentPadding / 2;
                     params.rightMargin = contentPadding;
 
                     input.setLayoutParams(params);

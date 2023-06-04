@@ -560,16 +560,6 @@ public class Utils {
         activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
     }
 
-    public static void updateMenuCardDetailsButtonState(MenuItem item, boolean currentlyExpanded) {
-        if (currentlyExpanded) {
-            item.setIcon(R.drawable.ic_baseline_unfold_less_24);
-            item.setTitle(R.string.action_hide_details);
-        } else {
-            item.setIcon(R.drawable.ic_baseline_unfold_more_24);
-            item.setTitle(R.string.action_show_details);
-        }
-    }
-
     public static int getHeaderColorFromImage(Bitmap image, int fallback) {
         if (image == null) {
             return fallback;
@@ -603,8 +593,7 @@ public class Utils {
         return result.toString();
     }
 
-    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, ImageView backgroundOrIcon, TextView textWhenNoImage) {
-        Bitmap icon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
+    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
         if (icon != null) {
             Log.d("onResume", "setting icon image");
             textWhenNoImage.setVisibility(View.GONE);

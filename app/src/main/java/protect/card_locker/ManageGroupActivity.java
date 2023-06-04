@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
@@ -160,7 +159,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     @Override
     public boolean onCreateOptionsMenu(Menu inputMenu) {
         getMenuInflater().inflate(R.menu.card_details_menu, inputMenu);
-        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
+
         return super.onCreateOptionsMenu(inputMenu);
     }
 
@@ -168,8 +167,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
 
-        if (id == R.id.action_unfold) {
-            mAdapter.showDetails(!mAdapter.showingDetails());
+        if (id == R.id.action_shown_details) {
+            mAdapter.showSelectDetailDisplayDialog();
             invalidateOptionsMenu();
 
             return true;

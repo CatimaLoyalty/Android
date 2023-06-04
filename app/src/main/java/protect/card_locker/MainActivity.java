@@ -15,18 +15,15 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
@@ -435,7 +432,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     }
 
     private void displayCardSetupOptions(Menu menu, boolean shouldShow) {
-        for (int id : new int[]{R.id.action_search, R.id.action_unfold, R.id.action_sort}) {
+        for (int id : new int[]{R.id.action_search, R.id.action_shown_details, R.id.action_sort}) {
             menu.findItem(id).setVisible(shouldShow);
         }
     }
@@ -600,7 +597,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             getMenuInflater().inflate(R.menu.archive_menu, inputMenu);
         }
 
-        Utils.updateMenuCardDetailsButtonState(inputMenu.findItem(R.id.action_unfold), mAdapter.showingDetails());
         displayCardSetupOptions(inputMenu, mLoyaltyCardCount > 0);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -653,8 +649,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             onBackPressed();
         }
 
-        if (id == R.id.action_unfold) {
-            mAdapter.showDetails(!mAdapter.showingDetails());
+        if (id == R.id.action_shown_details) {
+            mAdapter.showSelectDetailDisplayDialog();
             invalidateOptionsMenu();
 
             return true;

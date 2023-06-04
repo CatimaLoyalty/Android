@@ -136,7 +136,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             android:textColor="?android:attr/textColorSecondary"
             android:visibility="gone"
             tools:visibility="visible"

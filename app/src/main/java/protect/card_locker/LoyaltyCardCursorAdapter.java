@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.SparseBooleanArray;
@@ -41,7 +42,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
-    private boolean mAlwaysShowName;
+    private boolean mShowNameBelowThumbnail;
     private boolean mShowNote;
     private boolean mShowBalance;
     private boolean mShowValidity;
@@ -75,21 +76,21 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
                 mContext.getString(R.string.sharedpreference_card_details),
                 Context.MODE_PRIVATE);
-        mAlwaysShowName = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_always_show_name), false);
+        mShowNameBelowThumbnail = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_name_below_thumbnail), false);
         mShowNote = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_note), true);
         mShowBalance = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_balance), true);
         mShowValidity = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
     }
 
-    public void alwaysShowName(boolean show) {
-        mAlwaysShowName = show;
+    public void showNameBelowThumbnail(boolean show) {
+        mShowNameBelowThumbnail = show;
         notifyDataSetChanged();
 
-        saveDetailState(R.string.sharedpreference_card_details_always_show_name, show);
+        saveDetailState(R.string.sharedpreference_card_details_show_name_below_thumbnail, show);
     }
 
-    public boolean alwaysShowingName() {
-        return mAlwaysShowName;
+    public boolean showingNameBelowThumbnail() {
+        return mShowNameBelowThumbnail;
     }
 
     public void showNote(boolean show) {
@@ -130,28 +131,24 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         builder.setTitle(R.string.action_show_details);
         builder.setMultiChoiceItems(
                 new String[]{
-                        mContext.getString(R.string.always_show_name),
+                        mContext.getString(R.string.show_name_below_image_thumbnail),
                         mContext.getString(R.string.show_note),
                         mContext.getString(R.string.show_balance),
                         mContext.getString(R.string.show_validity)
                 },
                 new boolean[]{
-                        alwaysShowingName(),
+                        showingNameBelowThumbnail(),
                         showingNote(),
                         showingBalance(),
                         showingValidity()
                 },
                 (dialogInterface, i, b) -> {
-                    if (i == 0) {
-                        alwaysShowName(b);
-                    } else if (i == 1) {
-                        showNote(b);
-                    } else if (i == 2) {
-                        showBalance(b);
-                    } else if (i == 3) {
-                        showValidity(b);
-                    } else {
-                        throw new IndexOutOfBoundsException("No such index exists in LoyaltyCardCursorAdapter show details view");
+                    switch (i) {
+                        case 0: showNameBelowThumbnail(b); break;
+                        case 1: showNote(b); break;
+                        case 2: showBalance(b); break;
+                        case 3: showValidity(b); break;
+                        default: throw new IndexOutOfBoundsException("No such index exists in LoyaltyCardCursorAdapter show details view");
                     }
                 }
         );
@@ -182,6 +179,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mDivider.setVisibility(View.GONE);
 
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
+        Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+
+        if (mShowNameBelowThumbnail && icon != null) {
+            inputHolder.setStoreField(loyaltyCard.store);
+        } else {
+            inputHolder.setStoreField(null);
+        }
 
         if (mShowNote && !loyaltyCard.note.isEmpty()) {
             inputHolder.setNoteField(loyaltyCard.note);
@@ -208,7 +212,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
-        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, inputHolder.mCardIcon, inputHolder.mCardText, mAlwaysShowName);
+        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
         inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : androidx.appcompat.R.attr.colorPrimary);
 
         inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
@@ -296,7 +300,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public class LoyaltyCardListItemViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView mCardText, mNoteField, mBalanceField, mValidFromField, mExpiryField;
+        public TextView mCardText, mStoreField, mNoteField, mBalanceField, mValidFromField, mExpiryField;
         public ImageView mCardIcon, mStarBackground, mStarBorder, mTickIcon, mArchivedBackground;
         public MaterialCardView mRow;
         public ConstraintLayout mStar, mArchived;
@@ -309,6 +313,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             View inputView = loyaltyCardLayoutBinding.getRoot();
             mRow = loyaltyCardLayoutBinding.row;
             mDivider = loyaltyCardLayoutBinding.infoDivider;
+            mStoreField = loyaltyCardLayoutBinding.store;
             mNoteField = loyaltyCardLayoutBinding.note;
             mBalanceField = loyaltyCardLayoutBinding.balance;
             mValidFromField = loyaltyCardLayoutBinding.validFrom;
@@ -356,6 +361,16 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             }
 
             field.requestLayout();
+        }
+
+        public void setStoreField(String text) {
+            if (text == null) {
+                mStoreField.setVisibility(View.GONE);
+            } else {
+                mStoreField.setVisibility(View.VISIBLE);
+                mStoreField.setText(text);
+            }
+            mStoreField.requestLayout();
         }
 
         public void setNoteField(String text) {

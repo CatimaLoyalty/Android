@@ -593,31 +593,22 @@ public class Utils {
         return result.toString();
     }
 
-    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, ImageView backgroundOrIcon, TextView textWhenNoImage, boolean alwaysShowTextView) {
-        Bitmap icon = Utils.retrieveCardImage(context, loyaltyCard.id, ImageLocationType.icon);
-        int headerColor = loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
-
+    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
         if (icon != null) {
             Log.d("onResume", "setting icon image");
+            textWhenNoImage.setVisibility(View.GONE);
+
             backgroundOrIcon.setImageBitmap(icon);
             backgroundOrIcon.setBackgroundColor(Color.TRANSPARENT);
         } else {
+            textWhenNoImage.setVisibility(View.VISIBLE);
+
+            int headerColor = loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
+
             backgroundOrIcon.setImageBitmap(null);
             backgroundOrIcon.setBackgroundColor(headerColor);
-        }
-
-        if (icon == null || alwaysShowTextView) {
-            textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
             textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
-            // Add a small shadow layer if there is an icon to increase readability
-            if (icon != null) {
-                textWhenNoImage.setShadowLayer(1, 1, 1, Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
-            } else {
-                textWhenNoImage.setShadowLayer(0, 0, 0, Color.TRANSPARENT);
-            }
-        } else {
-            textWhenNoImage.setVisibility(View.GONE);
         }
     }
 

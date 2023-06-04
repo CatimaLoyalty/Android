@@ -18,7 +18,7 @@
             android:outlineProvider="none"
             app:cardCornerRadius="8dp"
             app:strokeWidth="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/note"
+            app:layout_constraintBottom_toTopOf="@+id/store"
             app:layout_constraintDimensionRatio="85.6f:53.98f"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -130,6 +130,23 @@
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
+            android:id="@+id/store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/icon_layout"
+            app:layout_constraintBottom_toTopOf="@+id/note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Example store"/>
+
+        <TextView
             android:id="@+id/note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,7 +157,7 @@
             android:textColor="?android:attr/textColorSecondary"
             android:visibility="gone"
             tools:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@+id/icon_layout"
+            app:layout_constraintTop_toBottomOf="@+id/store"
             app:layout_constraintBottom_toTopOf="@+id/info_divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

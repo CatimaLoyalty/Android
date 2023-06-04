@@ -223,7 +223,7 @@
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
     <string name="selectColor">Select color</string>
-    <string name="setIcon">Set icon</string>
+    <string name="setIcon">Set thumbnail</string>
     <string name="setting_key_theme_color" translatable="false">pref_theme_color</string>
     <string name="settings_theme_color">Theme color</string>
     <string name="settings_catima_theme">Catima</string>
@@ -312,13 +312,13 @@
     <string name="openBackImageInGalleryApp">Open back image in gallery app</string>
     <string name="setBarcodeHeight">Set barcode height</string>
     <string name="donate">Donate</string>
-    <string name="icon_header_click_text">Long press to edit icon</string>
-    <string name="always_show_name">Always show name</string>
+    <string name="icon_header_click_text">Long press to edit thumbnail</string>
+    <string name="show_name_below_image_thumbnail">Show name below image thumbnail</string>
     <string name="show_note">Show note</string>
     <string name="show_balance">Show balance</string>
     <string name="show_validity">Show validity</string>
-    <string name="sharedpreference_card_details_always_show_name" translatable="false">sharedpreference_card_details_always_show_name</string>
     <string name="sharedpreference_card_details_show_note" translatable="false">sharedpreference_card_details_show_note</string>
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
+    <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
 </resources>

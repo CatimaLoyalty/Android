@@ -58,7 +58,7 @@ For FidMe you need to select the barcode type for each entry afterwards.
 
 # Building
 
-Building can either be done through Android Studio (not reproducible!) or the build.sh script in this repository (reproducibly with Java 11, same way F-Droid builds it). This script can also sign the build.
+Building can either be done through Android Studio (not reproducible!) or the build.sh script in this repository (reproducibly with Java 17, same way F-Droid builds it). This script can also sign the build.
 
 Build without signing:
 ```

@@ -204,7 +204,7 @@
     <string name="editGroup">Groep bewerken: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Voeg kaarten toe om ze hier te kunnen groeperen.</string>
     <string name="group_edit">Groep bewerken</string>
-    <string name="setIcon">Kies een pictogram</string>
+    <string name="setIcon">Miniatuur instellen</string>
     <string name="selectColor">Kies een kleur</string>
     <string name="action_show_details">Details tonen</string>
     <string name="action_hide_details">Details verbergen</string>
@@ -268,5 +268,9 @@
     <string name="openFrontImageInGalleryApp">Voorzijde openen in galerij-app</string>
     <string name="openBackImageInGalleryApp">Achterzijde openen in galerij-app</string>
     <string name="donate">Doneren</string>
-    <string name="icon_header_click_text">Houd lang ingedrukt om pictogram te bewerken</string>
+    <string name="icon_header_click_text">Houd lang ingedrukt om miniatuur te bewerken</string>
+    <string name="show_balance">Saldo tonen</string>
+    <string name="show_name_below_image_thumbnail">Naam onder miniatuur tonen</string>
+    <string name="show_note">Aantekening tonen</string>
+    <string name="show_validity">Geldigheid tonen</string>
 </resources>

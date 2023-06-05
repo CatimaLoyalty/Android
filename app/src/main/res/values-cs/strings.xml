@@ -203,7 +203,7 @@
     <string name="exportPassword">Nastavení hesla pro ochranu exportu (volitelné)</string>
     <string name="exportPasswordHint">Zadejte heslo</string>
     <string name="selectColor">Vybrat barvu</string>
-    <string name="setIcon">Nastavit ikonu</string>
+    <string name="setIcon">Nastavit miniaturu</string>
     <string name="group_edit">Upravit skupinu</string>
     <string name="group_name_already_in_use">Název skupiny je již použitý</string>
     <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
@@ -275,5 +275,9 @@
     <string name="openBackImageInGalleryApp">Otevřít zadní obrázek v galerii</string>
     <string name="setBarcodeHeight">Nastavit výšku čárového kódu</string>
     <string name="donate">Přispět</string>
-    <string name="icon_header_click_text">Dlouhým stisknutím ikonu upravíte</string>
+    <string name="icon_header_click_text">Dlouhým stisknutím miniaturu upravíte</string>
+    <string name="show_name_below_image_thumbnail">Zobrazit název pod obrázkem miniatury</string>
+    <string name="show_note">Zobrazit poznámku</string>
+    <string name="show_validity">Zobrazit platnost</string>
+    <string name="show_balance">Zobrazit zůstatek</string>
 </resources>

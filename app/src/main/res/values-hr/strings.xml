@@ -21,8 +21,8 @@
     <string name="star">Dodaj u favorite</string>
     <string name="action_add">Dodaj</string>
     <string name="storeName">Ime</string>
-    <string name="note">Napomena</string>
-    <string name="noMatchingGiftCards">Nema rezultata. Pokušaj promijeniti pretragu.</string>
+    <string name="note">Bilješka</string>
+    <string name="noMatchingGiftCards">Nema rezultata. Pokušajte promijeniti pretraživanje.</string>
     <string name="cardId">ID kartice</string>
     <string name="barcodeType">Vrsta crtičnog koda</string>
     <string name="barcodeNoBarcode">Ne postoji crtični kod</string>

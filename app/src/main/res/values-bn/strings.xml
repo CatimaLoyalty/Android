@@ -52,4 +52,7 @@
     </plurals>
     <string name="deleteTitle">কার্ড মুছুন</string>
     <string name="noGiftCards">একটি কার্ড যোগ করতে + প্লাস বোতামে ক্লিক করুন বা ⋮ মেনু থেকে আমদানি করুন।</string>
+    <string name="cardShortcut">কার্ড শর্টকাট</string>
+    <string name="noCardsMessage">প্রথমে একটি কার্ড যোগ করুন</string>
+    <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
 </resources>

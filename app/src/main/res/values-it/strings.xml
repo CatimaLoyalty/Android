@@ -275,4 +275,5 @@
     <string name="donate">Dona</string>
     <string name="openBackImageInGalleryApp">Apri l\'immagine posteriore nell\'app Galleria</string>
     <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
+    <string name="icon_header_click_text">Premi a lungo per modificare l\'icona</string>
 </resources>

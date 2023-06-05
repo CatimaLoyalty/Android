@@ -197,7 +197,7 @@
     <string name="help_translate_this_app">Помогнете за превода на приложението</string>
     <string name="exportPasswordHint">Въведете парола</string>
     <string name="exportPassword">Защитете архива с парола (по желание)</string>
-    <string name="setIcon">Задаване на значка</string>
+    <string name="setIcon">Задаване на миниатюра</string>
     <string name="editGroup">Променяне на списъка: <xliff:g>%s</xliff:g></string>
     <string name="group_name_already_in_use">Има списък с това име</string>
     <string name="group_updated">Промените са запазени</string>
@@ -268,5 +268,9 @@
     <string name="openBackImageInGalleryApp">Отваряне на изображението на задната страна в приложението галерия</string>
     <string name="setBarcodeHeight">Задаване на височина на щрихкода</string>
     <string name="donate">Даряване</string>
-    <string name="icon_header_click_text">Задръжте, за да промените значката</string>
+    <string name="icon_header_click_text">Задръжте, за да промените миниатюрата</string>
+    <string name="show_note">Показване на бележката</string>
+    <string name="show_balance">Показване на баланса</string>
+    <string name="show_validity">Показване на валидността</string>
+    <string name="show_name_below_image_thumbnail">Показване на името под миниатюрата</string>
 </resources>

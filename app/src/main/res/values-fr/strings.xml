@@ -208,7 +208,7 @@
     <string name="group_name_already_in_use">Nom de groupe déjà utilisé</string>
     <string name="group_updated">Groupe mis à jour</string>
     <string name="group_name_is_empty">Le nom du groupe ne peut pas être vide</string>
-    <string name="setIcon">Définir l’icône</string>
+    <string name="setIcon">Définir la vignette</string>
     <string name="selectColor">Sélectionnez la couleur</string>
     <string name="action_show_details">Afficher les détails</string>
     <string name="action_hide_details">Masquer les détails</string>
@@ -275,5 +275,9 @@
     <string name="openBackImageInGalleryApp">Ouvrir l\'image arrière dans l\'application galerie</string>
     <string name="setBarcodeHeight">Définir la hauteur du code-barres</string>
     <string name="donate">Faire un don</string>
-    <string name="icon_header_click_text">Appui long pour modifier l\'icône</string>
+    <string name="icon_header_click_text">Appuyez longuement pour modifier la vignette</string>
+    <string name="show_name_below_image_thumbnail">Afficher le nom sous la vignette de l\'image</string>
+    <string name="show_note">Afficher la note</string>
+    <string name="show_validity">Afficher la validité</string>
+    <string name="show_balance">Afficher le solde</string>
 </resources>

@@ -1,0 +1,2 @@
+- Amélioration mineures de l'interface
+- Fix du nouveau design n'étant pas utilisable sur des écrans carrés

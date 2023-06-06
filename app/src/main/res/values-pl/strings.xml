@@ -198,7 +198,7 @@
     <string name="help_translate_this_app">Pomóż przetłumaczyć tę aplikację</string>
     <string name="source_repository">Repozytorium Źródłowe</string>
     <string name="report_error">Zgłoś Błąd</string>
-    <string name="setIcon">Ustaw ikonę</string>
+    <string name="setIcon">Ustaw miniaturę</string>
     <string name="on_github">na GitHub\'ie</string>
     <string name="selectColor">Wybierz kolor</string>
     <string name="version_history">Historia wersji</string>
@@ -282,5 +282,5 @@
     <string name="setBarcodeHeight">Ustaw wysokość kodu kreskowego</string>
     <string name="donate">Darowizna</string>
     <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
-    <string name="icon_header_click_text">Przytrzymaj, aby edytować ikonę</string>
+    <string name="icon_header_click_text">Przytrzymaj, aby edytować miniaturę</string>
 </resources>

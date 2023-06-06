@@ -132,3 +132,18 @@ tasks.withType(SpotBugsTask) {
         html.enabled = true
     }
 }
+
+tasks.register('copyRawResFiles', Copy) {
+    from layout.projectDirectory.file("../CHANGELOG.md"),
+         layout.projectDirectory.file("../PRIVACY.md")
+    into layout.projectDirectory.dir("src/main/res/raw")
+    rename { String fileName -> fileName.toLowerCase() }
+}
+
+project.afterEvaluate {
+    tasks.each { task ->
+        if (task != copyRawResFiles) {
+            task.dependsOn(copyRawResFiles)
+        }
+    }
+}

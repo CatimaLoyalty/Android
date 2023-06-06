@@ -1,9 +1,14 @@
 package protect.card_locker;
 
 import android.os.Bundle;
+import android.text.Spanned;
+import android.text.method.ScrollingMovementMethod;
+import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.StringRes;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -32,11 +37,8 @@ public class AboutActivity extends CatimaAppCompatActivity {
         TextView versionHistory = binding.versionHistorySub;
         versionHistory.setText(content.getVersionHistory());
 
-        binding.versionHistory.setTag("https://catima.app/changelog/");
         binding.translate.setTag("https://hosted.weblate.org/engage/catima/");
-        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/main/LICENSE");
         binding.repo.setTag("https://github.com/CatimaLoyalty/Android/");
-        binding.privacy.setTag("https://catima.app/privacy-policy/");
         binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
         binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
         binding.donate.setTag("https://catima.app/contribute/#donating");
@@ -74,11 +76,11 @@ public class AboutActivity extends CatimaAppCompatActivity {
                 (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
             }
         };
-        binding.versionHistory.setOnClickListener(openExternalBrowser);
+        binding.versionHistory.setOnClickListener(view -> showHistory());
         binding.translate.setOnClickListener(openExternalBrowser);
-        binding.license.setOnClickListener(openExternalBrowser);
+        binding.license.setOnClickListener(view -> showLicense());
         binding.repo.setOnClickListener(openExternalBrowser);
-        binding.privacy.setOnClickListener(openExternalBrowser);
+        binding.privacy.setOnClickListener(view -> showPrivacy());
         binding.reportError.setOnClickListener(openExternalBrowser);
         binding.rate.setOnClickListener(openExternalBrowser);
         binding.donate.setOnClickListener(openExternalBrowser);
@@ -103,6 +105,32 @@ public class AboutActivity extends CatimaAppCompatActivity {
         new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.credits)
                 .setMessage(content.getContributorInfo())
+                .setPositiveButton(R.string.ok, null)
+                .show();
+    }
+
+    private void showHistory() {
+        showHTML(R.string.version_history, content.getHistoryInfo());
+    }
+
+    private void showLicense() {
+        showHTML(R.string.license, content.getLicenseInfo());
+    }
+
+    private void showPrivacy() {
+        showHTML(R.string.privacy_policy, content.getPrivacyInfo());
+    }
+
+    private void showHTML(@StringRes int title, final Spanned text) {
+        int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setAutoLinkMask(Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
+        textView.setMovementMethod(new ScrollingMovementMethod());
+        textView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(title)
+                .setView(textView)
                 .setPositiveButton(R.string.ok, null)
                 .show();
     }

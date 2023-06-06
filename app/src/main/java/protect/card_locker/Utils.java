@@ -688,7 +688,7 @@ public class Utils {
         while (true) {
             String nextLine = reader.readLine();
 
-            if (nextLine == null || nextLine.isEmpty()) {
+            if (nextLine == null) {
                 reader.close();
                 break;
             }
@@ -698,6 +698,19 @@ public class Utils {
         }
 
         return result.toString();
+    }
+
+    // Very crude Markdown to HTML conversion.
+    // Only supports what's currently being used in CHANGELOG.md and PRIVACY.md.
+    // May break easily.
+    public static String basicMDToHTML(final String input) {
+        return input
+                .replaceAll("(?m)^#\\s+(.*)", "<h1>$1</h1>")
+                .replaceAll("(?m)^##\\s+(.*)", "<h2>$1</h2>")
+                .replaceAll("\\[([^]]+)\\]\\((https?://[^)]+)\\)", "$1 ($2)")
+                .replaceAll("\\*\\*([^*]+)\\*\\*", "<b>$1</b>")
+                .replaceAll("(?m)^-\\s+(.*)", "<ul><li>$1</li></ul>")
+                .replace("</ul>\n<ul>", "");
     }
 
     public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {

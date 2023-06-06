@@ -879,12 +879,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         ImageType wantedImageType = imageTypes.get(index);
 
         if (wantedImageType == ImageType.BARCODE) {
-            // Use border in non-fullscreen mode
-            if (!isFullscreen) {
-                barcodeRenderTarget.setBackground(AppCompatResources.getDrawable(this, R.drawable.round_outline));
-            } else {
-                barcodeRenderTarget.setBackgroundColor(Color.WHITE);
-            }
+            barcodeRenderTarget.setBackgroundColor(Color.WHITE);
+            binding.mainImageBackground.setBackgroundColor(Color.WHITE);
 
             if (waitForResize) {
                 redrawBarcodeAfterResize(!isFullscreen);
@@ -896,10 +892,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (wantedImageType == ImageType.IMAGE_FRONT) {
             barcodeRenderTarget.setImageBitmap(frontImageBitmap);
             barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);
+            binding.mainImageBackground.setBackgroundColor(Color.TRANSPARENT);
             barcodeRenderTarget.setContentDescription(getString(R.string.frontImageDescription));
         } else if (wantedImageType == ImageType.IMAGE_BACK) {
             barcodeRenderTarget.setImageBitmap(backImageBitmap);
             barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);
+            binding.mainImageBackground.setBackgroundColor(Color.TRANSPARENT);
             barcodeRenderTarget.setContentDescription(getString(R.string.backImageDescription));
         } else {
             throw new IllegalArgumentException("Unknown image type: " + wantedImageType);

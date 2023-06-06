@@ -30,7 +30,7 @@ jobs:
     - name: Check lint
       run: ./gradlew lintRelease
     - name: Run unit tests
-      run: ./gradlew testReleaseUnitTest || ./gradlew testReleaseUnitTest
+      run: timeout 5m ./gradlew testReleaseUnitTest || ./gradlew testReleaseUnitTest
     - name: SpotBugs
       run: ./gradlew spotbugsRelease
     - name: Archive test results

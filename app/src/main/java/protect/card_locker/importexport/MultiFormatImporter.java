@@ -8,6 +8,8 @@ import net.lingala.zip4j.exception.ZipException;
 
 import java.io.InputStream;
 
+import protect.card_locker.DBHelper;
+
 public class MultiFormatImporter {
     private static final String TAG = "Catima";
 
@@ -17,6 +19,8 @@ public class MultiFormatImporter {
      * <p>
      * The input stream is not closed, and doing so is the
      * responsibility of the caller.
+     * <p>
+     * NB: this deletes all existing data!
      *
      * @return ImportExportResult.Success if the database was successfully imported,
      * or another result otherwise. If no Success, no data was written to
@@ -43,6 +47,7 @@ public class MultiFormatImporter {
         String error = null;
         if (importer != null) {
             database.beginTransaction();
+            DBHelper.clearDatabase(database);
             try {
                 importer.importData(context, database, input, password);
                 database.setTransactionSuccessful();

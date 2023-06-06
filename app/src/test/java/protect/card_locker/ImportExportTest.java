@@ -11,6 +11,7 @@ import android.os.Looper;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -78,9 +79,11 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
-            boolean result = (id != -1);
-            assertTrue(result);
+            try {
+                DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            } catch (DBHelper.DBException e) {
+                Assert.fail(); // FIXME
+            }
         }
 
         assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -92,26 +95,33 @@ public class ImportExportTest {
         for (int index = cardsToAdd; index > 4; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,0);
-            boolean result = (id != -1);
-            assertTrue(result);
+            try {
+                DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 1, null,0);
+            } catch (DBHelper.DBException e) {
+                Assert.fail(); // FIXME
+            }
         }
         for (int index = cardsToAdd - 5; index > 0; index--) {
             String storeName = String.format("store, \"%4d", index);
             String note = String.format("note, \"%4d", index);
             //if index is even
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
-            boolean result = (id != -1);
-            assertTrue(result);
+            try {
+                DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            } catch (DBHelper.DBException e) {
+                Assert.fail(); // FIXME
+            }
         }
         assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
     }
 
     @Test
     public void addLoyaltyCardsWithExpiryNeverPastTodayFuture() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "No Expiry", "", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
         assertEquals("No Expiry", card.store);
@@ -126,9 +136,11 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
-        result = (id != -1);
-        assertTrue(result);
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "Past", "", null, new Date((long) 1), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null, 0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
         assertEquals("Past", card.store);
@@ -143,9 +155,11 @@ public class ImportExportTest {
         assertEquals(Integer.valueOf(0), card.headerColor);
         assertEquals(0, card.starStatus);
 
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
-        result = (id != -1);
-        assertTrue(result);
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "Today", "", null, new Date(), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
         assertEquals("Today", card.store);
@@ -163,9 +177,11 @@ public class ImportExportTest {
 
         // This will break after 19 January 2038
         // If someone is still maintaining this code base by then: I love you
-        id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
-        result = (id != -1);
-        assertTrue(result);
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "Future", "", null, new Date(2147483648000L), new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, 0, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         card = DBHelper.getLoyaltyCard(mDatabase, (int) id);
         assertEquals("Future", card.store);
@@ -187,9 +203,11 @@ public class ImportExportTest {
         // Add in reverse order to test sorting
         for (int index = groupsToAdd; index > 0; index--) {
             String groupName = String.format("group, \"%4d", index);
-            long id = DBHelper.insertGroup(mDatabase, groupName);
-            boolean result = (id != -1);
-            assertTrue(result);
+            try {
+                DBHelper.insertGroup(mDatabase, groupName);
+            } catch (DBHelper.DBException e) {
+                Assert.fail(); // FIXME
+            }
         }
 
         assertEquals(groupsToAdd, DBHelper.getGroupCount(mDatabase));
@@ -797,9 +815,18 @@ public class ImportExportTest {
         HashMap<Integer, Bitmap> loyaltyCardIconImages = new HashMap<>();
 
         // Create card 1
-        int loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
+        int loyaltyCardId = -1;
+        try {
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 1", "Note 1", new Date(1601510400), new Date(1618053234), new BigDecimal("100"), Currency.getInstance("USD"), "1234", "5432", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 1, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
-        DBHelper.insertGroup(mDatabase, "One");
+        try {
+            DBHelper.insertGroup(mDatabase, "One");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         List<Group> groups = Arrays.asList(DBHelper.getGroup(mDatabase, "One"));
         DBHelper.setLoyaltyCardGroups(mDatabase, loyaltyCardId, groups);
         loyaltyCardGroups.put(loyaltyCardId, groups);
@@ -811,7 +838,11 @@ public class ImportExportTest {
         loyaltyCardIconImages.put(loyaltyCardId, bitmap1);
 
         // Create card 2
-        loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
+        try {
+            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, "Card 2", "", null, null, new BigDecimal(0), null, "123456", null, null, 2, 1, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         loyaltyCardHashMap.put(loyaltyCardId, DBHelper.getLoyaltyCard(mDatabase, loyaltyCardId));
 
         // Export everything

@@ -164,7 +164,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                         Log.d(TAG, "Deleting card: " + loyaltyCard.id);
 
-                        DBHelper.deleteLoyaltyCard(mDatabase, MainActivity.this, loyaltyCard.id);
+                        try {
+                            DBHelper.deleteLoyaltyCard(mDatabase, MainActivity.this, loyaltyCard.id);
+                        } catch (DBHelper.DBException e) {
+                            Log.w(TAG, "Could not delete card " + loyaltyCard.id);
+                            Toast.makeText(MainActivity.this, "Failed to delete card", Toast.LENGTH_LONG).show(); // FIXME
+                        }
 
                         ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     }
@@ -184,7 +189,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             } else if (inputItem.getItemId() == R.id.action_archive) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Archiving card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1);
+                    try {
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1);
+                    } catch (DBHelper.DBException e) {
+                        Log.w(TAG, "Could not archive card " + loyaltyCard.id);
+                        Toast.makeText(MainActivity.this, "Failed to archive card", Toast.LENGTH_LONG).show(); // FIXME
+                    }
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                     invalidateOptionsMenu();
@@ -193,7 +203,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             } else if (inputItem.getItemId() == R.id.action_unarchive) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Unarchiving card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0);
+                    try {
+                        DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 0);
+                    } catch (DBHelper.DBException e) {
+                        Log.w(TAG, "Could not unarchive card " + loyaltyCard.id);
+                        Toast.makeText(MainActivity.this, "Failed to unarchive card", Toast.LENGTH_LONG).show(); // FIXME
+                    }
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                     invalidateOptionsMenu();
@@ -202,7 +217,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             } else if (inputItem.getItemId() == R.id.action_star) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Starring card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1);
+                    try {
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 1);
+                    } catch (DBHelper.DBException e) {
+                        Log.w(TAG, "Could not star card " + loyaltyCard.id);
+                        Toast.makeText(MainActivity.this, "Failed to star card", Toast.LENGTH_LONG).show(); // FIXME
+                    }
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                 }
@@ -210,7 +230,12 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             } else if (inputItem.getItemId() == R.id.action_unstar) {
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Unstarring card: " + loyaltyCard.id);
-                    DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0);
+                    try {
+                        DBHelper.updateLoyaltyCardStarStatus(mDatabase, loyaltyCard.id, 0);
+                    } catch (DBHelper.DBException e) {
+                        Log.w(TAG, "Could not unstar card " + loyaltyCard.id);
+                        Toast.makeText(MainActivity.this, "Failed to unstar card", Toast.LENGTH_LONG).show(); // FIXME
+                    }
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                 }

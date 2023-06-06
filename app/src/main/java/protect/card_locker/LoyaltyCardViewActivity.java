@@ -263,7 +263,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
                 Log.d(TAG, "Scaling to " + scale);
 
                 loyaltyCard.zoomLevel = progress;
-                DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
+
+                try {
+                    DBHelper.updateLoyaltyCardZoomLevel(database, loyaltyCardId, loyaltyCard.zoomLevel);
+                } catch (DBHelper.DBException e) {
+                    Log.d(TAG, "Could not update zoom level for card " + loyaltyCardId);
+                }
 
                 setScalerGuideline(loyaltyCard.zoomLevel);
 
@@ -669,7 +674,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         setFullscreen(isFullscreen);
 
-        DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
+        try {
+            DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
+        } catch (DBHelper.DBException e) {
+            Log.w(TAG, "Could not update last used for card " + loyaltyCardId);
+        }
 
         invalidateOptionsMenu();
     }
@@ -770,7 +779,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_star_unstar) {
-            DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
+            try {
+                DBHelper.updateLoyaltyCardStarStatus(database, loyaltyCardId, loyaltyCard.starStatus == 0 ? 1 : 0);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not (un)star card " + loyaltyCardId);
+                Toast.makeText(LoyaltyCardViewActivity.this, "Failed to (un)star card", Toast.LENGTH_LONG).show(); // FIXME
+            }
 
             // Re-init loyaltyCard with new data from DB
             onResume();
@@ -778,7 +792,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_archive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+            try {
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not archive card " + loyaltyCardId);
+                Toast.makeText(LoyaltyCardViewActivity.this, "Failed to archive card", Toast.LENGTH_LONG).show(); // FIXME
+            }
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
 
             // Re-init loyaltyCard with new data from DB
@@ -787,7 +806,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             return true;
         } else if (id == R.id.action_unarchive) {
-            DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+            try {
+                DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 0);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not unarchive card " + loyaltyCardId);
+                Toast.makeText(LoyaltyCardViewActivity.this, "Failed to unarchive card", Toast.LENGTH_LONG).show(); // FIXME
+            }
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.unarchived, Toast.LENGTH_LONG).show();
 
             // Re-init loyaltyCard with new data from DB
@@ -802,7 +826,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             builder.setPositiveButton(R.string.confirm, (dialog, which) -> {
                 Log.e(TAG, "Deleting card: " + loyaltyCardId);
 
-                DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
+                try {
+                    DBHelper.deleteLoyaltyCard(database, LoyaltyCardViewActivity.this, loyaltyCardId);
+                } catch (DBHelper.DBException e) {
+                    Log.e(TAG, "Could not delete card " + loyaltyCardId);
+                    Toast.makeText(LoyaltyCardViewActivity.this, "Failed to delete card", Toast.LENGTH_LONG).show(); // FIXME
+                }
 
                 ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
 

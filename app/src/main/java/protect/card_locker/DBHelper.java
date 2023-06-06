@@ -23,6 +23,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 16;
 
+    public static class DBException extends Exception {
+        public DBException(String message) {
+            super(message);
+        }
+
+        public DBException(String message, Exception rootCause) {
+            super(message, rootCause);
+        }
+    }
+
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
         public static final String ID = "_id";
@@ -323,6 +333,12 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public static void clearDatabase(final SQLiteDatabase db) {
+        db.execSQL("DELETE FROM " + LoyaltyCardDbGroups.TABLE);
+        db.execSQL("DELETE FROM " + LoyaltyCardDbIds.TABLE);
+        db.execSQL("DELETE FROM " + LoyaltyCardDbIdsGroups.TABLE);
+    }
+
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {
         // FTS on Android is severely limited and can only search for word starting with a certain string
         // So for each word, we grab every single substring
@@ -368,7 +384,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final SQLiteDatabase database, final String store, final String note, final Date validFrom,
             final Date expiry, final BigDecimal balance, final Currency balanceType, final String cardId,
             final String barcodeId, final CatimaBarcode barcodeType, final Integer headerColor,
-            final int starStatus, final Long lastUsed, final int archiveStatus) {
+            final int starStatus, final Long lastUsed, final int archiveStatus) throws DBException {
         database.beginTransaction();
 
         // Card
@@ -388,6 +404,8 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         long id = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
 
+        if (id == -1) throw new DBException("Failed to insert card");
+
         // FTS
         insertFTS(database, (int) id, store, note);
 
@@ -402,7 +420,7 @@ public class DBHelper extends SQLiteOpenHelper {
             final Date validFrom, final Date expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
-            final Long lastUsed, final int archiveStatus) {
+            final Long lastUsed, final int archiveStatus) throws DBException {
         database.beginTransaction();
 
         // Card
@@ -421,7 +439,9 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         contentValues.put(LoyaltyCardDbIds.LAST_USED, lastUsed != null ? lastUsed : Utils.getUnixTime());
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
-        database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
+        long rowid = database.insert(LoyaltyCardDbIds.TABLE, null, contentValues);
+
+        if (rowid == -1) throw new DBException("Failed to insert card with ID " + id);
 
         // FTS
         insertFTS(database, id, store, note);
@@ -432,12 +452,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    public static boolean updateLoyaltyCard(
+    public static void updateLoyaltyCard(
             SQLiteDatabase database, final int id, final String store, final String note,
             final Date validFrom, final Date expiry, final BigDecimal balance,
             final Currency balanceType, final String cardId, final String barcodeId,
             final CatimaBarcode barcodeType, final Integer headerColor, final int starStatus,
-            final Long lastUsed, final int archiveStatus) {
+            final Long lastUsed, final int archiveStatus) throws DBException {
         database.beginTransaction();
 
         // Card
@@ -465,37 +485,37 @@ public class DBHelper extends SQLiteOpenHelper {
         database.setTransactionSuccessful();
         database.endTransaction();
 
-        return (rowsUpdated == 1);
+        if (rowsUpdated != 1) throw new DBException("Failed to update card with ID " + id + ": " + rowsUpdated + " rows updated");
     }
 
-    public static boolean updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) {
+    public static void updateLoyaltyCardArchiveStatus(SQLiteDatabase database, final int id, final int archiveStatus) throws DBException {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ARCHIVE_STATUS, archiveStatus);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
-        return (rowsUpdated == 1);
+        if (rowsUpdated != 1) throw new DBException("Failed to (un)archive card with ID " + id + ": " + rowsUpdated + " rows updated");
     }
 
-    public static boolean updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) {
+    public static void updateLoyaltyCardStarStatus(SQLiteDatabase database, final int id, final int starStatus) throws DBException {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.STAR_STATUS, starStatus);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
-        return (rowsUpdated == 1);
+        if (rowsUpdated != 1) throw new DBException("Failed to (un)star card with ID " + id + ": " + rowsUpdated + " rows updated");
     }
 
-    public static boolean updateLoyaltyCardLastUsed(SQLiteDatabase database, final int id) {
+    public static void updateLoyaltyCardLastUsed(SQLiteDatabase database, final int id) throws DBException {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.LAST_USED, System.currentTimeMillis() / 1000);
         int rowsUpdated = database.update(LoyaltyCardDbIds.TABLE, contentValues,
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(id));
-        return (rowsUpdated == 1);
+        if (rowsUpdated != 1) throw new DBException("Failed to update last used for card with ID " + id + ": " + rowsUpdated + " rows updated");
     }
 
-    public static boolean updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel) {
+    public static void updateLoyaltyCardZoomLevel(SQLiteDatabase database, int loyaltyCardId, int zoomLevel) throws DBException {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbIds.ZOOM_LEVEL, zoomLevel);
         Log.d("updateLoyaltyCardZLevel", "Card Id = " + loyaltyCardId + " Zoom level= " + zoomLevel);
@@ -503,7 +523,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbIds.ID),
                 withArgs(loyaltyCardId));
         Log.d("updateLoyaltyCardZLevel", "Rows changed = " + rowsUpdated);
-        return (rowsUpdated == 1);
+        if (rowsUpdated != 1) throw new DBException("Failed to update zoom level for card with ID " + loyaltyCardId + ": " + rowsUpdated + " rows updated");
     }
 
     public static boolean updateLoyaltyCardBalance(SQLiteDatabase database, final int id, final BigDecimal newBalance) {
@@ -569,7 +589,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public static boolean deleteLoyaltyCard(SQLiteDatabase database, Context context, final int id) {
+    public static void deleteLoyaltyCard(SQLiteDatabase database, Context context, final int id) throws DBException {
         // Delete card
         int rowsDeleted = database.delete(LoyaltyCardDbIds.TABLE,
                 whereAttrs(LoyaltyCardDbIds.ID),
@@ -594,7 +614,7 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }
 
-        return (rowsDeleted == 1);
+        if (rowsDeleted != 1) throw new DBException("Failed to delete card with ID " + id + ": " + rowsDeleted + " rows deleted");
     }
 
     public static int getArchivedCardsCount(SQLiteDatabase database) {
@@ -792,19 +812,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return cardIds;
     }
 
-    public static long insertGroup(SQLiteDatabase database, final String name) {
-        if (name.isEmpty()) return -1;
+    public static void insertGroup(SQLiteDatabase database, final String name) throws DBException {
+        if (name.isEmpty()) throw new DBException("Failed to insert group with empty name");
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoyaltyCardDbGroups.ID, name);
         contentValues.put(LoyaltyCardDbGroups.ORDER, getGroupCount(database));
-        return database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+        long rowid = database.insert(LoyaltyCardDbGroups.TABLE, null, contentValues);
+
+        if (rowid == -1) throw new DBException("Failed to insert group with name " + name);
     }
 
-    public static boolean updateGroup(SQLiteDatabase database, final String groupName, final String newName) {
-        if (newName.isEmpty()) return false;
-
-        boolean success = false;
+    public static void updateGroup(SQLiteDatabase database, final String groupName, final String newName) throws DBException {
+        if (groupName.isEmpty()) throw new DBException("Failed to update group: empty old name");
+        if (newName.isEmpty()) throw new DBException("Failed to update group: empty new name");
 
         ContentValues groupContentValues = new ContentValues();
         groupContentValues.put(LoyaltyCardDbGroups.ID, newName);
@@ -826,19 +847,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
             if (groupsChanged == 1) {
                 database.setTransactionSuccessful();
-                success = true;
+                return;
             }
         } catch (SQLiteException ignored) {
         } finally {
             database.endTransaction();
         }
 
-        return success;
+        throw new DBException("Failed to update group");
     }
 
-    public static boolean deleteGroup(SQLiteDatabase database, final String groupName) {
-        boolean success = false;
-
+    public static void deleteGroup(SQLiteDatabase database, final String groupName) throws DBException {
         database.beginTransaction();
         try {
             // Delete group
@@ -853,16 +872,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
             if (groupsDeleted == 1) {
                 database.setTransactionSuccessful();
-                success = true;
+                // Reorder after delete to ensure no bad order IDs
+                reorderGroups(database, getGroups(database));
+                return;
             }
         } finally {
             database.endTransaction();
         }
 
-        // Reorder after delete to ensure no bad order IDs
-        reorderGroups(database, getGroups(database));
-
-        return success;
+        throw new DBException("Failed to delete group");
     }
 
     public static int getGroupCardCount(SQLiteDatabase database, final String groupName) {

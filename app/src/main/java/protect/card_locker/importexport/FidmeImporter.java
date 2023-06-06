@@ -31,7 +31,7 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class FidmeImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException, DBHelper.DBException {
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
@@ -77,7 +77,7 @@ public class FidmeImporter implements Importer {
      * session.
      */
     private void importLoyaltyCard(Context context, SQLiteDatabase database, CSVRecord record)
-            throws FormatException {
+            throws FormatException, DBHelper.DBException {
         // A loyalty card export from Fidme contains the following fields:
         // Retailer (store name)
         // Program (program name)

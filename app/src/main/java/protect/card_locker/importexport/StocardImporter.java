@@ -42,7 +42,7 @@ import protect.card_locker.ZipUtils;
 public class StocardImporter implements Importer {
     private static final String TAG = "Catima";
 
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException, DBHelper.DBException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
 

@@ -52,6 +52,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -873,6 +874,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     private void drawMainImage(int index, boolean waitForResize, boolean isFullscreen) {
         if (imageTypes.isEmpty()) {
             barcodeRenderTarget.setVisibility(View.GONE);
+            binding.mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
+            binding.cardIdView.setTextColor(MaterialColors.getColor(binding.cardIdView, com.google.android.material.R.attr.colorOnSurfaceVariant));
             return;
         }
 
@@ -880,7 +883,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         if (wantedImageType == ImageType.BARCODE) {
             barcodeRenderTarget.setBackgroundColor(Color.WHITE);
-            binding.mainImageBackground.setBackgroundColor(Color.WHITE);
+            binding.mainCardView.setCardBackgroundColor(Color.WHITE);
+            binding.cardIdView.setTextColor(getResources().getColor(R.color.md_theme_light_onSurfaceVariant));
 
             if (waitForResize) {
                 redrawBarcodeAfterResize(!isFullscreen);
@@ -892,12 +896,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (wantedImageType == ImageType.IMAGE_FRONT) {
             barcodeRenderTarget.setImageBitmap(frontImageBitmap);
             barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);
-            binding.mainImageBackground.setBackgroundColor(Color.TRANSPARENT);
+            binding.mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
+            binding.cardIdView.setTextColor(MaterialColors.getColor(binding.cardIdView, com.google.android.material.R.attr.colorOnSurfaceVariant));
             barcodeRenderTarget.setContentDescription(getString(R.string.frontImageDescription));
         } else if (wantedImageType == ImageType.IMAGE_BACK) {
             barcodeRenderTarget.setImageBitmap(backImageBitmap);
             barcodeRenderTarget.setBackgroundColor(Color.TRANSPARENT);
-            binding.mainImageBackground.setBackgroundColor(Color.TRANSPARENT);
+            binding.mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
+            binding.cardIdView.setTextColor(MaterialColors.getColor(binding.cardIdView, com.google.android.material.R.attr.colorOnSurfaceVariant));
             barcodeRenderTarget.setContentDescription(getString(R.string.backImageDescription));
         } else {
             throw new IllegalArgumentException("Unknown image type: " + wantedImageType);

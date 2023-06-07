@@ -1,2 +1,2 @@
 - Durch langes Klicken auf eine Karte wird die Option zum Kopieren der Karten-ID in die Zwischenablage angezeigt. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
-- Die Zurück-Schaltfläche in der Eingabe-/Exportansicht funktioniert jetzt und bringt den Benutzer zur Hauptansicht
+- Die Zurück-Schaltfläche in der Import-/Exportansicht funktioniert jetzt und bringt den Benutzer zur Hauptansicht

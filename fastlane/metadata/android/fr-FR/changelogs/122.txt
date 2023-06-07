@@ -1,0 +1,3 @@
+- Appuyez longuement sur l'icône de la carte dans l'activité de vue pour la modifier
+- Améliorer le style des boutons dans l'écran Groupes
+- Correction des valeurs de code-barres longues provoquant une réduction du code-barres à rien

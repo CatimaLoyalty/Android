@@ -1,0 +1,3 @@
+- Komplette Neugestaltung der Haupt- und Treuekartenansicht
+- Material You Design für den Einstellungsbildschirm
+- Behebung eines Absturzes beim Foto machen mit deaktivierter Kamera-App

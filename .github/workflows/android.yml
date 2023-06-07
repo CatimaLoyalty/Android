@@ -10,6 +10,9 @@ on:
     branches:
       - main
 
+env:
+  JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+
 jobs:
   build:
 
@@ -20,11 +23,11 @@ jobs:
     - name: Fail on bad translations
       run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
     - uses: gradle/wrapper-validation-action@v1
-    - name: set up JDK 17
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+    - name: set up OpenJDK 17
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-17-jdk-headless
+        sudo update-alternatives --auto java
     - name: Build
       run: ./gradlew assembleRelease
     - name: Check lint

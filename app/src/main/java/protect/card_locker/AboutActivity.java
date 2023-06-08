@@ -126,7 +126,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setAutoLinkMask(Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
-        textView.setMovementMethod(new ScrollingMovementMethod());
+        textView.setMovementMethod(ScrollingMovementMethod.getInstance());
         textView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
         new MaterialAlertDialogBuilder(this)
                 .setTitle(title)

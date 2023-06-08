@@ -709,7 +709,7 @@ public class Utils {
                 .replaceAll("(?m)^##\\s+(.*)", "<h2>$1</h2>")
                 .replaceAll("\\[([^]]+)\\]\\((https?://[^)]+)\\)", "$1 ($2)")
                 .replaceAll("\\*\\*([^*]+)\\*\\*", "<b>$1</b>")
-                .replaceAll("(?m)^-\\s+(.*)", "<ul><li>$1</li></ul>")
+                .replaceAll("(?m)^-\\s+(.*)", "<ul><li>&nbsp;$1</li></ul>")
                 .replace("</ul>\n<ul>", "");
     }
 

@@ -72,7 +72,8 @@ public class AboutContent {
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.basicMDToHTML(versionHistory).replace("\n", "<br />");
+        return Utils.basicMDToHTML(versionHistory.replace("# Changelog\n\n", ""))
+                .replace("\n", "<br />");
     }
 
     public String getLicense() {
@@ -92,7 +93,8 @@ public class AboutContent {
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.basicMDToHTML(privacyPolicy).replace("\n", "<br />");
+        return Utils.basicMDToHTML(privacyPolicy.replace("# Privacy Policy\n", ""))
+                .replace("\n", "<br />");
     }
 
     public String getThirdPartyLibraries() {

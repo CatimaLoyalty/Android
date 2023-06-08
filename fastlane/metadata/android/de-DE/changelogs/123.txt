@@ -1,0 +1,2 @@
+- Kleinere UI Verbesserungen
+- Behebung des Fehlers, dass das neue Design nicht auf eckigen Bildschirmen verwendbar ist

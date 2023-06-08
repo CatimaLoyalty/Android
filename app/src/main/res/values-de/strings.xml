@@ -204,7 +204,7 @@
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
     <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
-    <string name="setIcon">Symbol einstellen</string>
+    <string name="setIcon">Vorschau setzen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="action_show_details">Details anzeigen</string>
     <string name="action_hide_details">Details ausblenden</string>
@@ -260,7 +260,7 @@
     <string name="validFromSentence">Gültig ab: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Gültig-ab-Datum wählen</string>
     <string name="anyDate">Beliebiges Datum</string>
-    <string name="icon_header_click_text">Langes Drücken zum Bearbeiten des Symbols</string>
+    <string name="icon_header_click_text">Langes Drücken zum Bearbeiten der Vorschau</string>
     <string name="switchToBarcode">Umschalten auf Barcode</string>
     <string name="openFrontImageInGalleryApp">Vorderes Bild in der Galerie öffnen</string>
     <string name="openBackImageInGalleryApp">Hinteres Bild in der Galerie öffnen</string>
@@ -269,4 +269,8 @@
     <string name="switchToBackImage">Zum hinteren Bild wechseln</string>
     <string name="setBarcodeHeight">Barcode-Höhe einstellen</string>
     <string name="donate">Spenden</string>
+    <string name="show_note">Notiz anzeigen</string>
+    <string name="show_balance">Betrag anzeigen</string>
+    <string name="show_validity">Gültigkeitsdauer anziegen</string>
+    <string name="show_name_below_image_thumbnail">Namen unter Bildvorschau anzeigen</string>
 </resources>

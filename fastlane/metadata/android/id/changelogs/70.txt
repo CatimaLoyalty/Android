@@ -1,11 +1,11 @@
 - BREAKING CHANGE: Format cadangan berubah, lihat https://github.com/TheLastProject/Catima/wiki/Export-format
 - BREAKING CHANGE: Format berbagi URL berubah, lihat https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Memungkinkan untuk mengaktifkan atau menonaktifkan senter saat memindai
+- Memungkinkan untuk aktifkan atau nonaktifkan senter saat memindai
 - Tambahkan dukungan UPC-E
-- Mendukung penambahan foto depan dan belakang ke setiap kartu
+- Dukungan penambahan foto depan dan belakang ke setiap kartu
 - Dukungan mengimpor file zip yang dilindungi kata sandi
 - Dukungan mengimpor dari Stocard (Beta)
 - Perbaiki spasi kosong yang tidak berguna dalam catatan dari impor Fidme
 - Mendukung format ekspor Voucher Vault baru
-- Perbaiki Tombol Tindakan Mengambang yang berada di belakang elemen UI lainnya di Android 4
+- Perbaiki Tombol Mengambang di belakang elemen UI di Android 4
 - Perbaiki margin atas appbar penampil kartu loyalitas

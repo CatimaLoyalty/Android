@@ -198,7 +198,7 @@
     <string name="selectColor">Pilih warna</string>
     <string name="noGiftCardsGroup">Buat beberapa kartu, kemudian masukkan mereka ke grup di sini.</string>
     <string name="group_name_already_in_use">Nama grup telah dipakai</string>
-    <string name="setIcon">Atur ikon</string>
+    <string name="setIcon">Atur thumbnail</string>
     <string name="settings_oled_dark">Latar belakang gelap gulita untuk tema gelap</string>
     <string name="group_edit">Sunting Grup</string>
     <string name="group_name_is_empty">Nama grup tidak boleh kosong</string>
@@ -250,8 +250,7 @@
     <string name="cameraPermissionRequired">Berikan izin untuk mengakses kamera anda…</string>
     <string name="storageReadPermissionRequired">Berikan izin untuk membaca penyimpanan anda…</string>
     <string name="validFromDate">Valid dari</string>
-    <string name="validFromSentence">Valid dari: 
-\n<xliff:g>%s</xliff:g></string>
+    <string name="validFromSentence">Valid dari: <xliff:g>%s</xliff:g></string>
     <string name="anyDate">Kapan pun</string>
     <string name="chooseValidFromDate">Pilih valid dari tanggal</string>
     <string name="height">Tinggi:</string>
@@ -262,4 +261,9 @@
     <string name="openBackImageInGalleryApp">Buka gambar dibelakang di galeri app</string>
     <string name="setBarcodeHeight">Atur tinggi kode batang</string>
     <string name="donate">Donasi</string>
+    <string name="show_validity">Tunjukkan validitas</string>
+    <string name="show_balance">Tunjukkan keseimbangan</string>
+    <string name="icon_header_click_text">Tekan lama untuk mengedit thumbnail</string>
+    <string name="show_name_below_image_thumbnail">Tampilkan nama di bawah thumbnail gambar</string>
+    <string name="show_note">Tampilkan catatan</string>
 </resources>

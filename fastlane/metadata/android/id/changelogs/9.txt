@@ -1,4 +1,4 @@
-Bagian "Locker" dari nama itu tidak intuitif. Untuk membantu memperbaiki ini, ikon aplikasi baru dibuat oleh betsythefc yang lebih mewakili tujuan aplikasi: untuk menyimpan kartu loyalitas yang menggunakan kode batang. Seiring dengan ikon baru ini, nama aplikasi telah diubah menjadi "Gantungan Kunci Kartu Loyalitas".
+Bagian "Locker" dari nama itu tidak intuitif. Untuk membantu memperbaiki ini, ikon aplikasi baru dibuat oleh betsythefc yang lebih mewakili tujuan aplikasi: untuk menyimpan kartu loyalitas yang menggunakan kode batang. Seiring dengan ikon baru ini, nama aplikasi telah diubah menjadi "Loyalty Card Keychain".
 
 Fitur tambahan/peningkatan:
 

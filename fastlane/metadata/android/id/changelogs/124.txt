@@ -1,0 +1,1 @@
+- Mendukung pemilihan detail mana yang akan dilihat dalam ikhtisar kartu

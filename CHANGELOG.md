@@ -4,70 +4,70 @@
 
 - Support selecting exactly which details to view in card overview
 
-## v2.23.3 - 123
+## v2.23.3 - 123 (2023-06-03)
 
 - Minor UI improvements
 - Fix new design not being usable on devices with square screens
 
-## v2.23.2 - 122
+## v2.23.2 - 122 (2023-05-30)
 
 - Long-press card icon in view activity to change it
 - Improve button styling in Groups screen
 - Fix long barcode values causing barcode to scale down to nothing
 
-## v2.23.1 - 121
+## v2.23.1 - 121 (2023-05-27)
 
 - Update used libraries
 
-## v2.23.0 - 120
+## v2.23.0 - 120 (2023-05-25)
 
 - Complete redesign of main and loyalty card view screens
 - Material You design for the settings screen
 - Fix crash when using "Take a photo" with disabled camera app
 
-## v2.22.1 - 119
+## v2.22.1 - 119 (2023-04-14)
 
 - Use Material You colours on more devices (Google library update)
 
-## v2.22.0 - 118
+## v2.22.0 - 118 (2023-03-18)
 
 - Support setting start of card validity
 - Fix Stocard import (Stocard's export format changed)
 
-## v2.21.2 - 117
+## v2.21.2 - 117 (2023-01-27)
 
 - Remove unnecessary permissions
 - Target Android 13
 
-## v2.21.1 - 116
+## v2.21.1 - 116 (2022-12-06)
 
 - Fix quick spend dialog not allowing , separator
 - Support loading image from file manager
 
-## v2.21.0 - 115
+## v2.21.0 - 115 (2022-11-06)
 
 - Open image in gallery on long-press
 - Apply Material style to dialogs
 - Support creating card by sharing an image to Catima
 - Add quick spend button to card screen
 
-## v2.20.0 - 114
+## v2.20.0 - 114 (2022-09-21)
 
 - Add Monochrome icon for Android 13
 - Improve first launch screen
 - Fidme import fixes
 
-## v2.19.0 - 113
+## v2.19.0 - 113 (2022-08-14)
 
 - Add previous and next buttons to the loyalty card view
 - Fix foreground colour on edit button
 - Replace floppy disk save icon with checkmark
 
-## v2.18.2 - 112
+## v2.18.2 - 112 (2022-07-29)
 
 - Make the possibility to set a custom header more visible
 
-## v2.18.1 - 111
+## v2.18.1 - 111 (2022-07-24)
 
 - Arabic language support
 - Display archived card count in group overview
@@ -77,11 +77,11 @@
 - Fix crash when leaving cardview in RTL layouts for cards with expiry or balance
 - Fix back arrow in card view pointing the wrong way in RTL layouts
 
-## v2.17.1 - 109
+## v2.17.1 - 109 (2022-06-28)
 
 - Fix incorrect text colour on "No barcode" button
 
-## v2.17.0 - 108
+## v2.17.0 - 108 (2022-06-24)
 
 - Add card duplication feature
 - Don't allow choosing expiry before 1970 (they never worked anyway)

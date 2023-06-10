@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 124
+## v2.24.0 - 124 (2023-06-10)
 
 - Support selecting exactly which details to view in card overview
 

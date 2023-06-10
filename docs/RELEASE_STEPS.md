@@ -3,7 +3,7 @@
 # When releasing, do the following:
 1. Press "Commit" and "Push" on Weblate to ensure all translations are up to date
 2. Merge Weblate pull request
-3. Update `CHANGELOG.md` with the new version name
+3. Update `CHANGELOG.md` with the new version name and the release date
 4. Update `app/build.gradle` with the new `versionCode` and `versionName`
 5. Build a new .apk: `KEYSTORE=/path/to/keystore KEYSTORE_ALIAS=catima ./build.sh`
 6. Upload the APK to Google Play Open Testing

@@ -1,5 +1,6 @@
 package protect.card_locker;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +15,12 @@ import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.text.Layout;
+import android.text.Spanned;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -707,10 +712,19 @@ public class Utils {
         return input
                 .replaceAll("(?m)^#\\s+(.*)", "<h1>$1</h1>")
                 .replaceAll("(?m)^##\\s+(.*)", "<h2>$1</h2>")
-                .replaceAll("\\[([^]]+)\\]\\((https?://[^)]+)\\)", "$1 ($2)")
+                .replaceAll("\\[([^]]+)\\]\\((https?://[\\w@#%&+=:?/.-]+)\\)", "<a href=\"$2\">$1</a>")
                 .replaceAll("\\*\\*([^*]+)\\*\\*", "<b>$1</b>")
                 .replaceAll("(?m)^-\\s+(.*)", "<ul><li>&nbsp;$1</li></ul>")
                 .replace("</ul>\n<ul>", "");
+    }
+
+    // Very crude autolinking.
+    // Only supports what's currently being used in CHANGELOG.md and PRIVACY.md.
+    // May break easily.
+    public static String linkify(final String input) {
+        return input
+                .replaceAll("([\\w.-]+@[\\w-]+(\\.[\\w-]+)+)", "<a href=\"mailto:$1\">$1</a>")
+                .replaceAll("(?<!href=\")\\b(https?://[\\w@#%&+=:?/.-]*[\\w@#%&+=:?/-])", "<a href=\"$1\">$1</a>");
     }
 
     public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
@@ -776,5 +790,28 @@ public class Utils {
             return false;
         }
         return a.equals(b);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    public static void makeTextViewLinksClickable(final TextView textView, final Spanned text) {
+        textView.setOnTouchListener((v, event) -> {
+            int action = event.getAction();
+            if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_DOWN) {
+                int x = (int) event.getX() - textView.getTotalPaddingLeft() + textView.getScrollX();
+                int y = (int) event.getY() - textView.getTotalPaddingTop() + textView.getScrollY();
+                Layout layout = textView.getLayout();
+                int line = layout.getLineForVertical(y);
+                int off = layout.getOffsetForHorizontal(line, x);
+                ClickableSpan[] links = text.getSpans(off, off, ClickableSpan.class);
+                if (links.length != 0) {
+                    ClickableSpan link = links[0];
+                    if (action == MotionEvent.ACTION_UP) {
+                        link.onClick(textView);
+                    }
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 }

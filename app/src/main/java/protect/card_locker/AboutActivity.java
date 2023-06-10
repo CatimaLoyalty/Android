@@ -2,10 +2,9 @@ package protect.card_locker;
 
 import android.os.Bundle;
 import android.text.Spanned;
-import android.text.method.ScrollingMovementMethod;
-import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.StringRes;
@@ -125,12 +124,13 @@ public class AboutActivity extends CatimaAppCompatActivity {
         int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
         TextView textView = new TextView(this);
         textView.setText(text);
-        textView.setAutoLinkMask(Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
-        textView.setMovementMethod(ScrollingMovementMethod.getInstance());
-        textView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
+        Utils.makeTextViewLinksClickable(textView, text);
+        ScrollView scrollView = new ScrollView(this);
+        scrollView.addView(textView);
+        scrollView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
         new MaterialAlertDialogBuilder(this)
                 .setTitle(title)
-                .setView(textView)
+                .setView(scrollView)
                 .setPositiveButton(R.string.ok, null)
                 .show();
     }

@@ -67,33 +67,37 @@ public class AboutContent {
 
     public String getHistory() {
         String versionHistory;
+        String online = "View online: https://catima.app/changelog/\n\n";
         try {
-            versionHistory = Utils.readTextFile(context, R.raw.changelog);
+            versionHistory = Utils.readTextFile(context, R.raw.changelog)
+                    .replace("# Changelog\n\n", "");
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.basicMDToHTML(versionHistory.replace("# Changelog\n\n", ""))
+        return Utils.linkify(online + Utils.basicMDToHTML(versionHistory))
                 .replace("\n", "<br />");
     }
 
     public String getLicense() {
         String license;
+        String online = "View online: https://github.com/CatimaLoyalty/Android/blob/main/LICENSE<br /><br />";
         try {
             license = Utils.readTextFile(context, R.raw.license);
         }  catch (IOException ignored) {
             return "";
         }
-        return license;
+        return Utils.linkify(online) + license;
     }
 
     public String getPrivacy() {
         String privacyPolicy;
         try {
-            privacyPolicy = Utils.readTextFile(context, R.raw.privacy);
+            privacyPolicy = Utils.readTextFile(context, R.raw.privacy)
+                    .replace("# Privacy Policy\n", "");
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.basicMDToHTML(privacyPolicy.replace("# Privacy Policy\n", ""))
+        return Utils.linkify(Utils.basicMDToHTML(privacyPolicy))
                 .replace("\n", "<br />");
     }
 

@@ -1,0 +1,1 @@
+- Deal more gracefully with missing header colours

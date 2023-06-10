@@ -213,7 +213,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
         Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
-        inputHolder.setIconBackgroundColor(loyaltyCard.headerColor != null ? loyaltyCard.headerColor : androidx.appcompat.R.attr.colorPrimary);
+        inputHolder.setIconBackgroundColor(Utils.getHeaderColor(mContext, loyaltyCard));
 
         inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
 

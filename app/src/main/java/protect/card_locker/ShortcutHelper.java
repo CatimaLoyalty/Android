@@ -33,7 +33,6 @@ class ShortcutHelper {
     private static final int ADAPTIVE_BITMAP_SIZE = 108 * ADAPTIVE_BITMAP_SCALE;
     private static final int ADAPTIVE_BITMAP_VISIBLE_SIZE = 72 * ADAPTIVE_BITMAP_SCALE;
     private static final int ADAPTIVE_BITMAP_IMAGE_SIZE = ADAPTIVE_BITMAP_VISIBLE_SIZE + 5 * ADAPTIVE_BITMAP_SCALE;
-    private static final int PADDING_COLOR = Color.argb(255, 255, 255, 255);
     private static final int PADDING_COLOR_OVERLAY = Color.argb(127, 0, 0, 0);
 
     /**
@@ -145,7 +144,7 @@ class ShortcutHelper {
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
         } else {
-            iconBitmap = createAdaptiveBitmap(iconBitmap, loyaltyCard.headerColor == null ? PADDING_COLOR : loyaltyCard.headerColor);
+            iconBitmap = createAdaptiveBitmap(iconBitmap, Utils.getHeaderColor(context, loyaltyCard));
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);

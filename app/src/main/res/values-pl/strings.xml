@@ -283,4 +283,7 @@
     <string name="donate">Darowizna</string>
     <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
     <string name="icon_header_click_text">Przytrzymaj, aby edytować miniaturę</string>
+    <string name="show_name_below_image_thumbnail">Pokaż imię pod miniaturką zdjęcia</string>
+    <string name="show_balance">Pokaż balans</string>
+    <string name="show_validity">Pokaż ważność</string>
 </resources>

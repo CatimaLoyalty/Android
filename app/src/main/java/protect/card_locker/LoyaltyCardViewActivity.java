@@ -613,12 +613,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             dialog.show();
         });
 
-        int backgroundHeaderColor;
-        if (loyaltyCard.headerColor != null) {
-            backgroundHeaderColor = loyaltyCard.headerColor;
-        } else {
-            backgroundHeaderColor = LetterBitmap.getDefaultColor(this, loyaltyCard.store);
-        }
+        int backgroundHeaderColor = Utils.getHeaderColor(this, loyaltyCard);
 
         // Also apply colours to UI elements
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);

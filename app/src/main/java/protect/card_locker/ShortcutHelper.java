@@ -145,7 +145,7 @@ class ShortcutHelper {
         if (iconBitmap == null) {
             iconBitmap = Utils.generateIcon(context, loyaltyCard, true).getLetterTile();
         } else {
-            iconBitmap = createAdaptiveBitmap(iconBitmap, loyaltyCard.headerColor == null ? PADDING_COLOR : loyaltyCard.headerColor);
+            iconBitmap = createAdaptiveBitmap(iconBitmap, Utils.getHeaderColor(context, loyaltyCard));
         }
 
         IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);

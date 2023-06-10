@@ -853,10 +853,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             }
         }
 
-        // Generate random header color
         if (tempLoyaltyCard.headerColor == null) {
-            // Select a random color to start out with.
-            updateTempState(LoyaltyCardField.headerColor, Utils.getRandomHeaderColor(this));
+            // If name is set, pick colour relevant for name. Otherwise pick randomly
+            updateTempState(LoyaltyCardField.headerColor, tempLoyaltyCard.store.isEmpty() ? Utils.getRandomHeaderColor(this) : Utils.getHeaderColor(this, tempLoyaltyCard));
         }
 
         // Update from intent
@@ -928,7 +927,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     protected void setColorFromIcon() {
         Object icon = thumbnail.getTag();
         if (icon != null && (icon instanceof Bitmap)) {
-            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, tempLoyaltyCard.headerColor != null ? tempLoyaltyCard.headerColor : androidx.appcompat.R.attr.colorPrimary);
+            int headerColor = Utils.getHeaderColorFromImage((Bitmap) icon, Utils.getHeaderColor(this, tempLoyaltyCard));
 
             updateTempState(LoyaltyCardField.headerColor, headerColor);
 

@@ -603,7 +603,7 @@ public class Utils {
         } else {
             textWhenNoImage.setVisibility(View.VISIBLE);
 
-            int headerColor = loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
+            int headerColor = getHeaderColor(context, loyaltyCard);
 
             backgroundOrIcon.setImageBitmap(null);
             backgroundOrIcon.setBackgroundColor(headerColor);
@@ -625,5 +625,9 @@ public class Utils {
         } catch (Throwable ignored) {
             return false;
         }
+    }
+
+    public static int getHeaderColor(Context context, LoyaltyCard loyaltyCard) {
+        return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
     }
 }

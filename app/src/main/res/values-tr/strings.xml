@@ -205,7 +205,7 @@
     <string name="group_name_is_empty">Grup adı boş olamaz</string>
     <string name="group_updated">Grup güncellendi</string>
     <string name="selectColor">Renk seç</string>
-    <string name="setIcon">Simge ayarla</string>
+    <string name="setIcon">Küçük resim ayarla</string>
     <string name="action_show_details">Ayrıntıları göster</string>
     <string name="action_hide_details">Ayrıntıları gizle</string>
     <string name="translate_platform">Weblate\'de</string>

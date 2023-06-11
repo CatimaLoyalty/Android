@@ -213,7 +213,7 @@
     <string name="group_name_already_in_use">Група з такою назвою вже існує</string>
     <string name="noGiftCardsGroup">Створите кілька карток, та призначте їх до групи тут.</string>
     <string name="selectColor">Вибір кольору</string>
-    <string name="setIcon">Вибір іконки</string>
+    <string name="setIcon">Вибір мініатюри</string>
     <string name="action_show_details">Показати деталі</string>
     <string name="action_hide_details">Сховати деталі</string>
     <string name="translate_platform">на Weblate</string>
@@ -282,4 +282,9 @@
     <string name="setBarcodeHeight">Встановити висоту штрих-коду</string>
     <string name="height">Висота:</string>
     <string name="donate">Пожертвувати</string>
+    <string name="icon_header_click_text">Тривале натискання для редагування мініатюри</string>
+    <string name="show_name_below_image_thumbnail">Показати назву під мініатюрою зображення</string>
+    <string name="show_note">Показати примітку</string>
+    <string name="show_validity">Показати термін дії</string>
+    <string name="show_balance">Показати баланс</string>
 </resources>

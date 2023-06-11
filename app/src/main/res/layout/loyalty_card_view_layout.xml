@@ -83,7 +83,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp">
+            android:layout_marginEnd="0dp"
+            android:layoutDirection="ltr">
 
             <!-- We don't use these buttons for Talkback -->
             <ImageButton
@@ -206,6 +207,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layoutDirection="ltr"
         android:background="?attr/colorPrimary"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
@@ -229,7 +231,7 @@
             android:id="@+id/bottom_app_bar_info_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
+            android:layout_gravity="left"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:background="@android:color/transparent"
@@ -253,7 +255,7 @@
             android:id="@+id/bottom_app_bar_update_balance_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
+            android:layout_gravity="right"
             android:background="@android:color/transparent"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"

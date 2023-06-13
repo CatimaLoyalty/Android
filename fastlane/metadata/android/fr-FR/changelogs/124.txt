@@ -1,0 +1,1 @@
+- Prise en charge de la sélection exacte des détails à afficher dans l'aperçu de la carte

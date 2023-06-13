@@ -984,22 +984,33 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        final ImageButton prevButton;
+        final ImageButton nextButton;
+
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            prevButton = binding.mainRightButton;
+            nextButton = binding.mainLeftButton;
+        } else {
+            prevButton = binding.mainLeftButton;
+            nextButton = binding.mainRightButton;
+        }
+
         // Enable left button if we can go further left
         if (mainImageIndex > 0) {
-            binding.mainLeftButton.setVisibility(View.VISIBLE);
-            binding.mainLeftButton.setOnClickListener(view -> setMainImage(false, false));
+            prevButton.setVisibility(View.VISIBLE);
+            prevButton.setOnClickListener(view -> setMainImage(false, false));
         } else {
-            binding.mainLeftButton.setVisibility(View.INVISIBLE);
-            binding.mainLeftButton.setOnClickListener(null);
+            prevButton.setVisibility(View.INVISIBLE);
+            prevButton.setOnClickListener(null);
         }
 
         // Enable right button if we can go further right
         if (mainImageIndex < (imageTypes.size() - 1)) {
-            binding.mainRightButton.setVisibility(View.VISIBLE);
-            binding.mainRightButton.setOnClickListener(view -> setMainImage(true, false));
+            nextButton.setVisibility(View.VISIBLE);
+            nextButton.setOnClickListener(view -> setMainImage(true, false));
         } else {
-            binding.mainRightButton.setVisibility(View.INVISIBLE);
-            binding.mainRightButton.setOnClickListener(null);
+            nextButton.setVisibility(View.INVISIBLE);
+            nextButton.setOnClickListener(null);
         }
     }
 

@@ -83,7 +83,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp">
+            android:layout_marginEnd="0dp"
+            android:layoutDirection="ltr">
 
             <!-- We don't use these buttons for Talkback -->
             <ImageButton
@@ -213,53 +214,70 @@
         app:contentInsetEnd="0dp"
         app:fabAlignmentMode="center">
 
-        <ImageButton
-            android:id="@+id/bottom_app_bar_previous_button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_chevron_left_24"
-            android:tooltipText="@string/previousCard"
-            android:visibility="gone" />
+            android:layoutDirection="ltr">
 
-        <ImageButton
-            android:id="@+id/bottom_app_bar_info_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_info_24"
-            android:tooltipText="@string/showMoreInfo"
-            android:visibility="gone" />
+            <ImageButton
+                android:id="@+id/bottom_app_bar_previous_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_chevron_left_24"
+                android:tooltipText="@string/previousCard"
+                android:visibility="gone" />
 
-        <ImageButton
-            android:id="@+id/bottom_app_bar_next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_chevron_right_24"
-            android:tooltipText="@string/nextCard"
-            android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layoutDirection="locale">
 
-        <ImageButton
-            android:id="@+id/bottom_app_bar_update_balance_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:background="@android:color/transparent"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:tooltipText="@string/updateBalance"
-            android:visibility="gone" />
+                <ImageButton
+                    android:id="@+id/bottom_app_bar_info_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_info_24"
+                    android:tooltipText="@string/showMoreInfo"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/bottom_app_bar_update_balance_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_shopping_cart_24"
+                    android:tooltipText="@string/updateBalance"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/bottom_app_bar_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_chevron_right_24"
+                android:tooltipText="@string/nextCard"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

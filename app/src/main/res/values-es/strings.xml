@@ -216,7 +216,7 @@
     <string name="translate_platform">en Weblate</string>
     <string name="action_show_details">Mostrar detalles</string>
     <string name="selectColor">Seleccione el color</string>
-    <string name="setIcon">Establecer icono</string>
+    <string name="setIcon">Establecer una miniatura</string>
     <string name="sort">Ordenar</string>
     <string name="sort_by">Ordenar por</string>
     <string name="rate_this_app">Califica esta aplicación</string>
@@ -275,4 +275,9 @@
     <string name="donate">Donar</string>
     <string name="switchToBarcode">Cambiar a código de barras</string>
     <string name="switchToBackImage">Cambiar a imagen trasera</string>
+    <string name="icon_header_click_text">Pulsación larga para editar la miniatura</string>
+    <string name="show_name_below_image_thumbnail">Mostrar el nombre debajo de la miniatura de la imagen</string>
+    <string name="show_note">Mostrar la nota</string>
+    <string name="show_validity">Mostrar la validez</string>
+    <string name="show_balance">Mostrar el saldo</string>
 </resources>

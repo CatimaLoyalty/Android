@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 126
+
+- Various RTL fixes
+
 ## v2.24.1 - 125 (2023-06-11)
 
 - Deal more gracefully with missing header colours

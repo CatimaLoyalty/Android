@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 126
+## v2.24.2 - 126 (2023-06-18)
 
 - Various RTL fixes
 

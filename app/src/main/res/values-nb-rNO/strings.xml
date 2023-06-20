@@ -260,4 +260,17 @@
     <string name="storageReadPermissionRequired">Lagringslesetilgang kreves for denne handlingen …</string>
     <string name="validFromSentence">Gyldig fra: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionRequired">Kameratilgang kreves for denne handlingen …</string>
+    <string name="height">Høyde:</string>
+    <string name="switchToFrontImage">Bytt til frontbilde</string>
+    <string name="switchToBackImage">Bytt til baksidebildet</string>
+    <string name="switchToBarcode">Bytt til strekkode</string>
+    <string name="icon_header_click_text">Lang-trykk for å redigere miniatyrbilde</string>
+    <string name="show_name_below_image_thumbnail">Vis navn under bilde-miniatyrbilde</string>
+    <string name="show_balance">Vis saldo</string>
+    <string name="show_note">Vis notat</string>
+    <string name="show_validity">Vis gyldighet</string>
+    <string name="openFrontImageInGalleryApp">Åpne frontbilde i galleriprogrammet</string>
+    <string name="openBackImageInGalleryApp">Åpne baksidebilde i galleriprogram</string>
+    <string name="setBarcodeHeight">Sett strekkodehøyde</string>
+    <string name="donate">Doner</string>
 </resources>

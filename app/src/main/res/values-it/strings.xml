@@ -209,7 +209,7 @@
     <string name="group_name_already_in_use">Il nome del gruppo è già in uso</string>
     <string name="group_updated">Gruppo aggiornato</string>
     <string name="selectColor">Seleziona il colore</string>
-    <string name="setIcon">Imposta l\'icona</string>
+    <string name="setIcon">Imposta l\'immagine</string>
     <string name="action_show_details">Mostra i dettagli</string>
     <string name="action_hide_details">Nascondi i dettagli</string>
     <string name="translate_platform">su Weblate</string>
@@ -238,9 +238,9 @@
     <string name="settings_lock_on_opening_orientation">Blocca sull\'orientamento utilizzato all\'apertura della carta</string>
     <string name="failedLaunchingPhotoPicker">Impossibile trovare un\'app galleria supportata</string>
     <plurals name="groupCardCountWithArchived">
-        <item quantity="one"><xliff:g>%1$d</xliff:g> scheda (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
-        <item quantity="many"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
-        <item quantity="other"><xliff:g>%1$d</xliff:g> schede (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
+        <item quantity="one"><xliff:g>%1$d</xliff:g> carta (<xliff:g id="archivedCount">%2$d</xliff:g> archiviata)</item>
+        <item quantity="many"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archiviate)</item>
     </plurals>
     <string name="previousCard">Precedente</string>
     <string name="nextCard">Successivo</string>
@@ -275,8 +275,9 @@
     <string name="donate">Dona</string>
     <string name="openBackImageInGalleryApp">Apri l\'immagine posteriore nell\'app Galleria</string>
     <string name="setBarcodeHeight">Imposta l\'altezza del codice a barre</string>
-    <string name="icon_header_click_text">Premi a lungo per modificare l\'icona</string>
+    <string name="icon_header_click_text">Premi a lungo per modificare l\'immagine</string>
     <string name="show_note">Mostra nota</string>
     <string name="show_balance">Mostra bilancio</string>
     <string name="show_validity">Mostra validità</string>
+    <string name="show_name_below_image_thumbnail">Mostra il nome sotto l\'immagine</string>
 </resources>

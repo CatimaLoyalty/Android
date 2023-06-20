@@ -268,5 +268,9 @@
     <string name="setBarcodeHeight">Barkod yüksekliğini ayarla</string>
     <string name="openFrontImageInGalleryApp">Ön resmi galeri uygulamasında aç</string>
     <string name="openBackImageInGalleryApp">Arka resmi galeri uygulamasında aç</string>
-    <string name="icon_header_click_text">Simgeyi düzenlemek için uzun basın</string>
+    <string name="icon_header_click_text">Küçük resmi düzenlemek için uzun basın</string>
+    <string name="show_name_below_image_thumbnail">Küçük resmin altında adı göster</string>
+    <string name="show_note">Notu göster</string>
+    <string name="show_balance">Bakiyeyi göster</string>
+    <string name="show_validity">Geçerliliği göster</string>
 </resources>

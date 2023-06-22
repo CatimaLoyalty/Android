@@ -41,6 +41,8 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
     private final CatimaBarcode format;
     private final int imageHeight;
     private final int imageWidth;
+    private final int imagePadding;
+    private final boolean widthPadding;
     private final boolean showFallback;
     private final BarcodeImageWriterResultCallback callback;
 
@@ -61,31 +63,38 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         cardId = cardIdString;
         format = barcodeFormat;
 
-        int padding = 0;
+        int imageViewHeight = imageView.getHeight();
+        int imageViewWidth = imageView.getWidth();
+
         // Some barcodes already have internal whitespace and shouldn't get extra padding
         // TODO: Get rid of this hack by somehow detecting this extra whitespace
         if (roundCornerPadding && !barcodeFormat.hasInternalPadding()) {
-            padding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
+            imagePadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()));
+        } else {
+            imagePadding = 0;
+        }
+
+        if (format.isSquare() && imageViewWidth > imageViewHeight) {
+            imageViewWidth -= imagePadding;
+            widthPadding = true;
+        } else {
+            imageViewHeight -= imagePadding;
+            widthPadding = false;
         }
 
         final int MAX_WIDTH = getMaxWidth(format);
 
-        int tempImageHeight;
-        int tempImageWidth;
-
-        if (imageView.getWidth() < MAX_WIDTH) {
-            tempImageHeight = imageView.getHeight();
-            tempImageWidth = imageView.getWidth();
+        if (format.isSquare()) {
+            imageHeight = imageWidth = Math.min(imageViewHeight, Math.min(MAX_WIDTH, imageViewWidth));
+        } else if (imageView.getWidth() < MAX_WIDTH) {
+            imageHeight = imageViewHeight;
+            imageWidth = imageViewWidth;
         } else {
             // Scale down the image to reduce the memory needed to produce it
-            tempImageWidth = MAX_WIDTH;
-            double ratio = (double) MAX_WIDTH / (double) imageView.getWidth();
-            tempImageHeight = (int) (imageView.getHeight() * ratio);
+            imageWidth = MAX_WIDTH;
+            double ratio = (double) MAX_WIDTH / (double) imageViewWidth;
+            imageHeight = (int) (imageViewHeight * ratio);
         }
-
-        // Ensure space for padding if wanted
-        imageWidth = tempImageWidth;
-        imageHeight = tempImageHeight - padding;
 
         this.showFallback = showFallback;
     }
@@ -261,6 +270,11 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
 
         if (result != null) {
             Log.i(TAG, "Displaying barcode");
+            if (widthPadding) {
+                imageView.setPadding(imagePadding / 2, 0, imagePadding / 2, 0);
+            } else {
+                imageView.setPadding(0, imagePadding / 2, 0, imagePadding / 2);
+            }
             imageView.setVisibility(View.VISIBLE);
 
             if (isSuccesful) {

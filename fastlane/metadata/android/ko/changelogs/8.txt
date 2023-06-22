@@ -1,0 +1,4 @@
+- 바코드 스캐너가 성공적으로 바코드를 캡처할 수 있도록 카드 표시 시 화면 밝기를 최대로 높였습니다. (풀 #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- 카드 삭제 시 삭제 확인을 추가합니다. (풀 #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- 독일어(pull #57(https://github.com/brarcher/loyalty-card-locker/pull/57)) 및 체코어(pull #58(https://github.com/brarcher/loyalty- 카드 보관함/풀/58)).
+- 이탈리아어 번역에 대한 설명 변경. (풀 #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

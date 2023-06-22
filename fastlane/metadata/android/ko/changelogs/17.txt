@@ -1,0 +1,2 @@
+- 런처/홈 화면에서 포인트 카드 바로가기 추가 지원을 추가합니다. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- 앱 자체에서 포인트 카드 바로가기 추가 지원을 제거합니다. 이렇게 하면 바로 가기 권한이 필요하지 않습니다. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

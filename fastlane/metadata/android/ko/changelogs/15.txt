@@ -1,0 +1,2 @@
+- - 가장 최근에 사용한 카드가 바로가기로 표시되는 앱 바로가기(Android 7.1+)에 대한 지원을 추가합니다. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Android 7.1 이하에서 실행되는 기기를 지원하기 위해 고정된 앱 바로가기처럼 작동하는 위젯을 추가합니다. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

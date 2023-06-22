@@ -1,0 +1,2 @@
+- 빠른 액세스 장치 제어에 Catima 추가(https://developer.android.com/guide/topics/ui/device-control)
+- 그룹 관리 화면에서 일부 그룹이 올바르게 표시되지 않는 문제 수정

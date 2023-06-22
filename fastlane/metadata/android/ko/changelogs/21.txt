@@ -1,0 +1,2 @@
+- 카드 목록의 레이아웃이 개선되었습니다. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- 카드를 볼 때 레이아웃이 개선되었습니다. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

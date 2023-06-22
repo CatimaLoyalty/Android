@@ -1,0 +1,14 @@
+- 이제 공식적으로 다음 1D 및 2D 바코드 목록을 지원합니다.
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- 생성된 바코드가 더 크고 스캐닝 장치에서 스캔하기 쉽습니다.

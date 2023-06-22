@@ -1,0 +1,5 @@
+- 번역 추가
+   - 폴란드어(pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - 스페인어(pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - 슬로바키아어(pull #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- 업데이트된 번역(pull #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

@@ -1,0 +1,3 @@
+- 특정 유형의 손상된 CSV 파일을 가져올 때 충돌을 수정합니다. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- 파일 시스템에서 직접 백업 가져오기를 수정합니다. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- 특정 유형의 콘텐츠 제공자로부터 백업 가져오기를 수정합니다. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

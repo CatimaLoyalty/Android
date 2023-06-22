@@ -1,0 +1,2 @@
+- 최소 SDK를 17에서 15로 줄입니다. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- 단위 테스트에만 사용되지만 더 이상 필요하지 않은 레거시 아파치 라이브러리 사용을 제거합니다. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

@@ -1,0 +1,1 @@
+- 메모를 표시하고, 카드 ID를 여러 줄로 표시하고, 매장 이름을 표시하도록 카드 보기로 변경됩니다. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

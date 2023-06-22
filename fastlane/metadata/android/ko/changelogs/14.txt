@@ -1,0 +1,3 @@
+- 카드 표시 시 화면 회전 잠금 메뉴 옵션 추가. 잠긴 경우 화면이 "자연스러운" 방향으로 전환되고 추가 화면 회전이 차단됩니다.(pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- 메인 화면에서 카드를 선택했지만 로드할 수 없는 경우 애플리케이션이 정상적으로 실패하고 메시지를 게시합니다. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- 인트로 마법사의 레이아웃 ID를 찾을 수 없는 경우 수정. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

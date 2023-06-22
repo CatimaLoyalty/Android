@@ -1,0 +1,1 @@
+- Barcode rendering improvements

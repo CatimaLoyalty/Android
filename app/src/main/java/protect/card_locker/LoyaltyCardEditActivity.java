@@ -175,6 +175,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     boolean validBalance = true;
     HashMap<String, Currency> currencies = new HashMap<>();
+    HashMap<String, String> currencySymbols = new HashMap<>();
 
     LoyaltyCard tempLoyaltyCard;
 
@@ -329,6 +330,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         for (Currency currency : Currency.getAvailableCurrencies()) {
             currencies.put(currency.getSymbol(), currency);
+            currencySymbols.put(currency.getCurrencyCode(), currency.getSymbol());
         }
 
         tabs = binding.tabs;
@@ -1011,7 +1013,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         if (balanceType == null) {
             balanceCurrencyField.setText(getString(R.string.points));
         } else {
-            balanceCurrencyField.setText(balanceType.getSymbol());
+            balanceCurrencyField.setText(getCurrencySymbol(balanceType));
         }
     }
 
@@ -1639,11 +1641,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     private void currencyPrioritizeLocaleSymbols(ArrayList<String> currencyList, Locale locale) {
         try {
-            String currencySymbol = Currency.getInstance(locale).getSymbol();
+            String currencySymbol = getCurrencySymbol(Currency.getInstance(locale));
             currencyList.remove(currencySymbol);
             currencyList.add(0, currencySymbol);
         } catch (IllegalArgumentException e) {
             Log.d(TAG, "Could not get currency data for locale info: " + e);
         }
+    }
+
+    private String getCurrencySymbol(final Currency currency) {
+        // Workaround for Android bug where the output of Currency.getSymbol() changes.
+        return currencySymbols.get(currency.getCurrencyCode());
     }
 }

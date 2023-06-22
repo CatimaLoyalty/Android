@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 127
+
+- Barcode rendering improvements
+
 ## v2.24.2 - 126 (2023-06-18)
 
 - Various RTL fixes

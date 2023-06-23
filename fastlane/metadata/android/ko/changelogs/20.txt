@@ -1,0 +1,1 @@
+- 일부 Android 버전(아마도 Android 5 이하)에서 설치하는 동안 해결 방법이 충돌합니다. (pull #184 (https://github.com/brarcher/loyalty-card-locker/pull/184))

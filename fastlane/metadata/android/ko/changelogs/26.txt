@@ -1,0 +1,1 @@
+- 바코드를 렌더링할 때 충돌을 방지하여 응용 프로그램의 메모리를 소진합니다. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

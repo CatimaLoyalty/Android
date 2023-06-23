@@ -1,0 +1,3 @@
+- 이제 바코드를 탭하면 화면 상단으로 이동합니다. (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- 어두운 모드에서 스캔을 개선하기 위해 바코드 주위에 공백을 추가합니다(#328 (https://github.com/brarcher/loyalty-card-locker/issues/328)).
+- 교체된 가져오기 버튼을 수정합니다. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

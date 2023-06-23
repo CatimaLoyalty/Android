@@ -1,0 +1,3 @@
+- 바코드의 시작/끝에 여백을 추가합니다. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- 상점 이름 글꼴 및 배경에 사용되는 색상을 구성하는 옵션을 추가합니다. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- 카드 목록 페이지 및 단일 카드 페이지에서 글꼴 크기를 조정하는 옵션을 추가합니다. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

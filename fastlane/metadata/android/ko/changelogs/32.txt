@@ -1,0 +1,1 @@
+- 수동으로 바코드를 입력하여 새 카드를 생성하는 문제 수정(issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

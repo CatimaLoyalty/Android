@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="addManually">직접 카드 ID 입력</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="addManually">직접 ID 입력</string>
     <string name="groupsList">그룹: <xliff:g>%s</xliff:g></string>
     <string name="all">모두</string>
     <string name="groups">그룹</string>
@@ -13,7 +13,7 @@
     <string name="settings_theme">테마</string>
     <string name="settings_category_title_ui">사용자 인터페이스</string>
     <string name="settings">설정</string>
-    <string name="enterBarcodeInstructions">카드 ID를 입력하고 카드에서 사용하는 바코드 이미지를 선택하세요. 바코드를 사용하지 않는 경우 “이 카드는 바코드가 없음”을 선택하세요.</string>
+    <string name="enterBarcodeInstructions">ID를 입력하고 아래에서 바코드 유형을 선택하거나 \"바코드가 없습니다\"를 선택하십시오.</string>
     <string name="selectBarcodeTitle">바코드 선택</string>
     <string name="about">정보</string>
     <string name="exporting">내보내는 중…</string>
@@ -28,8 +28,8 @@
     <string name="sendLabel">보내기…</string>
     <string name="share">공유</string>
     <string name="copy_to_clipboard">ID를 클립보드에 복사</string>
-    <string name="ok">확인</string>
-    <string name="confirm">확인</string>
+    <string name="ok">OK</string>
+    <string name="confirm">확인하다</string>
     <string name="delete">삭제</string>
     <string name="edit">편집</string>
     <string name="save">저장</string>
@@ -42,12 +42,10 @@
     <string name="cardId">카드 ID</string>
     <string name="note">노트</string>
     <string name="noMatchingGiftCards">아무것도 찾지 못했습니다. 검색어를 바꿔 보세요.</string>
-    <string name="noGiftCards">먼저 \'+\' 버튼을 눌러 카드를 추가하세요.
-\n
-\nCatima는 카드를 장치에 보관하므로 어디서든 사용할 수 있습니다.</string>
+    <string name="noGiftCards">+ 더하기 버튼을 클릭하여 카드를 추가하거나 ⋮ 메뉴에서 가져옵니다.</string>
     <string name="action_add">추가</string>
     <string name="action_search">검색</string>
-    <string name="copy_to_clipboard_toast">카드 ID를 클립보드에 복사함</string>
+    <string name="copy_to_clipboard_toast">클립보드에 ID 복사됨</string>
     <string name="importOptionApplicationTitle">다른 앱 사용</string>
     <string name="importOptionFilesystemExplanation">파일 시스템에서 파일을 선택합니다.</string>
     <string name="importOptionFilesystemTitle">파일 시스템에서 가져오기</string>
@@ -60,14 +58,14 @@
     <string name="importSuccessfulTitle">가져오기 완료</string>
     <string name="noCardIdError">ID를 입력하지 않았습니다</string>
     <string name="storeName">이름</string>
-    <string name="thumbnailDescription">카드 섬네일</string>
+    <string name="thumbnailDescription">썸네일</string>
     <string name="importOptionApplicationButton">다른 앱 사용</string>
     <string name="failedParsingImportUriError">가져온 URI를 분석할 수 없음</string>
     <string name="noCardExistsError">해당 카드를 찾을 수 없습니다</string>
-    <string name="moveUp">목록에서 위로 옮기기</string>
-    <string name="leaveWithoutSaveTitle">저장하지 않고 종료</string>
-    <string name="moveDown">목록에서 아래로 옮기기</string>
-    <string name="noStoreError">매장을 입력하지 않음</string>
+    <string name="moveUp">위로 이동</string>
+    <string name="leaveWithoutSaveTitle">종료</string>
+    <string name="moveDown">아래로 이동</string>
+    <string name="noStoreError">이름이 입력되지 않았습니다</string>
     <string name="starImage">즐겨찾기 별</string>
     <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
     <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
@@ -77,4 +75,195 @@
     </plurals>
     <string name="noGiftCardsGroup">카드를 몇 장 만든 다음 여기에서 그룹에 할당합니다.</string>
     <string name="noCardsMessage">먼저 카드 추가</string>
+    <string name="leaveWithoutSaveConfirmation">저장하지 않고 나가시겠습니까\?</string>
+    <string name="intent_import_card_from_url_share_text">너의 카드를 공유하고 싶습니다</string>
+    <plurals name="groupCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> 카드</item>
+    </plurals>
+    <string name="group_name_already_in_use">이미 사용 중인 그룹 이름</string>
+    <string name="addFromImage">갤러리에서 이미지 선택</string>
+    <string name="expiryStateSentenceExpired">만료: <xliff:g>%s</xliff:g></string>
+    <string name="card">카드</string>
+    <string name="editBarcode">바코드 편집</string>
+    <string name="expiryDate">만료일</string>
+    <string name="never">절대</string>
+    <string name="intent_import_card_from_url_share_multiple_text">나는 당신과 몇 가지 카드를 공유하고 싶습니다</string>
+    <string name="removeImage">이미지 삭제</string>
+    <string name="takePhoto">사진을 찍다</string>
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
+    <string name="failedGeneratingShareURL">공유 가능한 URL을 생성할 수 없습니다. 이를 신고해 주십시오.</string>
+    <string name="turn_flashlight_off">손전등 끄기</string>
+    <string name="settings_locale">언어</string>
+    <string name="settings_system_locale">시스템</string>
+    <string name="selectColor">색상 선택</string>
+    <string name="settings_theme_color">테마 색상</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">핑크색</string>
+    <string name="settings_magenta_theme">자홍색</string>
+    <string name="settings_violet_theme">보라색</string>
+    <string name="settings_blue_theme">파란색</string>
+    <string name="app_contributors">가능한 : <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="showMoreInfo">정보 보기</string>
+    <string name="updateBalance">잔액 업데이트</string>
+    <string name="failedToRetrieveImageFile">이미지 파일을 검색하지 못했습니다</string>
+    <string name="barcodeLongPressMessage">갤러리 앱에서는 이미지만 열 수 있습니다</string>
+    <string name="sort_by_name">이름</string>
+    <string name="reverse">... 역순으로</string>
+    <string name="sort_by">정렬 기준</string>
+    <string name="version_history">버전 기록</string>
+    <string name="credits">학점</string>
+    <string name="license">특허</string>
+    <string name="source_repository">소스 저장소</string>
+    <string name="and_data_usage">및 데이터 사용량</string>
+    <string name="on_google_play">Google Play에서</string>
+    <string name="options">옵션</string>
+    <string name="starred">별표</string>
+    <string name="include_if_asking_support">지원을 요청하려면 다음 정보를 포함하십시오:</string>
+    <string name="archive">보관소</string>
+    <string name="unarchive">보관 취소</string>
+    <string name="archived">보관된 카드</string>
+    <string name="unarchived">보관되지 않은 카드</string>
+    <string name="archiveList">보관소</string>
+    <string name="failedLaunchingPhotoPicker">지원되는 갤러리 앱을 찾을 수 없습니다</string>
+    <string name="welcome">Catima 오신 것을 환영합니다</string>
+    <string name="validFromDate">유효</string>
+    <string name="anyDate">모든 날짜</string>
+    <string name="chooseValidFromDate">유효한 날짜를 선택하십시오</string>
+    <string name="validFromSentence">유효한 위치: <xliff:g>%s</xliff:g></string>
+    <string name="switchToFrontImage">전면 이미지로 전환</string>
+    <string name="switchToBackImage">뒤로 이미지로 전환</string>
+    <string name="switchToBarcode">바코드로 전환</string>
+    <string name="donate">기부하다</string>
+    <string name="show_name_below_image_thumbnail">이미지 축소판 아래에 이름 표시</string>
+    <string name="sort">종류</string>
+    <string name="sort_by_most_recently_used">가장 최근에 사용됨</string>
+    <string name="settings_keep_screen_on">화면 켜기</string>
+    <string name="unsupportedBarcodeType">이 바코드 유형은 아직 표시할 수 없습니다. 이후 버전의 앱에서 지원될 수 있습니다.</string>
+    <string name="sort_by_expiry">만료</string>
+    <string name="on_github">GitHub에서</string>
+    <string name="report_error">오류 신고</string>
+    <string name="rate_this_app">이 앱을 평가 해주세요</string>
+    <string name="translate_platform">Weblate에서</string>
+    <string name="shortcutSelectCard">카드 선택</string>
+    <string name="group_edit">그룹 편집</string>
+    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 이 유효한 잔액이 아닌 것 같습니다.</string>
+    <string name="chooseImportType">데이터 가져오기</string>
+    <string name="barcodeId">바코드 값</string>
+    <string name="setBackImage">이미지 설정</string>
+    <string name="exportSuccessful">내보낸 데이터</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">화면 잠금 방지</string>
+    <string name="group_updated">그룹 업데이트됨</string>
+    <string name="moveBarcodeToTopOfScreen">바코드를 화면 상단으로 이동</string>
+    <string name="height">키:</string>
+    <string name="openFrontImageInGalleryApp">갤러리 앱에서 전면 이미지 열기</string>
+    <string name="openBackImageInGalleryApp">갤러리 앱에서 다시 이미지 열기</string>
+    <string name="setBarcodeHeight">바코드 높이 설정</string>
+    <string name="setFrontImage">전면 이미지 설정</string>
+    <plurals name="selectedCardCount">
+        <item quantity="other"><xliff:g>%d</xliff:g> 선택된</item>
+    </plurals>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">저작권 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="noCameraPermissionDirectToSystemSetting">바코드를 스캔하려면 Catima가 카메라에 액세스해야 합니다. 권한 설정을 변경하려면 여기를 탭하세요.</string>
+    <string name="exportOptionExplanation">데이터는 선택한 위치에 기록됩니다.</string>
+    <string name="app_license">GPL v3+에 따라 라이선스가 부여된 무료 소프트웨어</string>
+    <string name="failedOpeningFileManager">먼저 파일 관리자를 설치하십시오.</string>
+    <string name="importSuccessful">가져온 데이터</string>
+    <string name="group_name_is_empty">그룹 이름은 비워둘 수 없습니다</string>
+    <string name="chooseExpiryDate">만료일 선택</string>
+    <string name="settings_oled_dark">어두운 테마를 위한 검정색 배경</string>
+    <string name="action_show_details">세부정보 표시</string>
+    <string name="noGroups">+ 더하기 버튼을 클릭하여 분류할 그룹을 추가합니다.</string>
+    <string name="deleteConfirmationGroup">그룹을 삭제하시겠습니까\?</string>
+    <string name="errorReadingImage">이미지를 읽을 수 없습니다</string>
+    <string name="expiryStateSentence">만료: <xliff:g>%s</xliff:g></string>
+    <plurals name="balancePoints">
+        <item quantity="other"><xliff:g>%s</xliff:g> 포인트</item>
+    </plurals>
+    <string name="balanceSentence">잔액: <xliff:g>%s</xliff:g></string>
+    <string name="noBarcodeFound">바코드를 찾을 수 없습니다</string>
+    <string name="points">포인트</string>
+    <string name="balance">균형</string>
+    <string name="currency">통화</string>
+    <string name="accept">수용하다</string>
+    <string name="importLoyaltyCardKeychain">로열티 카드 키체인에서 가져오기</string>
+    <string name="wrongValueForBarcodeType">선택한 바코드 유형에 대해 값이 유효하지 않습니다</string>
+    <string name="copy_to_clipboard_multiple_toast">클립보드에 복사된 ID</string>
+    <string name="updateBarcodeQuestionText">아이디를 변경하셨습니다. 동일한 값을 사용하도록 바코드도 업데이트하시겠습니까\?</string>
+    <string name="exportPasswordHint">암호를 입력</string>
+    <string name="updateBarcodeQuestionTitle">바코드 값을 업데이트하시겠습니까\?</string>
+    <string name="turn_flashlight_on">손전등 켜기</string>
+    <string name="exportPassword">내보내기를 보호하기 위한 암호 설정(선택 사항)</string>
+    <string name="passwordRequired">비밀번호를 입력해주세요</string>
+    <string name="action_hide_details">상세정보 표시</string>
+    <string name="setIcon">썸네일 설정</string>
+    <string name="show_balance">잔액 표시</string>
+    <string name="help_translate_this_app">이 앱을 번역하도록 도와주세요</string>
+    <string name="duplicateCard">복제하다</string>
+    <string name="noUnarchivedCardsMessage">보관되지 않은 카드가 없습니다</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="other"><xliff:g>%1$d</xliff:g> 카드 (<xliff:g id="archivedCount">%2$d</xliff:g> 보관됨)</item>
+    </plurals>
+    <string name="updateBalanceHint">금액을 입력하세요</string>
+    <string name="show_note">메모 표시</string>
+    <string name="show_validity">유효성 표시</string>
+    <string name="icon_header_click_text">미리보기 이미지를 수정하려면 길게 누르세요</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="other">이 <xliff:g>%d</xliff:g> 카드를 영구적으로 삭제하시겠습니까\?</item>
+    </plurals>
+    <string name="card_ids_copied">복사된 ID</string>
+    <string name="barcodeImageDescriptionWithType">이미지 <xliff:g>%s</xliff:g> 바코드</string>
+    <string name="photos">사진</string>
+    <string name="storageReadPermissionRequired">이 작업에 필요한 저장소를 읽을 수 있는 권한…</string>
+    <string name="app_libraries">Libre 타사 라이브러리: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="cameraPermissionRequired">이 작업에 필요한 카메라 액세스 권한…</string>
+    <string name="cameraPermissionDeniedTitle">카메라에 액세스할 수 없습니다</string>
+    <string name="importOptionFilesystemButton">파일 시스템에서</string>
+    <string name="app_copyright_old">Loyalty Card Keychain 기반
+\n저작권 © 2016–2020 Branden Archer</string>
+    <string name="app_resources">Libre 타사 리소스: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="settings_lock_on_opening_orientation">카드를 열 때 사용되는 방향으로 고정</string>
+    <string name="editGroup">그룹 편집: <xliff:g>%s</xliff:g></string>
+    <string name="frontImageDescription">전면 이미지</string>
+    <string name="backImageDescription">뒷면 이미지</string>
+    <string name="currentBalanceSentence">현재 잔액: <xliff:g>%s</xliff:g></string>
+    <string name="importCards">카드 가져오기</string>
+    <string name="updateBalanceTitle">얼마를 썼습니까\?</string>
+    <string name="newBalanceSentence">새 잔액: <xliff:g>%s</xliff:g></string>
+    <string name="settings_card_orientation">바코드 방향</string>
+    <string name="settings_follow_system_orientation">시스템을 따르세요</string>
+    <string name="settings_portrait_orientation">초상화</string>
+    <string name="settings_landscape_orientation">풍경</string>
+    <string name="noGroupCards">이 그룹은 비어 있습니다</string>
+    <string name="app_loyalty_card_keychain">로열티 카드 키체인</string>
+    <string name="privacy_policy">개인 정보 정책</string>
+    <string name="privacy_policy_popup_text">개인 정보 보호 정책 공지(일부 앱 스토어에서 필요):
+\n
+\n데이터가 전혀 수집되지 않습니다. 우리 앱은 무료 소프트웨어이기 때문에 누구나 확인할 수 있습니다.</string>
+    <string name="importCatima">Catima에서 가져오기</string>
+    <string name="importCatimaMessage">가져올 Catima에서 <i>catima.zip</i> 내보내기를 선택합니다.
+\n먼저 내보내기를 눌러 다른 Catima 앱의 가져오기/내보내기 메뉴에서 생성합니다.</string>
+    <string name="importFidme">FidMe에서 가져오기</string>
+    <string name="importFidmeMessage">가져올 FidMe에서 <i>fidme-export-request-xxxxxx.zip</i> 내보내기를 선택하고 나중에 바코드 유형을 수동으로 선택합니다.
+\n데이터 보호를 선택한 다음 먼저 내 데이터 추출을 눌러 FidMe 프로필에서 생성합니다.</string>
+    <string name="importLoyaltyCardKeychainMessage">가져올 포인트 카드 키체인에서 <i>LoyaltyCardKeychain.csv</i> 내보내기를 선택합니다.
+\n먼저 내보내기를 눌러 로열티 카드 키체인의 가져오기/내보내기 메뉴에서 만드십시오.</string>
+    <string name="setBarcodeId">바코드 값 설정</string>
+    <string name="importStocard">Stocard에서 가져오기</string>
+    <string name="importStocardMessage">가져올 Stocard에서 <i>***.zip</i> 내보내기를 선택합니다.
+\nsupport@stocardapp.com으로 이메일을 보내 데이터 내보내기를 요청하면 받을 수 있습니다.</string>
+    <string name="importVoucherVault">바우처 보관소에서 가져오기</string>
+    <string name="importVoucherVaultMessage">가져올 Voucher Vault에서 <i>vouchervault.json</i> 내보내기를 선택합니다.
+\n먼저 바우처 금고에서 내보내기를 눌러 생성하세요.</string>
+    <string name="sameAsCardId">아이디와 동일</string>
+    <string name="settings_grey_theme">회색</string>
+    <string name="settings_sky_blue_theme">하늘색</string>
+    <string name="settings_green_theme">초록색</string>
+    <string name="settings_brown_theme">갈색</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="other">보관소 보기 (<xliff:g>%1$d</xliff:g> 카)</item>
+    </plurals>
+    <string name="previousCard">이전의</string>
+    <string name="nextCard">다음</string>
+    <string name="failedToOpenUrl">먼저 웹 브라우저를 설치하십시오</string>
 </resources>

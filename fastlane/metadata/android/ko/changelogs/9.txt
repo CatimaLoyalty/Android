@@ -1,0 +1,7 @@
+이름의 "Locker" 부분이 직관적이지 않았습니다. 이 문제를 해결하기 위해 바코드를 사용하는 로열티 카드를 저장하는 애플리케이션의 목적을 더 잘 나타내는 betsythefc에서 새로운 애플리케이션 아이콘을 만들었습니다. 이 새 아이콘과 함께 애플리케이션 이름이 "충성도 카드 키체인"으로 변경되었습니다.
+
+추가 기능/개선 사항:
+
+- 카드 가져오기/내보내기가 보다 유연하게 변경되었습니다. (풀 #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- 리투아니아어 번역이 추가되었습니다. (풀 #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- 프랑스어 번역이 추가되었습니다. (풀 #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

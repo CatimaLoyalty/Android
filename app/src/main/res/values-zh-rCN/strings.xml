@@ -170,7 +170,7 @@
         <item quantity="other"><xliff:g>%s</xliff:g> 点</item>
     </plurals>
     <string name="settings_locale">语言</string>
-    <string name="setIcon">设置图标</string>
+    <string name="setIcon">设置缩略图</string>
     <string name="settings_pink_theme">粉色</string>
     <string name="settings_oled_dark">纯黑色背景的深色主题</string>
     <string name="translate_platform">在Weblate上</string>
@@ -261,5 +261,9 @@
     <string name="openBackImageInGalleryApp">使用图库软件打开背面图像</string>
     <string name="setBarcodeHeight">设置条形码高度</string>
     <string name="donate">捐赠</string>
-    <string name="icon_header_click_text">长按以编辑图标</string>
+    <string name="icon_header_click_text">长按可编辑缩略图</string>
+    <string name="show_note">显示备注</string>
+    <string name="show_balance">显示余额</string>
+    <string name="show_name_below_image_thumbnail">在图像缩略图下方显示名称</string>
+    <string name="show_validity">显示有效性</string>
 </resources>

@@ -1,0 +1,3 @@
+- 전체 화면 종료 시 바코드 중앙 정렬 수정 (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- 백업 내보내기 위치 선택 허용 (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- 번역 업데이트(#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull) /362))

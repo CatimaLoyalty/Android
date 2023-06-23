@@ -252,4 +252,5 @@
     <string name="updateBalanceHint">輸入金額</string>
     <string name="currentBalanceSentence">餘額： <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">新的餘額： <xliff:g>%s</xliff:g></string>
+    <string name="switchToBarcode">選擇條碼</string>
 </resources>

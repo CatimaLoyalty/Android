@@ -1,0 +1,2 @@
+- 카드를 길게 클릭하면 카드 ID를 클립보드에 복사하는 옵션이 나타납니다. (풀 #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- 이제 가져오기/내보내기 보기의 뒤로 버튼이 작동하여 사용자를 기본 보기로 이동

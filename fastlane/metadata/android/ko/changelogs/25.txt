@@ -1,0 +1,2 @@
+- 카드를 볼 때 헤더의 공간을 줄입니다. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- 바코드를 스캔할 때 경고음을 비활성화합니다. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

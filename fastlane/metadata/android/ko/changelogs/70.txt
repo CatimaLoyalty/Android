@@ -1,0 +1,11 @@
+- 브레이킹 체인지: 백업 형식이 변경되었습니다. https://github.com/TheLastProject/Catima/wiki/Export-format을 참조하십시오.
+- 브레이킹 체인지: URL 공유 형식이 변경되었습니다. https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format을 참조하십시오.
+- 스캔하는 동안 손전등을 활성화 또는 비활성화할 수 있습니다.
+- UPC-E 지원 추가
+- 각 카드에 앞뒷면 사진 추가 지원
+- 암호로 보호된 zip 파일 가져오기 지원
+- Stocard(베타)에서 가져오기 지원
+- Fidme 가져오기에서 노트의 불필요한 공백 수정
+- 새로운 바우처 금고 내보내기 형식 지원
+- Android 4에서 다른 UI 요소 뒤에 있는 플로팅 작업 버튼 수정
+- 포인트 카드 뷰어 앱바 상단 여백 수정

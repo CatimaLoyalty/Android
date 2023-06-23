@@ -103,11 +103,14 @@ public class BarcodeImageWriterTask implements CompatCallable<Bitmap> {
         switch (format.format()) {
             // 2D barcodes
             case AZTEC:
-            case DATA_MATRIX:
             case MAXICODE:
             case PDF_417:
             case QR_CODE:
                 return MAX_WIDTH_2D;
+
+            // 2D but rectangular versions get blurry otherwise
+            case DATA_MATRIX:
+                return MAX_WIDTH_1D;
 
             // 1D barcodes:
             case CODABAR:

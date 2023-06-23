@@ -89,6 +89,14 @@
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/importOptionFilesystemExplanation"/>
 
+            <TextView
+                android:id="@+id/importWarningFileSystem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/importWarning"/>
+
             <Button
                 android:id="@+id/importOptionFilesystemButton"
                 android:layout_width="match_parent"
@@ -118,6 +126,14 @@
                 android:layout_marginTop="4dp"
                 android:textSize="@dimen/text_size_medium"
                 android:text="@string/importOptionApplicationExplanation"/>
+
+            <TextView
+                android:id="@+id/importWarningApplication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/text_size_medium"
+                android:text="@string/importWarning"/>
 
             <Button
                 android:id="@+id/importOptionApplicationButton"

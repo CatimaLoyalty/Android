@@ -323,6 +323,12 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public static void clearDatabase(final SQLiteDatabase db) {
+        db.execSQL("DELETE FROM " + LoyaltyCardDbGroups.TABLE);
+        db.execSQL("DELETE FROM " + LoyaltyCardDbIds.TABLE);
+        db.execSQL("DELETE FROM " + LoyaltyCardDbIdsGroups.TABLE);
+    }
+
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {
         // FTS on Android is severely limited and can only search for word starting with a certain string
         // So for each word, we grab every single substring

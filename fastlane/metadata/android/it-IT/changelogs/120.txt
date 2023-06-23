@@ -1,0 +1,3 @@
+- Riprogettazione completa delle schermate di visualizzazione della schermata principale e della carta fedeltà
+- Design Material You per la schermata delle impostazioni
+- Correzione dell'arresto anomalo quando si utilizza "Scatta una foto" con l'app fotocamera disabilitata

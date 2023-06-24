@@ -8,6 +8,7 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.Set;
 
 import protect.card_locker.FormatException;
 
@@ -23,5 +24,5 @@ public interface Importer {
      * @throws IOException
      * @throws FormatException
      */
-    void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
+    Set<String> importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

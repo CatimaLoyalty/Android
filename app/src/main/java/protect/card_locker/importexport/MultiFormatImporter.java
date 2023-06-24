@@ -7,6 +7,7 @@ import android.util.Log;
 import net.lingala.zip4j.exception.ZipException;
 
 import java.io.InputStream;
+import java.util.Set;
 
 import protect.card_locker.DBHelper;
 
@@ -47,10 +48,12 @@ public class MultiFormatImporter {
         String error = null;
         if (importer != null) {
             database.beginTransaction();
+            Set<String> imageFilesBefore = DBHelper.imageFiles(context, database);
             DBHelper.clearDatabase(database);
             try {
-                importer.importData(context, database, input, password);
+                Set<String> imageFilesAfter = importer.importData(context, database, input, password);
                 database.setTransactionSuccessful();
+                DBHelper.clearImageFiles(context, imageFilesBefore, imageFilesAfter);
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
                 if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {

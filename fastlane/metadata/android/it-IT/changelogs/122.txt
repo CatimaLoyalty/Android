@@ -1,0 +1,3 @@
+- Premere a lungo l'icona della carta nella pagina di visualizzazione per cambiarla
+- Miglioramento dello stile dei pulsanti nella schermata Gruppi
+- Correzione dei valori lunghi del codice a barre che causano la riduzione del codice a barre a zero

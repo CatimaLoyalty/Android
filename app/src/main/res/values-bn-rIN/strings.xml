@@ -97,10 +97,10 @@
     <string name="expiryDate">মেয়াদোত্তীর্ণ তারিখ</string>
     <string name="noBarcodeFound">কোনো বারকোড পাওয়া যায়নি</string>
     <string name="cameraPermissionRequired">এই কাজটির জন্য ক্যামেরা ব্যবহার করার অনুমতি লাগবে…</string>
-    <string name="noCameraPermissionDirectToSystemSetting">বারকোড স্ক্যান করার জন্য, কাটিমাকে ফোনের ক্যামেরা ব্যবহার করার অনুমতি দিতে হবে। এইখানে টাচ করে আপনার অনুমতি সেটিংস পালটে নিন।</string>
-    <string name="importOptionApplicationExplanation">আপনার প্রিয় ফাইল ম্যানেজার বা আর যেকোনো অ্যাপ দিয়ে একটি ফাইল খুলুন।</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">মেধাস্বত্ব © ২০১৯-<xliff:g>%d</xliff:g> সিলভিয়া ভান অস</string>
-    <string name="app_license">কপিলেফ্ট করা মুক্ত সফটওয়্যার, জিপিএলের ৩য় এবং তার অধিক সংস্করণে লাইসেন্স করা</string>
+    <string name="noCameraPermissionDirectToSystemSetting">বারকোড স্ক্যান করার জন্য, Catima কে ক্যামেরাটি ব্যবহার করার অনুমতি দিতে হবে। এইখানে টাচ করে আপনার অনুমতি সেটিংস পালটে নিন।</string>
+    <string name="importOptionApplicationExplanation">একটি ফাইল খোলার জন্য যেকোনো অ্যাপ বা আপনার প্রিয় ফাইল ম্যানেজারটি ব্যবহার করুন।</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">মেধাস্বত্ব © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_license">কপিলেফট দ্বারা রক্ষা করা মুক্ত সফটওয়্যার, লাইসেন্স করা GPLv3+ এর অধীনে</string>
     <string name="enterBarcodeInstructions">আইডিটি লিখুন আর নয় নিচ থেকে একটি বারকোডের প্রকার বা \"কোনো বারকোড নেই\", নির্বাচন করুন।</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবো\?</item>
@@ -114,10 +114,10 @@
         <item quantity="one"><xliff:g>%d</xliff:g>টি কার্ড মুছে ফেলুন</item>
         <item quantity="other"><xliff:g>%d</xliff:g>টি কার্ড মুছে ফেলুন</item>
     </plurals>
-    <string name="cameraPermissionDeniedTitle">ফোনের ক্যামেরা ব্যবহার করা যাচ্ছে না</string>
-    <string name="importOptionFilesystemExplanation">ফোনের স্টোরেজ থেকে নির্দিষ্ট একটি ফাইল আনুন।</string>
+    <string name="cameraPermissionDeniedTitle">ক্যামেরাটি ব্যবহার করা যাচ্ছে না</string>
+    <string name="importOptionFilesystemExplanation">স্টোরেজ থেকে নির্দিষ্ট একটি ফাইল বাছুন।</string>
     <string name="app_libraries">মুক্ত লাইব্রেরি যেগুলি আমার নয়: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g>টির ব্যাপারে</string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g>টির সম্পর্কে</string>
     <string name="app_resources">মুক্ত সম্পদ যেগুলি আমার নয়: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="thumbnailDescription">থাম্বনেইল</string>
     <string name="settings_card_orientation">বারকোড অভিমুখ</string>
@@ -142,12 +142,12 @@
     <string name="importing">আনা হচ্ছে…</string>
     <string name="exporting">বার করা হচ্ছে…</string>
     <string name="storageReadPermissionRequired">এই কাজটির জন্য ফোনের স্টোরেজ দেখার অনুমতি লাগবে…</string>
-    <string name="exportOptionExplanation">তথ্যটি আপনার পছন্দের জায়গায় রাখা হবে।</string>
-    <string name="importOptionFilesystemTitle">ফোনের স্টোরেজ থেকে আনুন</string>
-    <string name="importOptionFilesystemButton">ফোনের স্টোরেজ থেকে</string>
+    <string name="exportOptionExplanation">ডেটাটি আপনার পছন্দের জায়গায় রাখা হবে।</string>
+    <string name="importOptionFilesystemTitle">স্টোরেজ থেকে আমদানি করুন</string>
+    <string name="importOptionFilesystemButton">স্টোরেজ থেকে</string>
     <string name="importOptionApplicationTitle">অন্য অ্যাপ ব্যবহার করুন</string>
-    <string name="app_copyright_old">লয়ালটি কার্ড কিচ্যেনের উপর ভিত্তি করে
-\nমেধাস্বত্ব © ২০১৬-২০২০ ব্রানডেন আর্চার</string>
+    <string name="app_copyright_old">Loyalty Card Keychain এর উপর ভিত্তি করে
+\nমেধাস্বত্ব © 2016–2020 Branden Archer</string>
     <string name="selectBarcodeTitle">বারকোড নির্বাচন করুন</string>
     <string name="settings">সেটিংস</string>
     <string name="settings_dark_theme">অন্ধকার</string>
@@ -260,4 +260,17 @@
     <string name="updateBalanceTitle">আপনি কত খরচ করেছেন\?</string>
     <string name="updateBalanceHint">পরিমান লিখুন</string>
     <string name="currentBalanceSentence">বর্তমান ব্যালেন্স: <xliff:g>%s</xliff:g></string>
+    <string name="show_name_below_image_thumbnail">ছবির থাম্বনেইল এর নিচে নামটি দেখান</string>
+    <string name="show_note">নোট দেখান</string>
+    <string name="show_validity">বৈধতা দেখান</string>
+    <string name="height">উচ্চতা:</string>
+    <string name="switchToBackImage">পিছনের ছবিটিতে সুইচ করুন</string>
+    <string name="switchToFrontImage">সামনের ছবিটিতে সুইচ করুন</string>
+    <string name="switchToBarcode">বারকোডে সুইচ করুন</string>
+    <string name="openFrontImageInGalleryApp">সামনের ছবিটি গ্যালারি অ্যাপে খুলুন</string>
+    <string name="openBackImageInGalleryApp">পিছনের ছবিটি গ্যালারি অ্যাপে খুলুন</string>
+    <string name="setBarcodeHeight">বারকোডের উচ্চতা সেট করুন</string>
+    <string name="icon_header_click_text">দীর্ঘক্ষন টাচ করে থাম্বনেইল এডিট করবেন</string>
+    <string name="show_balance">ব্যালান্স দেখান</string>
+    <string name="donate">দান করুন</string>
 </resources>

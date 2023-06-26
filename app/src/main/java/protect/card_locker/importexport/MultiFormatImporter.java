@@ -75,6 +75,10 @@ public class MultiFormatImporter {
             Log.e(TAG, error);
         }
 
+        for (String fileName : newImageFiles) {
+            context.deleteFile(fileName);
+        }
+
         return new ImportExportResult(ImportExportResultType.GenericFailure, error);
     }
 }

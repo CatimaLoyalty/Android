@@ -201,7 +201,12 @@ public class ImportExportTest {
      * where the smallest card's index is 1
      */
     private void checkLoyaltyCards() {
+        checkLoyaltyCards(false);
+    }
+
+    private void checkLoyaltyCards(boolean dups) {
         Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+        boolean first = true;
         int index = 1;
 
         while (cursor.moveToNext()) {
@@ -222,7 +227,16 @@ public class ImportExportTest {
             assertEquals(Integer.valueOf(index), card.headerColor);
             assertEquals(0, card.starStatus);
 
-            index++;
+            if (dups) {
+                if (first) {
+                    first = false;
+                } else {
+                    first = true;
+                    index++;
+                }
+            } else {
+                index++;
+            }
         }
         cursor.close();
     }
@@ -500,9 +514,9 @@ public class ImportExportTest {
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
         assertEquals(ImportExportResultType.Success, result.resultType());
 
-        assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals(NUM_CARDS * 2, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        checkLoyaltyCards();
+        checkLoyaltyCards(true);
 
         // Clear the database for the next format under test
         TestHelpers.getEmptyDb(activity);
@@ -764,7 +778,7 @@ public class ImportExportTest {
         // Import the CSV data
         result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Catima, null);
         assertEquals(ImportExportResultType.Success, result.resultType());
-        assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
+        assertEquals(2, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 

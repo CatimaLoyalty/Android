@@ -7,6 +7,7 @@ import android.net.Uri;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,7 +41,11 @@ public class ImportURITest {
         // Generate card
         Date date = new Date();
 
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
+        try {
+            DBHelper.insertLoyaltyCard(mDatabase, "store", "This note contains evil symbols like & and = that will break the parser if not escaped right $#!%()*+;:á", date, date, new BigDecimal("100"), null, BarcodeFormat.UPC_E.toString(), BarcodeFormat.UPC_A.toString(), CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), Color.BLACK, 1, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -70,7 +75,11 @@ public class ImportURITest {
     @Test
     public void ensureNoCrashOnMissingHeaderFields() throws InvalidObjectException, UnsupportedEncodingException {
         // Generate card
-        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        try {
+            DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         // Get card
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);

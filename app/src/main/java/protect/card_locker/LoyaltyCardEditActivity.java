@@ -1439,9 +1439,21 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         // This makes the DBHelper set it to the current date
         // So that new and edited card are always on top when sorting by recently used
         if (updateLoyaltyCard) {
-            DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, tempLoyaltyCard.starStatus, null, tempLoyaltyCard.archiveStatus);
+            try {
+                DBHelper.updateLoyaltyCard(mDatabase, loyaltyCardId, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, tempLoyaltyCard.starStatus, null, tempLoyaltyCard.archiveStatus);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not update loyalty card " + loyaltyCardId);
+                Toast.makeText(this, "Could not update loyalty card", Toast.LENGTH_LONG).show(); // FIXME
+                return;
+            }
         } else {
-            loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, null, 0);
+            try {
+                loyaltyCardId = (int) DBHelper.insertLoyaltyCard(mDatabase, tempLoyaltyCard.store, tempLoyaltyCard.note, tempLoyaltyCard.validFrom, tempLoyaltyCard.expiry, tempLoyaltyCard.balance, tempLoyaltyCard.balanceType, tempLoyaltyCard.cardId, tempLoyaltyCard.barcodeId, tempLoyaltyCard.barcodeType, tempLoyaltyCard.headerColor, 0, null, 0);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not insert loyalty card");
+                Toast.makeText(this, "Could not insert loyalty card", Toast.LENGTH_LONG).show(); // FIXME
+                return;
+            }
         }
 
         try {

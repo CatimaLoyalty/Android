@@ -39,7 +39,7 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         InputStream bufferedInputStream = new BufferedInputStream(input);
         bufferedInputStream.mark(100);
 
@@ -71,7 +71,7 @@ public class CatimaImporter implements Importer {
         input.close();
     }
 
-    public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {
+    public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         int version = parseVersion(bufferedReader);
@@ -87,7 +87,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV1(SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public void parseV1(SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
 
         try {
@@ -105,7 +105,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV2(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public void parseV2(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         int part = 0;
         StringBuilder stringPart = new StringBuilder();
 
@@ -168,7 +168,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV2Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public void parseV2Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         // Parse groups
         final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -193,7 +193,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV2Cards(Context context, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public void parseV2Cards(Context context, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException, DBHelper.DBException {
         // Parse cards
         final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -277,7 +277,7 @@ public class CatimaImporter implements Importer {
      * session.
      */
     private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record)
-            throws FormatException {
+            throws FormatException, DBHelper.DBException {
         int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record);
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
@@ -381,7 +381,7 @@ public class CatimaImporter implements Importer {
      * Import a single group into the database using the given
      * session.
      */
-    private void importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException {
+    private void importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException, DBHelper.DBException {
         String id = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
 
         if (id == null) {

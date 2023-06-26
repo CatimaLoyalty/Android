@@ -8,6 +8,7 @@ import android.graphics.Color;
 
 import com.google.zxing.BarcodeFormat;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,9 +43,12 @@ public class DatabaseTest {
     @Test
     public void addRemoveOneGiftCard() {
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -62,21 +66,30 @@ public class DatabaseTest {
         assertEquals(0, loyaltyCard.starStatus);
         assertEquals(0, loyaltyCard.archiveStatus);
 
-        result = DBHelper.deleteLoyaltyCard(mDatabase, mActivity, 1);
-        assertTrue(result);
+        try {
+            DBHelper.deleteLoyaltyCard(mDatabase, mActivity, 1);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
         assertNull(DBHelper.getLoyaltyCard(mDatabase, 1));
     }
 
     @Test
     public void updateGiftCard() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        result = DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR, 0, null, 0);
-        assertTrue(result);
+        try {
+            DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), "cardId1", null, CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), DEFAULT_HEADER_COLOR, 0, null, 0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -97,13 +110,19 @@ public class DatabaseTest {
 
     @Test
     public void updateGiftCardOnlyStar() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        result = DBHelper.updateLoyaltyCardStarStatus(mDatabase, 1, 1);
-        assertTrue(result);
+        try {
+            DBHelper.updateLoyaltyCardStarStatus(mDatabase, 1, 1);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -126,17 +145,23 @@ public class DatabaseTest {
     public void updateMissingGiftCard() {
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        boolean result = DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1",
-                null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null, 0);
-        assertEquals(false, result);
+        try {
+            DBHelper.updateLoyaltyCard(mDatabase, 1, "store1", "note1", null, null, new BigDecimal("0"), null, "cardId1",
+                    null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null, 0);
+            Assert.fail(); // FIXME
+        } catch (DBHelper.DBException e) {
+        }
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
     }
 
     @Test
     public void emptyGiftCardValues() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "", "", null, null, new BigDecimal("0"), null, "", null, null, null, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(mDatabase, 1);
@@ -162,10 +187,12 @@ public class DatabaseTest {
         // Add the gift cards in reverse order, to ensure
         // that they are sorted
         for (int index = CARDS_TO_ADD - 1; index >= 0; index--) {
-            long id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
+            try {
+                DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
                     null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 0, null,0);
-            boolean result = (id != -1);
-            assertTrue(result);
+            } catch (DBHelper.DBException e) {
+                Assert.fail(); // FIXME
+            }
         }
 
         assertEquals(CARDS_TO_ADD, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -208,14 +235,20 @@ public class DatabaseTest {
         // that they are sorted
         for (int index = CARDS_TO_ADD - 1; index >= 0; index--) {
             if (index == CARDS_TO_ADD - 1) {
-                id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
+                try {
+                    id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
                         null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 1, null,0);
+                } catch (DBHelper.DBException e) {
+                    Assert.fail(); // FIXME
+                }
             } else {
-                id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
+                try {
+                    id = DBHelper.insertLoyaltyCard(mDatabase, "store" + index, "note" + index, null, null, new BigDecimal("0"), null, "cardId" + index,
                         null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), index, 0, null,0);
+                } catch (DBHelper.DBException e) {
+                    Assert.fail(); // FIXME
+                }
             }
-            boolean result = (id != -1);
-            assertTrue(result);
         }
 
         assertEquals(CARDS_TO_ADD, DBHelper.getLoyaltyCardCount(mDatabase));
@@ -292,17 +325,22 @@ public class DatabaseTest {
     @Test
     public void addRemoveOneGroup() {
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-        long id = DBHelper.insertGroup(mDatabase, "group one");
-        boolean result = (id != -1);
-        assertTrue(result);
+        try {
+            DBHelper.insertGroup(mDatabase, "group one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         Group group = DBHelper.getGroup(mDatabase, "group one");
         assertNotNull(group);
         assertEquals("group one", group._id);
 
-        result = DBHelper.deleteGroup(mDatabase, "group one");
-        assertTrue(result);
+        try {
+            DBHelper.deleteGroup(mDatabase, "group one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
         assertNull(DBHelper.getGroup(mDatabase, "group one"));
     }
@@ -311,15 +349,20 @@ public class DatabaseTest {
     public void updateGroup() {
         // Create card
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         // Create group
-        long groupId = DBHelper.insertGroup(mDatabase, "group one");
-        result = (groupId != -1);
-        assertTrue(result);
+        try {
+            DBHelper.insertGroup(mDatabase, "group one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         // Add card to group
@@ -335,8 +378,11 @@ public class DatabaseTest {
         assertEquals(1, DBHelper.getGroupCardCount(mDatabase, "group one"));
 
         // Rename group
-        result = DBHelper.updateGroup(mDatabase, "group one", "group one renamed");
-        assertTrue(result);
+        try {
+            DBHelper.updateGroup(mDatabase, "group one", "group one renamed");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         // Group one no longer exists
@@ -360,25 +406,32 @@ public class DatabaseTest {
     public void updateMissingGroup() {
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
 
-        boolean result = DBHelper.updateGroup(mDatabase, "group one", "new name");
-        assertEquals(false, result);
+        try {
+            DBHelper.updateGroup(mDatabase, "group one", "new name");
+            Assert.fail(); // FIXME
+        } catch (DBHelper.DBException e) {
+        }
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
     }
 
     @Test
     public void emptyGroupValues() {
-        long id = DBHelper.insertGroup(mDatabase, "");
-        boolean result = (id != -1);
-        assertFalse(result);
+        try {
+            DBHelper.insertGroup(mDatabase, "");
+            Assert.fail(); // FIXME
+        } catch (DBHelper.DBException e) {
+        }
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
     }
 
     @Test
     public void duplicateGroupName() {
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-        long id = DBHelper.insertGroup(mDatabase, "group one");
-        boolean result = (id != -1);
-        assertTrue(result);
+        try {
+            DBHelper.insertGroup(mDatabase, "group one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
         Group group = DBHelper.getGroup(mDatabase, "group one");
@@ -386,27 +439,36 @@ public class DatabaseTest {
         assertEquals("group one", group._id);
 
         // Should fail on duplicate
-        long id2 = DBHelper.insertGroup(mDatabase, "group one");
-        boolean result2 = (id2 != -1);
-        assertFalse(result2);
+        try {
+            DBHelper.insertGroup(mDatabase, "group one");
+            Assert.fail(); // FIXME
+        } catch (DBHelper.DBException e) {
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
     }
 
     @Test
     public void updateGroupDuplicate() {
-        long id = DBHelper.insertGroup(mDatabase, "group one");
-        boolean result = (id != -1);
-        assertTrue(result);
+        try {
+            DBHelper.insertGroup(mDatabase, "group one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getGroupCount(mDatabase));
 
-        long id2 = DBHelper.insertGroup(mDatabase, "group two");
-        boolean result2 = (id2 != -1);
-        assertTrue(result2);
+        try {
+            DBHelper.insertGroup(mDatabase, "group two");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
         // Should fail when trying to rename group two to one
-        boolean result3 = DBHelper.updateGroup(mDatabase, "group two", "group one");
-        assertFalse(result3);
+        try {
+            DBHelper.updateGroup(mDatabase, "group two", "group one");
+            Assert.fail(); // FIXME
+        } catch (DBHelper.DBException e) {
+        }
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
         // Rename failed so both should still be the same
@@ -423,20 +485,27 @@ public class DatabaseTest {
     public void cardAddAndRemoveGroups() {
         // Create card
         assertEquals(0, DBHelper.getLoyaltyCardCount(mDatabase));
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("0"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
         // Create two groups to only one card
         assertEquals(0, DBHelper.getGroupCount(mDatabase));
-        long gid = DBHelper.insertGroup(mDatabase, "one");
-        boolean gresult = (gid != -1);
-        assertTrue(gresult);
+        try {
+            DBHelper.insertGroup(mDatabase, "one");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
-        long gid2 = DBHelper.insertGroup(mDatabase, "two");
-        boolean gresult2 = (gid2 != -1);
-        assertTrue(gresult2);
+        try {
+            DBHelper.insertGroup(mDatabase, "two");
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
 
         assertEquals(2, DBHelper.getGroupCount(mDatabase));
 
@@ -515,12 +584,15 @@ public class DatabaseTest {
 
     @Test
     public void updateGiftCardOnlyBalance() {
-        long id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
-        boolean result = (id != -1);
-        assertTrue(result);
+        long id = -1;
+        try {
+            id = DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("100"), null, "cardId", null, CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A), DEFAULT_HEADER_COLOR, 0, null,0);
+        } catch (DBHelper.DBException e) {
+            Assert.fail(); // FIXME
+        }
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 
-        result = DBHelper.updateLoyaltyCardBalance(mDatabase, 1, new BigDecimal(60));
+        boolean result = DBHelper.updateLoyaltyCardBalance(mDatabase, 1, new BigDecimal(60));
         assertTrue(result);
         assertEquals(1, DBHelper.getLoyaltyCardCount(mDatabase));
 

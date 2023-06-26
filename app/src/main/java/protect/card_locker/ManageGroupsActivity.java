@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -167,7 +168,14 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
                 return;
             }
 
-            DBHelper.insertGroup(mDatabase, sanitizeAddGroupNameField(input.getText()));
+            String groupName = sanitizeAddGroupNameField(input.getText());
+            try {
+                DBHelper.insertGroup(mDatabase, groupName);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not insert group " + groupName);
+                Toast.makeText(getApplicationContext(), "Failed to insert group", Toast.LENGTH_LONG).show(); // FIXME
+                return;
+            }
             updateGroupList();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
@@ -240,7 +248,13 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         builder.setMessage(groupName);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.deleteGroup(mDatabase, groupName);
+            try {
+                DBHelper.deleteGroup(mDatabase, groupName);
+            } catch (DBHelper.DBException e) {
+                Log.w(TAG, "Could not delete group " + groupName);
+                Toast.makeText(getApplicationContext(), "Failed to delete group", Toast.LENGTH_LONG).show(); // FIXME
+                return;
+            }
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();

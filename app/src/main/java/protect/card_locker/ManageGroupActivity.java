@@ -33,6 +33,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     private SQLiteDatabase mDatabase;
     private ManageGroupCursorAdapter mAdapter;
 
+    private static final String TAG = "Catima";
+
     private final String SAVE_INSTANCE_ADAPTER_STATE = "adapterState";
     private final String SAVE_INSTANCE_CURRENT_GROUP_NAME = "currentGroupName";
 
@@ -126,7 +128,13 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
             mAdapter.commitToDatabase();
             if (!currentGroupName.equals(mGroup._id)) {
-                DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName);
+                try {
+                    DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName);
+                } catch (DBHelper.DBException e) {
+                    Log.w(TAG, "Could not update group");
+                    Toast.makeText(getApplicationContext(), "Failed to update group", Toast.LENGTH_LONG).show(); // FIXME
+                    return;
+                }
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
             finish();

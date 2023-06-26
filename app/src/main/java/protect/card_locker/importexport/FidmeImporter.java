@@ -17,6 +17,7 @@ import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.util.Set;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -31,7 +32,7 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class FidmeImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password, Set<String> newImageFiles, int maxLoyaltyCardId) throws IOException, FormatException, JSONException, ParseException {
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 

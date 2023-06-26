@@ -7,6 +7,10 @@ import android.util.Log;
 import net.lingala.zip4j.exception.ZipException;
 
 import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Set;
+
+import protect.card_locker.DBHelper;
 
 public class MultiFormatImporter {
     private static final String TAG = "Catima";
@@ -41,11 +45,17 @@ public class MultiFormatImporter {
         }
 
         String error = null;
+        Set<String> newImageFiles = new HashSet<>();
         if (importer != null) {
             database.beginTransaction();
             try {
-                importer.importData(context, database, input, password);
+                int maxLoyaltyCardId = DBHelper.getMaxLoyaltyCardId(database);
+                Log.d(TAG, "Current max loyalty card id: " + maxLoyaltyCardId);
+                importer.importData(context, database, input, password, newImageFiles, maxLoyaltyCardId);
                 database.setTransactionSuccessful();
+                for (String fileName : newImageFiles) {
+                    Log.d(TAG, "New image file: " + fileName);
+                }
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
                 if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {

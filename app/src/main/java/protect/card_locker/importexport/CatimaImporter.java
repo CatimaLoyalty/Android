@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -39,7 +40,7 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password, Set<String> newImageFiles, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         InputStream bufferedInputStream = new BufferedInputStream(input);
         bufferedInputStream.mark(100);
 
@@ -57,6 +58,7 @@ public class CatimaImporter implements Importer {
                 importCSV(context, database, zipInputStream);
             } else if (fileName.endsWith(".png")) {
                 Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), fileName);
+                newImageFiles.add(fileName);
             } else {
                 throw new FormatException("Unexpected file in import: " + fileName);
             }

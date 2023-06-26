@@ -23,6 +23,7 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Set;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -42,7 +43,7 @@ import protect.card_locker.ZipUtils;
 public class StocardImporter implements Importer {
     private static final String TAG = "Catima";
 
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password, Set<String> newImageFiles, int maxLoyaltyCardId) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
 
@@ -233,14 +234,20 @@ public class StocardImporter implements Importer {
             long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, null,0);
 
             if (cardIcon != null) {
-                Utils.saveCardImage(context, cardIcon, (int) loyaltyCardInternalId, ImageLocationType.icon);
+                String fileName = Utils.getCardImageFileName((int) loyaltyCardInternalId, ImageLocationType.icon);
+                Utils.saveCardImage(context, cardIcon, fileName);
+                newImageFiles.add(fileName);
             }
 
             if (loyaltyCardData.containsKey("frontImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
+                String fileName = Utils.getCardImageFileName((int) loyaltyCardInternalId, ImageLocationType.front);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), fileName);
+                newImageFiles.add(fileName);
             }
             if (loyaltyCardData.containsKey("backImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageLocationType.back);
+                String fileName = Utils.getCardImageFileName((int) loyaltyCardInternalId, ImageLocationType.back);
+                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), fileName);
+                newImageFiles.add(fileName);
             }
         }
 

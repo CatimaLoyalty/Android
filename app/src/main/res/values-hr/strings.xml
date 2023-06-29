@@ -100,7 +100,7 @@
     <string name="action_hide_details">Sakrij detalje</string>
     <string name="importCards">Uvezi kartice</string>
     <string name="selectColor">Odaberi boju</string>
-    <string name="setIcon">Postavi ikonu</string>
+    <string name="setIcon">Postavi sličicu</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_green_theme">Zelena</string>
     <string name="settings_grey_theme">Siva</string>
@@ -147,7 +147,7 @@
     <string name="noBarcodeFound">Nijedan crtični kod nije pronađen</string>
     <string name="balance">Saldo</string>
     <string name="chooseImportType">Uvezi podatke iz</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Privjesak za Karticu Vjernosti</string>
     <string name="parsingBalanceFailed">Čini se da <xliff:g>%s</xliff:g> nije ispravni saldo.</string>
     <string name="privacy_policy_popup_text">Obavijest o politici privatnosti (obavezna za neke trgovine aplikacija):
 \n
@@ -275,4 +275,9 @@
         <item quantity="few">Pogledaj arhivu (<xliff:g>%1$d</xliff:g> kartice)</item>
         <item quantity="other">Pogledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
     </plurals>
+    <string name="icon_header_click_text">Dugim pritiskom uredite sličicu</string>
+    <string name="show_name_below_image_thumbnail">Prikaži ime ispod sličice</string>
+    <string name="show_note">Prikaži bilješku</string>
+    <string name="show_balance">Prikaži saldo</string>
+    <string name="show_validity">Prikaži valjanost</string>
 </resources>

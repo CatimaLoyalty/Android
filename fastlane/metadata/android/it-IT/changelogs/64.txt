@@ -1,0 +1,1 @@
+- Correzione della regressione che causava il mancato salvataggio manuale del codice a barre

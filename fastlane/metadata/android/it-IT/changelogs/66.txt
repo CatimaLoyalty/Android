@@ -1,0 +1,4 @@
+- Supporto dell'importazione di esportazioni Fidme (https://play.google.com/store/apps/details?id=fr.snapp.fidme)
+- Consente l'importazione di una scheda da un'immagine memorizzata nella galleria Android dell'utente
+- Corretto il taglio delle note su più linee
+- Cambiato il testo "Grazie" nella finestra di dialogo sulla privacy in "Accetta" perché Huawei è eccessivamente pedante

@@ -1,0 +1,1 @@
+- Miglior gestione dei colori mancanti nelle intestazioni

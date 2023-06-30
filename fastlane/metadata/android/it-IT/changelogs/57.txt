@@ -1,0 +1,4 @@
+- Aggiunta del supporto per il ridimensionamento del codice a barre quando si sposta in alto per adattarsi a scanner ancora più piccoli
+- Correzione del movimento del piè di pagina dopo il passaggio a schermo intero
+- Rende piccola l'intestazione nella visualizzazione delle carte fedeltà in modalità orizzontale
+- Correzione delle carte che non rimangono nel gruppo quando il gruppo viene rinominato

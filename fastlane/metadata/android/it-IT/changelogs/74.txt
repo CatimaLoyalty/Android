@@ -1,0 +1,3 @@
+- Corretta la creazione di collegamenti
+- Gene un'icona di collegamento specifica per la carta
+- Corretta la possibilità di cambiare il colore della carta fedeltà

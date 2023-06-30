@@ -1,0 +1,2 @@
+- Diverse correzioni minori nella traduzione e nell'interfaccia utente
+- Correzione del crash nell'importazione/condivisione della carta fedeltà su Android 6

@@ -1,0 +1,2 @@
+- Col clic lungo su una carta, viene visualizzata l'opzione per copiare l'ID della carta negli appunti. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49))
+- Il pulsante Indieto in Importazione/Esportazione ora funziona, quando l'utente passa alla vista principale

@@ -1,0 +1,6 @@
+- Aggiunta l'opzione per impostare un valore del codice a barre diverso dall'ID della carta
+- Semplificata la configurazione del dimensionamento dei caratteri
+- Diverse correzioni minori dell'interfaccia utente
+- Utilizzo dell'icona della lettera anche per le scorciatoie
+- Mostra sempre tutti i tipi di codice a barre nell'inserimento manuale
+- Rimossa l'informativa sulla privacy dalla prima finestra di dialogo

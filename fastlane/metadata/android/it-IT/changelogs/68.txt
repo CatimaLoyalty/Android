@@ -1,0 +1,4 @@
+- Supporta la nuova esportazione PDF417 da Voucher Vault
+- Supporta la copia di più codici a barre contemporaneamente
+- Supporta la condivisione di più carte fedeltà contemporaneamente
+- Richiede l'aggiornamento del valore del codice a barre se l'ID della carta cambia

@@ -1,0 +1,3 @@
+- Supporta l'importazione delle esportazioni di Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Possibilità di mantenere lo schermo acceso durante la visualizzazione di una carta fedeltà
+- Possibilità di sospendere la schermata di blocco durante la visualizzazione di una carta fedeltà

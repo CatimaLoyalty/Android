@@ -1,0 +1,3 @@
+- Aggiunto l'ID del codice a barre mancante nell'esportazione
+- Non mostra la finestra di dialogo di aggiornamento del codice a barre se il valore è uguale all'ID della carta
+- Aggiunta la traduzione in finlandese

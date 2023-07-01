@@ -1,0 +1,11 @@
+- ATTENZIONE: cambiato il formato del backup, vedi https://github.com/TheLastProject/Catima/wiki/Export-format
+- ATTENZIONE: cambiato il formato di condivisione URL, vedi https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format.
+- Utilizzo della torcia nella scansione
+- Aggiunto il supporto UPC-E
+- Foto fronte/retro delle carte
+- Importazione di file zip protetti
+- Importazione da Stocard (Beta)
+- Rimossi spazi bianchi dall'importazione da Fidme
+- Supporto dell'esportazione Voucher Vault
+- Corretti i pulsanti nascosti da altri elementi su Android 4
+- Corretta l'intestazione dell'appbar del visualizzatore di carte fedeltà

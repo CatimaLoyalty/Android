@@ -362,7 +362,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         if (loyaltyCardGroups.size() > 0) {
             List<String> groupNames = new ArrayList<>();
             for (Group group : loyaltyCardGroups) {
-                groupNames.add(group._id);
+                groupNames.add(group.name);
             }
 
             padSpannableString(infoText);

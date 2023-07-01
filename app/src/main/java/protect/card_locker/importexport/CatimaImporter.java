@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+import java.util.TreeMap;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -81,6 +82,9 @@ public class CatimaImporter implements Importer {
                 break;
             case 2:
                 parseV2(context, database, bufferedReader);
+                break;
+            case 3:
+                parseV3(context, database, bufferedReader);
                 break;
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
@@ -168,6 +172,69 @@ public class CatimaImporter implements Importer {
         }
     }
 
+    public void parseV3(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+        int part = 0;
+        StringBuilder stringPart = new StringBuilder();
+
+        try {
+            while (true) {
+                String tmp = input.readLine();
+
+                if (tmp == null || tmp.isEmpty()) {
+                    boolean sectionParsed = false;
+
+                    switch (part) {
+                        case 0:
+                            // This is the version info, ignore
+                            sectionParsed = true;
+                            break;
+                        case 1:
+                            try {
+                                parseV3Groups(database, stringPart.toString());
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
+                            break;
+                        case 2:
+                            try {
+                                parseV2Cards(context, database, stringPart.toString());
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
+                            break;
+                        case 3:
+                            try {
+                                parseV3CardGroups(database, stringPart.toString());
+                                sectionParsed = true;
+                            } catch (FormatException e) {
+                                // We may have a multiline field, try again
+                            }
+                            break;
+                        default:
+                            throw new FormatException("Issue parsing CSV data, too many parts for v3 parsing");
+                    }
+
+                    if (tmp == null) {
+                        break;
+                    }
+
+                    if (sectionParsed) {
+                        part += 1;
+                        stringPart = new StringBuilder();
+                    } else {
+                        stringPart.append(tmp).append('\n');
+                    }
+                } else {
+                    stringPart.append(tmp).append('\n');
+                }
+            }
+        } catch (FormatException e) {
+            throw new FormatException("Issue parsing CSV data", e);
+        }
+    }
+
     public void parseV2Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
         // Parse groups
         final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
@@ -189,8 +256,31 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importGroup(database, record);
+            importGroupV2(database, record);
         }
+    }
+
+    public void parseV3Groups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+        // Parse groups
+        final CSVParser groupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
+
+        List<CSVRecord> records = new ArrayList<>();
+
+        try {
+            for (CSVRecord record : groupParser) {
+                records.add(record);
+
+                if (Thread.currentThread().isInterrupted()) {
+                    throw new InterruptedException();
+                }
+            }
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            throw new FormatException("Issue parsing CSV data", e);
+        } finally {
+            groupParser.close();
+        }
+
+        importGroupsV3(database, records);
     }
 
     public void parseV2Cards(Context context, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
@@ -239,7 +329,32 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importCardGroupMapping(database, record);
+            importCardGroupMappingV2(database, record);
+        }
+    }
+
+    public void parseV3CardGroups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+        // Parse card group mappings
+        final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
+
+        List<CSVRecord> records = new ArrayList<>();
+
+        try {
+            for (CSVRecord record : cardGroupParser) {
+                records.add(record);
+
+                if (Thread.currentThread().isInterrupted()) {
+                    throw new InterruptedException();
+                }
+            }
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            throw new FormatException("Issue parsing CSV data", e);
+        } finally {
+            cardGroupParser.close();
+        }
+
+        for (CSVRecord record : records) {
+            importCardGroupMappingV3(database, record);
         }
     }
 
@@ -381,28 +496,61 @@ public class CatimaImporter implements Importer {
      * Import a single group into the database using the given
      * session.
      */
-    private void importGroup(SQLiteDatabase database, CSVRecord record) throws FormatException {
-        String id = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
+    private void importGroupV2(SQLiteDatabase database, CSVRecord record) throws FormatException {
+        String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.ID, record, null);
 
-        if (id == null) {
-            throw new FormatException("Group has no ID: " + record);
+        if (name == null) {
+            throw new FormatException("Group has no name: " + record);
         }
 
-        DBHelper.insertGroup(database, id);
+        DBHelper.insertGroup(database, name);
+    }
+
+    /**
+     * Import groups from the V3 scheme (database v17) into the database using the given session.
+     */
+    private void importGroupsV3(SQLiteDatabase database, List<CSVRecord> records) throws FormatException {
+        TreeMap<Integer, Group> sortedGroups = new TreeMap<Integer, Group>();
+        for (CSVRecord record : records) {
+            int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ID, record);
+            String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbGroups.NAME, record, null);
+            int order = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbGroups.ORDER, record);
+
+            if (name == null) {
+                throw new FormatException("Group has no name: " + record);
+            }
+
+            DBHelper.insertGroup(database, id, name);
+            sortedGroups.put(order, DBHelper.getGroup(database, id));
+        }
+        List<Group> sortedGroupList = new ArrayList<>(sortedGroups.values());
+        DBHelper.reorderGroups(database, sortedGroupList);
     }
 
     /**
      * Import a single card to group mapping into the database using the given
      * session.
      */
-    private void importCardGroupMapping(SQLiteDatabase database, CSVRecord record) throws FormatException {
+    private void importCardGroupMappingV2(SQLiteDatabase database, CSVRecord record) throws FormatException {
         int cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record);
-        String groupId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
+        String name = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
 
-        if (groupId == null) {
-            throw new FormatException("Group has no ID: " + record);
+        if (name == null) {
+            throw new FormatException("Group has no name: " + record);
         }
 
+        List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
+        cardGroups.add(DBHelper.getGroupByName(database, name));
+        DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
+    }
+
+    /**
+     * Import a single card to group mapping from V3 scheme (database v17) into the database using the given
+     * session.
+     */
+    private void importCardGroupMappingV3(SQLiteDatabase database, CSVRecord record) throws FormatException {
+        int cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record);
+        int groupId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.groupID, record);
         List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
         cardGroups.add(DBHelper.getGroup(database, groupId));
         DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);

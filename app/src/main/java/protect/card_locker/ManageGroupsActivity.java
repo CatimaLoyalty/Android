@@ -120,7 +120,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
             return;
         }
 
-        if (DBHelper.getGroup(mDatabase, string) != null) {
+        if (DBHelper.getGroupByName(mDatabase, string) != null) {
             input.setError(getString(R.string.group_name_already_in_use));
             return;
         }
@@ -186,7 +186,7 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         List<Group> groups = DBHelper.getGroups(mDatabase);
         final String groupName = getGroupName(view);
 
-        int currentIndex = DBHelper.getGroup(mDatabase, groupName).order;
+        int currentIndex = DBHelper.getGroupByName(mDatabase, groupName).order;
         int newIndex;
 
         // Reinsert group in correct position
@@ -227,20 +227,23 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
     @Override
     public void onEditButtonClicked(View view) {
         Intent intent = new Intent(this, ManageGroupActivity.class);
-        intent.putExtra("group", getGroupName(view));
+        final String groupName = getGroupName(view);
+        Group group = DBHelper.getGroupByName(mDatabase, groupName);
+        intent.putExtra("group", group._id);
         startActivity(intent);
     }
 
     @Override
     public void onDeleteButtonClicked(View view) {
         final String groupName = getGroupName(view);
+        Group group = DBHelper.getGroupByName(mDatabase, groupName);
 
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.deleteConfirmationGroup);
         builder.setMessage(groupName);
 
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            DBHelper.deleteGroup(mDatabase, groupName);
+            DBHelper.deleteGroup(mDatabase, group._id);
             updateGroupList();
             // Delete may change ordering, so invalidate
             invalidateHomescreenActiveTab();

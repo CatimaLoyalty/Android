@@ -47,7 +47,7 @@ public class GroupCursorAdapter extends BaseCursorAdapter<GroupCursorAdapter.Gro
     public void onBindViewHolder(GroupListItemViewHolder inputHolder, Cursor inputCursor) {
         Group group = Group.toGroup(inputCursor);
 
-        inputHolder.mName.setText(group._id);
+        inputHolder.mName.setText(group.name);
 
         int groupCardCount = DBHelper.getGroupCardCount(mDatabase, group._id);
         int archivedCardCount = DBHelper.getArchivedCardsCount(mDatabase, group._id);

@@ -77,8 +77,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
                     mGroupNameText.setError(getResources().getText(R.string.group_name_is_empty));
                     return;
                 }
-                if (!mGroup._id.equals(currentGroupName)) {
-                    if (DBHelper.getGroup(mDatabase, currentGroupName) != null) {
+                if (!mGroup.name.equals(currentGroupName)) {
+                    if (DBHelper.getGroupByName(mDatabase, currentGroupName) != null) {
                         mGroupNameNotInUse = false;
                         mGroupNameText.setError(getResources().getText(R.string.group_name_already_in_use));
                     } else {
@@ -89,17 +89,15 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         });
 
         Intent intent = getIntent();
-        String groupId = intent.getStringExtra("group");
-        if (groupId == null) {
-            throw (new IllegalArgumentException("this activity expects a group loaded into it's intent"));
-        }
+        final Bundle b = intent.getExtras();
+        Integer groupId = b.getInt("group");
         Log.d("groupId", "groupId: " + groupId);
         mGroup = DBHelper.getGroup(mDatabase, groupId);
         if (mGroup == null) {
             throw (new IllegalArgumentException("cannot load group " + groupId + " from database"));
         }
-        mGroupNameText.setText(mGroup._id);
-        setTitle(getString(R.string.editGroup, mGroup._id));
+        mGroupNameText.setText(mGroup.name);
+        setTitle(getString(R.string.editGroup, mGroup.name));
         mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
@@ -113,7 +111,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
 
         saveButton.setOnClickListener(v -> {
             String currentGroupName = mGroupNameText.getText().toString().trim();
-            if (!currentGroupName.equals(mGroup._id)) {
+            if (!currentGroupName.equals(mGroup.name)) {
                 if (currentGroupName.length() == 0) {
                     Toast.makeText(getApplicationContext(), R.string.group_name_is_empty, Toast.LENGTH_SHORT).show();
                     return;
@@ -125,7 +123,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
             }
 
             mAdapter.commitToDatabase();
-            if (!currentGroupName.equals(mGroup._id)) {
+            if (!currentGroupName.equals(mGroup.name)) {
                 DBHelper.updateGroup(mDatabase, mGroup._id, currentGroupName);
             }
             Toast.makeText(getApplicationContext(), R.string.group_updated, Toast.LENGTH_SHORT).show();
@@ -223,7 +221,7 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     private boolean hasChanged() {
-        return mAdapter.hasChanged() || !mGroup._id.equals(mGroupNameText.getText().toString().trim());
+        return mAdapter.hasChanged() || !mGroup.name.equals(mGroupNameText.getText().toString().trim());
     }
 
     @Override

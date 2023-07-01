@@ -194,7 +194,8 @@ public class MainActivityTest {
         assertEquals("Alphabetical two", groupTabs.getTabAt(2).getText().toString());
 
         // Removing a group should also change the list
-        DBHelper.deleteGroup(database, "Alphabetical two");
+        Group group2 = DBHelper.getGroupByName(database, "Alphabetical two");
+        DBHelper.deleteGroup(database, group2._id);
         activityController.pause();
         activityController.resume();
         assertEquals(2, groupTabs.getTabCount());
@@ -202,7 +203,8 @@ public class MainActivityTest {
         assertEquals("One", groupTabs.getTabAt(1).getText().toString());
 
         // Removing the last group should make the tabs disappear
-        DBHelper.deleteGroup(database, "One");
+        Group group1 = DBHelper.getGroupByName(database, "One");
+        DBHelper.deleteGroup(database, group1._id);
         activityController.pause();
         activityController.resume();
         assertEquals(0, groupTabs.getTabCount());
@@ -229,7 +231,7 @@ public class MainActivityTest {
 
         DBHelper.insertGroup(database, "Group one");
         List<Group> groups = new ArrayList<>();
-        groups.add(DBHelper.getGroup(database, "Group one"));
+        groups.add(DBHelper.getGroupByName(database, "Group one"));
         DBHelper.setLoyaltyCardGroups(database, 1, groups);
 
         activityController.pause();

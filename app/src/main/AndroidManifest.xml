@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission
+        android:description="@string/permissionReadCardsDescription"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:label="@string/permissionReadCardsLabel"
+        android:name="me.hackerchick.catima.READ_CARDS"
+        android:protectionLevel="dangerous" />
+
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -154,6 +161,12 @@
         <activity
             android:name=".UCropWrapper"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name=".contentprovider.CardsContentProvider"
+            android:authorities="${applicationId}.contentprovider.cards"
+            android:exported="true"
+            android:readPermission="me.hackerchick.catima.READ_CARDS"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

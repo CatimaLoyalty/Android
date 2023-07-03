@@ -67,25 +67,6 @@ public class ImportExportTest {
         mDatabase = TestHelpers.getEmptyDb(activity).getWritableDatabase();
     }
 
-    /**
-     * Add the given number of cards, each with
-     * an index in the store name.
-     *
-     * @param cardsToAdd
-     */
-    private void addLoyaltyCards(int cardsToAdd) {
-        // Add in reverse order to test sorting
-        for (int index = cardsToAdd; index > 0; index--) {
-            String storeName = String.format("store, \"%4d", index);
-            String note = String.format("note, \"%4d", index);
-            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
-            boolean result = (id != -1);
-            assertTrue(result);
-        }
-
-        assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
-    }
-
     private void addLoyaltyCardsFiveStarred() {
         int cardsToAdd = 9;
         // Add in reverse order to test sorting
@@ -183,18 +164,6 @@ public class ImportExportTest {
         assertEquals(4, DBHelper.getLoyaltyCardCount(mDatabase));
     }
 
-    private void addGroups(int groupsToAdd) {
-        // Add in reverse order to test sorting
-        for (int index = groupsToAdd; index > 0; index--) {
-            String groupName = String.format("group, \"%4d", index);
-            long id = DBHelper.insertGroup(mDatabase, groupName);
-            boolean result = (id != -1);
-            assertTrue(result);
-        }
-
-        assertEquals(groupsToAdd, DBHelper.getGroupCount(mDatabase));
-    }
-
     /**
      * Check that all of the cards follow the pattern
      * specified in addLoyaltyCards(), and are in sequential order
@@ -285,7 +254,7 @@ public class ImportExportTest {
 
     /**
      * Check that all of the groups follow the pattern
-     * specified in addGroups(), and are in sequential order
+     * specified in {@link TestHelpers#addGroups}, and are in sequential order
      * where the smallest group's index is 1
      */
     private void checkGroups() {
@@ -308,7 +277,7 @@ public class ImportExportTest {
     public void multipleCardsExportImport() throws IOException {
         final int NUM_CARDS = 10;
 
-        addLoyaltyCards(NUM_CARDS);
+        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -338,7 +307,7 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
         List<char[]> passwords = Arrays.asList(null, "123456789".toCharArray());
         for (char[] password : passwords) {
-            addLoyaltyCards(NUM_CARDS);
+            TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -411,8 +380,8 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
         final int NUM_GROUPS = 3;
 
-        addLoyaltyCards(NUM_CARDS);
-        addGroups(NUM_GROUPS);
+        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+        TestHelpers.addGroups(mDatabase, NUM_GROUPS);
 
         List<Group> emptyGroup = new ArrayList<>();
 
@@ -484,7 +453,7 @@ public class ImportExportTest {
     public void importExistingCardsNotReplace() throws IOException {
         final int NUM_CARDS = 10;
 
-        addLoyaltyCards(NUM_CARDS);
+        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
 
         ByteArrayOutputStream outData = new ByteArrayOutputStream();
         OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -513,7 +482,7 @@ public class ImportExportTest {
         final int NUM_CARDS = 10;
 
         for (DataFormat format : DataFormat.values()) {
-            addLoyaltyCards(NUM_CARDS);
+            TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
 
             ByteArrayOutputStream outData = new ByteArrayOutputStream();
             OutputStreamWriter outStream = new OutputStreamWriter(outData);
@@ -558,7 +527,7 @@ public class ImportExportTest {
         final File sdcardDir = Environment.getExternalStorageDirectory();
         final File exportFile = new File(sdcardDir, "Catima.csv");
 
-        addLoyaltyCards(NUM_CARDS);
+        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
 
         TestTaskCompleteListener listener = new TestTaskCompleteListener();
 

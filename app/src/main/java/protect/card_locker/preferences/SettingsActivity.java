@@ -3,6 +3,7 @@ package protect.card_locker.preferences;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -150,6 +151,12 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 colorPreference.setEntryValues(R.array.color_values_no_dynamic);
                 colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
             }
+
+            // Disable content provider on SDK < 23 since dangerous permissions
+            // are granted at install-time
+            Preference contentProviderReadPreference = findPreference(getResources().getString(R.string.settings_key_allow_content_provider_read));
+            assert contentProviderReadPreference != null;
+            contentProviderReadPreference.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
         }
 
         private void refreshActivity(boolean reloadMain) {

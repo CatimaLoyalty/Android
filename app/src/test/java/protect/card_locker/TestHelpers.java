@@ -1,14 +1,23 @@
 package protect.card_locker;
 
-import android.app.Activity;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.google.zxing.BarcodeFormat;
+
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 
 public class TestHelpers {
-    static public DBHelper getEmptyDb(Activity activity) {
-        DBHelper db = new DBHelper(activity);
+    private static final String BARCODE_DATA = "428311627547";
+    private static final CatimaBarcode BARCODE_TYPE = CatimaBarcode.fromBarcode(BarcodeFormat.UPC_A);
+
+    public static DBHelper getEmptyDb(Context context) {
+        DBHelper db = new DBHelper(context);
         SQLiteDatabase database = db.getWritableDatabase();
 
         // Make sure no files remain
@@ -19,7 +28,7 @@ public class TestHelpers {
 
             for (ImageLocationType imageLocationType : ImageLocationType.values()) {
                 try {
-                    Utils.saveCardImage(activity.getApplicationContext(), null, cardID, imageLocationType);
+                    Utils.saveCardImage(context.getApplicationContext(), null, cardID, imageLocationType);
                 } catch (FileNotFoundException ignored) {
                 }
             }
@@ -33,5 +42,36 @@ public class TestHelpers {
         database.execSQL("delete from " + DBHelper.LoyaltyCardDbIdsGroups.TABLE);
 
         return db;
+    }
+
+    /**
+     * Add the given number of cards, each with an index in the store name.
+     *
+     * @param mDatabase
+     * @param cardsToAdd
+     */
+    public static void addLoyaltyCards(final SQLiteDatabase mDatabase, final int cardsToAdd) {
+        // Add in reverse order to test sorting
+        for (int index = cardsToAdd; index > 0; index--) {
+            String storeName = String.format("store, \"%4d", index);
+            String note = String.format("note, \"%4d", index);
+            long id = DBHelper.insertLoyaltyCard(mDatabase, storeName, note, null, null, new BigDecimal(String.valueOf(index)), null, BARCODE_DATA, null, BARCODE_TYPE, index, 0, null,0);
+            boolean result = (id != -1);
+            assertTrue(result);
+        }
+
+        assertEquals(cardsToAdd, DBHelper.getLoyaltyCardCount(mDatabase));
+    }
+
+    public static void addGroups(final SQLiteDatabase mDatabase, int groupsToAdd) {
+        // Add in reverse order to test sorting
+        for (int index = groupsToAdd; index > 0; index--) {
+            String groupName = String.format("group, \"%4d", index);
+            long id = DBHelper.insertGroup(mDatabase, groupName);
+            boolean result = (id != -1);
+            assertTrue(result);
+        }
+
+        assertEquals(groupsToAdd, DBHelper.getGroupCount(mDatabase));
     }
 }

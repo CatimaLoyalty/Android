@@ -79,6 +79,10 @@ public class Settings {
         return getBoolean(R.string.settings_key_disable_lockscreen_while_viewing_card, true);
     }
 
+    public boolean getAllowContentProviderRead() {
+        return getBoolean(R.string.settings_key_allow_content_provider_read, true);
+    }
+
     public boolean getOledDark() {
         return getBoolean(R.string.settings_key_oled_dark, false);
     }

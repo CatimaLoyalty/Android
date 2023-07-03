@@ -1,1 +1,2 @@
 - Barcode rendering improvements
+- Basic interoperability with external apps (Android 6.0+)

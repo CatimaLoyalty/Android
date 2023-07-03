@@ -118,7 +118,7 @@
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
     <string name="settings_allow_content_provider_read_title">Allow other apps to access my data</string>
-    <string name="settings_allow_content_provider_read_summary">Apps will still have to request permissions to be granted access</string>
+    <string name="settings_allow_content_provider_read_summary">Apps will still have to request permission to be granted access</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
     <string name="settings_key_allow_content_provider_read" translatable="false">pref_allow_content_provider_read</string>
     <string name="settings_key_oled_dark" translatable="false">pref_oled_dark</string>

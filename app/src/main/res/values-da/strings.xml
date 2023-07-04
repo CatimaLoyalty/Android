@@ -48,7 +48,6 @@
     <string name="settings_dark_theme">Mørk</string>
     <string name="settings_light_theme">Lys</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_category_title_ui">Brugergrænseflade</string>
     <string name="settings">Indstillinger</string>
     <string name="starImage">Favorit stjerne</string>
     <string name="thumbnailDescription">Miniaturebillede til kort</string>

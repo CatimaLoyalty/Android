@@ -68,7 +68,6 @@
     <string name="cameraPermissionDeniedTitle">हम कैमरा तक पहुँच नहीं सकते</string>
     <string name="noCameraPermissionDirectToSystemSetting">बारकोड स्कैन करने के लिए,को आपके कैमरा का इस्तेमाल करना होगा। इजाज़त कि व्यवस्था (सेटिंग) बदलने के लिए यहाँ दबायें।</string>
     <string name="importOptionApplicationExplanation">फाइल खोलने के लिए कोई भी ऐप या अपना पसंदिता फाइल मैनेजर का इस्तेमाल करे।</string>
-    <string name="settings_category_title_ui">उपयोक्‍ता अंतरापृष्‍ठ (यूजर इंटरफ़ेस)</string>
     <string name="settings_theme">विषय</string>
     <string name="barcodeType">बारकोड का प्रकार</string>
     <string name="barcodeNoBarcode">कोई बारकोड नहीं है</string>

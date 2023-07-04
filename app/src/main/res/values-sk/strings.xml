@@ -46,7 +46,6 @@
     <string name="copy_to_clipboard_toast">ID skopírované do schránky</string>
     <string name="thumbnailDescription">Miniatúra</string>
     <string name="settings">Nastavenia</string>
-    <string name="settings_category_title_ui">Používateľské prostredie</string>
     <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
     <string name="deleteTitle">Odstrániť kartu</string>
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>

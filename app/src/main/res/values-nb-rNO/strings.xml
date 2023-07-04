@@ -49,7 +49,6 @@
     <string name="copy_to_clipboard_toast">ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde</string>
     <string name="settings">Innstillinger</string>
-    <string name="settings_category_title_ui">Brukergrensesnitt</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
     <string name="exportSuccessful">Data eksportert</string>
     <string name="importSuccessful">Data importert</string>

@@ -50,7 +50,6 @@
     <string name="copy_to_clipboard_toast">ID in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild</string>
     <string name="settings">Einstellungen</string>
-    <string name="settings_category_title_ui">Benutzeroberfläche</string>
     <string name="settings_display_barcode_max_brightness">Displayhelligkeit in der Barcodeansicht erhöhen</string>
     <string name="exportSuccessful">Daten exportiert</string>
     <string name="importSuccessful">Daten importiert</string>

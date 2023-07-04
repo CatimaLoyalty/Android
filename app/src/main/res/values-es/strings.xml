@@ -43,7 +43,6 @@
     <string name="about_title_fmt">Acerca de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versión: <xliff:g id="version">%s</xliff:g></string>
     <string name="settings">Ajustes</string>
-    <string name="settings_category_title_ui">Interfaz de usuario</string>
     <string name="settings_display_barcode_max_brightness">Iluminar vista del código de barras</string>
     <string name="exportSuccessful">Datos exportados</string>
     <string name="importSuccessful">Datos importados</string>

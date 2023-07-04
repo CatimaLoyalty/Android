@@ -100,7 +100,6 @@
     <string name="settings_light_theme">Açık</string>
     <string name="settings_system_theme">Sistem</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_category_title_ui">Kullanıcı arayüzü</string>
     <string name="settings">Ayarlar</string>
     <string name="starImage">Sık kullanılan yıldız</string>
     <string name="thumbnailDescription">Küçük resim</string>

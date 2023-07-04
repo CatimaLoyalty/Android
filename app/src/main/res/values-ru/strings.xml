@@ -54,7 +54,6 @@
     <string name="copy_to_clipboard_toast">Номер скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип</string>
     <string name="settings">Настройки</string>
-    <string name="settings_category_title_ui">Внешний вид</string>
     <string name="settings_theme">Тема</string>
     <string name="settings_system_theme">Системная</string>
     <string name="settings_light_theme">Светлая</string>

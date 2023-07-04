@@ -96,7 +96,6 @@
     <string name="copy_to_clipboard_toast">Azonosító vágólapra másolva</string>
     <string name="starImage">Kedvencek csillag</string>
     <string name="settings">Beállítások</string>
-    <string name="settings_category_title_ui">Felhasználói felület</string>
     <string name="settings_theme">Téma</string>
     <string name="settings_system_theme">Rendszer</string>
     <string name="settings_light_theme">Világos</string>

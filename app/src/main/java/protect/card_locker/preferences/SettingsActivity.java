@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
@@ -99,23 +100,8 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.preferences);
 
-            // Show pretty names
-            ListPreference localePreference = findPreference(getResources().getString(R.string.settings_key_locale));
-            assert localePreference != null;
-            CharSequence[] entryValues = localePreference.getEntryValues();
-            List<CharSequence> entries = new ArrayList<>();
-            for (CharSequence entry : entryValues) {
-                if (entry.length() == 0) {
-                    entries.add(getResources().getString(R.string.settings_system_locale));
-                } else {
-                    Locale entryLocale = Utils.stringToLocale(entry.toString());
-                    entries.add(entryLocale.getDisplayName(entryLocale));
-                }
-            }
-
-            localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
-
-            Preference themePreference = findPreference(getResources().getString(R.string.settings_key_theme));
+            // Show pretty names and summaries
+            ListPreference themePreference = findPreference(getResources().getString(R.string.settings_key_theme));
             assert themePreference != null;
             themePreference.setOnPreferenceChangeListener((preference, o) -> {
                 if (o.toString().equals(getResources().getString(R.string.settings_key_light_theme))) {
@@ -129,10 +115,16 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+            ListPreference themeColorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
+            assert themeColorPreference != null;
+            themeColorPreference.setOnPreferenceChangeListener((preference, o) -> {
                 refreshActivity(true);
                 return true;
             });
+            if (!DynamicColors.isDynamicColorAvailable()) {
+                themeColorPreference.setEntryValues(R.array.color_values_no_dynamic);
+                themeColorPreference.setEntries(R.array.color_value_strings_no_dynamic);
+            }
 
             Preference oledDarkPreference = findPreference(getResources().getString(R.string.settings_key_oled_dark));
             assert oledDarkPreference != null;
@@ -141,16 +133,23 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 return true;
             });
 
-            ListPreference colorPreference = findPreference(getResources().getString(R.string.setting_key_theme_color));
-            assert colorPreference != null;
-            colorPreference.setOnPreferenceChangeListener((preference, o) -> {
+            ListPreference localePreference = findPreference(getResources().getString(R.string.settings_key_locale));
+            assert localePreference != null;
+            CharSequence[] entryValues = localePreference.getEntryValues();
+            List<CharSequence> entries = new ArrayList<>();
+            for (CharSequence entry : entryValues) {
+                if (entry.length() == 0) {
+                    entries.add(getResources().getString(R.string.settings_system_locale));
+                } else {
+                    Locale entryLocale = Utils.stringToLocale(entry.toString());
+                    entries.add(entryLocale.getDisplayName(entryLocale));
+                }
+            }
+            localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
+            localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 refreshActivity(true);
                 return true;
             });
-            if (!DynamicColors.isDynamicColorAvailable()) {
-                colorPreference.setEntryValues(R.array.color_values_no_dynamic);
-                colorPreference.setEntries(R.array.color_value_strings_no_dynamic);
-            }
 
             // Disable content provider on SDK < 23 since dangerous permissions
             // are granted at install-time

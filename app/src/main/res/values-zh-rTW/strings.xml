@@ -14,7 +14,7 @@
 \n
 \n我們並不會收集任何資料！任何人都可以檢視我們的原始碼並驗證這點。</string>
     <string name="star">新增至收藏</string>
-    <string name="app_license">公共版權 (Copylefted) 的自由軟體，許可 GPLv3+</string>
+    <string name="app_license">公共版權（Copylefted）的自由軟體，許可 GPLv3+</string>
     <string name="unstar">從收藏中移除</string>
     <string name="cancel">取消</string>
     <string name="save">儲存</string>
@@ -29,12 +29,12 @@
     <string name="addManually">手動輸入 ID</string>
     <string name="all">全部</string>
     <string name="balance">餘額</string>
-    <string name="balanceSentence">餘額: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">餘額：<xliff:g>%s</xliff:g></string>
     <string name="app_copyright_old">基於 Loyalty Card Keychain\n著作權所有 © 2016–2020 Branden Archer</string>
     <string name="barcodeId">條碼內容</string>
     <string name="barcodeImageDescriptionWithType">圖片為 <xliff:g>%s</xliff:g> 的條碼</string>
     <string name="card">卡片</string>
-    <string name="card_ids_copied">已複製 ID(s)</string>
+    <string name="card_ids_copied">已複製 ID</string>
     <string name="cardShortcut">卡片捷徑</string>
     <string name="chooseExpiryDate">選擇逾期日期</string>
     <string name="chooseImportType">從地點匯入資料</string>
@@ -60,7 +60,7 @@
     <string name="exporting">匯出中…</string>
     <string name="exportName">匯出</string>
     <string name="exportOptionExplanation">資料將寫至您所選的位置。</string>
-    <string name="exportPassword">透過密碼保護您的匯出檔 (選用)</string>
+    <string name="exportPassword">透過密碼保護您的匯出檔（選用）</string>
     <string name="exportPasswordHint">輸入密碼</string>
     <string name="exportSuccessful">已匯出資料</string>
     <string name="exportSuccessfulTitle">已匯出</string>
@@ -70,14 +70,14 @@
     <string name="groups">群組</string>
     <string name="groupsList">群組：<xliff:g>%s</xliff:g></string>
     <string name="help_translate_this_app">幫助翻譯本程式</string>
-    <string name="importExport">匯入/匯出</string>
+    <string name="importExport">匯入／匯出</string>
     <string name="importFailedTitle">匯入失敗</string>
     <string name="importFailed">無法匯入資料</string>
     <string name="importing">匯入中…</string>
     <string name="importSuccessfulTitle">已匯入</string>
     <string name="intent_import_card_from_url_share_multiple_text">我想要分享些卡片給你</string>
     <string name="intent_import_card_from_url_share_text">我想要分享張卡片給你</string>
-    <string name="leaveWithoutSaveConfirmation">不保存就離開？</string>
+    <string name="leaveWithoutSaveConfirmation">不儲存就離開？</string>
     <string name="leaveWithoutSaveTitle">離開</string>
     <string name="license">許可</string>
     <string name="never">永不</string>
@@ -123,7 +123,7 @@
     <string name="settings_locale">語言</string>
     <string name="settings_system_locale">系統語言</string>
     <string name="settings_theme_color">主題顏色</string>
-    <string name="app_contributors">感謝以下貢獻者: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="app_contributors">感謝以下貢獻者：<xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="privacy_policy">隱私權政策</string>
     <plurals name="selectedCardCount">
         <item quantity="other">已選取 <xliff:g>%d</xliff:g></item>
@@ -132,7 +132,7 @@
         <item quantity="other">刪除 <xliff:g>%d</xliff:g> 張卡片</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
-        <item quantity="other">永久刪除 <xliff:g>%d</xliff:g> 張卡片?</item>
+        <item quantity="other">永久刪除 <xliff:g>%d</xliff:g> 張卡片？</item>
     </plurals>
     <plurals name="groupCardCount">
         <item quantity="other"><xliff:g>%d</xliff:g> 張卡片</item>
@@ -178,10 +178,10 @@
 \n請您先透過您的 FidMe 個人檔案選取『Data Protection』，並選擇『Extract my data』。</string>
     <string name="importCatima">自 Catima 匯入</string>
     <string name="importCatimaMessage">選取您自 Catima 匯出的 <i>catima.zip</i> 檔案以進行匯入。
-\n您可透過其他裝置的 Catima 程式中的匯入/匯出選單進行匯出。</string>
+\n您可透過其他裝置的 Catima 程式中的匯入／匯出選單進行匯出。</string>
     <string name="points">點</string>
     <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 似乎不是個可用的餘額數值。</string>
-    <string name="app_libraries">第三方自由函示庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">第三方自由函式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">選擇條碼</string>
     <string name="noGroups">請點選 + 加號按鈕新增群組。</string>
@@ -235,7 +235,7 @@
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用 Catima</string>
     <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">檢視封存 (<xliff:g>%1$d</xliff:g> 張卡片)</item>
+        <item quantity="other">檢視封存（<xliff:g>%1$d</xliff:g> 張卡片）</item>
     </plurals>
     <string name="settings_lock_on_opening_orientation">開啟卡片時鎖定的方向</string>
     <string name="importCards">導入卡片</string>
@@ -243,15 +243,15 @@
     <string name="validFromDate">生效</string>
     <string name="anyDate">任何日期</string>
     <string name="chooseValidFromDate">選擇生效日期</string>
-    <string name="validFromSentence">生效日期： <xliff:g>%s</xliff:g></string>
+    <string name="validFromSentence">生效日期：<xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">這個行動需要閱讀儲存空間的權限…</string>
     <string name="cameraPermissionRequired">這個行動需要使用鏡頭的權限…</string>
     <string name="cameraPermissionDeniedTitle">不能使用鏡頭</string>
     <string name="updateBalance">更新餘額</string>
     <string name="updateBalanceTitle">你用了多少？</string>
     <string name="updateBalanceHint">輸入金額</string>
-    <string name="currentBalanceSentence">餘額： <xliff:g>%s</xliff:g></string>
-    <string name="newBalanceSentence">新的餘額： <xliff:g>%s</xliff:g></string>
+    <string name="currentBalanceSentence">餘額：<xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">新的餘額：<xliff:g>%s</xliff:g></string>
     <string name="switchToBarcode">選擇條碼</string>
     <string name="openFrontImageInGalleryApp">以圖庫軟件開啟正面圖片</string>
     <string name="show_note">顯示備註</string>
@@ -262,7 +262,7 @@
     <string name="height">高度：</string>
     <string name="donate">捐款</string>
     <string name="icon_header_click_text">長按以編輯縮圖</string>
-    <string name="openBackImageInGalleryApp">以圖庫軟件開啟背面圖片</string>
+    <string name="openBackImageInGalleryApp">以圖庫軟體開啟背面圖片</string>
     <string name="show_name_below_image_thumbnail">在縮圖下方顯示名稱</string>
-    <string name="setBarcodeHeight">設置條碼高度</string>
+    <string name="setBarcodeHeight">設定條碼高度</string>
 </resources>

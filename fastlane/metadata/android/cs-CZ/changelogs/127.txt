@@ -1,1 +1,2 @@
 - Vylepšení vykreslování čárových kódů
+- Základní spolupráce s externími aplikacemi (Android 6.0+)

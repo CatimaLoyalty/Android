@@ -279,4 +279,8 @@
     <string name="show_note">Afficher la note</string>
     <string name="show_validity">Afficher la validité</string>
     <string name="show_balance">Afficher le solde</string>
+    <string name="permissionReadCardsLabel">Lire les cartes Catima</string>
+    <string name="permissionReadCardsDescription">Lisez vos cartes et tous ses détails, y compris les notes et les images</string>
+    <string name="settings_allow_content_provider_read_title">Autoriser d\'autres applications à accéder à mes données</string>
+    <string name="settings_allow_content_provider_read_summary">Les applications devront toujours demander une autorisation pour obtenir l\'accès</string>
 </resources>

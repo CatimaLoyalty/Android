@@ -272,4 +272,8 @@
     <string name="show_balance">Betrag anzeigen</string>
     <string name="show_validity">Gültigkeitsdauer anziegen</string>
     <string name="show_name_below_image_thumbnail">Namen unter Bildvorschau anzeigen</string>
+    <string name="settings_allow_content_provider_read_title">Anderen Anwendungen den Zugriff auf meine Daten gestatten</string>
+    <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
+    <string name="permissionReadCardsDescription">Lesen Sie Ihre Karten mit allen Details, einschließlich Notizen und Bildern</string>
+    <string name="settings_allow_content_provider_read_summary">Anwendungen müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
 </resources>

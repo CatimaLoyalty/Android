@@ -279,4 +279,8 @@
     <string name="show_balance">Mostra bilancio</string>
     <string name="show_validity">Mostra validità</string>
     <string name="show_name_below_image_thumbnail">Mostra il nome sotto l\'immagine</string>
+    <string name="permissionReadCardsLabel">Leggi le carte Catima</string>
+    <string name="settings_allow_content_provider_read_summary">Le applicazioni dovranno comunque richiedere l\'autorizzazione per ottenere l\'accesso</string>
+    <string name="settings_allow_content_provider_read_title">Consenti ad altre applicazioni di accedere ai miei dati</string>
+    <string name="permissionReadCardsDescription">Leggi le tue carte e tutti i suoi dettagli, comprese le note e le immagini</string>
 </resources>

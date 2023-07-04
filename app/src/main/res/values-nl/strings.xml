@@ -272,4 +272,8 @@
     <string name="show_name_below_image_thumbnail">Naam onder miniatuur tonen</string>
     <string name="show_note">Aantekening tonen</string>
     <string name="show_validity">Geldigheid tonen</string>
+    <string name="permissionReadCardsLabel">Catimakaarten uitlezen</string>
+    <string name="settings_allow_content_provider_read_summary">Let op: apps moeten nog steeds om toestemming vragen</string>
+    <string name="permissionReadCardsDescription">Lees alle kaarten uit, inclusief alle details, aantekeningen en afbeeldingen</string>
+    <string name="settings_allow_content_provider_read_title">Andere apps toegang geven tot gegevens</string>
 </resources>

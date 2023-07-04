@@ -72,7 +72,6 @@
     <string name="settings_light_theme">Vaalea</string>
     <string name="settings_system_theme">Järjestelmän oletus</string>
     <string name="settings_theme">Teema</string>
-    <string name="settings_category_title_ui">Käyttöliittymä</string>
     <string name="settings">Asetukset</string>
     <string name="starImage">Suosikkitähti</string>
     <string name="thumbnailDescription">Pienoiskuva</string>

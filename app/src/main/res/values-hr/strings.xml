@@ -60,7 +60,6 @@
     <string name="addManually">Ručno upiši ID</string>
     <string name="thumbnailDescription">Sličica</string>
     <string name="starImage">Omiljena zvijezda</string>
-    <string name="settings_category_title_ui">Korisničko sučelje</string>
     <string name="exportSuccessful">Podaci su izvezeni</string>
     <string name="settings_keep_screen_on">Ostavi ekran uključen</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Spriječi zaključavanje ekrana</string>

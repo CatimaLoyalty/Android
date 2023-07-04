@@ -46,7 +46,6 @@
     <string name="copy_to_clipboard_toast">Ο κωδικός αντιγράφτηκε στο πρόχειρο</string>
     <string name="thumbnailDescription">Μικρογραφία</string>
     <string name="settings">Ρυθμίσεις</string>
-    <string name="settings_category_title_ui">Διεπαφή χρήστη</string>
     <string name="settings_dark_theme">Σκοτεινό</string>
     <string name="settings_light_theme">Φωτεινό</string>
     <string name="settings_system_theme">Σύστημα</string>

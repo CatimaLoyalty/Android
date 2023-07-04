@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:title="@string/settings_category_title_ui"
+        android:title="@string/settings_category_title_general"
         app:iconSpaceReserved="false">
 
         <ListPreference
@@ -13,7 +13,8 @@
             android:key="@string/settings_key_theme"
             android:title="@string/settings_theme"
             app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
 
         <ListPreference
             android:key="@string/setting_key_theme_color"
@@ -22,12 +23,14 @@
             android:entries="@array/color_value_strings"
             android:entryValues="@array/color_values"
             app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="false"
             android:key="@string/settings_key_oled_dark"
+            android:summary="@string/settings_oled_dark_summary"
             android:title="@string/settings_oled_dark"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
@@ -39,12 +42,19 @@
             android:key="@string/settings_key_locale"
             android:title="@string/settings_locale"
             app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_category_title_cards"
+        app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"
             android:key="@string/settings_key_display_barcode_max_brightness"
+            android:summary="@string/settings_display_barcode_max_brightness_summary"
             android:title="@string/settings_display_barcode_max_brightness"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
@@ -56,12 +66,14 @@
             android:key="@string/settings_key_card_orientation"
             android:title="@string/settings_card_orientation"
             app:iconSpaceReserved="false"
-            app:singleLineTitle="false" />
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true" />
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"
             android:key="@string/settings_key_keep_screen_on"
+            android:summary="@string/settings_keep_screen_on_summary"
             android:title="@string/settings_keep_screen_on"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
@@ -70,9 +82,15 @@
             android:widgetLayout="@layout/preference_material_switch"
             android:defaultValue="true"
             android:key="@string/settings_key_disable_lockscreen_while_viewing_card"
+            android:summary="@string/settings_disable_lockscreen_while_viewing_card_summary"
             android:title="@string/settings_disable_lockscreen_while_viewing_card"
             app:iconSpaceReserved="false"
             app:singleLineTitle="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_category_title_privacy"
+        app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
             android:widgetLayout="@layout/preference_material_switch"
@@ -84,6 +102,5 @@
             app:singleLineTitle="false" />
 
     </PreferenceCategory>
-
 </PreferenceScreen>
 

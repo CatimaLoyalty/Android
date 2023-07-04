@@ -5,7 +5,6 @@
     <string name="noBarcode">Sen strekokodo</string>
     <string name="barcodeType">Tipo de strekokodo</string>
     <string name="cardId">Identigilo de karto</string>
-    <string name="settings_category_title_ui">Fasado</string>
     <string name="settings">Agordoj</string>
     <string name="selectBarcodeTitle">Elekti strekokodon</string>
     <string name="debug_version_fmt">Versio: <xliff:g id="version">%s</xliff:g></string>

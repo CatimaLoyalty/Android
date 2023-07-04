@@ -52,7 +52,6 @@
     <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
     <string name="thumbnailDescription">Miniaturka</string>
     <string name="settings">Ustawienia</string>
-    <string name="settings_category_title_ui">Interfejs użytkownika</string>
     <string name="settings_theme">Motyw</string>
     <string name="settings_system_theme">Systemowy</string>
     <string name="settings_light_theme">Jasny</string>

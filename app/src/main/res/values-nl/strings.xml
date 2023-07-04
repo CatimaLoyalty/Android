@@ -54,7 +54,6 @@
     <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld</string>
     <string name="settings">Instellingen</string>
-    <string name="settings_category_title_ui">Vormgeving</string>
     <string name="settings_theme">Thema</string>
     <string name="settings_system_theme">Systeem</string>
     <string name="settings_light_theme">Licht</string>

@@ -46,7 +46,6 @@
     <string name="copy_to_clipboard_toast">Identifiant copié dans le presse-papiers</string>
     <string name="thumbnailDescription">Miniature</string>
     <string name="settings">Paramètres</string>
-    <string name="settings_category_title_ui">Interface utilisateur</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
     <string name="exportSuccessful">Données exportées</string>
     <string name="importSuccessful">Données importées</string>

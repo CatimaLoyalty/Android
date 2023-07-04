@@ -57,7 +57,6 @@
     <string name="all">Todos</string>
     <string name="deleteConfirmationGroup">Eliminar o grupo\?</string>
     <string name="settings">Configurações</string>
-    <string name="settings_category_title_ui">Interface do utilizador</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_system_theme">Sistema</string>
     <string name="settings_light_theme">Claro</string>

@@ -74,7 +74,6 @@
     <string name="settings_dark_theme">暗色</string>
     <string name="settings_light_theme">浅色</string>
     <string name="settings_theme">主题</string>
-    <string name="settings_category_title_ui">用户界面</string>
     <string name="settings">设置</string>
     <string name="thumbnailDescription">缩略图</string>
     <string name="copy_to_clipboard_toast">已复制卡号到剪贴板</string>

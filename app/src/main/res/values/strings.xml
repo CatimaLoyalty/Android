@@ -92,7 +92,6 @@
     <string name="thumbnailDescription">Thumbnail</string>
     <string name="starImage">Favorite star</string>
     <string name="settings">Settings</string>
-    <string name="settings_category_title_ui">User interface</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_key_theme" translatable="false">pref_theme</string>
     <string name="settings_system_theme">System</string>
@@ -113,10 +112,13 @@
     <string name="settings_key_lock_on_opening_orientation" translatable="false">lock_on_opening</string>
     <string name="settings_key_max_font_size_scale" translatable="false">pref_max_font_size_scale</string>
     <string name="settings_display_barcode_max_brightness">Brighten barcode view</string>
+    <string name="settings_display_barcode_max_brightness_summary">Necessary for some scanners to work</string>
     <string name="settings_key_display_barcode_max_brightness" translatable="false">pref_display_card_max_brightness</string>
     <string name="settings_keep_screen_on">Keep screen on</string>
+    <string name="settings_keep_screen_on_summary">Disables screen timeout while viewing a card</string>
     <string name="settings_key_keep_screen_on" translatable="false">pref_keep_screen_on</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prevent screen lock</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Disables screen lock while viewing a card</string>
     <string name="settings_allow_content_provider_read_title">Allow other apps to access my data</string>
     <string name="settings_allow_content_provider_read_summary">Apps will still have to request permission to be granted access</string>
     <string name="settings_key_disable_lockscreen_while_viewing_card" translatable="false">pref_disable_lockscreen_while_viewing_card</string>
@@ -225,6 +227,7 @@
     <string name="turn_flashlight_off">Turn flashlight off</string>
     <string name="settings_locale">Language</string>
     <string name="settings_oled_dark">Pure black background for dark theme</string>
+    <string name="settings_oled_dark_summary">Reduces battery usage on OLED displays</string>
     <string name="settings_key_locale" translatable="false">pref_locale</string>
     <string name="settings_system_locale">System</string>
     <string name="selectColor">Select color</string>
@@ -326,4 +329,7 @@
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
     <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
+    <string name="settings_category_title_cards">Cards</string>
+    <string name="settings_category_title_general">General</string>
+    <string name="settings_category_title_privacy">Privacy</string>
 </resources>

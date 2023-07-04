@@ -49,7 +49,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> seleccionadas</item>
     </plurals>
     <string name="settings">Paramètres</string>
-    <string name="settings_category_title_ui">Interfàcia utilizaire</string>
     <string name="settings_theme">Tèma</string>
     <string name="noGiftCards">Clicatz lo boton + per apondre una carta o n’importar una menú ⋮</string>
     <string name="noMatchingGiftCards">Cap de resultat. Ensajatz de modificar vòstra recèrca.</string>

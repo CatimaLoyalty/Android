@@ -11,7 +11,6 @@
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> 정보</string>
     <string name="settings_system_theme">시스템</string>
     <string name="settings_theme">테마</string>
-    <string name="settings_category_title_ui">사용자 인터페이스</string>
     <string name="settings">설정</string>
     <string name="enterBarcodeInstructions">ID를 입력하고 아래에서 바코드 유형을 선택하거나 \"바코드가 없습니다\"를 선택하십시오.</string>
     <string name="selectBarcodeTitle">바코드 선택</string>

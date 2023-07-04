@@ -4,6 +4,7 @@
 
 - Barcode rendering improvements
 - Basic interoperability with external apps (Android 6.0+)
+- Reorganized settings screen
 
 ## v2.24.2 - 126 (2023-06-18)
 

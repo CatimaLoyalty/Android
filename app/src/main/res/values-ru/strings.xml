@@ -290,4 +290,11 @@
     <string name="permissionReadCardsLabel">Чтение карт Catima</string>
     <string name="settings_allow_content_provider_read_summary">Приложениям по-прежнему придётся запрашивать разрешение для получения доступа</string>
     <string name="settings_allow_content_provider_read_title">Разрешать другим приложениям доступ к моим данным</string>
+    <string name="settings_category_title_privacy">Конфиденциальность</string>
+    <string name="settings_display_barcode_max_brightness_summary">Необходимо для работы некоторых сканеров</string>
+    <string name="settings_keep_screen_on_summary">Отключение функции автоотключения экрана при отображении карты</string>
+    <string name="settings_category_title_cards">Карты</string>
+    <string name="settings_category_title_general">Общие</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Отключение функции блокировки экрана при отображении карты</string>
+    <string name="settings_oled_dark_summary">Снижение расхода заряда батареи на OLED-экранах</string>
 </resources>

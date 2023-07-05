@@ -283,4 +283,11 @@
     <string name="settings_allow_content_provider_read_summary">Aplikace stále budou muset požádat o povolení k poskytnutí přístupu</string>
     <string name="permissionReadCardsLabel">Číst karty Catima</string>
     <string name="settings_allow_content_provider_read_title">Umožnit ostatním aplikacím přístup k mým datům</string>
+    <string name="settings_keep_screen_on_summary">Zakáže časový limit obrazovky při prohlížení karty</string>
+    <string name="settings_oled_dark_summary">Snižuje používání baterie na displejích OLED</string>
+    <string name="settings_category_title_privacy">Soukromí</string>
+    <string name="settings_display_barcode_max_brightness_summary">Nezbytné pro některé skenery, aby fungovaly</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakáže zamčení obrazovky při prohlížení karty</string>
+    <string name="settings_category_title_cards">Karty</string>
+    <string name="settings_category_title_general">Obecné</string>
 </resources>

@@ -272,4 +272,5 @@
     <string name="show_balance">Баланс</string>
     <string name="show_validity">Валидност</string>
     <string name="show_name_below_image_thumbnail">Наименование</string>
+    <string name="permissionReadCardsLabel">Четене на карти на Catima</string>
 </resources>

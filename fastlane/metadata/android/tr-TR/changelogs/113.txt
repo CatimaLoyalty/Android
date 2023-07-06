@@ -1,0 +1,3 @@
+-Önceki ve sonraki tuşlarını sadakat kart görünümüne ekleme
+-Düzenle tuşundaki ön plan rengini düzeltme
+-Disket kaydetme simgesini onay işaretiyle değiştirme

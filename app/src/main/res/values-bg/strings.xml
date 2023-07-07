@@ -273,4 +273,14 @@
     <string name="show_validity">Валидност</string>
     <string name="show_name_below_image_thumbnail">Наименование</string>
     <string name="permissionReadCardsLabel">Четене на карти на Catima</string>
+    <string name="permissionReadCardsDescription">Четене на картите с всички подробности, включително бележки и изображения</string>
+    <string name="settings_allow_content_provider_read_title">Разрешаване на достъп на други приложения до данните</string>
+    <string name="settings_display_barcode_max_brightness_summary">Необходимо за работата на някои скенери</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Без заключване на екрана при преглед на карта</string>
+    <string name="settings_allow_content_provider_read_summary">Приложенията ще искат разрешение, за да получат достъп</string>
+    <string name="settings_oled_dark_summary">Намалява разхода на батерия от OLED дисплеи</string>
+    <string name="settings_category_title_cards">Карти</string>
+    <string name="settings_category_title_general">Общи</string>
+    <string name="settings_category_title_privacy">Поверителност</string>
+    <string name="settings_keep_screen_on_summary">Спира автоматичното заключване на екрана при преглед на карти</string>
 </resources>

@@ -98,6 +98,37 @@ public class ImportURITest {
     }
 
     @Test
+    public void parseWithTrailingSlash() throws InvalidObjectException, UnsupportedEncodingException {
+        // Generate card
+        DBHelper.insertLoyaltyCard(mDatabase, "store", "note", null, null, new BigDecimal("10.00"), Currency.getInstance("EUR"), BarcodeFormat.UPC_A.toString(), null, CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), null, 0, null,0);
+
+        // Get card
+        LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
+
+        // Card to URI, with a trailing slash
+        Uri cardUri = importURIHelper.toUri(card).buildUpon().path("/share/").build();
+        assertEquals("/share/", cardUri.getPath());
+
+        // Parse URI
+        LoyaltyCard parsedCard = importURIHelper.parse(cardUri);
+
+        // Compare everything
+        assertEquals(card.store, parsedCard.store);
+        assertEquals(card.note, parsedCard.note);
+        assertEquals(card.validFrom, parsedCard.validFrom);
+        assertEquals(card.expiry, parsedCard.expiry);
+        assertEquals(card.balance, parsedCard.balance);
+        assertEquals(card.balanceType, parsedCard.balanceType);
+        assertEquals(card.cardId, parsedCard.cardId);
+        assertEquals(card.barcodeId, parsedCard.barcodeId);
+        assertEquals(card.barcodeType.format(), parsedCard.barcodeType.format());
+        assertNull(parsedCard.headerColor);
+        // No export of starStatus for export URL foreseen therefore 0 will be imported
+        assertEquals(0, parsedCard.starStatus);
+        assertEquals(0, parsedCard.archiveStatus);
+    }
+
+    @Test
     public void failToParseInvalidUri() {
         try {
             importURIHelper.parse(Uri.parse("https://example.com/test"));

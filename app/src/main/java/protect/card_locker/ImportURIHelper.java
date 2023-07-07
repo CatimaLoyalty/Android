@@ -46,8 +46,11 @@ public class ImportURIHelper {
     }
 
     private boolean isImportUri(Uri uri) {
+        // Remove trailing slash added by some browsers (if it exists)
+        final String uriPath = uri.getPath().replaceAll("/$", "");
+
         for (int i = 0; i < hosts.length; i++) {
-            if (uri.getHost().equals(hosts[i]) && uri.getPath().equals(paths[i])) {
+            if (uri.getHost().equals(hosts[i]) && uriPath.equals(paths[i])) {
                 return true;
             }
         }

@@ -1,0 +1,4 @@
+- Uzun basışta resmi galeride açma
+- Diyaloglara Material stili ekleme
+- Catimaya resim paylaşarak kart oluşturma desteği
+- Kart ekranına hızlı harca tuşu ekleme

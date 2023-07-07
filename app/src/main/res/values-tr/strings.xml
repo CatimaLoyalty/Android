@@ -272,4 +272,15 @@
     <string name="show_note">Notu göster</string>
     <string name="show_balance">Bakiyeyi göster</string>
     <string name="show_validity">Geçerliliği göster</string>
+    <string name="permissionReadCardsLabel">Catima kartlarını oku</string>
+    <string name="permissionReadCardsDescription">Kartlarınızı ve tüm detaylarını, notlar ve resimler de dahil olmak üzere okuyun</string>
+    <string name="settings_keep_screen_on_summary">Ekran zaman aşımını bir kart görüntülerken devre dışı bırakır</string>
+    <string name="settings_allow_content_provider_read_title">Diğer uygulamaların verilerime erişmesine izin ver</string>
+    <string name="settings_display_barcode_max_brightness_summary">Bazı tarayıcıların çalışması için gereklidir</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Ekran kilidini bir kart görüntülerken devre dışı bırakır</string>
+    <string name="settings_allow_content_provider_read_summary">Uygulamaların erişim izni almak için yine de izin istemesi gerekecek</string>
+    <string name="settings_category_title_general">Genel</string>
+    <string name="settings_category_title_privacy">Gizlilik</string>
+    <string name="settings_oled_dark_summary">OLED ekranlarda güç kullanımını düşürür</string>
+    <string name="settings_category_title_cards">Kartlar</string>
 </resources>

@@ -55,9 +55,9 @@
     <string name="thumbnailDescription">Miniatuurvoorbeeld</string>
     <string name="settings">Instellingen</string>
     <string name="settings_theme">Thema</string>
-    <string name="settings_system_theme">Systeem</string>
-    <string name="settings_light_theme">Licht</string>
-    <string name="settings_dark_theme">Donker</string>
+    <string name="settings_system_theme">Systeemthema</string>
+    <string name="settings_light_theme">Licht thema</string>
+    <string name="settings_dark_theme">Donker thema</string>
     <string name="settings_display_barcode_max_brightness">Scherm helderder maken bij tonen van barcode</string>
     <string name="intent_import_card_from_url_share_text">Ik wil een klantenkaart met je delen</string>
     <string name="all">Alles</string>
@@ -67,7 +67,7 @@
     <string name="exportSuccessful">De gegevens zijn geëxporteerd</string>
     <string name="groups">Groepen</string>
     <string name="enter_group_name">Voer een groepsnaam in</string>
-    <string name="starImage">Favoriete ster</string>
+    <string name="starImage">Favorietster</string>
     <string name="app_copyright_old">Gebaseerd op Klantenkaartkluis,
 \ncopyright ©2016–2020 Branden Archer</string>
     <string name="unstar">Verwijderen uit favorieten</string>
@@ -276,4 +276,11 @@
     <string name="settings_allow_content_provider_read_summary">Let op: apps moeten nog steeds om toestemming vragen</string>
     <string name="permissionReadCardsDescription">Lees alle kaarten uit, inclusief alle details, aantekeningen en afbeeldingen</string>
     <string name="settings_allow_content_provider_read_title">Andere apps toegang geven tot gegevens</string>
+    <string name="settings_keep_screen_on_summary">Laat het scherm niet op zwart gaan tijdens het bekijken van een kaart</string>
+    <string name="settings_category_title_privacy">Privacy</string>
+    <string name="settings_display_barcode_max_brightness_summary">Benodigd voor de werking van sommige scanners</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Schakelt schermvergrendeling uit tijdens het bekijken van een kaart</string>
+    <string name="settings_oled_dark_summary">Verlaagt het accuverbruik op oledschermen</string>
+    <string name="settings_category_title_cards">Kaarten</string>
+    <string name="settings_category_title_general">Algemeen</string>
 </resources>

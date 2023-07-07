@@ -1,0 +1,2 @@
+- Az Android SDK 24+ alatt felmerült probléma javítása, amikor a fájlválasztó importálási opció használata összeomlást okozott. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Új ikon és színséma. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

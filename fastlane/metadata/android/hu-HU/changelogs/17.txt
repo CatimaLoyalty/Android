@@ -1,0 +1,2 @@
+- Támogatás hozzáadása a hűségkártya parancsikonok hozzáadásához az indítóprogramból/kezdőképernyőről. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- A hűségkártya gyorsbillentyűk hozzáadásának támogatásának eltávolítása magából az alkalmazásból. Ezzel megszűnik a parancsikon engedélyezésének szükségessége. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

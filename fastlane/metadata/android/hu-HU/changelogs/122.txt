@@ -1,0 +1,3 @@
+- Hosszan nyomja meg a kártya ikonját a tevékenység nézetben a módosításhoz.
+- A gombok stílusának javítása a Csoportok képernyőn
+- A hosszú vonalkód értékek miatt a vonalkód a semmire skálázódik le

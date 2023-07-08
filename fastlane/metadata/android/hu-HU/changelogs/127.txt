@@ -1,0 +1,3 @@
+- Vonalkód renderelés javítások
+- Alapvető együttműködési lehetőség külső alkalmazásokkal (Android 6.0+)
+- Átszervezett beállítási képernyő

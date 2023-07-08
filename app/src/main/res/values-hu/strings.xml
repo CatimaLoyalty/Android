@@ -163,7 +163,7 @@
     <string name="settings_locale">Nyelv</string>
     <string name="settings_system_locale">Rendszer</string>
     <string name="selectColor">Szín kiválasztása</string>
-    <string name="setIcon">Ikon beállítása</string>
+    <string name="setIcon">Miniatűr beállítása</string>
     <string name="settings_pink_theme">Rózsaszín</string>
     <string name="settings_magenta_theme">Bíbor</string>
     <string name="settings_violet_theme">Ibolya</string>
@@ -267,5 +267,20 @@
     <string name="openBackImageInGalleryApp">Hátulnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="openFrontImageInGalleryApp">Elölnézeti kép megnyitása a galéria alkalmazásban</string>
     <string name="setBarcodeHeight">Vonalkód magasságának megadása</string>
-    <string name="icon_header_click_text">Hosszú nyomás az ikon szerkesztéséhez</string>
+    <string name="icon_header_click_text">Hosszan nyomja meg a miniatűr szerkesztéséhez</string>
+    <string name="show_note">Megjegyzés megjelenítése</string>
+    <string name="show_balance">Egyenleg megjelenítése</string>
+    <string name="permissionReadCardsLabel">Catima kártyák olvasása</string>
+    <string name="permissionReadCardsDescription">Olvassa el a kártyáit és annak minden részletét, beleértve a jegyzeteket és a képeket is</string>
+    <string name="show_validity">Érvényesség megjelenítése</string>
+    <string name="show_name_below_image_thumbnail">Név megjelenítése a kép miniatűrje alatt</string>
+    <string name="settings_display_barcode_max_brightness_summary">Szükséges egyes szkennerek működéséhez</string>
+    <string name="settings_oled_dark_summary">Csökkenti az OLED kijelzők akkumulátor-használatát</string>
+    <string name="settings_category_title_privacy">Adatvédelem</string>
+    <string name="settings_allow_content_provider_read_title">Engedélyezem más alkalmazások számára az adataimhoz való hozzáférést</string>
+    <string name="settings_category_title_cards">Kártyák</string>
+    <string name="settings_category_title_general">Általános</string>
+    <string name="settings_keep_screen_on_summary">Letiltja a képernyő időtúllépését a kártya megtekintése közben</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Letiltja a képernyő időtúllépését a kártya megjelenítése közben</string>
+    <string name="settings_allow_content_provider_read_summary">Az alkalmazásoknak továbbra is engedélyt kell kérniük a hozzáféréshez</string>
 </resources>

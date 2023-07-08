@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -64,6 +66,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
+    private ActivityResultLauncher<PickVisualMediaRequest> pickMedia;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -87,6 +90,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
+        pickMedia = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(),result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result != null? Activity.RESULT_OK : Activity.RESULT_CANCELED, new Intent().setData(result)));
         customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
         customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
 
@@ -226,22 +230,35 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     private void addFromImageAfterPermission() {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        contentIntent.setType("image/*");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Use the new photo picker on devices where it is available
+            try {
+                // Registers a photo picker activity launcher in single-select mode.
+                pickMedia.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                        .build());
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
+        } else {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            contentIntent.setType("image/*");
 
-        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
-        try {
-            photoPickerLauncher.launch(chooserIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
-            Log.e(TAG, "No activity found to handle intent", e);
+            Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{contentIntent});
+            try {
+                photoPickerLauncher.launch(chooserIntent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+                Log.e(TAG, "No activity found to handle intent", e);
+            }
         }
     }
 
-    private void showCameraPermissionMissingText(boolean show) {
+    private void showCameraPermissionMissingText ( boolean show){
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
             navigateToSystemPermissionSetting();
         } : null);

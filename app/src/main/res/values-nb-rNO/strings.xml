@@ -206,7 +206,7 @@
     <string name="action_show_details">Vis detaljer</string>
     <string name="action_hide_details">Skjul detaljer</string>
     <string name="selectColor">Velg farge</string>
-    <string name="setIcon">Sett ikon</string>
+    <string name="setIcon">Sett miniatyrbilde</string>
     <string name="shortcutSelectCard">velg et kort</string>
     <string name="translate_platform">på Weblate</string>
     <string name="options">Alternativer</string>
@@ -272,4 +272,15 @@
     <string name="openBackImageInGalleryApp">Åpne baksidebilde i galleriprogram</string>
     <string name="setBarcodeHeight">Sett strekkodehøyde</string>
     <string name="donate">Doner</string>
+    <string name="permissionReadCardsLabel">Les Catima-kort</string>
+    <string name="permissionReadCardsDescription">Les kortene dine og detaljene om dem, inkludert notater og bilder</string>
+    <string name="settings_allow_content_provider_read_summary">Programmer vil fremdeles måtte forespørre tilgang for å få det innvilget</string>
+    <string name="settings_display_barcode_max_brightness_summary">Nødvendig for noen skannere</string>
+    <string name="settings_keep_screen_on_summary">Skrur av skjermtidsavbrudd under visning av et kort</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Skrur av skjermlås under visning av et kort</string>
+    <string name="settings_allow_content_provider_read_title">Tillat andre programmer tilgang til min data</string>
+    <string name="settings_category_title_cards">Kort</string>
+    <string name="settings_category_title_general">Generelt</string>
+    <string name="settings_category_title_privacy">Personvern</string>
+    <string name="settings_oled_dark_summary">Reduserer batteribruk for OLED-skjermer</string>
 </resources>

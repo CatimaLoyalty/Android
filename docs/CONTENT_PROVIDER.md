@@ -4,9 +4,7 @@ Catima implements a [content provider](https://developer.android.com/guide/topic
 
 Since runtime permissions are only available since Android 6.0 (API level 23), the content provider is disabled for older android versions in order to prevent unwanted access to the data.
 
-## Authority
-
-The authority for this content provider: `<package_name>.contentprovider.cards`
+## Package Names
 
 There are 3 release channels, with 2 possible package names:
 
@@ -16,11 +14,17 @@ There are 3 release channels, with 2 possible package names:
 | F-Droid         | me.hackerchick.catima       |
 | Debug Build     | me.hackerchick.catima.debug |
 
+The package names are required for the authority and permissions, as described below.
+
+## Authority
+
+The authority for this content provider: `<package_name>.contentprovider.cards`
+
 ## Permissions
 
 The content provider requires the following permissions:
 
-- `me.hackerchick.catima.READ_CARDS` - in order to access any of the URIs.
+- `<package_name>.READ_CARDS` - in order to access any of the URIs.
 
 ## URIs
 

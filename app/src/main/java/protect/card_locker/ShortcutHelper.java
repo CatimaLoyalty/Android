@@ -70,15 +70,8 @@ class ShortcutHelper {
             ShortcutInfoCompat found = list.remove(foundIndex.intValue());
             list.addFirst(found);
         } else {
-            // The item is new to the list. First, we need to trim the list
-            // until it is able to accept a new item, then the item is
-            // inserted.
-            while (list.size() >= MAX_SHORTCUTS) {
-                list.pollLast();
-            }
-
+            // The item is new to the list. We add it and trim the list later.
             ShortcutInfoCompat shortcut = createShortcutBuilder(context, card).build();
-
             list.addFirst(shortcut);
         }
 
@@ -99,6 +92,11 @@ class ShortcutHelper {
 
                 finalList.addLast(updatedShortcut);
                 rank++;
+
+                // trim the list
+                if (rank >= MAX_SHORTCUTS) {
+                    break;
+                }
             }
         }
 

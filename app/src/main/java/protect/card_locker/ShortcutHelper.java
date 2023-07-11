@@ -83,6 +83,7 @@ class ShortcutHelper {
         }
 
         LinkedList<ShortcutInfoCompat> finalList = new LinkedList<>();
+        int rank = 0;
 
         // The ranks are now updated; the order in the list is the rank.
         for (int index = 0; index < list.size(); index++) {
@@ -90,11 +91,15 @@ class ShortcutHelper {
 
             LoyaltyCard loyaltyCard = DBHelper.getLoyaltyCard(database, Integer.parseInt(prevShortcut.getId()));
 
-            ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
-                    .setRank(index)
-                    .build();
+            // skip outdated cards that no longer exist
+            if (loyaltyCard != null) {
+                ShortcutInfoCompat updatedShortcut = createShortcutBuilder(context, loyaltyCard)
+                        .setRank(rank)
+                        .build();
 
-            finalList.addLast(updatedShortcut);
+                finalList.addLast(updatedShortcut);
+                rank++;
+            }
         }
 
         ShortcutManagerCompat.setDynamicShortcuts(context, finalList);

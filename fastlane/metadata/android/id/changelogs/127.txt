@@ -1,0 +1,4 @@
+- Peningkatan tampilan barcode
+- Interoperabilitas dasar dengan aplikasi eksternal (Android 6.0+)
+- Tampilan pengaturan yang ditata ulang
+- Perbaikan proses impor dari beberapa browser yang menambahkan garis miring (/) di akhir URL berbagi

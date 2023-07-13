@@ -283,4 +283,11 @@
     <string name="permissionReadCardsDescription">Lisez vos cartes et tous ses détails, y compris les notes et les images</string>
     <string name="settings_allow_content_provider_read_title">Autoriser d\'autres applications à accéder à mes données</string>
     <string name="settings_allow_content_provider_read_summary">Les applications devront toujours demander une autorisation pour obtenir l\'accès</string>
+    <string name="settings_display_barcode_max_brightness_summary">Nécessaire au fonctionnement de certains scanneurs</string>
+    <string name="settings_keep_screen_on_summary">Désactive la temporisation de l\'écran lors de la visualisation d\'une carte</string>
+    <string name="settings_oled_dark_summary">Réduit l\'utilisation de la batterie sur les écrans OLED</string>
+    <string name="settings_category_title_cards">Cartes</string>
+    <string name="settings_category_title_general">Généraux</string>
+    <string name="settings_category_title_privacy">Confidentialité</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Désactive le verrouillage de l\'écran pendant la visualisation d\'une carte</string>
 </resources>

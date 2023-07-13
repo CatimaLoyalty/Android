@@ -276,4 +276,11 @@
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
     <string name="permissionReadCardsDescription">Lesen Sie Ihre Karten mit allen Details, einschließlich Notizen und Bildern</string>
     <string name="settings_allow_content_provider_read_summary">Anwendungen müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
+    <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
+    <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>
+    <string name="settings_oled_dark_summary">Reduziert den Batterieverbrauch bei OLED-Displays</string>
+    <string name="settings_category_title_cards">Karten</string>
+    <string name="settings_category_title_privacy">Datenschutz</string>
+    <string name="settings_category_title_general">Allgemein</string>
 </resources>

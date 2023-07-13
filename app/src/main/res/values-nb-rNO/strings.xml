@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Legg til</string>
-    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importer kort fra «⋮»-menyen</string>
+    <string name="noGiftCards">Klikk på «+» (pluss)-knappen for å legge til eller importere kort fra «⋮»-menyen.</string>
     <string name="storeName">Navn</string>
     <string name="note">Merknad</string>
     <string name="cardId">Kort-ID</string>
@@ -62,7 +62,7 @@
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
     <string name="barcodeNoBarcode">Det er ingen strekkode</string>
-    <string name="noMatchingGiftCards">Resultatløst. Prøv å endre søket.</string>
+    <string name="noMatchingGiftCards">Ingen resultater. Prøv å endre søket.</string>
     <string name="action_search">Søk</string>
     <string name="starImage">Favorittstjerne</string>
     <string name="unstar">Fjern fra favoritter</string>
@@ -127,7 +127,7 @@
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
     <string name="copy_to_clipboard_multiple_toast">ID-er ble kopiert til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Gratis tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="updateBarcodeQuestionText">Du har endret ID-en. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
@@ -187,7 +187,7 @@
     <string name="license">Lisens</string>
     <string name="version_history">Versjonshistorikk</string>
     <string name="importCatimaMessage">Velg din <i>catima.zip</i>-eksport fra Catima å importere.
-\nOpprett den fra «Importer/Eksporter»-menyen i en annen Catima-app ved å trykke på «Eksporter» der først</string>
+\nOpprett den fra «Importer/Eksporter»-menyen i en annen Catima-app ved å trykke på «Eksporter» der først.</string>
     <string name="source_repository">Kildekode</string>
     <string name="on_github">på GitHub</string>
     <string name="and_data_usage">og bruk av data</string>
@@ -264,7 +264,7 @@
     <string name="switchToBackImage">Bytt til baksidebildet</string>
     <string name="switchToBarcode">Bytt til strekkode</string>
     <string name="icon_header_click_text">Lang-trykk for å redigere miniatyrbilde</string>
-    <string name="show_name_below_image_thumbnail">Vis navn under bilde-miniatyrbilde</string>
+    <string name="show_name_below_image_thumbnail">Vis navn under miniatyrbilde</string>
     <string name="show_balance">Vis saldo</string>
     <string name="show_note">Vis notat</string>
     <string name="show_validity">Vis gyldighet</string>

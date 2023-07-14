@@ -127,7 +127,7 @@
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
     <string name="copy_to_clipboard_multiple_toast">ID-er ble kopiert til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="app_libraries">Gratis tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="card_ids_copied">Kopierte ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="updateBarcodeQuestionText">Du har endret ID-en. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>

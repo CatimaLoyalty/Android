@@ -50,6 +50,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -646,5 +648,23 @@ public class Utils {
 
     public static int getHeaderColor(Context context, LoyaltyCard loyaltyCard) {
         return loyaltyCard.headerColor != null ? loyaltyCard.headerColor : LetterBitmap.getDefaultColor(context, loyaltyCard.store);
+    }
+
+    public static String checksum(InputStream input) throws IOException {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            byte[] buf = new byte[4096];
+            int len;
+            while ((len = input.read(buf)) != -1) {
+                md.update(buf, 0, len);
+            }
+            StringBuilder sb = new StringBuilder();
+            for (byte b : md.digest()) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException _e) {
+            return null;
+        }
     }
 }

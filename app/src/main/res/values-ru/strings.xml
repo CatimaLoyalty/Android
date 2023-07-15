@@ -213,8 +213,8 @@
     <string name="noGiftCardsGroup">Создайте несколько карт, а затем распределите их по группам здесь.</string>
     <string name="setIcon">Выбор миниатюры</string>
     <string name="selectColor">Выбрать цвет</string>
-    <string name="action_hide_details">Скрыть детали</string>
-    <string name="action_show_details">Показать детали</string>
+    <string name="action_hide_details">Скрытие подробностей</string>
+    <string name="action_show_details">Отображение подробностей</string>
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Выбор карты</string>
     <string name="options">Параметры</string>

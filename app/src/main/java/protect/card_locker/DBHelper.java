@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
@@ -321,6 +323,21 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.VALID_FROM + " INTEGER");
         }
+    }
+
+    public static Set<String> imageFiles(Context context, final SQLiteDatabase database) {
+        Set<String> files = new HashSet<>();
+        Cursor cardCursor = getLoyaltyCardCursor(database);
+        while (cardCursor.moveToNext()) {
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
+                String name = Utils.getCardImageFileName(card.id, imageLocationType);
+                if (Utils.retrieveCardImageAsFile(context, name).exists()) {
+                    files.add(name);
+                }
+            }
+        }
+        return files;
     }
 
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {

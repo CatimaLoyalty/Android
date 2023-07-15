@@ -6,10 +6,14 @@ import android.util.Log;
 
 import net.lingala.zip4j.exception.ZipException;
 
+import java.io.File;
 import java.io.InputStream;
+
+import protect.card_locker.Utils;
 
 public class MultiFormatImporter {
     private static final String TAG = "Catima";
+    private static final String TEMP_ZIP_NAME = MultiFormatImporter.class.getSimpleName() + ".zip";
 
     /**
      * Attempts to import data from the input stream of the
@@ -42,9 +46,10 @@ public class MultiFormatImporter {
 
         String error = null;
         if (importer != null) {
+            File inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
             database.beginTransaction();
             try {
-                importer.importData(context, database, input, password);
+                importer.importData(context, database, inputFile, password);
                 database.setTransactionSuccessful();
                 return new ImportExportResult(ImportExportResultType.Success);
             } catch (ZipException e) {
@@ -59,6 +64,7 @@ public class MultiFormatImporter {
                 error = e.toString();
             } finally {
                 database.endTransaction();
+                inputFile.delete();
             }
         } else {
             error = "Unsupported data format imported: " + format.name();

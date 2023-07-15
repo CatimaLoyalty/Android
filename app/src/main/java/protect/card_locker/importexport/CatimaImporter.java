@@ -13,6 +13,8 @@ import org.apache.commons.csv.CSVRecord;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -39,7 +41,8 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+    public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, InterruptedException {
+        InputStream input = new FileInputStream(inputFile);
         InputStream bufferedInputStream = new BufferedInputStream(input);
         bufferedInputStream.mark(100);
 

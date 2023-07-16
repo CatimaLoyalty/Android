@@ -24,6 +24,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 16;
+
+    // NB: changing this value requires a migration
     public static final int DEFAULT_ZOOM_LEVEL = 100;
 
     public static class LoyaltyCardDbGroups {

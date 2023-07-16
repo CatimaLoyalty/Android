@@ -313,7 +313,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (oldVersion < 14 && newVersion >= 14) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
-                    + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL + "' ");
+                    + " ADD COLUMN " + LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100' ");
         }
         if (oldVersion < 15 && newVersion >= 15) {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE

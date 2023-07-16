@@ -14,30 +14,28 @@ public class LoyaltyCard implements Parcelable {
     public final int id;
     public final String store;
     public final String note;
+    @Nullable
     public final Date validFrom;
+    @Nullable
     public final Date expiry;
     public final BigDecimal balance;
+    @Nullable
     public final Currency balanceType;
     public final String cardId;
-
     @Nullable
     public final String barcodeId;
-
     @Nullable
     public final CatimaBarcode barcodeType;
-
     @Nullable
     public final Integer headerColor;
-
     public final int starStatus;
     public final int archiveStatus;
     public final long lastUsed;
     public int zoomLevel;
 
-    public LoyaltyCard(final int id, final String store, final String note, final Date validFrom,
-                       final Date expiry, final BigDecimal balance, final Currency balanceType,
-                       final String cardId, @Nullable final String barcodeId,
-                       @Nullable final CatimaBarcode barcodeType,
+    public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
+                       @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
+                       final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
                        @Nullable final Integer headerColor, final int starStatus,
                        final long lastUsed, final int zoomLevel, final int archiveStatus) {
         this.id = id;
@@ -143,6 +141,15 @@ public class LoyaltyCard implements Parcelable {
         }
 
         return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, archived);
+    }
+
+    public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
+        // Skip lastUsed
+        return a.id == b.id && a.store.equals(b.store) && a.note.equals(b.note) && Utils.equals(a.validFrom, b.validFrom)
+                && Utils.equals(a.expiry, b.expiry) && a.balance.equals(b.balance) && Utils.equals(a.balanceType, b.balanceType)
+                && a.cardId.equals(b.cardId) && Utils.equals(a.barcodeId, b.barcodeId) && Utils.equals(a.barcodeType, b.barcodeType)
+                && Utils.equals(a.headerColor, b.headerColor) && a.starStatus == b.starStatus && a.zoomLevel == b.zoomLevel
+                && a.archiveStatus == b.archiveStatus;
     }
 
     @Override

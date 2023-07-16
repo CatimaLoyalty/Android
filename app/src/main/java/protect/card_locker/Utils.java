@@ -667,4 +667,13 @@ public class Utils {
             return null;
         }
     }
+
+    public static boolean equals(final Object a, final Object b) {
+        if (a == null && b == null) {
+            return true;
+        } else if (a == null || b == null) {
+            return false;
+        }
+        return a.equals(b);
+    }
 }

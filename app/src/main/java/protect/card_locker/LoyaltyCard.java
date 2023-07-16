@@ -144,12 +144,12 @@ public class LoyaltyCard implements Parcelable {
     }
 
     public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
-        // Skip lastUsed
+        // Skip lastUsed & zoomLevel
         return a.id == b.id && a.store.equals(b.store) && a.note.equals(b.note) && Utils.equals(a.validFrom, b.validFrom)
                 && Utils.equals(a.expiry, b.expiry) && a.balance.equals(b.balance) && Utils.equals(a.balanceType, b.balanceType)
-                && a.cardId.equals(b.cardId) && Utils.equals(a.barcodeId, b.barcodeId) && Utils.equals(a.barcodeType, b.barcodeType)
-                && Utils.equals(a.headerColor, b.headerColor) && a.starStatus == b.starStatus && a.zoomLevel == b.zoomLevel
-                && a.archiveStatus == b.archiveStatus;
+                && a.cardId.equals(b.cardId) && Utils.equals(a.barcodeId, b.barcodeId)
+                && Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(), b.barcodeType == null ? null : b.barcodeType.format())
+                && Utils.equals(a.headerColor, b.headerColor) && a.starStatus == b.starStatus && a.archiveStatus == b.archiveStatus;
     }
 
     @Override

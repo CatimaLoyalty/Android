@@ -507,15 +507,14 @@ public class Utils {
 
     public static File copyToTempFile(Context context, InputStream input, String name) throws IOException {
         File file = createTempFile(context, name);
-        FileOutputStream out = new FileOutputStream(file);
-        byte[] buf = new byte[4096];
-        int len;
-        while ((len = input.read(buf)) != -1) {
-            out.write(buf, 0, len);
+        try (input; FileOutputStream out = new FileOutputStream(file)) {
+            byte[] buf = new byte[4096];
+            int len;
+            while ((len = input.read(buf)) != -1) {
+                out.write(buf, 0, len);
+            }
+            return file;
         }
-        out.close();
-        input.close();
-        return file;
     }
 
     public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format) {

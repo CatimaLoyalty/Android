@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -39,7 +40,7 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class CatimaImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException {
+    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password, Set<String> newImageFiles, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         InputStream bufferedInputStream = new BufferedInputStream(input);
         bufferedInputStream.mark(100);
 
@@ -54,9 +55,14 @@ public class CatimaImporter implements Importer {
 
             String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
             if (fileName.equals("catima.csv")) {
-                importCSV(context, database, zipInputStream);
+                importCSV(context, database, zipInputStream, maxLoyaltyCardId);
             } else if (fileName.endsWith(".png")) {
-                Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), fileName);
+                String newFileName = Utils.getRenamedCardImageFileName(fileName, maxLoyaltyCardId);
+                if (newFileName == null) {
+                    throw new FormatException("Unexpected PNG file in import: " + fileName);
+                }
+                Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), newFileName);
+                newImageFiles.add(newFileName);
             } else {
                 throw new FormatException("Unexpected file in import: " + fileName);
             }
@@ -65,34 +71,34 @@ public class CatimaImporter implements Importer {
         if (!isZipFile) {
             // This is not a zip file, try importing as bare CSV
             bufferedInputStream.reset();
-            importCSV(context, database, bufferedInputStream);
+            importCSV(context, database, bufferedInputStream, maxLoyaltyCardId);
         }
 
         input.close();
     }
 
-    public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {
+    public void importCSV(Context context, SQLiteDatabase database, InputStream input, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         int version = parseVersion(bufferedReader);
         switch (version) {
             case 1:
-                parseV1(database, bufferedReader);
+                parseV1(database, bufferedReader, maxLoyaltyCardId);
                 break;
             case 2:
-                parseV2(context, database, bufferedReader);
+                parseV2(context, database, bufferedReader, maxLoyaltyCardId);
                 break;
             default:
                 throw new FormatException(String.format("No code to parse version %s", version));
         }
     }
 
-    public void parseV1(SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public void parseV1(SQLiteDatabase database, BufferedReader input, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         final CSVParser parser = new CSVParser(input, CSVFormat.RFC4180.builder().setHeader().build());
 
         try {
             for (CSVRecord record : parser) {
-                importLoyaltyCard(database, record);
+                importLoyaltyCard(database, record, maxLoyaltyCardId);
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -105,7 +111,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV2(Context context, SQLiteDatabase database, BufferedReader input) throws IOException, FormatException, InterruptedException {
+    public void parseV2(Context context, SQLiteDatabase database, BufferedReader input, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         int part = 0;
         StringBuilder stringPart = new StringBuilder();
 
@@ -131,7 +137,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 2:
                             try {
-                                parseV2Cards(context, database, stringPart.toString());
+                                parseV2Cards(context, database, stringPart.toString(), maxLoyaltyCardId);
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -139,7 +145,7 @@ public class CatimaImporter implements Importer {
                             break;
                         case 3:
                             try {
-                                parseV2CardGroups(database, stringPart.toString());
+                                parseV2CardGroups(database, stringPart.toString(), maxLoyaltyCardId);
                                 sectionParsed = true;
                             } catch (FormatException e) {
                                 // We may have a multiline field, try again
@@ -193,7 +199,7 @@ public class CatimaImporter implements Importer {
         }
     }
 
-    public void parseV2Cards(Context context, SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public void parseV2Cards(Context context, SQLiteDatabase database, String data, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         // Parse cards
         final CSVParser cardParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -214,11 +220,11 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importLoyaltyCard(database, record);
+            importLoyaltyCard(database, record, maxLoyaltyCardId);
         }
     }
 
-    public void parseV2CardGroups(SQLiteDatabase database, String data) throws IOException, FormatException, InterruptedException {
+    public void parseV2CardGroups(SQLiteDatabase database, String data, int maxLoyaltyCardId) throws IOException, FormatException, InterruptedException {
         // Parse card group mappings
         final CSVParser cardGroupParser = new CSVParser(new StringReader(data), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -239,7 +245,7 @@ public class CatimaImporter implements Importer {
         }
 
         for (CSVRecord record : records) {
-            importCardGroupMapping(database, record);
+            importCardGroupMapping(database, record, maxLoyaltyCardId);
         }
     }
 
@@ -276,9 +282,12 @@ public class CatimaImporter implements Importer {
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record)
+    private void importLoyaltyCard(SQLiteDatabase database, CSVRecord record, int maxLoyaltyCardId)
             throws FormatException {
         int id = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIds.ID, record);
+        if (id < 1) {
+            throw new FormatException("ID must be >= 1");
+        }
 
         String store = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIds.STORE, record, "");
         if (store.isEmpty()) {
@@ -374,7 +383,8 @@ public class CatimaImporter implements Importer {
             // We catch this exception so we can still import old backups
         }
 
-        DBHelper.insertLoyaltyCard(database, id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
+        int newId = id + maxLoyaltyCardId;
+        DBHelper.insertLoyaltyCard(database, newId, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starStatus, lastUsed, archiveStatus);
     }
 
     /**
@@ -395,16 +405,20 @@ public class CatimaImporter implements Importer {
      * Import a single card to group mapping into the database using the given
      * session.
      */
-    private void importCardGroupMapping(SQLiteDatabase database, CSVRecord record) throws FormatException {
+    private void importCardGroupMapping(SQLiteDatabase database, CSVRecord record, int maxLoyaltyCardId) throws FormatException {
         int cardId = CSVHelpers.extractInt(DBHelper.LoyaltyCardDbIdsGroups.cardID, record);
         String groupId = CSVHelpers.extractString(DBHelper.LoyaltyCardDbIdsGroups.groupID, record, null);
 
+        if (cardId < 1) {
+            throw new FormatException("Card ID must be >= 1");
+        }
         if (groupId == null) {
             throw new FormatException("Group has no ID: " + record);
         }
 
-        List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
+        int newCardId = cardId + maxLoyaltyCardId;
+        List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, newCardId);
         cardGroups.add(DBHelper.getGroup(database, groupId));
-        DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);
+        DBHelper.setLoyaltyCardGroups(database, newCardId, cardGroups);
     }
 }

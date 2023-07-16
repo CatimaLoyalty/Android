@@ -364,6 +364,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 whereAttrs(LoyaltyCardDbFTS.ID), withArgs(id));
     }
 
+    public static int getMaxLoyaltyCardId(final SQLiteDatabase database) {
+        Cursor data = database.rawQuery("SELECT IFNULL(MAX(" + LoyaltyCardDbIds.ID + "), 0) FROM " + LoyaltyCardDbIds.TABLE, null, null);
+        data.moveToFirst();
+        int maxId = data.getInt(0);
+        data.close();
+        return maxId;
+    }
+
     public static long insertLoyaltyCard(
             final SQLiteDatabase database, final String store, final String note, final Date validFrom,
             final Date expiry, final BigDecimal balance, final Currency balanceType, final String cardId,

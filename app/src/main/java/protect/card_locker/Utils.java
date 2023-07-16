@@ -80,6 +80,8 @@ public class Utils {
     public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
     public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
 
+    public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
+
     static final double LUMINANCE_MIDPOINT = 0.5;
 
     static final int BITMAP_SIZE_SMALL = 512;
@@ -385,7 +387,7 @@ public class Utils {
     }
 
     static public String getRenamedCardImageFileName(final String fileName, final Map<Integer, Integer> idMap) {
-        Pattern pattern = Pattern.compile("^(card_)(\\d+)(_(?:front|back|icon)\\.png)$");
+        Pattern pattern = Pattern.compile(CARD_IMAGE_FILENAME_REGEX);
         Matcher matcher = pattern.matcher(fileName);
         if (matcher.matches()) {
             StringBuilder cardImageFileNameBuilder = new StringBuilder();

@@ -7,18 +7,18 @@ Heimen Stoffels
 Oğuz Ersen
 Katharine Chui
 mondstern
+SlavekB
 StoyanDimitrov
 IllusiveMan196
-SlavekB
 Altonss
 Michael Moroni
 Gediminas Murauskas
 Petr Novák
 Joel A
 laralem
+FC Stegerman
 Taco
 pfaffenrodt
-FC Stegerman
 gallegonovato
 Nyatsuki
 HudobniVolk
@@ -27,17 +27,17 @@ arno-github
 Ankit Tiwari
 Sergio Paredes
 Clxff H3r4ld0
+Eric
 Aayush Gupta
 huuhaa
-Quentin PAGÈS
-Eric
 Balázs Meskó
+Quentin PAGÈS
+Giovanni Donisi
 Projjal Moitra
 Alexander Ivanov
 arshbeerSingh
 Denis Shilin
 Freddo espresso
-Giovanni Donisi
 Silvério Santos
 Miha Frangež
 Eryk Michalak
@@ -58,6 +58,7 @@ Evgeniy Khramov
 Jane Kong
 Jean Mareilles
 Jiri Grönroos
+José Rebelo
 K. Herbert
 Lisa A.
 Mawuena M. KODZO A.
@@ -79,6 +80,7 @@ Astrohops1
 BMN
 balaraz
 BootVirtual
+Bottan Hermawan
 Clonewayx
 D. Domig
 Diego
@@ -89,7 +91,6 @@ francescbassas
 Jason Li
 Jean-Luc Tibaux
 Jesse Davids
-José Rebelo
 Kis Dominik
 Lukas Grassauer
 Luna Jernberg
@@ -154,6 +155,7 @@ danieluhrinyi
 Daniele Tricoli
 Kasina Dheeraj
 Donno
+Erik Spjelkavik
 Flav
 Franciszek Stefan
 Gael Caraballo
@@ -171,6 +173,7 @@ Jean-Baptiste
 Kung-chih
 Karvjorm
 polar
+Kamborio
 krkk
 Laura Ferraz 
 Lucas da Costa

@@ -60,6 +60,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import protect.card_locker.preferences.Settings;
 
@@ -380,6 +382,24 @@ public class Utils {
         cardImageFileNameBuilder.append(".png");
 
         return cardImageFileNameBuilder.toString();
+    }
+
+    static public String getRenamedCardImageFileName(final String fileName, final Map<Integer, Integer> idMap) {
+        Pattern pattern = Pattern.compile("^(card_)(\\d+)(_(?:front|back|icon)\\.png)$");
+        Matcher matcher = pattern.matcher(fileName);
+        if (matcher.matches()) {
+            StringBuilder cardImageFileNameBuilder = new StringBuilder();
+            cardImageFileNameBuilder.append(matcher.group(1));
+            try {
+                int id = Integer.parseInt(matcher.group(2));
+                cardImageFileNameBuilder.append(idMap.getOrDefault(id, id));
+            } catch (NumberFormatException _e) {
+                return null;
+            }
+            cardImageFileNameBuilder.append(matcher.group(3));
+            return cardImageFileNameBuilder.toString();
+        }
+        return null;
     }
 
     static public void saveCardImage(Context context, Bitmap bitmap, String fileName) throws FileNotFoundException {

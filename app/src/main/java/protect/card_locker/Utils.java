@@ -505,21 +505,17 @@ public class Utils {
         return new File(context.getCacheDir() + "/" + name);
     }
 
-    public static File copyToTempFile(Context context, InputStream input, String name) {
+    public static File copyToTempFile(Context context, InputStream input, String name) throws IOException {
         File file = createTempFile(context, name);
-        try (FileOutputStream out = new FileOutputStream(file)) {
-            byte[] buf = new byte[4096];
-            int len;
-            while ((len = input.read(buf)) != -1) {
-                out.write(buf, 0, len);
-            }
-            out.close();
-            input.close();
-            return file;
-        } catch (IOException e) {
-            Log.d("store temp file", "failed writing temp file, name: " + name);
-            return null;
+        FileOutputStream out = new FileOutputStream(file);
+        byte[] buf = new byte[4096];
+        int len;
+        while ((len = input.read(buf)) != -1) {
+            out.write(buf, 0, len);
         }
+        out.close();
+        input.close();
+        return file;
     }
 
     public static String saveTempImage(Context context, Bitmap in, String name, Bitmap.CompressFormat format) {

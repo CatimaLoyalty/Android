@@ -7,6 +7,7 @@ import android.util.Log;
 import net.lingala.zip4j.exception.ZipException;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 
 import protect.card_locker.Utils;
@@ -46,25 +47,33 @@ public class MultiFormatImporter {
 
         String error = null;
         if (importer != null) {
-            File inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
-            database.beginTransaction();
+            File inputFile;
             try {
-                importer.importData(context, database, inputFile, password);
-                database.setTransactionSuccessful();
-                return new ImportExportResult(ImportExportResultType.Success);
-            } catch (ZipException e) {
-                if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
-                    return new ImportExportResult(ImportExportResultType.BadPassword);
-                } else {
+                inputFile = Utils.copyToTempFile(context, input, TEMP_ZIP_NAME);
+                database.beginTransaction();
+                try {
+                    importer.importData(context, database, inputFile, password);
+                    database.setTransactionSuccessful();
+                    return new ImportExportResult(ImportExportResultType.Success);
+                } catch (ZipException e) {
+                    if (e.getType().equals(ZipException.Type.WRONG_PASSWORD)) {
+                        return new ImportExportResult(ImportExportResultType.BadPassword);
+                    } else {
+                        Log.e(TAG, "Failed to import data", e);
+                        error = e.toString();
+                    }
+                } catch (Exception e) {
                     Log.e(TAG, "Failed to import data", e);
                     error = e.toString();
+                } finally {
+                    database.endTransaction();
+                    if (!inputFile.delete()) {
+                        Log.w(TAG, "Failed to delete temporary ZIP file (should not be a problem) " + inputFile);
+                    }
                 }
-            } catch (Exception e) {
-                Log.e(TAG, "Failed to import data", e);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to copy ZIP file", e);
                 error = e.toString();
-            } finally {
-                database.endTransaction();
-                inputFile.delete();
             }
         } else {
             error = "Unsupported data format imported: " + format.name();

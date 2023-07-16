@@ -93,6 +93,8 @@ public class CatimaImporter implements Importer {
             importedData = importCSV(bufferedInputStream1);
         }
 
+        input1.close();
+
         if (importedData == null) {
             throw new FormatException("No imported data");
         }
@@ -112,6 +114,8 @@ public class CatimaImporter implements Importer {
                     Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream2), newFileName);
                 }
             }
+
+            input2.close();
         }
     }
 

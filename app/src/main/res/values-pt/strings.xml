@@ -8,12 +8,12 @@
     <string name="storeName">Nome</string>
     <string name="note">Nota</string>
     <string name="barcodeType">Tipo de código de barras</string>
-    <string name="barcodeNoBarcode">Sem código de barras</string>
+    <string name="barcodeNoBarcode">Não há código de barras</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
     <string name="noGiftCards">Clique no botão + para adicionar um cartão ou importe-o no menu ⋮.</string>
-    <string name="noBarcode">Sem código de barras</string>
+    <string name="noBarcode">sem código de barras</string>
     <string name="unstar">Retirar dos favoritos</string>
     <string name="importOptionFilesystemButton">Do sistema de ficheiros</string>
     <string name="importOptionApplicationTitle">Usar outra aplicação</string>
@@ -208,7 +208,7 @@
     <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui.</string>
     <string name="selectColor">Selecionar cor</string>
-    <string name="setIcon">Definir ícone</string>
+    <string name="setIcon">Definir miniatura</string>
     <string name="action_show_details">Mostrar detalhes</string>
     <string name="action_hide_details">Ocultar detalhes</string>
     <string name="shortcutSelectCard">Selecione um cartão</string>
@@ -274,4 +274,20 @@
     <string name="openBackImageInGalleryApp">Abrir a imagem traseira na aplicação da galeria</string>
     <string name="setBarcodeHeight">Definir altura do código de barras</string>
     <string name="donate">Doar</string>
+    <string name="show_validity">Mostrar validade</string>
+    <string name="show_balance">Mostrar saldo</string>
+    <string name="permissionReadCardsLabel">Ler Cartas Catima</string>
+    <string name="permissionReadCardsDescription">Leia seus cartões e todos os seus detalhes, incluindo notas e imagens</string>
+    <string name="show_note">Mostrar nota</string>
+    <string name="show_name_below_image_thumbnail">Mostrar nome abaixo da miniatura do ícone</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa o bloqueio de tela ao visualizar um cartão</string>
+    <string name="settings_display_barcode_max_brightness_summary">Necessário para alguns scanners funcionarem</string>
+    <string name="settings_keep_screen_on_summary">Desativa o tempo limite da tela ao visualizar um cartão</string>
+    <string name="settings_allow_content_provider_read_title">Permitir que outros aplicativos acessem meus dados</string>
+    <string name="settings_allow_content_provider_read_summary">Os aplicativos ainda terão que solicitar permissão para receber acesso</string>
+    <string name="settings_oled_dark_summary">Reduz o uso da bateria em telas OLED</string>
+    <string name="icon_header_click_text">Pressione e segure para editar o icone</string>
+    <string name="settings_category_title_cards">cartões</string>
+    <string name="settings_category_title_general">geral</string>
+    <string name="settings_category_title_privacy">Privacidade</string>
 </resources>

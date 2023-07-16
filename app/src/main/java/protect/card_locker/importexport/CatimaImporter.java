@@ -24,7 +24,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
@@ -42,24 +44,25 @@ import protect.card_locker.ZipUtils;
  */
 public class CatimaImporter implements Importer {
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, InterruptedException {
-        InputStream input = new FileInputStream(inputFile);
-        InputStream bufferedInputStream = new BufferedInputStream(input);
-        bufferedInputStream.mark(100);
+        // Pass #1: get hashes and parse CSV
+        InputStream input1 = new FileInputStream(inputFile);
+        InputStream bufferedInputStream1 = new BufferedInputStream(input1);
+        bufferedInputStream1.mark(100);
+        ZipInputStream zipInputStream1 = new ZipInputStream(bufferedInputStream1, password);
 
         // First, check if this is a zip file
-        ZipInputStream zipInputStream = new ZipInputStream(bufferedInputStream, password);
-
         boolean isZipFile = false;
-
         LocalFileHeader localFileHeader;
-        while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
+        Map<String, String> imageChecksums = new HashMap<>();
+
+        while ((localFileHeader = zipInputStream1.getNextEntry()) != null) {
             isZipFile = true;
 
             String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
             if (fileName.equals("catima.csv")) {
-                importCSV(context, database, zipInputStream);
+                importCSV(context, database, zipInputStream1);
             } else if (fileName.endsWith(".png")) {
-                Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream), fileName);
+                imageChecksums.put(fileName, Utils.checksum(zipInputStream1));
             } else {
                 throw new FormatException("Unexpected file in import: " + fileName);
             }
@@ -67,11 +70,27 @@ public class CatimaImporter implements Importer {
 
         if (!isZipFile) {
             // This is not a zip file, try importing as bare CSV
-            bufferedInputStream.reset();
-            importCSV(context, database, bufferedInputStream);
+            bufferedInputStream1.reset();
+            importCSV(context, database, bufferedInputStream1);
+            input1.close();
+            return;
         }
 
-        input.close();
+        input1.close();
+
+        // Pass #2: save images
+        InputStream input2 = new FileInputStream(inputFile);
+        InputStream bufferedInputStream2 = new BufferedInputStream(input2);
+        ZipInputStream zipInputStream2 = new ZipInputStream(bufferedInputStream2, password);
+
+        while ((localFileHeader = zipInputStream2.getNextEntry()) != null) {
+            String fileName = Uri.parse(localFileHeader.getFileName()).getLastPathSegment();
+            if (fileName.endsWith(".png")) {
+                Utils.saveCardImage(context, ZipUtils.readImage(zipInputStream2), fileName);
+            }
+        }
+
+        input2.close();
     }
 
     public void importCSV(Context context, SQLiteDatabase database, InputStream input) throws IOException, FormatException, InterruptedException {

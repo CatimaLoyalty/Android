@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@drawable/ic_baseline_arrow_drop_up_24"
+            app:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
             app:iconGravity="textStart"
             app:tint="?attr/colorOnPrimary"
             android:contentDescription="@string/moveUp"/>
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@drawable/ic_baseline_arrow_drop_down_24"
+            app:icon="@drawable/ic_baseline_keyboard_arrow_down_24"
             app:iconGravity="textStart"
             app:tint="?attr/colorOnPrimary"
             android:contentDescription="@string/moveDown"/>

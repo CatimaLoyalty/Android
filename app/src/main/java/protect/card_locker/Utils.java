@@ -386,6 +386,13 @@ public class Utils {
         return cardImageFileNameBuilder.toString();
     }
 
+    /**
+     * Returns a card image filename (string) with the ID replaced according to the map if the input is a valid card image filename (string), otherwise null.
+     *
+     * @param fileName e.g. "card_1_front.png"
+     * @param idMap e.g. Map.of(1, 2)
+     * @return String e.g. "card_2_front.png"
+     */
     static public String getRenamedCardImageFileName(final String fileName, final Map<Integer, Integer> idMap) {
         Pattern pattern = Pattern.compile(CARD_IMAGE_FILENAME_REGEX);
         Matcher matcher = pattern.matcher(fileName);

@@ -1,0 +1,3 @@
+- Pressione e segure o ícone do cartão na atividade de exibição para alterá-lo
+- Melhorar o estilo dos botões na tela Grupos
+- Corrigir valores longos de código de barras, fazendo com que o código de barras reduza para nada

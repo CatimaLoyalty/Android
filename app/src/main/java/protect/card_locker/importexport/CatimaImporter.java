@@ -142,6 +142,7 @@ public class CatimaImporter implements Importer {
         for (Map.Entry<Integer, String> entry : data.cardGroups) {
             int cardId = idMap.getOrDefault(entry.getKey(), entry.getKey());
             String groupId = entry.getValue();
+            // For existing & newly imported cards, add the groups from the import to the internal state
             List<Group> cardGroups = DBHelper.getLoyaltyCardGroups(database, cardId);
             cardGroups.add(DBHelper.getGroup(database, groupId));
             DBHelper.setLoyaltyCardGroups(database, cardId, cardGroups);

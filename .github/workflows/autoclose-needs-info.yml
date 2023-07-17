@@ -19,6 +19,4 @@ jobs:
           close-issue-message: 'This issue is missing necessary information and cannot be worked on in its current state. It has therefore been closed to keep the issue tracker clean. If you have more information, feel free to reopen it.'
           close-pr-message: 'This PR is missing necessary information and cannot be merged in its current state. It has therefore been closed to keep the issue tracker clean. If you have more information, feel free to reopen it.'
           only-labels: 'state: needs info'
-          stale-issue-label: 'state: needs info'
-          stale-pr-label: 'state: needs info'
           enable-statistics: true

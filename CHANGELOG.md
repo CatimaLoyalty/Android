@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 128
+## v2.25.1 - 128 (2023-07-17)
 
 - Fix rare crash
 

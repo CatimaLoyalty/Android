@@ -16,6 +16,8 @@ import org.apache.commons.csv.CSVRecord;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -42,7 +44,7 @@ import protect.card_locker.ZipUtils;
 public class StocardImporter implements Importer {
     private static final String TAG = "Catima";
 
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
         HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
         HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
 
@@ -62,6 +64,7 @@ public class StocardImporter implements Importer {
             throw new FormatException("Issue parsing CSV data", e);
         }
 
+        InputStream input = new FileInputStream(inputFile);
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
         String[] providersFileName = null;
@@ -245,6 +248,7 @@ public class StocardImporter implements Importer {
         }
 
         zipInputStream.close();
+        input.close();
     }
 
     private boolean startsWith(String[] full, String[] start, int minExtraLength) {

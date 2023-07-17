@@ -196,6 +196,35 @@ public class ImportExportTest {
         cursor.close();
     }
 
+    private void checkLoyaltyCardsAndDuplicates(int numCards) {
+        Cursor cursor = DBHelper.getLoyaltyCardCursor(mDatabase);
+
+        while (cursor.moveToNext()) {
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cursor);
+
+            // ID goes up for duplicates (b/c the cursor orders by store), down for originals
+            int index = card.id > numCards ? card.id - numCards : numCards - card.id + 1;
+            // balance is doubled for modified originals
+            int balance = card.id > numCards ? index : index * 2;
+
+            String expectedStore = String.format("store, \"%4d", index);
+            String expectedNote = String.format("note, \"%4d", index);
+
+            assertEquals(expectedStore, card.store);
+            assertEquals(expectedNote, card.note);
+            assertEquals(null, card.validFrom);
+            assertEquals(null, card.expiry);
+            assertEquals(new BigDecimal(String.valueOf(balance)), card.balance);
+            assertEquals(null, card.balanceType);
+            assertEquals(BARCODE_DATA, card.cardId);
+            assertEquals(null, card.barcodeId);
+            assertEquals(BARCODE_TYPE.format(), card.barcodeType.format());
+            assertEquals(Integer.valueOf(index), card.headerColor);
+            assertEquals(0, card.starStatus);
+        }
+        cursor.close();
+    }
+
     /**
      * Check that all of the cards follow the pattern
      * specified in addLoyaltyCardsSomeStarred(), and are in sequential order
@@ -472,6 +501,40 @@ public class ImportExportTest {
         assertEquals(NUM_CARDS, DBHelper.getLoyaltyCardCount(mDatabase));
 
         checkLoyaltyCards();
+
+        // Clear the database for the next format under test
+        TestHelpers.getEmptyDb(activity);
+    }
+
+    @Test
+    public void importExistingCardsAfterModification() throws IOException {
+        final int NUM_CARDS = 10;
+
+        TestHelpers.addLoyaltyCards(mDatabase, NUM_CARDS);
+
+        ByteArrayOutputStream outData = new ByteArrayOutputStream();
+        OutputStreamWriter outStream = new OutputStreamWriter(outData);
+
+        // Export into CSV data
+        ImportExportResult result = MultiFormatExporter.exportData(activity.getApplicationContext(), mDatabase, outData, DataFormat.Catima, null);
+        assertEquals(ImportExportResultType.Success, result.resultType());
+        outStream.close();
+
+        // Modify existing cards
+        for (int index = 1; index <= NUM_CARDS; index++) {
+            int id = NUM_CARDS - index + 1;
+            DBHelper.updateLoyaltyCardBalance(mDatabase, id, new BigDecimal(String.valueOf(index * 2)));
+        }
+
+        ByteArrayInputStream inData = new ByteArrayInputStream(outData.toByteArray());
+
+        // Import the CSV data on top of the existing database
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inData, DataFormat.Catima, null);
+        assertEquals(ImportExportResultType.Success, result.resultType());
+
+        assertEquals(NUM_CARDS * 2, DBHelper.getLoyaltyCardCount(mDatabase));
+
+        checkLoyaltyCardsAndDuplicates(NUM_CARDS);
 
         // Clear the database for the next format under test
         TestHelpers.getEmptyDb(activity);

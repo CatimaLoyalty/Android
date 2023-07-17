@@ -16,12 +16,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Catima.db";
     public static final int ORIGINAL_DATABASE_VERSION = 1;
     public static final int DATABASE_VERSION = 16;
+
+    // NB: changing this value requires a migration
+    public static final int DEFAULT_ZOOM_LEVEL = 100;
 
     public static class LoyaltyCardDbGroups {
         public static final String TABLE = "groups";
@@ -106,7 +111,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 LoyaltyCardDbIds.BARCODE_TYPE + " TEXT," +
                 LoyaltyCardDbIds.STAR_STATUS + " INTEGER DEFAULT '0'," +
                 LoyaltyCardDbIds.LAST_USED + " INTEGER DEFAULT '0', " +
-                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '100', " +
+                LoyaltyCardDbIds.ZOOM_LEVEL + " INTEGER DEFAULT '" + DEFAULT_ZOOM_LEVEL + "', " +
                 LoyaltyCardDbIds.ARCHIVE_STATUS + " INTEGER DEFAULT '0' )");
 
         // create associative table for cards in groups
@@ -321,6 +326,21 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("ALTER TABLE " + LoyaltyCardDbIds.TABLE
                     + " ADD COLUMN " + LoyaltyCardDbIds.VALID_FROM + " INTEGER");
         }
+    }
+
+    public static Set<String> imageFiles(Context context, final SQLiteDatabase database) {
+        Set<String> files = new HashSet<>();
+        Cursor cardCursor = getLoyaltyCardCursor(database);
+        while (cardCursor.moveToNext()) {
+            LoyaltyCard card = LoyaltyCard.toLoyaltyCard(cardCursor);
+            for (ImageLocationType imageLocationType : ImageLocationType.values()) {
+                String name = Utils.getCardImageFileName(card.id, imageLocationType);
+                if (Utils.retrieveCardImageAsFile(context, name).exists()) {
+                    files.add(name);
+                }
+            }
+        }
+        return files;
     }
 
     private static ContentValues generateFTSContentValues(final int id, final String store, final String note) {

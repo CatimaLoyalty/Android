@@ -12,6 +12,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -36,7 +38,8 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class VoucherVaultImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
+        InputStream input = new FileInputStream(inputFile);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 
         StringBuilder sb = new StringBuilder();
@@ -130,5 +133,6 @@ public class VoucherVaultImporter implements Importer {
         }
 
         bufferedReader.close();
+        input.close();
     }
 }

@@ -11,6 +11,8 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.json.JSONException;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -31,7 +33,8 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class FidmeImporter implements Importer {
-    public void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, JSONException, ParseException {
+    public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
+        InputStream input = new FileInputStream(inputFile);
         // We actually retrieve a .zip file
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
 
@@ -70,6 +73,7 @@ public class FidmeImporter implements Importer {
         }
 
         zipInputStream.close();
+        input.close();
     }
 
     /**

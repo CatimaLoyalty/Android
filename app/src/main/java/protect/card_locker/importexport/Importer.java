@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import org.json.JSONException;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 
 import protect.card_locker.FormatException;
@@ -23,5 +23,5 @@ public interface Importer {
      * @throws IOException
      * @throws FormatException
      */
-    void importData(Context context, SQLiteDatabase database, InputStream input, char[] password) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
+    void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, InterruptedException, JSONException, ParseException;
 }

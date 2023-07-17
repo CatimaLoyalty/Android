@@ -145,11 +145,20 @@ public class LoyaltyCard implements Parcelable {
 
     public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
         // Skip lastUsed & zoomLevel
-        return a.id == b.id && a.store.equals(b.store) && a.note.equals(b.note) && Utils.equals(a.validFrom, b.validFrom)
-                && Utils.equals(a.expiry, b.expiry) && a.balance.equals(b.balance) && Utils.equals(a.balanceType, b.balanceType)
-                && a.cardId.equals(b.cardId) && Utils.equals(a.barcodeId, b.barcodeId)
-                && Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(), b.barcodeType == null ? null : b.barcodeType.format())
-                && Utils.equals(a.headerColor, b.headerColor) && a.starStatus == b.starStatus && a.archiveStatus == b.archiveStatus;
+        return a.id == b.id && // non-nullable int
+                a.store.equals(b.store) && // non-nullable String
+                a.note.equals(b.note) && // non-nullable String
+                Utils.equals(a.validFrom, b.validFrom) && // nullable Date
+                Utils.equals(a.expiry, b.expiry) && // nullable Date
+                a.balance.equals(b.balance) && // non-nullable BigDecimal
+                Utils.equals(a.balanceType, b.balanceType) && // nullable Currency
+                a.cardId.equals(b.cardId) && // non-nullable String
+                Utils.equals(a.barcodeId, b.barcodeId) && // nullable String
+                Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(),
+                        b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
+                Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
+                a.starStatus == b.starStatus && // non-nullable int
+                a.archiveStatus == b.archiveStatus; // non-nullable int
     }
 
     @Override

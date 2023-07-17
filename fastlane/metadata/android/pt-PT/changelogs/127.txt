@@ -1,0 +1,4 @@
+- Melhorias na renderização do código de barras
+- Interoperabilidade básica com aplicativos externos (Android 6.0+)
+- Tela de configurações reorganizada
+- Corrige a importação de alguns navegadores que adicionam um / à direita no URL de compartilhamento

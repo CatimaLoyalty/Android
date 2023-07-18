@@ -36,6 +36,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
+import androidx.fragment.app.DialogFragment;
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.color.MaterialColors;
@@ -67,20 +81,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
 import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
@@ -375,6 +378,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         addDateFieldTextChangedListener(validFromField, R.string.anyDate, R.string.chooseValidFromDate, LoyaltyCardField.validFrom);
 
         addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
+
+        DatePickerFragment.registerDatePickListener(this, (textFieldToEdit, newDate) -> {
+            switch (textFieldToEdit) {
+                case validFrom:
+                    formatDateField(this, validFromField, newDate);
+                    break;
+                case expiry:
+                    formatDateField(this, expiryField, newDate);
+                    break;
+            }
+        });
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
@@ -967,10 +981,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
                         dateField.setText(lastValue);
                     }
-                    DialogFragment datePickerFragment = new DatePickerFragment(
-                            LoyaltyCardEditActivity.this,
-                            dateField,
-                            // if the expiry date is being set, set date picker's minDate to the 'valid from' date
+                    DialogFragment datePickerFragment = DatePickerFragment.newInstance(
+                            loyaltyCardField,
+                            (Date) dateField.getTag(),
                             loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
                             // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
                             loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null);
@@ -1336,27 +1349,54 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
-        final Context context;
-        final EditText textFieldEdit;
-        @Nullable
-        final Date minDate;
-        @Nullable
-        final Date maxDate;
+        private static final String TEXT_FIELD_TO_EDIT_ARGUMENT_KEY = "text_field_to_edit";
+        private static final String CURRENT_DATE_ARGUMENT_KEY = "current_date";
+        private static final String MIN_DATE_ARGUMENT_KEY = "min_date";
+        private static final String MAX_DATE_ARGUMENT_KEY = "max_date";
+        private static final String PICK_DATE_REQUEST_KEY = "pick_date_request_key";
+        private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
 
-        DatePickerFragment(Context context, EditText textFieldEdit, @Nullable Date minDate, @Nullable Date maxDate) {
-            this.context = context;
-            this.textFieldEdit = textFieldEdit;
-            this.minDate = minDate;
-            this.maxDate = maxDate;
+        public static DatePickerFragment newInstance(@NonNull LoyaltyCardField textField, @Nullable Date currentDate, @Nullable Date minDate, @Nullable Date maxDate) {
+            Bundle args = new Bundle();
+            args.putSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY, textField);
+            args.putSerializable(CURRENT_DATE_ARGUMENT_KEY, currentDate);
+            args.putSerializable(MIN_DATE_ARGUMENT_KEY, minDate);
+            args.putSerializable(MAX_DATE_ARGUMENT_KEY, maxDate);
+            DatePickerFragment fragment = new DatePickerFragment();
+            fragment.setArguments(args);
+            return fragment;
         }
+
+        public interface OnDatePickListener {
+            void onDatePicked(@NonNull LoyaltyCardField textFieldToEdit, @NonNull Date newDate);
+        }
+
+        public static void registerDatePickListener(@NonNull AppCompatActivity activity, @NonNull OnDatePickListener listener) {
+            activity.getSupportFragmentManager().setFragmentResultListener(
+                    PICK_DATE_REQUEST_KEY,
+                    activity,
+                    (requestKey, result) -> listener.onDatePicked(
+                            (LoyaltyCardField) Objects.requireNonNull(result.getSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY)),
+                            (Date) Objects.requireNonNull(result.getSerializable(NEWLY_PICKED_DATE_ARGUMENT_KEY))));
+        }
+
+        LoyaltyCardField textFieldEdit;
+        @Nullable
+        Date minDate;
+        @Nullable
+        Date maxDate;
 
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            Bundle args = requireArguments();
+            textFieldEdit = (LoyaltyCardField) args.getSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY);
+            minDate = (Date) args.getSerializable(MIN_DATE_ARGUMENT_KEY);
+            maxDate = (Date) args.getSerializable(MAX_DATE_ARGUMENT_KEY);
             // Use the current date as the default date in the picker
             final Calendar c = Calendar.getInstance();
 
-            Date date = (Date) textFieldEdit.getTag();
+            Date date = (Date) args.getSerializable(CURRENT_DATE_ARGUMENT_KEY);
             if (date != null) {
                 c.setTime(date);
             }
@@ -1398,7 +1438,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
             Date date = new Date(unixTime);
 
-            formatDateField(context, textFieldEdit, date);
+            Bundle result = new Bundle();
+            result.putSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY, textFieldEdit);
+            result.putSerializable(NEWLY_PICKED_DATE_ARGUMENT_KEY, date);
+            getParentFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, result);
         }
     }
 

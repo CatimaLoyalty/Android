@@ -387,6 +387,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 case expiry:
                     formatDateField(this, expiryField, newDate);
                     break;
+                default:
+                    throw new AssertionError("Unexpected field: " + textFieldToEdit);
             }
         });
 

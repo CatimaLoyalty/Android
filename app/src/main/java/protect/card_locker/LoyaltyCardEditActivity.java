@@ -986,6 +986,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     DialogFragment datePickerFragment = DatePickerFragment.newInstance(
                             loyaltyCardField,
                             (Date) dateField.getTag(),
+                            // if the expiry date is being set, set date picker's minDate to the 'valid from' date
                             loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
                             // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
                             loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null);
@@ -1358,6 +1359,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         private static final String PICK_DATE_REQUEST_KEY = "pick_date_request_key";
         private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
 
+        LoyaltyCardField textFieldEdit;
+        @Nullable
+        Date minDate;
+        @Nullable
+        Date maxDate;
+
         public static DatePickerFragment newInstance(@NonNull LoyaltyCardField textField, @Nullable Date currentDate, @Nullable Date minDate, @Nullable Date maxDate) {
             Bundle args = new Bundle();
             args.putSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY, textField);
@@ -1381,12 +1388,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                             (LoyaltyCardField) Objects.requireNonNull(result.getSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY)),
                             (Date) Objects.requireNonNull(result.getSerializable(NEWLY_PICKED_DATE_ARGUMENT_KEY))));
         }
-
-        LoyaltyCardField textFieldEdit;
-        @Nullable
-        Date minDate;
-        @Nullable
-        Date maxDate;
 
         @NonNull
         @Override

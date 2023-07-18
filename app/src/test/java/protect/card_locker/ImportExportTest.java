@@ -818,8 +818,9 @@ public class ImportExportTest {
     @Test
     public void exportImportV2Zip() throws FileNotFoundException {
         // Prepare images
-        Bitmap bitmap1 = new LetterBitmap(activity.getApplicationContext(), "1", "1", 12, 64, 64, Color.BLACK, Color.YELLOW).getLetterTile();
-        Bitmap bitmap2 = new LetterBitmap(activity.getApplicationContext(), "2", "2", 12, 64, 64, Color.GREEN, Color.WHITE).getLetterTile();
+        // NB: we can't use LetterBitmap as robolectric doesn't support Canvas enough
+        Bitmap bitmap1 = BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg"));
+        Bitmap bitmap2 = BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg"));
 
         // Set up cards and groups
         HashMap<Integer, LoyaltyCard> loyaltyCardHashMap = new HashMap<>();

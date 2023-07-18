@@ -21,13 +21,16 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 
 /**
@@ -38,6 +41,14 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class VoucherVaultImporter implements Importer {
+    public static class ImportedData {
+        public final List<LoyaltyCard> cards;
+
+        ImportedData(final List<LoyaltyCard> cards) {
+            this.cards = cards;
+        }
+    }
+
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
         InputStream input = new FileInputStream(inputFile);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
@@ -48,6 +59,16 @@ public class VoucherVaultImporter implements Importer {
             sb.append(line);
         }
         JSONArray jsonArray = new JSONArray(sb.toString());
+
+        bufferedReader.close();
+        input.close();
+
+        ImportedData importedData = importJSON(jsonArray);
+        saveAndDeduplicate(database, importedData);
+    }
+
+    public ImportedData importJSON(JSONArray jsonArray) throws FormatException, JSONException, ParseException {
+        ImportedData importedData = new ImportedData(new ArrayList<>());
 
         // See https://github.com/tim-smart/vouchervault/issues/4#issuecomment-788226503 for more info
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -129,10 +150,20 @@ public class VoucherVaultImporter implements Importer {
                     throw new FormatException("Unknown colour type found: " + colorFromJSON);
             }
 
-            DBHelper.insertLoyaltyCard(database, store, "", null, expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(),0);
+            // use -1 for the ID, it will be ignored when inserting the card into the DB
+            importedData.cards.add(new LoyaltyCard(-1, store, "", null, expiry, balance, balanceType, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, 0));
         }
 
-        bufferedReader.close();
-        input.close();
+        return importedData;
+    }
+
+    public void saveAndDeduplicate(SQLiteDatabase database, final ImportedData data) {
+        // This format does not have IDs that can cause conflicts
+        // Proper deduplication for all formats will be implemented later
+        for (LoyaltyCard card : data.cards) {
+            // Do not use card.id which is set to -1
+            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+        }
     }
 }

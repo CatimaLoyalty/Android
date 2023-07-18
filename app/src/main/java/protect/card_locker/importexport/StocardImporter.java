@@ -24,12 +24,16 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
 import protect.card_locker.ImageLocationType;
+import protect.card_locker.LoyaltyCard;
 import protect.card_locker.R;
 import protect.card_locker.Utils;
 import protect.card_locker.ZipUtils;
@@ -42,11 +46,30 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class StocardImporter implements Importer {
+    public static class ZIPData {
+        public final HashMap<String, HashMap<String, Object>> loyaltyCardHashMap;
+        public final HashMap<String, HashMap<String, Object>> providers;
+
+        ZIPData(final HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, final HashMap<String, HashMap<String, Object>> providers) {
+            this.loyaltyCardHashMap = loyaltyCardHashMap;
+            this.providers = providers;
+        }
+    }
+
+    public static class ImportedData {
+        public final List<LoyaltyCard> cards;
+        public final Map<Integer, Map<ImageLocationType, Bitmap>> images;
+
+        ImportedData(final List<LoyaltyCard> cards, final Map<Integer, Map<ImageLocationType, Bitmap>> images) {
+            this.cards = cards;
+            this.images = images;
+        }
+    }
+
     private static final String TAG = "Catima";
 
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
-        HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = new HashMap<>();
-        HashMap<String, HashMap<String, Object>> providers = new HashMap<>();
+        ZIPData zipData = new ZIPData(new HashMap<>(), new HashMap<>());
 
         final CSVParser parser = new CSVParser(new InputStreamReader(context.getResources().openRawResource(R.raw.stocard_stores), StandardCharsets.UTF_8), CSVFormat.RFC4180.builder().setHeader().build());
 
@@ -56,7 +79,7 @@ public class StocardImporter implements Importer {
                 recordData.put("name", record.get("name"));
                 recordData.put("barcodeFormat", record.get("barcodeFormat"));
 
-                providers.put(record.get("_id"), recordData);
+                zipData.providers.put(record.get("_id"), recordData);
             }
 
             parser.close();
@@ -66,6 +89,21 @@ public class StocardImporter implements Importer {
 
         InputStream input = new FileInputStream(inputFile);
         ZipInputStream zipInputStream = new ZipInputStream(input, password);
+        zipData = importZIP(zipInputStream, zipData);
+        zipInputStream.close();
+        input.close();
+
+        if (zipData.loyaltyCardHashMap.keySet().size() == 0) {
+            throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
+        }
+
+        ImportedData importedData = importLoyaltyCardHashMap(context, zipData);
+        saveAndDeduplicate(context, database, importedData);
+    }
+
+    public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, JSONException {
+        HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = zipData.loyaltyCardHashMap;
+        HashMap<String, HashMap<String, Object>> providers = zipData.providers;
 
         String[] providersFileName = null;
         String[] customProvidersBaseName = null;
@@ -197,11 +235,14 @@ public class StocardImporter implements Importer {
             }
         }
 
-        if (loyaltyCardHashMap.keySet().size() == 0) {
-            throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
-        }
+        return new ZIPData(loyaltyCardHashMap, providers);
+    }
 
-        for (HashMap<String, Object> loyaltyCardData : loyaltyCardHashMap.values()) {
+    public ImportedData importLoyaltyCardHashMap(Context context, final ZIPData zipData) {
+        ImportedData importedData = new ImportedData(new ArrayList<>(), new HashMap<>());
+        int tempID = 0;
+
+        for (Map<String, Object> loyaltyCardData : zipData.loyaltyCardHashMap.values()) {
             String providerId = (String) loyaltyCardData.get("_providerId");
 
             if (providerId == null) {
@@ -209,7 +250,7 @@ public class StocardImporter implements Importer {
                 continue;
             }
 
-            HashMap<String, Object> providerData = providers.get(providerId);
+            HashMap<String, Object> providerData = zipData.providers.get(providerId);
 
             String store = providerData != null ? providerData.get("name").toString() : providerId;
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
@@ -233,22 +274,39 @@ public class StocardImporter implements Importer {
                 headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
             }
 
-            long loyaltyCardInternalId = DBHelper.insertLoyaltyCard(database, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, null,0);
+            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, 0);
+            importedData.cards.add(card);
+
+            Map<ImageLocationType, Bitmap> images = new HashMap<>();
 
             if (cardIcon != null) {
-                Utils.saveCardImage(context, cardIcon, (int) loyaltyCardInternalId, ImageLocationType.icon);
+                images.put(ImageLocationType.icon, cardIcon);
             }
-
             if (loyaltyCardData.containsKey("frontImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("frontImage"), (int) loyaltyCardInternalId, ImageLocationType.front);
+                images.put(ImageLocationType.front, (Bitmap) loyaltyCardData.get("frontImage"));
             }
             if (loyaltyCardData.containsKey("backImage")) {
-                Utils.saveCardImage(context, (Bitmap) loyaltyCardData.get("backImage"), (int) loyaltyCardInternalId, ImageLocationType.back);
+                images.put(ImageLocationType.back, (Bitmap) loyaltyCardData.get("backImage"));
             }
+
+            importedData.images.put(tempID, images);
+            tempID++;
         }
 
-        zipInputStream.close();
-        input.close();
+        return importedData;
+    }
+
+    public void saveAndDeduplicate(Context context, SQLiteDatabase database, final ImportedData data) throws IOException {
+        // This format does not have IDs that can cause conflicts
+        // Proper deduplication for all formats will be implemented later
+        for (LoyaltyCard card : data.cards) {
+            // card.id is temporary and only used to index the images Map
+            long id = DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+            for (Map.Entry<ImageLocationType, Bitmap> entry : data.images.get(card.id).entrySet()) {
+                Utils.saveCardImage(context, entry.getValue(), (int) id, entry.getKey());
+            }
+        }
     }
 
     private boolean startsWith(String[] full, String[] start, int minExtraLength) {

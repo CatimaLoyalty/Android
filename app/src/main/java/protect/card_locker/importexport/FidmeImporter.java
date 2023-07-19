@@ -19,10 +19,13 @@ import java.io.StringReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import protect.card_locker.CatimaBarcode;
 import protect.card_locker.DBHelper;
 import protect.card_locker.FormatException;
+import protect.card_locker.LoyaltyCard;
 import protect.card_locker.Utils;
 
 /**
@@ -33,6 +36,14 @@ import protect.card_locker.Utils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class FidmeImporter implements Importer {
+    public static class ImportedData {
+        public final List<LoyaltyCard> cards;
+
+        ImportedData(final List<LoyaltyCard> cards) {
+            this.cards = cards;
+        }
+    }
+
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
         InputStream input = new FileInputStream(inputFile);
         // We actually retrieve a .zip file
@@ -57,10 +68,14 @@ public class FidmeImporter implements Importer {
         }
 
         final CSVParser fidmeParser = new CSVParser(new StringReader(loyaltyCards.toString()), CSVFormat.RFC4180.builder().setDelimiter(';').setHeader().build());
+        ImportedData importedData = new ImportedData(new ArrayList<>());
 
         try {
             for (CSVRecord record : fidmeParser) {
-                importLoyaltyCard(context, database, record);
+                LoyaltyCard card = importLoyaltyCard(context, record);
+                if (card != null) {
+                    importedData.cards.add(card);
+                }
 
                 if (Thread.currentThread().isInterrupted()) {
                     throw new InterruptedException();
@@ -74,14 +89,15 @@ public class FidmeImporter implements Importer {
 
         zipInputStream.close();
         input.close();
+
+        saveAndDeduplicate(database, importedData);
     }
 
     /**
      * Import a single loyalty card into the database using the given
      * session.
      */
-    private void importLoyaltyCard(Context context, SQLiteDatabase database, CSVRecord record)
-            throws FormatException {
+    private LoyaltyCard importLoyaltyCard(Context context, CSVRecord record) throws FormatException {
         // A loyalty card export from Fidme contains the following fields:
         // Retailer (store name)
         // Program (program name)
@@ -117,7 +133,7 @@ public class FidmeImporter implements Importer {
             // Fidme deletes the card id if a card is expired
             // Because Catima considers the card id a required field, we ignore these expired cards
             // https://github.com/CatimaLoyalty/Android/issues/1005
-            return;
+            return null;
         }
 
         // Sadly, Fidme exports don't contain the card type
@@ -132,6 +148,17 @@ public class FidmeImporter implements Importer {
 
         // TODO: Front and back image
 
-        DBHelper.insertLoyaltyCard(database, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, null,archiveStatus);
+        // use -1 for the ID, it will be ignored when inserting the card into the DB
+        return new LoyaltyCard(-1, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, starStatus, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, archiveStatus);
+    }
+
+    public void saveAndDeduplicate(SQLiteDatabase database, final ImportedData data) {
+        // This format does not have IDs that can cause conflicts
+        // Proper deduplication for all formats will be implemented later
+        for (LoyaltyCard card : data.cards) {
+            // Do not use card.id which is set to -1
+            DBHelper.insertLoyaltyCard(database, card.store, card.note, card.validFrom, card.expiry, card.balance, card.balanceType,
+                    card.cardId, card.barcodeId, card.barcodeType, card.headerColor, card.starStatus, card.lastUsed, card.archiveStatus);
+        }
     }
 }

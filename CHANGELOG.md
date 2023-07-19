@@ -3,6 +3,7 @@
 ## Unreleased - 129
 
 - Improved Catima importer (fixes cards missing when importing)
+- Fix crash when rotating screen while setting valid from/expiry date
 
 ## v2.25.1 - 128 (2023-07-17)
 

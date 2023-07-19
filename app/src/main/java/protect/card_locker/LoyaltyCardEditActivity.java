@@ -1352,11 +1352,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
+        public interface OnDatePickListener {
+            void onDatePicked(@NonNull LoyaltyCardField textFieldToEdit, @NonNull Date newDate);
+        }
+
         private static final String TEXT_FIELD_TO_EDIT_ARGUMENT_KEY = "text_field_to_edit";
         private static final String CURRENT_DATE_ARGUMENT_KEY = "current_date";
         private static final String MIN_DATE_ARGUMENT_KEY = "min_date";
         private static final String MAX_DATE_ARGUMENT_KEY = "max_date";
-        private static final String PICK_DATE_REQUEST_KEY = "pick_date_request_key";
+        private static final String PICK_DATE_REQUEST_KEY = "pick_date_request";
         private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
 
         LoyaltyCardField textFieldEdit;
@@ -1374,10 +1378,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             DatePickerFragment fragment = new DatePickerFragment();
             fragment.setArguments(args);
             return fragment;
-        }
-
-        public interface OnDatePickListener {
-            void onDatePicked(@NonNull LoyaltyCardField textFieldToEdit, @NonNull Date newDate);
         }
 
         public static void registerDatePickListener(@NonNull AppCompatActivity activity, @NonNull OnDatePickListener listener) {

@@ -1,0 +1,1 @@
+- Javított Catima importáló (javítja az importálás után hiányzó kártyákat)

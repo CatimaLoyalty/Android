@@ -2,10 +2,11 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/materialCardViewElevatedStyle"
     android:id="@+id/row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -137,7 +138,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"
-            android:textColor="?android:attr/textColorSecondary"
             android:visibility="gone"
             tools:visibility="visible"
             app:layout_constraintTop_toBottomOf="@+id/icon_layout"
@@ -154,7 +154,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
             android:visibility="gone"
             tools:visibility="visible"
             app:layout_constraintTop_toBottomOf="@+id/store"
@@ -187,7 +186,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
             app:drawableLeftCompat="@drawable/ic_baseline_payments_24"
             android:drawablePadding="4dp"
             android:visibility="gone"
@@ -207,7 +205,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
             app:drawableLeftCompat="@drawable/ic_valid_from_24dp"
             android:drawablePadding="4dp"
             android:visibility="gone"
@@ -227,7 +224,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
             app:drawableLeftCompat="@drawable/ic_baseline_access_time_24"
             android:drawablePadding="4dp"
             android:visibility="gone"

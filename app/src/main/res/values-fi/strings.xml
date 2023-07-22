@@ -188,7 +188,7 @@
         <item quantity="other"><xliff:g>%s</xliff:g> pistettä</item>
     </plurals>
     <string name="settings_oled_dark">Musta tausta tummalle teemalle</string>
-    <string name="setIcon">Aseta kuvake</string>
+    <string name="setIcon">Aseta pikkukuva</string>
     <string name="sort_by_name">Nimi</string>
     <string name="sort_by_most_recently_used">Viimeksi käytetyt</string>
     <string name="sort_by_expiry">Viimeinen voimassaoloaika</string>
@@ -259,4 +259,28 @@
     <string name="anyDate">Mikä tahansa päivämäärä</string>
     <string name="chooseValidFromDate">Valitse kelvollinen päivämäärä</string>
     <string name="validFromSentence">Kelvollinen alkaen: <xliff:g>%s</xliff:g></string>
+    <string name="donate">Lahjoita</string>
+    <string name="permissionReadCardsLabel">Lue Catima-kortteja</string>
+    <string name="permissionReadCardsDescription">Lue korttisi ja kaikki niiden tiedot, mukaan lukien huomautukset ja kuvat</string>
+    <string name="settings_allow_content_provider_read_summary">Sovellusten tulee silti pyytää lupaa saadakseen pääsyn</string>
+    <string name="settings_category_title_privacy">Yksityisyys</string>
+    <string name="height">Korkeus:</string>
+    <string name="switchToFrontImage">Vaihda etukuvaan</string>
+    <string name="switchToBarcode">Vaihda viivakoodiin</string>
+    <string name="openFrontImageInGalleryApp">Avaa etukuva galleriasovelluksessa</string>
+    <string name="settings_display_barcode_max_brightness_summary">Välttämätön, jotta jotkin skannerit toimivat</string>
+    <string name="settings_keep_screen_on_summary">Poistaa näytön aikakatkaisun korttia katsellessa</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Poistaa näyttölukituksen käytöstä korttia katsellessa</string>
+    <string name="settings_allow_content_provider_read_title">Salli muiden sovellusten käyttää omaa dataa</string>
+    <string name="settings_oled_dark_summary">Vähentää akun käyttöä OLED-näytöillä</string>
+    <string name="switchToBackImage">Vaihda takakuvaan</string>
+    <string name="openBackImageInGalleryApp">Avaa takakuva galleriasovelluksessa</string>
+    <string name="setBarcodeHeight">Aseta viivakoodin korkeus</string>
+    <string name="icon_header_click_text">Pitkä painallus pikkukuvan muokkaamiseksi</string>
+    <string name="show_name_below_image_thumbnail">Näytä nimi pikkukuvan alapuolella</string>
+    <string name="show_note">Näytä huomautus</string>
+    <string name="show_balance">Näytä saldo</string>
+    <string name="show_validity">Näytä kelpoisuus</string>
+    <string name="settings_category_title_cards">Kortit</string>
+    <string name="settings_category_title_general">Yleiset</string>
 </resources>

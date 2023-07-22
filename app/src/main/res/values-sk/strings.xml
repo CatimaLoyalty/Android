@@ -150,7 +150,7 @@
     <string name="yes">Áno</string>
     <string name="importStocard">Import z aplikácie Stocard</string>
     <string name="selectColor">Vybrať farbu</string>
-    <string name="setIcon">Nastaviť ikonu</string>
+    <string name="setIcon">Nastavenie miniatúry</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_pink_theme">Ružová</string>
     <string name="settings_magenta_theme">Purpurová</string>
@@ -266,4 +266,28 @@
     <string name="noUnarchivedCardsMessage">Nie sú žiadne karty vrátené z archívu</string>
     <string name="newBalanceSentence">Nový zostatok: <xliff:g>%s</xliff:g></string>
     <string name="failedLaunchingPhotoPicker">Nepodarilo sa nájsť podporovanú aplikáciu galérie</string>
+    <string name="show_note">Zobraziť poznámku</string>
+    <string name="icon_header_click_text">Dlhým stlačením upravíte miniatúru</string>
+    <string name="settings_category_title_general">Všeobecné</string>
+    <string name="settings_category_title_privacy">Súkromie</string>
+    <string name="settings_keep_screen_on_summary">Zakázanie časového limitu obrazovky počas prezerania karty</string>
+    <string name="settings_display_barcode_max_brightness_summary">Potrebné pre fungovanie niektorých skenerov</string>
+    <string name="settings_allow_content_provider_read_summary">Aplikácie budú musieť stále žiadať o povolenie, aby im bol udelený prístup</string>
+    <string name="openBackImageInGalleryApp">Otvorenie spätného obrázka v aplikácii galéria</string>
+    <string name="openFrontImageInGalleryApp">Otvorenie predného obrázka v aplikácii galéria</string>
+    <string name="setBarcodeHeight">Nastavenie výšky čiarového kódu</string>
+    <string name="show_balance">Ukážte rovnováhu</string>
+    <string name="show_name_below_image_thumbnail">Zobraziť názov pod miniatúrou obrázka</string>
+    <string name="show_validity">Zobraziť platnosť</string>
+    <string name="permissionReadCardsLabel">Načítať Catima karty</string>
+    <string name="permissionReadCardsDescription">Čítanie kariet a všetkých ich detailov vrátane poznámok a obrázkov</string>
+    <string name="switchToBackImage">Prepnutie na zadný obrázok</string>
+    <string name="height">Výška:</string>
+    <string name="switchToFrontImage">Prepnutie na predný obrázok</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakázanie uzamknutia obrazovky počas prezerania karty</string>
+    <string name="settings_allow_content_provider_read_title">Povolenie prístupu k mojim údajom iným aplikáciám</string>
+    <string name="settings_oled_dark_summary">Znižuje spotrebu batérie na displejoch OLED</string>
+    <string name="switchToBarcode">Prepnutie na čiarový kód</string>
+    <string name="settings_category_title_cards">Karty</string>
+    <string name="donate">Darujte</string>
 </resources>

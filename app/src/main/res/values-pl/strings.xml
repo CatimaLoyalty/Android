@@ -282,7 +282,19 @@
     <string name="donate">Darowizna</string>
     <string name="openBackImageInGalleryApp">Otwórz obraz z powrotem w aplikacji galerii</string>
     <string name="icon_header_click_text">Przytrzymaj, aby edytować miniaturę</string>
-    <string name="show_name_below_image_thumbnail">Pokaż imię pod miniaturką zdjęcia</string>
+    <string name="show_name_below_image_thumbnail">Pokaż nazwę pod miniaturką zdjęcia</string>
     <string name="show_balance">Pokaż balans</string>
     <string name="show_validity">Pokaż ważność</string>
+    <string name="show_note">Pokaż notatkę</string>
+    <string name="permissionReadCardsLabel">Odczytaj Karty Catima</string>
+    <string name="permissionReadCardsDescription">Odczytaj swoje karty i ich szczegóły, włącznie z notatkami i obrazkami</string>
+    <string name="settings_allow_content_provider_read_title">Pozwól innym aplikacjom na dostęp do moich danych</string>
+    <string name="settings_display_barcode_max_brightness_summary">Potrzebne aby niektóre skanery działały</string>
+    <string name="settings_keep_screen_on_summary">Wyłącza wygaszanie ekranu kiedy wyświetlana jest karta</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Wyłącza blokadę ekranu kiedy wyświetlana jest karta</string>
+    <string name="settings_allow_content_provider_read_summary">Aplikacje będą wymagały pozwolenia aby otrzymać dostęp do danych</string>
+    <string name="settings_oled_dark_summary">Zmniejsza zużycie baterii na wyświetlaczach OLED</string>
+    <string name="settings_category_title_cards">Karty</string>
+    <string name="settings_category_title_general">Ogólne</string>
+    <string name="settings_category_title_privacy">Prywatność</string>
 </resources>

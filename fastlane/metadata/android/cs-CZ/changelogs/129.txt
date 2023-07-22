@@ -1,1 +1,2 @@
 - Vylepšení importu Catima (oprava chybějících karet při importu)
+- Oprava havárie při otáčení obrazovky během nastavení data platnosti od/vypršení

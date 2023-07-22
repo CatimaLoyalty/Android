@@ -1,0 +1,2 @@
+- Pequeñas mejoras de UI
+- Corrección del nuevo diseño no disponible en dispositivos con pantallas cuadradas

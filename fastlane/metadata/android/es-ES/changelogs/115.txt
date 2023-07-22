@@ -1,0 +1,4 @@
+- Abrir imagen en la galería con una pulsación larga
+- Aplicar estilo Material a los modales
+- Soporte para crear una tarjeta compartiendo una imagen en Catima
+- Añadir el botón de gastos rápidos a la pantalla de la tarjeta

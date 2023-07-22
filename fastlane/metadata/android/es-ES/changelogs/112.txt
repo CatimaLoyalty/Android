@@ -1,0 +1,1 @@
+- Hacer más visible la posibilidad de crear una cabecera personalizada

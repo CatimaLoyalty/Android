@@ -1,0 +1,3 @@
+- Rediseño completo de la pantalla principal y de vista de tarjeta de fidelidad
+- Diseño Material You para la pantalla de ajustes
+- Corrección de error al usar "Toma una foto" con la cámara de la aplicación deshabilitada

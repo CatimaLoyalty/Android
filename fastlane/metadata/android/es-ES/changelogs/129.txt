@@ -1,0 +1,2 @@
+- Mejorada la importación de Catima (corrige la tarjetas que faltan al importar)
+- Corrección del error al rotar la pantalla mientras se establece las fechas de validez desde/hasta

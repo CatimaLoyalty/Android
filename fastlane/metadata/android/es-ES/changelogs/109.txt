@@ -1,0 +1,1 @@
+- Corrección de color de texto incorrecto en el botón "No hay código de barras"

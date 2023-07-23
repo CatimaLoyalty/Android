@@ -183,6 +183,15 @@ public class StocardImporter implements Importer {
                             jsonObject.getString("input_id")
                     );
 
+                    if (jsonObject.has("input_provider_name")) {
+                        loyaltyCardHashMap = appendToHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "store",
+                                jsonObject.getString("input_provider_name")
+                        );
+                    }
+
                     // Provider ID can be either custom or not, extract whatever version is relevant
                     String customProviderPrefix = "/users/" + nameParts[1] + "/loyalty-card-custom-providers/";
                     String providerId = jsonObject
@@ -252,7 +261,14 @@ public class StocardImporter implements Importer {
 
             HashMap<String, Object> providerData = zipData.providers.get(providerId);
 
-            String store = providerData != null ? providerData.get("name").toString() : providerId;
+            // Read store from card, if not available (old export), fall back to providerData
+            String store;
+            if (loyaltyCardData.containsKey("store")) {
+                store = (String) loyaltyCardData.get("store");
+            } else {
+                store = providerData != null ? providerData.get("name").toString() : providerId;
+            }
+
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);

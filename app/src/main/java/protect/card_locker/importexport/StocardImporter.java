@@ -13,6 +13,7 @@ import net.lingala.zip4j.model.LocalFileHeader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,6 +25,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -226,6 +228,18 @@ public class StocardImporter implements Importer {
                             ZipUtils.readJSON(zipInputStream)
                                     .getString("content")
                     );
+                } else if (fileName.endsWith("usage-statistics/content.json")) {
+                    JSONArray usages = ZipUtils.readJSON(zipInputStream).getJSONArray("usages");
+                    JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
+                    String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
+                    long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+
+                    loyaltyCardHashMap = appendToHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "lastUsed",
+                            timeStamp
+                    );
                 } else if (fileName.endsWith("/images/front.png")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
@@ -290,7 +304,14 @@ public class StocardImporter implements Importer {
                 headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
             }
 
-            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, 0);
+            long lastUsed;
+            if (loyaltyCardData.containsKey("lastUsed")) {
+                lastUsed = (long) loyaltyCardData.get("lastUsed");
+            } else {
+                lastUsed = Utils.getUnixTime();
+            }
+
+            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, 0);
             importedData.cards.add(card);
 
             Map<ImageLocationType, Bitmap> images = new HashMap<>();

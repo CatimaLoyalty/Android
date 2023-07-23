@@ -1150,6 +1150,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625600883, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));
@@ -1167,6 +1168,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625690099, card.lastUsed);
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.front)));
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back)));
@@ -1184,6 +1186,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625600120, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.back));

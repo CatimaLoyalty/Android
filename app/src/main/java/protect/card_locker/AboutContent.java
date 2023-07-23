@@ -94,9 +94,11 @@ public class AboutContent {
 
     public String getContributorInfo() {
         StringBuilder contributorInfo = new StringBuilder();
-        contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_contributors), getContributors()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        contributorInfo.append(getCopyright());
         contributorInfo.append("\n\n");
         contributorInfo.append(context.getString(R.string.app_copyright_old));
+        contributorInfo.append("\n\n");
+        contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_contributors), getContributors()), HtmlCompat.FROM_HTML_MODE_COMPACT));
         contributorInfo.append("\n\n");
         contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_libraries), getThirdPartyLibraries()), HtmlCompat.FROM_HTML_MODE_COMPACT));
         contributorInfo.append("\n\n");

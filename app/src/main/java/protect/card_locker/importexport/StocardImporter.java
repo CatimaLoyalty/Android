@@ -240,14 +240,14 @@ public class StocardImporter implements Importer {
                             "lastUsed",
                             timeStamp
                     );
-                } else if (fileName.endsWith("/images/front.png")) {
+                } else if (fileName.endsWith("/images/front.png") || fileName.endsWith("/images/front/front.jpg")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
                             ZipUtils.readImage(zipInputStream)
                     );
-                } else if (fileName.endsWith("/images/back.png")) {
+                } else if (fileName.endsWith("/images/back.png") || fileName.endsWith("/images/back/back.jpg")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,

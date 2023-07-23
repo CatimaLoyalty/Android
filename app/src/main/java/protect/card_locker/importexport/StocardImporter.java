@@ -230,16 +230,18 @@ public class StocardImporter implements Importer {
                     );
                 } else if (fileName.endsWith("usage-statistics/content.json")) {
                     JSONArray usages = ZipUtils.readJSON(zipInputStream).getJSONArray("usages");
-                    JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
-                    String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
-                    long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+                    if (usages.length() > 0) {
+                        JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
+                        String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
+                        long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
 
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "lastUsed",
-                            timeStamp
-                    );
+                        loyaltyCardHashMap = appendToHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "lastUsed",
+                                timeStamp
+                        );
+                    }
                 } else if (fileName.endsWith("/images/front.png") || fileName.endsWith("/images/front/front.jpg")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,

@@ -13,6 +13,7 @@ import net.lingala.zip4j.model.LocalFileHeader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,6 +25,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -183,6 +185,15 @@ public class StocardImporter implements Importer {
                             jsonObject.getString("input_id")
                     );
 
+                    if (jsonObject.has("input_provider_name")) {
+                        loyaltyCardHashMap = appendToHashMap(
+                                loyaltyCardHashMap,
+                                cardName,
+                                "store",
+                                jsonObject.getString("input_provider_name")
+                        );
+                    }
+
                     // Provider ID can be either custom or not, extract whatever version is relevant
                     String customProviderPrefix = "/users/" + nameParts[1] + "/loyalty-card-custom-providers/";
                     String providerId = jsonObject
@@ -217,14 +228,26 @@ public class StocardImporter implements Importer {
                             ZipUtils.readJSON(zipInputStream)
                                     .getString("content")
                     );
-                } else if (fileName.endsWith("/images/front.png")) {
+                } else if (fileName.endsWith("usage-statistics/content.json")) {
+                    JSONArray usages = ZipUtils.readJSON(zipInputStream).getJSONArray("usages");
+                    JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
+                    String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
+                    long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+
+                    loyaltyCardHashMap = appendToHashMap(
+                            loyaltyCardHashMap,
+                            cardName,
+                            "lastUsed",
+                            timeStamp
+                    );
+                } else if (fileName.endsWith("/images/front.png") || fileName.endsWith("/images/front/front.jpg")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
                             "frontImage",
                             ZipUtils.readImage(zipInputStream)
                     );
-                } else if (fileName.endsWith("/images/back.png")) {
+                } else if (fileName.endsWith("/images/back.png") || fileName.endsWith("/images/back/back.jpg")) {
                     loyaltyCardHashMap = appendToHashMap(
                             loyaltyCardHashMap,
                             cardName,
@@ -252,7 +275,14 @@ public class StocardImporter implements Importer {
 
             HashMap<String, Object> providerData = zipData.providers.get(providerId);
 
-            String store = providerData != null ? providerData.get("name").toString() : providerId;
+            // Read store from card, if not available (old export), fall back to providerData
+            String store;
+            if (loyaltyCardData.containsKey("store")) {
+                store = (String) loyaltyCardData.get("store");
+            } else {
+                store = providerData != null ? providerData.get("name").toString() : providerId;
+            }
+
             String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
             String cardId = (String) loyaltyCardData.get("cardId");
             String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
@@ -274,7 +304,14 @@ public class StocardImporter implements Importer {
                 headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
             }
 
-            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, Utils.getUnixTime(), DBHelper.DEFAULT_ZOOM_LEVEL, 0);
+            long lastUsed;
+            if (loyaltyCardData.containsKey("lastUsed")) {
+                lastUsed = (long) loyaltyCardData.get("lastUsed");
+            } else {
+                lastUsed = Utils.getUnixTime();
+            }
+
+            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, 0);
             importedData.cards.add(card);
 
             Map<ImageLocationType, Bitmap> images = new HashMap<>();

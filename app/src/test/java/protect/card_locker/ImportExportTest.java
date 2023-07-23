@@ -1125,10 +1125,6 @@ public class ImportExportTest {
 
     @Test
     public void importStocard() {
-        // FIXME: The provided stocard.zip is a very old export (8 July 2021) manually edited to
-        // look more like the Stocard files provided by users for #1242. It is not an up-to-date
-        // export and the test is possibly unreliable. This should be replaced by an up-to-date
-        // export.
         InputStream inputStream = getClass().getResourceAsStream("stocard.zip");
 
         // Import the Stocard data
@@ -1138,7 +1134,7 @@ public class ImportExportTest {
 
         inputStream = getClass().getResourceAsStream("stocard.zip");
 
-        result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Stocard, "da811b40a4dac56f0cbb2d99b21bbb9a".toCharArray());
+        result = MultiFormatImporter.importData(activity.getApplicationContext(), mDatabase, inputStream, DataFormat.Stocard, "sE0p0RiFDteqhlD4adwWpwjvmI0r0CFOTfyzRae4vEsgNe3NKL".toCharArray());
         assertEquals(ImportExportResultType.Success, result.resultType());
         assertEquals(3, DBHelper.getLoyaltyCardCount(mDatabase));
 
@@ -1154,6 +1150,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625600883, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));
@@ -1171,6 +1168,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625690099, card.lastUsed);
 
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.front)));
         assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back)));
@@ -1188,6 +1186,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1625600120, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.back));

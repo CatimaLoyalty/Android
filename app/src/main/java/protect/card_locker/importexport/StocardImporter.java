@@ -97,10 +97,10 @@ public class StocardImporter implements Importer {
         try {
             for (CSVRecord record : parser) {
                 StocardProvider provider = new StocardProvider();
-                provider.name = record.get("name");
-                provider.barcodeFormat = record.get("barcodeFormat");
+                provider.name = record.get("name").trim();
+                provider.barcodeFormat = record.get("barcodeFormat").trim();
 
-                zipData.providers.put(record.get("_id"), provider);
+                zipData.providers.put(record.get("_id").trim(), provider);
             }
 
             parser.close();

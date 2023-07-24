@@ -29,6 +29,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -288,7 +289,12 @@ public class StocardImporter implements Importer {
         ImportedData importedData = new ImportedData(new ArrayList<>(), new HashMap<>());
         int tempID = 0;
 
-        for (StocardRecord record : zipData.cards.values()) {
+        List<String> cardKeys = new ArrayList<>(zipData.cards.keySet());
+        Collections.sort(cardKeys);
+
+        for (String key : cardKeys) {
+            StocardRecord record = zipData.cards.get(key);
+
             if (record.providerId == null) {
                 Log.d(TAG, "Missing providerId for card " + record + ", ignoring...");
                 continue;

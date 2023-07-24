@@ -1140,24 +1140,6 @@ public class ImportExportTest {
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
-        assertEquals("GAMMA", card.store);
-        assertEquals("", card.note);
-        assertEquals(null, card.validFrom);
-        assertEquals(null, card.expiry);
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals("55555", card.cardId);
-        assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
-        assertEquals(0, card.starStatus);
-        assertEquals(1625600883, card.lastUsed);
-
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.icon));
-
-        card = DBHelper.getLoyaltyCard(mDatabase, 2);
-
         assertEquals("Air Miles", card.store);
         assertEquals("szjsbs", card.note);
         assertEquals(null, card.validFrom);
@@ -1170,8 +1152,26 @@ public class ImportExportTest {
         assertEquals(0, card.starStatus);
         assertEquals(1625690099, card.lastUsed);
 
-        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.front)));
-        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back)));
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-front.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front)));
+        assertTrue(BitmapFactory.decodeStream(getClass().getResourceAsStream("stocard-back.jpg")).sameAs(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back)));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.icon));
+
+        card = DBHelper.getLoyaltyCard(mDatabase, 2);
+
+        assertEquals("GAMMA", card.store);
+        assertEquals("", card.note);
+        assertEquals(null, card.validFrom);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("55555", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
+        assertEquals(0, card.starStatus);
+        assertEquals(1625600883, card.lastUsed);
+
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.front));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.back));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 2, ImageLocationType.icon));
 
         card = DBHelper.getLoyaltyCard(mDatabase, 3);
@@ -1206,17 +1206,16 @@ public class ImportExportTest {
 
         LoyaltyCard card = DBHelper.getLoyaltyCard(mDatabase, 1);
 
-        assertEquals("GAMMA", card.store);
+        assertEquals("Foo", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);
         assertEquals(null, card.balanceType);
-        assertEquals("55555", card.cardId);
+        assertEquals("1234567895", card.cardId);
         assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
+        assertEquals(BarcodeFormat.ITF, card.barcodeType.format());
         assertEquals(0, card.starStatus);
-        assertEquals(1625600883, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));
@@ -1242,6 +1241,24 @@ public class ImportExportTest {
 
         card = DBHelper.getLoyaltyCard(mDatabase, 3);
 
+        assertEquals("GAMMA", card.store);
+        assertEquals("", card.note);
+        assertEquals(null, card.validFrom);
+        assertEquals(null, card.expiry);
+        assertEquals(new BigDecimal("0"), card.balance);
+        assertEquals(null, card.balanceType);
+        assertEquals("55555", card.cardId);
+        assertEquals(null, card.barcodeId);
+        assertEquals(BarcodeFormat.EAN_13, card.barcodeType.format());
+        assertEquals(0, card.starStatus);
+        assertEquals(1625600883, card.lastUsed);
+
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.front));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.back));
+        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.icon));
+
+        card = DBHelper.getLoyaltyCard(mDatabase, 4);
+
         assertEquals("jö", card.store);
         assertEquals("", card.note);
         assertEquals(null, card.validFrom);
@@ -1253,23 +1270,6 @@ public class ImportExportTest {
         assertEquals(BarcodeFormat.RSS_EXPANDED, card.barcodeType.format());
         assertEquals(0, card.starStatus);
         assertEquals(1625600120, card.lastUsed);
-
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.front));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.back));
-        assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 3, ImageLocationType.icon));
-
-        card = DBHelper.getLoyaltyCard(mDatabase, 4);
-
-        assertEquals("Foo", card.store);
-        assertEquals("", card.note);
-        assertEquals(null, card.validFrom);
-        assertEquals(null, card.expiry);
-        assertEquals(new BigDecimal("0"), card.balance);
-        assertEquals(null, card.balanceType);
-        assertEquals("1234567895", card.cardId);
-        assertEquals(null, card.barcodeId);
-        assertEquals(BarcodeFormat.ITF, card.barcodeType.format());
-        assertEquals(0, card.starStatus);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 4, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 4, ImageLocationType.back));

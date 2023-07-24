@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.google.zxing.BarcodeFormat;
 
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
@@ -63,6 +65,23 @@ public class StocardImporter implements Importer {
         public Long lastUsed = null;
         public Bitmap frontImage = null;
         public Bitmap backImage = null;
+
+        @NonNull
+        @Override
+        public String toString() {
+            return String.format(
+                    "StocardRecord{\n  providerId=%s,\n  store=%s,\n  note=%s,\n  cardId=%s,\n  barcodeType=%s,\n"
+                            + "  lastUsed=%s,\n  frontImage=%s,\n  backImage=%s\n}",
+                    this.providerId,
+                    this.store,
+                    this.note,
+                    this.cardId,
+                    this.barcodeType,
+                    this.lastUsed,
+                    this.frontImage,
+                    this.backImage
+            );
+        }
     }
 
     public static class ZIPData {
@@ -254,7 +273,6 @@ public class StocardImporter implements Importer {
 
         for (StocardRecord record : zipData.cards.values()) {
             if (record.providerId == null) {
-                // FIXME: .toString() not implemented
                 Log.d(TAG, "Missing providerId for card " + record + ", ignoring...");
                 continue;
             }

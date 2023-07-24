@@ -251,10 +251,20 @@ public class StocardImporter implements Importer {
                     record.note = ZipUtils.readJSON(zipInputStream).getString("content");
                 } else if (fileName.endsWith("usage-statistics/content.json")) {
                     JSONArray usages = ZipUtils.readJSON(zipInputStream).getJSONArray("usages");
-                    if (usages.length() > 0) {
-                        JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
+                    for (int i = 0; i < usages.length(); i++) {
+                        JSONObject lastUsedObject = usages.getJSONObject(i);
                         String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
-                        record.lastUsed = Instant.parse(lastUsedString).getEpochSecond();
+                        long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+                        if (record.lastUsed == null || timeStamp > record.lastUsed) {
+                            record.lastUsed = timeStamp;
+                        }
+                    }
+                } else if (fileName.matches("/usages/[^/]+/content.json$")) {
+                    JSONObject lastUsedObject = ZipUtils.readJSON(zipInputStream);
+                    String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
+                    long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+                    if (record.lastUsed == null || timeStamp > record.lastUsed) {
+                        record.lastUsed = timeStamp;
                     }
                 } else if (fileName.endsWith("/images/front.png") || fileName.endsWith("/images/front/front.jpg")) {
                     record.frontImage = ZipUtils.readImage(zipInputStream);

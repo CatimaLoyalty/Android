@@ -286,4 +286,15 @@
     <string name="show_note">Показати примітку</string>
     <string name="show_validity">Показати термін дії</string>
     <string name="show_balance">Показати баланс</string>
+    <string name="permissionReadCardsLabel">Читати карти Catima</string>
+    <string name="settings_allow_content_provider_read_summary">Додатки все ще муситимуть запитувати дозвіл на отримання доступу</string>
+    <string name="permissionReadCardsDescription">Читати всі ваші карти та їх деталі, в тому числі нотатки та зображення</string>
+    <string name="settings_display_barcode_max_brightness_summary">Необхідно для роботи деяких сканерів</string>
+    <string name="settings_keep_screen_on_summary">Вимикає тайм-аут екрана під час перегляду картки</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Вимикає блокування екрана під час перегляду картки</string>
+    <string name="settings_allow_content_provider_read_title">Дозволити іншим програмам доступ до моїх даних</string>
+    <string name="settings_oled_dark_summary">Зменшує використання батареї на екранах з OLED</string>
+    <string name="settings_category_title_cards">Картки</string>
+    <string name="settings_category_title_general">Загальні</string>
+    <string name="settings_category_title_privacy">Конфіденційність</string>
 </resources>

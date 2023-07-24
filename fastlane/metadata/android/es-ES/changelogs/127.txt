@@ -1,0 +1,4 @@
+- Mejoras en el renderizado de los códigos de barras
+- Interoperabilidad básica con aplicaciones externas (Android 6.0+)
+- Pantalla de ajustes reorganizada
+- Corrección al importar desde algunos navegadores que añaden una / al final de la URL al compartir

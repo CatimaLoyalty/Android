@@ -1,0 +1,3 @@
+- Añadir icono monocromático para Android 13
+- Mejora de la pantalla en la primera ejecución
+- Correcciones en la importación de Fidme

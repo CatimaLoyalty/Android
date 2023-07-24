@@ -228,6 +228,13 @@ public class StocardImporter implements Importer {
                         record.store = jsonObject.getString("input_provider_name");
                     }
 
+                    if (jsonObject.has("label")) {
+                        String label = jsonObject.getString("label");
+                        if (!label.isBlank()) {
+                            record.store = label;
+                        }
+                    }
+
                     // Provider ID can be either custom or not, extract whatever version is relevant
                     String customProviderPrefix = "/users/" + userId + "/loyalty-card-custom-providers/";
                     String providerId = jsonObject

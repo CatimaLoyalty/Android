@@ -60,6 +60,7 @@ public class StocardImporter implements Importer {
     public static class StocardRecord {
         public String providerId = null;
         public String store = null;
+        public String label = null;
         public String note = null;
         public String cardId = null;
         public String barcodeType = null;
@@ -71,10 +72,11 @@ public class StocardImporter implements Importer {
         @Override
         public String toString() {
             return String.format(
-                    "StocardRecord{\n  providerId=%s,\n  store=%s,\n  note=%s,\n  cardId=%s,\n  barcodeType=%s,\n"
-                            + "  lastUsed=%s,\n  frontImage=%s,\n  backImage=%s\n}",
+                    "StocardRecord{\n  providerId=%s,\n  store=%s,\n  label=%s,\n  note=%s,\n  cardId=%s,\n"
+                            + "  barcodeType=%s,\n  lastUsed=%s,\n  frontImage=%s,\n  backImage=%s\n}",
                     this.providerId,
                     this.store,
+                    this.label,
                     this.note,
                     this.cardId,
                     this.barcodeType,
@@ -145,11 +147,12 @@ public class StocardImporter implements Importer {
     public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, FormatException, JSONException {
         Map<String, StocardRecord> cards = zipData.cards;
         Map<String, StocardProvider> providers = zipData.providers;
+        Map<String, StocardProvider> moreProviders = new HashMap<>();
 
-        // String[] providersFileName = null;
+        String[] providersFileName = null;
         String[] customProvidersBaseName = null;
-        String customProviderId = "";
         String[] cardBaseName = null;
+        String customProviderId = "";
         String cardName = "";
         LocalFileHeader localFileHeader;
         while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
@@ -162,16 +165,15 @@ public class StocardImporter implements Importer {
 
             String userId = nameParts[1];
 
-            if (customProvidersBaseName == null) {
-                // FIXME: unused
-                /* providersFileName = new String[]{
+            if (providersFileName == null) {
+                providersFileName = new String[]{
                         "extracts",
                         userId,
                         "users",
                         userId,
                         "analytics-properties",
                         "content.json"
-                }; */
+                };
                 customProvidersBaseName = new String[]{
                         "extracts",
                         userId,
@@ -188,11 +190,21 @@ public class StocardImporter implements Importer {
                 };
             }
 
-            // FIXME: not present in test ZIP
-            if (startsWith(nameParts, customProvidersBaseName, 1)) {
+            if (nameParts.length == providersFileName.length && startsWith(nameParts, providersFileName, 0)) {
+                JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
+                JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
+                JSONArray providerList = jsonObject.getJSONArray("provider_list");
+                if (providerIdList.length() == providerList.length()) {
+                    for (int i = 0; i < providerIdList.length(); i++) {
+                        StocardProvider provider = new StocardProvider();
+                        String providerId = providerIdList.getString(i);
+                        provider.name = providerList.getString(i);
+                        moreProviders.put(providerId, provider);
+                    }
+                }
+            } else if (startsWith(nameParts, customProvidersBaseName, 1)) {
                 // Extract providerId
-                // FIXME: do we need the split?
-                customProviderId = nameParts[customProvidersBaseName.length].split("\\.", 2)[0];
+                customProviderId = nameParts[customProvidersBaseName.length];
 
                 StocardProvider provider = providers.get(customProviderId);
                 if (provider == null) {
@@ -207,12 +219,9 @@ public class StocardImporter implements Importer {
                 } else if (fileName.endsWith("logo.png")) {
                     provider.logo = ZipUtils.readImage(zipInputStream);
                 }
-            }
-
-            if (startsWith(nameParts, cardBaseName, 1)) {
+            } else if (startsWith(nameParts, cardBaseName, 1)) {
                 // Extract cardName
-                // FIXME: do we need the split?
-                cardName = nameParts[cardBaseName.length].split("\\.", 2)[0];
+                cardName = nameParts[cardBaseName.length];
 
                 StocardRecord record = cards.get(cardName);
                 if (record == null) {
@@ -232,7 +241,7 @@ public class StocardImporter implements Importer {
                     if (jsonObject.has("label")) {
                         String label = jsonObject.getString("label");
                         if (!label.isBlank()) {
-                            record.store = label;
+                            record.label = label;
                         }
                     }
 
@@ -282,6 +291,12 @@ public class StocardImporter implements Importer {
             }
         }
 
+        for (Map.Entry<String, StocardProvider> entry : moreProviders.entrySet()) {
+            if (!providers.containsKey(entry.getKey())) {
+                providers.put(entry.getKey(), entry.getValue());
+            }
+        }
+
         return new ZIPData(cards, providers);
     }
 
@@ -310,6 +325,13 @@ public class StocardImporter implements Importer {
             String store = record.store != null ? record.store : provider != null ? provider.name : record.providerId;
             String note = record.note != null ? record.note : "";
             String barcodeTypeString = record.barcodeType != null ? record.barcodeType : provider != null ? provider.barcodeFormat : null;
+
+            if (record.label != null && !record.label.equals(store) && !record.label.equals(note)) {
+                String providerNote = "Provider: " + store;
+                note = note.isEmpty() ? providerNote : note + "\n" + providerNote;
+                store = record.label;
+            }
+
             CatimaBarcode barcodeType = null;
             if (barcodeTypeString != null && !barcodeTypeString.isEmpty()) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {

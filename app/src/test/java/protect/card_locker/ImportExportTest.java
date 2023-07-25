@@ -1197,6 +1197,7 @@ public class ImportExportTest {
 
     @Test
     public void importStocard2() {
+        // Copy of stocard.zip, but with an extra card using a custom provider, and a label for "Miles"
         InputStream inputStream = getClass().getResourceAsStream("stocard2.zip");
 
         // Import the Stocard data
@@ -1224,7 +1225,7 @@ public class ImportExportTest {
         card = DBHelper.getLoyaltyCard(mDatabase, 2);
 
         assertEquals("Miles", card.store);
-        assertEquals("szjsbs", card.note);
+        assertEquals("szjsbs\nProvider: Air Miles", card.note);
         assertEquals(null, card.validFrom);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);

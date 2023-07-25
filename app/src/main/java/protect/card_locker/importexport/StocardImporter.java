@@ -164,6 +164,7 @@ public class StocardImporter implements Importer {
             String userId = nameParts[1];
 
             if (customProvidersBaseName == null) {
+                // FIXME: can we use the points-account/statement/content.json balance info somehow?
                 /*
                   Known files:
                     extracts/<user-UUID>/users/<user-UUID>/
@@ -225,6 +226,8 @@ public class StocardImporter implements Importer {
                     provider.name = jsonObject.getString("name");
                 } else if (fileName.endsWith("logo.png")) {
                     provider.logo = ZipUtils.readImage(zipInputStream);
+                } else if (!fileName.endsWith("/")) {
+                    Log.d(TAG, "Unknown or unused loyalty-card-custom-providers file " + fileName + ", skipping...");
                 }
             } else if (startsWith(nameParts, cardBaseName, 1)) {
                 // Extract cardName
@@ -283,7 +286,7 @@ public class StocardImporter implements Importer {
                             record.lastUsed = timeStamp;
                         }
                     }
-                } else if (fileName.matches("/usages/[^/]+/content.json$")) {
+                } else if (fileName.matches(".*/usages/[^/]+/content.json")) {
                     JSONObject lastUsedObject = ZipUtils.readJSON(zipInputStream);
                     String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
                     long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
@@ -294,8 +297,10 @@ public class StocardImporter implements Importer {
                     record.frontImage = ZipUtils.readImage(zipInputStream);
                 } else if (fileName.endsWith("/images/back.png") || fileName.endsWith("/images/back/back.jpg")) {
                     record.backImage = ZipUtils.readImage(zipInputStream);
+                } else if (!fileName.endsWith("/")) {
+                    Log.d(TAG, "Unknown or unused loyalty-cards file " + fileName + ", skipping...");
                 }
-            } else {
+            } else if (!fileName.endsWith("/")) {
                 Log.d(TAG, "Unknown or unused file " + fileName + ", skipping...");
             }
         }
@@ -330,8 +335,8 @@ public class StocardImporter implements Importer {
             String barcodeTypeString = record.barcodeType != null ? record.barcodeType : provider != null ? provider.barcodeFormat : null;
 
             if (record.label != null && !record.label.equals(store) && !record.label.equals(note)) {
-                String providerNote = "Provider: " + store;
-                note = note.isEmpty() ? providerNote : note + "\n" + providerNote;
+                String storeNote = "Store: " + store;
+                note = note.isEmpty() ? storeNote : note + "\n" + storeNote;
                 store = record.label;
             }
 

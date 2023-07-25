@@ -72,8 +72,8 @@ public class StocardImporter implements Importer {
         @Override
         public String toString() {
             return String.format(
-                    "StocardRecord{\n  providerId=%s,\n  store=%s,\n  label=%s,\n  note=%s,\n  cardId=%s,\n"
-                            + "  barcodeType=%s,\n  lastUsed=%s,\n  frontImage=%s,\n  backImage=%s\n}",
+                    "StocardRecord{%n  providerId=%s,%n  store=%s,%n  label=%s,%n  note=%s,%n  cardId=%s,%n"
+                            + "  barcodeType=%s,%n  lastUsed=%s,%n  frontImage=%s,%n  backImage=%s%n}",
                     this.providerId,
                     this.store,
                     this.label,

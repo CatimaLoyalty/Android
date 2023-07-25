@@ -171,9 +171,9 @@ public class LoyaltyCard implements Parcelable {
     @Override
     public String toString() {
         return String.format(
-                "LoyaltyCard{\n  id=%s,\n  store=%s,\n  note=%s,\n  validFrom=%s,\n  expiry=%s,\n"
-                        + "  balance=%s,\n  balanceType=%s,\n  cardId=%s,\n  barcodeId=%s,\n  barcodeType=%s,\n"
-                        + "  headerColor=%s,\n  starStatus=%s,\n  lastUsed=%s,\n  zoomLevel=%s,\n  archiveStatus=%s\n}",
+                "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
+                        + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
+                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  archiveStatus=%s%n}",
                 this.id,
                 this.store,
                 this.note,

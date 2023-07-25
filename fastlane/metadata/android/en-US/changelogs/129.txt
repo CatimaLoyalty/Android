@@ -1,2 +1,3 @@
 - Improved Catima importer (fixes cards missing when importing)
 - Fix crash when rotating screen while setting valid from/expiry date
+- Minor UI tweaks

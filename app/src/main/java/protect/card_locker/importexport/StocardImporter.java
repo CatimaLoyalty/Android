@@ -147,9 +147,7 @@ public class StocardImporter implements Importer {
     public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, FormatException, JSONException {
         Map<String, StocardRecord> cards = zipData.cards;
         Map<String, StocardProvider> providers = zipData.providers;
-        Map<String, StocardProvider> moreProviders = new HashMap<>();
 
-        String[] providersFileName = null;
         String[] customProvidersBaseName = null;
         String[] cardBaseName = null;
         String customProviderId = "";
@@ -165,15 +163,36 @@ public class StocardImporter implements Importer {
 
             String userId = nameParts[1];
 
-            if (providersFileName == null) {
-                providersFileName = new String[]{
-                        "extracts",
-                        userId,
-                        "users",
-                        userId,
-                        "analytics-properties",
-                        "content.json"
-                };
+            if (customProvidersBaseName == null) {
+                /*
+                  Known files:
+                    extracts/<user-UUID>/users/<user-UUID>/
+                      analytics-properties/content.json
+                      devices/<device-UUID>/
+                        analytics-properties/content.json
+                        content.json
+                        ip-location-wifi/content.json
+                      enabled-regions/<UUID>/content.json
+                      loyalty-card-custom-providers/<provider-UUID>/content.json - custom providers
+                      loyalty-cards/<card-UUID>/
+                        card-linked-coupons/accounts/default/
+                          content.json
+                          user-coupons/<UUID>/content.json
+                        content.json - card itself
+                        images/back.png - back image (legacy)
+                        images/back/back.jpg - back image
+                        images/back/content.json
+                        images/front.png - front image (legacy)
+                        images/front/content.json
+                        images/front/front.jpg - front image
+                        notes/default/content.json - note
+                        points-account/
+                          content.json
+                          statement/content.json
+                        usages/<UUID>/content.json - timestamps
+                        usage-statistics/content.json - timestamps
+                      reward-program-balances/<UUID>/content.json
+                */
                 customProvidersBaseName = new String[]{
                         "extracts",
                         userId,
@@ -190,19 +209,7 @@ public class StocardImporter implements Importer {
                 };
             }
 
-            if (nameParts.length == providersFileName.length && startsWith(nameParts, providersFileName, 0)) {
-                JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
-                JSONArray providerIdList = jsonObject.getJSONArray("provider_id_list");
-                JSONArray providerList = jsonObject.getJSONArray("provider_list");
-                if (providerIdList.length() == providerList.length()) {
-                    for (int i = 0; i < providerIdList.length(); i++) {
-                        StocardProvider provider = new StocardProvider();
-                        String providerId = providerIdList.getString(i);
-                        provider.name = providerList.getString(i);
-                        moreProviders.put(providerId, provider);
-                    }
-                }
-            } else if (startsWith(nameParts, customProvidersBaseName, 1)) {
+            if (startsWith(nameParts, customProvidersBaseName, 1)) {
                 // Extract providerId
                 customProviderId = nameParts[customProvidersBaseName.length];
 
@@ -288,12 +295,8 @@ public class StocardImporter implements Importer {
                 } else if (fileName.endsWith("/images/back.png") || fileName.endsWith("/images/back/back.jpg")) {
                     record.backImage = ZipUtils.readImage(zipInputStream);
                 }
-            }
-        }
-
-        for (Map.Entry<String, StocardProvider> entry : moreProviders.entrySet()) {
-            if (!providers.containsKey(entry.getKey())) {
-                providers.put(entry.getKey(), entry.getValue());
+            } else {
+                Log.d(TAG, "Unknown or unused file " + fileName + ", skipping...");
             }
         }
 

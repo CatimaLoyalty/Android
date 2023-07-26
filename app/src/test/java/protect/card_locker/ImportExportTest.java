@@ -1197,7 +1197,7 @@ public class ImportExportTest {
 
     @Test
     public void importStocard2() {
-        // Copy of stocard.zip, but with an extra card using a custom provider, and a label for "Miles"
+        // Copy of stocard.zip, but with an extra card using a custom provider, a label for "Miles", and /usages/ timestamp
         InputStream inputStream = getClass().getResourceAsStream("stocard2.zip");
 
         // Import the Stocard data
@@ -1217,6 +1217,7 @@ public class ImportExportTest {
         assertEquals(null, card.barcodeId);
         assertEquals(BarcodeFormat.ITF, card.barcodeType.format());
         assertEquals(0, card.starStatus);
+        assertEquals(1624991439, card.lastUsed);
 
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.front));
         assertNull(Utils.retrieveCardImage(activity.getApplicationContext(), 1, ImageLocationType.back));

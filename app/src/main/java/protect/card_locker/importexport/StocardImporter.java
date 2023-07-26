@@ -262,11 +262,10 @@ public class StocardImporter implements Importer {
                             .getString("identifier");
                     if (providerId.startsWith(customProviderPrefix)) {
                         providerId = providerId.substring(customProviderPrefix.length());
-                    } else {
-                        if (!providerId.startsWith(PROVIDER_PREFIX)) {
-                            throw new FormatException("Unsupported provider ID: " + providerId);
-                        }
+                    } else if (providerId.startsWith(PROVIDER_PREFIX)) {
                         providerId = providerId.substring(PROVIDER_PREFIX.length());
+                    } else {
+                        throw new FormatException("Unsupported provider ID: " + providerId);
                     }
 
                     record.providerId = providerId;

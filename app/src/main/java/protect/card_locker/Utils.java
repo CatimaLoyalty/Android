@@ -1,6 +1,7 @@
 package protect.card_locker;
 
 import android.app.Activity;
+import android.app.LocaleManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -26,7 +27,9 @@ import android.widget.Toast;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.LocaleManagerCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.os.LocaleListCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.palette.graphics.Palette;
 
@@ -474,6 +477,7 @@ public class Utils {
 
         Locale chosenLocale = settings.getLocale();
 
+        //new API is broken on Android 6 and lower when selecting locales with both language and country, so still keeping this
         Resources res = context.getResources();
         Configuration configuration = res.getConfiguration();
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -481,10 +485,11 @@ public class Utils {
             return context;
         }
 
-        LocaleList localeList = chosenLocale != null ? new LocaleList(chosenLocale) : LocaleList.getDefault();
-        LocaleList.setDefault(localeList);
-        configuration.setLocales(localeList);
-        return context.createConfigurationContext(configuration);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            AppCompatDelegate.setApplicationLocales(chosenLocale != null ? LocaleListCompat.create(chosenLocale) : LocaleListCompat.getEmptyLocaleList());
+        }
+
+        return context;
     }
 
     @SuppressWarnings("deprecation")

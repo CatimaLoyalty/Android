@@ -7,18 +7,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.color.DynamicColors;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.os.LocaleListCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.google.android.material.color.DynamicColors;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.MainActivity;
@@ -144,6 +148,34 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 }
             }
             localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
+            //make locale picker preference in sync with system settings
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                Locale chosenLocale = AppCompatDelegate.getApplicationLocales().get(0);
+                if (chosenLocale == null) {
+                    //corresponds to "System"
+                    localePreference.setValue("");
+                } else {
+                    //need to set preference's value to one of localePreference.getEntryValues() to match the locale.
+                    //Locale.toLanguageTag() theoretically should be one of the values in localePreference.getEntryValues()...
+                    //but it doesn't work for some locales. so trying something more heavyweight.
+
+                    //Obtain all locales supported by the app.
+                    List<Locale> supportedLocales = Arrays.stream(localePreference.getEntryValues())
+                            .map(Objects::toString)
+                            .map(Utils::stringToLocale)
+                            .collect(Collectors.toList());
+                    //Find the locale that's selected in settings and get its index in supported locales
+                    for (int i = 0; i < supportedLocales.size(); i++) {
+                        Locale localeToCompare = supportedLocales.get(i);
+                        //If found, set preference value to entry value at that index
+                        if (chosenLocale.equals(localeToCompare)) {
+                            localePreference.setValue(localePreference.getEntryValues()[i].toString());
+                            break;
+                        }
+                    }
+                }
+            }
+
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 refreshActivity(true);
                 return true;

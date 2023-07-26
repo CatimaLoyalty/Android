@@ -478,13 +478,25 @@ public class Utils {
         Locale chosenLocale = settings.getLocale();
 
         //new API is broken on Android 6 and lower when selecting locales with both language and country, so still keeping this
-        Resources res = context.getResources();
-        Configuration configuration = res.getConfiguration();
+        //TODO: remove lines 482-487 when support for Android 6- gets removed
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Resources res = context.getResources();
+            Configuration configuration = res.getConfiguration();
             setLocalesSdkLessThan24(chosenLocale, configuration, res);
             return context;
         }
 
+        /*Documentation at https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setApplicationLocales(androidx.core.os.LocaleListCompat)
+        For API levels below that, the developer has two options:
+        - They can opt-in to automatic storage handled through the library...
+        - The second option is that they can choose to handle storage themselves.
+        In order to do so they must use this API to initialize locales during app-start up and provide their stored locales.
+        In this case, API should be called before Activity.onCreate() in the activity lifecycle, e.g. in attachBaseContext().
+        Note: Developers should gate this to API versions <33.
+
+        We are handling storage ourselves (courtesy of the in-app language picker), so we take the second approach.
+        So according to docs, we should have the API < 33 check.
+        */
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             AppCompatDelegate.setApplicationLocales(chosenLocale != null ? LocaleListCompat.create(chosenLocale) : LocaleListCompat.getEmptyLocaleList());
         }

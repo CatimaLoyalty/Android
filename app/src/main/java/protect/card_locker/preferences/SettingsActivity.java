@@ -177,7 +177,13 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             }
 
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                refreshActivity(true);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    refreshActivity(true);
+                    return true;
+                }
+                String newLocale = (String) newValue;
+                //if newLocale is empty, that means "System" was selected
+                AppCompatDelegate.setApplicationLocales(newLocale.isEmpty() ? LocaleListCompat.getEmptyLocaleList() : LocaleListCompat.create(Utils.stringToLocale(newLocale)));
                 return true;
             });
 

@@ -510,6 +510,27 @@ public class Utils {
         res.updateConfiguration(configuration, res.getDisplayMetrics());
     }
 
+    public static boolean localeEqualsAfterAdjust(Locale appLocale, Locale systemLocale) {
+        boolean appLocaleHasCountry = !appLocale.getCountry().isEmpty();
+        boolean systemLocaleHasCountry = !systemLocale.getCountry().isEmpty();
+        boolean appLocaleHasScript = !appLocale.getScript().isEmpty();
+        boolean systemLocaleHasScript = !systemLocale.getScript().isEmpty();
+        //app locale: zh-CN, system locale: zh-Hans-CN
+        if (!appLocaleHasScript && systemLocaleHasScript) {
+            if (appLocaleHasCountry && systemLocaleHasCountry) {
+                return appLocale.getLanguage().equals(systemLocale.getLanguage()) &&
+                        appLocale.getCountry().equals(systemLocale.getCountry());
+            } else {
+                return appLocale.getLanguage().equals(systemLocale.getLanguage());
+            }
+        } //app locale: es, system locale: es-ES
+        else if (!appLocaleHasCountry && systemLocaleHasCountry) {
+            return appLocale.getLanguage().equals(systemLocale.getLanguage());
+        } else {
+            return appLocale.equals(systemLocale);
+        }
+    }
+
     static public long getUnixTime() {
         return System.currentTimeMillis() / 1000;
     }

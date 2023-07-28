@@ -1,5 +1,5 @@
-- BREAKING CHANGE: Format pencadangan berubah, lihat https://github.com/TheLastProject/Catima/wiki/Export-format
-- BREAKING CHANGE: Format berbagi URL berubah, lihat https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- PERUBAHAN TERBARU: Format pencadangan berubah, lihat https://github.com/TheLastProject/Catima/wiki/Export-format
+- PERUBAHAN TERBARU: Format berbagi URL berubah, lihat https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
 - Memungkinkan untuk mengaktifkan atau menonaktifkan senter saat memindai
 - Menambahkan dukungan UPC-E
 - Mendukung penambahan foto depan dan belakang ke setiap kartu

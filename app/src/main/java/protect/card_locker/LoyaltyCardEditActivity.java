@@ -231,7 +231,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         );
     }
 
-    private void updateTempState(LoyaltyCardField fieldName, Object value) {
+    protected void updateTempState(LoyaltyCardField fieldName, Object value) {
         tempLoyaltyCard = updateTempState(tempLoyaltyCard, fieldName, value);
 
         if (initDone && (fieldName == LoyaltyCardField.cardId || fieldName == LoyaltyCardField.barcodeId || fieldName == LoyaltyCardField.barcodeType)) {

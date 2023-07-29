@@ -405,7 +405,9 @@ public class LoyaltyCardViewActivityTest {
             storeField.setText("correct store");
             noteField.setText("correct note");
             LoyaltyCardEditActivity.formatDateField(context, validFromField, validFromDate);
+            activity.updateTempState(LoyaltyCardField.validFrom, validFromDate);
             LoyaltyCardEditActivity.formatDateField(context, expiryField, expiryDate);
+            activity.updateTempState(LoyaltyCardField.expiry, expiryDate);
             balanceField.setText("100");
             balanceTypeField.setText(currency.getSymbol());
             cardIdField.setText("12345678");

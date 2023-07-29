@@ -176,39 +176,42 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
     public void onBindViewHolder(LoyaltyCardListItemViewHolder inputHolder, Cursor inputCursor) {
         // Invisible until we want to show something more
+        boolean showDivider = false;
         inputHolder.mDivider.setVisibility(View.GONE);
 
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
         Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
 
         if (mShowNameBelowThumbnail && icon != null) {
+            showDivider = true;
             inputHolder.setStoreField(loyaltyCard.store);
         } else {
             inputHolder.setStoreField(null);
         }
 
         if (mShowNote && !loyaltyCard.note.isEmpty()) {
+            showDivider = true;
             inputHolder.setNoteField(loyaltyCard.note);
         } else {
             inputHolder.setNoteField(null);
         }
 
         if (mShowBalance && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
-            inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null);
+            inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null, showDivider);
         } else {
-            inputHolder.setExtraField(inputHolder.mBalanceField, null, null);
+            inputHolder.setExtraField(inputHolder.mBalanceField, null, null, false);
         }
 
         if (mShowValidity && loyaltyCard.validFrom != null) {
-            inputHolder.setExtraField(inputHolder.mValidFromField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.validFrom), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null);
+            inputHolder.setExtraField(inputHolder.mValidFromField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.validFrom), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
         } else {
-            inputHolder.setExtraField(inputHolder.mValidFromField, null, null);
+            inputHolder.setExtraField(inputHolder.mValidFromField, null, null, false);
         }
 
         if (mShowValidity && loyaltyCard.expiry != null) {
-            inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null);
+            inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
         } else {
-            inputHolder.setExtraField(inputHolder.mExpiryField, null, null);
+            inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
         }
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
@@ -333,7 +336,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             });
         }
 
-        private void setExtraField(TextView field, String text, Integer color) {
+        private void setExtraField(TextView field, String text, Integer color, boolean showDivider) {
             // If text is null, hide the field
             // If iconColor is null, use the default text and icon color based on theme
             if (text == null) {
@@ -342,12 +345,15 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
                 return;
             }
 
-            field.setVisibility(View.VISIBLE);
+            // Shown when there is a name and/or note and at least 1 extra field
+            if (showDivider) {
+                mDivider.setVisibility(View.VISIBLE);
+            }
+
             field.setText(text);
             field.setTextColor(color != null ? color : MaterialColors.getColor(mContext, com.google.android.material.R.attr.colorSecondary, ContextCompat.getColor(mContext, mDarkModeEnabled ? R.color.md_theme_dark_secondary : R.color.md_theme_light_secondary)));
-
-            mDivider.setVisibility(View.VISIBLE);
             field.setVisibility(View.VISIBLE);
+
             Drawable icon = field.getCompoundDrawables()[0];
             if (icon != null) {
                 icon.mutate();

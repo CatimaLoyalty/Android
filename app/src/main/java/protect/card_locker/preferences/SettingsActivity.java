@@ -164,16 +164,12 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                             .map(Objects::toString)
                             .map(Utils::stringToLocale)
                             .collect(Collectors.toList());
-                    //Find the locale that's selected in settings and get its index in supported locales
-                    for (int i = 0; i < supportedLocales.size(); i++) {
-                        Locale localeToCompare = supportedLocales.get(i);
-                        //If found, set preference value to entry value at that index
-                        //Android 13 settings seems to "force" the user to select country of locale, but many app-supported locales only have language, not country
-                        if (Utils.localeEqualsAfterAdjust(localeToCompare, chosenLocale)) {
-                            localePreference.setValue(localePreference.getEntryValues()[i].toString());
-                            break;
-                        }
-                    }
+                    //Get the app locale that best matches the system one
+                    Locale bestMatchLocale = Utils.getBestMatchLocale(supportedLocales, chosenLocale);
+                    //Get its index in supported locales
+                    int index = supportedLocales.indexOf(bestMatchLocale);
+                    //Set preference value to entry value at that index
+                    localePreference.setValue(localePreference.getEntryValues()[index].toString());
                 }
             }
 

@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -57,10 +59,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -510,25 +514,53 @@ public class Utils {
         res.updateConfiguration(configuration, res.getDisplayMetrics());
     }
 
-    public static boolean localeEqualsAfterAdjust(Locale appLocale, Locale systemLocale) {
-        boolean appLocaleHasCountry = !appLocale.getCountry().isEmpty();
-        boolean systemLocaleHasCountry = !systemLocale.getCountry().isEmpty();
-        boolean appLocaleHasScript = !appLocale.getScript().isEmpty();
-        boolean systemLocaleHasScript = !systemLocale.getScript().isEmpty();
-        //app locale: zh-CN, system locale: zh-Hans-CN
-        if (!appLocaleHasScript && systemLocaleHasScript) {
-            if (appLocaleHasCountry && systemLocaleHasCountry) {
-                return appLocale.getLanguage().equals(systemLocale.getLanguage()) &&
-                        appLocale.getCountry().equals(systemLocale.getCountry());
-            } else {
-                return appLocale.getLanguage().equals(systemLocale.getLanguage());
+    /**
+     * Android 13 settings seems to "force" the user to select country of locale, but many app-supported locales either only have language, not country
+     * or have a country the user doesn't want, which creates a mismatch between the app's supported locales and the system locale.
+     * <br>
+     * Example: The user chooses Espanol (Espana) in system settings, but the app only supports Espanol (Argentina) and the "plain" Espanol.
+     * <br>
+     * This method returns the app-supported locale that is most similar to the system one.
+     * @param appLocales Locales supported by the app
+     * @param sysLocale Per-app locale in system settings
+     * @return The app-supported locale that best matches the system per-app locale
+     */
+    @NonNull
+    public static Locale getBestMatchLocale(@NonNull List<Locale> appLocales, @NonNull Locale sysLocale) {
+        int highestMatchMagnitude = appLocales.stream()
+                .mapToInt(appLocale -> calculateMatchMagnitudeOfTwoLocales(appLocale, sysLocale))
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("appLocales is empty"));
+        for (int i = 0; i < appLocales.size(); i++) {
+            Locale appLocale = appLocales.get(i);
+            if (calculateMatchMagnitudeOfTwoLocales(appLocale, sysLocale) == highestMatchMagnitude) {
+                return appLocale;
             }
-        } //app locale: es, system locale: es-ES
-        else if (!appLocaleHasCountry && systemLocaleHasCountry) {
-            return appLocale.getLanguage().equals(systemLocale.getLanguage());
-        } else {
-            return appLocale.equals(systemLocale);
         }
+        throw new AssertionError("This is not possible; there must be a locale whose match magnitude == " + highestMatchMagnitude + " with " + sysLocale.toLanguageTag());
+    }
+
+    private static int calculateMatchMagnitudeOfTwoLocales(@NonNull Locale appLocale, @NonNull Locale sysLocale) {
+        List<String> appLocaleAdjusted = new ArrayList<>();
+        List<String> sysLocaleAdjusted = new ArrayList<>();
+        appLocaleAdjusted.add(appLocale.getLanguage());
+        sysLocaleAdjusted.add(sysLocale.getLanguage());
+        if (!appLocale.getCountry().isEmpty() && !sysLocale.getCountry().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getCountry());
+            sysLocaleAdjusted.add(sysLocale.getCountry());
+        }
+        if (!appLocale.getVariant().isEmpty() && !sysLocale.getVariant().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getVariant());
+            sysLocaleAdjusted.add(sysLocale.getVariant());
+        }
+        if (!appLocale.getScript().isEmpty() && !sysLocale.getScript().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getScript());
+            sysLocaleAdjusted.add(sysLocale.getScript());
+        }
+        if (appLocaleAdjusted.equals(sysLocaleAdjusted)) {
+            return appLocaleAdjusted.size();
+        }
+        return 0;
     }
 
     static public long getUnixTime() {

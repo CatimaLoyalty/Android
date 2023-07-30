@@ -1,5 +1,5 @@
 - Menambahkan dukungan untuk menambahkan pintasan ke layar beranda saat menambahkan atau mengedit kartu. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
-- Widget dihapus karena pengganti pintasan yang buruk. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
-- Perbaikan pada ekspor cadangan di Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
+- Menghapus widget, karena widget merupakan pengganti pintasan yang buruk. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))
+- Perbaiki ekspor cadangan di Android 7+. (pull #153 (https://github.com/brarcher/loyalty-card-locker/pull/153))
 - Laporkan jenis mime yang lebih akurat saat mengekspor data cadangan. (pull #156 (https://github.com/brarcher/loyalty-card-locker/pull/156))
 - Memperbaiki bug di mana kartu tidak dapat diedit. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155))

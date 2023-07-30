@@ -1,0 +1,3 @@
+- Pengimpor Catima yang lebih baik (memperbaiki kartu yang hilang saat mengimpor)
+- Memperbaiki kerusakan saat memutar layar saat mengatur tanggal valid dari / kedaluwarsa
+- Perubahan kecil pada UI

@@ -148,27 +148,27 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 }
             }
             localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
-            //make locale picker preference in sync with system settings
+            // Make locale picker preference in sync with system settings
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                Locale chosenLocale = AppCompatDelegate.getApplicationLocales().get(0);
-                if (chosenLocale == null) {
-                    //corresponds to "System"
+                Locale sysLocale = AppCompatDelegate.getApplicationLocales().get(0);
+                if (sysLocale == null) {
+                    // Corresponds to "System"
                     localePreference.setValue("");
                 } else {
-                    //need to set preference's value to one of localePreference.getEntryValues() to match the locale.
-                    //Locale.toLanguageTag() theoretically should be one of the values in localePreference.getEntryValues()...
-                    //but it doesn't work for some locales. so trying something more heavyweight.
+                    // Need to set preference's value to one of localePreference.getEntryValues() to match the locale.
+                    // Locale.toLanguageTag() theoretically should be one of the values in localePreference.getEntryValues()...
+                    // But it doesn't work for some locales. so trying something more heavyweight.
 
-                    //Obtain all locales supported by the app.
-                    List<Locale> supportedLocales = Arrays.stream(localePreference.getEntryValues())
+                    // Obtain all locales supported by the app.
+                    List<Locale> appLocales = Arrays.stream(localePreference.getEntryValues())
                             .map(Objects::toString)
                             .map(Utils::stringToLocale)
                             .collect(Collectors.toList());
-                    //Get the app locale that best matches the system one
-                    Locale bestMatchLocale = Utils.getBestMatchLocale(supportedLocales, chosenLocale);
-                    //Get its index in supported locales
-                    int index = supportedLocales.indexOf(bestMatchLocale);
-                    //Set preference value to entry value at that index
+                    // Get the app locale that best matches the system one
+                    Locale bestMatchLocale = Utils.getBestMatchLocale(appLocales, sysLocale);
+                    // Get its index in supported locales
+                    int index = appLocales.indexOf(bestMatchLocale);
+                    // Set preference value to entry value at that index
                     localePreference.setValue(localePreference.getEntryValues()[index].toString());
                 }
             }
@@ -180,7 +180,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                     return true;
                 }
                 String newLocale = (String) newValue;
-                //if newLocale is empty, that means "System" was selected
+                // If newLocale is empty, that means "System" was selected
                 AppCompatDelegate.setApplicationLocales(newLocale.isEmpty() ? LocaleListCompat.getEmptyLocaleList() : LocaleListCompat.create(Utils.stringToLocale(newLocale)));
                 return true;
             });

@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.app.Activity;
-import android.app.LocaleManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,22 +13,18 @@ import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
-import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.LocaleManagerCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.os.LocaleListCompat;
 import androidx.exifinterface.media.ExifInterface;
@@ -481,8 +476,7 @@ public class Utils {
 
         Locale chosenLocale = settings.getLocale();
 
-        //new API is broken on Android 6 and lower when selecting locales with both language and country, so still keeping this
-        //TODO: remove lines 482-487 when support for Android 6- gets removed
+        // New API is broken on Android 6 and lower when selecting locales with both language and country, so still keeping this
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Resources res = context.getResources();
             Configuration configuration = res.getConfiguration();
@@ -490,7 +484,7 @@ public class Utils {
             return context;
         }
 
-        /*Documentation at https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setApplicationLocales(androidx.core.os.LocaleListCompat)
+        /* Documentation at https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setApplicationLocales(androidx.core.os.LocaleListCompat)
         For API levels below that, the developer has two options:
         - They can opt-in to automatic storage handled through the library...
         - The second option is that they can choose to handle storage themselves.

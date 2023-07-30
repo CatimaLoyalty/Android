@@ -174,6 +174,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     String tempStoredOldBarcodeValue = null;
     boolean initDone = false;
     boolean onResuming = false;
+    boolean onRestoring = false;
     AlertDialog confirmExitDialog = null;
 
     boolean validBalance = true;
@@ -300,6 +301,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     @Override
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        onRestoring = true;
         tempLoyaltyCard = savedInstanceState.getParcelable(STATE_TEMP_CARD);
         super.onRestoreInstanceState(savedInstanceState);
         tabs = binding.tabs;
@@ -393,7 +395,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         });
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+            if (!hasFocus && !onResuming && !onRestoring) {
                 balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
             }
         });
@@ -401,6 +403,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         balanceField.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (onResuming || onRestoring) return;
                 try {
                     BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
@@ -425,7 +428,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
                 updateTempState(LoyaltyCardField.balanceType, currency);
 
-                if (tempLoyaltyCard.balance != null) {
+                if (tempLoyaltyCard.balance != null && !onResuming && !onRestoring) {
                     balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, currency));
                 }
             }
@@ -932,7 +935,16 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         }
 
+        // Set the balance directly in case the locale (and thus the decimal separator) changed,
+        // since that may cause parseBalance() to return wrong values
+        BigDecimal balance = tempLoyaltyCard.balance == null ? new BigDecimal("0") : tempLoyaltyCard.balance;
+        tempLoyaltyCard = updateTempState(tempLoyaltyCard, LoyaltyCardField.balance, balance);
+        balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
+        validBalance = true;
+        Log.d(TAG, "Setting balance (in case locale changed) to " + balance);
+
         onResuming = false;
+        onRestoring = false;
 
         // Fake click on the edit icon to cause the set icon option to pop up if the icon was
         // long-pressed in the view activity

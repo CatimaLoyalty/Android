@@ -174,7 +174,7 @@ public class SettingsActivity extends CatimaAppCompatActivity {
             }
 
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                //See corresponding comment in Utils.updateBaseContextLocale for Android 6- notes
+                // See corresponding comment in Utils.updateBaseContextLocale for Android 6- notes
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                     refreshActivity(true);
                     return true;

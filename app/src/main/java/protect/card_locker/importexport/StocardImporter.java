@@ -334,9 +334,8 @@ public class StocardImporter implements Importer {
             String barcodeTypeString = record.barcodeType != null ? record.barcodeType : provider != null ? provider.barcodeFormat : null;
 
             if (record.label != null && !record.label.equals(store) && !record.label.equals(note)) {
-                String storeNote = "Store: " + store;
-                note = note.isEmpty() ? storeNote : note + "\n" + storeNote;
-                store = record.label;
+                String labelNote = "Label: " + record.label;
+                note = note.isEmpty() ? labelNote : note + "\n" + labelNote;
             }
 
             CatimaBarcode barcodeType = null;

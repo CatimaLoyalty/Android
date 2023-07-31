@@ -231,7 +231,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         );
     }
 
-    private void updateTempState(LoyaltyCardField fieldName, Object value) {
+    protected void updateTempState(LoyaltyCardField fieldName, Object value) {
         tempLoyaltyCard = updateTempState(tempLoyaltyCard, fieldName, value);
 
         if (initDone && (fieldName == LoyaltyCardField.cardId || fieldName == LoyaltyCardField.barcodeId || fieldName == LoyaltyCardField.barcodeType)) {
@@ -383,9 +383,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             switch (textFieldToEdit) {
                 case validFrom:
                     formatDateField(this, validFromField, newDate);
+                    updateTempState(LoyaltyCardField.validFrom, newDate);
                     break;
                 case expiry:
                     formatDateField(this, expiryField, newDate);
+                    updateTempState(LoyaltyCardField.expiry, newDate);
                     break;
                 default:
                     throw new AssertionError("Unexpected field: " + textFieldToEdit);
@@ -979,6 +981,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.toString().equals(getString(defaultOptionStringId))) {
                     dateField.setTag(null);
+                    updateTempState(loyaltyCardField, null);
                 } else if (s.toString().equals(getString(chooseDateOptionStringId))) {
                     if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
                         dateField.setText(lastValue);
@@ -992,8 +995,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                             loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null);
                     datePickerFragment.show(getSupportFragmentManager(), "datePicker");
                 }
-
-                updateTempState(loyaltyCardField, dateField.getTag());
             }
 
             @Override

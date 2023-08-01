@@ -1,0 +1,2 @@
+- Drobná vylepšení uživatelského rozhraní
+- Oprava vynulování data platnosti od/vypršení při otáčení obrazovky během editace karty

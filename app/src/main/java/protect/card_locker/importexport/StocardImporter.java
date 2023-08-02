@@ -265,7 +265,7 @@ public class StocardImporter implements Importer {
                     } else if (providerId.startsWith(PROVIDER_PREFIX)) {
                         providerId = providerId.substring(PROVIDER_PREFIX.length());
                     } else {
-                        throw new FormatException("Unsupported provider ID: " + providerId);
+                        throw new FormatException("Unsupported provider ID format: " + providerId);
                     }
 
                     record.providerId = providerId;
@@ -334,8 +334,7 @@ public class StocardImporter implements Importer {
             String barcodeTypeString = record.barcodeType != null ? record.barcodeType : provider != null ? provider.barcodeFormat : null;
 
             if (record.label != null && !record.label.equals(store) && !record.label.equals(note)) {
-                String labelNote = "Label: " + record.label;
-                note = note.isEmpty() ? labelNote : note + "\n" + labelNote;
+                note = note.isEmpty() ? record.label : note + "\n" + record.label;
             }
 
             CatimaBarcode barcodeType = null;

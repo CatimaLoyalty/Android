@@ -1226,7 +1226,7 @@ public class ImportExportTest {
         card = DBHelper.getLoyaltyCard(mDatabase, 2);
 
         assertEquals("Air Miles", card.store);
-        assertEquals("szjsbs\nLabel: Miles", card.note);
+        assertEquals("szjsbs\nMiles", card.note);
         assertEquals(null, card.validFrom);
         assertEquals(null, card.expiry);
         assertEquals(new BigDecimal("0"), card.balance);

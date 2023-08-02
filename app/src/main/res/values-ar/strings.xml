@@ -288,4 +288,6 @@
     <string name="chooseValidFromDate">اختر صالح من التاريخ</string>
     <string name="validFromSentence">صالح من:<xliff:g>%s</xliff:g></string>
     <string name="height">الطول:</string>
+    <string name="permissionReadCardsDescription">اقرأ بطاقتك مع جميع التفاصيل، بما فيه الملاحضات والصور</string>
+    <string name="settings_display_barcode_max_brightness_summary">ظروري لعمل بعض الماسحات الضوئية</string>
 </resources>

@@ -829,10 +829,18 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         noteFieldEdit.setText(tempLoyaltyCard.note);
         formatDateField(this, validFromField, tempLoyaltyCard.validFrom);
         formatDateField(this, expiryField, tempLoyaltyCard.expiry);
-        formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
         cardIdFieldView.setText(tempLoyaltyCard.cardId);
         barcodeIdField.setText(tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : getString(R.string.sameAsCardId));
         barcodeTypeField.setText(tempLoyaltyCard.barcodeType != null ? tempLoyaltyCard.barcodeType.prettyName() : getString(R.string.noBarcode));
+
+        // We set the balance here (with onResuming/onRestoring == true) to prevent formatBalanceCurrencyField() from setting it (via onTextChanged),
+        // which can cause issues when switching locale because it parses the balance and e.g. the decimal separator may have changed.
+        formatBalanceCurrencyField(tempLoyaltyCard.balanceType);
+        BigDecimal balance = tempLoyaltyCard.balance == null ? new BigDecimal("0") : tempLoyaltyCard.balance;
+        tempLoyaltyCard = updateTempState(tempLoyaltyCard, LoyaltyCardField.balance, balance);
+        balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
+        validBalance = true;
+        Log.d(TAG, "Setting balance to " + balance);
 
         if (groupsChips.getChildCount() == 0) {
             List<Group> existingGroups = DBHelper.getGroups(mDatabase);
@@ -934,14 +942,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
             thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         }
-
-        // Set the balance directly in case the locale (and thus the decimal separator) changed,
-        // since that may cause parseBalance() to return wrong values
-        BigDecimal balance = tempLoyaltyCard.balance == null ? new BigDecimal("0") : tempLoyaltyCard.balance;
-        tempLoyaltyCard = updateTempState(tempLoyaltyCard, LoyaltyCardField.balance, balance);
-        balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
-        validBalance = true;
-        Log.d(TAG, "Setting balance (in case locale changed) to " + balance);
 
         onResuming = false;
         onRestoring = false;

@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.google.zxing.BarcodeFormat;
 
 import net.lingala.zip4j.io.inputstream.ZipInputStream;
@@ -27,6 +29,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,12 +51,48 @@ import protect.card_locker.ZipUtils;
  * A header is expected for the each table showing the names of the columns.
  */
 public class StocardImporter implements Importer {
-    public static class ZIPData {
-        public final HashMap<String, HashMap<String, Object>> loyaltyCardHashMap;
-        public final HashMap<String, HashMap<String, Object>> providers;
+    public static class StocardProvider {
+        public String name = null;
+        public String barcodeFormat = null;
+        public Bitmap logo = null;
+    }
 
-        ZIPData(final HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, final HashMap<String, HashMap<String, Object>> providers) {
-            this.loyaltyCardHashMap = loyaltyCardHashMap;
+    public static class StocardRecord {
+        public String providerId = null;
+        public String store = null;
+        public String label = null;
+        public String note = null;
+        public String cardId = null;
+        public String barcodeType = null;
+        public Long lastUsed = null;
+        public Bitmap frontImage = null;
+        public Bitmap backImage = null;
+
+        @NonNull
+        @Override
+        public String toString() {
+            return String.format(
+                    "StocardRecord{%n  providerId=%s,%n  store=%s,%n  label=%s,%n  note=%s,%n  cardId=%s,%n"
+                            + "  barcodeType=%s,%n  lastUsed=%s,%n  frontImage=%s,%n  backImage=%s%n}",
+                    this.providerId,
+                    this.store,
+                    this.label,
+                    this.note,
+                    this.cardId,
+                    this.barcodeType,
+                    this.lastUsed,
+                    this.frontImage,
+                    this.backImage
+            );
+        }
+    }
+
+    public static class ZIPData {
+        public final Map<String, StocardRecord> cards;
+        public final Map<String, StocardProvider> providers;
+
+        ZIPData(final Map<String, StocardRecord> cards, final Map<String, StocardProvider> providers) {
+            this.cards = cards;
             this.providers = providers;
         }
     }
@@ -68,6 +107,8 @@ public class StocardImporter implements Importer {
         }
     }
 
+    public static final String PROVIDER_PREFIX = "/loyalty-card-providers/";
+
     private static final String TAG = "Catima";
 
     public void importData(Context context, SQLiteDatabase database, File inputFile, char[] password) throws IOException, FormatException, JSONException, ParseException {
@@ -77,11 +118,11 @@ public class StocardImporter implements Importer {
 
         try {
             for (CSVRecord record : parser) {
-                HashMap<String, Object> recordData = new HashMap<>();
-                recordData.put("name", record.get("name"));
-                recordData.put("barcodeFormat", record.get("barcodeFormat"));
+                StocardProvider provider = new StocardProvider();
+                provider.name = record.get("name").trim();
+                provider.barcodeFormat = record.get("barcodeFormat").trim();
 
-                zipData.providers.put(record.get("_id"), recordData);
+                zipData.providers.put(record.get("_id").trim(), provider);
             }
 
             parser.close();
@@ -95,7 +136,7 @@ public class StocardImporter implements Importer {
         zipInputStream.close();
         input.close();
 
-        if (zipData.loyaltyCardHashMap.keySet().size() == 0) {
+        if (zipData.cards.keySet().size() == 0) {
             throw new FormatException("Couldn't find any loyalty cards in this Stocard export.");
         }
 
@@ -103,14 +144,13 @@ public class StocardImporter implements Importer {
         saveAndDeduplicate(context, database, importedData);
     }
 
-    public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, JSONException {
-        HashMap<String, HashMap<String, Object>> loyaltyCardHashMap = zipData.loyaltyCardHashMap;
-        HashMap<String, HashMap<String, Object>> providers = zipData.providers;
+    public ZIPData importZIP(ZipInputStream zipInputStream, final ZIPData zipData) throws IOException, FormatException, JSONException {
+        Map<String, StocardRecord> cards = zipData.cards;
+        Map<String, StocardProvider> providers = zipData.providers;
 
-        String[] providersFileName = null;
         String[] customProvidersBaseName = null;
-        String customProviderId = "";
         String[] cardBaseName = null;
+        String customProviderId = "";
         String cardName = "";
         LocalFileHeader localFileHeader;
         while ((localFileHeader = zipInputStream.getNextEntry()) != null) {
@@ -121,173 +161,182 @@ public class StocardImporter implements Importer {
                 continue;
             }
 
-            if (providersFileName == null) {
-                providersFileName = new String[]{
-                        "extracts",
-                        nameParts[1],
-                        "users",
-                        nameParts[1],
-                        "analytics-properties",
-                        "content.json"
-                };
+            String userId = nameParts[1];
+
+            if (customProvidersBaseName == null) {
+                // FIXME: can we use the points-account/statement/content.json balance info somehow?
+                /*
+                  Known files:
+                    extracts/<user-UUID>/users/<user-UUID>/
+                      analytics-properties/content.json
+                      devices/<device-UUID>/
+                        analytics-properties/content.json
+                        content.json
+                        ip-location-wifi/content.json
+                      enabled-regions/<UUID>/content.json
+                      loyalty-card-custom-providers/<provider-UUID>/content.json - custom providers
+                      loyalty-cards/<card-UUID>/
+                        card-linked-coupons/accounts/default/
+                          content.json
+                          user-coupons/<UUID>/content.json
+                        content.json - card itself
+                        images/back.png - back image (legacy)
+                        images/back/back.jpg - back image
+                        images/back/content.json
+                        images/front.png - front image (legacy)
+                        images/front/content.json
+                        images/front/front.jpg - front image
+                        notes/default/content.json - note
+                        points-account/
+                          content.json
+                          statement/content.json
+                        usages/<UUID>/content.json - timestamps
+                        usage-statistics/content.json - timestamps
+                      reward-program-balances/<UUID>/content.json
+                */
                 customProvidersBaseName = new String[]{
                         "extracts",
-                        nameParts[1],
+                        userId,
                         "users",
-                        nameParts[1],
+                        userId,
                         "loyalty-card-custom-providers"
                 };
                 cardBaseName = new String[]{
                         "extracts",
-                        nameParts[1],
+                        userId,
                         "users",
-                        nameParts[1],
+                        userId,
                         "loyalty-cards"
                 };
             }
 
             if (startsWith(nameParts, customProvidersBaseName, 1)) {
                 // Extract providerId
-                customProviderId = nameParts[customProvidersBaseName.length].split("\\.", 2)[0];
+                customProviderId = nameParts[customProvidersBaseName.length];
+
+                StocardProvider provider = providers.get(customProviderId);
+                if (provider == null) {
+                    provider = new StocardProvider();
+                    providers.put(customProviderId, provider);
+                }
 
                 // Name file
                 if (fileName.endsWith(customProviderId + "/content.json")) {
                     JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
-
-                    providers = appendToHashMap(
-                            providers,
-                            customProviderId,
-                            "name",
-                            jsonObject.getString("name")
-                    );
+                    provider.name = jsonObject.getString("name");
                 } else if (fileName.endsWith("logo.png")) {
-                    providers = appendToHashMap(
-                            providers,
-                            customProviderId,
-                            "logo",
-                            ZipUtils.readImage(zipInputStream)
-                    );
+                    provider.logo = ZipUtils.readImage(zipInputStream);
+                } else if (!fileName.endsWith("/")) {
+                    Log.d(TAG, "Unknown or unused loyalty-card-custom-providers file " + fileName + ", skipping...");
                 }
-            }
-
-            if (startsWith(nameParts, cardBaseName, 1)) {
+            } else if (startsWith(nameParts, cardBaseName, 1)) {
                 // Extract cardName
-                cardName = nameParts[cardBaseName.length].split("\\.", 2)[0];
+                cardName = nameParts[cardBaseName.length];
+
+                StocardRecord record = cards.get(cardName);
+                if (record == null) {
+                    record = new StocardRecord();
+                    cards.put(cardName, record);
+                }
 
                 // This is the card itself
                 if (fileName.endsWith(cardName + "/content.json")) {
                     JSONObject jsonObject = ZipUtils.readJSON(zipInputStream);
-
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "cardId",
-                            jsonObject.getString("input_id")
-                    );
+                    record.cardId = jsonObject.getString("input_id");
 
                     if (jsonObject.has("input_provider_name")) {
-                        loyaltyCardHashMap = appendToHashMap(
-                                loyaltyCardHashMap,
-                                cardName,
-                                "store",
-                                jsonObject.getString("input_provider_name")
-                        );
+                        record.store = jsonObject.getString("input_provider_name");
+                    }
+
+                    if (jsonObject.has("label")) {
+                        String label = jsonObject.getString("label");
+                        if (!label.isBlank()) {
+                            record.label = label;
+                        }
                     }
 
                     // Provider ID can be either custom or not, extract whatever version is relevant
-                    String customProviderPrefix = "/users/" + nameParts[1] + "/loyalty-card-custom-providers/";
+                    String customProviderPrefix = "/users/" + userId + "/loyalty-card-custom-providers/";
                     String providerId = jsonObject
                             .getJSONObject("input_provider_reference")
                             .getString("identifier");
                     if (providerId.startsWith(customProviderPrefix)) {
                         providerId = providerId.substring(customProviderPrefix.length());
+                    } else if (providerId.startsWith(PROVIDER_PREFIX)) {
+                        providerId = providerId.substring(PROVIDER_PREFIX.length());
                     } else {
-                        providerId = providerId.substring("/loyalty-card-providers/".length());
+                        throw new FormatException("Unsupported provider ID format: " + providerId);
                     }
 
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "_providerId",
-                            providerId
-                    );
+                    record.providerId = providerId;
 
                     if (jsonObject.has("input_barcode_format")) {
-                        loyaltyCardHashMap = appendToHashMap(
-                                loyaltyCardHashMap,
-                                cardName,
-                                "barcodeType",
-                                jsonObject.getString("input_barcode_format")
-                        );
+                        record.barcodeType = jsonObject.getString("input_barcode_format");
                     }
                 } else if (fileName.endsWith("notes/default/content.json")) {
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "note",
-                            ZipUtils.readJSON(zipInputStream)
-                                    .getString("content")
-                    );
+                    record.note = ZipUtils.readJSON(zipInputStream).getString("content");
                 } else if (fileName.endsWith("usage-statistics/content.json")) {
                     JSONArray usages = ZipUtils.readJSON(zipInputStream).getJSONArray("usages");
-                    if (usages.length() > 0) {
-                        JSONObject lastUsedObject = usages.getJSONObject(usages.length() - 1);
+                    for (int i = 0; i < usages.length(); i++) {
+                        JSONObject lastUsedObject = usages.getJSONObject(i);
                         String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
                         long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
-
-                        loyaltyCardHashMap = appendToHashMap(
-                                loyaltyCardHashMap,
-                                cardName,
-                                "lastUsed",
-                                timeStamp
-                        );
+                        if (record.lastUsed == null || timeStamp > record.lastUsed) {
+                            record.lastUsed = timeStamp;
+                        }
+                    }
+                } else if (fileName.matches(".*/usages/[^/]+/content.json")) {
+                    JSONObject lastUsedObject = ZipUtils.readJSON(zipInputStream);
+                    String lastUsedString = lastUsedObject.getJSONObject("time").getString("value");
+                    long timeStamp = Instant.parse(lastUsedString).getEpochSecond();
+                    if (record.lastUsed == null || timeStamp > record.lastUsed) {
+                        record.lastUsed = timeStamp;
                     }
                 } else if (fileName.endsWith("/images/front.png") || fileName.endsWith("/images/front/front.jpg")) {
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "frontImage",
-                            ZipUtils.readImage(zipInputStream)
-                    );
+                    record.frontImage = ZipUtils.readImage(zipInputStream);
                 } else if (fileName.endsWith("/images/back.png") || fileName.endsWith("/images/back/back.jpg")) {
-                    loyaltyCardHashMap = appendToHashMap(
-                            loyaltyCardHashMap,
-                            cardName,
-                            "backImage",
-                            ZipUtils.readImage(zipInputStream)
-                    );
+                    record.backImage = ZipUtils.readImage(zipInputStream);
+                } else if (!fileName.endsWith("/")) {
+                    Log.d(TAG, "Unknown or unused loyalty-cards file " + fileName + ", skipping...");
                 }
+            } else if (!fileName.endsWith("/")) {
+                Log.d(TAG, "Unknown or unused file " + fileName + ", skipping...");
             }
         }
 
-        return new ZIPData(loyaltyCardHashMap, providers);
+        return new ZIPData(cards, providers);
     }
 
-    public ImportedData importLoyaltyCardHashMap(Context context, final ZIPData zipData) {
+    public ImportedData importLoyaltyCardHashMap(Context context, final ZIPData zipData) throws FormatException {
         ImportedData importedData = new ImportedData(new ArrayList<>(), new HashMap<>());
         int tempID = 0;
 
-        for (Map<String, Object> loyaltyCardData : zipData.loyaltyCardHashMap.values()) {
-            String providerId = (String) loyaltyCardData.get("_providerId");
+        List<String> cardKeys = new ArrayList<>(zipData.cards.keySet());
+        Collections.sort(cardKeys);
 
-            if (providerId == null) {
-                Log.d(TAG, "Missing providerId for card " + loyaltyCardData + ", ignoring...");
+        for (String key : cardKeys) {
+            StocardRecord record = zipData.cards.get(key);
+
+            if (record.providerId == null) {
+                Log.d(TAG, "Missing providerId for card " + record + ", ignoring...");
                 continue;
             }
 
-            HashMap<String, Object> providerData = zipData.providers.get(providerId);
-
-            // Read store from card, if not available (old export), fall back to providerData
-            String store;
-            if (loyaltyCardData.containsKey("store")) {
-                store = (String) loyaltyCardData.get("store");
-            } else {
-                store = providerData != null ? providerData.get("name").toString() : providerId;
+            if (record.cardId == null) {
+                throw new FormatException("No card ID listed, but is required");
             }
 
-            String note = (String) Utils.mapGetOrDefault(loyaltyCardData, "note", "");
-            String cardId = (String) loyaltyCardData.get("cardId");
-            String barcodeTypeString = (String) Utils.mapGetOrDefault(loyaltyCardData, "barcodeType", providerData != null ? providerData.get("barcodeFormat") : null);
+            StocardProvider provider = zipData.providers.get(record.providerId);
+
+            // Read store from card, if not available (old export), fall back to providerData
+            String store = record.store != null ? record.store : provider != null ? provider.name : record.providerId;
+            String note = record.note != null ? record.note : "";
+            String barcodeTypeString = record.barcodeType != null ? record.barcodeType : provider != null ? provider.barcodeFormat : null;
+
+            if (record.label != null && !record.label.equals(store) && !record.label.equals(note)) {
+                note = note.isEmpty() ? record.label : note + "\n" + record.label;
+            }
+
             CatimaBarcode barcodeType = null;
             if (barcodeTypeString != null && !barcodeTypeString.isEmpty()) {
                 if (barcodeTypeString.equals("RSS_DATABAR_EXPANDED")) {
@@ -300,32 +349,25 @@ public class StocardImporter implements Importer {
             }
 
             int headerColor = Utils.getRandomHeaderColor(context);
-            Bitmap cardIcon = null;
-            if (providerData != null && providerData.containsKey("logo")) {
-                cardIcon = (Bitmap) providerData.get("logo");
-                headerColor = Utils.getHeaderColorFromImage(cardIcon, headerColor);
+            if (provider != null && provider.logo != null) {
+                headerColor = Utils.getHeaderColorFromImage(provider.logo, headerColor);
             }
 
-            long lastUsed;
-            if (loyaltyCardData.containsKey("lastUsed")) {
-                lastUsed = (long) loyaltyCardData.get("lastUsed");
-            } else {
-                lastUsed = Utils.getUnixTime();
-            }
+            long lastUsed = record.lastUsed != null ? record.lastUsed : Utils.getUnixTime();
 
-            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, cardId, null, barcodeType, headerColor, 0, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, 0);
+            LoyaltyCard card = new LoyaltyCard(tempID, store, note, null, null, BigDecimal.valueOf(0), null, record.cardId, null, barcodeType, headerColor, 0, lastUsed, DBHelper.DEFAULT_ZOOM_LEVEL, 0);
             importedData.cards.add(card);
 
             Map<ImageLocationType, Bitmap> images = new HashMap<>();
 
-            if (cardIcon != null) {
-                images.put(ImageLocationType.icon, cardIcon);
+            if (provider != null && provider.logo != null) {
+                images.put(ImageLocationType.icon, provider.logo);
             }
-            if (loyaltyCardData.containsKey("frontImage")) {
-                images.put(ImageLocationType.front, (Bitmap) loyaltyCardData.get("frontImage"));
+            if (record.frontImage != null) {
+                images.put(ImageLocationType.front, record.frontImage);
             }
-            if (loyaltyCardData.containsKey("backImage")) {
-                images.put(ImageLocationType.back, (Bitmap) loyaltyCardData.get("backImage"));
+            if (record.backImage != null) {
+                images.put(ImageLocationType.back, record.backImage);
             }
 
             importedData.images.put(tempID, images);
@@ -360,17 +402,5 @@ public class StocardImporter implements Importer {
         }
 
         return true;
-    }
-
-    private HashMap<String, HashMap<String, Object>> appendToHashMap(HashMap<String, HashMap<String, Object>> loyaltyCardHashMap, String cardID, String key, Object value) {
-        HashMap<String, Object> loyaltyCardData = loyaltyCardHashMap.get(cardID);
-        if (loyaltyCardData == null) {
-            loyaltyCardData = new HashMap<>();
-        }
-
-        loyaltyCardData.put(key, value);
-        loyaltyCardHashMap.put(cardID, loyaltyCardData);
-
-        return loyaltyCardHashMap;
     }
 }

@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class LoyaltyCard implements Parcelable {
@@ -164,6 +165,31 @@ public class LoyaltyCard implements Parcelable {
     @Override
     public int describeContents() {
         return id;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format(
+                "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"
+                        + "  balance=%s,%n  balanceType=%s,%n  cardId=%s,%n  barcodeId=%s,%n  barcodeType=%s,%n"
+                        + "  headerColor=%s,%n  starStatus=%s,%n  lastUsed=%s,%n  zoomLevel=%s,%n  archiveStatus=%s%n}",
+                this.id,
+                this.store,
+                this.note,
+                this.validFrom,
+                this.expiry,
+                this.balance,
+                this.balanceType,
+                this.cardId,
+                this.barcodeId,
+                this.barcodeType != null ? this.barcodeType.format() : null,
+                this.headerColor,
+                this.starStatus,
+                this.lastUsed,
+                this.zoomLevel,
+                this.archiveStatus
+        );
     }
 
     public static final Creator<LoyaltyCard> CREATOR = new Creator<LoyaltyCard>() {

@@ -4,6 +4,8 @@
 
 - Minor UI fixes
 - Fix valid from and expiry dates being reset when rotating the card editing screen
+- Fix crash when rotating screen while the color picker is shown
+- Stocard import fixes
 
 ## v2.25.2 - 129 (2023-07-27)
 

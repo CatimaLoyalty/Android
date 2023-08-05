@@ -88,7 +88,7 @@ import protect.card_locker.async.TaskHandler;
 import protect.card_locker.databinding.LayoutChipChoiceBinding;
 import protect.card_locker.databinding.LoyaltyCardEditActivityBinding;
 
-public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback {
+public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements BarcodeImageWriterResultCallback, ColorPickerDialogListener {
     private LoyaltyCardEditActivityBinding binding;
     private static final String TAG = "Catima";
 
@@ -1261,31 +1261,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     }
 
                     ColorPickerDialog dialog = dialogBuilder.create();
-                    dialog.setColorPickerDialogListener(new ColorPickerDialogListener() {
-                        @Override
-                        public void onColorSelected(int dialogId, int color) {
-                            updateTempState(LoyaltyCardField.headerColor, color);
-
-                            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
-                            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
-
-                            // Unset image if set
-                            thumbnail.setTag(null);
-
-                            generateIcon(storeFieldEdit.getText().toString());
-                        }
-
-                        @Override
-                        public void onDialogDismissed(int dialogId) {
-                            // Nothing to do, no change made
-                        }
-                    });
                     dialog.show(getSupportFragmentManager(), "color-picker-dialog");
-
-                    setCardImage(targetView, null, false);
-                    mIconRemoved = true;
-                    mIconUnsaved = false;
-
                     return null;
                 });
             }
@@ -1360,6 +1336,29 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     })
                     .show();
         }
+    }
+
+    // ColorPickerDialogListener callback used by the ColorPickerDialog created in ChooseCardImage to set the thumbnail color
+    // We don't need to set or check the dialogId since it's only used for that single dialog
+    @Override
+    public void onColorSelected(int dialogId, int color) {
+        // Unset image if set
+        setCardImage(thumbnail, null, false);
+        mIconRemoved = true;
+        mIconUnsaved = false;
+
+        updateTempState(LoyaltyCardField.headerColor, color);
+
+        thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
+        thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
+
+        generateIcon(storeFieldEdit.getText().toString());
+    }
+
+    // ColorPickerDialogListener callback
+    @Override
+    public void onDialogDismissed(int dialogId) {
+        // Nothing to do, no change made
     }
 
     public static class DatePickerFragment extends DialogFragment

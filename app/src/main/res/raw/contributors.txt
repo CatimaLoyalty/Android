@@ -7,10 +7,10 @@ Heimen Stoffels
 Oğuz Ersen
 Katharine Chui
 mondstern
+FC Stegerman
 SlavekB
 StoyanDimitrov
 IllusiveMan196
-FC Stegerman
 Altonss
 Michael Moroni
 Gediminas Murauskas
@@ -19,11 +19,10 @@ Joel A
 laralem
 Taco
 pfaffenrodt
-gallegonovato
 Nyatsuki
+Eric
 HudobniVolk
 Samantaz Fox
-Eric
 arno-github
 Ankit Tiwari
 Sergio Paredes
@@ -63,6 +62,7 @@ K. Herbert
 Lisa A.
 Mawuena M. KODZO A.
 Max
+Reza
 Still Hsu
 String E. Fighter
 Tapu
@@ -84,6 +84,7 @@ Bottan Hermawan
 zChiip
 Clonewayx
 D. Domig
+Danylo Lystopadov
 Diego
 Eudes-alencar
 Fede Pujol
@@ -92,6 +93,7 @@ francescbassas
 Jason Li
 Jean-Luc Tibaux
 Jesse Davids
+Kamborio
 Kis Dominik
 Lukas Grassauer
 Luna Jernberg
@@ -148,6 +150,7 @@ Booc Sylvan
 Brage Nesteby Reitan
 Cap Amr Karam
 Carlo Maria Cuoghi Barbagli
+ChengCheng
 CherryMonster222
 Colgrave
 Csaba
@@ -174,7 +177,6 @@ Jean-Baptiste
 Kung-chih
 Karvjorm
 polar
-Kamborio
 krkk
 Laura Ferraz 
 Lucas da Costa
@@ -191,6 +193,7 @@ Milan Šalka
 Minecraft boom
 Mobashir Raihan
 Moi Toi
+DiCeYMaYo
 OPADILOP
 DivideEtImpera
 Nicolas
@@ -205,7 +208,6 @@ Poorva Patidar
 Quang Trung
 Quang Nguyen
 Ratnesh
-Reza
 Rohan Babbar 
 Ronak Upadhyay
 Rose Liverman

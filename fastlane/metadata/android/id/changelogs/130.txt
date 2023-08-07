@@ -1,0 +1,2 @@
+- Perbaikan UI kecil
+- Memperbaiki tanggal valid dari dan tanggal kedaluwarsa yang diatur ulang saat memutar layar pengeditan kartu

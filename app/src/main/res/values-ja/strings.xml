@@ -204,4 +204,9 @@
     <string name="group_name_is_empty">グループ名を入力してください</string>
     <string name="shortcutSelectCard">カードを選択してください</string>
     <string name="translate_platform">on Weblate</string>
+    <string name="options">オプション</string>
+    <string name="show_note">メモを表示</string>
+    <string name="validFromDate">有効期限</string>
+    <string name="chooseValidFromDate">有効期限を選択</string>
+    <string name="anyDate">無期限</string>
 </resources>

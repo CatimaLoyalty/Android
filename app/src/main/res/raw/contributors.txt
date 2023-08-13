@@ -7,8 +7,8 @@ Heimen Stoffels
 Oğuz Ersen
 Katharine Chui
 mondstern
-FC Stegerman
 SlavekB
+FC Stegerman
 StoyanDimitrov
 IllusiveMan196
 Altonss
@@ -19,8 +19,8 @@ Joel A
 laralem
 Taco
 pfaffenrodt
-Nyatsuki
 Eric
+Nyatsuki
 HudobniVolk
 Samantaz Fox
 arno-github
@@ -249,6 +249,7 @@ polarhun
 pooyanazari
 psa-jforestier
 sergio
+skauVictor
 080502
 Marcus
 techwebpd
@@ -258,6 +259,7 @@ tygyh
 unstartdev
 wmilan 17
 يوسف لطفي
+しいたけ
 元气
 JaeBeom An
 JungHee Lee

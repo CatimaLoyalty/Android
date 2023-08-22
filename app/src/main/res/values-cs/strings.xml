@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Přidat</string>
-    <string name="noGiftCards">Klepněte na tlačítko + plus pro přidání karty nebo naimportujete karty z nabídky ⋮.</string>
+    <string name="noGiftCards">Klepněte na tlačítko Plus (+) pro přidání karty nebo naimportujete karty z nabídky (⋮).</string>
     <string name="storeName">Název</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
     <string name="cancel">Zrušit</string>
     <string name="save">Uložit</string>
-    <string name="edit">Editovat</string>
+    <string name="edit">Upravit</string>
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
-    <string name="ok">Ano</string>
+    <string name="ok">OK</string>
     <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
     <string name="sendLabel">Odeslat…</string>
     <string name="editCardTitle">Editovat kartu</string>
     <string name="addCardTitle">Přidat kartu</string>
-    <string name="scanCardBarcode">Skenování čárového kódu</string>
+    <string name="scanCardBarcode">Naskenovat čárový kód</string>
     <string name="noStoreError">Nezadáno žádné jméno</string>
     <string name="noCardIdError">Nezadáno ID</string>
     <string name="importExport">Import/Export</string>
@@ -29,10 +29,10 @@
     <string name="exportFailed">Export nelze provést</string>
     <string name="importing">Importuji…</string>
     <string name="exporting">Exportuji…</string>
-    <string name="importOptionFilesystemTitle">Import ze souborového systému</string>
+    <string name="importOptionFilesystemTitle">Import z úložiště</string>
     <string name="importOptionFilesystemExplanation">Vyberte konkrétní soubor v úložišti.</string>
-    <string name="importOptionFilesystemButton">Ze souborového systému</string>
-    <string name="importOptionApplicationTitle">Použitím jiné aplikace</string>
+    <string name="importOptionFilesystemButton">Z úložiště</string>
+    <string name="importOptionApplicationTitle">Přes jinou aplikaci</string>
     <string name="importOptionApplicationExplanation">K otevření souboru použijte libovolnou aplikaci nebo svého oblíbeného správce souborů.</string>
     <string name="importOptionApplicationButton">Použít jinou aplikaci</string>
     <string name="about">O aplikaci</string>
@@ -53,8 +53,8 @@
     <string name="app_copyright_old">Založeno na Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
     <string name="exportOptionExplanation">Data budou zapsána na místo podle vašeho výběru.</string>
-    <string name="failedParsingImportUriError">Nelze analyzovat importovanou URI</string>
-    <string name="noCardExistsError">Takovou kartu nelze najít</string>
+    <string name="failedParsingImportUriError">Nelze zpracovat URI importu</string>
+    <string name="noCardExistsError">Tuto kartu nelze najít</string>
     <string name="noCardsMessage">Nejprve přidejte kartu</string>
     <string name="cardShortcut">Zástupce karty</string>
     <string name="share">Sdílet</string>
@@ -63,8 +63,8 @@
     <string name="noBarcode">Žádný čárový kód</string>
     <string name="barcodeNoBarcode">Tato karta nemá čárový kód</string>
     <string name="barcodeType">Typ čárového kódu</string>
-    <string name="noMatchingGiftCards">Nic nenalezeno. Zkuste změnit vyhledávání.</string>
-    <string name="action_search">Vyhledávání</string>
+    <string name="noMatchingGiftCards">Nic nenalezeno. Zkuste zadat jiný výraz.</string>
+    <string name="action_search">Hledat</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="card_ids_copied">ID zkopírováno</string>
     <plurals name="deleteCardsConfirmation">
@@ -79,12 +79,12 @@
     </plurals>
     <string name="importSuccessful">Data importována</string>
     <string name="intent_import_card_from_url_share_text">Chci s Vámi sdílet kartu</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">Bránit uzamykání obrazovky</string>
-    <string name="settings_keep_screen_on">Udržovat obrazovku zapnutou</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Nezamykat obrazovku</string>
+    <string name="settings_keep_screen_on">Nevypínat obrazovku</string>
     <string name="settings_dark_theme">Tmavý</string>
     <string name="settings_light_theme">Světlý</string>
     <string name="settings_system_theme">Podle systému</string>
-    <string name="settings_theme">Vzhled</string>
+    <string name="settings_theme">Motiv</string>
     <string name="settings">Nastavení</string>
     <string name="card">Karta</string>
     <string name="balanceSentence">Zůstatek: <xliff:g>%s</xliff:g></string>
@@ -92,7 +92,7 @@
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
     <string name="moveDown">Přesunout dolů</string>
     <string name="moveUp">Přesunout nahoru</string>
-    <string name="enterBarcodeInstructions">Zadejte ID a níže vyberte typ čárového kódu nebo „Tato karta nemá čárový kód“.</string>
+    <string name="enterBarcodeInstructions">Zadejte ID a níže vyberte typ čárového kódu nebo klikněte na „Tato karta nemá čárový kód“.</string>
     <string name="settings_brown_theme">Hnědá</string>
     <string name="settings_grey_theme">Šedá</string>
     <string name="settings_green_theme">Zelená</string>
@@ -172,8 +172,8 @@
     <string name="groups">Skupiny</string>
     <string name="enter_group_name">Zadejte název skupiny</string>
     <string name="exportSuccessful">Data exportována</string>
-    <string name="settings_display_barcode_max_brightness">Rozjasněné zobrazení čárového kódu</string>
-    <string name="starImage">Oblíbená hvězda</string>
+    <string name="settings_display_barcode_max_brightness">Vysoký jas při zobrazení čárového kódu</string>
+    <string name="starImage">Hvězdička u oblíbených</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <plurals name="selectedCardCount">
         <item quantity="one">Vybrána <xliff:g>%d</xliff:g> karta</item>
@@ -223,9 +223,9 @@
     </plurals>
     <string name="settings_oled_dark">Čistě černé pozadí pro tmavý motiv</string>
     <string name="include_if_asking_support">Pokud chcete požádat o podporu, uveďte následující informace:</string>
-    <string name="settings_follow_system_orientation">Následovat systém</string>
+    <string name="settings_follow_system_orientation">Podle orientace systému</string>
     <string name="settings_portrait_orientation">Na výšku</string>
-    <string name="settings_lock_on_opening_orientation">Zamknout podle orientace použité při otevření karty</string>
+    <string name="settings_lock_on_opening_orientation">Ponechat orientaci jako při otevření karty</string>
     <string name="archive">Archivovat</string>
     <string name="unarchive">Vrátit z archivu</string>
     <string name="archiveList">Archiv</string>
@@ -280,14 +280,14 @@
     <string name="show_validity">Zobrazit platnost</string>
     <string name="show_balance">Zobrazit zůstatek</string>
     <string name="permissionReadCardsDescription">Číst vaše karty a všechny jejich podrobnosti, včetně poznámek a obrázků</string>
-    <string name="settings_allow_content_provider_read_summary">Aplikace stále budou muset požádat o povolení k poskytnutí přístupu</string>
+    <string name="settings_allow_content_provider_read_summary">Aplikace budou i tak muset požádat o povolení k poskytnutí přístupu</string>
     <string name="permissionReadCardsLabel">Číst karty Catima</string>
     <string name="settings_allow_content_provider_read_title">Umožnit ostatním aplikacím přístup k mým datům</string>
-    <string name="settings_keep_screen_on_summary">Zakáže časový limit obrazovky při prohlížení karty</string>
+    <string name="settings_keep_screen_on_summary">Při prohlížení karty vypnout časovač zhasnutí obrazovky</string>
     <string name="settings_oled_dark_summary">Snižuje používání baterie na displejích OLED</string>
     <string name="settings_category_title_privacy">Soukromí</string>
-    <string name="settings_display_barcode_max_brightness_summary">Nezbytné pro některé skenery, aby fungovaly</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Zakáže zamčení obrazovky při prohlížení karty</string>
+    <string name="settings_display_barcode_max_brightness_summary">U některých čteček je to potřeba</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Při prohlížení karty zabránit zamčení obrazovky</string>
     <string name="settings_category_title_cards">Karty</string>
     <string name="settings_category_title_general">Obecné</string>
 </resources>

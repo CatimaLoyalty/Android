@@ -10,6 +10,8 @@ Copylefted libre software (GPLv3+) card management app.
 ![Android CI](https://github.com/TheLastProject/Catima/workflows/Android%20CI/badge.svg)
 [![Translation status](https://hosted.weblate.org/widgets/catima/-/svg-badge.svg)](https://hosted.weblate.org/engage/catima/)
 
+[![Matrix](https://img.shields.io/matrix/catima%3Amatrix.org)](https://matrix.to/#/%23catima:matrix.org)
+
 <a href="https://f-droid.org/repository/browse/?fdid=me.hackerchick.catima" target="_blank">
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/me.hackerchick.catima" target="_blank">

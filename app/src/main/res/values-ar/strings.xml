@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="action_search">اسامه</string>
+    <string name="action_search">بحث</string>
     <string name="action_add">اضف</string>
     <string name="noGiftCards">اضغط على + الزر الإضافي لاضافة بطاقة, او استورد من ⋮ القائمة.</string>
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>

@@ -213,8 +213,6 @@
     <string name="noGiftCardsGroup">Створите кілька карток, та призначте їх до групи тут.</string>
     <string name="selectColor">Вибір кольору</string>
     <string name="setIcon">Вибір мініатюри</string>
-    <string name="action_show_details">Показати деталі</string>
-    <string name="action_hide_details">Сховати деталі</string>
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Оберіть карту</string>
     <string name="options">Параметри</string>
@@ -238,8 +236,6 @@
     <string name="settings_lock_on_opening_orientation">Блокування орієнтації при відкритті картки</string>
     <string name="archived">Картка архівована</string>
     <string name="unarchived">Картка розархівована</string>
-    <string name="archiveList">Архів</string>
-    <string name="noUnarchivedCardsMessage">Немає не архівованих карток</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> карту (<xliff:g id="archivedCount">%2$d</xliff:g> заархівовано)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> карти (<xliff:g id="archivedCount">%2$d</xliff:g> заархівовано)</item>

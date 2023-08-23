@@ -127,7 +127,6 @@
     <string name="settings_theme_color">Farba témy</string>
     <string name="app_libraries">Slobodné knižnice tretích strán: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Slobodné zdroje tretích strán: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="action_show_details">Zobraziť detaily</string>
     <string name="importCatimaMessage">Vyberte svoj <i>catima.zip</i> export z aplikácie Catima, ktorý chcete importovať.
 \nVytvorte ho z ponuky Import/Export inej aplikácie Catima tak, že stlačíte tlačidlo Exportovať.</string>
     <string name="accept">Prijať</string>
@@ -146,7 +145,6 @@
     <string name="report_error">Nahlásiť chybu</string>
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobraziť podrobnosti</string>
-    <string name="action_hide_details">Skryť detaily</string>
     <string name="yes">Áno</string>
     <string name="importStocard">Import z aplikácie Stocard</string>
     <string name="selectColor">Vybrať farbu</string>
@@ -262,8 +260,6 @@
     <string name="copy_to_clipboard_multiple_toast">ID skopírované do schránky</string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
     <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="archiveList">Archív</string>
-    <string name="noUnarchivedCardsMessage">Nie sú žiadne karty vrátené z archívu</string>
     <string name="newBalanceSentence">Nový zostatok: <xliff:g>%s</xliff:g></string>
     <string name="failedLaunchingPhotoPicker">Nepodarilo sa nájsť podporovanú aplikáciu galérie</string>
     <string name="show_note">Zobraziť poznámku</string>

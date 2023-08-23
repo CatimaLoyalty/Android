@@ -18,13 +18,10 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowLog;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.util.Currency;
-import java.util.Date;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.preference.PreferenceManager;
-import protect.card_locker.preferences.Settings;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -52,7 +49,8 @@ public class LoyaltyCardCursorAdapterTest {
     }
 
     private View createView(Cursor cursor) {
-        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity);
+        LoyaltyCardListDisplayOptions loyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(activity.getApplicationContext());
+        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity, loyaltyCardListDisplayOptions);
 
         LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
         adapter.bindViewHolder(viewHolder, cursor.getPosition());

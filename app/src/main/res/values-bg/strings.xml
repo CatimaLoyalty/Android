@@ -203,8 +203,6 @@
     <string name="selectColor">Избиране на цвят</string>
     <string name="group_name_is_empty">Името на списъка не може да е празно</string>
     <string name="group_edit">Редактиране на списък</string>
-    <string name="action_show_details">Подробности под картата</string>
-    <string name="action_hide_details">По-малко детайли</string>
     <string name="noGiftCardsGroup">Създайте карти и ги зачислите към списък от тук.</string>
     <string name="translate_platform">в Weblate</string>
     <string name="shortcutSelectCard">Избор на карта</string>
@@ -228,8 +226,6 @@
     <string name="unarchive">Изваждане от архива</string>
     <string name="archived">Картата е архивирана</string>
     <string name="unarchived">Карта е извадена от архива</string>
-    <string name="archiveList">Архив</string>
-    <string name="noUnarchivedCardsMessage">Няма карти извън архива</string>
     <string name="failedLaunchingPhotoPicker">Не е намерено поддържано приложение за галерия</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> карта (<xliff:g id="archivedCount">%2$d</xliff:g> архивирана)</item>

@@ -10,8 +10,8 @@
         app:showAsAction="always|collapseActionView"
         android:visible="false"/>
     <item
-        android:id="@+id/action_shown_details"
-        android:title="@string/action_show_details"
+        android:id="@+id/action_display_options"
+        android:title="@string/action_display_options"
         android:icon="@drawable/baseline_visibility_24"
         app:showAsAction="always"
         android:visible="false"/>
@@ -25,10 +25,6 @@
         android:id="@+id/action_manage_groups"
         android:icon="@drawable/ic_folder_white"
         android:title="@string/groups"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_archived"
-        android:title="@string/archiveList"
         app:showAsAction="never"/>
     <item
         android:id="@+id/action_import_export"

@@ -209,8 +209,6 @@
     <string name="group_name_is_empty">Le nom du groupe ne peut pas être vide</string>
     <string name="setIcon">Définir la vignette</string>
     <string name="selectColor">Sélectionnez la couleur</string>
-    <string name="action_show_details">Afficher les détails</string>
-    <string name="action_hide_details">Masquer les détails</string>
     <string name="translate_platform">sur Weblate</string>
     <string name="shortcutSelectCard">Sélectionnez une carte</string>
     <string name="options">Options</string>
@@ -233,8 +231,6 @@
     <string name="unarchive">Désarchiver</string>
     <string name="archived">Carte archivée</string>
     <string name="unarchived">Carte désarchivée</string>
-    <string name="archiveList">Archives</string>
-    <string name="noUnarchivedCardsMessage">Il n\'existe aucune carte non archivée</string>
     <string name="failedLaunchingPhotoPicker">Impossible de trouver une application de galerie prise en charge</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> carte (<xliff:g id="archivedCount">%2$d</xliff:g> archivée)</item>

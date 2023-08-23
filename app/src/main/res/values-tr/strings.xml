@@ -205,8 +205,6 @@
     <string name="group_updated">Grup güncellendi</string>
     <string name="selectColor">Renk seç</string>
     <string name="setIcon">Küçük resim ayarla</string>
-    <string name="action_show_details">Ayrıntıları göster</string>
-    <string name="action_hide_details">Ayrıntıları gizle</string>
     <string name="translate_platform">Weblate\'de</string>
     <string name="shortcutSelectCard">Kart seç</string>
     <string name="options">Seçenekler</string>
@@ -224,8 +222,6 @@
     <string name="duplicateCard">Çoğalt</string>
     <string name="unarchive">Arşivden çıkar</string>
     <string name="archived">Kart arşivlendi</string>
-    <string name="archiveList">Arşiv</string>
-    <string name="noUnarchivedCardsMessage">Arşivden çıkarılan kart yok</string>
     <string name="settings_card_orientation">Barkod yönü</string>
     <string name="settings_lock_on_opening_orientation">Kartı açarken kullanılan yönü kilitle</string>
     <string name="unarchived">Kart arşivden çıkarıldı</string>

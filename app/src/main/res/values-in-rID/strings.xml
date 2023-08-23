@@ -206,8 +206,6 @@
         <item quantity="other"><xliff:g>%1$d</xliff:g> kartu (<xliff:g id="archivedCount">%2$d</xliff:g> diarsipkan)</item>
     </plurals>
     <string name="translate_platform">di Weblate</string>
-    <string name="action_show_details">Tampilkan detail</string>
-    <string name="action_hide_details">Sembunyikan detail</string>
     <string name="welcome">Selamat datang di Catima</string>
     <string name="failedToOpenUrl">Install browser web terlebih dahulu</string>
     <plurals name="viewArchivedCardsWithCount">
@@ -230,12 +228,10 @@
     <string name="duplicateCard">Duplikat</string>
     <string name="archive">Arsip</string>
     <string name="archived">Kartu diarsipkan</string>
-    <string name="archiveList">Arsip</string>
     <string name="failedToRetrieveImageFile">Gagal mengambil file gambar</string>
     <string name="barcodeLongPressMessage">Hanya gambar yang dapat dibuka di aplikasi galeri</string>
     <string name="unarchive">Ekstrak</string>
     <string name="unarchived">Kartu tidak diarsipkan</string>
-    <string name="noUnarchivedCardsMessage">Tidak ada kartu yang diekstrak</string>
     <string name="options">Opsi</string>
     <string name="starred">Berbintang</string>
     <string name="importCards">Import kartu</string>

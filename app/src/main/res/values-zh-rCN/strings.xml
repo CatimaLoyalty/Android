@@ -208,8 +208,6 @@
     <string name="exportPassword">设置密码来保护导出的内容（可选）</string>
     <string name="settings_magenta_theme">紫红</string>
     <string name="settings_violet_theme">紫色</string>
-    <string name="action_show_details">显示详情</string>
-    <string name="action_hide_details">隐藏详情</string>
     <string name="app_contributors">因他们而存在: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="and_data_usage">和数据使用方法</string>
     <string name="failedLaunchingPhotoPicker">找不到支持的图库应用</string>
@@ -231,8 +229,6 @@
     <string name="unarchive">移出归档</string>
     <string name="archived">卡片已归档</string>
     <string name="unarchived">卡片未归档</string>
-    <string name="archiveList">已归档卡</string>
-    <string name="noUnarchivedCardsMessage">没有未归档卡</string>
     <string name="failedToOpenUrl">先安装一个浏览器</string>
     <string name="welcome">欢迎使用Catima</string>
     <string name="updateBalanceHint">输入金额</string>

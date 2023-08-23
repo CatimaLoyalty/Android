@@ -194,7 +194,6 @@
     <string name="starImage">收藏標示</string>
     <string name="noGiftCardsGroup">建立一些卡片，然後將它們分配到這個群組中。</string>
     <string name="showMoreInfo">顯示資訊</string>
-    <string name="action_show_details">顯示詳情</string>
     <string name="shortcutSelectCard">選擇卡片</string>
     <string name="starred">已收藏</string>
     <plurals name="balancePoints">
@@ -208,7 +207,6 @@
     <string name="group_updated">已更新群組</string>
     <string name="editGroup">編輯群組中：<xliff:g>%s</xliff:g></string>
     <string name="settings_oled_dark">使用深色主題時，使用純黑色背景</string>
-    <string name="action_hide_details">隱藏詳情</string>
     <string name="translate_platform">於 Weblate</string>
     <string name="options">選項</string>
     <string name="include_if_asking_support">如果您想請求協助，請附上以下訊息：</string>
@@ -227,10 +225,8 @@
     <string name="settings_follow_system_orientation">跟隨系統</string>
     <string name="settings_landscape_orientation">橫向</string>
     <string name="failedToOpenUrl">先安裝網頁瀏覽器</string>
-    <string name="archiveList">封存</string>
     <string name="failedLaunchingPhotoPicker">無法找到支援的圖庫應用程式</string>
     <string name="previousCard">上一張</string>
-    <string name="noUnarchivedCardsMessage">沒有已封存的卡片</string>
     <string name="nextCard">下一張</string>
     <string name="welcome">歡迎使用 Catima</string>
     <plurals name="viewArchivedCardsWithCount">

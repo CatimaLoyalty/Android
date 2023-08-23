@@ -123,7 +123,6 @@
     <string name="unarchive">보관 취소</string>
     <string name="archived">보관된 카드</string>
     <string name="unarchived">보관되지 않은 카드</string>
-    <string name="archiveList">보관소</string>
     <string name="failedLaunchingPhotoPicker">지원되는 갤러리 앱을 찾을 수 없습니다</string>
     <string name="welcome">Catima 오신 것을 환영합니다</string>
     <string name="validFromDate">유효</string>
@@ -171,7 +170,6 @@
     <string name="group_name_is_empty">그룹 이름은 비워둘 수 없습니다</string>
     <string name="chooseExpiryDate">만료일 선택</string>
     <string name="settings_oled_dark">어두운 테마를 위한 검정색 배경</string>
-    <string name="action_show_details">세부정보 표시</string>
     <string name="noGroups">+ 더하기 버튼을 클릭하여 분류할 그룹을 추가합니다.</string>
     <string name="deleteConfirmationGroup">그룹을 삭제하시겠습니까\?</string>
     <string name="errorReadingImage">이미지를 읽을 수 없습니다</string>
@@ -194,12 +192,10 @@
     <string name="turn_flashlight_on">손전등 켜기</string>
     <string name="exportPassword">내보내기를 보호하기 위한 암호 설정(선택 사항)</string>
     <string name="passwordRequired">비밀번호를 입력해주세요</string>
-    <string name="action_hide_details">상세정보 표시</string>
     <string name="setIcon">썸네일 설정</string>
     <string name="show_balance">잔액 표시</string>
     <string name="help_translate_this_app">이 앱을 번역하도록 도와주세요</string>
     <string name="duplicateCard">복제하다</string>
-    <string name="noUnarchivedCardsMessage">보관되지 않은 카드가 없습니다</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="other"><xliff:g>%1$d</xliff:g> 카드 (<xliff:g id="archivedCount">%2$d</xliff:g> 보관됨)</item>
     </plurals>

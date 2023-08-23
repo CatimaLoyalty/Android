@@ -197,7 +197,6 @@
 \nলয়্যালটি কার্ড কীচেনের আমদানি/রপ্তানি মেনু থেকে প্রথমে সেখানে রপ্তানি টিপে এটি তৈরি করুন।</string>
     <string name="selectColor">রঙ নির্বাচন করুন</string>
     <string name="unarchived">কার্ড সংরক্ষণাগারমুক্ত করা হয়েছে</string>
-    <string name="archiveList">সংরক্ষণাগার</string>
     <string name="report_error">ভুল প্রতিবেদন</string>
     <string name="failedLaunchingPhotoPicker">একটি সমর্থিত গ্যালারি অ্যাপ খুঁজে পাওয়া যায়নি</string>
     <plurals name="groupCardCountWithArchived">
@@ -234,8 +233,6 @@
     <string name="barcodeLongPressMessage">গ্যালারি অ্যাপে শুধুমাত্র ছবি খোলা যাবে</string>
     <string name="translate_platform">Weblate-এ</string>
     <string name="on_google_play">Google Play-তে</string>
-    <string name="action_show_details">বিস্তারিত দেখাও</string>
-    <string name="action_hide_details">আড়াল বিস্তারিত</string>
     <string name="shortcutSelectCard">একটি কার্ড নির্বাচন করুন</string>
     <string name="options">অপশন</string>
     <string name="starred">তারকাচিহ্নিত</string>
@@ -254,7 +251,6 @@
     <string name="archive">সংরক্ষণ করুন</string>
     <string name="unarchive">সংরক্ষণাগারমুক্ত করুন</string>
     <string name="archived">কার্ড সংরক্ষণাগারভুক্ত</string>
-    <string name="noUnarchivedCardsMessage">আর্কাইভ করা কোনো কার্ড নেই</string>
     <string name="welcome">Catima-তে স্বাগতম</string>
     <string name="updateBalanceTitle">আপনি কত খরচ করেছেন\?</string>
     <string name="updateBalanceHint">পরিমান লিখুন</string>

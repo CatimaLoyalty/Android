@@ -187,8 +187,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> zaznaczonych</item>
     </plurals>
     <string name="shortcutSelectCard">Wybierz kartę</string>
-    <string name="action_show_details">Pokaż szczegóły</string>
-    <string name="action_hide_details">Ukryj szczegóły</string>
     <string name="sort_by_name">Nazwa</string>
     <string name="sort_by_most_recently_used">Ostatnio używane</string>
     <string name="sort_by_expiry">Data wygaśnięcia</string>
@@ -238,8 +236,6 @@
     <string name="unarchive">Cofnij archiwizację</string>
     <string name="archived">Karta zarchiwizowana</string>
     <string name="unarchived">Karta niezarchiwizowana</string>
-    <string name="archiveList">Archiwum</string>
-    <string name="noUnarchivedCardsMessage">Nie istnieją żadne niezarchiwizowane karty</string>
     <string name="failedLaunchingPhotoPicker">Nie można odnaleźć aplikacji galeria</string>
     <string name="previousCard">Poprzedni</string>
     <string name="nextCard">Następny</string>

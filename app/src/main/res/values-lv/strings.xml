@@ -105,8 +105,6 @@
     <string name="noCardIdError">Numurs nav ievadīts</string>
     <string name="about_title_fmt">Par <xliff:g id="app_name">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Derīguma termiņš beidzās: <xliff:g>%s</xliff:g></string>
-    <string name="action_hide_details">Slēpt detaļas</string>
-    <string name="action_show_details">Rādīt detalizēti</string>
     <string name="selectColor">Izvēlieties krāsu</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_pink_theme">Rozā</string>
@@ -230,8 +228,6 @@
     <string name="unarchive">Atarhivēt</string>
     <string name="archived">Karte arhivēta</string>
     <string name="unarchived">Karte atarhivēta</string>
-    <string name="archiveList">Arhīvs</string>
-    <string name="noUnarchivedCardsMessage">Nav atarhivētu karšu</string>
     <string name="failedLaunchingPhotoPicker">Nevarēja atrast atbalstītu galerijas lietotni</string>
     <string name="previousCard">Iepriekšējā</string>
     <string name="nextCard">Nākamā</string>

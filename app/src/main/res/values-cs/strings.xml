@@ -210,8 +210,6 @@
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je zde přiřadit do skupiny.</string>
     <string name="shortcutSelectCard">Vybrat kartu</string>
-    <string name="action_show_details">Zobrazit detaily</string>
-    <string name="action_hide_details">Skrýt detaily</string>
     <string name="translate_platform">na Weblate</string>
     <string name="showMoreInfo">Zobrazit podrobnosti</string>
     <string name="starred">S hvězdičkou</string>
@@ -228,8 +226,6 @@
     <string name="settings_lock_on_opening_orientation">Ponechat orientaci jako při otevření karty</string>
     <string name="archive">Archivovat</string>
     <string name="unarchive">Vrátit z archivu</string>
-    <string name="archiveList">Archiv</string>
-    <string name="noUnarchivedCardsMessage">Nejsou žádné karty vrácené z archivu</string>
     <string name="unarchived">Karta vrácena z archivu</string>
     <string name="settings_card_orientation">Orientace čárového kódu</string>
     <string name="settings_landscape_orientation">Na šířku</string>

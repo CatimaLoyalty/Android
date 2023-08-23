@@ -28,9 +28,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import protect.card_locker.databinding.ActivityManageGroupBinding;
 
 public class ManageGroupActivity extends CatimaAppCompatActivity implements ManageGroupCursorAdapter.CardAdapterListener {
-
     private ActivityManageGroupBinding binding;
     private SQLiteDatabase mDatabase;
+    private LoyaltyCardListDisplayOptions mLoyaltyCardListDisplayOptions;
     private ManageGroupCursorAdapter mAdapter;
 
     private final String SAVE_INSTANCE_ADAPTER_STATE = "adapterState";
@@ -100,7 +100,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         }
         mGroupNameText.setText(mGroup._id);
         setTitle(getString(R.string.editGroup, mGroup._id));
-        mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup);
+        mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(this);
+        mAdapter = new ManageGroupCursorAdapter(this, null, this, mGroup, mLoyaltyCardListDisplayOptions);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
@@ -167,8 +168,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
 
-        if (id == R.id.action_shown_details) {
-            mAdapter.showSelectDetailDisplayDialog();
+        if (id == R.id.action_display_options) {
+            mLoyaltyCardListDisplayOptions.showDisplayOptionsDialog();
             invalidateOptionsMenu();
 
             return true;

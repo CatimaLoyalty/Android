@@ -209,8 +209,6 @@
     <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui.</string>
     <string name="selectColor">Selecionar cor</string>
     <string name="setIcon">Definir miniatura</string>
-    <string name="action_show_details">Mostrar detalhes</string>
-    <string name="action_hide_details">Ocultar detalhes</string>
     <string name="shortcutSelectCard">Selecione um cartão</string>
     <string name="translate_platform">no Weblate</string>
     <string name="starred">Estrela</string>
@@ -233,8 +231,6 @@
     <string name="unarchive">Desarquivar</string>
     <string name="archived">Cartão arquivado</string>
     <string name="unarchived">Cartão desarquivado</string>
-    <string name="archiveList">Arquivar</string>
-    <string name="noUnarchivedCardsMessage">Não existem cartões desarquivados</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> cartão (<xliff:g id="archivedCount">%2$d</xliff:g> arquivado)</item>
         <item quantity="many"><xliff:g>%1$d</xliff:g> cartões (<xliff:g id="archivedCount">%2$d</xliff:g> arquivados)</item>

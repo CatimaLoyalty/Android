@@ -70,8 +70,6 @@
     <string name="settings_grey_theme">Szürke</string>
     <string name="sort">Rendezés</string>
     <string name="on_google_play">a Google Playen</string>
-    <string name="action_show_details">Részletek megjelenítése</string>
-    <string name="action_hide_details">Részletek elrejtése</string>
     <string name="and_data_usage">és adathasználat</string>
     <string name="translate_platform">a Weblate-en</string>
     <string name="sort_by_name">Név</string>
@@ -221,7 +219,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kártya (<xliff:g id="archivedCount">%2$d</xliff:g> archiválva)</item>
     </plurals>
-    <string name="noUnarchivedCardsMessage">Nincs archiválatlan kártya</string>
     <string name="failedToOpenUrl">Először telepítsen egy webböngészőt</string>
     <string name="failedLaunchingPhotoPicker">Nem található támogatott galéria alkalmazás</string>
     <string name="previousCard">Előző</string>
@@ -235,7 +232,6 @@
     <string name="archive">Archiválás</string>
     <string name="unarchive">Archiválás megszüntetése</string>
     <string name="archived">Kártya archiválva</string>
-    <string name="archiveList">Archívum</string>
     <string name="duplicateCard">Klónozás</string>
     <string name="currentBalanceSentence">Jelenlegi egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceHint">Adja meg az összeget</string>

@@ -209,11 +209,7 @@
     <string name="noGiftCardsGroup">Sukurkite keletą kortelių ir priskirkite jas grupei čia.</string>
     <string name="setIcon">Nustatyti piktogramą</string>
     <string name="selectColor">Pasirinkti spalvą</string>
-    <string name="action_hide_details">Paslėpti informaciją</string>
-    <string name="action_show_details">Rodyti išsamią informaciją</string>
     <string name="settings_card_orientation">Brūkšninio kodo orientacija</string>
-    <string name="archiveList">Archyvas</string>
-    <string name="noUnarchivedCardsMessage">Nėra išarchyvuotų kortelių</string>
     <string name="failedLaunchingPhotoPicker">Nepavyko rasti palaikomos galerijos programėlės</string>
     <string name="previousCard">Ankstesnė</string>
     <string name="nextCard">Kita</string>

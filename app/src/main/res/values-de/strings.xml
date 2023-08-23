@@ -205,8 +205,6 @@
     <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
     <string name="setIcon">Vorschau setzen</string>
     <string name="selectColor">Farbe auswählen</string>
-    <string name="action_show_details">Details anzeigen</string>
-    <string name="action_hide_details">Details ausblenden</string>
     <string name="translate_platform">auf Weblate</string>
     <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
     <string name="options">Optionen</string>
@@ -220,8 +218,6 @@
     <string name="include_if_asking_support">Wenn Sie Unterstützung anfordern möchten, geben Sie bitte die folgenden Informationen an:</string>
     <string name="settings_follow_system_orientation">System folgen</string>
     <string name="settings_landscape_orientation">Landschaft</string>
-    <string name="archiveList">Archiv</string>
-    <string name="noUnarchivedCardsMessage">Es gibt keine nicht archivierten Karten</string>
     <string name="settings_portrait_orientation">Porträt</string>
     <string name="duplicateCard">Duplizieren</string>
     <string name="unarchive">Archivierung aufheben</string>

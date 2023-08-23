@@ -213,8 +213,6 @@
     <string name="noGiftCardsGroup">Создайте несколько карт, а затем распределите их по группам здесь.</string>
     <string name="setIcon">Выбор миниатюры</string>
     <string name="selectColor">Выбрать цвет</string>
-    <string name="action_hide_details">Скрытие подробностей</string>
-    <string name="action_show_details">Отображение подробностей</string>
     <string name="translate_platform">на Weblate</string>
     <string name="shortcutSelectCard">Выбор карты</string>
     <string name="options">Параметры</string>
@@ -233,8 +231,6 @@
     <string name="settings_lock_on_opening_orientation">Фиксировать ориентацию при открытии карты</string>
     <string name="archive">Архивировать</string>
     <string name="unarchive">Разархивировать</string>
-    <string name="archiveList">Архив</string>
-    <string name="noUnarchivedCardsMessage">Нет карт вне архива</string>
     <string name="settings_follow_system_orientation">Как в системе</string>
     <string name="duplicateCard">Дублировать</string>
     <string name="settings_card_orientation">Ориентация штрих-кода</string>

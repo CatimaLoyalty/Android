@@ -8,24 +8,25 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class LoyaltyCardListDisplayOptionsWithArchive extends LoyaltyCardListDisplayOptions {
-    Runnable mSwapCursorCallback;
+    private final Runnable mSwapCursorCallback;
 
     private boolean mShowArchivedCards;
 
-    public LoyaltyCardListDisplayOptionsWithArchive(Context context, Runnable swapCursorCallback) {
-        super(context);
+    public LoyaltyCardListDisplayOptionsWithArchive(Context context, Runnable refreshCardsCallback, Runnable swapCursorCallback) {
+        super(context, refreshCardsCallback);
         mShowArchivedCards = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_archived_cards), true);
         mSwapCursorCallback = swapCursorCallback;
     }
 
+    @Override
     public void showArchivedCards(boolean show) {
         mShowArchivedCards = show;
-
         mSwapCursorCallback.run();
 
         saveDetailState(R.string.sharedpreference_card_details_show_archived_cards, show);
     }
 
+    @Override
     public boolean showingArchivedCards() {
         return mShowArchivedCards;
     }

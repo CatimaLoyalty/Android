@@ -55,7 +55,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     private static final int MEDIUM_SCALE_FACTOR_DIP = 460;
 
     private SQLiteDatabase mDatabase;
-    private LoyaltyCardListDisplayOptionsWithArchive mLoyaltyCardListDisplayOptions;
     private LoyaltyCardCursorAdapter mAdapter;
     private ActionMode mCurrentActionMode;
     private SearchView mSearchView;
@@ -243,7 +242,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 group = (Group) mGroup;
             }
 
-            mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mLoyaltyCardListDisplayOptions.showingArchivedCards() ? DBHelper.LoyaltyCardArchiveFilter.All : DBHelper.LoyaltyCardArchiveFilter.Unarchived));
+            mAdapter.swapCursor(DBHelper.getLoyaltyCardCursor(mDatabase, mFilter, group, mOrder, mOrderDirection, mAdapter.showingArchivedCards() ? DBHelper.LoyaltyCardArchiveFilter.All : DBHelper.LoyaltyCardArchiveFilter.Unarchived));
         };
 
         groupsTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -278,8 +277,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         mNoGroupCardsText = contentMainBinding.noGroupCardsText;
         mCardList = contentMainBinding.list;
 
-        mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptionsWithArchive(this, mSwapLoyaltyCardListCursor);
-        mAdapter = new LoyaltyCardCursorAdapter(this, null, this, mLoyaltyCardListDisplayOptions);
+        mAdapter = new LoyaltyCardCursorAdapter(this, null, this, mSwapLoyaltyCardListCursor);
         mCardList.setAdapter(mAdapter);
         registerForContextMenu(mCardList);
 
@@ -617,7 +615,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
 
         if (id == R.id.action_display_options) {
-            mLoyaltyCardListDisplayOptions.showDisplayOptionsDialog();
+            mAdapter.showDisplayOptionsDialog();
             invalidateOptionsMenu();
 
             return true;

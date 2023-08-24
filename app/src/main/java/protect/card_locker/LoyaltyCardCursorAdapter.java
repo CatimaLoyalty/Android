@@ -41,19 +41,33 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
 
-    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, LoyaltyCardListDisplayOptions inputLoyaltyCardListDisplayOptions) {
+    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Runnable inputSwapCursorCallback) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
         mContext = inputContext;
         mListener = inputListener;
-        mLoyaltyCardListDisplayOptions = inputLoyaltyCardListDisplayOptions;
-        mLoyaltyCardListDisplayOptions.setAdapterToRefresh(this);
+
+        Runnable refreshCardsCallback = () -> notifyDataSetChanged();
+
+        if (inputSwapCursorCallback != null) {
+            mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptionsWithArchive(mContext, refreshCardsCallback, inputSwapCursorCallback);
+        } else {
+            mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(mContext, refreshCardsCallback);
+        }
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
         mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
         swapCursor(inputCursor);
+    }
+
+    public void showDisplayOptionsDialog() {
+        mLoyaltyCardListDisplayOptions.showDisplayOptionsDialog();
+    }
+
+    public boolean showingArchivedCards() {
+        return mLoyaltyCardListDisplayOptions.showingArchivedCards();
     }
 
     @NonNull

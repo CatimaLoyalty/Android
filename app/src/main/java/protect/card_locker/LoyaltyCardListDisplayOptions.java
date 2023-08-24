@@ -8,19 +8,20 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class LoyaltyCardListDisplayOptions {
-    Context mContext;
+    public final Context mContext;
 
-    LoyaltyCardCursorAdapter mAdapter;
+    private final Runnable mRefreshCardsCallback;
 
-    SharedPreferences mCardDetailsPref;
+    protected SharedPreferences mCardDetailsPref;
 
     private boolean mShowNameBelowThumbnail;
     private boolean mShowNote;
     private boolean mShowBalance;
     private boolean mShowValidity;
 
-    public LoyaltyCardListDisplayOptions(Context context) {
+    public LoyaltyCardListDisplayOptions(Context context, Runnable refreshCardsCallback) {
         mContext = context;
+        mRefreshCardsCallback = refreshCardsCallback;
 
         // Retrieve user details preference
         mCardDetailsPref = mContext.getSharedPreferences(
@@ -32,10 +33,6 @@ public class LoyaltyCardListDisplayOptions {
         mShowValidity = mCardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
     }
 
-    public void setAdapterToRefresh(LoyaltyCardCursorAdapter adapter) {
-        mAdapter = adapter;
-    }
-
     void saveDetailState(int stateId, boolean value) {
         SharedPreferences.Editor cardDetailsPrefEditor = mCardDetailsPref.edit();
         cardDetailsPrefEditor.putBoolean(mContext.getString(stateId), value);
@@ -44,9 +41,7 @@ public class LoyaltyCardListDisplayOptions {
 
     public void showNameBelowThumbnail(boolean show) {
         mShowNameBelowThumbnail = show;
-        if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
-        }
+        mRefreshCardsCallback.run();
 
         saveDetailState(R.string.sharedpreference_card_details_show_name_below_thumbnail, show);
     }
@@ -57,9 +52,7 @@ public class LoyaltyCardListDisplayOptions {
 
     public void showNote(boolean show) {
         mShowNote = show;
-        if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
-        }
+        mRefreshCardsCallback.run();
 
         saveDetailState(R.string.sharedpreference_card_details_show_note, show);
     }
@@ -70,9 +63,7 @@ public class LoyaltyCardListDisplayOptions {
 
     public void showBalance(boolean show) {
         mShowBalance = show;
-        if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
-        }
+        mRefreshCardsCallback.run();
 
         saveDetailState(R.string.sharedpreference_card_details_show_balance, show);
     }
@@ -83,15 +74,21 @@ public class LoyaltyCardListDisplayOptions {
 
     public void showValidity(boolean show) {
         mShowValidity = show;
-        if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
-        }
+        mRefreshCardsCallback.run();
 
         saveDetailState(R.string.sharedpreference_card_details_show_validity, show);
     }
 
     public boolean showingValidity() {
         return mShowValidity;
+    }
+
+    public void showArchivedCards(boolean show) {
+        throw new IllegalStateException("Archiveless Display Options is used, archived card state is unknown");
+    }
+
+    public boolean showingArchivedCards() {
+        throw new IllegalStateException("Archiveless Display Options is used, archived card state is unknown");
     }
 
     public void showDisplayOptionsDialog() {

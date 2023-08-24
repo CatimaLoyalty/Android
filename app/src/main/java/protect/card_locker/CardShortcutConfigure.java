@@ -23,7 +23,6 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     private SimpleToolbarListActivityBinding binding;
     static final String TAG = "Catima";
     private SQLiteDatabase mDatabase;
-    private LoyaltyCardListDisplayOptions mLoyaltyCardListDisplayOptions;
     private LoyaltyCardCursorAdapter mAdapter;
 
     @Override
@@ -54,9 +53,8 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
             layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
         }
 
-        mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(this);
         Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this, mLoyaltyCardListDisplayOptions);
+        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this, null);
         cardList.setAdapter(mAdapter);
     }
 
@@ -86,7 +84,7 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
         int id = inputItem.getItemId();
 
         if (id == R.id.action_display_options) {
-            mLoyaltyCardListDisplayOptions.showDisplayOptionsDialog();
+            mAdapter.showDisplayOptionsDialog();
             invalidateOptionsMenu();
 
             return true;

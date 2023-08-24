@@ -49,8 +49,7 @@ public class LoyaltyCardCursorAdapterTest {
     }
 
     private View createView(Cursor cursor) {
-        LoyaltyCardListDisplayOptions loyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(activity.getApplicationContext());
-        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity, loyaltyCardListDisplayOptions);
+        LoyaltyCardCursorAdapter adapter = new LoyaltyCardCursorAdapter(activity.getApplicationContext(), cursor, (MainActivity) activity, null);
 
         LoyaltyCardCursorAdapter.LoyaltyCardListItemViewHolder viewHolder = adapter.createViewHolder(activity.findViewById(R.id.list), 0);
         adapter.bindViewHolder(viewHolder, cursor.getPosition());

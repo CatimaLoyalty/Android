@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 130
+## v2.25.3 - 130 (2023-08-25)
 
 - Minor UI fixes
 - Fix valid from and expiry dates being reset when rotating the card editing screen

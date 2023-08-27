@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,18 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class LoyaltyCardListDisplayOptionsManager {
+    public static class LoyaltyCardDisplayOption {
+        public String name;
+        public boolean value;
+        public Consumer<Boolean> callback;
+
+        LoyaltyCardDisplayOption(String name, boolean value, Consumer<Boolean> callback) {
+            this.name = name;
+            this.value = value;
+            this.callback = callback;
+        }
+    }
+
     public final Context mContext;
 
     private final Runnable mRefreshCardsCallback;
@@ -27,18 +38,6 @@ public class LoyaltyCardListDisplayOptionsManager {
     private boolean mShowBalance;
     private boolean mShowValidity;
     private boolean mShowArchivedCards;
-
-    public static class LoyaltyCardDisplayOption {
-        public String name;
-        public boolean value;
-        public Consumer<Boolean> callback;
-
-        LoyaltyCardDisplayOption(String name, boolean value, Consumer<Boolean> callback) {
-            this.name = name;
-            this.value = value;
-            this.callback = callback;
-        }
-    }
 
     public LoyaltyCardListDisplayOptionsManager(Context context, @NonNull Runnable refreshCardsCallback, @Nullable Runnable swapCursorCallback) {
         mContext = context;
@@ -167,7 +166,7 @@ public class LoyaltyCardListDisplayOptionsManager {
         builder.setMultiChoiceItems(
                 displayOptions.stream().map(x -> x.name).toArray(String[]::new),
                 values,
-                (DialogInterface.OnMultiChoiceClickListener) (dialogInterface, i, b) -> displayOptions.get(i).callback.accept(b)
+                (dialogInterface, i, b) -> displayOptions.get(i).callback.accept(b)
         );
         builder.setPositiveButton(R.string.ok, (dialog, i) -> dialog.dismiss());
 

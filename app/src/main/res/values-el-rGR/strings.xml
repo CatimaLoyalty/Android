@@ -105,7 +105,6 @@
     <string name="removeImage">Αφαίρεση εικόνας</string>
     <string name="takePhoto">Τραβήξτε μια φωτογραφία</string>
     <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμοκώδικα στην ίδια τιμή;</string>
-    <string name="action_show_details">Εμφάνιση λεπτομερειών</string>
     <string name="options">Επιλογές</string>
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
     <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
@@ -152,7 +151,6 @@
     <string name="app_libraries">Ελεύθερες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="license">Άδεια</string>
     <string name="include_if_asking_support">Αν θέλετε να ζητήσετε υποστήριξη, συμπεριλάβετε τις ακόλουθες πληροφορίες:</string>
-    <string name="action_hide_details">Απόκρυψη λεπτομερειών</string>
     <string name="importSuccessful">Δεδομένα εισήχθησαν</string>
     <string name="moveUp">Προχώρα πάνω</string>
     <string name="barcodeType">Τύπος γραμμοκώδικα</string>
@@ -233,8 +231,6 @@
     <string name="archived">Η κάρτα αρχειοθετήθηκε</string>
     <string name="unarchived">Η κάρτα αφαιρέθηκε από το αρχείο</string>
     <string name="unarchive">Αφαίρεση από το αρχείο</string>
-    <string name="archiveList">Αρχείο</string>
-    <string name="noUnarchivedCardsMessage">Δεν υπάρχουν αρχειοθετημένες κάρτες</string>
     <string name="updateBalanceTitle">Πόσα ξοδέψατε;</string>
     <string name="cameraPermissionDeniedTitle">Αδύνατη η πρόσβαση στην κάμερα</string>
     <string name="failedToRetrieveImageFile">Αποτυχία ανάκτησης αρχείου εικόνας</string>

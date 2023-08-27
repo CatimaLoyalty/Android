@@ -211,9 +211,7 @@
     <string name="on_github">En GitHub</string>
     <string name="on_google_play">en Google Play</string>
     <string name="report_error">Informar de un error</string>
-    <string name="action_hide_details">Ocultar detalles</string>
     <string name="translate_platform">en Weblate</string>
-    <string name="action_show_details">Mostrar detalles</string>
     <string name="selectColor">Seleccione el color</string>
     <string name="setIcon">Establecer una miniatura</string>
     <string name="sort">Ordenar</string>
@@ -240,8 +238,6 @@
     <string name="archive">Archivar</string>
     <string name="archived">Tarjeta archivada</string>
     <string name="unarchived">Tarjeta desarchivada</string>
-    <string name="archiveList">Archivo</string>
-    <string name="noUnarchivedCardsMessage">No existen tarjetas sin archivar</string>
     <string name="exportPassword">Establezca una contraseña para proteger su exportación (opcional)</string>
     <string name="failedLaunchingPhotoPicker">No se ha podido encontrar una aplicación de galería compatible</string>
     <plurals name="groupCardCountWithArchived">

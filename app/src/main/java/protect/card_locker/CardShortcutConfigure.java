@@ -47,25 +47,19 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
             finish();
         }
 
-        // If all cards are archived, bail
-        if (DBHelper.getArchivedCardsCount(mDatabase) == cardCount) {
-            Toast.makeText(this, R.string.noUnarchivedCardsMessage, Toast.LENGTH_LONG).show();
-            finish();
-        }
-
         final RecyclerView cardList = binding.list;
         GridLayoutManager layoutManager = (GridLayoutManager) cardList.getLayoutManager();
         if (layoutManager != null) {
             layoutManager.setSpanCount(getResources().getInteger(R.integer.main_view_card_columns));
         }
 
-        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
-        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this);
+        Cursor cardCursor = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
+        mAdapter = new LoyaltyCardCursorAdapter(this, cardCursor, this, null);
         cardList.setAdapter(mAdapter);
     }
 
     private void onClickAction(int position) {
-        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.Unarchived);
+        Cursor selected = DBHelper.getLoyaltyCardCursor(mDatabase, DBHelper.LoyaltyCardArchiveFilter.All);
         selected.moveToPosition(position);
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(selected);
 
@@ -89,8 +83,8 @@ public class CardShortcutConfigure extends CatimaAppCompatActivity implements Lo
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();
 
-        if (id == R.id.action_shown_details) {
-            mAdapter.showSelectDetailDisplayDialog();
+        if (id == R.id.action_display_options) {
+            mAdapter.showDisplayOptionsDialog();
             invalidateOptionsMenu();
 
             return true;

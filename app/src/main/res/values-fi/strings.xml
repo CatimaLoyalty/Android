@@ -202,8 +202,6 @@
     <string name="and_data_usage">ja datan käyttö</string>
     <string name="on_google_play">Google Playssa</string>
     <string name="report_error">Ilmoita virheestä</string>
-    <string name="action_show_details">Näytä tiedot</string>
-    <string name="action_hide_details">Piilota tiedot</string>
     <string name="shortcutSelectCard">Valitse kortti</string>
     <string name="starred">Tähdellä merkityt</string>
     <string name="options">Vaihtoehdot</string>
@@ -222,12 +220,10 @@
     <string name="settings_portrait_orientation">Pysty</string>
     <string name="settings_landscape_orientation">Vaaka</string>
     <string name="unarchived">Kortti on poistettu arkistosta</string>
-    <string name="noUnarchivedCardsMessage">Arkistoimattomia kortteja ei ole olemassa</string>
     <string name="unarchive">Poista arkistosta</string>
     <string name="archived">Kortti arkistoitu</string>
     <string name="failedLaunchingPhotoPicker">Tuettua galleriasovellusta ei löytynyt</string>
     <string name="settings_card_orientation">Viivakoodin suuntaus</string>
-    <string name="archiveList">Arkisto</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kortti (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> korttia (<xliff:g id="archivedCount">%2$d</xliff:g> arkistoitu)</item>

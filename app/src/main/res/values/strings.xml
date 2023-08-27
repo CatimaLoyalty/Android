@@ -275,8 +275,6 @@
     <string name="rate_this_app">Rate this app</string>
     <string name="on_google_play">on Google Play</string>
     <string name="report_error">Report Error</string>
-    <string name="action_show_details">Show details</string>
-    <string name="action_hide_details">Hide details</string>
     <string name="translate_platform">on Weblate</string>
     <string name="shortcutSelectCard">Select a card</string>
     <string name="options">Options</string>
@@ -287,9 +285,7 @@
     <string name="unarchive">Unarchive</string>
     <string name="archived">Card archived</string>
     <string name="unarchived">Card unarchived</string>
-    <string name="archiveList">Archive</string>
     <string name="overflowMenu" translatable="false">Overflow menu</string>
-    <string name="noUnarchivedCardsMessage">No unarchived cards exist</string>
     <string name="failedLaunchingPhotoPicker">Could not find a supported gallery app</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> card (<xliff:g id="archivedCount">%2$d</xliff:g> archived)</item>
@@ -325,11 +321,14 @@
     <string name="show_note">Show note</string>
     <string name="show_balance">Show balance</string>
     <string name="show_validity">Show validity</string>
+    <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
     <string name="sharedpreference_card_details_show_note" translatable="false">sharedpreference_card_details_show_note</string>
     <string name="sharedpreference_card_details_show_balance" translatable="false">sharedpreference_card_details_show_balance</string>
     <string name="sharedpreference_card_details_show_validity" translatable="false">sharedpreference_card_details_show_validity</string>
-    <string name="sharedpreference_card_details_show_name_below_thumbnail" translatable="false">sharedpreference_card_details_show_name_below_thumbnail</string>
+    <string name="sharedpreference_card_details_show_archived_cards" translatable="false">sharedpreference_card_details_show_archived_cards</string>
     <string name="settings_category_title_cards">Cards</string>
     <string name="settings_category_title_general">General</string>
     <string name="settings_category_title_privacy">Privacy</string>
+    <string name="action_display_options">Display options</string>
+    <string name="show_archived_cards">Show archived cards</string>
 </resources>

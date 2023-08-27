@@ -150,7 +150,6 @@
     <string name="unarchive">أخرج من الأرشيف</string>
     <string name="archived">تمت أرشفة البطاقة</string>
     <string name="unarchived">البطاقة غير مؤرشفة</string>
-    <string name="archiveList">أرشيف</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
     <string name="noGiftCardsGroup">انشئ بعض من البطاقات, و عيينهم لهذه المجموعة.</string>
     <string name="deleteTitle">مسح بطاقة</string>
@@ -171,7 +170,6 @@
     <string name="license">رخصة</string>
     <string name="sort_by_name">اسم</string>
     <string name="version_history">تاريخ النسخة</string>
-    <string name="action_hide_details">أخف التفاصيل</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="zero"><xliff:g>%1$d</xliff:g> بطاقة ( <xliff:g id="archivedCount">%2$d</xliff:g> مؤرشفة)</item>
         <item quantity="one"><xliff:g>%1$d</xliff:g> بطاقة ( <xliff:g id="archivedCount">%2$d</xliff:g> مؤرشفة)</item>
@@ -245,7 +243,6 @@
     <string name="on_github">على GitHub</string>
     <string name="report_error">الإبلاغ عن خطأ</string>
     <string name="sort_by_expiry">انقضاء</string>
-    <string name="noUnarchivedCardsMessage">لا توجد بطاقات غير مؤرشفة موجودة</string>
     <string name="importLoyaltyCardKeychain">الاستيراد من Loyalty Card Keychain</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importLoyaltyCardKeychainMessage">حدد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد.
@@ -256,7 +253,6 @@
 \nلا يتم جمع أي بيانات على الإطلاق ، والتي يمكن لأي شخص تأكيدها لأن تطبيقنا هو برنامج حر.</string>
     <string name="failedGeneratingShareURL">تعذر إنشاء عنوان URL قابل للمشاركة. الرجاء الإبلاغ عن هذا.</string>
     <string name="help_translate_this_app">ساعد في ترجمة هذا التطبيق</string>
-    <string name="action_show_details">اظهر التفاصيل</string>
     <string name="on_google_play">على Google Play</string>
     <string name="settings_theme_color">لون المظهر</string>
     <string name="previousCard">السابق</string>

@@ -96,7 +96,6 @@
     <string name="importLoyaltyCardKeychainMessage">Odaberi tvoju iz LoyaltyCardKeychain izvezenu <i>LoyaltyCardKeychain.csv</i> datoteku koju želiš uvesti.
 \nStvori je putem izbornika „Uvoz/Izvoz” u aplikaciji LoyaltyCardKeychain i tamo najprije pritisni „Izvoz”.</string>
     <string name="updateBarcodeQuestionText">Promijenio/la si ID. Želiš li također aktualizirati crtični kod da koristi istu vrijednost\?</string>
-    <string name="action_hide_details">Sakrij detalje</string>
     <string name="importCards">Uvezi kartice</string>
     <string name="selectColor">Odaberi boju</string>
     <string name="setIcon">Postavi sličicu</string>
@@ -132,7 +131,6 @@
     <string name="archived">Kartica je arhivirana</string>
     <string name="unarchived">Kartica je dearhivirana</string>
     <string name="failedLaunchingPhotoPicker">Nije bilo moguće pronaći aplikaciju za galeriju</string>
-    <string name="archiveList">Arhiva</string>
     <string name="cameraPermissionDeniedTitle">Nije bilo moguće pristupiti kameri</string>
     <string name="noCameraPermissionDirectToSystemSetting">Za snimanje crtičnih kodova Catima treba pristup tvojoj kameri. Dodirni ovdje za mijenjanje postavki dozvola.</string>
     <string name="app_libraries">Libre biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -260,9 +258,7 @@
     <string name="sort_by_name">Ime</string>
     <string name="sort_by_most_recently_used">Nedavno korišteno</string>
     <string name="reverse">… u obrnutom redoslijedu</string>
-    <string name="action_show_details">Prikaži detalje</string>
     <string name="shortcutSelectCard">Odaberi karticu</string>
-    <string name="noUnarchivedCardsMessage">Ne postoje nearhivirane kartice</string>
     <string name="previousCard">Prethodna</string>
     <string name="nextCard">Sljedeća</string>
     <string name="updateBalanceTitle">Koliko si potrošio/la\?</string>

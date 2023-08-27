@@ -94,7 +94,6 @@
     <string name="yes">Da</string>
     <string name="no">Nu</string>
     <string name="archive">Arhivați</string>
-    <string name="archiveList">Arhivă</string>
     <string name="passwordRequired">Vă rugăm, introduceți parola</string>
     <string name="unsupportedBarcodeType">Acest tip de cod de bare nu poate fi afișat. Este posibil ca acesta să se poată afișa într-o versiune mai nouă a aplicației.</string>
     <string name="photos">Imagini</string>

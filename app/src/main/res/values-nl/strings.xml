@@ -205,8 +205,6 @@
     <string name="group_edit">Groep bewerken</string>
     <string name="setIcon">Miniatuur instellen</string>
     <string name="selectColor">Kies een kleur</string>
-    <string name="action_show_details">Details tonen</string>
-    <string name="action_hide_details">Details verbergen</string>
     <string name="translate_platform">op Weblate</string>
     <string name="shortcutSelectCard">Kies een kaart</string>
     <string name="options">Opties</string>
@@ -227,9 +225,7 @@
     <string name="unarchive">Dearchiveren</string>
     <string name="archived">De kaart is gearchiveerd</string>
     <string name="unarchived">De kaart is gedearchiveerd</string>
-    <string name="archiveList">Archief</string>
     <string name="settings_landscape_orientation">Horizontaal</string>
-    <string name="noUnarchivedCardsMessage">Er zijn geen gedearchiveerde kaarten</string>
     <string name="failedLaunchingPhotoPicker">Er is geen ondersteunde galerij-app aangetroffen</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kaart (<xliff:g id="archivedCount">%2$d</xliff:g> gearchiveerd)</item>

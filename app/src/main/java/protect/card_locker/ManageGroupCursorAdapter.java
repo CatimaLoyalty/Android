@@ -16,8 +16,8 @@ public class ManageGroupCursorAdapter extends LoyaltyCardCursorAdapter {
     final private Group mGroup;
     final private SQLiteDatabase mDatabase;
 
-    public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group) {
-        super(inputContext, inputCursor, inputListener);
+    public ManageGroupCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Group group, Runnable inputSwapCursorCallback) {
+        super(inputContext, inputCursor, inputListener, inputSwapCursorCallback);
         mGroup = new Group(group._id, group.order);
         mInGroupOverlay = new HashMap<>();
         mDatabase = new DBHelper(inputContext).getWritableDatabase();

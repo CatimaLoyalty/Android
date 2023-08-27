@@ -209,8 +209,6 @@
     <string name="group_updated">Gruppo aggiornato</string>
     <string name="selectColor">Seleziona il colore</string>
     <string name="setIcon">Imposta l\'immagine</string>
-    <string name="action_show_details">Mostra i dettagli</string>
-    <string name="action_hide_details">Nascondi i dettagli</string>
     <string name="translate_platform">su Weblate</string>
     <string name="shortcutSelectCard">Seleziona una tessera</string>
     <string name="options">Opzioni</string>
@@ -228,8 +226,6 @@
     <string name="duplicateCard">Duplica</string>
     <string name="archive">Archivia</string>
     <string name="unarchive">Disarchivia</string>
-    <string name="archiveList">Archivio</string>
-    <string name="noUnarchivedCardsMessage">Non esistono schede non archiviate</string>
     <string name="unarchived">Carta non archiviata</string>
     <string name="archived">Carta archiviata</string>
     <string name="settings_portrait_orientation">Verticale</string>

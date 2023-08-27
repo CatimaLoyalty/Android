@@ -1,7 +1,6 @@
 package protect.card_locker;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -18,14 +17,12 @@ import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.color.MaterialColors;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.BlendModeColorFilterCompat;
@@ -39,123 +36,34 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     boolean mDarkModeEnabled;
     public final Context mContext;
     private final CardAdapterListener mListener;
+    private final LoyaltyCardListDisplayOptionsManager mLoyaltyCardListDisplayOptions;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
-    private boolean mShowNameBelowThumbnail;
-    private boolean mShowNote;
-    private boolean mShowBalance;
-    private boolean mShowValidity;
 
-    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener) {
+    public LoyaltyCardCursorAdapter(Context inputContext, Cursor inputCursor, CardAdapterListener inputListener, Runnable inputSwapCursorCallback) {
         super(inputCursor, DBHelper.LoyaltyCardDbIds.ID);
         setHasStableIds(true);
         mContext = inputContext;
         mListener = inputListener;
+
+        Runnable refreshCardsCallback = () -> notifyDataSetChanged();
+
+        mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptionsManager(mContext, refreshCardsCallback, inputSwapCursorCallback);
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 
         mDarkModeEnabled = Utils.isDarkModeEnabled(inputContext);
 
-        refreshState();
-
         swapCursor(inputCursor);
     }
 
-    private void saveDetailState(int stateId, boolean value) {
-        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
-                mContext.getString(R.string.sharedpreference_card_details),
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor cardDetailsPrefEditor = cardDetailsPref.edit();
-        cardDetailsPrefEditor.putBoolean(mContext.getString(stateId), value);
-        cardDetailsPrefEditor.apply();
+    public void showDisplayOptionsDialog() {
+        mLoyaltyCardListDisplayOptions.showDisplayOptionsDialog();
     }
 
-    public void refreshState() {
-        // Retrieve user details preference
-        SharedPreferences cardDetailsPref = mContext.getSharedPreferences(
-                mContext.getString(R.string.sharedpreference_card_details),
-                Context.MODE_PRIVATE);
-        mShowNameBelowThumbnail = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_name_below_thumbnail), false);
-        mShowNote = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_note), true);
-        mShowBalance = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_balance), true);
-        mShowValidity = cardDetailsPref.getBoolean(mContext.getString(R.string.sharedpreference_card_details_show_validity), true);
-    }
-
-    public void showNameBelowThumbnail(boolean show) {
-        mShowNameBelowThumbnail = show;
-        notifyDataSetChanged();
-
-        saveDetailState(R.string.sharedpreference_card_details_show_name_below_thumbnail, show);
-    }
-
-    public boolean showingNameBelowThumbnail() {
-        return mShowNameBelowThumbnail;
-    }
-
-    public void showNote(boolean show) {
-        mShowNote = show;
-        notifyDataSetChanged();
-
-        saveDetailState(R.string.sharedpreference_card_details_show_note, show);
-    }
-
-    public boolean showingNote() {
-        return mShowNote;
-    }
-
-    public void showBalance(boolean show) {
-        mShowBalance = show;
-        notifyDataSetChanged();
-
-        saveDetailState(R.string.sharedpreference_card_details_show_balance, show);
-    }
-
-    public boolean showingBalance() {
-        return mShowBalance;
-    }
-
-    public void showValidity(boolean show) {
-        mShowValidity = show;
-        notifyDataSetChanged();
-
-        saveDetailState(R.string.sharedpreference_card_details_show_validity, show);
-    }
-
-    public boolean showingValidity() {
-        return mShowValidity;
-    }
-
-    public void showSelectDetailDisplayDialog() {
-        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(mContext);
-        builder.setTitle(R.string.action_show_details);
-        builder.setMultiChoiceItems(
-                new String[]{
-                        mContext.getString(R.string.show_name_below_image_thumbnail),
-                        mContext.getString(R.string.show_note),
-                        mContext.getString(R.string.show_balance),
-                        mContext.getString(R.string.show_validity)
-                },
-                new boolean[]{
-                        showingNameBelowThumbnail(),
-                        showingNote(),
-                        showingBalance(),
-                        showingValidity()
-                },
-                (dialogInterface, i, b) -> {
-                    switch (i) {
-                        case 0: showNameBelowThumbnail(b); break;
-                        case 1: showNote(b); break;
-                        case 2: showBalance(b); break;
-                        case 3: showValidity(b); break;
-                        default: throw new IndexOutOfBoundsException("No such index exists in LoyaltyCardCursorAdapter show details view");
-                    }
-                }
-        );
-        builder.setPositiveButton(R.string.ok, (dialog, i) -> dialog.dismiss());
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    public boolean showingArchivedCards() {
+        return mLoyaltyCardListDisplayOptions.showingArchivedCards();
     }
 
     @NonNull
@@ -182,33 +90,33 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
         Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
 
-        if (mShowNameBelowThumbnail && icon != null) {
+        if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && icon != null) {
             showDivider = true;
             inputHolder.setStoreField(loyaltyCard.store);
         } else {
             inputHolder.setStoreField(null);
         }
 
-        if (mShowNote && !loyaltyCard.note.isEmpty()) {
+        if (mLoyaltyCardListDisplayOptions.showingNote() && !loyaltyCard.note.isEmpty()) {
             showDivider = true;
             inputHolder.setNoteField(loyaltyCard.note);
         } else {
             inputHolder.setNoteField(null);
         }
 
-        if (mShowBalance && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
+        if (mLoyaltyCardListDisplayOptions.showingBalance() && !loyaltyCard.balance.equals(new BigDecimal("0"))) {
             inputHolder.setExtraField(inputHolder.mBalanceField, Utils.formatBalance(mContext, loyaltyCard.balance, loyaltyCard.balanceType), null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mBalanceField, null, null, false);
         }
 
-        if (mShowValidity && loyaltyCard.validFrom != null) {
+        if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.validFrom != null) {
             inputHolder.setExtraField(inputHolder.mValidFromField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.validFrom), Utils.isNotYetValid(loyaltyCard.validFrom) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mValidFromField, null, null, false);
         }
 
-        if (mShowValidity && loyaltyCard.expiry != null) {
+        if (mLoyaltyCardListDisplayOptions.showingValidity() && loyaltyCard.expiry != null) {
             inputHolder.setExtraField(inputHolder.mExpiryField, DateFormat.getDateInstance(DateFormat.LONG).format(loyaltyCard.expiry), Utils.hasExpired(loyaltyCard.expiry) ? Color.RED : null, showDivider);
         } else {
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);

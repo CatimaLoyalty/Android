@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 131
+
+- Move "Archive Mode" into "Display dptions" (previously "Show details") menu
+
 ## v2.25.3 - 130 (2023-08-25)
 
 - Minor UI fixes

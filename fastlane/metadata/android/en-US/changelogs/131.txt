@@ -1,0 +1,1 @@
+- Move "Archive Mode" into "Display dptions" (previously "Show details") menu

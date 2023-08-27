@@ -50,6 +50,10 @@ public class AboutContent {
         return String.format(context.getString(R.string.app_copyright_fmt), getCurrentYear());
     }
 
+    public String getCopyrightShort() {
+        return context.getString(R.string.app_copyright_short);
+    }
+
     public String getContributors() {
         String contributors;
         try {

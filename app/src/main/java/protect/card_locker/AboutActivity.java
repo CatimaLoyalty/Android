@@ -28,7 +28,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         enableToolbarBackButton();
 
         TextView copyright = binding.creditsSub;
-        copyright.setText(content.getCopyright());
+        copyright.setText(content.getCopyrightShort());
         TextView versionHistory = binding.versionHistorySub;
         versionHistory.setText(content.getVersionHistory());
 

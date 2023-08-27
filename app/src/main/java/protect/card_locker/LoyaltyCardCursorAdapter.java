@@ -36,7 +36,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
     boolean mDarkModeEnabled;
     public final Context mContext;
     private final CardAdapterListener mListener;
-    private final LoyaltyCardListDisplayOptions mLoyaltyCardListDisplayOptions;
+    private final LoyaltyCardListDisplayOptionsManager mLoyaltyCardListDisplayOptions;
     protected SparseBooleanArray mSelectedItems;
     protected SparseBooleanArray mAnimationItemsIndex;
     private boolean mReverseAllAnimations = false;
@@ -49,11 +49,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
 
         Runnable refreshCardsCallback = () -> notifyDataSetChanged();
 
-        if (inputSwapCursorCallback != null) {
-            mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptionsWithArchive(mContext, refreshCardsCallback, inputSwapCursorCallback);
-        } else {
-            mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptions(mContext, refreshCardsCallback);
-        }
+        mLoyaltyCardListDisplayOptions = new LoyaltyCardListDisplayOptionsManager(mContext, refreshCardsCallback, inputSwapCursorCallback);
         mSelectedItems = new SparseBooleanArray();
         mAnimationItemsIndex = new SparseBooleanArray();
 

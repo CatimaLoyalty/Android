@@ -244,7 +244,6 @@
     <string name="report_error">الإبلاغ عن خطأ</string>
     <string name="sort_by_expiry">انقضاء</string>
     <string name="importLoyaltyCardKeychain">الاستيراد من Loyalty Card Keychain</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="importLoyaltyCardKeychainMessage">حدد ملفك <i>LoyaltyCardKeychain.csv</i> التصدير من Loyalty Card Keychain للاستيراد.
 \nقم بإنشائه من قائمة الاستيراد / التصدير في Loyalty Card Keychain بالضغط على تصدير هناك أولاً.</string>
     <string name="importStocard">الاستيراد من Stocard</string>

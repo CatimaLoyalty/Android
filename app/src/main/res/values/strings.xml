@@ -79,7 +79,8 @@
     <string name="importOptionApplicationExplanation">Use any app or your favorite file manager to open a file.</string>
     <string name="importOptionApplicationButton">Use another app</string>
     <string name="about">About</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os and contributors</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os and contributors</string>
     <string name="app_copyright_old">Based on Loyalty Card Keychain\ncopyright © 2016–2020 Branden Archer</string>
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>

@@ -129,7 +129,6 @@
     <string name="wrongValueForBarcodeType">La valeur n’est pas valide pour le type de code-barres sélectionné</string>
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
     <string name="copy_to_clipboard_multiple_toast">Identifiants copiés dans le presse-papiers</string>
     <string name="card_ids_copied">Numéro(s) copié(s)</string>

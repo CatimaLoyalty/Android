@@ -129,7 +129,6 @@
     <string name="wrongValueForBarcodeType">Der Wert ist für den gewählten Barcodetyp leider nicht gültig</string>
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
     <string name="copy_to_clipboard_multiple_toast">Kartennummern in die Zwischenablage kopiert</string>
     <string name="card_ids_copied">ID(s) kopiert</string>

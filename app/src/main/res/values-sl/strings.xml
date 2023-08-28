@@ -233,7 +233,6 @@
     </plurals>
     <string name="cameraPermissionDeniedTitle">Ni bilo mogoče dostopati do kamere</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima potrebuje dostop do vaše kamere za skeniranje črtnih kod. Pritisnite tukaj in spremenite nastavitve dovoljenj.</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> kartica</item>
         <item quantity="two"><xliff:g>%d</xliff:g> kartici</item>

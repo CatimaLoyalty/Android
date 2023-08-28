@@ -172,7 +172,6 @@
     <string name="settings_system_locale">Systém</string>
     <string name="app_copyright_old">Na základe Loyalty Card Keychain
 \ncopyright © 2016–2020 Branden Archer</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="expiryDate">Platnosť</string>
     <string name="editBarcode">Upraviť čiarový kód</string>
     <string name="privacy_policy">Zásady ochrany osobných údajov</string>

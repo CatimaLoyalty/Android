@@ -81,6 +81,11 @@ android {
         lintConfig file('lint.xml')
     }
     namespace 'protect.card_locker'
+
+    androidResources {
+        generateLocaleConfig true
+    }
+
 }
 
 dependencies {

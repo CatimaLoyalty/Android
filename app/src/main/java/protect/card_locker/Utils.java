@@ -13,20 +13,20 @@ import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
-import android.os.LocaleList;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.os.LocaleListCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.palette.graphics.Palette;
 
@@ -54,10 +54,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -474,23 +476,85 @@ public class Utils {
 
         Locale chosenLocale = settings.getLocale();
 
-        Resources res = context.getResources();
-        Configuration configuration = res.getConfiguration();
+        // New API is broken on Android 6 and lower when selecting locales with both language and country, so still keeping this
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Resources res = context.getResources();
+            Configuration configuration = res.getConfiguration();
             setLocalesSdkLessThan24(chosenLocale, configuration, res);
             return context;
         }
 
-        LocaleList localeList = chosenLocale != null ? new LocaleList(chosenLocale) : LocaleList.getDefault();
-        LocaleList.setDefault(localeList);
-        configuration.setLocales(localeList);
-        return context.createConfigurationContext(configuration);
+        /* Documentation at https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setApplicationLocales(androidx.core.os.LocaleListCompat)
+        For API levels below that, the developer has two options:
+        - They can opt-in to automatic storage handled through the library...
+        - The second option is that they can choose to handle storage themselves.
+        In order to do so they must use this API to initialize locales during app-start up and provide their stored locales.
+        In this case, API should be called before Activity.onCreate() in the activity lifecycle, e.g. in attachBaseContext().
+        Note: Developers should gate this to API versions <33.
+
+        We are handling storage ourselves (courtesy of the in-app language picker), so we take the second approach.
+        So according to docs, we should have the API < 33 check.
+        */
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            AppCompatDelegate.setApplicationLocales(chosenLocale != null ? LocaleListCompat.create(chosenLocale) : LocaleListCompat.getEmptyLocaleList());
+        }
+
+        return context;
     }
 
     @SuppressWarnings("deprecation")
     private static void setLocalesSdkLessThan24(Locale chosenLocale, Configuration configuration, Resources res) {
         configuration.locale = chosenLocale != null ? chosenLocale : Locale.getDefault();
         res.updateConfiguration(configuration, res.getDisplayMetrics());
+    }
+
+    /**
+     * Android 13 settings seems to "force" the user to select country of locale, but many app-supported locales either only have language, not country
+     * or have a country the user doesn't want, which creates a mismatch between the app's supported locales and the system locale.
+     * <br>
+     * Example: The user chooses Espanol (Espana) in system settings, but the app only supports Espanol (Argentina) and the "plain" Espanol.
+     * <br>
+     * This method returns the app-supported locale that is most similar to the system one.
+     * @param appLocales Locales supported by the app
+     * @param sysLocale Per-app locale in system settings
+     * @return The app-supported locale that best matches the system per-app locale
+     */
+    @NonNull
+    public static Locale getBestMatchLocale(@NonNull List<Locale> appLocales, @NonNull Locale sysLocale) {
+        int highestMatchMagnitude = appLocales.stream()
+                .mapToInt(appLocale -> calculateMatchMagnitudeOfTwoLocales(appLocale, sysLocale))
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("appLocales is empty"));
+        for (int i = 0; i < appLocales.size(); i++) {
+            Locale appLocale = appLocales.get(i);
+            if (calculateMatchMagnitudeOfTwoLocales(appLocale, sysLocale) == highestMatchMagnitude) {
+                return appLocale;
+            }
+        }
+        throw new AssertionError("This is not possible; there must be a locale whose match magnitude == " + highestMatchMagnitude + " with " + sysLocale.toLanguageTag());
+    }
+
+    private static int calculateMatchMagnitudeOfTwoLocales(@NonNull Locale appLocale, @NonNull Locale sysLocale) {
+        List<String> appLocaleAdjusted = new ArrayList<>();
+        List<String> sysLocaleAdjusted = new ArrayList<>();
+        appLocaleAdjusted.add(appLocale.getLanguage());
+        sysLocaleAdjusted.add(sysLocale.getLanguage());
+        if (!appLocale.getCountry().isEmpty() && !sysLocale.getCountry().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getCountry());
+            sysLocaleAdjusted.add(sysLocale.getCountry());
+        }
+        if (!appLocale.getVariant().isEmpty() && !sysLocale.getVariant().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getVariant());
+            sysLocaleAdjusted.add(sysLocale.getVariant());
+        }
+        if (!appLocale.getScript().isEmpty() && !sysLocale.getScript().isEmpty()) {
+            appLocaleAdjusted.add(appLocale.getScript());
+            sysLocaleAdjusted.add(sysLocale.getScript());
+        }
+        if (appLocaleAdjusted.equals(sysLocaleAdjusted)) {
+            return appLocaleAdjusted.size();
+        }
+        return 0;
     }
 
     static public long getUnixTime() {

@@ -7,18 +7,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.color.DynamicColors;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.os.LocaleListCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.google.android.material.color.DynamicColors;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import protect.card_locker.CatimaAppCompatActivity;
 import protect.card_locker.MainActivity;
@@ -144,8 +148,40 @@ public class SettingsActivity extends CatimaAppCompatActivity {
                 }
             }
             localePreference.setEntries(entries.toArray(new CharSequence[entryValues.length]));
+            // Make locale picker preference in sync with system settings
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                Locale sysLocale = AppCompatDelegate.getApplicationLocales().get(0);
+                if (sysLocale == null) {
+                    // Corresponds to "System"
+                    localePreference.setValue("");
+                } else {
+                    // Need to set preference's value to one of localePreference.getEntryValues() to match the locale.
+                    // Locale.toLanguageTag() theoretically should be one of the values in localePreference.getEntryValues()...
+                    // But it doesn't work for some locales. so trying something more heavyweight.
+
+                    // Obtain all locales supported by the app.
+                    List<Locale> appLocales = Arrays.stream(localePreference.getEntryValues())
+                            .map(Objects::toString)
+                            .map(Utils::stringToLocale)
+                            .collect(Collectors.toList());
+                    // Get the app locale that best matches the system one
+                    Locale bestMatchLocale = Utils.getBestMatchLocale(appLocales, sysLocale);
+                    // Get its index in supported locales
+                    int index = appLocales.indexOf(bestMatchLocale);
+                    // Set preference value to entry value at that index
+                    localePreference.setValue(localePreference.getEntryValues()[index].toString());
+                }
+            }
+
             localePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                refreshActivity(true);
+                // See corresponding comment in Utils.updateBaseContextLocale for Android 6- notes
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    refreshActivity(true);
+                    return true;
+                }
+                String newLocale = (String) newValue;
+                // If newLocale is empty, that means "System" was selected
+                AppCompatDelegate.setApplicationLocales(newLocale.isEmpty() ? LocaleListCompat.getEmptyLocaleList() : LocaleListCompat.create(Utils.stringToLocale(newLocale)));
                 return true;
             });
 

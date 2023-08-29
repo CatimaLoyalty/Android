@@ -36,8 +36,11 @@ public class AboutActivity extends CatimaAppCompatActivity {
         TextView versionHistory = binding.versionHistorySub;
         versionHistory.setText(content.getVersionHistory());
 
+        binding.versionHistory.setTag("https://catima.app/changelog/");
         binding.translate.setTag("https://hosted.weblate.org/engage/catima/");
+        binding.license.setTag("https://github.com/CatimaLoyalty/Android/blob/main/LICENSE");
         binding.repo.setTag("https://github.com/CatimaLoyalty/Android/");
+        binding.privacy.setTag("https://catima.app/privacy-policy/");
         binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
         binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
         binding.donate.setTag("https://catima.app/contribute/#donating");
@@ -69,20 +72,14 @@ public class AboutActivity extends CatimaAppCompatActivity {
     }
 
     private void bindClickListeners() {
-        View.OnClickListener openExternalBrowser = view -> {
-            Object tag = view.getTag();
-            if (tag instanceof String && ((String) tag).startsWith("https://")) {
-                (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
-            }
-        };
-        binding.versionHistory.setOnClickListener(view -> showHistory());
-        binding.translate.setOnClickListener(openExternalBrowser);
-        binding.license.setOnClickListener(view -> showLicense());
-        binding.repo.setOnClickListener(openExternalBrowser);
-        binding.privacy.setOnClickListener(view -> showPrivacy());
-        binding.reportError.setOnClickListener(openExternalBrowser);
-        binding.rate.setOnClickListener(openExternalBrowser);
-        binding.donate.setOnClickListener(openExternalBrowser);
+        binding.versionHistory.setOnClickListener(this::showHistory);
+        binding.translate.setOnClickListener(this::openExternalBrowser);
+        binding.license.setOnClickListener(this::showLicense);
+        binding.repo.setOnClickListener(this::openExternalBrowser);
+        binding.privacy.setOnClickListener(this::showPrivacy);
+        binding.reportError.setOnClickListener(this::openExternalBrowser);
+        binding.rate.setOnClickListener(this::openExternalBrowser);
+        binding.donate.setOnClickListener(this::openExternalBrowser);
 
         binding.credits.setOnClickListener(view -> showCredits());
     }
@@ -108,19 +105,19 @@ public class AboutActivity extends CatimaAppCompatActivity {
                 .show();
     }
 
-    private void showHistory() {
-        showHTML(R.string.version_history, content.getHistoryInfo());
+    private void showHistory(View view) {
+        showHTML(R.string.version_history, content.getHistoryInfo(), view);
     }
 
-    private void showLicense() {
-        showHTML(R.string.license, content.getLicenseInfo());
+    private void showLicense(View view) {
+        showHTML(R.string.license, content.getLicenseInfo(), view);
     }
 
-    private void showPrivacy() {
-        showHTML(R.string.privacy_policy, content.getPrivacyInfo());
+    private void showPrivacy(View view) {
+        showHTML(R.string.privacy_policy, content.getPrivacyInfo(), view);
     }
 
-    private void showHTML(@StringRes int title, final Spanned text) {
+    private void showHTML(@StringRes int title, final Spanned text, View view) {
         int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
         TextView textView = new TextView(this);
         textView.setText(text);
@@ -132,6 +129,14 @@ public class AboutActivity extends CatimaAppCompatActivity {
                 .setTitle(title)
                 .setView(scrollView)
                 .setPositiveButton(R.string.ok, null)
+                .setNeutralButton(R.string.view_online, (dialog, which) -> openExternalBrowser(view))
                 .show();
+    }
+
+    private void openExternalBrowser(View view) {
+        Object tag = view.getTag();
+        if (tag instanceof String && ((String) tag).startsWith("https://")) {
+            (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
+        }
     }
 }

@@ -67,26 +67,22 @@ public class AboutContent {
 
     public String getHistory() {
         String versionHistory;
-        String online = "View online: https://catima.app/changelog/\n\n";
         try {
             versionHistory = Utils.readTextFile(context, R.raw.changelog)
                     .replace("# Changelog\n\n", "");
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.linkify(online + Utils.basicMDToHTML(versionHistory))
+        return Utils.linkify(Utils.basicMDToHTML(versionHistory))
                 .replace("\n", "<br />");
     }
 
     public String getLicense() {
-        String license;
-        String online = "View online: https://github.com/CatimaLoyalty/Android/blob/main/LICENSE<br /><br />";
         try {
-            license = Utils.readTextFile(context, R.raw.license);
+            return Utils.readTextFile(context, R.raw.license);
         }  catch (IOException ignored) {
             return "";
         }
-        return Utils.linkify(online) + license;
     }
 
     public String getPrivacy() {

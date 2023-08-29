@@ -1,9 +1,13 @@
 package protect.card_locker;
 
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.annotation.StringRes;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -68,20 +72,14 @@ public class AboutActivity extends CatimaAppCompatActivity {
     }
 
     private void bindClickListeners() {
-        View.OnClickListener openExternalBrowser = view -> {
-            Object tag = view.getTag();
-            if (tag instanceof String && ((String) tag).startsWith("https://")) {
-                (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
-            }
-        };
-        binding.versionHistory.setOnClickListener(openExternalBrowser);
-        binding.translate.setOnClickListener(openExternalBrowser);
-        binding.license.setOnClickListener(openExternalBrowser);
-        binding.repo.setOnClickListener(openExternalBrowser);
-        binding.privacy.setOnClickListener(openExternalBrowser);
-        binding.reportError.setOnClickListener(openExternalBrowser);
-        binding.rate.setOnClickListener(openExternalBrowser);
-        binding.donate.setOnClickListener(openExternalBrowser);
+        binding.versionHistory.setOnClickListener(this::showHistory);
+        binding.translate.setOnClickListener(this::openExternalBrowser);
+        binding.license.setOnClickListener(this::showLicense);
+        binding.repo.setOnClickListener(this::openExternalBrowser);
+        binding.privacy.setOnClickListener(this::showPrivacy);
+        binding.reportError.setOnClickListener(this::openExternalBrowser);
+        binding.rate.setOnClickListener(this::openExternalBrowser);
+        binding.donate.setOnClickListener(this::openExternalBrowser);
 
         binding.credits.setOnClickListener(view -> showCredits());
     }
@@ -105,5 +103,40 @@ public class AboutActivity extends CatimaAppCompatActivity {
                 .setMessage(content.getContributorInfo())
                 .setPositiveButton(R.string.ok, null)
                 .show();
+    }
+
+    private void showHistory(View view) {
+        showHTML(R.string.version_history, content.getHistoryInfo(), view);
+    }
+
+    private void showLicense(View view) {
+        showHTML(R.string.license, content.getLicenseInfo(), view);
+    }
+
+    private void showPrivacy(View view) {
+        showHTML(R.string.privacy_policy, content.getPrivacyInfo(), view);
+    }
+
+    private void showHTML(@StringRes int title, final Spanned text, View view) {
+        int dialogContentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        Utils.makeTextViewLinksClickable(textView, text);
+        ScrollView scrollView = new ScrollView(this);
+        scrollView.addView(textView);
+        scrollView.setPadding(dialogContentPadding, dialogContentPadding / 2, dialogContentPadding, 0);
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(title)
+                .setView(scrollView)
+                .setPositiveButton(R.string.ok, null)
+                .setNeutralButton(R.string.view_online, (dialog, which) -> openExternalBrowser(view))
+                .show();
+    }
+
+    private void openExternalBrowser(View view) {
+        Object tag = view.getTag();
+        if (tag instanceof String && ((String) tag).startsWith("https://")) {
+            (new OpenWebLinkHandler()).openBrowser(this, (String) tag);
+        }
     }
 }

@@ -3,6 +3,7 @@ package protect.card_locker;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.text.Spanned;
 import android.util.Log;
 
 import androidx.core.text.HtmlCompat;
@@ -64,6 +65,38 @@ public class AboutContent {
         return contributors.replace("\n", "<br />");
     }
 
+    public String getHistory() {
+        String versionHistory;
+        try {
+            versionHistory = Utils.readTextFile(context, R.raw.changelog)
+                    .replace("# Changelog\n\n", "");
+        }  catch (IOException ignored) {
+            return "";
+        }
+        return Utils.linkify(Utils.basicMDToHTML(versionHistory))
+                .replace("\n", "<br />");
+    }
+
+    public String getLicense() {
+        try {
+            return Utils.readTextFile(context, R.raw.license);
+        }  catch (IOException ignored) {
+            return "";
+        }
+    }
+
+    public String getPrivacy() {
+        String privacyPolicy;
+        try {
+            privacyPolicy = Utils.readTextFile(context, R.raw.privacy)
+                    .replace("# Privacy Policy\n", "");
+        }  catch (IOException ignored) {
+            return "";
+        }
+        return Utils.linkify(Utils.basicMDToHTML(privacyPolicy))
+                .replace("\n", "<br />");
+    }
+
     public String getThirdPartyLibraries() {
         final List<ThirdPartyInfo> usedLibraries = new ArrayList<>();
         usedLibraries.add(new ThirdPartyInfo("Color Picker", "https://github.com/jaredrummler/ColorPicker", "Apache 2.0"));
@@ -109,6 +142,18 @@ public class AboutContent {
         contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssets()), HtmlCompat.FROM_HTML_MODE_COMPACT));
 
         return contributorInfo.toString();
+    }
+
+    public Spanned getHistoryInfo() {
+        return HtmlCompat.fromHtml(getHistory(), HtmlCompat.FROM_HTML_MODE_COMPACT);
+    }
+
+    public Spanned getLicenseInfo() {
+        return HtmlCompat.fromHtml(getLicense(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+    }
+
+    public Spanned getPrivacyInfo() {
+        return HtmlCompat.fromHtml(getPrivacy(), HtmlCompat.FROM_HTML_MODE_COMPACT);
     }
 
     public String getVersionHistory() {

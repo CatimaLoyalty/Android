@@ -4,6 +4,7 @@
 
 - Move "Archive mode" into "Display options" (previously "Show details") menu
 - Android 13 per-app language support
+- Embed privacy policy, changelog and license in the app
 
 ## v2.25.3 - 130 (2023-08-25)
 

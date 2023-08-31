@@ -20,9 +20,9 @@ Copylefted libre software (GPLv3+) card management app.
 <a href="https://play.google.com/store/apps/details?id=me.hackerchick.catima" target="_blank">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
-![Logo](https://github.com/TheLastProject/Catima/raw/main/app/src/main/ic_launcher-playstore.png)
+![Feature graphic](https://github.com/TheLastProject/Catima/raw/main/fastlane/metadata/android/en-US/images/featureGraphic.png)
 
-*Logo by [Rose (TangentFoxy)](http://github.com/TangentFoxy)*
+*Logo by [Rose (TangentFoxy)](https://github.com/TangentFoxy), feature graphic by [Ziad OUALHADJ](https://github.com/ziadOUA)*
 
 Stores your store loyalty and membership cards on your device, instead of having to carry them around.
 

@@ -113,7 +113,7 @@
     <string name="app_license">GPLv3+ altında lisanslanan copyleft özgür yazılım</string>
     <string name="app_copyright_old">Loyalty Card Keychain temel alınmıştır
 \nTelif Hakkı © 2016–2020 Branden Archer</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Telif Hakkı © 2019–<xliff:g>%d</xliff:g> Sylvia van Os ve katkıda bulunanlar</string>
     <string name="about">Hakkında</string>
     <string name="importOptionApplicationButton">Başka bir uygulama kullan</string>
     <string name="importOptionApplicationExplanation">Bir dosyayı açmak için herhangi bir uygulamayı veya en sevdiğiniz dosya yöneticisini kullanın.</string>
@@ -279,4 +279,8 @@
     <string name="settings_category_title_privacy">Gizlilik</string>
     <string name="settings_oled_dark_summary">OLED ekranlarda güç kullanımını düşürür</string>
     <string name="settings_category_title_cards">Kartlar</string>
+    <string name="app_copyright_short">Telif hakkı © Sylvia van Os ve katkıda bulunanlar</string>
+    <string name="action_display_options">Görüntüleme seçenekleri</string>
+    <string name="show_archived_cards">Arşivlenen kartları göster</string>
+    <string name="view_online">Çevrim içi görüntüle</string>
 </resources>

@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'CHANGELOG.md'
 jobs:
   convert_changelog_to_fastlane:
     runs-on: ubuntu-latest

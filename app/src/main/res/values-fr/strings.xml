@@ -185,7 +185,7 @@
     <string name="sort">Trier</string>
     <string name="sort_by">Trier par</string>
     <string name="reverse">… dans l’ordre inverse</string>
-    <string name="sort_by_expiry">Date d’expiration</string>
+    <string name="sort_by_expiry">Expiration</string>
     <string name="sort_by_most_recently_used">Les plus récemment utilisées</string>
     <string name="sort_by_name">Nom</string>
     <string name="report_error">Signaler une erreur</string>
@@ -249,14 +249,14 @@
     <string name="failedToRetrieveImageFile">Impossible de récupérer le fichier image</string>
     <string name="currentBalanceSentence">Solde actuel : <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceHint">Entrez le montant</string>
-    <string name="cameraPermissionDeniedTitle">Impossible d\'accéder à la caméra</string>
+    <string name="cameraPermissionDeniedTitle">Impossible d’accéder à la caméra</string>
     <string name="noCameraPermissionDirectToSystemSetting">Pour scanner les codes-barres, Catima doit avoir accès à votre caméra. Tapez ici pour modifier vos paramètres d\'autorisation.</string>
     <string name="updateBalance">Mettre à jour le solde</string>
     <string name="updateBalanceTitle">Combien avez-vous dépensé \?</string>
     <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importer des cartes</string>
-    <string name="storageReadPermissionRequired">L\'autorisation de lire le stockage est nécessaire pour cette action…</string>
-    <string name="cameraPermissionRequired">L\'autorisation d\'accéder à la caméra est nécessaire pour cette action…</string>
+    <string name="storageReadPermissionRequired">L’autorisation de lire le stockage est nécessaire pour cette action…</string>
+    <string name="cameraPermissionRequired">L’autorisation d\'accéder à la caméra est nécessaire pour cette action…</string>
     <string name="validFromDate">Valide à partir de</string>
     <string name="validFromSentence">Valide à partir de : <xliff:g>%s</xliff:g></string>
     <string name="anyDate">N’importe quelle date</string>
@@ -285,4 +285,9 @@
     <string name="settings_category_title_general">Généraux</string>
     <string name="settings_category_title_privacy">Confidentialité</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Désactive le verrouillage de l\'écran pendant la visualisation d\'une carte</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os et contributeurs</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os et contributeurs</string>
+    <string name="show_archived_cards">Afficher les cartes archivées</string>
+    <string name="view_online">Voir en ligne</string>
+    <string name="action_display_options">Options d’affichage</string>
 </resources>

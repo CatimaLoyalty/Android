@@ -11,14 +11,14 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Update contributors
       id: update_contributors
       uses: TheLastProject/contributors-to-file-action@v2
       with:
         file_in_repo: app/src/main/res/raw/contributors.txt
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v5
       with:
         title: "Update contributors"
         commit-message: "Update contributors"

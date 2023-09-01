@@ -1,5 +1,4 @@
 name: Android CI
-
 on:
   push:
     branches:
@@ -9,17 +8,13 @@ on:
   pull_request:
     branches:
       - main
-
 env:
   JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Fail on bad translations
       run: if grep -ri "&lt;xliff" app/src/main/res/values*/strings.xml; then echo "Invalidly escaped translations found"; exit 1; fi
     - uses: gradle/wrapper-validation-action@v1
@@ -38,7 +33,7 @@ jobs:
       run: ./gradlew spotbugsRelease
     - name: Archive test results
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: test-results
         path: app/build/reports

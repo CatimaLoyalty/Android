@@ -285,4 +285,9 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Při prohlížení karty zabránit zamčení obrazovky</string>
     <string name="settings_category_title_cards">Karty</string>
     <string name="settings_category_title_general">Obecné</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a přispěvatelé</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os a přispěvatelé</string>
+    <string name="action_display_options">Možnosti zobrazení</string>
+    <string name="show_archived_cards">Zobrazovat archivované karty</string>
+    <string name="view_online">Zobrazovat online</string>
 </resources>

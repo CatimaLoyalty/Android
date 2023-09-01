@@ -6,11 +6,11 @@
     <string name="noMatchingGiftCards">لا نتائج. حاول تغيير كلمات البحث.</string>
     <string name="storeName">اسم</string>
     <string name="note">مذكرة</string>
-    <string name="cardId">بطاقة شخصية</string>
+    <string name="cardId">معرّف البطاقة</string>
     <string name="barcodeType">نوع الباركود</string>
     <string name="barcodeNoBarcode">لا يوجد باركود</string>
     <string name="noBarcode">لا يوجد باركود</string>
-    <string name="star">اضف الي المفضلة</string>
+    <string name="star">أضف الي المفضلة</string>
     <string name="unstar">حذف من المفضلة</string>
     <string name="cancel">إلغاء</string>
     <string name="save">حفظ</string>
@@ -151,7 +151,7 @@
     <string name="archived">تمت أرشفة البطاقة</string>
     <string name="unarchived">البطاقة غير مؤرشفة</string>
     <string name="failedLaunchingPhotoPicker">تعذر العثور على تطبيق معرض مدعوم</string>
-    <string name="noGiftCardsGroup">انشئ بعض من البطاقات, و عيينهم لهذه المجموعة.</string>
+    <string name="noGiftCardsGroup">انشئ بعضا من البطاقات, ثم عيينهم لهذه المجموعة.</string>
     <string name="deleteTitle">مسح بطاقة</string>
     <plurals name="selectedCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> محدد</item>

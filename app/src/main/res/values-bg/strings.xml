@@ -125,9 +125,9 @@
     <string name="app_libraries">Свободни библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Издание: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Относно <xliff:g id="app_name">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Всички права запазени © 2019–<xliff:g>%d</xliff:g> Силвия ван Ос и сътрудници</string>
     <string name="app_copyright_old">На основата на Loyalty Card Keychain
-\nвсички права запазени © 2016–2020 Branden Archer</string>
+\nвсички права запазени © 2016–2020 Бранден Арчър</string>
     <string name="about">Относно</string>
     <string name="importOptionFilesystemTitle">Внасяне от файловата система</string>
     <string name="importCatima">Внасяне от Catima</string>
@@ -279,4 +279,8 @@
     <string name="settings_category_title_general">Общи</string>
     <string name="settings_category_title_privacy">Поверителност</string>
     <string name="settings_keep_screen_on_summary">Спира автоматичното заключване на екрана при преглед на карти</string>
+    <string name="action_display_options">Настройки на списъка</string>
+    <string name="show_archived_cards">Архивирани карти</string>
+    <string name="view_online">Преглед</string>
+    <string name="app_copyright_short">Всички права запазени © Силвия ван Ос и сътрудници</string>
 </resources>

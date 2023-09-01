@@ -285,4 +285,9 @@
     <string name="settings_category_title_cards">Carte</string>
     <string name="settings_category_title_general">Generali</string>
     <string name="settings_category_title_privacy">Privacy</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os e contributori</string>
+    <string name="action_display_options">Opzioni di display</string>
+    <string name="show_archived_cards">Mostrare le carte archiviate</string>
+    <string name="view_online">Visualizzare online</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os e contributori</string>
 </resources>

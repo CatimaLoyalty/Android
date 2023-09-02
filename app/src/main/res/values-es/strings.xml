@@ -10,7 +10,7 @@
     <string name="edit">Editar</string>
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
-    <string name="ok">Aceptar</string>
+    <string name="ok">De acuerdo</string>
     <string name="copy_to_clipboard">Copiar ID. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
     <string name="editCardTitle">Editar tarjeta</string>
@@ -94,7 +94,7 @@
     <string name="card">Tarjeta</string>
     <string name="expiryStateSentenceExpired">Expirado: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> de Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Derechos de autor © 2019-<xliff:g>%d</xliff:g> Sylvia van Os y colaboradores</string>
     <string name="app_resources">Recursos de terceros libres: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliotecas de terceros libres: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
@@ -286,4 +286,8 @@
     <string name="settings_category_title_general">General</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deshabilita el bloqueo de pantalla mientras se ve una tarjeta</string>
     <string name="settings_category_title_privacy">Privacidad</string>
+    <string name="view_online">Ver en línea</string>
+    <string name="show_archived_cards">Mostrar las tarjetas archivadas</string>
+    <string name="app_copyright_short">Derechos de autor © Sylvia van Os y colaboradores</string>
+    <string name="action_display_options">Opciones de la pantalla</string>
 </resources>

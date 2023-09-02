@@ -128,7 +128,7 @@
     <string name="wrongValueForBarcodeType">Deze waarde komt niet overeen met het gekozen barcodetype</string>
     <string name="app_resources">Vrije externe bronnen: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vrije externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os en bĳdragers</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os en bijdragers</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ik wil kaarten met je delen</string>
     <string name="copy_to_clipboard_multiple_toast">De kaart-id\'s zijn gekopieerd naar het klembord</string>
     <string name="card_ids_copied">De kaart-id‘s zijn gekopieerd</string>
@@ -279,8 +279,8 @@
     <string name="settings_oled_dark_summary">Verlaagt het accuverbruik op oledschermen</string>
     <string name="settings_category_title_cards">Kaarten</string>
     <string name="settings_category_title_general">Algemeen</string>
-    <string name="app_copyright_short">Auteursrecht © Sylvia van Os en bĳdragers</string>
+    <string name="app_copyright_short">Auteursrecht © Sylvia van Os en bijdragers</string>
     <string name="action_display_options">Weergave-instellingen</string>
-    <string name="view_online">Online bekĳken</string>
+    <string name="view_online">Online bekijken</string>
     <string name="show_archived_cards">Gearchiveerde kaarten tonen</string>
 </resources>

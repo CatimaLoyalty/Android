@@ -272,4 +272,6 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Menonaktifkan kunci layar saat melihat kartu</string>
     <string name="settings_category_title_cards">Kartu</string>
     <string name="settings_category_title_privacy">Privasi</string>
+    <string name="show_archived_cards">Tampilkan arsip kartu</string>
+    <string name="action_display_options">Pilihan tampilan</string>
 </resources>

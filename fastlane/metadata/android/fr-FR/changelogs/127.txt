@@ -1,0 +1,4 @@
+- Amélioration du rendu du code barre
+- Interopérabilité basique avec les applications externes (Android 6.0+)
+- Réorganisation de l'écran des paramètres
+- Correction de l'importation depuis certains navigateurs qui ajoutent un / final à l'URL de partage

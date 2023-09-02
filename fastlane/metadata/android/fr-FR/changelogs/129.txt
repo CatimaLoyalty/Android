@@ -1,0 +1,3 @@
+- Amélioration de l'importateur de Catima (correction des cartes manquantes lors de l'importation)
+- Correction d'un plantage lors de la rotation de l’écran quand la date de validité/expiration est réglée
+- Ajustements mineurs de l'IU

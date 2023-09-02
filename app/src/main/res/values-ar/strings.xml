@@ -286,4 +286,6 @@
     <string name="permissionReadCardsDescription">اقرأ بطاقتك مع جميع التفاصيل، بما فيه الملاحضات والصور</string>
     <string name="settings_display_barcode_max_brightness_summary">ظروري لعمل بعض الماسحات الضوئية</string>
     <string name="permissionReadCardsLabel">اقرأ بطاقات كاتيما</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حقوق النشر © 2019–<xliff:g>%d</xliff:g> Sylvia van Os والمساهمون</string>
+    <string name="app_copyright_short">حقوق النشر © Sylvia van Os والمساهمون</string>
 </resources>

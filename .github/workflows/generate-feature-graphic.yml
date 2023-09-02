@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'fastlane/**.txt'
+      - 'fastlane/**/title.txt'
 jobs:
   generate-feature-graphic:
     runs-on: ubuntu-latest

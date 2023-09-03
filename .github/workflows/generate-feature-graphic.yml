@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'fastlane/**'
+      - 'fastlane/**/title.txt'
 jobs:
   generate-feature-graphic:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
     - name: Install requirements
       run: |
         sudo apt-get update
-        sudo apt-get install optipng
+        sudo apt-get install optipng mat2
         # Install 200 weight versions of relevant Noto (to use for languages not supported by Lexend Deca)
         sudo apt-get install fonts-noto-extra fonts-noto-cjk-extra
         # Custom fonts
@@ -48,6 +48,8 @@ jobs:
           convert featureGraphic.svg images/featureGraphic.png
           # Optimize .png
           optipng images/featureGraphic.png
+          # Remove metadata (timestamps) from .png
+          mat2 --inplace images/featureGraphic.png
           # Remove temporary .svg
           rm featureGraphic.svg
           popd

@@ -145,4 +145,7 @@
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> के बारे में</string>
     <string name="debug_version_fmt">संस्करण: <xliff:g id="version">%s</xliff:g></string>
     <string name="copy_to_clipboard_toast">आई डी क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="cameraPermissionRequired">इस क्रिया के लिए कैमरा एक्सेस की अनुमति चाहिए।…</string>
+    <string name="permissionReadCardsLabel">केटीमा कार्ड्स पढ़ें</string>
+    <string name="storageReadPermissionRequired">स्टोरेज पढ़ने की इजाजत इस क्रिया के लिए आवश्यक है…</string>
 </resources>

@@ -61,6 +61,7 @@
     <string-array name="locale_values">
         <item />
         <item>ar</item>
+        <item>ast</item>
         <item>bg</item>
         <item>bn</item>
         <item>bn-rIN</item>
@@ -86,6 +87,7 @@
         <item>it</item>
         <item>ja</item>
         <item>ko</item>
+        <item>lb</item>
         <item>lt</item>
         <item>lv</item>
         <item>nb-rNO</item>

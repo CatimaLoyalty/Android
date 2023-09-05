@@ -24,6 +24,8 @@ android {
 
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
+
+        resourceConfigurations += ["ar", "bg", "bn", "bn-rIN", "bs", "ca", "cs", "cy", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "zh-rTW", "zh-rCN"]
     }
 
     buildTypes {
@@ -81,11 +83,6 @@ android {
         lintConfig file('lint.xml')
     }
     namespace 'protect.card_locker'
-
-    androidResources {
-        generateLocaleConfig true
-    }
-
 }
 
 dependencies {

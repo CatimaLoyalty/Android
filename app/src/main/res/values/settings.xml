@@ -58,6 +58,11 @@
         <item>@string/settings_brown_theme</item>
     </string-array>
 
+    <!--
+      NB: this list needs to be updated manually for new/removed languages and
+      is used to generate the locale lists in app/build.gradle and
+      app/src/main/res/xml/locales_config.xml using .scripts/locales.py
+    -->
     <string-array name="locale_values">
         <item />
         <item>ar</item>

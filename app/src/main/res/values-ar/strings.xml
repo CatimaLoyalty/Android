@@ -120,7 +120,7 @@
     <string name="turn_flashlight_off">أطفئ المصباح</string>
     <string name="settings_locale">لغة</string>
     <string name="settings_system_locale">النظام</string>
-    <string name="setIcon">تعيين رمز</string>
+    <string name="setIcon">تعيين الصورة المصغرة</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_pink_theme">زهري</string>
     <string name="settings_magenta_theme">أرجواني</string>
@@ -288,4 +288,27 @@
     <string name="permissionReadCardsLabel">اقرأ بطاقات كاتيما</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">حقوق النشر © 2019–<xliff:g>%d</xliff:g> Sylvia van Os والمساهمون</string>
     <string name="app_copyright_short">حقوق النشر © Sylvia van Os والمساهمون</string>
+    <string name="openFrontImageInGalleryApp">افتح الصورة الأمامية في تطبيق المعرض</string>
+    <string name="show_name_below_image_thumbnail">إظهار الاسم أسفل الصورة المصغرة</string>
+    <string name="show_validity">إظهار الصلاحية</string>
+    <string name="view_online">مشاهدة حية</string>
+    <string name="settings_category_title_general">عام</string>
+    <string name="switchToBarcode">التبديل إلى الباركود</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">تعطيل قفل الشاشة أثناء عرض البطاقة</string>
+    <string name="action_display_options">خيارات العرض</string>
+    <string name="settings_oled_dark_summary">يقلل من استخدام البطارية على شاشات OLED</string>
+    <string name="icon_header_click_text">اضغط لفترة طويلة لتحرير الصورة المصغرة</string>
+    <string name="settings_category_title_cards">البطاقات</string>
+    <string name="show_note">إظهار الملاحظة</string>
+    <string name="switchToBackImage">التبديل إلى الصورة الخلفية</string>
+    <string name="switchToFrontImage">التبديل إلى الصورة الأمامية</string>
+    <string name="settings_allow_content_provider_read_summary">سيظل يتعين على التطبيقات طلب الإذن لمنحها حق الوصول</string>
+    <string name="setBarcodeHeight">ضبط ارتفاع الباركود</string>
+    <string name="openBackImageInGalleryApp">فتح الصورة الخلفية في تطبيق المعرض</string>
+    <string name="settings_allow_content_provider_read_title">السماح للتطبيقات الأخرى بالوصول إلى بياناتي</string>
+    <string name="donate">يتبرع</string>
+    <string name="show_archived_cards">عرض البطاقات المؤرشفة</string>
+    <string name="settings_category_title_privacy">خصوصية</string>
+    <string name="show_balance">إظهار التوازن</string>
+    <string name="settings_keep_screen_on_summary">تعطيل مهلة الشاشة أثناء عرض البطاقة</string>
 </resources>

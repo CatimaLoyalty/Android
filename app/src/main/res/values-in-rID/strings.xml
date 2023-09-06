@@ -100,7 +100,7 @@
     <string name="importOptionApplicationExplanation">Gunakan aplikasi lain atau pengelola file favorit anda untuk membuka file.</string>
     <string name="importOptionApplicationButton">Gunakan aplikasi lain</string>
     <string name="about">Tentang</string>
-    <string name="app_copyright_fmt">Hak Cipta © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt">Hak Cipta © 2019–<xliff:g>%d</xliff:g> Sylvia van Os dan para kontributor</string>
     <string name="app_copyright_old">Berdasarkan Loyalty Card Keychain 
 \nhak cipta © 2016–2020 Branden Archer</string>
     <string name="app_license">Perangkat lunak bebas copyleft, berlisensi GPLv3+</string>
@@ -272,6 +272,8 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Menonaktifkan kunci layar saat melihat kartu</string>
     <string name="settings_category_title_cards">Kartu</string>
     <string name="settings_category_title_privacy">Privasi</string>
-    <string name="show_archived_cards">Tampilkan arsip kartu</string>
+    <string name="show_archived_cards">Tampilkan kartu yang sudah disimpan</string>
     <string name="action_display_options">Pilihan tampilan</string>
+    <string name="view_online">Lihat di Internet</string>
+    <string name="app_copyright_short">Terdapat Hak Cipta © Sylvia van Os dan para kontributor</string>
 </resources>

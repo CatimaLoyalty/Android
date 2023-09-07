@@ -25,7 +25,7 @@ android {
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
 
-        resourceConfigurations += ["ar", "ast", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lb", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "zh-rTW", "zh-rCN"]
+        resourceConfigurations += ["ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "zh-rTW", "zh-rCN"]
     }
 
     buildTypes {

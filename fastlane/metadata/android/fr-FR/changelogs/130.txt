@@ -1,0 +1,4 @@
+- Corrections mineures d'IU
+- Correction des dates de validité et d’expiration qui étaient réinitialisées lors de la rotation de l’écran d’édition de la carte
+- Correction d'un plantage lors de la rotation de l'écran alors que le sélecteur de couleurs est affiché
+- Correction de l'importation depuis Stocard

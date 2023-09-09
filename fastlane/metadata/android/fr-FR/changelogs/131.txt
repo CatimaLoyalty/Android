@@ -1,0 +1,3 @@
+- Déplacement du "Mode Archivage" dans le menu "Paramètres d'Affichage" (était anciennement dans le menu "Montrer les détails")
+- Support de la langue par application d'Android 13
+- Intégration de la politique de confidentialité, des journaux de modification et de la licence dans l'application

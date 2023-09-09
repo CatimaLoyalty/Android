@@ -84,7 +84,7 @@
     <string name="thumbnailDescription">Ескіз</string>
     <string name="intent_import_card_from_url_share_multiple_text">Я хочу поділитися деякими картами з тобою</string>
     <string name="copy_to_clipboard_multiple_toast">ID скопійовано до буферу обміну</string>
-    <string name="copy_to_clipboard_toast">ID скопійовано до буферу обміну</string>
+    <string name="copy_to_clipboard_toast">Ідентифікацію скопійовано до буферу обміну</string>
     <string name="app_resources">Вільні ресурси третіх сторін: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Вільні бібліотеки третіх сторін: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Версія: <xliff:g id="version">%s</xliff:g></string>
@@ -92,7 +92,7 @@
     <string name="app_license">Копілефт вільне програмне забезпечення, ліцензоване під GPLv3+</string>
     <string name="app_copyright_old">Створено на основі Loyalty Card Keychain
 \nавторські права © 2016–2020 Branden Archer</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторські права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os та вкладники</string>
     <string name="about">Про програму</string>
     <string name="importOptionApplicationButton">Використовувати інший застосунок</string>
     <string name="importOptionApplicationExplanation">Використайте інший застосунок чи ваш улюблений файл-менеджер для відкриття файлу.</string>
@@ -293,4 +293,8 @@
     <string name="settings_category_title_cards">Картки</string>
     <string name="settings_category_title_general">Загальні</string>
     <string name="settings_category_title_privacy">Конфіденційність</string>
+    <string name="view_online">Переглянути онлайн</string>
+    <string name="action_display_options">Налаштування дисплея</string>
+    <string name="app_copyright_short">Авторські права © Sylvia van Os та вкладники</string>
+    <string name="show_archived_cards">Показати заархівовані картки</string>
 </resources>

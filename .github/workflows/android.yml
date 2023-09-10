@@ -9,6 +9,20 @@ on:
   pull_request:
     branches:
       - main
+permissions:
+  actions: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
 env:
   JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
 jobs:

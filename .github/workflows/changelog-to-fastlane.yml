@@ -6,6 +6,20 @@ on:
       - main
     paths:
       - 'CHANGELOG.md'
+permissions:
+  actions: none
+  checks: none
+  contents: read
+  deployments: none
+  discussions: none
+  id-token: none
+  issues: none
+  packages: none
+  pages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: none
+  statuses: none
 jobs:
   convert_changelog_to_fastlane:
     runs-on: ubuntu-latest

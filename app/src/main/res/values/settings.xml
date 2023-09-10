@@ -58,16 +58,22 @@
         <item>@string/settings_brown_theme</item>
     </string-array>
 
+    <!--
+      NB: this list needs to be updated manually for new/removed languages and
+      is used to generate the locale lists in app/build.gradle and
+      app/src/main/res/xml/locales_config.xml using .scripts/locales.py
+    -->
     <string-array name="locale_values">
         <item />
         <item>ar</item>
+        <!-- <item>ast</item> -->
         <item>bg</item>
         <item>bn</item>
         <item>bn-rIN</item>
         <item>bs</item>
-        <item>ca</item>
+        <!-- <item>ca</item> -->
         <item>cs</item>
-        <item>cy</item>
+        <!-- <item>cy</item> -->
         <item>da</item>
         <item>de</item>
         <item>el-rGR</item>
@@ -86,6 +92,7 @@
         <item>it</item>
         <item>ja</item>
         <item>ko</item>
+        <!-- <item>lb</item> -->
         <item>lt</item>
         <item>lv</item>
         <item>nb-rNO</item>
@@ -100,7 +107,7 @@
         <item>sv</item>
         <item>tr</item>
         <item>uk</item>
-        <item>zh-TW</item>
+        <item>zh-rTW</item>
         <item>zh-rCN</item>
     </string-array>
 

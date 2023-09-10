@@ -1,5 +1,6 @@
 name: Write contributors to file
 on:
+  workflow_dispatch:
   schedule:
     - cron: '3 4 * * 0'
 

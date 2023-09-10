@@ -1,5 +1,6 @@
 name: Generate feature graphic
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

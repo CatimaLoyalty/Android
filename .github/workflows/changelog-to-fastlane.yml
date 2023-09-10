@@ -1,5 +1,6 @@
 name: Convert CHANGELOG to Fastlane
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

@@ -1336,6 +1336,7 @@ _id,name,barcodeFormat
 1d49dc17-6906-4123-bcd5-7ab8fa1a7778,Анстер,CODE_128
 1d737928-c513-44ce-992a-dc0c799daaf6,Zona Market,CODE_39
 1dae65a7-6e7e-48f9-ae4e-902bf48f166b,Aвоська,CODE_128
+1db293c9-5215-4940-8136-ffb9fb2d8de2,Hammer,CODE_128
 1e075692-0044-4acf-a7a5-06f235bcf126,Nature's Garden,CODE_128
 1e07e980-a5d7-4371-ac61-2d53b909d7de,Agorà,EAN_13
 1e341520-6791-40dc-984c-6c3ef58a3e60,Vegetarian Card,EAN_13
@@ -1806,6 +1807,7 @@ _id,name,barcodeFormat
 2377,大買家,CODE_128
 2378,达芙妮,CODE_128
 2379,達芙妮,CODE_128
+2379fc78-8a67-433b-ba7f-9359e33dbfd5,INV,CODE_128
 238,Niedermeyer,EAN_13
 2380,美廉社,CODE_128
 2381,美華泰,EAN_8
@@ -2130,6 +2132,7 @@ _id,name,barcodeFormat
 2647,老百姓大药房,CODE_128
 2648,豪客来,EAN_13
 2649,特力和乐,EAN_13
+264f0d93-6519-4931-bc67-a90906c83d6b,Omoda,CODE_128
 265,Polo,CODE_39
 2650,GXG,CODE_128
 2651,大洋,CODE_128
@@ -3213,6 +3216,7 @@ _id,name,barcodeFormat
 35,Beldona,EAN_13
 350,Vino Club,EAN_13
 3500,Eurospesa Ideashop,EAN_13
+3500fa7d-449a-469e-84d1-c0cc75f7fe09,Réno-Dépôt,CODE_128
 3501,Южный двор,EAN_13
 3502,Rewardtfc,CODE_128
 3503,Snappy,CODE_128
@@ -5389,6 +5393,7 @@ _id,name,barcodeFormat
 553,Mayoral,CODE_128
 55388f1f-e82f-409b-8b57-a5dde231749f,FDM,CODE_128
 554,Meliá,CODE_128
+554f77c9-9cfb-4edd-b378-a26f1608f7b9,trinkgut,CODE_128
 555,Neck & Neck,CODE_39
 556,Opticalia,CODE_128
 5569b4b1-dbd4-410e-8a2e-af7d9eeac7ad,ДОБРОСТРОЙ,EAN_13
@@ -5722,6 +5727,7 @@ _id,name,barcodeFormat
 6a122848-fe9d-4f5b-b5df-d3f1031c5583,Є книгарня,EAN_13
 6a4e2358-f0db-434c-9f92-d37c017ec4ad,ENAPO,CODE_128
 6a5ac3f8-04cb-4d14-884f-1231b72228e8,Топаз,EAN_13
+6a7b1bc8-eca7-4323-9080-68af9414254f,CastoPro,CODE_128
 6a85186a-bfd9-4078-a5da-db1b4e1fb526,Molders,CODE_128
 6aa89061-d0b5-46a2-9019-b1cb7146e485,Just Plastics,CODE_128
 6aa9bd9a-b099-4997-9fa1-b0a7525c6ec7,AZ Casa,EAN_13
@@ -6385,6 +6391,7 @@ _id,name,barcodeFormat
 948,Paolo Conte,EAN_13
 949,Finn Flare,EAN_8
 9495b8a0-ae5e-410c-82b4-f6a5f66d3bd2,SE.COM STORE,CODE_128
+94f48cf3-1b49-4abb-9514-8307adc46175,Little Italy Barber Shop,EAN_13
 95,emilio adani,ITF
 950,Олант,EAN_13
 951,Лента,CODE_128
@@ -6637,6 +6644,7 @@ abd65b02-5fc2-416d-880f-cbb2a47b768b,DV8,EAN_13
 abdef57c-a954-4860-9e3b-a7957f242c6b,Donetti,CODE_39
 ac16ecc3-51d5-417e-993f-43616ad516a7,Academies Studentenkaart,QR_CODE
 ac9b512b-1e30-4df0-b07e-1a8fd8875803,Conte,EAN_13
+acc75558-87c2-4115-b884-5a558a0f74eb,Hibiscus Coast Softball Club,QR_CODE
 acd80ee4-3556-4a9e-8847-2e4e7c6ce5b9,EU COVID-19 Certificat de Vaccination,QR_CODE
 ad3f7a9b-1227-434d-9735-6b3437229404,Holland Casino,QR_CODE
 ad413d8d-ca35-49b6-9da6-07f668df53be,Непоседа-сити,CODE_39
@@ -6876,6 +6884,7 @@ c649e96d-c14d-447a-8179-957c37783aea,Линия Здоровья,EAN_8
 c674e2c2-820f-48bb-b5ad-8c1d5fb2b70f,Jumbo & Score,EAN_13
 c7044929-a87e-4e59-a895-c1b5ad1b95ec,Konzum,CODE_39
 c70a4f85-ee42-4f12-b800-339c9e4304d6,Blooker,EAN_13
+c715e1a6-7335-421a-9c0a-e5aa7b4c7af5,The Radstock Co-operative Society,CODE_128
 c7486964-f07f-4419-ae4d-2abe5efa8347,Айкрафт,CODE_128
 c77229b5-5a87-40e1-842a-3752e7944486,Hill Street Grocer,CODE_128
 c78913ef-53b2-40f5-b356-2b293270be50,Yo-get-it,CODE_39
@@ -7273,6 +7282,7 @@ f297047b-8a48-4c3d-928d-cbbd8d0497d1,аптека ника,EAN_13
 f2a92584-5ef8-4220-b0ca-7aa48decd2e4,Artex Ieper,EAN_13
 f2b9fa76-c78f-4d2c-821f-70678bc8d4d5,Parfümerie Becker,EAN_8
 f2c8f722-9c5f-423d-9989-deca7901aa11,Poetry,CODE_128
+f2d3f68c-7b77-4464-91d2-3162e74bea48,Neinver,EAN_13
 f3189d64-dd39-468b-872d-3bb70e4d416c,The Watergardens Hotel ,CODE_128
 f3287ab2-0308-42f8-92dc-3147456a4a69,НУЖНО!,EAN_13
 f35a3882-27b2-417d-8093-e87f8f25509a,Первый Семейный,CODE_128

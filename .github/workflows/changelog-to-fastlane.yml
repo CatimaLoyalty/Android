@@ -27,15 +27,15 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.0.0
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v4.7.0
       with:
         python-version: '3.x'
     - name: Run converter script
       run: python .scripts/changelog_to_fastlane.py
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v5.0.2
       with:
         title: "Update Fastlane changelogs"
         commit-message: "Update Fastlane changelogs"

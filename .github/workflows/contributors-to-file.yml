@@ -25,14 +25,14 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.0.0
     - name: Update contributors
       id: update_contributors
-      uses: TheLastProject/contributors-to-file-action@v3
+      uses: TheLastProject/contributors-to-file-action@v3.0.1
       with:
         file_in_repo: app/src/main/res/raw/contributors.txt
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v5.0.2
       with:
         title: "Update contributors"
         commit-message: "Update contributors"

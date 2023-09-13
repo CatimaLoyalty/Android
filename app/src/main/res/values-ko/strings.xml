@@ -269,4 +269,11 @@
     <string name="settings_allow_content_provider_read_title">다른 앱의 내 정보 접근 허용</string>
     <string name="permissionReadCardsLabel">Catima 카드 읽기</string>
     <string name="settings_keep_screen_on_summary">카드가 보일 때 화면 꺼짐 방지</string>
+    <string name="view_online">온라인에서 보기</string>
+    <string name="settings_category_title_general">일반</string>
+    <string name="action_display_options">디스플레이 옵션</string>
+    <string name="settings_display_barcode_max_brightness_summary">스캐너가 작동하는 데 필요합니다</string>
+    <string name="settings_category_title_cards">카드</string>
+    <string name="show_archived_cards">보관된 카드 표시</string>
+    <string name="settings_category_title_privacy">프라이버시</string>
 </resources>

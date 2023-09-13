@@ -200,7 +200,7 @@
     <string name="group_name_is_empty">Gruppnamn måste anges</string>
     <string name="editGroup">Redigerar grupp: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Välj färg</string>
-    <string name="setIcon">Välj ikon</string>
+    <string name="setIcon">Ställ in miniatyr</string>
     <string name="credits">Bidragsgivare</string>
     <string name="source_repository">Källkodslager</string>
     <string name="noGiftCardsGroup">Skapa några kort och placera dem sedan i den här gruppen.</string>
@@ -254,4 +254,33 @@
     <string name="updateBalanceTitle">Hur mycket spenderade du\?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
+    <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i galleri-appen</string>
+    <string name="show_name_below_image_thumbnail">Visa namnet nedanför bildens miniatyr</string>
+    <string name="show_validity">Visa giltighet</string>
+    <string name="view_online">Visa på internet</string>
+    <string name="height">Höjd:</string>
+    <string name="settings_category_title_general">Generellt</string>
+    <string name="switchToBarcode">Byt till streckkod</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset när kortet visas</string>
+    <string name="permissionReadCardsDescription">Läs dina kort och alla dess detaljer, inklusive anteckningar och bilder</string>
+    <string name="action_display_options">Visningsalternativ</string>
+    <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
+    <string name="settings_oled_dark_summary">Reducerar batterianvändning på OLED-skärmar</string>
+    <string name="icon_header_click_text">Tryck länge för att redigera miniatyr</string>
+    <string name="settings_category_title_cards">Kort</string>
+    <string name="show_note">Visa anteckning</string>
+    <string name="switchToBackImage">Byt till bilden på baksidan</string>
+    <string name="app_copyright_short">Kopieringsskydd © Sylvia van Os och medverkande</string>
+    <string name="switchToFrontImage">Byt till bilden på framsidan</string>
+    <string name="settings_allow_content_provider_read_summary">Appar måste fortfarande begära åtkomst för att få tillgång</string>
+    <string name="setBarcodeHeight">Ställ in streckkodens höjd</string>
+    <string name="openBackImageInGalleryApp">Öppna bilden på baksidan i galleri-appen</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Kopieringsskydd © 2019–<xliff:g>%d</xliff:g> Sylvia van Os och medverkande</string>
+    <string name="settings_allow_content_provider_read_title">Tillåt andra appar att komma åt min data</string>
+    <string name="permissionReadCardsLabel">Läs Catima-kort</string>
+    <string name="donate">Donera</string>
+    <string name="show_archived_cards">Visa arkiverade kort</string>
+    <string name="settings_category_title_privacy">Sekretess</string>
+    <string name="show_balance">Visa konto</string>
+    <string name="settings_keep_screen_on_summary">Stänger av skärmens tidsgräns medan ett kort visas</string>
 </resources>

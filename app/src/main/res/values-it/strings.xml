@@ -99,7 +99,7 @@
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Scadenza: <xliff:g>%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni lo schermo attivo</string>
-    <string name="app_loyalty_card_keychain">Carte fedeltà</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importa i dati da</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>

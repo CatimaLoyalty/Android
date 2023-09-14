@@ -179,7 +179,7 @@
     <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
     <string name="sort_by">Sortieren nach</string>
-    <string name="sort_by_expiry">Ablaufdatum</string>
+    <string name="sort_by_expiry">Ablauf</string>
     <string name="sort_by_most_recently_used">Zuletzt verwendet</string>
     <string name="sort_by_name">Name</string>
     <string name="sort">Sortieren</string>

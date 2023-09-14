@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="barcodeType">Tip cod de bare</string>
     <string name="cardId">Cardului ID</string>
     <string name="note">Notă</string>
     <string name="storeName">Numele</string>
     <string name="noMatchingGiftCards">Nu au fost găsite rezultate. Încercați să schimbați termenii de căutare.</string>
-    <string name="noGiftCards">Faceți clic pe butonul + plus pentru a adăuga o carte sau importați mai întâi câteva din meniul ⋮.</string>
+    <string name="noGiftCards">Faceți clic pe butonul + plus pentru a adăuga o carte sau importați mai întâi una din meniul ⋮.</string>
     <string name="action_add">Adăugați</string>
     <string name="action_search">Căutare</string>
     <string name="sendLabel">Trimiteți…</string>
@@ -33,9 +33,9 @@
     <string name="exportName">Exportați</string>
     <string name="importSuccessfulTitle">Importat</string>
     <string name="importFailedTitle">Importul a eșuat</string>
-    <string name="importFailed">Nu s-a putut importa carduri</string>
-    <string name="noCardIdError">Nu s-a introdus niciun ID de card</string>
-    <string name="exportFailed">Nu s-a putut exporta carduri</string>
+    <string name="importFailed">Nu s-a putut efectua importarea</string>
+    <string name="noCardIdError">Nu s-a introdus niciun ID</string>
+    <string name="exportFailed">Nu s-a putut efectua exportarea</string>
     <string name="importing">Importul…</string>
     <string name="exporting">Exportul…</string>
     <string name="exportOptionExplanation">Datele vor fi scrise într-o locație aleasă de dumneavoastră.</string>
@@ -101,4 +101,5 @@
     <string name="importCatima">Importați din Catima</string>
     <string name="importStocard">Importați din Stocard</string>
     <string name="intent_import_card_from_url_share_multiple_text">Aș dori să partajez niște carduri cu tine</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Drepturi de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os și contribuitorii</string>
 </resources>

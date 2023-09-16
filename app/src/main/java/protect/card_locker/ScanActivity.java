@@ -1,5 +1,8 @@
 package protect.card_locker;
 
+import static protect.card_locker.BarcodeSelectorActivity.BARCODE_CONTENTS;
+import static protect.card_locker.BarcodeSelectorActivity.BARCODE_FORMAT;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -9,6 +12,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,15 +20,22 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.Intents;
 import com.journeyapps.barcodescanner.BarcodeCallback;
@@ -65,6 +76,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
 
+    static final String STATE_SCANNER_ACTIVE = "scannerActive";
+    private boolean mScannerActive = true;
+
+
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
         cardId = b != null ? b.getString(LoyaltyCardEditActivity.BUNDLE_CARDID) : null;
@@ -87,8 +102,36 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
-        customBarcodeScannerBinding.addFromImage.setOnClickListener(this::addFromImage);
-        customBarcodeScannerBinding.addManually.setOnClickListener(this::addManually);
+        customBarcodeScannerBinding.fabOtherOptions.setOnClickListener(view -> {
+            setScannerActive(false);
+
+            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ScanActivity.this);
+            builder.setTitle(getString(R.string.add_a_card_in_a_different_way));
+            builder.setItems(
+                    new CharSequence[]{
+                            getString(R.string.addWithoutBarcode),
+                            getString(R.string.addManually),
+                            getString(R.string.addFromImage)
+                    },
+                    (dialogInterface, i) -> {
+                        switch (i) {
+                            case 0:
+                                addWithoutBarcode();
+                                break;
+                            case 1:
+                                addManually();
+                                break;
+                            case 2:
+                                addFromImage();
+                                break;
+                            default:
+                                throw new IllegalArgumentException("Unknown 'Add a card in a different way' dialog option");
+                        }
+                    }
+            );
+            builder.setOnCancelListener(dialogInterface -> setScannerActive(true));
+            builder.show();
+        });
 
         barcodeScannerView = binding.zxingBarcodeScanner;
 
@@ -106,8 +149,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
             public void barcodeResult(BarcodeResult result) {
                 Intent scanResult = new Intent();
                 Bundle scanResultBundle = new Bundle();
-                scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, result.getText());
-                scanResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, result.getBarcodeFormat().name());
+                scanResultBundle.putString(BARCODE_CONTENTS, result.getText());
+                scanResultBundle.putString(BARCODE_FORMAT, result.getBarcodeFormat().name());
                 if (addGroup != null) {
                     scanResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
                 }
@@ -126,7 +169,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        capture.onResume();
+
+        if (mScannerActive) {
+            capture.onResume();
+        }
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             showCameraPermissionMissingText(false);
         }
@@ -146,9 +193,18 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        capture.onSaveInstanceState(outState);
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        capture.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putBoolean(STATE_SCANNER_ACTIVE, mScannerActive);
+    }
+
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        mScannerActive = savedInstanceState.getBoolean(STATE_SCANNER_ACTIVE);
     }
 
     @Override
@@ -190,6 +246,29 @@ public class ScanActivity extends CatimaAppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void setScannerActive(boolean isActive) {
+        if (isActive) {
+            barcodeScannerView.resume();
+            mScannerActive = true;
+        } else {
+            barcodeScannerView.pause();
+            mScannerActive = false;
+        }
+    }
+
+    private void returnResult(String barcodeContents, String barcodeFormat) {
+        Intent manualResult = new Intent();
+        Bundle manualResultBundle = new Bundle();
+        manualResultBundle.putString(BARCODE_CONTENTS, barcodeContents);
+        manualResultBundle.putString(BARCODE_FORMAT, barcodeFormat);
+        if (addGroup != null) {
+            manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
+        }
+        manualResult.putExtras(manualResultBundle);
+        ScanActivity.this.setResult(RESULT_OK, manualResult);
+        finish();
+    }
+
     private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
@@ -199,19 +278,74 @@ public class ScanActivity extends CatimaAppCompatActivity {
             return;
         }
 
-        Intent manualResult = new Intent();
-        Bundle manualResultBundle = new Bundle();
-        manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_CONTENTS, barcodeValues.content());
-        manualResultBundle.putString(BarcodeSelectorActivity.BARCODE_FORMAT, barcodeValues.format());
-        if (addGroup != null) {
-            manualResultBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, addGroup);
-        }
-        manualResult.putExtras(manualResultBundle);
-        ScanActivity.this.setResult(RESULT_OK, manualResult);
-        finish();
+        returnResult(barcodeValues.content(), barcodeValues.format());
     }
 
-    public void addManually(View view) {
+    private void addWithoutBarcode() {
+        AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+
+        builder.setOnCancelListener(dialogInterface -> setScannerActive(true));
+
+        // Header
+        builder.setTitle(R.string.addWithoutBarcode);
+
+        // Layout
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        int contentPadding = getResources().getDimensionPixelSize(R.dimen.alert_dialog_content_padding);
+        params.leftMargin = contentPadding;
+        params.topMargin = contentPadding / 2;
+        params.rightMargin = contentPadding;
+
+        // Description
+        TextView currentTextview = new TextView(this);
+        currentTextview.setText(getString(R.string.enter_card_id));
+        currentTextview.setLayoutParams(params);
+        layout.addView(currentTextview);
+
+        // EditText with spacing
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setLayoutParams(params);
+        layout.addView(input);
+
+        // Set layout
+        builder.setView(layout);
+
+        // Buttons
+        builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+            returnResult(input.getText().toString(), "");
+        });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        AlertDialog dialog = builder.create();
+
+        // Now that the dialog exists, we can bind something that affects the OK button
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    input.setError(getString(R.string.card_id_may_not_be_empty));
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                } else {
+                    input.setError(null);
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                }
+            }
+        });
+
+        dialog.show();
+
+        // Disable button (must be done **after** dialog is shown to prevent crash
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        // Set focus on input field
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        input.requestFocus();
+    }
+
+    public void addManually() {
         Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
         if (cardId != null) {
             final Bundle b = new Bundle();
@@ -221,7 +355,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         manualAddLauncher.launch(i);
     }
 
-    public void addFromImage(View view) {
+    public void addFromImage() {
         PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_IMAGE);
     }
 

@@ -114,8 +114,6 @@
     <string name="importExport">Імпорт/Експорт</string>
     <string name="failedParsingImportUriError">Неможливо опрацювати імпорт-URI</string>
     <string name="noCardExistsError">Карту не знайдено</string>
-    <string name="noCardIdError">ID не введено</string>
-    <string name="noStoreError">Ім\'я не введено</string>
     <string name="card_ids_copied">ID скопійовано</string>
     <string name="noCardsMessage">Спочатку додайте карту</string>
     <string name="cardShortcut">Швидкий виклик карти</string>

@@ -69,7 +69,6 @@
     <string name="reverse">Rikverc</string>
     <string name="sort_by">Sortiraj</string>
     <string name="noCardExistsError">Nisam mogao pronaći tu karticu</string>
-    <string name="noStoreError">Nije uneseno ime</string>
     <string name="card_ids_copied">Kopiran ID/ovi</string>
     <string name="noCardsMessage">Dodaj prvo kartu</string>
     <string name="addCardTitle">Dodaj Kartu</string>
@@ -93,7 +92,6 @@
     <string name="exportFailedTitle">Izvoz neuspješan</string>
     <string name="scanCardBarcode">Skeniraj barkod</string>
     <string name="cardShortcut">Prečica kartice</string>
-    <string name="noCardIdError">ID nije unesen</string>
     <string name="failedParsingImportUriError">Nisam uspio parsirati URI za uvoz</string>
     <string name="importExport">Uvoz/Izvoz</string>
     <string name="exportName">Izvoz</string>

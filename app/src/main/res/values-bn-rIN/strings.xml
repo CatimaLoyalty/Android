@@ -69,7 +69,6 @@
     <string name="reverse">...উল্টো ক্রমে</string>
     <string name="sort_by">ক্রমানুসার</string>
     <string name="noCardExistsError">কার্ডটি খুঁজে পাওয়া গেল না</string>
-    <string name="noStoreError">স্টোরেজ ত্রুটি নেই</string>
     <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
     <string name="noCardsMessage">কোন কার্ড বার্তা নেই</string>
     <string name="addCardTitle">কার্ডের শিরোনাম যোগ করুন</string>
@@ -129,7 +128,6 @@
     <string name="cardShortcut">কার্ড শর্টকাট</string>
     <string name="exportFailed">রপ্তানি করা যাচ্ছে না</string>
     <string name="copy_to_clipboard_toast">আইডি ক্লিপবোর্ডে নকল করা হল</string>
-    <string name="noCardIdError">কোনো আইডি দওয়া হয়নি</string>
     <string name="importExportHelp">নিজের ডেটা অন্য কোথাও সংরক্ষণ করে রাখলে পরে সেটা অন্য ডিভাইসে সরিয়ে নিতে পারবেন।</string>
     <string name="importFailed">আমদানি করা গেল না</string>
     <string name="noGiftCardsGroup">কিছু কার্ড বানান আর এই গ্রুপে স্থির করুন।</string>

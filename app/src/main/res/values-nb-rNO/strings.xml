@@ -19,8 +19,6 @@
     <string name="scanCardBarcode">Skann strekkoden</string>
     <string name="cardShortcut">Kort-snarvei</string>
     <string name="noCardsMessage">Legg til et kort først</string>
-    <string name="noStoreError">Navn ikke angitt</string>
-    <string name="noCardIdError">Ingen ID innskrevet</string>
     <string name="noCardExistsError">Fant ikke det kortet</string>
     <string name="importExport">Importer/eksporter</string>
     <string name="exportName">Eksporter</string>

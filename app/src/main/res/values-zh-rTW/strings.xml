@@ -84,7 +84,6 @@
     <string name="no">否</string>
     <string name="noBarcodeFound">找不到可用的條碼</string>
     <string name="noCardExistsError">無法找到此卡片</string>
-    <string name="noCardIdError">尚未輸入 ID</string>
     <string name="noCardsMessage">請先新增卡片</string>
     <string name="sort">排列</string>
     <string name="settings_catima_theme">Catima</string>
@@ -154,7 +153,6 @@
     <string name="ok">OK</string>
     <string name="sendLabel">送出…</string>
     <string name="scanCardBarcode">掃描條碼</string>
-    <string name="noStoreError">尚未輸入卡片名稱</string>
     <string name="importExportHelp">備份您的資料以將其轉移至其他裝置中。</string>
     <string name="importOptionFilesystemTitle">自檔案系統中匯入</string>
     <string name="importOptionFilesystemExplanation">自檔案系統中選取檔案。</string>

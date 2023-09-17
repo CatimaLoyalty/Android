@@ -20,8 +20,6 @@
     <string name="addCardTitle">कार्ड जोड़ें</string>
     <string name="noCardsMessage">पहले एक कार्ड जोड़ें</string>
     <string name="card_ids_copied">कॉपी की गई आईडी</string>
-    <string name="noStoreError">कोई नाम दर्ज नहीं</string>
-    <string name="noCardIdError">कोई पहचान पत्र (आईडी दर्ज नहीं) की गई</string>
     <string name="noCardExistsError">वह कार्ड नहीं मिला</string>
     <string name="importExport">आयात / निर्यात</string>
     <string name="exportName">निर्यात</string>

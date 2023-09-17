@@ -99,8 +99,6 @@
     <string name="importExport">インポート/エクスポート</string>
     <string name="failedParsingImportUriError">インポートURIを解析できません</string>
     <string name="noCardExistsError">カードが見つかりません</string>
-    <string name="noCardIdError">カード番号が入力されていません</string>
-    <string name="noStoreError">名前が入力されていません</string>
     <string name="noCardsMessage">カードを追加</string>
     <string name="cardShortcut">カードのショートカット</string>
     <string name="scanCardBarcode">バーコードをスキャン</string>

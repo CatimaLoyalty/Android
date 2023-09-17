@@ -36,7 +36,6 @@
     <string name="addCardTitle">Kártya hozzáadása</string>
     <string name="scanCardBarcode">Vonalkód leolvasása</string>
     <string name="cardShortcut">Kártya parancsikon</string>
-    <string name="noStoreError">Nincs név megadva</string>
     <string name="failedParsingImportUriError">Az importálási URI nem értelmezhető</string>
     <string name="importExport">Importálás/exportálás</string>
     <string name="exportName">Exportálás</string>
@@ -53,7 +52,6 @@
     <string name="deleteTitle">Kártya törlése</string>
     <string name="card_ids_copied">Azonosító(k) másolva</string>
     <string name="barcodeImageDescriptionWithType">A(z) <xliff:g>%s</xliff:g> vonalkód képe</string>
-    <string name="noCardIdError">Nincs azonosító megadva</string>
     <string name="noCardExistsError">A kártya nem található</string>
     <string name="importStocardMessage">Válassza ki az importálandó <i>***.zip</i> Stocard export fájlt.
 \nAz adatainak exportálását a support@stocardapp.com címre írt levélben kérheti.</string>

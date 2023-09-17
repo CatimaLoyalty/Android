@@ -23,8 +23,6 @@
     <string name="scanCardBarcode">Отсканируйте штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Сначала добавьте карту</string>
-    <string name="noStoreError">Название не указано</string>
-    <string name="noCardIdError">Номер не указан</string>
     <string name="noCardExistsError">Карта не найдена</string>
     <string name="failedParsingImportUriError">Невозможно разобрать импортируемый URI</string>
     <string name="importExport">Импорт/Экспорт</string>

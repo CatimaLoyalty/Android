@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Escanear código de barras</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
     <string name="noCardsMessage">Añada una tarjeta primero</string>
-    <string name="noStoreError">No se proporcionó ningún nombre</string>
-    <string name="noCardIdError">No se ha introducido ninguna código</string>
     <string name="noCardExistsError">No se ha podido encontrar esa tarjeta</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>

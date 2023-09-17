@@ -68,8 +68,6 @@
     <string name="exportOptionExplanation">Dataene skrives til en placering efter eget valg.</string>
     <string name="failedParsingImportUriError">Kunne ikke analysere import-URI\'en</string>
     <string name="noCardExistsError">Kunne ikke finde kort</string>
-    <string name="noCardIdError">Der er ikke angivet noget kort-ID</string>
-    <string name="noStoreError">Intet navn angivet</string>
     <string name="deleteConfirmationGroup">Slet gruppe\?</string>
     <string name="all">Alle</string>
     <string name="noGroupCards">Denne gruppe indeholder ikke nogen kort</string>

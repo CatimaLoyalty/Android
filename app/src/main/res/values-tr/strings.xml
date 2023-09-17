@@ -135,8 +135,6 @@
     <string name="importExport">İçe/Dışa aktar</string>
     <string name="failedParsingImportUriError">İçe aktarma URI\'si ayrıştırılamadı</string>
     <string name="noCardExistsError">Bu kart bulunamadı</string>
-    <string name="noCardIdError">Numara girilmedi</string>
-    <string name="noStoreError">Ad girilmedi</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> barkod görüntüsü</string>
     <string name="card_ids_copied">Numara(lar) kopyalandı</string>
     <string name="copy_to_clipboard">Numarayı panoya kopyala</string>

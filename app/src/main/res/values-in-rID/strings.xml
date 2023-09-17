@@ -79,8 +79,6 @@
     <string name="copy_to_clipboard">Salin ID ke papan klip</string>
     <string name="sendLabel">Kirim…</string>
     <string name="noCardsMessage">Tambah kartu terlebih dahulu</string>
-    <string name="noStoreError">Nama masih kosong</string>
-    <string name="noCardIdError">Tidak ada ID yang dimasukkan</string>
     <string name="noCardExistsError">Tidak dapat menemukan kartu</string>
     <string name="failedParsingImportUriError">Tidak dapat memparsing impor URI</string>
     <string name="exportName">Ekspor</string>

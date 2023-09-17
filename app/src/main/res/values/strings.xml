@@ -50,8 +50,6 @@
     <string name="card_ids_copied">Copied ID(s)</string>
     <!-- %s is a type of barcode here -->
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> barcode</string>
-    <string name="noStoreError">No name entered</string>
-    <string name="noCardIdError">No ID entered</string>
     <string name="noCardExistsError">Could not find that card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
     <string name="importExport">Import/Export</string>

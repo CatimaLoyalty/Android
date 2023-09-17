@@ -22,8 +22,6 @@
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
-    <string name="noStoreError">Kein Name eingegeben</string>
-    <string name="noCardIdError">Keine ID eingegeben</string>
     <string name="noCardExistsError">Diese Karte konnte nicht gefunden werden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>

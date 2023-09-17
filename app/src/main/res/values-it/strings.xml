@@ -22,8 +22,6 @@
     <string name="scanCardBarcode">Scansiona il codice</string>
     <string name="cardShortcut">Scorciatoia per la carta</string>
     <string name="noCardsMessage">Aggiungi prima una carta</string>
-    <string name="noStoreError">Nessun nome inserito</string>
-    <string name="noCardIdError">Nessun codice inserito</string>
     <string name="noCardExistsError">Impossibile trovare quella carta</string>
     <string name="failedParsingImportUriError">Impossibile analizzare l\'URI di importazione</string>
     <string name="importExport">Importa/Esporta</string>

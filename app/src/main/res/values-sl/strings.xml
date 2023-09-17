@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Skeniraj črtno kodo</string>
     <string name="cardShortcut">Bližnjica do kartice</string>
     <string name="noCardsMessage">Najprej dodajte kartico</string>
-    <string name="noStoreError">Ime ni bilo vnešeno</string>
-    <string name="noCardIdError">ID številka kartice ni bila vnešena</string>
     <string name="noCardExistsError">Te kartice zvestobe ni bilo mogoče najti</string>
     <string name="importExport">Uvozi/izvozi</string>
     <string name="exportName">Izvozi</string>

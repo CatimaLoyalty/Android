@@ -9,7 +9,6 @@
     <string name="confirm">Confirmar</string>
     <string name="deleteConfirmation">¿Quies desaniciar esta tarxeta permanentemente\?</string>
     <string name="importExport">Importar/Esportar</string>
-    <string name="noCardIdError">Nun s\'introduxo nenguna ID</string>
     <string name="exportFailed">Num se pudo facer la esportación</string>
     <string name="importFailedTitle">La importación falló</string>
     <string name="exportOptionExplanation">Los datos escríbense nel llugar qu\'escueyas.</string>
@@ -35,7 +34,6 @@
     <string name="importFailed">Nun se pudo facer la importación</string>
     <string name="noCardExistsError">Nun se pudo atopar esa tarxeta</string>
     <string name="all">Too</string>
-    <string name="noStoreError">Nun s\'introduxo nengún nome</string>
     <string name="sendLabel">Unviar…</string>
     <string name="editCardTitle">Editar la tarxeta</string>
     <string name="ok">D\'acuerdu</string>

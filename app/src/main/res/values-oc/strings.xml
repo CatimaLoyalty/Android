@@ -12,8 +12,6 @@
     <string name="importExport">Importar/Exportar</string>
     <string name="failedParsingImportUriError">Analisi impossibla l’URI d’importacion</string>
     <string name="noCardExistsError">Impossible de trobar aquesta carta</string>
-    <string name="noCardIdError">Cap d’identificant pas picat</string>
-    <string name="noStoreError">Cap de nom pas picat</string>
     <string name="card_ids_copied">ID copiat(s)</string>
     <string name="noCardsMessage">Apondètz d’en primièr una carta</string>
     <string name="cardShortcut">Acorchi de carta</string>

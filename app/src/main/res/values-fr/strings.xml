@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d’abord une carte</string>
-    <string name="noStoreError">Aucun nom saisi</string>
-    <string name="noCardIdError">Aucun identifiant saisi</string>
     <string name="noCardExistsError">Impossible de trouver cette carte</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>

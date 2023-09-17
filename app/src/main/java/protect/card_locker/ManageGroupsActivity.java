@@ -11,16 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -134,19 +132,14 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
 
     private void createGroup() {
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
-        builder.setTitle(R.string.enter_group_name);
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.addTextChangedListener(new SimpleTextWatcher() {
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setGroupNameError(input);
-            }
-        });
-        setGroupNameError(input);
 
-        // Add spacing to EditText
-        FrameLayout container = new FrameLayout(this);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+        // Header
+        builder.setTitle(R.string.enter_group_name);
+
+        // Layout
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
@@ -154,25 +147,51 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         params.leftMargin = contentPadding;
         params.topMargin = contentPadding / 2;
         params.rightMargin = contentPadding;
+
+        // EditText with spacing
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setLayoutParams(params);
-        container.addView(input);
+        layout.addView(input);
 
-        builder.setView(container);
+        // Set layout
+        builder.setView(layout);
 
+        // Buttons
         builder.setPositiveButton(getString(R.string.ok), (dialog, which) -> {
-            CharSequence error = input.getError();
-
-            if (error != null) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                return;
-            }
-
             DBHelper.insertGroup(mDatabase, sanitizeAddGroupNameField(input.getText()));
             updateGroupList();
         });
         builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
+
+        // Now that the dialog exists, we can bind something that affects the OK button
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String string = sanitizeAddGroupNameField(input.getText());
+
+                if (string.length() == 0) {
+                    input.setError(getString(R.string.group_name_is_empty));
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    return;
+                }
+
+                if (DBHelper.getGroup(mDatabase, string) != null) {
+                    input.setError(getString(R.string.group_name_already_in_use));
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    return;
+                }
+
+                input.setError(null);
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+            }
+        });
+
         dialog.show();
+
+        // Disable button (must be done **after** dialog is shown to prevent crash
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        // Set focus on input field
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         input.requestFocus();
     }

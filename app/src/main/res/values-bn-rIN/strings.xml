@@ -184,7 +184,6 @@
 \nকোন তথ্য একেবারেই সংগ্রহ করা হয় না, যা যে কেউ নিশ্চিত করতে পারবেন কারন আমাদের অ্যাপ মুক্ত সফটওয়্যার।</string>
     <string name="balance">ব্যালান্স</string>
     <string name="points">পয়েন্ট</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> কোনো বৈধ ব্যালান্স মনে হচ্ছে না।</string>
     <string name="chooseImportType">এখান থেকে তথ্য আমদানি করুন</string>
     <string name="app_loyalty_card_keychain">আনুগত্য কার্ড কীচেন</string>
     <string name="privacy_policy">ব্যক্তিগত তথ্যের গোপনীয়তা নীতি</string>

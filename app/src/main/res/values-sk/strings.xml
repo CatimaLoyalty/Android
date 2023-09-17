@@ -190,7 +190,6 @@
     <string name="updateBarcodeQuestionText">Zmenili ste ID. Chcete aktualizovať aj čiarový kód, aby používal rovnakú hodnotu\?</string>
     <string name="no">Nie</string>
     <string name="passwordRequired">Zadajte prosím heslo</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sa nezdá byť platným zostatkom.</string>
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>

@@ -143,7 +143,6 @@
     <string name="translate_platform">Weblate에서</string>
     <string name="shortcutSelectCard">카드 선택</string>
     <string name="group_edit">그룹 편집</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 이 유효한 잔액이 아닌 것 같습니다.</string>
     <string name="chooseImportType">데이터 가져오기</string>
     <string name="barcodeId">바코드 값</string>
     <string name="setBackImage">이미지 설정</string>

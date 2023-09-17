@@ -90,7 +90,6 @@
     <string name="expiryDate">Utløpsdato</string>
     <string name="expiryStateSentenceExpired">Utløpt: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToTopOfScreen">Flytt strekkoden til toppen av skjermen</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ser ikke ut til å være en gyldig saldo.</string>
     <string name="points">Poeng</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>

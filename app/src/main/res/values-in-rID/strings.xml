@@ -138,7 +138,6 @@
     <string name="never">Tidak pernah</string>
     <string name="moveBarcodeToTopOfScreen">Pindah barcode ke bagian paling depan</string>
     <string name="points">Poin</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sepertinya bukan saldo yang valid.</string>
     <string name="app_loyalty_card_keychain">Gantungan kunci kartu kesetiaan</string>
     <string name="privacy_policy">Kebijakan Privasi</string>
     <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 

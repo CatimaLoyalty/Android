@@ -39,7 +39,6 @@
     <string name="privacy_policy">隐私政策</string>
     <string name="app_loyalty_card_keychain">会员卡卡包</string>
     <string name="chooseImportType">数据导入源</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g>似乎不是有效的余额。</string>
     <string name="points">积分</string>
     <string name="currency">货币</string>
     <string name="balance">余额</string>

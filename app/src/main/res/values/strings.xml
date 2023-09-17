@@ -179,7 +179,7 @@
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
     <string name="points">Points</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
+    <string name="balanceParsingFailed">Invalid balance</string>
     <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy Policy</string>

@@ -90,7 +90,6 @@
     <string name="expiryStateSentence">Vervalt op <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Verlopen: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>

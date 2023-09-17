@@ -135,7 +135,6 @@
     <string name="addManually">मैन्युअली आई डी दर्ज करें</string>
     <string name="editGroup">समूह संपादन: <xliff:g>%s</xliff:g></string>
     <string name="points">अंक</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> एक वैध शेष राशि नहीं है.</string>
     <string name="chooseImportType">यहाँ से डेटा का आयात करें</string>
     <string name="privacy_policy">निजता नीति</string>
     <string name="importCatima">कैटिमा से आयात करें</string>

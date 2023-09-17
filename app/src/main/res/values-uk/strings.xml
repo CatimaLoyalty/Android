@@ -42,7 +42,6 @@
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="app_loyalty_card_keychain">Брелок для картки лояльності</string>
     <string name="chooseImportType">Імпортувати дані з</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
     <string name="currency">Валюта</string>
     <string name="balance">Баланс</string>

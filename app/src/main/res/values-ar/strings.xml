@@ -77,7 +77,6 @@
     <string name="balance">الرصيد</string>
     <string name="currency">العملة</string>
     <string name="points">نقاط</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> لا يبدو أنه رصيد صالح.</string>
     <string name="chooseImportType">استيراد البيانات من</string>
     <string name="app_loyalty_card_keychain">سلسلة مفاتيح بطاقة الولاء</string>
     <string name="privacy_policy">سياسة الخصوصية</string>

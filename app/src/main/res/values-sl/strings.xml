@@ -142,7 +142,6 @@
     <string name="yes">Da</string>
     <string name="frontImageDescription">Prednja stran</string>
     <string name="backImageDescription">Zadnja stran</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ni veljavno stanje.</string>
     <string name="setBackImage">Nastavi sliko sprednje strani</string>
     <string name="setFrontImage">Nastavi sliko sprednje strani</string>
     <string name="photos">Fotografije</string>

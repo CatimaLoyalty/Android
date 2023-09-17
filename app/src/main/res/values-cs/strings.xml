@@ -147,7 +147,6 @@
     <string name="privacy_policy">Zásady soukromí</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importovat data z</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> se nezdá být platným zůstatkem.</string>
     <string name="points">Body</string>
     <string name="currency">Měna</string>
     <string name="balance">Zůstatek</string>

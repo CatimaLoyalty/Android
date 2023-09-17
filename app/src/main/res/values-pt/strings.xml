@@ -136,7 +136,6 @@
     <string name="balance">Saldo</string>
     <string name="currency">Moeda</string>
     <string name="points">Pontos</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> não parece ser um saldo válido.</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Política de privacidade</string>
     <string name="privacy_policy_popup_text">Aviso de política de privacidade (exigido por algumas lojas de aplicações):

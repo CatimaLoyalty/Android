@@ -116,7 +116,6 @@
     </plurals>
     <string name="card_ids_copied">Αντιγραμμένη/ες ταυτότητα/ες</string>
     <string name="errorReadingImage">Δεν ήταν δυνατό να διαβαστεί η εικόνα</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> δεν φαίνεται να είναι έγκυρο το υπόλοιπο.</string>
     <string name="currency">Νόμισμα</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>

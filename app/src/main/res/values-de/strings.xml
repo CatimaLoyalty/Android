@@ -85,7 +85,6 @@
     <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Daten importieren aus</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
     <string name="balance">Guthaben</string>

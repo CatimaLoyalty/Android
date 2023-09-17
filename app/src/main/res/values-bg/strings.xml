@@ -27,7 +27,6 @@
     <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+</string>
     <string name="frontImageDescription">Снимка на предната страна</string>
     <string name="backImageDescription">Снимка на задната страна</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не изглежда истинска наличност.</string>
     <string name="no">Не</string>
     <string name="yes">Да</string>
     <string name="setBackImage">Снимка на задната страна</string>

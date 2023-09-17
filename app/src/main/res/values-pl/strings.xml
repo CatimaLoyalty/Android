@@ -130,7 +130,6 @@
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="app_loyalty_card_keychain">Brelok dla twoich kart lojalnościowych</string>
     <string name="chooseImportType">Importuj dane z</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
     <string name="balance">Saldo</string>

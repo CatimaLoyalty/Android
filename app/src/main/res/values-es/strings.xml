@@ -140,7 +140,6 @@
     <string name="privacy_policy">Política de privacidad</string>
     <string name="app_loyalty_card_keychain">Llavero con tarjeta de fidelización</string>
     <string name="chooseImportType">Importar datos de</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> no tendría un saldo válido.</string>
     <string name="currency">Moneda</string>
     <string name="balance">Saldo</string>
     <string name="errorReadingImage">No se pudo leer la imagen</string>

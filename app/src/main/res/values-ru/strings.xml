@@ -78,7 +78,6 @@
     <string name="expiryStateSentenceExpired">Срок действия истёк: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Срок действия истекает: <xliff:g>%s</xliff:g></string>
     <string name="points">Баллы</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не похож на правильный баланс.</string>
     <string name="addManually">Ручной ввод номера</string>
     <string name="privacy_policy_popup_text">Уведомление о политике конфиденциальности (требуется некоторыми магазинами приложений):
 \n

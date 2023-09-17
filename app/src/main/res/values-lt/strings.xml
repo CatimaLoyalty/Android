@@ -45,7 +45,6 @@
 \nSukurkite jį iš Loyalty Card Keychain meniu Importavimas/Eksportavimas, pirmiausia paspausdami Eksportuoti.</string>
     <string name="importLoyaltyCardKeychain">Importuoti iš Loyalty Card Keychain</string>
     <string name="app_loyalty_card_keychain">Lojalumo kortelės</string>
-    <string name="parsingBalanceFailed">Panašu, kad <xliff:g> %s </xliff:g> reikšmė nėra tinkama.</string>
     <string name="moveBarcodeToTopOfScreen">Perkelti brūkšninį kodą į ekrano viršų</string>
     <string name="settings_display_barcode_max_brightness">Šviesinti brūkšninio kodo rodinį</string>
     <string name="failedParsingImportUriError">Nepavyko iššifruoti importo URI</string>

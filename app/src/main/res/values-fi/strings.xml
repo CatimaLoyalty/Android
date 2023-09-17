@@ -30,7 +30,6 @@
     <string name="privacy_policy">Tietosuojakäytäntö</string>
     <string name="app_loyalty_card_keychain">Kanta-asiakaskortin avainnippu</string>
     <string name="chooseImportType">Tuo tietoja kohteesta</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> ei vaikuta olevan kelvollinen saldo.</string>
     <string name="points">Pisteet</string>
     <string name="currency">Valuutta</string>
     <string name="balance">Saldo</string>

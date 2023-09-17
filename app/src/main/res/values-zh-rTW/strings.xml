@@ -177,7 +177,6 @@
     <string name="importCatimaMessage">選取您自 Catima 匯出的 <i>catima.zip</i> 檔案以進行匯入。
 \n您可透過其他裝置的 Catima 程式中的匯入／匯出選單進行匯出。</string>
     <string name="points">點</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 似乎不是個可用的餘額數值。</string>
     <string name="app_libraries">第三方自由函式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">選擇條碼</string>

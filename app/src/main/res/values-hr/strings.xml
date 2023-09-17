@@ -143,7 +143,6 @@
     <string name="balance">Saldo</string>
     <string name="chooseImportType">Uvezi podatke iz</string>
     <string name="app_loyalty_card_keychain">Privjesak za Karticu Vjernosti</string>
-    <string name="parsingBalanceFailed">Čini se da <xliff:g>%s</xliff:g> nije ispravni saldo.</string>
     <string name="privacy_policy_popup_text">Obavijest o politici privatnosti (obavezna za neke trgovine aplikacija):
 \n
 \nPODACI SE UOPĆE NE PRIKUPLJAJU, što svatko može potvrditi budući da je naša aplikacija libre softver.</string>

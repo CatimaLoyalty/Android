@@ -403,6 +403,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus && !onResuming && !onRestoring) {
+                if (balanceField.getText().toString().isEmpty()) {
+                    updateTempState(LoyaltyCardField.balance, BigDecimal.valueOf(0));
+                }
+
                 balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
             }
         });
@@ -414,10 +418,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 try {
                     BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
+                    balanceField.setError(null);
                     validBalance = true;
                 } catch (ParseException e) {
-                    validBalance = false;
                     e.printStackTrace();
+                    balanceField.setError(getString(R.string.balanceParsingFailed));
+                    validBalance = false;
                 }
             }
         });
@@ -1506,7 +1512,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         }
 
         if (!validBalance) {
-            balanceField.setError(getString(R.string.parsingBalanceFailed, balanceField.getText().toString()));
+            balanceField.setError(getString(R.string.balanceParsingFailed));
 
             // Focus element if first error element
             if (!hasError) {

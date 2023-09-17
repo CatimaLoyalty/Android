@@ -333,4 +333,5 @@
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
     <string name="view_online">View online</string>
+    <string name="field_may_not_be_empty">Field may not be empty</string>
 </resources>

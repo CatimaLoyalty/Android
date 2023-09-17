@@ -261,7 +261,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
     }
 
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -367,6 +366,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.store, s.toString());
                 generateIcon(s.toString());
+
+                if (s.length() == 0) {
+                    storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+                } else {
+                    storeFieldEdit.setError(null);
+                }
             }
         });
 
@@ -488,6 +493,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.cardId, s.toString());
+
+                if (s.length() == 0) {
+                    cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+                } else {
+                    cardIdFieldView.setError(null);
+                }
             }
         });
 
@@ -1471,18 +1482,41 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        boolean hasError = false;
+
         if (tempLoyaltyCard.store.isEmpty()) {
-            Snackbar.make(storeFieldEdit, R.string.noStoreError, Snackbar.LENGTH_LONG).show();
-            return;
+            storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+
+            // Focus element
+            tabs.selectTab(tabs.getTabAt(0));
+            storeFieldEdit.requestFocus();
+
+            hasError = true;
         }
 
         if (tempLoyaltyCard.cardId.isEmpty()) {
-            Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
-            return;
+            cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+
+            // Focus element if first error element
+            if (!hasError) {
+                tabs.selectTab(tabs.getTabAt(0));
+                cardIdFieldView.requestFocus();
+                hasError = true;
+            }
         }
 
         if (!validBalance) {
-            Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
+            balanceField.setError(getString(R.string.parsingBalanceFailed, balanceField.getText().toString()));
+
+            // Focus element if first error element
+            if (!hasError) {
+                tabs.selectTab(tabs.getTabAt(1));
+                balanceField.requestFocus();
+                hasError = true;
+            }
+        }
+
+        if (hasError) {
             return;
         }
 

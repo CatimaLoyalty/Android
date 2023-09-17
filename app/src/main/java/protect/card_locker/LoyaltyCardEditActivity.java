@@ -1652,7 +1652,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
         CatimaBarcode barcodeFormat = tempLoyaltyCard.barcodeType;
 
-        if (cardIdString == null || barcodeFormat == null) {
+        if (cardIdString == null || cardIdString.isEmpty() || barcodeFormat == null) {
             barcodeImageLayout.setVisibility(View.GONE);
             return;
         }

@@ -278,4 +278,5 @@
     <string name="settings_keep_screen_on_summary">Letiltja a képernyő időtúllépését a kártya megtekintése közben</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Letiltja a képernyő időtúllépését a kártya megjelenítése közben</string>
     <string name="settings_allow_content_provider_read_summary">Az alkalmazásoknak továbbra is engedélyt kell kérniük a hozzáféréshez</string>
+    <string name="view_online">Megtekintés online</string>
 </resources>

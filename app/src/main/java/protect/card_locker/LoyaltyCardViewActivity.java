@@ -98,7 +98,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     ImageView barcodeRenderTarget;
     int mainImageIndex = 0;
     List<ImageType> imageTypes;
-    boolean isBarcodeSupported = true;
 
     static final String STATE_IMAGEINDEX = "imageIndex";
     static final String STATE_FULLSCREEN = "isFullscreen";
@@ -643,12 +642,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         fixBottomAppBarImageButtonColor(binding.bottomAppBarUpdateBalanceButton);
         setBottomAppBarButtonState();
 
+        boolean isBarcodeSupported;
         if (format != null && !format.isSupported()) {
             isBarcodeSupported = false;
 
             Toast.makeText(this, getString(R.string.unsupportedBarcodeType), Toast.LENGTH_LONG).show();
         } else if (format == null) {
             isBarcodeSupported = false;
+        } else {
+            isBarcodeSupported = true;
         }
 
         imageTypes = new ArrayList<>();

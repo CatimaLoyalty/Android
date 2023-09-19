@@ -293,7 +293,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             bundle.putBoolean(LoyaltyCardEditActivity.BUNDLE_UPDATE, true);
             intent.putExtras(bundle);
             startActivity(intent);
-            finish();
         });
         binding.fabEdit.bringToFront();
 

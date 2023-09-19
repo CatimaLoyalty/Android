@@ -550,13 +550,18 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
 
-        // The brightness value is on a scale from [0, ..., 1], where
-        // '1' is the brightest. We attempt to maximize the brightness
-        // to help barcode readers scan the barcode.
         Window window = getWindow();
         if (window != null) {
+            // Hide the keyboard if still shown (could be the case when returning from edit activity
+            window.setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+            );
+
             WindowManager.LayoutParams attributes = window.getAttributes();
 
+            // The brightness value is on a scale from [0, ..., 1], where
+            // '1' is the brightest. We attempt to maximize the brightness
+            // to help barcode readers scan the barcode.
             if (settings.useMaxBrightnessDisplayingBarcode()) {
                 attributes.screenBrightness = 1F;
             }

@@ -68,7 +68,7 @@
     <string name="storageReadPermissionRequired">Permission to read storage needed for this action…</string>
     <string name="cameraPermissionRequired">Permission to access camera needed for this action…</string>
     <string name="permissionReadCardsLabel">Read Catima Cards</string>
-    <string name="permissionReadCardsDescription">Read your cards and all its details, including notes and images</string>
+    <string name="permissionReadCardsDescription">read your Catima cards and all its details, including notes and images</string>
     <string name="cameraPermissionDeniedTitle">Could not access the camera</string>
     <string name="noCameraPermissionDirectToSystemSetting">To scan barcodes, Catima will need access to your camera. Tap here to change your permission settings.</string>
     <string name="exportOptionExplanation">The data will be written to a location of your choice.</string>

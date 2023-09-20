@@ -1,1 +1,1 @@
-- Prevenir un fallo al rotar la pantalla en la primera ejecución del asistente.
+- Evitar el error al rotar la pantalla en la primera ejecución del asistente.

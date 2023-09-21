@@ -270,7 +270,7 @@
     <string name="show_validity">Geldigheid tonen</string>
     <string name="permissionReadCardsLabel">Catimakaarten uitlezen</string>
     <string name="settings_allow_content_provider_read_summary">Let op: apps moeten nog steeds om toestemming vragen</string>
-    <string name="permissionReadCardsDescription">Lees alle kaarten uit, inclusief alle details, aantekeningen en afbeeldingen</string>
+    <string name="permissionReadCardsDescription">Lees alle Catima-kaarten uit, inclusief alle details, aantekeningen en afbeeldingen</string>
     <string name="settings_allow_content_provider_read_title">Andere apps toegang geven tot gegevens</string>
     <string name="settings_keep_screen_on_summary">Laat het scherm niet op zwart gaan tijdens het bekijken van een kaart</string>
     <string name="settings_category_title_privacy">Privacy</string>

@@ -282,7 +282,7 @@
     <string name="show_validity">Показывать срок действия</string>
     <string name="show_name_below_image_thumbnail">Показывать название под миниатюрой</string>
     <string name="show_balance">Показывать баланс</string>
-    <string name="permissionReadCardsDescription">Чтение ваших карт и всех их данных, включая заметки и изображения</string>
+    <string name="permissionReadCardsDescription">чтение ваших карт Catima и всех их данных, включая заметки и изображения</string>
     <string name="permissionReadCardsLabel">Чтение карт Catima</string>
     <string name="settings_allow_content_provider_read_summary">Приложениям по-прежнему придётся запрашивать разрешение для получения доступа</string>
     <string name="settings_allow_content_provider_read_title">Разрешать другим приложениям доступ к моим данным</string>

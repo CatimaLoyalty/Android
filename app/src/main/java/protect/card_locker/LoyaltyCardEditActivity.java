@@ -364,10 +364,11 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateTempState(LoyaltyCardField.store, s.toString());
-                generateIcon(s.toString());
+                String storeName = s.toString().trim();
+                updateTempState(LoyaltyCardField.store, storeName);
+                generateIcon(storeName);
 
-                if (s.length() == 0) {
+                if (storeName.length() == 0) {
                     storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
                 } else {
                     storeFieldEdit.setError(null);
@@ -950,7 +951,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         saveButton.setOnClickListener(v -> doSave());
         saveButton.bringToFront();
 
-        generateIcon(storeFieldEdit.getText().toString());
+        generateIcon(storeFieldEdit.getText().toString().trim());
 
         // It can't be null because we set it in updateTempState but SpotBugs insists it can be
         // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
@@ -1369,7 +1370,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
         thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
 
-        generateIcon(storeFieldEdit.getText().toString());
+        generateIcon(storeFieldEdit.getText().toString().trim());
     }
 
     // ColorPickerDialogListener callback

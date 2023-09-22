@@ -260,7 +260,7 @@
     <string name="permissionReadCardsLabel">读取 Catima 卡</string>
     <string name="settings_allow_content_provider_read_summary">应用程序仍然需要请求权限</string>
     <string name="settings_allow_content_provider_read_title">允许其他应用程序访问我的数据</string>
-    <string name="permissionReadCardsDescription">读取你的卡片及其所有细节，包括笔记和图像</string>
+    <string name="permissionReadCardsDescription">读取你的 Catima 卡片及其所有细节，包括笔记和图像</string>
     <string name="settings_keep_screen_on_summary">在查看卡片时禁止屏幕超时</string>
     <string name="settings_oled_dark_summary">减少 OLED 显示屏上的电池使用量</string>
     <string name="settings_category_title_privacy">隐私</string>

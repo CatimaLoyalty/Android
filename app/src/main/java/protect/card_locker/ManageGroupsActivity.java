@@ -110,22 +110,6 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         return super.onOptionsItemSelected(item);
     }
 
-    private void setGroupNameError(EditText input) {
-        String string = sanitizeAddGroupNameField(input.getText());
-
-        if (string.length() == 0) {
-            input.setError(getString(R.string.group_name_is_empty));
-            return;
-        }
-
-        if (DBHelper.getGroup(mDatabase, string) != null) {
-            input.setError(getString(R.string.group_name_already_in_use));
-            return;
-        }
-
-        input.setError(null);
-    }
-
     private String sanitizeAddGroupNameField(CharSequence s) {
         return s.toString().trim();
     }

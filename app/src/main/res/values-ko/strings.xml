@@ -55,7 +55,6 @@
     <string name="importFailed">가져오기를 수행할 수 없습니다</string>
     <string name="importFailedTitle">가져오기 실패</string>
     <string name="importSuccessfulTitle">가져오기 완료</string>
-    <string name="noCardIdError">ID를 입력하지 않음</string>
     <string name="storeName">이름</string>
     <string name="thumbnailDescription">썸네일</string>
     <string name="importOptionApplicationButton">다른 앱 사용</string>
@@ -64,7 +63,6 @@
     <string name="moveUp">위로 이동</string>
     <string name="leaveWithoutSaveTitle">종료</string>
     <string name="moveDown">아래로 이동</string>
-    <string name="noStoreError">이름을 입력하지 않음</string>
     <string name="starImage">즐겨찾기 별</string>
     <string name="settings_display_barcode_max_brightness">바코드를 표시할 때 화면 밝기 높이기</string>
     <string name="deleteConfirmation">정말 이 카드를 삭제하시겠습니까\?</string>
@@ -145,7 +143,6 @@
     <string name="translate_platform">Weblate에서</string>
     <string name="shortcutSelectCard">카드 선택</string>
     <string name="group_edit">그룹 편집</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 이 유효한 잔액이 아닌 것 같습니다.</string>
     <string name="chooseImportType">데이터 가져오기</string>
     <string name="barcodeId">바코드 값</string>
     <string name="setBackImage">이미지 설정</string>

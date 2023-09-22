@@ -261,7 +261,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 + ", updateLoyaltyCard=" + updateLoyaltyCard);
     }
 
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -365,8 +364,15 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         storeFieldEdit.addTextChangedListener(new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateTempState(LoyaltyCardField.store, s.toString());
-                generateIcon(s.toString());
+                String storeName = s.toString().trim();
+                updateTempState(LoyaltyCardField.store, storeName);
+                generateIcon(storeName);
+
+                if (storeName.length() == 0) {
+                    storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+                } else {
+                    storeFieldEdit.setError(null);
+                }
             }
         });
 
@@ -398,6 +404,10 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus && !onResuming && !onRestoring) {
+                if (balanceField.getText().toString().isEmpty()) {
+                    updateTempState(LoyaltyCardField.balance, BigDecimal.valueOf(0));
+                }
+
                 balanceField.setText(Utils.formatBalanceWithoutCurrencySymbol(tempLoyaltyCard.balance, tempLoyaltyCard.balanceType));
             }
         });
@@ -409,10 +419,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 try {
                     BigDecimal balance = Utils.parseBalance(s.toString(), tempLoyaltyCard.balanceType);
                     updateTempState(LoyaltyCardField.balance, balance);
+                    balanceField.setError(null);
                     validBalance = true;
                 } catch (ParseException e) {
-                    validBalance = false;
                     e.printStackTrace();
+                    balanceField.setError(getString(R.string.balanceParsingFailed));
+                    validBalance = false;
                 }
             }
         });
@@ -488,6 +500,12 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateTempState(LoyaltyCardField.cardId, s.toString());
+
+                if (s.length() == 0) {
+                    cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+                } else {
+                    cardIdFieldView.setError(null);
+                }
             }
         });
 
@@ -933,7 +951,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         saveButton.setOnClickListener(v -> doSave());
         saveButton.bringToFront();
 
-        generateIcon(storeFieldEdit.getText().toString());
+        generateIcon(storeFieldEdit.getText().toString().trim());
 
         // It can't be null because we set it in updateTempState but SpotBugs insists it can be
         // NP_NULL_ON_SOME_PATH: Possible null pointer dereference and
@@ -1352,7 +1370,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
         thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
 
-        generateIcon(storeFieldEdit.getText().toString());
+        generateIcon(storeFieldEdit.getText().toString().trim());
     }
 
     // ColorPickerDialogListener callback
@@ -1471,18 +1489,41 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        boolean hasError = false;
+
         if (tempLoyaltyCard.store.isEmpty()) {
-            Snackbar.make(storeFieldEdit, R.string.noStoreError, Snackbar.LENGTH_LONG).show();
-            return;
+            storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+
+            // Focus element
+            tabs.selectTab(tabs.getTabAt(0));
+            storeFieldEdit.requestFocus();
+
+            hasError = true;
         }
 
         if (tempLoyaltyCard.cardId.isEmpty()) {
-            Snackbar.make(cardIdFieldView, R.string.noCardIdError, Snackbar.LENGTH_LONG).show();
-            return;
+            cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+
+            // Focus element if first error element
+            if (!hasError) {
+                tabs.selectTab(tabs.getTabAt(0));
+                cardIdFieldView.requestFocus();
+                hasError = true;
+            }
         }
 
         if (!validBalance) {
-            Snackbar.make(balanceField, getString(R.string.parsingBalanceFailed, balanceField.getText().toString()), Snackbar.LENGTH_LONG).show();
+            balanceField.setError(getString(R.string.balanceParsingFailed));
+
+            // Focus element if first error element
+            if (!hasError) {
+                tabs.selectTab(tabs.getTabAt(1));
+                balanceField.requestFocus();
+                hasError = true;
+            }
+        }
+
+        if (hasError) {
             return;
         }
 
@@ -1618,7 +1659,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         String cardIdString = tempLoyaltyCard.barcodeId != null ? tempLoyaltyCard.barcodeId : tempLoyaltyCard.cardId;
         CatimaBarcode barcodeFormat = tempLoyaltyCard.barcodeType;
 
-        if (cardIdString == null || barcodeFormat == null) {
+        if (cardIdString == null || cardIdString.isEmpty() || barcodeFormat == null) {
             barcodeImageLayout.setVisibility(View.GONE);
             return;
         }

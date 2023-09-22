@@ -22,8 +22,6 @@
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Shortcut zu einer Karte</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
-    <string name="noStoreError">Kein Name eingegeben</string>
-    <string name="noCardIdError">Keine ID eingegeben</string>
     <string name="noCardExistsError">Diese Karte konnte nicht gefunden werden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
@@ -87,7 +85,6 @@
     <string name="groupsList">Gruppen: <xliff:g>%s</xliff:g></string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Daten importieren aus</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> scheint kein gültiges Guthaben zu sein.</string>
     <string name="points">Punkte</string>
     <string name="currency">Währung</string>
     <string name="balance">Guthaben</string>

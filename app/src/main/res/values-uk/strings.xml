@@ -42,7 +42,6 @@
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="app_loyalty_card_keychain">Брелок для картки лояльності</string>
     <string name="chooseImportType">Імпортувати дані з</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> здається, не є дійсним залишком.</string>
     <string name="points">Бали</string>
     <string name="currency">Валюта</string>
     <string name="balance">Баланс</string>
@@ -114,8 +113,6 @@
     <string name="importExport">Імпорт/Експорт</string>
     <string name="failedParsingImportUriError">Неможливо опрацювати імпорт-URI</string>
     <string name="noCardExistsError">Карту не знайдено</string>
-    <string name="noCardIdError">ID не введено</string>
-    <string name="noStoreError">Ім\'я не введено</string>
     <string name="card_ids_copied">ID скопійовано</string>
     <string name="noCardsMessage">Спочатку додайте карту</string>
     <string name="cardShortcut">Швидкий виклик карти</string>

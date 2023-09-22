@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Escanear código de barras</string>
     <string name="cardShortcut">Atajo de tarjeta</string>
     <string name="noCardsMessage">Añada una tarjeta primero</string>
-    <string name="noStoreError">No se proporcionó ningún nombre</string>
-    <string name="noCardIdError">No se ha introducido ninguna código</string>
     <string name="noCardExistsError">No se ha podido encontrar esa tarjeta</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
@@ -142,7 +140,6 @@
     <string name="privacy_policy">Política de privacidad</string>
     <string name="app_loyalty_card_keychain">Llavero con tarjeta de fidelización</string>
     <string name="chooseImportType">Importar datos de</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> no tendría un saldo válido.</string>
     <string name="currency">Moneda</string>
     <string name="balance">Saldo</string>
     <string name="errorReadingImage">No se pudo leer la imagen</string>

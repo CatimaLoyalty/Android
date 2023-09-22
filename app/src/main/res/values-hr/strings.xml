@@ -28,7 +28,6 @@
     <string name="barcodeNoBarcode">Ne postoji crtični kod</string>
     <string name="cancel">Odustani</string>
     <string name="noGiftCards">Pritisni gumb + plus za dodavanje kartice ili uvezi putem izbornika ⋮.</string>
-    <string name="noStoreError">Ime nije zadano</string>
     <string name="noCardExistsError">Nije bilo moguće pronaći tu karticu</string>
     <string name="failedParsingImportUriError">Nije bilo moguće obraditi URI uvoza</string>
     <string name="importExport">Uvoz/Izvoz</string>
@@ -104,7 +103,6 @@
     <string name="settings_grey_theme">Siva</string>
     <string name="sort_by_expiry">Istek</string>
     <string name="barcodeImageDescriptionWithType">Slika vrste crtičnog koda <xliff:g>%s</xliff:g></string>
-    <string name="noCardIdError">ID nije zadan</string>
     <string name="importLoyaltyCardKeychain">Uvezi iz Loyalty Card Keychain</string>
     <string name="frontImageDescription">Prednja slika</string>
     <string name="exportPasswordHint">Upiši lozinku</string>
@@ -145,7 +143,6 @@
     <string name="balance">Saldo</string>
     <string name="chooseImportType">Uvezi podatke iz</string>
     <string name="app_loyalty_card_keychain">Privjesak za Karticu Vjernosti</string>
-    <string name="parsingBalanceFailed">Čini se da <xliff:g>%s</xliff:g> nije ispravni saldo.</string>
     <string name="privacy_policy_popup_text">Obavijest o politici privatnosti (obavezna za neke trgovine aplikacija):
 \n
 \nPODACI SE UOPĆE NE PRIKUPLJAJU, što svatko može potvrditi budući da je naša aplikacija libre softver.</string>

@@ -50,8 +50,6 @@
     <string name="card_ids_copied">Copied ID(s)</string>
     <!-- %s is a type of barcode here -->
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> barcode</string>
-    <string name="noStoreError">No name entered</string>
-    <string name="noCardIdError">No ID entered</string>
     <string name="noCardExistsError">Could not find that card</string>
     <string name="failedParsingImportUriError">Could not parse the import URI</string>
     <string name="importExport">Import/Export</string>
@@ -181,7 +179,7 @@
     <string name="balance">Balance</string>
     <string name="currency">Currency</string>
     <string name="points">Points</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> does not seem to be a valid balance.</string>
+    <string name="balanceParsingFailed">Invalid balance</string>
     <string name="chooseImportType">Import data from</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Privacy Policy</string>
@@ -333,4 +331,5 @@
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
     <string name="view_online">View online</string>
+    <string name="field_may_not_be_empty">Field may not be empty</string>
 </resources>

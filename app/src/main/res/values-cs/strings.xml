@@ -16,8 +16,6 @@
     <string name="editCardTitle">Editovat kartu</string>
     <string name="addCardTitle">Přidat kartu</string>
     <string name="scanCardBarcode">Naskenovat čárový kód</string>
-    <string name="noStoreError">Nezadáno žádné jméno</string>
-    <string name="noCardIdError">Nezadáno ID</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Zálohování dat vám umožní přesunout je do jiného zařízení.</string>
@@ -149,7 +147,6 @@
     <string name="privacy_policy">Zásady soukromí</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importovat data z</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> se nezdá být platným zůstatkem.</string>
     <string name="points">Body</string>
     <string name="currency">Měna</string>
     <string name="balance">Zůstatek</string>

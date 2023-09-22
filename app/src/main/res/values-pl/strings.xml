@@ -22,8 +22,6 @@
     <string name="scanCardBarcode">Zeskanuj kod kreskowy</string>
     <string name="cardShortcut">Skrót karty</string>
     <string name="noCardsMessage">Najpierw dodaj kartę</string>
-    <string name="noStoreError">Nie wprowadzono nazwy</string>
-    <string name="noCardIdError">Nie wprowadzono identyfikatora</string>
     <string name="noCardExistsError">Nie można znaleźć tej karty lojalnościowej</string>
     <string name="failedParsingImportUriError">Nie można przeanalizować identyfikatora importu URI</string>
     <string name="importExport">Importuj/Eksportuj</string>
@@ -132,7 +130,6 @@
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="app_loyalty_card_keychain">Brelok dla twoich kart lojalnościowych</string>
     <string name="chooseImportType">Importuj dane z</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nie wydaje się być prawidłową wartością.</string>
     <string name="points">Punkty</string>
     <string name="currency">Waluta</string>
     <string name="balance">Saldo</string>

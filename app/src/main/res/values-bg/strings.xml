@@ -27,7 +27,6 @@
     <string name="app_license">Свободен софтуер с авторски права, лицензиран под GPLv3+</string>
     <string name="frontImageDescription">Снимка на предната страна</string>
     <string name="backImageDescription">Снимка на задната страна</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> не изглежда истинска наличност.</string>
     <string name="no">Не</string>
     <string name="yes">Да</string>
     <string name="setBackImage">Снимка на задната страна</string>
@@ -37,7 +36,6 @@
     <string name="noCardExistsError">Картата не е намерена</string>
     <string name="updateBarcodeQuestionText">Номерът е променен. Желаете ли същата стойност да бъде приложена и към щрихкода\?</string>
     <string name="updateBarcodeQuestionTitle">Обновяване на щрихкода\?</string>
-    <string name="noCardIdError">Не е въведен номер</string>
     <string name="noCardsMessage">Добавете карта</string>
     <string name="cardShortcut">Пряк път до карта</string>
     <string name="addCardTitle">Добавяне на карта</string>
@@ -79,7 +77,6 @@
     <string name="expiryStateSentenceExpired">Изтекла: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Наличност: <xliff:g>%s</xliff:g></string>
     <string name="noGroups">Докоснете бутона +, за да добавите списък.</string>
-    <string name="noStoreError">Не е въведено наименование</string>
     <string name="groups">Списъци</string>
     <string name="enter_group_name">Въведете име на списъка</string>
     <string name="intent_import_card_from_url_share_text">Искам да споделя тази карта с вас</string>

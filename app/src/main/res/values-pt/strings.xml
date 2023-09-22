@@ -39,7 +39,6 @@
     <string name="cardId">Identificador do cartão</string>
     <string name="cardShortcut">Atalho do cartão</string>
     <string name="noCardsMessage">Adicione primeiro um cartão</string>
-    <string name="noStoreError">Nenhum nome inserido</string>
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
     <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
     <string name="importExport">Importar / exportar</string>
@@ -137,7 +136,6 @@
     <string name="balance">Saldo</string>
     <string name="currency">Moeda</string>
     <string name="points">Pontos</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> não parece ser um saldo válido.</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy">Política de privacidade</string>
     <string name="privacy_policy_popup_text">Aviso de política de privacidade (exigido por algumas lojas de aplicações):
@@ -187,7 +185,6 @@
     <string name="rate_this_app">Avalie esta aplicação</string>
     <string name="on_google_play">no Google Play</string>
     <string name="exportOptionExplanation">Os dados serão guardados num local à sua escolha.</string>
-    <string name="noCardIdError">Nenhum identificador inserido</string>
     <plurals name="deleteCardsTitle">
         <item quantity="one">Eliminar <xliff:g>%d</xliff:g> cartão</item>
         <item quantity="many">Eliminar <xliff:g>%d</xliff:g> cartões</item>

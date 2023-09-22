@@ -99,8 +99,6 @@
     <string name="importExportHelp">Säkerhetskopiering av din data möjliggör förflyttning av den till en annan enhet.</string>
     <string name="importExport">Importera/Exportera</string>
     <string name="noCardExistsError">Kunde inte hitta det kortet</string>
-    <string name="noCardIdError">Inget ID har angivits</string>
-    <string name="noStoreError">Inget namn har angivits</string>
     <string name="noCardsMessage">Lägg till ett kort först</string>
     <string name="cardShortcut">Kort-genväg</string>
     <string name="addCardTitle">Lägg till kort</string>
@@ -152,7 +150,6 @@
     <string name="app_license">Copyleftad fri programvara, under GPLv3+-licens</string>
     <string name="app_resources">Fria tredjepartsresurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Fria tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> verkar inte vara ett giltigt saldo.</string>
     <string name="balance">Saldo</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Förhindra skärmlåsning</string>

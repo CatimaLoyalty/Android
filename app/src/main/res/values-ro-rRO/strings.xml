@@ -34,7 +34,6 @@
     <string name="importSuccessfulTitle">Importat</string>
     <string name="importFailedTitle">Importul a eșuat</string>
     <string name="importFailed">Nu s-a putut efectua importarea</string>
-    <string name="noCardIdError">Nu s-a introdus niciun ID</string>
     <string name="exportFailed">Nu s-a putut efectua exportarea</string>
     <string name="importing">Importul…</string>
     <string name="exporting">Exportul…</string>
@@ -71,7 +70,6 @@
     <string name="editBarcode">Editarea codului de bare</string>
     <string name="chooseExpiryDate">Alegeți data de expirare</string>
     <string name="copy_to_clipboard_toast">ID-ul cardului copiat în clipboard</string>
-    <string name="noStoreError">Nici un nume introdus</string>
     <string name="selectBarcodeTitle">Selectare cod de bare</string>
     <string name="noGroupCards">Acest grup nu conține nicio carte</string>
     <string name="addFromImage">Selectați imaginea din galerie</string>

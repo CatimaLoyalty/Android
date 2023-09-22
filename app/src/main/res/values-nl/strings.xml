@@ -23,8 +23,6 @@
     <string name="scanCardBarcode">Barcode scannen</string>
     <string name="cardShortcut">Kaartsnelkoppeling</string>
     <string name="noCardsMessage">Voeg eerst een kaart toe</string>
-    <string name="noStoreError">Geen naam ingevoerd</string>
-    <string name="noCardIdError">Geen id ingevoerd</string>
     <string name="noCardExistsError">De kaart is niet aangetroffen</string>
     <string name="failedParsingImportUriError">Kan de import-uri niet verwerken</string>
     <string name="importExport">Importeren/Exporteren</string>
@@ -92,7 +90,6 @@
     <string name="expiryStateSentence">Vervalt op <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Verlopen: <xliff:g>%s</xliff:g></string>
     <string name="moveBarcodeToTopOfScreen">Barcode verplaatsen naar bovenkant van scherm</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> lijkt geen geldig saldo te zijn.</string>
     <string name="points">Aantal punten</string>
     <string name="currency">Valuta</string>
     <string name="balance">Saldo</string>

@@ -33,7 +33,6 @@
     <string name="scanCardBarcode">Skenēt svītrkodu</string>
     <string name="cardShortcut">Kartes saīsne</string>
     <string name="noCardsMessage">Vispirms pievienojiet karti</string>
-    <string name="noStoreError">Vārds nav ievadīts</string>
     <string name="noCardExistsError">Nevarēja atrast karti</string>
     <string name="failedParsingImportUriError">Nevarēja parsēt importa URI</string>
     <string name="importExport">Imports/Eksports</string>
@@ -102,7 +101,6 @@
         <item quantity="one">Neatgriezeniski dzēst šo <xliff:g>%d</xliff:g> karti\?</item>
         <item quantity="other">Neatgriezeniski dzēst šīs <xliff:g>%d</xliff:g> kartes\?</item>
     </plurals>
-    <string name="noCardIdError">Numurs nav ievadīts</string>
     <string name="about_title_fmt">Par <xliff:g id="app_name">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Derīguma termiņš beidzās: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">Izvēlieties krāsu</string>
@@ -119,7 +117,6 @@
         <item quantity="one"><xliff:g>%s</xliff:g> punkts</item>
         <item quantity="other"><xliff:g>%s</xliff:g> punkti</item>
     </plurals>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> nešķiet derīga bilance.</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="privacy_policy_popup_text">Paziņojums par privātuma politiku (nepieciešams dažiem lietotņu veikaliem):
 \n

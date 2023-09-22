@@ -84,7 +84,6 @@
     <string name="no">否</string>
     <string name="noBarcodeFound">找不到可用的條碼</string>
     <string name="noCardExistsError">無法找到此卡片</string>
-    <string name="noCardIdError">尚未輸入 ID</string>
     <string name="noCardsMessage">請先新增卡片</string>
     <string name="sort">排列</string>
     <string name="settings_catima_theme">Catima</string>
@@ -154,7 +153,6 @@
     <string name="ok">OK</string>
     <string name="sendLabel">送出…</string>
     <string name="scanCardBarcode">掃描條碼</string>
-    <string name="noStoreError">尚未輸入卡片名稱</string>
     <string name="importExportHelp">備份您的資料以將其轉移至其他裝置中。</string>
     <string name="importOptionFilesystemTitle">自檔案系統中匯入</string>
     <string name="importOptionFilesystemExplanation">自檔案系統中選取檔案。</string>
@@ -179,7 +177,6 @@
     <string name="importCatimaMessage">選取您自 Catima 匯出的 <i>catima.zip</i> 檔案以進行匯入。
 \n您可透過其他裝置的 Catima 程式中的匯入／匯出選單進行匯出。</string>
     <string name="points">點</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> 似乎不是個可用的餘額數值。</string>
     <string name="app_libraries">第三方自由函式庫：<xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">第三方自由資源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">選擇條碼</string>

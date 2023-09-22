@@ -10,7 +10,6 @@
     <string name="share">שיתוף</string>
     <string name="copy_to_clipboard">העתקת מזהה ללוח</string>
     <string name="addCardTitle">הוספת כרטיס</string>
-    <string name="noCardIdError">אין מזהה כרטיס</string>
     <string name="star">הוספה למועדפים</string>
     <string name="unstar">הסרה ממועדפים</string>
     <string name="note">הערות</string>
@@ -39,7 +38,6 @@
     <string name="cardShortcut">קיצור דרך</string>
     <string name="noCardsMessage">תחילה הוסף כרטיס</string>
     <string name="card_ids_copied">מזהי כרטיס הועתקו</string>
-    <string name="noStoreError">לא הוכנס שם חנות</string>
     <string name="noCardExistsError">כרטיס לא נמצא</string>
     <string name="importExport">ייבוא/ייצוא</string>
     <string name="exportName">ייצוא</string>

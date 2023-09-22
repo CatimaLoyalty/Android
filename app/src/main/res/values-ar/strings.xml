@@ -29,8 +29,6 @@
     <string name="noCardsMessage">اضف بطاقة أولا</string>
     <string name="card_ids_copied">البطاقة(ات) الشخصية المنسوخة</string>
     <string name="barcodeImageDescriptionWithType">صورة <xliff:g>%s</xliff:g> باركود</string>
-    <string name="noStoreError">لا يوجد اسم مدخل</string>
-    <string name="noCardIdError">لا يوجد بطاقة شخصية مدخلة</string>
     <string name="noCardExistsError">لا يمكن العثور على هذه البطاقة</string>
     <string name="failedParsingImportUriError">لا يمكن تحليل الرابط المستورد</string>
     <string name="importExport">استيراد/تصدير</string>
@@ -79,7 +77,6 @@
     <string name="balance">الرصيد</string>
     <string name="currency">العملة</string>
     <string name="points">نقاط</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> لا يبدو أنه رصيد صالح.</string>
     <string name="chooseImportType">استيراد البيانات من</string>
     <string name="app_loyalty_card_keychain">سلسلة مفاتيح بطاقة الولاء</string>
     <string name="privacy_policy">سياسة الخصوصية</string>

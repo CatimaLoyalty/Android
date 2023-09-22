@@ -39,7 +39,6 @@
     <string name="privacy_policy">隐私政策</string>
     <string name="app_loyalty_card_keychain">会员卡卡包</string>
     <string name="chooseImportType">数据导入源</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g>似乎不是有效的余额。</string>
     <string name="points">积分</string>
     <string name="currency">货币</string>
     <string name="balance">余额</string>
@@ -103,8 +102,6 @@
     <string name="importExport">导入/导出</string>
     <string name="failedParsingImportUriError">无法解析导入 URI</string>
     <string name="noCardExistsError">找不到卡片</string>
-    <string name="noCardIdError">未输入卡号</string>
-    <string name="noStoreError">未输入卡片名称</string>
     <string name="card_ids_copied">已复制卡号</string>
     <string name="noCardsMessage">请先添加一张卡片</string>
     <string name="cardShortcut">卡片快捷键</string>

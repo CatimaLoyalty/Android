@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Σαρώστε τον γραμμοκώδικα (bardcode)</string>
     <string name="cardShortcut">Συντόμευση Κάρτας</string>
     <string name="noCardsMessage">Προσθέστε μία κάρτα πρώτα</string>
-    <string name="noStoreError">Δεν έχει εισαχθεί όνομα</string>
-    <string name="noCardIdError">Δεν έχει εισαχθεί κωδικός</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί η κάρτα</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
@@ -118,7 +116,6 @@
     </plurals>
     <string name="card_ids_copied">Αντιγραμμένη/ες ταυτότητα/ες</string>
     <string name="errorReadingImage">Δεν ήταν δυνατό να διαβαστεί η εικόνα</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> δεν φαίνεται να είναι έγκυρο το υπόλοιπο.</string>
     <string name="currency">Νόμισμα</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>

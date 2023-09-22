@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Scanner le code-barres</string>
     <string name="cardShortcut">Raccourci de carte</string>
     <string name="noCardsMessage">Ajoutez d’abord une carte</string>
-    <string name="noStoreError">Aucun nom saisi</string>
-    <string name="noCardIdError">Aucun identifiant saisi</string>
     <string name="noCardExistsError">Impossible de trouver cette carte</string>
     <string name="importExport">Importer/Exporter</string>
     <string name="exportName">Exporter</string>
@@ -92,7 +90,6 @@
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
     <string name="chooseImportType">Importer les données depuis</string>
-    <string name="parsingBalanceFailed"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g> ne semble pas être un solde valide.</string>
     <string name="points">Points</string>
     <string name="currency">Devise</string>
     <string name="balance">Solde</string>

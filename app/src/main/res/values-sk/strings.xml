@@ -18,8 +18,6 @@
     <string name="scanCardBarcode">Skenovať čiarový kód</string>
     <string name="cardShortcut">Skratka</string>
     <string name="noCardsMessage">Najprv pridajte kartu</string>
-    <string name="noStoreError">Nebol zadaný žiadny názov</string>
-    <string name="noCardIdError">Nebolo zadané ID</string>
     <string name="noCardExistsError">Nepodarilo sa nájsť túto kartu</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
@@ -192,7 +190,6 @@
     <string name="updateBarcodeQuestionText">Zmenili ste ID. Chcete aktualizovať aj čiarový kód, aby používal rovnakú hodnotu\?</string>
     <string name="no">Nie</string>
     <string name="passwordRequired">Zadajte prosím heslo</string>
-    <string name="parsingBalanceFailed"><xliff:g>%s</xliff:g> sa nezdá byť platným zostatkom.</string>
     <string name="noGiftCardsGroup">Zatiaľ nemáte žiadne vernostné karty. Keď nejaké pridáte, môžete ich priradiť ku skupine tu.</string>
     <string name="noCameraPermissionDirectToSystemSetting">Na skenovanie čiarových kódov potrebuje Catima prístup k fotoaparátu. Ťuknite sem a zmeňte nastavenia oprávnení.</string>
     <string name="importCards">Importovať karty</string>

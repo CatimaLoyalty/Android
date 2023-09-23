@@ -148,7 +148,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> cards</item>
     </plurals>
     <string name="group_name_already_in_use">Group name already in use</string>
-    <string name="group_name_is_empty">Group name cannot be empty</string>
+    <string name="group_name_is_empty">Group name must not be empty</string>
     <string name="group_updated">Group updated</string>
     <string name="all">All</string>
     <string name="deleteConfirmationGroup">Delete group?</string>
@@ -331,5 +331,5 @@
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
     <string name="view_online">View online</string>
-    <string name="field_may_not_be_empty">Field may not be empty</string>
+    <string name="field_must_not_be_empty">Field must not be empty</string>
 </resources>

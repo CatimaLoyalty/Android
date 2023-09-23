@@ -369,7 +369,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 generateIcon(storeName);
 
                 if (storeName.length() == 0) {
-                    storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+                    storeFieldEdit.setError(getString(R.string.field_must_not_be_empty));
                 } else {
                     storeFieldEdit.setError(null);
                 }
@@ -502,7 +502,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 updateTempState(LoyaltyCardField.cardId, s.toString());
 
                 if (s.length() == 0) {
-                    cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+                    cardIdFieldView.setError(getString(R.string.field_must_not_be_empty));
                 } else {
                     cardIdFieldView.setError(null);
                 }
@@ -1492,7 +1492,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         boolean hasError = false;
 
         if (tempLoyaltyCard.store.isEmpty()) {
-            storeFieldEdit.setError(getString(R.string.field_may_not_be_empty));
+            storeFieldEdit.setError(getString(R.string.field_must_not_be_empty));
 
             // Focus element
             tabs.selectTab(tabs.getTabAt(0));
@@ -1502,7 +1502,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         }
 
         if (tempLoyaltyCard.cardId.isEmpty()) {
-            cardIdFieldView.setError(getString(R.string.field_may_not_be_empty));
+            cardIdFieldView.setError(getString(R.string.field_must_not_be_empty));
 
             // Focus element if first error element
             if (!hasError) {

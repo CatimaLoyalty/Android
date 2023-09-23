@@ -7,7 +7,6 @@
     <string name="storeName">Nazwa</string>
     <string name="note">Notatka</string>
     <string name="cardId">Identyfikator karty</string>
-    <string name="barcodeNoBarcode">Bez kodu kreskowego</string>
     <string name="cancel">Anuluj</string>
     <string name="save">Zapisz</string>
     <string name="edit">Edytuj</string>
@@ -46,7 +45,6 @@
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
-    <string name="enterBarcodeInstructions">Wprowadź ID, a następnie wybierz typ kodu kreskowego, którego chcesz użyć lub wybierz „Bez kodu kreskowego”.</string>
     <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
     <string name="thumbnailDescription">Miniaturka</string>
     <string name="settings">Ustawienia</string>

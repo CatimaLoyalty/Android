@@ -12,7 +12,6 @@
     <string name="settings_system_theme">시스템</string>
     <string name="settings_theme">테마</string>
     <string name="settings">설정</string>
-    <string name="enterBarcodeInstructions">ID를 입력하고 아래에서 바코드 유형을 선택하거나 \"바코드가 없습니다\"를 선택하십시오.</string>
     <string name="selectBarcodeTitle">바코드 선택</string>
     <string name="about">정보</string>
     <string name="exporting">내보내는 중…</string>
@@ -36,7 +35,6 @@
     <string name="unstar">즐겨찾기에서 제거</string>
     <string name="star">즐겨찾기에 추가</string>
     <string name="noBarcode">바코드 없음</string>
-    <string name="barcodeNoBarcode">바코드가 없습니다</string>
     <string name="barcodeType">바코드 형식</string>
     <string name="cardId">카드 ID</string>
     <string name="note">노트</string>

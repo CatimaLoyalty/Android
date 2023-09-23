@@ -63,7 +63,6 @@
     <string name="starImage">お気に入りのスター</string>
     <string name="thumbnailDescription">サムネイル</string>
     <string name="copy_to_clipboard_toast">カード番号をクリップボードにコピーしました</string>
-    <string name="enterBarcodeInstructions">カード番号を入力し、バーコード形式を選択してください。</string>
     <string name="selectBarcodeTitle">バーコード選択</string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
@@ -115,7 +114,6 @@
     <string name="unstar">お気に入りから削除</string>
     <string name="star">お気に入りに追加</string>
     <string name="noBarcode">バーコードなし</string>
-    <string name="barcodeNoBarcode">バーコードなし</string>
     <string name="barcodeType">バーコード形式</string>
     <string name="cardId">カード番号</string>
     <string name="note">メモ</string>

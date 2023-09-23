@@ -27,7 +27,6 @@
     <string name="failedParsingImportUriError">נתיב לא נמצא</string>
     <string name="noMatchingGiftCards">אין תוצאות. נסה חיפוש אחר.</string>
     <string name="storeName">שם חנות</string>
-    <string name="barcodeNoBarcode">אין ברקוד</string>
     <string name="delete">מחיקה</string>
     <string name="confirm">אישור</string>
     <string name="deleteTitle">מחק כרטיס</string>

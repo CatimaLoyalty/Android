@@ -29,7 +29,6 @@
     <string name="storeName">নাম</string>
     <string name="note">বিঃদ্রঃ</string>
     <string name="star">ফেভারিটে যোগ করুন</string>
-    <string name="barcodeNoBarcode">কোন বারকোড নেই</string>
     <string name="noBarcode">বারকোড নেই</string>
     <string name="unstar">পছন্দের তালিকা থেকে অপসারণ</string>
     <string name="cancel">বাতিল করুন</string>

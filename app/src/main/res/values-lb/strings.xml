@@ -46,7 +46,6 @@
     <string name="exportPasswordHint">Passwuert aginn</string>
     <string name="noMatchingGiftCards">Ech hunn näischt fonnt. Probéieren Iech, Är Sich ze änneren.</string>
     <string name="note">Beuechten</string>
-    <string name="barcodeNoBarcode">Dës Kaart huet kee Barcode</string>
     <string name="importExportHelp">Wann Dir Är Kaarten sécheren, kënnen Si se op een anert Instrument réckelen.</string>
     <string name="about">Iwwer</string>
     <string name="selectBarcodeTitle">Wielt Barcode</string>
@@ -63,7 +62,6 @@
     <string name="importOptionApplicationExplanation">Benotzen Se eng beliebige App oder Hire bevorzugten Dateimanager, fir eng Datei ze opmaachen.</string>
     <string name="accept">Averstane</string>
     <string name="settings_display_barcode_max_brightness">Erhellen barcode-Usiicht</string>
-    <string name="enterBarcodeInstructions">Gitt d \' Kaarten-ID en an wielen Se entweder den Barcode-Typ ënnen oder \"Dës Kaart huet kee Barcode\".</string>
     <string name="importStocard">Importéieren vun Stocard</string>
     <string name="importLoyaltyCardKeychain">Import vun Loyalty Card Keychain</string>
     <string name="setBarcodeId">Leeë Si barcode-Wäert</string>

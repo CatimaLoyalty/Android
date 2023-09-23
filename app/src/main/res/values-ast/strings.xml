@@ -21,7 +21,6 @@
     </plurals>
     <string name="noGiftCards">Calca\'l botón «+» p\'amestar una tarxeta o impórtales dende\'l menú «⋮».</string>
     <string name="cardId">ID</string>
-    <string name="barcodeNoBarcode">Nun hai nengún códigu de barres</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
     <string name="delete">Desaniciar</string>

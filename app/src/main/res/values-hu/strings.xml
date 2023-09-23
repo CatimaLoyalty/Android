@@ -14,7 +14,6 @@
     <string name="note">Feljegyzés</string>
     <string name="cardId">Kártyaazonosító</string>
     <string name="barcodeType">Vonalkód típusa</string>
-    <string name="barcodeNoBarcode">Nincs vonalkód</string>
     <string name="noBarcode">Nincs vonalkód</string>
     <string name="star">Hozzáadás a kedvencekhez</string>
     <string name="unstar">Eltávolítás a kedvencekből</string>
@@ -87,7 +86,6 @@
     <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_resources">Szabad külső erőforrások: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vonalkód kiválasztása</string>
-    <string name="enterBarcodeInstructions">Írja be az azonosítót, majd válasszon egy vonalkódot, vagy a „Nincs vonalkód” lehetőséget.</string>
     <string name="copy_to_clipboard_toast">Azonosító vágólapra másolva</string>
     <string name="starImage">Kedvencek csillag</string>
     <string name="settings">Beállítások</string>

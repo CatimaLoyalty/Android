@@ -8,7 +8,6 @@
     <string name="note">Aantekening</string>
     <string name="cardId">Kaartnummer</string>
     <string name="barcodeType">Soort barcode</string>
-    <string name="barcodeNoBarcode">Er is geen barcode</string>
     <string name="cancel">Annuleren</string>
     <string name="save">Opslaan</string>
     <string name="edit">Bewerken</string>
@@ -48,7 +47,6 @@
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="enterBarcodeInstructions">Voer de kaart-id in en kies daarna het soort barcode of druk op “Deze kaart heeft geen barcode”.</string>
     <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld</string>
     <string name="settings">Instellingen</string>

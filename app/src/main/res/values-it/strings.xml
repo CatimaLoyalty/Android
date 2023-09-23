@@ -7,7 +7,6 @@
     <string name="storeName">Nome</string>
     <string name="note">Note</string>
     <string name="cardId">Codice</string>
-    <string name="barcodeNoBarcode">Non c\'è un codice a barre</string>
     <string name="cancel">Annulla</string>
     <string name="save">Salva</string>
     <string name="edit">Modifica</string>
@@ -46,7 +45,6 @@
     <string name="about_title_fmt">Informazioni su <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versione: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Seleziona codice a barre</string>
-    <string name="enterBarcodeInstructions">Inserisci il codice e scegli un tipo di codice a barre sotto oppure seleziona «Non c\'è un codice a barre».</string>
     <string name="copy_to_clipboard_toast">Codice copiato negli appunti</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="settings">Impostazioni</string>

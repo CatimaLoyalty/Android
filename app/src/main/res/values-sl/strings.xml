@@ -66,7 +66,6 @@
     <string name="intent_import_card_from_url_share_text">Z vami želim deliti kartico</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Prepreči zaklepanje zaslona</string>
     <string name="settings_keep_screen_on">Ohranite zaslon vklopljen</string>
-    <string name="enterBarcodeInstructions">Vnesite ID kartice in spodaj izberite vrsto črtne kode ali izbiro \"Ta kartica nima črtne kode\".</string>
     <string name="settings_dark_theme">Temno</string>
     <string name="settings_light_theme">Svetlo</string>
     <string name="settings_system_theme">Sistem</string>
@@ -81,7 +80,6 @@
     <string name="unstar">Odstrani iz priljubljenih</string>
     <string name="star">Dodaj med priljubljene</string>
     <string name="noBarcode">Brez črtne kode</string>
-    <string name="barcodeNoBarcode">Ni črtne kode</string>
     <string name="barcodeType">Vrsta črtne kode</string>
     <string name="noMatchingGiftCards">Brez rezultata iskanja. Poskusite spremeniti iskalni niz.</string>
     <string name="action_search">Iskanje</string>

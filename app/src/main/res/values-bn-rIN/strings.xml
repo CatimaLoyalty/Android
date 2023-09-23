@@ -4,7 +4,6 @@
     <string name="cancel">বাতিল</string>
     <string name="unstar">তারা মুক্ত</string>
     <string name="star">তারা</string>
-    <string name="barcodeNoBarcode">কোনো বারকোড নেই</string>
     <string name="barcodeType">বারকোড ধরন</string>
     <string name="note">বিঃদ্রঃ</string>
     <string name="storeName">দোকানের নাম</string>
@@ -99,7 +98,6 @@
     <string name="importOptionApplicationExplanation">একটি ফাইল খোলার জন্য যেকোনো অ্যাপ বা আপনার প্রিয় ফাইল ম্যানেজারটি ব্যবহার করুন।</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">মেধাস্বত্ব © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_license">কপিলেফট দ্বারা রক্ষা করা মুক্ত সফটওয়্যার, লাইসেন্স করা GPLv3+ এর অধীনে</string>
-    <string name="enterBarcodeInstructions">আইডিটি লিখুন আর নয় নিচ থেকে একটি বারকোডের প্রকার বা \"কোনো বারকোড নেই\", নির্বাচন করুন।</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবো\?</item>
         <item quantity="other">এই <xliff:g>%d</xliff:g>টি কার্ড কি চিরকালের জন্য মুছে দেবো\?</item>

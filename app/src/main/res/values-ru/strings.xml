@@ -8,7 +8,6 @@
     <string name="note">Примечание</string>
     <string name="cardId">Номер карты</string>
     <string name="barcodeType">Тип штрих-кода</string>
-    <string name="barcodeNoBarcode">Нет штрих-кода</string>
     <string name="cancel">Отмена</string>
     <string name="save">Сохранить</string>
     <string name="edit">Изменить</string>
@@ -48,7 +47,6 @@
     <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="enterBarcodeInstructions">Введите номер и выберите тип штрих-кода (или выберите \"Нет штрих-кода\").</string>
     <string name="copy_to_clipboard_toast">Номер скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип</string>
     <string name="settings">Настройки</string>

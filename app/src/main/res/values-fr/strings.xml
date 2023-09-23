@@ -52,13 +52,11 @@
     <string name="settings_light_theme">Clair</string>
     <string name="settings_system_theme">Système</string>
     <string name="settings_theme">Thème</string>
-    <string name="enterBarcodeInstructions">Entrez l’identifiant, et choisissez un type de code-barres ci-dessous, ou « Il n’y a pas de code-barres ».</string>
     <string name="app_copyright_old">Basé sur Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Les données seront exportées vers l’emplacement de votre choix.</string>
     <string name="failedParsingImportUriError">Impossible d’analyser l’URI d’importation</string>
     <string name="share">Partager</string>
-    <string name="barcodeNoBarcode">Il n’y a pas de code-barres</string>
     <string name="barcodeType">Type de code-barres</string>
     <string name="noMatchingGiftCards">Aucun résultat. Essayez de modifier votre recherche.</string>
     <string name="action_search">Rechercher</string>

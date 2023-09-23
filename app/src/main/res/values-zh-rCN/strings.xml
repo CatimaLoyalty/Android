@@ -75,7 +75,6 @@
     <string name="settings">设置</string>
     <string name="thumbnailDescription">缩略图</string>
     <string name="copy_to_clipboard_toast">已复制卡号到剪贴板</string>
-    <string name="enterBarcodeInstructions">输入卡号，并从下面选择其条码类型，或选择“无条码”。</string>
     <string name="selectBarcodeTitle">选择条码</string>
     <string name="app_resources">第三方自由资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可证</string>
@@ -119,7 +118,6 @@
     <string name="cancel">取消</string>
     <string name="star">添加到收藏</string>
     <string name="noBarcode">无条形码</string>
-    <string name="barcodeNoBarcode">无可用条形码</string>
     <string name="barcodeType">条形码类型</string>
     <string name="cardId">卡号</string>
     <string name="note">备注</string>

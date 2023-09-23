@@ -55,7 +55,6 @@ import protect.card_locker.databinding.ScanActivityBinding;
  * originally licensed under Apache 2.0
  */
 public class ScanActivity extends CatimaAppCompatActivity {
-
     private ScanActivityBinding binding;
     private CustomBarcodeScannerBinding customBarcodeScannerBinding;
     private static final String TAG = "Catima";
@@ -78,7 +77,6 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
     private boolean mScannerActive = true;
-
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -249,11 +247,10 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private void setScannerActive(boolean isActive) {
         if (isActive) {
             barcodeScannerView.resume();
-            mScannerActive = true;
         } else {
             barcodeScannerView.pause();
-            mScannerActive = false;
         }
+        mScannerActive = isActive;
     }
 
     private void returnResult(String barcodeContents, String barcodeFormat) {
@@ -275,6 +272,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
         if (barcodeValues.isEmpty()) {
+            setScannerActive(true);
             return;
         }
 
@@ -327,7 +325,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         input.addTextChangedListener(new SimpleTextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 0) {
-                    input.setError(getString(R.string.card_id_may_not_be_empty));
+                    input.setError(getString(R.string.card_id_must_not_be_empty));
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
                 } else {
                     input.setError(null);
@@ -370,6 +368,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         try {
             photoPickerLauncher.launch(chooserIntent);
         } catch (ActivityNotFoundException e) {
+            setScannerActive(true);
             Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
             Log.e(TAG, "No activity found to handle intent", e);
         }
@@ -422,6 +421,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
             if (granted) {
                 addFromImageAfterPermission();
             } else {
+                setScannerActive(true);
                 Toast.makeText(this, R.string.storageReadPermissionRequired, Toast.LENGTH_LONG).show();
             }
         }

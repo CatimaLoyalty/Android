@@ -21,7 +21,6 @@
     <string name="unstar">Eliminați din favorite</string>
     <string name="star">Adaugă la favorite</string>
     <string name="noBarcode">Fără cod de bare</string>
-    <string name="barcodeNoBarcode">Nu există cod de bare</string>
     <string name="moveDown">Mutarea în jos</string>
     <string name="card">Cardul</string>
     <string name="settings_theme">Tema</string>
@@ -50,7 +49,6 @@
     <string name="importOptionApplicationExplanation">Utilizați orice aplicație sau managerul de fișiere preferat pentru a deschide un fișier.</string>
     <string name="about">Despre</string>
     <string name="app_license">Software liber cu copyleft, licențiat GPLv3+</string>
-    <string name="enterBarcodeInstructions">Introduceți ID-ul cardului și alegeți fie tipul de cod de bare de mai jos, fie \"Acest card nu are cod de bare\".</string>
     <string name="settings_system_theme">Sistemul</string>
     <string name="settings_light_theme">Lumină</string>
     <string name="settings_dark_theme">Întuneric</string>

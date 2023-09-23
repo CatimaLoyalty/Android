@@ -8,7 +8,6 @@
     <string name="storeName">Nome</string>
     <string name="note">Nota</string>
     <string name="barcodeType">Tipo de código de barras</string>
-    <string name="barcodeNoBarcode">Não há código de barras</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
@@ -61,7 +60,6 @@
     <string name="settings_light_theme">Claro</string>
     <string name="settings_dark_theme">Escuro</string>
     <string name="selectBarcodeTitle">Selecionar código de barras</string>
-    <string name="enterBarcodeInstructions">Introduza o identificador e depois escolha o tipo de código de barras abaixo ou \"Sem código de barras\".</string>
     <string name="copy_to_clipboard_toast">Identificador copiado para a área de transferência</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="starImage">Favorito</string>

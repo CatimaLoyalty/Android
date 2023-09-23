@@ -266,7 +266,7 @@
     <string name="show_validity">Валидност</string>
     <string name="show_name_below_image_thumbnail">Наименование</string>
     <string name="permissionReadCardsLabel">Четене на карти на Catima</string>
-    <string name="permissionReadCardsDescription">Четене на картите с всички подробности, включително бележки и изображения</string>
+    <string name="permissionReadCardsDescription">четене на картите на Catima с всички подробности, включително бележки и изображения</string>
     <string name="settings_allow_content_provider_read_title">Разрешаване на достъп на други приложения до данните</string>
     <string name="settings_display_barcode_max_brightness_summary">Необходимо за работата на някои скенери</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Без заключване на екрана при преглед на карта</string>

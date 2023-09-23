@@ -265,4 +265,9 @@
     <string name="validFromDate">Velja od</string>
     <string name="anyDate">Katerikoli datum</string>
     <string name="chooseValidFromDate">Izberite datum začetka veljavnosti</string>
+    <string name="permissionReadCardsDescription">preberite svoje kartice Catima in vse podrobnosti, vključno z opombami in slikami</string>
+    <string name="settings_display_barcode_max_brightness_summary">Potrebno za delovanje nekaterih skenerjev</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os in drugi sodelujoči</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os in drugi sodelujoči</string>
+    <string name="permissionReadCardsLabel">Preberite kartice Catima</string>
 </resources>

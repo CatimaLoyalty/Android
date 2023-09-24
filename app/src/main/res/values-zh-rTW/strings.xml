@@ -257,4 +257,5 @@
     <string name="openBackImageInGalleryApp">以圖庫軟體開啟背面圖片</string>
     <string name="show_name_below_image_thumbnail">在縮圖下方顯示名稱</string>
     <string name="setBarcodeHeight">設定條碼高度</string>
+    <string name="app_copyright_short">著作權所有© Sylvia van Os and contributors</string>
 </resources>

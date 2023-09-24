@@ -273,7 +273,7 @@
     <string name="show_validity">Mostrar validade</string>
     <string name="show_balance">Mostrar saldo</string>
     <string name="permissionReadCardsLabel">Ler Cartas Catima</string>
-    <string name="permissionReadCardsDescription">Leia seus cartões e todos os seus detalhes, incluindo notas e imagens</string>
+    <string name="permissionReadCardsDescription">leia seus cartões do Catima e todos os seus detalhes, incluindo notas e imagens</string>
     <string name="show_note">Mostrar nota</string>
     <string name="show_name_below_image_thumbnail">Mostrar nome abaixo da miniatura do ícone</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Desativa o bloqueio de tela ao visualizar um cartão</string>

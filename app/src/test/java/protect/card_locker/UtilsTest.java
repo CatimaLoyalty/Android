@@ -15,7 +15,7 @@ import org.robolectric.RobolectricTestRunner;
 @RunWith(RobolectricTestRunner.class)
 public class UtilsTest {
     /**
-     * Ensure all the default card colours (used when an user has not chosen a card colour) use white foreground text
+     * Ensure all the default card colours (used when a user has not chosen a card colour) use white foreground text
      */
     @Test
     public void allDefaultCardColoursHaveWhiteForegroundTest() {

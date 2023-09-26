@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 132
+
+- Refine "Add card" workflow
+- Validation flow improvements
+
 ## v2.26.0 - 131 (2023-09-14)
 
 - Move "Archive mode" into "Display options" (previously "Show details") menu

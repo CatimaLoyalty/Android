@@ -13,7 +13,6 @@
     <string name="note">Note</string>
     <string name="cardId">Card ID</string>
     <string name="barcodeType">Barcode type</string>
-    <string name="barcodeNoBarcode">There is no barcode</string>
     <string name="noBarcode">No barcode</string>
     <string name="star">Add to favorites</string>
     <string name="unstar">Remove from favorites</string>
@@ -86,7 +85,6 @@
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="enterBarcodeInstructions">Enter the ID, and either pick a barcode type below, or “There is no barcode”.</string>
     <string name="copy_to_clipboard_toast">ID copied to clipboard</string>
     <string name="thumbnailDescription">Thumbnail</string>
     <string name="starImage">Favorite star</string>
@@ -157,8 +155,8 @@
     <string name="moveDown">Move downwards</string>
     <string name="leaveWithoutSaveTitle">Exit</string>
     <string name="leaveWithoutSaveConfirmation">Leave without saving?</string>
-    <string name="addManually">Manually enter ID</string>
-    <string name="addFromImage">Select image from gallery</string>
+    <string name="addManually">Enter the barcode manually</string>
+    <string name="addFromImage">Select an image from gallery</string>
     <string name="groupsList">Groups: <xliff:g>%s</xliff:g></string>
     <string name="editGroup">Editing Group: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Expires: <xliff:g>%s</xliff:g></string>
@@ -331,5 +329,11 @@
     <string name="action_display_options">Display options</string>
     <string name="show_archived_cards">Show archived cards</string>
     <string name="view_online">View online</string>
+    <string name="action_more_options">More options</string>
+    <string name="addWithoutBarcode">Add a card with no barcode</string>
+    <string name="enter_card_id">Enter the ID number or text on your card</string>
+    <string name="card_id_must_not_be_empty">Card ID must not be empty</string>
+    <string name="add_a_card_in_a_different_way">Add a card in a different way</string>
     <string name="field_must_not_be_empty">Field must not be empty</string>
+    <string name="manually_enter_barcode_instructions">Enter the ID number or text on your card and press the barcode that looks like the one on your card.</string>
 </resources>

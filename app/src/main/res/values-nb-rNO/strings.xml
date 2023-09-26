@@ -43,7 +43,6 @@
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
-    <string name="enterBarcodeInstructions">Skriv inn kortets ID, og enten velg strekkodetypen nedenfor, eller «Det er ingen strekkode».</string>
     <string name="copy_to_clipboard_toast">ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde</string>
     <string name="settings">Innstillinger</string>
@@ -59,7 +58,6 @@
 \nopphavsrett 2016–2020 Branden Archer</string>
     <string name="failedParsingImportUriError">Kunne ikke tolke importerings-URI</string>
     <string name="share">Del</string>
-    <string name="barcodeNoBarcode">Det er ingen strekkode</string>
     <string name="noMatchingGiftCards">Ingen resultater. Prøv å endre søket.</string>
     <string name="action_search">Søk</string>
     <string name="starImage">Favorittstjerne</string>

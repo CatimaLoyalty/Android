@@ -25,7 +25,6 @@
     <string name="noMatchingGiftCards">Nema rezultata. Pokušajte promijeniti pretraživanje.</string>
     <string name="cardId">ID kartice</string>
     <string name="barcodeType">Vrsta crtičnog koda</string>
-    <string name="barcodeNoBarcode">Ne postoji crtični kod</string>
     <string name="cancel">Odustani</string>
     <string name="noGiftCards">Pritisni gumb + plus za dodavanje kartice ili uvezi putem izbornika ⋮.</string>
     <string name="noCardExistsError">Nije bilo moguće pronaći tu karticu</string>
@@ -134,7 +133,6 @@
     <string name="app_libraries">Libre biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Biranje crtičnog koda</string>
     <string name="copy_to_clipboard_toast">ID je kopiran u međuspremnik</string>
-    <string name="enterBarcodeInstructions">Upiši ID i dolje odaberi vrstu crtičnog koda ili „Ne postoji crtični kod”.</string>
     <string name="settings_portrait_orientation">Okomito</string>
     <string name="settings_lock_on_opening_orientation">Zaključaj na položaj koji se koristi prilikom otvaranja kartice</string>
     <string name="group_edit">Uredi grupu</string>

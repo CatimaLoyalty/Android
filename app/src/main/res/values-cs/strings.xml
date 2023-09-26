@@ -59,7 +59,6 @@
     <string name="unstar">Odebrat z oblíbených</string>
     <string name="star">Přidat do oblíbených</string>
     <string name="noBarcode">Žádný čárový kód</string>
-    <string name="barcodeNoBarcode">Tato karta nemá čárový kód</string>
     <string name="barcodeType">Typ čárového kódu</string>
     <string name="noMatchingGiftCards">Nic nenalezeno. Zkuste zadat jiný výraz.</string>
     <string name="action_search">Hledat</string>
@@ -90,7 +89,6 @@
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
     <string name="moveDown">Přesunout dolů</string>
     <string name="moveUp">Přesunout nahoru</string>
-    <string name="enterBarcodeInstructions">Zadejte ID a níže vyberte typ čárového kódu nebo klikněte na „Tato karta nemá čárový kód“.</string>
     <string name="settings_brown_theme">Hnědá</string>
     <string name="settings_grey_theme">Šedá</string>
     <string name="settings_green_theme">Zelená</string>

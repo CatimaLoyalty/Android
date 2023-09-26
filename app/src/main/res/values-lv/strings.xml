@@ -7,7 +7,6 @@
     <string name="storeName">Nosaukums</string>
     <string name="note">Piezīme</string>
     <string name="barcodeType">Svītrkoda tips</string>
-    <string name="barcodeNoBarcode">Bez svītrkoda</string>
     <string name="noBarcode">Nav svītrkoda</string>
     <string name="star">Pievienot izlasei</string>
     <string name="unstar">Noņemt no izlases</string>
@@ -95,7 +94,6 @@
     <string name="translate_platform">vietnē Weblate</string>
     <string name="starred">Izlase</string>
     <string name="cardId">Kartes numurs</string>
-    <string name="enterBarcodeInstructions">Ievadiet kartes numuru un izvēlieties svītrkoda tipu (vai izvēlieties \"bez svītrkoda\").</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="zero">Neatgriezeniski dzēst šīs <xliff:g>%d</xliff:g> kartes\?</item>
         <item quantity="one">Neatgriezeniski dzēst šo <xliff:g>%d</xliff:g> karti\?</item>

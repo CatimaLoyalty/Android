@@ -75,7 +75,6 @@
     <string name="starImage">Suosikkitähti</string>
     <string name="thumbnailDescription">Pienoiskuva</string>
     <string name="copy_to_clipboard_toast">ID-tunnus kopioitu leikepöydälle</string>
-    <string name="enterBarcodeInstructions">Syötä ID-tunnus ja valitse sen viivakoodityyppi, tai valitse \"Ei viivakoodia\".</string>
     <string name="selectBarcodeTitle">Valitse viivakoodi</string>
     <string name="app_resources">Vapaat kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vapaat kolmannen osapuolen kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -124,7 +123,6 @@
     <string name="unstar">Poista suosikeista</string>
     <string name="star">Lisää suosikkeihin</string>
     <string name="noBarcode">Ei viivakoodia</string>
-    <string name="barcodeNoBarcode">Viivakoodia ei ole</string>
     <string name="barcodeType">Viivakoodin tyyppi</string>
     <string name="cardId">Kortin ID-tunnus</string>
     <string name="note">Lisätieto</string>

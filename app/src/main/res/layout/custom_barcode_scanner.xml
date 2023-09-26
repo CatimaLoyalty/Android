@@ -2,6 +2,15 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabOtherOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:icon="@drawable/ic_baseline_unfold_more_24"
+        android:text="@string/action_more_options"
+        android:layout_margin="16dp" />
+
     <com.journeyapps.barcodescanner.BarcodeView
         android:id="@+id/zxing_barcode_surface"
         android:layout_width="match_parent"
@@ -33,25 +42,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/add_from_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addFromImage"
-            app:layout_constraintBottom_toTopOf="@+id/add_manually"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/camera_permission_denied_layout"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <Button
-            android:id="@+id/add_manually"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addManually"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -11,7 +11,6 @@
     <string name="unstar">Премахва от любими</string>
     <string name="star">Добавя към любими</string>
     <string name="noBarcode">Липсва щрихкод</string>
-    <string name="barcodeNoBarcode">Липсва щрихкод</string>
     <string name="barcodeType">Вид на щрихкода</string>
     <string name="cardId">Номер на карта</string>
     <string name="note">Бележка</string>
@@ -91,7 +90,6 @@
     <string name="starImage">Звезда за любимо</string>
     <string name="thumbnailDescription">Миниатюра</string>
     <string name="copy_to_clipboard_toast">Номерът е копиран в междинната памет</string>
-    <string name="enterBarcodeInstructions">Въведете номер и после или изберете вида на щрихкода, или докоснете бутона „Липсва щрихкод“.</string>
     <string name="selectBarcodeTitle">Избиране на щрихкод</string>
     <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>

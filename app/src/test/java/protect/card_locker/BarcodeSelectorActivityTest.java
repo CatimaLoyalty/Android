@@ -30,72 +30,8 @@ public class BarcodeSelectorActivityTest {
         Activity activity = (Activity) activityController.get();
 
         final TextView cardId = activity.findViewById(R.id.cardId);
-        final Button noBarcodeButton = activity.findViewById(R.id.noBarcode);
 
         // No card ID by default
         assertEquals(cardId.getText().toString(), "");
-
-        // Button should be visible but disabled
-        assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
-        assertEquals(false, noBarcodeButton.isEnabled());
-    }
-
-    @Test
-    public void nonEmptyStateTest() throws InterruptedException {
-        ActivityController activityController = Robolectric.buildActivity(BarcodeSelectorActivity.class).create();
-        activityController.start();
-        activityController.resume();
-
-        Activity activity = (Activity) activityController.get();
-
-        final TextView cardId = activity.findViewById(R.id.cardId);
-        final Button noBarcodeButton = activity.findViewById(R.id.noBarcode);
-
-        cardId.setText("abcdefg");
-
-        // Run the delayed Handler
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
-
-        // Button should be visible and enabled
-        assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
-        assertTrue(noBarcodeButton.isEnabled());
-
-        // Clicking button should create "empty" barcode
-        activity.findViewById(R.id.noBarcode).performClick();
-        Intent resultIntent = shadowOf(activity).getResultIntent();
-
-        // The BarcodeSelectorActivity should return an empty string
-        assertEquals("", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_FORMAT));
-        assertEquals("abcdefg", resultIntent.getStringExtra(BarcodeSelectorActivity.BARCODE_CONTENTS));
-    }
-
-    @Test
-    public void nonEmptyToEmptyStateTest() throws InterruptedException {
-        ActivityController activityController = Robolectric.buildActivity(BarcodeSelectorActivity.class).create();
-        activityController.start();
-        activityController.resume();
-
-        Activity activity = (Activity) activityController.get();
-
-        final TextView cardId = activity.findViewById(R.id.cardId);
-        final Button noBarcodeButton = activity.findViewById(R.id.noBarcode);
-
-        cardId.setText("abcdefg");
-
-        // Run the delayed Handler
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
-
-        // Button should be visible and enabled
-        assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
-        assertTrue(noBarcodeButton.isEnabled());
-
-        cardId.setText("");
-
-        // Run the delayed Handler
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
-
-        // Button should be visible but disabled
-        assertEquals(View.VISIBLE, noBarcodeButton.getVisibility());
-        assertFalse(noBarcodeButton.isEnabled());
     }
 }

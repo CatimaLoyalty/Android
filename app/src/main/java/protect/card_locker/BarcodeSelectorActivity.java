@@ -16,7 +16,6 @@ import com.google.zxing.BarcodeFormat;
 
 import java.util.ArrayList;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 
 import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
@@ -66,10 +65,6 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
 
                     runOnUiThread(() -> {
                         generateBarcodes(s.toString());
-
-                        View noBarcodeButtonView = binding.noBarcode;
-                        setButtonListener(noBarcodeButtonView, s.toString());
-                        noBarcodeButtonView.setEnabled(s.length() > 0);
                     });
                 }, INPUT_DELAY);
             }
@@ -93,17 +88,6 @@ public class BarcodeSelectorActivity extends CatimaAppCompatActivity implements 
             barcodes.add(new CatimaBarcodeWithValue(catimaBarcode, value));
         }
         mAdapter.setBarcodes(barcodes);
-    }
-
-    private void setButtonListener(final View button, final String cardId) {
-        button.setOnClickListener(view -> {
-            Log.d(TAG, "Selected no barcode");
-            Intent result = new Intent();
-            result.putExtra(BARCODE_FORMAT, "");
-            result.putExtra(BARCODE_CONTENTS, cardId);
-            BarcodeSelectorActivity.this.setResult(RESULT_OK, result);
-            finish();
-        });
     }
 
     @Override

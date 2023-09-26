@@ -103,7 +103,6 @@
     <string name="starImage">Sık kullanılan yıldız</string>
     <string name="thumbnailDescription">Küçük resim</string>
     <string name="copy_to_clipboard_toast">Numara panoya kopyalandı</string>
-    <string name="enterBarcodeInstructions">Numarasını girin ve aşağıdan barkod türünü veya “Barkod yok” seçeneğini seçin.</string>
     <string name="selectBarcodeTitle">Barkod Seç</string>
     <string name="app_resources">Özgür üçüncü taraf kaynakları: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Özgür üçüncü taraf kütüphaneleri: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -164,7 +163,6 @@
     <string name="unstar">Sık kullanılanlardan kaldır</string>
     <string name="star">Sık kullanılanlara ekle</string>
     <string name="noBarcode">Barkod yok</string>
-    <string name="barcodeNoBarcode">Barkod yok</string>
     <string name="barcodeType">Barkod türü</string>
     <string name="note">Not</string>
     <string name="storeName">Ad</string>

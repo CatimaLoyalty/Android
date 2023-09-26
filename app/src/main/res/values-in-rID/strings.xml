@@ -26,7 +26,6 @@
     <string name="editCardTitle">Ubah Kartu</string>
     <string name="addCardTitle">Tambah Kartu</string>
     <string name="scanCardBarcode">Pindai Barcode</string>
-    <string name="barcodeNoBarcode">Tidak ada barcode</string>
     <string name="cancel">Batalkan</string>
     <string name="importExport">Impor/Ekspor</string>
     <string name="settings_theme">Tema</string>
@@ -106,7 +105,6 @@
     <string name="debug_version_fmt">Versi: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_libraries">Pustaka pihak ketiga gratis: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Sumber daya pihak ketiga gratis: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="enterBarcodeInstructions">Masukkan ID, dan pilih jenis barcode di bawah ini, atau \"Tidak ada barcode\".</string>
     <string name="copy_to_clipboard_toast">ID disalin ke papan klip</string>
     <string name="thumbnailDescription">Gambar tampilan</string>
     <string name="starImage">Favorit</string>

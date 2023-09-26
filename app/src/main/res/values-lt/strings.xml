@@ -33,7 +33,6 @@
     <string name="unstar">Pašalinti iš mėgstamiausių</string>
     <string name="star">Pridėti prie mėgstamiausių</string>
     <string name="noBarcode">Nėra brūkšninio kodo</string>
-    <string name="barcodeNoBarcode">Brūkšninio kodo nėra</string>
     <string name="barcodeType">Brūkšninio kodo tipas</string>
     <string name="noMatchingGiftCards">Rezultatų nėra. Pabandykite pakeisti paiešką.</string>
     <string name="action_search">Ieškoti</string>
@@ -128,7 +127,6 @@
     <string name="settings">Nustatymai</string>
     <string name="starImage">Mėgstamiausia žvaigždė</string>
     <string name="thumbnailDescription">Miniatiūra</string>
-    <string name="enterBarcodeInstructions">Įveskite ID ir toliau pasirinkite brūkšninio kodo tipą arba \"Nėra brūkšninio kodo\".</string>
     <string name="app_resources">Laisvosios trečiųjų šalių ištekliai: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Laisvosios trečiųjų šalių bibliotekos: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_old">Paremta Loyalty Card Keychain

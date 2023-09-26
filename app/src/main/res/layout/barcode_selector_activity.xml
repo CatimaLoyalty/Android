@@ -34,7 +34,7 @@
             app:layout_constraintBottom_toTopOf="@+id/barcodeIdLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/enterBarcodeInstructions" />
+            android:text="@string/manually_enter_barcode_instructions" />
         <LinearLayout
             android:id="@+id/barcodeIdLayout"
             android:orientation="horizontal"
@@ -42,7 +42,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/explanationText"
-            app:layout_constraintBottom_toTopOf="@+id/noBarcode"
+            app:layout_constraintBottom_toTopOf="@+id/barcodes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
             <TextView android:textSize="16.0sp"
@@ -65,21 +65,11 @@
                 android:minHeight="48dp"
                 tools:ignore="ContentDescription" />
         </LinearLayout>
-        <Button
-            android:id="@+id/noBarcode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/barcodeIdLayout"
-            app:layout_constraintBottom_toTopOf="@+id/barcodes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/barcodeNoBarcode"
-            android:enabled="false" />
         <ListView
             android:id="@+id/barcodes"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            app:layout_constraintTop_toBottomOf="@+id/noBarcode"
+            app:layout_constraintTop_toBottomOf="@+id/barcodeIdLayout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

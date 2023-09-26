@@ -8,7 +8,6 @@
     <string name="note">مذكرة</string>
     <string name="cardId">معرّف البطاقة</string>
     <string name="barcodeType">نوع الباركود</string>
-    <string name="barcodeNoBarcode">لا يوجد باركود</string>
     <string name="noBarcode">لا يوجد باركود</string>
     <string name="star">أضف الي المفضلة</string>
     <string name="unstar">حذف من المفضلة</string>
@@ -48,7 +47,6 @@
     <string name="app_license">البرمجيات الحرة متروكة الحقوق, ترخيص +GPLv3</string>
     <string name="app_libraries">مكتبات الطرف الثالث الحرة: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">اختار الباركود</string>
-    <string name="enterBarcodeInstructions">أدخل بطاقة هوية ، واختر نوع الباركود أدناه ، أو \"لا يوجد باركود\".</string>
     <string name="copy_to_clipboard_toast">تم نسخ بطاقة الهوية إلى الحافظة</string>
     <string name="thumbnailDescription">صورة مصغرة</string>
     <string name="starImage">نجم مفضل</string>

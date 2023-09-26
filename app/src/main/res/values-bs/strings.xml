@@ -4,7 +4,6 @@
     <string name="cancel">Odustani</string>
     <string name="unstar">Ukloni sve omiljene</string>
     <string name="star">Omiljene</string>
-    <string name="barcodeNoBarcode">Ne postoji barkod</string>
     <string name="barcodeType">Barcode tip</string>
     <string name="note">Bilježnica</string>
     <string name="storeName">Ime</string>

@@ -21,7 +21,6 @@
     <string name="unstar">Fjern fra favoritter</string>
     <string name="star">Føj til favoritter</string>
     <string name="noBarcode">Ingen stregkode</string>
-    <string name="barcodeNoBarcode">Dette kort har ingen stregkode</string>
     <string name="barcodeType">Stregkode type</string>
     <string name="cardId">Kort ID</string>
     <string name="note">Bemærk</string>
@@ -52,7 +51,6 @@
     <string name="starImage">Favorit stjerne</string>
     <string name="thumbnailDescription">Miniaturebillede til kort</string>
     <string name="copy_to_clipboard_toast">Kort-ID kopieret til udklipsholderen</string>
-    <string name="enterBarcodeInstructions">Indtast kortets ID, og vælg enten kortets stregkodetype nedenfor, eller \"Dette kort har ingen stregkode\".</string>
     <string name="selectBarcodeTitle">Vælg stregkode</string>
     <string name="app_copyright_old">Baseret på Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer.</string>

@@ -56,13 +56,11 @@
     <string name="settings_light_theme">Hell</string>
     <string name="settings_system_theme">System</string>
     <string name="settings_theme">Farbschema</string>
-    <string name="enterBarcodeInstructions">Gib die ID ein und wähle unten entweder einen Barcodetyp oder „Es gibt keinen Barcode“.</string>
     <string name="app_copyright_old">Basierend auf Loyalty Card Keychain
 \nCopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Die Daten werden an einen Ort deiner Wahl geschrieben.</string>
     <string name="failedParsingImportUriError">Die Import-URI konnte nicht verarbeitet werden</string>
     <string name="share">Teilen</string>
-    <string name="barcodeNoBarcode">Es gibt keinen Barcode</string>
     <string name="barcodeType">Barcodetyp</string>
     <string name="starImage">Favoritenstern</string>
     <string name="deleteConfirmationGroup">Gruppe löschen?</string>

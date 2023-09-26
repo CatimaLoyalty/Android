@@ -2,7 +2,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="settings_display_barcode_max_brightness">Gör streckkodsvyn ljusare</string>
     <string name="settings_keep_screen_on">Håll skärmen påslagen</string>
-    <string name="enterBarcodeInstructions">Ange ID:t och välj antingen streckkodstyp nedan, eller \"Det finns ingen streckkod\".</string>
     <string name="importFidmeMessage">Välj den exporterade <i>fidme-export-request-xxxxxx.zip</i> från FidMe som du vill importera och välj streckkodstyper manuellt efteråt.
 \nSkapa den från din FidMe-profil först genom att välja \"Data Protection\" och sen trycka på \"Extract my data\".</string>
     <string name="importOptionApplicationExplanation">Använd vilken app som helst eller den filhanterare du föredrar för att öppna en fil.</string>
@@ -125,7 +124,6 @@
     <string name="unstar">Ta bort från favoriter</string>
     <string name="star">Lägg till i favoriter</string>
     <string name="noBarcode">Ingen streckkod</string>
-    <string name="barcodeNoBarcode">Det finns ingen streckkod</string>
     <string name="barcodeType">Streckkodstyp</string>
     <string name="cardId">Kort-ID</string>
     <string name="storeName">Namn</string>

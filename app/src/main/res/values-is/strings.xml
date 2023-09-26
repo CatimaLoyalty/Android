@@ -10,7 +10,6 @@
     <string name="cancel">Hætta</string>
     <string name="noMatchingGiftCards">Engar niðurstöður. Prófaðu að breyta leitarorði.</string>
     <string name="storeName">Nafnið</string>
-    <string name="barcodeNoBarcode">Þetta kort hefur ekki strikamerkið</string>
     <string name="star">Bæta við eftirlæti</string>
     <string name="unstar">Fjarlægja frá eftirlæti</string>
     <string name="save">Sparaðu</string>

@@ -41,7 +41,6 @@
     </plurals>
     <string name="deleteTitle">Suprimir la carta</string>
     <string name="noBarcode">Cap de còdi de barras</string>
-    <string name="barcodeNoBarcode">Cap de còdi de barras</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionada</item>
         <item quantity="other"><xliff:g>%d</xliff:g> seleccionadas</item>

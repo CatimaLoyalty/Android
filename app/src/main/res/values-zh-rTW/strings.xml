@@ -8,7 +8,6 @@
     <string name="note">註記</string>
     <string name="cardId">卡片 ID</string>
     <string name="barcodeType">條碼種類</string>
-    <string name="barcodeNoBarcode">沒有可用的條碼</string>
     <string name="noBarcode">無條碼</string>
     <string name="privacy_policy_popup_text">隱私權政策（某些應用程式商店需要此條目）: 
 \n
@@ -50,7 +49,6 @@
     <string name="editBarcode">編輯條碼</string>
     <string name="editCardTitle">編輯圖片</string>
     <string name="enter_group_name">輸入群組名稱</string>
-    <string name="enterBarcodeInstructions">輸入 ID、選擇條碼種類、或選擇「此卡片沒有可用的條碼」。</string>
     <string name="errorReadingImage">無法讀取此圖片</string>
     <string name="expiryDate">逾期日期</string>
     <string name="expiryStateSentence">逾期於：<xliff:g>%s</xliff:g></string>

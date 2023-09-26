@@ -5,11 +5,9 @@
 \nЖОДНОЇ ІНФОРМАЦІЇ НЕ ЗБИРАЄТЬСЯ, що може підтвердити будь-хто, адже наш застосунок це вільне програмне забезпечення.</string>
     <string name="noGiftCards">Натисніть кнопку +, щоб додати картку, або ⋮ для імпорту з меню.</string>
     <string name="settings_display_barcode_max_brightness">Яскравіший штрих-код</string>
-    <string name="enterBarcodeInstructions">Введіть ID та оберіть тип штрих-коду чи \"Штрих-код відсутній\".</string>
     <string name="selectBarcodeTitle">Оберіть штрих-код</string>
     <string name="scanCardBarcode">Відсканувати штрих-код</string>
     <string name="noBarcode">Без штрих-коду</string>
-    <string name="barcodeNoBarcode">Штрих-код відсутній</string>
     <string name="barcodeType">Тип штрих-коду</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> картка</item>

@@ -56,7 +56,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
     </plurals>
     <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
-    <string name="barcodeNoBarcode">Δεν υπάρχει barcode</string>
     <string name="addManually">Χειροκίνητη εισαγωγή κωδικού</string>
     <string name="never">Ποτέ</string>
     <string name="share">Κοινοποίηση</string>
@@ -177,7 +176,6 @@
     </plurals>
     <string name="app_copyright_old">Βασισμένο στο Loyalty Card Keychain
 \nπνευματικά δικαιώματα © 2016-2020 Branden Archer</string>
-    <string name="enterBarcodeInstructions">Εισάγετε τον κωδικό και διαλέξτε έναν είδος γραμμοκώδικα από κάτω ή \"Δεν υπάρχει γραμμοκώδικας\".</string>
     <string name="settings_follow_system_orientation">Ακολούθηση συστήματος</string>
     <string name="settings_card_orientation">Προσανατολισμός γραμμοκώδικα</string>
     <string name="settings_portrait_orientation">Πορτραίτο</string>

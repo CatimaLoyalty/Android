@@ -49,7 +49,6 @@
     <string name="deleteConfirmation">Naozaj chcete túto kartu odstrániť?</string>
     <string name="star">Pridať k obľúbeným</string>
     <string name="noBarcode">Žiadny čiarový kód</string>
-    <string name="barcodeNoBarcode">Čiarový kód nie je k dispozícii</string>
     <string name="barcodeType">Typ čiarových kódov</string>
     <string name="noMatchingGiftCards">Žiadne výsledky. Skúste zmeniť vyhľadávanie.</string>
     <string name="action_search">Vyhľadávanie</string>
@@ -87,7 +86,6 @@
     <string name="settings_system_theme">Systém</string>
     <string name="settings_theme">Téma</string>
     <string name="starImage">Obľúbená hviezda</string>
-    <string name="enterBarcodeInstructions">Zadajte ID a vyberte typ čiarového kódu nižšie alebo \"Nie je tu žiadny čiarový kód\".</string>
     <string name="exportOptionExplanation">Údaje sa zapíšu na vami zvolené miesto.</string>
     <string name="failedParsingImportUriError">Nepodarilo sa analyzovať import URI</string>
     <string name="share">Zdieľať</string>

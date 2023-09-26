@@ -67,7 +67,7 @@
     <string name="enter_group_name">Introducir nombre del grupo</string>
     <string name="groups">Grupos</string>
     <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
-    <string name="addManually">Introducir la ID manualmente</string>
+    <string name="addManually">Introducir manualmente el código de barras</string>
     <string name="leaveWithoutSaveConfirmation">¿Quiere abandonar sin guardar\?</string>
     <string name="leaveWithoutSaveTitle">Salir</string>
     <string name="moveDown">Bajar</string>
@@ -143,7 +143,7 @@
     <string name="errorReadingImage">No se pudo leer la imagen</string>
     <string name="noBarcodeFound">No se encontró código de barras</string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
-    <string name="addFromImage">Selecciona imagen desde galería</string>
+    <string name="addFromImage">Selecciona una imagen de la galería</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Evitar el bloqueo de pantalla</string>
     <string name="settings_keep_screen_on">Mantener pantalla encendida</string>
     <plurals name="selectedCardCount">
@@ -221,7 +221,7 @@
     </plurals>
     <string name="welcome">Bienvenido/a a Catima</string>
     <string name="group_name_already_in_use">Nombre del grupo ya está en uso</string>
-    <string name="group_name_is_empty">El nombre del grupo no puede estar vacío</string>
+    <string name="group_name_is_empty">El nombre del grupo no debe estar vacío</string>
     <string name="settings_oled_dark">Fondo negro puro para el tema oscuro</string>
     <string name="exportPasswordHint">Introduzca la contraseña</string>
     <string name="previousCard">Anterior</string>
@@ -271,7 +271,7 @@
     <string name="show_validity">Mostrar la validez</string>
     <string name="show_balance">Mostrar el saldo</string>
     <string name="permissionReadCardsLabel">Leer Tarjetas Catima</string>
-    <string name="permissionReadCardsDescription">Lee tus tarjetas y todos sus detalles, incluidas notas e imágenes</string>
+    <string name="permissionReadCardsDescription">leer tus tarjetas Catima y todos sus detalles, incluidas notas e imágenes</string>
     <string name="settings_allow_content_provider_read_title">Permite a otras aplicaciones acceder a mis datos</string>
     <string name="settings_display_barcode_max_brightness_summary">Necesario para que funcione en algunos escáneres</string>
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>
@@ -285,4 +285,12 @@
     <string name="show_archived_cards">Mostrar las tarjetas archivadas</string>
     <string name="app_copyright_short">Derechos de autor © Sylvia van Os y colaboradores</string>
     <string name="action_display_options">Opciones de la pantalla</string>
+    <string name="card_id_must_not_be_empty">La identificación de la tarjeta no debe estar vacía</string>
+    <string name="balanceParsingFailed">Saldo incorrecto</string>
+    <string name="add_a_card_in_a_different_way">Añadir una tarjeta de otra forma</string>
+    <string name="manually_enter_barcode_instructions">Introduce el número de identificación o el texto de tu tarjeta y pulsa en el código de barras que se parece al de tu tarjeta.</string>
+    <string name="action_more_options">Más opciones</string>
+    <string name="enter_card_id">Introduce el número de identificación o el texto de tu tarjeta</string>
+    <string name="addWithoutBarcode">Añadir una tarjeta sin código de barras</string>
+    <string name="field_must_not_be_empty">Este campo no debe estar vacío</string>
 </resources>

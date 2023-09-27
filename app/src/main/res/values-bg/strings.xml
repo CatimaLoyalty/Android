@@ -40,9 +40,9 @@
     <string name="addCardTitle">Добавяне на карта</string>
     <string name="removeImage">Премахване на изображение</string>
     <string name="takePhoto">Снимане</string>
-    <string name="copy_to_clipboard_multiple_toast">Номерата са копирани в междинната памет</string>
+    <string name="copy_to_clipboard_multiple_toast">Номерата са копирани</string>
     <string name="intent_import_card_from_url_share_multiple_text">Искам да споделя тези карти с вас</string>
-    <string name="wrongValueForBarcodeType">Неприемлива стойност за избрания вид щрихкод</string>
+    <string name="wrongValueForBarcodeType">Стойноста е неприемлива за избрания щрихкод</string>
     <string name="setBarcodeId">Задаване на стойност</string>
     <string name="sameAsCardId">Като номера</string>
     <string name="barcodeId">Стойност на щрихкода</string>
@@ -89,7 +89,7 @@
     <string name="settings">Настройки</string>
     <string name="starImage">Звезда за любимо</string>
     <string name="thumbnailDescription">Миниатюра</string>
-    <string name="copy_to_clipboard_toast">Номерът е копиран в междинната памет</string>
+    <string name="copy_to_clipboard_toast">Номерът е копиран</string>
     <string name="selectBarcodeTitle">Избиране на щрихкод</string>
     <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>
@@ -107,7 +107,7 @@
     <string name="scanCardBarcode">Снемане на щрихкод</string>
     <string name="editCardTitle">Редактиране на карта</string>
     <string name="share">Споделя</string>
-    <string name="copy_to_clipboard">Копира номера в междинната памет</string>
+    <string name="copy_to_clipboard">Копира номера</string>
     <string name="ok">Добре</string>
     <string name="importSuccessful">Данните са внесени</string>
     <string name="chooseImportType">Внасяне на данни на</string>
@@ -196,7 +196,7 @@
     <string name="group_name_already_in_use">Има списък с това име</string>
     <string name="group_updated">Промените са запазени</string>
     <string name="selectColor">Избиране на цвят</string>
-    <string name="group_name_is_empty">Името на списъка не може да е празно</string>
+    <string name="group_name_is_empty">Името на списъка не трябва да е празно</string>
     <string name="group_edit">Редактиране на списък</string>
     <string name="noGiftCardsGroup">Създайте карти и ги зачислите към списък от тук.</string>
     <string name="translate_platform">в Weblate</string>
@@ -278,4 +278,12 @@
     <string name="show_archived_cards">Архивирани карти</string>
     <string name="view_online">Преглед</string>
     <string name="app_copyright_short">Всички права запазени © Силвия ван Ос и сътрудници</string>
+    <string name="card_id_must_not_be_empty">Номера на картата не трябва да бъде празен</string>
+    <string name="balanceParsingFailed">Неприемлив баланс</string>
+    <string name="add_a_card_in_a_different_way">Добавяне на карта по друг начин</string>
+    <string name="manually_enter_barcode_instructions">Въведете номера или текста и изберете щрихкода, който прилича на този от картата.</string>
+    <string name="action_more_options">Повече</string>
+    <string name="enter_card_id">Въведете номера или текста от картата</string>
+    <string name="addWithoutBarcode">Добавяне на карта без щрихкод</string>
+    <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
 </resources>

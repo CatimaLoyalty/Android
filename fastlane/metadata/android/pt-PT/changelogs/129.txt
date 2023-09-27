@@ -1,0 +1,3 @@
+- Melhoria no importador Catima (corrige cartões ausentes durante a importação)
+- Correção de falha ao girar a tela durante a configuração da data de início/fim de validade
+- Pequenos ajustes na interface do usuário

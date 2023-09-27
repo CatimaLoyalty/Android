@@ -56,7 +56,7 @@
     <string name="expiryStateSentence">Термін дії закінчується: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Групи: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Оберіть зображення з галереї</string>
-    <string name="addManually">Ввести ID вручну</string>
+    <string name="addManually">Ввести штрих-код вручну</string>
     <string name="leaveWithoutSaveConfirmation">Вийти без збереження\?</string>
     <string name="leaveWithoutSaveTitle">Вихід</string>
     <string name="moveDown">Посунути донизу</string>
@@ -200,7 +200,7 @@
     <string name="report_error">Повідомити про помилку</string>
     <string name="exportPassword">Встановіть пароль для захисту експорту (необов\'язково)</string>
     <string name="exportPasswordHint">Введіть пароль</string>
-    <string name="group_name_is_empty">Назва групи не може бути пустою</string>
+    <string name="group_name_is_empty">Назва групи не повинна бути порожньою</string>
     <string name="group_updated">Групу оновлено</string>
     <string name="editGroup">Редагування групи: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Змінити групу</string>
@@ -292,4 +292,12 @@
     <string name="action_display_options">Налаштування дисплея</string>
     <string name="app_copyright_short">Авторські права © Sylvia van Os та вкладники</string>
     <string name="show_archived_cards">Показати архівовані картки</string>
+    <string name="card_id_must_not_be_empty">ID картки не повинен бути порожнім</string>
+    <string name="balanceParsingFailed">Неправильний баланс</string>
+    <string name="add_a_card_in_a_different_way">Додати картку іншим способом</string>
+    <string name="manually_enter_barcode_instructions">Введіть ID або текст на вашій картці та натисніть на штрих-код, який виглядає як той, що на вашій картці.</string>
+    <string name="action_more_options">Більше опцій</string>
+    <string name="enter_card_id">Введіть ID або текст на вашій картці</string>
+    <string name="addWithoutBarcode">Додати картку без штрих-коду</string>
+    <string name="field_must_not_be_empty">Поле вводу не повинно бути порожнім</string>
 </resources>

@@ -1,0 +1,18 @@
+# remove the leading '#' to uncomment lines
+
+app_package_name('me.hackerchick.catima.screengrab.debug')
+use_tests_in_packages(['protect.card_locker.screenshot'])
+
+app_apk_path('app/build/outputs/apk/screengrab/debug/app-screengrab-debug.apk')
+tests_apk_path('app/build/outputs/apk/androidTest/screengrab/debug/app-screengrab-debug-androidTest.apk')
+
+locales(['en-US', 'fr-FR', 'it-IT'])
+
+# clear all previously generated screenshots in your local output directory before creating new ones
+clear_previous_screenshots(true)
+
+# For more information about all available options run
+#   fastlane screengrab --help
+
+#test_instrumentation_runner('android.test.InstrumentationTestRunner')
+#org.robolectric.RobolectricTestRunner')

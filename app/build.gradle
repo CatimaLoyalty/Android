@@ -26,6 +26,19 @@ android {
         multiDexEnabled true
 
         resourceConfigurations += ["ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "zh-rTW", "zh-rCN"]
+
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        fdroid {
+            dimension "version"
+        }
+        screengrab {
+            dimension "version"
+            applicationIdSuffix = ".screengrab"
+        }
     }
 
     buildTypes {
@@ -113,6 +126,12 @@ dependencies {
     testImplementation 'androidx.test:core:1.5.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.robolectric:robolectric:4.10.3'
+
+    // Screenshots
+    testImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation 'com.android.support.test:rules:1.0.2'
+    testImplementation 'com.android.support.test:runner:1.0.2'
+    testImplementation 'tools.fastlane:screengrab:2.1.1'
 }
 
 tasks.withType(SpotBugsTask) {

@@ -272,7 +272,7 @@
     <string name="openFrontImageInGalleryApp">Открыть лицевое изображение в приложении галереи</string>
     <string name="openBackImageInGalleryApp">Открыть заднее изображение в приложении галереи</string>
     <string name="donate">Пожертвовать</string>
-    <string name="icon_header_click_text">Долгое нажатие для редактирования миниатюры</string>
+    <string name="icon_header_click_text">Долгое нажатие для редактирования</string>
     <string name="show_note">Показывать примечание</string>
     <string name="show_validity">Показывать срок действия</string>
     <string name="show_name_below_image_thumbnail">Показывать название под миниатюрой</string>

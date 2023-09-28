@@ -68,7 +68,7 @@
 \ncopyright ©2016–2020 Branden Archer</string>
     <string name="unstar">Verwijderen uit favorieten</string>
     <string name="star">Toevoegen aan favorieten</string>
-    <string name="addManually">ID handmatig invoeren</string>
+    <string name="addManually">Barcode handmatig invoeren</string>
     <string name="leaveWithoutSaveConfirmation">Weet je zeker dat je niet wilt opslaan\?</string>
     <string name="leaveWithoutSaveTitle">Afsluiten</string>
     <string name="moveDown">Omlaag verplaatsen</string>
@@ -278,4 +278,12 @@
     <string name="action_display_options">Weergave-instellingen</string>
     <string name="view_online">Online bekijken</string>
     <string name="show_archived_cards">Gearchiveerde kaarten tonen</string>
+    <string name="card_id_must_not_be_empty">Voer een kaart-id in</string>
+    <string name="balanceParsingFailed">Ongeldig saldo</string>
+    <string name="add_a_card_in_a_different_way">Kaart op andere manier toevoegen</string>
+    <string name="manually_enter_barcode_instructions">Voer het id-nummer of de tekst van je kaart in en druk vervolgens op de barcode die het meest overeenkomt.</string>
+    <string name="action_more_options">Meer opties</string>
+    <string name="enter_card_id">Voer het id-nummer of de tekst van je kaart in</string>
+    <string name="addWithoutBarcode">Kaart zonder barcode toevoegen</string>
+    <string name="field_must_not_be_empty">Dit veld is vereist</string>
 </resources>

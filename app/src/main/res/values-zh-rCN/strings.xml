@@ -271,4 +271,12 @@
     <string name="show_archived_cards">显示已存档的卡片</string>
     <string name="app_copyright_short">版权所有 © Sylvia van Os 及其贡献者们</string>
     <string name="view_online">在线查看</string>
+    <string name="card_id_must_not_be_empty">卡片 ID 不能为空</string>
+    <string name="balanceParsingFailed">无效余额</string>
+    <string name="add_a_card_in_a_different_way">以不同方式添加卡片</string>
+    <string name="manually_enter_barcode_instructions">输入卡片上的 ID 号或文本，并按下和你卡片上的条形码看上去差不多的条形码。</string>
+    <string name="action_more_options">更多选项</string>
+    <string name="enter_card_id">输入卡片上的 ID 号或文本</string>
+    <string name="addWithoutBarcode">不使用条形码添加卡片</string>
+    <string name="field_must_not_be_empty">字段不能为空</string>
 </resources>

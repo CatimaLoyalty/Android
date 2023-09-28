@@ -292,4 +292,12 @@
     <string name="app_copyright_short">Авторское право © Sylvia van Os и помощники</string>
     <string name="action_display_options">Настройки отображения</string>
     <string name="show_archived_cards">Показывать архивные карты</string>
+    <string name="card_id_must_not_be_empty">Номер карты не может быть пустым</string>
+    <string name="balanceParsingFailed">Баланс неправильный</string>
+    <string name="add_a_card_in_a_different_way">Добавить карту другим способом</string>
+    <string name="manually_enter_barcode_instructions">Введите номер или текст с карты и нажмите штрих-код, который выглядит так же, как на карте.</string>
+    <string name="action_more_options">Ещё</string>
+    <string name="enter_card_id">Введите номер или текст с карты</string>
+    <string name="addWithoutBarcode">Добавить карту без штрих-кода</string>
+    <string name="field_must_not_be_empty">Поле не может быть пустым</string>
 </resources>

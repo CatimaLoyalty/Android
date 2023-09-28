@@ -113,19 +113,19 @@
         <item quantity="other"><xliff:g>%d</xliff:g> cartões</item>
     </plurals>
     <string name="importOptionFilesystemTitle">Importar do sistema de ficheiros</string>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Direitos de autor © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019-<xliff:g>%d</xliff:g> Sylvia van Os e colaboradores</string>
     <string name="app_copyright_old">Baseado no Loyalty Card Keychain
 \ndireitos de autor © 2016–2020 Branden Archer</string>
     <string name="about_title_fmt">Sobre o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versão: <xliff:g id="version">%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Expirados: <xliff:g>%s</xliff:g></string>
     <string name="leaveWithoutSaveConfirmation">Sair sem guardar\?</string>
-    <string name="addManually">Introduzir manualmente o identificador</string>
-    <string name="addFromImage">Selecionar imagem da galeria</string>
+    <string name="addManually">Insira o código de barras manualmente</string>
+    <string name="addFromImage">Selecione uma imagem da galeria</string>
     <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
     <string name="balanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Editar código de barras</string>
-    <string name="expiryDate">Validade</string>
+    <string name="expiryDate">Data de expiração</string>
     <string name="never">Nunca</string>
     <string name="chooseExpiryDate">Escolher validade</string>
     <string name="moveBarcodeToTopOfScreen">Mover o código de barras para o topo do ecrã</string>
@@ -134,7 +134,7 @@
     <string name="balance">Saldo</string>
     <string name="currency">Moeda</string>
     <string name="points">Pontos</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Chaveiro de cartão de fidelidade</string>
     <string name="privacy_policy">Política de privacidade</string>
     <string name="privacy_policy_popup_text">Aviso de política de privacidade (exigido por algumas lojas de aplicações):
 \n
@@ -170,7 +170,7 @@
     <string name="sort">Ordenar</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>
-    <string name="sort_by_expiry">Validade</string>
+    <string name="sort_by_expiry">Expiração</string>
     <string name="reverse">…na ordem inversa</string>
     <string name="sort_by">Ordenar por</string>
     <string name="version_history">Histórico de versões</string>
@@ -198,7 +198,7 @@
     <string name="barcodeImageDescriptionWithType">Imagem do código de barras <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Editar grupo</string>
     <string name="group_name_already_in_use">O nome do grupo já está a ser usado</string>
-    <string name="group_name_is_empty">O nome do grupo não pode estar vazio</string>
+    <string name="group_name_is_empty">O nome do grupo não pode ser vazio</string>
     <string name="group_updated">Grupo atualizado</string>
     <string name="editGroup">A editar grupo: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Crie alguns cartões e atribua-os depois ao grupo aqui.</string>
@@ -281,4 +281,16 @@
     <string name="settings_category_title_cards">cartões</string>
     <string name="settings_category_title_general">geral</string>
     <string name="settings_category_title_privacy">Privacidade</string>
+    <string name="card_id_must_not_be_empty">O ID do cartão não pode estar vazio</string>
+    <string name="balanceParsingFailed">Saldo inválido</string>
+    <string name="add_a_card_in_a_different_way">Adicione um cartão de uma forma diferente</string>
+    <string name="view_online">Exibir online</string>
+    <string name="manually_enter_barcode_instructions">Digite o número ID ou o texto em seu cartão e pressione o código de barras que se parece com o que está em seu cartão.</string>
+    <string name="action_more_options">Mais opções</string>
+    <string name="enter_card_id">Digite o número ID ou o texto em seu cartão</string>
+    <string name="action_display_options">Opções de exibição</string>
+    <string name="addWithoutBarcode">Adicione um cartão sem código de barras</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os e colaboradores</string>
+    <string name="field_must_not_be_empty">O campo não pode estar vazio</string>
+    <string name="show_archived_cards">Exibir cartões arquivados</string>
 </resources>

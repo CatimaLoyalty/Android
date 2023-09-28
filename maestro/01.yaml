@@ -1,0 +1,54 @@
+appId: me.hackerchick.catima.debug
+name: Generate main screen overview with 8 cards
+---
+- launchApp:
+    appId: "me.hackerchick.catima.debug"
+    clearState: true
+- evalScript: ${output.counter = 0}
+# We only care about cardCount at this moment, but this way we can keep the card list in one script
+- runScript:
+    file: js/01-getCardInfo.js
+    env:
+      INDEX: ${output.counter}
+- repeat:
+    while:
+        true: ${output.counter < output.cardCount}
+    commands:
+      - runScript:
+          file: js/01-getCardInfo.js
+          env:
+            INDEX: ${output.counter}
+      - tapOn:
+          id: "me.hackerchick.catima.debug:id/fabAdd" # Add
+      - tapOn:
+          id: "me.hackerchick.catima.debug:id/fabOtherOptions" # More options
+      - tapOn:
+          id: "android:id/text1"
+          index: 0 # Add a card with no barcode
+      - inputText: 123456
+      - tapOn:
+          id: "android:id/button1" # OK
+      - tapOn:
+          id: "me.hackerchick.catima.debug:id/thumbnail" # Thumbnail
+      - tapOn:
+          id: "android:id/text1"
+          index: 0 # Select color
+      - tapOn:
+          id: "android:id/button3" # Custom
+      # BUG: Erase text twice to work around https://github.com/mobile-dev-inc/maestro/issues/495
+      - repeat:
+          times: 2
+          commands:
+            - tapOn:
+                id: "me.hackerchick.catima.debug:id/cpv_hex"
+            - eraseText
+      - inputText: ${output.cardColor}
+      - tapOn:
+          id: "android:id/button1" # Select
+      - tapOn:
+          id: "me.hackerchick.catima.debug:id/storeNameEdit" # Name
+      - inputText: ${output.cardName}
+      - tapOn:
+          id: "me.hackerchick.catima.debug:id/fabSave" # Save
+      - evalScript: ${output.counter = output.counter + 1}
+- takeScreenshot: "screenshot-01"

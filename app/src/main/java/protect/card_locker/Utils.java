@@ -287,8 +287,7 @@ public class Utils {
 
         // adding a space between the currency code and the balance
         String formattedCurrency = currencyFormat.format(value);
-        formattedCurrency = formattedCurrency.replace(currency.getCurrencyCode(), currency.getCurrencyCode() + " ");
-        return formattedCurrency;
+        return formattedCurrency.replace(currency.getCurrencyCode(), currency.getCurrencyCode() + " ");
     }
 
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {

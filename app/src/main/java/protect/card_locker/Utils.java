@@ -55,6 +55,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
@@ -284,7 +285,10 @@ public class Utils {
         currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
         currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
 
-        return currencyFormat.format(value);
+        // adding a space between the currency code and the balance
+        String formattedCurrency = currencyFormat.format(value);
+        formattedCurrency = formattedCurrency.replace(currency.getCurrencyCode(), currency.getCurrencyCode() + " ");
+        return formattedCurrency;
     }
 
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {

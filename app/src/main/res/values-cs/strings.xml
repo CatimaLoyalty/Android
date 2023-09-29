@@ -151,8 +151,8 @@
     <string name="errorReadingImage">Obrázek se nepodařilo přečíst</string>
     <string name="noBarcodeFound">Čárový kód nenalezen</string>
     <string name="groupsList">Skupiny: <xliff:g>%s</xliff:g></string>
-    <string name="addFromImage">Výběr obrázku z galerie</string>
-    <string name="addManually">Ruční zadání ID</string>
+    <string name="addFromImage">Vybrat obrázek z galerie</string>
+    <string name="addManually">Zadat čárový kód ručně</string>
     <string name="leaveWithoutSaveConfirmation">Ukončit bez uložení\?</string>
     <string name="leaveWithoutSaveTitle">Ukončit</string>
     <string name="failedOpeningFileManager">Nejprve si nainstalujte správce souborů.</string>
@@ -199,7 +199,7 @@
     <string name="setIcon">Nastavit miniaturu</string>
     <string name="group_edit">Upravit skupinu</string>
     <string name="group_name_already_in_use">Název skupiny je již použitý</string>
-    <string name="group_name_is_empty">Název skupiny nemůže být prázdný</string>
+    <string name="group_name_is_empty">Název skupiny nesmí být prázdný</string>
     <string name="group_updated">Skupina aktualizována</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="noGiftCardsGroup">Zatím nemáte žádné věrnostní karty. Jakmile nějaké přidáte, můžete je zde přiřadit do skupiny.</string>
@@ -285,4 +285,12 @@
     <string name="action_display_options">Možnosti zobrazení</string>
     <string name="show_archived_cards">Zobrazovat archivované karty</string>
     <string name="view_online">Zobrazovat online</string>
+    <string name="card_id_must_not_be_empty">ID karty nesmí být prázdné</string>
+    <string name="balanceParsingFailed">Neplatný zůstatek</string>
+    <string name="add_a_card_in_a_different_way">Přidat kartu jiným způsobem</string>
+    <string name="manually_enter_barcode_instructions">Zadejte číslo ID nebo text na vaší kartě a stiskněte čárový kód, který vypadá jako ten na vaší kartě.</string>
+    <string name="action_more_options">Více možností</string>
+    <string name="enter_card_id">Zadejte číslo ID nebo text na vaší kartě</string>
+    <string name="addWithoutBarcode">Přidat kartu bez čárového kódu</string>
+    <string name="field_must_not_be_empty">Položka nesmí být prázdná</string>
 </resources>

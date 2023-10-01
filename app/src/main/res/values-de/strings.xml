@@ -264,7 +264,7 @@
     <string name="show_name_below_image_thumbnail">Namen unter Bildvorschau anzeigen</string>
     <string name="settings_allow_content_provider_read_title">Anderen Anwendungen den Zugriff auf meine Daten gestatten</string>
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
-    <string name="permissionReadCardsDescription">Lesen Sie Ihre Karten mit allen Details, einschließlich Notizen und Bildern</string>
+    <string name="permissionReadCardsDescription">lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
     <string name="settings_allow_content_provider_read_summary">Anwendungen müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
     <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
     <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
@@ -285,4 +285,5 @@
     <string name="enter_card_id">Gib die Codenummer oder Ziffernfolge deiner Karte an</string>
     <string name="addWithoutBarcode">Eine Karde ohne Code hinzufügen</string>
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
+    <string name="manually_enter_barcode_instructions">Trage die ID Nummer oder Text deiner Karte ein und drücke auf den Barcode, der wie auf deiner Karte aussieht.</string>
 </resources>

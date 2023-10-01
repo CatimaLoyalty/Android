@@ -2,9 +2,29 @@ version: 2
 updates:
   - package-ecosystem: "gradle"
     directory: "/"
+    registries:
+      - google
+      - gradlePluginPortal
+      - jitpack
+      - mavenCentral
     schedule:
       interval: "daily"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+
+# Workaround for https://github.com/dependabot/dependabot-core/issues/6888
+registries:
+  google:
+    type: maven-repository
+    url: "https://dl.google.com/dl/android/maven2/"
+  gradlePluginPortal:
+    type: maven-repository
+    url: "https://plugins.gradle.org/m2/"
+  jitpack:
+    type: maven-repository
+    url: "https://jitpack.io/"
+  mavenCentral:
+    type: maven-repository
+    url: "https://repo1.maven.org/maven2/"

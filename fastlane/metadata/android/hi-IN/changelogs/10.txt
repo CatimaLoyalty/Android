@@ -1,0 +1,3 @@
+- डिफ़ॉल्ट आयात/निर्यात फ़ाइल नाम बदल दिया गया। (पुल #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- आयात/निर्यात पृष्ठ पर स्ट्रिंग सही किया गया। (पुल #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- कार्ड दृश्य पृष्ठ का लेआउट सुधारा गया है। पाठ पठनीय होना चाहिए और लॉन्ग क्लिक के साथ चुना जा सकता है। (पुल #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

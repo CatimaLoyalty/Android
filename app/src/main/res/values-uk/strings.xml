@@ -132,7 +132,7 @@
     <string name="storeName">Назва</string>
     <string name="noMatchingGiftCards">Збігів не знайдено. Спробуйте змінити параметри пошуку.</string>
     <string name="action_add">Додати</string>
-    <string name="action_search">Пошук</string>
+    <string name="action_search">Застосунки</string>
     <string name="turn_flashlight_off">Вимкнути спалах</string>
     <string name="turn_flashlight_on">Увімкнути спалах</string>
     <string name="failedGeneratingShareURL">Збій створення URL обміну. Будь ласка повідомте про цю помилку.</string>

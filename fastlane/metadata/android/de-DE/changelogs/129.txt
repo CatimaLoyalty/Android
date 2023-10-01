@@ -1,0 +1,3 @@
+- Catima Importer verbessert (fehlende Karten werden importiert)
+- Behebung von einem Absturz wenn der Bildschirm gedreht wird während ein Datum (von/abgelaufen) gesetzt wird
+- Kleinere UI Anpassungen

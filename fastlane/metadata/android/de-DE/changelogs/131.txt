@@ -1,0 +1,3 @@
+- Verschiebung von "Archive Mode" in das "Display Einstellungen" (vorher "Details anzeigen") Menü
+- Unterstützung der Android 13 "pro App" Sprachfunktion
+- Datenschutz, Changelog und Lizenz in die App integriert

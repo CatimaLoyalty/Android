@@ -100,7 +100,7 @@
     <string name="backImageDescription">Zdjęcie tylne</string>
     <string name="frontImageDescription">Zdjęcie przednie</string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcę Ci udostępnić karty</string>
-    <string name="copy_to_clipboard_multiple_toast">Skopiowano ID do schowka</string>
+    <string name="copy_to_clipboard_multiple_toast">Skopiowano numery ID do schowka</string>
     <string name="wrongValueForBarcodeType">Wartość nie jest prawidłowa dla wybranego typu kodu kreskowego</string>
     <string name="unsupportedBarcodeType">Nie można jeszcze wyświetlić tego typu kodu kreskowego. Być może będzie on obsługiwany w nowszej wersji aplikacji.</string>
     <string name="setBarcodeId">Ustaw wartość kodu kreskowego</string>
@@ -144,7 +144,7 @@
     <string name="expiryStateSentence">Wygasa: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Grupy: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Wybierz zdjęcie z galerii</string>
-    <string name="addManually">Wpisz ręcznie ID</string>
+    <string name="addManually">Wpisz kod kreskowy ręcznie</string>
     <string name="leaveWithoutSaveConfirmation">Wyjść bez zapisywania\?</string>
     <string name="leaveWithoutSaveTitle">Wyjdź</string>
     <string name="moveDown">Przesuń w dół</string>
@@ -184,7 +184,7 @@
     <string name="shortcutSelectCard">Wybierz kartę</string>
     <string name="sort_by_name">Nazwa</string>
     <string name="sort_by_most_recently_used">Ostatnio używane</string>
-    <string name="sort_by_expiry">Data wygaśnięcia</string>
+    <string name="sort_by_expiry">Wygaśnięcie</string>
     <string name="sort_by">Sortuj według</string>
     <string name="credits">Podziękowania</string>
     <string name="help_translate_this_app">Pomóż przetłumaczyć tę aplikację</string>
@@ -250,7 +250,7 @@
         <item quantity="many">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
         <item quantity="other">Wyświetl zarchiwizowane (<xliff:g>%1$d</xliff:g> karty)</item>
     </plurals>
-    <string name="currentBalanceSentence">Saldo: <xliff:g>%s</xliff:g></string>
+    <string name="currentBalanceSentence">Bieżące saldo: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">By zeskanować kody kreskowe, Catima musi mieć dostęp do twojej kamery. Dotknij tutaj by zmienić swoje ustawienia dostępu.</string>
     <string name="updateBalanceTitle">Ile wydałeś\?</string>
     <string name="updateBalanceHint">Wpisz sumę</string>
@@ -278,7 +278,7 @@
     <string name="show_validity">Pokaż ważność</string>
     <string name="show_note">Pokaż notatkę</string>
     <string name="permissionReadCardsLabel">Odczytaj Karty Catima</string>
-    <string name="permissionReadCardsDescription">Odczytaj swoje karty i ich szczegóły, włącznie z notatkami i obrazkami</string>
+    <string name="permissionReadCardsDescription">odczytywanie swoich kart Catima i ich szczegółów, włącznie z notatkami i obrazkami</string>
     <string name="settings_allow_content_provider_read_title">Pozwól innym aplikacjom na dostęp do moich danych</string>
     <string name="settings_display_barcode_max_brightness_summary">Potrzebne aby niektóre skanery działały</string>
     <string name="settings_keep_screen_on_summary">Wyłącza wygaszanie ekranu kiedy wyświetlana jest karta</string>
@@ -292,4 +292,12 @@
     <string name="action_display_options">Opcje wyświetlania</string>
     <string name="show_archived_cards">Pokaż zarchiwizowane karty</string>
     <string name="view_online">Zobacz online</string>
+    <string name="card_id_must_not_be_empty">ID karty nie może być puste</string>
+    <string name="balanceParsingFailed">Nieprawidłowy balans</string>
+    <string name="add_a_card_in_a_different_way">Dodaj kartę w inny sposób</string>
+    <string name="manually_enter_barcode_instructions">Wprowadź numer ID lub tekst na karcie i naciśnij kod kreskowy, który wygląda jak ten na karcie.</string>
+    <string name="action_more_options">Więcej opcji</string>
+    <string name="enter_card_id">Wpisz numer ID lub tekst na twojej karcie</string>
+    <string name="addWithoutBarcode">Dodaj kartę bez kodu kreskowego</string>
+    <string name="field_must_not_be_empty">Pole nie może być puste</string>
 </resources>

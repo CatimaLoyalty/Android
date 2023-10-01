@@ -69,7 +69,7 @@
     <string name="groups">Gruppi</string>
     <string name="enter_group_name">Inserisci il nome del gruppo</string>
     <string name="groupsList">Gruppi: <xliff:g>%s</xliff:g></string>
-    <string name="addManually">Inserisci manualmente il codice</string>
+    <string name="addManually">Inserire manualmente il codice</string>
     <string name="leaveWithoutSaveConfirmation">Uscire senza salvare\?</string>
     <string name="leaveWithoutSaveTitle">Esci</string>
     <string name="moveDown">Sposta in basso</string>
@@ -119,7 +119,7 @@
     <string name="barcodeId">Valore del codice a barre</string>
     <string name="errorReadingImage">Impossibile leggere l\'immagine</string>
     <string name="noBarcodeFound">Nessun codice a barre trovato</string>
-    <string name="addFromImage">Seleziona immagine dalla galleria</string>
+    <string name="addFromImage">Seleziona un\'immagine dalla galleria</string>
     <string name="unsupportedBarcodeType">Questo tipo di codice a barre non può ancora essere visualizzato. Potrebbe essere supportato in una versione successiva dell\'applicazione.</string>
     <string name="wrongValueForBarcodeType">Il valore non è valido per il tipo di codice a barre selezionato</string>
     <string name="app_resources">Risorse libere di terze parti: <xliff:g id="app_resources_list"> %s </xliff:g></string>
@@ -196,7 +196,7 @@
     <string name="rate_this_app">Valuta questa applicazione</string>
     <string name="report_error">Segnala un errore</string>
     <string name="editGroup">Modifica del gruppo: <xliff:g>%s</xliff:g></string>
-    <string name="group_name_is_empty">Il nome del gruppo non può essere vuoto</string>
+    <string name="group_name_is_empty">Il nome del gruppo non deve essere vuoto</string>
     <string name="noGiftCardsGroup">Crea alcune carte e poi assegnale al gruppo qui.</string>
     <string name="group_edit">Modifica il gruppo</string>
     <string name="group_name_already_in_use">Il nome del gruppo è già in uso</string>
@@ -272,7 +272,7 @@
     <string name="permissionReadCardsLabel">Leggi le carte Catima</string>
     <string name="settings_allow_content_provider_read_summary">Le applicazioni dovranno comunque richiedere l\'autorizzazione per ottenere l\'accesso</string>
     <string name="settings_allow_content_provider_read_title">Consenti ad altre applicazioni di accedere ai miei dati</string>
-    <string name="permissionReadCardsDescription">Leggi le tue carte e tutti i suoi dettagli, comprese le note e le immagini</string>
+    <string name="permissionReadCardsDescription">Leggere le sue carte e tutti i suoi dettagli, comprese le note e le immagini</string>
     <string name="settings_display_barcode_max_brightness_summary">Necessario per il funzionamento di alcuni scanner</string>
     <string name="settings_keep_screen_on_summary">Disattiva il timeout dello schermo durante la visualizzazione di una carta</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Disattiva il blocco dello schermo durante la visualizzazione di una carta</string>
@@ -285,4 +285,12 @@
     <string name="show_archived_cards">Mostrare le carte archiviate</string>
     <string name="view_online">Visualizzare online</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os e contributori</string>
+    <string name="card_id_must_not_be_empty">L\'ID della carta non deve essere vuoto</string>
+    <string name="balanceParsingFailed">Saldo non valido</string>
+    <string name="add_a_card_in_a_different_way">Aggiungere una carta in un modo diverso</string>
+    <string name="manually_enter_barcode_instructions">Inserire il numero ID o il testo sulla sua carta poi prema il codice a barre che assomiglia a quello sulla sua carta.</string>
+    <string name="action_more_options">Più opzioni</string>
+    <string name="enter_card_id">Inserire il numero ID o il testo sulla sua carta</string>
+    <string name="addWithoutBarcode">Aggiungere una carta senza codice a barre</string>
+    <string name="field_must_not_be_empty">Il campo non deve essere vuoto</string>
 </resources>

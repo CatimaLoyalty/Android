@@ -4,6 +4,7 @@
 
 - Refine "Add card" workflow
 - Validation flow improvements
+- Fix edge case causing invalid UI state when toggling showing archive
 
 ## v2.26.0 - 131 (2023-09-14)
 

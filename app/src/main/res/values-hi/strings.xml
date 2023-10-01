@@ -63,7 +63,7 @@
     <string name="settings_portrait_orientation">पोट्रैट</string>
     <string name="settings_display_barcode_max_brightness">बारकोड का दृश्य उजालित(ब्राइट) करें</string>
     <string name="settings_keep_screen_on">स्क्रीन को चालू रखें</string>
-    <string name="cameraPermissionDeniedTitle">हम कैमरा तक पहुँच नहीं सकते</string>
+    <string name="cameraPermissionDeniedTitle">कैमरे तक पहुंच नहीं सके</string>
     <string name="noCameraPermissionDirectToSystemSetting">बारकोड स्कैन करने के लिए,को आपके कैमरा का इस्तेमाल करना होगा। इजाज़त कि व्यवस्था (सेटिंग) बदलने के लिए यहाँ दबायें।</string>
     <string name="importOptionApplicationExplanation">फाइल खोलने के लिए कोई भी ऐप या अपना पसंदिता फाइल मैनेजर का इस्तेमाल करे।</string>
     <string name="settings_theme">विषय</string>

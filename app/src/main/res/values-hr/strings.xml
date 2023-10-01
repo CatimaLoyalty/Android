@@ -55,7 +55,7 @@
     <string name="settings_light_theme">Svijetla</string>
     <string name="settings_display_barcode_max_brightness">Osvijetli prikaz crtičnog koda</string>
     <string name="moveDown">Pomakni prema dolje</string>
-    <string name="addManually">Ručno upiši ID</string>
+    <string name="addManually">Upiši barkod</string>
     <string name="thumbnailDescription">Sličica</string>
     <string name="starImage">Omiljena zvijezda</string>
     <string name="exportSuccessful">Podaci su izvezeni</string>
@@ -211,7 +211,7 @@
         <item quantity="few">Izbrisati ove <xliff:g>%d</xliff:g> kartice zauvijek\?</item>
         <item quantity="other">Izbrisati ovih <xliff:g>%d</xliff:g> kartica zauvijek\?</item>
     </plurals>
-    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019. – <xliff:g>%d.</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorska prava © 2019. – <xliff:g>%d.</xliff:g> Sylvia van Os i doprinositelji</string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_resources">Libre resursi trećih strana: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_landscape_orientation">Vodoravno</string>

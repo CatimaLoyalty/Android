@@ -1,0 +1,4 @@
+- Kleinere UI Korrekturen
+- Korrektur beim setzen des valide von und abgelaufen Datum wenn das Bildschirm gedreht wird
+- Behebung eines Absturz wenn der Bildschirm gedreht wird während die Farbwahl gezeigt wird
+- Korrektur beim Import von Stocards

@@ -1,0 +1,4 @@
+- Verbesserung der Barcode Darstellung
+- Grundlegende Unterstützung von externen Apps (Android 6.0+)
+- Anordnung der Einstellungsseite verbessert
+- Korrektur beim Import von anderen Browser, die ein / am Anfang der URL einfügen

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -133,6 +134,13 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
         // this setText is here because content_main.xml is reused from main activity
         noGroupCardsText.setText(getResources().getText(R.string.noGiftCardsGroup));
         updateLoyaltyCardList();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                leaveWithoutSaving();
+            }
+        });
     }
 
     private ArrayList<Integer> adapterStateToIntegerArray(HashMap<Integer, Boolean> adapterState) {
@@ -211,13 +219,8 @@ public class ManageGroupActivity extends CatimaAppCompatActivity implements Mana
     }
 
     @Override
-    public void onBackPressed() {
-        leaveWithoutSaving();
-    }
-
-    @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
 

@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
@@ -337,6 +338,17 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 }
             }
         });
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (mSearchView != null && !mSearchView.isIconified()) {
+                    mSearchView.setIconified(true);
+                } else {
+                    finish();
+                }
+            }
+        });
     }
 
     @Override
@@ -409,16 +421,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             mBarcodeScannerLauncher.launch(intent);
         });
         addButton.bringToFront();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mSearchView != null && !mSearchView.isIconified()) {
-            mSearchView.setIconified(true);
-            return;
-        }
-
-        super.onBackPressed();
     }
 
     private void displayCardSetupOptions(Menu menu, boolean shouldShow) {
@@ -611,7 +613,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         int id = inputItem.getItemId();
 
         if (id == android.R.id.home) {
-            onBackPressed();
+            getOnBackPressedDispatcher().onBackPressed();
         }
 
         if (id == R.id.action_display_options) {

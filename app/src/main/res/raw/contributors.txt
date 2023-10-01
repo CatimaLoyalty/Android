@@ -18,10 +18,10 @@ Petr Novák
 Joel A
 laralem
 Taco
-pfaffenrodt
 Eric
-Nyatsuki
+pfaffenrodt
 HudobniVolk
+Nyatsuki
 Samantaz Fox
 arno-github
 Ankit Tiwari
@@ -33,10 +33,12 @@ huuhaa
 Projjal Moitra
 Quentin PAGÈS
 Giovanni Donisi
+Jiri Grönroos
 Alexander Ivanov
 arshbeerSingh
 Denis Shilin
 Freddo espresso
+Skrripy
 Ziad OUALHADJ
 Silvério Santos
 Miha Frangež
@@ -45,7 +47,6 @@ Arnis Jaundžeikars
 Dan
 sr093906
 mdvhimself
-Jiri Grönroos
 Katarzyna
 echo r"0xX4H" | rev
 Magnitudee
@@ -99,6 +100,7 @@ Kis Dominik
 Lukas Grassauer
 Luna Jernberg
 Marnick L'Eau
+Mateus Souza
 Michalis
 Michał
 Milo Ivir
@@ -109,11 +111,13 @@ Quang Trung
 Rishi Agarwal
 Rosdyana Kusuma
 Sabri Ünal
+Sand Smith
 umoenks
 Simon Rusinov
 Siriusmart
 Mritunjay
 Tarik Dzambic
+TheScientistPT
 Thomas Bertels
 Thomas Cruveilher
 Tian Jiale
@@ -254,6 +258,7 @@ essys
 gbonaspetti
 gittyboy-cell
 huang ivan
+kb01guy
 lassr8
 liva
 lucafont2

@@ -1,0 +1,3 @@
+- Prilepenie na čiarový kód sa teraz pohybuje do hornej časti obrazovky (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- Pridajte biely priestor okolo čiarových kódov na zlepšenie skenovania v tmavom režime (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- Fix swapované import tlačidlá. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

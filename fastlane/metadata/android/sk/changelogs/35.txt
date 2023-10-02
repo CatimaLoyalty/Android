@@ -1,0 +1,2 @@
+- Zakázať zálohovanie aplikácie
+- Aktualizácia francúzskych a slovinských prekladov

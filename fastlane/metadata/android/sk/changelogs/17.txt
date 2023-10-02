@@ -1,0 +1,2 @@
+- Pridať podporu pre pridanie skratky lojality z Launcher/homescreen. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161)
+- Odstráňte podporu pridanie skratky lojality z samotnej aplikácie. To odstraňuje potrebu skratového povolenia. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

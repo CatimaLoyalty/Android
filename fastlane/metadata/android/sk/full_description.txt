@@ -1,0 +1,22 @@
+Zastaviť vyhľadávanie plastových odmenných kariet počas obchodu alebo kontroly webshopu.
+<b>Scan čiarové kódy do vášho zariadenia pomocou fotoaparátu, zabudnite na karty.</b>
+
+Zabudnite na svoju peňaženku, alebo ju nechajte ultraľahčiť pre cenné.
+
+S týmto základným každodenným nosením (EDC) nástroj môžete nahradiť zbytočné plast s hotovosťou.
+
+- Vyhnite sa špehovaniu s veľmi málo povolenia. Žiadny prístup k internetu a žiadne reklamy.
+- Pridať karty alebo kódy s menami a prispôsobiteľnými farbami.
+- Manuálny kód vstup, ak nie je čiarový kód na uloženie, alebo nemožno použiť.
+- Import karty a kódy z súborov, Catima, FidMe, Vernostná karta Keychain, Stocard a voucher Vault.
+- Urobte zálohu všetkých vašich kariet a preneste ich na nové zariadenie, ak chcete.
+- Zdieľať kupóny, exkluzívne ponuky, promo kódy, alebo karty a kódy pomocou akejkoľvek aplikácie.
+- Tmavo téma a možnosti prístupnosti pre videnie postihnutých užívateľov.
+- Vyrobený pre každého prostredníctvom renomovanej softvérovej komunity.
+- Miestne preklady ručne vyrobené pre 20+ jazykov.
+- Gratis, podporované komunitnými príspevokmi.
+- Použitie, štúdium, zmena a zdieľanie ako si prajete; <i> so všetkými</i>.
+- Nielen Voľný softvér / Open Source. <i>Copylefted</i> libre softvér (GPLv3+) Správa kariet.
+
+Zjednodušte svoj život a nakupujte, a nikdy nestrácajte papierový príjem, in-store platobnej karty alebo letenku znova.
+Vezmite všetky svoje odmeny a bonusy s vami a ušetrite, ako idete.

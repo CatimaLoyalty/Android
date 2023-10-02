@@ -1,0 +1,2 @@
+- Podpora pre zmenu výberu
+- Zabráňte pamäte na skenovanie veľkých obrázkov pre čiarový kód

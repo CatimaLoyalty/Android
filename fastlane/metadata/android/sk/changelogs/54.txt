@@ -1,0 +1,1 @@
+- Tlačidlo na úpravu Fix alebo viac info spodný list kreslenie cez čiarový kód ID

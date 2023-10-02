@@ -1,0 +1,4 @@
+- Pridajte nastavenie na kontrolu obrazovky jas pri zobrazovaní čiarového kódu
+- Pridajte grécke preklady
+- Pridajte slovinské preklady
+- Aktualizácia prekladov

@@ -1,0 +1,1 @@
+- Fix regresie rozdelenie import / export

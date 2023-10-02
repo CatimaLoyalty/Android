@@ -1,0 +1,4 @@
+- Pridať podporu pre škálovanie čiarového kódu pri prechode na vrchol, aby sa zmestili ešte viac malých skenerov
+- Fix spodnej listovej skákanie po prepínaní na plnej obrazovke
+- Urobte si hlavičku v lojalite pohľad malý v režime krajiny
+- Fix karty nie sú v skupine, keď sa skupina premenuje

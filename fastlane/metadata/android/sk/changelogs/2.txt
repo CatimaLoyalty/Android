@@ -1,0 +1,3 @@
+- talianske preklady
+- Podpora pre všetky typy čiarových kódov 1D. (Originally iba produkt 1D čiarových kódov boli podporované)
+- Pridajte požadované povolenie na fotoaparát, ktorý bol pôvodne chýba.

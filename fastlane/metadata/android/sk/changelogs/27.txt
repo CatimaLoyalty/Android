@@ -1,0 +1,2 @@
+- Znížte min SDK od 17 do 15. (pull #226 (https://github.com/brarcher/loyalty-card-locker/pull/226))
+- Odstráňte používanie dedenzačnej knižnice apache, používané iba v testoch jednotiek, ale už nie je potrebné. (pull #225 (https://github.com/brarcher/loyalty-card-locker/pull/225))

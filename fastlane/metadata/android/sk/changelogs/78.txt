@@ -1,0 +1,1 @@
+- Fix havarovanie na rotáciu lojality na úpravu karty aktivity

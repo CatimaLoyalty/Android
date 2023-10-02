@@ -1,0 +1,4 @@
+- Podpora nového exportu PDF417 z poukážky Vault
+- Podpora kopírovania viacerých čiarových kódov naraz
+- Podpora zdieľanie viacerých vernostných kariet naraz
+- Opýtajte sa aktualizovať hodnotu čiarového kódu, ak zmeny karty

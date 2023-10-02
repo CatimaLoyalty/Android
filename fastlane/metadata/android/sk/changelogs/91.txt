@@ -1,0 +1,4 @@
+- Vylepšená podpora riadenia skupiny
+- Podpora výživných obrázkov
+- Fix strata obrázkov pri záchrane po otáčaní v editnom pohľade
+- Schopnosť nastaviť vlastný obraz ako ikona karty

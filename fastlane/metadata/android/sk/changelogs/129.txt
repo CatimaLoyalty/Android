@@ -1,0 +1,3 @@
+- Vylepšené Catima importér (potlačové karty chýba pri importe)
+- Fix haváriu pri otáčaní obrazovky pri nastavení platné od dátumu/expiry
+- Minor UI tweaks

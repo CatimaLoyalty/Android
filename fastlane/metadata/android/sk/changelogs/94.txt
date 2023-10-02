@@ -1,0 +1,3 @@
+- Fix blurriness hlavných ikon obrazov obrazovky
+- Fix ikony niekedy zmiznú po výbere
+- Fix stav bar ikony možno neviditeľný na Android 5

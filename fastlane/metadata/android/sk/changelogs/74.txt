@@ -1,0 +1,3 @@
+- Vytvorenie skratky Fix
+- Generovať ikonu karty špecifické skratky
+- Fix schopnosť meniť farbu lojalitu

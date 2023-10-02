@@ -1,0 +1,3 @@
+- Long-press ikona karty v prezeranie aktivity zmeniť
+- Zlepšite grafický štýl v obrazovke skupiny
+- Fix dlhé hodnoty čiarových kódov spôsobujú čiarový kód na mierku nadol na nič

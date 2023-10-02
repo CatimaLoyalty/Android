@@ -1,0 +1,5 @@
+- Pridať funkciu duplikácie karty
+- Nedovoľte, aby ste si vybrali expiráciu pred rokom 1970 (tak nikdy nepracovali)
+- Pridať podporu pre archivačné karty
+- Presunúť z editácie pre zobrazenie
+- Odstráňte ikonu otáčania v prospech nového nastavenia otáčania zámku

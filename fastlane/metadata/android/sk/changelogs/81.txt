@@ -1,0 +1,4 @@
+- Zlepšite zoznam kariet pre zobrazenie krajiny a tabletu
+- Pridajte im podporu farieb (ďakujem, Subhashish Anand!)
+- Nezatvárajte skenovanie činnosť na chybu kamery (tak manuálny vstup je stále možný)
+- Pridajte všetky prispievateľy k dialógu

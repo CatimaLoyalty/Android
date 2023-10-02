@@ -1,0 +1,3 @@
+- Podpora importu poukážky Vault (https://github.com/tim-smart/vouchervault/) Slovenčina
+- Možnosť udržať obrazovku pri prezeraní vernostnej karty
+- Možnosť pozastaviť obrazovku uzamknutia pri prezeraní vernostnej karty

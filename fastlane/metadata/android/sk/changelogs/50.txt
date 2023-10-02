@@ -1,0 +1,2 @@
+- Zlepšite kontrast vždy pomocou bieleho textu na červených tlačidiel
+- Draggable spodný list v pohľad na lojalitu

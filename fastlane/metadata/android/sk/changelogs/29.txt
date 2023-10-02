@@ -1,0 +1,2 @@
+- Fix španielsky preklady (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244)
+- Aktualizácia prekladov (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244)

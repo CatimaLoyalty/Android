@@ -1,0 +1,5 @@
+- Fix swiping medzi skupinami nefunguje na prázdnej skupine
+- Umožniť heslá-protecting exporty
+- Zlepšite využitie priestoru pre QR kódy
+- Uložiť posledný použitý úroveň zoom na kartu
+- Opravte haváriu pri swipingu hneď po kohútiku

@@ -1,0 +1,3 @@
+- Refine "Pridať kartu" workflow
+- Zlepšenie validácie
+- Fix hrany prípad spôsobuje neplatný stav UI, keď toggling ukazuje archív

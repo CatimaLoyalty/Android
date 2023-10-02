@@ -1,0 +1,3 @@
+- Fix crash pri importe určitých typov poškodených súborov CSV. (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- Fix import zálohovanie priamo zo systému súborov. (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- Fix import zálohovanie z určitých typov poskytovateľov obsahu. (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

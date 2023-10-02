@@ -1,0 +1,2 @@
+- O dialóge možno otvoriť z hlavnej obrazovky, ktorá poskytuje podrobnosti o aplikácii a projekte na GitHub (kanit #19 (https://github.com/brarcher/loyalty-card-locker/issues/19))
+- Umožniť informácie o lojalite z / exportované do súboru CSV v externom úložisku (užíva://github.com/brarcher/loyalty-card-locker/issues/36), vydanie #20 (https://github.com/brarcher/loyalty-card/locker/issues/20)

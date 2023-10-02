@@ -1,0 +1,2 @@
+- Samostatná editácia UI v záložkách, aby sa cítil priestrannejšie
+- Pridať podporu expirácie

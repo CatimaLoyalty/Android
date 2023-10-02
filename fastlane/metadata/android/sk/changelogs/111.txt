@@ -1,0 +1,7 @@
+- Podpora arabčiny
+- Zobrazenie archivovanej karty v prehľade skupiny
+- Fix rovnováhu parsing chýb (vyrobené karty nie sú v arabčine a inom jazyku s non-Western čísla)
+- Opravte vlastný motív, ktorý sa nenáša na hlavnú obrazovku správne
+- Zlepšite zobrazenie vybraných kariet
+- Fix havar pri odchode z karty v RTL layouty pre karty s expiráciou alebo vyvážením
+- Fix späť šípka v pohľade na kartu ukazuje nesprávny spôsob v RTL layouty

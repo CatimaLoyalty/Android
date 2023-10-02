@@ -1,0 +1,2 @@
+- Dlhá kliknutie karty prináša možnosť skopírovať ID karty do schránky. (pull #49 (https://github.com/brarcher/loyalty-card-locker/issues/49)
+- Zadné tlačidlo na Import/Export view teraz funguje, pohybujúce sa užívateľa k hlavnému názoru

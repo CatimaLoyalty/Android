@@ -1,0 +1,2 @@
+- Fix šedý blok sa objaví na neplatnej hodnote pre čiarový kód
+- Oprava importu Stocard

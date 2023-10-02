@@ -1,0 +1,1 @@
+- Oprava domácej obrazovky swiping spúšťa počas vertikálnych swipes príliš

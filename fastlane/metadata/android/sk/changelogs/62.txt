@@ -1,0 +1,1 @@
+- Fix parsing rovnováhu pre krajiny pomocou priestoru ako oddeľovač

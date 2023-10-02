@@ -1,0 +1,2 @@
+- Umožnite užívateľovi zadať čiarový kód manuálne. Ak používateľ elects zadať čiarový kód ručne, zobrazí sa zoznam všetkých platných a podporovaných obrázkov čiarových kódov. Užívateľ potom môže vybrať obrázok čiarového kódu, ktorý sa zhoduje s tým, čo používateľ chce. problém #33, ťah #44
+- Vyriešiť problém, kde boli niektoré zobrazené čiarové kódy blurry. kanit #37

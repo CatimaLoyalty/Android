@@ -1,0 +1,1 @@
+- Zabráňte pádu pri otáčaní obrazovky v prvom spustení intro sprievodca.

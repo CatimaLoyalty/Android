@@ -1,0 +1,2 @@
+- Nastavenie podpory štart platnosti karty
+- Fix Stocard import (Stocard export formát zmenil)

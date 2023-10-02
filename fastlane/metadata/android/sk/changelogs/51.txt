@@ -1,0 +1,1 @@
+- Fix spodný hárok pozadia je transparentný

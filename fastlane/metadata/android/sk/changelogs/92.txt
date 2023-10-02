@@ -1,0 +1,2 @@
+- Nové hlavné rozloženie obrazovky
+- Fix dnosheet sizing problémy pri prepínaní a z plnej obrazovky

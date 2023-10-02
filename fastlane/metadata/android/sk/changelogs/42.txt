@@ -1,0 +1,1 @@
+- Fix crash pri hľadaní bez skupín

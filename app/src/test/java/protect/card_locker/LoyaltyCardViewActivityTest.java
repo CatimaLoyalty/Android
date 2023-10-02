@@ -59,6 +59,7 @@ import java.util.Currency;
 import java.util.Date;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 import androidx.preference.PreferenceManager;
@@ -1172,7 +1173,7 @@ public class LoyaltyCardViewActivityTest {
     public void checkBarcodeFullscreenWorkflow() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity) activityController.get();
+        AppCompatActivity activity = (AppCompatActivity) activityController.get();
         SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
         DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, BARCODE_TYPE, Color.BLACK, 0, null,0);
 
@@ -1242,7 +1243,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(View.GONE, editButton.getVisibility());
 
         // In full screen mode, back button should disable fullscreen
-        activity.onBackPressed();
+        activity.getOnBackPressedDispatcher().onBackPressed();
         shadowOf(getMainLooper()).idle();
 
         assertTrue(activity.getWindow().getDecorView().getRootWindowInsets().isVisible(WindowInsets.Type.statusBars()));
@@ -1255,7 +1256,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(View.VISIBLE, editButton.getVisibility());
 
         // Pressing back when not in full screen should finish activity
-        activity.onBackPressed();
+        activity.getOnBackPressedDispatcher().onBackPressed();
         shadowOf(getMainLooper()).idle();
         assertTrue(activity.isFinishing());
 
@@ -1266,7 +1267,7 @@ public class LoyaltyCardViewActivityTest {
     public void checkNoBarcodeFullscreenWorkflow() {
         ActivityController activityController = createActivityWithLoyaltyCard(false);
 
-        Activity activity = (Activity) activityController.get();
+        AppCompatActivity activity = (AppCompatActivity) activityController.get();
         SQLiteDatabase database = TestHelpers.getEmptyDb(activity).getWritableDatabase();
         DBHelper.insertLoyaltyCard(database, "store", "note", null, null, new BigDecimal("0"), null, BARCODE_DATA, null, null, Color.BLACK, 0, null,0);
 
@@ -1293,7 +1294,7 @@ public class LoyaltyCardViewActivityTest {
         assertEquals(View.VISIBLE, editButton.getVisibility());
 
         // Pressing back when not in full screen should finish activity
-        activity.onBackPressed();
+        activity.getOnBackPressedDispatcher().onBackPressed();
         shadowOf(getMainLooper()).idle();
         assertEquals(true, activity.isFinishing());
 

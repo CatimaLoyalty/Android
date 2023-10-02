@@ -36,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -705,6 +706,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         });
 
         mCropperOptions = new UCrop.Options();
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                askBeforeQuitIfChanged();
+            }
+        });
     }
 
     // ucrop 2.2.6 initial aspect ratio is glitched when 0x0 is used as the initial ratio option
@@ -1062,11 +1070,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         } else {
             balanceCurrencyField.setText(getCurrencySymbol(balanceType));
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        askBeforeQuitIfChanged();
     }
 
     @Override

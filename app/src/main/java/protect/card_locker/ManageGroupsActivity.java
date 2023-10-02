@@ -71,11 +71,6 @@ public class ManageGroupsActivity extends CatimaAppCompatActivity implements Gro
         updateGroupList();
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
     private void updateGroupList() {
         mAdapter.swapCursor(DBHelper.getGroupCursor(mDatabase));
 

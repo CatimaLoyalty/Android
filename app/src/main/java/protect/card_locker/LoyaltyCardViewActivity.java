@@ -38,6 +38,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -322,6 +323,17 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return true;
         });
         binding.fullscreenImage.setOnClickListener(view -> onMainImageTap());
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (isFullscreen) {
+                    setFullscreen(false);
+                } else {
+                    finish();
+                }
+            }
+        });
     }
 
     private SpannableStringBuilder padSpannableString(SpannableStringBuilder spannableStringBuilder) {
@@ -702,16 +714,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void fixBottomAppBarImageButtonColor(ImageButton imageButton) {
         imageButton.setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(backgroundNeedsDarkIcons ? Color.BLACK : Color.WHITE, BlendModeCompat.SRC_ATOP));
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (isFullscreen) {
-            setFullscreen(false);
-            return;
-        }
-
-        super.onBackPressed();
     }
 
     @Override

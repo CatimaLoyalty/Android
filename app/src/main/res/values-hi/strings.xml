@@ -73,7 +73,7 @@
     <string name="scanCardBarcode">बारकोड स्कैन करें</string>
     <string name="cardShortcut">कार्ड का सरल उपाय (शॉर्टकट)</string>
     <string name="noGiftCards">\"+\" बटन दबाके कार्ड जोड़ें वा मेन्यू से कार्ड आयात करें</string>
-    <string name="importExportHelp">तथ्य (डाटा) को बैकअप करना हमें उसे दूसरे डिवाइस में भेजने देता है|</string>
+    <string name="importExportHelp">तथ्य (डाटा) को बैकअप करना हमें उसे दूसरे डिवाइस में भेजने देता है।</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> का बारकोड</string>
     <string name="settings_disable_lockscreen_while_viewing_card">स्क्रीन को लॉक होने से रोकें</string>
     <string name="settings_lock_on_opening_orientation">कार्ड खोलते समय प्रयोग करि गयी अवस्था को प्रतिबन्ध करें</string>
@@ -130,7 +130,7 @@
     <string name="group_updated">समूह अपडेट किया गया</string>
     <string name="failedOpeningFileManager">पहले एक फाइल मैनेजर इनस्टॉल करें.</string>
     <string name="leaveWithoutSaveConfirmation">बिना सुरक्षित किये छोड़े\?</string>
-    <string name="addManually">मैन्युअली आई डी दर्ज करें</string>
+    <string name="addManually">बारकोड को मैन्युअल रूप से दर्ज करें</string>
     <string name="editGroup">समूह संपादन: <xliff:g>%s</xliff:g></string>
     <string name="points">अंक</string>
     <string name="chooseImportType">यहाँ से डेटा का आयात करें</string>
@@ -158,4 +158,10 @@
     <string name="importLoyaltyCardKeychain">लॉयल्टी कार्ड कीचेन से आयात करें</string>
     <string name="photos">फ़ोटो</string>
     <string name="updateBarcodeQuestionTitle">बारकोड मूल्य अपडेट करें\?</string>
+    <string name="balanceSentence">बैलेंस</string>
+    <string name="settings_display_barcode_max_brightness_summary">कुछ स्कैनरों के काम करने के लिए यह आवश्यक है</string>
+    <string name="app_copyright_short">कॉपीराइट © सिल्विया वैन ओएस और योगदानकर्ता</string>
+    <string name="settings_allow_content_provider_read_summary">ऐप्स को अभी भी पहुंच प्रदान करने के लिए अनुमति का अनुरोध करना होगा</string>
+    <string name="settings_allow_content_provider_read_title">अन्य ऐप्स को मेरे डेटा तक पहुंचने की अनुमति दें</string>
+    <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी:</string>
 </resources>

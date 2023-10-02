@@ -143,4 +143,5 @@
     <string name="cameraPermissionRequired">इस क्रिया के लिए कैमरा एक्सेस की अनुमति चाहिए।…</string>
     <string name="permissionReadCardsLabel">केटीमा कार्ड्स पढ़ें</string>
     <string name="storageReadPermissionRequired">स्टोरेज पढ़ने की इजाजत इस क्रिया के लिए आवश्यक है…</string>
+    <string name="permissionReadCardsDescription">अपने केटीमा कार्ड और सभी विवरण, सहित नोट्स और छवियों को पढ़ें</string>
 </resources>

@@ -46,7 +46,7 @@
     <string name="expiryStateSentence">Vanhenee: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Ryhmät: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Valitse kuva galleriasta</string>
-    <string name="addManually">Anna ID-tunnus manuaalisesti</string>
+    <string name="addManually">Anna viivakoodi manuaalisesti</string>
     <string name="leaveWithoutSaveConfirmation">Poistutaanko tallentamatta\?</string>
     <string name="leaveWithoutSaveTitle">Poistu</string>
     <string name="moveDown">Siirrä alaspäin</string>
@@ -175,7 +175,7 @@
     <string name="noGroupCards">Tämä ryhmä on tyhjä</string>
     <string name="group_edit">Muokkaa ryhmää</string>
     <string name="group_name_already_in_use">Ryhmän nimi on jo käytössä</string>
-    <string name="group_name_is_empty">Ryhmän nimi ei voi olla tyhjä</string>
+    <string name="group_name_is_empty">Ryhmän nimi ei saa olla tyhjä</string>
     <string name="group_updated">Ryhmä päivitetty</string>
     <string name="editGroup">Muokataan ryhmää: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">
@@ -277,4 +277,10 @@
     <string name="action_display_options">Näyttövalinnat</string>
     <string name="app_copyright_short">Tekijänoikeus © Sylvia van Os ja avustajat</string>
     <string name="show_archived_cards">Näytä arkistoidut kortit</string>
+    <string name="card_id_must_not_be_empty">Kortin tunniste ei saa olla tyhjä</string>
+    <string name="add_a_card_in_a_different_way">Lisää kortti toisella tavalla</string>
+    <string name="action_more_options">Lisää valintoja</string>
+    <string name="enter_card_id">Anna kortin tunnistenumero tai kortissa oleva teksti</string>
+    <string name="addWithoutBarcode">Lisää kortti jossa ei ole viivakoodia</string>
+    <string name="field_must_not_be_empty">Kenttä ei saa olla tyhjä</string>
 </resources>

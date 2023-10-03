@@ -1,12 +1,14 @@
-How to Submit Patches to the Catima Project
-===============================================================================
-https://github.com/TheLastProject/Catima
+# How to Submit Patches to the Catima Project
 
 This document is intended to act as a guide to help you contribute to the
-Catima project.  It is not perfect, and there will always be exceptions
+Catima project. It is not perfect, and there will always be exceptions
 to the rules described here, but by following the instructions below you
 should have a much easier time getting your work merged with the upstream
 project.
+
+When contributing, you certify that you agree to and have the rights to submit
+your contribution under the project's license and understand that git will
+store your name and email address in project history indefinitely.
 
 ## Translation Changes
 
@@ -56,44 +58,6 @@ implemented.  If you are submitting a bug fix, it is also incredibly helpful
 if you can describe/include a reproducer for the problem in the description as
 well as instructions on how to test for the bug and verify that it has been
 fixed.
-
-### Sign Your Work
-
-The sign-off is a simple line at the end of the patch description, which
-certifies that you wrote it or otherwise have the right to pass it on as an
-open-source patch.  The "Developer's Certificate of Origin" pledge is taken
-from the Linux Kernel and the rules are pretty simple:
-
-	Developer's Certificate of Origin 1.1
-
-	By making a contribution to this project, I certify that:
-
-	(a) The contribution was created in whole or in part by me and I
-	    have the right to submit it under the open source license
-	    indicated in the file; or
-
-	(b) The contribution is based upon previous work that, to the best
-	    of my knowledge, is covered under an appropriate open source
-	    license and I have the right under that license to submit that
-	    work with modifications, whether created in whole or in part
-	    by me, under the same open source license (unless I am
-	    permitted to submit under a different license), as indicated
-	    in the file; or
-
-	(c) The contribution was provided directly to me by some other
-	    person who certified (a), (b) or (c) and I have not modified
-	    it.
-
-	(d) I understand and agree that this project and the contribution
-	    are public and that a record of the contribution (including all
-	    personal information I submit with it, including my sign-off) is
-	    maintained indefinitely and may be redistributed consistent with
-	    this project or the open source license(s) involved.
-
-... then you just add a line to the bottom of your patch description, with
-your real name, saying:
-
-	Signed-off-by: Random J Developer <random@developer.example.org>
 
 ### Submit Patch(es) for Review
 

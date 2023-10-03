@@ -32,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.os.LocaleListCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.palette.graphics.Palette;
 
@@ -670,6 +671,13 @@ public class Utils {
         TypedValue typedValue = new TypedValue();
         activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
         activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+
+        if (Build.VERSION.SDK_INT >= 27) {
+            View decorView = activity.getWindow().getDecorView();
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(activity.getWindow(), decorView);
+            wic.setAppearanceLightNavigationBars(!isDarkModeEnabled(activity));
+            activity.getWindow().setNavigationBarColor(typedValue.data);
+        }
     }
 
     public static int getHeaderColorFromImage(Bitmap image, int fallback) {

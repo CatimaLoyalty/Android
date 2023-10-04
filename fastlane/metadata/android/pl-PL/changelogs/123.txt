@@ -1,0 +1,2 @@
+- Drobne usprawnienia interfejsu użytkownika
+- Naprawiono nowy wygląd, który nie był użyteczny na urządzeniach z kwadratowymi ekranami

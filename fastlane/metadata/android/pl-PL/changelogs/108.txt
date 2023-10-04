@@ -1,0 +1,5 @@
+- Dodanie funkcji duplikowania kart
+- Nie zezwalaj na wybór wygaśnięcia przed 1970 r. (i tak nigdy nie działały)
+- Dodano archiwizację kart
+- Przeniesienie funkcji usuwania z edycji do widoku
+- Usunięcie ikony blokady rotacji na rzecz nowego ustawienia blokady rotacji

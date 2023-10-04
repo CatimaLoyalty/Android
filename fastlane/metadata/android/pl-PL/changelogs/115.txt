@@ -1,0 +1,4 @@
+- Otwieranie obrazu w galerii po długim naciśnięciu
+- Zastosowanie stylu Material do okien dialogowych
+- Obsługa tworzenia karty poprzez udostępnianie obrazu do Catima
+- Dodawanie przycisku szybkiego wydawania do ekranu karty

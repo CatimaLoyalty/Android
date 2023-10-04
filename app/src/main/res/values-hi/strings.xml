@@ -144,4 +144,18 @@
     <string name="permissionReadCardsLabel">केटीमा कार्ड्स पढ़ें</string>
     <string name="storageReadPermissionRequired">स्टोरेज पढ़ने की इजाजत इस क्रिया के लिए आवश्यक है…</string>
     <string name="permissionReadCardsDescription">अपने केटीमा कार्ड और सभी विवरण, सहित नोट्स और छवियों को पढ़ें</string>
+    <string name="balanceParsingFailed">अमान्य शेष</string>
+    <string name="takePhoto">फोटो खींचें</string>
+    <string name="wrongValueForBarcodeType">चयनित बारकोड प्रकार के लिए मूल्य मान्य नहीं है</string>
+    <string name="importStocard">स्टोकार्ड से आयात करें</string>
+    <string name="app_loyalty_card_keychain">लॉयल्टी कार्ड कीचेन</string>
+    <string name="no">नहीं</string>
+    <string name="importFidme">फिडमी से आयात करें</string>
+    <string name="yes">हां</string>
+    <string name="setBarcodeId">बारकोड मूल्य सेट करें</string>
+    <string name="importVoucherVault">वाउचर वॉल्ट से आयात करें</string>
+    <string name="barcodeId">बारकोड मूल्य</string>
+    <string name="importLoyaltyCardKeychain">लॉयल्टी कार्ड कीचेन से आयात करें</string>
+    <string name="photos">फ़ोटो</string>
+    <string name="updateBarcodeQuestionTitle">बारकोड मूल्य अपडेट करें\?</string>
 </resources>

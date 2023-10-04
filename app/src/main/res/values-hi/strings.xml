@@ -106,6 +106,7 @@
     <string name="balance">संतुलन</string>
     <string name="currency">मुद्रा</string>
     <string name="accept">स्वीकार</string>
+    <string name="balanceParsingFailed">अमान्य शेष</string>
     <string name="exportSuccessful">डेटा निर्यात किया गया</string>
     <string name="groupsList">समूह: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">

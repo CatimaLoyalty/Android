@@ -271,4 +271,7 @@
     <string name="settings_category_title_cards">카드</string>
     <string name="show_archived_cards">보관된 카드 표시</string>
     <string name="settings_category_title_privacy">프라이버시</string>
+    <string name="card_id_must_not_be_empty">카드 ID는 비어 있으면 안됩니다</string>
+    <string name="action_more_options">추가 옵션</string>
+    <string name="field_must_not_be_empty">필드는 비어있으면 안됩니다</string>
 </resources>

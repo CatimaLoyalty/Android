@@ -1,3 +1,4 @@
 - Upřesnění postupu „Přidat kartu“
 - Vylepšení toku validace
 - Oprava okrajového případu způsobujícího neplatný stav uživatelského rozhraní při přepínání zobrazování archivu
+- Použití motivu nebo barvy karty pro navigační lištu (Android 8.1+)

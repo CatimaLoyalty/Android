@@ -1,0 +1,1 @@
+- Zapamiętywanie aktywnej karty grupy między ekranami i sesjami

@@ -1,0 +1,4 @@
+- Drobne poprawki interfejsu użytkownika
+- Naprawiono resetowanie daty ważności i daty wygaśnięcia podczas obracania ekranu edycji karty.
+- Naprawiono crash podczas obracania ekranu, gdy wyświetlany jest selektor kolorów.
+- Poprawiono import Stocard

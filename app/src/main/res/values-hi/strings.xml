@@ -158,10 +158,8 @@
     <string name="importLoyaltyCardKeychain">लॉयल्टी कार्ड कीचेन से आयात करें</string>
     <string name="photos">फ़ोटो</string>
     <string name="updateBarcodeQuestionTitle">बारकोड मूल्य अपडेट करें\?</string>
-    <string name="balanceSentence">बैलेंस</string>
     <string name="settings_display_barcode_max_brightness_summary">कुछ स्कैनरों के काम करने के लिए यह आवश्यक है</string>
     <string name="app_copyright_short">कॉपीराइट © सिल्विया वैन ओएस और योगदानकर्ता</string>
     <string name="settings_allow_content_provider_read_summary">ऐप्स को अभी भी पहुंच प्रदान करने के लिए अनुमति का अनुरोध करना होगा</string>
     <string name="settings_allow_content_provider_read_title">अन्य ऐप्स को मेरे डेटा तक पहुंचने की अनुमति दें</string>
-    <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी:</string>
 </resources>

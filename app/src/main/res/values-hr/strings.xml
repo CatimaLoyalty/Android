@@ -270,4 +270,27 @@
     <string name="show_note">Prikaži bilješku</string>
     <string name="show_balance">Prikaži saldo</string>
     <string name="show_validity">Prikaži valjanost</string>
+    <string name="card_id_must_not_be_empty">ID oznaka kartice ne smije biti prazna</string>
+    <string name="balanceParsingFailed">Neispravni saldo</string>
+    <string name="add_a_card_in_a_different_way">Dodaj karticu na drugi način</string>
+    <string name="view_online">Pogledaj online</string>
+    <string name="settings_category_title_general">Opće</string>
+    <string name="manually_enter_barcode_instructions">Upiši broj ID-a ili tekst na kartici i pritisni crtični kod koji izgleda kao onaj na tvojoj kartici.</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktivira zaključavanje ekrana tijekom prikaza kartice</string>
+    <string name="action_more_options">Daljnje opcije</string>
+    <string name="permissionReadCardsDescription">čitaj tvoje Catima kartice i sve njihove pojedinosti, uključujući bilješke i slike</string>
+    <string name="enter_card_id">Upiši broj ID-a ili tekst na tvojoj kartici</string>
+    <string name="action_display_options">Opcije prikaza</string>
+    <string name="settings_display_barcode_max_brightness_summary">Neophodno za rad nekih skenera</string>
+    <string name="settings_oled_dark_summary">Smanjuje potrošnju baterije OLED ekrana</string>
+    <string name="settings_category_title_cards">Kartice</string>
+    <string name="addWithoutBarcode">Dodaj karticu bez crtičnog koda</string>
+    <string name="app_copyright_short">Autorska prava © Sylvia van Os i doprinositelji</string>
+    <string name="field_must_not_be_empty">Polje ne smije biti prazno</string>
+    <string name="settings_allow_content_provider_read_summary">Aplikacije će i dalje morati zatražiti dozvolu za odobravanje pristupa</string>
+    <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama pristup mojim podacima</string>
+    <string name="permissionReadCardsLabel">Čitaj Catima kartice</string>
+    <string name="show_archived_cards">Prikaži arhivirane kartice</string>
+    <string name="settings_category_title_privacy">Privatnost</string>
+    <string name="settings_keep_screen_on_summary">Deaktivira isključivanje ekrana tijekom prikaza kartice</string>
 </resources>

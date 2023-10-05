@@ -12,7 +12,7 @@
     <string name="exportFailed">No se pudo exportar</string>
     <string name="noBarcode">Sin código de barra</string>
     <string name="edit">Editar</string>
-    <string name="noGiftCards">Pulsa el botón + para agregar una tarjeta de regalo, o importa desde el menú.</string>
+    <string name="noGiftCards">Pulsá el botón + para agregar una tarjeta de regalo, o importá una desde el menú.</string>
     <string name="noGiftCardsGroup">Crea tarjetas de regalo, y asignales un grupo.</string>
     <string name="note">Nota</string>
     <string name="unstar">Borrar de favoritos</string>
@@ -42,4 +42,15 @@
     <string name="card_ids_copied">ID(s) Copiado(s)</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailed">No se pudo importar</string>
+    <string name="barcodeImageDescriptionWithType">Imagen de <xliff:g>%s</xliff:g> un código de barras</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Borrar <xliff:g>%d</xliff:g> tajeta</item>
+        <item quantity="many">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
+        <item quantity="other"></item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">¿Borrar esta<xliff:g>%d</xliff:g> tarjeta de forma permanente\?</item>
+        <item quantity="many">Borrar estas <xliff:g>%d</xliff:g> tarjetas de forma permanente\?</item>
+        <item quantity="other"></item>
+    </plurals>
 </resources>

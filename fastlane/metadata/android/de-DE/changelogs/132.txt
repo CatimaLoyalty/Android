@@ -1,0 +1,3 @@
+- "Karte hinzufügen" Worklow verbessert
+- Verbesserungen im Validierungsablauf
+- Seltener UI Problemfall behoben, wenn man die Archivansicht umgeschaltet hat

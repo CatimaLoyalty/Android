@@ -1,0 +1,3 @@
+- Oprava čiarových kódov pri ukončení celej obrazovky (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- Umožnite umiestnenie exportu zálohovanie na výber (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352)
+- Aktualizácia prekladov (#357 (https://github.com/brarcher/loyalty-card-locker/pull57)) & (#362 (https://github.com/brarcher/loyalty-card-locker/pull/362))

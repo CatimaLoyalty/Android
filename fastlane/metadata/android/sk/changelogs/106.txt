@@ -1,0 +1,1 @@
+- Opravte niekoľko sekvencií znakov, ktoré sú zobrazené ako jeden znak

@@ -1,0 +1,2 @@
+- Niekoľko drobných prekladov a UI opravy
+- Fix havária v importe / zdieľanie vernostnej karty na Android 6

@@ -1,0 +1,4 @@
+- Zlepšovanie čiarových kódov
+- Základná presnosť s externými aplikáciami (Android 6.0+)
+- Reorganizované nastavenie obrazovky
+- Fix import z niektorých prehliadačov, ktoré pridávajú stopu / na adresu zdieľania

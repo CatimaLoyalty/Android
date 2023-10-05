@@ -1,0 +1,1 @@
+- Fix regresie spôsobuje manuálny vstup čiarového kódu, aby sa nezachránili

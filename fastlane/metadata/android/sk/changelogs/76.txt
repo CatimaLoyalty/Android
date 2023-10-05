@@ -1,0 +1,4 @@
+- Urobte odkazy v poznámkach kliknutia
+- Pre-vyberte skupinu užívateľov je v súčasnosti pri vytváraní novej karty
+- Comma-separate skupinové mená v pohľade na vernostnú kartu
+- Fix maximalizovať tlačidlo sa objaví na žiadny čiarový kód

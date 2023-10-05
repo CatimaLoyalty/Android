@@ -1,0 +1,14 @@
+- Pridať schopnosť hľadať kartu
+- Pridať schopnosť zdieľať a prijímať vernostné karty
+- Podpora Dark mode
+- Vernostné karty môžu byť teraz bez čiarových kódov (napr. nemajú čiarový kód)
+- Poznámky môžu rozdeliť viacero riadkov
+- Zlepšenie s využitím poznámok
+- Zlepšiť oznámenia a viditeľnosť ikony aplikácie
+- Aktualizácia cieľ SDK na Android 10
+- Zlepšite nasledujúce preklady:
+- Nemecká
+- Slovenčina
+- Holandčina
+- Poľský
+- ruština

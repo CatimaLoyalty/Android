@@ -1,0 +1,2 @@
+- Vždy ukážte všetky možnosti importu/export a ukážte toast na skutočných problémoch (zlepšuje kompas s XPrivacyLua)
+- Požiadať o potvrdenie pri odchode z editovať pohľad po vykonaní zmien bez uloženia

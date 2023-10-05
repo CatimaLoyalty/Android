@@ -1,0 +1,2 @@
+- Malé vylepšenia UI
+- Fix nový dizajn nie je použiteľný na zariadeniach s štvorcami obrazovky

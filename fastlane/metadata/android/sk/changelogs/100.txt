@@ -1,0 +1,2 @@
+- Skryť vyhľadávanie, expandovať a triediť ikony, kým nie je aspoň 1 kartu
+- Rôzne opravy

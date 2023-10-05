@@ -1,0 +1,1 @@
+- Zapobieganie awariom podczas obracania ekranu w kreatorze pierwszego uruchomienia.

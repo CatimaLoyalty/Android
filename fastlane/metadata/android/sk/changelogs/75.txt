@@ -1,0 +1,4 @@
+- Fix vybraná farba v farebných premenách dialógov
+- Podpora pre vymazanie viacerých kariet naraz
+- Fix možné ArithmeticException pri resizing image
+- Fix Plná obrazovka je uzavretá pri otáčaní zariadenia

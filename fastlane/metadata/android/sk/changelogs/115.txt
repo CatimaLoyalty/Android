@@ -1,0 +1,4 @@
+- Otvorený obraz v galérii na dlhodobom tlaku
+- Aplikovať štýl materiálu na dialógy
+- Podpora vytvorenie karty zdieľaním obrazu na Catima
+- Pridať rýchle tráviť tlačidlo na obrazovku karty

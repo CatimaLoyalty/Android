@@ -1,0 +1,3 @@
+- Pridať Monochromatickú ikonu pre Android 13
+- Zlepšite prvú obrazovku spustenia
+- Fidme importné opravy

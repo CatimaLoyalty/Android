@@ -1,0 +1,4 @@
+- Screen jas sa zvýšil na jeho maximum pri zobrazovaní karty, aby pomohli skenerom čiarových kódov úspešne zachytiť čiarový kód. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Pridajte potvrdenie o vymazaní pri vymazaní karty. pull #55
+- Pridajte preklady pre nemeckú (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) a Czech pull #58
+- Zmena Clarification pre taliansky preklad. pull #66

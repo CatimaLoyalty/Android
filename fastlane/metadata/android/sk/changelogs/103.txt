@@ -1,0 +1,2 @@
+- Fix manuálny výber jazyka sa nepoužíva všade
+- Fix havária v editovanom pohľade na bezzemné locale

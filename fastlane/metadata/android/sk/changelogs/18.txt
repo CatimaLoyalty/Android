@@ -1,0 +1,2 @@
+- Fix problém na Android SDK 24 + kde pomocou výberu súboru by spôsobilo pád. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- Nová ikona a farebná schéma. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

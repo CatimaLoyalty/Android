@@ -1,0 +1,1 @@
+- Zabráňte pádu pri vykresľovaní čiarového kódu vyčerpáva pamäť aplikácie. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

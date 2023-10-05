@@ -1,0 +1,2 @@
+- Obsługa ustawiania początku ważności karty
+- Naprawiono import Stocard (zmieniono format eksportu Stocard)

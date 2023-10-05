@@ -62,7 +62,7 @@
     <string name="chooseExpiryDate">Zvoľte dátum skončenia platnosti</string>
     <string name="never">Nikdy</string>
     <string name="addFromImage">Vyberte obrázok z galérie</string>
-    <string name="addManually">Ručné zadanie ID</string>
+    <string name="addManually">Zadajte čiarový kód ručne</string>
     <string name="leaveWithoutSaveConfirmation">Odísť bez uloženia\?</string>
     <string name="leaveWithoutSaveTitle">Výstup</string>
     <string name="moveDown">Pohyb smerom nadol</string>
@@ -113,7 +113,7 @@
     </plurals>
     <string name="group_edit">Upraviť skupinu</string>
     <string name="group_name_already_in_use">Tento názov skupiny sa už používa</string>
-    <string name="group_name_is_empty">Názov skupiny nemôže byť prázdny</string>
+    <string name="group_name_is_empty">Názov skupiny nesmie byť prázdne</string>
     <string name="group_updated">Skupina bola aktualizovaná</string>
     <string name="editGroup">Úprava skupiny: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Platí do: <xliff:g>%s</xliff:g></string>
@@ -270,7 +270,7 @@
     <string name="show_name_below_image_thumbnail">Zobraziť názov pod miniatúrou obrázka</string>
     <string name="show_validity">Zobraziť platnosť</string>
     <string name="permissionReadCardsLabel">Načítať Catima karty</string>
-    <string name="permissionReadCardsDescription">Čítanie kariet a všetkých ich detailov vrátane poznámok a obrázkov</string>
+    <string name="permissionReadCardsDescription">čítať svoje Catima karty a všetky jeho podrobnosti, vrátane poznámky a obrázkov</string>
     <string name="switchToBackImage">Prepnutie na zadný obrázok</string>
     <string name="height">Výška:</string>
     <string name="switchToFrontImage">Prepnutie na predný obrázok</string>
@@ -280,4 +280,17 @@
     <string name="switchToBarcode">Prepnutie na čiarový kód</string>
     <string name="settings_category_title_cards">Karty</string>
     <string name="donate">Darujte</string>
+    <string name="card_id_must_not_be_empty">ID karty nesmie byť prázdne</string>
+    <string name="balanceParsingFailed">Neplatná rovnováha</string>
+    <string name="add_a_card_in_a_different_way">Pridať kartu iným spôsobom</string>
+    <string name="view_online">Zobraziť online</string>
+    <string name="manually_enter_barcode_instructions">Zadajte číslo ID alebo text na karte a stlačte čiarový kód, ktorý vyzerá ako ten na vašej karte.</string>
+    <string name="action_more_options">Viac možností</string>
+    <string name="enter_card_id">Zadajte číslo ID alebo text na karte</string>
+    <string name="action_display_options">Možnosti zobrazenia</string>
+    <string name="addWithoutBarcode">Pridať kartu bez čiarového kódu</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os a prispievateľov</string>
+    <string name="field_must_not_be_empty">Pole nesmie byť prázdne</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievateľov</string>
+    <string name="show_archived_cards">Zobraziť archivované karty</string>
 </resources>

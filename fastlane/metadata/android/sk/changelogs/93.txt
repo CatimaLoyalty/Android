@@ -1,0 +1,2 @@
+- Pridajte Catima na rýchle riadenie prístupových zariadení (https://developer.android.com/guide/topics/ui/device-control)
+- Opravte niektoré skupiny, ktoré nezobrazujú správne v obrazovke riadenia skupiny

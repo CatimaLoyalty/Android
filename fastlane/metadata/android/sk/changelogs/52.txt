@@ -1,0 +1,3 @@
+- Automatické zameranie textové pole pri tvorbe alebo editácii skupiny
+- Fix blurry ikony (využitie SVG všade)
+- Vždy otvorte fotoaparát, ale pridajte manuálne skenovacie tlačidlo pre zobrazenie kamery

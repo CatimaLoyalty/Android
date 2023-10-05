@@ -1,0 +1,2 @@
+-Zoradiť zoznam kariet prípad necitlivý (pull #266 (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- Pridanie nastavenia uzamknutia pre všetky karty (pull #269 (https://github.com/brarcher/loyalty-card-locker/pull/269)

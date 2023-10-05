@@ -1,0 +1,1 @@
+- Fix rôzne TalkBack-súvisiace chyby

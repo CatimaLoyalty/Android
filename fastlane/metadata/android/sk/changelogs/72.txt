@@ -1,0 +1,1 @@
+- Fix neschopnosť nakonfigurovať fotografie v novej vernostnej karte

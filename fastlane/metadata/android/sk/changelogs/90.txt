@@ -1,0 +1,4 @@
+- Fix bodky v pohľade na kartu majú nesprávnu farbu pri zmene témy ručne
+- Fix havária v karte pohľad na zmenu otáčania/me
+- Fix blikanie zoznamu kariet
+- Fix text prekrytie hviezdnej ikony

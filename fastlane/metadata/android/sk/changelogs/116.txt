@@ -1,0 +1,2 @@
+- Fix rýchle tráviť dialóg, ktorý neumožňuje, oddeľovač
+- Podpora načítania obrazu od správcu súborov

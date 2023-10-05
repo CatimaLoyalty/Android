@@ -1,0 +1,5 @@
+- Pri editácii ID karty, pre-populate existujúce ID začať.
+- Obmedzte šírku generovaných čiarových kódov na zníženie použitia pamäti a z chýb pamäte.
+- Pri editácii karty, zmeniť tlačidlo "Enter Card" povedať "Edit Card", ak už existuje ID karty.
+- Zmeniť farebnú schému byť mäkší a kompatibilný s ikonou aplikácie, a zmeniť rozloženie pri prezeraní karty byť čistejšie.
+- Pridajte intro sprievodca, ktorý začne na prvom spustení aplikácie.

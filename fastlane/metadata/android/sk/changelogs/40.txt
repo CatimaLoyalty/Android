@@ -1,0 +1,6 @@
+- Rebrand na Catima
+- Odstráňte intro
+- Pridať plávajúce akcie tlačidlá
+- Fix Android 5 crash pri otvorení O obrazovke
+- Pridať obľúbené podporu
+- Fix deaktivovaný auto-rotate je ignorovaný

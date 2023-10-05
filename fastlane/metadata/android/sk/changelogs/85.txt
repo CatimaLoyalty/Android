@@ -1,0 +1,5 @@
+Android 4.4 už nie je podporovaný s týmto vydaním. Ak chcete používať Catima na Android 4.4, použite verziu 2.6.1.
+
+- Vylepšená podpora Android 12
+- Zlepšená obrazovka
+- Vyhľadávanie teraz ignoruje akcenty

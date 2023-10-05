@@ -1,0 +1,7 @@
+"Locker" časť názvu nebola intuitívna. Ak chcete pomôcť napraviť túto novú ikonu aplikácie bola vytvorená betsythefc, ktorý lepšie predstavuje účel aplikácie: ukladať lojalitu karty, ktoré používajú čiarové kódy. Spolu s touto novou ikonou bol názov aplikácie zmenený na "Loyalty Card Keychain".
+
+Ďalšie funkcie/improvements:
+
+- Importovanie / Exportné karty sa zmenilo byť pružnejšie. pull #76
+- Preklady pre litovské pridané. pull #62
+- Preklady pre francúzske pridané. pull #80

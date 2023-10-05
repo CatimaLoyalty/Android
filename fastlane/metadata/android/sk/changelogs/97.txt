@@ -1,0 +1,4 @@
+- Opravená lisovanie tlačidla kladiva niekoľkokrát vytvorenie viacerých záznamov
+- Spodná veľkosť hlavičky kariet pri skrývaní údajov, aby sa zmestili ešte viac kariet
+- Reštruktúra editácia obrazovky
+- Zlepšite kontrast ikony hviezdy v hlavnom pohľade

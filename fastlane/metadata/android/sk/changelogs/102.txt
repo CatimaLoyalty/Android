@@ -1,0 +1,2 @@
+- Rôzne drobné opravy
+- Fix haváriu pri používaní nórskeho prekladu

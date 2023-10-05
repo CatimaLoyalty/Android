@@ -1,0 +1,1 @@
+- Fix crash na prepínanie do tabuľovej karty v editnom pohľade, ak nie je čiarový kód

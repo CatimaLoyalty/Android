@@ -1,0 +1,6 @@
+- Pridať možnosť nastaviť samostatnú hodnotu čiarového kódu z ID karty
+- Simplify písmo sizing konfigurácia
+- Niekoľko malých UI opravy
+- Použite ikonu listu pre skratky príliš
+- Vždy zobraziť všetky typy čiarových kódov v manuálnom vstupe
+- Odstráňte zásady ochrany osobných údajov najprv začnite dialóg

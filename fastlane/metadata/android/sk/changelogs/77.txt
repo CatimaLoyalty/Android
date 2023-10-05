@@ -1,0 +1,4 @@
+- Zlepšenie dodávateľa Stocard
+- Fix import Catima export s multiline poznámka
+- Názov karty v prijateľnom rozsahu
+- Animačné vylepšenia

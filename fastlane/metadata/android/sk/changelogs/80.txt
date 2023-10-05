@@ -1,0 +1,2 @@
+- Fix obrázky nie sú importované z zálohovanie
+- Možnosť prepísať jazyk

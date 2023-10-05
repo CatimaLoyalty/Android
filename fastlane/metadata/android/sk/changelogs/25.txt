@@ -1,0 +1,2 @@
+- Znížte priestor v hlavičke pri prezeraní karty. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Disable beep pri skenovaní čiarového kódu. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

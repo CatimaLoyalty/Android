@@ -1,0 +1,2 @@
+- Pridajte podporu pre skratky aplikácie (Android 7.1+), kde sa objavia najnovšie použité karty ako skratky. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145)
+- Pridajte widget, ktorý funguje ako skratka na skratku, na podporu zariadení, ktoré beží pod Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

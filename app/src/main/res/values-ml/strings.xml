@@ -1,2 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="noCardExistsError">ആ കാർഡ് കണ്ടെത്താൻ കഴിഞ്ഞില്ല</string>
+    <string name="save">സംരക്ഷിക്കുക</string>
+    <string name="copy_to_clipboard">ക്ലിപ്പ്ബോർഡിലേക്ക് ഐഡി പകർത്തുക</string>
+    <string name="storeName">പേര്</string>
+    <string name="cardId">കാർഡ് ഐഡി</string>
+    <string name="edit">മാറ്റങ്ങൾ വെറുത്തുക</string>
+    <string name="barcodeType">ബാർകോഡ് തരം</string>
+    <string name="noBarcode">ബാർകോഡ് ഇല്ല</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one"><xliff:g>%d</xliff:g> കാർഡ് ഇല്ലാതാക്കുക</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> കാർഡുകൾ ഇല്ലാതാക്കുക</item>
+    </plurals>
+    <string name="delete">ഇല്ലാതാക്കുക</string>
+    <string name="deleteConfirmation">ഈ കാർഡ് ശാശ്വതമായി ഇല്ലാതാക്കണോ\?</string>
+    <string name="ok">ശരി</string>
+    <string name="star">കാർഡ് കാണുമ്പോൾ, നക്ഷത്ര ചിഹ്നം ദീർഘനേരം അമർത്തുമ്പോൾ മാത്രമേ ടെക്‌സ്‌റ്റ് ദൃശ്യമാകൂ</string>
+    <string name="importExportHelp">നിങ്ങളുടെ ഡാറ്റ ബാക്കപ്പ് ചെയ്യുന്നത് മറ്റൊരു ഉപകരണത്തിലേക്ക് നീക്കാൻ അനുവദിക്കുന്നു.</string>
+    <string name="importExport">ഇറക്കുമതി/കയറ്റുമതി</string>
+    <string name="sendLabel">അയയ്‌ക്കുക…</string>
+    <string name="addCardTitle">കാർഡ് ചേർക്കുക</string>
+    <string name="exportName">കയറ്റുമതി</string>
+    <string name="noGiftCards">ഒരു കാർഡ് ചേർക്കാൻ + പ്ലസ് ബട്ടൺ ക്ലിക്ക് ചെയ്യുക, അല്ലെങ്കിൽ ⋮ മെനുമൂലം ഇമ്പോർട്ട് ചെയ്യുക.</string>
+    <string name="noMatchingGiftCards">ഫലങ്ങളൊന്നുമില്ല. നിങ്ങളുടെ തിരയൽ മാറ്റാൻ ശ്രമിക്കുക.</string>
+    <string name="cancel">റദ്ദാക്കുക</string>
+    <string name="importSuccessfulTitle">ഇറക്കുമതി ചെയ്തത്</string>
+    <string name="confirm">സ്ഥിരീകരിക്കുക</string>
+    <string name="unstar">പ്രിയപ്പെട്ടവയിൽ നിന്ന് നീക്കം ചെയ്യുക</string>
+    <string name="scanCardBarcode">ബാർകോഡ് സ്കാൻ ചെയ്യുക</string>
+    <string name="action_search">കണ്ടെത്തുക</string>
+    <string name="noGiftCardsGroup">കുറച്ച് കാർഡുകൾ സൃഷ്‌ടിക്കുക, തുടർന്ന് അവ ഇവിടെയുള്ള ഗ്രൂപ്പിലേക്ക് അസൈൻ ചെയ്യുക.</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">ഈ <xliff:g>%d</xliff:g> കാർഡ് ശാശ്വതമായി ഇല്ലാതാക്കണോ\?</item>
+        <item quantity="other">ഈ <xliff:g>%d</xliff:g> കാർഡുകൾ ശാശ്വതമായി ഇല്ലാതാക്കണോ\?</item>
+    </plurals>
+    <string name="editCardTitle">കാർഡിൽ മാത്തം വെരുത്തുക</string>
+    <string name="noCardsMessage">ആദ്യം ഒരു കാർഡ് ചേർക്കുക</string>
+    <string name="share">പങ്കിടുക</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g>തിരഞ്ഞെടുത്ത</item>
+        <item quantity="other"><xliff:g>%d</xliff:g>തിരഞ്ഞെടുത്തത്</item>
+    </plurals>
+    <string name="card_ids_copied">പകർത്തിയ ഐഡി(കൾ)</string>
+    <string name="action_add">ചേർക്കുക</string>
+    <string name="deleteTitle">കാർഡ് ഇല്ലാതാക്കുക</string>
+</resources>

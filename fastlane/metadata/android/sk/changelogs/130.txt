@@ -1,0 +1,4 @@
+- Minor UI opravy
+- Fix platný od a dátumy uplynutia platnosti pri otáčaní obrazovky karty
+- Fix haváriu pri otáčaní obrazovky, zatiaľ čo je zobrazené farebný picker
+- Oprava importu Stocard

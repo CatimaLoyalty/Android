@@ -1,0 +1,3 @@
+- Pridajte pokojný priestor na začiatku/end čiarových kódov. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200)
+- Pridať možnosti nakonfigurovať farby používané pre názov obchodu písma a pozadia. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Pridať možnosti upraviť veľkosti písma na karte zoznam stránok a jednej strane karty. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

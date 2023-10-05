@@ -1,0 +1,2 @@
+- Usunięto niepotrzebne uprawnienia
+- Docelowy system Android 13

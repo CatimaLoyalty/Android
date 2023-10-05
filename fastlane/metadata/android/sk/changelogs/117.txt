@@ -1,0 +1,2 @@
+- Odstráňte zbytočné povolenia
+- Cieľový Android 13

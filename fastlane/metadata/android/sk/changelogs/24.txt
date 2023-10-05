@@ -1,0 +1,4 @@
+- Aktualizácia prekladov. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Aktualizácia čiarových kódov: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209)
+- Reload kartu zobraziť činnosť, keď je obrazovka otáčaná, takže obrázok čiarového kódu je správna veľkosť.
+- Render 1D čiarové kódy vo väčšom priestore, čo im umožňuje lepšie vyplniť obrazovku.

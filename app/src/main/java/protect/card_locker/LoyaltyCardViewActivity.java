@@ -50,6 +50,7 @@ import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 
@@ -634,7 +635,15 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
         binding.barcodeScaler.setProgressTintList(ColorStateList.valueOf(darkenedColor));
         binding.barcodeScaler.setThumbTintList(ColorStateList.valueOf(darkenedColor));
+
+        // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
+        if (Build.VERSION.SDK_INT >= 27) {
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), binding.getRoot());
+            wic.setAppearanceLightNavigationBars(false);
+            getWindow().setNavigationBarColor(darkenedColor);
+        }
+
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         binding.fabEdit.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));
         Drawable editButtonIcon = binding.fabEdit.getDrawable();

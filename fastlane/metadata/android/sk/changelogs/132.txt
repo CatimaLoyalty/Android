@@ -1,3 +1,4 @@
 - Refine "Pridať kartu" workflow
 - Zlepšenie validácie
 - Fix hrany prípad spôsobuje neplatný stav UI, keď toggling ukazuje archív
+- Použite tému alebo farbu karty pre navigačnú tyč (Android 8.1+)

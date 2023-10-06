@@ -1,2 +1,2 @@
 - Zmena v 0,11 znížila používanie pamäťového kreslenie čiarových kódov, ale ovplyvnila rozmery čiarového kódu. To je teraz zmenené na udržanie rozmerov čiarových kódov pri znižovaní použitia pamäti.
-- Aktualizácia nemeckých a francúzskych prekladov.
+- Aktualizácia nemeckých a francúzskych prekladov

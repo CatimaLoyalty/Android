@@ -1,5 +1,5 @@
 - ZMENA ZMENA: Formát zálohovania sa zmenil,
-- ZMENA ZMENA: Formát zdieľania URL sa zmenil,
+- ZMENA ZMENA: Formát zdieľania URL sa zmenil, pozri
 - Aby bolo možné povoliť alebo vypnúť baterku pri skenovaní
 - Pridať podporu UPC-E
 - Podpora pridanie prednej a zadnej fotografie do každej karty

@@ -94,7 +94,7 @@
     <string name="moveUp">ऊपर की और बढ़ें</string>
     <string name="moveDown">नीचे की और बढ़ें</string>
     <string name="leaveWithoutSaveTitle">निकास करें</string>
-    <string name="addFromImage">गैलरी से चित्र चुनें</string>
+    <string name="addFromImage">गैलरी से एक चित्र चुनें</string>
     <string name="card">कार्ड</string>
     <string name="editBarcode">बारकोड में बदलाव करें</string>
     <string name="expiryDate">समाप्ति दिन</string>
@@ -162,4 +162,14 @@
     <string name="app_copyright_short">कॉपीराइट © सिल्विया वैन ओएस और योगदानकर्ता</string>
     <string name="settings_allow_content_provider_read_summary">ऐप्स को अभी भी पहुंच प्रदान करने के लिए अनुमति का अनुरोध करना होगा</string>
     <string name="settings_allow_content_provider_read_title">अन्य ऐप्स को मेरे डेटा तक पहुंचने की अनुमति दें</string>
+    <string name="expiryStateSentence">समय सीमा समाप्त: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">बैलेंस: <xliff:g>%s</xliff:g></string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">कार्ड देखते समय स्क्रीन लॉक अक्षम कर देता है</string>
+    <string name="expiryStateSentenceExpired">समय सीमा समाप्त: <xliff:g>%s</xliff:g></string>
+    <string name="importStocardMessage">आयात करने के लिए स्टोकार्ड से अपना <i>***.zip</i> निर्यात चुनें।
+\nअपने डेटा के निर्यात के लिए support@stocardapp.com पर ई-मेल करके इसे प्राप्त करें।</string>
+    <string name="copy_to_clipboard_multiple_toast">आईडी जो क्लिपबोर्ड पर कॉपी किया गया है</string>
+    <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">लिब्रे तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट अक्षम करता है</string>
 </resources>

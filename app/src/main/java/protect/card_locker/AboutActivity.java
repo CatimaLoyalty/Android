@@ -43,7 +43,7 @@ public class AboutActivity extends CatimaAppCompatActivity {
         binding.privacy.setTag("https://catima.app/privacy-policy/");
         binding.reportError.setTag("https://github.com/CatimaLoyalty/Android/issues");
         binding.rate.setTag("https://play.google.com/store/apps/details?id=me.hackerchick.catima");
-        binding.donate.setTag("https://catima.app/contribute/#donating");
+        binding.donate.setTag("https://catima.app/donate");
 
         boolean installedFromGooglePlay = Utils.installedFromGooglePlay(this);
         // Hide Google Play rate button if not on Google Play

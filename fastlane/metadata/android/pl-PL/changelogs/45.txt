@@ -1,0 +1,1 @@
+- Naprawiono wyzwalanie przesuwania ekranu głównego również podczas przesuwania w pionie

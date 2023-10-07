@@ -1,0 +1,6 @@
+- Zmiana marki na Catima
+- Usunięto intro
+- Dodano pływające przyciski akcji
+- Naprawiono awarię Androida 5 podczas otwierania ekranu Informacje
+- Dodano obsługę ulubionych
+- Naprawiono ignorowanie wyłączonego automatycznego obracania

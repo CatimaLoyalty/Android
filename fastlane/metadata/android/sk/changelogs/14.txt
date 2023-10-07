@@ -1,3 +1,3 @@
-- Pridajte možnosť otáčania obrazovky pri zobrazovaní karty. Ak je uzamknutá, obrazovka premení jeho "prirodzenú" orientáciu a ďalšie otáčanie obrazovky bude zablokované.
+- Pridajte možnosť otáčania obrazovky pri zobrazovaní karty. Ak je uzamknutá, obrazovka premení jeho "prirodzenú" orientáciu a ďalšie otáčanie obrazovky bude zablokované. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
 - Ak je karta vybraná z hlavnej obrazovky, ale nie je možné načítať, aplikácia zlyhá elegantne a príspevky správu.
-- Fix prípad, kde sa nenašlo rozloženie ID pre intro sprievodca.
+- Fix prípad, kde sa nenašlo rozloženie ID pre intro sprievodca

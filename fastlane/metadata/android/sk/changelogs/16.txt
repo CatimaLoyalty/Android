@@ -1,5 +1,5 @@
 - Pridať podporu pre pridanie skratiek na domovskú obrazovku pri pridanie alebo úpravu karty. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155)
-- Odstráňte widget, pretože to bola zlá náhrada za skratky.
+- Odstráňte widget, pretože to bola zlá náhrada za skratky. (pull #155 (https://github.com/brarcher/loyalty-card-locker/pull/155)
 - Fix export zálohovanie na Android 7+.
 - Správa presnejšieho typu myši pri exporte zálohovanie dát.
-- Fix chyba, kde sa karta nemohla upravovať.
+- Fix chyba, kde sa karta nemohla upravovať

@@ -1,0 +1,3 @@
+- Dotknięcie kodu kreskowego przenosi go teraz na górę ekranu (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348)).
+- Dodano białą przestrzeń wokół kodów kreskowych, aby usprawnić skanowanie w trybie ciemnym (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328)).
+- Naprawiono zamienione przyciski importu. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

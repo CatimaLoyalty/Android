@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="copy_to_clipboard">ID ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ</string>
+    <string name="storeName">ಹೆಸರು</string>
+    <string name="cardId">ಕಾರ್ಡ್ ಐಡಿ</string>
+    <string name="barcodeType">ಬಾರ್ಕೋಡ್ ಪ್ರಕಾರ</string>
+    <string name="noBarcode">ಬಾರ್‌ಕೋಡ್ ಇಲ್ಲ</string>
+    <string name="sendLabel">ಕಳುಹಿಸು…</string>
+    <string name="noGiftCards">ಕಾರ್ಡ್ ಸೇರಿಸಲು + ಪ್ಲಸ್ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ⋮ ಮೆನುವಿನಿಂದ ಆಮದು ಮಾಡಿ.</string>
+    <string name="noMatchingGiftCards">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ. ನಿಮ್ಮ ಹುಡುಕಾಟವನ್ನು ಬದಲಾಯಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="cancel">ರದ್ದುಮಾಡಿ</string>
+    <string name="action_search">ಹುಡುಕಿ</string>
+    <string name="noGiftCardsGroup">ಕೆಲವು ಕಾರ್ಡ್‌ಗಳನ್ನು ರಚಿಸಿ, ತದನಂತರ ಅವುಗಳನ್ನು ಇಲ್ಲಿ ಗುಂಪಿಗೆ ನಿಯೋಜಿಸಿ.</string>
+    <string name="share">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ</item>
+    </plurals>
+    <string name="note">ಸೂಚನೆ</string>
+    <string name="action_add">ಸೇರಿಸಿ</string>
+</resources>

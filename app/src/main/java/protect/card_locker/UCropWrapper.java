@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -27,15 +28,18 @@ public class UCropWrapper extends UCropActivity {
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         boolean darkMode = Utils.isDarkModeEnabled(this);
+        Window window = getWindow();
         // setup status bar to look like the rest of the app
         if (Build.VERSION.SDK_INT >= 23) {
-            View decorView = getWindow().getDecorView();
-            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), decorView);
-            wic.setAppearanceLightStatusBars(!darkMode);
+            if (window != null) {
+                View decorView = window.getDecorView();
+                WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, decorView);
+                wic.setAppearanceLightStatusBars(!darkMode);
+            }
         } else {
             // icons are always white back then
-            if (!darkMode) {
-                getWindow().setStatusBarColor(ColorUtils.compositeColors(Color.argb(127, 0, 0, 0), getWindow().getStatusBarColor()));
+            if (window != null && !darkMode) {
+                window.setStatusBarColor(ColorUtils.compositeColors(Color.argb(127, 0, 0, 0), window.getStatusBarColor()));
             }
         }
 

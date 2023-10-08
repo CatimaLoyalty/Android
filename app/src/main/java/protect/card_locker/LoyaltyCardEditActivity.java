@@ -2,8 +2,6 @@ package protect.card_locker;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +27,6 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -43,20 +40,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.exifinterface.media.ExifInterface;
-import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.color.MaterialColors;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
+import com.google.android.material.datepicker.DateValidatorPointForward;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
@@ -75,14 +74,12 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import protect.card_locker.async.TaskHandler;
@@ -387,21 +384,6 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         addDateFieldTextChangedListener(validFromField, R.string.anyDate, R.string.chooseValidFromDate, LoyaltyCardField.validFrom);
 
         addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
-
-        DatePickerFragment.registerDatePickListener(this, (textFieldToEdit, newDate) -> {
-            switch (textFieldToEdit) {
-                case validFrom:
-                    formatDateField(this, validFromField, newDate);
-                    updateTempState(LoyaltyCardField.validFrom, newDate);
-                    break;
-                case expiry:
-                    formatDateField(this, expiryField, newDate);
-                    updateTempState(LoyaltyCardField.expiry, newDate);
-                    break;
-                default:
-                    throw new AssertionError("Unexpected field: " + textFieldToEdit);
-            }
-        });
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus && !onResuming && !onRestoring) {
@@ -1024,14 +1006,30 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
                         dateField.setText(lastValue);
                     }
-                    DialogFragment datePickerFragment = DatePickerFragment.newInstance(
+                    MaterialPickerOnPositiveButtonClickListener<Long> materialPickerOnPositiveButtonClickListener = selection -> {
+                        Date newDate = new Date(selection);
+                        switch (loyaltyCardField) {
+                            case validFrom:
+                                formatDateField(LoyaltyCardEditActivity.this, validFromField, newDate);
+                                updateTempState(LoyaltyCardField.validFrom, newDate);
+                                break;
+                            case expiry:
+                                formatDateField(LoyaltyCardEditActivity.this, expiryField, newDate);
+                                updateTempState(LoyaltyCardField.expiry, newDate);
+                                break;
+                            default:
+                                throw new AssertionError("Unexpected field: " + loyaltyCardField);
+                        }
+                    };
+                    showDatePicker(
                             loyaltyCardField,
                             (Date) dateField.getTag(),
                             // if the expiry date is being set, set date picker's minDate to the 'valid from' date
                             loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
                             // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
-                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null);
-                    datePickerFragment.show(getSupportFragmentManager(), "datePicker");
+                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null,
+                            materialPickerOnPositiveButtonClickListener
+                    );
                 }
             }
 
@@ -1382,103 +1380,60 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         // Nothing to do, no change made
     }
 
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
+    private void showDatePicker(
+            LoyaltyCardField loyaltyCardField,
+            @Nullable Date selectedDate,
+            @Nullable Date minDate,
+            @Nullable Date maxDate,
+            MaterialPickerOnPositiveButtonClickListener<Long> listener
+    ) {
+        // Create a new instance of MaterialDatePicker and return it
+        long startDate = minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker();
+        long endDate = maxDate != null ? maxDate.getTime() : getDefaultMaxDateOfDatePicker();
 
-        public interface OnDatePickListener {
-            void onDatePicked(@NonNull LoyaltyCardField textFieldToEdit, @NonNull Date newDate);
+        CalendarConstraints.DateValidator dateValidator;
+        switch (loyaltyCardField) {
+            case validFrom:
+                dateValidator = DateValidatorPointBackward.before(endDate);
+                break;
+            case expiry:
+                dateValidator = DateValidatorPointForward.from(startDate);
+                break;
+            default:
+                throw new AssertionError("Unexpected field: " + loyaltyCardField);
         }
 
-        private static final String TEXT_FIELD_TO_EDIT_ARGUMENT_KEY = "text_field_to_edit";
-        private static final String CURRENT_DATE_ARGUMENT_KEY = "current_date";
-        private static final String MIN_DATE_ARGUMENT_KEY = "min_date";
-        private static final String MAX_DATE_ARGUMENT_KEY = "max_date";
-        private static final String PICK_DATE_REQUEST_KEY = "pick_date_request";
-        private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
+        CalendarConstraints calendarConstraints = new CalendarConstraints.Builder()
+                .setValidator(dateValidator)
+                .setStart(startDate)
+                .setEnd(endDate)
+                .build();
 
-        LoyaltyCardField textFieldEdit;
-        @Nullable
-        Date minDate;
-        @Nullable
-        Date maxDate;
-
-        public static DatePickerFragment newInstance(@NonNull LoyaltyCardField textField, @Nullable Date currentDate, @Nullable Date minDate, @Nullable Date maxDate) {
-            Bundle args = new Bundle();
-            args.putSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY, textField);
-            args.putSerializable(CURRENT_DATE_ARGUMENT_KEY, currentDate);
-            args.putSerializable(MIN_DATE_ARGUMENT_KEY, minDate);
-            args.putSerializable(MAX_DATE_ARGUMENT_KEY, maxDate);
-            DatePickerFragment fragment = new DatePickerFragment();
-            fragment.setArguments(args);
-            return fragment;
+        // Use the selected date as the default date in the picker
+        final Calendar calendar = Calendar.getInstance();
+        if (selectedDate != null) {
+            calendar.setTime(selectedDate);
         }
 
-        public static void registerDatePickListener(@NonNull AppCompatActivity activity, @NonNull OnDatePickListener listener) {
-            activity.getSupportFragmentManager().setFragmentResultListener(
-                    PICK_DATE_REQUEST_KEY,
-                    activity,
-                    (requestKey, result) -> listener.onDatePicked(
-                            (LoyaltyCardField) Objects.requireNonNull(result.getSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY)),
-                            (Date) Objects.requireNonNull(result.getSerializable(NEWLY_PICKED_DATE_ARGUMENT_KEY))));
-        }
+        MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setSelection(calendar.getTimeInMillis())
+                .setCalendarConstraints(calendarConstraints)
+                .build();
 
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            Bundle args = requireArguments();
-            textFieldEdit = (LoyaltyCardField) args.getSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY);
-            minDate = (Date) args.getSerializable(MIN_DATE_ARGUMENT_KEY);
-            maxDate = (Date) args.getSerializable(MAX_DATE_ARGUMENT_KEY);
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
+        materialDatePicker.addOnPositiveButtonClickListener(listener);
+        materialDatePicker.show(getSupportFragmentManager(), TAG);
+    }
 
-            Date date = (Date) args.getSerializable(CURRENT_DATE_ARGUMENT_KEY);
-            if (date != null) {
-                c.setTime(date);
-            }
+    private long getDefaultMinDateOfDatePicker() {
+        Calendar minDateCalendar = Calendar.getInstance();
+        minDateCalendar.set(1970, 0, 1);
+        return minDateCalendar.getTimeInMillis();
+    }
 
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
-            datePickerDialog.getDatePicker().setMinDate(minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker());
-            datePickerDialog.getDatePicker().setMaxDate(maxDate != null ? maxDate.getTime() : getDefaultMaxDateOfDatePicker());
-            return datePickerDialog;
-        }
-
-        private long getDefaultMinDateOfDatePicker() {
-            Calendar minDateCalendar = Calendar.getInstance();
-            minDateCalendar.set(1970, 0, 1);
-            return minDateCalendar.getTimeInMillis();
-        }
-
-        private long getDefaultMaxDateOfDatePicker() {
-            Calendar maxDateCalendar = Calendar.getInstance();
-            maxDateCalendar.set(2100, 11, 31);
-            return maxDateCalendar.getTimeInMillis();
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            Calendar c = new GregorianCalendar();
-            c.set(Calendar.YEAR, year);
-            c.set(Calendar.MONTH, month);
-            c.set(Calendar.DAY_OF_MONTH, day);
-            c.set(Calendar.HOUR_OF_DAY, 0);
-            c.set(Calendar.MINUTE, 0);
-            c.set(Calendar.SECOND, 0);
-            c.set(Calendar.MILLISECOND, 0);
-
-            long unixTime = c.getTimeInMillis();
-
-            Date date = new Date(unixTime);
-
-            Bundle result = new Bundle();
-            result.putSerializable(TEXT_FIELD_TO_EDIT_ARGUMENT_KEY, textFieldEdit);
-            result.putSerializable(NEWLY_PICKED_DATE_ARGUMENT_KEY, date);
-            getParentFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, result);
-        }
+    private long getDefaultMaxDateOfDatePicker() {
+        Calendar maxDateCalendar = Calendar.getInstance();
+        maxDateCalendar.set(2100, 11, 31);
+        return maxDateCalendar.getTimeInMillis();
     }
 
     private void doSave() {

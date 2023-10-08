@@ -11,16 +11,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         exclusiveContent {
-            forRepository {
-                maven { url "https://jitpack.io" }
-            }
+            forRepositories(maven("https://jitpack.io"))
             filter {
                 // limit jitpack repository to these groups
-                includeGroup "com.github.yalantis"
-                includeGroup "com.github.invissvenska"
+                includeGroup("com.github.yalantis")
+                includeGroup("com.github.invissvenska")
             }
         }
     }
 }
 rootProject.name = "Catima"
-include ':app'
+include(":app")

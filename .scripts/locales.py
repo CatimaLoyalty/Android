@@ -19,8 +19,8 @@ res = ", ".join(f'"{loc}"' for loc in locales)
 sed = [
     "sed",
     "-i",
-    f"s/resourceConfigurations .*/resourceConfigurations += [{res}]/",
-    "app/build.gradle"
+    f"s/resourceConfigurations .*/resourceConfigurations += listOf({res})/",
+    "app/build.gradle.kts"
 ]
 subprocess.run(sed, check=True)
 

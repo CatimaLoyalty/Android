@@ -107,7 +107,7 @@
     <string name="moveDown">Mozgatás lefelé</string>
     <string name="leaveWithoutSaveTitle">Kilépés</string>
     <string name="leaveWithoutSaveConfirmation">Kilépés mentés nélkül\?</string>
-    <string name="addManually">Azonosító kézi beírása</string>
+    <string name="addManually">A vonalkód kézi beírása</string>
     <string name="addFromImage">Kép kiválasztása a galériából</string>
     <string name="editGroup">Csoportok szerkesztése: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Lejárat: <xliff:g>%s</xliff:g></string>
@@ -261,7 +261,7 @@
     <string name="show_note">Megjegyzés megjelenítése</string>
     <string name="show_balance">Egyenleg megjelenítése</string>
     <string name="permissionReadCardsLabel">Catima kártyák olvasása</string>
-    <string name="permissionReadCardsDescription">Olvassa el a kártyáit és annak minden részletét, beleértve a jegyzeteket és a képeket is</string>
+    <string name="permissionReadCardsDescription">olvassa el a Catima-kártyáit, és annak minden részletét, beleértve a jegyzeteket és a képeket is</string>
     <string name="show_validity">Érvényesség megjelenítése</string>
     <string name="show_name_below_image_thumbnail">Név megjelenítése a kép miniatűrje alatt</string>
     <string name="settings_display_barcode_max_brightness_summary">Szükséges egyes szkennerek működéséhez</string>
@@ -274,4 +274,16 @@
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Letiltja a képernyő időtúllépését a kártya megjelenítése közben</string>
     <string name="settings_allow_content_provider_read_summary">Az alkalmazásoknak továbbra is engedélyt kell kérniük a hozzáféréshez</string>
     <string name="view_online">Megtekintés online</string>
+    <string name="card_id_must_not_be_empty">A kártyaazonosító nem lehet üres</string>
+    <string name="balanceParsingFailed">Érvénytelen egyenleg</string>
+    <string name="add_a_card_in_a_different_way">Kártya hozzáadása más módon</string>
+    <string name="manually_enter_barcode_instructions">Adja meg a kártyán szereplő azonosító számát vagy szövegét, és válassza azt a vonalkódot, amely úgy néz ki, mint a kártyán szereplő.</string>
+    <string name="action_more_options">További beállítások</string>
+    <string name="enter_card_id">Adja meg a kártyán szereplő azonosító számát vagy szövegét</string>
+    <string name="action_display_options">Megjelenítési beállítások</string>
+    <string name="addWithoutBarcode">Vonalkód nélküli kártya hozzáadása</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os és közreműködők</string>
+    <string name="field_must_not_be_empty">A mező nem lehet üres</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os és közreműködők</string>
+    <string name="show_archived_cards">Archivált kártyák megjelenítése</string>
 </resources>

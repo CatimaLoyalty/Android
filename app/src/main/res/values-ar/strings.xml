@@ -203,7 +203,7 @@
     <string name="groupsList">مجموعات: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">منع قفل الشاشة</string>
     <string name="leaveWithoutSaveTitle">خروج</string>
-    <string name="editGroup">مجموعة التعديل: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">تعديل المجموعه: <xliff:g>%s</xliff:g></string>
     <plurals name="groupCardCount">
         <item quantity="zero"><xliff:g>%d</xliff:g> بطاقة</item>
         <item quantity="one"><xliff:g>%d</xliff:g> بطاقة</item>
@@ -306,4 +306,5 @@
     <string name="settings_category_title_privacy">خصوصية</string>
     <string name="show_balance">إظهار التوازن</string>
     <string name="settings_keep_screen_on_summary">تعطيل مهلة الشاشة أثناء عرض البطاقة</string>
+    <string name="balanceParsingFailed">رصيد غير صالح</string>
 </resources>

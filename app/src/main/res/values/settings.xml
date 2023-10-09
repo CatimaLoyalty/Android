@@ -91,10 +91,12 @@
         <item>is</item>
         <item>it</item>
         <item>ja</item>
+        <!-- <item>kn</item> -->
         <item>ko</item>
         <!-- <item>lb</item> -->
         <item>lt</item>
         <item>lv</item>
+        <!-- <item>ml</item> -->
         <item>nb-rNO</item>
         <item>nl</item>
         <item>oc</item>
@@ -107,6 +109,7 @@
         <item>sv</item>
         <item>tr</item>
         <item>uk</item>
+        <item>vi</item>
         <item>zh-rTW</item>
         <item>zh-rCN</item>
     </string-array>

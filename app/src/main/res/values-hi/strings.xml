@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="storeName">नाम</string>
-    <string name="app_name">कैटीमा — वफादारी कार्ड वॉलेट</string>
+    <string name="app_name">कैटीमा </string>
     <string name="note">नोट</string>
     <string name="cardId">कार्ड आईडी</string>
     <string name="star">पसंदीदा में जोड़ें</string>

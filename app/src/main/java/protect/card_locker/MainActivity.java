@@ -7,6 +7,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -40,6 +41,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.databinding.ContentMainBinding;
@@ -75,7 +77,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
     private ActivityResultLauncher<Intent> mSettingsLauncher;
-    getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
         @Override
@@ -234,6 +236,8 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         groupsTabLayout = binding.groups;
+        // Set the action bar title based on the app's locale
+        updateActionBarTitle();
         contentMainBinding = ContentMainBinding.bind(binding.include.getRoot());
 
         mDatabase = new DBHelper(this).getWritableDatabase();
@@ -603,12 +607,33 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
                     return true;
                 }
+
             });
         }
+
+        // Set the localized title for the search item
+        MenuItem searchMenuItem = inputMenu.findItem(R.id.action_search);
+        searchMenuItem.setTitle(getString(R.string.app_name));
 
         return super.onCreateOptionsMenu(inputMenu);
     }
 
+    private void updateActionBarTitle() {
+        // Get the current locale of the app
+        Configuration config = getResources().getConfiguration();
+        Locale currentLocale = config.locale;
+
+        // Get the app name/title based on the current locale
+        String appName;
+        if (currentLocale.getLanguage().equals("hi")) {
+            appName = getString(R.string.app_name); // Use Hindi app title
+        } else {
+            appName = getString(R.string.app_name); // Use default (English) app title
+        }
+
+        // Set the action bar title
+        getSupportActionBar().setTitle(appName);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem inputItem) {
         int id = inputItem.getItemId();

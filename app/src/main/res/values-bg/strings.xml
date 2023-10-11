@@ -286,4 +286,5 @@
     <string name="enter_card_id">Въведете номера или текста от картата</string>
     <string name="addWithoutBarcode">Добавяне на карта без щрихкод</string>
     <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -229,7 +229,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         super.onCreate(inputSavedInstanceState);
 
         binding = MainActivityBinding.inflate(getLayoutInflater());
-        setTitle(R.string.app_name);
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
         groupsTabLayout = binding.groups;

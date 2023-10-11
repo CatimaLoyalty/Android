@@ -1,13 +1,25 @@
+# Android Studio generated (superseded/unused rules commented out)
 *.iml
 .gradle
-local.properties
-.idea/
+/local.properties
+#/.idea/caches
+#/.idea/libraries
+#/.idea/modules.xml
+#/.idea/workspace.xml
+#/.idea/navEditor.xml
+#/.idea/assetWizardSettings.xml
 .DS_Store
-build/
-captures/
-**/release
-**/debug
-app/*.log
+/build
+/captures
+.externalNativeBuild
+.cxx
+#local.properties
+
+# Android extras
+/app/*.log
+/app/build
+/app/release
+/.idea
 
 # Bundle
 /.bundle/

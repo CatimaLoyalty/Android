@@ -37,11 +37,9 @@ android {
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
-            resValue("string", "app_name", "Catima")
         }
         debug {
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "Catima Debug")
         }
     }
 

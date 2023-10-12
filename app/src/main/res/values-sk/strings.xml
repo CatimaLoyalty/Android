@@ -293,4 +293,5 @@
     <string name="field_must_not_be_empty">Pole nesmie byť prázdne</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os a prispievateľov</string>
     <string name="show_archived_cards">Zobraziť archivované karty</string>
+    <string name="app_name">Catima</string>
 </resources>

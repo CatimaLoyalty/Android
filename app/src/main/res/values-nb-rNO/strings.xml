@@ -278,4 +278,13 @@
     <string name="show_archived_cards">Vis arkiverte kort</string>
     <string name="view_online">Vis på nett</string>
     <string name="app_copyright_short">Opphavsrett © Sylvia van Os og bidragsytere</string>
+    <string name="balanceParsingFailed">Ugyldig saldo</string>
+    <string name="action_more_options">Flere alternativer</string>
+    <string name="addWithoutBarcode">Legg til kort uten strekkode</string>
+    <string name="app_name">Catima</string>
+    <string name="card_id_must_not_be_empty">Kort-ID må fylles ut</string>
+    <string name="add_a_card_in_a_different_way">Legg til et kort på annen måte</string>
+    <string name="manually_enter_barcode_instructions">Skriv inn ID-nummer eller tekst fra kortet og trykk på strekkoden som ser ut til å ligne.</string>
+    <string name="enter_card_id">Skriv inn ID-nummeret eller teksten på kortet</string>
+    <string name="field_must_not_be_empty">Feltet må fylles ut</string>
 </resources>

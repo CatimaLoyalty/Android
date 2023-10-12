@@ -286,4 +286,5 @@
     <string name="enter_card_id">Voer het id-nummer of de tekst van je kaart in</string>
     <string name="addWithoutBarcode">Kaart zonder barcode toevoegen</string>
     <string name="field_must_not_be_empty">Dit veld is vereist</string>
+    <string name="app_name">Catima</string>
 </resources>

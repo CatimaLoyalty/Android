@@ -180,7 +180,7 @@
     <string name="selectBarcodeTitle">選擇條碼</string>
     <string name="noGroups">請點選 + 加號按鈕新增群組。</string>
     <string name="moveBarcodeToTopOfScreen">將條碼移至螢幕上方</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">萬用卡片錢包</string>
     <string name="unsupportedBarcodeType">尚支援此條碼種類，但未來版本的應用程式可能會支援此條碼種類。</string>
     <string name="wrongValueForBarcodeType">條碼內容不適用於此條碼種類</string>
     <string name="backImageDescription">背面圖片</string>
@@ -257,10 +257,19 @@
     <string name="setBarcodeHeight">設定條碼高度</string>
     <string name="app_copyright_short">著作權所有© Sylvia van Os與其他貢獻者</string>
     <string name="permissionReadCardsLabel">讀取Catima卡片</string>
-    <string name="app_name">Catima — 萬用卡片錢包</string>
+    <string name="app_name">Catima</string>
     <string name="permissionReadCardsDescription">讀取Catima卡片及卡片資訊，包含註記與圖片</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">觀看卡片時避免螢幕鎖定</string>
     <string name="settings_allow_content_provider_read_summary">其他程式仍然需要取得權限</string>
     <string name="settings_allow_content_provider_read_title">允許其他程式使用我的資料</string>
     <string name="settings_keep_screen_on_summary">觀看卡片時避免螢幕關閉</string>
+    <string name="balanceParsingFailed">無效餘額</string>
+    <string name="view_online">網站上顯示</string>
+    <string name="action_more_options">更多選項</string>
+    <string name="action_display_options">螢幕</string>
+    <string name="settings_oled_dark_summary">降低OLED螢幕使用的電力</string>
+    <string name="settings_category_title_cards">卡片</string>
+    <string name="addWithoutBarcode">新增無條碼卡片</string>
+    <string name="show_archived_cards">顯示已封存卡片</string>
+    <string name="settings_category_title_privacy">隱私權</string>
 </resources>

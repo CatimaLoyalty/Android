@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -669,19 +670,30 @@ public class Utils {
     // rendering mess
     // use after views are inflated
     public static void postPatchColors(AppCompatActivity activity) {
-        TypedValue typedValue = new TypedValue();
-        activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
-        activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            activity.findViewById(android.R.id.content).setBackgroundColor(resolveBackgroundColor(activity));
+        }
+    }
 
-        if (Build.VERSION.SDK_INT >= 27) {
-            Window window = activity.getWindow();
+    // Either pass an Activity on which to call getWindow() or an existing Window (may be null) returned by that function.
+    public static void setNavigationBarColor(@Nullable AppCompatActivity activity, @Nullable Window window, int color, boolean useLightBars) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            if (window == null && activity != null) {
+                window = activity.getWindow();
+            }
             if (window != null) {
                 View decorView = window.getDecorView();
                 WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, decorView);
-                wic.setAppearanceLightNavigationBars(!isDarkModeEnabled(activity));
-                window.setNavigationBarColor(typedValue.data);
+                wic.setAppearanceLightNavigationBars(useLightBars);
+                window.setNavigationBarColor(color);
             }
         }
+    }
+
+    public static int resolveBackgroundColor(AppCompatActivity activity) {
+        TypedValue typedValue = new TypedValue();
+        activity.getTheme().resolveAttribute(android.R.attr.colorBackground, typedValue, true);
+        return typedValue.data;
     }
 
     public static int getHeaderColorFromImage(Bitmap image, int fallback) {

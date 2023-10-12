@@ -48,6 +48,12 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         Utils.postPatchColors(this);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.setNavigationBarColor(this, null, Utils.resolveBackgroundColor(this), !Utils.isDarkModeEnabled(this));
+    }
+
     protected void enableToolbarBackButton() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

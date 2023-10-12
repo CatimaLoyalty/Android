@@ -777,7 +777,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     @SuppressLint("DefaultLocale")
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);

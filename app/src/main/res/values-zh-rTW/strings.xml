@@ -158,7 +158,7 @@
     <string name="importOptionApplicationTitle">使用其他應用程式</string>
     <string name="importOptionApplicationButton">使用其他應用程式</string>
     <string name="importOptionApplicationExplanation">使用任何應用程式選擇您所想要匯入的檔案。</string>
-    <string name="app_copyright_fmt">著作權所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
+    <string name="app_copyright_fmt">著作權所有 © 2019–<xliff:g>%d</xliff:g> Sylvia van Os 與其他貢獻者</string>
     <string name="importVoucherVault">自 Voucher Vault 中匯入</string>
     <string name="importVoucherVaultMessage">選取您自 Voucher Vault 匯出的 <i>vouchervault.json</i> 檔案以進行匯入。
 \n請您先透過 Voucher Vault 進行匯出。</string>

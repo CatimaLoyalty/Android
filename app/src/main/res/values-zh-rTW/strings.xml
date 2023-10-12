@@ -272,4 +272,5 @@
     <string name="addWithoutBarcode">新增無條碼卡片</string>
     <string name="show_archived_cards">顯示已封存卡片</string>
     <string name="settings_category_title_privacy">隱私權</string>
+    <string name="settings_category_title_general">一般</string>
 </resources>

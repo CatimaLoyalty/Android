@@ -172,4 +172,9 @@
     <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">लिब्रे तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट अक्षम करता है</string>
+    <string name="removeImage">छवि हटाए</string>
+    <string name="setBackImage">पीछे की छवि सेट करें</string>
+    <string name="unsupportedBarcodeType">इस प्रकार का बारकोड को प्रदर्शित नहीं किया जा सकता। यह आने वाले संस्करण मे समर्थन हो सकता है।</string>
+    <string name="setFrontImage">सामने की छवि सेट करें</string>
+    <string name="app_name">कैटिमा</string>
 </resources>

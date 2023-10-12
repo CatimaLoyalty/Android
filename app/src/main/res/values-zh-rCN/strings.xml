@@ -279,4 +279,5 @@
     <string name="enter_card_id">输入卡片上的 ID 号或文本</string>
     <string name="addWithoutBarcode">不使用条形码添加卡片</string>
     <string name="field_must_not_be_empty">字段不能为空</string>
+    <string name="app_name">Catima</string>
 </resources>

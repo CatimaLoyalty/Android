@@ -640,7 +640,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
         if (Build.VERSION.SDK_INT >= 27) {
             WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), binding.getRoot());
-            wic.setAppearanceLightNavigationBars(false);
+            wic.setAppearanceLightNavigationBars(Utils.needsDarkForeground(darkenedColor));
             getWindow().setNavigationBarColor(darkenedColor);
         }
 

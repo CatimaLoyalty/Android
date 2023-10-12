@@ -293,4 +293,5 @@
     <string name="enter_card_id">Entrez le numéro d’identification ou le texte sur votre carte</string>
     <string name="addWithoutBarcode">Ajouter une carte sans code-barres</string>
     <string name="field_must_not_be_empty">Le champ ne peut pas être vide</string>
+    <string name="app_name">Catima</string>
 </resources>

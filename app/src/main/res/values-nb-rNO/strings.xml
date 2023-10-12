@@ -278,4 +278,8 @@
     <string name="show_archived_cards">Vis arkiverte kort</string>
     <string name="view_online">Vis på nett</string>
     <string name="app_copyright_short">Opphavsrett © Sylvia van Os og bidragsytere</string>
+    <string name="balanceParsingFailed">Ugyldig saldo</string>
+    <string name="action_more_options">Flere alternativer</string>
+    <string name="addWithoutBarcode">Legg til kort uten strekkode</string>
+    <string name="app_name">Catima</string>
 </resources>

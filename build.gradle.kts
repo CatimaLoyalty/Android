@@ -2,7 +2,7 @@
 
 plugins {
     id("com.android.application") version "8.1.2" apply false
-    id("com.github.spotbugs") version "5.1.4" apply false
+    id("com.github.spotbugs") version "5.1.5" apply false
 }
 
 allprojects {

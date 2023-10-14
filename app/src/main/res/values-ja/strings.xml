@@ -197,4 +197,5 @@
     <string name="validFromDate">有効期限</string>
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
+    <string name="app_name">Catima</string>
 </resources>

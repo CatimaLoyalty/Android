@@ -1,2 +1,4 @@
 - Perbaikan UI kecil
 - Memperbaiki tanggal valid dari dan tanggal kedaluwarsa yang diatur ulang saat memutar layar pengeditan kartu
+- Memperbaiki crash ketika memutar layar saat pengambil warna ditampilkan
+- Perbaikan impor Stocard

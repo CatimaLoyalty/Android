@@ -1,11 +1,11 @@
-- CHANGEMENT MAJEUR : Le format de sauvegarde a changé, voir https ://github.com/TheLastProject/Catima/wiki/Export-format
-- CHANGEMENT MAJEUR : Le format de partage d'URL a changé, voir https ://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Possibilité d'activer ou non la lampe de poche lors du scan
-- Ajout de la prise en charge UPC-E
-- Possibilité d'ajouter une photo avant et arrière à chaque carte
-- Possibilité d'importation de fichier zip protégés par mot de passe
-- Possibilité d'importation via Stocard (Bêta)
-- Correction d'espaces inutiles des notes importées depuis Fidme
-- Prise en charge du format d'exportation Voucher Vault
-- Correction des boutons d'action flottants sur Android 4
-- Correction de la marge supérieure de la visionneuse de carte de fidélité
+- CHANGEMENT MAJEUR : nouveau format de sauvegarde
+- CHANGEMENT MAJEUR : nouveau format de partage d'URL
+- La lampe de poche peut s'activer lors du scan
+- Prise en charge UPC-E
+- Possibilité d'ajout de photos sur chaque carte
+- Import de fichiers zip protégés par mot de passe
+- Import via Stocard (Bêta)
+- Amélioration de l'import de notes depuis Fidme
+- Prise en charge du format d'export Voucher Vault
+- Boutons d'action flottants corrigés sur Android 4
+- Mise en page de la vue de carte corrigée

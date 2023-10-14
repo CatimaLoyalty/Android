@@ -257,7 +257,7 @@
     <string name="show_name_below_image_thumbnail">Tampilkan nama di bawah thumbnail gambar</string>
     <string name="show_note">Tampilkan catatan</string>
     <string name="permissionReadCardsLabel">Baca Kartu Catima</string>
-    <string name="permissionReadCardsDescription">Baca kartu Anda dan semua detailnya, termasuk catatan dan gambar</string>
+    <string name="permissionReadCardsDescription">baca kartu Anda dan semua detailnya, termasuk catatan dan gambar</string>
     <string name="settings_allow_content_provider_read_title">Izinkan aplikasi lain mengakses data saya</string>
     <string name="settings_allow_content_provider_read_summary">Aplikasi masih harus meminta izin untuk diberikan akses</string>
     <string name="settings_keep_screen_on_summary">Menonaktifkan batas waktu layar saat melihat kartu</string>

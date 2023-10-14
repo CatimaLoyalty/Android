@@ -1,0 +1,4 @@
+- Naprawiono wybrany kolor w oknie zmiany koloru
+- Obsługa usuwania wielu kart naraz
+- Naprawiono możliwe ArithmeticException podczas zmieniania rozmiaru obrazu
+- Naprawiono zamykanie trybu pełnoekranowego podczas obracania urządzenia

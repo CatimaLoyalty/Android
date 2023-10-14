@@ -1,0 +1,5 @@
+- Dodano wsparcie dla dodawania skrótów na ekran główny podczas dodawania lub edytowania karty. (pull #155)
+- Usunięto widżet, ponieważ był słabą alternatywą dla skrótów. (pull #155)
+- Naprawiono eksport kopii zapasowych na Androidzie 7+ (pull #153).
+- Zgłaszanie dokładniejszego typu mime podczas eksportu danych kopii zapasowych. (pull #156)
+- Naprawiono błąd, który uniemożliwiał edycję karty. (pull #155)

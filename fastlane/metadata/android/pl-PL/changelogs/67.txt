@@ -1,0 +1,6 @@
+- Dodano opcję ustawienia oddzielnej wartości kodu kreskowego od identyfikatora karty
+- Uproszczono konfigurację rozmiaru czcionki
+- Wprowadzono kilka drobnych poprawek interfejsu użytkownika
+- Użyto ikony literowej także dla skrótów
+- Zawsze wyświetlane wszystkie typy kodów kreskowych w ręcznym wprowadzaniu
+- Usunięto okno dialogowe dotyczące polityki prywatności podczas pierwszego uruchomienia

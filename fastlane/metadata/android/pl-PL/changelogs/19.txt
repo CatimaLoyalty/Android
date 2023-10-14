@@ -1,0 +1,3 @@
+- Naprawa awarii podczas importowania niektórych rodzajów uszkodzonych plików CSV. (pull #177)
+- Naprawa importowania kopii zapasowych bezpośrednio z systemu plików. (pull #180)
+- Naprawa importowania kopii zapasowych z niektórych rodzajów dostawców treści. (pull #179)

@@ -1,0 +1,2 @@
+- Dodano wsparcie dla dodawania skrótów kart lojalnościowych z ekranu startowego. (pull #161)
+- Usunięto obsługę dodawania skrótów kart lojalnościowych z samej aplikacji, co eliminuje potrzebę uprawnienia do skrótów. (pull #163)

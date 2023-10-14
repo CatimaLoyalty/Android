@@ -1,0 +1,2 @@
+- Umożliwiono ręczne wprowadzenie kodu kreskowego przez użytkownika. Jeśli użytkownik wybierze wprowadzenie kodu kreskowego ręcznie, zostanie wyświetlona lista wszystkich obsługiwanych i poprawnych obrazów kodów kreskowych. Użytkownik może następnie wybrać obraz kodu kreskowego, który odpowiada jego potrzebom. (problem #33, pull #44)
+- Rozwiązano problem z nieostrością niektórych wyświetlanych kodów kreskowych. (problem #37)

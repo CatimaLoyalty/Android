@@ -1,0 +1,2 @@
+- Dodano obsługę salda
+- Przeprowadzono reorganizację zakładki kodu kreskowego w widoku edycji

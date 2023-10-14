@@ -1,0 +1,2 @@
+- Zawsze wyświetlane są wszystkie opcje importu/eksportu i wyświetlaj komunikat w przypadku rzeczywistych problemów (poprawia zgodność z XPrivacyLua)
+- Pytanie o potwierdzenie przed opuszczeniem widoku edycji po dokonaniu zmian bez zapisywania

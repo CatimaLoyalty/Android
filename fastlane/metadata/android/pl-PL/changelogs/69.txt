@@ -1,0 +1,3 @@
+- Dodano brakujący identyfikator kodu kreskowego do eksportu
+- Niewyświetlanie dialogu aktualizacji kodu kreskowego, jeśli jego wartość jest taka sama jak identyfikator karty
+- Dodano tłumaczenie na język fiński

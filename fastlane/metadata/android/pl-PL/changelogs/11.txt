@@ -1,0 +1,5 @@
+- Podczas edycji ID karty ustawiane jest istniejące ID (pull #94 (https://github.com/brarcher/loyalty-card-locker/pull/94))
+- Limit dla generowanych kodów dla zmniejszenia użycia pamięci i błędów OOM (pull #103)
+- Zmiana nazwy przycisku "Wprowadź kartę" na "Edycja karty" w przypadku edycji karty z istniejącym ID(pull #104)
+- Zmiana kolorów na bardziej kompatybilne z ikoną aplikacji, zmiana widoku podglądu karty (pull #107)
+- Dodano intro podczas 1-szego uruchomienia aplikacji (pull #108)

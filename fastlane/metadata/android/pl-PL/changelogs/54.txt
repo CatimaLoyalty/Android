@@ -1,0 +1,1 @@
+- Naprawiono rysowanie przycisku "Edytuj" lub arkusza dolnego "Więcej informacji" nad kodem ID karty

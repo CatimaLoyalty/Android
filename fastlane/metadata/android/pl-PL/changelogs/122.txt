@@ -1,0 +1,3 @@
+- Dodano przytrzymanie ikony karty w widoku aktywności, aby ją zmienić
+- Poprawienie stylizacji przycisków na ekranie Grup
+- Naprawa problemu z długimi wartościami kodów kreskowych, które powodowały, że kod kreskowy zmniejszał się do zera

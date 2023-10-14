@@ -1,0 +1,2 @@
+- Długie naciśnięcie karty otwiera opcję kopiowania identyfikatora karty do schowka. (pull #49)
+- Przycisk "Wstecz" na widoku Import/Eksport teraz działa i przenosi użytkownika do głównego widoku

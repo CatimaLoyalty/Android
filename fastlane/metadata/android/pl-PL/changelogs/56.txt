@@ -1,0 +1,1 @@
+- Naprawiono awarię podczas przełączania się na zakładkę kodu kreskowego w widoku edycji, jeśli brak kodu kreskowego

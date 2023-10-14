@@ -1,0 +1,2 @@
+- Dodano wsparcie dla skrótów aplikacji (Android 7.1+), gdzie najczęściej używane karty będą dostępne jako skróty. (pull #145)
+- Dodano widżet działający jak przypięty skrót aplikacji, aby wspierać urządzenia działające na wersjach Androida poniżej 7.1. (pull #142)

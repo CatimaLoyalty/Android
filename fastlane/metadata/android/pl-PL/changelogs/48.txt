@@ -1,0 +1,3 @@
+- Ekran "O aplikacji" został przeniesiony do własnej aktywności
+- Użytkownik jest pytany, czy ma zamiar użyć aparatu lub wprowadzić identyfikator ręcznie podczas dodawania/edytowania karty
+- Kolejność grup została zmieniona na manualną, zamiast być narzucaną w sposób automatyczny według porządku alfabetycznego

@@ -1,0 +1,3 @@
+- Wsparcie dla importowania eksportów z Voucher Vault (https://github.com/tim-smart/vouchervault/)
+- Opcja utrzymania włączonego ekranu podczas przeglądania karty lojalnościowej
+- Opcja wstrzymania blokady ekranu podczas przeglądania karty lojalnościowej

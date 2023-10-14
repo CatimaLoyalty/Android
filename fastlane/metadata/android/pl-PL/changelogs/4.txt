@@ -1,0 +1,4 @@
+- Tłumaczenie na język niderlandzki
+- Pozwala na edycję pola z nazwą po dodaniu karty lojalnościowej
+- Dodano opcjonalne pole na notatki
+- Rozwiązano wszystkie problemy zidentyfikowane przez FindBugs i wymagano rozwiązania wszystkich problemów z FindBugs przed zaakceptowaniem wniosku o wprowadzenie zmian

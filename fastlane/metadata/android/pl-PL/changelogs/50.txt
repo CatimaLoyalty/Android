@@ -1,0 +1,2 @@
+- Poprawiono kontrast, używając zawsze białego tekstu na czerwonych przyciskach
+- Arkusz na dole, który można teraz przeciągać w widoku karty lojalnościowej

@@ -40,7 +40,6 @@
         <item quantity="one">এই <xliff:g>%d</xliff:g> কার্ডটি স্থায়ীভাবে মুছবেন\?</item>
         <item quantity="other">এই <xliff:g>%d</xliff:g> কার্ডগুলিকে স্থায়ীভাবে মুছবেন\?</item>
     </plurals>
-    <string name="copy_to_clipboard">ক্লিপবোর্ডে আইডি কপি করুন</string>
     <string name="share">শেয়ার করুন</string>
     <string name="editCardTitle">কার্ড সম্পাদনা করুন</string>
     <string name="addCardTitle">কার্ড যোগ করুন</string>
@@ -53,5 +52,4 @@
     <string name="noGiftCards">একটি কার্ড যোগ করতে + প্লাস বোতামে ক্লিক করুন বা ⋮ মেনু থেকে আমদানি করুন।</string>
     <string name="cardShortcut">কার্ড শর্টকাট</string>
     <string name="noCardsMessage">প্রথমে একটি কার্ড যোগ করুন</string>
-    <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
 </resources>

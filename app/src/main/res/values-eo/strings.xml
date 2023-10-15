@@ -69,7 +69,6 @@
     <string name="scanCardBarcode">Scintigrafio Barcode Card</string>
     <string name="share">Interŝanĝado</string>
     <string name="star">Aldoni al miaj plej ŝatataj</string>
-    <string name="copy_to_clipboard_toast">Card ID kopiita al la tondujo</string>
     <string name="settings_keep_screen_on">Teni sur ekrano</string>
     <string name="importSuccessful">Karto datumo importitaj</string>
     <string name="enter_group_name">Eniri nomo de la grupo</string>

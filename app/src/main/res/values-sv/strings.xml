@@ -12,7 +12,6 @@
     <string name="errorReadingImage">Kunde inte läsa bilden</string>
     <string name="currency">Valuta</string>
     <string name="failedGeneratingShareURL">Kunde inte skapa en delningsbar URL. Var snäll och rapportera detta.</string>
-    <string name="card_ids_copied">Kopierade ID:n</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> valt</item>
         <item quantity="other"><xliff:g>%d</xliff:g> valda</item>
@@ -66,7 +65,6 @@
     <string name="backImageDescription">Baksidesbild</string>
     <string name="frontImageDescription">Framsidesbild</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jag vill dela några kort med dig</string>
-    <string name="copy_to_clipboard_multiple_toast">ID:n kopierades till Urklipp</string>
     <string name="wrongValueForBarcodeType">Värdet är inte giltigt för den valda streckkodstypen</string>
     <string name="unsupportedBarcodeType">Denna streckkodstyp kan ännu inte visas. Den kan komma att stödjas i en senare version av appen.</string>
     <string name="setBarcodeId">Ange streckkodsvärde</string>
@@ -78,7 +76,6 @@
     <string name="settings_theme">Tema</string>
     <string name="settings">Inställningar</string>
     <string name="thumbnailDescription">Miniatyrbild</string>
-    <string name="copy_to_clipboard_toast">ID:t kopierat till Urklipp</string>
     <string name="selectBarcodeTitle">Välj streckkod</string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
@@ -104,7 +101,6 @@
     <string name="editCardTitle">Redigera kort</string>
     <string name="sendLabel">Skicka…</string>
     <string name="share">Dela</string>
-    <string name="copy_to_clipboard">Kopiera ID till Urklipp</string>
     <string name="ok">OK</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Ta bort detta <xliff:g>%d</xliff:g> kort permanent\?</item>

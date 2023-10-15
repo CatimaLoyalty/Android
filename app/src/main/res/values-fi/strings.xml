@@ -5,7 +5,6 @@
     <string name="updateBarcodeQuestionText">Vaihdoit ID-tunnuksen. Haluatko päivittää myös viivakoodin käyttämään samaa arvoa\?</string>
     <string name="updateBarcodeQuestionTitle">Päivitetäänkö viivakoodin arvo\?</string>
     <string name="intent_import_card_from_url_share_multiple_text">Haluan jakaa joitain kortteja kanssasi</string>
-    <string name="copy_to_clipboard_multiple_toast">ID-tunnukset kopioitu leikepöydälle</string>
     <string name="wrongValueForBarcodeType">Arvo ei ole kelvollinen valitulle viivakoodityypille</string>
     <string name="unsupportedBarcodeType">Tätä viivakoodityyppiä ei voi vielä näyttää. Sitä saatetaan tukea sovelluksen myöhemmässä versiossa.</string>
     <string name="setBarcodeId">Aseta viivakoodin arvo</string>
@@ -74,7 +73,6 @@
     <string name="settings">Asetukset</string>
     <string name="starImage">Suosikkitähti</string>
     <string name="thumbnailDescription">Pienoiskuva</string>
-    <string name="copy_to_clipboard_toast">ID-tunnus kopioitu leikepöydälle</string>
     <string name="selectBarcodeTitle">Valitse viivakoodi</string>
     <string name="app_resources">Vapaat kolmannen osapuolen resurssit: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Vapaat kolmannen osapuolen kirjastot: <xliff:g id="app_libraries_list">%s</xliff:g></string>
@@ -105,7 +103,6 @@
     <string name="importExport">Tuo/vie</string>
     <string name="failedParsingImportUriError">Tuonnin URI: n jäsentäminen epäonnistui</string>
     <string name="noCardExistsError">Tätä korttia ei löytynyt</string>
-    <string name="card_ids_copied">Kopioidut tunnukset</string>
     <string name="noCardsMessage">Lisää ensin kortti</string>
     <string name="cardShortcut">Kortin pikakuvake</string>
     <string name="scanCardBarcode">Skannaa viivakoodi</string>
@@ -113,7 +110,6 @@
     <string name="editCardTitle">Muokkaa korttia</string>
     <string name="sendLabel">Lähetä…</string>
     <string name="share">Jaa</string>
-    <string name="copy_to_clipboard">Kopioi ID-tunnus leikepöydälle</string>
     <string name="ok">OK</string>
     <string name="confirm">Vahvista</string>
     <string name="delete">Poista</string>

@@ -11,7 +11,6 @@
     <string name="delete">Eliminar</string>
     <string name="confirm">Confirmar</string>
     <string name="ok">De acuerdo</string>
-    <string name="copy_to_clipboard">Copiar ID. en portapapeles</string>
     <string name="sendLabel">Enviar…</string>
     <string name="editCardTitle">Editar tarjeta</string>
     <string name="addCardTitle">Añadir tarjeta</string>
@@ -60,7 +59,6 @@
     <string name="noGroups">Pulse en el botón «+» para añadir grupos de categorización.</string>
     <string name="starImage">Estrella favorita</string>
     <string name="thumbnailDescription">Miniatura</string>
-    <string name="copy_to_clipboard_toast">Se copió la ID en el portapapeles</string>
     <string name="selectBarcodeTitle">Seleccionar el código de barras</string>
     <string name="unstar">Eliminar de favoritos</string>
     <string name="noBarcode">Sin código de barras</string>
@@ -108,7 +106,6 @@
     <string name="updateBarcodeQuestionText">Ha cambiado el código. ¿Desea actualizar también el código de barras para usar el mismo valor\?</string>
     <string name="intent_import_card_from_url_share_multiple_text">Quiero compartirte algunas tarjetas</string>
     <string name="setBackImage">Establecer imagen anversa</string>
-    <string name="card_ids_copied">Código(s) copiado(s)</string>
     <string name="turn_flashlight_off">Apagar linterna</string>
     <string name="turn_flashlight_on">Encender linterna</string>
     <string name="no">No</string>
@@ -120,7 +117,6 @@
     <string name="photos">Fotos</string>
     <string name="backImageDescription">Imagen del reverso</string>
     <string name="frontImageDescription">Imagen frontal</string>
-    <string name="copy_to_clipboard_multiple_toast">Códigos copiados al portapapeles</string>
     <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
     <string name="unsupportedBarcodeType">Este tipo de código de barras todavía no se puede visualizar. Es posible que se admita en una futura versión de la aplicación.</string>
     <string name="setBarcodeId">Establecer valor de código de barra</string>

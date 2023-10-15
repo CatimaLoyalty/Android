@@ -55,7 +55,6 @@
     <string name="about">Par</string>
     <string name="app_license">Copyleft brīva un atvērta programmatūra, licencēta GPLv3+</string>
     <string name="selectBarcodeTitle">Izvēlieties svītrkodu</string>
-    <string name="copy_to_clipboard_toast">Numurs kopēts starpliktuvē</string>
     <string name="thumbnailDescription">Sīktēls</string>
     <string name="starImage">Izlases zvaigzne</string>
     <string name="settings">Iestatījumi</string>
@@ -155,13 +154,11 @@
     <string name="no">Nē</string>
     <string name="settings_system_locale">Sistēmas</string>
     <string name="include_if_asking_support">Ja vēlaties lūgt atbalstu, lūdzu iekļaujiet sekojošo informāciju:</string>
-    <string name="card_ids_copied">Kopētie numuri</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> svītrkoda attēls</string>
     <string name="privacy_policy">Privātuma politika</string>
     <string name="accept">Apstiprināt</string>
     <string name="editGroup">Grupas rediģēšana: <xliff:g>%s</xliff:g></string>
     <string name="settings_brown_theme">Brūna</string>
-    <string name="copy_to_clipboard">Kopēt kartes numuru starpliktuvē</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autortiesības © 2019–<xliff:g>%d</xliff:g> Sylvia van Os</string>
     <string name="app_copyright_old">Balstīta uz Loyalty Card Keychain
 \nautortiesības © 2016–2020 Branden Archer</string>
@@ -200,7 +197,6 @@
     <string name="setBarcodeId">Norādiet svītrkoda vērtību</string>
     <string name="unsupportedBarcodeType">Šo svītrkoda tipu pagaidām nav iespējams attēlot. Iespējams, nākotnē tas tiks atbalstīts vēlākā lietotnes versijā.</string>
     <string name="wrongValueForBarcodeType">Šī vērtība nav derīga izvēlētajam svītrkoda tipam</string>
-    <string name="copy_to_clipboard_multiple_toast">Numuri kopēti starpliktuvē</string>
     <string name="intent_import_card_from_url_share_multiple_text">Vēlos koplietot kartes</string>
     <string name="frontImageDescription">Priekšas attēls</string>
     <string name="backImageDescription">Aizmugures attēls</string>

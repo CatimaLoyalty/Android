@@ -11,7 +11,6 @@
     <string name="delete">Smazat</string>
     <string name="confirm">Potvrdit</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Kopírovat ID do schránky</string>
     <string name="sendLabel">Odeslat…</string>
     <string name="editCardTitle">Editovat kartu</string>
     <string name="addCardTitle">Přidat kartu</string>
@@ -38,7 +37,6 @@
     <string name="about_title_fmt">O aplikaci <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verze: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čárový kód</string>
-    <string name="copy_to_clipboard_toast">ID zkopírováno do schránky</string>
     <string name="deleteTitle">Smazat kartu</string>
     <string name="deleteConfirmation">Opravdu chcete smazat tuto kartu\?</string>
     <string name="moveBarcodeToTopOfScreen">Přesunout čárový kód do horní části obrazovky</string>
@@ -63,7 +61,6 @@
     <string name="noMatchingGiftCards">Nic nenalezeno. Zkuste zadat jiný výraz.</string>
     <string name="action_search">Hledat</string>
     <string name="thumbnailDescription">Miniatura</string>
-    <string name="card_ids_copied">ID zkopírováno</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Opravdu chcete trvale odstranit <xliff:g>%d</xliff:g> kartu\?</item>
         <item quantity="few">Opravdu chcete trvale odstranit <xliff:g>%d</xliff:g> karty\?</item>
@@ -117,7 +114,6 @@
     <string name="backImageDescription">Obrázek zadní strany</string>
     <string name="frontImageDescription">Obrázek přední strany</string>
     <string name="intent_import_card_from_url_share_multiple_text">Chci s vámi sdílet karty</string>
-    <string name="copy_to_clipboard_multiple_toast">ID zkopírována do schránky</string>
     <string name="wrongValueForBarcodeType">Hodnota není platná pro vybraný typ čárového kódu</string>
     <string name="unsupportedBarcodeType">Tento typ čárového kódu zatím nelze zobrazit. Možná bude podporován v pozdější verzi aplikace.</string>
     <string name="barcodeId">Hodnota čárového kódu</string>

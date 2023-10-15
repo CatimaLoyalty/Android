@@ -40,7 +40,6 @@
     <string name="addCardTitle">Добавяне на карта</string>
     <string name="removeImage">Премахване на изображение</string>
     <string name="takePhoto">Снимане</string>
-    <string name="copy_to_clipboard_multiple_toast">Номерата са копирани</string>
     <string name="intent_import_card_from_url_share_multiple_text">Искам да споделя тези карти с вас</string>
     <string name="wrongValueForBarcodeType">Стойноста е неприемлива за избрания щрихкод</string>
     <string name="setBarcodeId">Задаване на стойност</string>
@@ -89,7 +88,6 @@
     <string name="settings">Настройки</string>
     <string name="starImage">Звезда за любимо</string>
     <string name="thumbnailDescription">Миниатюра</string>
-    <string name="copy_to_clipboard_toast">Номерът е копиран</string>
     <string name="selectBarcodeTitle">Избиране на щрихкод</string>
     <string name="importOptionApplicationButton">Избиране чрез приложение</string>
     <string name="importing">Внасяне…</string>
@@ -107,7 +105,6 @@
     <string name="scanCardBarcode">Снемане на щрихкод</string>
     <string name="editCardTitle">Редактиране на карта</string>
     <string name="share">Споделя</string>
-    <string name="copy_to_clipboard">Копира номера</string>
     <string name="ok">Добре</string>
     <string name="importSuccessful">Данните са внесени</string>
     <string name="chooseImportType">Внасяне на данни на</string>
@@ -204,7 +201,6 @@
     <string name="starred">Със звезда</string>
     <string name="showMoreInfo">Показване на информация</string>
     <string name="options">Настройки</string>
-    <string name="card_ids_copied">Номерата са копирани</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> точка</item>
         <item quantity="other"><xliff:g>%s</xliff:g> точки</item>

@@ -8,7 +8,6 @@
     <string name="confirm">Potvrdi</string>
     <string name="deleteTitle">Izbriši karticu</string>
     <string name="deleteConfirmation">Izbrisati ovu karticu zauvijek\?</string>
-    <string name="copy_to_clipboard">Kopiraj ID u međuspremnik</string>
     <string name="share">Dijeli</string>
     <string name="sendLabel">Pošalji …</string>
     <string name="editCardTitle">Uredi karticu</string>
@@ -16,7 +15,6 @@
     <string name="scanCardBarcode">Snimi crtični kod kartice</string>
     <string name="cardShortcut">Prečac kartice</string>
     <string name="noCardsMessage">Najprije dodaj karticu</string>
-    <string name="card_ids_copied">ID oznake su kopirane</string>
     <string name="noBarcode">Nema crtičnog koda</string>
     <string name="star">Dodaj u favorite</string>
     <string name="action_add">Dodaj</string>
@@ -132,7 +130,6 @@
     <string name="noCameraPermissionDirectToSystemSetting">Za snimanje crtičnih kodova Catima treba pristup tvojoj kameri. Dodirni ovdje za mijenjanje postavki dozvola.</string>
     <string name="app_libraries">Libre biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Biranje crtičnog koda</string>
-    <string name="copy_to_clipboard_toast">ID je kopiran u međuspremnik</string>
     <string name="settings_portrait_orientation">Okomito</string>
     <string name="settings_lock_on_opening_orientation">Zaključaj na položaj koji se koristi prilikom otvaranja kartice</string>
     <string name="group_edit">Uredi grupu</string>
@@ -233,7 +230,6 @@
     <string name="setBarcodeId">Postavi vrijednost crtičnog koda</string>
     <string name="unsupportedBarcodeType">Ova se vrsta crtičnog koda još ne može prikazati. Možda će se podržati u novijoj verziji aplikacije.</string>
     <string name="wrongValueForBarcodeType">Vrijednost nije valjana za odabranu vrstu crtičnog koda</string>
-    <string name="copy_to_clipboard_multiple_toast">ID oznke su kopirane u međuspremnik</string>
     <string name="intent_import_card_from_url_share_multiple_text">Želim dijeliti neke kartice s tobom</string>
     <string name="backImageDescription">Stražnja slika</string>
     <string name="setFrontImage">Postavi prednju sliku</string>

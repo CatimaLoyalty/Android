@@ -39,7 +39,6 @@
     </plurals>
     <!-- END NOTE: i18n oddness -->
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Copy ID to clipboard</string>
     <string name="share">Share</string>
     <string name="sendLabel">Send…</string>
     <string name="editCardTitle">Edit Card</string>
@@ -47,7 +46,6 @@
     <string name="scanCardBarcode">Scan Barcode</string>
     <string name="cardShortcut">Card Shortcut</string>
     <string name="noCardsMessage">Add a card first</string>
-    <string name="card_ids_copied">Copied ID(s)</string>
     <!-- %s is a type of barcode here -->
     <string name="barcodeImageDescriptionWithType">Image <xliff:g>%s</xliff:g> barcode</string>
     <string name="noCardExistsError">Could not find that card</string>
@@ -86,7 +84,6 @@
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Select Barcode</string>
-    <string name="copy_to_clipboard_toast">ID copied to clipboard</string>
     <string name="thumbnailDescription">Thumbnail</string>
     <string name="starImage">Favorite star</string>
     <string name="settings">Settings</string>
@@ -204,7 +201,6 @@
     <string name="setBarcodeId">Set barcode value</string>
     <string name="unsupportedBarcodeType">This barcode type can\'t yet be displayed. It may be supported in a later version of the app.</string>
     <string name="wrongValueForBarcodeType">The value is not valid for the selected barcode type</string>
-    <string name="copy_to_clipboard_multiple_toast">IDs copied to clipboard</string>
     <string name="intent_import_card_from_url_share_multiple_text">I want to share some cards with you</string>
     <string name="frontImageDescription">Front image</string>
     <string name="backImageDescription">Back image</string>

@@ -11,7 +11,6 @@
     <string name="delete">Izbriši</string>
     <string name="confirm">Potrdi</string>
     <string name="ok">Vredu</string>
-    <string name="copy_to_clipboard">Kopirajte številko kartice</string>
     <string name="sendLabel">Pošlji…</string>
     <string name="editCardTitle">Uredi kartico zvestobe</string>
     <string name="addCardTitle">Dodaj kartico zvestobe</string>
@@ -41,7 +40,6 @@
     <string name="about_title_fmt">Več o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Izberite črtno kodo</string>
-    <string name="copy_to_clipboard_toast">ID številka je kopirana v odložišče</string>
     <string name="thumbnailDescription">Sličica</string>
     <string name="settings">Nastavitve</string>
     <string name="settings_display_barcode_max_brightness">Povečaj osvetljenost prikaza črtne kode</string>
@@ -75,7 +73,6 @@
 \ncopyright © 2016-2020 Branden Archer</string>
     <string name="exportOptionExplanation">Podatki bodo zapisani na izbrano mesto.</string>
     <string name="failedParsingImportUriError">Ni bilo mogoče razčleniti URI uvoza</string>
-    <string name="card_ids_copied">Kopirana ID številka kartice</string>
     <string name="share">Delite</string>
     <string name="unstar">Odstrani iz priljubljenih</string>
     <string name="star">Dodaj med priljubljene</string>
@@ -134,7 +131,6 @@
     <string name="wrongValueForBarcodeType">Ta vrednost ni veljavna pri izbranem tipu čtne kode</string>
     <string name="takePhoto">Naredi fotografijo</string>
     <string name="intent_import_card_from_url_share_multiple_text">Z vami želim deliti kartice zvestobe</string>
-    <string name="copy_to_clipboard_multiple_toast">ID številke kartic so kopirane v odložišče</string>
     <string name="importFidme">Uvoz iz aplikacije FidMe</string>
     <string name="no">Ne</string>
     <string name="yes">Da</string>

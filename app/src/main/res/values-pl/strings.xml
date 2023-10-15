@@ -13,7 +13,6 @@
     <string name="delete">Usuń</string>
     <string name="confirm">Potwierdź</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Skopiuj identyfikator do schowka</string>
     <string name="share">Udostępnij</string>
     <string name="sendLabel">Wyślij…</string>
     <string name="editCardTitle">Edytuj kartę lojalnościową</string>
@@ -45,7 +44,6 @@
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Wersja: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Wybierz kod kreskowy</string>
-    <string name="copy_to_clipboard_toast">Skopiowano ID do schowka</string>
     <string name="thumbnailDescription">Miniaturka</string>
     <string name="settings">Ustawienia</string>
     <string name="settings_theme">Motyw</string>
@@ -100,7 +98,6 @@
     <string name="backImageDescription">Zdjęcie tylne</string>
     <string name="frontImageDescription">Zdjęcie przednie</string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcę Ci udostępnić karty</string>
-    <string name="copy_to_clipboard_multiple_toast">Skopiowano numery ID do schowka</string>
     <string name="wrongValueForBarcodeType">Wartość nie jest prawidłowa dla wybranego typu kodu kreskowego</string>
     <string name="unsupportedBarcodeType">Nie można jeszcze wyświetlić tego typu kodu kreskowego. Być może będzie on obsługiwany w nowszej wersji aplikacji.</string>
     <string name="setBarcodeId">Ustaw wartość kodu kreskowego</string>
@@ -162,7 +159,6 @@
     <string name="app_resources">Otwarte zewnętrzne zasoby: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Otwarte zewnętrzne biblioteki: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Wszelkie prawa zastrzeżone © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i współtwórcy</string>
-    <string name="card_ids_copied">Skopiowano identyfikator(y)</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="one">Usunąć tą <xliff:g>%d</xliff:g> kartę permamentnie\?</item>
         <item quantity="few">Usunąć te <xliff:g>%d</xliff:g> karty permamentnie\?</item>

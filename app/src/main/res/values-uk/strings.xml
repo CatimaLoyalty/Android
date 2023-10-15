@@ -80,8 +80,6 @@
     <string name="starImage">Улюблена зірка</string>
     <string name="thumbnailDescription">Ескіз</string>
     <string name="intent_import_card_from_url_share_multiple_text">Я хочу поділитися з тобою деякими картками</string>
-    <string name="copy_to_clipboard_multiple_toast">ID скопійовано до буферу обміну</string>
-    <string name="copy_to_clipboard_toast">ID скопійовано до буферу обміну</string>
     <string name="app_resources">Вільні ресурси третіх сторін: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Вільні бібліотеки третіх сторін: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Версія: <xliff:g id="version">%s</xliff:g></string>
@@ -111,14 +109,12 @@
     <string name="importExport">Імпорт/Експорт</string>
     <string name="failedParsingImportUriError">Не вдалося розібрати URI імпорту</string>
     <string name="noCardExistsError">Не вдалося знайти цю картку</string>
-    <string name="card_ids_copied">ID скопійовано</string>
     <string name="noCardsMessage">Спочатку додайте картку</string>
     <string name="cardShortcut">Ярлик картки</string>
     <string name="addCardTitle">Додати картку</string>
     <string name="editCardTitle">Редагувати картку</string>
     <string name="sendLabel">Відправити…</string>
     <string name="share">Поділитися</string>
-    <string name="copy_to_clipboard">Копіювати ID до буферу обміну</string>
     <string name="ok">Добре</string>
     <string name="confirm">Підтвердити</string>
     <string name="delete">Видалити</string>

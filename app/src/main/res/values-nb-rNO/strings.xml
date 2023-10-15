@@ -12,7 +12,6 @@
     <string name="delete">Slett</string>
     <string name="confirm">Bekreft</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Kopier ID til utklippstavle</string>
     <string name="sendLabel">Send…</string>
     <string name="editCardTitle">Rediger kundekort</string>
     <string name="addCardTitle">Legg til kundekort</string>
@@ -43,7 +42,6 @@
     <string name="about_title_fmt">Om <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versjon: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Velg strekkode</string>
-    <string name="copy_to_clipboard_toast">ID kopiert til utklippstavle</string>
     <string name="thumbnailDescription">Miniatyrbilde</string>
     <string name="settings">Innstillinger</string>
     <string name="settings_display_barcode_max_brightness">Lysere strekkodevisning</string>
@@ -120,10 +118,8 @@
 \nOpprett den i din FidMe-profil ved å velge «Databeskyttelse», for så å trykke «Pakk ut dataen min» først.</string>
     <string name="wrongValueForBarcodeType">Verdien er ikke gyldig for valgt strekkodetype</string>
     <string name="intent_import_card_from_url_share_multiple_text">Jeg vil dele noen kort med deg</string>
-    <string name="copy_to_clipboard_multiple_toast">ID-er ble kopiert til utklippstavle</string>
     <string name="app_resources">Frie tredjepartsressurser: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Frie tredjepartsbibliotek: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="card_ids_copied">Kopierte ID(er)</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Opphavsrett © 2019–<xliff:g>%d</xliff:g> Sylvia van Os og bidragsytere</string>
     <string name="updateBarcodeQuestionText">Du har endret ID-en. Ønsker du å også oppdatere strekkoden til samme verdi\?</string>
     <string name="no">Nei</string>

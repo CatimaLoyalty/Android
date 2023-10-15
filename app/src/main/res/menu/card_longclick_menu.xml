@@ -10,13 +10,6 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_copy_to_clipboard"
-        android:icon="@drawable/ic_copy"
-        android:title="@string/copy_to_clipboard"
-        android:titleCondensed="@string/copy_to_clipboard"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_share"
         android:title="@string/share"

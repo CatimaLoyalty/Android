@@ -11,7 +11,6 @@
     <string name="delete">Vymazať</string>
     <string name="confirm">Potvrdiť</string>
     <string name="ok">Áno</string>
-    <string name="copy_to_clipboard">Kopírovať ID do schránky</string>
     <string name="sendLabel">Odoslať…</string>
     <string name="editCardTitle">Upraviť kartu</string>
     <string name="addCardTitle">Pridať kartu</string>
@@ -41,7 +40,6 @@
     <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Verzia: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vyberte čiarový kód</string>
-    <string name="copy_to_clipboard_toast">ID skopírované do schránky</string>
     <string name="thumbnailDescription">Miniatúra</string>
     <string name="settings">Nastavenia</string>
     <string name="settings_display_barcode_max_brightness">Zvýšiť jas pri zobrazení čiarového kódu </string>
@@ -79,7 +77,6 @@
     <string name="intent_import_card_from_url_share_text">Chcem sa s vami podeliť o pohľadnicu</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Zabrániť uzamknutiu obrazovky</string>
     <string name="settings_keep_screen_on">Nechajte obrazovku zapnutú</string>
-    <string name="card_ids_copied">Skopírované ID</string>
     <string name="unstar">Odstrániť z obľúbených</string>
     <string name="settings_dark_theme">Tmavé</string>
     <string name="settings_light_theme">Svetlo</string>
@@ -251,7 +248,6 @@
     <string name="importStocardMessage">Vyberte svoj <i>***.zip</i> export zo Stocard pre import.
 \nZískate ho zaslaním e-mailu na adresu support@stocardapp.com, v ktorom požiadate o export svojich údajov.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
-    <string name="copy_to_clipboard_multiple_toast">ID skopírované do schránky</string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
     <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="newBalanceSentence">Nový zostatok: <xliff:g>%s</xliff:g></string>

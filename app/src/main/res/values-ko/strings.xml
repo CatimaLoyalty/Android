@@ -25,7 +25,6 @@
     <string name="editCardTitle">카드 편집</string>
     <string name="sendLabel">보내기…</string>
     <string name="share">공유</string>
-    <string name="copy_to_clipboard">ID를 클립보드에 복사</string>
     <string name="ok">OK</string>
     <string name="confirm">확인</string>
     <string name="delete">삭제</string>
@@ -42,7 +41,6 @@
     <string name="noGiftCards">+ 더하기 버튼을 클릭하여 카드를 추가하거나 ⋮ 메뉴에서 가져옵니다.</string>
     <string name="action_add">추가</string>
     <string name="action_search">검색</string>
-    <string name="copy_to_clipboard_toast">클립보드에 ID 복사됨</string>
     <string name="importOptionApplicationTitle">다른 앱 사용</string>
     <string name="importOptionFilesystemExplanation">파일 시스템에서 파일을 선택합니다.</string>
     <string name="importOptionFilesystemTitle">파일 시스템에서 가져오기</string>
@@ -180,7 +178,6 @@
     <string name="accept">확인</string>
     <string name="importLoyaltyCardKeychain">로열티 카드 키체인에서 가져오기</string>
     <string name="wrongValueForBarcodeType">선택한 바코드 유형에 대해 값이 유효하지 않습니다</string>
-    <string name="copy_to_clipboard_multiple_toast">클립보드에 복사된 ID</string>
     <string name="updateBarcodeQuestionText">아이디를 변경하셨습니다. 바코드도 동일한 값을 사용하도록 업데이트하시겠습니까\?</string>
     <string name="exportPasswordHint">암호 입력</string>
     <string name="updateBarcodeQuestionTitle">바코드 값을 업데이트하시겠습니까\?</string>
@@ -201,7 +198,6 @@
     <plurals name="deleteCardsConfirmation">
         <item quantity="other">이 카드 <xliff:g>%d</xliff:g> 장을 영구적으로 삭제하시겠습니까\?</item>
     </plurals>
-    <string name="card_ids_copied">복사된 ID</string>
     <string name="barcodeImageDescriptionWithType">이미지 <xliff:g>%s</xliff:g> 바코드</string>
     <string name="photos">사진</string>
     <string name="storageReadPermissionRequired">이 작업에 필요한 저장소를 읽을 수 있는 권한…</string>

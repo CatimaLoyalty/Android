@@ -33,13 +33,9 @@
     <string name="barcodeId">條碼內容</string>
     <string name="barcodeImageDescriptionWithType">圖片為 <xliff:g>%s</xliff:g> 的條碼</string>
     <string name="card">卡片</string>
-    <string name="card_ids_copied">已複製 ID</string>
     <string name="cardShortcut">卡片捷徑</string>
     <string name="chooseExpiryDate">選擇逾期日期</string>
     <string name="chooseImportType">從地點匯入資料</string>
-    <string name="copy_to_clipboard">已複製 ID 至剪貼簿中</string>
-    <string name="copy_to_clipboard_multiple_toast">已複製多個 ID 至剪貼簿中</string>
-    <string name="copy_to_clipboard_toast">已複製 ID 至剪貼簿中</string>
     <string name="credits">貢獻者</string>
     <string name="currency">幣別</string>
     <string name="debug_version_fmt">版本：<xliff:g id="version">%s</xliff:g></string>

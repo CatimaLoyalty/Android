@@ -8,7 +8,6 @@
     <string name="action_search">חיפוש</string>
     <string name="noGiftCards">לחץ על לחצן ה + להוספת כרטיס, או ייבא מספר כרטיסים באמצעות התפריט ⋮.</string>
     <string name="share">שיתוף</string>
-    <string name="copy_to_clipboard">העתקת מזהה ללוח</string>
     <string name="addCardTitle">הוספת כרטיס</string>
     <string name="star">הוספה למועדפים</string>
     <string name="unstar">הסרה ממועדפים</string>
@@ -36,7 +35,6 @@
     <string name="scanCardBarcode">סריקת ברקוד</string>
     <string name="cardShortcut">קיצור דרך</string>
     <string name="noCardsMessage">תחילה הוסף כרטיס</string>
-    <string name="card_ids_copied">מזהי כרטיס הועתקו</string>
     <string name="noCardExistsError">כרטיס לא נמצא</string>
     <string name="importExport">ייבוא/ייצוא</string>
     <string name="exportName">ייצוא</string>

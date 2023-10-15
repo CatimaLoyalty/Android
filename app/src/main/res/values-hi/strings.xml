@@ -19,7 +19,6 @@
     <string name="editCardTitle">कार्ड संपादित करें</string>
     <string name="addCardTitle">कार्ड जोड़ें</string>
     <string name="noCardsMessage">पहले एक कार्ड जोड़ें</string>
-    <string name="card_ids_copied">कॉपी की गई आईडी</string>
     <string name="noCardExistsError">वह कार्ड नहीं मिला</string>
     <string name="importExport">आयात / निर्यात</string>
     <string name="exportName">निर्यात</string>
@@ -69,7 +68,6 @@
     <string name="settings_theme">विषय</string>
     <string name="barcodeType">बारकोड का प्रकार</string>
     <string name="noBarcode">बारकोड नहीं है</string>
-    <string name="copy_to_clipboard">पहचान पत्र(आई डी) को क्लिपबोर्ड में कॉपी करें</string>
     <string name="scanCardBarcode">बारकोड स्कैन करें</string>
     <string name="cardShortcut">कार्ड का सरल उपाय (शॉर्टकट)</string>
     <string name="noGiftCards">\"+\" बटन दबाके कार्ड जोड़ें वा मेन्यू से कार्ड आयात करें</string>
@@ -139,7 +137,6 @@
     <string name="app_license">कॉपीलेफ्ट लिबर सॉफ्टवेयर, GPLv3+ लाइसेंस प्राप्त</string>
     <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> के बारे में</string>
     <string name="debug_version_fmt">संस्करण: <xliff:g id="version">%s</xliff:g></string>
-    <string name="copy_to_clipboard_toast">आई डी क्लिपबोर्ड पर कॉपी किया गया</string>
     <string name="cameraPermissionRequired">इस क्रिया के लिए कैमरा एक्सेस की अनुमति चाहिए।…</string>
     <string name="permissionReadCardsLabel">केटीमा कार्ड्स पढ़ें</string>
     <string name="storageReadPermissionRequired">स्टोरेज पढ़ने की इजाजत इस क्रिया के लिए आवश्यक है…</string>
@@ -168,7 +165,6 @@
     <string name="expiryStateSentenceExpired">समय सीमा समाप्त: <xliff:g>%s</xliff:g></string>
     <string name="importStocardMessage">आयात करने के लिए स्टोकार्ड से अपना <i>***.zip</i> निर्यात चुनें।
 \nअपने डेटा के निर्यात के लिए support@stocardapp.com पर ई-मेल करके इसे प्राप्त करें।</string>
-    <string name="copy_to_clipboard_multiple_toast">आईडी जो क्लिपबोर्ड पर कॉपी किया गया है</string>
     <string name="app_libraries">लिब्रे तृतीय-पक्ष लाइब्रेरी: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">लिब्रे तृतीय-पक्ष संसाधन: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="settings_keep_screen_on_summary">कार्ड देखते समय स्क्रीन टाइमआउट अक्षम करता है</string>

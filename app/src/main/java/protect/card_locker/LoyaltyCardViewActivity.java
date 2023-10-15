@@ -555,6 +555,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @Override
     protected void onResume() {
+        activityOverridesNavBarColor = true;
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);

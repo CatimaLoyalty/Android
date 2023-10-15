@@ -253,7 +253,7 @@
     <string name="settings_category_title_general">Generellt</string>
     <string name="switchToBarcode">Byt till streckkod</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Stänger av skärmlåset när kortet visas</string>
-    <string name="permissionReadCardsDescription">Läs dina kort och alla dess detaljer, inklusive anteckningar och bilder</string>
+    <string name="permissionReadCardsDescription">Se dina kort med alla dess detaljer, inklusive anteckningar och bilder</string>
     <string name="action_display_options">Visningsalternativ</string>
     <string name="settings_display_barcode_max_brightness_summary">Nödvändigt för att en del skannrar ska fungera</string>
     <string name="settings_oled_dark_summary">Reducerar batterianvändning på OLED-skärmar</string>
@@ -274,4 +274,13 @@
     <string name="settings_category_title_privacy">Sekretess</string>
     <string name="show_balance">Visa konto</string>
     <string name="settings_keep_screen_on_summary">Stänger av skärmens tidsgräns medan ett kort visas</string>
+    <string name="card_id_must_not_be_empty">Kort id får inte vara tomt</string>
+    <string name="balanceParsingFailed">Ogiltiga balanser</string>
+    <string name="add_a_card_in_a_different_way">Lägg till kort på annat sätt</string>
+    <string name="manually_enter_barcode_instructions">Lägg till kortets id-nummer eller text och klicka på streckkoden som ser ut som den på ditt kort.</string>
+    <string name="action_more_options">Mer</string>
+    <string name="enter_card_id">Lägg till kortets id-nummer eller text</string>
+    <string name="addWithoutBarcode">Lägg till kort utan streckkod</string>
+    <string name="field_must_not_be_empty">Obligatoriskt fält</string>
+    <string name="app_name">Catima</string>
 </resources>

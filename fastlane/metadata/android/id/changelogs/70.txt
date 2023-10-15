@@ -7,5 +7,5 @@
 - Mendukung pengimporan dari Stocard (Beta)
 - Memperbaiki spasi yang tidak berguna pada catatan dari impor Fidme
 - Mendukung format ekspor Voucher Vault yang baru
-- Perbaiki Tombol Aksi Mengambang yang berada di belakang elemen UI lain di Android 4
-- Perbaiki margin atas appbar penampil kartu loyalitas
+- Memperbaiki Tombol Aksi Mengambang yang berada di belakang elemen UI lain di Android 4
+- Memperbaiki margin atas appbar penampil kartu loyalitas

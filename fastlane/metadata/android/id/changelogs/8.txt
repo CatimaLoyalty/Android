@@ -1,4 +1,4 @@
-- Kecerahan layar ditingkatkan hingga maksimum ketika menampilkan kartu, untuk membantu pemindai barcode berhasil menangkap barcode. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
-- Menambahkan konfirmasi hapus saat menghapus kartu. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
-- Tambahkan terjemahan untuk bahasa Jerman (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) dan Ceko (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
-- Perubahan klarifikasi untuk terjemahan bahasa Italia. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))
+- Kecerahan layar maksimum saat tampilan kartu, untuk membantu pemindaian barcode (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Konfirmasi hapus kartu (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Terjemahan Jerman (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) dan Ceko (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58))
+- Terjemahan Italia (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

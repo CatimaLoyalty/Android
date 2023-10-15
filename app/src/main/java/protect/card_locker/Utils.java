@@ -22,6 +22,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -673,10 +674,13 @@ public class Utils {
         activity.findViewById(android.R.id.content).setBackgroundColor(typedValue.data);
 
         if (Build.VERSION.SDK_INT >= 27) {
-            View decorView = activity.getWindow().getDecorView();
-            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(activity.getWindow(), decorView);
-            wic.setAppearanceLightNavigationBars(!isDarkModeEnabled(activity));
-            activity.getWindow().setNavigationBarColor(typedValue.data);
+            Window window = activity.getWindow();
+            if (window != null) {
+                View decorView = window.getDecorView();
+                WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, decorView);
+                wic.setAppearanceLightNavigationBars(!isDarkModeEnabled(activity));
+                window.setNavigationBarColor(typedValue.data);
+            }
         }
     }
 

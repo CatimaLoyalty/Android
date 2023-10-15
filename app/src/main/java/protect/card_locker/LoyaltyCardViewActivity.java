@@ -20,7 +20,6 @@ import android.text.method.DigitsKeyListener;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,17 +41,14 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -638,10 +634,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
-        if (Build.VERSION.SDK_INT >= 27) {
-            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(getWindow(), binding.getRoot());
+        if (window != null && Build.VERSION.SDK_INT >= 27) {
+            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, binding.getRoot());
             wic.setAppearanceLightNavigationBars(Utils.needsDarkForeground(darkenedColor));
-            getWindow().setNavigationBarColor(darkenedColor);
+            window.setNavigationBarColor(darkenedColor);
         }
 
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
@@ -1066,10 +1062,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Set Android to fullscreen mode
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                getWindow().setDecorFitsSystemWindows(false);
-                if (getWindow().getInsetsController() != null) {
-                    getWindow().getInsetsController().hide(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
-                    getWindow().getInsetsController().setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+                Window window = getWindow();
+                if (window != null) {
+                    window.setDecorFitsSystemWindows(false);
+                    WindowInsetsController wic = window.getInsetsController();
+                    if (wic != null) {
+                        wic.hide(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                        wic.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+                    }
                 }
             } else {
                 setFullscreenModeSdkLessThan30();
@@ -1096,10 +1096,14 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
             // Unset fullscreen mode
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                getWindow().setDecorFitsSystemWindows(true);
-                if (getWindow().getInsetsController() != null) {
-                    getWindow().getInsetsController().show(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
-                    getWindow().getInsetsController().setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_DEFAULT);
+                Window window = getWindow();
+                if (window != null) {
+                    window.setDecorFitsSystemWindows(true);
+                    WindowInsetsController wic = window.getInsetsController();
+                    if (wic != null) {
+                        wic.show(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                        wic.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_DEFAULT);
+                    }
                 }
             } else {
                 unsetFullscreenModeSdkLessThan30();
@@ -1111,19 +1115,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     @SuppressWarnings("deprecation")
     private void unsetFullscreenModeSdkLessThan30() {
-        getWindow().getDecorView().setSystemUiVisibility(
-                getWindow().getDecorView().getSystemUiVisibility()
-                        & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        & ~View.SYSTEM_UI_FLAG_FULLSCREEN
-        );
+        Window window = getWindow();
+        if (window != null) {
+            window.getDecorView().setSystemUiVisibility(
+                    window.getDecorView().getSystemUiVisibility()
+                            & ~View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            & ~View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+        }
     }
 
     @SuppressWarnings("deprecation")
     private void setFullscreenModeSdkLessThan30() {
-        getWindow().getDecorView().setSystemUiVisibility(
-                getWindow().getDecorView().getSystemUiVisibility()
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-        );
+        Window window = getWindow();
+        if (window != null) {
+            window.getDecorView().setSystemUiVisibility(
+                    window.getDecorView().getSystemUiVisibility()
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+            );
+        }
     }
 }

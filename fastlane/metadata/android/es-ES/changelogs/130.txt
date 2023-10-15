@@ -1,0 +1,4 @@
+- Arreglos menores a la UI.
+- Arreglos válidos de las fechas de expiración cuando se está reiniciando cuando se rota la tarjeta de edición de pantalla.
+- Arreglado un crash cuando se rota la pantalla mientras el selector de color se muestra.
+- Arreglos de importación a la Stocard.

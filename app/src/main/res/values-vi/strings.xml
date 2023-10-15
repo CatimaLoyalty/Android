@@ -16,7 +16,6 @@
     <string name="barcodeImageDescriptionWithType">Ảnh mã vạch loại <xliff:g>%s</xliff:g></string>
     <string name="save">Lưu</string>
     <string name="editBarcode">Thoát mã vạch</string>
-    <string name="copy_to_clipboard">Sao ID vào bảng nháp</string>
     <string name="show_name_below_image_thumbnail">Hiện thị tên bên dưới ảnh con</string>
     <string name="removeImage">Xóa ảnh</string>
     <string name="help_translate_this_app">Giúp dịch ứng dụng này</string>
@@ -203,14 +202,12 @@
     <string name="updateBalanceHint">Nhập số lượng</string>
     <string name="action_search">Tìm kiếm</string>
     <string name="noGiftCardsGroup">Tạo vài thẻ, và phân công chúng vào nhóm này.</string>
-    <string name="copy_to_clipboard_toast">Đã sao ID vào bảng nháp</string>
     <string name="on_github">trên Github</string>
     <string name="sort">Sắp Xếp</string>
     <string name="permissionReadCardsLabel">Đọc thẻ Catima</string>
     <string name="groups">Nhóm</string>
     <string name="photos">Ảnh</string>
     <string name="storageReadPermissionRequired">Tác vụ này cần được cấp quyền đọc bộ nhớ…</string>
-    <string name="copy_to_clipboard_multiple_toast">Đã sao ID vào bảng nháp</string>
     <plurals name="deleteCardsConfirmation">
         <item quantity="other">Xóa hẳn <xliff:g>%d</xliff:g> thẻ này chứ\?</item>
     </plurals>
@@ -254,7 +251,6 @@
     <string name="note">Ghi chú</string>
     <string name="importCatimaMessage">Chọn <i>catima.zip</i> được xuất từ Catima để nhập liệu.
 \nTập tin này có thể tạo bằng cách vào menu Nhập/Xuất dữ liệu → bấm Xuất dữ liệu ở ứng dụng Catima khác.</string>
-    <string name="card_ids_copied">Sao ID</string>
     <plurals name="balancePoints">
         <item quantity="other"><xliff:g>%s</xliff:g> điểm</item>
     </plurals>

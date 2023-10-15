@@ -11,7 +11,6 @@
     <string name="delete">Supprimer</string>
     <string name="confirm">Confirmer</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Copier le numéro dans le presse-papier</string>
     <string name="sendLabel">Envoyer…</string>
     <string name="editCardTitle">Modifier la carte</string>
     <string name="addCardTitle">Ajouter une carte de fidélité</string>
@@ -41,7 +40,6 @@
     <string name="about_title_fmt">À propos de <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version : <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Choisissez le code-barres</string>
-    <string name="copy_to_clipboard_toast">Identifiant copié dans le presse-papiers</string>
     <string name="thumbnailDescription">Miniature</string>
     <string name="settings">Paramètres</string>
     <string name="settings_display_barcode_max_brightness">Augmenter la luminosité du code-barres</string>
@@ -125,8 +123,6 @@
     <string name="app_resources">Ressources tierces libres : <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Bibliothèques tierces libres : <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Je veux partager des cartes avec vous</string>
-    <string name="copy_to_clipboard_multiple_toast">Identifiants copiés dans le presse-papiers</string>
-    <string name="card_ids_copied">Numéro(s) copié(s)</string>
     <string name="updateBarcodeQuestionText">Vous avez changé l’identifiant. Voulez-vous également mettre à jour le code-barres pour utiliser la même valeur \?</string>
     <string name="no">Non</string>
     <string name="yes">Oui</string>

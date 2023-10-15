@@ -11,7 +11,6 @@
     <string name="delete">Ištrinti</string>
     <string name="confirm">Patvirtinti</string>
     <string name="ok">Gerai</string>
-    <string name="copy_to_clipboard">Nukopijuoti ID į iškarpinę</string>
     <string name="editCardTitle">Redaguoti lojalumo kortelę</string>
     <string name="addCardTitle">Pridėti lojalumo kortelę</string>
     <string name="scanCardBarcode">Nuskaityti brūkšninį kodą</string>
@@ -26,8 +25,6 @@
     <string name="about_title_fmt">Apie <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versija: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Pasirinkite brūkšninį kodą</string>
-    <string name="copy_to_clipboard_toast">ID nukopijuota į iškarpinę</string>
-    <string name="card_ids_copied">Nukopijuoti ID</string>
     <string name="noCardsMessage">Pirmiausia pridėkite kortelę</string>
     <string name="sendLabel">Siųsti…</string>
     <string name="unstar">Pašalinti iš mėgstamiausių</string>
@@ -63,7 +60,6 @@
     <string name="backImageDescription">Galinis vaizdas</string>
     <string name="frontImageDescription">Priekinis vaizdas</string>
     <string name="intent_import_card_from_url_share_multiple_text">Noriu su jumis pasidalyti keliomis kortelėmis</string>
-    <string name="copy_to_clipboard_multiple_toast">ID nukopijuotas į iškarpinę</string>
     <string name="wrongValueForBarcodeType">Vertė netinkama pasirinktam brūkšninio kodo tipui</string>
     <string name="unsupportedBarcodeType">Šio brūkšninio kodo tipo dar negalima rodyti. Galbūt jis bus palaikomas vėlesnėje programėlės versijoje.</string>
     <string name="setBarcodeId">Nustatyti brūkšninio kodo reikšmę</string>

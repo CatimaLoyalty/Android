@@ -5,7 +5,6 @@
     <string name="editCardTitle">Rediger kort</string>
     <string name="sendLabel">Afsend…</string>
     <string name="share">Aktie</string>
-    <string name="copy_to_clipboard">Kopier ID til udklipsholder</string>
     <string name="ok">OK</string>
     <string name="deleteConfirmation">Slete dette kort permanent\?</string>
     <plurals name="deleteCardsTitle">
@@ -50,7 +49,6 @@
     <string name="settings">Indstillinger</string>
     <string name="starImage">Favorit stjerne</string>
     <string name="thumbnailDescription">Miniaturebillede til kort</string>
-    <string name="copy_to_clipboard_toast">Kort-ID kopieret til udklipsholderen</string>
     <string name="selectBarcodeTitle">Vælg stregkode</string>
     <string name="app_copyright_old">Baseret på Loyalty Card Keychain
 \ncopyright © 2016-2020 Branden Archer.</string>

@@ -15,7 +15,6 @@
     <string name="star">Zu den Favoriten hinzufügen</string>
     <string name="unstar">Aus den Favoriten entfernen</string>
     <string name="ok">OK</string>
-    <string name="copy_to_clipboard">Kartennummer in die Zwischenablage kopieren</string>
     <string name="sendLabel">Senden …</string>
     <string name="editCardTitle">Karte bearbeiten</string>
     <string name="addCardTitle">Neue Karte</string>
@@ -45,7 +44,6 @@
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode auswählen</string>
-    <string name="copy_to_clipboard_toast">ID in die Zwischenablage kopiert</string>
     <string name="thumbnailDescription">Vorschaubild</string>
     <string name="settings">Einstellungen</string>
     <string name="settings_display_barcode_max_brightness">Displayhelligkeit in der Barcodeansicht erhöhen</string>
@@ -125,8 +123,6 @@
     <string name="app_resources">Freie Ressourcen von Drittanbietern: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_libraries">Freie Bibliotheken von Drittanbietern: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Ich möchte diese Karten mit dir teilen</string>
-    <string name="copy_to_clipboard_multiple_toast">Kartennummern in die Zwischenablage kopiert</string>
-    <string name="card_ids_copied">ID(s) kopiert</string>
     <string name="no">Nein</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Kartennummer geändert. Möchtest du auch den Barcode auf den gleichen Wert ändern\?</string>

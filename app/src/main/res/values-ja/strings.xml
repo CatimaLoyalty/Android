@@ -62,7 +62,6 @@
     <string name="settings">設定</string>
     <string name="starImage">お気に入りのスター</string>
     <string name="thumbnailDescription">サムネイル</string>
-    <string name="copy_to_clipboard_toast">カード番号をクリップボードにコピーしました</string>
     <string name="selectBarcodeTitle">バーコード選択</string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
@@ -104,7 +103,6 @@
     <string name="editCardTitle">カードの編集</string>
     <string name="sendLabel">送信先を選択…</string>
     <string name="share">共有</string>
-    <string name="copy_to_clipboard">カード番号をクリップボードにコピーする</string>
     <string name="ok">確定</string>
     <string name="confirm">確認</string>
     <string name="delete">削除</string>
@@ -123,8 +121,6 @@
     <string name="action_add">追加</string>
     <string name="action_search">検索</string>
     <string name="intent_import_card_from_url_share_multiple_text">カードを共有しましょう</string>
-    <string name="copy_to_clipboard_multiple_toast">カード番号をクリップボードにコピーしました</string>
-    <string name="card_ids_copied">カード番号をコピーしました</string>
     <string name="turn_flashlight_off">ライトをオフにする</string>
     <string name="turn_flashlight_on">ライトをオンにする</string>
     <string name="failedGeneratingShareURL">共有URLの生成を生成できませんでした。バグを報告してください。</string>

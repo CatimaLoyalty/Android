@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="copy_to_clipboard">ID ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ</string>
     <string name="storeName">ಹೆಸರು</string>
     <string name="cardId">ಕಾರ್ಡ್ ಐಡಿ</string>
     <string name="barcodeType">ಬಾರ್ಕೋಡ್ ಪ್ರಕಾರ</string>

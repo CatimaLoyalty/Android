@@ -2,8 +2,6 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.SearchManager;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -90,35 +88,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         @Override
         public boolean onActionItemClicked(ActionMode inputMode, MenuItem inputItem) {
-            if (inputItem.getItemId() == R.id.action_copy_to_clipboard) {
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-
-                String clipboardData;
-                int cardCount = mAdapter.getSelectedItemCount();
-
-                if (cardCount == 1) {
-                    clipboardData = mAdapter.getSelectedItems().get(0).cardId;
-                } else {
-                    StringBuilder cardIds = new StringBuilder();
-
-                    for (int i = 0; i < cardCount; i++) {
-                        LoyaltyCard loyaltyCard = mAdapter.getSelectedItems().get(i);
-
-                        cardIds.append(loyaltyCard.store + ": " + loyaltyCard.cardId);
-                        if (i < (cardCount - 1)) {
-                            cardIds.append("\n");
-                        }
-                    }
-
-                    clipboardData = cardIds.toString();
-                }
-
-                ClipData clip = ClipData.newPlainText(getString(R.string.card_ids_copied), clipboardData);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(MainActivity.this, cardCount > 1 ? R.string.copy_to_clipboard_multiple_toast : R.string.copy_to_clipboard_toast, Toast.LENGTH_LONG).show();
-                inputMode.finish();
-                return true;
-            } else if (inputItem.getItemId() == R.id.action_share) {
+            if (inputItem.getItemId() == R.id.action_share) {
                 final ImportURIHelper importURIHelper = new ImportURIHelper(MainActivity.this);
                 try {
                     importURIHelper.startShareIntent(mAdapter.getSelectedItems());

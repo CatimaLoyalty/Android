@@ -14,7 +14,6 @@
     <string name="delete">Удалить</string>
     <string name="confirm">Подтвердить</string>
     <string name="ok">ОК</string>
-    <string name="copy_to_clipboard">Копировать номер карты</string>
     <string name="share">Переслать</string>
     <string name="sendLabel">Отправить…</string>
     <string name="editCardTitle">Изменить карту</string>
@@ -47,7 +46,6 @@
     <string name="about_title_fmt">О приложении <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Версия: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Выбор штрих-кода</string>
-    <string name="copy_to_clipboard_toast">Номер скопирован в буфер обмена</string>
     <string name="thumbnailDescription">Логотип</string>
     <string name="settings">Настройки</string>
     <string name="settings_theme">Тема</string>
@@ -127,8 +125,6 @@
     <string name="app_libraries">Свободные сторонние библиотеки: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Авторские права © 2019–<xliff:g>%d</xliff:g> Sylvia van Os и помощники</string>
     <string name="intent_import_card_from_url_share_multiple_text">Поделиться картами</string>
-    <string name="card_ids_copied">Скопированные номера</string>
-    <string name="copy_to_clipboard_multiple_toast">Номера скопированы в буфер обмена</string>
     <string name="updateBarcodeQuestionText">Вы изменили номер. Обновить также значение штрих-кода, чтобы использовалось одинаковое значение\?</string>
     <string name="no">Нет</string>
     <string name="yes">Да</string>

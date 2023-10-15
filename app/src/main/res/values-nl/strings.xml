@@ -14,7 +14,6 @@
     <string name="delete">Verwijderen</string>
     <string name="confirm">Bevestigen</string>
     <string name="ok">Oké</string>
-    <string name="copy_to_clipboard">Kaartnummer kopiëren naar klembord</string>
     <string name="share">Delen</string>
     <string name="sendLabel">Versturen…</string>
     <string name="editCardTitle">Kaart bewerken</string>
@@ -47,7 +46,6 @@
     <string name="about_title_fmt">Over <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Versie: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Barcode toevoegen</string>
-    <string name="copy_to_clipboard_toast">De kaart-id is gekopieerd naar het klembord</string>
     <string name="thumbnailDescription">Miniatuurvoorbeeld</string>
     <string name="settings">Instellingen</string>
     <string name="settings_theme">Thema</string>
@@ -125,8 +123,6 @@
     <string name="app_libraries">Vrije externe bibliotheken: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Auteursrecht © 2019–<xliff:g>%d</xliff:g> Sylvia van Os en bijdragers</string>
     <string name="intent_import_card_from_url_share_multiple_text">Ik wil kaarten met je delen</string>
-    <string name="copy_to_clipboard_multiple_toast">De kaart-id\'s zijn gekopieerd naar het klembord</string>
-    <string name="card_ids_copied">De kaart-id‘s zijn gekopieerd</string>
     <string name="no">Nee</string>
     <string name="yes">Ja</string>
     <string name="updateBarcodeQuestionText">Je hebt de kaart-id aangepast. Wil je dezelfde waarde toekennen aan de barcode\?</string>

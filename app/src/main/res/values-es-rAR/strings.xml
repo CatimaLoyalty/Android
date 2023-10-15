@@ -23,7 +23,6 @@
     <string name="exporting">Exportando…</string>
     <string name="save">Guardar</string>
     <string name="failedParsingImportUriError">No se pudo procesar la URI importada</string>
-    <string name="copy_to_clipboard">Copiar ID al portapapeles</string>
     <string name="barcodeType">Tipo de código de barra</string>
     <string name="confirm">Confirmar</string>
     <string name="sendLabel">Enviando…</string>
@@ -39,7 +38,6 @@
     <string name="scanCardBarcode">Escanear código de barra</string>
     <string name="cardShortcut">Acceso rápido de tarjeta</string>
     <string name="editCardTitle">Editar tarjeta</string>
-    <string name="card_ids_copied">ID(s) Copiado(s)</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailed">No se pudo importar</string>
     <string name="barcodeImageDescriptionWithType">Imagen de <xliff:g>%s</xliff:g> un código de barras</string>

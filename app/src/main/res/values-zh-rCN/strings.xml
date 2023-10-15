@@ -14,7 +14,6 @@
     <string name="importOptionFilesystemButton">使用文件系统</string>
     <string name="unstar">从收藏中移除</string>
     <string name="intent_import_card_from_url_share_multiple_text">我想和你分享一些卡片</string>
-    <string name="copy_to_clipboard_multiple_toast">卡号已复制到剪贴板</string>
     <string name="wrongValueForBarcodeType">该值对所选条形码类型无效</string>
     <string name="unsupportedBarcodeType">此条形码类型尚无法显示。较新版本的应用程序可能提供支持。</string>
     <string name="setBarcodeId">设置条形码值</string>
@@ -74,7 +73,6 @@
     <string name="settings_theme">主题</string>
     <string name="settings">设置</string>
     <string name="thumbnailDescription">缩略图</string>
-    <string name="copy_to_clipboard_toast">已复制卡号到剪贴板</string>
     <string name="selectBarcodeTitle">选择条码</string>
     <string name="app_resources">第三方自由资源：<xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_license">本软件为自由软件，使用 GPLv3+ 许可证</string>
@@ -101,7 +99,6 @@
     <string name="importExport">导入/导出</string>
     <string name="failedParsingImportUriError">无法解析导入 URI</string>
     <string name="noCardExistsError">找不到卡片</string>
-    <string name="card_ids_copied">已复制卡号</string>
     <string name="noCardsMessage">请先添加一张卡片</string>
     <string name="cardShortcut">卡片快捷键</string>
     <string name="editCardTitle">编辑卡片</string>
@@ -109,7 +106,6 @@
     <string name="scanCardBarcode">扫描条码</string>
     <string name="sendLabel">发送……</string>
     <string name="share">分享</string>
-    <string name="copy_to_clipboard">复制卡号到剪贴板</string>
     <string name="ok">确定</string>
     <string name="confirm">确认</string>
     <string name="delete">删除</string>

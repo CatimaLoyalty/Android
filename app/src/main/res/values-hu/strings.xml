@@ -28,7 +28,6 @@
     </plurals>
     <string name="deleteConfirmation">Véglegesen törli a kártyát\?</string>
     <string name="ok">Rendben</string>
-    <string name="copy_to_clipboard">Azonosító vágólapra másolása</string>
     <string name="share">Megosztás</string>
     <string name="sendLabel">Küldés…</string>
     <string name="editCardTitle">Kártya szerkesztése</string>
@@ -49,7 +48,6 @@
         <item quantity="other">Véglegesen töröl <xliff:g>%d</xliff:g> kártyát\?</item>
     </plurals>
     <string name="deleteTitle">Kártya törlése</string>
-    <string name="card_ids_copied">Azonosító(k) másolva</string>
     <string name="barcodeImageDescriptionWithType">A(z) <xliff:g>%s</xliff:g> vonalkód képe</string>
     <string name="noCardExistsError">A kártya nem található</string>
     <string name="importStocardMessage">Válassza ki az importálandó <i>***.zip</i> Stocard export fájlt.
@@ -86,7 +84,6 @@
     <string name="debug_version_fmt">Verzió: <xliff:g id="version">%s</xliff:g></string>
     <string name="app_resources">Szabad külső erőforrások: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Vonalkód kiválasztása</string>
-    <string name="copy_to_clipboard_toast">Azonosító vágólapra másolva</string>
     <string name="starImage">Kedvencek csillag</string>
     <string name="settings">Beállítások</string>
     <string name="settings_theme">Téma</string>
@@ -138,7 +135,6 @@
     <string name="sameAsCardId">Ugyanaz, mint az azonosító</string>
     <string name="setBarcodeId">Vonalkód értékének beállítása</string>
     <string name="unsupportedBarcodeType">Ez a vonalkódtípus még nem jeleníthető meg. Lehet, hogy támogatott lesz az alkalmazás egy későbbi verziójában.</string>
-    <string name="copy_to_clipboard_multiple_toast">Az azonosítók a vágólapra másolva</string>
     <string name="intent_import_card_from_url_share_multiple_text">Meg akarok veled osztani pár kártyát</string>
     <string name="frontImageDescription">Előlapi kép</string>
     <string name="backImageDescription">Hátlapi kép</string>

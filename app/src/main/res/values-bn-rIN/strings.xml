@@ -33,7 +33,6 @@
     <string name="setBarcodeId">বারকোড আইডি সেট করুন</string>
     <string name="unsupportedBarcodeType">এই বারকোডের টাইপটি এখন দেখানো যাচ্ছে না। অ্যাপের পরের সংস্করণে হয়ত এটি সমর্থন করা যেতে পারে।</string>
     <string name="wrongValueForBarcodeType">বারকোড টাইপের জন্য ভুল মান</string>
-    <string name="copy_to_clipboard_multiple_toast">আইডিগুলি ক্লিপবোর্ডে কপি হল</string>
     <string name="intent_import_card_from_url_share_multiple_text">url থেকে ইন্টেন্ট ইম্পোর্ট কার্ড একাধিক টেক্সট শেয়ার করে</string>
     <string name="frontImageDescription">সামনের চিত্র</string>
     <string name="backImageDescription">পিছনের চিত্র</string>
@@ -68,13 +67,11 @@
     <string name="reverse">...উল্টো ক্রমে</string>
     <string name="sort_by">ক্রমানুসার</string>
     <string name="noCardExistsError">কার্ডটি খুঁজে পাওয়া গেল না</string>
-    <string name="card_ids_copied">আইডি কপি করা হয়েছে</string>
     <string name="noCardsMessage">কোন কার্ড বার্তা নেই</string>
     <string name="addCardTitle">কার্ডের শিরোনাম যোগ করুন</string>
     <string name="editCardTitle">কার্ডের শিরোনাম সম্পাদনা করুন</string>
     <string name="sendLabel">পাঠান…</string>
     <string name="share">ভাগ</string>
-    <string name="copy_to_clipboard">নকল করুন ক্লিপবোর্ড এ</string>
     <string name="deleteConfirmation">এই কার্ডটি চিরকালের জন্য মুছে দেবো\?</string>
     <string name="confirm">নিশ্চিত করুন</string>
     <string name="delete">মুছে ফেলুন</string>
@@ -125,7 +122,6 @@
     <string name="importExport">আমদানি/রপ্তানি</string>
     <string name="cardShortcut">কার্ড শর্টকাট</string>
     <string name="exportFailed">রপ্তানি করা যাচ্ছে না</string>
-    <string name="copy_to_clipboard_toast">আইডি ক্লিপবোর্ডে নকল করা হল</string>
     <string name="importExportHelp">নিজের ডেটা অন্য কোথাও সংরক্ষণ করে রাখলে পরে সেটা অন্য ডিভাইসে সরিয়ে নিতে পারবেন।</string>
     <string name="importFailed">আমদানি করা গেল না</string>
     <string name="noGiftCardsGroup">কিছু কার্ড বানান আর এই গ্রুপে স্থির করুন।</string>

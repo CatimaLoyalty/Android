@@ -11,7 +11,6 @@
     <string name="delete">Διαγραφή</string>
     <string name="confirm">Επιβεβαίωση</string>
     <string name="ok">Εντάξει</string>
-    <string name="copy_to_clipboard">Αντιγραφή κωδικού στο πρόχειρο</string>
     <string name="sendLabel">Αποστολή…</string>
     <string name="editCardTitle">Επεξεργασία Κάρτας</string>
     <string name="addCardTitle">Προσθήκη Κάρτας</string>
@@ -41,7 +40,6 @@
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>
     <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
-    <string name="copy_to_clipboard_toast">Ο κωδικός αντιγράφτηκε στο πρόχειρο</string>
     <string name="thumbnailDescription">Μικρογραφία</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_dark_theme">Σκοτεινό</string>
@@ -97,7 +95,6 @@
 \nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και διαλέγοντας εξαγωγή δεδομένων.</string>
     <string name="setBarcodeId">Επιλέξτε τιμή γραμμοκώδικα</string>
     <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για αυτού του τύπου γραμμοκώδικα</string>
-    <string name="copy_to_clipboard_multiple_toast">Οι κωδικοί αντιγράφηκαν στο πρόχειρο</string>
     <string name="setBackImage">Επιλογή οπίσθιας εικόνας</string>
     <string name="removeImage">Αφαίρεση εικόνας</string>
     <string name="takePhoto">Τραβήξτε μια φωτογραφία</string>
@@ -113,7 +110,6 @@
         <item quantity="one">Διαγραφή <xliff:g>%d</xliff:g> κάρτας</item>
         <item quantity="other">Διαγραφή <xliff:g>%d</xliff:g> καρτών</item>
     </plurals>
-    <string name="card_ids_copied">Αντιγραμμένη/ες ταυτότητα/ες</string>
     <string name="errorReadingImage">Δεν ήταν δυνατό να διαβαστεί η εικόνα</string>
     <string name="currency">Νόμισμα</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>

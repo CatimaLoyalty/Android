@@ -10,7 +10,6 @@
     <string name="action_search">Căutare</string>
     <string name="sendLabel">Trimiteți…</string>
     <string name="share">Împărtășiți</string>
-    <string name="copy_to_clipboard">Copiați ID-ul în clipboard</string>
     <string name="deleteConfirmation">Să șterg definitiv acest card\?</string>
     <string name="deleteTitle">Ștergeți cardul</string>
     <string name="confirm">Confirmați</string>
@@ -67,7 +66,6 @@
     <string name="currency">Monedă</string>
     <string name="editBarcode">Editarea codului de bare</string>
     <string name="chooseExpiryDate">Alegeți data de expirare</string>
-    <string name="copy_to_clipboard_toast">ID-ul cardului copiat în clipboard</string>
     <string name="selectBarcodeTitle">Selectare cod de bare</string>
     <string name="noGroupCards">Acest grup nu conține nicio carte</string>
     <string name="addFromImage">Selectați imaginea din galerie</string>

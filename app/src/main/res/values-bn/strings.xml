@@ -76,8 +76,4 @@
     <string name="exportFailedTitle">রপ্তানি ব্যর্থ</string>
     <string name="settings_card_orientation">বারকোড অভিমুখ (ওরিয়েন্টেশন)</string>
     <string name="app_name">ক্যাটিমা</string>
-    <plurals name="selectedCardCount">
-        <item quantity="one">নির্বাচিত</item>
-        <item quantity="other">নির্বাচিত</item>
-    </plurals>
 </resources>

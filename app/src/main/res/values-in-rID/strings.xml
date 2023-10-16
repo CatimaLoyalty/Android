@@ -123,8 +123,8 @@
     <string name="moveUp">Pindah ke atas</string>
     <string name="moveDown">Pindah ke bawah</string>
     <string name="leaveWithoutSaveConfirmation">Keluar tanpa menyimpan?</string>
-    <string name="addManually">Masukan ID</string>
-    <string name="addFromImage">Pilih gambar dari galeri</string>
+    <string name="addManually">Masukkan barcode secara manual</string>
+    <string name="addFromImage">Pilih sebuah gambar dari galeri</string>
     <string name="groupsList">Grup: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Masa ber: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentenceExpired">Kadaluwarsa: <xliff:g>%s</xliff:g></string>
@@ -267,4 +267,13 @@
     <string name="action_display_options">Pilihan tampilan</string>
     <string name="view_online">Lihat di Internet</string>
     <string name="app_copyright_short">Terdapat Hak Cipta © Sylvia van Os dan para kontributor</string>
+    <string name="card_id_must_not_be_empty">ID Kartu tidak boleh kosong</string>
+    <string name="balanceParsingFailed">Saldo tidak valid</string>
+    <string name="add_a_card_in_a_different_way">Tambah kartu dengan cara lain</string>
+    <string name="manually_enter_barcode_instructions">Tambahkan nomor ID atau teks di kartu Anda dan tekan barcode yang terlihat .</string>
+    <string name="action_more_options">Opsi lebih banyak</string>
+    <string name="enter_card_id">Masukkan nomor identitas atau teks pada kartu Anda</string>
+    <string name="addWithoutBarcode">Tambah kartu tanpa barcode</string>
+    <string name="field_must_not_be_empty">Isian tidak boleh kosong</string>
+    <string name="app_name">Catima</string>
 </resources>

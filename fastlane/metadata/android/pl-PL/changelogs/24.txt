@@ -1,0 +1,4 @@
+-Aktualizacja tłumaczeń. (pull #208)
+-Aktualizacje renderowania kodów kreskowych: (pull #209)
+  -Ponowne załadowanie aktywności widoku karty po obróceniu ekranu, co sprawia, że obraz kodu kreskowego ma właściwy rozmiar.
+  -Renderowanie kodów kreskowych 1D w większej przestrzeni, co pozwala im lepiej wypełnić ekran.

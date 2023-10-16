@@ -289,4 +289,5 @@
     <string name="app_copyright_short">Copyright © Sylvia van Os e colaboradores</string>
     <string name="field_must_not_be_empty">O campo não pode estar vazio</string>
     <string name="show_archived_cards">Exibir cartões arquivados</string>
+    <string name="app_name">Catima</string>
 </resources>

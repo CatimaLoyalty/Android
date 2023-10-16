@@ -1,0 +1,7 @@
+- Wsparcie j. arabskkiego
+- Dodano liczbę zarchiwizowanych kart w podglądzie grupy
+- Naprawa błędów parsowania salda (niepoprawny zapis m.in w j. arabskim)
+- Naprawa niepoprawnego wyświetlania personalizowanego motywu na głównym ekranie
+- Poprawa wyświetlania zaznaczonych kart
+- Naprawa awarii aplikacji podczas wyjścia z widoku karty w widokach RTL z utratą ważności lub saldem
+- Naprawa strzałki w widoku karty wskazującej zły kierunek w widokach RTL

@@ -1,0 +1,2 @@
+- Okno dialogowe "O aplikacji" może być otwarte z głównego ekranu i zawiera szczegóły dotyczące aplikacji oraz projektu na GitHubie (problem #19)
+- Pozwala na importowanie informacji o kartach lojalnościowych z pliku CSV na zewnętrznym nośniku oraz eksportowanie ich do pliku CSV (problem #36, problem #20)

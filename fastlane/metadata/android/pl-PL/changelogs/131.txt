@@ -1,0 +1,3 @@
+- Przeniesienie opcji "Tryb archiwizacji" do menu "Opcje wyświetlania" (wcześniej "Pokaż szczegóły")
+- Wsparcie dla języka na poziomie aplikacji dla Androida 13
+- Osadzenie polityki prywatności, dziennika zmian i licencji w aplikacji

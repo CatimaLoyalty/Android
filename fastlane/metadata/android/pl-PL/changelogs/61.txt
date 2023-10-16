@@ -1,0 +1,2 @@
+- Udoskonalono logikę parsowania salda
+- Naprawiono wyświetlanie dziesiętnych miejsc dziesiętnych waluty na głównym ekranie

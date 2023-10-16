@@ -1,0 +1,4 @@
+- Dodano wsparcie dla skalowania kodu kreskowego przy przemieszczaniu go na górę, aby jeszcze bardziej dopasować go do małych skanerów
+- Naprawiono skakanie arkusza dolnego po przejściu w tryb pełnoekranowy
+- W trybie krajobrazowym zmniejszono nagłówek w widoku karty lojalnościowej
+- Naprawiono problem polegający na tym, że karty nie pozostają w grupie po zmianie nazwy grupy

@@ -1,0 +1,2 @@
+- Wersja 0.11 wprowadziła zmiany zmniejszające zużycie pamięci przy rysowaniu kodów kreskowych, ale wpłynęły one na rozmiary kodów kreskowych. Teraz te zmiany zostały cofnięte, aby zachować rozmiary kodów kreskowych, jednocześnie redukując zużycie pamięci. (pull #126)
+- Aktualizacja tłumaczeń niemieckich i francuskich. (pull #122, pull #124, pull #125)

@@ -1,0 +1,3 @@
+- Memindahkan "Mode Arsip" ke "Opsi Tampilan" (sebelumnya "Tampilkan detail") menu
+- Dukungan bahasa Android 13 setiap aplikasi
+- Kebijakan privasi, log perubahan, dan lisensi tersemat di aplikasi

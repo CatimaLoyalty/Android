@@ -1,0 +1,14 @@
+-Dodano możliwość szukania karty (#320)
+-Dodano możliwość udostępniania i odbierania kart lojalnościowych (#321)
+-Wsparcie dark mode (#322)
+-Karty lojalnościowe mogą teraz być bez kodu kreskowego (#324)
+-Notatki mogą teraz mieć wiele linii (#326)
+-Udoskonalono dostosowywanie rozmiaru notatek (#319)
+-Poprawiono widoczność powiadomień i ikony aplikacji (#330)
+-Zaktualizowano docelowy SDK do Androida 10
+-Udoskonalono tłumaczenia:
+  -Niemiecki
+  -Włoski
+  -Holenderski
+  -Polski
+  -Rosyjski

@@ -1,0 +1,3 @@
+- Dodano ciche miejsce na początku/końcu kodów kreskowych. (pull #200)
+- Dodano opcje konfiguracji kolorów używanych dla czcionki nazwy sklepu i tła. (pull #203)
+- Dodano opcje dostosowywania rozmiarów czcionki na stronie z listą kart i pojedynczej karcie. (pull #204)

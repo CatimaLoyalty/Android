@@ -1,0 +1,1 @@
+- Naprawiono parsowanie salda dla krajów używających spacji jako separatora

@@ -1,0 +1,3 @@
+- Dodano opcję blokady obracania ekranu w menu, gdy wyświetlana jest karta. Po aktywowaniu blokady, ekran zostanie przełączony na swoją "naturalną" orientację, a dalsze obracanie ekranu jest zablokowane. (pull #128)
+- Jeśli karta jest wybierana z głównego ekranu, ale nie może być załadowana, aplikacja zachowuje się elegancko i wyświetla odpowiednie komunikaty. (pull #132)
+- Naprawiono przypadki, w których identyfikatory układu nie mogły zostać znalezione dla kreatora wprowadzenia. (pull #128)

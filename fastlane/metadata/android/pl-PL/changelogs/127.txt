@@ -1,0 +1,4 @@
+- Usprawnienia w renderowaniu kodów kreskowych
+- Podstawowa interoperacyjność z aplikacjami zewnętrznymi (Android 6.0+)
+- Przeprojektowany ekran ustawień
+- Naprawa problemu z importowaniem z niektórych przeglądarek, które dodają znak ukośnika na końcu udostępnianego adresu URL

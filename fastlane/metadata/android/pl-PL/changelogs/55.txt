@@ -1,0 +1,2 @@
+- Rozdzielono interfejs edycji na karty w karty zakładek, aby sprawić, że będzie bardziej przestronny
+- Dodano obsługę pola ważności

@@ -1,0 +1,4 @@
+- Menyempurnakan alur "Tambah kartu"
+- Peningkatan alur proses validasi
+- Memperbaiki kasus yang menyebabkan UI tidak valid saat beralih pada tampilan arsip
+- Menggunakan tema atau warna kartu untuk bar navigasi (Android 8.1+)

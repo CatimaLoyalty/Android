@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="addManually">직접 ID 입력</string>
+    <string name="addManually">바코들를 직접 입력</string>
     <string name="groupsList">그룹: <xliff:g>%s</xliff:g></string>
     <string name="all">모두</string>
     <string name="groups">그룹</string>
@@ -74,7 +74,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> 카드</item>
     </plurals>
     <string name="group_name_already_in_use">그룹 이름 이미 사용 중</string>
-    <string name="addFromImage">갤러리에서 이미지 선택</string>
+    <string name="addFromImage">갤러리에서 하나의 이미지 선택</string>
     <string name="expiryStateSentenceExpired">만료: <xliff:g>%s</xliff:g></string>
     <string name="card">카드</string>
     <string name="editBarcode">바코드 편집</string>
@@ -160,7 +160,7 @@
     <string name="app_license">GPL v3+로 라이선스된 카피레프트 자유 소프트웨어</string>
     <string name="failedOpeningFileManager">먼저 파일 관리자를 설치하십시오.</string>
     <string name="importSuccessful">데이터 들여옴</string>
-    <string name="group_name_is_empty">그룹 이름은 비워둘 수 없습니다</string>
+    <string name="group_name_is_empty">그룹 이름은 필수임</string>
     <string name="chooseExpiryDate">만료일 선택</string>
     <string name="settings_oled_dark">어두운 테마를 위한 검정색 배경</string>
     <string name="noGroups">+ 더하기 버튼을 클릭하여 분류할 그룹을 추가합니다.</string>
@@ -253,7 +253,7 @@
     <string name="nextCard">다음</string>
     <string name="failedToOpenUrl">먼저 웹 브라우저를 설치하십시오</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">카드가 보일 때 화면 잠금 방지</string>
-    <string name="permissionReadCardsDescription">저장된 카드와 노트, 사진을 포함한 모든 세부 정보 읽기</string>
+    <string name="permissionReadCardsDescription">당신의 Catima 카드와 그에 대한 모든 세부 정보, 메모 및 이미지를 읽으세요</string>
     <string name="settings_oled_dark_summary">OLED 화면에서의 배터리 사용량 줄임</string>
     <string name="app_copyright_short">저작권 © Sylvia van Os 및 기여자</string>
     <string name="settings_allow_content_provider_read_summary">접근을 위해서는 해당 앱에서 별도로 권한 요청을 해야 합니다</string>
@@ -270,4 +270,10 @@
     <string name="card_id_must_not_be_empty">카드 ID는 비어 있으면 안됩니다</string>
     <string name="action_more_options">추가 옵션</string>
     <string name="field_must_not_be_empty">필드는 비어있으면 안됩니다</string>
+    <string name="balanceParsingFailed">유효하지 않은 밸런스</string>
+    <string name="add_a_card_in_a_different_way">다른 방식으로 카드를 추가하시오</string>
+    <string name="manually_enter_barcode_instructions">카드에 있는 ID 번호나 텍스트를 입력 후 카드에 있는 것과 비슷한 바코드를 누르세요.</string>
+    <string name="enter_card_id">카드에 있는 ID 숫자 또는 텍스트 입력</string>
+    <string name="addWithoutBarcode">바코드가 없는 카드 추가</string>
+    <string name="app_name">카티마</string>
 </resources>

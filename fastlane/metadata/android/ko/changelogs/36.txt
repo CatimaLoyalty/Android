@@ -1,14 +1,14 @@
-- 카드 검색 기능 추가 (#320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
-- 로열티 카드 공유 및 수신 기능 추가 (#321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
-- 다크 모드 지원 (#322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
-- 로열티 카드는 이제 바코드가 없습니다(예: 바코드 없음)(#324 (https://github.com/brarcher/loyalty-card-locker/pull/324)).
-- 메모는 여러 줄에 걸쳐 있을 수 있습니다(#326 (https://github.com/brarcher/loyalty-card-locker/pull/326)).
-- 노트 크기 개선 (#319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
-- 알림 및 앱 아이콘 가시성 개선 (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- 카드를 검색할 수 있는 기능 추가(#320)
+- 충성 카드 공유 및 수신 기능 추가(#321)
+- 다크 모드 지원(#322)
+- 이제 충성 카드에 바코드가 없을 수도 있음(#324)
+- 메모가 여러 줄에 걸칠 수 있음(#326)
+- 메모 크기 조정 개선(#319)
+- 알림과 앱 아이콘 가시성 개선(#330)
 - 대상 SDK를 Android 10으로 업데이트
-- 다음 번역을 개선합니다.
-  - German
-  - Italian
-  - Dutch
-  - Polish
-  - Russian
+- 다음 언어 번역 개선:
+  - 독일어
+  - 이탈리아어
+  - 네덜란드어
+  - 폴란드어
+  - 러시아어

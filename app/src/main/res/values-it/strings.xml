@@ -92,7 +92,7 @@
     <string name="expiryStateSentenceExpired">Scaduta: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">Scadenza: <xliff:g>%s</xliff:g></string>
     <string name="settings_keep_screen_on">Mantieni lo schermo attivo</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Portachiavi con carta fedeltà</string>
     <string name="chooseImportType">Importa i dati da</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Impedisci il blocco dello schermo</string>
     <string name="accept">Accetta</string>
@@ -289,4 +289,5 @@
     <string name="enter_card_id">Inserire il numero ID o il testo sulla sua carta</string>
     <string name="addWithoutBarcode">Aggiungere una carta senza codice a barre</string>
     <string name="field_must_not_be_empty">Il campo non deve essere vuoto</string>
+    <string name="app_name">Catima</string>
 </resources>

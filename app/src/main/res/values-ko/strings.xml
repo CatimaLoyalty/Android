@@ -275,5 +275,5 @@
     <string name="manually_enter_barcode_instructions">카드에 있는 ID 번호나 텍스트를 입력 후 카드에 있는 것과 비슷한 바코드를 누르세요.</string>
     <string name="enter_card_id">카드에 있는 ID 숫자 또는 텍스트 입력</string>
     <string name="addWithoutBarcode">바코드가 없는 카드 추가</string>
-    <string name="app_name">카티마</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -1,0 +1,2 @@
+- Aggiunge Catima ai Controlli Rapidi del Dispositivo (https://developer.android.com/guide/topics/ui/device-control)
+- Corregge alcuni gruppi che non vengono visualizzati correttamente nella schermata di gestione dei gruppi

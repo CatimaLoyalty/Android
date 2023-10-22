@@ -1,0 +1,4 @@
+- Migliorato l'importatore Stocard
+- Corretta l'importazione dell'esportazione Catima con note su più righe
+- Scalato il titolo della carta in un intervallo accettabile
+- Miglioramenti delle animazioni

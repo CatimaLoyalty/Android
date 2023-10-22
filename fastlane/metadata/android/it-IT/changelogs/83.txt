@@ -1,0 +1,2 @@
+- Supporto per cambiare l'ordine di ordinamento
+- Evita l'errore "Out Of Memory" quando si scansionano immagini grandi per il codice a barre

@@ -1,0 +1,4 @@
+- Corretto il problema del pulsante di salvataggio premuto più volte che creava molteplici voci
+- Riduce le dimensioni dell'intestazione della carta quando si nascondono i dettagli per inserire ancora più carte
+- Ristruttura la schermata di modifica
+- Migliora il contrasto dell'icona a stella nella vista principale

@@ -1,0 +1,2 @@
+- Corretto il widget che creava una scorciatoia dall'aspetto diverso rispetto alle altre scorciatoie dell'app
+- Sostituita la schermata nera predefinita di Android con una schermata iniziale

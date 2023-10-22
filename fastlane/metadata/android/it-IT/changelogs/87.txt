@@ -1,0 +1,1 @@
+- Corregge la regressione che interrompe l'importazione/esportazione

@@ -1,0 +1,3 @@
+- Migliorato l'importatore Catima (corregge la mancanza di carte durante l'importazione)
+- Sistemato il crash quando si ruota lo schermo mentre si imposta la data di inizio/scadenza
+- Piccoli aggiustamenti all'interfaccia utente

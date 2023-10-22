@@ -1,0 +1,4 @@
+- Luminosità dello schermo aumentata al massimo quando si visualizza una carta, per aiutare i lettori di codici a barre a catturare con successo il codice. (pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+-Aggiunta una conferma di eliminazione quando si elimina una carta. (pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Aggiunte traduzioni per il tedesco (pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) e il ceco (pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)).
+- Chiarita modifica per la traduzione italiana. (pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

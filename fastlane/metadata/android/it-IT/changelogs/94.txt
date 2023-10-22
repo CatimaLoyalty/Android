@@ -1,0 +1,3 @@
+- Corregge la sfocatura delle icone delle lettere nella schermata principale
+- Corregge le icone che a volte scompaiono dopo la selezione
+- Corregge le icone della barra di stato che potrebbero essere invisibili su Android 5

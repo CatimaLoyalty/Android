@@ -260,7 +260,7 @@
     <string name="show_balance">Bakiyeyi göster</string>
     <string name="show_validity">Geçerliliği göster</string>
     <string name="permissionReadCardsLabel">Catima kartlarını oku</string>
-    <string name="permissionReadCardsDescription">Kartlarınızı ve tüm detaylarını, notlar ve resimler de dahil olmak üzere okuyun</string>
+    <string name="permissionReadCardsDescription">Catima kartlarınızı ve tüm detaylarını, notlar ve resimler de dahil olmak üzere okuyun</string>
     <string name="settings_keep_screen_on_summary">Ekran zaman aşımını bir kart görüntülerken devre dışı bırakır</string>
     <string name="settings_allow_content_provider_read_title">Diğer uygulamaların verilerime erişmesine izin ver</string>
     <string name="settings_display_barcode_max_brightness_summary">Bazı tarayıcıların çalışması için gereklidir</string>
@@ -274,4 +274,13 @@
     <string name="action_display_options">Görüntüleme seçenekleri</string>
     <string name="show_archived_cards">Arşivlenen kartları göster</string>
     <string name="view_online">Çevrim içi görüntüle</string>
+    <string name="card_id_must_not_be_empty">Kart numarası boş olamaz</string>
+    <string name="balanceParsingFailed">Geçersiz bakiye</string>
+    <string name="add_a_card_in_a_different_way">Farklı bir şekilde kart ekleyin</string>
+    <string name="manually_enter_barcode_instructions">Kartınızdaki ID numarasını veya metni girin ve kartınızdakine benzeyen barkoda basın.</string>
+    <string name="action_more_options">Diğer seçenekler</string>
+    <string name="enter_card_id">Kartınızdaki ID numarasını veya metni girin</string>
+    <string name="addWithoutBarcode">Barkodsuz bir kart ekle</string>
+    <string name="field_must_not_be_empty">Alan boş olamaz</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -1,0 +1,3 @@
+- Spostato "Modalità Archivio" nel menu "Opzioni di visualizzazione" (precedentemente "Mostra dettagli")
+- Supporto lingua preferita nell' app con Android 13
+- Incorporato la politica sulla privacy, il registro delle modifiche e la licenza nell'app

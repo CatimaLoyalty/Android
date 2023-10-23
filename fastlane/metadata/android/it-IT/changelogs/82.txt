@@ -1,0 +1,4 @@
+- Migliorato il supporto per lettori di schermo
+- Non crashare quando si tenta di aprire un video dalla galleria
+- Supporto allo swipe nella schermata di visualizzazione della carta fedeltà
+- Non resettare il gruppo premendo il pulsante indietro

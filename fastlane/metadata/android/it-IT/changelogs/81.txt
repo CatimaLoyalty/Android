@@ -1,0 +1,4 @@
+- Migliorato l'elenco delle carte per la visualizzazione in orizzontale e su tablet
+- Aggiunto il supporto al colore del tema (grazie, Subhashish Anand!)
+- Non chiudere l'attività di scansione in caso di errore della fotocamera (così l'inserimento manuale è ancora possibile)
+- Aggiunti tutti i collaboratori nella finestra delle informazioni sull'app

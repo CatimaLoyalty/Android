@@ -1,0 +1,4 @@
+- Corretto il colore selezionato nella finestra di modifica colore
+- Aggiunto supporto per eliminare più carte contemporaneamente
+- Corretta possibile ArithmeticException durante il ridimensionamento dell'immagine
+- Corretta la chiusura della modalità schermo intero quando si ruota il dispositivo

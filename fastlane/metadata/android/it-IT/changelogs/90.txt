@@ -1,0 +1,4 @@
+- Corregge i puntini nella vista della carta che hanno il colore sbagliato quando si cambia il tema manualmente
+- Corregge il crash nella vista della carta durante la rotazione/cambio del tema
+- Corregge il lampeggiamento dell'elenco delle carte
+- Corregge il testo che sovrappone l'icona della stella

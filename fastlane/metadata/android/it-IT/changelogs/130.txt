@@ -1,0 +1,4 @@
+- Piccole correzioni dell'interfaccia utente:
+- Corrette la reimpostazione delle date di inizio e scadenza quando si ruota la schermata di modifica della carta
+- Corretto il crash quando si ruota lo schermo mentre è visualizzato il selettore di colori
+- Correzioni all'importazione di Stocard

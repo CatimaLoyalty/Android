@@ -1,0 +1,4 @@
+- Migliorato il supporto alla gestione dei gruppi
+- Supporto per il ritaglio delle immagini
+- Corregge la perdita di dati dell'immagine quando si salva dopo aver ruotato nella vista di modifica
+- Possibilità di impostare un'immagine personalizzata come icona della carta

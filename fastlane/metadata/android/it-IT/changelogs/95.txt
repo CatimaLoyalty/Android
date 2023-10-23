@@ -1,0 +1,1 @@
+- Corregge il crash durante la condivisione della carta

@@ -1,2 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="noCardExistsError">ते कार्ड सापडले नाही</string>
+    <string name="barcodeImageDescriptionWithType">बारकोड <xliff:g>%s</xliff:g> चित्र</string>
+    <string name="save">सेव्ह करा</string>
+    <string name="storeName">नाव</string>
+    <string name="cameraPermissionDeniedTitle">कॅमेरा ऍक्सेस करू शकले नाही</string>
+    <string name="failedParsingImportUriError">\"import URI \",parse करू शकले नाही</string>
+    <string name="exporting">निर्यात करत आहे…</string>
+    <string name="noCameraPermissionDirectToSystemSetting">बारकोड स्कॅन करण्यासाठी Catima ला कॅमेरा परमिशन हवी आहे. परमिशन देण्यासाठी येथे क्लिक करा.</string>
+    <string name="importOptionFilesystemTitle">फाईल सिस्टिम मधून आयात करा</string>
+    <string name="cardShortcut">कार्ड शॉर्टकट</string>
+    <string name="cardId">कार्ड आयडी</string>
+    <string name="exportOptionExplanation">तुमचा डेटा तुम्हाला हवी असलेली स्टोरेज लोकेशन मध्ये सेव्ह होईल.</string>
+    <string name="importFailed">आयात करता आले नाही</string>
+    <string name="edit">एडीट</string>
+    <string name="permissionReadCardsDescription">तुमची Catima कार्डे आणि त्याचे सर्व तपशील, नोट्स आणि प्रतिमांसह वाचा</string>
+    <string name="barcodeType">बारकोड प्रकार</string>
+    <string name="noBarcode">बारकोड न्हवे</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">डिलिट<xliff:g>%d</xliff:g> कार्ड</item>
+        <item quantity="other">डिलिट<xliff:g>%d</xliff:g> कार्ड</item>
+    </plurals>
+    <string name="delete">हटवा</string>
+    <string name="deleteConfirmation">हे कार्ड कायमचे हटवायचे\?</string>
+    <string name="importFailedTitle">आयात अयशस्वी झाले</string>
+    <string name="ok">ठीक</string>
+    <string name="star">आवडींमध्ये मध्ये ॲड करा</string>
+    <string name="importExportHelp">तुमच्‍या डेटाचा बॅकअप घेतल्याने दुसऱ्या डिव्हाइस ला पाठवण्याची सोय होऊ शकते.</string>
+    <string name="importExport">आयात/निर्यात</string>
+    <string name="importing">आयात करत आहे…</string>
+    <string name="sendLabel">पाठवा…</string>
+    <string name="addCardTitle">कार्ड जोडा</string>
+    <string name="exportFailed">निर्यात करता आले नाही</string>
+    <string name="exportName">निर्यात</string>
+    <string name="noGiftCards">कार्ड समाविष्ट करण्यासाठी + वरती क्लिक करा, अन्यथा इम्पोर्ट करण्या हेतू ⋮ वरती क्लिक करा.</string>
+    <string name="noMatchingGiftCards">कोणतेही परिणाम आढळले नाहीत.आणि एकदा सर्च करण्याचा प्रयत्न करा.</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="cameraPermissionRequired">हे कृती/क्रिया करण्यासाठी कॅमेरा/फोटो परमिशन/परवानगी पाहिजे…</string>
+    <string name="importSuccessfulTitle">आयात केले</string>
+    <string name="exportSuccessfulTitle">निर्यात केले</string>
+    <string name="confirm">पुष्टी</string>
+    <string name="unstar">आवडींमध्ये मधून काडून टाका</string>
+    <string name="scanCardBarcode">बारकोड स्कॅन करा</string>
+    <string name="action_search">शोधणे</string>
+    <string name="noGiftCardsGroup">काही कार्डे तयार करा, आणि त्यांना गृप ला नियुक्त करा.</string>
+    <string name="permissionReadCardsLabel">Catima कार्ड्स वाचा</string>
+    <string name="storageReadPermissionRequired">हे कृती/क्रिया करण्यासाठी स्टोरेज परमिशन/परवानगी पाहिजे…</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">हे कार्ड <xliff:g>%d</xliff:g> कायमचे हटवायचे\?</item>
+        <item quantity="other">हे कार्ड <xliff:g>%d</xliff:g> कायमचे हटवायचे\?</item>
+    </plurals>
+    <string name="exportFailedTitle">निर्यात अयशस्वी झाले</string>
+    <string name="editCardTitle">कार्ड संपादित करा</string>
+    <string name="app_name">कटिमा</string>
+    <string name="noCardsMessage">आधी कार्ड आड करा</string>
+    <string name="share">शेअर</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g>एक</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> अनेक</item>
+    </plurals>
+    <string name="note">टिप्पणी</string>
+    <string name="action_add">समाविष्ट</string>
+    <string name="deleteTitle">कार्ड हटवा</string>
+</resources>

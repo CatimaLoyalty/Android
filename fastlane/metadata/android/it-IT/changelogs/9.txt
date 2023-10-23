@@ -1,0 +1,7 @@
+La parte "Locker" del nome non era intuitiva. Per rimediare a ciò, è stata creata una nuova icona dell'applicazione da betsythefc che rappresenta meglio lo scopo dell'applicazione: conservare carte fedeltà che utilizzano codici a barre. Insieme a questa nuova icona, il nome dell'applicazione è stato cambiato in "Portachiavi Carte Fedeltà".
+
+Funzionalità/miglioramenti aggiuntivi:
+
+- L'importazione/esportazione delle carte è stata modificata per essere più flessibile. (pull #76 (https://github.com/brarcher/loyalty-card-locker/pull/76))
+- Traduzioni in lituano aggiunte. (pull #62 (https://github.com/brarcher/loyalty-card-locker/pull/62))
+- Traduzioni in francese aggiunte. (pull #80 (https://github.com/brarcher/loyalty-card-locker/pull/80))

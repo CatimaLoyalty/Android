@@ -1,1 +1,4 @@
 - Miglior rendering del codice a barre
+- Interoperabilità di base con app esterne (Android 6.0+)
+- Schermata delle impostazioni riorganizzata
+- Corretta l'importazione da alcuni browser che aggiungono una / finale all'URL condiviso

@@ -1,0 +1,5 @@
+- Corregge lo scorrimento tra i gruppi che non funziona su un gruppo vuoto
+- Consente la protezione con password delle esportazioni
+- Migliora l'utilizzo dello spazio per i codici QR
+- Salva l'ultimo livello di zoom utilizzato per ogni carta
+- Corregge un crash quando si effettua uno scorrimento verso destra subito dopo un tocco

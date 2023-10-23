@@ -1,0 +1,4 @@
+- Resi i link nelle note cliccabili
+- Aggiunta pre-selezione del gruppo in cui si trova l'utente quando si crea una nuova carta
+- Separati i nomi dei gruppi con delle virgole nella visualizzazione della carta fedeltà
+- Corretta la comparsa del pulsante massimizza quando non c'è un codice a barre

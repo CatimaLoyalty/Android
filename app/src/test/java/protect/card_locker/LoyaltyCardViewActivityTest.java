@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -725,9 +726,9 @@ public class LoyaltyCardViewActivityTest {
 
         shadowOf(getMainLooper()).idle();
 
-        DatePickerDialog datePickerDialog = (DatePickerDialog) (ShadowDialog.getLatestDialog());
+        Dialog datePickerDialog = ShadowDialog.getLatestDialog();
         assertNotNull(datePickerDialog);
-        datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).performClick();
+        datePickerDialog.findViewById(com.google.android.material.R.id.confirm_button).performClick();
 
         shadowOf(getMainLooper()).idle();
 

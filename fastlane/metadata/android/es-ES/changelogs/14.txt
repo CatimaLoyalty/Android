@@ -1,0 +1,3 @@
+- Opción de bloquear orientación de la pantalla añadida cuando se muestra una tarjeta. Si esta bloqueada, la pantalla volteará a su orientación "natural" y rotación de esta será bloqueada. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Si una tarjeta es seleccionada de la pantalla principal pero no carga, la aplicación falla y enseña un mensaje. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Caso arreglado donde los ID's de disposición para el asistente de introducción no podían encontrarse. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

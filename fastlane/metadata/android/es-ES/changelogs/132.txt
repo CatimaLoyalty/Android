@@ -1,0 +1,4 @@
+- Refinado la secuencia de "Añadir tarjeta"
+- Mejora de la secuencia de validación
+- Reparación de caso de borde causando un estado invalido de la UI haciendo que se muestre el archivo
+- Usar el tema o color de la tarjeta para la barra de navegación (Android 8.1+)

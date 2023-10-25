@@ -1,0 +1,1 @@
+- Arreglado el crear una nueva carta con poner el código de barras manualmente (issue #272 (https://github.com/brarcher/loyalty-card-locker/issues/272))

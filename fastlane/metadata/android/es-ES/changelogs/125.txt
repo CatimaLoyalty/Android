@@ -1,1 +1,1 @@
-- Un manejo más agradecido a raíz de un encabezado sin colores
+- Un manejo más elegante de colores de encabezado faltantes

@@ -1,0 +1,3 @@
+- Se movió "Modo Archivo" al menú de "Opciones de pantalla" (antes llamado "Mostrar detalles")
+- Soporte al lenguaje por aplicación de Android 13
+- Incorporación de la política de privacidad, registro de cambios y licencia en la aplicación

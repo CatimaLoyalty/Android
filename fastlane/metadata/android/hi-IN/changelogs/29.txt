@@ -1,0 +1,2 @@
+-स्पेनिश अनुवादों को ठीक करें (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+-अनुवादों को अपडेट करें (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))

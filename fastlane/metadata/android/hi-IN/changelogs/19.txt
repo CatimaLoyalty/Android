@@ -1,0 +1,3 @@
+- कुछ प्रकार के कोरप्ट सीएसवी फ़ाइलें आयात करते समय क्रैश को ठीक करें। (pull #177 (https://github.com/brarcher/loyalty-card-locker/pull/177))
+- फ़ाइल सिस्टम से सीधे बैकअप आयात करने में सुधार करें। (pull #180 (https://github.com/brarcher/loyalty-card-locker/pull/180))
+- निश्चित प्रकार के सामग्री प्रदाताओं से बैकअप आयात करने में सुधार करें। (pull #179 (https://github.com/brarcher/loyalty-card-locker/pull/179))

@@ -1,0 +1,2 @@
+-कार्ड देखने पर हेडर में जगह को कम करें। (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+-बारकोड स्कैन करते समय बीप अक्षम करें। (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

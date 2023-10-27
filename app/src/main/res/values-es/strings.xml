@@ -171,7 +171,7 @@
     <string name="settings_theme_color">Color del tema</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_system_locale">Sistema</string>
-    <string name="settings_locale">Lengua</string>
+    <string name="settings_locale">Idioma</string>
     <string name="noGroupCards">Este grupo está vacío</string>
     <string name="settings_landscape_orientation">Horizontal</string>
     <plurals name="balancePoints">

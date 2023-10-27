@@ -1,0 +1,1 @@
+-बारकोड को रेंडर करते समय ऐप्लिकेशन की मेमोरी ख़तम होने पर होने वाले क्रैश को होने से रोके। (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

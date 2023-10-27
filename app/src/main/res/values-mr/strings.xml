@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="noCardExistsError">ते कार्ड सापडले नाही</string>
     <string name="barcodeImageDescriptionWithType">बारकोड <xliff:g>%s</xliff:g> चित्र</string>
     <string name="save">सेव्ह करा</string>
@@ -62,4 +62,20 @@
     <string name="note">टिप्पणी</string>
     <string name="action_add">समाविष्ट</string>
     <string name="deleteTitle">कार्ड हटवा</string>
+    <string name="about_title_fmt">विषयक <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_copyright_old">Based on Loyalty Card Keychain
+\ncopyright © 2016–2020 Branden Archer</string>
+    <string name="app_copyright_short">Copyright © Sylvia van Os and contributors</string>
+    <string name="importOptionFilesystemExplanation">सिस्टममधून आयात करण्यासाठी बॅकअप फाइल निवडा.</string>
+    <string name="about">विषयक</string>
+    <string name="importOptionFilesystemButton">फाइल सिस्टम मधुन निवडा</string>
+    <string name="importOptionApplicationButton">अन्य अँप निवडा</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os and contributors</string>
+    <string name="importOptionApplicationExplanation">फाईल उगाढण्यासाठी कोणतेही दुसरे अँप किव्वा फाईल मॅनेजर सिलेक्ट करा .</string>
+    <string name="app_license">कॉपीलिफ्ट libre software, licensed GPLv3+</string>
+    <string name="selectBarcodeTitle">बारकोड निवडा</string>
+    <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="importOptionApplicationTitle">फाईल निवडण्यासाठी दुसरी अँप वापरा</string>
 </resources>

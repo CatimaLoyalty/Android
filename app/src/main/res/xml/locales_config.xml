@@ -39,6 +39,6 @@
     <locale android:name="tr" />
     <locale android:name="uk" />
     <locale android:name="vi" />
-    <locale android:name="zh-TW" />
     <locale android:name="zh-CN" />
+    <locale android:name="zh-TW" />
 </locale-config>

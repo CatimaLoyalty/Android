@@ -1,0 +1,3 @@
+- ಡೀಫಾಲ್ಟ್ ಆಮದು/ರಫ್ತು ಫೈಲ್ ಹೆಸರನ್ನು ಬದಲಾಯಿಸಲಾಗಿದೆ. (ಪುಲ್ #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- ಆಮದು/ರಫ್ತು ಪುಟದಲ್ಲಿ ಸರಿಯಾದ ಸ್ಟ್ರಿಂಗ್. (ಪುಲ್ #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- ಕಾರ್ಡ್ ವೀಕ್ಷಣೆ ಪುಟದ ವಿನ್ಯಾಸವನ್ನು ಸುಧಾರಿಸಿ. ಪಠ್ಯವು ಓದಲು ಸುಲಭವಾಗಿರಬೇಕು ಮತ್ತು ದೀರ್ಘ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಆಯ್ಕೆಮಾಡಬಹುದಾಗಿದೆ. (ಪುಲ್ #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

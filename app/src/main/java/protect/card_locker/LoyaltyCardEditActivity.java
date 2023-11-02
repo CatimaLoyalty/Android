@@ -53,7 +53,6 @@ import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.DateValidatorPointBackward;
 import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -80,6 +79,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import protect.card_locker.async.TaskHandler;
@@ -92,6 +92,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
     private final String STATE_TAB_INDEX = "savedTab";
     private final String STATE_TEMP_CARD = "tempLoyaltyCard";
+    private final String STATE_TEMP_CARD_FIELD = "tempLoyaltyCardField";
     private final String STATE_REQUESTED_IMAGE = "requestedImage";
     private final String STATE_FRONT_IMAGE_UNSAVED = "frontImageUnsaved";
     private final String STATE_BACK_IMAGE_UNSAVED = "backImageUnsaved";
@@ -102,6 +103,9 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     private final String STATE_BACK_IMAGE_REMOVED = "backImageRemoved";
     private final String STATE_ICON_REMOVED = "iconRemoved";
     private final String STATE_OPEN_SET_ICON_MENU = "openSetIconMenu";
+
+    private static final String PICK_DATE_REQUEST_KEY = "pick_date_request";
+    private static final String NEWLY_PICKED_DATE_ARGUMENT_KEY = "newly_picked_date";
 
     private final String TEMP_CAMERA_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_camera_image.jpg";
     private final String TEMP_CROP_IMAGE_NAME = LoyaltyCardEditActivity.class.getSimpleName() + "_crop_image.png";
@@ -180,6 +184,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     HashMap<String, String> currencySymbols = new HashMap<>();
 
     LoyaltyCard tempLoyaltyCard;
+    LoyaltyCardField tempLoyaltyCardField;
 
     ActivityResultLauncher<Uri> mPhotoTakerLauncher;
     ActivityResultLauncher<Intent> mPhotoPickerLauncher;
@@ -265,6 +270,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         tabs = binding.tabs;
         savedInstanceState.putInt(STATE_TAB_INDEX, tabs.getSelectedTabPosition());
         savedInstanceState.putParcelable(STATE_TEMP_CARD, tempLoyaltyCard);
+        savedInstanceState.putSerializable(STATE_TEMP_CARD_FIELD, tempLoyaltyCardField);
         savedInstanceState.putInt(STATE_REQUESTED_IMAGE, mRequestedImage);
 
         Object cardImageFrontObj = cardImageFront.getTag();
@@ -300,6 +306,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         onRestoring = true;
         tempLoyaltyCard = savedInstanceState.getParcelable(STATE_TEMP_CARD);
+        tempLoyaltyCardField = (LoyaltyCardField) savedInstanceState.getSerializable(STATE_TEMP_CARD_FIELD);
         super.onRestoreInstanceState(savedInstanceState);
         tabs = binding.tabs;
         tabs.selectTab(tabs.getTabAt(savedInstanceState.getInt(STATE_TAB_INDEX)));
@@ -384,6 +391,8 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
         addDateFieldTextChangedListener(validFromField, R.string.anyDate, R.string.chooseValidFromDate, LoyaltyCardField.validFrom);
 
         addDateFieldTextChangedListener(expiryField, R.string.never, R.string.chooseExpiryDate, LoyaltyCardField.expiry);
+
+        setMaterialDatePickerResultListener();
 
         balanceField.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus && !onResuming && !onRestoring) {
@@ -1006,29 +1015,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     if (!lastValue.toString().equals(getString(chooseDateOptionStringId))) {
                         dateField.setText(lastValue);
                     }
-                    MaterialPickerOnPositiveButtonClickListener<Long> materialPickerOnPositiveButtonClickListener = selection -> {
-                        Date newDate = new Date(selection);
-                        switch (loyaltyCardField) {
-                            case validFrom:
-                                formatDateField(LoyaltyCardEditActivity.this, validFromField, newDate);
-                                updateTempState(LoyaltyCardField.validFrom, newDate);
-                                break;
-                            case expiry:
-                                formatDateField(LoyaltyCardEditActivity.this, expiryField, newDate);
-                                updateTempState(LoyaltyCardField.expiry, newDate);
-                                break;
-                            default:
-                                throw new AssertionError("Unexpected field: " + loyaltyCardField);
-                        }
-                    };
                     showDatePicker(
                             loyaltyCardField,
                             (Date) dateField.getTag(),
                             // if the expiry date is being set, set date picker's minDate to the 'valid from' date
                             loyaltyCardField == LoyaltyCardField.expiry ? (Date) validFromField.getTag() : null,
                             // if the 'valid from' date is being set, set date picker's maxDate to the expiry date
-                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null,
-                            materialPickerOnPositiveButtonClickListener
+                            loyaltyCardField == LoyaltyCardField.validFrom ? (Date) expiryField.getTag() : null
                     );
                 }
             }
@@ -1384,8 +1377,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             LoyaltyCardField loyaltyCardField,
             @Nullable Date selectedDate,
             @Nullable Date minDate,
-            @Nullable Date maxDate,
-            MaterialPickerOnPositiveButtonClickListener<Long> listener
+            @Nullable Date maxDate
     ) {
         // Create a new instance of MaterialDatePicker and return it
         long startDate = minDate != null ? minDate.getTime() : getDefaultMinDateOfDatePicker();
@@ -1420,8 +1412,55 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 .setCalendarConstraints(calendarConstraints)
                 .build();
 
-        materialDatePicker.addOnPositiveButtonClickListener(listener);
-        materialDatePicker.show(getSupportFragmentManager(), TAG);
+        // Required to handle configuration changes
+        // See https://github.com/material-components/material-components-android/issues/1688
+        tempLoyaltyCardField = loyaltyCardField;
+        getSupportFragmentManager().addFragmentOnAttachListener((fragmentManager, fragment) -> {
+            if (fragment instanceof MaterialDatePicker && Objects.equals(fragment.getTag(), PICK_DATE_REQUEST_KEY)) {
+                ((MaterialDatePicker<Long>) fragment).addOnPositiveButtonClickListener(selection -> {
+                    Bundle args = new Bundle();
+                    args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection);
+                    getSupportFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, args);
+                });
+            }
+        });
+
+        materialDatePicker.show(getSupportFragmentManager(), PICK_DATE_REQUEST_KEY);
+    }
+
+    // Required to handle configuration changes
+    // See https://github.com/material-components/material-components-android/issues/1688
+    private void setMaterialDatePickerResultListener() {
+        MaterialDatePicker<Long> fragment = (MaterialDatePicker<Long>) getSupportFragmentManager().findFragmentByTag(PICK_DATE_REQUEST_KEY);
+        if (fragment != null) {
+            fragment.addOnPositiveButtonClickListener(selection -> {
+                Bundle args = new Bundle();
+                args.putLong(NEWLY_PICKED_DATE_ARGUMENT_KEY, selection);
+                getSupportFragmentManager().setFragmentResult(PICK_DATE_REQUEST_KEY, args);
+            });
+        }
+
+        getSupportFragmentManager().setFragmentResultListener(
+                PICK_DATE_REQUEST_KEY,
+                this,
+                (requestKey, result) -> {
+                    long selection = result.getLong(NEWLY_PICKED_DATE_ARGUMENT_KEY);
+
+                    Date newDate = new Date(selection);
+                    switch (tempLoyaltyCardField) {
+                        case validFrom:
+                            formatDateField(LoyaltyCardEditActivity.this, validFromField, newDate);
+                            updateTempState(LoyaltyCardField.validFrom, newDate);
+                            break;
+                        case expiry:
+                            formatDateField(LoyaltyCardEditActivity.this, expiryField, newDate);
+                            updateTempState(LoyaltyCardField.expiry, newDate);
+                            break;
+                        default:
+                            throw new AssertionError("Unexpected field: " + tempLoyaltyCardField);
+                    }
+                }
+        );
     }
 
     private long getDefaultMinDateOfDatePicker() {

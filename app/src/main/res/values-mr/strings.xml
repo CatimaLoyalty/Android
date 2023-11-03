@@ -78,4 +78,15 @@
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="importOptionApplicationTitle">फाईल निवडण्यासाठी दुसरी अँप वापरा</string>
+    <string name="settings_portrait_orientation">पोट्रेट</string>
+    <string name="settings_dark_theme">गडद</string>
+    <string name="settings_system_theme">प्रणाली</string>
+    <string name="starImage">आवड</string>
+    <string name="settings_follow_system_orientation">सिस्टिम अनुसरण</string>
+    <string name="settings_landscape_orientation">आडवे</string>
+    <string name="settings_theme">थीम</string>
+    <string name="settings_light_theme">उजळ</string>
+    <string name="settings">सेटिंग्ज</string>
+    <string name="settings_card_orientation">बार्कोड अभिमुखता</string>
+    <string name="thumbnailDescription">लघुप्रतिमा</string>
 </resources>

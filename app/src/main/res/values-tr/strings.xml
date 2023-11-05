@@ -72,7 +72,7 @@
     <string name="expiryStateSentence">Son kullanma tarihi: <xliff:g>%s</xliff:g></string>
     <string name="groupsList">Gruplar: <xliff:g>%s</xliff:g></string>
     <string name="addFromImage">Galeriden resim seç</string>
-    <string name="addManually">Numarayı elle gir</string>
+    <string name="addManually">Barkodu elle gir</string>
     <string name="leaveWithoutSaveConfirmation">Kaydetmeden çıkılsın mı\?</string>
     <string name="leaveWithoutSaveTitle">Çıkış</string>
     <string name="moveDown">Aşağı git</string>

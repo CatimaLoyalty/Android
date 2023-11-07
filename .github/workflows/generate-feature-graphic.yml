@@ -36,39 +36,7 @@ jobs:
         find .scripts/generate_feature_graphic/fonts -name '*.ttf' -exec cp {} "$HOME/.fonts" \;
         fc-cache
     - name: Generate featureGraphic.png for each language
-      run: |
-        for lang in fastlane/metadata/android/*; do
-          pushd "$lang"
-          # Place temporary copy for editing if needed
-          cp ../../../../.scripts/generate_feature_graphic/featureGraphic.svg featureGraphic.svg
-          # Extract text after 'Catima - '
-          export subtext="$(grep -oP '(?<=Catima \S ).*' title.txt || true)"
-          # If there is subtext, change the .svg accordingly
-          if [ -n "$subtext" ]; then
-            perl -pi -e 's/Loyalty Card Wallet/$ENV{subtext}/' featureGraphic.svg
-            # Set correct font for language if needed (Lexend Deca has limited support)
-            # We specifically need the Serif version because of the 200 weight
-            case "$(basename "$lang")" in
-              bg|el-GR|ru-RU|uk) sed -i "s/Lexend Deca/Noto Serif/" featureGraphic.svg ;;
-              ja-JP) sed -i "s/Lexend Deca/Noto Serif CJK JP/" featureGraphic.svg ;;
-              ko) sed -i "s/Lexend Deca/Noto Serif CJK KR/" featureGraphic.svg ;;
-              zh-CN) sed -i "s/Lexend Deca/Noto Serif CJK SC/" featureGraphic.svg ;;
-              zh-TW) sed -i "s/Lexend Deca/Noto Serif CJK TC/" featureGraphic.svg ;;
-              *) ;;
-            esac
-          fi
-          # Ensure images directory exists
-          mkdir -p images
-          # Generate .png
-          convert featureGraphic.svg images/featureGraphic.png
-          # Optimize .png
-          optipng images/featureGraphic.png
-          # Remove metadata (timestamps) from .png
-          mat2 --inplace images/featureGraphic.png
-          # Remove temporary .svg
-          rm featureGraphic.svg
-          popd
-        done
+      run: .scripts/generatue_feature_graphic/generate_feature_graphic.sh
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5.0.2
       with:

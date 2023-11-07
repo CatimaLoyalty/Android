@@ -1,19 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 
-script_location="$(dirname $(readlink -f $0))"
+script_location="$(dirname "$(readlink -f "$0")")"
 
 for lang in "$script_location/../../fastlane/metadata/android/"*; do
-  pushd "$lang"
+  pushd "$lang" || exit 1
   # Place temporary copy for editing if needed
   cp "$script_location/featureGraphic.svg" featureGraphic.svg
   # Try splitting title.txt on — (em dash)
-  IFS='—' read -r appname subtext <<< $(cat title.txt)
-  if [ -z "$subtext" ]; then
+  if grep -q — title.txt; then
+    # Try splitting title.txt on — (em dash)
+    IFS='—' read -r appname subtext < title.txt
+  else
     # No result, try splitting on - (dash)
-    IFS='-' read -r appname subtext <<< $(cat title.txt)
+    IFS='-' read -r appname subtext < title.txt
   fi
-  export appname
-  export subtext
+  fi
+  export appname=${appname%% }
+  export subtext=${subtext## }
   # If there is subtext, change the .svg accordingly
   if [ -n "$subtext" ]; then
     perl -pi -e 's/Catima/$ENV{appname}/' featureGraphic.svg
@@ -41,5 +44,5 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
   mat2 --inplace images/featureGraphic.png
   # Remove temporary .svg
   rm featureGraphic.svg
-  popd
+  popd || exit 1
 done

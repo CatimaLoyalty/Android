@@ -82,4 +82,10 @@
     <string name="moveDown">Bevæger sig nedad</string>
     <string name="leaveWithoutSaveTitle">Afslut</string>
     <string name="addManually">Indtast kort-ID manuelt</string>
+    <string name="noGiftCardsGroup">Opret kort og tildel dem gupper her.</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Slet dette <xliff:g>%d</xliff:g> kort permanent\?</item>
+        <item quantity="other">Slet disse <xliff:g>%d</xliff:g> kort permanent\?</item>
+    </plurals>
+    <string name="app_name">Catima</string>
 </resources>

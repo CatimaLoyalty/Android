@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 script_location="$(dirname "$(readlink -f "$0")")"
 
@@ -6,14 +7,12 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
   pushd "$lang" || exit 1
   # Place temporary copy for editing if needed
   cp "$script_location/featureGraphic.svg" featureGraphic.svg
-  # Try splitting title.txt on — (em dash)
   if grep -q — title.txt; then
     # Try splitting title.txt on — (em dash)
     IFS='—' read -r appname subtext < title.txt
   else
     # No result, try splitting on - (dash)
     IFS='-' read -r appname subtext < title.txt
-  fi
   fi
   export appname=${appname%% }
   export subtext=${subtext## }

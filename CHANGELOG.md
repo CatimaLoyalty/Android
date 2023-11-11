@@ -6,6 +6,7 @@
 - Validation flow improvements
 - Fix edge case causing invalid UI state when toggling showing archive
 - Use theme or card colour for navigation bar (Android 8.1+)
+- Updated validity and expiry date selector
 
 ## v2.26.0 - 131 (2023-09-14)
 

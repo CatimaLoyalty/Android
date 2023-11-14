@@ -4,7 +4,7 @@ set -euo pipefail
 script_location="$(dirname "$(readlink -f "$0")")"
 
 for lang in "$script_location/../../fastlane/metadata/android/"*; do
-  pushd "$lang" || exit 1
+  pushd "$lang"
   # Place temporary copy for editing if needed
   cp "$script_location/featureGraphic.svg" featureGraphic.svg
   if grep -q — title.txt; then
@@ -43,5 +43,5 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
   mat2 --inplace images/featureGraphic.png
   # Remove temporary .svg
   rm featureGraphic.svg
-  popd || exit 1
+  popd
 done

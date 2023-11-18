@@ -248,7 +248,7 @@
     <string name="validFromSentence">Kelvollinen alkaen: <xliff:g>%s</xliff:g></string>
     <string name="donate">Lahjoita</string>
     <string name="permissionReadCardsLabel">Lue Catima-kortteja</string>
-    <string name="permissionReadCardsDescription">Lue korttisi ja kaikki niiden tiedot, mukaan lukien huomautukset ja kuvat</string>
+    <string name="permissionReadCardsDescription">lue korttisi ja kaikki niiden tiedot, mukaan lukien huomautukset ja kuvat</string>
     <string name="settings_allow_content_provider_read_summary">Sovellusten tulee silti pyytää lupaa saadakseen pääsyn</string>
     <string name="settings_category_title_privacy">Yksityisyys</string>
     <string name="height">Korkeus:</string>
@@ -279,4 +279,6 @@
     <string name="enter_card_id">Anna kortin tunnistenumero tai kortissa oleva teksti</string>
     <string name="addWithoutBarcode">Lisää kortti jossa ei ole viivakoodia</string>
     <string name="field_must_not_be_empty">Kenttä ei saa olla tyhjä</string>
+    <string name="manually_enter_barcode_instructions">Syötä kortissa näkyvä numero tai teksti ja klikkaa viivakoodia, joka vastaa kortissa olevaa koodia.</string>
+    <string name="app_name">Catima</string>
 </resources>

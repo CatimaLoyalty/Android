@@ -4,8 +4,8 @@ J. Lavoie
 Allan Nordhøy
 solokot
 Heimen Stoffels
-Oğuz Ersen
 FC (Fay) Stegerman
+Oğuz Ersen
 Katharine Chui
 SlavekB
 StoyanDimitrov
@@ -13,9 +13,9 @@ mondstern
 IllusiveMan196
 Altonss
 Michael Moroni
-Gediminas Murauskas
-Petr Novák
+GM
 Eric
+Petr Novák
 Joel A
 laralem
 Taco
@@ -36,13 +36,13 @@ huuhaa
 Jiri Grönroos
 Projjal Moitra
 Quentin PAGÈS
+Denis Shilin
 Giovanni Donisi
 Robin Liu
 Ziad OUALHADJ
 Eryk Michalak
 Alexander Ivanov
 arshbeerSingh
-Denis Shilin
 Freddo espresso
 Govind S Nair
 Kim Seohyun
@@ -121,7 +121,7 @@ Michał
 Mohamed A. Salah
 Yatoku
 Neha Reddy
-the7thNightmare
+Neko Nekowazarashi
 Quang Trung
 Rishi Agarwal
 Rosdyana Kusuma

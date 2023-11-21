@@ -30,7 +30,7 @@
     <locale android:name="nl" />
     <locale android:name="oc" />
     <locale android:name="pl" />
-    <locale android:name="pt" />
+    <locale android:name="pt-PT" />
     <locale android:name="ro-RO" />
     <locale android:name="ru" />
     <locale android:name="sk" />

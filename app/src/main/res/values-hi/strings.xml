@@ -119,7 +119,7 @@
         <item quantity="one"><xliff:g>%d</xliff:g> चयनित</item>
         <item quantity="other"><xliff:g>%d</xliff:g> चयनित.</item>
     </plurals>
-    <string name="groups">समूहों</string>
+    <string name="groups">Groups</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">कॉपीराइट © 2019–<xliff:g>%d</xliff:g> Sylvia van Os और योगदाता</string>
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> कार्ड</item>

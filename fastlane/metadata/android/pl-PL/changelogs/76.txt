@@ -1,0 +1,4 @@
+- Linki w notatkach od teraz można otwierać
+- Wstępny wybór grupy, w której aktualnie znajduje się użytkownik podczas tworzenia nowej karty
+- Nazwy grup są teraz oddzielone przecinkami w widoku karty lojalnościowej
+- Naprawiono przycisk maksymalizacji pojawiający się bez kodu kreskowego

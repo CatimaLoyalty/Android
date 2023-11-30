@@ -2,3 +2,4 @@
 - Poprawki w procesie walidacji
 - Naprawa przypadku brzegowego z nieprawidłowym stanem interfejsu użytkownika po przełączeniu widoczności archiwum
 - Użycie motywu lub koloru karty na pasku nawigacyjnym (Android 8.1+)
+- Zaktualizowano selektory daty ważności i wygaśnięcia karty

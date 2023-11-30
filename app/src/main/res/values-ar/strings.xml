@@ -210,7 +210,7 @@
     </plurals>
     <string name="moveDown">تحرك لأسفل</string>
     <string name="leaveWithoutSaveConfirmation">المغادرة دون حفظ؟</string>
-    <string name="addManually">الخاتمة</string>
+    <string name="addManually">أدخل بطاقة الهوية يدويًا</string>
     <string name="moveBarcodeToTopOfScreen">انقل الباركود إلى أعلى الشاشة</string>
     <string name="balanceSentence">الرصيد: <xliff:g>%s</xliff:g></string>
     <string name="expiryStateSentence">تنتهي: <xliff:g>%s</xliff:g></string>
@@ -310,5 +310,5 @@
     <string name="enter_card_id">أدخل رقم الهوية أو النص الموجود على بطاقتك</string>
     <string name="addWithoutBarcode">إضافة بدون باركود</string>
     <string name="field_must_not_be_empty">يجب ألا يكون الحقل فارغا</string>
-    <string name="app_name">مناخ</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -173,9 +173,9 @@
         <item quantity="zero">مسح <xliff:g>%d</xliff:g> بطاقة</item>
         <item quantity="one">مسح <xliff:g>%d</xliff:g> بطاقة</item>
         <item quantity="two">مسح <xliff:g>%d</xliff:g> بطاقتين</item>
-        <item quantity="few">مسح <xliff:g>%d</xliff:g> بطاقات</item>
-        <item quantity="many">مسح <xliff:g>%d</xliff:g> بطاقات</item>
-        <item quantity="other">مسح <xliff:g>%d</xliff:g> بطاقات</item>
+        <item quantity="few">مسح <xliff:g>%d</xliff:g> بطائق</item>
+        <item quantity="many">مسح <xliff:g>%d</xliff:g> بطاقة</item>
+        <item quantity="other">مسح <xliff:g>%d</xliff:g> بطاقة</item>
     </plurals>
     <plurals name="deleteCardsConfirmation">
         <item quantity="zero">مسح هذه <xliff:g>%d</xliff:g> البطاقة نهائيا؟</item>

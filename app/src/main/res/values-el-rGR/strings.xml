@@ -240,4 +240,8 @@
     <string name="newBalanceSentence">Νέο υπόλοιπο: <xliff:g>%s</xliff:g></string>
     <string name="failedToOpenUrl">Εγκαταστήστε έναν περιηγητή πρώτα</string>
     <string name="welcome">Καλώς ήρθατε στο Catima</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης ενόσω βλέπετε μια κάρτα</string>
+    <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποια σκάνερ</string>
+    <string name="cameraPermissionRequired">Χρειάζεται άδεια για πρόσβαση στην κάμερα γι\' αυτή την ενέργεια…</string>
+    <string name="settings_allow_content_provider_read_title">Επιτρέπει σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
 </resources>

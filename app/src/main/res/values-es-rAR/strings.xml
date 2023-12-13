@@ -61,7 +61,7 @@
     <string name="settings_portrait_orientation">Vertical</string>
     <string name="takePhoto">Tomar una foto</string>
     <string name="cameraPermissionDeniedTitle">No se pudo acceder a la cámara</string>
-    <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado.</string>
+    <string name="wrongValueForBarcodeType">El valor no es válido para el tipo de código de barras seleccionado</string>
     <string name="expiryDate">Fecha de vencimiento</string>
     <string name="importStocard">Importar desde Stocard</string>
     <string name="currency">Moneda</string>
@@ -164,19 +164,19 @@
     <plurals name="groupCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> tarjeta</item>
         <item quantity="many"><xliff:g>%d</xliff:g> tarjetas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> seleccionado</item>
         <item quantity="many"><xliff:g>%d</xliff:g> seleccionados</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="importCatimaMessage">Seleccione su <i>catima.zip</i> exportado desde Catima para importarlo.
 \nPrimero créelo desde el menu para Importar/Exportar de otra aplicación de Catima presionando la opción Exportar.</string>
     <plurals name="balancePoints">
         <item quantity="one"><xliff:g>%s</xliff:g> punto</item>
         <item quantity="many"><xliff:g>%s</xliff:g> puntos</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="importFidmeMessage">Seleccione su <i>fidme-export-request-xxxxxx.zip</i> exportado de FidMe para importarlo, y a continuación seleccione manualmente los tipos de código de barras.
 \nPrimero créelo desde su perfil de FidMe al elegir la opción Protección de Datos y presionando Extraer mis datos.</string>

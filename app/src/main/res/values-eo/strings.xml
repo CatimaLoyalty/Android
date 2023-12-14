@@ -46,7 +46,7 @@
     <string name="save">Konservi</string>
     <string name="cancel">Nuligi</string>
     <string name="action_add">Aldoni</string>
-    <string name="action_search">Serĉi</string>
+    <string name="action_search">搜索</string>
     <string name="deleteConfirmation">Ĉu forigi ĉi tiun karton\?</string>
     <string name="deleteTitle">Forigi karton</string>
     <string name="settings_display_barcode_max_brightness">Heligi barcode vido</string>
@@ -82,4 +82,5 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektita</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektitaj</item>
     </plurals>
+    <string name="app_name">玄学</string>
 </resources>

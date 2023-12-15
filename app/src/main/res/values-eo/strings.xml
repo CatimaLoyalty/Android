@@ -82,4 +82,5 @@
         <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektita</item>
         <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektitaj</item>
     </plurals>
+    <string name="app_name">Catima</string>
 </resources>

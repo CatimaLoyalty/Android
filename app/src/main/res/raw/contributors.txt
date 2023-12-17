@@ -33,11 +33,12 @@ Milan Šalka
 Milo Ivir
 Skrripy
 huuhaa
+Giovanni Donisi
 Jiri Grönroos
 Projjal Moitra
 Quentin PAGÈS
 Denis Shilin
-Giovanni Donisi
+mdvhimself
 Robin Liu
 Ziad OUALHADJ
 Eryk Michalak
@@ -55,7 +56,6 @@ Arnis Jaundžeikars
 Camila
 Dan
 sr093906
-mdvhimself
 Katarzyna
 echo r"0xX4H" | rev
 Magnitudee
@@ -149,6 +149,7 @@ pythonbass
 ce i moa
 enescan201
 Frablock
+ikanakova
 inesre
 lgasp
 notlin4
@@ -174,7 +175,7 @@ Alex Tan
 Tapwaterisokey
 Alexandra-Ioana Moroz
 alyonaakshyata
-sNiXx
+Andreas Blaser
 Angela Enogieru
 Animesh Chatterjee
 Anujever
@@ -239,6 +240,7 @@ Md. Al-Amin
 MOCCH
 3DN1M
 Minecraft boom
+Mitsos Dream
 Mobashir Raihan
 Moi Toi
 DiCeYMaYo
@@ -247,6 +249,7 @@ DivideEtImpera
 Nicolas
 Nosnahc
 osamaqw
+Patricio Carrau
 Patrik Š.
 pbeckmann
 Peer Beckmann
@@ -297,7 +300,6 @@ gbonaspetti
 gemamur
 gittyboy-cell
 huang ivan
-ikanakova
 kb01guy
 lassr8
 liva
@@ -323,6 +325,7 @@ Truestorybaby
 Tygyh
 unstartdev
 wmilan 17
+xiawu240
 yourfav-raphi
 MeH762
 يوسف لطفي

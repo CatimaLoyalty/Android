@@ -70,7 +70,7 @@
     <string name="failedOpeningFileManager">Installer en filbehandler først.</string>
     <string name="leaveWithoutSaveConfirmation">Forlat uten å lagre?</string>
     <string name="leaveWithoutSaveTitle">Avslutt</string>
-    <string name="addManually">Skriv inn ID manuelt</string>
+    <string name="addManually">Skriv inn strekkode manuelt</string>
     <string name="moveDown">Flytt nedover</string>
     <string name="moveUp">Flytt oppover</string>
     <plurals name="groupCardCount">

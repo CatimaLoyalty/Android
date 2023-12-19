@@ -269,4 +269,10 @@
     <string name="show_archived_cards">顯示已封存卡片</string>
     <string name="settings_category_title_privacy">隱私權</string>
     <string name="settings_category_title_general">一般</string>
+    <string name="card_id_must_not_be_empty">卡片 ID 不能為空</string>
+    <string name="add_a_card_in_a_different_way">以其它方式新增卡片</string>
+    <string name="manually_enter_barcode_instructions">輸入卡片上的 ID 或文字，並按下和你的卡片上的條碼相符的條碼。</string>
+    <string name="enter_card_id">輸入卡片上的 ID 或文字</string>
+    <string name="settings_display_barcode_max_brightness_summary">一些條碼掃描器需要此設定方能運作</string>
+    <string name="field_must_not_be_empty">欄位不能為空</string>
 </resources>

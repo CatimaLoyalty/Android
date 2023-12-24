@@ -155,7 +155,7 @@ lgasp
 notlin4
 olgacveysel
 phlostically
-pokeghost
+pokegh0st
 sal0max
 Ágata Leuck
 BmBKun
@@ -278,13 +278,14 @@ Mehedi Hasan
 Tim Trek
 Titas Pažereckas
 atakujonc
-tkraljevic
+Tomislav Kraljević
 Tony C
 Vancha March
 tyap-lyap-ivprod
 gokomurodokomodo
 Viviana Yanez
 Waldemar Stoczkowski
+Wei-Cheng Yeh (IID)
 Wiktor Kwapisiewicz
 Wonchul Kang
 Yevgeny M

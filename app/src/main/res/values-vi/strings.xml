@@ -265,4 +265,13 @@
     <string name="rate_this_app">Đánh giá ứng dụng</string>
     <string name="credits">Ghi nhận</string>
     <string name="app_name">Catima</string>
+    <string name="openFrontImageInGalleryApp">Mở hình ảnh phía trước trong ứng dụng thư viện</string>
+    <string name="and_data_usage">và sử dụng dữ liệu</string>
+    <string name="show_validity">Hiển thị tính hợp lệ</string>
+    <string name="barcodeLongPressMessage">Chỉ có thể mở hình ảnh trong ứng dụng thư viện</string>
+    <string name="source_repository">Kho lưu trữ nguồn</string>
+    <string name="switchToBackImage">Chuyển sang hình ảnh phía sau</string>
+    <string name="switchToFrontImage">Chuyển sang hình ảnh phía trước</string>
+    <string name="openBackImageInGalleryApp">Mở lại hình ảnh trong ứng dụng thư viện</string>
+    <string name="failedToRetrieveImageFile">Không thể truy xuất tệp hình ảnh</string>
 </resources>

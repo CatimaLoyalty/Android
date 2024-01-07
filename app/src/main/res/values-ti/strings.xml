@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_search">ድለ</string>
+    <string name="noGiftCardsGroup">ገለ ካርድታት ፍጠሩ፣ ድሕሪኡ ኣብዚ ጉጅለ ምደቦም።</string>
+    <string name="noMatchingGiftCards">ውጽኢት የለን። ምድላይካ ክትቅይር ፈትን።</string>
+    <string name="note">መዝገብ</string>
+    <string name="app_name">Catima</string>
+    <string name="storeName">ስም</string>
+    <string name="cardId">ካርድ መለለዪ መንነት</string>
+    <string name="barcodeType">ዓይነት ባርኮድ</string>
+    <string name="noBarcode">ባርኮድ የለን</string>
+</resources>

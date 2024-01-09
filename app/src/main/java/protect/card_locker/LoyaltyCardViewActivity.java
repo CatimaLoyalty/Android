@@ -226,7 +226,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         settings = new Settings(this);
 
         String cardOrientation = settings.getCardViewOrientation();
-        if (cardOrientation.equals(getString(R.string.settings_key_lock_on_opening_orientation))) {
+        if (cardOrientation.equals(getString(R.string.settings_key_follow_sensor_orientation))) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        } else if (cardOrientation.equals(getString(R.string.settings_key_lock_on_opening_orientation))) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         } else if (cardOrientation.equals(getString(R.string.settings_key_portrait_orientation))) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

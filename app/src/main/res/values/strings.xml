@@ -99,6 +99,8 @@
     <string name="settings_key_card_orientation" translatable="false">pref_card_orientation</string>
     <string name="settings_follow_system_orientation">Follow system</string>
     <string name="settings_key_follow_system_orientation" translatable="false">follow_system</string>
+    <string name="settings_follow_sensor_orientation">Always rotate (ignores system settings)</string>
+    <string name="settings_key_follow_sensor_orientation" translatable="false">follow_sensor</string>
     <string name="settings_portrait_orientation">Portrait</string>
     <string name="settings_key_portrait_orientation" translatable="false">portrait</string>
     <string name="settings_landscape_orientation">Landscape</string>

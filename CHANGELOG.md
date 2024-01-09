@@ -7,6 +7,7 @@
 - Fix edge case causing invalid UI state when toggling showing archive
 - Use theme or card colour for navigation bar (Android 8.1+)
 - Updated validity and expiry date selector
+- Add option to always rotate (ignoring system settings)
 
 ## v2.26.0 - 131 (2023-09-14)
 

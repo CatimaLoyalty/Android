@@ -129,19 +129,19 @@ public class AboutContent {
         return result.toString();
     }
 
-    public String getContributorInfo() {
+    public Spanned getContributorInfo() {
         StringBuilder contributorInfo = new StringBuilder();
         contributorInfo.append(getCopyright());
-        contributorInfo.append("\n\n");
+        contributorInfo.append("<br/><br/>");
         contributorInfo.append(context.getString(R.string.app_copyright_old));
-        contributorInfo.append("\n\n");
-        contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_contributors), getContributors()), HtmlCompat.FROM_HTML_MODE_COMPACT));
-        contributorInfo.append("\n\n");
-        contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_libraries), getThirdPartyLibraries()), HtmlCompat.FROM_HTML_MODE_COMPACT));
-        contributorInfo.append("\n\n");
-        contributorInfo.append(HtmlCompat.fromHtml(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssets()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        contributorInfo.append("<br/><br/>");
+        contributorInfo.append(String.format(context.getString(R.string.app_contributors), getContributors()));
+        contributorInfo.append("<br/><br/>");
+        contributorInfo.append(String.format(context.getString(R.string.app_libraries), getThirdPartyLibraries()));
+        contributorInfo.append("<br/><br/>");
+        contributorInfo.append(String.format(context.getString(R.string.app_resources), getUsedThirdPartyAssets()));
 
-        return contributorInfo.toString();
+        return HtmlCompat.fromHtml(contributorInfo.toString(), HtmlCompat.FROM_HTML_MODE_COMPACT);
     }
 
     public Spanned getHistoryInfo() {

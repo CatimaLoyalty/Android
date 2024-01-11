@@ -171,7 +171,6 @@
     <string name="settings_pink_theme">Rožinė</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Temos spalva</string>
-    <string name="app_contributors">Tapo įmanoma su pagalba: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Grupėje yra tuščia</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> brūkšninio kodo vaizdas</string>
     <string name="sort_by">Rikiuoti pagal</string>

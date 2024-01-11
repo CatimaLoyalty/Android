@@ -189,7 +189,6 @@
     <string name="settings_follow_system_orientation">Urmare sistem</string>
     <string name="reverse">...în ordine inversă</string>
     <string name="settings_brown_theme">Maro</string>
-    <string name="app_contributors">Făcut posibil de: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="app_copyright_short">Drepturi de autor © Sylvia van Os și contribuabilii</string>
     <string name="settings_oled_dark">Fundal pur negru pentru tema închisă</string>
     <string name="starred">Favorite</string>

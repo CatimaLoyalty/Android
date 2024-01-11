@@ -121,7 +121,6 @@
     <string name="settings_green_theme">أخضر</string>
     <string name="settings_grey_theme">رمادي</string>
     <string name="settings_brown_theme">بني</string>
-    <string name="app_contributors">أصبح ممكنًا بواسطة: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">فرز</string>
     <string name="showMoreInfo">اظهر المعلومات</string>
     <string name="reverse">... بترتيب معكوس</string>

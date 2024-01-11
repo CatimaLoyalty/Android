@@ -128,7 +128,6 @@
     <string name="settings_locale">Valoda</string>
     <string name="failedGeneratingShareURL">Nevarēja izveidot koplietojamu URL. Lūdzu, ziņojiet par šo kļūdu.</string>
     <string name="turn_flashlight_off">Izslēgt zibspuldzi</string>
-    <string name="app_contributors">To padarīja iespējamu: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="version_history">Versiju vēsture</string>
     <string name="sort_by">Kārtot pēc</string>
     <string name="help_translate_this_app">Palīdziet tulkot šo lietotni</string>

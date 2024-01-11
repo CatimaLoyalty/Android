@@ -248,7 +248,6 @@
     <string name="settings_key_green_theme" translatable="false">green_theme</string>
     <string name="settings_key_grey_theme" translatable="false">grey_theme</string>
     <string name="settings_key_brown_theme" translatable="false">brown_theme</string>
-    <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Sort</string>
     <string name="showMoreInfo">Show info</string>
     <string name="updateBalance">Update balance</string>
@@ -335,4 +334,5 @@
     <string name="add_a_card_in_a_different_way">Add a card in a different way</string>
     <string name="field_must_not_be_empty">Field must not be empty</string>
     <string name="manually_enter_barcode_instructions">Enter the ID number or text on your card and press the barcode that looks like the one on your card.</string>
+    <string name="view_more_contributors">View more contributors</string>
 </resources>

@@ -155,7 +155,6 @@
     <string name="failedGeneratingShareURL">Jaettavaa URL-osoitetta ei voitu luoda. Ilmoita tästä.</string>
     <string name="turn_flashlight_on">Käytä taskulamppua</string>
     <string name="turn_flashlight_off">Sammuta salamavalo</string>
-    <string name="app_contributors">Mahdollistanut: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Ruskea</string>
     <string name="settings_grey_theme">Harmaa</string>
     <string name="settings_green_theme">Vihreä</string>

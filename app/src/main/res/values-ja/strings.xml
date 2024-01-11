@@ -151,7 +151,6 @@
         <item quantity="other"><xliff:g>%d</xliff:g> 枚のカードの削除</item>
     </plurals>
     <string name="barcodeImageDescriptionWithType">バーコード形式の画像 <xliff:g>%s</xliff:g></string>
-    <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brown</string>
     <string name="settings_grey_theme">Gray</string>
     <string name="settings_green_theme">Green</string>

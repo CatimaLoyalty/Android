@@ -159,7 +159,6 @@
         <item quantity="many">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
         <item quantity="other">Borrar <xliff:g>%d</xliff:g> tarjetas</item>
     </plurals>
-    <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Marrón</string>
     <string name="settings_grey_theme">Gris</string>
     <string name="settings_green_theme">Verde</string>

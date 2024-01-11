@@ -239,7 +239,6 @@
     <string name="settings_oled_dark">Čisto črno ozadje za temno temo</string>
     <string name="selectColor">Izberite barvo</string>
     <string name="settings_catima_theme">Catima</string>
-    <string name="app_contributors">Omogočeno od: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeLongPressMessage">V aplikaciji za gledanje slik lahko odpremo samo slike</string>
     <plurals name="groupCardCountWithArchived">
         <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>

@@ -158,7 +158,6 @@
     <string name="settings_blue_theme">Kék</string>
     <string name="settings_sky_blue_theme">Égszínkék</string>
     <string name="settings_brown_theme">Barna</string>
-    <string name="app_contributors">Lehetővé tették: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Információk megjelenítése</string>
     <string name="reverse">…fordított sorrendben</string>
     <string name="sort_by">Rendezés:</string>

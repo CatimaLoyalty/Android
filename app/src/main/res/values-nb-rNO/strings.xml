@@ -157,7 +157,6 @@
     <string name="settings_locale">Språk</string>
     <string name="settings_violet_theme">Fiolett</string>
     <string name="settings_magenta_theme">Magentarød</string>
-    <string name="app_contributors">Muliggjort av: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brun</string>
     <string name="settings_grey_theme">Grå</string>
     <string name="settings_green_theme">Grønn</string>

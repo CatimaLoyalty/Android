@@ -135,7 +135,7 @@ public class AboutContent {
         contributorInfo.append("<br/><br/>");
         contributorInfo.append(context.getString(R.string.app_copyright_old));
         contributorInfo.append("<br/><br/>");
-        contributorInfo.append(String.format(context.getString(R.string.app_contributors), getContributors()));
+        contributorInfo.append("<a href='https://catima.app/contribute/#existing-contributors'>").append(context.getString(R.string.view_more_contributors)).append("</a>");
         contributorInfo.append("<br/><br/>");
         contributorInfo.append(String.format(context.getString(R.string.app_libraries), getThirdPartyLibraries()));
         contributorInfo.append("<br/><br/>");

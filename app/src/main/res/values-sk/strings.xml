@@ -249,7 +249,6 @@
 \nZískate ho zaslaním e-mailu na adresu support@stocardapp.com, v ktorom požiadate o export svojich údajov.</string>
     <string name="currentBalanceSentence">Aktuálny zostatok: <xliff:g>%s</xliff:g></string>
     <string name="intent_import_card_from_url_share_multiple_text">Chcem sa s vami zdielať karty</string>
-    <string name="app_contributors">Podporili: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="newBalanceSentence">Nový zostatok: <xliff:g>%s</xliff:g></string>
     <string name="failedLaunchingPhotoPicker">Nepodarilo sa nájsť podporovanú aplikáciu galérie</string>
     <string name="show_note">Zobraziť poznámku</string>

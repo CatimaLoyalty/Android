@@ -198,7 +198,6 @@
     <string name="exportPassword">设置密码来保护导出的内容（可选）</string>
     <string name="settings_magenta_theme">紫红</string>
     <string name="settings_violet_theme">紫色</string>
-    <string name="app_contributors">因他们而存在: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="and_data_usage">和数据使用方法</string>
     <string name="failedLaunchingPhotoPicker">找不到支持的图库应用</string>
     <string name="previousCard">前一张</string>

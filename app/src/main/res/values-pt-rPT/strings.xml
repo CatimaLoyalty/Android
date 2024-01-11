@@ -163,7 +163,6 @@
     <string name="settings_magenta_theme">Magenta</string>
     <string name="settings_violet_theme">Violeta</string>
     <string name="settings_blue_theme">Azul</string>
-    <string name="app_contributors">Tornado possível por: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="sort">Ordenar</string>
     <string name="sort_by_name">Nome</string>
     <string name="sort_by_most_recently_used">Mais usados recentemente</string>

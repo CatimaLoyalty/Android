@@ -155,7 +155,6 @@
         <item quantity="one">Желаете ли <xliff:g>%d</xliff:g> карта да бъде премахната\?</item>
         <item quantity="other">Желаете ли тези <xliff:g>%d</xliff:g> карти да бъдат премахнати\?</item>
     </plurals>
-    <string name="app_contributors">Осъществено от: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Кафяво</string>
     <string name="settings_grey_theme">Сиво</string>
     <string name="settings_green_theme">Зелено</string>

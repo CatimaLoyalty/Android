@@ -116,7 +116,6 @@
     <string name="settings_locale">語言</string>
     <string name="settings_system_locale">系統語言</string>
     <string name="settings_theme_color">主題顏色</string>
-    <string name="app_contributors">感謝以下貢獻者：<xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="privacy_policy">隱私權政策</string>
     <plurals name="selectedCardCount">
         <item quantity="other">已選取 <xliff:g>%d</xliff:g></item>

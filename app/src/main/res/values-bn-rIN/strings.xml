@@ -207,7 +207,6 @@
     <string name="credits">ক্রেডিট</string>
     <string name="help_translate_this_app">এই অ্যাপটি অনুবাদ করতে সাহায্য করুন</string>
     <string name="showMoreInfo">তথ্য দেখান</string>
-    <string name="app_contributors">এর দ্বারা সম্ভব হয়েছে: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="importCards">কার্ড আমদানি করুন</string>
     <string name="importFidmeMessage">FidMe থেকে আমদানি করতে আপনার <i>fidme-export-request-xxxxxx.zip</i> রপ্তানি নির্বাচন করুন এবং পরে বারকোডের ধরন ম্যানুয়ালি নির্বাচন করুন।
 \nআপনার FidMe প্রোফাইল থেকে ডেটা সুরক্ষা নির্বাচন করে এবং তারপর প্রথমে আমার ডেটা বের করুন টিপে এটি তৈরি করুন।</string>

@@ -96,7 +96,6 @@
     <string name="settings_magenta_theme">자홍색</string>
     <string name="settings_violet_theme">보라색</string>
     <string name="settings_blue_theme">파란색</string>
-    <string name="app_contributors">기여자: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">정보 보기</string>
     <string name="updateBalance">잔액 업데이트</string>
     <string name="failedToRetrieveImageFile">이미지 파일을 검색하지 못했습니다</string>

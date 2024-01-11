@@ -161,7 +161,6 @@
     <string name="passwordRequired">Silahkan masukan kata sandi</string>
     <string name="exportPassword">Tetapkan kata sandi untuk melindungi ekspor anda (opsional)</string>
     <string name="failedGeneratingShareURL">Tidak dapat membuat alamat berbagi. Mohon laporkan ini.</string>
-    <string name="app_contributors">Pengembangan dibantu oleh: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="reverse">…dalam urutan terbalik</string>
     <string name="version_history">Riwayat Versi</string>
     <string name="help_translate_this_app">Bantu terjemahkan aplikasi ini</string>

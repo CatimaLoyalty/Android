@@ -167,7 +167,6 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Designfarbe</string>
-    <string name="app_contributors">Ermöglicht durch: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="barcodeImageDescriptionWithType">Bild <xliff:g>%s</xliff:g> Barcode</string>
     <string name="sort_by">Sortieren nach</string>
     <string name="sort_by_expiry">Ablauf</string>

@@ -170,7 +170,6 @@
         <item quantity="few">Vybrány <xliff:g>%d</xliff:g> karty</item>
         <item quantity="other">Vybráno <xliff:g>%d</xliff:g> karet</item>
     </plurals>
-    <string name="app_contributors">Přispěli: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Tato skupina je prázdná</string>
     <string name="sort_by">Seřadit podle</string>
     <string name="reverse">…v obráceném pořadí</string>

@@ -175,7 +175,6 @@
     <string name="settings_magenta_theme">Пурпурный</string>
     <string name="settings_pink_theme">Розовый</string>
     <string name="settings_theme_color">Цвет темы</string>
-    <string name="app_contributors">Создано при поддержке: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Группа пуста</string>
     <string name="barcodeImageDescriptionWithType">Изображение штрих-кода <xliff:g>%s</xliff:g></string>
     <string name="sort_by_expiry">Срок действия</string>

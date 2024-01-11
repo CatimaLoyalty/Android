@@ -212,7 +212,6 @@
     <string name="settings_magenta_theme">Φούξια</string>
     <string name="settings_violet_theme">Βιολετί</string>
     <string name="settings_blue_theme">Μπλε</string>
-    <string name="app_contributors">Δημιουργήθηκε από: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="showMoreInfo">Εμφάνιση πληροφοριών</string>
     <string name="sort_by_name">Όνομα</string>
     <string name="and_data_usage">και δεδομένα χρήσης</string>

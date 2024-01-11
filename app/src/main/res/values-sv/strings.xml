@@ -156,7 +156,6 @@
     <string name="note">Anteckning</string>
     <string name="settings_system_locale">System</string>
     <string name="settings_locale">Språk</string>
-    <string name="app_contributors">Möjliggjordes av: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brunt</string>
     <string name="settings_grey_theme">Grått</string>
     <string name="settings_green_theme">Grönt</string>

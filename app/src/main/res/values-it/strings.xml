@@ -170,7 +170,6 @@
     <string name="settings_pink_theme">Rosa</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Colore del tema</string>
-    <string name="app_contributors">Reso possibile da: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Questo gruppo è vuoto</string>
     <string name="barcodeImageDescriptionWithType">Immagine del codice a barre in formato <xliff:g>%s</xliff:g></string>
     <string name="sort_by">Ordina per</string>

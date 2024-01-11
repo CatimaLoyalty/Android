@@ -167,7 +167,6 @@
     <string name="settings_pink_theme">Roze</string>
     <string name="settings_catima_theme">Catima</string>
     <string name="settings_theme_color">Themakleur</string>
-    <string name="app_contributors">Mede mogelijk gemaakt door: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Deze groep bevat geen kaarten</string>
     <string name="barcodeImageDescriptionWithType">Afbeelding van barcode <xliff:g>%s</xliff:g></string>
     <string name="sort_by">Sorteren op</string>

@@ -175,7 +175,6 @@
     <string name="settings_grey_theme">Сірий</string>
     <string name="settings_green_theme">Зелений</string>
     <string name="settings_sky_blue_theme">Небесно-синій</string>
-    <string name="app_contributors">Стало можливим завдяки: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="noGroupCards">Пуста група</string>
     <string name="barcodeImageDescriptionWithType">Зображення штрих-коду <xliff:g>%s</xliff:g></string>
     <string name="sort_by">Сортувати за</string>

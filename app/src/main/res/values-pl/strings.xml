@@ -69,7 +69,6 @@
     <string name="barcodeType">Typ kodu kreskowego</string>
     <string name="deleteTitle">Usuń kartę</string>
     <string name="deleteConfirmation">Usunąć tę kartę na stałe\?</string>
-    <string name="app_contributors">Możliwe dzięki: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Brązowy</string>
     <string name="settings_grey_theme">Szary</string>
     <string name="settings_green_theme">Zielony</string>

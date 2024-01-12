@@ -1,5 +1,6 @@
 name: Write contributors to file
 on:
+  push: # FIXME: Remove
   workflow_dispatch:
   schedule:
     - cron: '3 4 * * 0'
@@ -20,7 +21,7 @@ permissions:
 jobs:
   contributors_to_file:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+#   if: github.ref == 'refs/heads/main'
     name: Write contributors to file
     steps:
     - name: Checkout repo
@@ -28,9 +29,10 @@ jobs:
       uses: actions/checkout@v4.1.1
     - name: Update contributors
       id: update_contributors
-      uses: TheLastProject/contributors-to-file-action@v3.0.2
+      uses: TheLastProject/contributors-to-file-action@v3 # FIXME: Use tag
       with:
         file_in_repo: app/src/main/res/raw/contributors.txt
+        min_commit_count: 5
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5.0.2
       with:

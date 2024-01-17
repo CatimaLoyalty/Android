@@ -276,4 +276,5 @@
     <string name="addWithoutBarcode">不使用条形码添加卡片</string>
     <string name="field_must_not_be_empty">字段不能为空</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">始终旋转（忽略系统设置）</string>
 </resources>

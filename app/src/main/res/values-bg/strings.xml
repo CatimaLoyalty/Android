@@ -283,4 +283,5 @@
     <string name="addWithoutBarcode">Добавяне на карта без щрихкод</string>
     <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Винаги да се завърта (пренебрегва системната настройка)</string>
 </resources>

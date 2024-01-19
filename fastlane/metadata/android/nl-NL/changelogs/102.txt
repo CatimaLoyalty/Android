@@ -1,2 +1,2 @@
-- Verscheidene kleine aanpassingen en verbeteringen geïmplementeerd.
-- Probleem opgelost waarbij de app crashed bij gebruik van de Noorse vertaling.
+- Verscheidene kleine aanpassingen en verbeteringen geïmplementeerd
+- Probleem opgelost waarbij de app crashed bij gebruik van de Noorse vertaling

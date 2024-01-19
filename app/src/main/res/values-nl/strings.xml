@@ -283,4 +283,5 @@
     <string name="addWithoutBarcode">Kaart zonder barcode toevoegen</string>
     <string name="field_must_not_be_empty">Dit veld is vereist</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Altijd draaien (negeert systeeminstellingen)</string>
 </resources>

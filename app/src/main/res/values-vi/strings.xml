@@ -48,7 +48,7 @@
     <string name="expiryStateSentence">Hết hạn: <xliff:g>%s</xliff:g></string>
     <string name="all">Tất cả</string>
     <string name="setIcon">Đặt ảnh con</string>
-    <string name="cardShortcut">Lối Tắt Cho Thẻ</string>
+    <string name="cardShortcut">Lối tắt thẻ</string>
     <string name="moveUp">Đẩy lên</string>
     <string name="noBarcodeFound">Không tìm thấy mã vạch nào</string>
     <string name="settings_category_title_general">Tổng quan</string>
@@ -86,7 +86,7 @@
     <string name="yes">Có</string>
     <string name="barcodeType">Loại mã vạch</string>
     <string name="enter_card_id">Nhập số ID hoặc văn bản lên thẻ của bạn</string>
-    <string name="unarchived">Thẻ không lưu trữ</string>
+    <string name="unarchived">Thẻ đã được mở khóa</string>
     <string name="noBarcode">Không có mã vạch</string>
     <string name="chooseValidFromDate">Chọn ngày hợp lệ</string>
     <string name="action_display_options">Tùy chỉnh hiển thị</string>
@@ -151,7 +151,7 @@
     <string name="options">Tùy chọn</string>
     <string name="sendLabel">Gửi…</string>
     <string name="importOptionFilesystemButton">Lấy từ hệ thống</string>
-    <string name="settings_magenta_theme">Màu tím đỏ</string>
+    <string name="settings_magenta_theme">Màu sắc tố tím và đỏ</string>
     <string name="importOptionApplicationButton">Dùng ứng dụng khác</string>
     <string name="failedGeneratingShareURL">Không tạo được URL chia sẻ. Xin hãy báo cáo sự cố này.</string>
     <string name="selectColor">Chọn màu</string>
@@ -274,4 +274,7 @@
     <string name="switchToFrontImage">Chuyển sang hình ảnh phía trước</string>
     <string name="openBackImageInGalleryApp">Mở lại hình ảnh trong ứng dụng thư viện</string>
     <string name="failedToRetrieveImageFile">Không thể truy xuất tệp hình ảnh</string>
+    <string name="app_contributors">Được thực hiện bởi: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="app_license">Phần mềm libre được bảo vệ bản quyền theo giấy phép GPLv3+.</string>
+    <string name="settings_follow_sensor_orientation">Luôn luôn xoay (bỏ qua cài đặt hệ thống)</string>
 </resources>

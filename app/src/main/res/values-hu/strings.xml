@@ -283,4 +283,5 @@
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os és közreműködők</string>
     <string name="show_archived_cards">Archivált kártyák megjelenítése</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Mindig forgassa (figyelmen kívül hagyja a rendszerbeállításokat)</string>
 </resources>

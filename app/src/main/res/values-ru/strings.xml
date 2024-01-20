@@ -297,4 +297,5 @@
     <string name="addWithoutBarcode">Добавить карту без штрих-кода</string>
     <string name="field_must_not_be_empty">Поле не может быть пустым</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Всегда поворачивать (игнорировать системные настройки)</string>
 </resources>

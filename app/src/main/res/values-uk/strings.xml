@@ -297,4 +297,5 @@
     <string name="addWithoutBarcode">Додати картку без штрих-коду</string>
     <string name="field_must_not_be_empty">Поле вводу не повинно бути порожнім</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Завжди обертати (ігнорувати системні налаштування)</string>
 </resources>

@@ -290,4 +290,5 @@
     <string name="addWithoutBarcode">Añadir una tarjeta sin código de barras</string>
     <string name="field_must_not_be_empty">Este campo no debe estar vacío</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Girar siempre (ignora la configuración del sistema)</string>
 </resources>

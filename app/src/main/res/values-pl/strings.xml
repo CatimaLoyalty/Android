@@ -297,4 +297,5 @@
     <string name="addWithoutBarcode">Dodaj kartę bez kodu kreskowego</string>
     <string name="field_must_not_be_empty">Pole nie może być puste</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Zawsze obracaj (ignoruje ustawienia systemowe)</string>
 </resources>

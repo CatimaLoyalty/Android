@@ -2,3 +2,5 @@
 - Peningkatan alur proses validasi
 - Memperbaiki kasus yang menyebabkan UI tidak valid saat beralih pada tampilan arsip
 - Menggunakan tema atau warna kartu untuk bar navigasi (Android 8.1+)
+- Pemilih validitas dan tanggal kedaluwarsa yang diperbarui
+- Menambahkan opsi untuk selalu merotasi (mengabaikan pengaturan sistem)

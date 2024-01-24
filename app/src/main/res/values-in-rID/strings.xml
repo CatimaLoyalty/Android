@@ -139,7 +139,7 @@
     <string name="privacy_policy_popup_text">Pemberitahuan kebijakan privasi (diperlukan oleh beberapa toko aplikasi): 
 \n
 \nTIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah libre software.</string>
-    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor. 
+    <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor.
 \nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
     <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya. 
 \nBuat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
@@ -276,4 +276,5 @@
     <string name="addWithoutBarcode">Tambah kartu tanpa barcode</string>
     <string name="field_must_not_be_empty">Isian tidak boleh kosong</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Selalu rotasi (abaikan pengaturan sistem)</string>
 </resources>

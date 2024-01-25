@@ -290,4 +290,5 @@
     <string name="settings_category_title_privacy">Privatnost</string>
     <string name="settings_keep_screen_on_summary">Deaktivira isključivanje ekrana tijekom prikaza kartice</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Uvijek rotiraj (ignorira sistemske postavke)</string>
 </resources>

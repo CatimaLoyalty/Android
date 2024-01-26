@@ -15,7 +15,7 @@ spotbugs {
 
 android {
     namespace = "protect.card_locker"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "me.hackerchick.catima"

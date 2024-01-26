@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import com.github.spotbugs.snom.Effort
 import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
@@ -7,10 +8,10 @@ plugins {
 }
 
 spotbugs {
-    ignoreFailures.set(false)
-    setEffort("max")
-    excludeFilter.set(file("./config/spotbugs/exclude.xml"))
-    reportsDir.set(layout.buildDirectory.file("reports/spotbugs/").get().asFile)
+    ignoreFailures = false
+    effort = Effort.MAX
+    excludeFilter = file("./config/spotbugs/exclude.xml")
+    reportsDir = layout.buildDirectory.file("reports/spotbugs/").get().asFile
 }
 
 android {
@@ -92,7 +93,7 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("com.github.yalantis:ucrop:2.2.8")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 

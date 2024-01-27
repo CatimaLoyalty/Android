@@ -1,4 +1,6 @@
 - "Karte hinzufügen" Worklow verbessert
 - Verbesserungen im Validierungsablauf
-- Seltener UI Problemfall behoben, wenn man die Archivansicht umgeschaltet hat
-- Theme oder Kartenfarbe wird für die Navigationsleiste verwendet (Android 8.1+)
+- Fehler behoben, der die Benutzeroberfläche beim Umschalten der Archivansicht in einen ungültigen Zustand versetzte
+- System- oder Kartenfarbe wird für die Navigationsleiste benutzt (Android 8.1+)
+- Aktualisierung des Datumsselektors für Gültigkeits- und Ablaufdatum
+- Option hinzugefügt, um die Drehung der Anzeige zu erzwingen (ignoriert die Systemeinstellung)

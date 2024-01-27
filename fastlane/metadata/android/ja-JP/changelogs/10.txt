@@ -1,0 +1,3 @@
+- デフォルトのインポート/エクスポートのファイル名が変更されました。 ( pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- インポート/エクスポートのページ上の文字列を訂正する。(pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- カードビューページのレイアウトを改良する。そのテキストはより読みやすくすべきだ、そして長押しで選択可能です。(pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

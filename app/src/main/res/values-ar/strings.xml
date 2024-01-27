@@ -311,4 +311,5 @@
     <string name="addWithoutBarcode">إضافة بدون باركود</string>
     <string name="field_must_not_be_empty">يجب ألا يكون الحقل فارغا</string>
     <string name="app_name">كاتيما</string>
+    <string name="settings_follow_sensor_orientation">التدوير دائمًا ( تجاهل إعدادات النظام)</string>
 </resources>

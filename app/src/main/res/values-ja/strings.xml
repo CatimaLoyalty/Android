@@ -198,4 +198,11 @@
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
     <string name="app_name">Catima</string>
+    <string name="settings_card_orientation">バーコードの方向</string>
+    <string name="settings_display_barcode_max_brightness_summary">仕事をするためにいくつかのスキャナーが必要</string>
+    <string name="settings_follow_system_orientation">フォローシステム</string>
+    <string name="storageReadPermissionRequired">このアクションのためにストレージの読み取り権限を許可…</string>
+    <string name="cameraPermissionDeniedTitle">カメラへアクセスできません</string>
+    <string name="settings_follow_sensor_orientation">いつでも回転(システム設定を無視)</string>
+    <string name="cameraPermissionRequired">このアクションのためにカメラへのアクセス権限の許可…</string>
 </resources>

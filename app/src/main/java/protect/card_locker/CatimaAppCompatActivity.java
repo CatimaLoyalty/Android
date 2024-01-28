@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 public class CatimaAppCompatActivity extends AppCompatActivity {
+    protected boolean activityOverridesNavBarColor = false;
+
     @Override
     protected void attachBaseContext(Context base) {
         // Apply chosen language
@@ -46,6 +48,14 @@ public class CatimaAppCompatActivity extends AppCompatActivity {
         }
         // XXX android 9 and below has a nasty rendering bug if the theme was patched earlier
         Utils.postPatchColors(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!activityOverridesNavBarColor) {
+            Utils.setNavigationBarColor(this, null, Utils.resolveBackgroundColor(this), !Utils.isDarkModeEnabled(this));
+        }
     }
 
     protected void enableToolbarBackButton() {

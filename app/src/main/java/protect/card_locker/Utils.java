@@ -666,13 +666,10 @@ public class Utils {
         }
     }
 
-    // XXX android 9 and below has issues with patched theme where the background becomes a
-    // rendering mess
-    // use after views are inflated
+    // Force correct color
+    // Fixes OLED dark mode in MainActivity
     public static void postPatchColors(AppCompatActivity activity) {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
-            activity.findViewById(android.R.id.content).setBackgroundColor(resolveBackgroundColor(activity));
-        }
+        activity.findViewById(android.R.id.content).setBackgroundColor(resolveBackgroundColor(activity));
     }
 
     // Either pass an Activity on which to call getWindow() or an existing Window (may be null) returned by that function.

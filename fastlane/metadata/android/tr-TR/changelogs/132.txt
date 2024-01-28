@@ -1,0 +1,6 @@
+- "Kart ekle" iş akışı iyileştirildi
+- Doğrulama akışı iyileştirmeleri
+- Arşivin gösterilmesi değiştirilirken geçersiz kullanıcı arayüzü durumuna neden olan uç durum düzeltildi
+- Gezinti çubuğu için tema veya kart rengi kullan (Android 8.1+)
+- Geçerlilik ve son kullanma tarihi seçici güncellendi
+- (Sistem ayarlarını yok sayarak) Her zaman döndürme seçeneği eklendi

@@ -1,0 +1,3 @@
+- "Arşiv modu" "Görüntüleme seçenekleri" (önceden "Ayrıntıları göster") menüsüne taşındı
+- Android 13 uygulama başına dil desteği
+- Gizlilik politikası, değişiklik günlüğü ve lisans uygulamaya dahil edildi

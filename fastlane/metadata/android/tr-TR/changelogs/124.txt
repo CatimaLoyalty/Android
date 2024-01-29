@@ -1,0 +1,1 @@
+- Kart genel görünümünde tam olarak hangi ayrıntıların görüntüleneceğini seçme desteği

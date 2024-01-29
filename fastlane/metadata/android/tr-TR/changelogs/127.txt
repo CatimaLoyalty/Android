@@ -1,0 +1,4 @@
+- Barkod oluşturma iyileştirmeleri
+- Harici uygulamalarla temel birlikte çalışabilirlik (Android 6.0+)
+- Ayarlar ekranı yeniden düzenlendi
+- Paylaşım URL'sinin sonuna / ekleyen bazı tarayıcılardan içe aktarma düzeltildi

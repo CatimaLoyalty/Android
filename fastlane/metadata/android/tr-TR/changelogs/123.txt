@@ -1,0 +1,2 @@
+- Küçük kullanıcı arayüzü iyileştirmeleri
+- Yeni tasarımın kare ekranlı aygıtlarda kullanılamaması sorunu düzeltildi

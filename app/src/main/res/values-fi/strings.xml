@@ -283,4 +283,5 @@
     <string name="app_name">Catima</string>
     <string name="balanceParsingFailed">Virheellinen saldo</string>
     <string name="view_online">Näytä verkossa</string>
+    <string name="settings_follow_sensor_orientation">Kierrä aina (ohittaa järjestelmän asetukset)</string>
 </resources>

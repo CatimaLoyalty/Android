@@ -67,8 +67,6 @@
     <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
     <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
-    <string name="app_copyright_old">Based on Loyalty Card Keychain
-\ncopyright © 2016–2020 Branden Archer.</string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="about">Catimaについて</string>
     <string name="importOptionApplicationButton">外部のアプリを使う</string>
@@ -152,15 +150,15 @@
     </plurals>
     <string name="barcodeImageDescriptionWithType">バーコード形式の画像 <xliff:g>%s</xliff:g></string>
     <string name="app_contributors">Made possible by: <xliff:g id="app_contributors">%s</xliff:g></string>
-    <string name="settings_brown_theme">Brown</string>
-    <string name="settings_grey_theme">Gray</string>
-    <string name="settings_green_theme">Green</string>
-    <string name="settings_sky_blue_theme">Sky Blue</string>
-    <string name="settings_blue_theme">Blue</string>
-    <string name="settings_violet_theme">Violet</string>
-    <string name="settings_magenta_theme">Magenta</string>
-    <string name="settings_pink_theme">Pink</string>
-    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_brown_theme">ブラウン/茶色</string>
+    <string name="settings_grey_theme">グレー/灰色</string>
+    <string name="settings_green_theme">グリーン/緑色</string>
+    <string name="settings_sky_blue_theme">スカイブルー/水色</string>
+    <string name="settings_blue_theme">ブルー/青色</string>
+    <string name="settings_violet_theme">バイオレット/菫色</string>
+    <string name="settings_magenta_theme">マゼンタ/赤紫色</string>
+    <string name="settings_pink_theme">ピンク/桃色</string>
+    <string name="settings_catima_theme">Catimaテーマ</string>
     <string name="settings_theme_color">テーマカラー</string>
     <string name="settings_system_locale">システムに従う</string>
     <string name="settings_locale">言語</string>
@@ -186,7 +184,7 @@
     <string name="group_updated">グループを更新しました</string>
     <string name="editGroup">グループ編集: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">色を選択</string>
-    <string name="setIcon">アイコン設定</string>
+    <string name="setIcon">サムネイルを設定</string>
     <string name="group_edit">グループ編集</string>
     <string name="group_name_already_in_use">このグループ名は既に使用されています</string>
     <string name="group_name_is_empty">空欄にすることはできません</string>
@@ -198,11 +196,13 @@
     <string name="chooseValidFromDate">有効期限を選択</string>
     <string name="anyDate">無期限</string>
     <string name="app_name">Catima</string>
-    <string name="settings_card_orientation">バーコードの方向</string>
+    <string name="settings_card_orientation">バーコードの向き</string>
     <string name="settings_display_barcode_max_brightness_summary">仕事をするためにいくつかのスキャナーが必要</string>
-    <string name="settings_follow_system_orientation">フォローシステム</string>
+    <string name="settings_follow_system_orientation">システムに従う</string>
     <string name="storageReadPermissionRequired">このアクションのためにストレージの読み取り権限を許可…</string>
     <string name="cameraPermissionDeniedTitle">カメラへアクセスできません</string>
-    <string name="settings_follow_sensor_orientation">いつでも回転(システム設定を無視)</string>
+    <string name="settings_follow_sensor_orientation">自動回転 (システムを無視)</string>
     <string name="cameraPermissionRequired">このアクションのためにカメラへのアクセス権限の許可…</string>
+    <string name="settings_landscape_orientation">横</string>
+    <string name="settings_portrait_orientation">縦</string>
 </resources>

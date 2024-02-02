@@ -1,0 +1,3 @@
+- Catima içe aktarıcı iyileştirildi (içe aktarma sırasında kaybolan kartlar düzeltildi)
+- Geçerli tarih/son kullanma tarihi ayarlanırken ekran döndürüldüğünde oluşan çökme düzeltildi
+- Küçük kullanıcı arayüzü değişiklikleri

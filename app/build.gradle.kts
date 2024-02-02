@@ -21,9 +21,9 @@ android {
     defaultConfig {
         applicationId = "me.hackerchick.catima"
         minSdk = 21
-        targetSdk = 33
-        versionCode = 131
-        versionName = "2.26.0"
+        targetSdk = 34
+        versionCode = 132
+        versionName = "2.27.0"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
@@ -102,7 +102,7 @@ dependencies {
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
-    implementation("com.google.zxing:core:3.5.2")
+    implementation("com.google.zxing:core:3.5.3")
     implementation("org.apache.commons:commons-csv:1.9.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")
     implementation("net.lingala.zip4j:zip4j:2.11.5")

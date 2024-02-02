@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased - 132
+## Unreleased - 133
+
+- Target Android 14
+
+## v2.27.0 - 132 (2024-01-30)
 
 - Refine "Add card" workflow
 - Validation flow improvements

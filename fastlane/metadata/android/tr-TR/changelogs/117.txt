@@ -1,0 +1,2 @@
+- Gereksiz izinler kaldırıldı
+- Android 13 hedef alındı

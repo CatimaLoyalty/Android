@@ -1,0 +1,3 @@
+- Ana ve sadakat kartı görüntüleme ekranlarının tamamen yeniden tasarlanması
+- Ayarlar ekranı için Material You tasarımı
+- Kamera uygulaması devre dışıyken "Fotoğraf çek" kullanıldığında oluşan çökme düzeltildi

@@ -47,7 +47,6 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 import com.google.android.material.color.MaterialColors;
@@ -555,7 +554,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
 
     @Override
-    public void onResume() {
+    protected void onResume() {
+        activityOverridesNavBarColor = true;
         super.onResume();
 
         Log.i(TAG, "To view card: " + loyaltyCardId);
@@ -636,11 +636,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
         // Set bottomAppBar and system navigation bar color
         binding.bottomAppBar.setBackgroundColor(darkenedColor);
-        if (window != null && Build.VERSION.SDK_INT >= 27) {
-            WindowInsetsControllerCompat wic = new WindowInsetsControllerCompat(window, binding.getRoot());
-            wic.setAppearanceLightNavigationBars(Utils.needsDarkForeground(darkenedColor));
-            window.setNavigationBarColor(darkenedColor);
-        }
+        Utils.setNavigationBarColor(null, window, darkenedColor, Utils.needsDarkForeground(darkenedColor));
 
         int complementaryColor = Utils.getComplementaryColor(darkenedColor);
         binding.fabEdit.setBackgroundTintList(ColorStateList.valueOf(complementaryColor));

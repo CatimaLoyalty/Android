@@ -1,0 +1,4 @@
+- Küçük kullanıcı arayüzü düzeltmeleri
+- Kart düzenleme ekranı döndürüldüğünde geçerli tarih ve son kullanma tarihinin sıfırlanması sorunu giderildi
+- Renk seçici gösterilirken ekran döndürüldüğünde oluşan çökme düzeltildi
+- Stocard içe aktarma düzeltmeleri

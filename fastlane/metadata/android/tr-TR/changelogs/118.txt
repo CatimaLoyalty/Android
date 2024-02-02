@@ -1,0 +1,2 @@
+- Kart geçerliliğinin başlangıcını ayarlama desteği
+- Stocard içe aktarımı düzeltti (Stocard dışa aktarım biçimi değişti)

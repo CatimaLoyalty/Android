@@ -1,0 +1,1 @@
+- Nadir görülen çökme düzeltildi

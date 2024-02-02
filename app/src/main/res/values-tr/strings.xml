@@ -283,4 +283,5 @@
     <string name="addWithoutBarcode">Barkodsuz bir kart ekle</string>
     <string name="field_must_not_be_empty">Alan boş olamaz</string>
     <string name="app_name">Catima</string>
+    <string name="settings_follow_sensor_orientation">Her zaman döndür (sistem ayarlarını yok sayar)</string>
 </resources>

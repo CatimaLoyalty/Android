@@ -275,4 +275,5 @@
     <string name="enter_card_id">輸入卡片上的 ID 或文字</string>
     <string name="settings_display_barcode_max_brightness_summary">一些條碼掃描器需要此設定方能運作</string>
     <string name="field_must_not_be_empty">欄位不能為空</string>
+    <string name="settings_follow_sensor_orientation">始終旋轉（忽略系統設定）</string>
 </resources>

@@ -70,7 +70,7 @@
     <string name="noBarcode">बारकोड नहीं है</string>
     <string name="scanCardBarcode">बारकोड स्कैन करें</string>
     <string name="cardShortcut">कार्ड का सरल उपाय (शॉर्टकट)</string>
-    <string name="noGiftCards">\"+\" बटन दबाके कार्ड जोड़ें वा मेन्यू से कार्ड आयात करें</string>
+    <string name="noGiftCards">कार्ड जोड़ने के लिए + प्लस बटन पर क्लिक करें, या ⋮ मेनू से आयात करें।</string>
     <string name="importExportHelp">तथ्य (डाटा) को बैकअप करना हमें उसे दूसरे डिवाइस में भेजने देता है।</string>
     <string name="barcodeImageDescriptionWithType"><xliff:g>%s</xliff:g> का बारकोड</string>
     <string name="settings_disable_lockscreen_while_viewing_card">स्क्रीन को लॉक होने से रोकें</string>
@@ -107,7 +107,7 @@
     <string name="exportSuccessful">डेटा निर्यात किया गया</string>
     <string name="groupsList">समूह: <xliff:g>%s</xliff:g></string>
     <plurals name="balancePoints">
-        <item quantity="one"><xliff:g>%s</xliff:g> अंक</item>
+        <item quantity="one"><xliff:g>%s</xliff:g> बिंदु</item>
         <item quantity="other"><xliff:g>%s</xliff:g> अंक</item>
     </plurals>
     <string name="privacy_policy_popup_text">निजता नीति नोटिस (कुछ ऐप स्टोर के लिए आवश्यक):
@@ -117,7 +117,7 @@
 \nदूसरे Catima ऍप के आयात/निर्यात मेनू से निर्यात बटन दबाकर, पहले catima.zip फाइल को बनाये.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> चयनित</item>
-        <item quantity="other"><xliff:g>%d</xliff:g> चयनित.</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> चयनित</item>
     </plurals>
     <string name="groups">समूहों</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">कॉपीराइट © 2019–<xliff:g>%d</xliff:g> Sylvia van Os और योगदाता</string>
@@ -214,4 +214,74 @@
     <string name="show_balance">मात्रा दिखाओ</string>
     <string name="nextCard">अगला</string>
     <string name="rate_this_app">इस ऐप को रेट करें</string>
+    <string name="settings_system_locale">सिस्टम</string>
+    <string name="setIcon">थंबनेल सेट करें</string>
+    <string name="sort_by_expiry">समाप्ति</string>
+    <string name="sort_by">इसके अनुसार क्रमबद्ध करें</string>
+    <string name="importCards">कार्ड आयात करें</string>
+    <string name="add_a_card_in_a_different_way">कार्ड को भिन्न तरीके से जोड़ें</string>
+    <string name="settings_locale">भाषा</string>
+    <string name="settings_oled_dark">गहरे रंग की थीम के लिए शुद्ध काले रंग की पृष्ठभूमि</string>
+    <string name="selectColor">रंग चुनो</string>
+    <string name="app_contributors">इसके द्वारा संभव बनाया गया: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="sort">क्रमबद्ध करें</string>
+    <string name="show_note">नोट दिखाएँ</string>
+    <string name="settings_follow_sensor_orientation">हमेशा घुमाएँ (सिस्टम सेटिंग्स को अनदेखा करता है)</string>
+    <string name="importFidmeMessage">आयात करने के लिए FidMe से अपना <i>fidme-export-request-xxxxxx.zip</i> निर्यात चुनें, और बाद में मैन्युअल रूप से बारकोड प्रकार चुनें।
+\nडेटा सुरक्षा चुनकर और फिर पहले मेरा डेटा निकालें दबाकर इसे अपनी FidMe प्रोफ़ाइल से बनाएं।</string>
+    <string name="importLoyaltyCardKeychainMessage">आयात करने के लिए लॉयल्टी कार्ड कीचेन से अपना <i>LoyaltyCardKeychen.csv</i> निर्यात चुनें।
+\nपहले वहां एक्सपोर्ट दबाकर लॉयल्टी कार्ड कीचेन में आयात/निर्यात मेनू से इसे बनाएं।</string>
+    <string name="updateBarcodeQuestionText">आपने आईडी बदल दी. क्या आप समान मान का उपयोग करने के लिए बारकोड को भी अपडेट करना चाहते हैं?</string>
+    <string name="exportPassword">अपने निर्यात की सुरक्षा के लिए एक पासवर्ड सेट करें (वैकल्पिक)</string>
+    <string name="turn_flashlight_off">टॉर्च बंद करें</string>
+    <string name="settings_oled_dark_summary">OLED डिस्प्ले पर बैटरी का उपयोग कम होता है</string>
+    <string name="showMoreInfo">जानकारी दिखाएँ</string>
+    <string name="updateBalance">शेष राशि अद्यतन करें</string>
+    <string name="failedToRetrieveImageFile">छवि फ़ाइल पुनः प्राप्त करने में विफल</string>
+    <string name="version_history">संस्करण इतिहास</string>
+    <string name="archive">पुरालेख</string>
+    <string name="archived">कार्ड संग्रहीत</string>
+    <string name="barcodeLongPressMessage">गैलरी ऐप में केवल छवियां ही खोली जा सकती हैं</string>
+    <string name="license">परवाना</string>
+    <string name="source_repository">स्रोत रिपोजिटरी</string>
+    <string name="include_if_asking_support">यदि आप सहायता का अनुरोध करना चाहते हैं, तो निम्नलिखित जानकारी शामिल करें:</string>
+    <string name="starred">तारांकित</string>
+    <string name="unarchived">कार्ड अनारक्षित</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> कार्ड (<xliff:g id="archivedCount">%2$d</xliff:g> संग्रहीत)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> कार्ड (<xliff:g id="archivedCount">%2$d</xliff:g> संग्रहीत)</item>
+    </plurals>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
+        <item quantity="other">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
+    </plurals>
+    <string name="updateBalanceTitle">आपने कितना खर्च किया?</string>
+    <string name="chooseValidFromDate">दिनांक से वैध चुनें</string>
+    <string name="show_name_below_image_thumbnail">छवि थंबनेल के नीचे नाम दिखाएँ</string>
+    <string name="show_archived_cards">संग्रहीत कार्ड दिखाएँ</string>
+    <string name="manually_enter_barcode_instructions">अपने कार्ड पर आईडी नंबर या टेक्स्ट दर्ज करें और अपने कार्ड पर मौजूद बारकोड की तरह दिखने वाले बारकोड को दबाएं।</string>
+    <string name="welcome">कैटिमा में आपका स्वागत है</string>
+    <string name="previousCard">पिछला</string>
+    <string name="failedLaunchingPhotoPicker">कोई समर्थित गैलरी ऐप नहीं मिल सका</string>
+    <string name="reverse">...उल्टे क्रम में</string>
+    <string name="height">ऊंचाई:</string>
+    <string name="importVoucherVaultMessage">आयात करने के लिए वाउचर वॉल्ट से अपना <i>vouchervault.json</i> निर्यात चुनें।
+\nसबसे पहले वाउचर वॉल्ट में एक्सपोर्ट दबाकर इसे बनाएं।</string>
+    <string name="turn_flashlight_on">टॉर्च चालू करें</string>
+    <string name="sort_by_name">नाम</string>
+    <string name="credits">श्रेय</string>
+    <string name="unarchive">असंग्रहित</string>
+    <string name="failedToOpenUrl">सबसे पहले एक वेब ब्राउज़र इंस्टॉल करें</string>
+    <string name="currentBalanceSentence">वर्तमान शेष: <xliff:g>%s</xliff:g></string>
+    <string name="newBalanceSentence">नया शेष: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">से मान्य</string>
+    <string name="validFromSentence">यहां से मान्य: <xliff:g>%s</xliff:g></string>
+    <string name="switchToFrontImage">सामने वाली छवि पर स्विच करें</string>
+    <string name="switchToBackImage">पिछली छवि पर स्विच करें</string>
+    <string name="switchToBarcode">बारकोड पर स्विच करें</string>
+    <string name="openFrontImageInGalleryApp">गैलरी ऐप में सामने वाली छवि खोलें</string>
+    <string name="openBackImageInGalleryApp">गैलरी ऐप में पिछली छवि खोलें</string>
+    <string name="setBarcodeHeight">बारकोड ऊंचाई सेट करें</string>
+    <string name="icon_header_click_text">थंबनेल संपादित करने के लिए देर तक दबाएँ</string>
+    <string name="enter_card_id">अपने कार्ड पर आईडी नंबर या पाठ दर्ज करें</string>
 </resources>

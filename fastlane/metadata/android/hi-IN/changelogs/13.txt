@@ -1,0 +1,2 @@
+- v0.11 में बदलाव से बारकोड ड्राइंग की मेमोरी का उपयोग कम हो गया, लेकिन बारकोड आयाम प्रभावित हुआ। मेमोरी उपयोग को कम करते हुए बारकोड आयामों को बनाए रखने के लिए इसे अब बदल दिया गया है। (खींचें #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- जर्मन और फ़्रेंच अनुवाद अपडेट करें। (#122 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/122), #124 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/124) , #125 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/125))

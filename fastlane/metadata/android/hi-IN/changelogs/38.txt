@@ -1,0 +1,3 @@
+- बारकोड पर टैप करने से यह अब स्क्रीन के शीर्ष पर चला जाता है (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348))
+- डार्क मोड में स्कैनिंग को बेहतर बनाने के लिए बारकोड के चारों ओर सफेद स्थान जोड़ें (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328))
+- बदले गए आयात बटन को ठीक करें। (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346))

@@ -1,0 +1,3 @@
+- पूर्ण स्क्रीन से बाहर निकलते समय बारकोड सेंटरिंग को ठीक करें (#351 (https://github.com/brarcher/loyalty-card-locker/pull/351))
+- बैकअप निर्यात स्थान को चुनने की अनुमति दें (#352 (https://github.com/brarcher/loyalty-card-locker/pull/352))
+- अद्यतन अनुवाद (#357 (https://github.com/brarcher/loyalty-card-locker/pull/357)) और (#362 (https://github.com/brarcher/loyalty-card-locker/pull) /362))

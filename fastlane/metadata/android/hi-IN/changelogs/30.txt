@@ -1,0 +1,4 @@
+- बारकोड प्रदर्शित करते समय स्क्रीन की चमक को नियंत्रित करने के लिए एक सेटिंग जोड़ें (#259 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/259))
+- ग्रीक अनुवाद जोड़ें (#252 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/252))
+- स्लोवेनियाई अनुवाद जोड़ें (#260 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/260))
+- अनुवाद अपडेट करें (#260 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/260), #254 खींचें (https://github.com/brarcher/loyalty-card-locker/pull /254))

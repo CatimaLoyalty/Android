@@ -1,0 +1,5 @@
+- अनुवाद जोड़े गए
+   - पोलिश (पुल #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - स्पैनिश (पुल #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+   - स्लोवाक (पुल #232 (https://github.com/brarcher/loyalty-card-locker/pull/232))
+- अद्यतन अनुवाद (पुल #239 (https://github.com/brarcher/loyalty-card-locker/pull/239))

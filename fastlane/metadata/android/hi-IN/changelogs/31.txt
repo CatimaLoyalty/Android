@@ -1,0 +1,2 @@
+- सॉर्ट कार्ड सूची केस असंवेदनशील (#266 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/266))
+- सभी कार्डों के लिए ओरिएंटेशन लॉक करने के लिए सेटिंग जोड़ें (#269 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/269)

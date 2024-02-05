@@ -1,0 +1,3 @@
+- बारकोड के आरंभ/अंत में शांत स्थान जोड़ें। (#200 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- स्टोर नाम फ़ॉन्ट और पृष्ठभूमि के लिए उपयोग किए गए रंगों को कॉन्फ़िगर करने के लिए विकल्प जोड़ें। (खींचें #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- कार्ड सूची पृष्ठ और एकल कार्ड पृष्ठ पर फ़ॉन्ट आकार समायोजित करने के लिए विकल्प जोड़ें। (खींचें #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

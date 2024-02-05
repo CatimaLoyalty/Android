@@ -1,0 +1,14 @@
+- कार्ड खोजने की क्षमता जोड़ें (#320 (https://github.com/brarcher/loyalty-card-locker/pull/320))
+- लॉयल्टी कार्ड साझा करने और प्राप्त करने की क्षमता जोड़ें (#321 (https://github.com/brarcher/loyalty-card-locker/pull/321))
+- डार्क मोड सपोर्ट (#322 (https://github.com/brarcher/loyalty-card-locker/pull/322))
+- लॉयल्टी कार्ड अब बारकोड रहित हो सकते हैं (उदाहरण के लिए बारकोड नहीं) (#324 (https://github.com/brarcher/loyalty-card-locker/pull/324))
+- नोट्स कई पंक्तियों में फैले हो सकते हैं (#326 (https://github.com/brarcher/loyalty-card-locker/pull/326))
+- नोट्स के आकार में सुधार (#319 (https://github.com/brarcher/loyalty-card-locker/pull/319))
+- अधिसूचना और ऐप आइकन दृश्यता में सुधार करें (#330 (https://github.com/brarcher/loyalty-card-locker/pull/330))
+- लक्ष्य एसडीके को एंड्रॉइड 10 पर अपडेट करें
+- निम्नलिखित अनुवादों में सुधार करें:
+   - जर्मन
+   - इटालियन
+   - डच
+   - पोलिश
+   - रूसी

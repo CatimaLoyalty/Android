@@ -1,0 +1,2 @@
+- एंड्रॉइड एसडीके 24+ पर समस्या ठीक करें जहां फ़ाइल चयनकर्ता आयात विकल्प का उपयोग करने से क्रैश हो जाएगा। (#170 खींचें (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- नया आइकन और रंग योजना। (खींचें #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

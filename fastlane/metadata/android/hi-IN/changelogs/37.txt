@@ -1,0 +1,1 @@
+- पृष्ठभूमि रंग के बिना कार्ड साझा करने की समस्या को ठीक करें (#343 (https://github.com/brarcher/loyalty-card-locker/pull/343))

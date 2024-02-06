@@ -78,7 +78,7 @@
     <string name="points">Puncte</string>
     <string name="cardShortcut">Scurtătură de card</string>
     <string name="scanCardBarcode">Scanați codul de bare</string>
-    <string name="importExportHelp">Copierea de rezervă a datelor vă permite să le mutați pe un alt dispozitiv</string>
+    <string name="importExportHelp">Copierea de rezervă a datelor vă permite să le mutați pe un alt dispozitiv.</string>
     <string name="exportSuccessfulTitle">Exportată</string>
     <string name="exportFailedTitle">Export eșuat</string>
     <string name="importOptionFilesystemExplanation">Alegeți un anumit fișier din sistemul de fișiere.</string>
@@ -290,4 +290,5 @@
     <string name="settings_keep_screen_on_summary">Dezactivează temporizatorul de ecran când vizualizați un card</string>
     <string name="rate_this_app">Acordați o recenzie acestei aplicații</string>
     <string name="credits">Contribuabili</string>
+    <string name="settings_follow_sensor_orientation">Rotește întotdeauna (ignora setările de sistem)</string>
 </resources>

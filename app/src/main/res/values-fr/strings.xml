@@ -95,9 +95,9 @@
     <string name="expiryDate">Date d’expiration</string>
     <string name="editBarcode">Modifier le code-barres</string>
     <string name="card">Carte</string>
-    <string name="balanceSentence">Solde : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentenceExpired">Expiré : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
-    <string name="expiryStateSentence">Expire : <xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
+    <string name="balanceSentence">Solde : <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Expiré le : <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Expire le : <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Empêcher le verrouillage de l’écran</string>
     <string name="settings_keep_screen_on">Garder l’écran allumé</string>
     <string name="importVoucherVaultMessage">Sélectionnez votre exportation <i>vouchervault.json</i> de Voucher Vault à importer.

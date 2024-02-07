@@ -205,4 +205,5 @@
     <string name="cameraPermissionRequired">このアクションのためにカメラへのアクセス権限の許可…</string>
     <string name="settings_landscape_orientation">横</string>
     <string name="settings_portrait_orientation">縦</string>
+    <string name="noGiftCardsGroup">いくつかのカードを作って、それらをこのグループにアサインします。</string>
 </resources>

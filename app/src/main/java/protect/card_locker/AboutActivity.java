@@ -12,7 +12,6 @@ import androidx.annotation.StringRes;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-
 import protect.card_locker.databinding.AboutActivityBinding;
 
 public class AboutActivity extends CatimaAppCompatActivity {

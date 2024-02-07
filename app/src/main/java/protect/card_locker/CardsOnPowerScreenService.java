@@ -15,12 +15,12 @@ import android.service.controls.actions.ControlAction;
 import android.service.controls.templates.StatelessTemplate;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
 import java.util.List;
 import java.util.concurrent.Flow;
 import java.util.function.Consumer;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 
 @RequiresApi(Build.VERSION_CODES.R)
 public class CardsOnPowerScreenService extends ControlsProviderService {

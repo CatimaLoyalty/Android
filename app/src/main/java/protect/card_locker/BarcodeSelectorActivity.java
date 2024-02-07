@@ -12,11 +12,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.zxing.BarcodeFormat;
 
 import java.util.ArrayList;
-
-import androidx.appcompat.widget.Toolbar;
 
 import protect.card_locker.databinding.BarcodeSelectorActivityBinding;
 

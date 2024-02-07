@@ -8,17 +8,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.IconCompat;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-
-import androidx.core.content.pm.ShortcutInfoCompat;
-import androidx.core.content.pm.ShortcutManagerCompat;
-import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.IconCompat;
 
 class ShortcutHelper {
     // Android documentation says that no more than 5 shortcuts

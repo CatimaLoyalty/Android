@@ -15,19 +15,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.color.MaterialColors;
-
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.color.MaterialColors;
+
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.util.ArrayList;
 
 import protect.card_locker.databinding.LoyaltyCardLayoutBinding;
 

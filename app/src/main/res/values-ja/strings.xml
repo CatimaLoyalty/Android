@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="wrongValueForBarcodeType">選択したバーコード形式ではこの番号は使用できません</string>
     <string name="unsupportedBarcodeType">このバーコード形式は表示できません。将来のアップデートにより対応するかもしれません。</string>
     <string name="setBarcodeId">バーコード番号を設定</string>

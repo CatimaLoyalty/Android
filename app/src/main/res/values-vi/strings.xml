@@ -276,5 +276,5 @@
     <string name="failedToRetrieveImageFile">Không thể truy xuất tệp hình ảnh</string>
     <string name="app_contributors">Được thực hiện bởi: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="app_license">Phần mềm libre được bảo vệ bản quyền theo giấy phép GPLv3+.</string>
-    <string name="settings_follow_sensor_orientation">Luôn luôn xoay (bỏ qua cài đặt hệ thống)</string>
+    <string name="settings_follow_sensor_orientation">Luôn xoay (bỏ qua thiết đặt hệ thống)</string>
 </resources>

@@ -13,7 +13,7 @@ S tímto nezbytným nástrojem pro každodenní nošení (EDC) můžete nahradi
 - Sdílejte kupony, exkluzivní nabídky, propagační kódy nebo karty a kódy pomocí libovolné aplikace.
 - Tmavý motiv a možnosti zpřístupnění pro uživatele se zrakovým postižením.
 - Vytvořeno pro všechny komunitou svobodného softwaru.
-- Lokalizované ručně prováděné překlady pro více než 20 jazyků.
+- Lokalizované ručně prováděné překlady pro více než 40 jazyků.
 - Zdarma, podporováno příspěvky komunity.
 - Používejte, studujte, měňte a sdílejte dle libosti – <i>se všemi</i>.
 - Nejen svobodný software / open source. <i>Copylefted</i> svobodný software (GPLv3+) na správu karet.

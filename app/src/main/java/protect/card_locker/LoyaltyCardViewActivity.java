@@ -109,22 +109,25 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             return;
         }
 
+        ImageType imageType = imageTypes.get(mainImageIndex);
+
         // If the barcode is shown, switch to fullscreen layout
-        if (imageTypes.get(mainImageIndex) == ImageType.BARCODE) {
+        if (imageType == ImageType.BARCODE) {
             setFullscreen(true);
             return;
         }
 
         // If this is an image, open it in the gallery.
-        openCurrentMainImageInGallery();
+        openImageInGallery(imageType);
     }
 
-    private void openCurrentMainImageInGallery() {
-        ImageType wantedImageType = imageTypes.get(mainImageIndex);
-
+    private void openImageInGallery(ImageType imageType) {
         File file = null;
 
-        switch (wantedImageType) {
+        switch (imageType) {
+            case ICON:
+                file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.icon);
+                break;
             case IMAGE_FRONT:
                 file = Utils.retrieveCardImageAsFile(this, loyaltyCardId, ImageLocationType.front);
                 break;
@@ -172,6 +175,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     enum ImageType {
         NONE,
+        ICON,
         BARCODE,
         IMAGE_FRONT,
         IMAGE_BACK
@@ -299,7 +303,13 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarNextButton.setOnClickListener(view -> prevNextCard(true));
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
 
-        binding.iconContainer.setOnClickListener(view -> Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show());
+        binding.iconContainer.setOnClickListener(view -> {
+            if (Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon) != null) {
+                openImageInGallery(ImageType.ICON);
+            } else {
+                Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
+            }
+        });
         binding.iconContainer.setOnLongClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
             Bundle bundle = new Bundle();

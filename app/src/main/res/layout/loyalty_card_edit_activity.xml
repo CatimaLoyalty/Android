@@ -369,75 +369,106 @@
                 android:visibility="gone"
                 tools:visibility="visible">
 
-                <!-- Front image -->
                 <LinearLayout
-                    android:id="@+id/frontImageHolder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/inputPadding"
-                    android:paddingTop="@dimen/inputPadding">
+                    android:baselineAligned="false">
 
                     <!-- Front image -->
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="match_parent"
+                        android:id="@+id/frontImageHolder"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/activity_margin"
-                        android:layout_marginTop="@dimen/activity_margin"
-                        android:layout_marginEnd="@dimen/activity_margin"
-                        android:layout_marginBottom="@dimen/activity_margin"
-                        android:paddingHorizontal="@dimen/inputPadding"
-                        app:cardCornerRadius="4dp"
-                        app:cardElevation="0dp">
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        style="?attr/materialCardViewElevatedStyle">
 
-                        <ImageView
-                            android:id="@+id/frontImage"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/frontImageConstraint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:minHeight="50dp"
-                            android:contentDescription="@string/frontImageDescription"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white"
-                            android:background="?attr/colorPrimary" />
+                            android:layout_height="wrap_content">
 
+                            <!-- Back image -->
+                            <ImageView
+                                android:id="@+id/frontImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:minHeight="50dp"
+                                android:contentDescription="@string/backImageDescription"
+                                android:scaleType="fitCenter"
+                                app:srcCompat="@drawable/ic_camera_white"
+                                android:background="?attr/colorPrimary"
+                                app:layout_constraintBottom_toTopOf="@id/frontImageDescription"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/frontImageDescription"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/frontImageDescription"
+                                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                                android:gravity="center"
+                                app:layout_constraintTop_toBottomOf="@id/frontImage"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
-
-                <!-- Back image -->
-                <LinearLayout
-                    android:id="@+id/backImageHolder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/inputPadding"
-                    android:paddingTop="@dimen/inputPadding">
 
                     <!-- Back image -->
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/backImageHolder"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/activity_margin"
-                        android:layout_marginTop="@dimen/activity_margin"
-                        android:layout_marginEnd="@dimen/activity_margin"
-                        android:layout_marginBottom="@dimen/activity_margin"
-                        android:paddingHorizontal="@dimen/inputPadding"
-                        app:cardCornerRadius="4dp"
-                        app:cardElevation="0dp">
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        style="?attr/materialCardViewElevatedStyle">
 
-                        <ImageView
-                            android:id="@+id/backImage"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/backImageConstraint"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:minHeight="50dp"
-                            android:contentDescription="@string/backImageDescription"
-                            android:scaleType="fitCenter"
-                            app:srcCompat="@drawable/ic_camera_white"
-                            android:background="?attr/colorPrimary" />
+                            android:layout_height="wrap_content">
 
+                            <!-- Back image -->
+                            <ImageView
+                                android:id="@+id/backImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:minHeight="50dp"
+                                android:contentDescription="@string/backImageDescription"
+                                android:scaleType="fitCenter"
+                                app:srcCompat="@drawable/ic_camera_white"
+                                android:background="?attr/colorPrimary"
+                                app:layout_constraintBottom_toTopOf="@id/backImageDescription"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/backImageDescription"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/backImageDescription"
+                                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                                android:gravity="center"
+                                app:layout_constraintTop_toBottomOf="@id/backImage"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </TableLayout>

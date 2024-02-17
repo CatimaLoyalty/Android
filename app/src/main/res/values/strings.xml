@@ -335,4 +335,7 @@
     <string name="add_a_card_in_a_different_way">Add a card in a different way</string>
     <string name="field_must_not_be_empty">Field must not be empty</string>
     <string name="manually_enter_barcode_instructions">Enter the ID number or text on your card and press the barcode that looks like the one on your card.</string>
+    <string name="add_manually_warning_title">Scanning is recommended</string>
+    <string name="add_manually_warning_message">For some stores, the barcode value differs from the number written on the card. Because of this, entering a barcode manually may not always work. It is strongly recommended to scan the barcode with your camera instead. Do you still want to continue?</string>
+    <string name="continue_">Continue</string>
 </resources>

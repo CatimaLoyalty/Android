@@ -1,1 +1,2 @@
 - Target Android 14
+- Open card icon in gallery on touch

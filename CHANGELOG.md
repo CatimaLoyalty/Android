@@ -3,6 +3,7 @@
 ## Unreleased - 133
 
 - Target Android 14
+- Open card icon in gallery on touch
 
 ## v2.27.0 - 132 (2024-01-30)
 

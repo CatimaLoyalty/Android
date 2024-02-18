@@ -284,4 +284,7 @@
     <string name="field_must_not_be_empty">Alan boş olamaz</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Her zaman döndür (sistem ayarlarını yok sayar)</string>
+    <string name="continue_">Devam et</string>
+    <string name="add_manually_warning_title">Tarama yapılması tavsiye edilir</string>
+    <string name="add_manually_warning_message">Bazı mağazalarda barkod değeri kartta yazan sayıdan farklıdır. Bu nedenle, bir barkodu elle girmek her zaman işe yaramayabilir. Bunun yerine barkodu kameranızla taramanız şiddetle tavsiye edilir. Yine de devam etmek istiyor musunuz?</string>
 </resources>

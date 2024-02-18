@@ -284,4 +284,7 @@
     <string name="setBarcodeHeight">बारकोड ऊंचाई सेट करें</string>
     <string name="icon_header_click_text">थंबनेल संपादित करने के लिए देर तक दबाएँ</string>
     <string name="enter_card_id">अपने कार्ड पर आईडी नंबर या पाठ दर्ज करें</string>
+    <string name="continue_">जारी रखें</string>
+    <string name="add_manually_warning_message">कुछ दुकानों के लिए, बारकोड का मान कार्ड पर लिखे नंबर से भिन्न होता है। इस वजह से, बारकोड को मैन्युअल रूप से दर्ज करना हमेशा काम नहीं कर सकता है। इसके बजाय बारकोड को अपने कैमरे से स्कैन करने की पुरजोर अनुशंसा की जाती है। क्या आप अब भी जारी रखना चाहते हैं?</string>
+    <string name="add_manually_warning_title">स्कैनिंग की अनुशंसा की जाती है</string>
 </resources>

@@ -1,0 +1,3 @@
+- Android 14 hedef alındı
+- Dokunulduğunda galeride kart simgesini aç
+- Düzenleme görünümünde Fotoğraflar sekmesinin tasarımı iyileştirildi

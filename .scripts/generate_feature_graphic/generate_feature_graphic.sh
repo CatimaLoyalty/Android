@@ -10,6 +10,9 @@ for lang in "$script_location/../../fastlane/metadata/android/"*; do
   if grep -q — title.txt; then
     # Try splitting title.txt on — (em dash)
     IFS='—' read -r appname subtext < title.txt
+  elif grep -q – title.txt; then
+    # Try splitting title.txt on – (en dash)
+    IFS='–' read -r appname subtext < title.txt
   else
     # No result, try splitting on - (dash)
     IFS='-' read -r appname subtext < title.txt

@@ -291,4 +291,7 @@
     <string name="field_must_not_be_empty">Este campo no debe estar vacío</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Girar siempre (ignora la configuración del sistema)</string>
+    <string name="continue_">Continuar</string>
+    <string name="add_manually_warning_title">Se recomienda escanear</string>
+    <string name="add_manually_warning_message">En algunas tiendas, el valor del código de barras difiere del número escrito en la tarjeta. Por este motivo, es posible que la introducción manual del código de barras no siempre funcione. Se recomienda encarecidamente escanear el código de barras con la cámara. ¿Aún desea continuar?</string>
 </resources>

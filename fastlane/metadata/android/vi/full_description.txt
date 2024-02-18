@@ -1,0 +1,22 @@
+Từ bỏ việc tìm kiếm những chiếc thẻ tích điểm nhựa khi thanh toán tại quầy.
+<b>Chỉ cần quét mã vạch bằng máy ảnh trên điện thoại, gác lại những chiếc thẻ.</b>
+
+Để cho chiếc ví được nhẹ nhàng và chứa những thứ có giá trị khác.
+
+Với công cụ "Cầm tay thiết yếu hàng ngày" này, bạn có thể thay thế những miếng nhựa vô dụng bằng tiền mặt.
+
+- Ngăn ngừa gián điệp, cấp giới hạn quyền. Không cần kết nối mạng và không chứa quảng cáo.
+- Thêm thẻ hoặc mã với cách đặt tên và màu sắc được cá nhân hoá.
+- Có thể nhập mã thủ công nếu không có mã vạch hoặc không thể sử dụng được.
+- Nhập thẻ và mã từ đa dạng các tệp, Catima, FidMe, Loyalty Card Keychain, Stocard và Voucher Vault.
+- Tạo bản sao lưu cho tất cả dữ liệu thẻ của bạn và khôi phục ở thiết bị mới nếu muốn.
+- Chia sẻ phiếu giảm giá, ưu đãi độc quyền, mã khuyến mại hoặc thẻ và mã bằng bất kỳ ứng dụng nào.
+- Chế độ hiển thị ban đêm và tuỳ chọn trợ năng cho những người khiếm thị.
+- Phần mềm tạo bởi cộng đồng, miễn phí và dành cho tất cả mọi người.
+- Bản dịch thủ công được đóng góp bởi cộng đồng với 40+ ngôn ngữ.
+- Miễn phí hoàn toàn, được hỗ trợ bởi cộng đồng.
+- Sử dụng, nghiên cứu, thay đổi và chia sẻ theo ý bạn cần; <i>với tất cả</i>.
+- Không chỉ phần mềm miễn phí/ mã nguồn mở. <i>Bản quyền bởi</i> phần mềm quản lý thẻ miễn phí (GPLv3+).
+
+Đơn giản hoá cuộc sống và mua sắm, gạt đi nỗi lo mất hoá đơn, thẻ quà tặng tại cửa hàng hoặc vé máy bay nữa.
+Lưu trữ mọi phần thưởng và tiền thưởng cho bạn, ở bất cứ đâu.

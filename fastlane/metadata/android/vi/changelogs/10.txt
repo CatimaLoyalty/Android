@@ -1,0 +1,3 @@
+- Thay đổi quy chuẩn mặc định của tên tệp nhập/xuất. (pull #84 (https://github.com/brarcher/loyalty-card-locker/pull/84))
+- Sửa lỗi ký tự trong trang nhập/xuất. (pull #87 (https://github.com/brarcher/loyalty-card-locker/pull/87))
+- Cải tiến bố cục của trang xem thẻ. Dòng chữ có thể đọc dễ dàng hơn, có thể lựa chọn bằng cách nhấn giữ dài. (pull #91 (https://github.com/brarcher/loyalty-card-locker/pull/91))

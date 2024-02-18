@@ -13,7 +13,7 @@ Bu temel günlük taşıma aracıyla işe yaramaz plastiği nakitle değiştireb
 - Herhangi bir uygulamayı kullanarak kuponları, özel teklifleri, tanıtım kodlarını veya kartları ve kodları paylaşın.
 - Görme engelli kullanıcılar için koyu tema ve erişilebilirlik seçenekleri.
 - Özgür yazılım topluluğu tarafından herkes için yapıldı.
-- 20'den fazla dil için yerelleştirilen el yapımı çeviriler.
+- 40'den fazla dil için yerelleştirilen el yapımı çeviriler.
 - Topluluk katkılarıyla desteklenir ve ücretsizdir.
 - Dilediğiniz gibi kullanın, inceleyin, değiştirin ve <i>herkesle</i> paylaşın.
 - Yalnızca Özgür Yazılım / Açık Kaynaklı değil. <i>Copyleft lisanslı</i> özgür (GPLv3+) kart yönetimi yazılımı.

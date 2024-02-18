@@ -1,0 +1,2 @@
+- Ẩn thanh tìm kiếm, mở rộng và thu hẹp biểu tượng cho tới khi có ít nhất 1 thẻ
+- Sửa chủ đề khác nhau

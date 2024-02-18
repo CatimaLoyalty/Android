@@ -24,10 +24,6 @@
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
     <string name="delete">Desaniciar</string>
-    <plurals name="deleteCardsTitle">
-        <item quantity="one"></item>
-        <item quantity="other"></item>
-    </plurals>
     <string name="unstar">Quitar de Favoritos</string>
     <string name="cancel">Encaboxar</string>
     <string name="importFailed">Nun se pudo facer la importación</string>

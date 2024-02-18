@@ -245,7 +245,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> thẻ</item>
     </plurals>
     <plurals name="selectedCardCount">
-        <item quantity="other">Chọn <xliff:g>%d</xliff:g></item>
+        <item quantity="other"><xliff:g>%d</xliff:g> đã được chọn</item>
     </plurals>
     <string name="version_history">Lịch Sử Phiên Bản</string>
     <string name="note">Ghi chú</string>

@@ -343,13 +343,21 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     public void addManually() {
-        Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
-        if (cardId != null) {
-            final Bundle b = new Bundle();
-            b.putString("initialCardId", cardId);
-            i.putExtras(b);
-        }
-        manualAddLauncher.launch(i);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ScanActivity.this);
+        builder.setTitle(R.string.add_manually_warning_title);
+        builder.setMessage(R.string.add_manually_warning_message);
+        builder.setPositiveButton(R.string.continue_, (dialog, which) -> {
+            Intent i = new Intent(getApplicationContext(), BarcodeSelectorActivity.class);
+            if (cardId != null) {
+                final Bundle b = new Bundle();
+                b.putString("initialCardId", cardId);
+                i.putExtras(b);
+            }
+            manualAddLauncher.launch(i);
+        });
+        builder.setNegativeButton(R.string.cancel, (dialog, which) -> setScannerActive(true));
+        builder.setOnCancelListener(dialog -> setScannerActive(true));
+        builder.show();
     }
 
     public void addFromImage() {

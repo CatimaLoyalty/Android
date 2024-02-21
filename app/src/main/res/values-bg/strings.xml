@@ -284,4 +284,7 @@
     <string name="field_must_not_be_empty">Полето не трябва да е празно</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Винаги да се завърта (пренебрегва системната настройка)</string>
+    <string name="continue_">Продължаване</string>
+    <string name="add_manually_warning_title">Препоръчително е да сканирате</string>
+    <string name="add_manually_warning_message">Стойностите от щрихкода и отбелязаните на картата числа в някои случаи се различават. По тази причина е при ръчно въвеждане картата може да не работи. Силно препоръчително е да сканирате щрихкода с камерата. Желаете ли да продължите въпреки това?</string>
 </resources>

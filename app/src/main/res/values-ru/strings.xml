@@ -298,4 +298,7 @@
     <string name="field_must_not_be_empty">Поле не может быть пустым</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Всегда поворачивать (игнорировать системные настройки)</string>
+    <string name="add_manually_warning_title">Рекомендуется сканирование</string>
+    <string name="continue_">Продолжить</string>
+    <string name="add_manually_warning_message">В некоторых магазинах значение штрих-кода отличается от написанного на карте номера, из-за чего введение штрих-кода вручную не всегда работает. Вместо этого настоятельно рекомендуется отсканировать штрих-код камерой. Продолжить?</string>
 </resources>

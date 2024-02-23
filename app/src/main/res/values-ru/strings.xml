@@ -18,7 +18,7 @@
     <string name="sendLabel">Отправить…</string>
     <string name="editCardTitle">Изменить карту</string>
     <string name="addCardTitle">Добавить карту</string>
-    <string name="scanCardBarcode">Отсканируйте штрих-код</string>
+    <string name="scanCardBarcode">Сканировать штрих-код</string>
     <string name="cardShortcut">Ярлык карты</string>
     <string name="noCardsMessage">Сначала добавьте карту</string>
     <string name="noCardExistsError">Карта не найдена</string>

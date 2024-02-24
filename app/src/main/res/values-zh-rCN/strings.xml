@@ -278,4 +278,5 @@
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">始终旋转（忽略系统设置）</string>
     <string name="add_manually_warning_title">建议扫描</string>
+    <string name="continue_">继续</string>
 </resources>

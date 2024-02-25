@@ -4,8 +4,8 @@ J. Lavoie
 Allan Nordhøy
 solokot
 Heimen Stoffels
-FC (Fay) Stegerman
 Oğuz Ersen
+FC (Fay) Stegerman
 Katharine Chui
 SlavekB
 StoyanDimitrov
@@ -24,28 +24,29 @@ Aayush Gupta
 HudobniVolk
 Nyatsuki
 Samantaz Fox
+Jiri Grönroos
 arno-github
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
 Milan Šalka
-Jiri Grönroos
-Balázs Meskó
 Giovanni Donisi
+Balázs Meskó
 Milo Ivir
 Skrripy
 huuhaa
 Projjal Moitra
 Quentin PAGÈS
+ikanakova
 waffshappen
 Eryk Michalak
 Ziad OUALHADJ
 Robin Liu
 mdvhimself
 Denis Shilin
+Alexander Ivanov
 Miha Frangež
 Silvério Santos
-ikanakova
 Virginie
 Michael Gangolf
 rudy3
@@ -53,4 +54,3 @@ Kim Seohyun
 Govind S Nair
 Freddo espresso
 arshbeerSingh
-Alexander Ivanov

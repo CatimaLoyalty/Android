@@ -279,4 +279,5 @@
     <string name="settings_follow_sensor_orientation">始终旋转（忽略系统设置）</string>
     <string name="add_manually_warning_title">建议扫描</string>
     <string name="continue_">继续</string>
+    <string name="add_manually_warning_message">某些商店卡片的二维码值和刻在卡上的数字并不一样。由于这个原因，手动输入二维码可能并不总是有用。这种情况下，强烈建议你用相机扫描二维码。你仍要继续吗？</string>
 </resources>

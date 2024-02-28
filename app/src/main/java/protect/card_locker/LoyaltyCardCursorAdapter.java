@@ -123,8 +123,7 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         }
 
         inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
-        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
-        inputHolder.setIconBackgroundColor(Utils.getHeaderColor(mContext, loyaltyCard));
+        inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
 
         inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
 
@@ -338,11 +337,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             mStarBackground.invalidate();
             mArchivedBackground.invalidate();
 
-        }
-
-        public void setIconBackgroundColor(int color) {
-            mIconBackgroundColor = color;
-            mCardIcon.setBackgroundColor(color);
         }
     }
 

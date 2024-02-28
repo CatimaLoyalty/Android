@@ -296,7 +296,7 @@
     </plurals>
     <string name="welcome">Welcome to Catima</string>
     <string name="importCards">Import cards</string>
-    <string name="updateBalanceTitle">How much did you spend?</string>
+    <string name="updateBalanceTitle">How much did you spend or receive?</string>
     <string name="updateBalanceHint">Enter amount</string>
     <string name="currentBalanceSentence">Current balance: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">New balance: <xliff:g>%s</xliff:g></string>
@@ -338,4 +338,7 @@
     <string name="add_manually_warning_title">Scanning is recommended</string>
     <string name="add_manually_warning_message">For some stores, the barcode value differs from the number written on the card. Because of this, entering a barcode manually may not always work. It is strongly recommended to scan the barcode with your camera instead. Do you still want to continue?</string>
     <string name="continue_">Continue</string>
+    <string name="spend">Spend</string>
+    <string name="receive">Receive</string>
+    <string name="amountParsingFailed">Invalid amount</string>
 </resources>

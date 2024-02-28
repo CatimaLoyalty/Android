@@ -29,6 +29,7 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -420,7 +421,11 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
 
     private void showBalanceUpdateDialog() {
         AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
+
+        // Header
         builder.setTitle(R.string.updateBalanceTitle);
+
+        // Layout
         FrameLayout container = new FrameLayout(this);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -438,59 +443,89 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         currentTextview.setText(getString(R.string.currentBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
         layout.addView(currentTextview);
 
-        TextView updateTextView = new TextView(this);
-        updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)));
-        layout.addView(updateTextView);
-
         final TextInputEditText input = new TextInputEditText(this);
-        Context dialogContext = this;
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
         input.setHint(R.string.updateBalanceHint);
-        input.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                BigDecimal newBalance;
-                try {
-                    newBalance = calculateNewBalance(loyaltyCard.balance, loyaltyCard.balanceType, s.toString());
-                } catch (ParseException e) {
-                    input.setTag(null);
-                    updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, loyaltyCard.balance, loyaltyCard.balanceType)));
-                    return;
-                }
 
-                // Save new balance into this element
-                input.setTag(newBalance);
-                updateTextView.setText(getString(R.string.newBalanceSentence, Utils.formatBalance(dialogContext, newBalance, loyaltyCard.balanceType)));
-            }
-        });
         layout.addView(input);
         layout.setLayoutParams(params);
         container.addView(layout);
 
+        // Set layout
         builder.setView(container);
-        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
-            // Grab calculated balance from input field
-            BigDecimal newBalance = (BigDecimal) input.getTag();
-            if (newBalance == null) {
-                return;
+
+        // Buttons
+        builder.setPositiveButton(R.string.spend, (dialogInterface, i) -> {
+            // Calculate and update balance
+            try {
+                BigDecimal balanceChange = Utils.parseBalance(input.getText().toString(), loyaltyCard.balanceType);
+                BigDecimal newBalance = loyaltyCard.balance.subtract(balanceChange).max(new BigDecimal(0));
+                DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+            } catch (ParseException e) {
+                Toast.makeText(getApplicationContext(), R.string.amountParsingFailed, Toast.LENGTH_LONG).show();
             }
 
-            // Actually update balance
-            DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
-            // Reload UI
+            // Reload state
             this.onResume();
+
+            // Show new balance
+            Toast.makeText(getApplicationContext(), getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)), Toast.LENGTH_LONG).show();
         });
-        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton(R.string.receive, (dialogInterface, i) -> {
+            // Calculate and update balance
+            try {
+                BigDecimal balanceChange = Utils.parseBalance(input.getText().toString(), loyaltyCard.balanceType);
+                BigDecimal newBalance = loyaltyCard.balance.add(balanceChange);
+                DBHelper.updateLoyaltyCardBalance(database, loyaltyCardId, newBalance);
+            } catch (ParseException e) {
+                Toast.makeText(getApplicationContext(), R.string.amountParsingFailed, Toast.LENGTH_LONG).show();
+            }
+
+            // Reload state
+            this.onResume();
+
+            // Show new balance
+            Toast.makeText(getApplicationContext(), getString(R.string.newBalanceSentence, Utils.formatBalance(this, loyaltyCard.balance, loyaltyCard.balanceType)), Toast.LENGTH_LONG).show();
+        });
+        builder.setNeutralButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
         AlertDialog dialog = builder.create();
+
+        // Now that the dialog exists, we can bind something that affects the buttons
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                BigDecimal balanceChange;
+
+                try {
+                    balanceChange = Utils.parseBalance(s.toString(), loyaltyCard.balanceType);
+                } catch (ParseException e) {
+                    input.setError(getString(R.string.amountParsingFailed));
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+                    return;
+                }
+
+                input.setError(null);
+                if (balanceChange.equals(new BigDecimal(0))) {
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+                } else {
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
+                }
+            }
+        });
+
         dialog.show();
+
+        // Disable buttons (must be done **after** dialog is shown to prevent crash
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+
+        // Set focus on input field
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         input.requestFocus();
-    }
-
-    private BigDecimal calculateNewBalance(BigDecimal currentBalance, Currency currency, String unparsedSubtraction) throws ParseException {
-        BigDecimal subtraction = Utils.parseBalance(unparsedSubtraction, currency);
-        return currentBalance.subtract(subtraction).max(new BigDecimal(0));
     }
 
     private void setBottomAppBarButtonState() {

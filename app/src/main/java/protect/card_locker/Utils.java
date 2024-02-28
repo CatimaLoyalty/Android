@@ -748,23 +748,30 @@ public class Utils {
                 .replaceAll("(?<!href=\")\\b(https?://[\\w@#%&+=:?/.-]*[\\w@#%&+=:?/-])", "<a href=\"$1\">$1</a>");
     }
 
-    public static void setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
-        if (icon != null) {
-            Log.d("onResume", "setting icon image");
-            textWhenNoImage.setVisibility(View.GONE);
+    /**
+     * Sets an icon or text with background on the given ImageView and/or TextView, including background colour.
+     *
+     * @param context Android context
+     * @param loyaltyCard Loyalty Card
+     * @param icon Bitmap of the icon to set, or null
+     * @param backgroundOrIcon ImageView to draw the icon and background on to
+     * @param textWhenNoImage TextView to write the loyalty card name into if icon is null
+     * @return background colour
+     */
+    public static int setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
+        int headerColor = getHeaderColor(context, loyaltyCard);
+        backgroundOrIcon.setImageBitmap(icon);
+        backgroundOrIcon.setBackgroundColor(headerColor);
 
-            backgroundOrIcon.setImageBitmap(icon);
-            backgroundOrIcon.setBackgroundColor(Color.TRANSPARENT);
+        if (icon != null) {
+            textWhenNoImage.setVisibility(View.GONE);
         } else {
             textWhenNoImage.setVisibility(View.VISIBLE);
-
-            int headerColor = getHeaderColor(context, loyaltyCard);
-
-            backgroundOrIcon.setImageBitmap(null);
-            backgroundOrIcon.setBackgroundColor(headerColor);
             textWhenNoImage.setText(loyaltyCard.store);
             textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);
         }
+
+        return headerColor;
     }
 
     public static boolean installedFromGooglePlay(Context context) {

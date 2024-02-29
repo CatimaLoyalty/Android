@@ -226,7 +226,7 @@
     <string name="currentBalanceSentence">Jelenlegi egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceHint">Adja meg az összeget</string>
     <string name="importCards">Kártyák importálása</string>
-    <string name="updateBalanceTitle">Mennyit költött\?</string>
+    <string name="updateBalanceTitle">Mennyit költött?</string>
     <string name="newBalanceSentence">Új egyenleg: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Nem sikerült hozzáférni a kamerához</string>
     <string name="failedToRetrieveImageFile">Nem sikerült lekérni a képfájlt</string>

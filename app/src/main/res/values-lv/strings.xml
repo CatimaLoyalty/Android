@@ -238,7 +238,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Lai skanētu svītrkods, Catima ir nepieciešama pieeja jūsu kamerai. Nospied šeit lai nomainītu atļaujas iestatījumus.</string>
     <string name="cameraPermissionDeniedTitle">Nevar pievienieties kamerai</string>
     <string name="updateBalance">Atjaunināta bilance</string>
-    <string name="updateBalanceTitle">Cik daudz Tu iztērēji\?</string>
+    <string name="updateBalanceTitle">Cik daudz Tu iztērēji?</string>
     <string name="updateBalanceHint">Ievadi summu</string>
     <string name="currentBalanceSentence">Šābrīža bilance: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Jauna bilance: <xliff:g>%s</xliff:g></string>

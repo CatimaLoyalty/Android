@@ -252,7 +252,7 @@
     <string name="shortcutSelectCard">Odaberi karticu</string>
     <string name="previousCard">Prethodna</string>
     <string name="nextCard">Sljedeća</string>
-    <string name="updateBalanceTitle">Koliko si potrošio/la\?</string>
+    <string name="updateBalanceTitle">Koliko si potrošio/la?</string>
     <string name="updateBalanceHint">Upiši iznos</string>
     <string name="about_title_fmt">Informaije o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="failedToOpenUrl">Najprije instaliraj web preglednik</string>

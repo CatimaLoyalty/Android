@@ -247,7 +247,7 @@
     <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>
     <string name="barcodeLongPressMessage">Галерея може відкривати лише зображення</string>
     <string name="importCards">Імпорт карток</string>
-    <string name="updateBalanceTitle">Скільки витратили\?</string>
+    <string name="updateBalanceTitle">Скільки витратили?</string>
     <string name="updateBalanceHint">Введіть суму</string>
     <string name="currentBalanceSentence">Поточний баланс: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Новий баланс: <xliff:g>%s</xliff:g></string>

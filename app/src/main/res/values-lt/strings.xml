@@ -227,7 +227,7 @@
     <string name="unarchive">Išarchyvuoti</string>
     <string name="archived">Kortelė archyvuota</string>
     <string name="unarchived">Kortelė išarchyvuota</string>
-    <string name="updateBalanceTitle">Kiek išleidote\?</string>
+    <string name="updateBalanceTitle">Kiek išleidote?</string>
     <string name="updateBalanceHint">Įveskite sumą</string>
     <string name="currentBalanceSentence">Dabartinis likutis: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Naujas balansas: <xliff:g>%s</xliff:g></string>

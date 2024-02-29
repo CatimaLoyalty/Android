@@ -185,7 +185,7 @@
     <string name="failedLaunchingPhotoPicker">Ni mogoče najti podprte aplikacije za gledanje slik</string>
     <string name="previousCard">Prejšnje</string>
     <string name="nextCard">Naslednje</string>
-    <string name="updateBalanceTitle">Koliko ste porabili\?</string>
+    <string name="updateBalanceTitle">Koliko ste porabili?</string>
     <string name="updateBalanceHint">Vpišite vrednost</string>
     <string name="group_name_already_in_use">Ime skupine je že uporabljeno</string>
     <string name="group_name_is_empty">Ime skupine ne more biti prazno polje</string>

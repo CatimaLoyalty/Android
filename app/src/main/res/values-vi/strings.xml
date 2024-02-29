@@ -228,7 +228,7 @@
     <string name="importSuccessful">Nhập dữ liệu xong</string>
     <string name="settings_card_orientation">Hướng đặt mã vạch</string>
     <string name="app_libraries">Thư viện mở từ bên thứ 3: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="updateBalanceTitle">Bạn đã chi bao nhiêu\?</string>
+    <string name="updateBalanceTitle">Bạn đã chi bao nhiêu?</string>
     <string name="editCardTitle">Sửa Thẻ</string>
     <string name="archive">Lưu trữ</string>
     <string name="settings_blue_theme">Màu xanh dương</string>

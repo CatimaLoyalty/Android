@@ -252,7 +252,7 @@
     <string name="currentBalanceSentence">Текущий баланс: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Камера недоступна</string>
     <string name="updateBalanceHint">Введите сумму</string>
-    <string name="updateBalanceTitle">Какое изменение\?</string>
+    <string name="updateBalanceTitle">Какое изменение?</string>
     <string name="importCards">Импорт карт</string>
     <string name="storageReadPermissionRequired">Для этого действия необходимо разрешение на чтение хранилища…</string>
     <string name="cameraPermissionRequired">Для этого действия необходимо разрешение на доступ к камере…</string>

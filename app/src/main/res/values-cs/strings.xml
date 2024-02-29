@@ -243,7 +243,7 @@
     <string name="updateBalance">Aktualizovat zůstatek</string>
     <string name="currentBalanceSentence">Současný zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">Pro skenování čárových kódů bude Catima potřebovat přístup k fotoaparátu. Klepněte zde pro změnu nastavení oprávnění.</string>
-    <string name="updateBalanceTitle">Kolik jste utratil\?</string>
+    <string name="updateBalanceTitle">Kolik jste utratil?</string>
     <string name="updateBalanceHint">Zadejte výši</string>
     <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">Pro tuto akci je potřeba oprávnění ke čtení úložiště…</string>

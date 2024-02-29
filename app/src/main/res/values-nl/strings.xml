@@ -233,7 +233,7 @@
     <string name="failedToRetrieveImageFile">De afbeelding kan niet worden opgehaald</string>
     <string name="barcodeLongPressMessage">Alleen afbeeldingen kunnen worden geopend in de galerij-app</string>
     <string name="cameraPermissionDeniedTitle">Geen cameratoegang</string>
-    <string name="updateBalanceTitle">Hoeveel heb je uitgegeven\?</string>
+    <string name="updateBalanceTitle">Hoeveel heb je uitgegeven?</string>
     <string name="noCameraPermissionDirectToSystemSetting">Catima heeft toegang tot je camera nodig om barcodes te kunnen scannen. Druk hier om toegang te verlenen.</string>
     <string name="currentBalanceSentence">Huidig saldo: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Saldo bijwerken</string>

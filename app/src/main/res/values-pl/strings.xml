@@ -248,7 +248,7 @@
     </plurals>
     <string name="currentBalanceSentence">Bieżące saldo: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">By zeskanować kody kreskowe, Catima musi mieć dostęp do twojej kamery. Dotknij tutaj by zmienić swoje ustawienia dostępu.</string>
-    <string name="updateBalanceTitle">Ile wydałeś\?</string>
+    <string name="updateBalanceTitle">Ile wydałeś?</string>
     <string name="updateBalanceHint">Wpisz sumę</string>
     <string name="updateBalance">Zaktualizuj balans</string>
     <string name="cameraPermissionDeniedTitle">Odmówiono dostępu do kamery</string>

@@ -214,7 +214,7 @@
     <string name="backImageDescription">후면 사진</string>
     <string name="currentBalanceSentence">현재 잔액: <xliff:g>%s</xliff:g></string>
     <string name="importCards">카드 가져오기</string>
-    <string name="updateBalanceTitle">얼마를 썼습니까\?</string>
+    <string name="updateBalanceTitle">얼마를 썼습니까?</string>
     <string name="newBalanceSentence">새 잔액: <xliff:g>%s</xliff:g></string>
     <string name="settings_card_orientation">바코드 방향</string>
     <string name="settings_follow_system_orientation">기기 설정 따르기</string>

@@ -228,7 +228,7 @@
         <item quantity="one">Näytä arkisto (<xliff:g>%1$d</xliff:g> kortti)</item>
         <item quantity="other">Näytä arkisto (<xliff:g>%1$d</xliff:g> korttia)</item>
     </plurals>
-    <string name="updateBalanceTitle">Kuinka paljon kulutit\?</string>
+    <string name="updateBalanceTitle">Kuinka paljon kulutit?</string>
     <string name="updateBalanceHint">Syötä summa</string>
     <string name="barcodeLongPressMessage">Vain kuvia on mahdollista avata galleriasovelluksessa</string>
     <string name="archive">Arkistoi</string>

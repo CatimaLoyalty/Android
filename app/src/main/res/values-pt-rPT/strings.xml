@@ -245,7 +245,7 @@
     <string name="currentBalanceSentence">Saldo atual: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Novo saldo: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Atualizar saldo</string>
-    <string name="updateBalanceTitle">Quanto gastou\?</string>
+    <string name="updateBalanceTitle">Quanto gastou?</string>
     <string name="updateBalanceHint">Introduza o valor</string>
     <string name="storageReadPermissionRequired">É necessária a permissão para ler o armazenamento para esta ação…</string>
     <string name="cameraPermissionRequired">É necessária a permissão para aceder à câmara para esta ação…</string>

@@ -242,7 +242,7 @@
     <string name="updateBalance">Uppdatera balans</string>
     <string name="failedToRetrieveImageFile">Misslyckades att hämta bildfil</string>
     <string name="barcodeLongPressMessage">Endast bilder kan öppnas i galleri app</string>
-    <string name="updateBalanceTitle">Hur mycket spenderade du\?</string>
+    <string name="updateBalanceTitle">Hur mycket spenderade du?</string>
     <string name="updateBalanceHint">Ange summa</string>
     <string name="newBalanceSentence">Ny balans: <xliff:g>%s</xliff:g></string>
     <string name="openFrontImageInGalleryApp">Öppna bilden på framsidan i galleri-appen</string>

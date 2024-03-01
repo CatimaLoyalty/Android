@@ -204,7 +204,7 @@
     <string name="unarchived">Karta vrátená z archívu</string>
     <string name="previousCard">Predošlá</string>
     <string name="nextCard">Nasledujúca</string>
-    <string name="updateBalanceTitle">Koľko ste minuli\?</string>
+    <string name="updateBalanceTitle">Koľko ste minuli?</string>
     <string name="updateBalanceHint">Zadajte čiastku</string>
     <string name="failedToOpenUrl">Najprv nainštalujte webový prehliadač</string>
     <string name="welcome">Vitajte v Catima</string>

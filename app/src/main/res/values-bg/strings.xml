@@ -233,7 +233,7 @@
     <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
     <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
     <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>
-    <string name="updateBalanceTitle">Каква е промяната\?</string>
+    <string name="updateBalanceTitle">Каква е промяната?</string>
     <string name="updateBalanceHint">Въведете стойност</string>
     <string name="newBalanceSentence">Нов баланс: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Камерата е недостъпна</string>

@@ -235,7 +235,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Barkodları taramak için Catima\'nın kameranıza erişmesi gerekecektir. İzin ayarlarınızı değiştirmek için buraya dokunun.</string>
     <string name="currentBalanceSentence">Geçerli bakiye: <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceHint">Miktarı girin</string>
-    <string name="updateBalanceTitle">Ne kadar harcadınız\?</string>
+    <string name="updateBalanceTitle">Ne kadar harcadınız?</string>
     <string name="newBalanceSentence">Yeni bakiye: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
     <string name="updateBalance">Bakiyeyi güncelle</string>

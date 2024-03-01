@@ -243,7 +243,7 @@
     <string name="unarchive">সংরক্ষণাগারমুক্ত করুন</string>
     <string name="archived">কার্ড সংরক্ষণাগারভুক্ত</string>
     <string name="welcome">Catima-তে স্বাগতম</string>
-    <string name="updateBalanceTitle">আপনি কত খরচ করেছেন\?</string>
+    <string name="updateBalanceTitle">আপনি কত খরচ করেছেন?</string>
     <string name="updateBalanceHint">পরিমান লিখুন</string>
     <string name="currentBalanceSentence">বর্তমান ব্যালেন্স: <xliff:g>%s</xliff:g></string>
     <string name="show_name_below_image_thumbnail">ছবির থাম্বনেইল এর নিচে নামটি দেখান</string>

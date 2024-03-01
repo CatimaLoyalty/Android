@@ -239,7 +239,7 @@
     <string name="starred">Estrellado</string>
     <string name="failedToRetrieveImageFile">No se pudo recuperar el archivo de imagen</string>
     <string name="barcodeLongPressMessage">Solo se pueden abrir imágenes en la aplicación de galería</string>
-    <string name="updateBalanceTitle">¿Cuánto has gastado\?</string>
+    <string name="updateBalanceTitle">¿Cuánto has gastado?</string>
     <string name="currentBalanceSentence">Saldo actual: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barras, Catima necesitará acceso a su cámara. Toque aquí para cambiar la configuración de sus permisos.</string>
     <string name="updateBalanceHint">Introduzca el importe</string>

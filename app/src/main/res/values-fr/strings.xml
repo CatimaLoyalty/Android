@@ -243,7 +243,7 @@
     <string name="cameraPermissionDeniedTitle">Impossible d’accéder à la caméra</string>
     <string name="noCameraPermissionDirectToSystemSetting">Pour scanner les codes-barres, Catima doit avoir accès à votre caméra. Tapez ici pour modifier vos paramètres d\'autorisation.</string>
     <string name="updateBalance">Mettre à jour le solde</string>
-    <string name="updateBalanceTitle">Combien avez-vous dépensé \?</string>
+    <string name="updateBalanceTitle">Combien avez-vous dépensé ?</string>
     <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importer des cartes</string>
     <string name="storageReadPermissionRequired">L’autorisation de lire le stockage est nécessaire pour cette action…</string>

@@ -1,0 +1,3 @@
+- "Archív mód" áthelyezése a "Kinézet opciók" menübe (korábban a "Részletek mutatása" pontban volt)
+- Android 13 app-onkénti nyelv támogatás
+- Beágyazott adatvédelmi politika, változásnapló és licensz az app-ban

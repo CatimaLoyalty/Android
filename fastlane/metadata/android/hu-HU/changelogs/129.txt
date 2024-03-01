@@ -1,1 +1,3 @@
 - Javított Catima importáló (javítja az importálás után hiányzó kártyákat)
+- A hatályos tól/ig határidő dátum beállítása során elforduló képernyő fagyás javítása
+- Kisebb UI javítások

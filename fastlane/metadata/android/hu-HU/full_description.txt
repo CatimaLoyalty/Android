@@ -13,7 +13,7 @@ Ezzel a mindennapi kellékkel felszabadul a pénztárcájában a plasztikkárty�
 - Osszon meg kuponokat, exkluzív ajánlatokat, promóciós kódokat, vagy kártyákat és kódokat bármely appal.
 - Sötét téma és akadálymentesítés a gyengén látó felhasználóinknak.
 - Mindenki számára elérhető a szabad szoftveres közösség jóvoltából.
-- Több mint 20 nyelven honosított.
+- Több mint 40 nyelven honosított.
 - Ingyenes, a közösség tagjai járulnak hozzá a fejlesztéshez.
 - Használja, tanulmányozza, változtassa és ossza meg; <i>mindenkivel</i>.
 - Nem csak szabad és nyílt forráskódú. <i>Copyleft</i> licencű, szabad (GPLv3+) kártyakezelő szoftver.

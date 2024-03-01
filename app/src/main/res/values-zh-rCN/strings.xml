@@ -227,7 +227,7 @@
         <item quantity="other">查看存档（<xliff:g>%1$d</xliff:g> 张卡片）</item>
     </plurals>
     <string name="updateBalance">更新余额</string>
-    <string name="updateBalanceTitle">你花了多少钱？</string>
+    <string name="updateBalanceTitle">你支出或者收到了多少钱？</string>
     <string name="currentBalanceSentence">当前余额：<xliff:g>%s</xliff:g></string>
     <string name="failedToRetrieveImageFile">无法检索图像文件</string>
     <string name="newBalanceSentence">新余额：<xliff:g>%s</xliff:g></string>
@@ -280,4 +280,7 @@
     <string name="add_manually_warning_title">建议扫描</string>
     <string name="continue_">继续</string>
     <string name="add_manually_warning_message">某些商店卡片的二维码值和刻在卡上的数字并不一样。由于这个原因，手动输入二维码可能并不总是有用。这种情况下，强烈建议你用相机扫描二维码。你仍要继续吗？</string>
+    <string name="receive">接收</string>
+    <string name="amountParsingFailed">无效金额</string>
+    <string name="spend">支出</string>
 </resources>

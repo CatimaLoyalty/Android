@@ -252,7 +252,7 @@
     <string name="currentBalanceSentence">Текущий баланс: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Камера недоступна</string>
     <string name="updateBalanceHint">Введите сумму</string>
-    <string name="updateBalanceTitle">Какое изменение?</string>
+    <string name="updateBalanceTitle">Сколько потрачено или получено?</string>
     <string name="importCards">Импорт карт</string>
     <string name="storageReadPermissionRequired">Для этого действия необходимо разрешение на чтение хранилища…</string>
     <string name="cameraPermissionRequired">Для этого действия необходимо разрешение на доступ к камере…</string>
@@ -301,4 +301,7 @@
     <string name="add_manually_warning_title">Рекомендуется сканирование</string>
     <string name="continue_">Продолжить</string>
     <string name="add_manually_warning_message">В некоторых магазинах значение штрих-кода отличается от написанного на карте номера, из-за чего введение штрих-кода вручную не всегда работает. Вместо этого настоятельно рекомендуется отсканировать штрих-код камерой. Продолжить?</string>
+    <string name="spend">Потрачено</string>
+    <string name="receive">Получено</string>
+    <string name="amountParsingFailed">Недопустимая сумма</string>
 </resources>

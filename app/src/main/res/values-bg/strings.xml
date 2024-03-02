@@ -233,7 +233,7 @@
     <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
     <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
     <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>
-    <string name="updateBalanceTitle">Каква е промяната?</string>
+    <string name="updateBalanceTitle">Колко е похарчено или получено?</string>
     <string name="updateBalanceHint">Въведете стойност</string>
     <string name="newBalanceSentence">Нов баланс: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Камерата е недостъпна</string>
@@ -287,4 +287,7 @@
     <string name="continue_">Продължаване</string>
     <string name="add_manually_warning_title">Препоръчително е да сканирате</string>
     <string name="add_manually_warning_message">Стойностите от щрихкода и отбелязаните на картата числа в някои случаи се различават. По тази причина е при ръчно въвеждане картата може да не работи. Силно препоръчително е да сканирате щрихкода с камерата. Желаете ли да продължите въпреки това?</string>
+    <string name="amountParsingFailed">Неприемлива сума</string>
+    <string name="spend">Похарчено</string>
+    <string name="receive">Получено</string>
 </resources>

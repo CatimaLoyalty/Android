@@ -255,7 +255,7 @@
         <item quantity="one">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
         <item quantity="other">संग्रह देखें (<xliff:g>%1$d</xliff:g> कार्ड)</item>
     </plurals>
-    <string name="updateBalanceTitle">आपने कितना खर्च किया?</string>
+    <string name="updateBalanceTitle">आपने कितना खर्च या प्राप्त किया?</string>
     <string name="chooseValidFromDate">दिनांक से वैध चुनें</string>
     <string name="show_name_below_image_thumbnail">छवि थंबनेल के नीचे नाम दिखाएँ</string>
     <string name="show_archived_cards">संग्रहीत कार्ड दिखाएँ</string>
@@ -287,4 +287,7 @@
     <string name="continue_">जारी रखें</string>
     <string name="add_manually_warning_message">कुछ दुकानों के लिए, बारकोड का मान कार्ड पर लिखे नंबर से भिन्न होता है। इस वजह से, बारकोड को मैन्युअल रूप से दर्ज करना हमेशा काम नहीं कर सकता है। इसके बजाय बारकोड को अपने कैमरे से स्कैन करने की पुरजोर अनुशंसा की जाती है। क्या आप अब भी जारी रखना चाहते हैं?</string>
     <string name="add_manually_warning_title">स्कैनिंग की अनुशंसा की जाती है</string>
+    <string name="spend">खर्च किया</string>
+    <string name="receive">प्राप्त किया</string>
+    <string name="amountParsingFailed">अमान्य राशि</string>
 </resources>

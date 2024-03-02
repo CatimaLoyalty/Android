@@ -235,7 +235,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">Barkodları taramak için Catima\'nın kameranıza erişmesi gerekecektir. İzin ayarlarınızı değiştirmek için buraya dokunun.</string>
     <string name="currentBalanceSentence">Geçerli bakiye: <xliff:g>%s</xliff:g></string>
     <string name="updateBalanceHint">Miktarı girin</string>
-    <string name="updateBalanceTitle">Ne kadar harcadınız?</string>
+    <string name="updateBalanceTitle">Ne kadar harcadınız veya aldınız?</string>
     <string name="newBalanceSentence">Yeni bakiye: <xliff:g>%s</xliff:g></string>
     <string name="cameraPermissionDeniedTitle">Kameraya erişilemedi</string>
     <string name="updateBalance">Bakiyeyi güncelle</string>
@@ -287,4 +287,7 @@
     <string name="continue_">Devam et</string>
     <string name="add_manually_warning_title">Tarama yapılması tavsiye edilir</string>
     <string name="add_manually_warning_message">Bazı mağazalarda barkod değeri kartta yazan sayıdan farklıdır. Bu nedenle, bir barkodu elle girmek her zaman işe yaramayabilir. Bunun yerine barkodu kameranızla taramanız şiddetle tavsiye edilir. Yine de devam etmek istiyor musunuz?</string>
+    <string name="spend">Harca</string>
+    <string name="receive">Al</string>
+    <string name="amountParsingFailed">Geçersiz miktar</string>
 </resources>

@@ -243,7 +243,7 @@
     <string name="updateBalance">Aktualizovat zůstatek</string>
     <string name="currentBalanceSentence">Současný zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">Pro skenování čárových kódů bude Catima potřebovat přístup k fotoaparátu. Klepněte zde pro změnu nastavení oprávnění.</string>
-    <string name="updateBalanceTitle">Kolik jste utratil?</string>
+    <string name="updateBalanceTitle">Kolik jste utratil/a nebo obdržel/a?</string>
     <string name="updateBalanceHint">Zadejte výši</string>
     <string name="newBalanceSentence">Nový zůstatek: <xliff:g>%s</xliff:g></string>
     <string name="storageReadPermissionRequired">Pro tuto akci je potřeba oprávnění ke čtení úložiště…</string>
@@ -294,4 +294,7 @@
     <string name="continue_">Pokračovat</string>
     <string name="add_manually_warning_title">Doporučuje se skenování</string>
     <string name="add_manually_warning_message">V některých obchodech se hodnota čárového kódu liší od čísla napsaného na kartě. Z tohoto důvodu nemusí ruční zadání čárového kódu vždy fungovat. Důrazně doporučujeme místo toho naskenovat čárový kód pomocí fotoaparátu. Chcete přesto pokračovat?</string>
+    <string name="spend">Utratit</string>
+    <string name="receive">Obdržet</string>
+    <string name="amountParsingFailed">Neplatné množství</string>
 </resources>

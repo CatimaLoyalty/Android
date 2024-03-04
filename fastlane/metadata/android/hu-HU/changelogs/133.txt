@@ -1,0 +1,4 @@
+- Cél az Android 14
+- Kártya ikon megnyitása a galériában egy érintésre
+- A szerkesztésen belüli fotó fül tokéletesítése
+- Küldő képernyő frissítése támogatás fogadóvá

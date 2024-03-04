@@ -1,0 +1,6 @@
+- "Kártya hozzáadása" munkafolyamat finomítása
+- Jóváhagyási folyamat fejlesztése
+- Hibás archív megjelenítés UI státusz fellépése, amikor a szélső ablak megjelenik hiba javítása
+- Téma vagy kártya szín használata a navigációs csíknál (Android 8.1+)
+- Érvényesség és lejárati dátum kiválasztó frissítése
+- Opció a rendszertől független mindig engedélyezett elforgatáshoz

@@ -245,7 +245,7 @@
     <string name="currentBalanceSentence">Saldo atual: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Novo saldo: <xliff:g>%s</xliff:g></string>
     <string name="updateBalance">Atualizar saldo</string>
-    <string name="updateBalanceTitle">Quanto gastou?</string>
+    <string name="updateBalanceTitle">Quanto gastou ou recebeu?</string>
     <string name="updateBalanceHint">Introduza o valor</string>
     <string name="storageReadPermissionRequired">É necessária a permissão para ler o armazenamento para esta ação…</string>
     <string name="cameraPermissionRequired">É necessária a permissão para aceder à câmara para esta ação…</string>
@@ -290,4 +290,11 @@
     <string name="field_must_not_be_empty">O campo não pode estar vazio</string>
     <string name="show_archived_cards">Exibir cartões arquivados</string>
     <string name="app_name">Catima</string>
+    <string name="continue_">Continuar</string>
+    <string name="add_manually_warning_title">Recomenda-se a digitalização</string>
+    <string name="add_manually_warning_message">Em algumas lojas, o valor do código de barras é diferente do número escrito no cartão. Por este motivo, a introdução manual de um código de barras pode nem sempre funcionar. Recomenda-se vivamente que, em vez disso, digitalize o código de barras com a sua câmara. Ainda quer continuar?</string>
+    <string name="spend">Gastar</string>
+    <string name="receive">Receber</string>
+    <string name="amountParsingFailed">Montante inválida</string>
+    <string name="settings_follow_sensor_orientation">Rodar sempre (ignora as definições do sistema)</string>
 </resources>

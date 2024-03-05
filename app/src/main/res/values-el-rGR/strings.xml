@@ -222,7 +222,7 @@
     <string name="archived">Η κάρτα αρχειοθετήθηκε</string>
     <string name="unarchived">Η κάρτα αφαιρέθηκε από το αρχείο</string>
     <string name="unarchive">Αφαίρεση από το αρχείο</string>
-    <string name="updateBalanceTitle">Πόσα ξοδέψατε;</string>
+    <string name="updateBalanceTitle">Πόσα ξοδέψατε ή λάβατε;</string>
     <string name="cameraPermissionDeniedTitle">Αδύνατη η πρόσβαση στην κάμερα</string>
     <string name="failedToRetrieveImageFile">Αποτυχία ανάκτησης αρχείου εικόνας</string>
     <string name="previousCard">Προηγούμενη</string>
@@ -242,6 +242,26 @@
     <string name="welcome">Καλώς ήρθατε στο Catima</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης ενόσω βλέπετε μια κάρτα</string>
     <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποια σκάνερ</string>
-    <string name="cameraPermissionRequired">Χρειάζεται άδεια για πρόσβαση στην κάμερα γι\' αυτή την ενέργεια…</string>
+    <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
     <string name="settings_allow_content_provider_read_title">Επιτρέπει σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
+    <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
+    <string name="height">Ύψος:</string>
+    <string name="switchToFrontImage">Μετάβαση στην μπροστινή εικόνα</string>
+    <string name="switchToBackImage">Μετάβαση στην πίσω εικόνα</string>
+    <string name="switchToBarcode">Μετάβαση σε barcode</string>
+    <string name="validFromSentence">Ισχύει από: <xliff:g>%s</xliff:g></string>
+    <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
+    <string name="openBackImageInGalleryApp">Ανοίξτε την πίσω εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
+    <string name="donate">Προσφέρω</string>
+    <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
+    <string name="openFrontImageInGalleryApp">Ανοίξτε την μπροστινή εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
+    <string name="settings_follow_sensor_orientation">Πάντα σε περιστροφή (αγνοεί τις ρυθμίσεις του συστήματος)</string>
+    <string name="validFromDate">Ισχύει από</string>
+    <string name="anyDate">Οποιαδήποτε ημερομηνία</string>
+    <string name="chooseValidFromDate">Επιλέξτε έγκυρη ημερομηνία από</string>
+    <string name="setBarcodeHeight">Ρυθμίστε το ύψος του barcode</string>
+    <string name="show_name_below_image_thumbnail">Εμφάνιση ονόματος κάτω από το εικονίδιο</string>
+    <string name="app_name">Όνομα</string>
 </resources>

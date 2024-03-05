@@ -243,7 +243,7 @@
     <string name="cameraPermissionDeniedTitle">Impossible d’accéder à la caméra</string>
     <string name="noCameraPermissionDirectToSystemSetting">Pour scanner les codes-barres, Catima doit avoir accès à votre caméra. Tapez ici pour modifier vos paramètres d\'autorisation.</string>
     <string name="updateBalance">Mettre à jour le solde</string>
-    <string name="updateBalanceTitle">Combien avez-vous dépensé ?</string>
+    <string name="updateBalanceTitle">Combien avez-vous dépensé ou reçu ?</string>
     <string name="newBalanceSentence">Nouveau solde : <xliff:g>%s</xliff:g></string>
     <string name="importCards">Importer des cartes</string>
     <string name="storageReadPermissionRequired">L’autorisation de lire le stockage est nécessaire pour cette action…</string>
@@ -294,4 +294,7 @@
     <string name="add_manually_warning_title">Scan recommandé</string>
     <string name="continue_">Continuer</string>
     <string name="add_manually_warning_message">Pour certains magasins, la valeur du code-barres diffère du numéro inscrit sur la carte. Pour cette raison, la saisie manuelle d’un code-barres peut ne pas toujours fonctionner. Il est fortement recommandé de scanner le code-barres avec votre appareil photo. Voulez-vous toujours continuer ?</string>
+    <string name="spend">Dépenser</string>
+    <string name="receive">Reçevoir</string>
+    <string name="amountParsingFailed">Montant Invalide</string>
 </resources>

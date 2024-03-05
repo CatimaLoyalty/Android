@@ -13,7 +13,7 @@ Com esta ferramenta essencial de transporte diário pode substituir o plástico 
 - Partilhe cupões, ofertas exclusivas, códigos promocionais ou cartões e códigos usando qualquer outra aplicação.
 - Com tema escuro e opções de acessibilidade para utilizadores com deficiência visual.
 - Feito para todos pela comunidade do software livre.
-- Traduções localizadas feitas manualmente em mais de 20 idiomas.
+- Traduções localizadas feitas manualmente em mais de 40 idiomas.
 - Aplicação gratuita, suportada por contribuições da comunidade.
 - Use, estude, altere e partilhe o código-fonte da aplicação como quiser; <i>com toda a gente</i>.
 - Não é apenas um Software Livre / Código Aberto. É uma aplicação de gestão de cartões de partilha <i>sob a mesma licença</i> segundo a licença (GPLv3+).

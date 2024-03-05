@@ -239,7 +239,7 @@
     <string name="starred">Estrellado</string>
     <string name="failedToRetrieveImageFile">No se pudo recuperar el archivo de imagen</string>
     <string name="barcodeLongPressMessage">Solo se pueden abrir imágenes en la aplicación de galería</string>
-    <string name="updateBalanceTitle">¿Cuánto has gastado?</string>
+    <string name="updateBalanceTitle">¿Cuánto ha gastado o recibido?</string>
     <string name="currentBalanceSentence">Saldo actual: <xliff:g>%s</xliff:g></string>
     <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barras, Catima necesitará acceso a su cámara. Toque aquí para cambiar la configuración de sus permisos.</string>
     <string name="updateBalanceHint">Introduzca el importe</string>
@@ -294,4 +294,7 @@
     <string name="continue_">Continuar</string>
     <string name="add_manually_warning_title">Se recomienda escanear</string>
     <string name="add_manually_warning_message">En algunas tiendas, el valor del código de barras difiere del número escrito en la tarjeta. Por este motivo, es posible que la introducción manual del código de barras no siempre funcione. Se recomienda encarecidamente escanear el código de barras con la cámara. ¿Aún desea continuar?</string>
+    <string name="spend">Gastar</string>
+    <string name="receive">Recibió</string>
+    <string name="amountParsingFailed">Importe incorrecto</string>
 </resources>

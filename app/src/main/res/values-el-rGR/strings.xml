@@ -263,5 +263,5 @@
     <string name="chooseValidFromDate">Επιλέξτε έγκυρη ημερομηνία από</string>
     <string name="setBarcodeHeight">Ρυθμίστε το ύψος του barcode</string>
     <string name="show_name_below_image_thumbnail">Εμφάνιση ονόματος κάτω από το εικονίδιο</string>
-    <string name="app_name">Όνομα</string>
+    <string name="app_name">Catima</string>
 </resources>

@@ -204,7 +204,7 @@
     <string name="unarchived">Karta vrátená z archívu</string>
     <string name="previousCard">Predošlá</string>
     <string name="nextCard">Nasledujúca</string>
-    <string name="updateBalanceTitle">Koľko ste minuli?</string>
+    <string name="updateBalanceTitle">Koľko ste minuli alebo prjali?</string>
     <string name="updateBalanceHint">Zadajte čiastku</string>
     <string name="failedToOpenUrl">Najprv nainštalujte webový prehliadač</string>
     <string name="welcome">Vitajte v Catima</string>
@@ -291,4 +291,10 @@
     <string name="show_archived_cards">Zobraziť archivované karty</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Vždy otáčať (ignoruje nastavenie systému)</string>
+    <string name="continue_">Pokračovať</string>
+    <string name="spend">Utratené</string>
+    <string name="receive">Prijaté</string>
+    <string name="amountParsingFailed">Neplatná hodnota</string>
+    <string name="add_manually_warning_title">Skenovanie je odporúčané</string>
+    <string name="add_manually_warning_message">V niektorých obchodoch nie je číslo na cenovke totožné s čiarovým kódom, preto je lepšie zoskenovať čiarový kód. Chcete napriek tomu pokračovať?</string>
 </resources>

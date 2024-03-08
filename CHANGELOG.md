@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 133
+## v2.28.0 - 133 (2024-03-08)
 
 - Target Android 14
 - Open card icon in gallery on touch

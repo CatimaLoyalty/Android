@@ -150,6 +150,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                 for (LoyaltyCard loyaltyCard : mAdapter.getSelectedItems()) {
                     Log.d(TAG, "Archiving card: " + loyaltyCard.id);
                     DBHelper.updateLoyaltyCardArchiveStatus(mDatabase, loyaltyCard.id, 1);
+                    ShortcutHelper.removeShortcut(MainActivity.this, loyaltyCard.id);
                     updateLoyaltyCardList(false);
                     inputMode.finish();
                     invalidateOptionsMenu();
@@ -797,8 +798,6 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
             b.putIntegerArrayList("cardList", cardList);
             intent.putExtras(b);
-
-            ShortcutHelper.updateShortcuts(MainActivity.this, loyaltyCard);
 
             startActivity(intent);
         }

@@ -736,6 +736,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         DBHelper.updateLoyaltyCardLastUsed(database, loyaltyCard.id);
 
         invalidateOptionsMenu();
+
+        ShortcutHelper.updateShortcuts(this, loyaltyCard);
     }
 
     private void setStateBasedOnImageTypes() {
@@ -834,6 +836,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         } else if (id == R.id.action_archive) {
             DBHelper.updateLoyaltyCardArchiveStatus(database, loyaltyCardId, 1);
             Toast.makeText(LoyaltyCardViewActivity.this, R.string.archived, Toast.LENGTH_LONG).show();
+
+            ShortcutHelper.removeShortcut(LoyaltyCardViewActivity.this, loyaltyCardId);
 
             // Re-init loyaltyCard with new data from DB
             onResume();

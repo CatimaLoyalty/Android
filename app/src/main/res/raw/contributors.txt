@@ -24,15 +24,15 @@ Aayush Gupta
 HudobniVolk
 Nyatsuki
 Samantaz Fox
+Giovanni Donisi
 Jiri Grönroos
 arno-github
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
 Milan Šalka
-Giovanni Donisi
-Balázs Meskó
 mdvhimself
+Balázs Meskó
 Milo Ivir
 Skrripy
 huuhaa
@@ -41,7 +41,6 @@ Projjal Moitra
 Quentin PAGÈS
 ikanakova
 waffshappen
-Eryk Michalak
 Ziad OUALHADJ
 Scrambled777
 Robin Liu
@@ -49,6 +48,7 @@ Denis Shilin
 Alexander Ivanov
 Miha Frangež
 Silvério Santos
+ngocanhtve
 Virginie
 Michael Gangolf
 rudy3

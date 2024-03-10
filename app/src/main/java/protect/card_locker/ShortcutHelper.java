@@ -43,6 +43,11 @@ class ShortcutHelper {
      * used card shortcut is discarded.
      */
     static void updateShortcuts(Context context, LoyaltyCard card) {
+        if (card.archiveStatus == 1) {
+            // Don't add archived card to menu
+            return;
+        }
+
         LinkedList<ShortcutInfoCompat> list = new LinkedList<>(ShortcutManagerCompat.getDynamicShortcuts(context));
 
         SQLiteDatabase database = new DBHelper(context).getReadableDatabase();
@@ -108,18 +113,7 @@ class ShortcutHelper {
      * shortcut exists.
      */
     static void removeShortcut(Context context, int cardId) {
-        List<ShortcutInfoCompat> list = ShortcutManagerCompat.getDynamicShortcuts(context);
-
-        String shortcutId = Integer.toString(cardId);
-
-        for (int index = 0; index < list.size(); index++) {
-            if (list.get(index).getId().equals(shortcutId)) {
-                list.remove(index);
-                break;
-            }
-        }
-
-        ShortcutManagerCompat.setDynamicShortcuts(context, list);
+        ShortcutManagerCompat.removeDynamicShortcuts(context, Collections.singletonList(Integer.toString(cardId)));
     }
 
     static @NotNull

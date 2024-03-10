@@ -127,7 +127,7 @@
     <string name="settings_brown_theme">Màu nâu</string>
     <string name="app_copyright_short">Bản quyền © Sylvia van Os và các cộng sự</string>
     <string name="importExportHelp">Sao lưu cho phép bạn chuyển dữ liệu của mình đến thiết bị khác.</string>
-    <string name="settings_oled_dark">Màu nền đen xì cho chủ đề tối</string>
+    <string name="settings_oled_dark">Nền đen tuyền cho chủ đề tối</string>
     <string name="starred">Ưa thích</string>
     <string name="field_must_not_be_empty">Không được để ô trống</string>
     <string name="importOptionFilesystemExplanation">Chọn 1 tập tin cụ thể từ hệ thống (filesystem).</string>
@@ -282,4 +282,5 @@
     <string name="spend">Tiêu</string>
     <string name="receive">Nhận được</string>
     <string name="amountParsingFailed">Số tiền không hợp lệ</string>
+    <string name="add_manually_warning_message">Đối với một số cửa hàng, giá trị mã vạch khác với số ghi trên thẻ. Vì lý do này, việc nhập mã vạch theo cách thủ công không phải lúc nào cũng hiệu quả. Thay vào đó, bạn nên quét mã vạch bằng máy ảnh của mình. Bạn vẫn muốn tiếp tục chứ?</string>
 </resources>

@@ -283,4 +283,11 @@
     <string name="manually_enter_barcode_instructions">Skriv inn ID-nummer eller tekst fra kortet og trykk på strekkoden som ser ut til å ligne.</string>
     <string name="enter_card_id">Skriv inn ID-nummeret eller teksten på kortet</string>
     <string name="field_must_not_be_empty">Feltet må fylles ut</string>
+    <string name="add_manually_warning_title">Skanning anbefales</string>
+    <string name="continue_">Fortsett</string>
+    <string name="amountParsingFailed">Ugyldig beløp</string>
+    <string name="spend">Utgifter</string>
+    <string name="receive">Inntekt</string>
+    <string name="settings_follow_sensor_orientation">Alltid roter (ignorerer systeminnstilling)</string>
+    <string name="add_manually_warning_message">I noen butikker er strekkoden forskjellig fra nummeret på kortet. Som følge av dette kan det hende at å skrive inn strekkoden ikke virker. Det anbefales å skanne strekkoden med kameraet istedenfor. Fortsett?</string>
 </resources>

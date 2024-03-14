@@ -1,1 +1,4 @@
-- auf Android 14 richten
+- Angepasst für Android 14
+- „Touch“ auf Karten-Symbol öffnet dieses in Galerie
+- Design der Registerkarte „Fotos“ in der Bearbeitungsansicht verbessert
+- Bildschirm für „Guthaben“ aktualisiert, um auch „Einnahmen“ anzeigen zu können

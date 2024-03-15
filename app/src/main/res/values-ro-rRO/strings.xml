@@ -257,7 +257,7 @@
     <string name="show_archived_cards">Afișați cardurile arhivate</string>
     <string name="settings_card_orientation">Orientarea codului de bare</string>
     <string name="app_libraries">Biblioteci terță deschise: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="updateBalanceTitle">Cât de mult ați folosit?</string>
+    <string name="updateBalanceTitle">Cât de mult ați cheltuit sau primit?</string>
     <string name="settings_blue_theme">Albastru</string>
     <string name="app_resources">Resurse terță deschise: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
@@ -294,4 +294,7 @@
     <string name="continue_">Continua</string>
     <string name="add_manually_warning_title">Se recomandă scanarea</string>
     <string name="add_manually_warning_message">Pentru unele magazine, valoarea codului de bare diferă de numărul scris pe card. Din acest motiv, este posibil ca introducerea manuală a unui cod de bare să nu funcționeze întotdeauna. În schimb, este recomandat să scanați codul de bare cu camera dvs. Mai vrei să continui?</string>
+    <string name="spend">Cheltuie</string>
+    <string name="receive">Primește</string>
+    <string name="amountParsingFailed">Sumă nevalidă</string>
 </resources>

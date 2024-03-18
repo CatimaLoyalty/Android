@@ -27,7 +27,7 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v4.1.1
+      uses: actions/checkout@v4.1.2
     - name: Setup Python
       uses: actions/setup-python@v5.0.0
       with:

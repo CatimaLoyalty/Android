@@ -62,6 +62,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private static final int COMPAT_SCALE_FACTOR_DIP = 320;
 
     private static final int PERMISSION_SCAN_ADD_FROM_IMAGE = 100;
+    private static final int PERMISSION_SCAN_ADD_FROM_PDF = 101;
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
@@ -73,6 +74,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private ActivityResultLauncher<Intent> manualAddLauncher;
     // can't use the pre-made contract because that launches the file manager for image type instead of gallery
     private ActivityResultLauncher<Intent> photoPickerLauncher;
+    private ActivityResultLauncher<Intent> pdfPickerLauncher;
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
     private boolean mScannerActive = true;
@@ -99,6 +101,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         manualAddLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.SELECT_BARCODE_REQUEST, result.getResultCode(), result.getData()));
         photoPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_IMAGE_FILE, result.getResultCode(), result.getData()));
+        pdfPickerLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> handleActivityResult(Utils.BARCODE_IMPORT_FROM_PDF_FILE, result.getResultCode(), result.getData()));
         customBarcodeScannerBinding.fabOtherOptions.setOnClickListener(view -> {
             setScannerActive(false);
 
@@ -108,7 +111,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
                     new CharSequence[]{
                             getString(R.string.addWithoutBarcode),
                             getString(R.string.addManually),
-                            getString(R.string.addFromImage)
+                            getString(R.string.addFromImage),
+                            getString(R.string.addFromPdfFile)
                     },
                     (dialogInterface, i) -> {
                         switch (i) {
@@ -120,6 +124,9 @@ public class ScanActivity extends CatimaAppCompatActivity {
                                 break;
                             case 2:
                                 addFromImage();
+                                break;
+                            case 3:
+                                addFromPdfFile();
                                 break;
                             default:
                                 throw new IllegalArgumentException("Unknown 'Add a card in a different way' dialog option");
@@ -364,19 +371,23 @@ public class ScanActivity extends CatimaAppCompatActivity {
         PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_IMAGE);
     }
 
-    private void addFromImageAfterPermission() {
-        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-        photoPickerIntent.setType("image/*");
-        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        contentIntent.setType("image/*");
+    public void addFromPdfFile() {
+        PermissionUtils.requestStorageReadPermission(this, PERMISSION_SCAN_ADD_FROM_PDF);
+    }
 
-        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(R.string.addFromImage));
+    private void addFromImageOrFileAfterPermission(String mimeType, ActivityResultLauncher<Intent> launcher, int chooserText, int errorMessage) {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType(mimeType);
+        Intent contentIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        contentIntent.setType(mimeType);
+
+        Intent chooserIntent = Intent.createChooser(photoPickerIntent, getString(chooserText));
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { contentIntent });
         try {
-            photoPickerLauncher.launch(chooserIntent);
+            launcher.launch(chooserIntent);
         } catch (ActivityNotFoundException e) {
             setScannerActive(true);
-            Toast.makeText(getApplicationContext(), R.string.failedLaunchingPhotoPicker, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
             Log.e(TAG, "No activity found to handle intent", e);
         }
     }
@@ -424,9 +435,13 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         if (requestCode == CaptureManager.getCameraPermissionReqCode()) {
             showCameraPermissionMissingText(!granted);
-        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
+        } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
             if (granted) {
-                addFromImageAfterPermission();
+                if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {
+                    addFromImageOrFileAfterPermission("image/*", photoPickerLauncher, R.string.addFromImage, R.string.failedLaunchingPhotoPicker);
+                } else {
+                    addFromImageOrFileAfterPermission("application/pdf", pdfPickerLauncher, R.string.addFromPdfFile, R.string.failedLaunchingFileManager);
+                }
             } else {
                 setScannerActive(true);
                 Toast.makeText(this, R.string.storageReadPermissionRequired, Toast.LENGTH_LONG).show();

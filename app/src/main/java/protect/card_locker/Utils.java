@@ -12,8 +12,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
+import android.graphics.pdf.PdfRenderer;
 import android.net.Uri;
 import android.os.Build;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.Layout;
 import android.text.Spanned;
@@ -83,12 +85,13 @@ public class Utils {
     public static final int SELECT_BARCODE_REQUEST = 2;
     public static final int BARCODE_SCAN = 3;
     public static final int BARCODE_IMPORT_FROM_IMAGE_FILE = 4;
-    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 5;
-    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 6;
-    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 7;
-    public static final int CARD_IMAGE_FROM_FILE_FRONT = 8;
-    public static final int CARD_IMAGE_FROM_FILE_BACK = 9;
-    public static final int CARD_IMAGE_FROM_FILE_ICON = 10;
+    public static final int BARCODE_IMPORT_FROM_PDF_FILE = 5;
+    public static final int CARD_IMAGE_FROM_CAMERA_FRONT = 6;
+    public static final int CARD_IMAGE_FROM_CAMERA_BACK = 7;
+    public static final int CARD_IMAGE_FROM_CAMERA_ICON = 8;
+    public static final int CARD_IMAGE_FROM_FILE_FRONT = 9;
+    public static final int CARD_IMAGE_FROM_FILE_BACK = 10;
+    public static final int CARD_IMAGE_FROM_FILE_ICON = 11;
 
     public static final String CARD_IMAGE_FILENAME_REGEX = "^(card_)(\\d+)(_(?:front|back|icon)\\.png)$";
 
@@ -181,6 +184,52 @@ public class Utils {
             Log.i(TAG, "Read format: " + barcodeFromBitmap.format());
 
             return barcodeFromBitmap;
+        }
+
+        if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
+            Log.i(TAG, "Received PDF file with possible barcode");
+
+            Uri data = intent.getData();
+            if (data == null) {
+                Log.e(TAG, "Intent did not contain any data");
+                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                return new BarcodeValues(null, null);
+            }
+
+            ParcelFileDescriptor parcelFileDescriptor;
+            PdfRenderer renderer;
+            try {
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(data, "r");
+                renderer = new PdfRenderer(parcelFileDescriptor);
+            } catch (IOException e) {
+                Log.e(TAG, "Could not read file in intent");
+                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+                return new BarcodeValues(null, null);
+            }
+
+            // Loop over all pages to find a barcode
+            BarcodeValues barcodeFromBitmap;
+            Bitmap renderedPage;
+            for (int i = 0; i < renderer.getPageCount(); i++) {
+                PdfRenderer.Page page = renderer.openPage(i);
+                renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+                page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+                page.close();
+
+                barcodeFromBitmap = getBarcodeFromBitmap(renderedPage);
+
+                if (!barcodeFromBitmap.isEmpty()) {
+                    // We found a barcode, stop scanning
+                    renderer.close();
+                    return barcodeFromBitmap;
+                }
+            }
+            renderer.close();
+
+            Log.i(TAG, "No barcode found in image file");
+            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+
+            return new BarcodeValues(null, null);
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {

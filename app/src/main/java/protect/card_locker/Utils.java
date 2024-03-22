@@ -134,6 +134,83 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
+    static public BarcodeValues retrieveBarcodeFromImage(Context context, Uri uri) {
+        Log.i(TAG, "Received image file with possible barcode");
+
+        if (uri == null) {
+            Log.e(TAG, "Uri did not contain any data");
+            Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            return new BarcodeValues(null, null);
+        }
+
+        Bitmap bitmap;
+        try {
+            bitmap = retrieveImageFromUri(context, uri);
+        } catch (IOException e) {
+            Log.e(TAG, "Error getting data from image file");
+            e.printStackTrace();
+            Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            return new BarcodeValues(null, null);
+        }
+
+        BarcodeValues barcodeFromBitmap = getBarcodeFromBitmap(bitmap);
+
+        if (barcodeFromBitmap.isEmpty()) {
+            Log.i(TAG, "No barcode found in image file");
+            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+        }
+
+        Log.i(TAG, "Read barcode id: " + barcodeFromBitmap.content());
+        Log.i(TAG, "Read format: " + barcodeFromBitmap.format());
+
+        return barcodeFromBitmap;
+    }
+
+    static public BarcodeValues retrieveBarcodeFromPdf(Context context, Uri uri) {
+        Log.i(TAG, "Received PDF file with possible barcode");
+
+        if (uri == null) {
+            Log.e(TAG, "Uri did not contain any data");
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return new BarcodeValues(null, null);
+        }
+
+        ParcelFileDescriptor parcelFileDescriptor;
+        PdfRenderer renderer;
+        try {
+            parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
+            renderer = new PdfRenderer(parcelFileDescriptor);
+        } catch (IOException e) {
+            Log.e(TAG, "Could not read file in uri");
+            Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
+            return new BarcodeValues(null, null);
+        }
+
+        // Loop over all pages to find a barcode
+        BarcodeValues barcodeFromBitmap;
+        Bitmap renderedPage;
+        for (int i = 0; i < renderer.getPageCount(); i++) {
+            PdfRenderer.Page page = renderer.openPage(i);
+            renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+            page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+            page.close();
+
+            barcodeFromBitmap = getBarcodeFromBitmap(renderedPage);
+
+            if (!barcodeFromBitmap.isEmpty()) {
+                // We found a barcode, stop scanning
+                renderer.close();
+                return barcodeFromBitmap;
+            }
+        }
+        renderer.close();
+
+        Log.i(TAG, "No barcode found in image file");
+        Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+
+        return new BarcodeValues(null, null);
+    }
+
     /**
      * Returns the Barcode format and content based on the result of an activity.
      * It shows toasts to notify the end-user as needed itself and will return an empty
@@ -154,82 +231,11 @@ public class Utils {
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
-            Log.i(TAG, "Received image file with possible barcode");
-
-            Uri data = intent.getData();
-            if (data == null) {
-                Log.e(TAG, "Intent did not contain any data");
-                Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                return new BarcodeValues(null, null);
-            }
-
-            Bitmap bitmap;
-            try {
-                bitmap = retrieveImageFromUri(context, data);
-            } catch (IOException e) {
-                Log.e(TAG, "Error getting data from image file");
-                e.printStackTrace();
-                Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                return new BarcodeValues(null, null);
-            }
-
-            BarcodeValues barcodeFromBitmap = getBarcodeFromBitmap(bitmap);
-
-            if (barcodeFromBitmap.isEmpty()) {
-                Log.i(TAG, "No barcode found in image file");
-                Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-            }
-
-            Log.i(TAG, "Read barcode id: " + barcodeFromBitmap.content());
-            Log.i(TAG, "Read format: " + barcodeFromBitmap.format());
-
-            return barcodeFromBitmap;
+            return retrieveBarcodeFromImage(context, intent.getData());
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
-            Log.i(TAG, "Received PDF file with possible barcode");
-
-            Uri data = intent.getData();
-            if (data == null) {
-                Log.e(TAG, "Intent did not contain any data");
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                return new BarcodeValues(null, null);
-            }
-
-            ParcelFileDescriptor parcelFileDescriptor;
-            PdfRenderer renderer;
-            try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(data, "r");
-                renderer = new PdfRenderer(parcelFileDescriptor);
-            } catch (IOException e) {
-                Log.e(TAG, "Could not read file in intent");
-                Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-                return new BarcodeValues(null, null);
-            }
-
-            // Loop over all pages to find a barcode
-            BarcodeValues barcodeFromBitmap;
-            Bitmap renderedPage;
-            for (int i = 0; i < renderer.getPageCount(); i++) {
-                PdfRenderer.Page page = renderer.openPage(i);
-                renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
-                page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
-                page.close();
-
-                barcodeFromBitmap = getBarcodeFromBitmap(renderedPage);
-
-                if (!barcodeFromBitmap.isEmpty()) {
-                    // We found a barcode, stop scanning
-                    renderer.close();
-                    return barcodeFromBitmap;
-                }
-            }
-            renderer.close();
-
-            Log.i(TAG, "No barcode found in image file");
-            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-
-            return new BarcodeValues(null, null);
+            return retrieveBarcodeFromPdf(context, intent.getData());
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {

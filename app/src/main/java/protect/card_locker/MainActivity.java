@@ -467,38 +467,20 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         String receivedAction = intent.getAction();
         String receivedType = intent.getType();
 
-        // Check if an image was shared to us
+        // Check if an image or file was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
-            if (!receivedType.startsWith("image/")) {
+            BarcodeValues barcodeValues;
+
+            if (receivedType.startsWith("image/")) {
+                barcodeValues = Utils.retrieveBarcodeFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+            } else if (receivedType.equals("application/pdf")) {
+                barcodeValues = Utils.retrieveBarcodeFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+            } else {
                 Log.e(TAG, "Wrong mime-type");
                 return;
             }
 
-            BarcodeValues barcodeValues;
-            Bitmap bitmap;
-
-            Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-            if (data == null) {
-                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            try {
-                bitmap = Utils.retrieveImageFromUri(this, data);
-            } catch (IOException e) {
-                Log.e(TAG, "Error getting data from image file");
-                e.printStackTrace();
-                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
-
             if (barcodeValues.isEmpty()) {
-                Log.i(TAG, "No barcode found in image file");
-                Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
                 finish();
                 return;
             }

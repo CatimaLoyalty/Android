@@ -41,6 +41,7 @@ import androidx.exifinterface.media.ExifInterface;
 import androidx.palette.graphics.Palette;
 
 import com.google.android.material.color.DynamicColors;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.MultiFormatReader;
@@ -48,6 +49,8 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.multi.GenericMultipleBarcodeReader;
+import com.google.zxing.multi.MultipleBarcodeReader;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -66,6 +69,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -134,13 +138,13 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
-    static public BarcodeValues retrieveBarcodeFromImage(Context context, Uri uri) {
+    static public List<BarcodeValues> retrieveBarcodesFromImage(Context context, Uri uri) {
         Log.i(TAG, "Received image file with possible barcode");
 
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
             Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-            return new BarcodeValues(null, null);
+            return new ArrayList<>();
         }
 
         Bitmap bitmap;
@@ -150,29 +154,26 @@ public class Utils {
             Log.e(TAG, "Error getting data from image file");
             e.printStackTrace();
             Toast.makeText(context, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-            return new BarcodeValues(null, null);
+            return new ArrayList<>();
         }
 
-        BarcodeValues barcodeFromBitmap = getBarcodeFromBitmap(bitmap);
+        List<BarcodeValues> barcodesFromBitmap = getBarcodesFromBitmap(bitmap);
 
-        if (barcodeFromBitmap.isEmpty()) {
+        if (barcodesFromBitmap.isEmpty()) {
             Log.i(TAG, "No barcode found in image file");
             Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
         }
 
-        Log.i(TAG, "Read barcode id: " + barcodeFromBitmap.content());
-        Log.i(TAG, "Read format: " + barcodeFromBitmap.format());
-
-        return barcodeFromBitmap;
+        return barcodesFromBitmap;
     }
 
-    static public BarcodeValues retrieveBarcodeFromPdf(Context context, Uri uri) {
+    static public List<BarcodeValues> retrieveBarcodesFromPdf(Context context, Uri uri) {
         Log.i(TAG, "Received PDF file with possible barcode");
 
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new BarcodeValues(null, null);
+            return new ArrayList<>();
         }
 
         ParcelFileDescriptor parcelFileDescriptor;
@@ -183,11 +184,11 @@ public class Utils {
         } catch (IOException e) {
             Log.e(TAG, "Could not read file in uri");
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new BarcodeValues(null, null);
+            return new ArrayList<>();
         }
 
         // Loop over all pages to find a barcode
-        BarcodeValues barcodeFromBitmap;
+        List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
         Bitmap renderedPage;
         for (int i = 0; i < renderer.getPageCount(); i++) {
             PdfRenderer.Page page = renderer.openPage(i);
@@ -195,20 +196,16 @@ public class Utils {
             page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
             page.close();
 
-            barcodeFromBitmap = getBarcodeFromBitmap(renderedPage);
-
-            if (!barcodeFromBitmap.isEmpty()) {
-                // We found a barcode, stop scanning
-                renderer.close();
-                return barcodeFromBitmap;
-            }
+            barcodesFromPdfPages.addAll(getBarcodesFromBitmap(renderedPage));
         }
         renderer.close();
 
-        Log.i(TAG, "No barcode found in image file");
-        Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+        if (barcodesFromPdfPages.isEmpty()) {
+            Log.i(TAG, "No barcode found in pdf file");
+            Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
+        }
 
-        return new BarcodeValues(null, null);
+        return barcodesFromPdfPages;
     }
 
     /**
@@ -222,20 +219,20 @@ public class Utils {
      * @param context
      * @return BarcodeValues
      */
-    static public BarcodeValues parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
+    static public List<BarcodeValues> parseSetBarcodeActivityResult(int requestCode, int resultCode, Intent intent, Context context) {
         String contents;
         String format;
 
         if (resultCode != Activity.RESULT_OK) {
-            return new BarcodeValues(null, null);
+            return new ArrayList<>();
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_IMAGE_FILE) {
-            return retrieveBarcodeFromImage(context, intent.getData());
+            return retrieveBarcodesFromImage(context, intent.getData());
         }
 
         if (requestCode == Utils.BARCODE_IMPORT_FROM_PDF_FILE) {
-            return retrieveBarcodeFromPdf(context, intent.getData());
+            return retrieveBarcodesFromPdf(context, intent.getData());
         }
 
         if (requestCode == Utils.BARCODE_SCAN || requestCode == Utils.SELECT_BARCODE_REQUEST) {
@@ -251,7 +248,7 @@ public class Utils {
             Log.i(TAG, "Read barcode id: " + contents);
             Log.i(TAG, "Read format: " + format);
 
-            return new BarcodeValues(format, contents);
+            return Collections.singletonList(new BarcodeValues(format, contents));
         }
 
         throw new UnsupportedOperationException("Unknown request code for parseSetBarcodeActivityResult");
@@ -271,22 +268,22 @@ public class Utils {
         return MediaStore.Images.Media.getBitmap(context.getContentResolver(), data);
     }
 
-    static public BarcodeValues getBarcodeFromBitmap(Bitmap bitmap) {
+    static public List<BarcodeValues> getBarcodesFromBitmap(Bitmap bitmap) {
         // This function is vulnerable to OOM, so we try again with a smaller bitmap is we get OOM
         for (int i = 0; i < 10; i++) {
             try {
-                return Utils.getBarcodeFromBitmapReal(bitmap);
+                return Utils.getBarcodesFromBitmapReal(bitmap);
             } catch (OutOfMemoryError e) {
-                Log.w(TAG, "Ran OOM in getBarcodeFromBitmap! Trying again with smaller picture! Retry " + i + " of 10.");
+                Log.w(TAG, "Ran OOM in getBarcodesFromBitmap! Trying again with smaller picture! Retry " + i + " of 10.");
                 bitmap = Bitmap.createScaledBitmap(bitmap, (int) Math.round(0.75 * bitmap.getWidth()), (int) Math.round(0.75 * bitmap.getHeight()), false);
             }
         }
 
         // Give up
-        return new BarcodeValues(null, null);
+        return new ArrayList<>();
     }
 
-    static private BarcodeValues getBarcodeFromBitmapReal(Bitmap bitmap) {
+    static private List<BarcodeValues> getBarcodesFromBitmapReal(Bitmap bitmap) {
         // In order to decode it, the Bitmap must first be converted into a pixel array...
         int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];
         bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
@@ -295,13 +292,49 @@ public class Utils {
         LuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
         BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
 
+        List<BarcodeValues> barcodeValuesList = new ArrayList<>();
         try {
-            Result barcodeResult = new MultiFormatReader().decode(binaryBitmap);
+            MultiFormatReader multiFormatReader = new MultiFormatReader();
+            MultipleBarcodeReader multipleBarcodeReader = new GenericMultipleBarcodeReader(multiFormatReader);
 
-            return new BarcodeValues(barcodeResult.getBarcodeFormat().name(), barcodeResult.getText());
+            Result[] barcodeResults = multipleBarcodeReader.decodeMultiple(binaryBitmap);
+
+            for (Result barcodeResult : barcodeResults) {
+                Log.i(TAG, "Read barcode id: " + barcodeResult.getText());
+                Log.i(TAG, "Read format: " + barcodeResult.getBarcodeFormat().name());
+
+                barcodeValuesList.add(new BarcodeValues(barcodeResult.getBarcodeFormat().name(), barcodeResult.getText()));
+            }
+
+            return barcodeValuesList;
         } catch (NotFoundException e) {
-            return new BarcodeValues(null, null);
+            return barcodeValuesList;
         }
+    }
+
+    static public void makeUserChooseBarcodeFromList(Context context, List<BarcodeValues> barcodeValuesList, BarcodeValuesListDisambiguatorCallback callback) {
+        // If there is only one choice, consider it chosen
+        if (barcodeValuesList.size() == 1) {
+            callback.onUserChoseBarcode(barcodeValuesList.get(0));
+            return;
+        }
+
+        // Ask user to choose a barcode
+        // TODO: This should contain an image of the barcode in question to help users understand the choice they're making
+        CharSequence[] barcodeDescriptions = new CharSequence[barcodeValuesList.size()];
+        for (int i = 0; i < barcodeValuesList.size(); i++) {
+            CatimaBarcode catimaBarcode = CatimaBarcode.fromName(barcodeValuesList.get(i).format());
+            barcodeDescriptions[i] = catimaBarcode.prettyName() + ": " + barcodeValuesList.get(i).content();
+        }
+
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
+        builder.setTitle(context.getString(R.string.multiple_barcodes_found_choose_one));
+        builder.setItems(
+                barcodeDescriptions,
+                (dialogInterface, i) -> callback.onUserChoseBarcode(barcodeValuesList.get(i))
+        );
+        builder.setOnCancelListener(dialogInterface -> callback.onUserDismissedSelector());
+        builder.show();
     }
 
     static public Boolean isNotYetValid(Date validFromDate) {

@@ -646,11 +646,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     Log.d("barcode card id editor", "barcode and card id editor picker returned without an intent");
                     return;
                 }
-                BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
 
-                cardId = barcodeValues.content();
-                barcodeType = barcodeValues.format();
-                barcodeId = "";
+                List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, getApplicationContext());
+
+                Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+                    @Override
+                    public void onUserChoseBarcode(BarcodeValues barcodeValues) {
+                        cardId = barcodeValues.content();
+                        barcodeType = barcodeValues.format();
+                        barcodeId = "";
+                    }
+
+                    @Override
+                    public void onUserDismissedSelector() {
+
+                    }
+                });
             }
         });
 

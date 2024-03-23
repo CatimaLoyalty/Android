@@ -275,14 +275,24 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private void handleActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
+        List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(requestCode, resultCode, intent, this);
 
-        if (barcodeValues.isEmpty()) {
+        if (barcodeValuesList.isEmpty()) {
             setScannerActive(true);
             return;
         }
 
-        returnResult(barcodeValues.content(), barcodeValues.format());
+        Utils.makeUserChooseBarcodeFromList(this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+            @Override
+            public void onUserChoseBarcode(BarcodeValues barcodeValues) {
+                returnResult(barcodeValues.content(), barcodeValues.format());
+            }
+
+            @Override
+            public void onUserDismissedSelector() {
+                setScannerActive(true);
+            }
+        });
     }
 
     private void addWithoutBarcode() {

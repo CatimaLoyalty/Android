@@ -344,5 +344,6 @@
     <string name="addFromPdfFile">Select a PDF file</string>
     <string name="errorReadingFile">Could not read the file</string>
     <string name="failedLaunchingFileManager">Could not find a supported file manager</string>
-    <string name="multiple_barcodes_found_choose_one">Which of the found barcodes do you want to use?</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Which of the found barcodes do you want to use?</string>
+    <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
 </resources>

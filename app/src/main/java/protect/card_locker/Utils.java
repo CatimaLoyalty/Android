@@ -187,7 +187,7 @@ public class Utils {
             return new ArrayList<>();
         }
 
-        // Loop over all pages to find a barcode
+        // Loop over all pages to find barcodes
         List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
         Bitmap renderedPage;
         for (int i = 0; i < renderer.getPageCount(); i++) {
@@ -196,7 +196,11 @@ public class Utils {
             page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
             page.close();
 
-            barcodesFromPdfPages.addAll(getBarcodesFromBitmap(renderedPage));
+            List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
+            for (BarcodeValues barcodeValues : barcodesFromPage) {
+                barcodeValues.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
+                barcodesFromPdfPages.add(barcodeValues);
+            }
         }
         renderer.close();
 
@@ -323,12 +327,24 @@ public class Utils {
         // TODO: This should contain an image of the barcode in question to help users understand the choice they're making
         CharSequence[] barcodeDescriptions = new CharSequence[barcodeValuesList.size()];
         for (int i = 0; i < barcodeValuesList.size(); i++) {
-            CatimaBarcode catimaBarcode = CatimaBarcode.fromName(barcodeValuesList.get(i).format());
-            barcodeDescriptions[i] = catimaBarcode.prettyName() + ": " + barcodeValuesList.get(i).content();
+            BarcodeValues barcodeValues = barcodeValuesList.get(i);
+            CatimaBarcode catimaBarcode = CatimaBarcode.fromName(barcodeValues.format());
+
+            String barcodeContent = barcodeValues.content();
+            // Shorten overly long barcodes
+            if (barcodeContent.length() > 22) {
+                barcodeContent = barcodeContent.substring(0, 20) + "…";
+            }
+
+            if (barcodeValues.note() != null) {
+                barcodeDescriptions[i] = String.format("%s: %s (%s)", barcodeValues.note(), catimaBarcode.prettyName(), barcodeContent);
+            } else {
+                barcodeDescriptions[i] = String.format("%s (%s)", catimaBarcode.prettyName(), barcodeContent);
+            }
         }
 
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
-        builder.setTitle(context.getString(R.string.multiple_barcodes_found_choose_one));
+        builder.setTitle(context.getString(R.string.multipleBarcodesFoundPleaseChooseOne));
         builder.setItems(
                 barcodeDescriptions,
                 (dialogInterface, i) -> callback.onUserChoseBarcode(barcodeValuesList.get(i))

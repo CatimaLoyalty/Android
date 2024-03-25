@@ -1,0 +1,2 @@
+- Sửa lỗi lựa chọn ngôn ngữ không áp dụng toàn bộ
+- Sửa lỗi bị văn trong cửa sổ xem chỉnh sửa trên địa phương không có khu vực

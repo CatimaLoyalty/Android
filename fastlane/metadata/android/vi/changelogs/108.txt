@@ -1,0 +1,5 @@
+- Tính năng thêm thẻ trùng lặp
+- Không cho phép lựa chọn hết hạn trước 1970 (Hiển nhiên nó sẽ không hoạt động)
+- Tính năng hỗ trợ lưu trữ thẻ
+- Tính năng di chuyển, xoá từ chỉnh sửa sang xem
+- Loại bỏ tính năng khoá biểu tượng khoá xoay màn hình để thêm một cơ chế khoá xoay màn hình mới

@@ -1,0 +1,3 @@
+- Sửa lỗi tính năng cắt xén không theo màu chủ đề
+- Sửa những vấn đề nhỏ về chủ đề
+- Thêm chủ đề đen tuyền cho màn hình OLED

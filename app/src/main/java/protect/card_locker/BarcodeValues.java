@@ -3,10 +3,15 @@ package protect.card_locker;
 public class BarcodeValues {
     private final String mFormat;
     private final String mContent;
+    private String mNote;
 
     public BarcodeValues(String format, String content) {
         mFormat = format;
         mContent = content;
+    }
+
+    public void setNote(String note) {
+        mNote = note;
     }
 
     public String format() {
@@ -17,7 +22,5 @@ public class BarcodeValues {
         return mContent;
     }
 
-    public boolean isEmpty() {
-        return mFormat == null && mContent == null;
-    }
+    public String note() { return mNote; }
 }

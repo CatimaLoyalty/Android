@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -33,7 +31,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -195,9 +192,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     @Override
     protected void onCreate(Bundle inputSavedInstanceState) {
-        extractIntentFields(getIntent());
         SplashScreen.installSplashScreen(this);
         super.onCreate(inputSavedInstanceState);
+
+        // We should extract the share intent after we called the super.onCreate as it may need to spawn a dialog window and the app needs to be initialized to not crash
+        extractIntentFields(getIntent());
 
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -288,11 +287,11 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
             }
 
             Intent intent = result.getData();
-            BarcodeValues barcodeValues = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
+            List<BarcodeValues> barcodeValuesList = Utils.parseSetBarcodeActivityResult(Utils.BARCODE_SCAN, result.getResultCode(), intent, this);
 
             Bundle inputBundle = intent.getExtras();
             String group = inputBundle != null ? inputBundle.getString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP) : null;
-            processBarcodeValues(barcodeValues, group);
+            processBarcodeValuesList(barcodeValuesList, group, false);
         });
 
         mSettingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -447,63 +446,57 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         }
     }
 
-    private void processBarcodeValues(BarcodeValues barcodeValues, String group) {
-        if (barcodeValues.isEmpty()) {
+    private void processBarcodeValuesList(List<BarcodeValues> barcodeValuesList, String group, boolean closeAppOnNoBarcode) {
+        if (barcodeValuesList.isEmpty()) {
             throw new IllegalArgumentException("barcodesValues may not be empty");
         }
 
-        Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
-        Bundle newBundle = new Bundle();
-        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
-        newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
-        if (group != null) {
-            newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
-        }
-        newIntent.putExtras(newBundle);
-        startActivity(newIntent);
+        Utils.makeUserChooseBarcodeFromList(MainActivity.this, barcodeValuesList, new BarcodeValuesListDisambiguatorCallback() {
+            @Override
+            public void onUserChoseBarcode(BarcodeValues barcodeValues) {
+                Intent newIntent = new Intent(getApplicationContext(), LoyaltyCardEditActivity.class);
+                Bundle newBundle = new Bundle();
+                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_BARCODETYPE, barcodeValues.format());
+                newBundle.putString(LoyaltyCardEditActivity.BUNDLE_CARDID, barcodeValues.content());
+                if (group != null) {
+                    newBundle.putString(LoyaltyCardEditActivity.BUNDLE_ADDGROUP, group);
+                }
+                newIntent.putExtras(newBundle);
+                startActivity(newIntent);
+            }
+
+            @Override
+            public void onUserDismissedSelector() {
+                if (closeAppOnNoBarcode) {
+                    finish();
+                }
+            }
+        });
     }
 
     private void onSharedIntent(Intent intent) {
         String receivedAction = intent.getAction();
         String receivedType = intent.getType();
 
-        // Check if an image was shared to us
+        // Check if an image or file was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
-            if (!receivedType.startsWith("image/")) {
+            List<BarcodeValues> barcodeValuesList;
+
+            if (receivedType.startsWith("image/")) {
+                barcodeValuesList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+            } else if (receivedType.equals("application/pdf")) {
+                barcodeValuesList = Utils.retrieveBarcodesFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
+            } else {
                 Log.e(TAG, "Wrong mime-type");
                 return;
             }
 
-            BarcodeValues barcodeValues;
-            Bitmap bitmap;
-
-            Uri data = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-            if (data == null) {
-                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
+            if (barcodeValuesList.isEmpty()) {
                 finish();
                 return;
             }
 
-            try {
-                bitmap = Utils.retrieveImageFromUri(this, data);
-            } catch (IOException e) {
-                Log.e(TAG, "Error getting data from image file");
-                e.printStackTrace();
-                Toast.makeText(this, R.string.errorReadingImage, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            barcodeValues = Utils.getBarcodeFromBitmap(bitmap);
-
-            if (barcodeValues.isEmpty()) {
-                Log.i(TAG, "No barcode found in image file");
-                Toast.makeText(this, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            processBarcodeValues(barcodeValues, null);
+            processBarcodeValuesList(barcodeValuesList, null, true);
         }
     }
 

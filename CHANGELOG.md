@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased - 134
+
+- Support for scanning PDF files for barcodes
+- Support for image files with multiple barcodes
+
 ## v2.28.0 - 133 (2024-03-08)
 
 - Target Android 14

@@ -1,0 +1,2 @@
+- Support for scanning PDF files for barcodes
+- Support for image files with multiple barcodes

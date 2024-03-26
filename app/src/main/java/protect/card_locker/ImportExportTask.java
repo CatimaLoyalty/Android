@@ -136,7 +136,7 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         return doInBackground();
     }
 
-    interface TaskCompleteListener {
+    public interface TaskCompleteListener {
         void onTaskComplete(ImportExportResult result, DataFormat format);
     }
 

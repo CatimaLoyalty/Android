@@ -35,6 +35,7 @@ import protect.card_locker.databinding.ImportExportActivityBinding;
 import protect.card_locker.importexport.DataFormat;
 import protect.card_locker.importexport.ImportExportResult;
 import protect.card_locker.importexport.ImportExportResultType;
+import protect.card_locker.importexport.ImportExportService;
 
 public class ImportExportActivity extends CatimaAppCompatActivity {
     private ImportExportActivityBinding binding;
@@ -80,15 +81,13 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 Log.e(TAG, "Activity returned NULL uri");
                 return;
             }
-            try {
-                OutputStream writer = getContentResolver().openOutputStream(uri);
-                Log.e(TAG, "Starting file export with: " + result.toString());
-                startExport(writer, uri, exportPassword.toCharArray(), true);
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to export file: " + result.toString(), e);
-                onExportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, result.toString()), uri);
-            }
 
+            Intent serviceIntent = new Intent(this, ImportExportService.class);
+            serviceIntent.setData(uri);
+            serviceIntent.putExtra(ImportExportService.ACTION, ImportExportService.ACTION_EXPORT);
+            serviceIntent.putExtra(ImportExportService.FORMAT, DataFormat.Catima.name());
+            serviceIntent.putExtra(ImportExportService.PASSWORD, exportPassword);
+            startService(serviceIntent);
         });
         fileOpenLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
             if (result == null) {

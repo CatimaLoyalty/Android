@@ -45,7 +45,7 @@ public class MultiFormatImporter {
                 break;
         }
 
-        String error = null;
+        String error;
         if (importer != null) {
             File inputFile;
             try {

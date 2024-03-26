@@ -1,0 +1,1 @@
+- Sửa lỗi sai lệch màu chữ trong nút "No barcode"

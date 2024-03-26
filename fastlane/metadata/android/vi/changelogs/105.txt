@@ -1,0 +1,2 @@
+- Sửa lỗi khối xám xuất hiện trong giá trị lỗi của mã vạch
+- Sửa lỗi nhập Stocard

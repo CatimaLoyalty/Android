@@ -346,4 +346,7 @@
     <string name="failedLaunchingFileManager">Could not find a supported file manager</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Which of the found barcodes do you want to use?</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
+    <string name="exportStartedCheckNotifications">Export started, check your notifications for the result</string>
+    <string name="importStartedCheckNotifications">Import started, check your notifications for the result</string>
+    <string name="postNotificationsPermissionRequired">Permission to show notifications needed for this action…</string>
 </resources>

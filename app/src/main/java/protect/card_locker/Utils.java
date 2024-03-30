@@ -220,7 +220,6 @@ public class Utils {
             Log.i(TAG, "No barcode found in pdf file");
             Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
         }
-    
         return barcodesFromPdfPages;
     }
     

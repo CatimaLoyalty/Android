@@ -204,7 +204,7 @@ public class Utils {
             Log.e(TAG, "Error reading PDF file", e);
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
         } finally {
-            // Close resources in finally block
+            // Resource handling
             if (renderer != null) {
                 renderer.close();
             }

@@ -222,7 +222,6 @@ public class Utils {
         }
         return barcodesFromPdfPages;
     }
-    
 
     /**
      * Returns the Barcode format and content based on the result of an activity.

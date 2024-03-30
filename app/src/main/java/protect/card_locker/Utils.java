@@ -169,7 +169,6 @@ public class Utils {
 
     static public List<BarcodeValues> retrieveBarcodesFromPdf(Context context, Uri uri) {
         Log.i(TAG, "Received PDF file with possible barcode");
-    
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();

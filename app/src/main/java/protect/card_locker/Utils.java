@@ -169,46 +169,57 @@ public class Utils {
 
     static public List<BarcodeValues> retrieveBarcodesFromPdf(Context context, Uri uri) {
         Log.i(TAG, "Received PDF file with possible barcode");
-
         if (uri == null) {
             Log.e(TAG, "Uri did not contain any data");
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
-
-        ParcelFileDescriptor parcelFileDescriptor;
-        PdfRenderer renderer;
+    
+        ParcelFileDescriptor parcelFileDescriptor = null;
+        PdfRenderer renderer = null;
+        List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
+    
         try {
             parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
-            renderer = new PdfRenderer(parcelFileDescriptor);
+            if (parcelFileDescriptor != null) {
+                renderer = new PdfRenderer(parcelFileDescriptor);
+    
+                // Loop over all pages to find barcodes
+                Bitmap renderedPage;
+                for (int i = 0; i < renderer.getPageCount(); i++) {
+                    PdfRenderer.Page page = renderer.openPage(i);
+                    renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
+                    page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+                    page.close();
+    
+                    List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
+                    for (BarcodeValues barcodeValues : barcodesFromPage) {
+                        barcodeValues.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
+                        barcodesFromPdfPages.add(barcodeValues);
+                    }
+                }
+            }
         } catch (IOException e) {
-            Log.e(TAG, "Could not read file in uri");
+            Log.e(TAG, "Error reading PDF file", e);
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
-            return new ArrayList<>();
-        }
-
-        // Loop over all pages to find barcodes
-        List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
-        Bitmap renderedPage;
-        for (int i = 0; i < renderer.getPageCount(); i++) {
-            PdfRenderer.Page page = renderer.openPage(i);
-            renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
-            page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
-            page.close();
-
-            List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
-            for (BarcodeValues barcodeValues : barcodesFromPage) {
-                barcodeValues.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
-                barcodesFromPdfPages.add(barcodeValues);
+        } finally {
+            // Resource handling
+            if (renderer != null) {
+                renderer.close();
+            }
+            if (parcelFileDescriptor != null) {
+                try {
+                    parcelFileDescriptor.close();
+                } catch (IOException e) {
+                    Log.e(TAG, "Error closing ParcelFileDescriptor", e);
+                }
             }
         }
-        renderer.close();
-
+    
         if (barcodesFromPdfPages.isEmpty()) {
             Log.i(TAG, "No barcode found in pdf file");
             Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
         }
-
         return barcodesFromPdfPages;
     }
 

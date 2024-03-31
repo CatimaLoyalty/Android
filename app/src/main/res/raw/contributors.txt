@@ -48,6 +48,7 @@ Robin Liu
 Denis Shilin
 Alexander Ivanov
 Miha Frangež
+Viet Nguyen Hoang
 Silvério Santos
 Virginie
 Michael Gangolf

@@ -2,13 +2,13 @@
 <resources>
     <string name="save">Snimi</string>
     <string name="cancel">Odustani</string>
-    <string name="unstar">Ukloni sve omiljene</string>
-    <string name="star">Omiljene</string>
-    <string name="barcodeType">Barcode tip</string>
-    <string name="note">Bilježnica</string>
+    <string name="unstar">Ukloni iz omiljenih</string>
+    <string name="star">Dodaj u omiljene</string>
+    <string name="barcodeType">Tip barkoda</string>
+    <string name="note">Zabilješka</string>
     <string name="storeName">Ime</string>
     <string name="noMatchingGiftCards">Nema rezultata. Pokušaj promijeniti pretragu.</string>
-    <string name="noGiftCards">Kliknite + Plus dugme da dodate kartu ili uvozite nešto iz menija prvo.</string>
+    <string name="noGiftCards">Kliknite + Plus dugme da dodate kartu ili uvezete nešto iz menija prvo.</string>
     <string name="action_add">Dodaj</string>
     <string name="all">Sve</string>
     <string name="noGroupCards">Ova grupa ne sadrži nikakve karte</string>
@@ -104,4 +104,6 @@
     <string name="importOptionApplicationExplanation">Koristi bilo koju aplikaciju ili Vašu omiljenu aplikaciju da bi otvorili file.</string>
     <string name="importOptionApplicationButton">Koristi drugu aplikaciju</string>
     <string name="about">O</string>
+    <string name="noBarcode">Nema barkoda</string>
+    <string name="deleteTitle">Obriši karticu</string>
 </resources>

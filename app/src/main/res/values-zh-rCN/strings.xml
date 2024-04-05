@@ -283,4 +283,9 @@
     <string name="receive">接收</string>
     <string name="amountParsingFailed">无效金额</string>
     <string name="spend">支出</string>
+    <string name="errorReadingFile">无法读取文件</string>
+    <string name="failedLaunchingFileManager">找不到支持的文件管理器</string>
+    <string name="pageWithNumber">第 <xliff:g>%d</xliff:g> 页</string>
+    <string name="addFromPdfFile">选择 PDF 文件</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">找到的多个条形码中，你希望使用哪个？</string>
 </resources>

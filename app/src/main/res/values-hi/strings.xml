@@ -290,4 +290,9 @@
     <string name="spend">खर्च किया</string>
     <string name="receive">प्राप्त किया</string>
     <string name="amountParsingFailed">अमान्य राशि</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">आप पाए गए बारकोड में से कौन सा उपयोग करना चाहते हैं?</string>
+    <string name="pageWithNumber">पृष्ठ <xliff:g>%d</xliff:g></string>
+    <string name="addFromPdfFile">एक PDF फाइल चुनें</string>
+    <string name="errorReadingFile">फाइल को पढ़ा नहीं जा सका</string>
+    <string name="failedLaunchingFileManager">समर्थित फाइल प्रबंधक नहीं मिल सका</string>
 </resources>

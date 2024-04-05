@@ -283,4 +283,9 @@
     <string name="receive">Nhận được</string>
     <string name="amountParsingFailed">Số tiền không hợp lệ</string>
     <string name="add_manually_warning_message">Đối với một số cửa hàng, giá trị mã vạch khác với số ghi trên thẻ. Vì lý do này, việc nhập mã vạch theo cách thủ công không phải lúc nào cũng hiệu quả. Thay vào đó, bạn nên quét mã vạch bằng máy ảnh của mình. Bạn vẫn muốn tiếp tục chứ?</string>
+    <string name="addFromPdfFile">Chọn tệp PDF</string>
+    <string name="errorReadingFile">Không thể đọc tệp</string>
+    <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Bạn muốn sử dụng mã vạch nào được tìm thấy?</string>
+    <string name="failedLaunchingFileManager">Không thể tìm thấy trình quản lý tệp được hỗ trợ</string>
 </resources>

@@ -304,7 +304,7 @@
     <string name="spend">Потрачено</string>
     <string name="receive">Получено</string>
     <string name="amountParsingFailed">Недопустимая сумма</string>
-    <string name="addFromPdfFile">Выберите PDF файл</string>
+    <string name="addFromPdfFile">Выберите PDF-файл</string>
     <string name="errorReadingFile">Не удалось прочитать файл</string>
     <string name="pageWithNumber">Страница <xliff:g>%d</xliff:g></string>
     <string name="failedLaunchingFileManager">Не найден поддерживаемый файловый менеджер</string>

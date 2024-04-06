@@ -1,0 +1,2 @@
+- Suporte para digitalização de códigos de barras em ficheiros PDF
+- Suporte para ficheiros de imagem com múltiplos códigos de barras

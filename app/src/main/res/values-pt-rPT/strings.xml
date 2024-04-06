@@ -297,4 +297,9 @@
     <string name="receive">Receber</string>
     <string name="amountParsingFailed">Montante inválida</string>
     <string name="settings_follow_sensor_orientation">Rodar sempre (ignora as definições do sistema)</string>
+    <string name="addFromPdfFile">Selecionar um ficheiro PDF</string>
+    <string name="errorReadingFile">Não foi possível ler o ficheiro</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Qual dos códigos de barras encontrados pretende utilizar?</string>
+    <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
+    <string name="failedLaunchingFileManager">Não foi possível encontrar um gestor de ficheiros suportado</string>
 </resources>

@@ -290,4 +290,9 @@
     <string name="spend">Harca</string>
     <string name="receive">Al</string>
     <string name="amountParsingFailed">Geçersiz miktar</string>
+    <string name="errorReadingFile">Dosya okunamadı</string>
+    <string name="failedLaunchingFileManager">Desteklenen dosya yöneticisi bulunamadı</string>
+    <string name="addFromPdfFile">PDF dosyası seç</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Bulunan barkodlardan hangisini kullanmak istiyorsunuz?</string>
+    <string name="pageWithNumber">Sayfa <xliff:g>%d</xliff:g></string>
 </resources>

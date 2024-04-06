@@ -297,4 +297,9 @@
     <string name="amountParsingFailed">Importo non valido</string>
     <string name="spend">Spendi</string>
     <string name="receive">Ricevi</string>
+    <string name="errorReadingFile">Impossibile leggere il file</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Quale dei codici a barre trovati vuoi utilizzare?</string>
+    <string name="addFromPdfFile">Seleziona un file PDF</string>
+    <string name="failedLaunchingFileManager">Impossibile trovare un file manager supportato</string>
+    <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
 </resources>

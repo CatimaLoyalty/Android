@@ -290,4 +290,9 @@
     <string name="receive">Vastaanota</string>
     <string name="amountParsingFailed">Virheellinen määrä</string>
     <string name="add_manually_warning_message">Joidenkin kauppojen kohdalla viivakoodin arvo eroaa kortilla olevasta numerosta. Tämän takia viivakoodin syöttäminen käsin ei aina toimi. On vahvasti suositeltua skannata viivakoodi kameralla. Haluatko silti jatkaa?</string>
+    <string name="addFromPdfFile">Valitse PDF-tiedosto</string>
+    <string name="errorReadingFile">Tiedostoa ei voitu lukea</string>
+    <string name="failedLaunchingFileManager">Tuettua tiedostonhallintasovellusta ei löytynyt</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Mitä löytyneistä viivakoodeista haluat käyttää?</string>
+    <string name="pageWithNumber">Sivu <xliff:g>%d</xliff:g></string>
 </resources>

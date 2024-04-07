@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:padding="10dp">
+        android:paddingVertical="8dp"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +36,9 @@
                 android:id="@+id/version_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/version_history_main"
@@ -74,7 +77,9 @@
                 android:id="@+id/credits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/credits_main"
@@ -113,7 +118,9 @@
                 android:id="@+id/translate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/translate_main"
@@ -153,7 +160,9 @@
                 android:id="@+id/license"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/license_main"
@@ -193,7 +202,9 @@
                 android:id="@+id/repo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/repo_main"
@@ -233,7 +244,9 @@
                 android:id="@+id/privacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/privacy_main"
@@ -273,7 +286,9 @@
                 android:id="@+id/donate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/donate_main"
@@ -284,6 +299,7 @@
                     android:text="@string/donate"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -303,7 +319,9 @@
                 android:id="@+id/rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/rate_main"
@@ -340,10 +358,12 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="8dp"
                 android:id="@+id/report_error"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="?android:selectableItemBackground">
 
                 <TextView
                     android:id="@+id/report_error_main"

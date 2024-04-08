@@ -247,7 +247,7 @@
     <string name="failedToRetrieveImageFile">Збій доступу до файлу зображення</string>
     <string name="barcodeLongPressMessage">Галерея може відкривати лише зображення</string>
     <string name="importCards">Імпорт карток</string>
-    <string name="updateBalanceTitle">Скільки витратили?</string>
+    <string name="updateBalanceTitle">Скільки ви витратили або отримали?</string>
     <string name="updateBalanceHint">Введіть суму</string>
     <string name="currentBalanceSentence">Поточний баланс: <xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">Новий баланс: <xliff:g>%s</xliff:g></string>
@@ -301,4 +301,12 @@
     <string name="add_manually_warning_message">У деяких магазинах значення штрихкоду відрізняється від номера, записаного на картці. Через це введення штрихкоду вручну може не завжди спрацювати. Наполегливо рекомендуємо відсканувати штрихкод за допомогою камери. Ви все ще хочете продовжити?</string>
     <string name="continue_">Продовжити</string>
     <string name="add_manually_warning_title">Рекомендується відсканувати</string>
+    <string name="failedLaunchingFileManager">Не вдалося знайти підтримуваний файловий менеджер</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Який зі знайдених штрих-кодів ви хочете використати?</string>
+    <string name="addFromPdfFile">Виберіть PDF файл</string>
+    <string name="errorReadingFile">Не вдалося прочитати файл</string>
+    <string name="pageWithNumber">Сторінка <xliff:g>%d</xliff:g></string>
+    <string name="spend">Витратити</string>
+    <string name="receive">Отримайте</string>
+    <string name="amountParsingFailed">Неправильна сума</string>
 </resources>

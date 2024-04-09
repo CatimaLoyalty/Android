@@ -290,4 +290,9 @@
     <string name="amountParsingFailed">Неприемлива сума</string>
     <string name="spend">Похарчено</string>
     <string name="receive">Получено</string>
+    <string name="pageWithNumber">Страница <xliff:g>%d</xliff:g></string>
+    <string name="addFromPdfFile">Изберете PDF</string>
+    <string name="errorReadingFile">Файлът не може да бъде прочетен</string>
+    <string name="failedLaunchingFileManager">Не е намерено приложение за управление на файлове</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Кой от намерените щрихкодове желаете да бъде използван?</string>
 </resources>

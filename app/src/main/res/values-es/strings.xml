@@ -297,4 +297,9 @@
     <string name="spend">Gastar</string>
     <string name="receive">Recibió</string>
     <string name="amountParsingFailed">Importe incorrecto</string>
+    <string name="addFromPdfFile">Seleccionar un archivo PDF</string>
+    <string name="errorReadingFile">No se ha podido leer el archivo</string>
+    <string name="failedLaunchingFileManager">No se ha podido encontrar un gestor de archivos compatible</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">¿Cuál de los códigos de barras encontrados desea utilizar?</string>
+    <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
 </resources>

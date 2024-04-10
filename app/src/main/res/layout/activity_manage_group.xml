@@ -31,14 +31,6 @@
                 android:layout_height="?attr/actionBarSize"
                 style="?attr/toolbarStyle" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/groups"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:background="@android:color/transparent"
-                app:tabMode="scrollable" />
-
         </com.google.android.material.appbar.AppBarLayout>
 
 

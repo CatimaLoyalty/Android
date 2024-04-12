@@ -4,6 +4,7 @@
 
 - Support for scanning PDF files for barcodes
 - Support for image files with multiple barcodes
+- Minor UI fixes
 
 ## v2.28.0 - 133 (2024-03-08)
 

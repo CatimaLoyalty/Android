@@ -290,4 +290,9 @@
     <string name="spend">Zahlen</string>
     <string name="receive">Erhalten</string>
     <string name="amountParsingFailed">Ungültiger Betrag</string>
+    <string name="addFromPdfFile">PDF-Datei auswählen</string>
+    <string name="errorReadingFile">Datei konnte nicht gelesen werden</string>
+    <string name="failedLaunchingFileManager">Konnte keinen unterstützten Dateimanager finden</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Welchen der gefundenen Barcodes möchten Sie verwenden?</string>
+    <string name="pageWithNumber">Seite <xliff:g>%d</xliff:g></string>
 </resources>

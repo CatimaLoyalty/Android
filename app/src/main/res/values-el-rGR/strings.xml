@@ -264,4 +264,16 @@
     <string name="setBarcodeHeight">Ρυθμίστε το ύψος του barcode</string>
     <string name="show_name_below_image_thumbnail">Εμφάνιση ονόματος κάτω από το εικονίδιο</string>
     <string name="app_name">Catima</string>
+    <string name="balanceParsingFailed">Μη έγκυρο υπόλοιπο</string>
+    <string name="continue_">Συνέχεια</string>
+    <string name="settings_category_title_privacy">Απόρρητο</string>
+    <string name="addFromPdfFile">Επιλογή PDF αρχείου</string>
+    <string name="add_manually_warning_message">Για ορισμένα καταστήματα, ο γραμμοκώδικας διαφέρει από τον αριθμό που αναγράφεται πάνω στην κάρτα. Εξαιτίας αυτού, η εισαγωγή γραμμοκώδικα χειροκίνητα ενδέχεται να μην λειτουργεί πάντα. Προτείνεται να σκανάρετε τον γραμμοκώδικα με χρήση της κάμερας. Επιθυμείτε να συνεχίσετε ;</string>
+    <string name="amountParsingFailed">Μη έγκυρο ποσό</string>
+    <string name="show_balance">Προβολή υπολοίπου</string>
+    <string name="action_display_options">Επιλογές Εμφάνισης</string>
+    <string name="settings_category_title_cards">Κάρτες</string>
+    <string name="settings_category_title_general">Γενικά</string>
+    <string name="show_archived_cards">Προβολή αρχειοθετημένων καρτών</string>
+    <string name="addWithoutBarcode">Προσθήκη κάρτας χωρίς γραμμοκώδικα</string>
 </resources>

@@ -2,3 +2,5 @@
 - Améliorations du flux de validation
 - Correction du cas de bord qui causait un état de l'interface invalide au basculement sur l'affichage de l'archive
 - Utilisation du thème ou de la couleur de carte pour la barre de navigation (Android 8.1+)
+- Mise à jour du sélecteur de date de validité et d'expiration
+- Ajout d'une option pour toujours pivoter (ignore les paramètres système)

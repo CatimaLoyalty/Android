@@ -409,10 +409,6 @@ public class Utils {
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
-        if (numberFormat instanceof DecimalFormat) {
-            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
-        }
-
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
             return numberFormat.format(value);

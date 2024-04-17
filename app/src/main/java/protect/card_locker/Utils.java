@@ -66,6 +66,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -408,6 +409,10 @@ public class Utils {
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
+        if (numberFormat instanceof DecimalFormat) {
+            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
+        }
+
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
             return numberFormat.format(value);
@@ -422,6 +427,10 @@ public class Utils {
     static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
+        if (numberFormat instanceof DecimalFormat) {
+            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
+        }
+
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
         } else {
@@ -429,9 +438,7 @@ public class Utils {
             numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
         }
 
-        Log.d(TAG, numberFormat.parse(value).toString());
-
-        return new BigDecimal(numberFormat.parse(value).toString());
+        return (BigDecimal) numberFormat.parse(value);
     }
 
     static public byte[] bitmapToByteArray(Bitmap bitmap) {

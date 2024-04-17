@@ -318,4 +318,9 @@
     <string name="receive">استلم</string>
     <string name="amountParsingFailed">كمية غير صحيحة</string>
     <string name="add_manually_warning_message">في بعض المتاجر قيمة الباركود تختلف عن الرقم الموجود على البطاقة. لهذا السبب إدخال الباركود يدوياً لن ينجح دائماً. من المستحسن فحص الباركود بكاميرا بدلا من ذالك. هل انت مُصِر على الاستكمال؟</string>
+    <string name="addFromPdfFile">تحديد ملف PDF</string>
+    <string name="errorReadingFile">لا يمكن قراءة الملف</string>
+    <string name="failedLaunchingFileManager">لم يتم العثور على مدير ملفات مدعوم</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">اي من الـbarcodes تريد استخدامه؟</string>
+    <string name="pageWithNumber">صفحة<xliff:g>%d</xliff:g></string>
 </resources>

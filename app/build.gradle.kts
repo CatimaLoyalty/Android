@@ -93,7 +93,7 @@ dependencies {
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation("com.github.yalantis:ucrop:2.2.8")
+    implementation("com.github.yalantis:ucrop:2.2.9")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     // Splash Screen

@@ -278,4 +278,14 @@
     <string name="app_name">Catima</string>
     <string name="add_manually_warning_title">스캔을 권장합니다</string>
     <string name="settings_follow_sensor_orientation">항상 회전 (시스템 설정 무시)</string>
+    <string name="continue_">계속</string>
+    <string name="addFromPdfFile">PDF 파일 선택</string>
+    <string name="errorReadingFile">파일을 읽을 수 없습니다</string>
+    <string name="failedLaunchingFileManager">지원되는 파일 관리자를 찾을 수 없습니다</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">검색된 바코드 중 어떤 바코드를 사용하시겠습니까?</string>
+    <string name="pageWithNumber">페이지 <xliff:g>%d</xliff:g></string>
+    <string name="spend">보내기</string>
+    <string name="receive">받기</string>
+    <string name="amountParsingFailed">잘못된 금액</string>
+    <string name="add_manually_warning_message">일부 매장의 경우 바코드 값이 카드에 적힌 숫자와 다릅니다. 이 때문에 수동으로 바코드를 입력하는 것이 항상 작동하지 않을 수 있습니다. 대신 카메라로 바코드를 스캔하는 것이 좋습니다. 계속하시겠습니까?</string>
 </resources>

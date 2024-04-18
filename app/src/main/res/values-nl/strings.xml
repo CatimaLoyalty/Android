@@ -290,4 +290,8 @@
     <string name="spend">Geef uit</string>
     <string name="receive">Ontvang</string>
     <string name="amountParsingFailed">Ongeldig bedrag</string>
+    <string name="addFromPdfFile">Kies een PDF-bestand</string>
+    <string name="errorReadingFile">Lezen bestand mislukt</string>
+    <string name="failedLaunchingFileManager">Geen werkende file manager gevonden</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Welke van de gevonden barcodes wil je gebruiken?</string>
 </resources>

@@ -54,7 +54,7 @@
         <item quantity="other"><xliff:g>%d</xliff:g> επιλέγχθηκαν</item>
     </plurals>
     <string name="noGiftCardsGroup">Δημιούργησε κάρτες και βάλτες σε αυτή την ομάδα.</string>
-    <string name="addManually">Χειροκίνητη εισαγωγή κωδικού</string>
+    <string name="addManually">Εισαγάγετε τον γραμμωτό κώδικα με μη αυτόματο τρόπο</string>
     <string name="never">Ποτέ</string>
     <string name="share">Κοινοποίηση</string>
     <plurals name="balancePoints">
@@ -71,7 +71,7 @@
     <string name="accept">Αποδοχή</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
-    <string name="addFromImage">Επιλογή εικόνας από την συλλογή</string>
+    <string name="addFromImage">Επιλέξτε μια εικόνα από τη συλλογή</string>
     <string name="expiryStateSentence">Λήγει: <xliff:g>%s</xliff:g></string>
     <string name="expiryDate">Ημερομηνία λήξης</string>
     <string name="settings_keep_screen_on">Κράτα την οθόνη ανοιχτή</string>
@@ -102,7 +102,7 @@
     <string name="options">Επιλογές</string>
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
     <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
-    <string name="group_name_is_empty">Το όνομα ομάδας δεν γίνεται να είναι κενό</string>
+    <string name="group_name_is_empty">Το όνομα της ομάδας δεν πρέπει να είναι κενό</string>
     <string name="group_edit">Επεξεργασία ομάδας</string>
     <string name="star">Προσθήκη στα αγαπημένα</string>
     <string name="unstar">Αφαίρεση από τα αγαπημένα</string>
@@ -240,10 +240,10 @@
     <string name="newBalanceSentence">Νέο υπόλοιπο: <xliff:g>%s</xliff:g></string>
     <string name="failedToOpenUrl">Εγκαταστήστε έναν περιηγητή πρώτα</string>
     <string name="welcome">Καλώς ήρθατε στο Catima</string>
-    <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης ενόσω βλέπετε μια κάρτα</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης κατά την προβολή μιας κάρτας</string>
     <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποια σκάνερ</string>
     <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
-    <string name="settings_allow_content_provider_read_title">Επιτρέπει σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
+    <string name="settings_allow_content_provider_read_title">Να επιτρέπεται σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
     <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
     <string name="height">Ύψος:</string>
     <string name="switchToFrontImage">Μετάβαση στην μπροστινή εικόνα</string>
@@ -253,7 +253,7 @@
     <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
     <string name="openBackImageInGalleryApp">Ανοίξτε την πίσω εικόνα στην εφαρμογή γκαλερί</string>
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
-    <string name="donate">Προσφέρω</string>
+    <string name="donate">Δωρίζω</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
     <string name="openFrontImageInGalleryApp">Ανοίξτε την μπροστινή εικόνα στην εφαρμογή γκαλερί</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
@@ -276,4 +276,23 @@
     <string name="settings_category_title_general">Γενικά</string>
     <string name="show_archived_cards">Προβολή αρχειοθετημένων καρτών</string>
     <string name="addWithoutBarcode">Προσθήκη κάρτας χωρίς γραμμοκώδικα</string>
+    <string name="view_online">Προβολή διαδικτυακά</string>
+    <string name="errorReadingFile">Δεν ήταν δυνατή η ανάγνωση του αρχείου</string>
+    <string name="failedLaunchingFileManager">Δεν ήταν δυνατή η εύρεση υποστηριζόμενης διαχείρισης αρχείων</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Ποιους από τους γραμμωτούς κώδικες που βρέθηκαν θέλετε να χρησιμοποιήσετε;</string>
+    <string name="pageWithNumber">Σελίδα <xliff:g>%d</xliff:g></string>
+    <string name="spend">Δαπάνησε</string>
+    <string name="receive">Λαμβάνω</string>
+    <string name="settings_keep_screen_on_summary">Απενεργοποιεί το χρονικό όριο της οθόνης κατά την προβολή μιας κάρτας</string>
+    <string name="settings_oled_dark_summary">Μειώνει τη χρήση της μπαταρίας στις οθόνες OLED</string>
+    <string name="show_note">Εμφάνιση σημείωσης</string>
+    <string name="action_more_options">Περισσότερες επιλογές</string>
+    <string name="enter_card_id">Εισαγάγετε τον αριθμό ταυτότητας ή το κείμενο στην κάρτα σας</string>
+    <string name="show_validity">Δείξτε εγκυρότητα</string>
+    <string name="add_a_card_in_a_different_way">Προσθέστε μια κάρτα με διαφορετικό τρόπο</string>
+    <string name="card_id_must_not_be_empty">Ο αναγνωριστικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
+    <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ακόμα να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
+    <string name="field_must_not_be_empty">Το πεδίο δεν πρέπει να είναι κενό</string>
+    <string name="manually_enter_barcode_instructions">Εισαγάγετε τον αριθμό ταυτότητας ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
+    <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>
 </resources>

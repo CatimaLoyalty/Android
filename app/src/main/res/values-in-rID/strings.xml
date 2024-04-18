@@ -231,7 +231,7 @@
     <string name="updateBalance">Perbarui saldo</string>
     <string name="updateBalanceHint">Masukkan jumlah</string>
     <string name="currentBalanceSentence">Saldo saat ini: <xliff:g>%s</xliff:g></string>
-    <string name="updateBalanceTitle">Berapa banyak yang telah kamu habiskan ?</string>
+    <string name="updateBalanceTitle">Berapa banyak yang kamu belanjakan atau terima?</string>
     <string name="noCameraPermissionDirectToSystemSetting">Untuk memindai barcode, Catima membutuhkan akses ke kamera mu. Tap disini untuk mengganti pengaturan perizinan mu.</string>
     <string name="cameraPermissionRequired">Berikan izin untuk mengakses kamera anda…</string>
     <string name="storageReadPermissionRequired">Berikan izin untuk membaca penyimpanan anda…</string>
@@ -277,4 +277,15 @@
     <string name="field_must_not_be_empty">Isian tidak boleh kosong</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Selalu rotasi (abaikan pengaturan sistem)</string>
+    <string name="add_manually_warning_title">Pemindaian sangat dianjurkan</string>
+    <string name="continue_">Lanjut</string>
+    <string name="failedLaunchingFileManager">Tidak dapat menemukan pengelola file yang didukung</string>
+    <string name="errorReadingFile">Tidak dapat membaca file</string>
+    <string name="addFromPdfFile">Pilih file PDF</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Barcode mana yang ingin Anda gunakan?</string>
+    <string name="pageWithNumber">Halaman <xliff:g>%d</xliff:g></string>
+    <string name="spend">Dibelanjakan</string>
+    <string name="receive">Terima</string>
+    <string name="amountParsingFailed">Jumlah tidak valid</string>
+    <string name="add_manually_warning_message">Untuk beberapa toko, nilai barcode berbeda dengan nomor yang tertulis di kartu. Oleh karena itu, memasukkan barcode secara manual mungkin tidak selalu berhasil. Sangat disarankan untuk memindai barcode dengan kamera anda. Apakah anda masih ingin melanjutkan?</string>
 </resources>

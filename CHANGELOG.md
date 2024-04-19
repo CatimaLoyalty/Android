@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 134
+## v2.29.0 - 134 (2024-04-19)
 
 - Support for scanning PDF files for barcodes
 - Support for image files with multiple barcodes

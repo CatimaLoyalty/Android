@@ -297,4 +297,9 @@
     <string name="spend">Utratit</string>
     <string name="receive">Obdržet</string>
     <string name="amountParsingFailed">Neplatné množství</string>
+    <string name="addFromPdfFile">Vybrat soubor PDF</string>
+    <string name="errorReadingFile">Soubor nelze přečíst</string>
+    <string name="pageWithNumber">Stránka <xliff:g>%d</xliff:g></string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Který z nalezených čárových kódů chcete použít?</string>
+    <string name="failedLaunchingFileManager">Nelze nalézt podporovaný správce souborů</string>
 </resources>

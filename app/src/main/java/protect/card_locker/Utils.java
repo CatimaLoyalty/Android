@@ -439,14 +439,16 @@ public class Utils {
     static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance();
 
+        if (numberFormat instanceof DecimalFormat) {
+            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
+        }
+
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
         } else {
             numberFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
             numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
         }
-
-        //Log.d(TAG, numberFormat.parse(value).toString()); //Got the same behavior with this line not being commented as well
 
         return fromParsed(numberFormat.parse(value));
     }

@@ -13,7 +13,7 @@ Met deze essentiële app kun je die waardeloze plastic kaarten weggooien.
 - Deel coupons, exclusieve aanbiedingen, promocodes of kaarten en codes met andere apps;
 - Donker thema en toegankelijkheidsopties voor blinden en slechtzienden;
 - Gemaakt voor iedereen door de vrijesoftwaregemeenschap;
-- De app is met de hand vertaald naar meer dan 20 talen;
+- De app is met de hand vertaald naar meer dan 40 talen;
 - Gratis, ondersteund door de gemeenschap;
 - Bekijk de broncode, pas deze aan en deel deze <i>met iedereen</i> (indien gewenst);
 - Niet alleen vrije software/open source, maar ook <i>copyleft</i> vrije software (GPLv3+).

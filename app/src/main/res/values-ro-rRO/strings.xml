@@ -297,4 +297,9 @@
     <string name="spend">Cheltuie</string>
     <string name="receive">Primește</string>
     <string name="amountParsingFailed">Sumă nevalidă</string>
+    <string name="addFromPdfFile">Selectați un fișier PDF</string>
+    <string name="errorReadingFile">Nu am putut citi fișierul</string>
+    <string name="failedLaunchingFileManager">Nu s-a găsit un manager de fișiere suportat</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Pe care dintre codurile de bare găsite dorești să-l folosești?</string>
+    <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
 </resources>

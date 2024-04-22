@@ -25,7 +25,7 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v4.1.1
+      uses: actions/checkout@v4.1.3
     - name: Update contributors
       id: update_contributors
       uses: TheLastProject/contributors-to-file-action@v3.2.0
@@ -33,7 +33,7 @@ jobs:
         file_in_repo: app/src/main/res/raw/contributors.txt
         min_commit_count: 5
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6.0.3
+      uses: peter-evans/create-pull-request@v6.0.4
       with:
         title: "Update contributors"
         commit-message: "Update contributors"

@@ -25,13 +25,13 @@ jobs:
   update-locales:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.1
+    - uses: actions/checkout@v4.1.3
     - name: Add new locales
       run: .scripts/new-locales.py
     - name: Update locales
       run: .scripts/locales.py
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6.0.3
+      uses: peter-evans/create-pull-request@v6.0.4
       with:
         title: "Update locales"
         commit-message: "Update locales"

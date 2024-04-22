@@ -420,12 +420,24 @@ public class Utils {
         return numberFormat.format(value);
     }
 
+    private static final double LargestPreciseDouble = (double) (1l << 53);
+    static{
+        assert (LargestPreciseDouble + 1.0) == LargestPreciseDouble;
+        assert (LargestPreciseDouble - 1.0) != LargestPreciseDouble;
+    }
+
+    private static BigDecimal fromParsed(Number parsed){
+        if(parsed instanceof BigDecimal)
+            return (BigDecimal) parsed;
+
+        final double d = parsed.doubleValue();
+        if(d >= LargestPreciseDouble)
+            return new BigDecimal(parsed.longValue());
+        return new BigDecimal(d);
+    }
+
     static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance();
-
-        if (numberFormat instanceof DecimalFormat) {
-            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
-        }
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
@@ -434,7 +446,9 @@ public class Utils {
             numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
         }
 
-        return (BigDecimal) numberFormat.parse(value);
+        //Log.d(TAG, numberFormat.parse(value).toString()); //Got the same behavior with this line not being commented as well
+
+        return fromParsed(numberFormat.parse(value));
     }
 
     static public byte[] bitmapToByteArray(Bitmap bitmap) {

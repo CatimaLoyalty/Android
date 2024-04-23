@@ -4,7 +4,7 @@
     <string name="noGiftCards">Haz clic en el botón + para añadir una tarjeta, o importa desde el menú ⋮.</string>
     <string name="storeName">Nombre</string>
     <string name="note">Nota</string>
-    <string name="cardId">ID. de tarjeta</string>
+    <string name="cardId">ID de tarjeta</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
     <string name="edit">Editar</string>
@@ -20,7 +20,7 @@
     <string name="noCardExistsError">No se ha podido encontrar esa tarjeta</string>
     <string name="importExport">Importar/Exportar</string>
     <string name="exportName">Exportar</string>
-    <string name="importExportHelp">Hacer una copia de seguridad de los datos permite trasladarlos a otro dispositivo.</string>
+    <string name="importExportHelp">Respaldar tus datos permite trasladarlos a otro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
     <string name="importFailedTitle">Falló la importación</string>
     <string name="importFailed">No se ha podido realizar la importación</string>
@@ -33,7 +33,7 @@
     <string name="importOptionFilesystemExplanation">Elegir un archivo concreto del sistema de archivos.</string>
     <string name="importOptionFilesystemButton">Desde el sistema de archivos</string>
     <string name="importOptionApplicationTitle">Utilizar otra aplicación</string>
-    <string name="importOptionApplicationExplanation">Use una aplicación o su gestor de archivos favoritos para abrir un archivo.</string>
+    <string name="importOptionApplicationExplanation">Usa cualquier aplicación o tu administrador de archivos favorito para abrir un archivo.</string>
     <string name="importOptionApplicationButton">Utilizar otra aplicación</string>
     <string name="about">Acerca de</string>
     <string name="app_license">Programa libre con «copyleft», disponible en virtud de la licencia GPLv3+</string>

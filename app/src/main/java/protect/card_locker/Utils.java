@@ -66,6 +66,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -419,8 +420,28 @@ public class Utils {
         return numberFormat.format(value);
     }
 
+    private static final double LargestPreciseDouble = (double) (1l << 53);
+    static{
+        assert (LargestPreciseDouble + 1.0) == LargestPreciseDouble;
+        assert (LargestPreciseDouble - 1.0) != LargestPreciseDouble;
+    }
+
+    private static BigDecimal fromParsed(Number parsed){
+        if(parsed instanceof BigDecimal)
+            return (BigDecimal) parsed;
+
+        final double d = parsed.doubleValue();
+        if(d >= LargestPreciseDouble)
+            return new BigDecimal(parsed.longValue());
+        return new BigDecimal(d);
+    }
+
     static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance();
+
+        if (numberFormat instanceof DecimalFormat) {
+            ((DecimalFormat) numberFormat).setParseBigDecimal(true);
+        }
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
@@ -429,9 +450,7 @@ public class Utils {
             numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
         }
 
-        Log.d(TAG, numberFormat.parse(value).toString());
-
-        return new BigDecimal(numberFormat.parse(value).toString());
+        return fromParsed(numberFormat.parse(value));
     }
 
     static public byte[] bitmapToByteArray(Bitmap bitmap) {

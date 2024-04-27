@@ -276,4 +276,10 @@
     <string name="settings_display_barcode_max_brightness_summary">一些條碼掃描器需要此設定方能運作</string>
     <string name="field_must_not_be_empty">欄位不能為空</string>
     <string name="settings_follow_sensor_orientation">始終旋轉（忽略系統設定）</string>
+    <string name="add_manually_warning_title">建議掃描</string>
+    <string name="failedLaunchingFileManager">找不到支援的檔案管理器</string>
+    <string name="addFromPdfFile">選擇一個 PDF 檔案</string>
+    <string name="errorReadingFile">無法讀取此檔案</string>
+    <string name="receive">接收</string>
+    <string name="amountParsingFailed">無效的數值</string>
 </resources>

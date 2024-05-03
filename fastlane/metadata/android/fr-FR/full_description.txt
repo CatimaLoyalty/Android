@@ -13,9 +13,9 @@ Avec cet outil essentiel à emporter au quotidien, vous pouvez remplacer le plas
 - Partagez des coupons, des offres exclusives, des codes promotionnels ou des cartes et des codes en utilisant n'importe quelle application.
 - Thème sombre et options d'accessibilité pour les utilisateurs malvoyants.
 - Fait pour tout le monde par la communauté des logiciels libres.
-- Traductions artisanales localisées pour plus de 20 langues.
+- Traductions artisanales localisées pour plus de 40 langues.
 - Gratis, soutenu par les contributions de la communauté.
-- Utilisez, étudiez, modifiez et partagez comme vous le souhaitez ; <i>avec tous</i>.
+- Utilisez, étudiez, modifiez et partagez comme vous le souhaitez ; <i>avec tous</i>.
 - Pas seulement logiciel libre et à code source ouvert <i>logiciel libre à copyleft</i> (GPLv3+) pour la gestion des cartes.
 
 Simplifiez votre vie et vos achats, et ne perdez plus jamais un reçu papier, une carte cadeau de paiement en magasin ou un billet d'avion.

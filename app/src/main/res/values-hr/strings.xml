@@ -252,7 +252,7 @@
     <string name="shortcutSelectCard">Odaberi karticu</string>
     <string name="previousCard">Prethodna</string>
     <string name="nextCard">Sljedeća</string>
-    <string name="updateBalanceTitle">Koliko si potrošio/la?</string>
+    <string name="updateBalanceTitle">Koliko si potrošio/la ili primio/la?</string>
     <string name="updateBalanceHint">Upiši iznos</string>
     <string name="about_title_fmt">Informaije o <xliff:g id="app_name">%s</xliff:g></string>
     <string name="failedToOpenUrl">Najprije instaliraj web preglednik</string>
@@ -291,4 +291,15 @@
     <string name="settings_keep_screen_on_summary">Deaktivira isključivanje ekrana tijekom prikaza kartice</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Uvijek rotiraj (ignorira sistemske postavke)</string>
+    <string name="continue_">Nastavi</string>
+    <string name="add_manually_warning_message">Za neke trgovine se vrijednost barkoda razlikuje od broja napisanog na kartici. Zbog toga ručni unos barkoda možda neće uvijek funkcionirati. Preporučuje se snimanje barkoda pomoću kamere. Želiš li svejedno nastaviti?</string>
+    <string name="add_manually_warning_title">Preporučuje se snimanje</string>
+    <string name="addFromPdfFile">Odaberi PDF datoteku</string>
+    <string name="errorReadingFile">Neuspjelo čitanje datoteke</string>
+    <string name="failedLaunchingFileManager">Nije pronađen podržani upravljač datoteka</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Koji pronađeni barkod želiš koristiti?</string>
+    <string name="pageWithNumber">Stranica <xliff:g>%d</xliff:g></string>
+    <string name="spend">Potroši</string>
+    <string name="receive">Primi</string>
+    <string name="amountParsingFailed">Neispravan iznos</string>
 </resources>

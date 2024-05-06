@@ -114,7 +114,7 @@
     <string name="currency">Νόμισμα</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="chooseImportType">Εισαγωγή δεδομένων από</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Lοyalty Card Keychain</string>
     <string name="privacy_policy_popup_text">Σημείωμα πολιτικής απορρήτου ( υποχρεωτικό σε κάποια \"μαγαζιά\" εφαρμογών)
 \n
 \nΜΗΔΕΝΙΚΆ ΔΕΔΟΜΈΝΑ ΣΥΛΛΈΓΟΝΤΑΙ, ο οποιοσδήποτε μπορεί να το επιβεβαιώσει μιας και η εφαρμογή είναι ελεύθερο λογισμικό.</string>
@@ -207,7 +207,7 @@
     <string name="settings_oled_dark">Απόλυτο μαύρο φόντο για το μαύρο θέμα</string>
     <string name="settings_system_locale">Σύστημα</string>
     <string name="settings_theme_color">Χρώμα θέματος</string>
-    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_catima_theme">Κάτιμα</string>
     <string name="settings_pink_theme">Ροζ</string>
     <string name="settings_magenta_theme">Φούξια</string>
     <string name="settings_violet_theme">Βιολετί</string>
@@ -253,7 +253,7 @@
     <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
     <string name="openBackImageInGalleryApp">Ανοίξτε την πίσω εικόνα στην εφαρμογή γκαλερί</string>
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
-    <string name="donate">Δωρίζω</string>
+    <string name="donate">Δωρεές</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
     <string name="openFrontImageInGalleryApp">Ανοίξτε την μπροστινή εικόνα στην εφαρμογή γκαλερί</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
@@ -282,7 +282,7 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">Ποιους από τους γραμμωτούς κώδικες που βρέθηκαν θέλετε να χρησιμοποιήσετε;</string>
     <string name="pageWithNumber">Σελίδα <xliff:g>%d</xliff:g></string>
     <string name="spend">Δαπάνησε</string>
-    <string name="receive">Λαμβάνω</string>
+    <string name="receive">Λήψη</string>
     <string name="settings_keep_screen_on_summary">Απενεργοποιεί το χρονικό όριο της οθόνης κατά την προβολή μιας κάρτας</string>
     <string name="settings_oled_dark_summary">Μειώνει τη χρήση της μπαταρίας στις οθόνες OLED</string>
     <string name="show_note">Εμφάνιση σημείωσης</string>

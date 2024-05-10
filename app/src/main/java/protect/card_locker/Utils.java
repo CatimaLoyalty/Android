@@ -65,6 +65,7 @@ import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -175,16 +176,16 @@ public class Utils {
             Toast.makeText(context, R.string.errorReadingFile, Toast.LENGTH_LONG).show();
             return new ArrayList<>();
         }
-    
+
         ParcelFileDescriptor parcelFileDescriptor = null;
         PdfRenderer renderer = null;
         List<BarcodeValues> barcodesFromPdfPages = new ArrayList<>();
-    
+
         try {
             parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
             if (parcelFileDescriptor != null) {
                 renderer = new PdfRenderer(parcelFileDescriptor);
-    
+
                 // Loop over all pages to find barcodes
                 Bitmap renderedPage;
                 for (int i = 0; i < renderer.getPageCount(); i++) {
@@ -192,7 +193,7 @@ public class Utils {
                     renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
                     page.close();
-    
+
                     List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
                     for (BarcodeValues barcodeValues : barcodesFromPage) {
                         barcodeValues.setNote(String.format(context.getString(R.string.pageWithNumber), i+1));
@@ -216,7 +217,7 @@ public class Utils {
                 }
             }
         }
-    
+
         if (barcodesFromPdfPages.isEmpty()) {
             Log.i(TAG, "No barcode found in pdf file");
             Toast.makeText(context, R.string.noBarcodeFound, Toast.LENGTH_LONG).show();
@@ -392,6 +393,7 @@ public class Utils {
 
     static public String formatBalance(Context context, BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setGroupingUsed(false);
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
@@ -399,6 +401,7 @@ public class Utils {
         }
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        currencyFormat.setGroupingUsed(false);
         currencyFormat.setCurrency(currency);
         currencyFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
         currencyFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
@@ -408,6 +411,7 @@ public class Utils {
 
     static public String formatBalanceWithoutCurrencySymbol(BigDecimal value, Currency currency) {
         NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setGroupingUsed(false);
 
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
@@ -437,7 +441,10 @@ public class Utils {
     }
 
     static public BigDecimal parseBalance(String value, Currency currency) throws ParseException {
+        // This function expects the input string to not have any grouping (thousand separators).
+        // It will refuse to work otherwise
         NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setGroupingUsed(false);
 
         if (numberFormat instanceof DecimalFormat) {
             ((DecimalFormat) numberFormat).setParseBigDecimal(true);
@@ -446,8 +453,25 @@ public class Utils {
         if (currency == null) {
             numberFormat.setMaximumFractionDigits(0);
         } else {
-            numberFormat.setMinimumFractionDigits(currency.getDefaultFractionDigits());
-            numberFormat.setMaximumFractionDigits(currency.getDefaultFractionDigits());
+            int fractionDigits = currency.getDefaultFractionDigits();
+
+            numberFormat.setMinimumFractionDigits(fractionDigits);
+            numberFormat.setMaximumFractionDigits(fractionDigits);
+
+            if (numberFormat instanceof DecimalFormat) {
+                // If the string contains both thousand separators and decimals separators, fail hard
+                DecimalFormatSymbols decimalFormatSymbols = ((DecimalFormat) numberFormat).getDecimalFormatSymbols();
+                char groupingSeparator = decimalFormatSymbols.getGroupingSeparator();
+                char decimalSeparator = decimalFormatSymbols.getDecimalSeparator();
+
+                // Replace thousand separator with decimal separators
+                value = value.replace(groupingSeparator, decimalSeparator);
+
+                // if we have more than one separator, fail hard
+                if (value.indexOf(decimalSeparator) != value.lastIndexOf(decimalSeparator)) {
+                    throw new ParseException("Contains multiple separators", value.indexOf(decimalSeparator));
+                }
+            }
         }
 
         return fromParsed(numberFormat.parse(value));

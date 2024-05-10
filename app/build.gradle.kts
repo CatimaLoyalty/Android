@@ -3,6 +3,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 
 plugins {
     id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     id("com.github.spotbugs")
 }
 
@@ -64,6 +65,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
     sourceSets {
         getByName("test") {
             resources.srcDirs("src/test/res")
@@ -89,6 +94,7 @@ dependencies {
     // AndroidX
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")

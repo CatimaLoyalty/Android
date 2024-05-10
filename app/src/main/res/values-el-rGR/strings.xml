@@ -14,13 +14,13 @@
     <string name="sendLabel">Αποστολή…</string>
     <string name="editCardTitle">Επεξεργασία Κάρτας</string>
     <string name="addCardTitle">Προσθήκη Κάρτας</string>
-    <string name="scanCardBarcode">Σαρώστε τον γραμμοκώδικα (bardcode)</string>
+    <string name="scanCardBarcode">Σαρώστε τον γραμμωτό κώδικα</string>
     <string name="cardShortcut">Συντόμευση Κάρτας</string>
     <string name="noCardsMessage">Προσθέστε μία κάρτα πρώτα</string>
     <string name="noCardExistsError">Δεν ήταν δυνατό να εντοπιστεί η κάρτα</string>
     <string name="importExport">Εισαγωγή/Εξαγωγή</string>
     <string name="exportName">Εξαγωγή</string>
-    <string name="importExportHelp">Τα αντίγραφα ασφαλείας, σας επιτρέπουν να τα εισάγετε σε άλλη συσκευή.</string>
+    <string name="importExportHelp">Τα αντίγραφα ασφαλείας σας επιτρέπουν να τα εισάγετε σε άλλη συσκευή.</string>
     <string name="importSuccessfulTitle">Εισήχθησαν</string>
     <string name="importFailedTitle">Εισαγωγή ανεπιτυχής</string>
     <string name="importFailed">Δεν ήταν δυνατή η εισαγωγή</string>
@@ -39,7 +39,7 @@
     <string name="app_license">Άδεια χρήσης υπό GPLv3+</string>
     <string name="about_title_fmt">Σχετικά με <xliff:g id="app_name">%s</xliff:g></string>
     <string name="debug_version_fmt">Έκδοση: <xliff:g id="version">%s</xliff:g></string>
-    <string name="selectBarcodeTitle">Επιλέξτε Barcode</string>
+    <string name="selectBarcodeTitle">Επιλέξτε γραμμωτό κώδικα</string>
     <string name="thumbnailDescription">Μικρογραφία</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="settings_dark_theme">Σκοτεινό</string>
@@ -64,7 +64,7 @@
     <string name="exportOptionExplanation">Τα δεδομένα θα μεταφερθούν σε τοποθεσία της επιλογής σας.</string>
     <string name="settings_theme">Θέμα</string>
     <string name="groupsList">Ομάδες: <xliff:g>%s</xliff:g></string>
-    <string name="barcodeId">Τιμή γραμμοκώδικα</string>
+    <string name="barcodeId">Τιμή γραμμωτού κώδικα</string>
     <string name="sort">Ταξινόμηση</string>
     <string name="deleteConfirmationGroup">Διαγραφή ομάδας;</string>
     <string name="moveDown">Προχώρα κάτω</string>
@@ -91,17 +91,17 @@
     <string name="importLoyaltyCardKeychainMessage">Επιλέξτε την <i>LoyaltyCardKeychain.csv</i> εξαγωγή από το Loyalty Card Keychain για εισαγωγή.
 \nΔημιουργήστε το από το μενού Εισαγωγής/Εξαγωγής στο Loyalty Card Keychain επιλέγοντας Εξαγωγή.</string>
     <string name="importFidme">Εισαγωγή από FidMe</string>
-    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμοκώδικα μετέπειτα.
+    <string name="importFidmeMessage">Επιλέξτε την <i>fidme-export-request-xxxxxx.zip</i> εξαγωγή από το FidMe για εισαγωγή και επιλέξτε χειροκίνητα τους τύπους γραμμωτού κώδικα μετέπειτα. 
 \nΔημιουργήστε το από το FidMe προφίλ επιλέγοντας Προστασία Δεδομένων και διαλέγοντας εξαγωγή δεδομένων.</string>
-    <string name="setBarcodeId">Επιλέξτε τιμή γραμμοκώδικα</string>
-    <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για αυτού του τύπου γραμμοκώδικα</string>
+    <string name="setBarcodeId">Επιλέξτε τιμή γραμμωτού κώδικα</string>
+    <string name="wrongValueForBarcodeType">Η τιμή δεν είναι έγκυρη για τον επιλεγμένο γραμμωτό κώδικα</string>
     <string name="setBackImage">Επιλογή οπίσθιας εικόνας</string>
     <string name="removeImage">Αφαίρεση εικόνας</string>
     <string name="takePhoto">Τραβήξτε μια φωτογραφία</string>
-    <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμοκώδικα στην ίδια τιμή;</string>
+    <string name="updateBarcodeQuestionText">Αλλάξατε τον κωδικό. Θέλετε να ενημερώσετε και τον γραμμωτό κώδικα στην ίδια τιμή;</string>
     <string name="options">Επιλογές</string>
     <string name="noGroupCards">Αυτή η ομάδα είναι άδεια</string>
-    <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμοκώδικα</string>
+    <string name="settings_display_barcode_max_brightness">Επιπλέον φωτισμός γραμμωτού κώδικα</string>
     <string name="group_name_is_empty">Το όνομα της ομάδας δεν πρέπει να είναι κενό</string>
     <string name="group_edit">Επεξεργασία ομάδας</string>
     <string name="star">Προσθήκη στα αγαπημένα</string>
@@ -131,21 +131,21 @@
     <string name="setFrontImage">Επιλογή μπροστινής εικόνας</string>
     <string name="importVoucherVaultMessage">Επιλέξτε την <i>vouchervault.json</i> εξαγωγή από το Voucher Vault για εισαγωγή.
 \nΔημιουργήστε το επιλέγοντας Εξαγωγή στο Voucher Vault.</string>
-    <string name="unsupportedBarcodeType">Ο τύπος γραμμοκώδικα δεν γίνεται να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
+    <string name="unsupportedBarcodeType">Ο τύπος γραμμωτού κώδικα δεν μπορεί να εμφανιστεί ακόμα. Μπορεί να υποστηρίζεται σε μια μελλοντική έκδοση της εφαρμογής.</string>
     <string name="frontImageDescription">Μπροστινή εικόνα</string>
     <string name="photos">Φωτογραφίες</string>
     <string name="backImageDescription">Οπίσθια εικόνα</string>
-    <string name="updateBarcodeQuestionTitle">Ενημέρωση τιμής γραμμοκώδικα;</string>
+    <string name="updateBarcodeQuestionTitle">Ενημέρωση τιμής γραμμωτού κώδικα;</string>
     <string name="passwordRequired">Παρακαλώ εισάγετε τον κωδικό</string>
     <string name="sort_by_most_recently_used">Χρησιμοποιήθηκαν πρόσφατα</string>
     <string name="shortcutSelectCard">Επιλέξτε μία κάρτα</string>
-    <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμοκώδικα</string>
+    <string name="barcodeImageDescriptionWithType">Εικόνα <xliff:g>%s</xliff:g> γραμμωτού κώδικα</string>
     <string name="app_libraries">Ελεύθερες βιβλιοθήκες τρίτων: <xliff:g id="app_libraries_list">%s</xliff:g></string>
     <string name="license">Άδεια</string>
     <string name="include_if_asking_support">Αν θέλετε να ζητήσετε υποστήριξη, συμπεριλάβετε τις ακόλουθες πληροφορίες:</string>
     <string name="importSuccessful">Δεδομένα εισήχθησαν</string>
     <string name="moveUp">Προχώρα πάνω</string>
-    <string name="barcodeType">Τύπος γραμμοκώδικα</string>
+    <string name="barcodeType">Τύπος γραμμωτού κώδικα</string>
     <string name="app_resources">Ελεύθερες πηγές τρίτων: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="selectColor">Επιλογή χρώματος</string>
     <string name="setIcon">Ορισμός εικονιδίου</string>
@@ -162,7 +162,7 @@
     <string name="exportSuccessful">Δεδομένα εξήχθησαν</string>
     <string name="settings_disable_lockscreen_while_viewing_card">Αποτροπή κλειδώματος οθόνης</string>
     <string name="failedLaunchingPhotoPicker">Δεν βρέθηκε υποστηριζόμενη εφαρμογή συλλογής</string>
-    <string name="noBarcode">Χωρίς barcode</string>
+    <string name="noBarcode">Χωρίς γραμμωτό κώδικα</string>
     <string name="starImage">Αγαπημένο αστέρι</string>
     <string name="balanceSentence">Υπόλοιπο: <xliff:g>%s</xliff:g></string>
     <string name="failedParsingImportUriError">Δεν ήταν δυνατή η ανάλυση του εισαγόμενου URL</string>
@@ -173,7 +173,7 @@
     <string name="app_copyright_old">Βασισμένο στο Loyalty Card Keychain
 \nπνευματικά δικαιώματα © 2016-2020 Branden Archer</string>
     <string name="settings_follow_system_orientation">Ακολούθηση συστήματος</string>
-    <string name="settings_card_orientation">Προσανατολισμός γραμμοκώδικα</string>
+    <string name="settings_card_orientation">Προσανατολισμός γραμμωτού κώδικα</string>
     <string name="settings_portrait_orientation">Πορτραίτο</string>
     <string name="settings_landscape_orientation">Οριζόντια</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Πνευματικά δικαιώματα © 2019-<xliff:g>%d</xliff:g> Sylvia van Os</string>
@@ -189,15 +189,15 @@
     <string name="leaveWithoutSaveConfirmation">Έξοδος χωρίς αποθήκευση;</string>
     <string name="expiryStateSentenceExpired">Έληξε: <xliff:g>%s</xliff:g></string>
     <string name="card">Κάρτα</string>
-    <string name="editBarcode">Επεξεργασία γραμμοκώδικα</string>
+    <string name="editBarcode">Επεξεργασία γραμμωτού κώδικα</string>
     <string name="chooseExpiryDate">Επιλέξτε ημερομηνία λήξης</string>
-    <string name="moveBarcodeToTopOfScreen">Μετακίνηση του γραμμοκώδικα στο πάνω μέρος της οθόνης</string>
-    <string name="noBarcodeFound">Δεν βρέθηκε γραμμοκώδικας</string>
+    <string name="moveBarcodeToTopOfScreen">Μετακίνηση του γραμμωτού κώδικα στο πάνω μέρος της οθόνης</string>
+    <string name="noBarcodeFound">Δεν βρέθηκε γραμμωτός κώδικα</string>
     <string name="balance">Υπόλοιπο</string>
     <string name="importCatima">Εισαγωγή από Catima</string>
     <string name="importStocard">Εισαγωγή από Stocard</string>
     <string name="importVoucherVault">Εισαγωγή από Voucher Vault</string>
-    <string name="sameAsCardId">Ίδιος κωδικός</string>
+    <string name="sameAsCardId">Όπως ο κωδικός</string>
     <string name="exportPassword">Προσθέστε έναν κωδικό για προστασία της εξαγωγής (προαιρετικά)</string>
     <string name="exportPasswordHint">Εισαγωγή κωδικού</string>
     <string name="failedGeneratingShareURL">Δεν ήταν δυνατή η δημιουργία κοινοποιούμενου URL. Παρακαλώ αναφέρετε το.</string>
@@ -229,7 +229,7 @@
     <string name="nextCard">Επόμενη</string>
     <string name="updateBalance">Ενημέρωση υπολοίπου</string>
     <string name="barcodeLongPressMessage">Μόνο εικόνες μπορούν να ανοιχτούν στην εφαρμογή φωτογραφιών</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμοκώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Για να σκανάρετε γραμμωτούς κώδικες, θα χρειαστεί πρόσβαση στην κάμερα από το Catima. Πατήστε εδώ για να δώσετε πρόσβαση.</string>
     <plurals name="viewArchivedCardsWithCount">
         <item quantity="one">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> κάρτας)</item>
         <item quantity="other">Προβολή αρχείου (<xliff:g>%1$d</xliff:g> καρτών)</item>
@@ -241,19 +241,19 @@
     <string name="failedToOpenUrl">Εγκαταστήστε έναν περιηγητή πρώτα</string>
     <string name="welcome">Καλώς ήρθατε στο Catima</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Απενεργοποιεί το κλείδωμα οθόνης κατά την προβολή μιας κάρτας</string>
-    <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποια σκάνερ</string>
+    <string name="settings_display_barcode_max_brightness_summary">Απαραίτητο για να δουλέψει σε κάποιους σαρωτές</string>
     <string name="cameraPermissionRequired">Δικαίωμα πρόσβασης στην κάμερα απαραίτητο γι\' αυτή την ενέργεια…</string>
     <string name="settings_allow_content_provider_read_title">Να επιτρέπεται σε άλλες εφαρμογές να έχουν πρόσβαση στα δεδομένα μου</string>
     <string name="app_copyright_short">Πνευματικά δικαιώματα © Sylvia van Os και συνεργάτες</string>
     <string name="height">Ύψος:</string>
     <string name="switchToFrontImage">Μετάβαση στην μπροστινή εικόνα</string>
-    <string name="switchToBackImage">Μετάβαση στην πίσω εικόνα</string>
-    <string name="switchToBarcode">Μετάβαση σε barcode</string>
+    <string name="switchToBackImage">Μετάβαση στην οπίσθια εικόνα</string>
+    <string name="switchToBarcode">Μετάβαση σε γραμμωτό κώδικα</string>
     <string name="validFromSentence">Ισχύει από: <xliff:g>%s</xliff:g></string>
     <string name="permissionReadCardsLabel">Διαβάστε τις κάρτες Catima</string>
-    <string name="openBackImageInGalleryApp">Ανοίξτε την πίσω εικόνα στην εφαρμογή γκαλερί</string>
+    <string name="openBackImageInGalleryApp">Ανοίξτε την οπίσθια εικόνα στην εφαρμογή γκαλερί</string>
     <string name="permissionReadCardsDescription">Διάβασε τις Κάρτες σου Catima και όλες τους τις λεπτομέρειες, συμπεριλαμβανομένων των σημειώσεων και των εικόνων</string>
-    <string name="donate">Δωρεές</string>
+    <string name="donate">Δωρεά</string>
     <string name="icon_header_click_text">Πατήστε παρατεταμένα για επεξεργασία του εικονιδίου</string>
     <string name="openFrontImageInGalleryApp">Ανοίξτε την μπροστινή εικόνα στην εφαρμογή γκαλερί</string>
     <string name="storageReadPermissionRequired">Δικαίωμα ανάγνωσης του χώρου αποθήκευσης απαραίτητο για αυτήν την ενέργεια…</string>
@@ -261,24 +261,24 @@
     <string name="validFromDate">Ισχύει από</string>
     <string name="anyDate">Οποιαδήποτε ημερομηνία</string>
     <string name="chooseValidFromDate">Επιλέξτε έγκυρη ημερομηνία από</string>
-    <string name="setBarcodeHeight">Ρυθμίστε το ύψος του barcode</string>
+    <string name="setBarcodeHeight">Ρυθμίστε το ύψος του γραμμωτού κώδικα</string>
     <string name="show_name_below_image_thumbnail">Εμφάνιση ονόματος κάτω από το εικονίδιο</string>
     <string name="app_name">Catima</string>
     <string name="balanceParsingFailed">Μη έγκυρο υπόλοιπο</string>
     <string name="continue_">Συνέχεια</string>
     <string name="settings_category_title_privacy">Απόρρητο</string>
-    <string name="addFromPdfFile">Επιλογή PDF αρχείου</string>
-    <string name="add_manually_warning_message">Για ορισμένα καταστήματα, ο γραμμοκώδικας διαφέρει από τον αριθμό που αναγράφεται πάνω στην κάρτα. Εξαιτίας αυτού, η εισαγωγή γραμμοκώδικα χειροκίνητα ενδέχεται να μην λειτουργεί πάντα. Προτείνεται να σκανάρετε τον γραμμοκώδικα με χρήση της κάμερας. Επιθυμείτε να συνεχίσετε ;</string>
+    <string name="addFromPdfFile">Επιλογή αρχείου PDF</string>
+    <string name="add_manually_warning_message">Για ορισμένα καταστήματα, ο γραμμωτός κώδικας διαφέρει από τον αριθμό που αναγράφεται πάνω στην κάρτα. Εξαιτίας αυτού, η εισαγωγή γραμμωτού κώδικα χειροκίνητα ενδέχεται να μην λειτουργεί πάντα. Προτείνεται να σκανάρετε τον γραμμωτό κώδικα με χρήση της κάμερας. Επιθυμείτε να συνεχίσετε ;</string>
     <string name="amountParsingFailed">Μη έγκυρο ποσό</string>
     <string name="show_balance">Προβολή υπολοίπου</string>
-    <string name="action_display_options">Επιλογές Εμφάνισης</string>
+    <string name="action_display_options">Επιλογές εμφάνισης</string>
     <string name="settings_category_title_cards">Κάρτες</string>
     <string name="settings_category_title_general">Γενικά</string>
     <string name="show_archived_cards">Προβολή αρχειοθετημένων καρτών</string>
-    <string name="addWithoutBarcode">Προσθήκη κάρτας χωρίς γραμμοκώδικα</string>
+    <string name="addWithoutBarcode">Προσθήκη κάρτας χωρίς γραμμωτό κώδικα</string>
     <string name="view_online">Προβολή διαδικτυακά</string>
     <string name="errorReadingFile">Δεν ήταν δυνατή η ανάγνωση του αρχείου</string>
-    <string name="failedLaunchingFileManager">Δεν ήταν δυνατή η εύρεση υποστηριζόμενης διαχείρισης αρχείων</string>
+    <string name="failedLaunchingFileManager">Δεν ήταν δυνατή η εύρεση υποστηριζόμενου διαχειριστή αρχείων</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Ποιους από τους γραμμωτούς κώδικες που βρέθηκαν θέλετε να χρησιμοποιήσετε;</string>
     <string name="pageWithNumber">Σελίδα <xliff:g>%d</xliff:g></string>
     <string name="spend">Δαπάνησε</string>
@@ -287,12 +287,12 @@
     <string name="settings_oled_dark_summary">Μειώνει τη χρήση της μπαταρίας στις οθόνες OLED</string>
     <string name="show_note">Εμφάνιση σημείωσης</string>
     <string name="action_more_options">Περισσότερες επιλογές</string>
-    <string name="enter_card_id">Εισαγάγετε τον αριθμό ταυτότητας ή το κείμενο στην κάρτα σας</string>
-    <string name="show_validity">Δείξτε εγκυρότητα</string>
+    <string name="enter_card_id">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας</string>
+    <string name="show_validity">Εμφάνιση εγκυρότητας</string>
     <string name="add_a_card_in_a_different_way">Προσθέστε μια κάρτα με διαφορετικό τρόπο</string>
-    <string name="card_id_must_not_be_empty">Ο αναγνωριστικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
+    <string name="card_id_must_not_be_empty">Ο κωδικός αριθμός της κάρτας δεν πρέπει να είναι κενός</string>
     <string name="settings_allow_content_provider_read_summary">Οι εφαρμογές θα πρέπει ακόμα να ζητήσουν άδεια για να τους δοθεί πρόσβαση</string>
     <string name="field_must_not_be_empty">Το πεδίο δεν πρέπει να είναι κενό</string>
-    <string name="manually_enter_barcode_instructions">Εισαγάγετε τον αριθμό ταυτότητας ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
+    <string name="manually_enter_barcode_instructions">Εισαγάγετε τον κωδικό αριθμό ή το κείμενο στην κάρτα σας και πατήστε τον γραμμωτό κώδικα που μοιάζει με αυτόν της κάρτας σας.</string>
     <string name="add_manually_warning_title">Συνιστάται η σάρωση</string>
 </resources>

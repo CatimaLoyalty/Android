@@ -41,6 +41,7 @@ import protect.card_locker.databinding.ContentMainBinding;
 import protect.card_locker.databinding.MainActivityBinding;
 import protect.card_locker.databinding.SortingOptionBinding;
 import protect.card_locker.preferences.SettingsActivity;
+import protect.card_locker.ui.screens.about.AboutActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
     private MainActivityBinding binding;

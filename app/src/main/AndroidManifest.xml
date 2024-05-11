@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui.screens.about.AboutActivity"
             android:label="@string/about"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

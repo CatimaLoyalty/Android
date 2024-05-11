@@ -15,9 +15,10 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
+            style="?attr/toolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            style="?attr/toolbarStyle" />
+            app:navigationIcon="?attr/homeAsUpIndicator" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

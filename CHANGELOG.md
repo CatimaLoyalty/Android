@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 135
+
+- Various fixes and improvements to balance handling
+
 ## v2.29.0 - 134 (2024-04-19)
 
 - Support for scanning PDF files for barcodes

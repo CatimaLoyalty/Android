@@ -21,7 +21,7 @@ jobs:
   gradle-update:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.4
+    - uses: actions/checkout@v4.1.5
     - uses: obfusk/gradle-update-action@v2.0.0
       id: gradle-update
     - uses: gradle/actions/wrapper-validation@v3

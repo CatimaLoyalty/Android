@@ -461,16 +461,31 @@ public class Utils {
             if (numberFormat instanceof DecimalFormat) {
                 // If the string contains both thousand separators and decimals separators, fail hard
                 DecimalFormatSymbols decimalFormatSymbols = ((DecimalFormat) numberFormat).getDecimalFormatSymbols();
-                char groupingSeparator = decimalFormatSymbols.getGroupingSeparator();
                 char decimalSeparator = decimalFormatSymbols.getDecimalSeparator();
 
-                // Replace thousand separator with decimal separators
-                value = value.replace(groupingSeparator, decimalSeparator);
+                // Translate all non-digits to decimal separators, failing if we find more than 1.
+                // We loop over the codepoints to make sure eastern arabic numerals are not mistakenly
+                // treated as a separator.
+                boolean separatorFound = false;
+                StringBuilder translatedValue = new StringBuilder();
+                for (int i = 0; i < value.length();) {
+                    int character = value.codePointAt(i);
 
-                // if we have more than one separator, fail hard
-                if (value.indexOf(decimalSeparator) != value.lastIndexOf(decimalSeparator)) {
-                    throw new ParseException("Contains multiple separators", value.indexOf(decimalSeparator));
+                    if (Character.isDigit(character)) {
+                        translatedValue.append(value.charAt(i));
+                    } else {
+                        if (separatorFound) {
+                            throw new ParseException("Contains multiple separators", i);
+                        }
+
+                        separatorFound = true;
+                        translatedValue.append(decimalSeparator);
+                    }
+
+                    i += Character.charCount(character);
                 }
+
+                value = translatedValue.toString();
             }
         }
 

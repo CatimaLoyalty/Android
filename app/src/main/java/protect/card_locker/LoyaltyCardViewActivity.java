@@ -441,7 +441,7 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         layout.addView(currentTextview);
 
         final TextInputEditText input = new TextInputEditText(this);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setKeyListener(DigitsKeyListener.getInstance("0123456789,."));
         input.setHint(R.string.updateBalanceHint);
 

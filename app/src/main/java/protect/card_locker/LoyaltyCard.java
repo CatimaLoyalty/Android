@@ -35,10 +35,10 @@ public class LoyaltyCard implements Parcelable {
     public int zoomLevel;
 
     public LoyaltyCard(final int id, final String store, final String note, @Nullable final Date validFrom,
-                       @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
-                       final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
-                       @Nullable final Integer headerColor, final int starStatus,
-                       final long lastUsed, final int zoomLevel, final int archiveStatus) {
+            @Nullable final Date expiry, final BigDecimal balance, @Nullable final Currency balanceType,
+            final String cardId, @Nullable final String barcodeId, @Nullable final CatimaBarcode barcodeType,
+            @Nullable final Integer headerColor, final int starStatus,
+            final long lastUsed, final int zoomLevel, final int archiveStatus) {
         this.id = id;
         this.store = store;
         this.note = note;
@@ -103,7 +103,8 @@ public class LoyaltyCard implements Parcelable {
         String note = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.NOTE));
         long validFromLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.VALID_FROM));
         long expiryLong = cursor.getLong(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.EXPIRY));
-        BigDecimal balance = new BigDecimal(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
+        BigDecimal balance = new BigDecimal(
+                cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BALANCE)));
         String cardId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.CARD_ID));
         String barcodeId = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.BARCODE_ID));
         int starred = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STAR_STATUS));
@@ -141,7 +142,8 @@ public class LoyaltyCard implements Parcelable {
             headerColor = cursor.getInt(headerColorColumn);
         }
 
-        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType, headerColor, starred, lastUsed, zoomLevel, archived);
+        return new LoyaltyCard(id, store, note, validFrom, expiry, balance, balanceType, cardId, barcodeId, barcodeType,
+                headerColor, starred, lastUsed, zoomLevel, archived);
     }
 
     public static boolean isDuplicate(final LoyaltyCard a, final LoyaltyCard b) {
@@ -156,7 +158,9 @@ public class LoyaltyCard implements Parcelable {
                 a.cardId.equals(b.cardId) && // non-nullable String
                 Utils.equals(a.barcodeId, b.barcodeId) && // nullable String
                 Utils.equals(a.barcodeType == null ? null : a.barcodeType.format(),
-                        b.barcodeType == null ? null : b.barcodeType.format()) && // nullable CatimaBarcode with no overridden .equals(), so we need to check .format()
+                        b.barcodeType == null ? null : b.barcodeType.format())
+                && // nullable CatimaBarcode with no overridden .equals(), so we need to check
+                   // .format()
                 Utils.equals(a.headerColor, b.headerColor) && // nullable Integer
                 a.starStatus == b.starStatus && // non-nullable int
                 a.archiveStatus == b.archiveStatus; // non-nullable int
@@ -188,8 +192,7 @@ public class LoyaltyCard implements Parcelable {
                 this.starStatus,
                 this.lastUsed,
                 this.zoomLevel,
-                this.archiveStatus
-        );
+                this.archiveStatus);
     }
 
     public static final Creator<LoyaltyCard> CREATOR = new Creator<LoyaltyCard>() {

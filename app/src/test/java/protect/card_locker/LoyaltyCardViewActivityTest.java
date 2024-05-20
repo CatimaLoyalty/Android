@@ -308,7 +308,7 @@ public class LoyaltyCardViewActivityTest {
                                 final String barcodeId, final String barcodeType,
                                 final Bitmap frontImage, final Bitmap backImage) {
         if (mode == ViewMode.VIEW_CARD) {
-            checkFieldProperties(activity, R.id.card_id_view, View.VISIBLE, cardId, FieldTypeView.TextView);
+            checkFieldProperties(activity, R.id.main_image_description, View.VISIBLE, cardId, FieldTypeView.TextView);
         } else {
             int editVisibility = View.VISIBLE;
 

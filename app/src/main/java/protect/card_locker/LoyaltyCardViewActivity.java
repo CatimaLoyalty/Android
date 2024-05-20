@@ -967,8 +967,8 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             binding.mainCardView.setCardBackgroundColor(Color.TRANSPARENT);
             binding.mainImageDescription.setTextColor(MaterialColors.getColor(binding.mainImageDescription, com.google.android.material.R.attr.colorOnSurfaceVariant));
 
-            binding.mainImageDescription.setText(getString(R.string.frontImageDescription));
-            barcodeRenderTarget.setContentDescription(getString(R.string.frontImageDescription));
+            binding.mainImageDescription.setText(getString(R.string.backImageDescription));
+            barcodeRenderTarget.setContentDescription(getString(R.string.backImageDescription));
         } else {
             throw new IllegalArgumentException("Unknown image type: " + wantedImageType);
         }

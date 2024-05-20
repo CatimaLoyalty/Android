@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased - 136
+
+- Support for creating a card when sharing plain text
+
 ## v2.29.1 - 135 (2024-05-19)
 
 - Various fixes and improvements to balance handling

@@ -34,6 +34,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -482,7 +483,9 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
         if (Intent.ACTION_SEND.equals(receivedAction)) {
             List<BarcodeValues> barcodeValuesList;
 
-            if (receivedType.startsWith("image/")) {
+            if (receivedType.equals("text/plain")) {
+                barcodeValuesList = Collections.singletonList(new BarcodeValues(null, intent.getStringExtra(Intent.EXTRA_TEXT)));
+            } else if (receivedType.startsWith("image/")) {
                 barcodeValuesList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else if (receivedType.equals("application/pdf")) {
                 barcodeValuesList = Utils.retrieveBarcodesFromPdf(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));

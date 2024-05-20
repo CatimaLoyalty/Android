@@ -164,7 +164,7 @@ public class LoyaltyCard implements Parcelable {
 
     @Override
     public int describeContents() {
-        return id;
+        return 0;
     }
 
     @NonNull

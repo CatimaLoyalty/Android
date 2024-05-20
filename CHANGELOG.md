@@ -3,6 +3,7 @@
 ## Unreleased - 136
 
 - Support for creating a card when sharing plain text
+- Display image type instead of barcode below images
 
 ## v2.29.1 - 135 (2024-05-19)
 

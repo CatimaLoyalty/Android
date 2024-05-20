@@ -1,1 +1,2 @@
 - Support for creating a card when sharing plain text
+- Display image type instead of barcode below images

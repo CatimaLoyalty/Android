@@ -43,6 +43,16 @@ public class PermissionUtils {
     }
 
     /**
+     * Check if post notifications permission is needed
+     *
+     * @param activity
+     * @return
+     */
+    public static boolean needsPostNotificationsPermission(Activity activity) {
+        return ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
      * Call onRequestPermissionsResult after storage read permission was granted.
      * Mocks a successful grant if a grant is not necessary.
      *
@@ -79,6 +89,39 @@ public class PermissionUtils {
         int[] mockedResults = new int[]{ PackageManager.PERMISSION_GRANTED };
 
         if (needsCameraPermission(activity)) {
+            ActivityCompat.requestPermissions(activity, permissions, requestCode);
+        } else {
+            // FIXME: This points to onMockedRequestPermissionResult instead of to
+            // onRequestPermissionResult because onRequestPermissionResult was only introduced in
+            // Android 6.0 (SDK 23) and we and to support Android 5.0 (SDK 21) too.
+            //
+            // When minSdk becomes 23, this should point to onRequestPermissionResult directly and
+            // the activity input variable should be changed from CatimaAppCompatActivity to
+            // Activity.
+            activity.onMockedRequestPermissionsResult(requestCode, permissions, mockedResults);
+        }
+    }
+
+
+    /**
+     * Call onRequestPermissionsResult after notification permission was granted.
+     * Mocks a successful grant if a grant is not necessary.
+     *
+     * @param activity
+     * @param requestCode
+     */
+    public static void requestPostNotificationsPermission(CatimaAppCompatActivity activity, int requestCode) {
+        int[] mockedResults = new int[]{ PackageManager.PERMISSION_GRANTED };
+
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.TIRAMISU) {
+            String[] permissions = new String[0];
+            activity.onMockedRequestPermissionsResult(requestCode, permissions, mockedResults);
+            return;
+        }
+
+        String[] permissions = new String[]{ Manifest.permission.POST_NOTIFICATIONS};
+
+        if (needsPostNotificationsPermission(activity)) {
             ActivityCompat.requestPermissions(activity, permissions, requestCode);
         } else {
             // FIXME: This points to onMockedRequestPermissionResult instead of to

@@ -26,9 +26,13 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.Data;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.UnsupportedEncodingException;
@@ -36,11 +40,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.databinding.ContentMainBinding;
 import protect.card_locker.databinding.MainActivityBinding;
 import protect.card_locker.databinding.SortingOptionBinding;
+import protect.card_locker.importexport.DataFormat;
+import protect.card_locker.importexport.ImportExportWorker;
 import protect.card_locker.preferences.SettingsActivity;
 
 public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCardCursorAdapter.CardAdapterListener {
@@ -71,6 +79,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     private ActivityResultLauncher<Intent> mBarcodeScannerLauncher;
     private ActivityResultLauncher<Intent> mSettingsLauncher;
+    private ActivityResultLauncher<Intent> mImportExportLauncher;
 
     private ActionMode.Callback mCurrentActionModeCallback = new ActionMode.Callback() {
         @Override
@@ -302,6 +311,69 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
                     recreate();
                 }
             }
+        });
+
+        mImportExportLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            // User didn't ask for import or export
+            if (result.getResultCode() != RESULT_OK) {
+                return;
+            }
+
+            // Watch for active imports/exports
+            new Thread(() -> {
+                WorkManager workManager = WorkManager.getInstance(MainActivity.this);
+
+                Snackbar importRunning = Snackbar.make(binding.getRoot(), R.string.importing, Snackbar.LENGTH_INDEFINITE);
+
+                while (true) {
+                    try {
+                        List<WorkInfo> activeImports = workManager.getWorkInfosForUniqueWork(ImportExportWorker.ACTION_IMPORT).get();
+
+                        // We should only have one import running at a time, so it should be safe to always grab the latest
+                        WorkInfo activeImport = activeImports.get(activeImports.size() - 1);
+                        WorkInfo.State importState = activeImport.getState();
+
+                        if (importState == WorkInfo.State.RUNNING || importState == WorkInfo.State.ENQUEUED || importState == WorkInfo.State.BLOCKED) {
+                            importRunning.show();
+                        } else if (importState == WorkInfo.State.SUCCEEDED) {
+                            importRunning.dismiss();
+                            runOnUiThread(() -> {
+                                Toast.makeText(getApplicationContext(), getString(R.string.importSuccessful), Toast.LENGTH_LONG).show();
+                                updateLoyaltyCardList(true);
+                            });
+
+                            break;
+                        } else {
+                            importRunning.dismiss();
+
+                            Data outputData = activeImport.getOutputData();
+
+                            // FIXME: This dialog will asynchronously be accepted or declined and we don't know the status of it so we can't show the import state
+                            // We want to get back into this function
+                            // A cheap fix would be to keep looping but if the user dismissed the dialog that could mean we're looping forever...
+                            if (Objects.equals(outputData.getString(ImportExportWorker.OUTPUT_ERROR_REASON), ImportExportWorker.ERROR_PASSWORD_REQUIRED)) {
+                                runOnUiThread(() -> ImportExportActivity.retryWithPassword(
+                                        MainActivity.this,
+                                        DataFormat.valueOf(outputData.getString(ImportExportWorker.INPUT_FORMAT)),
+                                        Uri.parse(outputData.getString(ImportExportWorker.INPUT_URI))
+                                ));
+                            } else {
+                                runOnUiThread(() -> {
+                                    Toast.makeText(getApplicationContext(), getString(R.string.importFailed), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), activeImport.getOutputData().getString(ImportExportWorker.OUTPUT_ERROR_REASON), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), activeImport.getOutputData().getString(ImportExportWorker.OUTPUT_ERROR_DETAILS), Toast.LENGTH_LONG).show();
+                                });
+                            }
+
+                            break;
+                        }
+                    } catch (ExecutionException e) {
+                        throw new RuntimeException(e);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
         });
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -641,7 +713,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
         if (id == R.id.action_import_export) {
             Intent i = new Intent(getApplicationContext(), ImportExportActivity.class);
-            startActivity(i);
+            mImportExportLauncher.launch(i);
             return true;
         }
 

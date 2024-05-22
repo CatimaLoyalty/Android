@@ -80,15 +80,21 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 Log.e(TAG, "Activity returned NULL uri");
                 return;
             }
-            try {
-                OutputStream writer = getContentResolver().openOutputStream(uri);
-                Log.e(TAG, "Starting file export with: " + result.toString());
-                startExport(writer, uri, exportPassword.toCharArray(), true);
-            } catch (IOException e) {
-                Log.e(TAG, "Failed to export file: " + result.toString(), e);
-                onExportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, result.toString()), uri);
-            }
-
+            // Running this in a thread prevents Android from throwing a NetworkOnMainThreadException for large files
+            // FIXME: This is still suboptimal, because showing that the export started is delayed until the network request finishes
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        OutputStream writer = getContentResolver().openOutputStream(uri);
+                        Log.d(TAG, "Starting file export with: " + result);
+                        startExport(writer, uri, exportPassword.toCharArray(), true);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Failed to export file: " + result, e);
+                        onExportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, result.toString()), uri);
+                    }
+                }
+            }.start();
         });
         fileOpenLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
             if (result == null) {
@@ -160,14 +166,21 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
     }
 
     private void openFileForImport(Uri uri, char[] password) {
-        try {
-            InputStream reader = getContentResolver().openInputStream(uri);
-            Log.e(TAG, "Starting file import with: " + uri.toString());
-            startImport(reader, uri, importDataFormat, password, true);
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to import file: " + uri.toString(), e);
-            onImportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, e.toString()), uri, importDataFormat);
-        }
+        // Running this in a thread prevents Android from throwing a NetworkOnMainThreadException for large files
+        // FIXME: This is still suboptimal, because showing that the import started is delayed until the network request finishes
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    InputStream reader = getContentResolver().openInputStream(uri);
+                    Log.d(TAG, "Starting file import with: " + uri);
+                    startImport(reader, uri, importDataFormat, password, true);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to import file: " + uri, e);
+                    onImportComplete(new ImportExportResult(ImportExportResultType.GenericFailure, e.toString()), uri, importDataFormat);
+                }
+            }
+        }.start();
     }
 
     private void chooseImportType(boolean choosePicker,

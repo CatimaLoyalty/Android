@@ -87,7 +87,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
                 public void run() {
                     try {
                         OutputStream writer = getContentResolver().openOutputStream(uri);
-                        Log.e(TAG, "Starting file export with: " + result);
+                        Log.d(TAG, "Starting file export with: " + result);
                         startExport(writer, uri, exportPassword.toCharArray(), true);
                     } catch (IOException e) {
                         Log.e(TAG, "Failed to export file: " + result, e);
@@ -173,7 +173,7 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
             public void run() {
                 try {
                     InputStream reader = getContentResolver().openInputStream(uri);
-                    Log.e(TAG, "Starting file import with: " + uri);
+                    Log.d(TAG, "Starting file import with: " + uri);
                     startImport(reader, uri, importDataFormat, password, true);
                 } catch (IOException e) {
                     Log.e(TAG, "Failed to import file: " + uri, e);

@@ -24,7 +24,7 @@ sed = [
 ]
 subprocess.run(sed, check=True)
 
-with open("app/src/main/res/xml/locales_config.xml", "w") as fh:
+with open("app/src/main/res/xml/locales_config.xml", "w", encoding="utf-8") as fh:
     fh.write('<?xml version="1.0" encoding="utf-8"?>\n')
     fh.write('<locale-config xmlns:android="http://schemas.android.com/apk/res/android">\n')
     fh.write('    <locale android:name="en-US" />\n')

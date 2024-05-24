@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Catima</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="action_add">Adicionar</string>
+    <string name="noGiftCards">Clique no botão + mais para adicionar um cartão ou importar no menu ⋮.</string>
+    <string name="noGiftCardsGroup">Crie alguns cartões e, em seguida, atribua-os ao grupo aqui.</string>
+    <string name="noMatchingGiftCards">Nenhum resultado. Tente alterar sua pesquisa.</string>
+    <string name="storeName">Nome</string>
+    <string name="note">Nota</string>
+    <string name="cardId">ID do cartão</string>
+    <string name="barcodeType">Tipo de código de barras</string>
+    <string name="noBarcode">Nenhum código de barras</string>
+    <string name="star">Adicionar aos favoritos</string>
+    <string name="unstar">Remover dos favoritos</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Salvar</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Deletar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="deleteTitle">Deletar cartão</string>
+</resources>

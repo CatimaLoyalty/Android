@@ -234,7 +234,7 @@
     <string name="cameraPermissionRequired">這個行動需要使用鏡頭的權限…</string>
     <string name="cameraPermissionDeniedTitle">不能使用鏡頭</string>
     <string name="updateBalance">更新餘額</string>
-    <string name="updateBalanceTitle">你用了多少？</string>
+    <string name="updateBalanceTitle">你花費或收到了多少錢？</string>
     <string name="updateBalanceHint">輸入金額</string>
     <string name="currentBalanceSentence">餘額：<xliff:g>%s</xliff:g></string>
     <string name="newBalanceSentence">新的餘額：<xliff:g>%s</xliff:g></string>
@@ -282,4 +282,9 @@
     <string name="errorReadingFile">無法讀取此檔案</string>
     <string name="receive">接收</string>
     <string name="amountParsingFailed">無效的數值</string>
+    <string name="continue_">繼續</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">你想要使用哪個找到的條碼？</string>
+    <string name="pageWithNumber">第 <xliff:g>%d</xliff:g> 頁</string>
+    <string name="add_manually_warning_message">對於某些商店，條碼值與卡片上寫的數字並不相同。因此，手動輸入條碼可能並不總是有效。強烈建議使用相機掃描條碼。你還想繼續嗎？</string>
+    <string name="spend">花費</string>
 </resources>

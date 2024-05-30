@@ -19,15 +19,27 @@ REPLACE_CODES = {
 STATS_URL = "https://hosted.weblate.org/api/components/catima/catima/statistics/"
 
 
+class Error(Exception):
+    pass
+
+
 def get_weblate_langs() -> List[Tuple[str, int]]:
-    r = requests.get(STATS_URL, timeout=5)
-    r.raise_for_status()
+    url = STATS_URL
     results = []
-    for lang in r.json()["results"]:
-        if lang["code"] != "en":
-            code = REPLACE_CODES.get(lang["code"], lang["code"]).replace("_", "-r")
-            results.append((code, round(lang["translated_percent"])))
-    return sorted(results)
+    for _ in range(16):     # avoid endless loops just in case
+        r = requests.get(url, timeout=5)
+        r.raise_for_status()
+        data = r.json()
+        for lang in data["results"]:
+            if lang["code"] != "en":
+                code = REPLACE_CODES.get(lang["code"], lang["code"]).replace("_", "-r")
+                results.append((code, round(lang["translated_percent"])))
+        url = data["next"]
+        if not url:
+            return sorted(results)
+        if not url.split("?")[0] == STATS_URL:
+            raise Error(f"Unexpected next URL: {url}")
+    raise Error("Too many pages")
 
 
 def get_dir_langs() -> List[str]:
@@ -42,7 +54,7 @@ def get_dir_langs() -> List[str]:
 def get_xml_langs() -> List[Tuple[str, bool]]:
     results = []
     in_section = False
-    with open("app/src/main/res/values/settings.xml") as fh:
+    with open("app/src/main/res/values/settings.xml", encoding="utf-8") as fh:
         for line in fh:
             if not in_section and 'name="locale_values"' in line:
                 in_section = True
@@ -59,7 +71,7 @@ def get_xml_langs() -> List[Tuple[str, bool]]:
 def update_xml_langs(langs: List[Tuple[str, bool]]) -> None:
     lines: List[str] = []
     in_section = False
-    with open("app/src/main/res/values/settings.xml") as fh:
+    with open("app/src/main/res/values/settings.xml", encoding="utf-8") as fh:
         for line in fh:
             if not in_section and 'name="locale_values"' in line:
                 in_section = True
@@ -70,7 +82,7 @@ def update_xml_langs(langs: List[Tuple[str, bool]]) -> None:
                 else:
                     continue
             lines.append(line)
-    with open("app/src/main/res/values/settings.xml", "w") as fh:
+    with open("app/src/main/res/values/settings.xml", "w", encoding="utf-8") as fh:
         for line in lines:
             fh.write(line)
 

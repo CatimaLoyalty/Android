@@ -87,7 +87,7 @@ android {
 dependencies {
 
     // AndroidX
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("androidx.palette:palette:1.0.0")

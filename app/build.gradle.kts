@@ -29,6 +29,7 @@ android {
 
         resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments(mapOf("clearPackageData" to "true"))
     }
 
     buildTypes {
@@ -96,9 +97,6 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.github.yalantis:ucrop:2.2.9")
     implementation("androidx.tracing:tracing:1.2.0")
-    androidTestImplementation("androidx.test.ext:junit:1.2.0-beta01")
-    androidTestImplementation("androidx.test:rules:1.6.0-beta01")
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.6.0-beta01")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     // Splash Screen

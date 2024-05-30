@@ -12,6 +12,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.is;
@@ -49,8 +50,9 @@ public class LanguageChangeUITest {
                         isDisplayed()));
         overflowMenuButton.perform(click());
 
+        String expectedText = getInstrumentation().getTargetContext().getString(R.string.settings);
         ViewInteraction materialTextView = onView(
-                allOf(withId(androidx.recyclerview.R.id.title), withText("Settings"),
+                allOf(withId(androidx.recyclerview.R.id.title), withText(expectedText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(androidx.appcompat.R.id.content),

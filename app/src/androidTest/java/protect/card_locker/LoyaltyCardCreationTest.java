@@ -13,6 +13,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.is;
@@ -46,21 +47,21 @@ public class LoyaltyCardCreationTest {
     @Rule
     public GrantPermissionRule mGrantPermissionRule =
             GrantPermissionRule.grant(
-                    "android.permission.CAMERA",
-                    "android.permission.WRITE_EXTERNAL_STORAGE",
-                    "android.permission.READ_EXTERNAL_STORAGE");
+                    "android.permission.CAMERA");
 
     @Test
     public void loyaltyCardCreationTest() {
+        String expectedText = getInstrumentation().getTargetContext().getString(R.string.noGiftCards);
         ViewInteraction textView = onView(
-                allOf(withId(R.id.add_card_instruction), withText("Click the + plus button to add a card, or import from the ⋮ menu."),
+                allOf(withId(R.id.add_card_instruction), withText(expectedText),
                         withParent(allOf(withId(R.id.helpSection),
                                 withParent(withId(R.id.include)))),
                         isDisplayed()));
-        textView.check(matches(withText("Click the + plus button to add a card, or import from the ⋮ menu.")));
+        textView.check(matches(withText(expectedText)));
 
+        expectedText = getInstrumentation().getTargetContext().getString(R.string.action_add);
         ViewInteraction floatingActionButton = onView(
-                allOf(withId(R.id.fabAdd), withContentDescription("Add"),
+                allOf(withId(R.id.fabAdd), withContentDescription(expectedText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -69,8 +70,9 @@ public class LoyaltyCardCreationTest {
                         isDisplayed()));
         floatingActionButton.perform(click());
 
+        expectedText = getInstrumentation().getTargetContext().getString(R.string.action_more_options);
         ViewInteraction extendedFloatingActionButton = onView(
-                allOf(withId(R.id.fabOtherOptions), withText("More options"),
+                allOf(withId(R.id.fabOtherOptions), withText(expectedText),
                         childAtPosition(
                                 allOf(withId(R.id.zxing_barcode_scanner),
                                         childAtPosition(
@@ -97,8 +99,9 @@ public class LoyaltyCardCreationTest {
                         isDisplayed()));
         editText.perform(replaceText("123456789"), closeSoftKeyboard());
 
+        expectedText = getInstrumentation().getTargetContext().getString(R.string.ok);
         ViewInteraction materialButton = onView(
-                allOf(withId(android.R.id.button1), withText("OK"),
+                allOf(withId(android.R.id.button1), withText(expectedText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(androidx.appcompat.R.id.buttonPanel),
@@ -122,8 +125,9 @@ public class LoyaltyCardCreationTest {
                         isDisplayed()));
         textInputEditText.perform(replaceText("CatimaUITestCard"), closeSoftKeyboard());
 
+        expectedText = getInstrumentation().getTargetContext().getString(R.string.options);
         ViewInteraction tabView = onView(
-                allOf(withContentDescription("Options"),
+                allOf(withContentDescription(expectedText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.tabs),
@@ -152,8 +156,9 @@ public class LoyaltyCardCreationTest {
                         isDisplayed()));
         textInputEditText3.perform(closeSoftKeyboard());
 
+        expectedText = getInstrumentation().getTargetContext().getString(R.string.save);
         ViewInteraction floatingActionButton2 = onView(
-                allOf(withId(R.id.fabSave), withContentDescription("Save"),
+                allOf(withId(R.id.fabSave), withContentDescription(expectedText),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -162,11 +167,12 @@ public class LoyaltyCardCreationTest {
                         isDisplayed()));
         floatingActionButton2.perform(click());
 
+        expectedText = getInstrumentation().getTargetContext().getResources().getQuantityString(R.plurals.balancePoints, 5, 10000);
         ViewInteraction textView2 = onView(
-                allOf(withId(R.id.balance), withText("10000 points"),
+                allOf(withId(R.id.balance), withText(expectedText),
                         withParent(withParent(withId(R.id.row))),
                         isDisplayed()));
-        textView2.check(matches(withText("10000 points")));
+        textView2.check(matches(withText(expectedText)));
     }
 
     private static Matcher<View> childAtPosition(

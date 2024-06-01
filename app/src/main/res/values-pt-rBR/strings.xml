@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Catima</string>
     <string name="action_search">Pesquisar</string>
     <string name="action_add">Adicionar</string>
@@ -19,4 +19,51 @@
     <string name="delete">Deletar</string>
     <string name="confirm">Confirmar</string>
     <string name="deleteTitle">Deletar cartão</string>
+    <string name="share">Compartilhar</string>
+    <string name="importExport">Importar/Exportar</string>
+    <string name="exportSuccessfulTitle">Exportado</string>
+    <string name="importing">Importando…</string>
+    <string name="exporting">Exportando…</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Para ler códigos de barras, Catima precisará de acesso à sua câmera. Toque aqui para alterar suas configurações de permissão.</string>
+    <string name="importOptionFilesystemTitle">Importar dos seus arquivos</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> selecionado</item>
+        <item quantity="many"><xliff:g>%d</xliff:g> selecionados</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> selecionados</item>
+    </plurals>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Deletar cartão <xliff:g>%d</xliff:g></item>
+        <item quantity="many">Deletar cartões <xliff:g>%d</xliff:g></item>
+        <item quantity="other">Deletar cartões <xliff:g>%d</xliff:g></item>
+    </plurals>
+    <string name="deleteConfirmation">Deletar esse cartão permanentemente?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Deletar este cartão <xliff:g>%d</xliff:g> permanentemente?</item>
+        <item quantity="many">Deletar estes cartões <xliff:g>%d</xliff:g> permanentemente?</item>
+        <item quantity="other">Deletar estes cartões <xliff:g>%d</xliff:g> permanentemente?</item>
+    </plurals>
+    <string name="ok">OK</string>
+    <string name="sendLabel">Enviar…</string>
+    <string name="editCardTitle">Editar Cartão</string>
+    <string name="addCardTitle">Adicionar Cartão</string>
+    <string name="scanCardBarcode">Escanear Código de Barras</string>
+    <string name="cardShortcut">Atalho de cartão</string>
+    <string name="noCardsMessage">Adicione um cartão primeiro</string>
+    <string name="barcodeImageDescriptionWithType">Imagem de <xliff:g>%s</xliff:g> em Código de Barras</string>
+    <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
+    <string name="failedParsingImportUriError">Não foi possível interpretar o URI de importação</string>
+    <string name="exportName">Exportar</string>
+    <string name="importExportHelp">Fazer backup de seus dados permite movê-los para outro dispositivo.</string>
+    <string name="importSuccessfulTitle">Importado</string>
+    <string name="importFailedTitle">Falha na importação</string>
+    <string name="importFailed">Não foi possível importar</string>
+    <string name="exportFailedTitle">Falha na exportação</string>
+    <string name="exportFailed">Não foi possível exportar</string>
+    <string name="storageReadPermissionRequired">Permissão para ler o armazenamento é necessário para esta ação…</string>
+    <string name="cameraPermissionRequired">Permissão para acessar a câmera é necessária para esta ação…</string>
+    <string name="permissionReadCardsLabel">Ler Cartões Catima</string>
+    <string name="permissionReadCardsDescription">ler os seus cartões Catima e todos os seus detalhes, incluindo notas e imagens</string>
+    <string name="cameraPermissionDeniedTitle">Não foi possível acessar a câmera</string>
+    <string name="exportOptionExplanation">Os dados serão gravados em um local de sua escolha.</string>
+    <string name="importOptionFilesystemExplanation">Escolha um arquivo específico nos seus arquivos.</string>
 </resources>

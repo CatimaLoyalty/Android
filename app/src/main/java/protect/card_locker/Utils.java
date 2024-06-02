@@ -13,6 +13,8 @@ import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.pdf.PdfRenderer;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
@@ -1014,5 +1016,13 @@ public class Utils {
             }
             return false;
         });
+    }
+
+    public static boolean deviceHasCamera(Context context) {
+        try {
+            return ((CameraManager) context.getSystemService(Context.CAMERA_SERVICE)).getCameraIdList().length > 0;
+        } catch (CameraAccessException e) {
+            return false;
+        }
     }
 }

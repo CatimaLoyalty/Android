@@ -13,7 +13,7 @@ S týmto základným každodenným nosením (EDC) nástroj môžete nahradiť zb
 - Zdieľať kupóny, exkluzívne ponuky, promo kódy, alebo karty a kódy pomocou akejkoľvek aplikácie.
 - Tmavo téma a možnosti prístupnosti pre videnie postihnutých užívateľov.
 - Vyrobený pre každého prostredníctvom renomovanej softvérovej komunity.
-- Miestne preklady ručne vyrobené pre 20+ jazykov.
+- Miestne preklady ručne vyrobené pre 40+ jazykov.
 - Gratis, podporované komunitnými príspevokmi.
 - Použitie, štúdium, zmena a zdieľanie ako si prajete; <i> so všetkými</i>.
 - Nielen Voľný softvér / Open Source. <i>Copylefted</i> libre softvér (GPLv3+) Správa kariet.

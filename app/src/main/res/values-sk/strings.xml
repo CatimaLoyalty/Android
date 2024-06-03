@@ -297,4 +297,9 @@
     <string name="amountParsingFailed">Neplatná hodnota</string>
     <string name="add_manually_warning_title">Skenovanie je odporúčané</string>
     <string name="add_manually_warning_message">V niektorých obchodoch nie je číslo na cenovke totožné s čiarovým kódom, preto je lepšie zoskenovať čiarový kód. Chcete napriek tomu pokračovať?</string>
+    <string name="addFromPdfFile">Vyberte súbor PDF</string>
+    <string name="errorReadingFile">Súbor sa nepodarilo prečítať</string>
+    <string name="failedLaunchingFileManager">Nepodarilo sa nájsť podporovaného správcu súborov</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Ktorý z nájdených čiarových kódov chcete použiť?</string>
+    <string name="pageWithNumber">Stránka <xliff:g>%d</xliff:g></string>
 </resources>

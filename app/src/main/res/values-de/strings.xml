@@ -279,7 +279,7 @@
     <string name="add_a_card_in_a_different_way">Karte anders hinzufügen</string>
     <string name="action_more_options">Mehr Optionen</string>
     <string name="enter_card_id">Gib die Codenummer oder Ziffernfolge deiner Karte an</string>
-    <string name="addWithoutBarcode">Eine Karde ohne Code hinzufügen</string>
+    <string name="addWithoutBarcode">Eine Karte ohne Code hinzufügen</string>
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
     <string name="manually_enter_barcode_instructions">Trage die ID Nummer oder Text deiner Karte ein und drücke auf den Barcode, der wie auf deiner Karte aussieht.</string>
     <string name="app_name">Catima</string>

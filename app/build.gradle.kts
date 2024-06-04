@@ -29,7 +29,7 @@ android {
 
         resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArguments(mapOf("clearPackageData" to "true"))
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
 
     buildTypes {
@@ -124,6 +124,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.0-beta01")
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.6.0-beta01")
+
+    androidTestUtil("androidx.test:orchestrator:1.1.0")
 }
 
 tasks.withType<SpotBugsTask>().configureEach {

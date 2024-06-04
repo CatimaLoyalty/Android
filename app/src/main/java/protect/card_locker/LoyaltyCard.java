@@ -68,8 +68,8 @@ public class LoyaltyCard implements Parcelable {
         balanceType = (Currency) in.readValue(Currency.class.getClassLoader());
         cardId = in.readString();
         barcodeId = in.readString();
-        String tmpBarcodeType = in.readString();
-        barcodeType = !tmpBarcodeType.isEmpty() ? CatimaBarcode.fromName(tmpBarcodeType) : null;
+        String barcodeTypeName = in.readString();
+        barcodeType = barcodeTypeName != null && !barcodeTypeName.isEmpty() ? CatimaBarcode.fromName(barcodeTypeName) : null;
         int tmpHeaderColor = in.readInt();
         headerColor = tmpHeaderColor != -1 ? tmpHeaderColor : null;
         starStatus = in.readInt();
@@ -97,6 +97,18 @@ public class LoyaltyCard implements Parcelable {
         parcel.writeInt(archiveStatus);
     }
 
+    public static final Creator<LoyaltyCard> CREATOR = new Creator<LoyaltyCard>() {
+        @Override
+        public LoyaltyCard createFromParcel(Parcel in) {
+            return new LoyaltyCard(in);
+        }
+
+        @Override
+        public LoyaltyCard[] newArray(int size) {
+            return new LoyaltyCard[size];
+        }
+    };
+}
     public static LoyaltyCard toLoyaltyCard(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.ID));
         String store = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.LoyaltyCardDbIds.STORE));

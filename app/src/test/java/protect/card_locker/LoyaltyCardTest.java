@@ -1,3 +1,5 @@
+package protect.card_locker;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -9,32 +11,20 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import com.google.zxing.BarcodeFormat;
+
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoyaltyCardTest {
 
-        /**
-     * Test the parcelable implementation of the LoyaltyCard class.
-     *
-     * This test creates a LoyaltyCard object, writes it to a Parcel, and then
-     * recreates the object from the Parcel. It asserts that the original and
-     * recreated objects have the same values for all their fields.
-     *
-     * @throws AssertionError if any of the assertions fail
-     */
     @Test
     public void testParcelable() {
-
         Date validFrom = new Date();
         Date expiry = new Date();
         BigDecimal balance = new BigDecimal("100.00");
         Currency currency = Currency.getInstance("USD");
-        LoyaltyCard card = new LoyaltyCard(1, "Store A", "Note A", validFrom, expiry, balance, currency, "12345", "67890", CatimaBarcode.QR_CODE, 0xFF0000, 1, System.currentTimeMillis(), 10, 0);
+        LoyaltyCard card = new LoyaltyCard(1, "Store A", "Note A", validFrom, expiry, balance, currency, "12345", "67890", CatimaBarcode.fromBarcode(BarcodeFormat.QR_CODE), 0xFF0000, 1, System.currentTimeMillis(), 10, 0);
 
         Parcel parcel = Parcel.obtain();
         card.writeToParcel(parcel, card.describeContents());
@@ -52,7 +42,7 @@ public class LoyaltyCardTest {
         assertEquals(card.balanceType, createdFromParcel.balanceType);
         assertEquals(card.cardId, createdFromParcel.cardId);
         assertEquals(card.barcodeId, createdFromParcel.barcodeId);
-        assertEquals(card.barcodeType, createdFromParcel.barcodeType);
+        assertEquals(card.barcodeType.name(), createdFromParcel.barcodeType.name());
         assertEquals(card.headerColor, createdFromParcel.headerColor);
         assertEquals(card.starStatus, createdFromParcel.starStatus);
         assertEquals(card.lastUsed, createdFromParcel.lastUsed);
@@ -67,7 +57,7 @@ public class LoyaltyCardTest {
         Date now = new Date();
         BigDecimal balance = new BigDecimal("50.00");
         Currency currency = Currency.getInstance("EUR");
-        LoyaltyCard card1 = new LoyaltyCard(1, "Store B", "Note B", now, now, balance, currency, "22222", "33333", CatimaBarcode.PDF_417, 0x00FF00, 1, System.currentTimeMillis(), 5, 1);
+        LoyaltyCard card1 = new LoyaltyCard(1, "Store B", "Note B", now, now, balance, currency, "22222", "33333", CatimaBarcode.fromBarcode(BarcodeFormat.PDF_417), 0x00FF00, 1, System.currentTimeMillis(), 5, 1);
 
         assertTrue(LoyaltyCard.isDuplicate(card1, card1));
     }
@@ -78,8 +68,8 @@ public class LoyaltyCardTest {
         BigDecimal balance1 = new BigDecimal("50.00");
         BigDecimal balance2 = new BigDecimal("75.00");
         Currency currency = Currency.getInstance("EUR");
-        LoyaltyCard card1 = new LoyaltyCard(2, "Store C", "Note C", now, now, balance1, currency, "44444", "55555", CatimaBarcode.DATA_MATRIX, 0x0000FF, 0, System.currentTimeMillis(), 15, 1);
-        LoyaltyCard card2 = new LoyaltyCard(2, "Store C", "Note C", now, now, balance2, currency, "44444", "55555", CatimaBarcode.DATA_MATRIX, 0x0000FF, 0, System.currentTimeMillis(), 15, 1);
+        LoyaltyCard card1 = new LoyaltyCard(2, "Store C", "Note C", now, now, balance1, currency, "44444", "55555", CatimaBarcode.fromBarcode(BarcodeFormat.DATA_MATRIX), 0x0000FF, 0, System.currentTimeMillis(), 15, 1);
+        LoyaltyCard card2 = new LoyaltyCard(2, "Store C", "Note C", now, now, balance2, currency, "44444", "55555", CatimaBarcode.fromBarcode(BarcodeFormat.DATA_MATRIX), 0x0000FF, 0, System.currentTimeMillis(), 15, 1);
 
         assertFalse(LoyaltyCard.isDuplicate(card1, card2));
     }
@@ -89,7 +79,7 @@ public class LoyaltyCardTest {
         Date now = new Date();
         BigDecimal balance = new BigDecimal("100.00");
         Currency currency = Currency.getInstance("USD");
-        LoyaltyCard card = new LoyaltyCard(3, "Store D", "Note D", now, now, balance, currency, "66666", "77777", CatimaBarcode.AZTEC, null, 2, System.currentTimeMillis(), 20, 2);
+        LoyaltyCard card = new LoyaltyCard(3, "Store D", "Note D", now, now, balance, currency, "66666", "77777", CatimaBarcode.fromBarcode(BarcodeFormat.AZTEC), null, 2, System.currentTimeMillis(), 20, 2);
         
         String expected = String.format(
                 "LoyaltyCard{%n  id=%s,%n  store=%s,%n  note=%s,%n  validFrom=%s,%n  expiry=%s,%n"

@@ -78,6 +78,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
     private boolean mScannerActive = true;
+    private boolean mHasError = false;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -141,7 +142,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
-        capture = new CatimaCaptureManager(this, barcodeScannerView);
+        capture = new CatimaCaptureManager(this, barcodeScannerView, this::onCaptureManagerError);
         Intent captureIntent = new Intent();
         Bundle captureIntentBundle = new Bundle();
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
@@ -179,7 +180,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
         }
 
         if (!Utils.deviceHasCamera(this)) {
-            showCameraError(R.string.noCameraFoundGuideText, false);
+            showCameraError(getString(R.string.noCameraFoundGuideText), false);
         } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             showCameraPermissionMissingText();
         } else {
@@ -407,11 +408,20 @@ public class ScanActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void showCameraPermissionMissingText() {
-        showCameraError(R.string.noCameraPermissionDirectToSystemSetting, true);
+    public void onCaptureManagerError(String errorMessage) {
+        if (mHasError) {
+            // We're already showing an error, ignore this new error
+            return;
+        }
+
+        showCameraError(errorMessage, false);
     }
 
-    private void showCameraError(int message, boolean setOnClick) {
+    private void showCameraPermissionMissingText() {
+        showCameraError(getString(R.string.noCameraPermissionDirectToSystemSetting), true);
+    }
+
+    private void showCameraError(String message, boolean setOnClick) {
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setText(message);
 
         setCameraErrorState(true, setOnClick);
@@ -422,6 +432,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     private void setCameraErrorState(boolean visible, boolean setOnClick) {
+        mHasError = visible;
+
         customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(visible && setOnClick ? v -> {
             navigateToSystemPermissionSetting();
         } : null);

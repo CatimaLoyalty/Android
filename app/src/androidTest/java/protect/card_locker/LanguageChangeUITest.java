@@ -68,12 +68,15 @@ public class LanguageChangeUITest {
                                 0)));
         recyclerView.perform(actionOnItemAtPosition(4, click()));
 
+        String selectedLanguage = "de";
+        int position = getPositionOfItem(selectedLanguage);
+
         DataInteraction appCompatCheckedTextView = onData(anything())
                 .inAdapterView(allOf(withId(androidx.appcompat.R.id.select_dialog_listview),
                         childAtPosition(
                                 withId(androidx.appcompat.R.id.contentPanel),
                                 0)))
-                .atPosition(8);
+                .atPosition(position);
         appCompatCheckedTextView.perform(click());
 
         ViewInteraction textView = onView(
@@ -90,12 +93,15 @@ public class LanguageChangeUITest {
                                 0)));
         recyclerView2.perform(actionOnItemAtPosition(4, click()));
 
+        selectedLanguage = "el-rGR";
+        position = getPositionOfItem(selectedLanguage);
+
         DataInteraction appCompatCheckedTextView2 = onData(anything())
                 .inAdapterView(allOf(withId(androidx.appcompat.R.id.select_dialog_listview),
                         childAtPosition(
                                 withId(androidx.appcompat.R.id.contentPanel),
                                 0)))
-                .atPosition(9);
+                .atPosition(position);
         appCompatCheckedTextView2.perform(click());
 
         ViewInteraction textView2 = onView(
@@ -156,5 +162,17 @@ public class LanguageChangeUITest {
                         && view.equals(((ViewGroup) parent).getChildAt(position));
             }
         };
+    }
+
+    private static int getPositionOfItem(String selectedLanguage) {
+        String[] availableLocales = getInstrumentation().getTargetContext().getResources().getStringArray(R.array.locale_values);
+        int position = 0;
+        for (String locale : availableLocales) {
+            if (locale.equals(selectedLanguage)) {
+                break;
+            }
+            position++;
+        }
+        return position;
     }
 }

@@ -422,7 +422,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
     }
 
     private void showCameraError(String message, boolean setOnClick) {
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedMessage.setText(message);
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorMessage.setText(message);
 
         setCameraErrorState(true, setOnClick);
     }
@@ -434,11 +434,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
     private void setCameraErrorState(boolean visible, boolean setOnClick) {
         mHasError = visible;
 
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(visible && setOnClick ? v -> {
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorClickableArea.setOnClickListener(visible && setOnClick ? v -> {
             navigateToSystemPermissionSetting();
         } : null);
         customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(visible ? obtainThemeAttribute(com.google.android.material.R.attr.colorSurface) : Color.TRANSPARENT);
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(visible ? View.VISIBLE : View.GONE);
+        customBarcodeScannerBinding.cameraErrorLayout.getRoot().setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     private void scaleScreen() {
@@ -448,8 +448,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
         float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
         boolean shouldScaleSmaller = screenHeight < mediumSizePx;
 
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
     }
 
     private int obtainThemeAttribute(int attribute) {

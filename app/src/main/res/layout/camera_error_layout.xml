@@ -9,20 +9,20 @@
     tools:showIn="@layout/custom_barcode_scanner">
 
     <LinearLayout
-        android:id="@+id/camera_permission_denied_clickable_area"
+        android:id="@+id/camera_error_clickable_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/camera_permission_denied_icon"
+            android:id="@+id/camera_error_icon"
             android:layout_width="match_parent"
             android:layout_height="84dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/camera_permission_denied" />
+            android:src="@drawable/camera_error" />
 
         <TextView
-            android:id="@+id/camera_permission_denied_title"
+            android:id="@+id/camera_error_title"
             style="@style/TextAppearance.Material3.HeadlineLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,12 +30,12 @@
             android:text="@string/cameraPermissionDeniedTitle" />
 
         <TextView
-            android:id="@+id/camera_permission_denied_message"
+            android:id="@+id/camera_error_message"
             style="@style/AppTheme.TextView.NoData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/noCameraPermissionDirectToSystemSetting" />
+            android:text="@string/zxing_msg_camera_framework_bug" />
     </LinearLayout>
 
 </RelativeLayout>

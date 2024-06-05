@@ -46,6 +46,8 @@ jobs:
       run: timeout 5m ./gradlew testReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testReleaseUnitTest; }
     - name: SpotBugs
       run: ./gradlew spotbugsRelease
+    - name: Espresso
+      run: ./gradlew connectedAndroidTest
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v4.3.3

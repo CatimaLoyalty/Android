@@ -5,6 +5,7 @@
 - Support for creating a card when sharing plain text
 - Display image type instead of barcode below images
 - Fix possible crash when trying to import a backup from the Nextcloud app
+- Improved support for devices without camera
 
 ## v2.29.1 - 135 (2024-05-19)
 

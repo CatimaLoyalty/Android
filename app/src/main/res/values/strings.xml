@@ -346,4 +346,5 @@
     <string name="failedLaunchingFileManager">Could not find a supported file manager</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Which of the found barcodes do you want to use?</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Your device does not seem to have a camera. If it does, try rebooting the device. Otherwise, use the "More options" button below to add a barcode another way.</string>
 </resources>

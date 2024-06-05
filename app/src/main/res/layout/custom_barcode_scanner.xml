@@ -34,8 +34,8 @@
         android:padding="@dimen/activity_scanner_padding">
 
         <include
-            android:id="@+id/camera_permission_denied_layout"
-            layout="@layout/camera_permission_failed_layout"
+            android:id="@+id/camera_error_layout"
+            layout="@layout/camera_error_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"

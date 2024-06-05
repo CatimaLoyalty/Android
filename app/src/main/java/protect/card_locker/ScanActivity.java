@@ -78,6 +78,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
     static final String STATE_SCANNER_ACTIVE = "scannerActive";
     private boolean mScannerActive = true;
+    private boolean mHasError = false;
 
     private void extractIntentFields(Intent intent) {
         final Bundle b = intent.getExtras();
@@ -141,7 +142,7 @@ public class ScanActivity extends CatimaAppCompatActivity {
 
         // Even though we do the actual decoding with the barcodeScannerView
         // CaptureManager needs to be running to show the camera and scanning bar
-        capture = new CatimaCaptureManager(this, barcodeScannerView);
+        capture = new CatimaCaptureManager(this, barcodeScannerView, this::onCaptureManagerError);
         Intent captureIntent = new Intent();
         Bundle captureIntentBundle = new Bundle();
         captureIntentBundle.putBoolean(Intents.Scan.BEEP_ENABLED, false);
@@ -178,9 +179,14 @@ public class ScanActivity extends CatimaAppCompatActivity {
             capture.onResume();
         }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            showCameraPermissionMissingText(false);
+        if (!Utils.deviceHasCamera(this)) {
+            showCameraError(getString(R.string.noCameraFoundGuideText), false);
+        } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            showCameraPermissionMissingText();
+        } else {
+            hideCameraError();
         }
+
         scaleScreen();
     }
 
@@ -402,12 +408,37 @@ public class ScanActivity extends CatimaAppCompatActivity {
         }
     }
 
-    private void showCameraPermissionMissingText(boolean show) {
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedClickableArea.setOnClickListener(show ? v -> {
+    public void onCaptureManagerError(String errorMessage) {
+        if (mHasError) {
+            // We're already showing an error, ignore this new error
+            return;
+        }
+
+        showCameraError(errorMessage, false);
+    }
+
+    private void showCameraPermissionMissingText() {
+        showCameraError(getString(R.string.noCameraPermissionDirectToSystemSetting), true);
+    }
+
+    private void showCameraError(String message, boolean setOnClick) {
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorMessage.setText(message);
+
+        setCameraErrorState(true, setOnClick);
+    }
+
+    private void hideCameraError() {
+        setCameraErrorState(false, false);
+    }
+
+    private void setCameraErrorState(boolean visible, boolean setOnClick) {
+        mHasError = visible;
+
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorClickableArea.setOnClickListener(visible && setOnClick ? v -> {
             navigateToSystemPermissionSetting();
         } : null);
-        customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(show ? obtainThemeAttribute(com.google.android.material.R.attr.colorSurface) : Color.TRANSPARENT);
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.getRoot().setVisibility(show ? View.VISIBLE : View.GONE);
+        customBarcodeScannerBinding.cardInputContainer.setBackgroundColor(visible ? obtainThemeAttribute(com.google.android.material.R.attr.colorSurface) : Color.TRANSPARENT);
+        customBarcodeScannerBinding.cameraErrorLayout.getRoot().setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     private void scaleScreen() {
@@ -417,8 +448,8 @@ public class ScanActivity extends CatimaAppCompatActivity {
         float mediumSizePx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MEDIUM_SCALE_FACTOR_DIP,getResources().getDisplayMetrics());
         boolean shouldScaleSmaller = screenHeight < mediumSizePx;
 
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
-        customBarcodeScannerBinding.cameraPermissionDeniedLayout.cameraPermissionDeniedTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorIcon.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
+        customBarcodeScannerBinding.cameraErrorLayout.cameraErrorTitle.setVisibility(shouldScaleSmaller ? View.GONE : View.VISIBLE);
     }
 
     private int obtainThemeAttribute(int attribute) {
@@ -444,7 +475,11 @@ public class ScanActivity extends CatimaAppCompatActivity {
         boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
         if (requestCode == CaptureManager.getCameraPermissionReqCode()) {
-            showCameraPermissionMissingText(!granted);
+            if (granted) {
+                hideCameraError();
+            } else {
+                showCameraPermissionMissingText();
+            }
         } else if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE || requestCode == PERMISSION_SCAN_ADD_FROM_PDF) {
             if (granted) {
                 if (requestCode == PERMISSION_SCAN_ADD_FROM_IMAGE) {

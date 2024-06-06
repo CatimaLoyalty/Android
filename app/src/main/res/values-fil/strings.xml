@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_search">Hanap</string>
+    <string name="app_name">Loyalty Card Wallet</string>
+    <string name="action_add">Add\tdagdag</string>
+</resources>

@@ -166,13 +166,6 @@ public class LanguageChangeUITest {
 
     private static int getPositionOfItem(String selectedLanguage) {
         String[] availableLocales = getInstrumentation().getTargetContext().getResources().getStringArray(R.array.locale_values);
-        int position = 0;
-        for (String locale : availableLocales) {
-            if (locale.equals(selectedLanguage)) {
-                break;
-            }
-            position++;
-        }
-        return position;
+        return Arrays.asList(availableLocales).indexOf(selectedLanguage);
     }
 }

@@ -295,4 +295,5 @@
     <string name="addFromPdfFile">PDF dosyası seç</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Bulunan barkodlardan hangisini kullanmak istiyorsunuz?</string>
     <string name="pageWithNumber">Sayfa <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Aygıtınızda kamera yok gibi görünüyor. Eğer varsa, aygıtı yeniden başlatmayı deneyin. Aksi takdirde, barkodu başka bir şekilde eklemek için aşağıdaki daha fazla seçenek düğmesini kullanın.</string>
 </resources>

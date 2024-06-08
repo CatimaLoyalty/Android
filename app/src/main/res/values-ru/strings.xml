@@ -296,7 +296,7 @@
     <string name="enter_card_id">Введите номер или текст с карты</string>
     <string name="addWithoutBarcode">Добавить карту без штрих-кода</string>
     <string name="field_must_not_be_empty">Поле не может быть пустым</string>
-    <string name="app_name">‐Catima</string>
+    <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Всегда поворачивать (игнорировать системные настройки)</string>
     <string name="add_manually_warning_title">Рекомендуется сканирование</string>
     <string name="continue_">Продолжить</string>
@@ -309,4 +309,5 @@
     <string name="pageWithNumber">Страница <xliff:g>%d</xliff:g></string>
     <string name="failedLaunchingFileManager">Не найден поддерживаемый файловый менеджер</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Какой из найденных штрих-кодов вы хотите использовать?</string>
+    <string name="noCameraFoundGuideText">Похоже, ваше устройство не оснащено камерой. Если это не так, попробуйте перезагрузить устройство. В противном случае воспользуйтесь кнопкой \"Ещё\", чтобы добавить штри-хкод другим способом.</string>
 </resources>

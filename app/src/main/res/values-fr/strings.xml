@@ -302,4 +302,5 @@
     <string name="failedLaunchingFileManager">Impossible de trouver un gestionnaire de fichiers supporté</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Quel code-barre, parmi ceux trouvés, voulez-vous utiliser ?</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Votre appareil ne semble pas disposer d\'une caméra. Si c\'est le cas, veuillez essayer de redémarrer l\'appareil. Sinon, vous pouvez utiliser le bouton \"Plus d\'options\" ci-dessous pour ajouter un code-barre d\'une autre manière.</string>
 </resources>

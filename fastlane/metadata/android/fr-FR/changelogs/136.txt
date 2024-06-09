@@ -1,0 +1,4 @@
+- Prise en charge de la création d'une carte lors du partage de texte brut
+- Affiche le type d'image au lieu du code-barre sous les images
+- Correction d'un crash possible lors de la tentative d'importation d'une sauvegarde depuis l'application Nextcloud
+- Amélioration de la prise en charge des appareils sans caméra

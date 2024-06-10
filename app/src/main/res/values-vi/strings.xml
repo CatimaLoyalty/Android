@@ -288,4 +288,5 @@
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Bạn muốn sử dụng mã vạch nào được tìm thấy?</string>
     <string name="failedLaunchingFileManager">Không thể tìm thấy trình quản lý tệp được hỗ trợ</string>
+    <string name="noCameraFoundGuideText">Có vẻ như thiết bị của bạn không có camera. Nếu có, hãy thử khởi động lại thiết bị. Nếu không, hãy sử dụng nút Tùy chọn khác bên dưới để thêm mã vạch theo cách khác.</string>
 </resources>

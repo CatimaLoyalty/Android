@@ -52,8 +52,8 @@
     <string name="exportSuccessful">データがエクスポートされました</string>
     <string name="importSuccessful">データがインポートされました</string>
     <string name="intent_import_card_from_url_share_text">カード共有をしましょう</string>
-    <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中は画面をロックしない</string>
-    <string name="settings_keep_screen_on">バーコード表示中は画面を消灯しない</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">バーコード表示中に画面をロックしない</string>
+    <string name="settings_keep_screen_on">バーコード表示中に画面を点けたままにする</string>
     <string name="settings_display_barcode_max_brightness">バーコード表示画面を明るくする</string>
     <string name="settings_dark_theme">ダーク</string>
     <string name="settings_light_theme">ライト</string>
@@ -64,11 +64,11 @@
     <string name="thumbnailDescription">サムネイル</string>
     <string name="selectBarcodeTitle">バーコード選択</string>
     <string name="app_libraries">Libre third-party libraries: <xliff:g id="app_libraries_list">%s</xliff:g></string>
-    <string name="debug_version_fmt">Version: <xliff:g id="version">%s</xliff:g></string>
-    <string name="about_title_fmt">About <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">バージョン: <xliff:g id="version">%s</xliff:g></string>
+    <string name="about_title_fmt"><xliff:g id="app_name">%s</xliff:g> について</string>
     <string name="app_license">Copylefted libre software, licensed GPLv3+</string>
     <string name="app_resources">Libre third-party resources: <xliff:g id="app_resources_list">%s</xliff:g></string>
-    <string name="about">Catimaについて</string>
+    <string name="about">このアプリについて</string>
     <string name="importOptionApplicationButton">外部のアプリを使う</string>
     <string name="importOptionApplicationExplanation">任意のアプリやお気に入りのファイルマネージャーからファイルを開く。</string>
     <string name="importOptionApplicationTitle">外部アプリを使う</string>
@@ -130,8 +130,8 @@
     <string name="takePhoto">写真を撮影する</string>
     <string name="removeImage">画像を削除</string>
     <string name="setBackImage">裏面の画像を設定</string>
-    <string name="setFrontImage">オモテ面の画像を設定</string>
-    <string name="photos">フォト</string>
+    <string name="setFrontImage">表面の画像を設定</string>
+    <string name="photos">画像</string>
     <string name="backImageDescription">裏</string>
     <string name="frontImageDescription">表</string>
     <string name="importStocardMessage">Stocardでエクスポートした<i>***.zip</i>ファイルを選択してください。
@@ -175,12 +175,12 @@
     <string name="exportPasswordHint">パスワードを入力してください</string>
     <string name="version_history">更新履歴</string>
     <string name="credits">貢献者</string>
-    <string name="help_translate_this_app">このアプリの翻訳を手伝う</string>
+    <string name="help_translate_this_app">翻訳を手伝う</string>
     <string name="license">ライセンス</string>
     <string name="on_google_play">Google Play</string>
-    <string name="report_error">エラーを報告する</string>
+    <string name="report_error">問題を報告する</string>
     <string name="reverse">逆順</string>
-    <string name="and_data_usage">and data usage</string>
+    <string name="and_data_usage">データの扱いなど</string>
     <string name="group_updated">グループを更新しました</string>
     <string name="editGroup">グループ編集: <xliff:g>%s</xliff:g></string>
     <string name="selectColor">色を選択</string>
@@ -189,7 +189,7 @@
     <string name="group_name_already_in_use">このグループ名は既に使用されています</string>
     <string name="group_name_is_empty">空欄にすることはできません</string>
     <string name="shortcutSelectCard">カードを選択してください</string>
-    <string name="translate_platform">on Weblate</string>
+    <string name="translate_platform">Weblate</string>
     <string name="options">オプション</string>
     <string name="show_note">メモを表示</string>
     <string name="validFromDate">有効期限</string>
@@ -207,4 +207,31 @@
     <string name="settings_portrait_orientation">縦</string>
     <string name="noGiftCardsGroup">いくつかのカードを作って、それらをこのグループにアサインします。</string>
     <string name="noCameraPermissionDirectToSystemSetting">バーコードをスキャンするためには、Catimaはカメラへのアクセスを必要とします。ここをタップして権限設定の変更をお願いします。</string>
+    <string name="importCards">カードをインポート</string>
+    <string name="show_balance">残高を表示</string>
+    <string name="show_validity">有効期限を表示</string>
+    <string name="donate">寄付する</string>
+    <string name="duplicateCard">複製</string>
+    <string name="unarchived">アーカイブを解除しました</string>
+    <string name="welcome">Catimaへようこそ</string>
+    <string name="show_name_below_image_thumbnail">画像サムネイルの下に名前を表示</string>
+    <string name="settings_keep_screen_on_summary">画面の自動消灯を無効化します</string>
+    <string name="settings_category_title_cards">カード</string>
+    <string name="settings_category_title_general">一般</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">画面のロックを無効化します</string>
+    <string name="action_display_options">表示の設定</string>
+    <string name="unarchive">アーカイブ解除</string>
+    <string name="archive">アーカイブ</string>
+    <string name="archived">アーカイブしました</string>
+    <string name="show_archived_cards">アーカイブしたカードを表示</string>
+    <string name="addFromPdfFile">PDFファイルを選択</string>
+    <string name="addWithoutBarcode">バーコードを登録せずにカードを追加</string>
+    <string name="failedToOpenUrl">ブラウザーをインストールしてください</string>
+    <string name="previousCard">前へ</string>
+    <string name="nextCard">次へ</string>
+    <string name="settings_lock_on_opening_orientation">カードを開いた時の向きに固定</string>
+    <string name="settings_oled_dark">ダークテーマで黒い背景を使用する</string>
+    <string name="settings_oled_dark_summary">有機ELディスプレイでの電池の使用量を削減します</string>
+    <string name="action_more_options">オプション</string>
+    <string name="add_a_card_in_a_different_way">別の方法でカードを追加</string>
 </resources>

@@ -309,4 +309,5 @@
     <string name="pageWithNumber">Страница <xliff:g>%d</xliff:g></string>
     <string name="failedLaunchingFileManager">Не найден поддерживаемый файловый менеджер</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Какой из найденных штрих-кодов вы хотите использовать?</string>
+    <string name="noCameraFoundGuideText">Похоже, ваше устройство не оснащено камерой. Если это не так, попробуйте перезагрузить устройство. В противном случае воспользуйтесь кнопкой \"Ещё\", чтобы добавить штри-хкод другим способом.</string>
 </resources>

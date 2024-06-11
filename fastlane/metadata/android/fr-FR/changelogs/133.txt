@@ -1,0 +1,4 @@
+- Cible Android 14
+- Ouvre l'icône de la carte dans la galerie au toucher
+- Améliore la conception de l'onglet "Photos" en mode édition
+- Mis à jour l'écran des dépenses pour prendre également en charge la réception

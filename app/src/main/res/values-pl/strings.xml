@@ -309,4 +309,5 @@
     <string name="failedLaunchingFileManager">Nie można znaleźć obsługiwanego menedżera plików</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Którego ze znalezionych kodów kreskowych chciałbyś użyć?</string>
     <string name="add_manually_warning_message">W przypadku niektórych sklepów wartość kodu kreskowego różni się od liczby zapisanej na karcie. Z tego powodu ręczne wprowadzanie kodu kreskowego może nie zawsze działać. Zdecydowanie zaleca się zeskanowanie kodu kreskowego za pomocą aparatu. Czy nadal chcesz kontynuować?</string>
+    <string name="noCameraFoundGuideText">Nie wykryto kamery. Jeśli twoje urządzenie posiada kamerę, spróbuj uruchomić je ponownie. W innym wypadku wybierz Więcej opcji i dodaj kartę w inny sposób.</string>
 </resources>

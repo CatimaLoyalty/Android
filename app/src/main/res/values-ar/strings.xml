@@ -267,7 +267,7 @@
     <string name="noCameraPermissionDirectToSystemSetting">لمسح الباركود، ستحتاج Catima إلى الوصول إلى الكاميرا. اضغط هنا لتغيير إعدادات الأذونات.</string>
     <string name="updateBalance">تحديث الرصيد</string>
     <string name="updateBalanceHint">أدخل المبلغ</string>
-    <string name="storageReadPermissionRequired">الصلاحيه للوصل للتخزين مطلوبة لهذا الاجراء</string>
+    <string name="storageReadPermissionRequired">الصلاحيه للوصل للتخزين مطلوبة لهذا الاجراء…</string>
     <string name="validFromDate">عربيه</string>
     <string name="cameraPermissionRequired">إذن للوصول إلى الكاميرا اللازمة لهذا الإجراء…</string>
     <string name="anyDate">أي تاريخ</string>
@@ -310,7 +310,7 @@
     <string name="enter_card_id">أدخل رقم الهوية أو النص الموجود على بطاقتك</string>
     <string name="addWithoutBarcode">إضافة بدون باركود</string>
     <string name="field_must_not_be_empty">يجب ألا يكون الحقل فارغا</string>
-    <string name="app_name">كاتيما</string>
+    <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">التدوير دائمًا ( تجاهل إعدادات النظام)</string>
     <string name="add_manually_warning_title">الفحص موصى به</string>
     <string name="continue_">استمر</string>
@@ -322,5 +322,6 @@
     <string name="errorReadingFile">لا يمكن قراءة الملف</string>
     <string name="failedLaunchingFileManager">لم يتم العثور على مدير ملفات مدعوم</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">اي من الـbarcodes تريد استخدامه؟</string>
-    <string name="pageWithNumber">صفحة<xliff:g>%d</xliff:g></string>
+    <string name="pageWithNumber">صفحة <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">يبدوا أن جهازك لا يمتلك كاميرا. إذا كان يمتلكها، أطفئ الجهاز وحاول مرة اخرى. اذا لم ينجح ذلك، أضغط على زر \"المزيد من الأختيارات\" في الأسفل لإضافة الباركود بطريقة أخرى.</string>
 </resources>

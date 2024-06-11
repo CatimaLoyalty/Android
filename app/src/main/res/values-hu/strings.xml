@@ -290,4 +290,9 @@
     <string name="continue_">Tovább</string>
     <string name="spend">Költött</string>
     <string name="receive">Megkapott</string>
+    <string name="addFromPdfFile">PDF fájl kiválasztása</string>
+    <string name="errorReadingFile">A fájl nem olvasható</string>
+    <string name="pageWithNumber"><xliff:g>%d</xliff:g>. oldal</string>
+    <string name="failedLaunchingFileManager">Nem található támogatott fájlkezelő</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">A talált vonalkódok közül melyiket szeretné használni?</string>
 </resources>

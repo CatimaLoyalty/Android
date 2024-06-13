@@ -295,4 +295,5 @@
     <string name="failedLaunchingFileManager">Geen ondersteunde bestandsbeheerder aangetroffen</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Welke van de gevonden barcodes wil je gebruiken?</string>
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Uw apparaat lijkt niet over een camera te beschikken. Als het dat wel doet, probeer uw apparaat dan opnieuw op te starten. Anders gebruikt u de knop \"Meer opties\" beneden om handmatig een streepjescode in te voeren.</string>
 </resources>

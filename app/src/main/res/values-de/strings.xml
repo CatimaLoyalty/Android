@@ -12,16 +12,16 @@
     <string name="edit">Bearbeiten</string>
     <string name="delete">Löschen</string>
     <string name="confirm">Bestätigen</string>
-    <string name="star">Zu den Favoriten hinzufügen</string>
-    <string name="unstar">Aus den Favoriten entfernen</string>
+    <string name="star">Zu Favoriten hinzufügen</string>
+    <string name="unstar">Aus Favoriten entfernen</string>
     <string name="ok">OK</string>
-    <string name="sendLabel">Senden …</string>
+    <string name="sendLabel">Senden…</string>
     <string name="editCardTitle">Karte bearbeiten</string>
     <string name="addCardTitle">Neue Karte</string>
     <string name="scanCardBarcode">Barcode scannen</string>
-    <string name="cardShortcut">Shortcut zu einer Karte</string>
+    <string name="cardShortcut">Kartenkürzel</string>
     <string name="noCardsMessage">Füge zuerst eine Karte hinzu</string>
-    <string name="noCardExistsError">Diese Karte konnte nicht gefunden werden</string>
+    <string name="noCardExistsError">Konnte die Karte nicht finden</string>
     <string name="importExport">Import/Export</string>
     <string name="exportName">Export</string>
     <string name="importExportHelp">Wenn du deine Daten sicherst, kannst du sie auf ein anderes Gerät übertragen.</string>
@@ -33,12 +33,12 @@
     <string name="exportFailed">Export konnte nicht durchgeführt werden</string>
     <string name="importing">Importiere…</string>
     <string name="exporting">Exportiere…</string>
-    <string name="importOptionFilesystemTitle">Importiere aus dem Dateisystem</string>
-    <string name="importOptionFilesystemExplanation">Wähle eine Datei vom Dateisystem aus.</string>
-    <string name="importOptionFilesystemButton">Wähle vom Dateisystem</string>
-    <string name="importOptionApplicationTitle">Andere Anwendungen</string>
+    <string name="importOptionFilesystemTitle">Aus Dateisystem importieren</string>
+    <string name="importOptionFilesystemExplanation">Eine bestimmte Datei aus dem Dateisystem auswählen.</string>
+    <string name="importOptionFilesystemButton">vom Dateisystem</string>
+    <string name="importOptionApplicationTitle">Andere App verwenden</string>
     <string name="importOptionApplicationExplanation">Beliebige Anwendung oder deinen bevorzugten Dateimanager zur Dateiauswahl verwenden.</string>
-    <string name="importOptionApplicationButton">Aus anderer Anwendung</string>
+    <string name="importOptionApplicationButton">Andere App verwenden</string>
     <string name="about">Über</string>
     <string name="app_license">Freie Software, lizensiert unter der GPLv3+</string>
     <string name="about_title_fmt">Über <xliff:g id="app_name">%s</xliff:g></string>
@@ -66,7 +66,7 @@
     <string name="noGroups">Klicke auf das Pluszeichen +, um eine Gruppe hinzuzufügen.</string>
     <string name="noGroupCards">Diese Gruppe ist leer</string>
     <string name="groups">Gruppen</string>
-    <string name="enter_group_name">Gib einen Gruppennamen ein</string>
+    <string name="enter_group_name">Gruppennamen eingeben</string>
     <string name="leaveWithoutSaveConfirmation">Beenden ohne zu speichern\?</string>
     <string name="leaveWithoutSaveTitle">Beenden</string>
     <string name="failedOpeningFileManager">Installiere zuerst einen Dateimanager.</string>
@@ -95,7 +95,7 @@
     <string name="expiryStateSentence">Läuft ab: <xliff:g>%s</xliff:g></string>
     <string name="settings_disable_lockscreen_while_viewing_card">Sperrbildschirm verhindern</string>
     <string name="settings_keep_screen_on">Bildschirm aktiv lassen</string>
-    <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (oft gefordert):
+    <string name="privacy_policy_popup_text">Hinweis zum Datenschutz (von einigen App-Stores verlangt):
 \n
 \nKEINE DATEN WERDEN GESAMMELT, was jeder bestätigen kann, da unsere Anwendung eine freie Software ist.</string>
     <string name="accept">Annehmen</string>
@@ -112,10 +112,10 @@
     <string name="importCatimaMessage">Wähle deinen <i>catima.zip</i>-Export aus Catima zum Importieren aus.
 \nErstelle ihn aus dem Import/Export-Menü einer anderen Catima-Anwendung, indem du dort zuerst Export drückst.</string>
     <string name="importCatima">Aus Catima importieren</string>
-    <string name="setBarcodeId">Manuell eingeben</string>
+    <string name="setBarcodeId">Barcodewert festlegen</string>
     <string name="sameAsCardId">Entspricht Kartennummer</string>
     <string name="barcodeId">Barcodewert</string>
-    <string name="errorReadingImage">Bildverarbeitung fehlgeschlagen</string>
+    <string name="errorReadingImage">Konnte das Bild nicht lesen</string>
     <string name="noBarcodeFound">Kein Barcode erkannt</string>
     <string name="addFromImage">Bild aus der Galerie wählen</string>
     <string name="unsupportedBarcodeType">Dieser Barcodetyp kann noch nicht angezeigt werden. Wir hoffen das Format in einer zukünftigen Version zu unterstützen.</string>
@@ -129,17 +129,17 @@
     <string name="updateBarcodeQuestionTitle">Barcodewert aktualisieren?</string>
     <string name="takePhoto">Foto aufnehmen</string>
     <string name="removeImage">Bild entfernen</string>
-    <string name="setBackImage">Kartenrückseite</string>
-    <string name="setFrontImage">Kartenvorderseite</string>
+    <string name="setBackImage">Rückseite einstellen</string>
+    <string name="setFrontImage">Vorderseite einstellen</string>
     <string name="photos">Fotos</string>
-    <string name="frontImageDescription">Bild der Vorseite</string>
-    <string name="backImageDescription">Bild der Rückseite</string>
+    <string name="frontImageDescription">Vorderseite</string>
+    <string name="backImageDescription">Rückseite</string>
     <string name="passwordRequired">Bitte gib das Passwort ein</string>
     <string name="importStocardMessage">Wähle deinen <i>***.zip</i>-Export aus Stocard zum Importieren aus.
 \nSie erhalten ihn, indem du eine E-Mail an support@stocardapp.com sendest und um einen Export deiner Daten bitten.</string>
     <string name="importStocard">Von Stocard importieren</string>
-    <string name="turn_flashlight_off">Licht ausschalten</string>
-    <string name="turn_flashlight_on">Licht einschalten</string>
+    <string name="turn_flashlight_off">Blitzlicht ausschalten</string>
+    <string name="turn_flashlight_on">Blitzlicht einschalten</string>
     <string name="failedGeneratingShareURL">URL konnte nicht erstellt werden. Bitte melde das an uns.</string>
     <plurals name="selectedCardCount">
         <item quantity="one"><xliff:g>%d</xliff:g> ausgewählt</item>
@@ -193,10 +193,10 @@
     <string name="editGroup">Gruppe wird bearbeitet: <xliff:g>%s</xliff:g></string>
     <string name="group_edit">Gruppe bearbeiten</string>
     <string name="noGiftCardsGroup">Erstelle einige Karten und ordne sie dann hier der Gruppe zu.</string>
-    <string name="setIcon">Vorschaubild setzen</string>
+    <string name="setIcon">Vorschaubild festlegen</string>
     <string name="selectColor">Farbe auswählen</string>
     <string name="translate_platform">auf Weblate</string>
-    <string name="shortcutSelectCard">Wählen Sie eine Karte</string>
+    <string name="shortcutSelectCard">Wähle eine Karte</string>
     <string name="options">Optionen</string>
     <string name="showMoreInfo">Infos anzeigen</string>
     <string name="starred">als Favorit</string>
@@ -233,7 +233,7 @@
     <string name="failedToRetrieveImageFile">Bilddatei konnte nicht abgerufen werden</string>
     <string name="updateBalanceTitle">Wie viel hast du ausgegeben oder erhalten?</string>
     <string name="cameraPermissionDeniedTitle">Kein Zugriff auf die Kamera möglich</string>
-    <string name="noCameraPermissionDirectToSystemSetting">Um Strichcodes zu scannen, benötigt Catima Zugriff auf Ihre Kamera. Tippen Sie hier, um Ihre Berechtigungseinstellungen zu ändern.</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Um Strichcodes zu scannen, benötigt Catima Zugriff auf deine Kamera. Tippe hier, um deine Berechtigungseinstellungen zu ändern.</string>
     <string name="updateBalanceHint">Betrag eingeben</string>
     <string name="importCards">Karten importieren</string>
     <string name="currentBalanceSentence">Aktuelles Guthaben: <xliff:g>%s</xliff:g></string>
@@ -245,23 +245,23 @@
     <string name="validFromSentence">Gültig ab: <xliff:g>%s</xliff:g></string>
     <string name="chooseValidFromDate">Gültig-ab-Datum wählen</string>
     <string name="anyDate">Beliebiges Datum</string>
-    <string name="icon_header_click_text">Langes Drücken zum Bearbeiten der Vorschau</string>
-    <string name="switchToBarcode">Umschalten auf Barcode</string>
-    <string name="openFrontImageInGalleryApp">Vorderes Bild in der Galerie öffnen</string>
-    <string name="openBackImageInGalleryApp">Hinteres Bild in der Galerie öffnen</string>
+    <string name="icon_header_click_text">Zum Bearbeiten des Vorschaubildes lang drücken</string>
+    <string name="switchToBarcode">Zum Barcode wechseln</string>
+    <string name="openFrontImageInGalleryApp">Vorderseite in Galerie öffnen</string>
+    <string name="openBackImageInGalleryApp">Rückseite in Galerie öffnen</string>
     <string name="height">Höhe:</string>
-    <string name="switchToFrontImage">Zum vorderen Bild wechseln</string>
-    <string name="switchToBackImage">Zum hinteren Bild wechseln</string>
+    <string name="switchToFrontImage">Zur Vorderseite wechseln</string>
+    <string name="switchToBackImage">Zur Rückseite wechseln</string>
     <string name="setBarcodeHeight">Barcode-Höhe einstellen</string>
     <string name="donate">Spenden</string>
     <string name="show_note">Notiz anzeigen</string>
     <string name="show_balance">Betrag anzeigen</string>
     <string name="show_validity">Gültigkeitsdauer anzeigen</string>
-    <string name="show_name_below_image_thumbnail">Namen unter Bildvorschau anzeigen</string>
-    <string name="settings_allow_content_provider_read_title">Anderen Anwendungen den Zugriff auf meine Daten gestatten</string>
+    <string name="show_name_below_image_thumbnail">Namen unter Vorschaubild anzeigen</string>
+    <string name="settings_allow_content_provider_read_title">Anderen Apps den Zugriff auf meine Daten gestatten</string>
     <string name="permissionReadCardsLabel">Catima-Karten lesen</string>
-    <string name="permissionReadCardsDescription">lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
-    <string name="settings_allow_content_provider_read_summary">Anwendungen müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
+    <string name="permissionReadCardsDescription">Lesen deiner Catima Karten mit allen Details, einschließlich Notizen und Bildern</string>
+    <string name="settings_allow_content_provider_read_summary">Apps müssen weiterhin eine Genehmigung beantragen, um Zugriff zu erhalten</string>
     <string name="settings_display_barcode_max_brightness_summary">Erforderlich für das Funktionieren einiger Scanner</string>
     <string name="settings_keep_screen_on_summary">Deaktiviert die Bildschirmzeitüberschreitung beim Anzeigen einer Karte</string>
     <string name="settings_disable_lockscreen_while_viewing_card_summary">Deaktiviert die Bildschirmsperre während der Anzeige einer Karte</string>
@@ -269,9 +269,9 @@
     <string name="settings_category_title_cards">Karten</string>
     <string name="settings_category_title_privacy">Datenschutz</string>
     <string name="settings_category_title_general">Allgemein</string>
-    <string name="view_online">Zeige online</string>
+    <string name="view_online">Online anzeigen</string>
     <string name="action_display_options">Anzeigeoptionen</string>
-    <string name="show_archived_cards">Zeige archivierte Karten</string>
+    <string name="show_archived_cards">Archivierte Karten anzeigen</string>
     <string name="app_copyright_short">Copyright © Sylvia van Os und Mitwirkende</string>
     <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Copyright © 2019–<xliff:g>%d</xliff:g> Sylvia van Os und Mitwirkende</string>
     <string name="card_id_must_not_be_empty">Kartennummer darf nicht leer sein</string>
@@ -281,7 +281,7 @@
     <string name="enter_card_id">Gib die Codenummer oder Ziffernfolge deiner Karte an</string>
     <string name="addWithoutBarcode">Eine Karte ohne Code hinzufügen</string>
     <string name="field_must_not_be_empty">Feld darf nicht leer sein</string>
-    <string name="manually_enter_barcode_instructions">Trage die ID Nummer oder Text deiner Karte ein und drücke auf den Barcode, der wie auf deiner Karte aussieht.</string>
+    <string name="manually_enter_barcode_instructions">Trage die ID Nummer oder Text deiner Karte ein und drücke auf den Barcode, der wie der auf deiner Karte aussieht.</string>
     <string name="app_name">Catima</string>
     <string name="settings_follow_sensor_orientation">Immer drehen (ignoriert Systemeinstellungen)</string>
     <string name="continue_">Fortfahren</string>
@@ -293,6 +293,7 @@
     <string name="addFromPdfFile">PDF-Datei auswählen</string>
     <string name="errorReadingFile">Datei konnte nicht gelesen werden</string>
     <string name="failedLaunchingFileManager">Konnte keinen unterstützten Dateimanager finden</string>
-    <string name="multipleBarcodesFoundPleaseChooseOne">Welchen der gefundenen Barcodes möchten Sie verwenden?</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Welchen der gefundenen Barcodes möchtest du verwenden?</string>
     <string name="pageWithNumber">Seite <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Dein Gerät scheint nicht über eine Kamera zu verfügen. Wenn dies der Fall ist, versuche, das Gerät neu zu starten. Andernfalls verwende die Schaltfläche Weitere Optionen unten, um einen Barcode auf andere Weise hinzuzufügen.</string>
 </resources>

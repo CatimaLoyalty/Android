@@ -1,0 +1,4 @@
+- Unterstützung für die Erstellung einer Karte beim Teilen von einfachem Text
+- Anzeige des Bildtyps anstelle des Barcodes unter Bildern
+- Behebung eines möglichen Absturzes beim Versuch, ein Backup aus der Nextcloud-App zu importieren
+- Verbesserte Unterstützung für Geräte ohne Kamera

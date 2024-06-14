@@ -70,7 +70,7 @@
     <string name="backImageDescription">Imágen dorsal</string>
     <string name="noCameraPermissionDirectToSystemSetting">Para escanear códigos de barra, Catima necesitará acceso a la cámara. Presione aquí para cambiar la configuración de sus permisos.</string>
     <string name="settings_lock_on_opening_orientation">Bloquear a la orientación utilizada al abrir la tarjeta</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">Cartera para Tarjetas de Fidelización</string>
     <string name="importOptionFilesystemTitle">Importar desde su sistema de archivos</string>
     <string name="leaveWithoutSaveTitle">Salir</string>
     <string name="expiryStateSentence">Expira: <xliff:g>%s</xliff:g></string>
@@ -184,4 +184,37 @@
     <string name="settings_keep_screen_on_summary">Deshabilita el tiempo de espera de la pantalla mientras se ve una tarjeta</string>
     <string name="thumbnailDescription">Miniatura</string>
     <string name="deleteConfirmationGroup">¿Eliminar grupo\?</string>
+    <string name="updateBarcodeQuestionText">Has cambiado el ID. ¿Quieres actualizar también el código de barras para usar el mismo valor?</string>
+    <string name="settings_locale">Idioma</string>
+    <string name="settings_system_locale">Sistema</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Rosa</string>
+    <string name="exportPassword">Agregar una contraseña para protejer tu exportación (opcional)</string>
+    <string name="settings_sky_blue_theme">Celeste</string>
+    <string name="settings_green_theme">Verde</string>
+    <string name="settings_grey_theme">Gris</string>
+    <string name="exportPasswordHint">Ingresar contraseña</string>
+    <string name="setIcon">Establecer miniatura</string>
+    <string name="showMoreInfo">Mostrar información</string>
+    <string name="turn_flashlight_on">Encender linterna</string>
+    <string name="turn_flashlight_off">Apagar linterna</string>
+    <string name="updateBalance">Actualizar balance</string>
+    <string name="failedToRetrieveImageFile">Error al obtener archivo de imagen</string>
+    <string name="settings_oled_dark_summary">Reduce uso de batería en pantallas OLED</string>
+    <string name="settings_oled_dark">Fondo negro puro para tema oscuro</string>
+    <string name="selectColor">Seleccionar color</string>
+    <string name="settings_theme_color">Color del tema</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_violet_theme">Violeta</string>
+    <string name="settings_brown_theme">Marrón</string>
+    <string name="sort">Ordenar</string>
+    <string name="settings_blue_theme">Azul</string>
+    <string name="app_contributors">Hecho posible por: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="barcodeLongPressMessage">Solo se puede abrir imágenes en la aplicación de galería</string>
+    <string name="settings_follow_sensor_orientation">Siempre rotar (ignora configuración del sistema)</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="passwordRequired">Por favor ingresa la contraseña</string>
+    <string name="failedGeneratingShareURL">No se pudo generar URL compartible. Por favor reporte esto.</string>
+    <string name="sort_by_name">Nombre</string>
 </resources>

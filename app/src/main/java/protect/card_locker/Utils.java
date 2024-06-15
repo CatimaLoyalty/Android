@@ -23,6 +23,7 @@ import android.text.Layout;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -1024,5 +1025,25 @@ public class Utils {
         } catch (CameraAccessException e) {
             return false;
         }
+    }
+
+    /**
+     * Retrieve the card thumbnail, falling back to the front and back card image if no thumbnail is set
+     *
+     * @param context Android context
+     * @param loyaltyCardId Id of Loyalty Card
+     * @return Bitmap thumbnail or None if no set
+     */
+    public static Pair<Bitmap, ImageLocationType> getThumbnailWithFallback(Context context, int loyaltyCardId) {
+        Bitmap icon;
+        for (ImageLocationType imageLocationType : new ImageLocationType[]{ ImageLocationType.icon, ImageLocationType.front, ImageLocationType.back }) {
+            icon = Utils.retrieveCardImage(context, loyaltyCardId, imageLocationType);
+
+            if (icon != null) {
+                return new Pair<>(icon, imageLocationType);
+            }
+        }
+
+        return new Pair<>(null, null);
     }
 }

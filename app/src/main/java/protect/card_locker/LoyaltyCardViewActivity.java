@@ -19,6 +19,7 @@ import android.text.method.DigitsKeyListener;
 import android.text.style.ForegroundColorSpan;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,6 +85,9 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
     String cardIdString;
     String barcodeIdString;
     CatimaBarcode format;
+
+    Bitmap iconBitmap;
+    ImageLocationType iconBitmapLocationType;
 
     Bitmap frontImageBitmap;
     Bitmap backImageBitmap;
@@ -302,10 +306,16 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         binding.bottomAppBarUpdateBalanceButton.setOnClickListener(view -> showBalanceUpdateDialog());
 
         binding.iconContainer.setOnClickListener(view -> {
-            if (Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon) != null) {
-                openImageInGallery(ImageType.ICON);
-            } else {
+            if (iconBitmapLocationType == null) {
                 Toast.makeText(LoyaltyCardViewActivity.this, R.string.icon_header_click_text, Toast.LENGTH_LONG).show();
+            } else if (iconBitmapLocationType == ImageLocationType.icon) {
+                openImageInGallery(ImageType.ICON);
+            } else if (iconBitmapLocationType == ImageLocationType.front) {
+                openImageInGallery(ImageType.IMAGE_FRONT);
+            } else if (iconBitmapLocationType == ImageLocationType.back) {
+                openImageInGallery(ImageType.IMAGE_BACK);
+            } else {
+                throw new IllegalArgumentException("Unknown image type: " + iconBitmapLocationType);
             }
         });
         binding.iconContainer.setOnLongClickListener(view -> {
@@ -692,8 +702,10 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
 
-        Bitmap icon = Utils.retrieveCardImage(this, loyaltyCard.id, ImageLocationType.icon);
-        Utils.setIconOrTextWithBackground(this, loyaltyCard, icon, binding.iconImage, binding.iconText);
+        Pair<Bitmap, ImageLocationType> bitmapImageLocationTypePair = Utils.getThumbnailWithFallback(this, loyaltyCard.id);
+        iconBitmap = bitmapImageLocationTypePair.first;
+        iconBitmapLocationType = bitmapImageLocationTypePair.second;
+        Utils.setIconOrTextWithBackground(this, loyaltyCard, iconBitmap, binding.iconImage, binding.iconText);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);

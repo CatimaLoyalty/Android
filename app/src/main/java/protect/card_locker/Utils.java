@@ -620,6 +620,16 @@ public class Utils {
         return retrieveCardImageAsFile(context, getCardImageFileName(loyaltyCardId, type));
     }
 
+    static public boolean hasCardImage(Context context, String fileName) {
+        try {
+            context.openFileInput(fileName);
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+
+        return true;
+    }
+
     static public Bitmap retrieveCardImage(Context context, String fileName) {
         FileInputStream in;
         try {
@@ -629,6 +639,10 @@ public class Utils {
         }
 
         return BitmapFactory.decodeStream(in);
+    }
+
+    static public boolean hasCardImage(Context context, int loyaltyCardId, ImageLocationType type) {
+        return hasCardImage(context, getCardImageFileName(loyaltyCardId, type));
     }
 
     static public Bitmap retrieveCardImage(Context context, int loyaltyCardId, ImageLocationType type) {
@@ -1028,11 +1042,28 @@ public class Utils {
     }
 
     /**
+     * Check if the card has an image thumbnail and if yes return what type it is
+     *
+     * @param context Android context
+     * @param loyaltyCardId Id of Loyalty Card
+     * @return ImageLocationType The location type of the thumbnail if it exists, or null if no thumbnail
+     */
+    public static ImageLocationType getThumbnailImageLocationType(Context context, int loyaltyCardId) {
+        for (ImageLocationType imageLocationType : new ImageLocationType[]{ImageLocationType.icon, ImageLocationType.front, ImageLocationType.back}) {
+            if (Utils.hasCardImage(context, loyaltyCardId, imageLocationType)) {
+                return imageLocationType;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Retrieve the card thumbnail, falling back to the front and back card image if no thumbnail is set
      *
      * @param context Android context
      * @param loyaltyCardId Id of Loyalty Card
-     * @return Bitmap thumbnail or None if no set
+     * @return Pair<Bitmap, ImageLocationType> thumbnail and imageLocationType or both null if not set
      */
     public static Pair<Bitmap, ImageLocationType> getThumbnailWithFallback(Context context, int loyaltyCardId) {
         Bitmap icon;

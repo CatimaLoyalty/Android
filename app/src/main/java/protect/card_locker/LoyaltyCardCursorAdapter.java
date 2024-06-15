@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -88,9 +90,13 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mDivider.setVisibility(View.GONE);
 
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
-        Bitmap icon = Utils.getThumbnailWithFallback(mContext, loyaltyCard.id).first;
+        inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
 
-        if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && icon != null) {
+        // Default header at first, real icon will be retrieved later
+        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, null, inputHolder.mCardIcon, inputHolder.mCardText);
+
+        ImageLocationType thumbnailImageLocationType = Utils.getThumbnailImageLocationType(mContext, loyaltyCard.id);
+        if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && thumbnailImageLocationType != null) {
             showDivider = true;
             inputHolder.setStoreField(loyaltyCard.store);
         } else {
@@ -122,14 +128,27 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
         }
 
-        inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
-        inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
-
         inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());
         applyClickEvents(inputHolder, inputCursor.getPosition());
+
+        if (thumbnailImageLocationType != null) {
+            new Thread() {
+                @Override
+                public void run() {
+                    Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, thumbnailImageLocationType);
+
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        public void run() {
+                            inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
+                            inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
+                        }
+                    });
+                }
+            }.start();
+        }
 
         // Force redraw to fix size not shrinking after data change
         inputHolder.mRow.requestLayout();

@@ -935,7 +935,7 @@ public class Utils {
      * @return background colour
      */
     public static int setIconOrTextWithBackground(Context context, LoyaltyCard loyaltyCard, Bitmap icon, ImageView backgroundOrIcon, TextView textWhenNoImage) {
-        int headerColor = getHeaderColor(context, loyaltyCard);
+        int headerColor = getHeaderColorFromImage(icon, getHeaderColor(context, loyaltyCard));
         backgroundOrIcon.setImageBitmap(icon);
         backgroundOrIcon.setBackgroundColor(headerColor);
 

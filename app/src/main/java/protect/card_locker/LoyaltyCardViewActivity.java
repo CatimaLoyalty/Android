@@ -684,7 +684,12 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
             dialog.show();
         });
 
-        int backgroundHeaderColor = Utils.getHeaderColor(this, loyaltyCard);
+        Pair<Bitmap, ImageLocationType> bitmapImageLocationTypePair = Utils.getThumbnailWithFallback(this, loyaltyCard.id);
+        iconBitmap = bitmapImageLocationTypePair.first;
+        iconBitmapLocationType = bitmapImageLocationTypePair.second;
+        Utils.setIconOrTextWithBackground(this, loyaltyCard, iconBitmap, binding.iconImage, binding.iconText);
+
+        int backgroundHeaderColor = Utils.getHeaderColorFromImage(iconBitmap, Utils.getHeaderColor(this, loyaltyCard));
 
         // Also apply colours to UI elements
         int darkenedColor = ColorUtils.blendARGB(backgroundHeaderColor, Color.BLACK, 0.1f);
@@ -701,11 +706,6 @@ public class LoyaltyCardViewActivity extends CatimaAppCompatActivity implements 
         editButtonIcon.mutate();
         editButtonIcon.setTint(Utils.needsDarkForeground(complementaryColor) ? Color.BLACK : Color.WHITE);
         binding.fabEdit.setImageDrawable(editButtonIcon);
-
-        Pair<Bitmap, ImageLocationType> bitmapImageLocationTypePair = Utils.getThumbnailWithFallback(this, loyaltyCard.id);
-        iconBitmap = bitmapImageLocationTypePair.first;
-        iconBitmapLocationType = bitmapImageLocationTypePair.second;
-        Utils.setIconOrTextWithBackground(this, loyaltyCard, iconBitmap, binding.iconImage, binding.iconText);
 
         // If the background is very bright, we should use dark icons
         backgroundNeedsDarkIcons = Utils.needsDarkForeground(backgroundHeaderColor);

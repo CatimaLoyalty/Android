@@ -24,10 +24,10 @@
     <string name="card">Cardul</string>
     <string name="settings_theme">Tema</string>
     <string name="all">Toate</string>
-    <string name="noCardsMessage">Adăugați mai întâi o carte</string>
+    <string name="noCardsMessage">Adăugați mai întâi un card</string>
     <string name="noCardExistsError">Acel card nu a putut fi găsit</string>
     <string name="failedParsingImportUriError">Nu s-a putut analiza URI-ul de import</string>
-    <string name="importExport">Importație/Export</string>
+    <string name="importExport">Importă/Exportă</string>
     <string name="exportName">Exportați</string>
     <string name="importSuccessfulTitle">Importat</string>
     <string name="importFailedTitle">Importul a eșuat</string>

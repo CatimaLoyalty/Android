@@ -1,0 +1,3 @@
+- Unterstützung für das Scannen von PDF-Dateien nach Barcodes
+- Unterstützung für Bilddateien mit mehreren Barcodes
+- Kleinere UI-Korrekturen

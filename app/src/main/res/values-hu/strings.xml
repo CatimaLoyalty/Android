@@ -295,4 +295,5 @@
     <string name="pageWithNumber"><xliff:g>%d</xliff:g>. oldal</string>
     <string name="failedLaunchingFileManager">Nem található támogatott fájlkezelő</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">A talált vonalkódok közül melyiket szeretné használni?</string>
+    <string name="noCameraFoundGuideText">Úgy tűnik, az eszközén nincs kamera. Ha van, próbálja meg újraindítani az eszközt. Másképp, használja a További beállítások gombot alul, hogy máshogy hozzáadjon egy vonalkódot.</string>
 </resources>

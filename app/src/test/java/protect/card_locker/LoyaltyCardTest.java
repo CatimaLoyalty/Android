@@ -5,7 +5,6 @@ import android.os.Parcel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -16,7 +15,6 @@ import com.google.zxing.BarcodeFormat;
 import static org.junit.Assert.*;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest=Config.NONE)
 public class LoyaltyCardTest {
 
     @Test

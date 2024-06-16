@@ -80,10 +80,10 @@
     <string name="settings_follow_system_orientation">Padrão do sistema</string>
     <string name="settings_lock_on_opening_orientation">Bloquear para orientação usada ao abrir o cartão</string>
     <string name="importCatimaMessage">Selecionar arquivo <i>catima.zip</i>, exportado do Catima, para importação.
-\nCrie-o pelo menu Importar/Exportar em outro aplicativo Catima pressionando primeiro Exportar.</string>
+\nPrimeiro, crie-o pelo menu Importar/Exportar em outro aplicativo Catima clicando em Exportar.</string>
     <string name="importLoyaltyCardKeychain">Importar do Loyalty Card Keychain</string>
     <string name="importLoyaltyCardKeychainMessage">Selecionar arquivo <i>LoyaltyCardKeychain.csv</i>, exportado do Loyalty Card Keychain, para importação.
-\nCrie-o pelo menu Importar/Exportar no Loyalty Card Keychain pressionando primeiro Exportar.</string>
+\nPrimeiro, crie-o pelo menu Importar/Exportar no Loyalty Card Keychain clicando em Exportar.</string>
     <string name="setBarcodeId">Definir valor do código de barras</string>
     <string name="importStocard">Importar de Stocard</string>
     <string name="importVoucherVault">Importar de Cofre de Vouchers</string>
@@ -290,4 +290,12 @@
     <string name="balanceParsingFailed">Saldo inválido</string>
     <string name="accept">Aceitar</string>
     <string name="importFidme">Importar de FidMe</string>
+    <string name="importFidmeMessage">Selecione o arquivo <i>fidme-export-request-xxxxxx.zip</i>, exportado de FidMe, para importação e em seguida selecione o tipo de código de barras manualmente.
+\nCrie-o pelo seu perfil no FidMe escolhendo \'Proteção de Dados\' (Data Protection) e então clicando em \"Extrair meus dados\".</string>
+    <string name="importStocardMessage">Selecionar arquivo <i>***.zip</i>, exportado de Stocard, para importação.
+\nObtenha-o enviando um e-mail para support@stocardapp.com solicitando exportação dos seus dados.</string>
+    <string name="importVoucherVaultMessage">Selecionar arquivo<i>vouchervault.json</i>, exportado de Voucher Vault, para importação.
+\nPrimeiro, crie-o pressionando em Exportar no Voucher Vault.</string>
+    <string name="enter_card_id">Insira o ID ou texto escrito no seu cartão</string>
+    <string name="manually_enter_barcode_instructions">Insira o ID ou texto escrito no seu cartão e clique no código de barras que se parece com o do seu cartão.</string>
 </resources>

@@ -681,16 +681,17 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
 
                 if (bitmap != null) {
                     if (requestedFrontImage()) {
+                        mFrontImageRemoved = false;
                         mFrontImageUnsaved = true;
                         setCardImage(cardImageFront, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG), true);
                     } else if (requestedBackImage()) {
+                        mBackImageRemoved = false;
                         mBackImageUnsaved = true;
                         setCardImage(cardImageBack, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_BIG), true);
                     } else {
+                        mIconRemoved = false;
                         mIconUnsaved = true;
-                        setCardImage(thumbnail, Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_SMALL), false);
-                        thumbnail.setBackgroundColor(Color.TRANSPARENT);
-                        setColorFromIcon();
+                        setThumbnailImage(Utils.resizeBitmap(bitmap, Utils.BITMAP_SIZE_SMALL));
                     }
                     Log.d("cropper", "mRequestedImage: " + mRequestedImage);
                     mCropperFinishedType = mRequestedImage;
@@ -834,7 +835,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                     setCardImage(cardImageBack, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.back), true);
                 }
                 if (!mIconUnsaved && !croppedIcon() && !mIconRemoved) {
-                    setCardImage(thumbnail, Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.icon), false);
+                    setThumbnailImage(Utils.retrieveCardImage(this, tempLoyaltyCard.id, ImageLocationType.icon));
                 }
             } else {
                 setTitle(R.string.addCardTitle);
@@ -847,7 +848,7 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 setCardImage(cardImageBack, Utils.loadTempImage(this, TEMP_UNSAVED_BACK_IMAGE_NAME), true);
             }
             if (mIconUnsaved && !croppedIcon()) {
-                setCardImage(thumbnail, Utils.loadTempImage(this, TEMP_UNSAVED_ICON_NAME), false);
+                setThumbnailImage(Utils.loadTempImage(this, TEMP_UNSAVED_ICON_NAME));
             }
         }
 
@@ -995,6 +996,22 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
             thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(headerColor) ? Color.WHITE : Color.BLACK);
         } else {
             Log.d("setColorFromIcon", "attempting header color change from icon but icon does not exist");
+        }
+    }
+
+    protected void setThumbnailImage(@Nullable Bitmap bitmap) {
+        setCardImage(thumbnail, bitmap, false);
+
+        if (bitmap == null) {
+            generateIcon(storeFieldEdit.getText().toString().trim());
+        } else {
+            thumbnail.setBackgroundColor(Color.TRANSPARENT);
+            setColorFromIcon();
+        }
+
+        if (tempLoyaltyCard.headerColor != null) {
+            thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.BLACK : Color.WHITE);
+            thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(tempLoyaltyCard.headerColor) ? Color.WHITE : Color.BLACK);
         }
     }
 
@@ -1325,6 +1342,28 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
                 return null;
             });
 
+            if (v.getId() == R.id.thumbnail) {
+                if (cardImageFront.getTag() instanceof Bitmap) {
+                    cardOptions.put(getString(R.string.useFrontImage), () -> {
+                        mIconRemoved = false;
+                        mIconUnsaved = true;
+                        setThumbnailImage(Utils.resizeBitmap((Bitmap) cardImageFront.getTag(), Utils.BITMAP_SIZE_SMALL));
+
+                        return null;
+                    });
+                }
+
+                if (cardImageBack.getTag() instanceof Bitmap) {
+                    cardOptions.put(getString(R.string.useBackImage), () -> {
+                        mIconRemoved = false;
+                        mIconUnsaved = true;
+                        setThumbnailImage(Utils.resizeBitmap((Bitmap) cardImageBack.getTag(), Utils.BITMAP_SIZE_SMALL));
+
+                        return null;
+                    });
+                }
+            }
+
             int titleResource;
 
             if (v.getId() == R.id.frontImageHolder) {
@@ -1365,17 +1404,13 @@ public class LoyaltyCardEditActivity extends CatimaAppCompatActivity implements 
     // We don't need to set or check the dialogId since it's only used for that single dialog
     @Override
     public void onColorSelected(int dialogId, int color) {
-        // Unset image if set
-        setCardImage(thumbnail, null, false);
-        mIconRemoved = true;
-        mIconUnsaved = false;
-
+        // Save new colour
         updateTempState(LoyaltyCardField.headerColor, color);
 
-        thumbnailEditIcon.setBackgroundColor(Utils.needsDarkForeground(color) ? Color.BLACK : Color.WHITE);
-        thumbnailEditIcon.setColorFilter(Utils.needsDarkForeground(color) ? Color.WHITE : Color.BLACK);
-
-        generateIcon(storeFieldEdit.getText().toString().trim());
+        // Unset image if set
+        mIconRemoved = true;
+        mIconUnsaved = false;
+        setThumbnailImage(null);
     }
 
     // ColorPickerDialogListener callback

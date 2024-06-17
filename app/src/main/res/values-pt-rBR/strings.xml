@@ -47,11 +47,11 @@
     <string name="editCardTitle">Editar cartão</string>
     <string name="addCardTitle">Adicionar cartão</string>
     <string name="scanCardBarcode">Ler código de barras</string>
-    <string name="cardShortcut">Atalho de cartão</string>
+    <string name="cardShortcut">Atalho de cartões</string>
     <string name="noCardsMessage">Adicione um cartão primeiro</string>
     <string name="barcodeImageDescriptionWithType">Imagem <xliff:g>%s</xliff:g> do código de barras</string>
     <string name="noCardExistsError">Não foi possível encontrar esse cartão</string>
-    <string name="failedParsingImportUriError">Não foi possível interpretar o URI de importação</string>
+    <string name="failedParsingImportUriError">Não foi possível analisar o URI de importação</string>
     <string name="exportName">Exportar</string>
     <string name="importExportHelp">Fazer backup de seus dados permite movê-los para outro dispositivo.</string>
     <string name="importSuccessfulTitle">Importado</string>
@@ -223,10 +223,10 @@
     <string name="settings_category_title_privacy">Privacidade</string>
     <string name="action_display_options">Configurações de exibição</string>
     <string name="show_archived_cards">Mostrar cartões arquivados</string>
-    <string name="add_manually_warning_title">Digitalizar (recomendado)</string>
+    <string name="add_manually_warning_title">A digitalização é recomendada</string>
     <string name="continue_">Continuar</string>
     <string name="errorReadingFile">Não foi possível fazer a leitura do arquivo</string>
-    <string name="failedLaunchingFileManager">Não foi possível encontrar um gerenciador de arquivos suportado</string>
+    <string name="failedLaunchingFileManager">Não foi possível encontrar um gerenciador de arquivos compatível</string>
     <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Qual dos códigos de barras encontrados você quer usar?</string>
     <string name="settings_display_barcode_max_brightness">Clarear visão do código de barras</string>
@@ -270,7 +270,7 @@
     <string name="leaveWithoutSaveTitle">Sair</string>
     <string name="leaveWithoutSaveConfirmation">Sair sem salvar?</string>
     <string name="groupsList">Grupos: <xliff:g>%s</xliff:g></string>
-    <string name="editGroup">Editando Grupo: <xliff:g>%s</xliff:g></string>
+    <string name="editGroup">Editando grupo: <xliff:g>%s</xliff:g></string>
     <string name="editBarcode">Editar código de barras</string>
     <string name="expiryDate">Data de expiração</string>
     <string name="noBarcodeFound">Nenhum código de barras foi encontrado</string>
@@ -298,4 +298,9 @@
 \nPrimeiro, crie-o pressionando em Exportar no Voucher Vault.</string>
     <string name="enter_card_id">Insira o ID ou texto escrito no seu cartão</string>
     <string name="manually_enter_barcode_instructions">Insira o ID ou texto escrito no seu cartão e clique no código de barras que se parece com o do seu cartão.</string>
+    <string name="app_license">Software livre com copyleft, licenciado sob a licença GPLv3+</string>
+    <string name="validFromDate">Válido a partir de</string>
+    <string name="chooseValidFromDate">Escolha uma data válida a partir de</string>
+    <string name="validFromSentence">Válido a partir de: <xliff:g>%s</xliff:g></string>
+    <string name="view_online">Ver online</string>
 </resources>

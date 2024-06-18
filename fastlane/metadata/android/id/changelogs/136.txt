@@ -1,0 +1,4 @@
+- Dukungan untuk membuat kartu saat berbagi teks biasa
+- Tampilkan jenis gambar alih-alih barcode di bawah gambar
+- Memperbaiki kemungkinan kerusakan saat mencoba mengimpor cadangan dari aplikasi Nextcloud
+- Peningkatan dukungan untuk perangkat tanpa kamera

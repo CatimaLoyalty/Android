@@ -1,0 +1,4 @@
+- Suporte para a criação de um cartão ao compartilhar texto simples
+- Exibição do tipo de imagem em vez do código de barras abaixo das imagens
+- Correção de possível falha ao tentar importar um backup do aplicativo Nextcloud
+- Suporte aprimorado para dispositivos sem câmera

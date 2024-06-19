@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.30.0 - 136
+## v2.30.0 - 136 (2024-06-18)
 
 - Support for creating a card when sharing plain text
 - Display image type instead of barcode below images

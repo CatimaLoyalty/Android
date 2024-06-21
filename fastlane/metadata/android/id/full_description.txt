@@ -13,7 +13,7 @@ Dengan aplikasi ini, Anda bisa mengganti plastik tidak guna dengan uang.
 - Bagikan kupon, penawaran eksklusif, kode promo, atau kartu dan kode menggunakan aplikasi apa pun.
 - Tema gelap dan opsi aksesibilitas untuk pengguna berkebutuhan khusus.
 - Dibuat untuk semuanya oleh komunitas perangkat lunak libre.
-- Terjemahan untuk 20+ bahasa.
+- Terjemahan untuk 40+ bahasa.
 - Gratis, didukung oleh kontribusi komunitas.
 - Gunakan, pelajari, ubah, dan bagikan semau Anda; <i>dengan semua</i>.
 - Tidak hanya perangkat lunak bebas. Perangkat lunak pengelola kartu yang libre dan <i>copyleft</i> (GPLv3+).

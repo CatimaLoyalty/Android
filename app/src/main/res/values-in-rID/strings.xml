@@ -141,17 +141,17 @@
 \nTIDAK ADA DATA YANG DIKUMPULKAN SAMA SEKALI, yang dapat dikonfirmasi oleh siapa pun karena aplikasi kami adalah libre software.</string>
     <string name="importCatimaMessage">Pilih ekspor <i>catima.zip</i> Anda dari Catima untuk diimpor.
 \nBuat dari menu Impor/Ekspor aplikasi Catima lain dengan menekan Ekspor di sana terlebih dahulu.</string>
-    <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya. 
+    <string name="importFidmeMessage">Pilih ekspor <i>fidme-export-request-xxxxxx.zip</i> Anda dari FidMe untuk diimpor, dan pilih jenis barcode secara manual setelahnya.
 \nBuat dari profil FidMe Anda dengan memilih Perlindungan Data lalu tekan Ekstrak data saya terlebih dahulu.</string>
     <string name="importLoyaltyCardKeychain">Impor dari Loyalty Card Keychain</string>
-    <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor. 
+    <string name="importLoyaltyCardKeychainMessage">Pilih ekspor <i>LoyaltyCardKeychain.csv</i> Anda dari Loyalty Card Keychain untuk diimpor.
 \nBuat dari menu Import/Export di Loyalty Card Keychain dengan menekan Export terlebih dahulu.</string>
     <string name="importStocard">Impor dari Stocard</string>
-    <string name="importStocardMessage">Pilih ekspor <i>***.zip</i> Anda dari Stocard untuk diimpor. 
+    <string name="importStocardMessage">Pilih ekspor <i>***.zip</i> Anda dari Stocard untuk diimpor.
 \nDapatkan dengan mengirim email ke support@stocardapp.com untuk meminta ekspor data Anda.</string>
     <string name="importVoucherVault">Impor dari Voucher Vault</string>
-    <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Vault Voucher untuk diimpor. 
-\nBuat dengan menekan Ekspor di Vault Voucher terlebih dahulu.</string>
+    <string name="importVoucherVaultMessage">Pilih ekspor <i>vouchervault.json</i> Anda dari Voucher Vault untuk diimpor.
+\nBuat dengan menekan Ekspor di Voucher Vault terlebih dahulu.</string>
     <string name="unsupportedBarcodeType">Jenis barcode ini belum dapat ditampilkan. Ini mungkin didukung di versi aplikasi yang lebih baru.</string>
     <string name="wrongValueForBarcodeType">Nilai tidak berlaku untuk jenis barcode yang dipilih</string>
     <string name="frontImageDescription">Gambar depan</string>
@@ -288,4 +288,5 @@
     <string name="receive">Terima</string>
     <string name="amountParsingFailed">Jumlah tidak valid</string>
     <string name="add_manually_warning_message">Untuk beberapa toko, nilai barcode berbeda dengan nomor yang tertulis di kartu. Oleh karena itu, memasukkan barcode secara manual mungkin tidak selalu berhasil. Sangat disarankan untuk memindai barcode dengan kamera anda. Apakah anda masih ingin melanjutkan?</string>
+    <string name="noCameraFoundGuideText">Perangkat Anda sepertinya tidak memiliki kamera. Jika iya, coba mulai ulang perangkat. Jika tidak, gunakan tombol Opsi lainnya di bawah untuk menambahkan barcode dengan cara lain.</string>
 </resources>

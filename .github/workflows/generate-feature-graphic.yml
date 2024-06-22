@@ -2,10 +2,11 @@ name: Generate feature graphic
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+#   branches:
+#     - main
     paths:
       - 'fastlane/**/title.txt'
+      - '.scripts/generate_feature_graphic/**'
 permissions:
   actions: none
   checks: none

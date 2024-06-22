@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'fastlane/**/title.txt'
+      - '.scripts/generate_feature_graphic/**'
 permissions:
   actions: none
   checks: none

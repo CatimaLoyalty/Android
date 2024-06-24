@@ -26,7 +26,7 @@ jobs:
       id: gradle-update
     - uses: gradle/actions/wrapper-validation@v3
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6.0.5
+      uses: peter-evans/create-pull-request@v6.1.0
       with:
         title: "Update Gradle to ${{ steps.gradle-update.outputs.version }}"
         commit-message: "Update Gradle to ${{ steps.gradle-update.outputs.version }}"

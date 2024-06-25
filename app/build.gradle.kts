@@ -110,7 +110,7 @@ dependencies {
     implementation("io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0")
 
     // Testing
-    testImplementation("androidx.test:core:1.5.0")
+    testImplementation("androidx.test:core:1.6.0")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.12.2")
 }

@@ -1,0 +1,4 @@
+- Cieľový systém Android 14
+- Otvorenie ikony karty v galérii na dotykovom displeji
+- Vylepšenie dizajnu karty Fotografie pri zobrazovaní úprav
+- Aktualizovaná obrazovka výdajov, aby podporovala aj prijímanie

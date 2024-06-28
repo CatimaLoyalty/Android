@@ -98,7 +98,7 @@
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem traseira</string>
     <string name="removeImage">Remover imagem</string>
-    <string name="takePhoto">Tirar uma photo</string>
+    <string name="takePhoto">Tirar uma foto</string>
     <string name="updateBarcodeQuestionTitle">Atualizar valor do código de barras?</string>
     <string name="exportPasswordHint">Insira sua senha</string>
     <string name="passwordRequired">Por favor, insira a senha</string>

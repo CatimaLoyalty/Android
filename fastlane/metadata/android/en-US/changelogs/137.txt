@@ -1,0 +1,1 @@
+- Allow long store names in preview to split over multiple lines

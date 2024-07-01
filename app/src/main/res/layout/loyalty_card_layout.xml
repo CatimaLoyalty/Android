@@ -42,12 +42,8 @@
                 android:layout_height="match_parent"
                 android:textStyle="bold"
                 app:autoSizeTextType="uniform"
-                app:autoSizeMinTextSize="12sp"
-                app:autoSizeMaxTextSize="100sp"
-                app:autoSizeStepGranularity="2sp"
                 android:gravity="center"
-                android:maxLines="1"
-                android:layout_margin="20dp" />
+                android:padding="20dp" />
 
             <ImageView
                 android:importantForAccessibility="no"

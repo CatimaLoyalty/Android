@@ -302,4 +302,5 @@
     <string name="failedLaunchingFileManager">Nu s-a găsit un manager de fișiere suportat</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Pe care dintre codurile de bare găsite dorești să-l folosești?</string>
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Dispozitivul dvs. nu pare să aibă o cameră foto/video. Daca are, încercați să vă reporniți dispozitivul. Altfel, folosiți butonul cu opțiunea \'Mai multe\' de mai jos pentru a adăuga un cod de bare prin altă modalitate.</string>
 </resources>

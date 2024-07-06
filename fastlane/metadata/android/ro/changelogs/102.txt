@@ -1,0 +1,2 @@
+- Mici ajustări efectuate
+- Remediat ieșirea forțată din aplicație cănd este folosită traducerea nativă in Norvegiană

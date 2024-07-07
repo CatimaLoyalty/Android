@@ -303,4 +303,6 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">¿Cuál de los códigos de barras encontrados desea utilizar?</string>
     <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Tu dispositivo no parece tener cámara. Si la tiene, intente reiniciar el dispositivo. De lo contrario, utilice el botón Más opciones a continuación para añadir un código de barras de otra manera.</string>
+    <string name="importCancelled">Importación cancelada</string>
+    <string name="exportCancelled">Exportación cancelada</string>
 </resources>

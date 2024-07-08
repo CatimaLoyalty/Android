@@ -289,4 +289,6 @@
     <string name="addFromPdfFile">选择 PDF 文件</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">找到的多个条形码中，你希望使用哪个？</string>
     <string name="noCameraFoundGuideText">你的设备似乎没有相机。如果的确如此，请尝试重启设备。否则，使用下方的“更多”按钮以另一种方式添加条形码。</string>
+    <string name="importCancelled">取消了导入</string>
+    <string name="exportCancelled">取消了导出</string>
 </resources>

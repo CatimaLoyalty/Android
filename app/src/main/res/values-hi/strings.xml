@@ -296,4 +296,6 @@
     <string name="errorReadingFile">फाइल को पढ़ा नहीं जा सका</string>
     <string name="failedLaunchingFileManager">समर्थित फाइल प्रबंधक नहीं मिल सका</string>
     <string name="noCameraFoundGuideText">ऐसा लगता है कि आपके डिवाइस में कैमरा नहीं है। अगर है, तो डिवाइस को रीबूट करने का प्रयास करें। अन्यथा, किसी अन्य तरीके से बारकोड जोड़ने के लिए नीचे दिए गए अधिक विकल्प बटन का उपयोग करें।</string>
+    <string name="importCancelled">आयात रद्द</string>
+    <string name="exportCancelled">निर्यात रद्द</string>
 </resources>

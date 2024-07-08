@@ -1,0 +1,4 @@
+- Düz metin paylaşırken kart oluşturma desteği
+- Resimlerin altında barkod yerine resim türünü göster
+- Nextcloud uygulamasından bir yedeği içe aktarmaya çalışırken olası çökme düzeltildi
+- Kamerası olmayan aygıtlar için destek iyileştirildi

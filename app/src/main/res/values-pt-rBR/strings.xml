@@ -303,4 +303,6 @@
     <string name="chooseValidFromDate">Escolha uma data válida a partir de</string>
     <string name="validFromSentence">Válido a partir de: <xliff:g>%s</xliff:g></string>
     <string name="view_online">Ver online</string>
+    <string name="importCancelled">Importação cancelada</string>
+    <string name="exportCancelled">Exportação cancelada</string>
 </resources>

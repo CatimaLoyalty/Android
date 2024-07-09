@@ -303,4 +303,6 @@
     <string name="failedLaunchingFileManager">Impossibile trovare un file manager supportato</string>
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Sembra che il tuo dispositivo non abbia una fotocamera. In tal caso, prova a riavviare il dispositivo. Altrimenti, utilizza il pulsante Altre opzioni di seguito per aggiungere un codice a barre in un altro modo.</string>
+    <string name="importCancelled">Importazione annullata</string>
+    <string name="exportCancelled">Esportazione annullata</string>
 </resources>

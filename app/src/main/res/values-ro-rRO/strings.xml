@@ -128,7 +128,7 @@
     <string name="view_online">Vizualizați online</string>
     <string name="noCameraPermissionDirectToSystemSetting">Pentru a scana codurile de bare, Catima necesită acces la cameră. Apăsați aici pentru a schimba setările permisiunilor dvs.</string>
     <string name="settings_lock_on_opening_orientation">Blocați orientația folosită când deschideți cardul</string>
-    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="app_loyalty_card_keychain">\"Card de loialitate Keychain\" se referă la o aplicație.</string>
     <string name="turn_flashlight_on">Porniți lanterna</string>
     <string name="height">Înălțime:</string>
     <string name="expiryStateSentence">Expiră: <xliff:g>%s</xliff:g></string>
@@ -262,7 +262,7 @@
     <string name="app_resources">Resurse terță deschise: <xliff:g id="app_resources_list">%s</xliff:g></string>
     <string name="app_name">Catima</string>
     <string name="shortcutSelectCard">Selectați un card</string>
-    <string name="accept">Accept</string>
+    <string name="accept">Acceptă</string>
     <string name="settings_category_title_privacy">Confidențialitate</string>
     <string name="show_balance">Afișați balanța</string>
     <string name="nextCard">Următor</string>
@@ -303,4 +303,6 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">Pe care dintre codurile de bare găsite dorești să-l folosești?</string>
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Dispozitivul dvs. nu pare să aibă o cameră foto/video. Daca are, încercați să vă reporniți dispozitivul. Altfel, folosiți butonul cu opțiunea \'Mai multe\' de mai jos pentru a adăuga un cod de bare prin altă modalitate.</string>
+    <string name="importCancelled">Importare anulată</string>
+    <string name="exportCancelled">Exportare anulată</string>
 </resources>

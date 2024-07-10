@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="action_add">Přidat</string>
-    <string name="noGiftCards">Klepněte na tlačítko Plus (+) pro přidání karty nebo naimportujete karty z nabídky (⋮).</string>
+    <string name="noGiftCards">Klepněte na tlačítko plus (+) pro přidání karty nebo naimportujete karty z nabídky (⋮).</string>
     <string name="storeName">Název</string>
     <string name="note">Poznámka</string>
     <string name="cardId">ID karty</string>
@@ -302,4 +302,7 @@
     <string name="pageWithNumber">Stránka <xliff:g>%d</xliff:g></string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Který z nalezených čárových kódů chcete použít?</string>
     <string name="failedLaunchingFileManager">Nelze nalézt podporovaný správce souborů</string>
+    <string name="noCameraFoundGuideText">Zdá se, že vaše zařízení nemá fotoaparát. Pokud ano, zkuste zařízení restartovat. V opačném případě použijte tlačítko Další možnosti a přidejte čárový kód jiným způsobem.</string>
+    <string name="importCancelled">Import zrušen</string>
+    <string name="exportCancelled">Export zrušen</string>
 </resources>

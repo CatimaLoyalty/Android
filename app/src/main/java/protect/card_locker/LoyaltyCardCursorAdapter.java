@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
@@ -88,9 +90,29 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         inputHolder.mDivider.setVisibility(View.GONE);
 
         LoyaltyCard loyaltyCard = LoyaltyCard.toLoyaltyCard(inputCursor);
-        Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
 
-        if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && icon != null) {
+        inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
+
+        // Default header at first, real icon will be retrieved asynchronously if it exists to ensure
+        // smooth scrolling even on slower devices
+        Utils.setIconOrTextWithBackground(mContext, loyaltyCard, null, inputHolder.mCardIcon, inputHolder.mCardText);
+        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
+        boolean hasIcon = Utils.retrieveCardImageAsFile(mContext, loyaltyCard.id, ImageLocationType.icon).exists();
+        if (hasIcon) {
+            new Thread() {
+                @Override
+                public void run() {
+                    Bitmap icon = Utils.retrieveCardImage(mContext, loyaltyCard.id, ImageLocationType.icon);
+
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
+                        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputHolder.getAdapterPosition()));
+                    });
+                }
+            }.start();
+        }
+
+        if (mLoyaltyCardListDisplayOptions.showingNameBelowThumbnail() && hasIcon) {
             showDivider = true;
             inputHolder.setStoreField(loyaltyCard.store);
         } else {
@@ -121,11 +143,6 @@ public class LoyaltyCardCursorAdapter extends BaseCursorAdapter<LoyaltyCardCurso
         } else {
             inputHolder.setExtraField(inputHolder.mExpiryField, null, null, false);
         }
-
-        inputHolder.mCardIcon.setContentDescription(loyaltyCard.store);
-        inputHolder.mIconBackgroundColor = Utils.setIconOrTextWithBackground(mContext, loyaltyCard, icon, inputHolder.mCardIcon, inputHolder.mCardText);
-
-        inputHolder.toggleCardStateIcon(loyaltyCard.starStatus != 0, loyaltyCard.archiveStatus != 0, itemSelected(inputCursor.getPosition()));
 
         inputHolder.itemView.setActivated(mSelectedItems.get(inputCursor.getPosition(), false));
         applyIconAnimation(inputHolder, inputCursor.getPosition());

@@ -298,4 +298,6 @@
     <string name="noCameraFoundGuideText">Aygıtınızda kamera yok gibi görünüyor. Eğer varsa, aygıtı yeniden başlatmayı deneyin. Aksi takdirde, barkodu başka bir şekilde eklemek için aşağıdaki daha fazla seçenek düğmesini kullanın.</string>
     <string name="importCancelled">İçe aktarma iptal edildi</string>
     <string name="exportCancelled">Dışa aktarma iptal edildi</string>
+    <string name="useFrontImage">Ön resmi kullan</string>
+    <string name="useBackImage">Arka resmi kullan</string>
 </resources>

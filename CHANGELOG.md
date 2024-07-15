@@ -3,6 +3,8 @@
 ## Unreleased - 137
 
 - Allow long store names in preview to split over multiple lines
+- Option to use front of back image in thumbnail menu
+- Minor import/export fixes
 
 ## v2.30.0 - 136 (2024-06-18)
 

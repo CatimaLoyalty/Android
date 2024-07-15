@@ -305,4 +305,6 @@
     <string name="view_online">Ver online</string>
     <string name="importCancelled">Importação cancelada</string>
     <string name="exportCancelled">Exportação cancelada</string>
+    <string name="useBackImage">Usar imagem traseira</string>
+    <string name="useFrontImage">Usar imagem frontal</string>
 </resources>

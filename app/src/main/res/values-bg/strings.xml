@@ -296,4 +296,6 @@
     <string name="failedLaunchingFileManager">Не е намерено приложение за управление на файлове</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Кой от намерените щрихкодове желаете да бъде използван?</string>
     <string name="noCameraFoundGuideText">Изглежда, устройството няма камера. Ако има опитайте да рестартирате. В противен случай използвайте бутона „Още“, за да добавите шрихкод по друг начин.</string>
+    <string name="importCancelled">Внасянето е спряно</string>
+    <string name="exportCancelled">Изнасянето е спряно</string>
 </resources>

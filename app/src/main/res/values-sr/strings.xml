@@ -1,2 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
+    <string name="action_add">Dodaj</string>
+    <string name="action_search">Pretraga</string>
+    <string name="noGiftCards">Klikni + plus znak da dodaš karticu, ili je uvezi pomoću ⋮ menija.</string>
+    <string name="storeName">Ime</string>
+    <string name="cardId">Broj kartice</string>
+    <string name="star">Dodaj u omiljene</string>
+    <string name="unstar">Ukloni iz omiljenih</string>
+    <string name="cancel">Otkaži</string>
+    <string name="save">Sačuvaj</string>
+    <string name="edit">Izmeni</string>
+    <string name="delete">Obriši</string>
+    <string name="confirm">Potvrdi</string>
+    <string name="deleteTitle">Obriši karticu</string>
+    <string name="deleteConfirmation">Trajno obriši ovu karticu?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Obriši <xliff:g>%d</xliff:g> karticu trajno?</item>
+        <item quantity="few">Obriši <xliff:g>%d</xliff:g> kartice trajno?</item>
+        <item quantity="other">Obriši <xliff:g>%d</xliff:g> kartica trajno?</item>
+    </plurals>
+    <string name="ok">Potvrdi</string>
+    <string name="share">Podeli</string>
+    <string name="sendLabel">Pošalji…</string>
+    <string name="editCardTitle">Izmeni karticu</string>
+    <string name="addCardTitle">Dodaj karticu</string>
+    <string name="cardShortcut">Prečica kartice</string>
+    <string name="noCardsMessage">Prvo dodaj karticu</string>
+    <string name="noCardExistsError">Nije moguće pronaći tu karticu</string>
+    <string name="failedParsingImportUriError">Nije moguće obraditi uvozni URI</string>
+    <string name="importExport">Uvoz/Izvoz</string>
+    <string name="exportName">Izvoz</string>
+    <string name="importExportHelp">Pravljenje rezervnih kopija podataka omogućava premeštanje na drugi uređaj.</string>
+    <string name="importSuccessfulTitle">Uvezeno</string>
+    <string name="importFailedTitle">Uvoz nije uspeo</string>
+    <string name="importFailed">Nije moguće izvršiti uvoz</string>
+    <string name="exportSuccessfulTitle">Izvezeno</string>
+    <string name="exportFailedTitle">Izvoz nije uspeo</string>
+    <string name="importing">Uvoz…</string>
+    <string name="exporting">Izvoz…</string>
+    <string name="storageReadPermissionRequired">Potrebna dozvola za čitanje memorije za ovu akciju…</string>
+    <string name="barcodeType">Tip bar-koda</string>
+    <string name="noBarcode">Nema bar-koda</string>
+    <string name="scanCardBarcode">Skeniraj bar-kod</string>
+    <string name="barcodeImageDescriptionWithType">Fotografija <xliff:g>%s</xliff:g> bar-koda</string>
+    <string name="exportOptionExplanation">Podaci će biti sačuvani na lokaciji po tvom izboru.</string>
+    <string name="importOptionFilesystemExplanation">Odaberi određenu datoteku iz sistema za upravljanje datotekama.</string>
+    <string name="importOptionFilesystemTitle">Uvezi iz sistema za upravljanje datotekama</string>
+    <string name="importOptionFilesystemButton">Iz sistema za upravljanje datotekama</string>
+    <string name="importOptionApplicationTitle">Koristi drugu aplikaciju</string>
+    <string name="importOptionApplicationExplanation">Koristi bilo koju aplikaciju ili omiljeni menadžer datoteka da bi otvorio datoteku.</string>
+    <string name="importOptionApplicationButton">Koristi drugu aplikaciju</string>
+    <string name="about">O aplikaciji</string>
+    <string name="app_copyright_fmt" tools:ignore="PluralsCandidate">Autorska prava © 2019–<xliff:g>%d</xliff:g> Sylvia van Os i saradnici</string>
+    <string name="app_copyright_old">Bazirana na osnovu aplikcije Loyalty Card Keychain
+\nautorska prava © 2016–2020 Branden Archer</string>
+    <string name="starImage">Omiljena zvezda</string>
+    <string name="settings">Podešavanja</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_system_theme">Sistem</string>
+    <string name="settings_light_theme">Svetla</string>
+    <string name="settings_dark_theme">Tamna</string>
+    <string name="settings_follow_system_orientation">Kao sistem</string>
+    <string name="settings_follow_sensor_orientation">Uvek rotiraj (ignoriše sistemska podešavanja)</string>
+    <string name="settings_portrait_orientation">Uspravno</string>
+    <string name="settings_landscape_orientation">Položeno</string>
+    <string name="settings_lock_on_opening_orientation">Zaključavanje orijentacije koja se koristi prilikom otvaranja kartice</string>
+    <string name="settings_display_barcode_max_brightness">Posvetli bar-kod pogled</string>
+    <string name="settings_display_barcode_max_brightness_summary">Neophodno za rad nekih čitača</string>
+    <string name="selectBarcodeTitle">Odaberi bar-kod</string>
+    <string name="settings_card_orientation">Orijentacija bar-koda</string>
+    <string name="thumbnailDescription">Naslovna fotografija</string>
+    <string name="settings_disable_lockscreen_while_viewing_card">Spreči zaključavanje ekrana</string>
+    <string name="settings_allow_content_provider_read_title">Dozvoli drugim aplikacijama da pristupe mojim podacima</string>
+    <string name="settings_allow_content_provider_read_summary">Aplikacije će i dalje morati da zatraže dozvolu da bi im se odobrio pristup</string>
+    <string name="intent_import_card_from_url_share_text">Želim da podelim karticu sa tobom</string>
+    <string name="importSuccessful">Podaci uvezeni</string>
+    <string name="exportSuccessful">Podaci izvezeni</string>
+    <string name="enter_group_name">Unesite ime grupe</string>
+    <string name="noGroups">Klikni + plus znak da dodaš grupe za kategorizaciju.</string>
+    <string name="noGroupCards">Ova grupa je prazna</string>
+    <plurals name="groupCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> kartica</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> kartica</item>
+    </plurals>
+    <string name="group_name_already_in_use">Grupa pod ovim imenom već postoji</string>
+    <string name="group_name_is_empty">Grupa mora imati ime</string>
+    <string name="all">Sve</string>
+    <string name="deleteConfirmationGroup">Obriši grupu?</string>
+    <string name="moveUp">Pomeri nagore</string>
+    <string name="moveDown">Pomeri nadole</string>
+    <string name="leaveWithoutSaveTitle">Izlaz</string>
+    <string name="leaveWithoutSaveConfirmation">Izlaziš, a nisi sačuvao?</string>
+    <string name="addManually">Unesite bar-kod ručno</string>
+    <string name="addFromImage">Izaberi sliku iz galerije</string>
+    <string name="groupsList">Grupe: <xliff:g>%s</xliff:g></string>
+    <string name="card">Kartica</string>
+    <string name="errorReadingImage">Nije moguće očitati sliku</string>
+    <string name="balance">Stanje</string>
+    <string name="currency">Valuta</string>
+    <string name="points">Bodovi</string>
+    <string name="balanceParsingFailed">Nevažeće stanje</string>
+    <string name="chooseImportType">Uvoz podataka iz</string>
+    <string name="app_loyalty_card_keychain">Loyalty Card Keychain</string>
+    <string name="privacy_policy">Politika privatnosti</string>
+    <string name="privacy_policy_popup_text">Obaveštenje o politici privatnosti (zahtevano od nekih prodavnica aplikacija): 
+\n
+\nPODACI SE UOPŠTE NE PRIKUPLJAJU, što svako može proveriti jer je naša aplikacija slobodni softver.</string>
+    <string name="accept">Prihvati</string>
+    <string name="importCatima">Uvezi iz Catime</string>
+    <string name="importFidme">Uvoz iz FidMe</string>
+    <string name="importLoyaltyCardKeychain">Uvezi iz aplikacije Loyalty Card Keychain</string>
+    <string name="importLoyaltyCardKeychainMessage">Odaberi svoj <i>LoyaltyCardKeychain.csv</i> izvoz iz aplikacije Loyalty Card Keychain za uvoz.
+\nKreiraj ga iz menija \"Import/Export\" u aplikaciji Loyalty Card Keychain klikom na \"Export\".</string>
+    <string name="importStocard">Uvoz iz Stocard</string>
+    <string name="importVoucherVault">Uvoz iz Voucher Vault</string>
+    <string name="importVoucherVaultMessage">Odaberi svoj <i>vouchervault.json</i> izvoz iz Voucher Vault za uvoz.
+\nKreiraj ga pritiskom na \"Export\" u Voucher Vault aplikaciji.</string>
+    <string name="barcodeId">Vrednost bar-koda</string>
+    <string name="sameAsCardId">Isti kao broj kartice</string>
+    <string name="setBarcodeId">Podesi vrednost bar-koda</string>
+    <string name="unsupportedBarcodeType">Ovaj tip bar-koda nije podržan te ne može da se prikaže. Možda bude podržan u nekoj novijoj verziji aplikacije.</string>
+    <string name="wrongValueForBarcodeType">Vrednost nije validna za izabrani tip bar-koda</string>
+    <string name="intent_import_card_from_url_share_multiple_text">Želim da podelim neke kartice sa tobom</string>
+    <string name="frontImageDescription">Prednja fotografija kartice</string>
+    <string name="photos">Fotografije</string>
+    <string name="setFrontImage">Postavi prednju fotografiju</string>
+    <string name="removeImage">Ukloni fotografiju</string>
+    <string name="takePhoto">Uslikaj fotografiju</string>
+    <string name="updateBarcodeQuestionTitle">Ažuriraj vrednost bar-koda?</string>
+    <string name="yes">Da</string>
+    <string name="exportPassword">Podesi lozinku da bi zaštitio svoj izvoz (opciono)</string>
+    <string name="exportPasswordHint">Unesi lozinku</string>
+    <string name="failedGeneratingShareURL">Nije moguće generisati URL koji se može podeliti. Molim te da prijaviš ovo developeru.</string>
+    <string name="turn_flashlight_on">Uključi blic</string>
+    <string name="turn_flashlight_off">Isključi blic</string>
+    <string name="settings_locale">Jezik</string>
+    <string name="settings_oled_dark">Čisto crna pozadina za tamnu temu</string>
+    <string name="settings_oled_dark_summary">Smanjuje potrošnju baterije na OLED ekranima</string>
+    <string name="settings_system_locale">Sistem</string>
+    <string name="selectColor">Odaberi boju</string>
+    <string name="setIcon">Odaberi naslovnu fotografiju</string>
+    <string name="settings_theme_color">Boja teme</string>
+    <string name="settings_catima_theme">Catima</string>
+    <string name="settings_pink_theme">Roze</string>
+    <string name="settings_magenta_theme">Magenta</string>
+    <string name="settings_violet_theme">Ljubičasta</string>
+    <string name="settings_brown_theme">Braon</string>
+    <string name="sort">Sortiranje</string>
+    <string name="showMoreInfo">Prikaži informacije</string>
+    <string name="updateBalance">Ažuriraj stanje</string>
+    <string name="failedToRetrieveImageFile">Preuzimanje fotografije nije uspelo</string>
+    <string name="sort_by_name">Ime</string>
+    <string name="sort_by_most_recently_used">Nedevno korišćeno</string>
+    <string name="sort_by_expiry">Ističe</string>
+    <string name="reverse">…u obrnutom redosledu</string>
+    <string name="sort_by">Sortiraj po</string>
+    <string name="version_history">Istorija verzija</string>
+    <string name="credits">Stanje</string>
+    <string name="help_translate_this_app">Pomozi da prevedemo aplikaciju</string>
+    <string name="license">Licenca</string>
+    <string name="source_repository">Izvorni repozitorijum</string>
+    <string name="on_github">na GitHub-u</string>
+    <string name="and_data_usage">i korišćenje podataka</string>
+    <string name="rate_this_app">Oceni aplikaciju</string>
+    <string name="on_google_play">na Google Play prodavnici</string>
+    <string name="report_error">Prijavi grešku</string>
+    <string name="shortcutSelectCard">Odaberi karticu</string>
+    <string name="options">Opcije</string>
+    <string name="starred">Označeni zvezdicom</string>
+    <string name="duplicateCard">Dupliraj</string>
+    <string name="archive">Arhiviraj</string>
+    <string name="unarchive">Ukloni iz arhive</string>
+    <string name="unarchived">Kartica uklonjena iz arhive</string>
+    <string name="archived">Kartica dodata u arhivu</string>
+    <string name="failedLaunchingPhotoPicker">Nije moguće pronaći podržanu galerija aplikaciju</string>
+    <string name="previousCard">Prethodna</string>
+    <string name="nextCard">Sledeća</string>
+    <string name="failedToOpenUrl">Prvo instalirajte internet pregledač</string>
+    <plurals name="viewArchivedCardsWithCount">
+        <item quantity="one">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
+        <item quantity="few">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartice)</item>
+        <item quantity="other">Pregledaj arhivu (<xliff:g>%1$d</xliff:g> kartica)</item>
+    </plurals>
+    <string name="welcome">Dobrodošli u Catima aplikaciju</string>
+    <string name="importCards">Uvezi kartice</string>
+    <string name="updateBalanceTitle">Koliko si potrošio ili primio?</string>
+    <string name="updateBalanceHint">Unesi vrednost</string>
+    <string name="currentBalanceSentence">Trenutno stanje: <xliff:g>%s</xliff:g></string>
+    <string name="validFromDate">Važi do</string>
+    <string name="anyDate">bilo kog datuma</string>
+    <string name="chooseValidFromDate">Odaberi datum važenja</string>
+    <string name="validFromSentence">Važi od: <xliff:g>%s</xliff:g></string>
+    <string name="height">Visina:</string>
+    <string name="switchToFrontImage">Prebaci na prednju fotografiju</string>
+    <string name="switchToBarcode">Prebaci na bar-kod</string>
+    <string name="openFrontImageInGalleryApp">Otvori prednju fotografiju u galerija aplikaciji</string>
+    <string name="setBarcodeHeight">Postavi visinu bar-koda</string>
+    <string name="donate">Doniraj</string>
+    <string name="icon_header_click_text">Dugi pritisak za izmenu naslovne fotografije</string>
+    <string name="show_name_below_image_thumbnail">Prikaži naziv ispod naslovne fotografije</string>
+    <string name="show_note">Prikaži napomenu</string>
+    <string name="show_balance">Prikaži stanje</string>
+    <string name="show_validity">Prikaži validnost</string>
+    <string name="settings_category_title_privacy">Privatnost</string>
+    <string name="settings_category_title_general">Glavno</string>
+    <string name="action_display_options">Prikaz</string>
+    <string name="show_archived_cards">Prikaži arhivirane kartice</string>
+    <string name="view_online">Pregledaj online</string>
+    <string name="action_more_options">Više opcija</string>
+    <string name="app_name">Catima</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> izabrana</item>
+        <item quantity="few"><xliff:g>%d</xliff:g> izabrane</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> izabranih</item>
+    </plurals>
+    <string name="noGiftCardsGroup">Kreirajte par kartica, a zatim ih ovde dodeli grupi.</string>
+    <string name="noMatchingGiftCards">Nema rezultata. Pokušaj da promeniš pretragu.</string>
+    <string name="note">Napomena</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Obriši <xliff:g>%d</xliff:g> karticu</item>
+        <item quantity="few">Obriši <xliff:g>%d</xliff:g> kartice</item>
+        <item quantity="other">Obriši <xliff:g>%d</xliff:g> kartica</item>
+    </plurals>
+    <string name="cameraPermissionRequired">Potrebna dozvola za pristup kameri za ovu akciju…</string>
+    <string name="permissionReadCardsLabel">Pročitaj Catima kartice</string>
+    <string name="permissionReadCardsDescription">Pročitaj svoje Catima kartice i sve njihove detalje, uključujući beleške i slike</string>
+    <string name="cameraPermissionDeniedTitle">Nije moguće pristupiti kameri</string>
+    <string name="exportFailed">Nije moguće izvršiti izvoz</string>
+    <string name="app_copyright_short">Autorska prava © Sylvia van Os i saradnici</string>
+    <string name="app_license">Kopileftovani slobodni softver, licenciran GPLv3+</string>
+    <string name="about_title_fmt">O <xliff:g id="app_name">%s</xliff:g></string>
+    <string name="debug_version_fmt">Verzija: <xliff:g id="version">%s</xliff:g></string>
+    <string name="app_libraries">Slobodne biblioteke trećih strana: <xliff:g id="app_libraries_list">%s</xliff:g></string>
+    <string name="app_resources">Slobodni resursi trećih strana: <xliff:g id="app_resources_list">%s</xliff:g></string>
+    <string name="settings_keep_screen_on">Drži ekran uključen</string>
+    <string name="settings_keep_screen_on_summary">Onemogućava vremensko ograničenje gašenja ekrana dok gledate karticu</string>
+    <string name="settings_disable_lockscreen_while_viewing_card_summary">Onemogućava zaključavanje ekrana dok gledate karticu</string>
+    <string name="noCameraPermissionDirectToSystemSetting">Za skeniranje bar-kodova, Catimi će trebati pristup tvojoj kameri. Dodirnite ovde da biste promenili podešavanja dozvole.</string>
+    <string name="groups">Grupe</string>
+    <string name="group_edit">Izmeni grupu</string>
+    <string name="group_updated">Grupa ažurirana</string>
+    <string name="failedOpeningFileManager">Prvo instaliraj menadžer datoteka.</string>
+    <string name="editGroup">Izmena grupe: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentence">Ističe: <xliff:g>%s</xliff:g></string>
+    <string name="expiryStateSentenceExpired">Istekla: <xliff:g>%s</xliff:g></string>
+    <string name="balanceSentence">Stanje: <xliff:g>%s</xliff:g></string>
+    <string name="editBarcode">Izmeni bar-kod</string>
+    <string name="moveBarcodeToTopOfScreen">Premesti bar-kod na vrh ekrana</string>
+    <plurals name="balancePoints">
+        <item quantity="one"><xliff:g>%s</xliff:g> bod</item>
+        <item quantity="few"><xliff:g>%s</xliff:g> boda</item>
+        <item quantity="other"><xliff:g>%s</xliff:g> bodova</item>
+    </plurals>
+    <string name="expiryDate">Datum isteka</string>
+    <string name="never">Nikad</string>
+    <string name="chooseExpiryDate">Odaberi datum isteka</string>
+    <string name="noBarcodeFound">Nije pronađen bar-kod</string>
+    <string name="importCatimaMessage">Odaberi svoj <i>catima.zip</i> koji želiš da uvezeš.
+\nMožeš da ga kreiraš u Catima aplikaciji koju prenosiš iz menija Uvoz/Izvoz aplikacije pritiskom na izvoz.</string>
+    <string name="importFidmeMessage">Odaberi svoj <i>fidme-export-request-xxxxxx.zip</i> izvoz iz FidMe za uvoz, a zatim ručno izaberite tipove bar-kodova.
+\nKreirajte ga iz svog FidMe profila tako što ćeš izabrati \"Data Protection\", a zatim pritisnuti \"Extract my data first\".</string>
+    <string name="importStocardMessage">Odaberi svoj <i>***.zip</i> izvoz iz Stocard za uvoz.
+\nNabavi ga putem e-mail adrese support@stocardapp.com tražeći izvoz vaših podataka.</string>
+    <string name="backImageDescription">Zadnja fotografija kartice</string>
+    <string name="setBackImage">Postavi zadnju fotografiju</string>
+    <string name="passwordRequired">Unesi lozinku</string>
+    <string name="updateBarcodeQuestionText">Promenio si broj kartice. Da li želiš da ažuriraš i bar-kod da bude iste vrednosti?</string>
+    <string name="no">Ne</string>
+    <string name="app_contributors">Saradnici: <xliff:g id="app_contributors">%s</xliff:g></string>
+    <string name="settings_sky_blue_theme">Nebo plava</string>
+    <string name="settings_green_theme">Zelena</string>
+    <string name="barcodeLongPressMessage">Samo fotografije mogu da se otvore u galerija aplikaciji</string>
+    <string name="settings_blue_theme">Plava</string>
+    <string name="settings_grey_theme">Siva</string>
+    <string name="translate_platform">na Weblate-u</string>
+    <plurals name="groupCardCountWithArchived">
+        <item quantity="one"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirana)</item>
+        <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
+        <item quantity="other"><xliff:g>%1$d</xliff:g> kartica (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirano)</item>
+    </plurals>
+    <string name="include_if_asking_support">Ako želiš da zatražiš podršku, ubaci sledeće informacije:</string>
+    <string name="newBalanceSentence">Novo stanje: <xliff:g>%s</xliff:g></string>
+    <string name="switchToBackImage">Prebaci na zadnju fotografiju</string>
+    <string name="openBackImageInGalleryApp">Otvori zadnju fotografiju u galerija aplikaciji</string>
+    <string name="settings_category_title_cards">Kartice</string>
+</resources>

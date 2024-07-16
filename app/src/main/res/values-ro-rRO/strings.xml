@@ -305,4 +305,6 @@
     <string name="noCameraFoundGuideText">Dispozitivul dvs. nu pare să aibă o cameră foto/video. Daca are, încercați să vă reporniți dispozitivul. Altfel, folosiți butonul cu opțiunea \'Mai multe\' de mai jos pentru a adăuga un cod de bare prin altă modalitate.</string>
     <string name="importCancelled">Importare anulată</string>
     <string name="exportCancelled">Exportare anulată</string>
+    <string name="useBackImage">Utilizează imaginea din spate</string>
+    <string name="useFrontImage">Utilizează imaginea din față</string>
 </resources>

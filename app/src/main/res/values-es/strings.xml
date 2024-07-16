@@ -305,4 +305,6 @@
     <string name="noCameraFoundGuideText">Tu dispositivo no parece tener cámara. Si la tiene, intente reiniciar el dispositivo. De lo contrario, utilice el botón Más opciones a continuación para añadir un código de barras de otra manera.</string>
     <string name="importCancelled">Importación cancelada</string>
     <string name="exportCancelled">Exportación cancelada</string>
+    <string name="useFrontImage">Utilice la imagen frontal</string>
+    <string name="useBackImage">Utilice la imagen trasera</string>
 </resources>

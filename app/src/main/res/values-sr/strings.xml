@@ -286,4 +286,25 @@
     <string name="openBackImageInGalleryApp">Otvori zadnju fotografiju u galerija aplikaciji</string>
     <string name="settings_category_title_cards">Kartice</string>
     <string name="addWithoutBarcode">Dodaj karticu bez bar-koda</string>
+    <string name="enter_card_id">Unesite broj ili tekst sa kartice</string>
+    <string name="card_id_must_not_be_empty">Unesi broj kartice</string>
+    <string name="add_a_card_in_a_different_way">Dodaj karticu na drugi način</string>
+    <string name="field_must_not_be_empty">Ovo polje ne sme biti prazno</string>
+    <string name="manually_enter_barcode_instructions">Unesi broj ili tekst sa kartice i pritisnite bar-kod koji liči na onaj koji je na kartici.</string>
+    <string name="add_manually_warning_title">Skeniranje se preporučuje</string>
+    <string name="add_manually_warning_message">Za neke prodavnice, vrednost bar-koda može da se razlikuje od broja napisanog na kartici. Zbog toga, ručno unešeni bar-kod možda neće uvek funkcionisati. Toplo se preporučuje da umesto toga skeniraš bar-kod kamerom. Da li ipak želiš da nastaviš?</string>
+    <string name="continue_">Nastavi</string>
+    <string name="spend">Potroši</string>
+    <string name="receive">Primi</string>
+    <string name="amountParsingFailed">Nevažeći iznos</string>
+    <string name="addFromPdfFile">Odaberi PDF datoteku</string>
+    <string name="errorReadingFile">Nije moguće pročitati datoteku</string>
+    <string name="failedLaunchingFileManager">Nije moguće pronaći podržani menadžer datoteka</string>
+    <string name="multipleBarcodesFoundPleaseChooseOne">Koji od pronađenih bar-kodova želiš da koristiš?</string>
+    <string name="importCancelled">Uvoz je otkazan</string>
+    <string name="exportCancelled">Izvoz je otkazan</string>
+    <string name="useFrontImage">Koristi prednju fotografiju</string>
+    <string name="useBackImage">Koristi zadnju fotografiju</string>
+    <string name="pageWithNumber">Strana <xliff:g>%d</xliff:g></string>
+    <string name="noCameraFoundGuideText">Čini se da tvoj uređaj nema kameru. Ako je ima, pokušaj da ponovo pokreneš uređaj. U suprotnom, koristi dugme Više opcija, koje se nalazi ispod, da bi dodao bar-kod na drugi način.</string>
 </resources>

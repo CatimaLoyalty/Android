@@ -285,4 +285,5 @@
     <string name="switchToBackImage">Prebaci na zadnju fotografiju</string>
     <string name="openBackImageInGalleryApp">Otvori zadnju fotografiju u galerija aplikaciji</string>
     <string name="settings_category_title_cards">Kartice</string>
+    <string name="addWithoutBarcode">Dodaj karticu bez bar-koda</string>
 </resources>

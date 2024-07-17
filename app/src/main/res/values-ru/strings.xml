@@ -312,4 +312,6 @@
     <string name="noCameraFoundGuideText">Похоже, ваше устройство не оснащено камерой. Если это не так, попробуйте перезагрузить устройство. В противном случае воспользуйтесь кнопкой \"Ещё\", чтобы добавить штри-хкод другим способом.</string>
     <string name="importCancelled">Импорт отменён</string>
     <string name="exportCancelled">Экспорт отменён</string>
+    <string name="useFrontImage">Использовать лицевую сторону</string>
+    <string name="useBackImage">Использовать заднюю сторону</string>
 </resources>

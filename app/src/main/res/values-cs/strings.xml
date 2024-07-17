@@ -305,4 +305,6 @@
     <string name="noCameraFoundGuideText">Zdá se, že vaše zařízení nemá fotoaparát. Pokud ano, zkuste zařízení restartovat. V opačném případě použijte tlačítko Další možnosti a přidejte čárový kód jiným způsobem.</string>
     <string name="importCancelled">Import zrušen</string>
     <string name="exportCancelled">Export zrušen</string>
+    <string name="useBackImage">Použijte předchozí obrázek</string>
+    <string name="useFrontImage">Použijte přední obrázek</string>
 </resources>

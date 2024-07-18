@@ -311,5 +311,5 @@
     <string name="amountParsingFailed">Неправильна сума</string>
     <string name="noCameraFoundGuideText">Ваш пристрій може не мати камери. перезавантажте пристрій, якщо це не так. В іншому випадку додайте штрих-код за допомогою кнопки \"Більше опцій\".</string>
     <string name="importCancelled">Імпортування скасовано</string>
-    <string name="exportCancelled">Експорт скасовано</string>
+    <string name="exportCancelled">Експортування скасовано</string>
 </resources>

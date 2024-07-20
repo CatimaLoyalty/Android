@@ -298,4 +298,6 @@
     <string name="noCameraFoundGuideText">ऐसा लगता है कि आपके डिवाइस में कैमरा नहीं है। अगर है, तो डिवाइस को रीबूट करने का प्रयास करें। अन्यथा, किसी अन्य तरीके से बारकोड जोड़ने के लिए नीचे दिए गए अधिक विकल्प बटन का उपयोग करें।</string>
     <string name="importCancelled">आयात रद्द</string>
     <string name="exportCancelled">निर्यात रद्द</string>
+    <string name="useFrontImage">सामने की छवि का प्रयोग करें</string>
+    <string name="useBackImage">पीछे की छवि का उपयोग करें</string>
 </resources>

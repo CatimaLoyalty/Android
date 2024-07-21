@@ -298,6 +298,6 @@
     <string name="noCameraFoundGuideText">Dein Gerät scheint nicht über eine Kamera zu verfügen. Wenn dies der Fall ist, versuche, das Gerät neu zu starten. Andernfalls verwende die Schaltfläche Weitere Optionen unten, um einen Barcode auf andere Weise hinzuzufügen.</string>
     <string name="exportCancelled">Export abgebrochen</string>
     <string name="importCancelled">Import abgebrochen</string>
-    <string name="useFrontImage">Startbild verwenden</string>
-    <string name="useBackImage">Hintergrundbild verwenden</string>
+    <string name="useFrontImage">Vorderseite verwenden</string>
+    <string name="useBackImage">Rückseite verwenden</string>
 </resources>

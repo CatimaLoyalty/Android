@@ -1,0 +1,4 @@
+- Open afbeelding in galerij bij lang indrukken
+- Pas Material-stijl toe op dialoogvensters
+- Ondersteun het maken van een kaart door een afbeelding naar Catima te delen
+- Voeg snel-uitgeven knop toe aan het kaartenscherm

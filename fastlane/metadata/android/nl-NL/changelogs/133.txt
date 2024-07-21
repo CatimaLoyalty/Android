@@ -1,0 +1,4 @@
+- Ondersteun Android 14
+- Open kaarticoon in galerij bij aanraking
+- Verbeter ontwerp van Foto's-tabblad in bewerkingsweergave
+- Update bestelscherm om ook ontvangen te ondersteunen

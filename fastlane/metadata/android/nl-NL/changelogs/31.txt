@@ -1,0 +1,2 @@
+- Sorteer lijst van kaarten ongevoelig voor hoofdlettergebruik (pull #266)
+- Voeg instelling toe om de oriëntatie te verlammen voor alle kaarten (pull #269)

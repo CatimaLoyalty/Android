@@ -1,0 +1,6 @@
+- Verbeter "Kaart toevoegen"-workflow
+- Verbeteringen in validatiestroom
+- Los randgeval op dat een ongeldige UI-status veroorzaakt bij het wisselen van archiefweergave
+- Gebruik thema- of kaartkleur voor navigatiebalk (Android 8.1+)
+- Geüpdatete selector voor geldigheid en vervaldatum
+- Voeg optie toe om altijd te draaien (negeer systeeminstellingen)

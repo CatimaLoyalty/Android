@@ -1,0 +1,3 @@
+- Tikken op een barcode verplaatst deze nu naar de bovenkant van het scherm (#348 (https://github.com/brarcher/loyalty-card-locker/pull/348)).
+- Voeg witruimte toe rond barcodes om het scannen in de donkere modus te verbeteren (#328 (https://github.com/brarcher/loyalty-card-locker/issues/328)).
+- Herstel verwisselde importknoppen. (#346 (https://github.com/brarcher/loyalty-card-locker/pull/346)).

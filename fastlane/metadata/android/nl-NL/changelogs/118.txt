@@ -1,0 +1,2 @@
+- Ondersteun instellen van de geldigheidsdatum van een kaart
+- Fix Stocard-import (exportformaat van Stocard veranderd)

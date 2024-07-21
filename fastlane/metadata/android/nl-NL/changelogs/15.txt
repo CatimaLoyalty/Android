@@ -1,0 +1,2 @@
+- Ondersteuning voor app-snelkoppelingen (Android 7.1+), waarbij de recentst gebruikte kaarten als snelkoppelingen verschijnen. (pull #145 (https://github.com/brarcher/loyalty-card-locker/pull/145))
+- Widget toegevoegd als vervanging voor snelkoppelingen op apparaten onder Android 7.1. (pull #142 (https://github.com/brarcher/loyalty-card-locker/pull/142))

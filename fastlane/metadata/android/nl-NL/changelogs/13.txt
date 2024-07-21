@@ -1,0 +1,2 @@
+- Hersteld barcode-afmetingen na geheugenbesparing (v0.11). (pull #126 (https://github.com/brarcher/loyalty-card-locker/pull/126))
+- Duitse en Franse vertalingen bijgewerkt. (pull #122 (https://github.com/brarcher/loyalty-card-locker/pull/122), pull #124 (https://github.com/brarcher/loyalty-card-locker/pull/124), pull #125 (https://github.com/brarcher/loyalty-card-locker/pull/125))

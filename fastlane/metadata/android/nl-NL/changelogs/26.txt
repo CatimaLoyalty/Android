@@ -1,0 +1,1 @@
+- Voorkom crash wanneer het renderen van een barcode het geheugen van de applicatie uitput. (pull #219 (https://github.com/brarcher/loyalty-card-locker/pull/219))

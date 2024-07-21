@@ -1,0 +1,3 @@
+- Lang indrukken op het kaarticoon in de weergave om het te wijzigen
+- Verbeter de knopstijl op het Groepen-scherm
+- Los probleem op waarbij lange barcode-waarden ervoor zorgen dat de barcode wegvalt

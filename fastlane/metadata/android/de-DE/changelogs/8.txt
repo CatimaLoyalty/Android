@@ -1,4 +1,4 @@
-- Bildschirmhelligkeit auf Maximum beim Anzeigen einer Karte. (Pull #54 [Link](https://github.com/brarcher/loyalty-card-locker/pull/54))
-- Bestätigung beim Löschen von Karten hinzugefügt. (Pull #55 [Link](https://github.com/brarcher/loyalty-card-locker/pull/55))
-- Deutsche (Pull #57 [Link](https://github.com/brarcher/loyalty-card-locker/pull/57)) und tschechische (Pull #58 [Link](https://github.com/brarcher/loyalty-card-locker/pull/58)) Übersetzungen hinzugefügt.
-- Italienische Übersetzung verbessert. (Pull #66 [Link](https://github.com/brarcher/loyalty-card-locker/pull/66))
+- Bildschirmhelligkeit auf Maximum beim Anzeigen einer Karte. (Pull #54 (https://github.com/brarcher/loyalty-card-locker/pull/54))
+- Bestätigung beim Löschen von Karten hinzugefügt. (Pull #55 (https://github.com/brarcher/loyalty-card-locker/pull/55))
+- Deutsche (Pull #57 (https://github.com/brarcher/loyalty-card-locker/pull/57)) und tschechische (Pull #58 (https://github.com/brarcher/loyalty-card-locker/pull/58)) Übersetzungen hinzugefügt.
+- Italienische Übersetzung verbessert. (Pull #66 (https://github.com/brarcher/loyalty-card-locker/pull/66))

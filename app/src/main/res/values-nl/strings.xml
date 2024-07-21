@@ -297,7 +297,7 @@
     <string name="pageWithNumber">Pagina <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Uw apparaat lijkt niet over een camera te beschikken. Als het dat wel doet, probeer uw apparaat dan opnieuw op te starten. Anders gebruikt u de knop \"Meer opties\" beneden om handmatig een streepjescode in te voeren.</string>
     <string name="importCancelled">Importeren geannuleerd</string>
-    <string name="exportCancelled">Export geannuleerd</string>
-    <string name="useFrontImage">Gebruik afbeelding op hoofdpagina</string>
-    <string name="useBackImage">Gebruik achtergrondafbeelding</string>
+    <string name="exportCancelled">Exporteren geannuleerd</string>
+    <string name="useFrontImage">Gebruik voorzijde van kaart</string>
+    <string name="useBackImage">Gebruik achterzijde van kaart</string>
 </resources>

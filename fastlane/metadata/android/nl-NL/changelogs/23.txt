@@ -1,0 +1,3 @@
+- Voeg stille ruimte toe aan begin/einde van barcodes. (pull #200 (https://github.com/brarcher/loyalty-card-locker/pull/200))
+- Voeg opties toe om kleuren van winkelnaam lettertype en achtergrond aan te passen. (pull #203 (https://github.com/brarcher/loyalty-card-locker/pull/203))
+- Voeg opties toe om lettergroottes op kaartlijst- en enkele kaartpagina aan te passen. (pull #204 (https://github.com/brarcher/loyalty-card-locker/pull/204))

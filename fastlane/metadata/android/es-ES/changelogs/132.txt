@@ -1,4 +1,6 @@
-- Refinado la secuencia de "Añadir tarjeta"
-- Mejora de la secuencia de validación
-- Reparación de caso de borde causando un estado invalido de la UI haciendo que se muestre el archivo
-- Usar el tema o color de la tarjeta para la barra de navegación (Android 8.1+)
+- Se mejoró el flujo de trabajo "Agregar tarjeta"
+- Mejoras en el proceso de validación.
+- Se corrigió un error que causaba que la interfaz de usuario entrara en un estado no válido al cambiar la vista del archivo.
+- El color del sistema o del mapa se utiliza para la barra de navegación (Android 8.1+)
+- Se actualizó el selector de fechas para fechas de validez y vencimiento.
+- Se agregó una opción para forzar la rotación de la pantalla (ignora la configuración del sistema)

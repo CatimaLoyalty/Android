@@ -1,0 +1,1 @@
+- Wijzigingen in de Kaartweergave om de notitie weer te geven, het kaart-ID meerdere regels te laten innemen en de winkelnaam te tonen. (pull #197 (https://github.com/brarcher/loyalty-card-locker/pull/197))

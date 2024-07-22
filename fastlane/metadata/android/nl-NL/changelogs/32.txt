@@ -1,0 +1,1 @@
+- Herstel het aanmaken van een nieuwe kaart door de streepjescode handmatig in te voeren (issue #272)

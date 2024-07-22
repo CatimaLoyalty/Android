@@ -1,0 +1,14 @@
+- Steunt nu officieel de volgende lijst met 1D- en 2D-streepjescode:
+  - AZTEC
+  - CODABAR
+  - CODE_39
+  - CODE_128
+  - DATA_MATRIX
+  - EAN_8
+  - EAN_13
+  - ITF
+  - PDF_417
+  - QR_CODE
+  - UPC_A
+
+- Gegenereerde streepjescode zijn groter, eenvoudiger te scannen vanaf een scansysteem

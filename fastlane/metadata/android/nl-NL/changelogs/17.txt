@@ -1,0 +1,2 @@
+- Add launcher/home screen shortcuts for loyalty cards. (pull #161 (https://github.com/brarcher/loyalty-card-locker/pull/161))
+- Remove in-app shortcut creation, eliminating the need for shortcut permission. (pull #163 (https://github.com/brarcher/loyalty-card-locker/pull/163))

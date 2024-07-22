@@ -1,0 +1,4 @@
+- Voeg instelling voor schermverlichting bij streepjescode-weergave toe (pull #259)
+- Voeg Griekse vertalingen toe (pull #252)
+- Voeg Sloveense vertalingen toe (pull #260)
+- Bijwerken van vertalingen (pull #260, pull #254)

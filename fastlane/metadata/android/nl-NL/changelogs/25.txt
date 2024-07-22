@@ -1,0 +1,2 @@
+- Verminder ruimte in de koptekst bij het bekijken van een kaart. (pull #213 (https://github.com/brarcher/loyalty-card-locker/pull/213))
+- Schakel piep uit bij het scannen van een barcode. (pull #216 (https://github.com/brarcher/loyalty-card-locker/pull/216))

@@ -1,0 +1,2 @@
+- Verbeterde lay-out voor kaartenlijst. (pull #188 (https://github.com/brarcher/loyalty-card-locker/pull/188))
+- Verbeterde lay-out bij het bekijken van een kaart. (pull #190 (https://github.com/brarcher/loyalty-card-locker/pull/190))

@@ -1,7 +1,7 @@
-- Arabisch wird unterstützt
-- Anzeige der archivierten Kartenanzahl in der Gruppenübersicht
-- Guthabenanalyse - Fehler beseitigt (Arabisch bzw. Sprachen mit nicht-westlichen Zahlen wurden nicht gespeichert)
-- Benutzerdefiniertes Thema wird nun korrekt auf dem Hauptbildschirm gezeigt
-- Verbesserte Anzeige ausgewählter Karten
-- Kein Absturz beim Verlassen der Kartenansicht bei Karten mit Ablaufdatum/Guthaben
-- Rückwärtspfeil in der Kartenansicht zeigt nicht mehr die falsche Richtung (RTL-Layout)
+- Arabisch hinzugefügt
+- Archivierte Kartenanzahl anzeigen
+- Fehler beim Parsen der Salden behoben
+- Theme auf Hauptbildschirm korrigiert
+- Anzeige der ausgewählten Karten verbessert
+- Absturz bei RTL-Layouts behoben
+- Zurück-Pfeil in RTL-Layouts korrigiert

@@ -1,0 +1,3 @@
+- Lange winkelnaam in de preview over meerdere regels splitsen
+- Optie om voor- of achterkant afbeelding te gebruiken in thumbnail-menu
+- Kleine import/export-fixes

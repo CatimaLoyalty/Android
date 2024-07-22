@@ -1,0 +1,3 @@
+- Voeg rotatieslot toe voor kaartweergave. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))
+- Betere foutafhandeling bij niet-laadbare kaarten. (pull #132 (https://github.com/brarcher/loyalty-card-locker/pull/132))
+- Los lay-out-ID-probleem voor introductiewizard op. (pull #128 (https://github.com/brarcher/loyalty-card-locker/pull/128))

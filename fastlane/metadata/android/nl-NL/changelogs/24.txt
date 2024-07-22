@@ -1,0 +1,4 @@
+- Vertalingen bijgewerkt. (pull #208 (https://github.com/brarcher/loyalty-card-locker/pull/208))
+- Updates voor barcodelweergave: (pull #209 (https://github.com/brarcher/loyalty-card-locker/pull/209))
+  - Herlaad kaartweergave bij schermrotatie voor juiste barcodeschaal.
+  - Render 1D-barcodes in een groter formaat, zodat ze beter het scherm vullen.

@@ -1,0 +1,3 @@
+- "Vorige" en "Volgende" toe in de loyaliteitskaartweergave
+- Kleur van de bewerkknop hersteld
+- Floppy disk icoon vervangen door een vinkje

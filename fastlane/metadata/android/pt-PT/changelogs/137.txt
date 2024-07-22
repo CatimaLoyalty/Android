@@ -1,1 +1,3 @@
-- Permitir nomes de lojas longas na visualização para dividi-las em várias linhas
+- Permitir que nomes longos de lojas na pré-visualização sejam divididos em várias linhas
+- Opção para utilizar a imagem de frente ou de verso no menu de miniaturas
+- Pequenas correcções de importação/exportação

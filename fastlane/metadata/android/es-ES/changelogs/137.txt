@@ -1,0 +1,4 @@
+- Permitir que los nombres de tiendas largos en la vista previa se dividan en varias líneas
+- Opción para usar la imagen frontal o posterior en el menú de miniaturas
+- Correcciones menores de importación y exportación.
+- Correcciones menores en la interfaz de usuario

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 137
+## v2.31.0 - 137 (2024-07-26)
 
 - Allow long store names in preview to split over multiple lines
 - Option to use front of back image in thumbnail menu

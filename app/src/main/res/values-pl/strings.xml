@@ -312,4 +312,6 @@
     <string name="noCameraFoundGuideText">Nie wykryto kamery. Jeśli twoje urządzenie posiada kamerę, spróbuj uruchomić je ponownie. W innym wypadku wybierz Więcej opcji i dodaj kartę w inny sposób.</string>
     <string name="importCancelled">Import anulowany</string>
     <string name="exportCancelled">Eksport anulowany</string>
+    <string name="useBackImage">Użyj obrazu z tyłu</string>
+    <string name="useFrontImage">Użyj obrazu z przodu</string>
 </resources>

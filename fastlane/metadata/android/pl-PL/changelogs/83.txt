@@ -1,0 +1,2 @@
+- Obsługa zmiany kolejności sortowania
+- Zapobieganie brakowi pamięci podczas skanowania dużych obrazów w celu znalezienia kodu kreskowego

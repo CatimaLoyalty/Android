@@ -1,0 +1,4 @@
+- Ulepszona obsługa czytników ekranu
+- Brak awarii podczas próby otwarcia filmu z galerii
+- Obsługa przesuwania na ekranie widoku karty lojalnościowej
+- Brak resetowania grupy po naciśnięciu przycisku Wstecz

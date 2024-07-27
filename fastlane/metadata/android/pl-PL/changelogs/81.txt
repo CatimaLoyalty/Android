@@ -1,0 +1,4 @@
+- Ulepszona lista kart do wyświetlania w trybie poziomym i na tablecie
+- Dodano obsługę kolorów motywu (dzięki, Subhashish Anand!)
+- Nie zamykaj aktywności skanowania w przypadku błędu aparatu (więc ręczne wprowadzanie danych jest nadal możliwe)
+- Dodano wszystkich współpracowników do okna dialogowego „O programie”

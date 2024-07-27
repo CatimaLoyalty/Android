@@ -1,0 +1,4 @@
+- Zezwalaj na dzielenie długich nazw sklepów w podglądzie na wiele wierszy
+- Opcja używania obrazu przód-tył w menu miniatur
+- Drobne poprawki importu/eksportu
+- Drobne poprawki interfejsu użytkownika

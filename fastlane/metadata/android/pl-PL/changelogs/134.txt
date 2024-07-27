@@ -1,0 +1,3 @@
+- Obsługa skanowania plików PDF w poszukiwaniu kodów kreskowych
+- Obsługa plików graficznych z wieloma kodami kreskowymi
+- Drobne poprawki interfejsu użytkownika

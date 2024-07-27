@@ -1,0 +1,4 @@
+- Obsługa tworzenia karty podczas udostępniania zwykłego tekstu
+- Wyświetlanie typu obrazu zamiast kodu kreskowego pod obrazami
+- Naprawiono możliwą awarię podczas próby zaimportowania kopii zapasowej z aplikacji Nextcloud
+- Ulepszona obsługa urządzeń bez aparatu

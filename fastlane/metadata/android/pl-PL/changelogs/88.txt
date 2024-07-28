@@ -1,0 +1,1 @@
+- Naprawiono nieprawidłową migrację powodującą, że pierwsza karta stawała się niewidoczna

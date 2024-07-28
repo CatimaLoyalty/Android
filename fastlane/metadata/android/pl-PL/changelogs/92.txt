@@ -1,0 +1,2 @@
+- Nowy układ ekranu głównego
+- Naprawiono problemy z rozmiarem dolnej warstwy podczas przełączania się między trybem pełnoekranowym

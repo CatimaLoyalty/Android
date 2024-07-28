@@ -1,0 +1,4 @@
+- Android 14
+- Otwórz ikonę karty w galerii po dotknięciu
+- Ulepsz wygląd zakładki Zdjęcia w widoku edycji
+- Zaktualizuj ekran wydatków, aby obsługiwać również odbieranie

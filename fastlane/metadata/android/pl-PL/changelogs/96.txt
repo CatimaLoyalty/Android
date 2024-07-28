@@ -1,0 +1,2 @@
+- Dodano obsługę CODE 93
+- Różne drobne poprawki błędów i ulepszenia

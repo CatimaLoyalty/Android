@@ -2,17 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <permission
+        android:name="${applicationId}.READ_CARDS"
         android:description="@string/permissionReadCardsDescription"
         android:icon="@drawable/ic_launcher_foreground"
         android:label="@string/permissionReadCardsLabel"
-        android:name="${applicationId}.READ_CARDS"
         android:protectionLevel="dangerous" />
 
-    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
-
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="23" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="23" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -27,9 +31,12 @@
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:localeConfig="@xml/locales_config">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".BarcodeDownloaderActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -43,6 +50,7 @@
                 <action android:name="android.intent.action.SEND" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
                 <data android:mimeType="image/*" />
                 <data android:mimeType="application/pdf" />
@@ -59,7 +67,7 @@
         <activity
             android:name=".ManageGroupActivity"
             android:label="@string/group_edit"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoyaltyCardViewActivity"
             android:exported="true"
@@ -112,41 +120,43 @@
         <activity
             android:name=".preferences.SettingsActivity"
             android:label="@string/settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- FIXME: locked screenOrientation is a workaround for https://github.com/CatimaLoyalty/Android/issues/1715, remove when https://github.com/CatimaLoyalty/Android/issues/513 is fixed -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- FIXME: locked screenOrientation is a workaround for https://github.com/CatimaLoyalty/Android/issues/1715, remove when https://github.com/CatimaLoyalty/Android/issues/513 is fixed -->
         <activity
             android:name=".ImportExportActivity"
-            android:label="@string/importExport"
             android:exported="true"
+            android:label="@string/importExport"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- ZIP Intent Filter -->
-            <intent-filter
-                android:label="@string/importCards">
+            <intent-filter android:label="@string/importCards">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="application/zip" />
-                <data android:scheme="content"/>
-                <data android:host="*"/>
+                <data android:scheme="content" />
+                <data android:host="*" />
             </intent-filter>
 
             <!-- JSON Intent Filter -->
-            <intent-filter
-                android:label="@string/importCards">
+            <intent-filter android:label="@string/importCards">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="application/json" />
-                <data android:scheme="content"/>
-                <data android:host="*"/>
+                <data android:scheme="content" />
+                <data android:host="*" />
             </intent-filter>
 
             <!-- CSV Intent Filter -->
-            <intent-filter
-                android:label="@string/importCards">
+            <intent-filter android:label="@string/importCards">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="content"/>
+
+                <data android:scheme="content" />
                 <data android:host="*" />
                 <data android:mimeType="text/comma-separated-values" />
             </intent-filter>
@@ -162,7 +172,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".UCropWrapper"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -171,8 +180,7 @@
             android:name=".contentprovider.CardsContentProvider"
             android:authorities="${applicationId}.contentprovider.cards"
             android:exported="true"
-            android:readPermission="${applicationId}.READ_CARDS"/>
-
+            android:readPermission="${applicationId}.READ_CARDS" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}"
@@ -182,11 +190,16 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
-        <service android:name=".CardsOnPowerScreenService" android:label="@string/app_name"
-            android:permission="android.permission.BIND_CONTROLS" android:exported="true">
+
+        <service
+            android:name=".CardsOnPowerScreenService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_CONTROLS">
             <intent-filter>
                 <action android:name="android.service.controls.ControlsProviderService" />
             </intent-filter>
         </service>
     </application>
+
 </manifest>

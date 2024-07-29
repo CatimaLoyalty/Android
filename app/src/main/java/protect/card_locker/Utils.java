@@ -2,6 +2,7 @@ package protect.card_locker;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -17,6 +18,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.Layout;
@@ -50,6 +52,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
+import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.multi.GenericMultipleBarcodeReader;
 import com.google.zxing.multi.MultipleBarcodeReader;
@@ -80,6 +83,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -142,6 +146,31 @@ public class Utils {
         return ColorUtils.calculateLuminance(backgroundColor) > LUMINANCE_MIDPOINT;
     }
 
+    static public List<BarcodeValues> retrieveBarcodesFromText(Context context, String text) {
+        Log.i(TAG, "Received text with possible barcode");
+        String simpleRegex = ".*(https?:\\/\\/[a-zA-Z0-9_\\-\\.\\/\\?\\&\\=]+).*";
+
+        Pattern pattern = Pattern.compile(simpleRegex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(text);
+
+        if (matcher.matches()){
+            return retrieveBarcodesFromUrl(context, Uri.parse(matcher.group(1)));
+
+        }
+
+        return Collections.singletonList(new BarcodeValues(null, text));
+    }
+
+    static public List<BarcodeValues> retrieveBarcodesFromUrl(Context context, Uri uri) {
+
+        Intent intent = new Intent(context, BarcodeDownloaderActivity.class);
+        intent.setData(uri);
+        context.startActivity(intent);
+
+        return Collections.emptyList();
+
+    }
+
     static public List<BarcodeValues> retrieveBarcodesFromImage(Context context, Uri uri) {
         Log.i(TAG, "Received image file with possible barcode");
 
@@ -192,8 +221,24 @@ public class Utils {
                 Bitmap renderedPage;
                 for (int i = 0; i < renderer.getPageCount(); i++) {
                     PdfRenderer.Page page = renderer.openPage(i);
+
                     renderedPage = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
                     page.render(renderedPage, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+
+                    // debug
+                    String path = Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS
+                            + "/" + UUID.randomUUID().toString() + ".jpg";
+                    try {
+
+                        FileOutputStream fileOutputStream = new FileOutputStream(path);
+                        renderedPage.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                        fileOutputStream.close();
+                    } catch (IOException e){
+                        Log.e(TAG, e.getMessage());
+                    }
+                    // end debug
+
+
                     page.close();
 
                     List<BarcodeValues> barcodesFromPage = getBarcodesFromBitmap(renderedPage);
@@ -310,6 +355,19 @@ public class Utils {
         // ...and then turned into a binary bitmap from its luminance
         LuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);
         BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+        // debug
+        String path = Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS
+                + "/" + UUID.randomUUID().toString() + ".jpg";
+        try {
+
+            FileOutputStream fileOutputStream = new FileOutputStream(path);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.close();
+        } catch (IOException e){
+            Log.e(TAG, e.getMessage());
+        }
+        // end debug
 
         List<BarcodeValues> barcodeValuesList = new ArrayList<>();
         try {
@@ -433,6 +491,7 @@ public class Utils {
     }
 
     private static BigDecimal fromParsed(Number parsed){
+        if(parsed instanceof BigDecimal)
         if(parsed instanceof BigDecimal)
             return (BigDecimal) parsed;
 

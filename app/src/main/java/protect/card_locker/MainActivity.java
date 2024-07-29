@@ -30,12 +30,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.zxing.common.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import protect.card_locker.databinding.ContentMainBinding;
@@ -477,14 +479,14 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
 
     private void onSharedIntent(Intent intent) {
         String receivedAction = intent.getAction();
-        String receivedType = intent.getType();
+        String receivedType = Objects.requireNonNullElse(intent.getType(), "");
 
         // Check if an image or file was shared to us
         if (Intent.ACTION_SEND.equals(receivedAction)) {
             List<BarcodeValues> barcodeValuesList;
 
             if (receivedType.equals("text/plain")) {
-                barcodeValuesList = Collections.singletonList(new BarcodeValues(null, intent.getStringExtra(Intent.EXTRA_TEXT)));
+                barcodeValuesList = Utils.retrieveBarcodesFromText(this, intent.getStringExtra(Intent.EXTRA_TEXT));
             } else if (receivedType.startsWith("image/")) {
                 barcodeValuesList = Utils.retrieveBarcodesFromImage(this, intent.getParcelableExtra(Intent.EXTRA_STREAM));
             } else if (receivedType.equals("application/pdf")) {
@@ -510,7 +512,7 @@ public class MainActivity extends CatimaAppCompatActivity implements LoyaltyCard
     public void updateTabGroups(TabLayout groupsTabLayout) {
         List<Group> newGroups = DBHelper.getGroups(mDatabase);
 
-        if (newGroups.size() == 0) {
+        if (newGroups.isEmpty()) {
             groupsTabLayout.removeAllTabs();
             groupsTabLayout.setVisibility(View.GONE);
             return;

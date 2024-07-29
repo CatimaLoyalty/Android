@@ -1,0 +1,2 @@
+- Herstel Spaanse vertalingen (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))
+- Bijwerken van vertalingen (pull #244 (https://github.com/brarcher/loyalty-card-locker/pull/244))

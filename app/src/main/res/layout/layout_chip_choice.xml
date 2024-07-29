@@ -6,4 +6,5 @@
     android:paddingRight="8dp"
     style="@style/Widget.MaterialComponents.Chip.Filter"
     app:checkedIconVisible="true"
-    android:textAppearance="?android:attr/textAppearance" />
+    android:textAppearance="?android:attr/textAppearance"
+    app:checkedIconTint="?attr/colorOnBackground"/>

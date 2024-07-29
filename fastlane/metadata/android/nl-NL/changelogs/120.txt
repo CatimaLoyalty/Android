@@ -1,0 +1,3 @@
+- Volledig nieuw ontwerp voor hoofd- en loyaliteitskaartweergave
+- Material You-design voor het instellingenmenu
+- Fix crash bij gebruik van "Neem een foto" met een uitgeschakelde camera-app

@@ -6,8 +6,8 @@ Allan Nordhøy
 Heimen Stoffels
 Oğuz Ersen
 FC (Fay) Stegerman
-Katharine Chui
 StoyanDimitrov
+Katharine Chui
 SlavekB
 mondstern
 IllusiveMan196
@@ -19,12 +19,12 @@ laralem
 Petr Novák
 Joel A
 Taco
+大王叫我来巡山
 pfaffenrodt
 Aayush Gupta
-HudobniVolk
-大王叫我来巡山
-Nyatsuki
 Scrambled777
+HudobniVolk
+Nyatsuki
 Giovanni Donisi
 Jiri Grönroos
 Samantaz Fox
@@ -32,6 +32,7 @@ arno-github
 Cliff Heraldo
 Sergio Paredes
 Ankit Tiwari
+Jose Delvani
 Milo Ivir
 Milan Šalka
 mdvhimself
@@ -42,14 +43,15 @@ Projjal Moitra
 Quentin PAGÈS
 ikanakova
 ngocanhtve
+Silvério Santos
 waffshappen
 Ziad OUALHADJ
 Robin Liu
 Denis Shilin
+しいたけ
 Alexander Ivanov
-Viet Nguyen Hoang
 Miha Frangež
-Silvério Santos
+Viet Nguyen Hoang
 Virginie
 Michael Gangolf
 rudy3
@@ -58,4 +60,3 @@ Govind S Nair
 Freddo espresso
 arshbeerSingh
 MisterCosta96
-しいたけ

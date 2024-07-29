@@ -1,0 +1,5 @@
+- Naprawiono przesuwanie między grupami, które nie działało w pustej grupie
+- Zezwalaj na eksportowanie z ochroną hasłem
+- Popraw wykorzystanie miejsca na kody QR
+- Zapisywanie ostatnio używanego poziomu powiększenia dla każdej karty
+- Naprawiono awarię podczas przesuwania bezpośrednio po stuknięciu

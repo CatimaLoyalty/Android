@@ -1,0 +1,4 @@
+- Ondersteuning voor het maken van een kaart bij het delen van platte tekst
+- Toon afbeeldingssoort in plaats van barcode onder afbeeldingen
+- Oplossen van mogelijke crash bij het importeren van een back-up vanuit de Nextcloud-app
+- Verbeterde ondersteuning voor apparaten zonder camera

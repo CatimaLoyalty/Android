@@ -98,7 +98,7 @@
     <string name="setFrontImage">Definir imagem frontal</string>
     <string name="setBackImage">Definir imagem traseira</string>
     <string name="removeImage">Remover imagem</string>
-    <string name="takePhoto">Tirar uma photo</string>
+    <string name="takePhoto">Tirar uma foto</string>
     <string name="updateBarcodeQuestionTitle">Atualizar valor do código de barras?</string>
     <string name="exportPasswordHint">Insira sua senha</string>
     <string name="passwordRequired">Por favor, insira a senha</string>
@@ -303,4 +303,8 @@
     <string name="chooseValidFromDate">Escolha uma data válida a partir de</string>
     <string name="validFromSentence">Válido a partir de: <xliff:g>%s</xliff:g></string>
     <string name="view_online">Ver online</string>
+    <string name="importCancelled">Importação cancelada</string>
+    <string name="exportCancelled">Exportação cancelada</string>
+    <string name="useBackImage">Usar imagem traseira</string>
+    <string name="useFrontImage">Usar imagem frontal</string>
 </resources>

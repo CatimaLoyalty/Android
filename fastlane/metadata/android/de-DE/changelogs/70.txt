@@ -1,11 +1,11 @@
-- BREAKING CHANGE: Das Backupformat hat sich geändert, siehe https://github.com/TheLastProject/Catima/wiki/Export-format
-- BREAKING CHANGE: Das URL-Sharing-Format wurde geändert, siehe https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
-- Aktivieren/Deaktivieren der Taschenlampe während des Scannens ermöglicht
-- UPC-E-Unterstützung
-- Hinzufügen eines Vorder- und Rückseitenfotos zu jeder Karte
-- Imports passwortgeschützter Zip-Dateien
-- Imports von Stocard (Beta)
-- Unnötige Leerzeichen in Notizen aus dem Fidme-Import korrigiert
-- Unterstützung des neuen Voucher Vault-Exportformats
-- Aktionsschaltflächen repariert, die sich hinter anderen UI-Elementen auf Android 4 befanden
-- Oberer Rand der Treuekarten Leiste repariert
+- BREAKING CHANGE: Backup-Format geändert, siehe https://github.com/TheLastProject/Catima/wiki/Export-format
+- BREAKING CHANGE: URL-Sharing-Format geändert, siehe https://github.com/TheLastProject/Catima/wiki/Card-sharing-URL-format
+- Taschenlampe beim Scannen an/aus
+- UPC-E-Unterstützung hinzugefügt
+- Fotos von Vorder- und Rückseite der Karte hinzufügen
+- Passwortgeschützte Zip-Dateien importieren
+- Stocard-Import (Beta) unterstützt
+- Leerzeichen bei Fidme-Import entfernt
+- Neues Voucher Vault-Format unterstützt
+- Floating Action Buttons auf Android 4 repariert
+- Oberer Rand der Appbar repariert

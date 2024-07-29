@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -90,14 +91,18 @@ public class ImportExportTask implements CompatCallable<ImportExportResult> {
         progress = new ProgressDialog(activity);
         progress.setTitle(doImport ? R.string.importing : R.string.exporting);
 
-        progress.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                ImportExportTask.this.stop();
-            }
-        });
+        progress.setOnCancelListener(dialog -> cancel(doImport, true));
+        progress.setOnDismissListener(dialog -> cancel(doImport, true));
 
         progress.show();
+    }
+
+    private void cancel(boolean isImport, boolean showToast) {
+        ImportExportTask.this.stop();
+
+        if (showToast) {
+            Toast.makeText(activity, isImport ? R.string.importCancelled : R.string.exportCancelled, Toast.LENGTH_LONG).show();
+        }
     }
 
     protected ImportExportResult doInBackground(Void... nothing) {

@@ -1,0 +1,2 @@
+- Los probleem op waarbij snel-uitgeven dialoog geen komma scheiding toestond
+- Ondersteun het laden van afbeeldingen vanuit bestandsbeheer

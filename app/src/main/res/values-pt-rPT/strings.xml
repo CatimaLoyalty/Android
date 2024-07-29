@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
-    <string name="action_add">Acrescentar</string>
+    <string name="action_add">Adicionar</string>
     <string name="importOptionFilesystemExplanation">Escolha um ficheiro específico a partir do sistema de ficheiros.</string>
     <string name="action_search">Pesquisa</string>
     <string name="star">Adicionar aos favoritos</string>
@@ -303,4 +303,8 @@
     <string name="pageWithNumber">Página <xliff:g>%d</xliff:g></string>
     <string name="failedLaunchingFileManager">Não foi possível encontrar um gestor de ficheiros suportado</string>
     <string name="noCameraFoundGuideText">O seu dispositivo não parece ter uma câmara. Se tiver, tente reiniciar o dispositivo. Caso contrário, utilize o botão \"Mais opções\" abaixo para adicionar um código de barras de outra maneira.</string>
+    <string name="importCancelled">Importação cancelada</string>
+    <string name="exportCancelled">Exportação cancelada</string>
+    <string name="useFrontImage">Utilizar imagem frontal</string>
+    <string name="useBackImage">Utilizar imagem do verso</string>
 </resources>

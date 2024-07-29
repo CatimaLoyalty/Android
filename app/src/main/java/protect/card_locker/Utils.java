@@ -41,6 +41,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.os.LocaleListCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.palette.graphics.Palette;
 
@@ -1000,6 +1001,22 @@ public class Utils {
         if (icon != null) {
             textWhenNoImage.setVisibility(View.GONE);
         } else {
+            // Manually calculate how many lines will be needed
+            // This is necessary because Android's auto sizing will split over lines way before reaching the minimum font size and store names split over multiple lines are harder to scan with a quick glance so we should try to prevent it
+            // Because we have to write the text before we can actually know the exact laid out size (trying to delay this causes bugs where the autosize fails) we have to take some... weird shortcuts
+
+            // At this point textWhenNoImage.getWidth() still returns 0, so we cheat by calculating the whole width of the screen and then dividing it by the amount of columns
+            int textviewWidth = Resources.getSystem().getDisplayMetrics().widthPixels / context.getResources().getInteger(R.integer.main_view_card_columns);
+
+            // Calculate how wide a character is and calculate how many characters fit in a line
+            int characterWidth = TextViewCompat.getAutoSizeMinTextSize(textWhenNoImage);
+            int maxWidthPerLine = textviewWidth - textWhenNoImage.getPaddingStart() - textWhenNoImage.getPaddingEnd();
+
+            // Set amount of lines based on what could fit at most
+            int maxLines = ((loyaltyCard.store.length() * characterWidth) / maxWidthPerLine) + 1;
+            textWhenNoImage.setMaxLines(maxLines);
+
+            // Actually set the text and colour
             textWhenNoImage.setVisibility(View.VISIBLE);
             textWhenNoImage.setText(loyaltyCard.store);
             textWhenNoImage.setTextColor(Utils.needsDarkForeground(headerColor) ? Color.BLACK : Color.WHITE);

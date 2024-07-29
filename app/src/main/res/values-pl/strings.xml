@@ -310,4 +310,8 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">Którego ze znalezionych kodów kreskowych chciałbyś użyć?</string>
     <string name="add_manually_warning_message">W przypadku niektórych sklepów wartość kodu kreskowego różni się od liczby zapisanej na karcie. Z tego powodu ręczne wprowadzanie kodu kreskowego może nie zawsze działać. Zdecydowanie zaleca się zeskanowanie kodu kreskowego za pomocą aparatu. Czy nadal chcesz kontynuować?</string>
     <string name="noCameraFoundGuideText">Nie wykryto kamery. Jeśli twoje urządzenie posiada kamerę, spróbuj uruchomić je ponownie. W innym wypadku wybierz Więcej opcji i dodaj kartę w inny sposób.</string>
+    <string name="importCancelled">Import anulowany</string>
+    <string name="exportCancelled">Eksport anulowany</string>
+    <string name="useBackImage">Użyj obrazu z tyłu</string>
+    <string name="useFrontImage">Użyj obrazu z przodu</string>
 </resources>

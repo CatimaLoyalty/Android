@@ -1,0 +1,3 @@
+- Verplaats "Archieffunctie" naar het menu "Weergave-opties" (voorheen "Toon details")
+- Taalondersteuning per app voor Android 13
+- Privacybeleid, wijzigingslog en licentie ingebed in de app

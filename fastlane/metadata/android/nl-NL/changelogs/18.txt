@@ -1,0 +1,2 @@
+- Fix crash on Android SDK 24+ with file chooser import. (pull #170 (https://github.com/brarcher/loyalty-card-locker/pull/170))
+- New icon and color scheme. (pull #171 (https://github.com/brarcher/loyalty-card-locker/pull/171))

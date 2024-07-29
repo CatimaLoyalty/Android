@@ -324,4 +324,8 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">اي من الـbarcodes تريد استخدامه؟</string>
     <string name="pageWithNumber">صفحة <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">يبدوا أن جهازك لا يمتلك كاميرا. إذا كان يمتلكها، أطفئ الجهاز وحاول مرة اخرى. اذا لم ينجح ذلك، أضغط على زر \"المزيد من الأختيارات\" في الأسفل لإضافة الباركود بطريقة أخرى.</string>
+    <string name="importCancelled">تم الغاء الاستيراد</string>
+    <string name="exportCancelled">تم الغاء الاستخراج</string>
+    <string name="useFrontImage">استخدام صورة أمامية</string>
+    <string name="useBackImage">استخدم صورة خلفية</string>
 </resources>

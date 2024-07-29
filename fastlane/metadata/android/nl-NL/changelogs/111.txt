@@ -1,0 +1,7 @@
+- Ondersteuning voor Arabisch.
+- Toon aantal gearchiveerde kaarten.
+- Fix balance parsing bugs (Arabisch en niet-westerse nummers).
+- Aangepast thema nu correct op hoofdscherm.
+- Verbeterde weergave van geselecteerde kaarten.
+- Fix crash bij verlaten kaartweergave in RTL-layouts.
+- Fix terugpijl in kaartweergave voor RTL-layouts.

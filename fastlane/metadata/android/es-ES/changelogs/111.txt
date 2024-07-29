@@ -1,7 +1,7 @@
-- Soporte de idioma árabe
-- Muestra el número total de tarjetas archivadas en vista general del grupo
-- Corrección de errores en el análisis de saldo (no se podían guardar tarjetas en árabe y otros idiomas con números no occidentales)
-- Corrección de tema personalizado no se aplicaba correctamente a la pantalla principal
-- Mejoras en la pantalla de selección de tarjetas
-- Corrección error de cierre al salir de la vista de tarjeta en diseños RTL para tarjetas con caducidad o saldo
-- Corrección de la flecha para volver en la vista de tarjeta que apunta en la dirección incorrecta en diseños RTL
+- Soporte para idioma árabe
+- Mostrar el recuento de tarjetas archivadas en la descripción general del grupo
+- Se corrigieron errores de análisis de equilibrio (las tarjetas no se podían guardar en árabe ni en otros idiomas con números no occidentales)
+- Se solucionó el problema de que el tema personalizado no se aplicaba correctamente a la pantalla principal
+- Mejorar la visualización de las tarjetas seleccionadas
+- Se solucionó el bloqueo al salir de la vista de tarjeta en diseños RTL para tarjetas con vencimiento o saldo
+- Se corrigió la flecha hacia atrás en la vista de tarjeta que apuntaba en la dirección incorrecta en los diseños RTL

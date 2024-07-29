@@ -1,0 +1,4 @@
+- Android 14
+- Abrir el icono de la tarjeta en la galería al tocarla
+- Mejorar el diseño de la pestaña Fotos en la vista de edición
+- Actualizar la pantalla de gastos para que también admita la recepción

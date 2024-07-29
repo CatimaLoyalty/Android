@@ -1,0 +1,3 @@
+- Podpora skenování PDF souborů pro čárový kód
+- Podpora obrazových souborů s více čárovými kódy
+- Drobné UI opravy

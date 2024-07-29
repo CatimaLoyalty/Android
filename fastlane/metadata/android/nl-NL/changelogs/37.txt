@@ -1,0 +1,1 @@
+- Fix probleem met delen van kaarten zonder achtergrondkleur (#343)

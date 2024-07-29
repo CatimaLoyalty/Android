@@ -1,0 +1,3 @@
+- Monochroom pictogram toegevoegd voor Android 13
+- Eerste startscherm verbeterd
+- Fidme-importfouten opgelost

@@ -347,4 +347,8 @@
     <string name="multipleBarcodesFoundPleaseChooseOne">Which of the found barcodes do you want to use?</string>
     <string name="pageWithNumber">Page <xliff:g>%d</xliff:g></string>
     <string name="noCameraFoundGuideText">Your device does not seem to have a camera. If it does, try rebooting the device. Otherwise, use the "More options" button below to add a barcode another way.</string>
+    <string name="importCancelled">Import cancelled</string>
+    <string name="exportCancelled">Export cancelled</string>
+    <string name="useFrontImage">Use front image</string>
+    <string name="useBackImage">Use back image</string>
 </resources>

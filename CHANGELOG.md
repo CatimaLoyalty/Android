@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.31.0 - 137 (2024-07-26)
+
+- Allow long store names in preview to split over multiple lines
+- Option to use front of back image in thumbnail menu
+- Minor import/export fixes
+- Minor UI fixes
+
 ## v2.30.0 - 136 (2024-06-18)
 
 - Support for creating a card when sharing plain text

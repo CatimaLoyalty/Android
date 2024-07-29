@@ -1,0 +1,4 @@
+- Verbeteringen in barcode-weergave
+- Basisinteroperabiliteit met externe apps (Android 6.0+)
+- Herstructurering van het instellingenmenu
+- Oplossing voor importproblemen door browsers die een schuine streep aan de deel-URL toevoegen

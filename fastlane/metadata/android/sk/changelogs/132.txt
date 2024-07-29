@@ -1,4 +1,6 @@
-- Refine "Pridať kartu" workflow
+- Spresnenie postupu "Pridať kartu"
 - Zlepšenie validácie
-- Fix hrany prípad spôsobuje neplatný stav UI, keď toggling ukazuje archív
-- Použite tému alebo farbu karty pre navigačnú tyč (Android 8.1+)
+- Oprava okrajového prípadu spôsobujúceho neplatný stav používateľského rozhrania pri prepínaní zobrazovania archívu
+- Použitie motívu alebo farby karty pre navigačnú lištu (Android 8.1+)
+- Aktualizovaný výber dátumu platnosti a vypršania platnosti
+- Pridanie možnosti vždy otáčať (ignoruje nastavenie systému)

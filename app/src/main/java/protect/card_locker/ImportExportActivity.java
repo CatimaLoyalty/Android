@@ -9,6 +9,7 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -163,6 +164,10 @@ public class ImportExportActivity extends CatimaAppCompatActivity {
         // Check that there is an app that data can be imported from
         Button importApplication = binding.importOptionApplicationButton;
         importApplication.setOnClickListener(v -> chooseImportType(true, null));
+
+        // FIXME: The importer/exporter is currently quite broken
+        // To prevent the screen from turning off during import/export and some devices killing Catima as it's no longer foregrounded, force the screen to stay on here
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void openFileForImport(Uri uri, char[] password) {

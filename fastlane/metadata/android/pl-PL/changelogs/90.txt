@@ -1,0 +1,4 @@
+- Naprawiono kropki w widoku karty, które miały niewłaściwy kolor podczas ręcznej zmiany motywu
+- Naprawiono awarię w widoku karty podczas obrotu/zmiany motywu
+- Naprawiono miganie listy kart
+- Naprawiono tekst nakładający się na ikonę gwiazdki

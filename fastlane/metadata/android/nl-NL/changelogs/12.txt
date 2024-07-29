@@ -1,0 +1,1 @@
+- Voorkom een crash bij het draaien van het scherm tijdens de intro.

@@ -21,13 +21,13 @@ android {
         applicationId = "me.hackerchick.catima"
         minSdk = 21
         targetSdk = 34
-        versionCode = 136
-        versionName = "2.30.0"
+        versionCode = 137
+        versionName = "2.31.0"
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
 
-        resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sv", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
+        resourceConfigurations += listOf("ar", "bg", "bn", "bn-rIN", "bs", "cs", "da", "de", "el-rGR", "en", "eo", "es", "es-rAR", "fi", "fr", "he-rIL", "hi", "hr", "hu", "in-rID", "is", "it", "ja", "ko", "lt", "lv", "nb-rNO", "nl", "oc", "pl", "pt-rBR", "pt-rPT", "ro-rRO", "ru", "sk", "sl", "sr", "sv", "tr", "uk", "vi", "zh-rCN", "zh-rTW")
     }
 
     buildTypes {
@@ -111,9 +111,9 @@ dependencies {
     implementation("io.wcm.tooling.spotbugs:io.wcm.tooling.spotbugs.annotations:1.0.0")
 
     // Testing
-    testImplementation("androidx.test:core:1.5.0")
+    testImplementation("androidx.test:core:1.6.1")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.robolectric:robolectric:4.12.2")
+    testImplementation("org.robolectric:robolectric:4.13")
 }
 
 tasks.withType<SpotBugsTask>().configureEach {

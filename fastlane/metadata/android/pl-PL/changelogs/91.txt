@@ -1,0 +1,4 @@
+- Ulepszona obsługa zarządzania grupą
+- Obsługa przycinania obrazów
+- Naprawiono utratę danych obrazu podczas zapisywania po obróceniu w widoku edycji
+- Możliwość ustawienia niestandardowego obrazu jako ikony karty

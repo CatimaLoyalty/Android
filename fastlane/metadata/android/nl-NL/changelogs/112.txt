@@ -1,0 +1,1 @@
+- Maak het instellen van een aangepaste header zichtbaarder

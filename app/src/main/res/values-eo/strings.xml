@@ -59,14 +59,14 @@
     <string name="importOptionApplicationTitle">Uzi alian app</string>
     <string name="importOptionFilesystemExplanation">Elektu specifa dosiero de la dosiersistemo.</string>
     <string name="exportOptionExplanation">La datumoj estos skribita al loko de via elekto.</string>
-    <string name="exportFailed">Ne povis eksporti kartoj</string>
-    <string name="importFailed">Ne povis importi kartoj</string>
-    <string name="importExportHelp">Subtenanta supre vian kartoj permesas vin movi ilin al alia aparato.</string>
+    <string name="exportFailed">Ne povis fari eksportadon</string>
+    <string name="importFailed">Ne povis fari importadon</string>
+    <string name="importExportHelp">Fari savkopion de viajn datumojn permesas movi ilin al alia aparato.</string>
     <string name="failedParsingImportUriError">Ne eblis analizi la importado URI</string>
-    <string name="noCardExistsError">Ne eblis trovi karto</string>
+    <string name="noCardExistsError">Ne eblis trovi tiun karton</string>
     <string name="noCardsMessage">Aldoni karto unua</string>
     <string name="cardShortcut">Karto Mallongirejo</string>
-    <string name="scanCardBarcode">Scintigrafio Barcode Card</string>
+    <string name="scanCardBarcode">Skani strikodon</string>
     <string name="share">Interŝanĝado</string>
     <string name="star">Aldoni al miaj plej ŝatataj</string>
     <string name="settings_keep_screen_on">Teni sur ekrano</string>
@@ -77,10 +77,25 @@
     <string name="intent_import_card_from_url_share_text">Mi deziras dividi karto kun vi</string>
     <string name="exportSuccessful">Karto datumo eksportita</string>
     <string name="noGroupCards">Ĉi tiu grupo ne enhavas ajnan kartoj</string>
-    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu uzi menuo \" ⋮\".</string>
+    <string name="noGiftCards">Klavu la \"+\" butonon por aldoni karton, aŭ importu el la menuo \" ⋮\".</string>
     <plurals name="selectedCardCount">
-        <item quantity="one"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektita</item>
-        <item quantity="other"><xliff:g xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%d</xliff:g> elektitaj</item>
+        <item quantity="one"><xliff:g>%d</xliff:g> elektita</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> elektitaj</item>
     </plurals>
     <string name="app_name">Catima</string>
+    <string name="barcodeImageDescriptionWithType">Bildo <xliff:g>%s</xliff:g> strikodo</string>
+    <string name="cameraPermissionRequired">Permeso atingi fotilon estas bezonata por ĉi tiu ago…</string>
+    <string name="permissionReadCardsLabel">Legi Catima kartojn</string>
+    <string name="noMatchingGiftCards">Neniu rezulto. Rrovu ŝanĝi vian serĉon.</string>
+    <string name="noGiftCardsGroup">Krei kartojn kaj poste atribui ilin al la grupo ĉi tie.</string>
+    <string name="storageReadPermissionRequired">Permeso legi stokadon estas bezonata por ĉi tiu ago…</string>
+    <string name="unstar">Forigi de miaj plej ŝatataj</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Forigi <xliff:g>%d</xliff:g> karton</item>
+        <item quantity="other">Forigi <xliff:g>%d</xliff:g> kartojn</item>
+    </plurals>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Forigi ĉi tiun <xliff:g>%d</xliff:g> karton daŭre?</item>
+        <item quantity="other">Forigi ĉi tiujn <xliff:g>%d</xliff:g> kartojn daŭre?</item>
+    </plurals>
 </resources>

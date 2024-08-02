@@ -877,7 +877,7 @@ public class Utils {
         return typedValue.data;
     }
 
-    public static int getHeaderColorFromImage(Bitmap image, int fallback) {
+    public static int getHeaderColorFromImage(@Nullable Bitmap image, int fallback) {
         if (image == null) {
             return fallback;
         }

@@ -4,6 +4,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 plugins {
     id("com.android.application")
     id("com.github.spotbugs")
+    id("org.jetbrains.kotlin.android")
 }
 
 spotbugs {
@@ -62,8 +63,8 @@ android {
         // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     sourceSets {
@@ -84,25 +85,26 @@ android {
     lint {
         lintConfig = file("lint.xml")
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
-
     // AndroidX
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("androidx.palette:palette:1.0.0")
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.12.0")
-    implementation("com.github.yalantis:ucrop:2.2.10")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
-
-    // Splash Screen
-    implementation("androidx.core:core-splashscreen:1.0.1")
 
     // Third-party
     implementation("com.journeyapps:zxing-android-embedded:4.3.0@aar")
+    implementation("com.github.yalantis:ucrop:2.2.10")
     implementation("com.google.zxing:core:3.5.3")
     implementation("org.apache.commons:commons-csv:1.9.0")
     implementation("com.jaredrummler:colorpicker:1.1.0")

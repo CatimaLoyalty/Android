@@ -23,7 +23,7 @@ public class ZipUtils {
         return new JSONObject(read(zipInputStream));
     }
 
-    private static String read(ZipInputStream zipInputStream) throws IOException {
+    public static String read(ZipInputStream zipInputStream) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         Reader reader = new BufferedReader(new InputStreamReader(zipInputStream, StandardCharsets.UTF_8));
         int c;

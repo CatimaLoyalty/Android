@@ -4,6 +4,7 @@ import com.github.spotbugs.snom.SpotBugsTask
 plugins {
     id("com.android.application")
     id("com.github.spotbugs")
+    id("org.jetbrains.kotlin.android")
 }
 
 spotbugs {
@@ -60,8 +61,8 @@ android {
         // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     sourceSets {
@@ -82,6 +83,9 @@ android {
     lint {
         lintConfig = file("lint.xml")
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
@@ -94,6 +98,7 @@ dependencies {
     implementation("androidx.preference:preference:1.2.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.github.yalantis:ucrop:2.2.9")
+    implementation("androidx.core:core-ktx:1.13.1")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     // Splash Screen

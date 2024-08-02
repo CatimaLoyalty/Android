@@ -1,0 +1,4 @@
+- Podpora pre vytvorenie karty pri zdieľaní obyčajného textu
+- Zobrazenie typu obrázku miesto čiarového kód pod obrázkom
+- Oprava možného pádu aplikácie počas pokusu o import zálohy z aplikácie Nextcloud
+- Vylepšená podpora pre zariadenia bez fotoaparátu

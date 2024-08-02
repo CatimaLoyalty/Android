@@ -1,0 +1,3 @@
+- Podpora pre skenovanie čiarových kódov v PDF súboroch
+- Podpora pre súbory obrázkov s viacerými čiarovými kódmi
+- Menšie opravy užívateľského prostredia

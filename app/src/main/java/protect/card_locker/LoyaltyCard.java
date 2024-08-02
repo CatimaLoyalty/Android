@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class LoyaltyCard implements Parcelable {

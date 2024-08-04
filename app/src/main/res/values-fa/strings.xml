@@ -43,7 +43,6 @@
     <string name="exportFailedTitle">خروجی گرفتن ناموفق بود</string>
     <string name="storageReadPermissionRequired">دسترسی به خواندن محل ذخیره برای این کار نیاز است…</string>
     <string name="exportOptionExplanation">داده در محلی که شما انتخاب میکنید نوشته خواهد شد.</string>
-    <string name="importOptionFilesystemTitle"></string>
     <string name="receive">دریافت</string>
     <string name="continue_">ادامه</string>
     <string name="add_manually_warning_title">اسکن‌کردن توصیه میشود</string>

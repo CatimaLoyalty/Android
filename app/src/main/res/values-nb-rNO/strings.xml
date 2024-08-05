@@ -296,4 +296,8 @@
     <string name="failedLaunchingFileManager">Fant ikke støttet filbehandler</string>
     <string name="multipleBarcodesFoundPleaseChooseOne">Hvilken av de oppdagede strekkodene vil du bruke?</string>
     <string name="noCameraFoundGuideText">Finner ikke kamera på enheten din. Hvis dette ikke stemmer kan du prøve en omstart av den. Ellers kan du legge til strekkoder med «Mer»-knappen nedenfor.</string>
+    <string name="importCancelled">Import avbrutt</string>
+    <string name="exportCancelled">Eksport avbrutt</string>
+    <string name="useFrontImage">Bruk frontbilde</string>
+    <string name="useBackImage">Bruk baksidebilde</string>
 </resources>

@@ -1,2 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="action_add">Lisa</string>
+    <plurals name="selectedCardCount">
+        <item quantity="one"><xliff:g>%d</xliff:g> valitud</item>
+        <item quantity="other"><xliff:g>%d</xliff:g> valitud</item>
+    </plurals>
+    <string name="noGiftCardsGroup">Lisa mõned kaardid ja siis jaga nad gruppidesse.</string>
+    <string name="noMatchingGiftCards">Tulemusi pole. Palun proovi muuta otsingut.</string>
+    <string name="storeName">Nimi</string>
+    <string name="note">Märkus</string>
+    <string name="cardId">Kaardi tunnus</string>
+    <string name="barcodeType">Triipkoodi tüüp</string>
+    <string name="noBarcode">Triipkood puudub</string>
+    <string name="star">Lisa lemmikuks</string>
+    <string name="edit">Muuda</string>
+    <string name="delete">Kustuta</string>
+    <string name="confirm">Kinnita</string>
+    <plurals name="deleteCardsTitle">
+        <item quantity="one">Kustuta <xliff:g>%d</xliff:g> kaart</item>
+        <item quantity="other">Kustuta <xliff:g>%d</xliff:g> kaarti</item>
+    </plurals>
+    <string name="deleteConfirmation">Kas kustutame selle kaardi jäädavalt?</string>
+    <plurals name="deleteCardsConfirmation">
+        <item quantity="one">Kas kustutame <xliff:g>%d</xliff:g> kaardi jäädavalt?</item>
+        <item quantity="other">Kas kustutame <xliff:g>%d</xliff:g> kaarti jäädavalt?</item>
+    </plurals>
+    <string name="ok">Sobib</string>
+    <string name="share">Jaga</string>
+    <string name="sendLabel">Saada…</string>
+    <string name="editCardTitle">Muuda kaarti</string>
+    <string name="addCardTitle">Lisa kaart</string>
+    <string name="scanCardBarcode">Skaneeri triipkoodi</string>
+    <string name="app_name">Catima</string>
+    <string name="noGiftCards">Kaardi lisamiseks klõpsi + pluss nuppu või impordi ⋮ikooniga menüüst.</string>
+    <string name="action_search">Otsi</string>
+    <string name="unstar">Eemalda lemmikute hulgast</string>
+    <string name="cancel">Katkesta</string>
+    <string name="save">Salvesta</string>
+    <string name="deleteTitle">Kustuta kaart</string>
+</resources>

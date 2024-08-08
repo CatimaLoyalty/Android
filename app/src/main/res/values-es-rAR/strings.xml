@@ -192,7 +192,6 @@
     <string name="exportPassword">Agregar una contraseña para protejer tu exportación (opcional)</string>
     <string name="settings_sky_blue_theme">Celeste</string>
     <string name="settings_green_theme">Verde</string>
-    <string name="settings_grey_theme">Gris</string>
     <string name="exportPasswordHint">Ingresar contraseña</string>
     <string name="setIcon">Establecer miniatura</string>
     <string name="showMoreInfo">Mostrar información</string>

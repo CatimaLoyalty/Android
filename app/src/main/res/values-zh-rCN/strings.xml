@@ -169,7 +169,6 @@
     <string name="source_repository">源码库</string>
     <string name="include_if_asking_support">请求帮助时，请填写下列信息：</string>
     <string name="exportPasswordHint">输入密码</string>
-    <string name="settings_grey_theme">灰色</string>
     <string name="sort">排序</string>
     <string name="version_history">历史版本</string>
     <string name="rate_this_app">给这个应用评分</string>
@@ -223,9 +222,6 @@
     <string name="welcome">欢迎使用Catima</string>
     <string name="updateBalanceHint">输入金额</string>
     <string name="importCards">导入卡</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">查看存档（<xliff:g>%1$d</xliff:g> 张卡片）</item>
-    </plurals>
     <string name="updateBalance">更新余额</string>
     <string name="updateBalanceTitle">你支出或者收到了多少钱？</string>
     <string name="currentBalanceSentence">当前余额：<xliff:g>%s</xliff:g></string>

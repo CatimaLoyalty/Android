@@ -157,7 +157,6 @@
     </plurals>
     <string name="app_contributors">Осъществено от: <xliff:g id="app_contributors">%s</xliff:g></string>
     <string name="settings_brown_theme">Кафяво</string>
-    <string name="settings_grey_theme">Сиво</string>
     <string name="settings_green_theme">Зелено</string>
     <string name="settings_sky_blue_theme">Небесносиньо</string>
     <string name="settings_blue_theme">Синьо</string>
@@ -226,10 +225,6 @@
     <string name="nextCard">Следваща</string>
     <string name="failedToOpenUrl">Първо инсталирайте уеб браузър</string>
     <string name="welcome">Добре дошли при Катима</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Преглед на архива (<xliff:g>%1$d</xliff:g> карта)</item>
-        <item quantity="other">Преглед на архива (<xliff:g>%1$d</xliff:g> карти)</item>
-    </plurals>
     <string name="barcodeLongPressMessage">В приложението галерия могат да бъдат отваряни само изображения</string>
     <string name="failedToRetrieveImageFile">Не е възможно извличане на изображение</string>
     <string name="noCameraPermissionDirectToSystemSetting">За да сканирате щрихкодове с Catima е необходим достъп до камерата. За да промените разрешението докоснете тук.</string>

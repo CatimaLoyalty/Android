@@ -158,7 +158,6 @@
     <string name="settings_system_locale">Systeemtaal</string>
     <string name="settings_locale">Taal</string>
     <string name="settings_brown_theme">Bruin</string>
-    <string name="settings_grey_theme">Grijs</string>
     <string name="settings_green_theme">Groen</string>
     <string name="settings_sky_blue_theme">Hemelsblauw</string>
     <string name="settings_blue_theme">Blauw</string>
@@ -226,10 +225,6 @@
     <string name="nextCard">Volgende</string>
     <string name="welcome">Welkom bij Catima</string>
     <string name="failedToOpenUrl">Installeer een webbrowser</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Archief bekijken (<xliff:g>%1$d</xliff:g> kaart)</item>
-        <item quantity="other">Archief bekijken (<xliff:g>%1$d</xliff:g> kaarten)</item>
-    </plurals>
     <string name="failedToRetrieveImageFile">De afbeelding kan niet worden opgehaald</string>
     <string name="barcodeLongPressMessage">Alleen afbeeldingen kunnen worden geopend in de galerij-app</string>
     <string name="cameraPermissionDeniedTitle">Geen cameratoegang</string>

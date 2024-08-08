@@ -85,7 +85,6 @@
     <string name="help_translate_this_app">Pomagajte pri prevajanju aplikacije</string>
     <string name="version_history">Zgodovina različic</string>
     <string name="settings_brown_theme">Rjava</string>
-    <string name="settings_grey_theme">Siva</string>
     <string name="settings_green_theme">Zelena</string>
     <string name="settings_sky_blue_theme">Sinje modra</string>
     <string name="settings_blue_theme">Modra</string>
@@ -246,12 +245,6 @@
         <item quantity="two"><xliff:g>%1$d</xliff:g> kartici (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirani)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> kartice (<xliff:g id="archivedCount">%2$d</xliff:g> arhivirane)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kartic (<xliff:g id="archivedCount">%2$d</xliff:g> arhiviranih)</item>
-    </plurals>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartice)</item>
-        <item quantity="two">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
-        <item quantity="few">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
-        <item quantity="other">Poglej arhiv (<xliff:g>%1$d</xliff:g> kartic)</item>
     </plurals>
     <string name="cameraPermissionRequired">Za to dejanje je potrebno dovoljenje za dostop do kamere…</string>
     <string name="storageReadPermissionRequired">Za to dejanje je potrebno dovoljenje za branje iz pomnilnika…</string>

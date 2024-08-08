@@ -2,9 +2,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools">
     <string name="translate_platform">trên Weblate</string>
     <string name="failedOpeningFileManager">Cài đặt trình quản lý tập tin trước đã.</string>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="other">Xem lưu trữ (<xliff:g>%1$d</xliff:g> thẻ)</item>
-    </plurals>
     <string name="intent_import_card_from_url_share_multiple_text">Tôi muốn chia sẻ vài cái thẻ với bạn</string>
     <string name="card_id_must_not_be_empty">ID thẻ không thể bỏ trống</string>
     <string name="duplicateCard">Tạo bản sao</string>
@@ -158,7 +155,6 @@
     <string name="setBarcodeHeight">Đặt chiều cao cho mã vạch</string>
     <string name="settings_landscape_orientation">Ngang</string>
     <string name="privacy_policy">Chính Sách Quyền Riêng Tư</string>
-    <string name="settings_grey_theme">Màu xám</string>
     <string name="enter_group_name">Nhập tên nhóm</string>
     <string name="importStocardMessage">Chọn <i>***.zip</i> được xuất từ Stocard để nhập liệu.
 \nLấy tập tin này bằng cách gửi thư yêu cầu xuất dữ liệu đến support@stocardapp.com.</string>

@@ -149,7 +149,6 @@
     <string name="settings_blue_theme">Modrá</string>
     <string name="settings_sky_blue_theme">Azurová</string>
     <string name="settings_green_theme">Zelená</string>
-    <string name="settings_grey_theme">Šedá</string>
     <string name="settings_brown_theme">Hnedá</string>
     <string name="sort">Zoradiť</string>
     <string name="help_translate_this_app">Pomôžte preložiť túto aplikáciu</string>
@@ -231,11 +230,6 @@
         <item quantity="one"><xliff:g>%1$d</xliff:g> karta (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaná)</item>
         <item quantity="few"><xliff:g>%1$d</xliff:g> karty (<xliff:g id="archivedCount">%2$d</xliff:g> archivované)</item>
         <item quantity="other"><xliff:g>%1$d</xliff:g> kariet (<xliff:g id="archivedCount">%2$d</xliff:g> archivovaných)</item>
-    </plurals>
-    <plurals name="viewArchivedCardsWithCount">
-        <item quantity="one">Zobraziť archív (<xliff:g>%1$d</xliff:g> karta)</item>
-        <item quantity="few">Zobraziť archív (<xliff:g>%1$d</xliff:g> karty)</item>
-        <item quantity="other">Zobraziť archív (<xliff:g>%1$d</xliff:g> kariet)</item>
     </plurals>
     <string name="barcodeLongPressMessage">V aplikácii galéria je možné otvoriť iba obrázky</string>
     <string name="cameraPermissionDeniedTitle">Nepodarilo sa získať prístup k fotoaparátu</string>

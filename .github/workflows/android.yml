@@ -28,6 +28,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        api-level: [ 21, 34 ]
     steps:
     - uses: actions/checkout@v4.1.7
     - name: Fail on bad translations
@@ -44,6 +47,13 @@ jobs:
       run: ./gradlew lintRelease
     - name: Run unit tests
       run: timeout 5m ./gradlew testReleaseUnitTest || { ./gradlew --stop && timeout 5m ./gradlew testReleaseUnitTest; }
+    - name: Run instrumented tests
+      uses: ReactiveCircus/android-emulator-runner@v2
+      with:
+        api-level: ${{ matrix.api-level }}
+        target: google_apis
+        arch: x86_64
+        script: ./gradlew connectedCheck
     - name: SpotBugs
       run: ./gradlew spotbugsRelease
     - name: Archive test results
